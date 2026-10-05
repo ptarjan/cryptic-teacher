@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,69 @@
     "text": "Bags finally skiing silver in winter sport",
     "enumeration": "7"
    },
-   "solution": "LUGGAGE"
+   "solution": "LUGGAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "LUGGAGE",
+    "definitions": [
+     {
+      "text": "Bags",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first pair of pieces sit inside the sporting word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winter sport",
+      "gives": "LUGE",
+      "note": "the luge is a sled raced feet first down an ice track"
+     },
+     {
+      "clueFragment": "skiing",
+      "gives": "G",
+      "select": "last",
+      "note": "last letter of skiing"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUG",
+      "G",
+      "AG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A skier finishing with a silver medal at a winter sports event bags the prize.",
+     "walkthrough": "'Bags' looks like a verb meaning wins, but it is the noun for travel cases.",
+     "definitionFit": "Bags and suitcases carried on a journey are collectively called luggage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bags"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +112,65 @@
     "text": "Makes sense to have a lot of gin in pub",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "Makes sense",
+      "at": 0,
+      "note": "verb phrase for an adjective; read as 'is logical'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of something is most but not all of it, so the final letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the shortened spirit is placed inside the word for a pub"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "LOCAL",
+      "note": "a local is one's regular neighbourhood pub"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written, then shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone justifies drinking plenty of gin down at the pub.",
+     "walkthrough": "A local is British slang for the pub nearest home. 'Makes sense' stands for 'is logical'.",
+     "definitionFit": "Something that makes sense is reasonable and coherent, which is what logical describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +184,71 @@
     "text": "German party takes horse-drawn cart up to cemetery",
     "enumeration": "9"
    },
-   "solution": "GRAVEYARD"
+   "solution": "GRAVEYARD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GRAVEYARD",
+    "definitions": [
+     {
+      "text": "cemetery",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a large dance party"
+     },
+     {
+      "clueFragment": "horse-drawn cart",
+      "gives": "DRAY",
+      "note": "a dray is a low cart pulled by horses, used by brewers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAVE",
+      "YARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAY",
+       "to": "YARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A German celebration loads up a horse cart for a trip to the cemetery.",
+     "walkthrough": "DRAY reversed gives YARD, so G + RAVE + YARD.",
+     "definitionFit": "A graveyard is a burial ground, the same as a cemetery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +262,49 @@
     "text": "It holds food suspended when photo's taken",
     "enumeration": "5"
    },
-   "solution": "ASPIC"
+   "solution": "ASPIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASPIC",
+    "definitions": [
+     {
+      "text": "It holds food suspended",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s taken"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as I left'"
+     },
+     {
+      "clueFragment": "photo",
+      "gives": "PIC",
+      "note": "pic is short for picture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "PIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holds a plate of food still in midair while a photograph is snapped.",
+     "definitionFit": "Aspic is a savoury jelly in which pieces of meat, egg or vegetables are set and held in place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "suspended"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +318,73 @@
     "text": "Drug's ten pounds? Even divvied, it's pricey",
     "enumeration": "9"
    },
-   "solution": "EXPENSIVE"
+   "solution": "EXPENSIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EXPENSIVE",
+    "definitions": [
+     {
+      "text": "pricey",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Even",
+      "for": "letter_selection",
+      "note": "even here means the letters in the second, fourth and sixth positions"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "ten",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "PENS",
+      "note": "pounds are enclosures for animals"
+     },
+     {
+      "clueFragment": "divvied",
+      "gives": "IVE",
+      "select": "alternate",
+      "note": "the even-placed letters of divvied"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "PENS",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Even split among friends, ten pounds' worth of drugs is costly.",
+     "walkthrough": "'Pounds' suggests money; here it means animal pens. E + X + PENS + IVE.",
+     "definitionFit": "Pricey is an informal adjective for costly, meaning the same as expensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pounds"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +398,55 @@
     "text": "Bison maybe? Expert has a look",
     "enumeration": "7"
    },
-   "solution": "BUFFALO"
+   "solution": "BUFFALO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUFFALO",
+    "definitions": [
+     {
+      "text": "Bison maybe",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "BUFF",
+      "note": "a buff is an enthusiast or expert"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or behold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUFF",
+      "A",
+      "LO"
+     ]
+    },
+    "explanation": {
+     "surface": "A wildlife expert takes a look at what might be a bison.",
+     "definitionFit": "The American bison is commonly called a buffalo, so a bison is one example of the name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Expert"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +460,39 @@
     "text": "Game with house to win?",
     "enumeration": "5"
    },
-   "solution": "BINGO"
+   "solution": "BINGO",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BINGO",
+    "definitions": [
+     {
+      "text": "Game with house to win?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game with house to win?",
+      "note": "surface reading: a casino game where the house is the opponent you hope to beat"
+     },
+     {
+      "clueFragment": "house",
+      "note": "setter's reading: house is the call made by the player who fills a card in this numbers game"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In casinos the house always wins, so the clue suggests a game against the bank; in fact shouting 'House!' is how you claim the win in a hall game of numbers.",
+     "definitionFit": "Bingo is a numbers game in which the winner calls out 'house' on completing a full card."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +512,46 @@
      }
     ]
    },
-   "solution": "FATCHANCE"
+   "solution": "FATCHANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAT CHANCE",
+    "definitions": [
+     {
+      "text": "Not likely!",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large",
+      "gives": "FAT",
+      "note": "fat means large in girth"
+     },
+     {
+      "clueFragment": "risk",
+      "gives": "CHANCE",
+      "note": "to chance something is to risk it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "CHANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A big gamble is dismissed as hopeless.",
+     "definitionFit": "The idiom expresses sarcastic disbelief, meaning there is little or no possibility, just like the exclamation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Large"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +565,69 @@
     "text": "Expect a humorist to collect top award",
     "enumeration": "5"
    },
-   "solution": "AWAIT"
+   "solution": "AWAIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "AWAIT",
+    "definitions": [
+     {
+      "text": "Expect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to collect",
+      "for": "container",
+      "note": "collecting something means taking it in, so the humorist holds a letter"
+     },
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "in a down clue the top of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "humorist",
+      "gives": "WIT",
+      "note": "a wit is a person known for clever humour"
+     },
+     {
+      "clueFragment": "award",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of award"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "A",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian anticipates winning the top prize.",
+     "walkthrough": "The humorist collects only the award's initial; the opening 'a' stays outside, in front.",
+     "definitionFit": "To await something is to wait for it in anticipation, which is to expect it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "award"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +641,66 @@
     "text": "Obviously young support liberal revolt",
     "enumeration": "7"
    },
-   "solution": "OVERTLY"
+   "solution": "OVERTLY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OVERTLY",
+    "definitions": [
+     {
+      "text": "Obviously",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberal",
+      "for": "anagram",
+      "note": "liberal suggests free and loose, so the letters can be freely rearranged"
+     },
+     {
+      "text": "support",
+      "for": "charade",
+      "note": "in a down clue a supporting piece sits beneath, so it comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolt",
+      "gives": "REVOLT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "young",
+      "gives": "Y",
+      "note": "Y is the abbreviation for young"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERTL",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REVOLT",
+       "gives": "OVERTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Youth openly back a free-thinking uprising.",
+     "walkthrough": "'Liberal' looks political but is the signal to rearrange; 'support' puts Y at the foot of the down entry.",
+     "definitionFit": "Overtly means openly and without concealment, so plainly or obviously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +714,47 @@
     "text": "Get hold of key file",
     "enumeration": "5"
    },
-   "solution": "GRASP"
+   "solution": "GRASP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRASP",
+    "definitions": [
+     {
+      "text": "Get hold of",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "G",
+      "note": "G is a musical key"
+     },
+     {
+      "clueFragment": "file",
+      "gives": "RASP",
+      "note": "a rasp is a coarse file for wood or metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RASP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone needs to obtain an important computer file.",
+     "walkthrough": "'Key file' reads like an important document; key is a musical key and file the tool.",
+     "definitionFit": "To grasp is to seize firmly in the hand, which is to get hold of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "file"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +768,62 @@
     "text": "Enter parking space in Paris and get charge",
     "enumeration": "9"
    },
-   "solution": "PENETRATE"
+   "solution": "PENETRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PENETRATE",
+    "definitions": [
+     {
+      "text": "Enter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's space, half an em wide"
+     },
+     {
+      "clueFragment": "in Paris and",
+      "gives": "ET",
+      "note": "et is the French word for and"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RATE",
+      "note": "a rate is a fixed charge or fee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EN",
+      "ET",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver finds a parking spot in Paris and has to pay for it.",
+     "walkthrough": "'Space in Paris' looks like one phrase, but 'in Paris' belongs to 'and'. The en is a typesetting space.",
+     "definitionFit": "To penetrate is to pass into or through something, which is to enter it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +837,54 @@
     "text": "End soccer career on a high",
     "enumeration": "9"
    },
-   "solution": "CRESCENDO"
+   "solution": "CRESCENDO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CRESCENDO",
+    "definitions": [
+     {
+      "text": "a high",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "career",
+      "for": "anagram",
+      "note": "to career is to rush about wildly, so the letters hurtle into a new order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "End soccer",
+      "gives": "ENDSOCCER",
+      "note": "the letters of both words, taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENDSOCCER",
+       "gives": "CRESCENDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer retires from the game at the peak of their powers.",
+     "walkthrough": "'Career' looks like a noun, a working life, but it is the verb for careering about.",
+     "definitionFit": "A crescendo is the climax or peak point of something, a high."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "career"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +904,49 @@
      }
     ]
    },
-   "solution": "HITIT"
+   "solution": "HITIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HIT IT",
+    "definitions": [
+     {
+      "text": "Start playing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thrash",
+      "gives": "HIT",
+      "note": "to thrash is to hit hard"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "IT",
+      "note": "IT is the international code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIT",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A team kicks off and beats Italy soundly.",
+     "definitionFit": "The phrase is a band's cue to begin performing music, the same as starting to play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thrash"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +960,55 @@
     "text": "Skipped exercise on field",
     "enumeration": "5"
    },
-   "solution": "LEAPT"
+   "solution": "LEAPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEAPT",
+    "definitions": [
+     {
+      "text": "Skipped",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "field",
+      "gives": "LEA",
+      "note": "a lea is a meadow or field"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "PT",
+      "note": "PT stands for physical training"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil missed a games lesson out on the playing field.",
+     "walkthrough": "'Skipped' suggests missing a class; it is the past tense of jump.",
+     "definitionFit": "To skip is to hop or bound, so skipped and leapt both mean jumped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Skipped"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1028,66 @@
      }
     ]
    },
-   "solution": "THEMEPARK"
+   "solution": "THEMEPARK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THEME PARK",
+    "definitions": [
+     {
+      "text": "For example, Chessington",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "a word's head is its first letter"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motif",
+      "gives": "THEME",
+      "note": "a motif is a recurring theme"
+     },
+     {
+      "clueFragment": "pirate's",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of pirate"
+     },
+     {
+      "clueFragment": "old ship",
+      "gives": "ARK",
+      "note": "Noah's ark is the famous old ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEME",
+      "P",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "An amusement park's pirate theme features a captain on a vintage vessel.",
+     "walkthrough": "Chessington World of Adventures is a theme park in Surrey, southwest of London.",
+     "definitionFit": "Chessington is one example of an amusement park built around themed rides and attractions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "motif"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1101,67 @@
     "text": "Get in uni abroad, taking first year with skill",
     "enumeration": "9"
    },
-   "solution": "INGENUITY"
+   "solution": "INGENUITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "INGENUITY",
+    "definitions": [
+     {
+      "text": "skill",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad suggests being scattered far and wide, so the letters are thrown into a new order"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first points to the opening letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get in uni",
+      "gives": "GETINUNI",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "select": "first",
+      "note": "first letter of year"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETINUNIY",
+       "gives": "INGENUITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student gets into a foreign university and takes a gap year cleverly.",
+     "walkthrough": "'Taking' joins the year's initial to the letters to be rearranged.",
+     "definitionFit": "Ingenuity is inventive cleverness, a kind of skill in solving problems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1181,77 @@
      }
     ]
    },
-   "solution": "GATHERSIN"
+   "solution": "GATHERSIN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GATHERS IN",
+    "definitions": [
+     {
+      "text": "Harvests",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sorts",
+      "for": "anagram",
+      "note": "to sort is to rearrange into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the rearranged letters surround a single letter"
+     },
+     {
+      "text": "the beginning of",
+      "for": "letter_selection",
+      "note": "a word's beginning is its first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the grain",
+      "gives": "THEGRAIN",
+      "note": "the letters taken as written"
+     },
+     {
+      "clueFragment": "September",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of September"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GATHER",
+      "S",
+      "IN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THEGRAIN",
+       "gives": "GATHERIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farmer reaps and sorts the grain at the start of September.",
+     "walkthrough": "The rearranged letters GATHER-IN take S inside.",
+     "definitionFit": "To gather in crops is to bring them in from the fields, which is what harvesting means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sorts"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1265,41 @@
     "text": "Set up society",
     "enumeration": "9"
    },
-   "solution": "INSTITUTE"
+   "solution": "INSTITUTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INSTITUTE",
+    "definitions": [
+     {
+      "text": "Set up",
+      "at": 0
+     },
+     {
+      "text": "society",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set up",
+      "note": "first meaning: to establish or found something"
+     },
+     {
+      "clueFragment": "society",
+      "note": "second meaning: an organisation for a particular purpose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads like founding a club; the two parts are a verb and a noun for the same word.",
+     "definitionFit": "As a verb the word means to establish, and as a noun it means an organised body or learned society."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1313,76 @@
     "text": "Get soldiers in after Trump briefly gives order",
     "enumeration": "9"
    },
-   "solution": "JUDGEMENT"
+   "solution": "JUDGEMENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "JUDGEMENT",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the troops are placed inside the verb at the start of the clue"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the first part of the clue is placed behind what follows"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "JUDD",
+      "note": "Judd Trump is an English snooker champion"
+     },
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "soldiers are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUD",
+      "GE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Once the president has spoken, the troops go in.",
+     "walkthrough": "Trump is not the US president but Judd Trump, the snooker player, 2019 world champion. JUD + GE(MEN)T.",
+     "definitionFit": "A judgement is a court's ruling or decision, which is a kind of order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1396,64 @@
     "text": "Boy by first light striking north to see bird",
     "enumeration": "7"
    },
-   "solution": "JACKDAW"
+   "solution": "JACKDAW",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "JACKDAW",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "striking",
+      "for": "deletion",
+      "note": "striking here means striking out, crossing a letter off"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "JACK",
+      "note": "Jack is a boy's name"
+     },
+     {
+      "clueFragment": "first light",
+      "gives": "DAWN",
+      "note": "dawn is the first light of day"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACK",
+      "DAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy at daybreak heads north to watch a bird.",
+     "walkthrough": "DAWN loses its N, leaving DAW.",
+     "definitionFit": "The jackdaw is a small grey-naped crow, a common bird of Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1467,55 @@
     "text": "Art supporter left after rest",
     "enumeration": "5"
    },
-   "solution": "EASEL"
+   "solution": "EASEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EASEL",
+    "definitions": [
+     {
+      "text": "Art supporter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first-named piece behind the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rest",
+      "gives": "EASE",
+      "note": "ease is relaxation or rest"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A patron of the arts departed after a break.",
+     "walkthrough": "'Art supporter' suggests a patron; it is literal, the stand that supports a painting.",
+     "definitionFit": "An easel is a stand that holds up a canvas while it is painted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1529,46 @@
     "text": "No pins to be hammered",
     "enumeration": "7"
    },
-   "solution": "LEGLESS"
+   "solution": "LEGLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEGLESS",
+    "definitions": [
+     {
+      "text": "No pins",
+      "at": 0
+     },
+     {
+      "text": "hammered",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No pins",
+      "note": "first meaning: pins is slang for legs, so without any"
+     },
+     {
+      "clueFragment": "hammered",
+      "note": "second meaning: British slang for very drunk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests carpentry with no pins to hammer in. Both pins (legs) and legless (too drunk to stand) are informal British usage.",
+     "definitionFit": "Lacking legs is literally the word, and both it and hammered are slang for heavily intoxicated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pins"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1582,48 @@
     "text": "Large number yearn to find hidden treasure",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CACHE",
+    "definitions": [
+     {
+      "text": "hidden treasure",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large number",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "yearn",
+      "gives": "ACHE",
+      "note": "to ache for something is to yearn for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ACHE"
+     ]
+    },
+    "explanation": {
+     "surface": "Many people long to discover buried treasure.",
+     "definitionFit": "A cache is a secret store of valuables, a hoard of hidden treasure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1637,42 @@
     "text": "Ipecac tincture contains desert plants",
     "enumeration": "5"
    },
-   "solution": "CACTI"
+   "solution": "CACTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CACTI",
+    "definitions": [
+     {
+      "text": "desert plants",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "contains says the answer is held within the run of letters before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ipecac tincture",
+      "gives": "CACTI",
+      "note": "spans the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A medicinal tincture is made from desert plants.",
+     "walkthrough": "Ipecac is a plant-based emetic medicine.",
+     "definitionFit": "Cacti are spiny succulent plants that thrive in deserts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1686,79 @@
     "text": "Suppression of heartless monarch by church has popular backing at last",
     "enumeration": "9"
    },
-   "solution": "QUENCHING"
+   "solution": "QUENCHING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "QUENCHING",
+    "definitions": [
+     {
+      "text": "Suppression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "heartless means the central letter is removed"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by",
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monarch",
+      "gives": "QUEEN",
+      "note": "a queen is a female monarch"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "backing",
+      "gives": "G",
+      "select": "last",
+      "note": "last letter of backing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUEN",
+      "CH",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A cruel ruler is crushed by the church, which has finally won public support.",
+     "walkthrough": "QUEEN loses its middle E to give QUEN.",
+     "definitionFit": "Quenching a fire or a rebellion means putting it out, which is a suppression."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1772,55 @@
     "text": "Repeat question on love note",
     "enumeration": "5"
    },
-   "solution": "QUOTE"
+   "solution": "QUOTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUOTE",
+    "definitions": [
+     {
+      "text": "Repeat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "QU is short for question"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, the shape of O"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is a note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "O",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reads out a query written on a love letter.",
+     "definitionFit": "To quote someone is to repeat their words exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1834,58 @@
     "text": "Applaud men coming in to immobilise car",
     "enumeration": "5"
    },
-   "solution": "CLAMP"
+   "solution": "CLAMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLAMP",
+    "definitions": [
+     {
+      "text": "immobilise car",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming in",
+      "for": "container",
+      "note": "coming in means the second piece goes inside the first"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Applaud",
+      "gives": "CLAP",
+      "note": "to clap is to applaud"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "M",
+      "note": "M is short for men, as on a toilet door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLA",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "Bystanders cheer as attendants arrive to lock a vehicle's wheel.",
+     "walkthrough": "A wheel clamp is fitted to an illegally parked car to stop it being driven.",
+     "definitionFit": "Fitting a wheel clamp to a car stops it moving, so to clamp is to immobilise it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Applaud"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1899,59 @@
     "text": "Drastic action to put in autocrats",
     "enumeration": "9"
    },
-   "solution": "DICTATORS"
+   "solution": "DICTATORS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DICTATORS",
+    "definitions": [
+     {
+      "text": "autocrats",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "action",
+      "for": "anagram",
+      "note": "putting letters into action sets them moving into a new order"
+     }
+    ],
+    "linkWords": [
+     "put in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drastic",
+      "gives": "DRASTIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRASTICTO",
+       "gives": "DICTATORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Extreme measures are needed to install strongmen in power.",
+     "walkthrough": "'Drastic action' reads as one phrase; the first word is fodder and the second the signal.",
+     "definitionFit": "Autocrats rule with absolute power, which is what dictators are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1965,54 @@
     "text": "Street maps have your report in colour",
     "enumeration": "5"
    },
-   "solution": "AZURE"
+   "solution": "AZURE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "AZURE",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report",
+      "for": "homophone",
+      "note": "a report is something heard, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "have",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street maps",
+      "gives": "AZ",
+      "note": "the A-Z is a well-known British street atlas"
+     },
+     {
+      "clueFragment": "your",
+      "gives": "URE",
+      "soundsLike": "YOUR",
+      "note": "the possessive said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "City maps include a colour key for the reader.",
+     "walkthrough": "The A to Z is the standard London street atlas. AZ + URE.",
+     "definitionFit": "Azure is a bright sky-blue shade, a colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +2026,56 @@
     "text": "Crow's foot right inside shellfish",
     "enumeration": "7"
    },
-   "solution": "WRINKLE"
+   "solution": "WRINKLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WRINKLE",
+    "definitions": [
+     {
+      "text": "Crow's foot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the first piece within the sea creature"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shellfish",
+      "gives": "WINKLE",
+      "note": "a winkle is a small edible sea snail"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "INKLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird's claw ends up inside a sea snail.",
+     "walkthrough": "'Crow's foot' looks like a bird's foot; it is the line at the corner of an eye.",
+     "definitionFit": "Crow's feet are the fine creases at the outer corner of the eyes, a kind of facial line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crow's"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +2089,89 @@
     "text": "Writer's back and she's working to describe women family members",
     "enumeration": "7"
    },
-   "solution": "NEPHEWS"
+   "solution": "NEPHEWS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "NEPHEWS",
+    "definitions": [
+     {
+      "text": "family members",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from right to left"
+     },
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests being worked over into a different shape"
+     },
+     {
+      "text": "to describe",
+      "for": "container",
+      "note": "to describe is to draw around, so these letters enclose another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     },
+     {
+      "clueFragment": "she",
+      "gives": "SHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "W is the abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEP",
+      "HE",
+      "W",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHE",
+       "gives": "HES"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PEN",
+       "to": "NEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author returns while she is busy writing about female relatives.",
+     "walkthrough": "'Women family members' looks like the definition, but nephews are male; 'women' gives W inside the reworked SHE.",
+     "definitionFit": "Nephews are the sons of one's siblings, so they are relatives or family members."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "women"
+    }
+   }
   }
  ]
 }
