@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Bird in farmyard, overfed",
     "enumeration": "4"
    },
-   "solution": "DOVE"
+   "solution": "DOVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DOVE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the words that follow, running across the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farmyard, overfed",
+      "gives": "DOVE",
+      "note": "the last letter of the first word plus the first three of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A greedy bird on a farm has been eating too much.",
+     "walkthrough": "The bird is DOVE, spanning farmyarD and OVErfed; the farmyard setting tempts you toward hen or goose.",
+     "definitionFit": "A dove is a type of pigeon, a common small bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overfed"
+    }
+   }
   },
   {
    "number": 3,
@@ -47,7 +86,47 @@
     "text": "One to dispatch two fools batting",
     "enumeration": "8"
    },
-   "solution": "ASSASSIN"
+   "solution": "ASSASSIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSASSIN",
+    "definitions": [
+     {
+      "text": "One to dispatch",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two fools",
+      "gives": "ASSASS",
+      "note": "a fool is an ass, and two of them sit side by side"
+     },
+     {
+      "clueFragment": "batting",
+      "gives": "IN",
+      "note": "a side that is batting in cricket is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASSASS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of idiots at the crease are about to be got rid of.",
+     "walkthrough": "In cricket the batting side is said to be 'in'. 'Dispatch' here means kill, not send off.",
+     "definitionFit": "To dispatch someone is to kill them, and a person hired to kill is a murderer for hire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dispatch"
+    }
+   }
   },
   {
    "number": 9,
@@ -61,7 +140,62 @@
     "text": "Ancient curved structure I included in account",
     "enumeration": "7"
    },
-   "solution": "ARCHAIC"
+   "solution": "ARCHAIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARCHAIC",
+    "definitions": [
+     {
+      "text": "Ancient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in another thing is placed within it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "curved structure",
+      "gives": "ARCH",
+      "note": "an arch is a curved span over an opening"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "first part of the standard abbreviation for account"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written, and goes between the two letters of the account abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARCH",
+      "A",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical account describes an old curved structure.",
+     "walkthrough": "AC is the usual abbreviation for account; I goes inside it to make AIC, after ARCH.",
+     "definitionFit": "Archaic describes something belonging to a very old period, so it is a synonym for ancient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 10,
@@ -75,7 +209,55 @@
     "text": "Escape notice entering the day before",
     "enumeration": "5"
    },
-   "solution": "EVADE"
+   "solution": "EVADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVADE",
+    "definitions": [
+     {
+      "text": "Escape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "one thing entering another goes inside it, so one piece is put within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the day before",
+      "gives": "EVE",
+      "note": "the eve is the day before a festival, as in Christmas Eve"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "a notice in a paper is an advertisement, shortened to ad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "AD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone avoids being noticed by slipping away the day before.",
+     "walkthrough": "'Escape notice' reads as one phrase, but only 'Escape' is the definition; 'notice' is the advertisement that goes inside EVE.",
+     "definitionFit": "To evade is to get away from or avoid something, which matches escape as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 11,
@@ -89,7 +271,73 @@
     "text": "Stagger church after canon briefly recalled",
     "enumeration": "5"
    },
-   "solution": "LURCH"
+   "solution": "LURCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "LURCH",
+    "definitions": [
+     {
+      "text": "Stagger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the word loses its final letter"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled suggests being called back, so the shortened word runs the opposite way"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the abbreviation for church second, behind the shortened and turned-round word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canon",
+      "gives": "RULE",
+      "note": "a canon is a rule or law, especially of the church"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUR",
+      "CH"
+     ],
+     "reversals": [
+      {
+       "from": "RUL",
+       "to": "LUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman struggles to walk after a member of the clergy is called away.",
+     "walkthrough": "A canon is also a senior cleric, which is the surface's sense; here it is a rule or law.",
+     "definitionFit": "A lurch is a sudden unsteady movement, so to lurch is to stagger or sway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "canon"
+    }
+   }
   },
   {
    "number": 12,
@@ -103,7 +351,47 @@
     "text": "Win over intent listener",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "Win over",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intent",
+      "gives": "END",
+      "note": "an end is an aim or intention"
+     },
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the ear is what you listen with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A charm offensive aimed at someone who listens carefully.",
+     "walkthrough": "'Intent' looks like an adjective describing the listener, but it is the noun meaning purpose.",
+     "definitionFit": "To endear yourself to people is to make them fond of you, which is to win them over."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intent"
+    }
+   }
   },
   {
    "number": 14,
@@ -117,7 +405,39 @@
     "text": "Those speaking more concisely do, obviously?",
     "enumeration": "8,2,3"
    },
-   "solution": "NEEDLESSTOSAY"
+   "solution": "NEEDLESSTOSAY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEEDLESS TO SAY",
+    "definitions": [
+     {
+      "text": "obviously",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Those speaking more concisely do",
+      "note": "surface reading: people who are brief in speech say fewer words"
+     },
+     {
+      "clueFragment": "obviously?",
+      "note": "setter's reading: a stock phrase meaning obviously, which taken literally describes brief speakers who require fewer words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Taken literally, concise speakers need less to say; the stock phrase also means 'it goes without saying', which is the definition.",
+     "definitionFit": "The phrase is used to introduce something so plain that it hardly requires stating, the sense of obviously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 17,
@@ -131,7 +451,66 @@
     "text": "Spinner quietly stopping team getting runs",
     "enumeration": "6"
    },
-   "solution": "SPIDER"
+   "solution": "SPIDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPIDER",
+    "definitions": [
+     {
+      "text": "Spinner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "to stop a hole is to plug it, so this letter fills a gap within the word for team"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team in sport"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, quietly"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the abbreviation for runs on a cricket scorecard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "IDE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket spin bowler quietly holds up a team that is scoring runs.",
+     "walkthrough": "In cricket a spinner is a slow bowler, the surface's sense; here it is a creature that spins webs.",
+     "definitionFit": "A spider spins silk threads to make its web, so it is fairly called a spinner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spinner"
+    }
+   }
   },
   {
    "number": 19,
@@ -145,7 +524,55 @@
     "text": "Hard soldier, breaking free",
     "enumeration": "5"
    },
-   "solution": "RIGID"
+   "solution": "RIGID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIGID",
+    "definitions": [
+     {
+      "text": "Hard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "something breaking into another thing goes inside it, splitting it apart"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free, as in rid of something"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "GI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough soldier breaks out to freedom.",
+     "walkthrough": "GI is the usual crossword term for an American private soldier.",
+     "definitionFit": "Something rigid is stiff and unbending, which is one sense of hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 22,
@@ -159,7 +586,45 @@
     "text": "A profit once more",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGAIN",
+    "definitions": [
+     {
+      "text": "once more",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "profit",
+      "gives": "GAIN",
+      "note": "a gain is a profit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Another profit has been made.",
+     "definitionFit": "Again is the adverb meaning another time, the same as once more in a sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -173,7 +638,62 @@
     "text": "Intense fire in plant close to Sligo",
     "enumeration": "7"
    },
-   "solution": "INFERNO"
+   "solution": "INFERNO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INFERNO",
+    "definitions": [
+     {
+      "text": "Intense fire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter of the place name is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "FERN",
+      "note": "a fern is a leafy green plant"
+     },
+     {
+      "clueFragment": "Sligo",
+      "gives": "O",
+      "select": "last",
+      "note": "Sligo is a town in the west of Ireland; only its last letter is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FERN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A blaze breaks out at a factory near Sligo in Ireland.",
+     "walkthrough": "'Plant' looks like a factory but is a fern; 'close to' means the end of Sligo, not near it.",
+     "definitionFit": "An inferno is a large, fierce blaze that is out of control, so it fits an intense fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 24,
@@ -187,7 +707,62 @@
     "text": "Threaten Germany's leader in German city",
     "enumeration": "4,4"
    },
-   "solution": "HANGOVER"
+   "solution": "HANGOVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HANG OVER",
+    "definitions": [
+     {
+      "text": "Threaten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the opening letter of the country is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it, so the letter goes within the city's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German city",
+      "gives": "HANOVER",
+      "note": "Hanover is a city in northern Germany"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of the country's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAN",
+      "G",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "The German chancellor is menaced in a German city.",
+     "walkthrough": "'Leader' suggests the chancellor, but it means only the first letter.",
+     "definitionFit": "Something that hangs over you looms as a threat, so the phrasal verb means to threaten."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 25,
@@ -201,7 +776,51 @@
     "text": "Fall into a light sleep - it's almost twelve",
     "enumeration": "4"
    },
-   "solution": "DOZE"
+   "solution": "DOZE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DOZE",
+    "definitions": [
+     {
+      "text": "Fall into a light sleep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word for twelve stops one letter short"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twelve",
+      "gives": "DOZEN",
+      "note": "a dozen is twelve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOZE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nods off as the clock nears midnight or noon.",
+     "walkthrough": "'Almost twelve' suggests a time just before noon, but twelve is a dozen with its last letter dropped.",
+     "definitionFit": "To doze is to nap or sleep lightly, so it is a direct synonym for dropping off lightly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twelve"
+    }
+   }
   },
   {
    "number": 1,
@@ -215,7 +834,47 @@
     "text": "Insensitive column, a problem for the editor?",
     "enumeration": "8"
    },
-   "solution": "DEADLINE"
+   "solution": "DEADLINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEADLINE",
+    "definitions": [
+     {
+      "text": "a problem for the editor?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insensitive",
+      "gives": "DEAD",
+      "note": "dead means numb, without feeling"
+     },
+     {
+      "clueFragment": "column",
+      "gives": "LINE",
+      "note": "a line is a column, as of people or soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAD",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tactless newspaper column has landed the editor in trouble.",
+     "walkthrough": "The surface suggests an offensive column; the definition is a cryptic hint, marked by the question mark, at a time limit for copy.",
+     "definitionFit": "Editors constantly battle the cut-off time by which copy must be in, so this is a typical headache for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Insensitive"
+    }
+   }
   },
   {
    "number": 2,
@@ -229,7 +888,64 @@
     "text": "Verse, one by short eccentric clergyman",
     "enumeration": "5"
    },
-   "solution": "VICAR"
+   "solution": "VICAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VICAR",
+    "definitions": [
+     {
+      "text": "clergyman",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut down, so the word for eccentric loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "eccentric",
+      "gives": "CARD",
+      "note": "a card is an amusingly odd person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "I",
+      "CAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A short, eccentric clergyman stands beside a line of verse.",
+     "walkthrough": "A card is an old-fashioned word for an eccentric character; 'short' trims it to CAR. 'Short' seems to describe the clergyman's height.",
+     "definitionFit": "A vicar is a priest in charge of a parish in the Church of England, a kind of clergyman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 4,
@@ -243,7 +959,46 @@
     "text": "What a minister may conduct behind closed doors in government agency?",
     "enumeration": "6,7"
    },
-   "solution": "SECRETSERVICE"
+   "solution": "SECRETSERVICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SECRET SERVICE",
+    "definitions": [
+     {
+      "text": "What a minister may conduct behind closed doors",
+      "at": 0
+     },
+     {
+      "text": "government agency",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What a minister may conduct behind closed doors",
+      "note": "first meaning: a church worship held in private"
+     },
+     {
+      "clueFragment": "government agency",
+      "note": "second meaning: the intelligence organisation of a state"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The minister reads as a government minister, but here he is a clergyman holding worship in private.",
+     "definitionFit": "A clergyman's hidden act of worship is literally a covert rite, and the phrase is also the name for a state intelligence body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "minister"
+    }
+   }
   },
   {
    "number": 5,
@@ -257,7 +1012,46 @@
     "text": "Winning a crown",
     "enumeration": "5"
    },
-   "solution": "AHEAD"
+   "solution": "AHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AHEAD",
+    "definitions": [
+     {
+      "text": "Winning",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crown",
+      "gives": "HEAD",
+      "note": "the crown is the top of the head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A competitor victorious and awarded a crown.",
+     "definitionFit": "Someone ahead in a contest is in the lead, the sense of winning while play continues."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crown"
+    }
+   }
   },
   {
    "number": 6,
@@ -271,7 +1065,58 @@
     "text": "Fish close? Mostly deep below",
     "enumeration": "3,4"
    },
-   "solution": "SEABASS"
+   "solution": "SEABASS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEA BASS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means all but a little, so the word for close drops its last letter"
+     }
+    ],
+    "linkWords": [
+     "below"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close",
+      "gives": "SEAL",
+      "note": "to seal is to close something up"
+     },
+     {
+      "clueFragment": "deep",
+      "gives": "BASS",
+      "note": "bass describes a deep voice or note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "BASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish that lives close to shore but mostly in deep water below.",
+     "walkthrough": "In a down clue 'below' places the second part under the first. 'Deep' wants to be the sea, but it is the deep voice.",
+     "definitionFit": "The sea bass is a marine food fish, so it is an example of a fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deep"
+    }
+   }
   },
   {
    "number": 7,
@@ -285,7 +1130,49 @@
     "text": "Born and died in poverty",
     "enumeration": "4"
    },
-   "solution": "NEED"
+   "solution": "NEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEED",
+    "definitions": [
+     {
+      "text": "poverty",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Born",
+      "gives": "NEE",
+      "note": "née is French for born, used before a married woman's maiden name"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the abbreviation for died, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A life summed up: someone was born and died poor.",
+     "definitionFit": "Need can mean a state of lacking money or necessities, which is what poverty is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -299,7 +1186,58 @@
     "text": "Girl having pain in both sides",
     "enumeration": "6"
    },
-   "solution": "RACHEL"
+   "solution": "RACHEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RACHEL",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the ache is placed in between, with the two sides wrapped around it"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "both sides",
+      "gives": "RL",
+      "note": "right and left, R and L, are the two sides"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "ACHE",
+      "note": "an ache is a dull pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ACHE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl suffering from a stitch in both her sides.",
+     "walkthrough": "'Both sides' means right and left, R and L, which wrap around the pain.",
+     "definitionFit": "Rachel is a woman's first name, and crosswords often use girl to signal a female name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 13,
@@ -313,7 +1251,70 @@
     "text": "Pattern of symptoms found by doctor probing my nose subtly",
     "enumeration": "8"
    },
-   "solution": "SYNDROME"
+   "solution": "SYNDROME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SYNDROME",
+    "definitions": [
+     {
+      "text": "Pattern of symptoms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "subtly",
+      "for": "anagram",
+      "note": "done subtly means worked in a clever, devious way, so the letters are rearranged"
+     },
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "to probe is to poke inside, so the doctor goes into the middle of the other letters"
+     }
+    ],
+    "linkWords": [
+     "found by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "my nose",
+      "gives": "MYNOSE",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYN",
+      "DR",
+      "OME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MYNOSE",
+       "gives": "SYNOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor carefully examines a patient's nose and finds a set of symptoms.",
+     "walkthrough": "The letters of 'my nose' are rearranged to SYNOME, then DR goes inside after the third letter.",
+     "definitionFit": "A syndrome is a group of symptoms that consistently occur together, a medical term for a recognisable pattern."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "subtly"
+    }
+   }
   },
   {
    "number": 15,
@@ -327,7 +1328,47 @@
     "text": "Interpret former patent",
     "enumeration": "7"
    },
-   "solution": "EXPLAIN"
+   "solution": "EXPLAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLAIN",
+    "definitions": [
+     {
+      "text": "Interpret",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former, as in ex-wife"
+     },
+     {
+      "clueFragment": "patent",
+      "gives": "PLAIN",
+      "note": "patent means obvious or plain to see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "PLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to make sense of an old patent document.",
+     "walkthrough": "'Patent' looks like a noun, an inventor's licence, but here it is the adjective meaning obvious.",
+     "definitionFit": "To explain something is to make its meaning clear, which is what interpreting does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "patent"
+    }
+   }
   },
   {
    "number": 16,
@@ -341,7 +1382,46 @@
     "text": "Economy in the pink?",
     "enumeration": "6"
    },
-   "solution": "THRIFT"
+   "solution": "THRIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THRIFT",
+    "definitions": [
+     {
+      "text": "Economy",
+      "at": 0
+     },
+     {
+      "text": "the pink",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Economy",
+      "note": "first meaning: careful spending of money"
+     },
+     {
+      "clueFragment": "the pink",
+      "note": "second meaning: a seaside plant with pink flowers, also called sea pink"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'In the pink' looks like the idiom for being healthy, suggesting a thriving economy; but the pink is a plant also named sea pink.",
+     "definitionFit": "Careful handling of money is the usual sense, and the same word names a coastal flower also known as sea pink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pink"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1435,54 @@
     "text": "Wild dog shot following row",
     "enumeration": "5"
    },
-   "solution": "DINGO"
+   "solution": "DINGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DINGO",
+    "definitions": [
+     {
+      "text": "Wild dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following puts the word for shot second, coming behind the word for row"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a row is a loud noise, a din"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "GO",
+      "note": "a shot is an attempt or turn, a go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIN",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild dog is shot after a quarrel.",
+     "walkthrough": "'Row' here rhymes with cow and means a racket, not a line.",
+     "definitionFit": "Australia's native canine runs free in the outback and is the best-known feral breed there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1496,50 @@
     "text": "Renowned actress seen from dress circle",
     "enumeration": "5"
    },
-   "solution": "GARBO"
+   "solution": "GARBO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GARBO",
+    "definitions": [
+     {
+      "text": "Renowned actress",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "seen from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress",
+      "gives": "GARB",
+      "note": "garb is clothing, dress"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "O",
+      "note": "the letter O has the shape of a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARB",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A star of the stage spotted from the theatre's dress circle seats.",
+     "walkthrough": "The dress circle is a balcony in a theatre, which the surface leans on; split, the words are clothing and a ring shape.",
+     "definitionFit": "Greta Garbo was a celebrated Swedish-born Hollywood film star of the 1920s and 1930s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circle"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1553,56 @@
     "text": "Top of leafy tree, birch",
     "enumeration": "4"
    },
-   "solution": "LASH"
+   "solution": "LASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LASH",
+    "definitions": [
+     {
+      "text": "birch",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Top of",
+      "for": "letter_selection",
+      "note": "the top of a down word is where it begins, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leafy",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Looking up at the leafy crown of a birch tree.",
+     "walkthrough": "'Birch' looks like a tree to match the surface, but it is the verb meaning to flog with a birch rod.",
+     "definitionFit": "To birch someone is to beat them with a bundle of twigs, so whipping them is the same act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "birch"
+    }
+   }
   }
  ]
 }
