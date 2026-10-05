@@ -742,11 +742,15 @@ def vote(d, laid, grid, zones=None):
                 lambda lid, cands: vlm.pick_in(vlm.crop(page, (0, 0, page.width, page.height)), lid, cands))
         except RuntimeError:
             pass
-    laid, blank = ocr_clues.one_light_each(laid, blank, {
-        lid for lid, (_, enum, group) in before.items() if enum and not group and count(enum) == lengths.get(lid)})
     # The vote settles words only: a count reconcile() took from the light
     # stands in for one Trove read in parts it could not print ("(6,4)").
     laid = {k: (t, before[k][1] if k in before else e, g) for k, (t, e, g) in laid.items()}
+    # Each filed clue as the readings print it, Trove's text among them: its
+    # count's shape, each word's capital, hyphen and spelling.
+    ocr = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace") if (d / "ocr.txt").exists() else ""
+    laid, blank = ocr_clues.as_printed({**texts, "trove": ocr}, laid, blank, parse_reading, lengths)
+    laid, blank = ocr_clues.one_light_each(laid, blank, {
+        lid for lid, (_, enum, group) in before.items() if enum and not group and count(enum) == lengths.get(lid)})
     if blank:
         return None, "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items()))
     shared = None

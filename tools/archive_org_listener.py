@@ -350,6 +350,9 @@ def read_box(d, leaf, img, box, key, verdict, split=None):
     lengths = {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
     stream = [t for k, t in texts.items() if k != best and t.strip()]
     laid, blank = ocr_clues.reconcile(laid, stream, lengths)
+    # Each filed clue as the readings print it: its count's shape, each
+    # word's capital, hyphen and spelling.
+    laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
     for lid, (t, e, g) in laid.items():
         if t and not sound(t):
             # The vote put back words that run on into the next clue.

@@ -83,6 +83,16 @@ check("a misread next number inside the text is a run-on", False,
       al.sound("Like an old woman >0 In some places"))
 check("an ellipsis opening is sound", True, al.sound(". . . their Peasant's Revolt"))
 
+# The Listener's readings set each filed clue's count and words as they
+# print them (ocr_clues.as_printed with this filer's parse), and leave a
+# clue alone when they print it as laid.
+texts = {k: "ACROSS\n1 Shoddy re-forms (5-4)\n10 Hill (4)\nDOWN\n2 Ore (3)\n" for k in ("djvu", "ch", "en5")}
+laid = {"1-across": ("Shoddy reforms", "9", None), "10-across": ("Hill", "4", None), "2-down": ("Ore", "3", None)}
+lengths = {"1-across": 9, "10-across": 4, "2-down": 3}
+got, blank = al.ocr_clues.as_printed(texts, laid, {}, al.parse, lengths)
+check("a Listener clue takes the count and hyphen its readings print", ("Shoddy re-forms", "5-4"), got["1-across"][:2])
+check("a Listener clue printed as laid is left alone", (("Hill", "4", None), {}), (got["10-across"], blank))
+
 print("FAILS", fails)
 EOF
 )
