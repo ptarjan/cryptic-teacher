@@ -785,6 +785,9 @@ def hub_row(p, note=None):
     its answer page, which is how a crawler reaches every one (homepage_nav)."""
     d = p.get("difficulty") or {}
     when = row_date(p)
+    # A date-keyed number is the date, so the row's title is the dated form
+    # and the date column is left empty: one date per row (rowTitle in app.js).
+    title, when = (when, "") if number_day(p) else (display_number(p), when)
     badge = diff_badge(d["band"]) if d.get("band") else ""
     # The app's hintsBadge() in the same words: ours, a blog's (the index's
     # `blog`, see has_blog_hints), or none.
@@ -804,7 +807,7 @@ def hub_row(p, note=None):
     answers = ("" if note is not None else
                f'<a class="p-answers" href="{BASE}/puzzles/{p["id"]}/">answers</a>')
     return (f'<li><a href="{solve_url(p["id"])}">'
-            f'<span class="p-num">{display_number(p)}</span>'
+            f'<span class="p-num">{esc(title)}</span>'
             f'<span class="p-setter">{esc(p.get("setter"))}</span>'
             f'<span class="p-meta">{esc(when)}</span>'
             f'<span class="p-tags">{series}{badge}{hints}{ours}</span></a>{answers}</li>')

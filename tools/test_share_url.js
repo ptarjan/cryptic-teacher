@@ -125,7 +125,7 @@ const where = (bar) => {
     again["picker-paper"].value = "";
     again["picker-paper"].listeners.change.forEach((f) => f());
     again["btn-picker"].onclick(); again["btn-picker"].onclick();
-    check(again["picker-paper"].value === "", "choosing All papers is remembered as all");
+    check(again["picker-paper"].value === "", "choosing the all-papers option is remembered as all");
   }
 }
 
