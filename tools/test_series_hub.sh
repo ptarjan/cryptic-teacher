@@ -85,7 +85,7 @@ src = pathlib.Path(B.__file__).read_text()
 app = (pathlib.Path(B.__file__).parent.parent / "app.js").read_text()
 print("ONEWAY", src.count('class="badge diff') == 1 and src.count('class="badge series"') == 1
       and src.count("harder than ") == 1
-      and B.harder_than("${d.percentile}") in app)
+      and B.harder_than("${d.percentile}") in app and app.count('class="badge diff') == 1)
 chips = dict(re.findall(r'^\s{4}(\w+): \["([^"]*)"', app.split("const SERIES_BADGE = {", 1)[1]
                         .split("\n  };", 1)[0], re.M))
 # Clue counts beside words (/learn/, /indicators/, /abbreviations/) come from

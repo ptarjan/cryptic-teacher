@@ -6082,10 +6082,15 @@
     // each band's rated puzzles per series, and only bands with enough of them.
     const nitch = ((INDEX.snitchRanges || {})[p.series] || {})[d.band];
     const snitch = nitch ? ` ${d.band} puzzles in this series typically score SNITCH ${nitch.q1}–${nitch.q3}.` : "";
-    return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
-      d.band.toLowerCase() + pct + ". Based on " + basis + ", compared with the other puzzles on this site." + snitch
-      + " Tap the badge for how difficulty is rated."
-    )}">${esc(d.band.toLowerCase())}</span>`;
+    return bandPill(d.band, d.band.toLowerCase() + pct + ". Based on " + basis
+      + ", compared with the other puzzles on this site." + snitch
+      + " Tap the badge for how difficulty is rated.");
+  }
+  // A difficulty band, the one way the app draws one: build_seo_pages.py
+  // diff_badge() draws the same pill on the archive pages.
+  function bandPill(band, title) {
+    const b = esc(String(band).toLowerCase());
+    return `<span class="badge diff diff-${b}"${title ? ` title="${esc(title)}"` : ""}>${b}</span>`;
   }
 
   // Badge the exception, never the norm ("since it only
@@ -6457,7 +6462,7 @@
       if (b) n[b.toLowerCase()] = (n[b.toLowerCase()] || 0) + 1;
     });
     const counts = pickerBandList().filter((b) => n[b])
-      .map((b) => `<span class="band-count"><span class="badge diff diff-${esc(b)}">${esc(b)}</span> ${n[b]}</span>`)
+      .map((b) => `<span class="band-count">${bandPill(b)} ${n[b].toLocaleString("en-GB")}</span>`)
       .join("");
     return "Difficulty compares a puzzle with the others on this site, not with "
       + "crosswords in general: the papers don\u2019t publish ratings. It is worked out "
