@@ -23,6 +23,9 @@
   "date": "2009-03-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,55 @@
     "text": "Good offices for the injection of cold drugs etc",
     "enumeration": "10"
    },
-   "solution": "MEDICATION"
+   "solution": "MEDICATION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEDICATION",
+    "definitions": [
+     {
+      "text": "drugs etc",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the injection of",
+      "for": "container",
+      "note": "an injection puts something inside a body, so the cold letter goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good offices",
+      "gives": "MEDIATION",
+      "note": "good offices is the diplomatic phrase for help in settling a dispute"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDI",
+      "C",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A clinic or government department arranging for people to be injected with chilled medicines.",
+     "walkthrough": "MEDIATION takes C after its fourth letter to give MEDICATION.",
+     "definitionFit": "Medication is the general word for medicines and remedies, which the 'etc' widens beyond drugs alone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "offices"
+    }
+   }
   },
   {
    "number": 1,
@@ -50,7 +101,43 @@
     "text": "Obscure bit of chemistry",
     "enumeration": "4"
    },
-   "solution": "MIST"
+   "solution": "MIST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MIST",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "hidden_word",
+      "note": "only a part of the following word is wanted, a run of letters sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chemistry",
+      "gives": "MIST",
+      "note": "letters two to five of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A puzzling or arcane piece of chemistry.",
+     "walkthrough": "'Obscure' reads as an adjective describing the chemistry, but it is a verb meaning to cloud over.",
+     "definitionFit": "To mist something is to blur or cloud it, hiding it from clear view, as fog does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +157,51 @@
      }
     ]
    },
-   "solution": "DURAMATER"
+   "solution": "DURAMATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DURA MATER",
+    "definitions": [
+     {
+      "text": "Membrane",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at eardrum",
+      "gives": "ATEARDRUM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATEARDRUM",
+       "gives": "DURAMATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor noting that the membrane at the eardrum is damaged.",
+     "walkthrough": "The surface points to the ear, but the answer is the tough outer membrane around the brain and spinal cord.",
+     "definitionFit": "The dura mater is the outermost of the three protective layers enclosing the brain and spinal cord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eardrum"
+    }
+   }
   },
   {
    "number": 3,
@@ -84,7 +215,49 @@
     "text": "Fashion that is suitable for a smart girl",
     "enumeration": "5"
    },
-   "solution": "CUTIE"
+   "solution": "CUTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUTIE",
+    "definitions": [
+     {
+      "text": "smart girl",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "suitable for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion",
+      "gives": "CUT",
+      "note": "the cut of a garment is its fashion or style"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A style of clothing deemed right for a well-dressed young woman.",
+     "definitionFit": "A cutie is an attractive young woman, and smart here means neat and stylish in appearance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 4,
@@ -98,7 +271,59 @@
     "text": "Row when dog bites the Queen",
     "enumeration": "7"
    },
-   "solution": "TERRACE"
+   "solution": "TERRACE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TERRACE",
+    "definitions": [
+     {
+      "text": "Row",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bites",
+      "for": "container",
+      "note": "a biting mouth closes around what it bites, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog",
+      "gives": "TRACE",
+      "note": "to dog someone is to follow or trace them, a verb not an animal"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ER",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A quarrel breaks out when a pet dog nips the monarch.",
+     "walkthrough": "'Row' suggests a quarrel and 'dog' an animal; both are other senses, a terrace of houses and to follow.",
+     "definitionFit": "A terrace is a row of houses joined side by side in one continuous block."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "dog"
+    }
+   }
   },
   {
    "number": 5,
@@ -112,7 +337,53 @@
     "text": "Be cruel to crowd after work",
     "enumeration": "7"
    },
-   "solution": "OPPRESS"
+   "solution": "OPPRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPPRESS",
+    "definitions": [
+     {
+      "text": "Be cruel to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "placing one word after another fixes their order, with the crowd coming second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "crowd",
+      "gives": "PRESS",
+      "note": "a press is a throng of people, and to press is to crowd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "PRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone told to treat a crowd harshly once the working day is done.",
+     "definitionFit": "To oppress people is to treat them harshly and unjustly, keeping them down by cruelty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 6,
@@ -126,7 +397,45 @@
     "text": "Irritation produced by ‘arness",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Irritation",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "produced by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘arness",
+      "gives": "HITCH",
+      "note": "to harness a horse is to hitch it to a cart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A horse's tack chafing and causing a rash.",
+     "walkthrough": "The apostrophe shows a dropped H, Cockney style; treat the synonym the same way and HITCH loses its H.",
+     "definitionFit": "An itch is a skin irritation that makes one want to scratch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Irritation"
+    }
+   }
   },
   {
    "number": 7,
@@ -140,7 +449,45 @@
     "text": "Friendly but stupid?",
     "enumeration": "5"
    },
-   "solution": "THICK"
+   "solution": "THICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THICK",
+    "definitions": [
+     {
+      "text": "Friendly",
+      "at": 0
+     },
+     {
+      "text": "stupid",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friendly",
+      "note": "first meaning: close and intimate"
+     },
+     {
+      "clueFragment": "stupid",
+      "note": "second meaning: slow-witted, dim"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks about a pleasant but dim person; the two words are separate senses of one adjective.",
+     "definitionFit": "Thick means intimate in the phrase thick as thieves, and is also everyday slang for slow-witted or dim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +507,45 @@
      }
     ]
    },
-   "solution": "HIGHSTREET"
+   "solution": "HIGHSTREET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIGH STREET",
+    "definitions": [
+     {
+      "text": "Shopping centre",
+      "at": 0
+     },
+     {
+      "text": "elevated highway",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shopping centre",
+      "note": "first meaning: the main shopping road of a British town"
+     },
+     {
+      "clueFragment": "elevated highway",
+      "note": "second meaning, read literally: a road that is raised up"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second, whimsical reading: a road that is literally lofty.",
+     "definitionFit": "In Britain the principal street of a town, lined with shops, is its high street; read literally it is a lofty road."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +559,54 @@
     "text": "Instruments before long interrupting singer",
     "enumeration": "8"
    },
-   "solution": "BASSOONS"
+   "solution": "BASSOONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BASSOONS",
+    "definitions": [
+     {
+      "text": "Instruments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle of something, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before long",
+      "gives": "SOON",
+      "note": "before long means shortly"
+     },
+     {
+      "clueFragment": "singer",
+      "gives": "BASS",
+      "note": "a bass is a singer with the lowest voice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAS",
+      "SOON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Orchestral instruments soon drowning out a vocalist.",
+     "definitionFit": "Bassoons are low-pitched woodwind instruments played with a double reed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 10,
@@ -188,7 +620,60 @@
     "text": "Fish rested having crossed quiet river",
     "enumeration": "5"
    },
-   "solution": "SPRAT"
+   "solution": "SPRAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SPRAT",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having crossed",
+      "for": "container",
+      "note": "to cross something here is to span it, so the outer word straddles the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "p is piano, the musical direction for quietly"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "rested",
+      "gives": "SAT",
+      "note": "sat as in sat down to rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PR",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish that paused after swimming over a calm river.",
+     "definitionFit": "The sprat is a small silvery fish of the herring family, common in European waters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossed"
+    }
+   }
   },
   {
    "number": 11,
@@ -202,7 +687,47 @@
     "text": "Agent finishing off going through again",
     "enumeration": "9"
    },
-   "solution": "REPEATING"
+   "solution": "REPEATING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPEATING",
+    "definitions": [
+     {
+      "text": "going through again",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agent",
+      "gives": "REP",
+      "note": "a rep is a sales representative, an agent"
+     },
+     {
+      "clueFragment": "finishing off",
+      "gives": "EATING",
+      "note": "finishing off food, as in eating it up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "EATING"
+     ]
+    },
+    "explanation": {
+     "surface": "A secret agent completing a mission by working through it a second time.",
+     "walkthrough": "'Finishing off' sounds like killing; it is eating up a plate of food.",
+     "definitionFit": "Repeating something means doing or saying it once more, going over it a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finishing"
+    }
+   }
   },
   {
    "number": 12,
@@ -216,7 +741,66 @@
     "text": "Current English anger initiated by a politician",
     "enumeration": "8"
    },
-   "solution": "AMPERAGE"
+   "solution": "AMPERAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMPERAGE",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initiated by",
+      "for": "charade",
+      "note": "what is initiated by something has that thing at its start, so the politician comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "RAGE",
+      "note": "rage is intense anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MP",
+      "E",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Present-day English fury stirred up by a politician.",
+     "walkthrough": "'Current' looks like an adjective meaning present-day; it is electric current.",
+     "definitionFit": "Amperage is the strength of an electric current measured in amps, so it stands for current itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 13,
@@ -230,7 +814,44 @@
     "text": "Reportedly goes after certain believers",
     "enumeration": "5"
    },
-   "solution": "SIKHS"
+   "solution": "SIKHS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIKHS",
+    "definitions": [
+     {
+      "text": "certain believers",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goes after",
+      "gives": "SIKHS",
+      "soundsLike": "SEEKS",
+      "note": "to go after something is to seek it"
+     }
+    ],
+    "explanation": {
+     "surface": "A report that someone is pursuing particular followers of a faith.",
+     "definitionFit": "Sikhs are followers of Sikhism, a monotheistic religion founded in the Punjab."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "goes"
+    }
+   }
   },
   {
    "number": 14,
@@ -244,7 +865,67 @@
     "text": "A bod I call wicked, one inwardly satanic",
     "enumeration": "10"
    },
-   "solution": "DIABOLICAL"
+   "solution": "DIABOLICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DIABOLICAL",
+    "definitions": [
+     {
+      "text": "satanic",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wicked",
+      "for": "anagram",
+      "note": "wicked behaviour is twisted and perverse, so the letters are twisted out of order"
+     },
+     {
+      "text": "inwardly",
+      "for": "container",
+      "note": "inwardly says the single letter sits within the rearranged word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A bod I call",
+      "gives": "ABODICALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIABOL",
+      "I",
+      "CAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABODICALL",
+       "gives": "DIABOLCAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing a fellow as wicked and devilish at heart.",
+     "walkthrough": "'Bod' is British slang for a person. The rearranged letters take a second I inside.",
+     "definitionFit": "Diabolical literally means of the devil, so it matches satanic, belonging to Satan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wicked"
+    }
+   }
   },
   {
    "number": 15,
@@ -258,7 +939,50 @@
     "text": "How we count with energy, being passionate!",
     "enumeration": "7"
    },
-   "solution": "INTENSE"
+   "solution": "INTENSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTENSE",
+    "definitions": [
+     {
+      "text": "passionate",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "with",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How we count",
+      "gives": "INTENS",
+      "note": "the decimal system counts in tens"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTENS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An enthusiast exclaiming about counting with vigour and feeling.",
+     "definitionFit": "Intense describes strong, deeply felt emotion, the same fervour that passionate conveys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "count"
+    }
+   }
   },
   {
    "number": 16,
@@ -272,7 +996,54 @@
     "text": "What’s knotty could be unloosed",
     "enumeration": "8"
    },
-   "solution": "NODULOSE"
+   "solution": "NODULOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NODULOSE",
+    "definitions": [
+     {
+      "text": "knotty",
+      "at": 7
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be says the letters may become something else once reworked"
+     }
+    ],
+    "linkWords": [
+     "What’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unloosed",
+      "gives": "UNLOOSED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNLOOSED",
+       "gives": "NODULOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knot that might be untied.",
+     "walkthrough": "Fitting surface: a knot is exactly what can be loosened.",
+     "definitionFit": "Nodulose is a botanical term for having small knobs or nodules, which is knotty in the literal sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unloosed"
+    }
+   }
   },
   {
    "number": 17,
@@ -286,7 +1057,66 @@
     "text": "Boys without penny getting gold from patron",
     "enumeration": "7"
    },
-   "solution": "SPONSOR"
+   "solution": "SPONSOR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPONSOR",
+    "definitions": [
+     {
+      "text": "patron",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the boys stand around the coin"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boys",
+      "gives": "SONS",
+      "note": "sons are boys"
+     },
+     {
+      "clueFragment": "penny",
+      "gives": "P",
+      "note": "p is the abbreviation for penny"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "ONS",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Penniless lads receiving gold from a benefactor.",
+     "walkthrough": "'Without' looks like lacking, a natural fit with penniless boys; it means outside.",
+     "definitionFit": "A sponsor backs a person or event with money, which is what a patron does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 18,
@@ -300,7 +1130,54 @@
     "text": "Declaration of New Testament",
     "enumeration": "9"
    },
-   "solution": "STATEMENT"
+   "solution": "STATEMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STATEMENT",
+    "definitions": [
+     {
+      "text": "Declaration",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "a new version of the word puts its letters into fresh order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Testament",
+      "gives": "TESTAMENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TESTAMENT",
+       "gives": "STATEMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A proclamation drawn from the Christian scriptures.",
+     "walkthrough": "'New Testament' reads as one name; New is split off as the signal.",
+     "definitionFit": "A statement is a formal declaration of facts or views, said or written."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 19,
@@ -314,7 +1191,57 @@
     "text": "Malaise of leftie evident in roar",
     "enumeration": "7"
    },
-   "solution": "BOREDOM"
+   "solution": "BOREDOM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOREDOM",
+    "definitions": [
+     {
+      "text": "Malaise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evident in",
+      "for": "container",
+      "note": "what is evident in something is seen within it, so one word sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leftie",
+      "gives": "RED",
+      "note": "a red is a left-winger"
+     },
+     {
+      "clueFragment": "roar",
+      "gives": "BOOM",
+      "note": "a boom is a deep loud roar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "RED",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "The discontent of a left-winger shows in their bellowing.",
+     "definitionFit": "Boredom is a listless weariness, a sense of unease and lack of interest like a malaise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roar"
+    }
+   }
   },
   {
    "number": 20,
@@ -328,7 +1255,55 @@
     "text": "Bit of a joint malfunctioning when it’s moister",
     "enumeration": "7"
    },
-   "solution": "MORTISE"
+   "solution": "MORTISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MORTISE",
+    "definitions": [
+     {
+      "text": "Bit of a joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "malfunctioning",
+      "for": "anagram",
+      "note": "something malfunctioning is out of order, so these letters are out of order"
+     }
+    ],
+    "linkWords": [
+     "when it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moister",
+      "gives": "MOISTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOISTER",
+       "gives": "MORTISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A knee or hip giving trouble in damp weather.",
+     "walkthrough": "The surface suggests a body joint aching in wet weather; this joint is in carpentry.",
+     "definitionFit": "A mortise is the cavity cut in timber to receive a tenon, one half of a woodworking joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 21,
@@ -342,7 +1317,53 @@
     "text": "I see sad drunk getting measles maybe",
     "enumeration": "7"
    },
-   "solution": "DISEASE"
+   "solution": "DISEASE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISEASE",
+    "definitions": [
+     {
+      "text": "measles maybe",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person is all over the place, so the letters stagger into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I see sad",
+      "gives": "ISEESAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISEESAD",
+       "gives": "DISEASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone observing a miserable drunkard who has come down with measles.",
+     "definitionFit": "Measles is one example of an infectious illness, hence the 'maybe' signalling an instance of a category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1377,58 @@
     "text": "Had a meal around six, as foretold",
     "enumeration": "7"
    },
-   "solution": "DIVINED"
+   "solution": "DIVINED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DIVINED",
+    "definitions": [
+     {
+      "text": "foretold",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the meal wraps around the number, so the numeral goes inside"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had a meal",
+      "gives": "DINED",
+      "note": "to dine is to have a meal"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "VI",
+      "NED"
+     ]
+    },
+    "explanation": {
+     "surface": "Supper eaten at about six o'clock, just as predicted.",
+     "walkthrough": "'Around six' reads as a time of day; it is the containment signal.",
+     "definitionFit": "To divine something is to discover or predict it by intuition or supernatural insight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 22,
@@ -370,7 +1442,57 @@
     "text": "Defamation of politician artist’s not admiitted",
     "enumeration": "5"
    },
-   "solution": "LIBEL"
+   "solution": "LIBEL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIBEL",
+    "definitions": [
+     {
+      "text": "Defamation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not admiitted",
+      "for": "deletion",
+      "note": "someone not admitted is kept out, so the artist is left out of the politician"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politician",
+      "gives": "LIBERAL",
+      "note": "a Liberal is a member of the Liberal party"
+     },
+     {
+      "clueFragment": "artist’s",
+      "gives": "RA",
+      "note": "RA is a Royal Academician; the 's is is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIB",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A slur against a politician, with a painter barred from entering.",
+     "walkthrough": "The blog's copy misspells admitted. LIBERAL loses RA from its middle.",
+     "definitionFit": "Libel is defamation published in writing or another permanent form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "artist’s"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1506,57 @@
     "text": "It’s good getting into empty boat",
     "enumeration": "5"
    },
-   "solution": "BARGE"
+   "solution": "BARGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BARGE",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting into",
+      "for": "container",
+      "note": "a thing getting into another ends up inside it"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "empty",
+      "gives": "BARE",
+      "note": "bare means empty, as in bare shelves"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Climbing aboard an empty vessel is a sensible move.",
+     "definitionFit": "A barge is a long flat-bottomed boat used on canals and rivers for carrying cargo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1570,49 @@
     "text": "Engineers with skill went back",
     "enumeration": "8"
    },
-   "solution": "REVERSED"
+   "solution": "REVERSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVERSED",
+    "definitions": [
+     {
+      "text": "went back",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engineers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "VERSED",
+      "note": "versed means skilled or knowledgeable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VERSED"
+     ]
+    },
+    "explanation": {
+     "surface": "Skilled engineers backed away.",
+     "walkthrough": "VERSED is the adjective skilled, a loose fit for the noun skill.",
+     "definitionFit": "To reverse is to go backwards, as a car does, so reversed means moved back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1626,50 @@
     "text": "Odd university degree given for Dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUMBA",
+    "definitions": [
+     {
+      "text": "Dance",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "given for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odd",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or strange"
+     },
+     {
+      "clueFragment": "university degree",
+      "gives": "BA",
+      "note": "Bachelor of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "BA"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange academic award handed out for dancing.",
+     "definitionFit": "The rumba is a Cuban ballroom dance, so it is one kind of dance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1683,51 @@
     "text": "Period that’s long, endless",
     "enumeration": "4"
    },
-   "solution": "YEAR"
+   "solution": "YEAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "YEAR",
+    "definitions": [
+     {
+      "text": "Period",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long",
+      "gives": "YEARN",
+      "note": "to long for something is to yearn for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A stretch of time that seems to go on forever.",
+     "walkthrough": "'Long' looks like an adjective describing the period; it is the verb to yearn.",
+     "definitionFit": "A year is a period of twelve months, a standard span of time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1741,43 @@
     "text": "Believer who led a mutiny?",
     "enumeration": "9"
    },
-   "solution": "CHRISTIAN"
+   "solution": "CHRISTIAN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHRISTIAN",
+    "definitions": [
+     {
+      "text": "Believer",
+      "at": 0
+     },
+     {
+      "text": "who led a mutiny",
+      "at": 9,
+      "note": "a person, read as a proper name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Believer",
+      "note": "first meaning: a follower of the ... faith"
+     },
+     {
+      "clueFragment": "who led a mutiny",
+      "note": "second meaning: Fletcher, the officer who led the mutiny on the Bounty in 1789"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second definition as a specific historical figure rather than a description.",
+     "definitionFit": "A Christian is a believer in Christ, and Fletcher Christian led the 1789 Bounty mutiny against Captain Bligh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1791,50 @@
     "text": "Name of mother, the very first one",
     "enumeration": "5"
    },
-   "solution": "MAEVE"
+   "solution": "MAEVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAEVE",
+    "definitions": [
+     {
+      "text": "Name",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "the very first one",
+      "gives": "EVE",
+      "note": "in Genesis Eve is the first woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Naming the mother of all, the original woman.",
+     "walkthrough": "The surface suggests Eve as the first mother, which is half the answer.",
+     "definitionFit": "Maeve is an Irish girl's name, borne by a legendary queen of Connacht."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1848,51 @@
     "text": "Stories of heartless school punishment?",
     "enumeration": "4"
    },
-   "solution": "LIES"
+   "solution": "LIES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIES",
+    "definitions": [
+     {
+      "text": "Stories",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school punishment",
+      "gives": "LINES",
+      "note": "lines are sentences a pupil must copy out repeatedly as punishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Tales of a cruel form of discipline at school.",
+     "definitionFit": "Stories is a mild, child's word for falsehoods, as in telling stories, meaning untruths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stories"
+    }
+   }
   },
   {
    "number": 30,
@@ -482,7 +1906,62 @@
     "text": "School boss gives the fellow a sad term unfortunately",
     "enumeration": "10"
    },
-   "solution": "HEADMASTER"
+   "solution": "HEADMASTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HEADMASTER",
+    "definitions": [
+     {
+      "text": "School boss",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "things that go unfortunately go wrong, so the letters go astray"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the fellow",
+      "gives": "HE",
+      "note": "he refers to a man"
+     },
+     {
+      "clueFragment": "a sad term",
+      "gives": "ASADTERM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ADMASTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASADTERM",
+       "gives": "ADMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A head teacher gives a boy a miserable term at school.",
+     "definitionFit": "A headmaster is the man in charge of a school, its principal teacher."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
