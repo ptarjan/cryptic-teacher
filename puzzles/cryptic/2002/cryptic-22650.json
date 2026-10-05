@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Fine words",
     "enumeration": "8"
    },
-   "solution": "SENTENCE"
+   "solution": "SENTENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SENTENCE",
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0
+     },
+     {
+      "text": "words",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "note": "first meaning: a punishment handed down by a court, as a verb or noun"
+     },
+     {
+      "clueFragment": "words",
+      "note": "second meaning: a grammatical unit made of a string of words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Fine looks like an adjective praising the words, but it is a penalty, read as the thing a judge passes.",
+     "definitionFit": "A judge passes a sentence as a penalty, and a sentence is also a grammatical string of words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,70 @@
     "text": "Fed up youngsters beginning to flout authority",
     "enumeration": "4"
    },
-   "solution": "DEFY"
+   "solution": "DEFY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEFY",
+    "definitions": [
+     {
+      "text": "flout authority",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     },
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter only"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fed",
+      "gives": "FED",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "youngsters",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of youngsters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEF",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "FED",
+       "to": "DEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Youngsters who are sick of being told what to do start rebelling against their elders.",
+     "definitionFit": "To defy is to openly resist or disobey those in charge, a synonym for flouting authority."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +163,60 @@
     "text": "Blustery at first, with frequent showers, but bright",
     "enumeration": "6"
    },
-   "solution": "BRAINY"
+   "solution": "BRAINY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRAINY",
+    "definitions": [
+     {
+      "text": "bright",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blustery",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of blustery"
+     },
+     {
+      "clueFragment": "with frequent showers",
+      "gives": "RAINY",
+      "note": "weather with frequent showers is wet weather"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAINY"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecast: windy to begin with, then showery, but with sunny spells.",
+     "walkthrough": "Bright looks like the forecaster's sunny spells, but here it means clever.",
+     "definitionFit": "Bright in the sense of intelligent and quick-witted is a synonym of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bright"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +230,45 @@
     "text": "Overweight actors playing the villains?",
     "enumeration": "7"
    },
-   "solution": "HEAVIES"
+   "solution": "HEAVIES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEAVIES",
+    "definitions": [
+     {
+      "text": "Overweight",
+      "at": 0,
+      "note": "an adjective standing for fat people, the noun"
+     },
+     {
+      "text": "actors playing the villains",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overweight",
+      "note": "first meaning: big, burly people"
+     },
+     {
+      "clueFragment": "actors playing the villains",
+      "note": "second meaning: theatre slang for performers cast as the bad guys"
+     }
+    ],
+    "explanation": {
+     "surface": "A casting director gives all the bad-guy parts to the larger members of the company.",
+     "walkthrough": "Overweight reads as describing the actors, but it is a separate meaning: hefty, burly folk.",
+     "definitionFit": "In theatre and film slang the heavy is the villain's role, and burly people or hired thugs share the name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Overweight"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +288,51 @@
      }
     ]
    },
-   "solution": "DRYCLEAN"
+   "solution": "DRYCLEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRY-CLEAN",
+    "definitions": [
+     {
+      "text": "How to get your clothes",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aired",
+      "gives": "DRY",
+      "note": "aired laundry has had the damp taken out of it"
+     },
+     {
+      "clueFragment": "and",
+      "note": "joins the two pieces"
+     },
+     {
+      "clueFragment": "spotless",
+      "gives": "CLEAN",
+      "note": "spotless means free of dirt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "CLEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Household advice on getting your clothes freshened up and free of marks.",
+     "definitionFit": "This process cleans garments using a chemical solvent rather than water, which is a way of treating your clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "aired"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +356,44 @@
      }
     ]
    },
-   "solution": "OFFTHEHOOK"
+   "solution": "OFFTHEHOOK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFF THE HOOK",
+    "definitions": [
+     {
+      "text": "Out of danger",
+      "at": 0
+     },
+     {
+      "text": "sailing past Holland",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out of danger",
+      "note": "first meaning: an idiom for escaping trouble or blame"
+     },
+     {
+      "clueFragment": "sailing past Holland",
+      "note": "second meaning: offshore from the Hook of Holland, a Dutch port and ferry terminal"
+     }
+    ],
+    "explanation": {
+     "surface": "A ship that has passed the Dutch coast is safe from the perils of the voyage.",
+     "walkthrough": "The Hook of Holland is a headland and ferry port on the Dutch coast, served by ferries from Harwich in England.",
+     "definitionFit": "The idiom describes someone freed from a difficulty or an obligation, as a fish slipping a line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Holland"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +407,58 @@
     "text": "Stay outside, or go",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESORT",
+    "definitions": [
+     {
+      "text": "go",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the first word wraps round the word that follows it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stay",
+      "gives": "REST",
+      "note": "to stay put is to rest"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "OR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice put to someone: remain where you are, or leave.",
+     "walkthrough": "The comma is the only link; go is the definition, as in resorting to a place you visit often.",
+     "definitionFit": "To resort to a place is to go there habitually, so the verb works as a synonym for go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stay"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +472,39 @@
     "text": "Take part in a show trial",
     "enumeration": "8"
    },
-   "solution": "REHEARSE"
+   "solution": "REHEARSE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REHEARSE",
+    "definitions": [
+     {
+      "text": "Take part in a show trial",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "show trial",
+      "note": "the surface reading: a staged political prosecution"
+     },
+     {
+      "clueFragment": "Take part in a show trial",
+      "note": "the setter's reading: play your part in a trial run of a stage show"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is roped into a rigged political prosecution.",
+     "definitionFit": "A rehearsal is a practice performance before a play opens, so actors doing it are trying the show out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +518,50 @@
     "text": "Automatic umpire on Roman law",
     "enumeration": "6"
    },
-   "solution": "REFLEX"
+   "solution": "REFLEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFLEX",
+    "definitions": [
+     {
+      "text": "Automatic",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "umpire",
+      "gives": "REF",
+      "note": "ref is short for referee, an umpire"
+     },
+     {
+      "clueFragment": "on",
+      "note": "joins the two pieces, umpire placed before law"
+     },
+     {
+      "clueFragment": "Roman law",
+      "gives": "LEX",
+      "note": "lex is the Latin word for law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "LEX"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee instinctively applies the rules of ancient Rome.",
+     "definitionFit": "A reflex is an involuntary, instinctive response, so as an adjective it means done without conscious thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Automatic"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +575,44 @@
     "text": "Tarry rope",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "Tarry",
+      "at": 0
+     },
+     {
+      "text": "rope",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tarry",
+      "note": "first meaning: to linger or remain"
+     },
+     {
+      "clueFragment": "rope",
+      "note": "second meaning: a rope bracing a ship's mast"
+     }
+    ],
+    "explanation": {
+     "surface": "Rope coated in tar, as on an old sailing ship.",
+     "walkthrough": "Tarry looks like the adjective covered in tar; it is the verb meaning linger.",
+     "definitionFit": "To linger is to remain somewhere, and on a sailing vessel a mast is braced by heavy lines with this name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tarry"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +626,48 @@
     "text": "A plea to be satisfyingly employed?",
     "enumeration": "10"
    },
-   "solution": "INVOCATION"
+   "solution": "INVOCATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INVOCATION",
+    "definitions": [
+     {
+      "text": "A plea",
+      "at": 0
+     },
+     {
+      "text": "satisfyingly employed",
+      "at": 13,
+      "note": "read as two words, in vocation"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A plea",
+      "note": "first meaning: a prayer or appeal to a higher power"
+     },
+     {
+      "clueFragment": "satisfyingly employed",
+      "note": "second meaning, split in two: working at one's calling"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone begs for a job that is fulfilling.",
+     "walkthrough": "Split the answer after two letters: being in your calling is being happily employed.",
+     "definitionFit": "An invocation is a prayer calling on a god for help, a solemn appeal or entreaty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "employed"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +681,42 @@
     "text": "Power drive",
     "enumeration": "6"
    },
-   "solution": "ENERGY"
+   "solution": "ENERGY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ENERGY",
+    "definitions": [
+     {
+      "text": "Power",
+      "at": 0
+     },
+     {
+      "text": "drive",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "note": "first meaning: the capacity to do work in physics"
+     },
+     {
+      "clueFragment": "drive",
+      "note": "second meaning: vigour and enthusiasm in a person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together, the clue sounds like a power drive on a tool; the words are two separate meanings.",
+     "definitionFit": "Physicists measure work in this quantity, and an energetic person is said to have plenty of vigour and get-up-and-go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +730,49 @@
     "text": "Control said to be restored",
     "enumeration": "10"
    },
-   "solution": "REINSTATED"
+   "solution": "REINSTATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REINSTATED",
+    "definitions": [
+     {
+      "text": "restored",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Control",
+      "gives": "REIN",
+      "note": "to rein in is to control, as with a horse"
+     },
+     {
+      "clueFragment": "said",
+      "gives": "STATED",
+      "note": "said and stated are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REIN",
+      "STATED"
+     ]
+    },
+    "explanation": {
+     "surface": "An official announcement that order has been brought back.",
+     "definitionFit": "To reinstate someone or something is to put it back in its former position, which is to restore it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Control"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +786,46 @@
     "text": "The rudiments of meteorology",
     "enumeration": "8"
    },
-   "solution": "ELEMENTS"
+   "solution": "ELEMENTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ELEMENTS",
+    "definitions": [
+     {
+      "text": "The rudiments",
+      "at": 0
+     },
+     {
+      "text": "meteorology",
+      "at": 17,
+      "note": "the elements is a name for the weather"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The rudiments",
+      "note": "first meaning: the basic principles of a subject"
+     },
+     {
+      "clueFragment": "meteorology",
+      "note": "second meaning: the weather, which meteorologists study"
+     }
+    ],
+    "explanation": {
+     "surface": "An introductory course in weather science.",
+     "definitionFit": "The basics of a subject are its first principles, and wind and rain together are often called the forces of nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rudiments"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +839,61 @@
     "text": "Instance of wickedness in a dull environment",
     "enumeration": "7"
    },
-   "solution": "DEVILRY"
+   "solution": "DEVILRY",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "DEVILRY",
+    "definitions": [
+     {
+      "text": "Instance of wickedness in a dull environment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a",
+      "for": "container",
+      "note": "in says one word sits inside the surrounding word"
+     },
+     {
+      "text": "environment",
+      "for": "and_lit",
+      "note": "the whole clue doubles as a description of mischief"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dull",
+      "gives": "DRY",
+      "note": "dull and boring is dry"
+     },
+     {
+      "clueFragment": "wickedness",
+      "gives": "EVIL",
+      "note": "wickedness is evil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EVIL",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Mischief breaking out in a tedious setting.",
+     "walkthrough": "Wickedness sits inside the dull word, and the whole clue also describes the answer.",
+     "definitionFit": "Devilry is wicked or reckless mischief, so an act of it is an instance of wickedness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "environment"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +907,48 @@
     "text": "Exchange of gunfire's declining",
     "enumeration": "8"
    },
-   "solution": "REFUSING"
+   "solution": "REFUSING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFUSING",
+    "definitions": [
+     {
+      "text": "Exchange of gunfire",
+      "at": 0,
+      "note": "read as re-fusing, fitting new fuses"
+     },
+     {
+      "text": "declining",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Exchange of gunfire",
+      "note": "first meaning, split in two: replacing the fuses of guns"
+     },
+     {
+      "clueFragment": "declining",
+      "note": "second meaning: saying no"
+     }
+    ],
+    "explanation": {
+     "surface": "A shootout is dying down.",
+     "walkthrough": "Split as re-fusing, the word means fitting new fuses, a whimsical exchange of the fire in guns.",
+     "definitionFit": "Refusing an offer is turning it down, which is exactly what declining means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "declining"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +962,45 @@
     "text": "Bill fit to sing?",
     "enumeration": "7"
    },
-   "solution": "INVOICE"
+   "solution": "INVOICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INVOICE",
+    "definitions": [
+     {
+      "text": "Bill",
+      "at": 0
+     },
+     {
+      "text": "fit to sing",
+      "at": 5,
+      "note": "read as two words, in voice"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bill",
+      "note": "first meaning: a statement of charges for goods supplied"
+     },
+     {
+      "clueFragment": "fit to sing",
+      "note": "second meaning, split in two: with the voice in good form"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a man named Bill is well enough to perform.",
+     "walkthrough": "Split after two letters: a singer who is in voice is fit to sing.",
+     "definitionFit": "An invoice is a document requesting payment for goods or services, a synonym for a bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 18,
@@ -287,7 +1014,62 @@
     "text": "Reckon to make a hundred on the side, right?",
     "enumeration": "8"
    },
-   "solution": "CONSIDER"
+   "solution": "CONSIDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSIDER",
+    "definitions": [
+     {
+      "text": "Reckon",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the side",
+      "gives": "SIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "SIDE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer wonders whether to score a century for the team.",
+     "walkthrough": "To make a hundred is cricket talk for a batsman scoring a century, which is what the surface suggests.",
+     "definitionFit": "To reckon something is to regard or judge it to be so, a synonym of the verb meaning think."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hundred"
+    }
+   }
   },
   {
    "number": 19,
@@ -301,7 +1083,51 @@
     "text": "Term that's musical or legal, perhaps",
     "enumeration": "7"
    },
-   "solution": "ALLEGRO"
+   "solution": "ALLEGRO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALLEGRO",
+    "definitions": [
+     {
+      "text": "Term that's musical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps hints the letters could be arranged in some other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or legal",
+      "gives": "ORLEGAL",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORLEGAL",
+       "gives": "ALLEGRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether a word belongs to music or to the law.",
+     "walkthrough": "Legal looks like the second half of the definition, but it is part of the fodder.",
+     "definitionFit": "Allegro is an Italian tempo marking meaning fast and lively, a word found in sheet music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "legal"
+    }
+   }
   },
   {
    "number": 20,
@@ -315,7 +1141,63 @@
     "text": "Standard fails in production of Wagner opera",
     "enumeration": "8"
    },
-   "solution": "PARSIFAL"
+   "solution": "PARSIFAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PARSIFAL",
+    "definitions": [
+     {
+      "text": "Wagner opera",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in production",
+      "for": "anagram",
+      "note": "a production puts something together, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "PAR",
+      "note": "par is the standard or norm"
+     },
+     {
+      "clueFragment": "fails",
+      "gives": "FAILS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "SIFAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAILS",
+       "gives": "SIFAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A staging of a Wagner opera falls below the usual standard.",
+     "definitionFit": "Parsifal is Richard Wagner's final opera, about a knight of the Holy Grail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "production"
+    }
+   }
   },
   {
    "number": 21,
@@ -329,7 +1211,39 @@
     "text": "They fight with one another",
     "enumeration": "6"
    },
-   "solution": "ALLIES"
+   "solution": "ALLIES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ALLIES",
+    "definitions": [
+     {
+      "text": "They fight with one another",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fight with one another",
+      "note": "the surface reading: people quarrelling among themselves"
+     },
+     {
+      "clueFragment": "fight with",
+      "note": "the setter's reading: with means alongside, so they battle on the same side"
+     }
+    ],
+    "explanation": {
+     "surface": "A description of people who keep scrapping among themselves.",
+     "definitionFit": "Allies are nations or people joined in a common cause, who go to war side by side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 22,
@@ -343,7 +1257,52 @@
     "text": "Jabbing a petty officer with a ruler",
     "enumeration": "6"
    },
-   "solution": "POKING"
+   "solution": "POKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POKING",
+    "definitions": [
+     {
+      "text": "Jabbing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a petty officer",
+      "gives": "PO",
+      "note": "PO is the abbreviation for petty officer"
+     },
+     {
+      "clueFragment": "with",
+      "note": "joins the pieces"
+     },
+     {
+      "clueFragment": "a ruler",
+      "gives": "KING",
+      "note": "a king is a ruler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval officer being prodded with a measuring stick.",
+     "walkthrough": "Ruler suggests the measuring stick used for jabbing, but it is a monarch.",
+     "definitionFit": "Poking someone is prodding them with a finger or stick, a synonym for jabbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ruler"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1316,49 @@
     "text": "Father quick to get high religious office",
     "enumeration": "6"
    },
-   "solution": "PAPACY"
+   "solution": "PAPACY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAPACY",
+    "definitions": [
+     {
+      "text": "high religious office",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "quick",
+      "gives": "PACY",
+      "note": "pacy means fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "PACY"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest rushes to win promotion in the church.",
+     "definitionFit": "The papacy is the office or position of the Pope, the highest post in the Roman Catholic Church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Father"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1378,48 @@
      }
     ]
    },
-   "solution": "CLEANSWEEP"
+   "solution": "CLEANSWEEP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLEAN SWEEP",
+    "definitions": [
+     {
+      "text": "Chars keen",
+      "at": 0,
+      "note": "a cryptic description: cleaners eager to clean and sweep"
+     },
+     {
+      "text": "a complete change",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chars keen",
+      "note": "first meaning, cryptically: what cleaning women are eager to do, tidy and brush"
+     },
+     {
+      "clueFragment": "a complete change",
+      "note": "second meaning: an idiom for removing everything old and starting afresh"
+     }
+    ],
+    "explanation": {
+     "surface": "Cleaning ladies eager to give the place a thorough going-over.",
+     "walkthrough": "A char, or charwoman, is British for a woman paid to clean houses or offices.",
+     "definitionFit": "The idiom describes a total removal of the old order, as when a new boss replaces all the staff."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chars"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1433,50 @@
     "text": "Eager to behead the king of Israel",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "Eager",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behead",
+      "for": "deletion",
+      "note": "to behead is to cut off the head, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the king of Israel",
+      "gives": "DAVID",
+      "note": "David was the second king of Israel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVID"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keen to execute the Israelite monarch.",
+     "definitionFit": "Avid describes someone keenly enthusiastic, a direct synonym for eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "behead"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1490,61 @@
     "text": "A number set up an alliance",
     "enumeration": "4"
    },
-   "solution": "AXIS"
+   "solution": "AXIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AXIS",
+    "definitions": [
+     {
+      "text": "an alliance",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue, set up means the word is raised to read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "SIX",
+      "note": "six is a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "XIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIX",
+       "to": "XIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Several countries establish a pact.",
+     "walkthrough": "The Axis was the alliance of Germany, Italy and Japan in the Second World War.",
+     "definitionFit": "Axis is used for a coalition of states, most famously the wartime pact of Germany, Italy and Japan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1558,55 @@
     "text": "Humble cleric takes me in",
     "enumeration": "6"
    },
-   "solution": "DEMEAN"
+   "solution": "DEMEAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEMEAN",
+    "definitions": [
+     {
+      "text": "Humble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "takes in means the cleric word holds the next word inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cleric",
+      "gives": "DEAN",
+      "note": "a dean is a senior clergyman"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "ME",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A modest churchman lets the speaker into his house.",
+     "walkthrough": "Humble looks like an adjective describing the cleric; it is the verb meaning to lower.",
+     "definitionFit": "To demean someone is to lower their dignity, which is what humbling them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Humble"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1620,43 @@
     "text": "Criminal set?",
     "enumeration": "8"
    },
-   "solution": "RECEIVER"
+   "solution": "RECEIVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECEIVER",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     },
+     {
+      "text": "set",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criminal",
+      "note": "first meaning: someone who handles stolen goods"
+     },
+     {
+      "clueFragment": "set",
+      "note": "second meaning: a radio or television set"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Criminal set looks like a gang of crooks; split them into two meanings.",
+     "definitionFit": "A fence who deals in stolen property is a receiver, and a radio set that picks up signals has the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "set"
+    }
+   }
   }
  ]
 }
