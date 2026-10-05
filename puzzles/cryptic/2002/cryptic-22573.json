@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,52 @@
      }
     ]
    },
-   "solution": "CHOWMEIN"
+   "solution": "CHOWMEIN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHOW MEIN",
+    "definitions": [
+     {
+      "text": "Chinese",
+      "at": 0,
+      "note": "a Chinese is British slang for a Chinese takeaway meal, so the noun stands for a dish"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dictator's",
+      "for": "homophone",
+      "note": "a dictator is literally one who dictates, speaking words out loud for someone to write down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Farewell",
+      "gives": "CHOW",
+      "soundsLike": "CIAO",
+      "note": "ciao is the Italian goodbye"
+     },
+     {
+      "clueFragment": "Sea",
+      "gives": "MEIN",
+      "soundsLike": "MAIN",
+      "note": "the main is a poetic word for the open sea"
+     }
+    ],
+    "explanation": {
+     "surface": "A quotation from a Chinese tyrant's speech, apparently titled as a farewell to the ocean.",
+     "walkthrough": "'Dictator' makes you think of Mao, but it means someone speaking aloud: CIAO MAIN said aloud is CHOW MEIN.",
+     "definitionFit": "Chow mein is a classic dish of fried noodles served in Chinese restaurants and takeaways."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dictator's"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +101,47 @@
     "text": "Show contempt for Turner",
     "enumeration": "4"
    },
-   "solution": "SPIT"
+   "solution": "SPIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPIT",
+    "definitions": [
+     {
+      "text": "Show contempt",
+      "at": 0
+     },
+     {
+      "text": "Turner",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show contempt",
+      "note": "first meaning: to eject saliva as an insult"
+     },
+     {
+      "clueFragment": "Turner",
+      "note": "second meaning: a rod on which meat is turned over a fire"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sneering at the painter J. M. W. Turner.",
+     "walkthrough": "The capital T makes Turner look like the painter; it is just something that turns.",
+     "definitionFit": "Spitting expresses scorn, and a roasting spit rotates meat above flames, which makes it a turning device."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +155,45 @@
     "text": "Hold up the basket",
     "enumeration": "6"
    },
-   "solution": "HAMPER"
+   "solution": "HAMPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAMPER",
+    "definitions": [
+     {
+      "text": "Hold up",
+      "at": 0
+     },
+     {
+      "text": "basket",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hold up",
+      "note": "first meaning: to delay or obstruct"
+     },
+     {
+      "clueFragment": "basket",
+      "note": "second meaning: a lidded wicker container, often for picnic food"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to lift a basket into the air.",
+     "definitionFit": "To hamper progress is to impede or delay it, and a picnic hamper is a large wicker container with a lid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hold"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +207,70 @@
     "text": "Shrink asks for trousers to be pulled up (about time!",
     "enumeration": "7"
    },
-   "solution": "SHRIVEL"
+   "solution": "SHRIVEL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SHRIVEL",
+    "definitions": [
+     {
+      "text": "Shrink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pulled up",
+      "for": "reversal",
+      "note": "in a down clue, pulling something up reads its letters from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the first piece wraps around the second"
+     }
+    ],
+    "linkWords": [
+     "asks for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trousers",
+      "gives": "LEVIS",
+      "note": "Levi's are a brand of jeans"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "HR",
+      "note": "HR is the abbreviation for hour, a unit of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HR",
+      "IVEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEVIS",
+       "to": "SIVEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone impatiently demanding that trousers be pulled up at last.",
+     "walkthrough": "The reversed jeans brand SIVEL goes around HR, giving S-HR-IVEL. The stray bracket is in the source.",
+     "definitionFit": "To shrivel is to shrink and wrinkle, as a dried leaf or grape contracts when losing moisture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shrink"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +284,77 @@
     "text": "One has one covered by observing rising spark",
     "enumeration": "8"
    },
-   "solution": "IGNITION"
+   "solution": "IGNITION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "IGNITION",
+    "definitions": [
+     {
+      "text": "spark",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising reads a word from the bottom upwards"
+     },
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another thing sits inside it"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "observing",
+      "gives": "NOTING",
+      "note": "noting means observing"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "GNIT",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOTING",
+       "to": "GNITON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling statement about someone noticing a rising spark.",
+     "walkthrough": "'One has one' reads like a riddle; the second numeral is the one wrapped up, while the first simply leads.",
+     "definitionFit": "Ignition is the act of setting something alight, and a spark is what sets off combustion in an engine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "observing"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +368,50 @@
     "text": "Eleventh hour must entail chaos!",
     "enumeration": "10"
    },
-   "solution": "LASTMINUTE"
+   "solution": "LASTMINUTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LASTMINUTE",
+    "definitions": [
+     {
+      "text": "Eleventh hour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaos",
+      "for": "anagram",
+      "note": "chaos is total disorder, so the letters before it are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "must entail",
+      "gives": "MUSTENTAIL",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUSTENTAIL",
+       "gives": "LASTMINUTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim warning that a deadline crisis is bound to cause mayhem.",
+     "definitionFit": "The eleventh hour is an idiom for the latest possible moment, just before a deadline runs out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entail"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +425,47 @@
     "text": "Young flier with a ring through the ear",
     "enumeration": "6"
    },
-   "solution": "CYGNET"
+   "solution": "CYGNET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CYGNET",
+    "definitions": [
+     {
+      "text": "Young flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through the ear",
+      "for": "homophone",
+      "note": "something taken in through the ear is heard, not read"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a ring",
+      "gives": "CYGNET",
+      "soundsLike": "SIGNET",
+      "note": "a signet is a ring bearing a seal"
+     }
+    ],
+    "explanation": {
+     "surface": "A young bird ringed for tracking, or a youngster with a pierced ear.",
+     "definitionFit": "A cygnet is a baby swan, so it is a juvenile bird that will learn to fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ear"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +479,62 @@
     "text": "Joint left in clean type of injury",
     "enumeration": "8"
    },
-   "solution": "WHIPLASH"
+   "solution": "WHIPLASH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WHIPLASH",
+    "definitions": [
+     {
+      "text": "type of injury",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding pieces inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clean",
+      "gives": "WASH",
+      "note": "to wash is to clean"
+     },
+     {
+      "clueFragment": "Joint",
+      "gives": "HIP",
+      "note": "the hip is a joint"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIP",
+      "L",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical note about a joint injury cleaned on the left side.",
+     "walkthrough": "'Joint left' looks like a description of the injured spot; the two pieces go together inside the washing word.",
+     "definitionFit": "Whiplash is a neck injury caused by the head snapping suddenly forward and back, typical in car crashes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +548,43 @@
     "text": "It could take boat or train to Easy Street",
     "enumeration": "5"
    },
-   "solution": "GRAVY"
+   "solution": "GRAVY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GRAVY",
+    "definitions": [
+     {
+      "text": "Easy Street",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It could take boat or train",
+      "note": "surface reading: some traveller who might choose a ship or a railway"
+     },
+     {
+      "clueFragment": "It could take boat or train",
+      "note": "setter's reading: a word that combines with boat and with train to make familiar compounds"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller choosing between ferry and rail to reach a comfortable life.",
+     "walkthrough": "A gravy boat holds sauce and the gravy train is easy money; Easy Street is an idiom for a life of comfort.",
+     "definitionFit": "In slang the word means money or profit gained with little effort, the comfortable life of Easy Street."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boat"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +598,48 @@
     "text": "Smart hit given to kid that's too smart, say",
     "enumeration": "4"
    },
-   "solution": "SWAT"
+   "solution": "SWAT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SWAT",
+    "definitions": [
+     {
+      "text": "Smart hit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks you to speak the word and listen to how it comes out"
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kid that's too smart",
+      "gives": "SWAT",
+      "soundsLike": "SWOT",
+      "note": "a swot is British slang for a pupil who studies too hard"
+     }
+    ],
+    "explanation": {
+     "surface": "A clever child getting a sharp slap for being too clever.",
+     "walkthrough": "In British speech swot and swat sound the same.",
+     "definitionFit": "A swat is a sharp blow, as with a hand or fly swatter, and smart here means stinging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Smart"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +653,65 @@
     "text": "Greek character first in line to be a barbarian",
     "enumeration": "10"
    },
-   "solution": "PHILISTINE"
+   "solution": "PHILISTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PHILISTINE",
+    "definitions": [
+     {
+      "text": "a barbarian",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells you to place the preceding piece inside the following word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "PHI",
+      "note": "phi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "LINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first is written 1ST, and the 1 reads as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHI",
+      "L",
+      "IST",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek letter leading a queue becomes a savage.",
+     "walkthrough": "'First in line' reads as a phrase about queueing; instead first is written 1ST, the 1 read as I, and goes inside the line.",
+     "definitionFit": "A philistine is an uncultured person hostile to art and learning, a boor in the figurative sense of barbarian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +725,53 @@
     "text": "Part of corset undone",
     "enumeration": "6"
    },
-   "solution": "SECTOR"
+   "solution": "SECTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SECTOR",
+    "definitions": [
+     {
+      "text": "Part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undone",
+      "for": "anagram",
+      "note": "a garment that is undone has come apart, so its letters fall into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corset",
+      "gives": "CORSET",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CORSET",
+       "gives": "SECTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of a corset that has come unlaced.",
+     "definitionFit": "A sector is a division or portion of a whole, such as a section of an economy or a circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "undone"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +791,62 @@
      }
     ]
    },
-   "solution": "TEENYWEENY"
+   "solution": "TEENYWEENY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEENY-WEENY",
+    "definitions": [
+     {
+      "text": "Minute",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "points to",
+      "gives": "EEN",
+      "note": "three compass points: east, east, north"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y is the abbreviation for years"
+     },
+     {
+      "clueFragment": "points to years",
+      "gives": "WEENY",
+      "note": "compass points west, east, east, north, then Y for years"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EEN",
+      "Y",
+      "WEENY"
+     ]
+    },
+    "explanation": {
+     "surface": "A time-keeping note in which points lead to years over and over.",
+     "walkthrough": "'Minute' looks like a unit of time, but it is the adjective meaning tiny. The compass points E, N and W supply most letters.",
+     "definitionFit": "Teeny-weeny is a playful reduplicated word for extremely small, so it matches minute in the sense of tiny."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minute"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +860,67 @@
     "text": "Those backing winners, some stepping over to collect first",
     "enumeration": "8"
    },
-   "solution": "ELITISTS"
+   "solution": "ELITISTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ELITISTS",
+    "definitions": [
+     {
+      "text": "Those backing winners",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means flipped end to end"
+     },
+     {
+      "text": "to collect",
+      "for": "container",
+      "note": "to collect something is to gather it in, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some stepping",
+      "gives": "STILE",
+      "note": "a stile is a set of steps for crossing a fence"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first is written 1ST, with the 1 read as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELIT",
+      "IST",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "STILE",
+       "to": "ELITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gamblers backing winners, some crossing over to take their money first.",
+     "walkthrough": "'Stepping over' looks like one phrase, but over is the turnaround signal for the stile.",
+     "definitionFit": "Elitists favour rule or privilege by a superior few, so they champion those at the top, the winners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stepping"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +934,65 @@
     "text": "Dishevelled member tucks into feast, but no starter",
     "enumeration": "7"
    },
-   "solution": "UNKEMPT"
+   "solution": "UNKEMPT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "UNKEMPT",
+    "definitions": [
+     {
+      "text": "Dishevelled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no starter",
+      "for": "deletion",
+      "note": "with no starter, the word loses its opening letter"
+     },
+     {
+      "text": "tucks into",
+      "for": "container",
+      "note": "tucking into means going inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feast",
+      "gives": "JUNKET",
+      "note": "a junket is a feast or jaunt"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNKE",
+      "MP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A scruffy politician digging into a banquet without bothering with the first course.",
+     "walkthrough": "'No starter' fits the banquet picture as a skipped first course, but it removes the first letter of the feast word.",
+     "definitionFit": "Unkempt literally means uncombed and describes untidy hair or appearance, the same as dishevelled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1006,64 @@
     "text": "Vessel contains nearly all of palm oil",
     "enumeration": "8"
    },
-   "solution": "PARAFFIN"
+   "solution": "PARAFFIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PARAFFIN",
+    "definitions": [
+     {
+      "text": "oil",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains says the first piece holds the second inside it"
+     },
+     {
+      "text": "nearly all",
+      "for": "deletion",
+      "note": "nearly all means everything but the last letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vessel",
+      "gives": "PAN",
+      "note": "a pan is a cooking vessel"
+     },
+     {
+      "clueFragment": "palm",
+      "gives": "RAFFIA",
+      "note": "raffia is a palm tree whose fibre is used for weaving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "RAFFI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A container holding nearly all of a supply of palm oil.",
+     "walkthrough": "'Palm oil' reads as one product, but palm is the raffia tree and oil the definition.",
+     "definitionFit": "Paraffin is the British name for kerosene, a fuel oil refined from petroleum and burned in lamps and heaters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "palm"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1077,55 @@
     "text": "Trendy young reporter on the Guardian is a demon",
     "enumeration": "7"
    },
-   "solution": "INCUBUS"
+   "solution": "INCUBUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCUBUS",
+    "definitions": [
+     {
+      "text": "a demon",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "young reporter",
+      "gives": "CUB",
+      "note": "a cub reporter is a novice journalist"
+     },
+     {
+      "clueFragment": "on the Guardian",
+      "gives": "US",
+      "note": "the Guardian refers to itself as us, since this clue appears in that paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CUB",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper story about a fashionable trainee journalist being devilish.",
+     "definitionFit": "An incubus is a male evil spirit of folklore said to lie upon sleepers, so it is a kind of fiend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1139,73 @@
     "text": "Seldom seen punctuation mark not entirely punc-tuating abstract noun",
     "enumeration": "8"
    },
-   "solution": "UNCOMMON"
+   "solution": "UNCOMMON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "UNCOMMON",
+    "definitions": [
+     {
+      "text": "Seldom seen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not entirely means the word is cut short by its final letter"
+     },
+     {
+      "text": "abstract",
+      "for": "anagram",
+      "note": "to abstract is to draw out and rework, so the following word's letters are rearranged"
+     },
+     {
+      "text": "punc-tuating",
+      "for": "container",
+      "note": "punctuating means breaking into something, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noun",
+      "gives": "NOUN",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "punctuation mark",
+      "gives": "COMMA",
+      "note": "a comma is a punctuation mark"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "COMM",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOUN",
+       "gives": "UNON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar lesson about a rare punctuation mark breaking up an abstract noun.",
+     "walkthrough": "'Abstract noun' is a grammar term, but abstract is the anagram signal. COMMA loses its last A and goes inside UNON.",
+     "definitionFit": "Something uncommon is rarely met with, out of the ordinary, so it is seldom seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abstract"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1219,48 @@
     "text": "What to do with a plan, say? The axe?",
     "enumeration": "7"
    },
-   "solution": "HATCHET"
+   "solution": "HATCHET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HATCHET",
+    "definitions": [
+     {
+      "text": "axe",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say tells you to speak the phrase and listen to its sound"
+     }
+    ],
+    "linkWords": [
+     "The"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What to do with a plan",
+      "gives": "HATCHET",
+      "soundsLike": "HATCH IT",
+      "note": "you hatch a plan, devising it in secret"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asking whether a plan should be scrapped.",
+     "walkthrough": "'The axe' reads as the cancellation of the plan, but it simply defines the tool.",
+     "definitionFit": "A hatchet is a small short-handled axe used with one hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plan"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1280,43 @@
      }
     ]
    },
-   "solution": "GREYAREA"
+   "solution": "GREYAREA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GREY AREA",
+    "definitions": [
+     {
+      "text": "Something lacking definition",
+      "at": 0
+     },
+     {
+      "text": "such as an elephant's bottom",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Something lacking definition",
+      "note": "first meaning: a matter that is not clear-cut"
+     },
+     {
+      "clueFragment": "such as an elephant's bottom",
+      "note": "second meaning, taken literally: a part of an elephant, whose hide is that colour"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is whimsical: an elephant's rear is literally a region of its body that is grey.",
+     "definitionFit": "A grey area is an ambiguous situation without clear rules, and literally any region coloured grey, like elephant skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "definition"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1330,61 @@
     "text": "Revolutionary, one with testament withheld, ran amok",
     "enumeration": "6"
    },
-   "solution": "RIOTED"
+   "solution": "RIOTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RIOTED",
+    "definitions": [
+     {
+      "text": "ran amok",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withheld",
+      "for": "container",
+      "note": "something withheld is kept held within, so these pieces sit inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary",
+      "gives": "RED",
+      "note": "a red is a communist revolutionary"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "testament",
+      "gives": "OT",
+      "note": "OT is the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "OT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel who was denied his will went on the rampage.",
+     "definitionFit": "To riot is to take part in a violent public disturbance, running wild like an unruly crowd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "testament"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1398,49 @@
     "text": "Cleaner wants black to drain off",
     "enumeration": "6"
    },
-   "solution": "BLEACH"
+   "solution": "BLEACH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLEACH",
+    "definitions": [
+     {
+      "text": "Cleaner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "drain off",
+      "gives": "LEACH",
+      "note": "to leach is to drain away by percolation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LEACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner wanting dark water to run away.",
+     "definitionFit": "Bleach is a chemical used for whitening and disinfecting, so it is a household cleaning product."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleaner"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1454,63 @@
     "text": "Poor country without many to torment",
     "enumeration": "6"
    },
-   "solution": "BADGER"
+   "solution": "BADGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BADGER",
+    "definitions": [
+     {
+      "text": "torment",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the following word is taken away"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor",
+      "gives": "BAD",
+      "note": "poor quality is bad"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "GERMANY",
+      "note": "a European country"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "MANY",
+      "note": "taken as written, to be removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "A poor nation lacking people, left to suffer.",
+     "walkthrough": "MANY comes out of GERMANY, leaving GER.",
+     "definitionFit": "To badger someone is to pester them persistently, harassing them as hounds once harried a cornered animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "many"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1530,52 @@
      }
     ]
    },
-   "solution": "POKERFACED"
+   "solution": "POKERFACED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "POKER-FACED",
+    "definitions": [
+     {
+      "text": "with an appropriate countenance",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rendered",
+      "for": "anagram",
+      "note": "rendered means made into something else, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peek of card",
+      "gives": "PEEKOFCARD",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PEEKOFCARD",
+       "gives": "POKERFACED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A card player sneaking a look at their hand while keeping a straight face.",
+     "walkthrough": "The face that suits a glimpse at one's cards is the blank one used at the poker table.",
+     "definitionFit": "Poker-faced means showing no emotion, the expressionless look card players adopt to hide their hands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rendered"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1589,57 @@
     "text": "Male involved in impertinence is slack",
     "enumeration": "4"
    },
-   "solution": "LIMP"
+   "solution": "LIMP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIMP",
+    "definitions": [
+     {
+      "text": "slack",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "involved in means caught up inside something"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impertinence",
+      "gives": "LIP",
+      "note": "lip is cheek or insolence"
+     },
+     {
+      "clueFragment": "Male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "M",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky man who is lazy.",
+     "definitionFit": "Limp means lacking firmness or tension, so a limp rope hangs loose and slack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Male"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1653,52 @@
     "text": "One instrument or another needing no introduction",
     "enumeration": "4"
    },
-   "solution": "LUTE"
+   "solution": "LUTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUTE",
+    "definitions": [
+     {
+      "text": "One instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing no introduction",
+      "for": "deletion",
+      "note": "with no introduction, the opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another",
+      "gives": "FLUTE",
+      "note": "another instrument, a woodwind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician who is so famous they need no introduction.",
+     "walkthrough": "'Needing no introduction' sounds like celebrity praise; here it removes the F of FLUTE.",
+     "definitionFit": "The lute is a plucked string instrument with a rounded back, popular in Renaissance music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1712,64 @@
     "text": "Boredom is universal during unlimited sport",
     "enumeration": "5"
    },
-   "solution": "ENNUI"
+   "solution": "ENNUI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ENNUI",
+    "definitions": [
+     {
+      "text": "Boredom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during places something in the middle of something else"
+     },
+     {
+      "text": "unlimited",
+      "for": "deletion",
+      "note": "unlimited means without its limits, the first and last letters"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film certificate for universal viewing"
+     },
+     {
+      "clueFragment": "sport",
+      "gives": "TENNIS",
+      "note": "tennis is a sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENN",
+      "U",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that tedium is everywhere during endless games.",
+     "walkthrough": "TENNIS loses its outer letters to give ENNI, and U goes inside.",
+     "definitionFit": "Ennui is a French loan word for listless weariness and dissatisfaction caused by lack of interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unlimited"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1783,51 @@
     "text": "Process involving choice when leaderless",
     "enumeration": "8"
    },
-   "solution": "ELECTION"
+   "solution": "ELECTION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELECTION",
+    "definitions": [
+     {
+      "text": "Process involving choice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaderless",
+      "for": "deletion",
+      "note": "without a leader, the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Process involving choice",
+      "gives": "SELECTION",
+      "note": "picking from options is a selection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A voting procedure in which nobody is in charge.",
+     "walkthrough": "The same phrase is read twice: once as SELECTION, which loses its S, and once as the definition of the result.",
+     "definitionFit": "An election is a formal vote in which people choose a candidate for office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaderless"
+    }
+   }
   }
  ]
 }
