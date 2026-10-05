@@ -48,9 +48,9 @@ GRACE=1800
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
-# Grid reader: lattice fitted to warped, marked and stickered scans (e9b8d39),
-# after the heading/bracket, faint-foot, grey-block and clue-number readers
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-05T14:43:41+00:00}"
+# Scan filer: clue lines a skewed page's column windows cut are kept (1158477),
+# after the grid lattice fit to warped, marked and stickered scans (e9b8d39)
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-05T22:47:50+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
 
 attempt_push() {
