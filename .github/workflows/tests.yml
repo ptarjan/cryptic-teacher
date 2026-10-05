@@ -17,9 +17,9 @@
 # tools/test_ci_coverage.js asserts that every test entry point is matched here,
 # so the next file to be named something new fails rather than disappearing.
 #
-# The scripts are spread over parallel `test` jobs, because the runner has two
-# cores and backgrounding CPU-bound scripts inside one job cannot beat
-# total-CPU/2. Each job globs the WHOLE list and asks tools/ci_shards.js for one
+# The scripts are spread over parallel `test` jobs, and within a job the
+# single-threaded slices of the smoke test run side by side on the runner's
+# four cores (ci_shards.js's PARALLEL). Each job globs the WHOLE list and asks tools/ci_shards.js for one
 # slice of it; the split is a pure function of that list, so the jobs partition
 # it without coordinating and a file matched by the globs runs in exactly one of
 # them. The wall clock is therefore the slowest single item plus setup; a
@@ -66,8 +66,8 @@ jobs:
   generated:
     name: generated files are current
     runs-on: ubuntu-latest
-    # One python builder over files already in the clone; seconds, not minutes.
-    timeout-minutes: 5
+    # Python over files already in the clone; the corpus check is most of it.
+    timeout-minutes: 10
     defaults:
       run:
         shell: bash .github/offline.sh {0}
@@ -84,6 +84,9 @@ jobs:
           python3 tools/build_annotate_prompt.py >/dev/null
           git diff --exit-code tools/annotate_prompt.md \
             || fails+=("annotate_prompt.md reference section: run tools/build_annotate_prompt.py")
+          # The whole corpus through the integrity checker, once per run;
+          # tools/test_puzzle_integrity.sh tests the checker on fixtures.
+          python3 tools/puzzle_integrity.py --quiet || fails+=("tools/puzzle_integrity.py found a corpus defect")
           if [ "${#fails[@]}" -gt 0 ]; then
             echo "FAILED: ${#fails[@]}"
             for f in "${fails[@]}"; do echo "  - $f"; done
@@ -102,9 +105,9 @@ jobs:
         # removing an entry here is the only edit a reshard needs.
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. A shard is about six
+    # holding a red check over every commit behind it. A shard is about seven
     # minutes of checkout, build and scripts; fifteen leaves room for a slow
-    # runner and a growing corpus, and still fails a stall inside a quarter hour.
+    # runner, and a shard near it means ci_shards.js's COST needs re-measuring.
     timeout-minutes: 15
     defaults:
       run:
@@ -167,7 +170,17 @@ jobs:
           mapfile -t mine < "$RUNNER_TEMP/mine"
           before=$(git status --porcelain)
           fails=()
-          for item in "${mine[@]}"; do
+          # ci_shards.js's PARALLEL items start at once, in the background,
+          # each logging to its own file; the rest run one by one beside them.
+          mapfile -t par < <(node tools/ci_shards.js --parallel < "$RUNNER_TEMP/mine")
+          mapfile -t seq < <(node tools/ci_shards.js --serial < "$RUNNER_TEMP/mine")
+          pids=()
+          for n in "${!par[@]}"; do
+            item=${par[$n]}
+            CI_SLICE="${item#* }" node "${item%% *}" > "$RUNNER_TEMP/par-$n.log" 2>&1 &
+            pids+=($!)
+          done
+          for item in "${seq[@]}"; do
             t=${item%% *}
             slice=
             [ "$item" = "$t" ] || slice=${item#* }
@@ -190,6 +203,17 @@ jobs:
               before="$after"
             fi
           done
+          for n in "${!par[@]}"; do
+            echo "::group::node ${par[$n]}"
+            wait "${pids[$n]}" || fails+=("${par[$n]}")
+            cat "$RUNNER_TEMP/par-$n.log"
+            echo "::endgroup::"
+          done
+          if [ "$(git status --porcelain)" != "$before" ]; then
+            echo "a parallel item left the working tree dirty:"
+            git status --porcelain
+            fails+=("${par[*]} left the working tree dirty")
+          fi
           if [ "${#fails[@]}" -gt 0 ]; then
             # One per line. Space-joined, two failures read as one name with a
             # stray word in front of it, which sends the reader to the wrong file.
