@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,74 @@
     "text": "Mr Cruise takes a cruise, first on one river then another",
     "enumeration": "7"
    },
-   "solution": "POTOMAC"
+   "solution": "POTOMAC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POTOMAC",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 50,
+      "note": "stands for 'another river'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one river",
+      "gives": "PO",
+      "note": "the Po is the great river of northern Italy"
+     },
+     {
+      "clueFragment": "Mr Cruise",
+      "gives": "TOM",
+      "note": "Tom Cruise, the film star"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cruise",
+      "gives": "C",
+      "select": "first",
+      "note": "opening letter of cruise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "TOM",
+      "A",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A film star enjoys a river cruise that moves from one waterway to the next.",
+     "walkthrough": "'on one river' puts PO in front of the rest; 'another' is the definition, a second river: POTOMAC, which flows through Washington DC.",
+     "definitionFit": "The Potomac is a North American waterway, so it is a different river from the Italian Po used in the wordplay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cruise"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +117,59 @@
     "text": "Father waits outside for fruit",
     "enumeration": "6"
    },
-   "solution": "PAPAWS"
+   "solution": "PAPAWS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PAPAWS",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "letter_selection",
+      "note": "outside asks for just the two letters at the edges of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "PAPA",
+      "note": "a child's word for a father"
+     },
+     {
+      "clueFragment": "waits",
+      "gives": "WS",
+      "select": "outer",
+      "note": "the outermost letters of waits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAPA",
+      "WS"
+     ]
+    },
+    "explanation": {
+     "surface": "A dad hangs about outdoors before going off for some fruit.",
+     "walkthrough": "'waits outside' looks like a father standing outdoors, but it means the outside letters of waits.",
+     "definitionFit": "Papaws, also spelt pawpaws, are tropical fruits, another name for papayas, so the plural matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,61 @@
     "text": "Short treatises about street transport",
     "enumeration": "6"
    },
-   "solution": "TRACTS"
+   "solution": "TRACTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRACTS",
+    "definitions": [
+     {
+      "text": "Short treatises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the joined words run from the far end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "standard abbreviation for street"
+     },
+     {
+      "clueFragment": "transport",
+      "gives": "CART",
+      "note": "a cart is a simple means of transport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAC",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "STCART",
+       "to": "TRACTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Brief essays dealing with roads and public transport.",
+     "walkthrough": "ST and CART together read backwards give TRACTS.",
+     "definitionFit": "A tract is a short pamphlet or essay arguing a religious or political point, so brief treatises in the plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +257,55 @@
      }
     ]
    },
-   "solution": "MINDREADER"
+   "solution": "MINDREADER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MIND-READER",
+    "definitions": [
+     {
+      "text": "Psychic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one word wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worker going underground",
+      "gives": "MINER",
+      "note": "a miner works below the surface"
+     },
+     {
+      "clueFragment": "fear",
+      "gives": "DREAD",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "DREAD",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clairvoyant labourer goes down the pit with no sense of fear.",
+     "walkthrough": "'without fear' reads as fearless, but without is used in its old sense of outside.",
+     "definitionFit": "A mind-reader claims to know others' thoughts by telepathy, which is exactly what a psychic noun describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +319,50 @@
     "text": "Animal taking cover on island",
     "enumeration": "5"
    },
-   "solution": "COATI"
+   "solution": "COATI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COATI",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "COAT",
+      "note": "a coat covers, as a coat of paint"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "standard abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COAT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature seeks shelter on an island.",
+     "definitionFit": "The coati is a raccoon-like mammal with a long snout from the Americas, so a specific animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +376,55 @@
     "text": "Some milk I left for a duck",
     "enumeration": "7"
    },
-   "solution": "PINTAIL"
+   "solution": "PINTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINTAIL",
+    "definitions": [
+     {
+      "text": "a duck",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some milk",
+      "gives": "PINTA",
+      "note": "a pinta is British slang for a pint of milk, from an old advertising slogan"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PINTA",
+      "I",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaves a little milk out to feed a duck.",
+     "walkthrough": "PINTA, a pint of milk, comes from the 1950s British slogan 'Drinka Pinta Milka Day'.",
+     "definitionFit": "The pintail is a slender dabbling duck with a long pointed tail, so it names one kind of waterfowl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +438,56 @@
     "text": "Dolly bird entered temple",
     "enumeration": "9"
    },
-   "solution": "PARTHENON"
+   "solution": "PARTHENON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARTHENON",
+    "definitions": [
+     {
+      "text": "temple",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entered",
+      "for": "container",
+      "note": "something that has entered is now inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dolly",
+      "gives": "PARTON",
+      "note": "Dolly Parton, the country singer"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "HEN",
+      "note": "a hen is a bird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PART",
+      "HEN",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl went into a place of worship.",
+     "walkthrough": "Dolly bird is British slang for an attractive young woman, but here Dolly is the singer and bird a hen: PART(HEN)ON.",
+     "definitionFit": "The Parthenon is the ancient Greek shrine to Athena on the Acropolis of Athens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dolly"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +501,49 @@
     "text": "Regency architect from the north remains",
     "enumeration": "4"
    },
-   "solution": "NASH"
+   "solution": "NASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NASH",
+    "definitions": [
+     {
+      "text": "Regency architect",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the north",
+      "gives": "N",
+      "note": "standard abbreviation for north"
+     },
+     {
+      "clueFragment": "remains",
+      "gives": "ASH",
+      "note": "ash is what remains after burning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Regency architect's body is brought back from the north.",
+     "definitionFit": "John Nash designed Regent Street and Brighton Pavilion during the British Regency era of the early nineteenth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remains"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +557,65 @@
     "text": "A game soldier taking arrowhead for self-defence",
     "enumeration": "8"
    },
-   "solution": "APOLOGIA"
+   "solution": "APOLOGIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "APOLOGIA",
+    "definitions": [
+     {
+      "text": "self-defence",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "POLO",
+      "note": "polo is a game played on horseback"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     },
+     {
+      "clueFragment": "arrowhead",
+      "gives": "A",
+      "select": "first",
+      "note": "the head of arrow is its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLO",
+      "GI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A brave soldier takes up an arrow to protect himself.",
+     "walkthrough": "'arrowhead' is a single word in the surface, split as the head of arrow.",
+     "definitionFit": "An apologia is a formal written justification of one's own beliefs or conduct, a defence of oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +629,58 @@
     "text": "Spartan commander given only half a tool",
     "enumeration": "8"
    },
-   "solution": "LYSANDER"
+   "solution": "LYSANDER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LYSANDER",
+    "definitions": [
+     {
+      "text": "Spartan commander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half means one of the two halves of that word is thrown away"
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "only",
+      "gives": "ONLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a tool",
+      "gives": "SANDER",
+      "note": "a sander is a power tool for smoothing wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LY",
+      "SANDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A frugal general receives just half a tool.",
+     "walkthrough": "'Spartan' suggests austere, but it means from Sparta; the back half of only, LY, is kept.",
+     "definitionFit": "Lysander was the admiral of ancient Sparta who defeated the Athenian fleet and ended the Peloponnesian War."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "only"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +694,48 @@
     "text": "It's not fair to mourn",
     "enumeration": "5"
    },
-   "solution": "PLAIN"
+   "solution": "PLAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLAIN",
+    "definitions": [
+     {
+      "text": "not fair",
+      "at": 5
+     },
+     {
+      "text": "to mourn",
+      "at": 14,
+      "note": "an infinitive phrase for the verb"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not fair",
+      "note": "first meaning: not pretty, homely in looks"
+     },
+     {
+      "clueFragment": "to mourn",
+      "note": "second meaning: an old verb for lament, as in complain"
+     }
+    ],
+    "explanation": {
+     "surface": "A grieving person protests that life is unjust.",
+     "walkthrough": "'not fair' sounds like a complaint about injustice, but fair here means good-looking.",
+     "definitionFit": "Plain means unattractive in appearance, the opposite of fair, and as an archaic verb it means to lament or grieve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +749,83 @@
     "text": "Wearing a metal jacket, one gets no back injuries",
     "enumeration": "9"
    },
-   "solution": "ABRASIONS"
+   "solution": "ABRASIONS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "ABRASIONS",
+    "definitions": [
+     {
+      "text": "injuries",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word no is read from its end"
+     },
+     {
+      "text": "Wearing",
+      "for": "container",
+      "note": "wearing a jacket means being wrapped inside it"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "metal jacket",
+      "gives": "BRASS",
+      "note": "brass is a metal alloy, here the outer layer"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "ON",
+      "note": "the word no turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRAS",
+      "I",
+      "ON",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier in a metal-jacketed vest comes through without any back injuries.",
+     "walkthrough": "'metal jacket' sounds like body armour; it means the metal forms an outer layer round one and the turned word no.",
+     "definitionFit": "Abrasions are scrapes where skin has been rubbed away, a common kind of minor wound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +839,56 @@
     "text": "Drunk after drink is unassailable",
     "enumeration": "10"
    },
-   "solution": "WATERTIGHT"
+   "solution": "WATERTIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WATERTIGHT",
+    "definitions": [
+     {
+      "text": "unassailable",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first-named word behind the second one"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "WATER",
+      "note": "water is a drink"
+     },
+     {
+      "clueFragment": "Drunk",
+      "gives": "TIGHT",
+      "note": "tight is slang for drunk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATER",
+      "TIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drunk after drinking feels invincible.",
+     "definitionFit": "A watertight argument or case has no flaws through which it could be attacked, so it is beyond challenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +902,51 @@
     "text": "Petty Officer with navy blue material",
     "enumeration": "4"
    },
-   "solution": "PORN"
+   "solution": "PORN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PORN",
+    "definitions": [
+     {
+      "text": "blue material",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Petty Officer",
+      "gives": "PO",
+      "note": "standard abbreviation for Petty Officer"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "RN",
+      "note": "the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval officer brings a navy-blue fabric.",
+     "walkthrough": "'navy blue' reads as a colour, but navy is RN and blue means smutty.",
+     "definitionFit": "Blue in British usage means indecent or obscene, so blue material is pornographic content."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +960,50 @@
     "text": "Mythical murderer misleading court and press",
     "enumeration": "10"
    },
-   "solution": "PROCRUSTES"
+   "solution": "PROCRUSTES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROCRUSTES",
+    "definitions": [
+     {
+      "text": "Mythical murderer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misleading",
+      "for": "anagram",
+      "note": "misleading suggests the letters are led astray into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court and press",
+      "gives": "COURTPRESS",
+      "note": "the letters of court and press"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COURTPRESS",
+       "gives": "PROCRUSTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary killer deceives the judiciary and the newspapers.",
+     "definitionFit": "Procrustes was the Greek legend's bandit who stretched or lopped his guests to fit his bed, killing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "misleading"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1023,50 @@
      }
     ]
    },
-   "solution": "AUCONTRAIRE"
+   "solution": "AUCONTRAIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AU CONTRAIRE",
+    "definitions": [
+     {
+      "text": "Not at all!",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvre",
+      "for": "anagram",
+      "note": "a manoeuvre moves troops about, so these letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A recruit on a",
+      "gives": "ARECRUITONA",
+      "note": "the letters of a recruit on a"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARECRUITONA",
+       "gives": "AUCONTRAIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a raw recruit is on exercise and gets a flat denial.",
+     "definitionFit": "Au contraire is a French phrase used in English meaning on the contrary, a firm denial of what was said."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvre"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1080,53 @@
     "text": "Ragged cheer once needed sticking together",
     "enumeration": "9"
    },
-   "solution": "COHERENCE"
+   "solution": "COHERENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COHERENCE",
+    "definitions": [
+     {
+      "text": "sticking together",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ragged",
+      "for": "anagram",
+      "note": "something ragged is torn and messy, so the letters are in disorder"
+     }
+    ],
+    "linkWords": [
+     "needed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer once",
+      "gives": "CHEERONCE",
+      "note": "the letters of cheer once"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHEERONCE",
+       "gives": "COHERENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy cheer once called for some team unity.",
+     "definitionFit": "Coherence is the quality of parts holding together, literally cohesion and figuratively logical consistency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ragged"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1140,62 @@
     "text": "Damned prosecutor finally smothered by one on trial",
     "enumeration": "8"
    },
-   "solution": "ACCURSED"
+   "solution": "ACCURSED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACCURSED",
+    "definitions": [
+     {
+      "text": "Damned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally asks for only the closing letter of that word"
+     },
+     {
+      "text": "smothered by",
+      "for": "container",
+      "note": "smothered means covered over entirely, so it ends up inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one on trial",
+      "gives": "ACCUSED",
+      "note": "the accused is the person being tried"
+     },
+     {
+      "clueFragment": "prosecutor",
+      "gives": "R",
+      "select": "last",
+      "note": "closing letter of prosecutor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACCU",
+      "R",
+      "SED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cursed lawyer is overwhelmed by the defendant in court.",
+     "walkthrough": "'Damned prosecutor' reads as one phrase, but Damned stands alone as the definition.",
+     "definitionFit": "Accursed means under a curse, doomed or condemned, the same sense as damned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Damned"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1209,47 @@
     "text": "Chess expert losing last three family members",
     "enumeration": "8"
    },
-   "solution": "GRANDMAS"
+   "solution": "GRANDMAS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GRANDMAS",
+    "definitions": [
+     {
+      "text": "family members",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing last three",
+      "for": "deletion",
+      "note": "losing last three says the final trio of letters is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chess expert",
+      "gives": "GRANDMASTER",
+      "note": "a grandmaster is a top-ranked chess player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRANDMAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess champion drops three games at the end of a match.",
+     "definitionFit": "Grandmothers, informally grandmas, are relatives two generations up, so they belong to a family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1269,72 @@
      }
     ]
    },
-   "solution": "CARMECHANIC"
+   "solution": "CARMECHANIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CAR MECHANIC",
+    "definitions": [
+     {
+      "text": "service provider",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means holding something within, so the gypsy is split open around it"
+     }
+    ],
+    "linkWords": [
+     "break -"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noted Spanish gypsy",
+      "gives": "CARMEN",
+      "note": "Carmen is the gypsy heroine of Bizet's opera, so noted as in set to music"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is British slang for tea"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scoring abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARME",
+      "CHA",
+      "N",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous Spanish gypsy pauses for tea, then is snared by someone offering a service.",
+     "walkthrough": "Noted hints at music: Carmen is Bizet's opera heroine. Cha is British slang for tea, and c for caught comes from cricket scoring.",
+     "definitionFit": "A car mechanic services vehicles, and a car service is the routine maintenance a garage provides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Noted"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1348,44 @@
     "text": "Part of a wooden seat from Hans Christian Andersen's birthplace",
     "enumeration": "6"
    },
-   "solution": "ODENSE"
+   "solution": "ODENSE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ODENSE",
+    "definitions": [
+     {
+      "text": "Hans Christian Andersen's birthplace",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of signals that the letters sit inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a wooden seat",
+      "gives": "ODENSE",
+      "note": "letters running across wooden and seat"
+     }
+    ],
+    "explanation": {
+     "surface": "A piece of a wooden bench taken from the fairy-tale writer's hometown.",
+     "definitionFit": "Odense is the Danish city on the island of Funen where the fairy-tale author was born in 1805."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1399,53 @@
     "text": "Prepare girl for battle with the fleet",
     "enumeration": "6"
    },
-   "solution": "ARMADA"
+   "solution": "ARMADA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMADA",
+    "definitions": [
+     {
+      "text": "the fleet",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepare",
+      "gives": "ARM",
+      "note": "to arm is to make ready for fighting"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ADA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "for battle",
+      "note": "completes the phrase begun by prepare, padding inside it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "ADA"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is readied to go to war alongside the navy.",
+     "walkthrough": "The phrase 'prepare for battle' is split by the girl's name; only its first word supplies letters.",
+     "definitionFit": "An armada is a great fleet of warships, especially the Spanish one sent against England in 1588."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1459,47 @@
     "text": "Vessels a Scottish poet topped",
     "enumeration": "4"
    },
-   "solution": "URNS"
+   "solution": "URNS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "URNS",
+    "definitions": [
+     {
+      "text": "Vessels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topped",
+      "for": "deletion",
+      "note": "topped means having its top cut off, and in a down-reading sense the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Scottish poet",
+      "gives": "BURNS",
+      "note": "Robert Burns, Scotland's national poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "URNS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some vessels belonged to a Scottish poet who was executed.",
+     "definitionFit": "Urns are tall vases or containers, so vessels in the sense of receptacles rather than ships."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topped"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1513,49 @@
     "text": "A paid athlete has to go down deeper",
     "enumeration": "10"
    },
-   "solution": "PROFOUNDER"
+   "solution": "PROFOUNDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROFOUNDER",
+    "definitions": [
+     {
+      "text": "deeper",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "has to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A paid athlete",
+      "gives": "PRO",
+      "note": "a professional sportsman"
+     },
+     {
+      "clueFragment": "go down",
+      "gives": "FOUNDER",
+      "note": "a ship founders when it sinks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "FOUNDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A professional sportsman is forced to sink lower in the rankings.",
+     "definitionFit": "Profound means deep, physically or intellectually, so the comparative form matches deeper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "athlete"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1569,60 @@
     "text": "Fair odds allowed for a piece of meat",
     "enumeration": "5"
    },
-   "solution": "FILET"
+   "solution": "FILET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FILET",
+    "definitions": [
+     {
+      "text": "a piece of meat",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odds",
+      "for": "letter_selection",
+      "note": "odds means the letters in the odd-numbered places"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fair",
+      "gives": "FI",
+      "select": "alternate",
+      "note": "first and third letters of Fair"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bookmaker offers reasonable odds on a cut of meat.",
+     "walkthrough": "'Fair odds' sounds like betting, but means the odd letters of fair.",
+     "definitionFit": "A filet is a boneless cut of beef or fish, the French spelling of fillet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1636,64 @@
     "text": "Hairstyle for revolutionary or sportsmen",
     "enumeration": "4"
    },
-   "solution": "AFRO"
+   "solution": "AFRO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AFRO",
+    "definitions": [
+     {
+      "text": "Hairstyle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "revolutionary means turning round, so the joined words run from the end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sportsmen",
+      "gives": "FA",
+      "note": "the FA, the Football Association, governs English football"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AF",
+      "RO"
+     ],
+     "reversals": [
+      {
+       "from": "ORFA",
+       "to": "AFRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A haircut fit for a rebel or a footballer.",
+     "walkthrough": "'revolutionary' looks like a noun for a rebel, but it is the turnaround signal.",
+     "definitionFit": "An Afro is a rounded, bushy natural hairstyle associated with the 1970s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1707,50 @@
     "text": "Match at sea in sea film",
     "enumeration": "9"
    },
-   "solution": "SEMIFINAL"
+   "solution": "SEMIFINAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMIFINAL",
+    "definitions": [
+     {
+      "text": "Match",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused, so the letters are in disarray"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in sea film",
+      "gives": "INSEAFILM",
+      "note": "the letters of in sea film"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSEAFILM",
+       "gives": "SEMIFINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contest at sea appears in a seafaring movie.",
+     "definitionFit": "A semifinal is a game in a knockout competition whose winner advances to the final."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1764,65 @@
     "text": "Country where native leader is seen in Roman costume",
     "enumeration": "5"
    },
-   "solution": "TONGA"
+   "solution": "TONGA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TONGA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader is the one in front, here the opening letter"
+     },
+     {
+      "text": "is seen in",
+      "for": "container",
+      "note": "seen in places it inside the garment that follows"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman costume",
+      "gives": "TOGA",
+      "note": "the toga was the robe of a Roman citizen"
+     },
+     {
+      "clueFragment": "native",
+      "gives": "N",
+      "select": "first",
+      "note": "opening letter of native"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "N",
+      "GA"
+     ]
+    },
+    "explanation": {
+     "surface": "A tribal chief is spotted wearing a Roman robe.",
+     "walkthrough": "'native leader' looks like a chief, but leader just means the opening letter.",
+     "definitionFit": "Tonga is a Polynesian kingdom of islands in the South Pacific, a sovereign nation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1836,51 @@
     "text": "Do spies change place in order?",
     "enumeration": "7"
    },
-   "solution": "DISPOSE"
+   "solution": "DISPOSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISPOSE",
+    "definitions": [
+     {
+      "text": "place in order",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "change asks for the letters to be altered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do spies",
+      "gives": "DOSPIES",
+      "note": "the letters of do spies"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOSPIES",
+       "gives": "DISPOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether secret agents swap positions in a regular sequence.",
+     "walkthrough": "'change place' looks like one phrase; the definition starts at place.",
+     "definitionFit": "To dispose, in its older sense, is to arrange or set out things in a particular arrangement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1894,60 @@
     "text": "Piece of mosaic Greek god put back",
     "enumeration": "7"
    },
-   "solution": "TESSERA"
+   "solution": "TESSERA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TESSERA",
+    "definitions": [
+     {
+      "text": "Piece of mosaic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the joined words are read from their end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek god",
+      "gives": "ARES",
+      "note": "Ares is the Greek god of war"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "SET",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TES",
+      "SERA"
+     ],
+     "reversals": [
+      {
+       "from": "ARESSET",
+       "to": "TESSERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A god from Greek myth is restored to his place in a mosaic.",
+     "definitionFit": "A tessera is one of the small square tiles of stone or glass that make up a mosaic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "put"
+    }
+   }
   }
  ]
 }
