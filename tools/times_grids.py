@@ -57,6 +57,8 @@ SIZE = {
     "TLS Crossword": 15,
     # fifteensquared's category, for tools/ft_puzzles.py.
     "FT": 15,
+    # fifteensquared's category, for tools/azed_puzzles.py.
+    "Azed": 12,
     # tools/indy_puzzles.py's series keys, off the same blog.
     "independent": 15,
     "indysunday": 15,
@@ -80,7 +82,11 @@ SIZE = {
 #: The BARRED series: thick lines between cells and no black squares, so the
 #: numbering alone fixes nothing, but every cell holds a letter and the
 #: answers pin the bars down (tools/barred_grid.py).
-BARRED = {"Mephisto", "mephisto"}
+BARRED = {"Mephisto", "mephisto", "Azed", "azed"}
+#: A barred series printed at more than one (cols, rows), each tried in turn;
+#: one fill over all of them is a unique grid. Azed runs 12x12 and 13 wide by
+#: 11 deep most weeks.
+BARRED_SHAPES = {"Azed": ((12, 12), (13, 11), (11, 13), (13, 12), (12, 13), (13, 13))}
 
 
 #: A 15x15 holds at most this many lights; a Weekend post with more is the
@@ -603,14 +609,18 @@ def answers(rec, row):
 
 def solve_barred(rec, n):
     """solve() for a barred grid: its bars, as the grid rows light_cells reads."""
-    placements = bg.solve(rec["entries"], size=n)
-    if placements is None:
-        return [], "rejected: a light shorter than two letters, or numbered twice"
-    if not placements:
+    fits = []
+    for shape in BARRED_SHAPES.get(rec["series"], (n,)):
+        placements = bg.solve(rec["entries"], size=shape)
+        if placements is None:
+            return [], "rejected: a light shorter than two letters, or numbered twice"
+        fits += [(shape, p) for p in placements]
+    if not fits:
         return [], "no grid"
-    if len(placements) > 1:
+    if len(fits) > 1:
         return [], "2 grids fit the answers"
-    return [tuple(bg.layout(rec["entries"], placements[0], size=n)[1])], "unique"
+    shape, placement = fits[0]
+    return [tuple(bg.layout(rec["entries"], placement, size=shape)[1])], "unique"
 
 
 #: The most splits of a record's linked answers solve() tries. Each is one

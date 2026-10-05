@@ -255,6 +255,11 @@ ACQUIRED_BY = {
         "channel": "blog",
         "what": "a fifteensquared write-up's clue list and answers, the grid "
                 "rebuilt from them by tools/times_grids.py's search"},
+    "tools/azed_puzzles.py": {
+        "channel": "blog",
+        "what": "a fifteensquared write-up of the Observer's Azed: its clues and "
+                "numbered answers, the bars rebuilt from them by "
+                "tools/barred_grid.py's search"},
     "tools/ft_pdf_puzzles.py": {
         "channel": "publisher",
         "what": "the FT's printable crossword PDF on media.ft.com, its grid read "
@@ -319,6 +324,8 @@ ACQUISITION_BY_SOURCE = {
     # The FT's printable PDFs of 2006-2012, before fifteensquared printed clues.
     ("ftcryptic", "media.ft.com"): ("tools/ft_pdf_puzzles.py",
                                     "tools/ft_pdf_puzzles.py --wayback"),
+    # A second series off fifteensquared, which BLOG_FILER names the FT's filer for.
+    ("azed", "fifteensquared.net"): ("tools/azed_puzzles.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
@@ -353,7 +360,7 @@ for _series in series_table.SERIES:
             "tools/file_penguin_puzzle.py", "tools/acquire_book.py")
     if "blog" in series_table.meta(_series):
         _blog = series_table.meta(_series)["blog"]
-        ACQUISITION_BY_SOURCE[(_series, _blog)] = (BLOG_FILER[_blog],)
+        ACQUISITION_BY_SOURCE.setdefault((_series, _blog), (BLOG_FILER[_blog],))
 #: The write-up hosts cryptics.georgeho.org scraped, each with the series
 #: tools/file_georgeho_puzzles.py files from it.
 GEORGEHO_HOSTS = {

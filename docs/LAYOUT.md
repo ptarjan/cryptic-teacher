@@ -473,6 +473,11 @@ tools/ft_pdf_puzzles.py                      files the FT cryptic of 2007-2012 f
                                              fifteensquared, filed only when the grid's
                                              numbering matches the clue list and every answer
                                              crosses
+tools/azed_puzzles.py                        files the Observer's barred Azed from
+                                             fifteensquared's cached write-ups: reads the clues
+                                             and numbered answers with the FT's reader and
+                                             rebuilds the bars from them, so a special whose
+                                             answers go in altered is not filed
 tools/listener_puzzles.py                    files the Listener crossword from the Listener
                                              Team's archive PDFs (clues, bars and letters read
                                              from the vector pages) and from Wayback copies of

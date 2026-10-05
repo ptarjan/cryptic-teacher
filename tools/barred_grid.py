@@ -26,6 +26,11 @@ from collections import defaultdict
 SIZE = 12
 
 
+def shape(size):
+    """(cols, rows) for a size: a side for a square grid, or (cols, rows)."""
+    return (size, size) if isinstance(size, int) else tuple(size)
+
+
 def letters(answer):
     return re.sub(r"[^A-Z]", "", (answer or "").upper())
 
@@ -68,7 +73,8 @@ def solve_words(entries, size=SIZE, cap=2):
     if not by_number:
         return None
     numbers = sorted(by_number)
-    n = size * size
+    cols, rows = shape(size)
+    n = cols * rows
     grid = [None] * n
     across = [False] * n
     down = [False] * n
@@ -107,10 +113,10 @@ def solve_words(entries, size=SIZE, cap=2):
         for p in range(prev + 1, n):
             if p > prev + 1 and not covered(p - 1):
                 return
-            r, col = divmod(p, size)
-            if a and (col + len(a) > size or any(across[p + i] for i in range(len(a)))):
+            r, col = divmod(p, cols)
+            if a and (col + len(a) > cols or any(across[p + i] for i in range(len(a)))):
                 continue
-            if d and (r + len(d) > size or any(down[p + i * size] for i in range(len(d)))):
+            if d and (r + len(d) > rows or any(down[p + i * cols] for i in range(len(d)))):
                 continue
             for a_word in cands_a:
                 for d_word in cands_d:
@@ -123,7 +129,7 @@ def solve_words(entries, size=SIZE, cap=2):
         wa = put(p, a, 1) if a else []
         if wa is None:
             return
-        wd = put(p, d, size) if d else []
+        wd = put(p, d, cols) if d else []
         if wd is None:
             for w in wa:
                 grid[w] = None
@@ -133,7 +139,7 @@ def solve_words(entries, size=SIZE, cap=2):
                 across[p + i] = True
         if d:
             for i in range(len(d)):
-                down[p + i * size] = True
+                down[p + i * cols] = True
         place[num] = p
         if a:
             words[(num, "across")] = a
@@ -148,7 +154,7 @@ def solve_words(entries, size=SIZE, cap=2):
                 across[p + i] = False
         if d:
             for i in range(len(d)):
-                down[p + i * size] = False
+                down[p + i * cols] = False
         for w in wa + wd:
             grid[w] = None
 
@@ -165,24 +171,25 @@ def layout(entries, placement, size=SIZE, words=None):
         by_number = defaultdict(dict)
         for (num, direction), word in words.items():
             by_number[num][direction] = word
-    n = size * size
+    cols, nrows = shape(size)
+    n = cols * nrows
     grid = [None] * n
     a_id = [None] * n
     d_id = [None] * n
     for num, p in placement.items():
-        for direction, step, ids in (("across", 1, a_id), ("down", size, d_id)):
+        for direction, step, ids in (("across", 1, a_id), ("down", cols, d_id)):
             word = by_number[num].get(direction)
             for i, ch in enumerate(word or ""):
                 grid[p + i * step] = ch
                 ids[p + i * step] = num
-    rows = ["".join(grid[r * size:(r + 1) * size]) for r in range(size)]
+    rows = ["".join(grid[r * cols:(r + 1) * cols]) for r in range(nrows)]
     bars = []
-    for r in range(size):
+    for r in range(nrows):
         line = []
-        for c in range(size):
-            i = r * size + c
-            right = c + 1 < size and (a_id[i] is None or a_id[i] != a_id[i + 1])
-            below = r + 1 < size and (d_id[i] is None or d_id[i] != d_id[i + size])
+        for c in range(cols):
+            i = r * cols + c
+            right = c + 1 < cols and (a_id[i] is None or a_id[i] != a_id[i + 1])
+            below = r + 1 < nrows and (d_id[i] is None or d_id[i] != d_id[i + cols])
             line.append("+" if right and below else "r" if right else "b" if below else ".")
         bars.append("".join(line))
     return rows, bars

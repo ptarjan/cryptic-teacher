@@ -6241,6 +6241,12 @@
       spell out a word you may never have met, letter by letter. Setters are
       named. The bars are rebuilt and the answers taken from the “Times for the
       Times” blog.`],
+    azed: ["azed", `The Observer's Azed: a barred puzzle on a 12x12 grid
+      where thick bars end the answers instead of black squares and every cell
+      holds a letter, all set by one man under the name Azed. Its answers come
+      from the Chambers dictionary, rare and old words among them, and its
+      clues are famously sound: the wordplay always spells the word out
+      fairly. The bars are rebuilt and the answers taken from fifteensquared.`],
     listener: ["listener", `The Listener crossword, the oldest of the thematic
       puzzles: a barred grid with a preamble that sets a trick, printed first by
       the BBC's magazine it is named for and, since that closed, by the Times

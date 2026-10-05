@@ -49,6 +49,15 @@ fills = bg.solve_words(cand, size=5)
 print("pick", len(fills), fills[0][1][(1, "across")] == entries[0]["answer"] if fills else None)
 mixed = [dict(e, answers=[e["answer"], e["answer"] + "Z"]) if e is entries[0] else e for e in entries]
 print("mixed", bg.solve_words(mixed, size=5))
+# A grid wider than it is deep (Azed's 13x11): (cols, rows) round-trips, and
+# the square that holds as many cells finds nothing.
+WIDE = ("ABCDEF", "GHIJKL", "MNOPQR", "STUVWX")
+WBARS = ("..r...", "b....b", "...r..", "......")
+wide = [{"number": n, "direction": d, "answer": "".join(WIDE[y][x] for y, x in cells)}
+        for (n, d), cells in rg.light_cells(WBARS).items()]
+wfound = bg.solve(wide, size=(6, 4))
+print("wide", len(wfound), "|".join(bg.layout(wide, wfound[0], size=(6, 4))[1]) == "|".join(WBARS),
+      len(bg.solve(wide, size=(4, 6))))
 PY
 )
 check "the answers pin down one grid" "count 1" "$(grep '^count' <<<"$out")"
@@ -57,6 +66,7 @@ check "every cell holds its letter" "letters True" "$(grep '^letters' <<<"$out")
 check "a grid with bars is barred, one with blocks is not" "barred True False" "$(grep '^barred' <<<"$out")"
 check "a wrong answer fits no grid" "wrong 0" "$(grep '^wrong' <<<"$out")"
 check "a one-letter light is refused" "short None" "$(grep '^short' <<<"$out")"
+check "a (cols, rows) grid round-trips, and its transpose fits nothing" "wide 1 True 0" "$(grep '^wide' <<<"$out")"
 check "a light's candidates: the crossings keep the one that fits" "pick 1 True" "$(grep '^pick' <<<"$out")"
 check "candidates of different lengths are refused" "mixed None" "$(grep '^mixed' <<<"$out")"
 exit $fails
