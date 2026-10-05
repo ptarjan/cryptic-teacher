@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Here is Grub Street: writer's about",
     "enumeration": "6"
    },
-   "solution": "BISTRO"
+   "solution": "BISTRO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BISTRO",
+    "definitions": [
+     {
+      "text": "Here is Grub",
+      "at": 0,
+      "note": "a cryptic description of a place where food is served"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the pen is placed around the other piece, wrapping it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer's",
+      "gives": "BIRO",
+      "note": "a biro is a ballpoint pen, a writer; the 's stands for 'is'"
+     },
+     {
+      "clueFragment": "Street",
+      "gives": "ST",
+      "note": "standard abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "ST",
+      "RO"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary hack's lodging: Grub Street, the old London haunt of jobbing writers, with one hanging about.",
+     "walkthrough": "BI(ST)RO. Grub Street was the London street of struggling hack writers, so 'Grub' looks tied to 'Street', but it means food.",
+     "definitionFit": "A bistro is a small, cheap restaurant, so it is somewhere food is to be found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grub"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,50 @@
     "text": "21's David's a degree over 54",
     "enumeration": "7"
    },
-   "solution": "BALFOUR"
+   "solution": "BALFOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALFOUR",
+    "definitions": [
+     {
+      "text": "21's David",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a degree",
+      "gives": "BA",
+      "note": "Bachelor of Arts, a first university degree"
+     },
+     {
+      "clueFragment": "54",
+      "gives": "LFOUR",
+      "note": "read as fifty and four: L is the Roman numeral for 50, then FOUR"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "LFOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called David holds a degree and is somehow tied to the number 54.",
+     "walkthrough": "21 is TUSITALA, Robert Louis Stevenson; David Balfour is the hero of his novel Kidnapped. In a down clue 'over' just puts the degree above the number.",
+     "definitionFit": "David Balfour is the narrator and hero of Stevenson's Kidnapped and its sequel Catriona."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "54"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,44 @@
     "text": "Little boy that hasn't got shingles?",
     "enumeration": "5"
    },
-   "solution": "SANDY"
+   "solution": "SANDY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SANDY",
+    "definitions": [
+     {
+      "text": "Little boy",
+      "at": 0
+     },
+     {
+      "text": "that hasn't got shingles?",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Little boy",
+      "note": "first meaning: a pet form of Alexander, a common Scottish boy's name"
+     },
+     {
+      "clueFragment": "that hasn't got shingles?",
+      "note": "second meaning: a beach of sand rather than pebbles"
+     }
+    ],
+    "explanation": {
+     "surface": "A small child who has escaped a painful viral rash.",
+     "walkthrough": "Shingles looks like the illness, but here it is shingle, the pebbles on a beach; a beach without them is made of sand.",
+     "definitionFit": "Sandy is a familiar diminutive of Alexander, and a sandy shore is one with sand instead of pebbles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shingles"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +208,60 @@
     "text": "Judge could be true defence counsel, perhaps",
     "enumeration": "7"
    },
-   "solution": "REFUTER"
+   "solution": "REFUTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REFUTER",
+    "definitions": [
+     {
+      "text": "defence counsel, perhaps",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "what the letters could be is another arrangement of them, so they are to be reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Judge",
+      "gives": "REF",
+      "note": "a referee judges a game"
+     },
+     {
+      "clueFragment": "true",
+      "gives": "UTER",
+      "note": "these four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REF",
+      "UTER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRUE",
+       "gives": "UTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge might decide that the defence counsel is a truthful one.",
+     "definitionFit": "Defence counsel argues against the prosecution's case, trying to disprove it, and so is an example of one who rebuts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "true"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +275,50 @@
     "text": "Miss Elizabeth Hill on-line, says. . .",
     "enumeration": "6"
    },
-   "solution": "BENNET"
+   "solution": "BENNET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BENNET",
+    "definitions": [
+     {
+      "text": "Miss Elizabeth",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "says"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hill",
+      "gives": "BEN",
+      "note": "ben is a Scottish word for a mountain or hill"
+     },
+     {
+      "clueFragment": "on-line",
+      "gives": "NET",
+      "note": "being online means being on the internet, the net"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "NET"
+     ]
+    },
+    "explanation": {
+     "surface": "A young lady named Elizabeth is chatting on the internet, about to say something.",
+     "walkthrough": "'says. . .' leads on into the next clue, as if she is speaking. Elizabeth Bennet is the heroine of Jane Austen's Pride and Prejudice.",
+     "definitionFit": "Elizabeth Bennet, always addressed as Miss Elizabeth in Pride and Prejudice, is Austen's heroine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hill"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +332,54 @@
     "text": "I left the country before the fighter came in",
     "enumeration": "6"
    },
-   "solution": "EMIGRE"
+   "solution": "EMIGRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMIGRE",
+    "definitions": [
+     {
+      "text": "I left the country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "came in",
+      "for": "container",
+      "note": "something that comes in enters another piece and sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "the fighter",
+      "gives": "MIG",
+      "note": "a MiG is a Russian fighter plane"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MIG",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls fleeing their homeland just ahead of an invading soldier.",
+     "definitionFit": "An emigre is a person who has left their own nation, usually for political reasons, so the words are what one would say."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fighter"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +399,76 @@
      }
     ]
    },
-   "solution": "NIKILAUDA"
+   "solution": "NIKILAUDA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NIKI LAUDA",
+    "definitions": [
+     {
+      "text": "a racing driver",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards, so the word for relatives is read from its end"
+     }
+    ],
+    "linkWords": [
+     "With"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are one's relatives"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "commend",
+      "gives": "LAUD",
+      "note": "to laud is to praise"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIK",
+      "I",
+      "LAUD",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "KIN",
+       "to": "NIK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supported by my relatives, I praise a motor racing driver.",
+     "walkthrough": "Niki Lauda was the Austrian Formula One world champion.",
+     "definitionFit": "Niki Lauda was an Austrian Formula One driver who won three world championships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +482,55 @@
     "text": "Put spirit into fruit",
     "enumeration": "7"
    },
-   "solution": "TANGELO"
+   "solution": "TANGELO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TANGELO",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Put",
+      "for": "container",
+      "note": "the spirit is to be put somewhere, and the clue then says in where"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "'into' is read as 'in to': this small word is the place the spirit goes in"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "ANGEL",
+      "note": "an angel is a spiritual being"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANGEL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to soak fruit in alcohol.",
+     "walkthrough": "'Spirit' suggests alcohol poured over fruit, but it is a heavenly spirit, and 'into' splits as 'in TO'.",
+     "definitionFit": "A tangelo is a citrus hybrid of tangerine and pomelo or grapefruit, so it is a kind of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +554,56 @@
      }
     ]
    },
-   "solution": "SOUTHCHINASEA"
+   "solution": "SOUTHCHINASEA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOUTH CHINA SEA",
+    "definitions": [
+     {
+      "text": "place of junk",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it within, so one piece surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pompey's partner",
+      "gives": "SOUTHSEA",
+      "note": "Pompey is the nickname of Portsmouth, joined to its neighbour Southsea in the name Portsmouth and Southsea"
+     },
+     {
+      "clueFragment": "crockery",
+      "gives": "CHINA",
+      "note": "china is porcelain crockery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOUTH",
+      "CHINA",
+      "SEA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's companion hangs on to old crockery among a pile of junk.",
+     "walkthrough": "Portsmouth, nicknamed Pompey, is an English naval city whose seaside district is Southsea. Junk looks like rubbish, but it is a Chinese sailing ship.",
+     "definitionFit": "The South China Sea is where the junk, a traditional Chinese sailing vessel, is most at home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "junk"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +617,56 @@
     "text": ". . .Breck, concluding 21''s name",
     "enumeration": "4"
    },
-   "solution": "ALAN"
+   "solution": "ALAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALAN",
+    "definitions": [
+     {
+      "text": "Breck",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concluding",
+      "for": "letter_selection",
+      "note": "concluding letters are those at the end of the word, here its final three"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "21",
+      "gives": "ALA",
+      "select": "last",
+      "note": "the end of the answer to 21 across"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: Elizabeth announces the full name of a Stevenson character.",
+     "walkthrough": "21 is TUSITALA, whose last three letters are wanted. Alan Breck Stewart is the Highland adventurer in Stevenson's Kidnapped.",
+     "definitionFit": "Alan is the first name of Alan Breck, the swashbuckling Jacobite companion of David Balfour in Kidnapped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "concluding"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +680,60 @@
     "text": "Having fun qualified for chastisement",
     "enumeration": "10"
    },
-   "solution": "FROLICKING"
+   "solution": "FROLICKING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FROLICKING",
+    "definitions": [
+     {
+      "text": "Having fun",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "qualified",
+      "for": "anagram",
+      "note": "something qualified is modified, so the letters are altered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "FRO",
+      "note": "these three letters rearranged"
+     },
+     {
+      "clueFragment": "chastisement",
+      "gives": "LICKING",
+      "note": "a licking is a beating or punishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRO",
+      "LICKING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOR",
+       "gives": "FRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoying themselves has earned a telling-off.",
+     "definitionFit": "Frolicking means playing about merrily, which is a way of enjoying oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "qualified"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +753,66 @@
      }
     ]
    },
-   "solution": "NOTYET"
+   "solution": "NOTYET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NOT YET",
+    "definitions": [
+     {
+      "text": "Wait for it!",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transfigured",
+      "for": "anagram",
+      "note": "a transfigured thing has changed its form, so the letters change their order"
+     },
+     {
+      "text": "translated",
+      "for": "charade",
+      "note": "the English word for 'and' is put into French"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tony",
+      "gives": "NOTY",
+      "note": "these four letters rearranged"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "ET",
+      "note": "et is French for and"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTY",
+      "ET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TONY",
+       "gives": "NOTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tony is transformed and carried up to heaven, and onlookers are told to be patient.",
+     "walkthrough": "Transfigured and translated both sound religious, of a saint taken to heaven; translated here means put into French.",
+     "definitionFit": "Both are exclamations telling someone to hold back because the moment has not arrived."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +826,64 @@
     "text": "It's very exciting when the stream enters the river",
     "enumeration": "8"
    },
-   "solution": "THRILLER"
+   "solution": "THRILLER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THRILLER",
+    "definitions": [
+     {
+      "text": "It's very exciting",
+      "at": 0,
+      "note": "a whole phrase describing the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "one piece goes inside another, entering it"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     },
+     {
+      "clueFragment": "stream",
+      "gives": "RILL",
+      "note": "a rill is a small stream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "RILL",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "The thrill of a mountain brook joining a larger river.",
+     "definitionFit": "A thriller is a suspense novel or film, a work designed to be gripping and tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stream"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +897,55 @@
     "text": "Actor Matthew was mounted - a splendid chap outside",
     "enumeration": "9"
    },
-   "solution": "BRODERICK"
+   "solution": "BRODERICK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRODERICK",
+    "definitions": [
+     {
+      "text": "Actor Matthew",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "one piece stands outside the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a splendid chap",
+      "gives": "BRICK",
+      "note": "a brick is old slang for a reliable, good-hearted fellow"
+     },
+     {
+      "clueFragment": "was mounted",
+      "gives": "RODE",
+      "note": "rode means sat on horseback"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RODE",
+      "RICK"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor sat on horseback while a fine fellow stood outside.",
+     "walkthrough": "'A brick' is dated British praise for a sound, dependable person.",
+     "definitionFit": "Matthew Broderick is the American actor known for Ferris Bueller's Day Off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mounted"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +959,58 @@
     "text": "Scotchman not moving between princess and mother-in-law",
     "enumeration": "9"
    },
-   "solution": "DISTILLER"
+   "solution": "DISTILLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISTILLER",
+    "definitions": [
+     {
+      "text": "Scotchman",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "between",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "princess",
+      "gives": "DI",
+      "note": "Di, Princess Diana"
+     },
+     {
+      "clueFragment": "not moving",
+      "gives": "STILL",
+      "note": "still means motionless"
+     },
+     {
+      "clueFragment": "mother-in-law",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the Queen, was Diana's mother-in-law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STILL",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scot stands frozen between a princess and her mother-in-law.",
+     "walkthrough": "The pieces are laid out in order, princess, not moving, mother-in-law. ER is the Queen's royal cipher, and the Queen was Princess Diana's mother-in-law.",
+     "definitionFit": "Scotch is whisky, so a man who makes Scotch is a whisky distiller, a playful coinage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Scotchman"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1024,54 @@
     "text": "(and17) Topiary - a bough damaged - story of my life!",
     "enumeration": "4"
    },
-   "solution": "AUTO"
+   "solution": "AUTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUTO",
+    "definitions": [
+     {
+      "text": "story of my life",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is broken up and out of shape, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Topiary - a bough",
+      "gives": "AUTO",
+      "note": "the thirteen letters here are rearranged into one long word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOPIARYABOUGH",
+       "gives": "AUTOBIOGRAPHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener sighs over a ruined hedge sculpture as the sorry tale of their life.",
+     "walkthrough": "The clue covers 15 and 17 together: the rearranged letters spell the full thirteen-letter word, of which this light holds the first four and 17 the rest.",
+     "definitionFit": "An autobiography is an account of a person's life written by that same person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "damaged"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1085,46 @@
     "text": "Actors are like flies",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAST",
+    "definitions": [
+     {
+      "text": "Actors",
+      "at": 0
+     },
+     {
+      "text": "flies",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "are like"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actors",
+      "note": "first meaning: the performers in a play"
+     },
+     {
+      "clueFragment": "flies",
+      "note": "second meaning: in fly fishing, a set of flies on a line"
+     }
+    ],
+    "explanation": {
+     "surface": "Actors are compared to insects.",
+     "walkthrough": "Flies looks like insects or a verb, but an angler's cast is the length of line carrying the flies.",
+     "definitionFit": "The performers in a production are its cast, and anglers call the line of artificial flies a cast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flies"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1138,59 @@
     "text": "Aid to detection said to turn up murderer - could be St Bernard",
     "enumeration": "7"
    },
-   "solution": "CLUNIAC"
+   "solution": "CLUNIAC",
+   "annotation": {
+    "type": [
+     "homophone",
+     "reversal",
+     "charade"
+    ],
+    "answer": "CLUNIAC",
+    "definitions": [
+     {
+      "text": "could be St Bernard",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so the word for an aid to detection is taken by its sound"
+     },
+     {
+      "text": "turn up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means reading from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aid to detection",
+      "gives": "CLU",
+      "soundsLike": "CLUE",
+      "note": "a clue helps a detective; only its sound is kept"
+     },
+     {
+      "clueFragment": "murderer",
+      "gives": "CAIN",
+      "note": "Cain killed his brother Abel in Genesis"
+     }
+    ],
+    "explanation": {
+     "surface": "A detective's clue unmasks the killer, perhaps a saint or a big rescue dog.",
+     "walkthrough": "St Bernard looks like the Alpine dog, but Bernard of Cluny was a monk of the great abbey there.",
+     "definitionFit": "A Cluniac is a monk of the reformed Benedictine order founded at Cluny, as Saint Bernard of Cluny was."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bernard"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1204,46 @@
     "text": "See 15",
     "enumeration": "9"
    },
-   "solution": "BIOGRAPHY"
+   "solution": "BIOGRAPHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BIOGRAPHY",
+    "definitions": [
+     {
+      "text": "See 15",
+      "at": 0,
+      "note": "the definition is in the clue at 15, which this light shares"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "15",
+      "gives": "BIOGRAPHY",
+      "note": "the rest of the rearranged letters from the clue at 15 across, which covers this light too"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIOGRAPHY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOPIARYABOUGH",
+       "gives": "AUTOBIOGRAPHY"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "This light completes the answer begun at 15: the anagram there spells the whole word, and these are its last nine letters.",
+     "definitionFit": "Joined to the first part, the full word means an account of one's own life, a written life story."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1257,54 @@
     "text": "Information about 9 to warm the heart",
     "enumeration": "7"
    },
-   "solution": "GLADDEN"
+   "solution": "GLADDEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLADDEN",
+    "definitions": [
+     {
+      "text": "to warm the heart",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the information goes around the other piece, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "9",
+      "gives": "LADD",
+      "note": "9 across is ALAN, which suggests the film actor Alan Ladd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "LADD",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "News of a friend that brings a glow of happiness.",
+     "walkthrough": "The answer to 9 is the first name; the surname of the Hollywood star Alan Ladd goes inside.",
+     "definitionFit": "To gladden someone is to make them happy, which cheers and uplifts them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1318,39 @@
     "text": "It isn't so funny to be given the elbow",
     "enumeration": "7"
    },
-   "solution": "HUMERUS"
+   "solution": "HUMERUS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HUMERUS",
+    "definitions": [
+     {
+      "text": "It isn't so funny to be given the elbow",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It isn't so funny to be given the elbow",
+      "note": "surface reading: being dumped is no laughing matter"
+     },
+     {
+      "clueFragment": "funny",
+      "note": "setter's reading: the arm bone ending at the elbow sounds like a word for amusing, and the funny bone is there"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Given the elbow means jilted, but the bone is joined to the elbow; hitting the funny bone there is no joke.",
+     "definitionFit": "The upper arm bone runs from shoulder to elbow, and its name puns on comic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "elbow"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1364,44 @@
     "text": "One man in a boat on the Tweed?",
     "enumeration": "6"
    },
-   "solution": "HARRIS"
+   "solution": "HARRIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HARRIS",
+    "definitions": [
+     {
+      "text": "One man in a boat",
+      "at": 0
+     },
+     {
+      "text": "on the Tweed?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One man in a boat",
+      "note": "first meaning: one of Jerome K. Jerome's Three Men in a Boat"
+     },
+     {
+      "clueFragment": "on the Tweed?",
+      "note": "second meaning: the name on a famous Hebridean cloth"
+     }
+    ],
+    "explanation": {
+     "surface": "A lone angler drifts on the River Tweed.",
+     "walkthrough": "The Tweed is a Scottish river, but here it is the cloth: Harris Tweed is woven in the Outer Hebrides.",
+     "definitionFit": "Harris is one of the trio rowing up the Thames in Jerome's comic novel, and Harris Tweed is a woollen fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tweed"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1415,65 @@
     "text": "Bird on the wing captivating American storyteller",
     "enumeration": "8"
    },
-   "solution": "TUSITALA"
+   "solution": "TUSITALA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TUSITALA",
+    "definitions": [
+     {
+      "text": "storyteller",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captivating",
+      "for": "container",
+      "note": "to captivate is to take captive, holding one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "on the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "TIT",
+      "note": "a tit is a small songbird"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     },
+     {
+      "clueFragment": "wing",
+      "gives": "ALA",
+      "note": "ala is Latin for wing, used in anatomy and botany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "US",
+      "IT",
+      "ALA"
+     ]
+    },
+    "explanation": {
+     "surface": "A flying bird holds an American spellbound with its story.",
+     "walkthrough": "TIT holds US, followed by ALA. Tusitala was the Samoan name given to Robert Louis Stevenson.",
+     "definitionFit": "Tusitala, the name Samoans gave to Stevenson, means teller of tales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wing"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1487,52 @@
     "text": "Put on to fool both of us, so to speak?",
     "enumeration": "6"
    },
-   "solution": "ASSUME"
+   "solution": "ASSUME",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ASSUME",
+    "definitions": [
+     {
+      "text": "Put on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so to speak",
+      "for": "homophone",
+      "note": "so to speak signals a spoken form, so the letters are chosen by sound"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "both of us",
+      "gives": "UME",
+      "soundsLike": "YOU ME",
+      "note": "the two people making up 'us' are you and me; U is a letter that sounds like you"
+     }
+    ],
+    "explanation": {
+     "surface": "A prank meant to make fools of the pair of us.",
+     "definitionFit": "To assume a manner or accent is to put it on, adopting it as a pretence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1546,52 @@
     "text": "Revolutionary hales from Africa",
     "enumeration": "5"
    },
-   "solution": "SAHEL"
+   "solution": "SAHEL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAHEL",
+    "definitions": [
+     {
+      "text": "from Africa",
+      "at": 20,
+      "note": "the answer is a region in Africa, not a phrase"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "anagram",
+      "note": "revolutionary means turning things over, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hales",
+      "gives": "HALES",
+      "note": "every letter of this word, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HALES",
+       "gives": "SAHEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel comes from Africa, with 'hales' a pun on 'hails'.",
+     "definitionFit": "The Sahel is the semi-arid belt across Africa along the southern edge of the Sahara."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hales"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1605,55 @@
     "text": "Fancied filly gets to fling rider off. . .",
     "enumeration": "10"
    },
-   "solution": "GIRLFRIEND"
+   "solution": "GIRLFRIEND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GIRLFRIEND",
+    "definitions": [
+     {
+      "text": "Fancied filly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong, so the letters are out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "gets to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fling rider",
+      "gives": "FLINGRIDER",
+      "note": "every letter of these two words, rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLINGRIDER",
+       "gives": "GIRLFRIEND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A favourite horse in a race throws its jockey.",
+     "walkthrough": "Fancied filly reads as a racing tip, but filly is slang for a girl, and one who is fancied is a girlfriend.",
+     "definitionFit": "Filly is old slang for a young woman, so a filly someone is fond of is their sweetheart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "filly"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1667,50 @@
     "text": ". . .but he will win her love, . . .",
     "enumeration": "4"
    },
-   "solution": "HERO"
+   "solution": "HERO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERO",
+    "definitions": [
+     {
+      "text": "he will win",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her",
+      "gives": "HER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a zero score in tennis, which looks like the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the chain: the jilted rider will win the girl's heart after all.",
+     "walkthrough": "The ellipses run 24, 25 and 26 together as one story.",
+     "definitionFit": "In a romance the leading man is the one who triumphs and wins the girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1724,57 @@
     "text": ". . .I forgot to mention, in heart and body",
     "enumeration": "6"
    },
-   "solution": "CORPSE"
+   "solution": "CORPSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CORPSE",
+    "definitions": [
+     {
+      "text": "body",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "CORE",
+      "note": "the core is the heart of something"
+     },
+     {
+      "clueFragment": "I forgot to mention",
+      "gives": "PS",
+      "note": "a postscript, added to a letter for something forgotten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "PS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The suitor adds that he loves her with his heart and body too.",
+     "definitionFit": "A corpse is a dead body, so the word is a specific sense of body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mention"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1788,42 @@
     "text": "English points of view",
     "enumeration": "6"
    },
-   "solution": "ANGLES"
+   "solution": "ANGLES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANGLES",
+    "definitions": [
+     {
+      "text": "English",
+      "at": 0
+     },
+     {
+      "text": "points of view",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "note": "first meaning: the Germanic people who gave England its name"
+     },
+     {
+      "clueFragment": "points of view",
+      "note": "second meaning: perspectives or ways of looking at a matter"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "English looks like an adjective, but it stands for the early English people, the Angles.",
+     "definitionFit": "The Angles were the Germanic tribe settling England, and angles are perspectives from which things are seen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "English"
+    }
+   }
   }
  ]
 }
