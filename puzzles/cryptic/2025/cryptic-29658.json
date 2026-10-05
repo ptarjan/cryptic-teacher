@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,75 @@
     "text": "One poem filled empty day after sun set",
     "enumeration": "8"
    },
-   "solution": "SOLIDIFY"
+   "solution": "SOLIDIFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "SOLIDIFY",
+    "definitions": [
+     {
+      "text": "set",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled",
+      "for": "container",
+      "note": "the emptied word for day is stuffed with the poem, so one piece sits inside the other"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the one and filled pieces are placed behind the star word, so it comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sun",
+      "gives": "SOL",
+      "note": "Sol is the Latin name for the sun"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "empty day",
+      "gives": "DY",
+      "select": "outer",
+      "note": "day with its middle emptied out leaves its first and last letters"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "IF",
+      "note": "If is Kipling's famous poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOL",
+      "I",
+      "D",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer fills a blank day with a single poem after the sun goes down.",
+     "walkthrough": "'Set' looks like it describes the sun setting, but it is the definition, as concrete sets. SOL + I + D(IF)Y.",
+     "definitionFit": "Jelly or concrete that has set has hardened into a firm state, which is exactly what solidify means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +118,70 @@
     "text": "Number penned by Gilbert & Sullivan, uplifting composition",
     "enumeration": "4"
    },
-   "solution": "SONG"
+   "solution": "SONG",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SONG",
+    "definitions": [
+     {
+      "text": "composition",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned by others is enclosed between them"
+     },
+     {
+      "text": "uplifting",
+      "for": "reversal",
+      "note": "in a down entry lifting up means reading from the bottom, backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gilbert",
+      "gives": "G",
+      "note": "initial of Gilbert"
+     },
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     },
+     {
+      "clueFragment": "Sullivan",
+      "gives": "S",
+      "note": "initial of Sullivan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SONG"
+     ],
+     "reversals": [
+      {
+       "from": "GNOS",
+       "to": "SONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful number written by the operetta duo Gilbert and Sullivan.",
+     "walkthrough": "'Number' looks like the definition, a musical number, but it is the abbreviation; the definition is 'composition'.",
+     "definitionFit": "A song is a short musical composition with words for singing, the kind of piece a songwriter produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +195,53 @@
     "text": "Flier poet drops in",
     "enumeration": "4"
    },
-   "solution": "LARK"
+   "solution": "LARK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LARK",
+    "definitions": [
+     {
+      "text": "Flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drops",
+      "for": "deletion",
+      "note": "dropping something means leaving it out, so the following little word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poet",
+      "gives": "LARKIN",
+      "note": "Philip Larkin, the English poet"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird-loving poet pays a casual visit.",
+     "walkthrough": "'Drops in' reads as a phrasal verb for visiting, but drops is the removal signal and in is what goes.",
+     "definitionFit": "The lark is a songbird famous for singing as it rises high in the air, so it is a flier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drops"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +255,65 @@
     "text": "Club where loon punched by plonker at the back",
     "enumeration": "6"
    },
-   "solution": "DRIVER"
+   "solution": "DRIVER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRIVER",
+    "definitions": [
+     {
+      "text": "Club",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     },
+     {
+      "text": "punched by",
+      "for": "container",
+      "note": "a punch makes a hole and goes in, so one letter is struck into the bird word"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loon",
+      "gives": "DIVER",
+      "note": "the loon is the American name for the bird the British call a diver"
+     },
+     {
+      "clueFragment": "plonker",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter of plonker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "IVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nightclub scene where a lunatic gets thumped by an idiot.",
+     "walkthrough": "Loon and plonker both look like insults; a loon is a diving bird, and plonker (British slang for a fool) just gives its last letter.",
+     "definitionFit": "In golf the driver is the club with the largest head, used for long shots off the tee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loon"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +333,39 @@
      }
     ]
    },
-   "solution": "FASHIONVICTIM"
+   "solution": "FASHIONVICTIM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FASHION VICTIM",
+    "definitions": [
+     {
+      "text": "Sucker digging weeds?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sucker digging weeds?",
+      "note": "surface reading: a gullible gardener who enjoys pulling out unwanted plants"
+     },
+     {
+      "clueFragment": "Sucker digging weeds?",
+      "note": "setter's reading: weeds are clothes, as in widow's weeds, and digging is slang for liking, so a dupe who is keen on clothes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Weeds is an old word for garments and to dig something is to like it, so a sucker for clothes is the answer.",
+     "definitionFit": "Someone duped by every passing trend in clothing, wearing it however unflattering, is mocked as a slave to style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "weeds"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +379,73 @@
     "text": "West-facing complex of temples briefly visited by old trainspotter",
     "enumeration": "6"
    },
-   "solution": "ANORAK"
+   "solution": "ANORAK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "ANORAK",
+    "definitions": [
+     {
+      "text": "trainspotter",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "cut short, so the last letter of the temple complex's name is dropped"
+     },
+     {
+      "text": "West-facing",
+      "for": "reversal",
+      "note": "in an across entry facing west means reading right to left, backwards"
+     },
+     {
+      "text": "visited by",
+      "for": "container",
+      "note": "a visitor goes inside, so the old abbreviation is placed within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complex of temples",
+      "gives": "KARNAK",
+      "note": "Karnak is the great temple complex at Luxor in Egypt"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "O",
+      "RAK"
+     ],
+     "reversals": [
+      {
+       "from": "KARNA",
+       "to": "ANRAK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly trainspotter tours an Egyptian temple site, oddly facing west.",
+     "walkthrough": "Karnak, at Luxor, is Egypt's great temple complex; 'briefly' trims it before it is turned round.",
+     "definitionFit": "Anorak is British slang for an obsessive hobbyist, named after the hooded coat stereotypically worn by people logging trains on platforms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +465,73 @@
      }
     ]
    },
-   "solution": "NOHOPERS"
+   "solution": "NOHOPERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "NO-HOPERS",
+    "definitions": [
+     {
+      "text": "Winner primarily missing in person who fails – one of those?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first, so only the opening letter is wanted"
+     },
+     {
+      "text": "missing in",
+      "for": "deletion",
+      "note": "something missing in a phrase is absent from it, so that letter is taken out"
+     },
+     {
+      "text": "fails",
+      "for": "anagram",
+      "note": "a failing structure collapses, so the remaining letters fall into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winner",
+      "gives": "W",
+      "select": "first",
+      "note": "opening letter of winner"
+     },
+     {
+      "clueFragment": "person who",
+      "gives": "PERSONWHO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOHOPERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PERSONHO",
+       "gives": "NOHOPERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With no winner in sight, the clue wonders whether a person who keeps failing belongs among the hopeless.",
+     "walkthrough": "The whole clue doubles as the definition: someone lacking a winner, a failure, is one of the hopeless cases.",
+     "definitionFit": "No-hopers are people or horses with no chance of success, so a person who fails, minus any winning streak, counts among them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fails"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +551,69 @@
      }
     ]
    },
-   "solution": "RUBBINGOFF"
+   "solution": "RUBBINGOFF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "RUBBING OFF",
+    "definitions": [
+     {
+      "text": "Removing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader in",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "to stop a hole is to plug it, so these pieces go into the middle of the card word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bully",
+      "gives": "B",
+      "select": "first",
+      "note": "opening letter of bully"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "BINGO",
+      "note": "house, or housey-housey, is an old British name for bingo"
+     },
+     {
+      "clueFragment": "Trump",
+      "gives": "RUFF",
+      "note": "in card games to ruff is to play a trump"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "B",
+      "BINGO",
+      "FF"
+     ]
+    },
+    "explanation": {
+     "surface": "Political satire: a bully in the White House blocks Trump.",
+     "walkthrough": "Trump and house suggest American politics; trump is the card term and house is the bingo game.",
+     "definitionFit": "Rubbing off means wiping or scraping away a mark, so the phrase describes removing something from a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trump"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +627,56 @@
     "text": "Fictional poison pretty OK in novel",
     "enumeration": "10"
    },
-   "solution": "KRYPTONITE"
+   "solution": "KRYPTONITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KRYPTONITE",
+    "definitions": [
+     {
+      "text": "Fictional poison",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are made into a fresh arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty OK",
+      "gives": "PRETTYOK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written; part of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRETTYOKIN",
+       "gives": "KRYPTONITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reader judges a toxin in a novel to be pretty okay.",
+     "walkthrough": "The fodder includes 'in', so 'novel' alone is the anagram signal; the surface reads 'in novel' as where the poison appears.",
+     "definitionFit": "Kryptonite is the invented mineral from Superman's home planet that weakens him, a made-up toxin from comics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +690,87 @@
     "text": "Rainbow is beginning to shine in reflection of light source – bulb!",
     "enumeration": "9"
    },
-   "solution": "NARCISSUS"
+   "solution": "NARCISSUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "NARCISSUS",
+    "definitions": [
+     {
+      "text": "bulb",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is just its opening letter"
+     },
+     {
+      "text": "reflection of",
+      "for": "reversal",
+      "note": "a reflection shows things mirrored, so the source word reads backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the rainbow and following pieces sit inside the mirrored light source"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rainbow",
+      "gives": "ARC",
+      "note": "a rainbow is an arc of colour in the sky"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shine",
+      "gives": "S",
+      "select": "first",
+      "note": "opening letter of shine"
+     },
+     {
+      "clueFragment": "light source",
+      "gives": "SUN",
+      "note": "the sun is our main source of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ARC",
+      "IS",
+      "S",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "SUN",
+       "to": "NUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rainbow begins to glow in reflected sunlight, and a light bulb finishes the scene.",
+     "walkthrough": "'Bulb' seems to continue the light-source theme, but it is a plant bulb; the myth of Narcissus and his reflection adds a neat echo.",
+     "definitionFit": "The narcissus is a spring flower, including daffodils, that grows from an underground bulb, so the plant is named by its storage organ."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bulb"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +790,47 @@
      }
     ]
    },
-   "solution": "SHARPPRACTICE"
+   "solution": "SHARPPRACTICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHARP PRACTICE",
+    "definitions": [
+     {
+      "text": "Tricky device",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "needle-like",
+      "gives": "SHARP",
+      "note": "a needle is sharp"
+     },
+     {
+      "clueFragment": "drill",
+      "gives": "PRACTICE",
+      "note": "drill means repeated practice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHARP",
+      "PRACTICE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a pointed boring tool as an ingenious gadget.",
+     "walkthrough": "Device and drill suggest a workshop tool; device means a scheme and drill means practice.",
+     "definitionFit": "Sharp practice is dishonest or underhand dealing, a crafty scheme that is just short of illegal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drill"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +844,43 @@
     "text": "Better half’s other half, central?",
     "enumeration": "5"
    },
-   "solution": "HUBBY"
+   "solution": "HUBBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HUBBY",
+    "definitions": [
+     {
+      "text": "Better half’s other half",
+      "at": 0
+     },
+     {
+      "text": "central?",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Better half’s other half",
+      "note": "first meaning: a wife's spouse, since she is the better half"
+     },
+     {
+      "clueFragment": "central?",
+      "note": "second meaning, whimsical: like a hub, at the middle of things"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is a playful coinage: something hub-like would be at the centre, hence the question mark.",
+     "definitionFit": "Hubby is a fond informal word for husband, the spouse of a woman whose partner calls her his better half."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "central"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +900,43 @@
      }
     ]
    },
-   "solution": "DECIMALPOINT"
+   "solution": "DECIMALPOINT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DECIMAL POINT",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     },
+     {
+      "text": "cryptically intense?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "note": "first meaning: a dot printed in a number"
+     },
+     {
+      "clueFragment": "cryptically intense?",
+      "note": "second meaning: read cryptically, intense splits as in tens, which is what base ten counting means"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split 'intense' as 'in tens': a decimal system works in tens, and the dot is its key symbol.",
+     "definitionFit": "The decimal point is the dot that separates whole units from tenths, the mark at the heart of counting in tens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "intense"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +956,43 @@
      }
     ]
    },
-   "solution": "CHEVYCHASE"
+   "solution": "CHEVYCHASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHEVY CHASE",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     },
+     {
+      "text": "in pursuit of American vehicles?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Player",
+      "note": "first meaning: the American comic actor of Caddyshack and National Lampoon films"
+     },
+     {
+      "clueFragment": "in pursuit of American vehicles?",
+      "note": "second meaning, whimsical: a hunt after Chevrolets, popularly called Chevys"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Player means an actor here. Chevy is the nickname for a Chevrolet car, so chasing them would be a Chevy chase.",
+     "definitionFit": "The comedian took his stage name from the old ballad Chevy Chase, and the phrase also reads as chasing Chevrolet cars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1012,51 @@
      }
     ]
    },
-   "solution": "HARDLIQUOR"
+   "solution": "HARDLIQUOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "HARD LIQUOR",
+    "definitions": [
+     {
+      "text": "something alcoholic",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up as on a radio, meaning heard, so the sound of the word matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rough",
+      "gives": "HARD",
+      "note": "hard and rough both mean harsh"
+     },
+     {
+      "clueFragment": "tongue",
+      "gives": "LIQUOR",
+      "soundsLike": "LICKER",
+      "note": "a tongue is a licker"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone with a coarse palate tastes strong drink.",
+     "walkthrough": "The tongue is the organ that licks, so it is a licker.",
+     "definitionFit": "Hard liquor is strong distilled spirit such as whisky or vodka, as opposed to beer or wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1070,48 @@
     "text": "A bargain when cap removed, great deal",
     "enumeration": "4"
    },
-   "solution": "HEAP"
+   "solution": "HEAP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEAP",
+    "definitions": [
+     {
+      "text": "great deal",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when cap removed",
+      "for": "deletion",
+      "note": "a cap sits on top, so taking it off drops the first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A bargain",
+      "gives": "CHEAP",
+      "note": "something that is a bargain is cheap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper notes that a bargain becomes an even better deal once the price cap is lifted.",
+     "walkthrough": "CHEAP without its first letter. 'Great deal' sounds like a bargain, but it means a large amount.",
+     "definitionFit": "A heap of something, informally, is a lot of it, as in heaps of time, a large quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1125,67 @@
     "text": "Plant seed covering trail on surface",
     "enumeration": "10"
    },
-   "solution": "SNAPDRAGON"
+   "solution": "SNAPDRAGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SNAPDRAGON",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "the word for seed wraps around the other pieces like a cover"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one piece set on another is placed after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seed",
+      "gives": "SON",
+      "note": "seed in the biblical sense of offspring"
+     },
+     {
+      "clueFragment": "surface",
+      "gives": "NAP",
+      "note": "nap is the raised surface of a fabric"
+     },
+     {
+      "clueFragment": "trail",
+      "gives": "DRAG",
+      "note": "to drag is to trail along behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NAP",
+      "DRAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener describes a seed coat and a trailing stem across the soil.",
+     "walkthrough": "The gardening words mislead: seed means a son, and surface is the nap of cloth.",
+     "definitionFit": "The snapdragon, or antirrhinum, is a garden flower whose blooms open like jaws when squeezed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seed"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1199,71 @@
     "text": "One Direction welcoming drunk in, OK being most squiffy?",
     "enumeration": "8"
    },
-   "solution": "WONKIEST"
+   "solution": "WONKIEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WONKIEST",
+    "definitions": [
+     {
+      "text": "most squiffy?",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters reel into a new order"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so the direction holds the other letters"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One Direction",
+      "gives": "WEST",
+      "note": "west is one of the compass directions"
+     },
+     {
+      "clueFragment": "in, OK",
+      "gives": "INOK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ONKI",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INOK",
+       "gives": "ONKI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy band welcomes a drunk fan, who is fine despite being tipsy.",
+     "walkthrough": "One Direction is the boy band in the surface; read it as one compass direction.",
+     "definitionFit": "Squiffy means slightly drunk but also askew, and wonky means crooked or unsteady, so the most lopsided is wonkiest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Direction"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1283,70 @@
      }
     ]
    },
-   "solution": "VIDEODIARY"
+   "solution": "VIDEODIARY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "VIDEO DIARY",
+    "definitions": [
+     {
+      "text": "onscreen recording of thoughts",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "going without something means it is left out"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast also means scattered widely, so the letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’ve day",
+      "gives": "IVEDAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, the letter removed"
+     },
+     {
+      "clueFragment": "radio",
+      "gives": "RADIO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIDEODIARY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IVEDYRADIO",
+       "gives": "VIDEODIARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spends a day with no radio, wanting a record of their musings on screen.",
+     "walkthrough": "Remove one A from I'VE DAY to leave IVEDY, then add RADIO and rearrange.",
+     "definitionFit": "A video diary is a series of filmed personal reflections, the camera version of a written journal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1366,43 @@
      }
     ]
    },
-   "solution": "EFIT"
+   "solution": "EFIT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "E-FIT",
+    "definitions": [
+     {
+      "text": "What might reveal a little of thief, I think?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little of",
+      "for": "hidden_word",
+      "note": "only a small part of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thief, I think",
+      "gives": "EFIT",
+      "note": "the letters run across the end of thief, the I and the start of think"
+     }
+    ],
+    "explanation": {
+     "surface": "A detective muses that an image might show a bit of what the thief looks like.",
+     "walkthrough": "The whole clue is the definition too: an e-fit reveals a little of a thief's face, and the answer sits inside 'thief, I think'.",
+     "definitionFit": "An e-fit is a computer-built facial composite made from witness descriptions, showing police roughly what a suspect looks like."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1416,55 @@
     "text": "Love dressing king in what would suit knight?",
     "enumeration": "6"
    },
-   "solution": "ARMOUR"
+   "solution": "ARMOUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARMOUR",
+    "definitions": [
+     {
+      "text": "what would suit knight?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressing",
+      "for": "container",
+      "note": "dressing someone means putting clothes around them, so the love word wraps the king"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "AMOUR",
+      "note": "amour is French for love"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "MOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A romance fit for a medieval court, with a lover clothing the king.",
+     "definitionFit": "A medieval knight wore a metal suit of plate mail into battle, and suit puns on clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1484,61 @@
      }
     ]
    },
-   "solution": "CRICKETSCORE"
+   "solution": "CRICKETSCORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRICKET SCORE",
+    "definitions": [
+     {
+      "text": "result of a combination of knocks?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "charade",
+      "note": "breaking in after the other parts, so that the central part is attached at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "condition",
+      "gives": "RICKETS",
+      "note": "rickets is a bone-softening disease"
+     },
+     {
+      "clueFragment": "Heart",
+      "gives": "CORE",
+      "note": "the core is the heart of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RICKETS",
+      "CORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical report on a heart condition picked up after a series of blows.",
+     "walkthrough": "'Knocks' sounds like injuries, but in cricket a knock is a batsman's innings, and the total of all the innings is the team's score.",
+     "definitionFit": "A cricket score is the total runs a side makes, built up from the individual innings that cricketers informally call knocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "knocks"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1552,43 @@
     "text": "Tense – as lips?",
     "enumeration": "4"
    },
-   "solution": "EDGY"
+   "solution": "EDGY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EDGY",
+    "definitions": [
+     {
+      "text": "Tense",
+      "at": 0
+     },
+     {
+      "text": "as lips?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "note": "first meaning: nervous and on edge"
+     },
+     {
+      "clueFragment": "as lips?",
+      "note": "second meaning, whimsical: lips are edges, as of a cup, so lips are edge-like"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Tense' looks like grammar, but it means nervous; a lip is the rim of something.",
+     "definitionFit": "Edgy describes someone nervy and on edge, while the playful second sense means having the nature of a rim or brim."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lips"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1602,48 @@
     "text": "Said right, introduction not needed",
     "enumeration": "4"
    },
-   "solution": "ORAL"
+   "solution": "ORAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ORAL",
+    "definitions": [
+     {
+      "text": "Said",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction not needed",
+      "for": "deletion",
+      "note": "with no introduction the word starts without its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "MORAL",
+      "note": "morally right, ethical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone said the right thing, no introduction needed.",
+     "walkthrough": "MORAL loses its first letter.",
+     "definitionFit": "An oral agreement or exam is spoken rather than written, so oral means said out in speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Said"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1657,47 @@
     "text": "A pretty oblique mark",
     "enumeration": "5"
    },
-   "solution": "ACUTE"
+   "solution": "ACUTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACUTE",
+    "definitions": [
+     {
+      "text": "oblique mark",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pretty",
+      "gives": "CUTE",
+      "note": "cute means pretty or sweet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher scrawls a rather slanting tick in the margin.",
+     "walkthrough": "'A pretty oblique mark' reads as a rather slanted grade, but pretty is the adjective here.",
+     "definitionFit": "The acute accent is the slanting stroke over a vowel, as in café, a diagonal diacritic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pretty"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1717,44 @@
      }
     ]
    },
-   "solution": "MAILORDER"
+   "solution": "MAILORDER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MAIL ORDER",
+    "definitions": [
+     {
+      "text": "Purchasing system",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken out, so it is the sound that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brotherhood",
+      "gives": "MAILORDER",
+      "soundsLike": "MALE ORDER",
+      "note": "a brotherhood is an order of men, such as monks"
+     }
+    ],
+    "explanation": {
+     "surface": "A committee debates a monastery's way of buying supplies.",
+     "definitionFit": "Mail order is a way of buying goods from a catalogue, with orders sent and goods delivered by post."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brotherhood"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1768,69 @@
     "text": "A seaman concerned with reversing mistakes",
     "enumeration": "6"
    },
-   "solution": "ERRATA"
+   "solution": "ERRATA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ERRATA",
+    "definitions": [
+     {
+      "text": "mistakes",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing turns the string of letters around so it reads from the end"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seaman",
+      "gives": "TAR",
+      "note": "tar is an old word for a sailor"
+     },
+     {
+      "clueFragment": "concerned",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "RAT",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ATARRE",
+       "to": "ERRATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor is worried about backing his vessel into trouble.",
+     "definitionFit": "Errata is the Latin plural used for a list of printing errors, so it means mistakes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reversing"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1844,55 @@
     "text": "Scuffle in breach of contract in settlement of others’ costs",
     "enumeration": "8"
    },
-   "solution": "DEFRAYAL"
+   "solution": "DEFRAYAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEFRAYAL",
+    "definitions": [
+     {
+      "text": "settlement of others’ costs",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in breach of",
+      "for": "container",
+      "note": "a breach is a break into something, so the fight bursts into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contract",
+      "gives": "DEAL",
+      "note": "a deal is an agreement or contract"
+     },
+     {
+      "clueFragment": "Scuffle",
+      "gives": "FRAY",
+      "note": "a fray is a fight or scuffle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FRAY",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A fight breaks out over a broken contract, with lawyers' bills to pay.",
+     "walkthrough": "The legal surface makes 'breach of contract' look like one phrase, but 'in breach of' is the insertion signal and 'contract' stands alone.",
+     "definitionFit": "To defray is to pay someone's expenses, so defrayal is the act of meeting those charges on their behalf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breach"
+    }
+   }
   }
  ]
 }
