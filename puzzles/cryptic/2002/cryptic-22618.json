@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Secret to reveal about foreign article",
     "enumeration": "10"
    },
-   "solution": "UNDERCOVER"
+   "solution": "UNDERCOVER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNDERCOVER",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for reveal wraps round the article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to reveal",
+      "gives": "UNCOVER",
+      "note": "to reveal is to lay bare"
+     },
+     {
+      "clueFragment": "foreign article",
+      "gives": "DER",
+      "note": "der is the German definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "DER",
+      "COVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out to expose a foreign newspaper story that was kept secret.",
+     "walkthrough": "'Foreign article' means an article in another language; here German, whose masculine 'the' is used.",
+     "definitionFit": "Undercover work is done in secret, so the adjective stands for something covert or hidden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,82 @@
     "text": "Tolkien's villains about to turn left among sportsmen in disorder",
     "enumeration": "8"
    },
-   "solution": "SCROFULA"
+   "solution": "SCROFULA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "SCROFULA",
+    "definitions": [
+     {
+      "text": "disorder",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the villains are read from the back"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among puts the turn and the left inside the sportsmen"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tolkien's villains",
+      "gives": "ORCS",
+      "note": "orcs are the monstrous foot soldiers of The Lord of the Rings"
+     },
+     {
+      "clueFragment": "sportsmen",
+      "gives": "FA",
+      "note": "the Football Association, the body of English footballers"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "as in a U-turn"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "the usual abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRO",
+      "F",
+      "UL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ORCS",
+       "to": "SCRO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tolkien's orcs, on the point of turning left, find themselves in a disorderly scrum of athletes.",
+     "walkthrough": "'Disorder' looks like an anagram signal but is the definition. 'Turn' gives its letter from the U-turn, and the FA is England's Football Association.",
+     "definitionFit": "Scrofula is an old name for tuberculosis of the lymph glands of the neck, a medical disorder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disorder"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +187,58 @@
     "text": "Jamesian villain - one held to be dated",
     "enumeration": "6"
    },
-   "solution": "QUAINT"
+   "solution": "QUAINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "QUAINT",
+    "definitions": [
+     {
+      "text": "dated",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "container",
+      "note": "one is held by the villain, so it goes inside his name"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jamesian villain",
+      "gives": "QUINT",
+      "note": "Peter Quint, the ghostly villain of Henry James's The Turn of the Screw"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "A",
+      "INT"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary note on a Henry James villain who is thought to be old-fashioned.",
+     "walkthrough": "A inside QUINT gives QUAINT.",
+     "definitionFit": "Quaint describes something attractively old-fashioned, so it can stand for dated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +252,63 @@
     "text": "Does a sunrise issue from your idol's?",
     "enumeration": "4"
    },
-   "solution": "ANUS"
+   "solution": "ANUS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ANUS",
+    "definitions": [
+     {
+      "text": "Does a sunrise issue from your idol's?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise",
+      "for": "reversal",
+      "note": "in a down clue rising means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "SUN",
+      "note": "taken as written, then read upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NUS"
+     ],
+     "reversals": [
+      {
+       "from": "SUN",
+       "to": "NUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky question about whether the sun really shines out of the backside of someone you idolise.",
+     "walkthrough": "The joke is the saying that an admirer thinks the sun shines out of their hero's backside; A plus a rising SUN spells the body part.",
+     "definitionFit": "The whole clue alludes to the idiom about worship, pointing at the bodily opening the sun supposedly shines from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sunrise"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +322,65 @@
     "text": "Dessert with largely tasteless, cold, scabby skin",
     "enumeration": "10"
    },
-   "solution": "BLANCMANGE"
+   "solution": "BLANCMANGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BLANCMANGE",
+    "definitions": [
+     {
+      "text": "Dessert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means most of it, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tasteless",
+      "gives": "BLAND",
+      "note": "bland food has little flavour"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "the tap abbreviation"
+     },
+     {
+      "clueFragment": "scabby skin",
+      "gives": "MANGE",
+      "note": "a skin disease of animals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLAN",
+      "C",
+      "MANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An unappetising pudding: bland, cold and with a scabby skin on top.",
+     "walkthrough": "BLAN(D) + C + MANGE gives BLANCMANGE; the skin on a cold pudding makes a nasty, apt picture.",
+     "definitionFit": "Blancmange is a sweet set milk pudding served as a dessert."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +400,71 @@
      }
     ]
    },
-   "solution": "DOORJAMB"
+   "solution": "DOORJAMB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOOR JAMB",
+    "definitions": [
+     {
+      "text": "bit of framework",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of the composer's name means its opening letter alone"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perform",
+      "gives": "DO",
+      "note": "to do is to perform"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "improvise",
+      "gives": "JAM",
+      "note": "musicians jam when they improvise together"
+     },
+     {
+      "clueFragment": "Bach's",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of the composer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "OR",
+      "JAM",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician's choice: play Bach straight, or riff on his opening phrase.",
+     "walkthrough": "DO + OR + JAM + B gives DOORJAMB; the musical surface hides a piece of joinery.",
+     "definitionFit": "A doorjamb is the upright side post of a door frame, one part of the framework round it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "improvise"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +478,73 @@
     "text": "Old flame turned up in unfinished house in jacket",
     "enumeration": "6"
    },
-   "solution": "TUXEDO"
+   "solution": "TUXEDO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "TUXEDO",
+    "definitions": [
+     {
+      "text": "jacket",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "turned up in a down clue means read from bottom to top"
+     },
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the last letter is lost"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the old flame sits inside the royal house"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old flame",
+      "gives": "EX",
+      "note": "a former partner"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "TUDOR",
+      "note": "the royal House of Tudor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "XE",
+      "DO"
+     ],
+     "reversals": [
+      {
+       "from": "EX",
+       "to": "XE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former lover shows up at a half-built house wearing a smart jacket.",
+     "walkthrough": "XE inside TUDO(R) gives TUXEDO. The Tudors were the English royal dynasty of Henry VIII.",
+     "definitionFit": "A tuxedo is a dinner jacket worn for formal evening dress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +558,48 @@
     "text": "Decimal system said to be moist",
     "enumeration": "4"
    },
-   "solution": "DEWY"
+   "solution": "DEWY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DEWY",
+    "definitions": [
+     {
+      "text": "moist",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means we go by how the name is spoken, not spelt"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decimal system",
+      "gives": "DEWY",
+      "soundsLike": "DEWEY",
+      "note": "the Dewey Decimal System classifies library books"
+     }
+    ],
+    "explanation": {
+     "surface": "A librarian's joke that the book classification scheme is damp.",
+     "walkthrough": "Dewey, the library classification, sounds the same as DEWY.",
+     "definitionFit": "Dewy means wet with dew, so it is a fair synonym for slightly moist or damp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Decimal"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +613,63 @@
     "text": "No-go in state, no-go by day?",
     "enumeration": "9"
    },
-   "solution": "NOCTURNAL"
+   "solution": "NOCTURNAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "NOCTURNAL",
+    "definitions": [
+     {
+      "text": "no-go by day?",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for go inside the state's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "TURN",
+      "note": "a go or a turn in a game"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "CAL",
+      "note": "an abbreviation for California"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "C",
+      "TURN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Something banned within a state, and forbidden in daytime as well.",
+     "walkthrough": "NO + C(TURN)AL gives NOCTURNAL; the definition is cryptic, as a night creature does not go about in daylight.",
+     "definitionFit": "Nocturnal animals are active at night, so for them daytime is when they do not move about."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +683,71 @@
     "text": "Egg provides measure of energy, not beginning to include beginning or end of 16",
     "enumeration": "5"
    },
-   "solution": "OVULE"
+   "solution": "OVULE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OVULE",
+    "definitions": [
+     {
+      "text": "Egg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not beginning",
+      "for": "deletion",
+      "note": "not beginning means the first letter of the unit is removed"
+     },
+     {
+      "text": "beginning or end",
+      "for": "letter_selection",
+      "note": "either the first or the last letter of the named answer, which happen to be the same"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include means the shortened unit wraps round the chosen letter"
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "measure of energy",
+      "gives": "JOULE",
+      "note": "the SI unit of energy"
+     },
+     {
+      "clueFragment": "16",
+      "gives": "V",
+      "select": "first",
+      "note": "the answer to 16 starts and ends with the same letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "V",
+      "ULE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scientific note about an egg, a unit of energy and a cross-reference.",
+     "walkthrough": "(J)OULE wraps V, the first and last letter of VLADIMIR NABOKOV, to give OVULE.",
+     "definitionFit": "An ovule is the structure in a plant ovary containing the egg cell, loosely a small egg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +761,51 @@
     "text": "Did these glamorous people formerly play by ear?",
     "enumeration": "7"
    },
-   "solution": "EXOTICS"
+   "solution": "EXOTICS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXOTICS",
+    "definitions": [
+     {
+      "text": "these glamorous people",
+      "at": 4
+     }
+    ],
+    "linkWords": [
+     "Did"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formerly",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "play by ear",
+      "gives": "OTICS",
+      "note": "otic means relating to the ear, so whimsically otics are those who go by ear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "OTICS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether these glamorous types were once musicians who played without a score.",
+     "walkthrough": "The joke splits the word in two: people who once did things by ear. Otic is the medical adjective for the ear.",
+     "definitionFit": "Exotics are striking, colourful foreign-seeming people, such as glamorous dancers or performers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +819,64 @@
     "text": "Creche in north Surrey reorganised",
     "enumeration": "7"
    },
-   "solution": "NURSERY"
+   "solution": "NURSERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NURSERY",
+    "definitions": [
+     {
+      "text": "Creche",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reorganised",
+      "for": "anagram",
+      "note": "reorganised means the county's letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "the compass abbreviation"
+     },
+     {
+      "clueFragment": "Surrey",
+      "gives": "SURREY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "URSERY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SURREY",
+       "gives": "URSERY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daycare centre in the north of Surrey gets a shake-up.",
+     "walkthrough": "Surrey is a county south-west of London.",
+     "definitionFit": "A nursery is a place where young children are looked after during the day, as is a creche."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "north"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +890,43 @@
     "text": "Press suit where suits are pressed",
     "enumeration": "5"
    },
-   "solution": "COURT"
+   "solution": "COURT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COURT",
+    "definitions": [
+     {
+      "text": "Press suit",
+      "at": 0
+     },
+     {
+      "text": "where suits are pressed",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press suit",
+      "note": "first meaning: to woo, pressing one's suit to a beloved"
+     },
+     {
+      "clueFragment": "where suits are pressed",
+      "note": "second meaning: a place where lawsuits are pursued"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests ironing clothes; the suits are a lover's suit and lawsuits.",
+     "definitionFit": "To court is to woo someone, and a court is the venue where legal cases are argued."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suits"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +940,55 @@
     "text": "Splendid display with a sombre hairdo",
     "enumeration": "9"
    },
-   "solution": "POMPADOUR"
+   "solution": "POMPADOUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POMPADOUR",
+    "definitions": [
+     {
+      "text": "hairdo",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Splendid display",
+      "gives": "POMP",
+      "note": "pomp is ceremonial splendour"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sombre",
+      "gives": "DOUR",
+      "note": "dour means gloomy and severe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POMP",
+      "A",
+      "DOUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A grand show put on with a gloomy hairstyle.",
+     "definitionFit": "A pompadour is a hairstyle with the hair swept high off the forehead, named after Madame de Pompadour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +1002,65 @@
     "text": "Drunken hack almost lit pile of stamps",
     "enumeration": "10"
    },
-   "solution": "PHILATELIC"
+   "solution": "PHILATELIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PHILATELIC",
+    "definitions": [
+     {
+      "text": "of stamps",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means the last letter of the writer's word is dropped"
+     },
+     {
+      "text": "Drunken",
+      "for": "anagram",
+      "note": "drunken means staggering out of order, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hack",
+      "gives": "HACK",
+      "note": "taken as written, then cut short"
+     },
+     {
+      "clueFragment": "lit pile",
+      "gives": "LITPILE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHILATELIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HACLITPILE",
+       "gives": "PHILATELIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tipsy journalist sets fire to a heap of postage stamps.",
+     "walkthrough": "'Pile' reads as the definition's noun, but it is fodder; the definition is 'of stamps'.",
+     "definitionFit": "Philatelic is the adjective for stamp collecting, describing anything relating to postage stamps."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pile"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1074,51 @@
     "text": "The last book to bring joy to the cleric",
     "enumeration": "10"
    },
-   "solution": "REVELATION"
+   "solution": "REVELATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVELATION",
+    "definitions": [
+     {
+      "text": "The last book",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to bring",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the cleric",
+      "gives": "REV",
+      "note": "Rev, short for Reverend"
+     },
+     {
+      "clueFragment": "joy",
+      "gives": "ELATION",
+      "note": "elation is great joy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REV",
+      "ELATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A wish to cheer up the vicar with the final book of the Bible.",
+     "walkthrough": "The clue names the joy first, but it is attached after the cleric when the answer is built.",
+     "definitionFit": "Revelation is the final book of the New Testament, closing the Christian Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "joy"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1138,81 @@
      }
     ]
    },
-   "solution": "VLADIMIRNABOKOV"
+   "solution": "VLADIMIRNABOKOV",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VLADIMIR NABOKOV",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or out of sorts, so the letters are disordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters between the two numerals"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bookman",
+      "gives": "BOOKMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "take",
+      "gives": "R",
+      "note": "R stands for recipe, Latin for take, on prescriptions"
+     },
+     {
+      "clueFragment": "Iliad",
+      "gives": "ILIAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "5s",
+      "gives": "VV",
+      "note": "V is the Roman numeral five, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "LADIMIRNABOKO",
+      "V"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOOKMANRILIAD",
+       "gives": "LADIMIRNABOKO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author and a literary man set off to remove Homer's Iliad in some fives.",
+     "walkthrough": "'5s' looks like a cross-reference but means two Roman fives; the jumbled letters sit between them.",
+     "definitionFit": "Vladimir Nabokov was the Russian-American novelist who wrote Lolita and Pale Fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "5s"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1232,77 @@
      }
     ]
    },
-   "solution": "IRONLUNG"
+   "solution": "IRONLUNG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "IRON LUNG",
+    "definitions": [
+     {
+      "text": "hospital equipment",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the 5th of",
+      "for": "letter_selection",
+      "note": "the fifth of the month name means its fifth letter only"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means the word for called surrounds what follows"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "RUNG",
+      "note": "rang or rung, as on the telephone"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "April",
+      "gives": "L",
+      "select": 5,
+      "note": "the fifth letter of the month name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "ONL",
+      "UNG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone telephoned on the fifth of April about some hospital gear.",
+     "walkthrough": "'The 5th of April' looks like a date but means the fifth letter. I + R(ON L)UNG gives IRON LUNG.",
+     "definitionFit": "An iron lung is a large machine that helps a paralysed patient breathe, used in hospitals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "5th"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1316,50 @@
     "text": "Monarch regularly being chivalrous",
     "enumeration": "8"
    },
-   "solution": "KNIGHTLY"
+   "solution": "KNIGHTLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNIGHTLY",
+    "definitions": [
+     {
+      "text": "chivalrous",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarch",
+      "gives": "K",
+      "note": "K for king, as in chess notation"
+     },
+     {
+      "clueFragment": "regularly",
+      "gives": "NIGHTLY",
+      "note": "every night, hence regularly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NIGHTLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A king who is routinely courteous.",
+     "walkthrough": "'Regularly' would usually pick alternate letters, but here it is a synonym for NIGHTLY.",
+     "definitionFit": "Knightly describes conduct befitting a knight, the courteous ideal of chivalry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1373,58 @@
     "text": "Dubious character's discount covers whore",
     "enumeration": "9"
    },
-   "solution": "REPROBATE"
+   "solution": "REPROBATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPROBATE",
+    "definitions": [
+     {
+      "text": "Dubious character",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "covers means the reduction goes around the other word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discount",
+      "gives": "REBATE",
+      "note": "a rebate is a partial refund"
+     },
+     {
+      "clueFragment": "whore",
+      "gives": "PRO",
+      "note": "pro, short for prostitute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRO",
+      "BATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shady figure's price cut conceals a prostitute.",
+     "walkthrough": "RE(PRO)BATE gives REPROBATE; the 's is 'is', joining definition to wordplay.",
+     "definitionFit": "A reprobate is an unprincipled scoundrel, the sort of person whose morals are questionable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1438,61 @@
     "text": "South Africa gets into Italian food without a flashy performance",
     "enumeration": "6"
    },
-   "solution": "PIZAZZ"
+   "solution": "PIZAZZ",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PIZAZZ",
+    "definitions": [
+     {
+      "text": "flashy performance",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without a",
+      "for": "deletion",
+      "note": "without a means one letter a is taken away from the food"
+     },
+     {
+      "text": "gets into",
+      "for": "container",
+      "note": "gets into means the country's code goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Africa",
+      "gives": "ZA",
+      "note": "ZA is the international code for South Africa"
+     },
+     {
+      "clueFragment": "Italian food",
+      "gives": "PIZZA",
+      "note": "the Italian flatbread"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ZA",
+      "ZZ"
+     ]
+    },
+    "explanation": {
+     "surface": "A South African tucks into a pizza without making a show of it.",
+     "walkthrough": "South Africa's international code comes from Zuid-Afrika, its Dutch name, not the English initials.",
+     "definitionFit": "Pizazz is showy flair and verve, the dazzle of a flamboyant performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1506,42 @@
     "text": "Super fish",
     "enumeration": "5"
    },
-   "solution": "BRILL"
+   "solution": "BRILL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BRILL",
+    "definitions": [
+     {
+      "text": "Super",
+      "at": 0
+     },
+     {
+      "text": "fish",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Super",
+      "note": "first meaning: British slang for excellent"
+     },
+     {
+      "clueFragment": "fish",
+      "note": "second meaning: a European flatfish related to turbot"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as praise for a fish; the two words are separate meanings.",
+     "definitionFit": "Brill is informal British slang, short for brilliant, and also a flatfish similar to the turbot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Super"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1555,49 @@
     "text": "Islander gutted coastal town",
     "enumeration": "6"
    },
-   "solution": "BRITON"
+   "solution": "BRITON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRITON",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "deletion",
+      "note": "gutted means its innards are removed, so middle letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coastal town",
+      "gives": "BRIGHTON",
+      "note": "the seaside resort on England's south coast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRI",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from an island has destroyed a seaside town.",
+     "walkthrough": "Removing the middle GH from BRIGHTON leaves BRITON.",
+     "definitionFit": "A Briton lives in Great Britain, which is an island, so a Briton is an islander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1611,55 @@
     "text": "Animal to stare into the distance? On the contrary",
     "enumeration": "7"
    },
-   "solution": "GAZELLE"
+   "solution": "GAZELLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GAZELLE",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into the distance? On the contrary",
+      "for": "container",
+      "note": "the contrary reverses which goes inside, so the length goes into the staring word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to stare",
+      "gives": "GAZE",
+      "note": "to gaze is to look steadily"
+     },
+     {
+      "clueFragment": "distance",
+      "gives": "ELL",
+      "note": "an ell is an old measure of length"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAZ",
+      "ELL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal gazing far off into the distance.",
+     "walkthrough": "The clue says stare into distance, then reverses the instruction: ELL goes into GAZE.",
+     "definitionFit": "A gazelle is a small, graceful antelope of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "contrary"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1673,60 @@
     "text": "Pedigree includes rising novelist",
     "enumeration": "4"
    },
-   "solution": "GIDE"
+   "solution": "GIDE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GIDE",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "hidden_word",
+      "note": "includes means the letters are found inside the word given"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "rising in a down clue means read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pedigree",
+      "gives": "EDIG",
+      "note": "letters inside the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIDE"
+     ],
+     "reversals": [
+      {
+       "from": "EDIG",
+       "to": "GIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer on the up has a fine pedigree.",
+     "walkthrough": "Inside pEDIGree, read upwards: GIDE.",
+     "definitionFit": "André Gide was a French author, winner of the Nobel Prize for Literature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1740,70 @@
     "text": "Descriptive term for what's essential in back support",
     "enumeration": "7"
    },
-   "solution": "EPITHET"
+   "solution": "EPITHET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EPITHET",
+    "definitions": [
+     {
+      "text": "Descriptive term",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the core inside the support"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the support is read from end to start"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a golf tee supports the ball"
+     },
+     {
+      "clueFragment": "what's essential",
+      "gives": "PITH",
+      "note": "the pith is the essence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PITH",
+      "ET"
+     ],
+     "reversals": [
+      {
+       "from": "TEE",
+       "to": "EET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A name for the key element in a support for the back.",
+     "walkthrough": "'Back support' reads as a brace for your back, but back reverses TEE. E(PITH)ET gives EPITHET.",
+     "definitionFit": "An epithet is an adjective or phrase that describes a person, such as 'the Great'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1817,52 @@
     "text": "Island where Nellie goes topless",
     "enumeration": "4"
    },
-   "solution": "ELBA"
+   "solution": "ELBA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELBA",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes topless",
+      "for": "deletion",
+      "note": "topless in a down clue means losing the first letter"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nellie",
+      "gives": "MELBA",
+      "note": "Dame Nellie Melba, the Australian soprano"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELBA"
+     ]
+    },
+    "explanation": {
+     "surface": "An island where a woman named Nellie sunbathes topless.",
+     "walkthrough": "Nellie must be completed as the opera singer Nellie Melba; dropping her M leaves ELBA.",
+     "definitionFit": "Elba is the Mediterranean island off Tuscany where Napoleon was exiled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "topless"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1876,50 @@
     "text": "Practise religion of 12",
     "enumeration": "5"
    },
-   "solution": "DOZEN"
+   "solution": "DOZEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOZEN",
+    "definitions": [
+     {
+      "text": "12",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Practise",
+      "gives": "DO",
+      "note": "to do is to practise or perform"
+     },
+     {
+      "clueFragment": "religion",
+      "gives": "ZEN",
+      "note": "the Buddhist school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "ZEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Practising the faith of twelve apostles.",
+     "walkthrough": "'12' looks like a cross-reference to the clue for 12 but is just the number.",
+     "definitionFit": "A dozen is a set of twelve items, so the number twelve defines it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "12"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1933,77 @@
     "text": "Compiler's 20 involving bits of log in farcical situation",
     "enumeration": "9"
    },
-   "solution": "IMBROGLIO"
+   "solution": "IMBROGLIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "IMBROGLIO",
+    "definitions": [
+     {
+      "text": "farcical situation",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bits of",
+      "for": "anagram",
+      "note": "broken into bits, the word's letters are rearranged"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means the answer to 20 surrounds the broken word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compiler's",
+      "gives": "IM",
+      "note": "the compiler says I'm"
+     },
+     {
+      "clueFragment": "20",
+      "gives": "BRIO",
+      "note": "brio, liveliness, is a synonym of the answer to 20"
+     },
+     {
+      "clueFragment": "log",
+      "gives": "LOG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "BR",
+      "OGL",
+      "IO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOG",
+       "gives": "OGL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter's flair at splitting logs lands them in a ridiculous situation.",
+     "walkthrough": "PIZAZZ at 20 points to BRIO. IM + BR(OGL)IO gives IMBROGLIO.",
+     "definitionFit": "An imbroglio is a confused, embarrassing tangle of events, the stuff of farce."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "log"
+    }
+   }
   }
  ]
 }
