@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Dieticians upset about pages revealing cause of abdominal pain",
     "enumeration": "12"
    },
-   "solution": "APPENDICITIS"
+   "solution": "APPENDICITIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "APPENDICITIS",
+    "definitions": [
+     {
+      "text": "cause of abdominal pain",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and jumbled, so the letters of the word before it are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters go round the other piece"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dieticians",
+      "gives": "DIETICIANS",
+      "note": "taken as written, as the letters to rearrange"
+     },
+     {
+      "clueFragment": "pages",
+      "gives": "PP",
+      "note": "pp is the standard abbreviation for pages"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PP",
+      "ENDICITIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIETICIANS",
+       "gives": "AENDICITIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nutritionists in a fluster over some pages that explain why someone has a stomach ache.",
+     "walkthrough": "About tells you the pages sit inside the rearranged letters, here just after the opening A.",
+     "definitionFit": "Inflammation of the appendix is a classic medical reason for sharp pain low in the belly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revealing"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +113,64 @@
     "text": "Arouse tailless beast with time and energy",
     "enumeration": "7"
    },
-   "solution": "ANIMATE"
+   "solution": "ANIMATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANIMATE",
+    "definitions": [
+     {
+      "text": "Arouse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "without a tail means the final letter of the creature word is dropped"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beast",
+      "gives": "ANIMA",
+      "note": "an animal, losing its last letter"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the usual abbreviation for time"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANIMA",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Waking up a creature that has lost its tail by giving it time and pep.",
+     "definitionFit": "To animate someone is to stir them into life or excitement, a verb synonym for rousing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beast"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +184,71 @@
     "text": "Stagger up after exercise class with advanced high-protein snack?",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PEANUTS",
+    "definitions": [
+     {
+      "text": "high-protein snack?",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top, backwards"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exercise class",
+      "gives": "PE",
+      "note": "PE is physical education, the school exercise lesson"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is a common abbreviation for advanced"
+     },
+     {
+      "clueFragment": "Stagger",
+      "gives": "STUN",
+      "note": "to stagger someone is to stun them, read upwards here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "A",
+      "NUTS"
+     ],
+     "reversals": [
+      {
+       "from": "STUN",
+       "to": "NUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tottering out of a gym class reaching for a protein-rich nibble.",
+     "walkthrough": "The stagger word comes first in the clue but last in the answer: it sits after PE and A.",
+     "definitionFit": "Peanuts are a protein-packed legume eaten by the handful as a bar or party nibble, hence the question mark for a definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stagger"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +262,50 @@
     "text": "Troublesome individuals represented in a census",
     "enumeration": "9"
    },
-   "solution": "NUISANCES"
+   "solution": "NUISANCES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUISANCES",
+    "definitions": [
+     {
+      "text": "Troublesome individuals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represented",
+      "for": "anagram",
+      "note": "to be represented is to be shown in a new form, so the following letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in a census",
+      "gives": "INACENSUS",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INACENSUS",
+       "gives": "NUISANCES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A statistician's complaint that awkward people show up in the population count.",
+     "definitionFit": "Nuisances are annoying people who cause bother, so they fit troublesome individuals as a plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "represented"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +319,52 @@
     "text": "I swindle small people who are widely admired",
     "enumeration": "5"
    },
-   "solution": "ICONS"
+   "solution": "ICONS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ICONS",
+    "definitions": [
+     {
+      "text": "people who are widely admired",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "swindle",
+      "gives": "CON",
+      "note": "a con is a swindle"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "CON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A confession of cheating minor figures who are nonetheless much loved.",
+     "definitionFit": "An icon is a celebrated figure revered as a symbol, so famous admired people are icons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +378,55 @@
     "text": "I unusually retain resistance to change",
     "enumeration": "7"
    },
-   "solution": "INERTIA"
+   "solution": "INERTIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INERTIA",
+    "definitions": [
+     {
+      "text": "resistance to change",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters come in an abnormal order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "retain",
+      "gives": "RETAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IRETAIN",
+       "gives": "INERTIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admitting they rarely keep anything, ironically while describing stubbornness.",
+     "definitionFit": "In physics and in everyday use, inertia is the tendency of a body or person to stay as it is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retain"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +440,57 @@
     "text": "Popular plant has circle in hell?",
     "enumeration": "7"
    },
-   "solution": "INFERNO"
+   "solution": "INFERNO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFERNO",
+    "definitions": [
+     {
+      "text": "hell?",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "something popular is in"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "FERN",
+      "note": "a fern is a plant"
+     },
+     {
+      "clueFragment": "circle",
+      "gives": "O",
+      "note": "O is shaped like a circle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FERN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A garden plant said to have a ring around it in the underworld.",
+     "walkthrough": "The circle also nods to Dante, whose Inferno divides hell into nine circles.",
+     "definitionFit": "Dante named his vision of the underworld the Inferno, and the word now means any blazing hellish place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "circle"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +504,49 @@
     "text": "Believe fit to be great",
     "enumeration": "12"
    },
-   "solution": "CONSIDERABLE"
+   "solution": "CONSIDERABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSIDERABLE",
+    "definitions": [
+     {
+      "text": "great",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Believe",
+      "gives": "CONSIDER",
+      "note": "to consider is to believe or judge"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "able means fit or capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONSIDER",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Thinking someone is in good enough shape to be outstanding.",
+     "definitionFit": "A considerable amount is a large or significant one, matching great in the sense of size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +560,67 @@
     "text": "Japanese art leaders of army museum kept in unfinished base",
     "enumeration": "7"
    },
-   "solution": "ORIGAMI"
+   "solution": "ORIGAMI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "ORIGAMI",
+    "definitions": [
+     {
+      "text": "Japanese art",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "leaders are those at the front, so only the opening letters of the next words count"
+     },
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its end, so the final letter is dropped"
+     },
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "kept in means held inside, so the first piece sits within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army museum",
+      "gives": "AM",
+      "select": "first",
+      "note": "the first letters of these two words"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "ORIGIN",
+      "note": "a base or source is an origin, here missing its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORIG",
+      "AM",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A display of Japanese craft stored in the unfinished foundations of a military museum.",
+     "definitionFit": "Origami is the traditional Japanese craft of folding paper into shapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +634,48 @@
     "text": "Past US agent given too much dough?",
     "enumeration": "7"
    },
-   "solution": "OVERFED"
+   "solution": "OVERFED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERFED",
+    "definitions": [
+     {
+      "text": "given too much dough?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Past",
+      "gives": "OVER",
+      "note": "something past is over"
+     },
+     {
+      "clueFragment": "US agent",
+      "gives": "FED",
+      "note": "a fed is an FBI agent in American slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "FED"
+     ]
+    },
+    "explanation": {
+     "surface": "A former American spy who was perhaps paid far too much money.",
+     "walkthrough": "Dough looks like money for the agent, but it is bread dough, food, which is why the question mark is there.",
+     "definitionFit": "Someone overfed has been given more food than needed, and dough playfully stands for bread to eat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dough"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +689,46 @@
     "text": "Frustrated detectives given job",
     "enumeration": "12"
    },
-   "solution": "DISAPPOINTED"
+   "solution": "DISAPPOINTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISAPPOINTED",
+    "definitions": [
+     {
+      "text": "Frustrated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detectives",
+      "gives": "DIS",
+      "note": "DIs are detective inspectors"
+     },
+     {
+      "clueFragment": "given job",
+      "gives": "APPOINTED",
+      "note": "someone appointed has been given a post"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "APPOINTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Police investigators annoyed despite being handed a new assignment.",
+     "definitionFit": "Being disappointed means feeling let down when hopes are thwarted, close to feeling frustrated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frustrated"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +742,64 @@
     "text": "Cooking utensil ejected by posh lady, half-cut",
     "enumeration": "7"
    },
-   "solution": "SPATULA"
+   "solution": "SPATULA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SPATULA",
+    "definitions": [
+     {
+      "text": "Cooking utensil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "deletion",
+      "note": "cut in half means only one half of the word survives"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ejected",
+      "gives": "SPAT",
+      "note": "spat is the past of spit, to eject from the mouth"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class in British usage"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "LADY",
+      "note": "only the front half of this is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAT",
+      "U",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen tool flung out by a tipsy upper-class woman; half-cut is British slang for drunk.",
+     "definitionFit": "A spatula is a flat-bladed kitchen tool for lifting, spreading or scraping food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half-cut"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +813,51 @@
     "text": "Skits based on Salvation Army fatigues",
     "enumeration": "7"
    },
-   "solution": "SATIRES"
+   "solution": "SATIRES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SATIRES",
+    "definitions": [
+     {
+      "text": "Skits",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "based on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salvation Army",
+      "gives": "SA",
+      "note": "SA is the abbreviation for the Salvation Army"
+     },
+     {
+      "clueFragment": "fatigues",
+      "gives": "TIRES",
+      "note": "fatigues as a verb means tires"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TIRES"
+     ]
+    },
+    "explanation": {
+     "surface": "Comic sketches inspired by military uniforms worn by the Salvation Army.",
+     "walkthrough": "Fatigues looks like army clothing, but it is the verb meaning wears out.",
+     "definitionFit": "Satires and skits are both short comic pieces that mock their subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fatigues"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +871,61 @@
     "text": "Doctor, for example, beginning to swallow sediment",
     "enumeration": "5"
    },
-   "solution": "DREGS"
+   "solution": "DREGS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DREGS",
+    "definitions": [
+     {
+      "text": "sediment",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "Dr is the title abbreviation for doctor"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates for example"
+     },
+     {
+      "clueFragment": "swallow",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "EG",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A medic illustrating how to start gulping down a murky residue.",
+     "definitionFit": "Dregs are the gritty residue left at the bottom of a cup or bottle, a plural synonym for sediment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallow"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +949,55 @@
      }
     ]
    },
-   "solution": "COCKAHOOP"
+   "solution": "COCKAHOOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCK-A-HOOP",
+    "definitions": [
+     {
+      "text": "Very happy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "COCK",
+      "note": "a cock is a male bird"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "HOOP",
+      "note": "a hoop is a ring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCK",
+      "A",
+      "HOOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful bird sporting a ring, like a ringed pigeon.",
+     "definitionFit": "Cock-a-hoop is an old idiom for being jubilant or crowing with delight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +1011,46 @@
     "text": "Honour A-lister fee",
     "enumeration": "9"
    },
-   "solution": "CELEBRATE"
+   "solution": "CELEBRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELEBRATE",
+    "definitions": [
+     {
+      "text": "Honour",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A-lister",
+      "gives": "CELEB",
+      "note": "an A-lister is a top celebrity, or celeb"
+     },
+     {
+      "clueFragment": "fee",
+      "gives": "RATE",
+      "note": "a rate is a charge or fee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELEB",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a request to pay tribute to a star's appearance fee.",
+     "definitionFit": "To celebrate someone is to honour them publicly with praise or festivities, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Honour"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1064,65 @@
     "text": "Tries again with a little bit of laborious practice",
     "enumeration": "9"
    },
-   "solution": "REHEARSAL"
+   "solution": "REHEARSAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REHEARSAL",
+    "definitions": [
+     {
+      "text": "practice",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little bit of",
+      "for": "letter_selection",
+      "note": "the smallest bit of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tries again",
+      "gives": "REHEARS",
+      "note": "to rehear a case in court is to try it again"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "laborious",
+      "gives": "L",
+      "select": "first",
+      "note": "just the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REHEARS",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone making another attempt at a tiresome practice session.",
+     "walkthrough": "Tries is the legal sense: a judge rehears a case. The a of the clue does double duty with the selector words, giving A before the single letter.",
+     "definitionFit": "A rehearsal is a practice run of a performance before the real thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tries"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +1136,61 @@
     "text": "Crop top under hideous Afghan robe, initially",
     "enumeration": "7"
    },
-   "solution": "HARVEST"
+   "solution": "HARVEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HARVEST",
+    "definitions": [
+     {
+      "text": "Crop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letters of the preceding words"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under means placed below, so the garment word goes second, after the initials"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hideous Afghan robe",
+      "gives": "HAR",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     },
+     {
+      "clueFragment": "top",
+      "gives": "VEST",
+      "note": "a vest is a sleeveless top"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAR",
+      "VEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion note about a short top worn beneath an ugly Afghan coat.",
+     "definitionFit": "A harvest is the crop gathered in a season, so the nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Crop"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1204,50 @@
     "text": "Adult with superior accessory",
     "enumeration": "7"
    },
-   "solution": "ABETTER"
+   "solution": "ABETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABETTER",
+    "definitions": [
+     {
+      "text": "accessory",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     },
+     {
+      "clueFragment": "superior",
+      "gives": "BETTER",
+      "note": "superior means better"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a fashion tip: a grown-up wearing a classier accessory.",
+     "definitionFit": "In law an accessory is someone who helps commit a crime, which is what an abetter does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "accessory"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1261,42 @@
     "text": "Some grapes topping sauce",
     "enumeration": "5"
    },
-   "solution": "PESTO"
+   "solution": "PESTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PESTO",
+    "definitions": [
+     {
+      "text": "sauce",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of what follows, a run of letters inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grapes topping",
+      "gives": "PESTO",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe idea: a few grapes scattered on top of a sauce.",
+     "definitionFit": "Pesto is an Italian sauce of basil, pine nuts, garlic and cheese."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1310,65 @@
     "text": "More sprightly lord embracing queen, king and setter",
     "enumeration": "7"
    },
-   "solution": "PERKIER"
+   "solution": "PERKIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PERKIER",
+    "definitions": [
+     {
+      "text": "More sprightly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold in one's arms, so the noble wraps round the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lord",
+      "gives": "PEER",
+      "note": "a peer is a lord"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R for Regina, Latin for queen"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "RKI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman cheerfully hugging royalty and the puzzle's author.",
+     "definitionFit": "Perkier is the comparative of perky, meaning livelier and more cheerful, matching more sprightly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1382,73 @@
     "text": "Dog jumps up to grab panini in the middle",
     "enumeration": "7"
    },
-   "solution": "SPANIEL"
+   "solution": "SPANIEL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPANIEL",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up reads the word from bottom to top"
+     },
+     {
+      "text": "in the middle",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letters only"
+     },
+     {
+      "text": "to grab",
+      "for": "container",
+      "note": "to grab is to seize and hold, so the reversed word holds the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jumps",
+      "gives": "LEAPS",
+      "note": "leaps are jumps, read upwards here"
+     },
+     {
+      "clueFragment": "panini",
+      "gives": "NI",
+      "select": "middle",
+      "note": "the two central letters of this six-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPA",
+      "NI",
+      "EL"
+     ],
+     "reversals": [
+      {
+       "from": "LEAPS",
+       "to": "SPAEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hungry dog leaps up to snatch a toasted sandwich.",
+     "definitionFit": "A spaniel is a breed of dog with long drooping ears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "panini"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1462,77 @@
     "text": "Quarrels stop intense desire returning before first thing on Sunday",
     "enumeration": "7"
    },
-   "solution": "BARNEYS"
+   "solution": "BARNEYS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BARNEYS",
+    "definitions": [
+     {
+      "text": "Quarrels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word is read backwards"
+     },
+     {
+      "text": "first thing on",
+      "for": "letter_selection",
+      "note": "the first thing of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stop",
+      "gives": "BAR",
+      "note": "to bar is to stop"
+     },
+     {
+      "clueFragment": "intense desire",
+      "gives": "YEN",
+      "note": "a yen is a strong longing"
+     },
+     {
+      "clueFragment": "Sunday",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "NEY",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "YEN",
+       "to": "NEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to end family rows driven by craving before Sunday morning.",
+     "walkthrough": "Barney is British informal for a noisy row.",
+     "definitionFit": "A barney is colloquial British English for a loud argument, so barneys are quarrels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1546,54 @@
     "text": "Unfortunately sneaky about commercial",
     "enumeration": "5"
    },
-   "solution": "SADLY"
+   "solution": "SADLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SADLY",
+    "definitions": [
+     {
+      "text": "Unfortunately",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word surrounds the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sneaky",
+      "gives": "SLY",
+      "note": "sly means sneaky"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AD",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A regretful remark about a devious advertisement.",
+     "definitionFit": "Sadly and unfortunately are both sentence adverbs expressing regret about what follows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1607,70 @@
     "text": "Snatch back first-class number for a good deal",
     "enumeration": "7"
    },
-   "solution": "BARGAIN"
+   "solution": "BARGAIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BARGAIN",
+    "definitions": [
+     {
+      "text": "good deal",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word is read in the backward direction"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snatch",
+      "gives": "GRAB",
+      "note": "to snatch is to grab"
+     },
+     {
+      "clueFragment": "first-class",
+      "gives": "AI",
+      "note": "A1 means first-class, with the 1 read as I"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is an abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARG",
+      "AI",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "GRAB",
+       "to": "BARG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grabbing a top-quality item back because it is cheap.",
+     "walkthrough": "A1 is a common label for first-rate; crosswords swap the digit 1 for the letter I.",
+     "definitionFit": "A bargain is something bought cheaply, so it is a good deal for the buyer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1684,62 @@
     "text": "Chose Juliet for line to be removed",
     "enumeration": "7"
    },
-   "solution": "EJECTED"
+   "solution": "EJECTED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "EJECTED",
+    "definitions": [
+     {
+      "text": "removed",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for means in place of, so one letter stands where another was"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chose",
+      "gives": "ELECTED",
+      "note": "to elect is to choose"
+     },
+     {
+      "clueFragment": "Juliet",
+      "gives": "J",
+      "note": "Juliet is J in the NATO alphabet"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "J",
+      "ECTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre director picking Juliet so a line can be cut from the play.",
+     "definitionFit": "Ejected means thrown out or expelled, so it fits removed as a past participle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Juliet"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1753,56 @@
     "text": "Idiotic square like one before",
     "enumeration": "7"
    },
-   "solution": "ASININE"
+   "solution": "ASININE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASININE",
+    "definitions": [
+     {
+      "text": "Idiotic",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "square",
+      "gives": "NINE",
+      "note": "nine is a square number, three squared"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "I",
+      "NINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling someone a foolish conformist, like a person ahead of them.",
+     "walkthrough": "Square looks like a word for an uncool person, but it is a square number; before puts the other pieces in front of it.",
+     "definitionFit": "Asinine means extremely foolish, from the Latin for donkey, so it is a synonym of idiotic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1822,50 @@
      }
     ]
    },
-   "solution": "STORMYPETREL"
+   "solution": "STORMYPETREL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STORMY PETREL",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chewed",
+      "for": "anagram",
+      "note": "chewed food is mashed up, so the letters that follow are mangled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty morsel",
+      "gives": "PRETTYMORSEL",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRETTYMORSEL",
+       "gives": "STORMYPETREL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird nibbling at a dainty titbit.",
+     "definitionFit": "The storm petrel, or stormy petrel, is a small seabird said to appear before bad weather."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chewed"
+    }
+   }
   }
  ]
 }
