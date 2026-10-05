@@ -5,7 +5,10 @@ room     = "cryptic-crosswords"
 # starts runs detached in its own session, so this returns in seconds.
 schedule = "35 * * * *"
 where    = "container"
-run      = "/Users/pt/github/cryptic-teacher/tools/corpus_queue.sh"
+# The job's own worktree, not the main checkout: that one fast-forwards only
+# when clean, so a script newer than its last clean moment is not in it.
+# tools/nightly_worktree.sh resets this tree to origin/master on every run.
+run      = "/Users/pt/.cryptic-teacher/corpus_queue/tools/corpus_queue.sh"
 args     = ["tick"]
 log      = "/Users/pt/github/cryptic-teacher/.corpus_queue.log"
 timeout  = 600
