@@ -1465,7 +1465,7 @@ def read_puzzle(d, found, hit, solutions):
     lengths = {f"{n_}-{d_}": len(cells) for (n_, d_), cells in rg.light_cells(grid).items()}
     fits = {lid for lid, (_, enum, group) in laid.items()
             if enum and not group and ftp.count(enum) == lengths.get(lid)}
-    laid, blank = reconcile(laid, stream, lengths)
+    laid, blank = unfit_blanked(*reconcile(laid, stream, lengths), lengths)
     if blank and "vlm" in texts and vlm.reachable():
         try:
             laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
@@ -1701,14 +1701,27 @@ def complete(puzzle):
 
 
 def unfit_blanked(laid, blank, lengths):
-    """(laid, blank) with each clue ocr_clues.fault refuses filed blank, its
-    count kept when it fills the light, and why in `blank`."""
+    """(laid, blank) with each clue complete() would refuse filed blank and
+    why in `blank`, so a puzzle with an empty `blank` is complete: a clue
+    ocr_clues.fault refuses (its count kept when it fills the light), one
+    with a word ocr_clues.suspect flags, and each light of `lengths` with
+    no text that is no linked clue's tail ("See 1")."""
     laid, blank = dict(laid), dict(blank)
+    tails = {t for _, _, group in laid.values() for t in (group or [])[1:]}
+    for lid in lengths:
+        if lid not in tails and not (laid.get(lid) or ("",))[0].strip():
+            laid[lid] = laid.get(lid) or ("", None, None)
+            blank.setdefault(lid, "no reading laid a clue on it")
     for lid, (text, enum, group) in list(laid.items()):
         why = ocr_clues.fault(text, enum, sum(lengths.get(i, 0) for i in group or [lid]))
         if why:
             laid[lid] = ("", None if why.startswith("its count") else enum, group)
             blank[lid] = why
+            continue
+        odd = suspect(text)
+        if odd:
+            laid[lid] = ("", enum, group)
+            blank[lid] = f"{odd[0][0]!r}: {odd[0][1]}"
     return laid, blank
 
 

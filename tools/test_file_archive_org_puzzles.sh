@@ -160,6 +160,17 @@ laid, blank = f.unfit_blanked({"22-down": ("Poles 22 Affected by it", "6", None)
 check("an unfit clue is filed blank, its count kept when it fills the light",
       ({"22-down": ("", "6", None), "1-across": ("Fine", "6", None), "3-across": ("", None, None)},
        ["22-down", "3-across"]), (laid, sorted(blank)))
+laid, blank = f.unfit_blanked({"1-across": ("Stop to0 late", "6", None), "2-down": ("Long", "4,3", ["2-down", "3-down"])},
+                               {}, {"1-across": 6, "2-down": 4, "3-down": 3, "4-down": 5})
+check("a suspect word, or a light no reading laid, is filed blank, a linked tail is not",
+      ({"1-across": ("", "6", None), "2-down": ("Long", "4,3", ["2-down", "3-down"]), "4-down": ("", None, None)},
+       ["1-across", "4-down"]), (laid, sorted(blank)))
+check("a dash or comma run into the words either side is spaced",
+      ["Hang play \u2014 change", "Two elements \u2014 somewhat", "now \u2014 then", "Good rum, as do, too",
+       "usage: acceptable", "1,000 men", "self-made"],
+      [ocr_clues.clean(t) for t in ("Hang play--change", "Two elements\u2014somewhat", "now -- then",
+                                    "Good rum,as do,too", "usage:acceptable", "1,000 men", "self-made")])
+check("a clue spaced by clean() is no longer suspect", [], ocr_clues.suspect(ocr_clues.clean("Agreed\u2014an unruly sort,as")))
 puz = {"entries": [{"number": 1, "direction": "across", "length": 6, "clue": {"text": "Fine", "enumeration": "6"}},
                    {"number": 2, "direction": "down", "length": 4, "group": ["2-down", "3-down"],
                     "clue": {"text": "Long 2 Joined", "enumeration": "4,3"}},

@@ -833,6 +833,12 @@ def clean(text):
     text = re.sub(r"\b[lI](?=\d)", "1", text)
     # The space after a question or exclamation mark lost ("Worried?Pulse").
     text = re.sub(r"(?<=[a-z])([?!])(?=[A-Z][a-z])", r"\1 ", text)
+    # A dash between words is the corpus's spaced em dash, however the scan
+    # set it ("time—a", "play--change", "now -- then").
+    text = re.sub(r"(?<=[a-z])[ \t]*(?:—|--)[ \t]*(?=[A-Za-z])", " — ", text)
+    # The space after a comma, semicolon or colon between two words lost
+    # ("rum,as", "usage:acceptable").
+    text = re.sub(r"(?<=[a-z]{2})([,;:])(?=[a-z]{2})", r"\1 ", text)
     # An exclamation mark read as a capital I or a one, last before the count.
     text = re.sub(r"(?<=[a-z]) [I1l](?=\s*(?:\(\s*\d|$))", "!", text)
     text = re.sub(r"(?<![\d(])\b1(?=[a-z]*\b)(?![a-z]*\s+(?:and|or|&)\s+\d)([a-z]*)", one_for_i, text)
