@@ -26,10 +26,10 @@ TRIES=3
 READ_SECONDS="${CORPUS_JOB_SECONDS:-3000}"
 mkdir -p "$OUT" "$CH/failed"
 
-publish() {  # publish <series> <what>
-  git add -- "puzzles/$1" || return 1
-  git diff --cached --quiet -- "puzzles/$1" && return 0
-  git commit -q -m "$(printf 'Corpus queue %s: %s\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>' "$NAME" "$2")" -- "puzzles/$1" || return 1
+publish() {  # publish <series> <what>: every puzzle file the filer touched (it also marks other series reprints)
+  git add -- puzzles || return 1
+  git diff --cached --quiet -- puzzles && return 0
+  git commit -q -m "$(printf 'Corpus queue %s: %s\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>' "$NAME" "$2")" -- puzzles || return 1
   for i in 1 2 3 4 5; do
     git checkout -q -- index.html 2>/dev/null
     git pull -q --rebase origin master && git push -q origin HEAD:master && return 0
