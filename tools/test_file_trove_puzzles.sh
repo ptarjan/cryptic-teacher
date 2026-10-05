@@ -97,7 +97,8 @@ check "no grid image: filed from the clues, rebuilt" "reconstructed True" "$got"
 # 14 July 1967 cryptic Trove read 5-down's "(6, 4)" as "(6,\n4> , ," and
 # glued 6-down onto it. The reading (tools/fixtures/trove-repair/cache-clues,
 # cached as tools/trove_clue_ocr.py leaves it) gives 6-down back and 5-down
-# its length, so the clues agree with the picture and the puzzle files;
+# its length, so the clues agree with the picture and the puzzle files,
+# 5-down with the "(6, 4)" every reading prints (ocr_clues.as_printed);
 # without it 6-down is split off at its number (unglued()) and the grid
 # stands, but with no reading to vote with the puzzle waits.
 cp -r "$REPO/tools/fixtures/trove-repair" "$tmp/repair"
@@ -109,7 +110,7 @@ p = json.load(open('$tmp/out3/canberra-670714.json'))
 e = {(x['number'], x['direction']): x['clue'] for x in p['entries']}
 print(p['source']['gridOrigin'], e[(5, 'down')]['text'], '|', e[(5, 'down')].get('enumeration'),
       '|', e[(6, 'down')]['text'], e[(6, 'down')]['enumeration'])")
-check "a lost clue repaired from the clue columns, its words voted" "published Under which possibly neither Irving Berlin nor Edward German ever sat | None | Rumour that's hardly about the bishop. 11" "$got"
+check "a lost clue repaired from the clue columns, its words voted" "published Under which possibly neither Irving Berlin nor Edward German ever sat | 6,4 | Rumour that's hardly about the bishop. 11" "$got"
 rm -r "$tmp/repair/cache-clues" "$tmp/repair/cache/filed.jsonl"
 got=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" | grep -c "pending: no reading of the page's clues")
 check "without the clue columns it waits" "1" "$got"
@@ -310,6 +311,25 @@ check "the vote mends a clue, and a lost clue keeps the puzzle back" "no reading
 Start from Hint
 Start from Hint
 no clue for 2-down" "$got"
+
+# The Trove vote files each clue as the readings print it, Trove's own
+# text among them (ocr_clues.as_printed): a count every reading prints in
+# parts takes them, and one Trove and the readings print alike stands.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F, pathlib, tempfile
+d = pathlib.Path(tempfile.mkdtemp())
+(d / 'trove' / '1').mkdir(parents=True)
+z = d / 'trove-clues' / '1'; z.mkdir(parents=True)
+grid = ['...', '.#.', '...']
+laid = {'1-across': ('Start from Hint', '3', None), '3-across': ('Top', '3', None),
+        '1-down': ('Bun', '3', None), '2-down': ('Arc', '3', None)}
+lists = 'ACROSS\\n1 Start from Hint (1-2).\\n3 Top (3).\\nDOWN\\n1 Bun (3).\\n2 Arc (3).'
+(d / 'trove' / '1' / 'ocr.txt').write_text('Canberra Times\\n' + lists)
+for k in F.ocr_clues.READERS:
+    (z / f'read.{F.ocr_clues.reader_key(k)}.txt').write_text(lists)
+got = F.vote(d / 'trove' / '1', dict(laid), grid)[0]
+print(got['1-across'][1], got['3-across'][1])")
+check "the Trove vote files counts as the readings print them" "1-2 3" "$got"
 
 # "(Solution Monday)" mid-line ends the DOWN list: the next puzzle's lists
 # after it on the page are not its last clue's text.
