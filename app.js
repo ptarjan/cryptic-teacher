@@ -6247,6 +6247,12 @@
       from the Chambers dictionary, rare and old words among them, and its
       clues are famously sound: the wordplay always spells the word out
       fairly. The bars are rebuilt and the answers taken from fifteensquared.`],
+    genius: ["genius", `The Guardian's Genius: a monthly prize puzzle on an
+      ordinary blocked grid, but every one has a trick its preamble explains,
+      such as answers left undefined, letters dropped from the clues or a
+      theme the solver must find. Its setters are the paper's hardest. The
+      clues and grid come from the Guardian's printable copy, the answers
+      from fifteensquared.`],
     listener: ["listener", `The Listener crossword, the oldest of the thematic
       puzzles: a barred grid with a preamble that sets a trick, printed first by
       the BBC's magazine it is named for and, since that closed, by the Times

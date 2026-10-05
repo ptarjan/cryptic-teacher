@@ -248,6 +248,15 @@ SERIES = {
         "badge": "azed",
         "blog": "fifteensquared.net",
     },
+    # The Guardian's monthly prize puzzle, a blocked grid with a trick its
+    # preamble states. Clues and grid from the Guardian's printable PDF, the
+    # answers from fifteensquared (tools/genius_puzzles.py).
+    "genius": {
+        "kind": "Genius",
+        "publisher": "Guardian",
+        "bylined": True,
+        "badge": "genius",
+    },
     # The Listener: barred and thematic, its trick in a preamble, printed by
     # the BBC's magazine from 1930 and by the Times since 1991. Filed from the
     # Listener Team's archive PDFs and Wayback copies of the Times' pages

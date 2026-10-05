@@ -914,7 +914,7 @@ def generator_of(path):
     return source.get("acquiredBy") or "tools/fetch_puzzle.py"
 
 
-NEVER_DELETED_SERIES = {"azed"}
+NEVER_DELETED_SERIES = {"azed", "genius"}
 
 
 def committed_copy(puzzle):
