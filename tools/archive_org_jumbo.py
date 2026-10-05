@@ -154,7 +154,7 @@ def solution_boxes(img):
     ink = trove_grid.pooled(gray < trove_grid.otsu(gray), step)
     out = []
     for c in trove_grid.components(ink):
-        _, cy, cx, h, w = c
+        _, cy, cx, h, w, *_ = c
         if SOLUTION_PX[0] <= w * step <= SOLUTION_PX[1] and 0.85 <= w / max(h, 1) <= 1.18:
             out.append((int((cx - w / 2) * step), int((cy - h / 2) * step),
                         int((cx + w / 2) * step), int((cy + h / 2) * step)))

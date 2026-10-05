@@ -246,6 +246,16 @@ def grid_shaped(box):
     return 500 <= gw <= 1100 and 0.85 <= gw / max(gh, 1) <= 1.18
 
 
+#: The page width grid_shaped() is measured at.
+SCAN_WIDTH = 3296
+
+
+def shaped_on(img, box):
+    """grid_shaped() for a box on page `img`: a few pages are scanned at
+    twice SCAN_WIDTH, their grid twice as wide."""
+    return box is not None and grid_shaped(tuple(v * SCAN_WIDTH / img.width for v in box))
+
+
 #: How far, in pixels, a crop grows on a side its largest ink touches, and
 #: how many times, so a grid wider or further from its title than the
 #: first crop is read whole.
@@ -264,7 +274,7 @@ def ink_in(img, crop, fixed=()):
         if box is None:
             return shaped
         page_box = (crop[0] + box[0], crop[1] + box[1], crop[0] + box[2], crop[1] + box[3])
-        shaped = page_box if grid_shaped(page_box) else shaped
+        shaped = page_box if shaped_on(img, page_box) else shaped
         cw, ch = crop[2] - crop[0], crop[3] - crop[1]
         grow = {"left": box[0] <= 2 and crop[0] > 0, "top": box[1] <= 2 and crop[1] > 0,
                 "right": box[2] >= cw - 2 and crop[2] < img.width,
@@ -275,7 +285,7 @@ def ink_in(img, crop, fixed=()):
         for side in grow:
             k = ("left", "top", "right", "bottom").index(side)
             crop[k] = max(0, crop[k] - GROW) if k < 2 else min((img.width, img.height)[k - 2], crop[k] + GROW)
-    return page_box if grid_shaped(page_box) or shaped is None else shaped
+    return page_box if shaped_on(img, page_box) or shaped is None else shaped
 
 
 def locate_grid(img, title):
@@ -298,7 +308,7 @@ def locate_grid(img, title):
         clear = box is not None and (side != "below" or box[1] > crop[1] + 2
                                      or starts_under(img, box, crop[1])) \
             and (side != "left" or box[2] < (x0 + x1) / 2)
-        if clear and grid_shaped(box):
+        if clear and shaped_on(img, box):
             return box, side
         first = first or box
     return first, None
@@ -367,7 +377,7 @@ def footed(img, box):
     if foot is None or foot == len(rows) - 1 or cells_under(ink, foot):
         return box
     trimmed = (box[0], box[1], box[2], box[1] + foot + 1)
-    return trimmed if grid_shaped(trimmed) else box
+    return trimmed if shaped_on(img, trimmed) else box
 
 
 def starts_under(img, box, top):
@@ -1487,7 +1497,7 @@ def read_puzzle(d, found, hit, solutions):
         verdict["refused"] = "no ink under the title"
         return verdict, None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
-    if side is None or not grid_shaped(gbox):
+    if side is None or not shaped_on(img, gbox):
         verdict["refused"] = f"the ink under the title is {gw}x{gh}, not a grid"
         return verdict, None
     key = f"{d.name}_{n}"

@@ -12,28 +12,36 @@ read_grid(path) returns (rows, None), each row a string of "#" (block) and
   3. Within its bounding box, the white cells are paper patches walled in by
      rules. Each is counted onto a row and column from its neighbours (a
      curled page's pitch drifts), and the rows and columns they fill give the
-     cell count.
+     cell count. Each cell's centre follows its row's and column's own line
+     and the local warp of the patches around it.
   4. A block is solid ink or a halftone stipple whose dots reach every part
      of the cell; a light holds at most its number, a speck or a rule's
      edge. Each cell and its 180-degree mirror are scored together on how
      far ink spreads through their middles, and lights and blocks are the
      two sides of the widest gap between scores: a narrow gap, a light with
      no neighbouring light, lights in two patches, or a light's paper patch
-     off its row's or column's line is a refusal, not a guess. The grid
-     returned is symmetric by construction.
+     off its row's or column's line and outside its cell is a refusal, not a
+     guess. A cell whose rules a sticker hides is read from its mirror. The
+     grid returned is symmetric by construction.
 
 Pure Pillow + numpy; the caller checks the result against the clue list.
 """
 import sys
 from collections import deque
-from itertools import pairwise
 
 import numpy as np
 from PIL import Image
 
 #: A white patch further than this share of a cell from its row's and
-#: column's line refuses the grid.
+#: column's line, and not inside its cell's rules, refuses the grid.
 OFF_LATTICE = 0.25
+#: A cell's warp is the median misfit of the patches within this many rows
+#: and columns of it, when there are at least WARP_MIN of them.
+WARP_REACH = 2
+WARP_MIN = 5
+#: A cell whose rules show ink along less than this share of its sides is
+#: hidden (a sticker over the grid) and read from its mirror.
+RULES_SEEN = 0.8
 #: Lights and blocks must be split by a gap at least this wide in pair score.
 MIN_GAP = 0.15
 SIZES = (9, 11, 13, 15, 17, 19, 21, 23, 27)
@@ -91,7 +99,8 @@ def pooled(ink, step=2):
 
 
 def components(mask):
-    """[(area, cy, cx, height, width)] of the 4-connected True patches."""
+    """[(area, cy, cx, height, width, top, left)] of the 4-connected True
+    patches."""
     h, w = mask.shape
     seen = np.zeros_like(mask, dtype=bool)
     out = []
@@ -113,7 +122,7 @@ def components(mask):
                 if 0 <= ny < h and 0 <= nx < w and mask[ny, nx] and not seen[ny, nx]:
                     seen[ny, nx] = True
                     q.append((ny, nx))
-        out.append((n, sy / n, sx / n, by1 - by0 + 1, bx1 - bx0 + 1))
+        out.append((n, sy / n, sx / n, by1 - by0 + 1, bx1 - bx0 + 1, by0, bx0))
     return out
 
 
@@ -126,8 +135,8 @@ def steps(pos):
     across a 27-cell grid."""
     order = sorted(range(len(pos)), key=lambda i: pos[i])
     groups = [[order[0]]]
-    for i, j in pairwise(order):
-        if pos[j] - pos[i] > 0.5:
+    for j in order[1:]:
+        if pos[j] - float(np.mean([pos[i] for i in groups[-1]])) > 0.5:
             groups.append([])
         groups[-1].append(j)
     out, index, last = [0] * len(pos), 0, None
@@ -215,12 +224,24 @@ def read_grid(path):
         at = sorted(got)
         return np.interp(np.arange(n), at, [float(np.mean(got[k])) for k in at])
 
-    dy = bend(0, [c[1] - fy[0] - fy[1] * r - fy[2] * k for c, (r, k) in zip(patches, place)])
-    dx = bend(1, [c[2] - fx[0] - fx[1] * r - fx[2] * k for c, (r, k) in zip(patches, place)])
+    ey = [c[1] - fy[0] - fy[1] * r - fy[2] * k for c, (r, k) in zip(patches, place)]
+    ex = [c[2] - fx[0] - fx[1] * r - fx[2] * k for c, (r, k) in zip(patches, place)]
+    dy, dx = bend(0, ey), bend(1, ex)
+    # A warped scan bends a row's line along its length, which no offset
+    # per row or column follows: each cell also takes the median of what is
+    # left over in the patches within WARP_REACH cells of it.
+    left = [(r, k, e - dy[r], f - dx[k]) for (r, k), e, f in zip(place, ey, ex)]
+    warp = np.zeros((n, n, 2))
+    for r in range(n):
+        for c in range(n):
+            near = [(e, f) for pr, pc, e, f in left
+                    if abs(pr - r) <= WARP_REACH and abs(pc - c) <= WARP_REACH]
+            if len(near) >= WARP_MIN:
+                warp[r, c] = np.median(near, axis=0)
 
     def centre(r, c):
-        return (fy[0] + fy[1] * r + fy[2] * c + dy[r],
-                fx[0] + fx[1] * r + fx[2] * c + dx[c])
+        return (fy[0] + fy[1] * r + fy[2] * c + dy[r] + warp[r, c, 0],
+                fx[0] + fx[1] * r + fx[2] * c + dx[c] + warp[r, c, 1])
 
     # A block is solid ink or a halftone stipple, which can be pale enough to
     # leave paper patches as big as a light's. What tells them apart is
@@ -245,11 +266,31 @@ def read_grid(path):
             tiles[:th // 2, :tw // 2] = False
             rest = th * tw - (th // 2) * (tw // 2)
             score[r, c] = tiles.sum() / rest * min(tiles.any(axis=1).mean(), tiles.any(axis=0).mean())
+    # A sticker or a smudge over the grid hides its rules: the share of
+    # each side of a cell, a band a quarter pitch deep on its rule, that
+    # holds ink. A cell whose sides are below RULES_SEEN is not read; its
+    # mirror is read for it.
+    seen = np.zeros((n, n))
+    band = max(1, round(0.12 * big))
+    for r in range(n):
+        for c in range(n):
+            cy, cx = centre(r, c)
+            cy, cx = cy * step + y0, cx * step + x0
+            near = (max(0, int(cx - 0.35 * big)), int(cx + 0.35 * big),
+                    max(0, int(cy - 0.35 * big)), int(cy + 0.35 * big))
+            sides = [not_paper[max(0, int(ry - band)):int(ry + band) + 1, near[0]:near[1]].any(axis=0)
+                     for ry in (cy - big / 2, cy + big / 2)]
+            sides += [not_paper[near[2]:near[3], max(0, int(rx - band)):int(rx + band) + 1].any(axis=1)
+                      for rx in (cx - big / 2, cx + big / 2)]
+            seen[r, c] = np.mean([sd.mean() if sd.size else 0.0 for sd in sides])
     # The grid is 180-degree symmetric, so a cell and its mirror are one
     # reading: a pale block's score is lifted by its mirror's, and a speck in
     # a light is halved. Lights and blocks are the two sides of the widest
     # gap between pair scores; a narrow one is no split at all.
-    pair = (score + score[::-1, ::-1]) / 2
+    hidden = seen < RULES_SEEN
+    mirror = score[::-1, ::-1]
+    pair = np.where(hidden & ~hidden[::-1, ::-1], mirror,
+                    np.where(hidden[::-1, ::-1] & ~hidden, score, (score + mirror) / 2))
     vals = np.unique(pair)
     if len(vals) < 2:
         return None, "every cell reads alike"
@@ -258,11 +299,16 @@ def read_grid(path):
         return None, f"no clear split between lights and blocks (widest gap {vals[i + 1] - vals[i]:.2f})"
     cut_at = (vals[i] + vals[i + 1]) / 2
     grid = ["".join("#" if pair[r, c] > cut_at else "." for c in range(n)) for r in range(n)]
-    for (area, cy, cx, hh, ww), (r, c) in zip(patches, place):
+    for (area, cy, cx, hh, ww, top, lft), (r, c) in zip(patches, place):
         if grid[r][c] == "#":
             continue  # paper between a stipple's dots
         ey, ex = centre(r, c)
-        if abs(cy - ey) > OFF_LATTICE * pitch or abs(cx - ex) > OFF_LATTICE * pitch:
+        # A stray mark across a light cuts its paper short, its centre off
+        # the cell's but its box still inside the cell's rules (give or take
+        # a pooled pixel).
+        inside = (ey - pitch / 2 - 1 <= top and top + hh <= ey + pitch / 2 + 1
+                  and ex - pitch / 2 - 1 <= lft and lft + ww <= ex + pitch / 2 + 1)
+        if (abs(cy - ey) > OFF_LATTICE * pitch or abs(cx - ex) > OFF_LATTICE * pitch) and not inside:
             return None, f"the white patch at r{r + 1}c{c + 1} sits off the lattice"
     why = unchecked(grid)
     return (None, why) if why else (grid, None)

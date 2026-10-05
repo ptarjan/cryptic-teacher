@@ -1131,8 +1131,13 @@ from PIL import Image
 fix = Path("fixtures/archive-org-grids")
 cases = json.loads((fix / "cases.json").read_text())
 def located(name):
-    box, side = f.locate_grid(Image.open(fix / f"{name}.jpg"), cases[name]["title"])
-    return side, f.grid_shaped(box), box
+    """The grid box found in a region of a page, laid on a page as wide as
+    the scan's (a grid's size is judged against the page's width)."""
+    region = Image.open(fix / f"{name}.jpg").convert("L")
+    pg = Image.new("L", (cases[name].get("pageWidth", f.SCAN_WIDTH), region.height), 255)
+    pg.paste(region, (0, 0))
+    box, side = f.locate_grid(pg, cases[name]["title"])
+    return side, f.shaped_on(pg, box), box
 side, shaped, box = located("times-20117-below-far")
 check("a grid further under its title than the first crop reaches is read whole (Times 20,117)",
       ("below", True, True), (side, shaped, abs((box[3] - box[1]) - (box[2] - box[0])) < 30))
@@ -1162,6 +1167,26 @@ check("its grid reads whole off the box", 15, len(f.trove_grid.read_grid(cut)[0]
 for name in ("times-15725-grey-blocks", "times-16331-grey-blocks-noisy"):
     check(f"grey stippled blocks read as blocks, cell for cell ({name})",
           (cases[name]["grid"], None), f.trove_grid.read_grid(fix / f"{name}.jpg"))
+# A lattice fit that holds where the scan does not: two stipples merged
+# without a rule leave a patch half a cell off, which chained a column's
+# patches into the next column's (Times 15,174); a warped corner (14,653);
+# a stray mark cutting a light's paper short (14,797); a sticker over four
+# rows, read from the cells' mirrors (15,773).
+for name in ("times-15174-column-half-off", "times-14653-warped", "times-14797-stray-mark",
+             "times-15773-sticker"):
+    check(f"the lattice is fitted and every cell read ({name})",
+          (cases[name]["grid"], None), f.trove_grid.read_grid(fix / f"{name}.jpg"))
+check("a column's patches are not chained into the next by one half a cell between",
+      [0, 0, 0, 1, 1], f.trove_grid.steps([2.0, 2.05, 2.5, 2.95, 3.0]))
+# A page scanned at twice the usual width: its grid is twice as wide, not
+# too big to be one (Times 17,186 cut the solution grid over its title).
+side, shaped, box = located("times-17186-double-width")
+check("a grid on a double-width page is found under its title (Times 17,186)",
+      ("below", True), (side, shaped))
+cut = Path(os.environ["TMP"]) / "17186.png"
+Image.open(fix / "times-17186-double-width.jpg").crop((box[0] - 6, box[1] - 6, box[2] + 6, box[3] + 6)).save(cut)
+check("its grid reads off the box, the puzzle's and not the filled solution's",
+      (cases["times-17186-double-width"]["grid"], None), f.trove_grid.read_grid(cut))
 check("a light with no neighbouring light is no crossword's", "the light at r1c1 has no neighbouring light",
       f.trove_grid.unchecked([".#.", "#..", "..."]))
 check("lights in two patches are no crossword's", "the lights are not one connected patch",
