@@ -1982,9 +1982,11 @@ def mend_held(puzzle, path):
     light the file gives a clue it gives another light too
     (fetch_puzzle.duplicated_clues), or a clue faults() refuses, takes this
     reading's clue for it, which one_light_each left on one light at most
-    and unfit_blanked let stand. With none, a light on a shared clue goes
-    blank for the blank-clue re-read, and a refused clue stands: its words
-    are all the corpus has of it (puzzle_integrity.check_rewrite). A light
+    and unfit_blanked let stand. With none, a light on a shared clue or one
+    holding another clue's or the page's text (ocr_clues.bled, which no
+    write may keep) goes blank for the blank-clue re-read, and another
+    refused clue stands: its words are all the corpus has of it
+    (puzzle_integrity.check_rewrite). A light
     whose clue changes loses its annotation, written against the old words.
     None when no clue changes, the file is not this tool's, or it lies on
     another grid than this reading. With no reading (`puzzle` None: its
@@ -2004,7 +2006,7 @@ def mend_held(puzzle, path):
     blank = enumeration.clue("", missing=True)
 
     def fallback(lid):
-        return blank if lid in shared else was[lid]
+        return blank if lid in shared or ocr_clues.bled((was[lid] or {}).get("text")) else was[lid]
     for e in old["entries"]:
         if entry_id(e) in lost:
             e["clue"] = now.get(entry_id(e)) or fallback(entry_id(e))

@@ -89,10 +89,17 @@ def failure(item, e):
 
 def file_puzzle(write_puzzle_file, generator, path, puzzle, verdict):
     """Write `puzzle` to `path`, noting the outcome on `verdict`; True when
-    written. A write puzzle_integrity refuses is a refusedWrite; any other
-    raise is a writeFailed, logged with its traceback: one puzzle that cannot
-    be written never stops a run."""
+    written. A clue holding another clue's or the page's text
+    (ocr_clues.bled), or a write puzzle_integrity refuses, is a
+    refusedWrite; any other raise is a writeFailed, logged with its
+    traceback: one puzzle that cannot be written never stops a run."""
+    import ocr_clues
     import puzzle_integrity  # it imports the write path, so not at the top
+    bleed = [f"{e.get('number')}-{e.get('direction')} {why}" for e in puzzle.get("entries") or ()
+             if (why := ocr_clues.bled((e.get("clue") or {}).get("text")))]
+    if bleed:
+        verdict["refusedWrite"] = f"refusing to write {puzzle.get('id')}: " + "; ".join(bleed)
+        return False
     try:
         write_puzzle_file(path, puzzle, generator=generator)
     except puzzle_integrity.RefusedWrite as e:
