@@ -310,17 +310,29 @@ def parse_text(text):
     return out
 
 
+def on_white(image):
+    """The image in greys, any transparency laid over white: some PDFs draw
+    the grid in the alpha channel of an all-black image."""
+    from PIL import Image
+    if image.mode in ("RGBA", "LA", "PA") or "transparency" in image.info:
+        rgba = image.convert("RGBA")
+        white = Image.new("RGBA", rgba.size, (255, 255, 255, 255))
+        return Image.alpha_composite(white, rgba).convert("L")
+    return image.convert("L")
+
+
 def image_grid(pages, clues=()):
     """The grid ["..#..", ...] of the page's largest image, or None. The
-    image is cropped to its ink (a margin or frame off the lattice shifts
-    every cell), and the side is the fewest cells n (5 to 27) at which the
+    image is tried cropped to its ink (a margin or frame off the lattice
+    shifts every cell) and whole, and the side is the fewest cells n (5 to 27) at which the
     lower-right of every cell, clear of its number, is either white or the
     image's own block shade (black, or the grey some PDFs print); of several
-    such sides, the first whose lights are the clue list's."""
+    such sides, the first whose lights are the clue list's, else the one
+    whose lights come nearest it."""
     import numpy as np
     best = None
     for im in (im for page in pages for im in page.images):
-        a = np.asarray(im.image.convert("L"), dtype=np.float32) / 255
+        a = np.asarray(on_white(im.image), dtype=np.float32) / 255
         if a.shape[0] < 100 or abs(a.shape[0] - a.shape[1]) > 0.05 * a.shape[0]:
             continue
         if best is None or a.size > best.size:
@@ -329,27 +341,30 @@ def image_grid(pages, clues=()):
         return None
     ink = best < 0.9
     ys, xs = np.nonzero(ink.sum(axis=1) > 0.3 * ink.shape[1])[0], np.nonzero(ink.sum(axis=0) > 0.3 * ink.shape[0])[0]
-    if len(ys) and len(xs):
-        best = best[ys[0]:ys[-1] + 1, xs[0]:xs[-1] + 1]
-    h, w = best.shape
+    images = [best[ys[0]:ys[-1] + 1, xs[0]:xs[-1] + 1]] if len(ys) and len(xs) else []
     listed = {l for c in clues for l in c["lights"]}
     first = None
-    for n in range(5, 28):
-        ph, pw = h / n, w / n
-        means = np.array([[float(best[int(y * ph + ph * 0.45):int(y * ph + ph * 0.85),
-                                     int(x * pw + pw * 0.45):int(x * pw + pw * 0.85)].mean())
-                           for x in range(n)] for y in range(n)])
-        block = means.min()
-        if block > 0.75:
-            continue
-        white = means >= 0.85
-        dark = np.abs(means - block) <= 0.12
-        if (white | dark).all():
-            grid = ["".join("." if c else "#" for c in row) for row in white]
-            if set(rg.light_cells(grid)) == listed:
-                return grid
-            first = first or grid
-    return first
+    for a in images + [best]:
+        h, w = a.shape
+        for n in range(5, 28):
+            ph, pw = h / n, w / n
+            means = np.array([[float(a[int(y * ph + ph * 0.45):int(y * ph + ph * 0.85),
+                                       int(x * pw + pw * 0.45):int(x * pw + pw * 0.85)].mean())
+                               for x in range(n)] for y in range(n)])
+            block = means.min()
+            if block > 0.75:
+                continue
+            white = means >= 0.85
+            dark = np.abs(means - block) <= 0.12
+            if (white | dark).all():
+                grid = ["".join("." if c else "#" for c in row) for row in white]
+                lights = set(rg.light_cells(grid))
+                if lights == listed:
+                    return grid
+                score = len(lights & listed) - len(lights ^ listed)
+                if first is None or score > first[0]:
+                    first = (score, grid)
+    return first and first[1]
 
 
 def read_pdf(path):
@@ -374,7 +389,21 @@ def read_pdf(path):
         out["kind"] = "image" if grid else None
     out["grid"] = grid
     out["text"] = bool(raw.strip())
+    if grid:
+        turn_links(out["clues"], set(rg.light_cells(grid)))
     return out
+
+
+def turn_links(clues, lights):
+    """A linked clue's later part the grid has only the other way round, and
+    no other clue claims that way, is that way: "22/11/25" with no 11 down."""
+    flip = {"across": "down", "down": "across"}
+    listed = {l for c in clues for l in c["lights"]}
+    for c in clues:
+        for i, (n, d) in enumerate(c["lights"][1:], 1):
+            if (n, d) not in lights and (n, flip[d]) in lights and (n, flip[d]) not in listed:
+                c["lights"][i] = (n, flip[d])
+                listed.add((n, flip[d]))
 
 
 def see_links(clues):
