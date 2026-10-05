@@ -940,8 +940,9 @@ check("a held filing with no clue on two lights is left alone", None,
 
 # A refused held clue under an annotation (ftcryptic-9091 22 down): this
 # reading's clue replaces it and the annotation, written against the old
-# words, goes; with no clue read for it the held clue and its annotation
-# stand, since check_rewrite refuses blanking a clue's words.
+# words, goes; with no clue read for it the held clue goes blank: no write
+# keeps another clue's text (scan_queue.file_puzzle), and check_rewrite lets
+# such a clue go.
 import copy, definitions, puzzle_integrity, puzzle_schema
 held = held_13998(["A man's man", "Occasional raid 18 Cops turn out", "Sporadic"])
 held["entries"][1]["annotation"] = {"definitions": [{"text": "Cops turn out", "at": 19}]}
@@ -951,8 +952,13 @@ mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any e
 check("a held clue the filer now refuses takes this reading's clue, its annotation dropped",
       ({"15-across": "An Athenian acted in any element"}, None),
       (now, mended["entries"][1].get("annotation")))
-check("a refused held clue no reading has is left alone, annotation and all", [None, None],
-      [f.mend_held(None, path), f.mend_held(held_13998(["A man's man", "", "Sporadic"]), path)])
+for reading in (None, held_13998(["A man's man", "", "Sporadic"])):
+    blanked, now = f.mend_held(reading, path)
+    flags = []
+    puzzle_integrity.check_rewrite(held, blanked, flags)
+    check("a held clue holding another clue no reading has goes blank, annotation and all, and may be written",
+          ({"15-across": ""}, None, True, []),
+          (now, blanked["entries"][1].get("annotation"), blanked["entries"][1]["clue"].get("missing"), flags))
 mended, now = f.mend_held(held_13998(["A man's man", "An Athenian acted in any element", "Sporadic"]), path)
 flags = []
 puzzle_integrity.check_rewrite(held, definitions.place_puzzle(puzzle_schema.prune(copy.deepcopy(mended))), flags)

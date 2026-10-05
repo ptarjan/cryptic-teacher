@@ -959,10 +959,12 @@ def join_split(clue, others):
 
 def cut_at_count(text, enum):
     """A clue's text cut at its own count (`enum`) inside it: what follows
-    is the next clue's specks or start run on."""
-    m = re.search(r"\s*\((\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*)\)\W*\S", text or "")
-    if m and enum and re.sub(r"\D+", ",", m.group(1)) == re.sub(r"\D+", ",", enum):
-        return text[:m.start()].rstrip()
+    is the next clue's specks or start, or the page's text, run on. The
+    count's bracket may read as a full stop or be lost ("spotty (6. The
+    solution", "outs (5 _ Concise")."""
+    for m in re.finditer(r"\s*\((\d{1,2}(?:\s*[,\-.]\s*\d{1,2})*)(?:\)|\.|(?=\s))\W*\S", text or ""):
+        if enum and re.sub(r"\D+", ",", m.group(1)) == re.sub(r"\D+", ",", enum):
+            return text[:m.start()].rstrip()
     return text
 
 
@@ -1004,6 +1006,21 @@ PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
                        r"|(?-i:\(\s*\d{1,2}(?:[,.\-]\s?\d{1,2})*[).]?\s+(?:_|[A-Z])(?![^()]*\)))", re.I)
 
 
+def bled(text):
+    """Why a clue OCR read holds text that is not its own, or None: a clue
+    number opening a capitalised clue (NUMBERED_IN), another clue run in,
+    or the page's own words (PAGE_TEXT). No OCR filer writes such a clue
+    (scan_queue.file_puzzle)."""
+    text = text or ""
+    m = NUMBERED_IN.search(text)
+    if m:
+        return f"holds a clue number and text: {text[m.start():m.end() + 12].strip()!r}"
+    m = PAGE_TEXT.search(text)
+    if m:
+        return f"holds the page's text: {text[max(0, m.start() - 8):m.end() + 8].strip()!r}"
+    return None
+
+
 def fault(text, enum, cells):
     """Why a clue OCR read is not fit to file, or None: `text` holds a clue
     number opening a capitalised clue (NUMBERED_IN) or the page's own words
@@ -1013,12 +1030,9 @@ def fault(text, enum, cells):
     text = text or ""
     if text.strip() == "None":
         return "the text is the word None: a lost text printed"
-    m = NUMBERED_IN.search(text)
-    if m:
-        return f"holds a clue number and text: {text[m.start():m.end() + 12].strip()!r}"
-    m = PAGE_TEXT.search(text)
-    if m:
-        return f"holds the page's text: {text[max(0, m.start() - 8):m.end() + 8].strip()!r}"
+    why = bled(text)
+    if why:
+        return why
     if enum and cells and sum(int(n) for n in re.findall(r"\d+", enum)) != cells:
         return f"its count ({enum}) does not fill its {cells} squares"
     return None

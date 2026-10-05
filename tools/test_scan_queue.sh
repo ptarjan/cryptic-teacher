@@ -53,6 +53,33 @@ v = {}
 check("a write that goes through says so", (True, {"wrote": True}),
       (q.file_puzzle(lambda path, puzzle, generator: None, "t", "p", {"id": "x-1"}, v), v))
 
+# A clue holding another clue (two run together, or one read into its
+# middle) or the page's text is never written, whatever the filer.
+wrote = []
+for what, text in (("another clue's number and text", "Did Newman, for the life of 2 Flower sacred to Lake Poet him, so express regret?"),
+                   ("the page's text", "There's some depression about the pages being spotty (6. The solution of Saturday's Prize Puzzle No 18,262 will appear next Saturday")):
+    v = {}
+    ok = q.file_puzzle(lambda path, puzzle, generator: wrote.append(path), "t", "p",
+                       {"id": "x-1", "entries": [{"number": 23, "direction": "across", "clue": {"text": text}}]}, v)
+    check(f"a clue holding {what} is a refusedWrite, nothing written", (False, True, []),
+          (ok, v.get("refusedWrite", "").startswith("refusing to write x-1: 23-across holds"), wrote))
+
+# The reading splits such a clue at its own count, closed or not, or at its
+# own number after the page's text.
+import ocr_clues
+for text, enum, want in (
+        ("There's some depression about the pages being spotty (6. The solution of Saturday's Prize Puzzle", "6",
+         "There's some depression about the pages being spotty"),
+        ("A sort of wave, with ins and outs (5 _ Concise crossword, page 9", "5", "A sort of wave, with ins and outs"),
+        ("Turns leaves (4. _", "4", "Turns leaves"),
+        ("Taken from Henry (2 Hen. IV) on stage (5) 7 Next", "5", "Taken from Henry (2 Hen. IV) on stage")):
+    check(f"cut at its own count: {text[:30]!r}", want, ocr_clues.cut_at_count(text, enum))
+for text, lid, want in (
+        ("The solution of Saturday's Prize Puzzle No 18., 812 will appear next Saturday. Parker 27 Totally without "
+         "vitality", "27-across", "Totally without vitality"),
+        ("Sound of a bell. 13 Down's partner", "13-across", "Sound of a bell. 13 Down's partner"),):
+    check(f"cut at its own number: {text[:30]!r}", want, ocr_clues.trimmed(text, lid))
+
 # One item that raises is logged with its error and stands as failed()'s
 # result (or is left out), in a pool and serially; the rest still read.
 import contextlib, io

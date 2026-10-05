@@ -159,6 +159,7 @@ import errata  # noqa: E402
 from fetch_puzzle import (PER_LIGHT_ENUMERATION, clued, corrected_clue,  # noqa: E402
                           duplicated_clues, group_orders, has_words, is_bare_letters, is_continuation,
                           prints_own_count, read_puzzle_file, reindex)
+import ocr_clues  # noqa: E402
 import puzzle_schema  # noqa: E402
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
 import provenance  # noqa: E402
@@ -1123,9 +1124,11 @@ def check_rewrite(old, new, flags):
     A re-fetch of a page that serves the grid without the text (the Guardian's
     2005-08 prizes) would otherwise undo a recovery; see
     fetch_puzzle.carry_recovered_clues."""
-    # A clue on two lights of an OCR reading was lost on all but one: blanking
-    # it loses nothing.
+    # A clue on two lights of an OCR reading was lost on all but one, and one
+    # holding another clue's or the page's text (ocr_clues.bled) is not its
+    # own: blanking either loses nothing.
     lost = {i for ids in duplicated_clues(old.get("entries") or []) for i in ids} \
+        | {entry_id(e) for e in clued(old.get("entries") or []) if ocr_clues.bled(e["clue"]["text"])} \
         if (old.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS else set()
     was = {entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or []) if entry_id(e) not in lost}
     for e in new.get("entries") or []:
