@@ -35,18 +35,18 @@
 // re-measured 2026-10-05 from run 37311849285). Every script that took three seconds or
 // more is here; the default covers the rest and any test written since.
 const COST = {
-  // One slice of SLICES: about 70s every slice pays plus its share of ~4500s
-  // of sweeps over the 40,000-puzzle corpus (a sixth took over 740s).
-  "tools/smoke_test.js": 260,
-  "tools/test_push_conflict.sh": 60,
-  "tools/test_reconstruct_grid.sh": 106,
+  // The sampled sweep; the whole corpus is nightly-smoke.yml's. Re-measured
+  // 2026-10-05 from run 37332590401.
+  "tools/smoke_test.js": 76,
+  "tools/test_push_conflict.sh": 17,
+  "tools/test_reconstruct_grid.sh": 25,
   "tools/test_paper_mode.js": 62,
-  "tools/test_file_trove_puzzles.sh": 56,
-  "tools/test_solve_queue_clues.sh": 88,
-  "tools/test_shim_format.sh": 79,
-  "tools/test_acquire_book.sh": 59,
+  "tools/test_file_trove_puzzles.sh": 54,
+  "tools/test_solve_queue_clues.sh": 66,
+  "tools/test_shim_format.sh": 59,
+  "tools/test_acquire_book.sh": 61,
   "tools/test_provenance.sh": 28,
-  "tools/test_blog_facts.sh": 13,
+  "tools/test_blog_facts.sh": 34,
   "tools/test_puzzle_invariants.sh": 7,
   "tools/test_alert_claimed.sh": 6,
   "tools/test_repair_fetched.sh": 5,

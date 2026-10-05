@@ -1462,5 +1462,7 @@ tools/test_anagram_ring.sh                   a clue typed anagram gets the anagr
                                              anagram names no fodder
 tools/test_discard_alert.sh                  does a rejected annotation alert only when the
                                              puzzle is parked?
+tools/check_shapes.js                        the corpus-wide half of tools/smoke_test.js's
+                                             shape() checks
 ```
 <!-- LAYOUT-END -->
