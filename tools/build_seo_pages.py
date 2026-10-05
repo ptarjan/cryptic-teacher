@@ -936,9 +936,7 @@ def hub_page(idx):
     sections = []
     for s, years in listings(idx).items():
         every = [p for ps in years.values() for p in ps]
-        links = " &middot; ".join(
-            f'<a href="{site_url(listing_path(s, y))}">{esc(y)}</a> ({len(ps):,})'
-            for y, ps in years.items())
+        links = year_links(s, years)
         sections.append(
             f'<section class="s-series" id="{esc(s)}">'
             f'<h2><a href="{site_url(series_path(s))}">{esc(series_name(s))}</a> '
@@ -971,6 +969,14 @@ def hub_page(idx):
     ]
     return head(title, desc, canonical, ld(list_ld) + ld(breadcrumb_ld(crumbs))) \
         + "\n".join(body) + "\n" + FOOTER
+
+
+def year_links(series, years):
+    """A series' years as links, each with its puzzle count: the one way the
+    hub and the series page list them."""
+    return " &middot; ".join(
+        f'<a href="{site_url(listing_path(series, y))}">{esc(y)}</a> ({len(ps):,})'
+        for y, ps in years.items())
 
 
 def listing_page(series, year, ps, prev_year, next_year):
@@ -1047,8 +1053,7 @@ def series_page(series, years, today):
     canonical = site_url(series_path(series))
     crumbs = [("Cryptic Teacher", "/"), ("Puzzles", "/puzzles/"), (name, "")]
     latest = every[0] if not series_meta.is_book(series) and every[0].get("date") else None
-    links = " &middot; ".join(
-        f'<a href="{site_url(listing_path(series, y))}">{esc(y)}</a>' for y in years)
+    links = year_links(series, years)
     blurb = series_blurb(series, every)
     heading = name if series_meta.is_book(series) else f"{name} crossword answers"
     body = [masthead(crumbs), '<main class="static-main">', f"<h1>{esc(heading)}</h1>"]

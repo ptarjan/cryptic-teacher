@@ -55,6 +55,8 @@ print("TODAY", title(today) == f"Times Cryptic crossword answers – today&#x27;
 print("LATEST", "– latest No" in title(other) and "today" not in title(other))
 print("LEADS", today.index(f'puzzles/{newest["id"]}/') < today.index("Recent puzzles"))
 print("NOCOUNT", "30 puzzle" not in today and "30 crossword" not in today)
+years = today.split('class="s-years">', 1)[1].split("</p>", 1)[0]
+print("YEARCOUNTS", years.count("<a ") == years.count("</a> ("))
 out = dict(B.series_pages(idx, date(2030, 1, 1)))
 print("PATHS", B.ROOT / "puzzles/series/times/index.html" in out
       and "refresh" in out[B.ROOT / "puzzles/series/index.html"])
@@ -72,7 +74,7 @@ print("LINKED", f'{B.BASE}/puzzles/series/times/"' in page
 PY
 )
 echo "$out"
-for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT PATHS STAGE LINKED; do
+for k in COUNT GRID APP NOTOTAL STRIP FEW TODAY LATEST LEADS NOCOUNT YEARCOUNTS PATHS STAGE LINKED; do
   echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"
