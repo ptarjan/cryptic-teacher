@@ -274,7 +274,7 @@ def read(d, found, hit, solutions=None):
     if blank:
         verdict["blank"] = blank
     day = datetime.date.fromisoformat(found["date"])
-    puzzle = fa.build(n, day, g, "image", laid, found["item"], leaf, series=SERIES,
+    puzzle = fa.build(n, day, g, "image", laid, fa.edition_of(d, found), leaf, series=SERIES,
                       name=f"Times jumbo cryptic crossword No {n:,}")
     sol = (solutions or {}).get(n)
     if sol:

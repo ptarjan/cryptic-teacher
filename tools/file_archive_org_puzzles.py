@@ -94,6 +94,7 @@ import os
 import re
 import sys
 import time
+import urllib.parse
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -134,7 +135,20 @@ CROPS = Path(os.path.expanduser("~/.cache/archive_org_crops"))
 SOURCE = Path.home() / "cryptic-setter-data" / "archiveorg-source"
 TOOL = "tools/file_archive_org_puzzles.py"
 ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
-PAGE_URL = "https://archive.org/details/{item}/page/n{leaf}/mode/1up"
+#: {edition} is "<item>/<file base name>", quoted: an item holds a whole year
+#: of editions, and archive.org opens one's scan only at the path naming its
+#: file ("May 28 1974, The Times, #59100, UK (en)"); the item alone opens
+#: whichever edition it chooses.
+PAGE_URL = "https://archive.org/details/{edition}/page/n{leaf}/mode/1up"
+
+
+def edition_of(d, found):
+    """The {edition} of PAGE_URL for edition directory `d`: its item, then
+    its file's base name (pages.json) unless that is the item itself."""
+    name = json.loads((Path(d) / "pages.json").read_text()).get("edition")
+    item = found["item"]
+    return item if not name or name == item else f"{item}/{urllib.parse.quote(name, safe='')}"
+
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: The daily cryptic's title: not the Concise, the Jumbo or Times Two. The
@@ -797,7 +811,7 @@ def lay_loose(parsed, grid, taken=None):
 
 # ------------------------------------------------------------ the puzzle
 
-def build(number, day, grid, how, laid, item, leaf, series=SERIES, name=None):
+def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None):
     lights = rg.light_cells(grid)
     by_id, entries = {}, []
     for (n, d), cells in lights.items():
@@ -840,7 +854,7 @@ def build(number, day, grid, how, laid, item, leaf, series=SERIES, name=None):
         "name": name or f"Times cryptic crossword No {number:,}",
         "date": day.isoformat(),
         "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
-        "source": {"url": PAGE_URL.format(item=item, leaf=leaf),
+        "source": {"url": PAGE_URL.format(edition=edition, leaf=leaf),
                    "gridOrigin": "published" if how == "image" else "reconstructed"},
         "entries": entries,
     }
@@ -1339,7 +1353,7 @@ def filed_number(d, found, hit):
                            f"{day} implies: the item's date is wrong")
     number, why = placed(n, day, held_dates(paper.series))
     if number is not None:
-        why = same_scan(number, PAGE_URL.format(item=found["item"], leaf=hit["leaf"]), day, paper.series)
+        why = same_scan(number, PAGE_URL.format(edition=edition_of(d, found), leaf=hit["leaf"]), day, paper.series)
     return number, day, why
 
 
@@ -1509,7 +1523,7 @@ def read_puzzle(d, found, hit, solutions):
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:
         verdict["blank"] = blank
-    puzzle = build(n, day, grid, how, laid, found["item"], leaf, series=paper.series,
+    puzzle = build(n, day, grid, how, laid, edition_of(d, found), leaf, series=paper.series,
                    name=paper.name.format(n))
     setter = byline(img, hit, paper.series)
     if setter:

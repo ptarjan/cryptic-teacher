@@ -430,7 +430,16 @@ check("six issues a week, none on Sunday", [1, 6, 7], [f.issues_between(D("1992-
 # number, or the page on another day, is not.
 scan_root = Path(os.environ["TMP"]) / "scan_root"
 (scan_root / "puzzles" / "times" / "1993").mkdir(parents=True)
-url = f.PAGE_URL.format(item="NewsUK1993UKEnglish", leaf=17)
+edition_dir = Path(os.environ["TMP"]) / "NewsUK1993UKEnglish" / "1993-01-16_64544"
+edition_dir.mkdir(parents=True)
+(edition_dir / "pages.json").write_text(json.dumps(
+    {"item": "NewsUK1993UKEnglish", "edition": "Jan 16 1993, The Times, #64544, UK (en)"}))
+url = f.PAGE_URL.format(edition=f.edition_of(edition_dir, {"item": "NewsUK1993UKEnglish"}), leaf=17)
+check("the scan url names the edition's file inside the item, not the item alone",
+      "https://archive.org/details/NewsUK1993UKEnglish/Jan%2016%201993%2C%20The%20Times%2C%20%2364544%2C%20UK%20%28en%29"
+      "/page/n17/mode/1up", url)
+check("a second edition of the item has a different url",
+      True, url != f.PAGE_URL.format(edition="NewsUK1993UKEnglish/Jan%2018%201993%2C%20The%20Times%2C%20%2364545%2C%20UK%20%28en%29", leaf=17))
 (scan_root / "puzzles" / "times" / "1993" / "times-19129.json").write_text(
     json.dumps({"date": "1993-01-16", "source": {"url": url}}))
 real_root, f.ROOT = f.ROOT, scan_root
@@ -699,6 +708,8 @@ g = ["...#...", "...#...", "......."]
 pz = f.build(20540, datetime.date(1996, 1, 4), g, "image",
              {"1-across": ("Ancient patriarch", "3,3", ["1-across", "4-across"])}, "TheGuardian1996UKEnglish", 15,
              series="cryptic", name="Cryptic crossword No {:,}".format(20540))
+check("a built puzzle's source url is the edition url given",
+      "https://archive.org/details/TheGuardian1996UKEnglish/page/n15/mode/1up", pz["source"]["url"])
 check("a linked light the paper prints no clue for reads 'See 1'", "See 1",
       next(e["clue"]["text"] for e in pz["entries"] if (e["number"], e["direction"]) == (4, "across")))
 
