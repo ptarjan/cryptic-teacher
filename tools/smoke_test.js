@@ -541,6 +541,19 @@ if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_IN
 // that statement. So the floor stands in CI and becomes "more than none" here.
 // A slice holds about 1/n of the corpus, so it owes about 1/n of the floor.
 const enough = (n, floor) => n > (FULL ? floor / SLICE.n : 0);
+// A shape the corpus holds a few dozen of is in some slices and not others, so
+// that the corpus holds one at all is said by the unsliced full run alone.
+const WHOLE = FULL && SLICE.n === 1;
+// Which blocks are building blocks and what each shows, read out of app.js, so
+// the test and the app cannot disagree about which piece is which.
+const APP_BLOCKS = (() => {
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const from = src.indexOf("function wholeWord");
+  const end = src.indexOf("const buildingBlocks", from);
+  const to = src.indexOf("\n", end);
+  assert(from > 0 && end > from, "blockLetters, senseBlock and buildingBlocks are still in app.js to be read");
+  return new Function(src.slice(from, to) + "\n  return { blockLetters, senseBlock, buildingBlocks };")();
+})();
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore
@@ -722,7 +735,7 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
     const want = (seen[f.name] || 0) / countedTotal, got = f.n / declaredTotal;
     assert(Math.abs(want - got) <= 0.03,
       `clue_types.json says ${f.label} is ${(got * 100).toFixed(1)}% of family hits; the corpus `
-      + `now says ${(want * 100).toFixed(1)}% (${seen[f.name] || 0}) — retype its n so the chip order stays true`);
+      + `now says ${(want * 100).toFixed(1)}% (${seen[f.name] || 0}) — run python3 tools/clue_types.py --recount, then python3 tools/fetch_puzzle.py --reindex`);
   });
 }
 
@@ -3042,7 +3055,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     }
     assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);
     // A statement about the whole corpus: the nightly's sample can hold none.
-    assert(!FULL || repeatedDefs.length, "the sweep saw a clue whose definition's words occur twice in it");
+    assert(!WHOLE || repeatedDefs.length, "the sweep saw a clue whose definition's words occur twice in it");
     // Five rungs exist, so five names exist. A sixth means a branch phrased a
     // label for its clue type, whatever the wording turned out to be.
     const LABEL_SET = LADDER.map((r) => r.label);
@@ -5155,16 +5168,8 @@ global.realSetTimeout(() => {
   const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
   // The pieces the matching question would be made of: every building block
   // that names words in the clue and shows letters that are not those same
-  // words. What a block shows is app.js's blockLetters, read out of app.js, so
-  // the test and the app cannot disagree about which pieces are pairings.
-  const { blockLetters, buildingBlocks } = (() => {
-    const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
-    const from = src.indexOf("function wholeWord");
-    const end = src.indexOf("const buildingBlocks", from);
-    const to = src.indexOf("\n", end);
-    assert(from > 0 && end > from, "blockLetters and buildingBlocks are still in app.js to be read");
-    return new Function(src.slice(from, to) + "\n  return { blockLetters, buildingBlocks };")();
-  })();
+  // words. What a block shows is app.js's blockLetters (see APP_BLOCKS).
+  const { blockLetters, buildingBlocks } = APP_BLOCKS;
   const pairsOf = (e) => {
     const a = e.annotation;
     if (!a) return [];
@@ -6117,6 +6122,8 @@ global.realSetTimeout(() => {
 // tapped. What such a block adds is its note on that sense, and the note rides
 // on the definition rung instead. A block the split never named — a third
 // definition — is still a building block, and the mirror below holds that.
+// Which block is a sense is app.js's senseBlock: "A character" is the sense
+// "character" named, not a third one.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const bare = (t) => String(t || "").replace(/[^A-Za-z0-9]/g, "").toUpperCase();
@@ -6139,8 +6146,7 @@ global.realSetTimeout(() => {
       if (!a || JSON.stringify(a.type) !== '["double_definition"]' || defTexts(a).length < 2) continue;
       const bl = a.blocks || [];
       if (!pure && bl.length === 2 && bl.every((b) => isDef(a, b) && plain(b))) pure = { id, e, bl };
-      if (!third && bl.some((b) => !isDef(a, b) && plain(b) && bare(b.gives) && !defTexts(a).join(" ")
-        .includes(b.clueFragment))) third = { id, e };
+      if (!third && bl.some((b) => !APP_BLOCKS.senseBlock(a, b) && plain(b) && bare(b.gives))) third = { id, e };
     }
     if (pure && third) break;
   }
@@ -6158,7 +6164,7 @@ global.realSetTimeout(() => {
           + registry["hint-body"].innerHTML));
     }
   }
-  assert(third || !FULL, "the corpus has a double definition with a sense the split does not name");
+  assert(third || !WHOLE, "the corpus has a double definition with a sense the split does not name");
   if (third && open(third.id, third.e)) {
     assert(/building blocks/i.test(labels()),
       `${third.id} ${entryId(third.e)}: "${clueText(third.e)}" keeps the building blocks for the sense `
@@ -7097,7 +7103,15 @@ global.realSetTimeout(() => {
   // clues solved, a clean finish ringed.
   const cells = [...html.matchAll(/<rect [^>]*class="(l\d)( clean)?"><title>([^<]*)<\/title>/g)];
   assert(cells.length === 51 * 7 + new Date().getDay() + 1, "52 weeks of days up to today: " + cells.length);
-  const dayLabel = (t) => new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+  // The day as app.js's localDay writes it, read out of app.js so the two cannot drift.
+  const dayLabel = (() => {
+    const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+    const from = src.indexOf("const MONTHS = ");
+    const to = src.indexOf("\n", src.indexOf("function localDay", from));
+    assert(from > 0 && to > from, "MONTHS and localDay are still in app.js to be read");
+    const localDay = new Function(src.slice(from, to) + "\n  return localDay;")();
+    return (t) => localDay(new Date(t));
+  })();
   const cellOn = (t) => cells.find((m) => m[3].startsWith(dayLabel(t) + ":"));
   assert(cellOn(noon(2))[3].startsWith(`${dayLabel(noon(2))}: ${clueCount(A)} clues`) && cellOn(noon(2))[2],
     "two days ago holds A's clues and is ringed for its clean finish: " + cellOn(noon(2))[0]);
