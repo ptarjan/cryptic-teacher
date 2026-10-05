@@ -1103,6 +1103,12 @@ check("the clue columns left of the grid are read, across then down",
 side, shaped, box = located("times-16960-foot")
 check("a grid box ends at the grid's foot frame, not under the ACROSS line touching it (Times 16,960)",
       ("below", 711), (side, box[3]))
+side, shaped, box = located("times-20778-faint-foot")
+check("a grid box keeps its last row of cells when its foot frame is too faint to be one (Times 20,778)",
+      ("below", 838), (side, box[3]))
+cut = Path(os.environ["TMP"]) / "20778.png"
+Image.open(fix / "times-20778-faint-foot.jpg").crop((box[0] - 6, box[1] - 6, box[2] + 6, box[3] + 6)).save(cut)
+check("its grid reads whole off the box", 15, len(f.trove_grid.read_grid(cut, block_above=f.BLOCK_ABOVE)[0] or ()))
 side, shaped, box = located("times-16357-title")
 check("a grid whose top frame reaches into its title's box is the title's grid (Times 16,357)",
       ("below", True), (side, shaped))
