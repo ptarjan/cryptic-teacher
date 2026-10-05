@@ -89,11 +89,18 @@ check("a published grid a half turn does not map onto is asymmetric",
 check("a symmetric grid is not asymmetric", "asymmetric" not in tagged(real("cryptic-30098")))
 check("printed letters are letters given", "letters-given" in tagged(real("listener-93")))
 
-# --- big grid needs a series with a usual size ---
-areas = [(f"d-{i}", "daily", 225) for i in range(9)] + [("d-big", "daily", 529)] \
-    + [("l-1", "weekly", 144), ("l-2", "weekly", 169), ("l-3", "weekly", 289)]
-check("bigger than the series' usual size is a big grid, and a series with no usual size has none",
-      pt.big_grids(areas) == {"d-big"}, pt.big_grids(areas))
+# --- big grid: bigger than the series' usual size or the corpus's ---
+areas = [(f"d-{i}", "daily", 225) for i in range(60)] + [("d-big", "daily", 529)] \
+    + [("l-1", "weekly", 144), ("l-2", "weekly", 169), ("l-3", "weekly", 289)] \
+    + [(f"j-{i}", "jumbo", 529) for i in range(4)] \
+    + [(f"q-{i}", "quick", 169) for i in range(5)] + [("q-big", "quick", 225)]
+check("bigger than the series' usual size is a big grid",
+      {"d-big", "q-big"} <= pt.big_grids(areas), pt.big_grids(areas))
+check("a jumbo series, bigger than the corpus's usual size every time, is all big grids",
+      {f"j-{i}" for i in range(4)} <= pt.big_grids(areas))
+check("a series with no usual size is held to the corpus's: only its grid past 15 by 15",
+      {p for p in pt.big_grids(areas) if p.startswith("l-")} == {"l-3"}, pt.big_grids(areas))
+check("a usual-sized grid is not big", not pt.big_grids(areas) & {"d-0", "q-0", "l-1"})
 
 # --- the index carries them ---
 row = fp.index_row(fp.resolve_puzzle("independent-9740"))
