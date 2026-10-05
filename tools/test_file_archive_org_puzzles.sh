@@ -1218,6 +1218,11 @@ check("a desktop that is off: read here, the reason logged, not retried at once,
       (None, None, True, True), (first, second, "unavailable (nobody@127.0.0.1: " in err.getvalue(), took < 30))
 os.environ.pop("OCR_REMOTE")
 
+# A Sunday edition filed under "The Times" is refused: the daily prints none.
+sunday = {"date": "1994-08-14", "puzzles": [{"number": 19620}]}
+n, day, why = f.filed_number(Path("x/NewsUK1994UKEnglish/ed"), sunday, {"number": 19620, "leaf": 1})
+check("a Sunday Times-item puzzle is refused, not filed on a Sunday", (None, True), (n, bool(why and "Sunday" in why)))
+
 print(f"FAILS {fails}")
 EOF
 )

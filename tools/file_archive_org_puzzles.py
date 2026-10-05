@@ -1369,6 +1369,8 @@ def filed_number(d, found, hit):
     n = hit["number"]
     paper = paper_of(d)
     day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
+    if paper is TIMES and day.weekday() == 6:
+        return None, day, f"{day} is a Sunday and the Times prints no daily cryptic on it: a Sunday paper's puzzle"
     if abs(n - paper.expected(day)) > NUMBER_SLACK:
         return None, day, (f"No {n} is not near the {paper.expected(day)} the date "
                            f"{day} implies: the item's date is wrong")
