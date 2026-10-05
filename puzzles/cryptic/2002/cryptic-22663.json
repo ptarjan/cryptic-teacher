@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Suffering this year from psychiatric disorder",
     "enumeration": "8"
    },
-   "solution": "HYSTERIA"
+   "solution": "HYSTERIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HYSTERIA",
+    "definitions": [
+     {
+      "text": "psychiatric disorder",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Suffering",
+      "for": "anagram",
+      "note": "something suffering is in a bad way, so the words beside it are knocked out of their proper order"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this year",
+      "gives": "THISYEAR",
+      "note": "two words taken as written, all eight letters used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THISYEAR",
+       "gives": "HYSTERIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has had a bad year because of a mental illness.",
+     "walkthrough": "The disorder in the surface is the definition, and the letters of 'this year' rearrange to give HYSTERIA.",
+     "definitionFit": "Hysteria was long classed as a psychiatric condition marked by uncontrolled emotional outbursts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Suffering"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,46 @@
     "text": "Some think no better bit of butter can be found",
     "enumeration": "4"
    },
-   "solution": "KNOB"
+   "solution": "KNOB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KNOB",
+    "definitions": [
+     {
+      "text": "bit of butter",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the following words is wanted, so the letters lie inside the run of text"
+     }
+    ],
+    "linkWords": [
+     "can be found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "think no better",
+      "gives": "KNOB",
+      "note": "the letters run across the end of think, all of no and the start of better"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people reckon nothing beats a little butter.",
+     "walkthrough": "The letters sit across thinK NO Better.",
+     "definitionFit": "A knob of butter is the usual phrase for a small lump of it, cut off for cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +150,49 @@
     "text": "With a will unopened, what's left in it?",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "what's left in it",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unopened",
+      "for": "deletion",
+      "note": "not opened means the opening, the first letter, is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "With a will",
+      "gives": "TESTATE",
+      "note": "a person dying testate has made a valid will"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESTATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what remains to be shared out once a will is read.",
+     "walkthrough": "TESTATE loses its first letter T to leave ESTATE; the definition refers back to the will just mentioned.",
+     "definitionFit": "A dead person's estate is all the property and money they leave behind, which a will disposes of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unopened"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +206,67 @@
     "text": "Reliable tool hoisted in the beginning",
     "enumeration": "8"
    },
-   "solution": "STALWART"
+   "solution": "STALWART",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STALWART",
+    "definitions": [
+     {
+      "text": "Reliable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hoisted",
+      "for": "reversal",
+      "note": "in a down clue, hoisting lifts the word upward so it reads from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the tool sits inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tool",
+      "gives": "AWL",
+      "note": "an awl is a pointed tool for piercing leather or wood"
+     },
+     {
+      "clueFragment": "the beginning",
+      "gives": "START",
+      "note": "a synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "LWA",
+      "RT"
+     ],
+     "reversals": [
+      {
+       "from": "AWL",
+       "to": "LWA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dependable implement lifted at the outset.",
+     "walkthrough": "An awl is a pointed tool for piercing leather; in a down entry 'hoisted' turns it upside down before it goes inside.",
+     "definitionFit": "A stalwart supporter is loyal and dependable, someone who can be relied on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reliable"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +280,65 @@
     "text": "Do your bit, being sorry about second-rate turn",
     "enumeration": "10"
    },
-   "solution": "CONTRIBUTE"
+   "solution": "CONTRIBUTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CONTRIBUTE",
+    "definitions": [
+     {
+      "text": "Do your bit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the remorseful word wraps the other letters"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sorry",
+      "gives": "CONTRITE",
+      "note": "contrite means remorseful"
+     },
+     {
+      "clueFragment": "second-rate",
+      "gives": "B",
+      "note": "B grade is second class"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "U",
+      "note": "as in a U-turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTRI",
+      "B",
+      "U",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pitch in, even though you're ashamed of your poor performance.",
+     "walkthrough": "B and U go inside CONTRITE: CONTRI-BU-TE.",
+     "definitionFit": "To contribute is to give your share to a joint effort, which is doing your bit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +352,60 @@
     "text": "An ape's ill, missing a rabbit",
     "enumeration": "6"
    },
-   "solution": "ANGORA"
+   "solution": "ANGORA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANGORA",
+    "definitions": [
+     {
+      "text": "a rabbit",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing tells us the word ill is taken out of the ape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ape",
+      "gives": "GORILLA",
+      "note": "a large ape"
+     },
+     {
+      "clueFragment": "ill",
+      "gives": "ILL",
+      "note": "taken as written, the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GORA"
+     ]
+    },
+    "explanation": {
+     "surface": "An ape is sick and a rabbit has gone missing.",
+     "walkthrough": "'Ill' looks like a description of the ape, but it is the very letters removed from the ape's name.",
+     "definitionFit": "The Angora is a breed of domestic rabbit prized for its long, soft wool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ill"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +419,63 @@
     "text": "Gainsay headmaster reorganising schools",
     "enumeration": "8"
    },
-   "solution": "GYMNASIA"
+   "solution": "GYMNASIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GYMNASIA",
+    "definitions": [
+     {
+      "text": "schools",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only the start of master is kept"
+     },
+     {
+      "text": "reorganising",
+      "for": "anagram",
+      "note": "reorganising puts things into a new arrangement, so these letters are shuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gainsay",
+      "gives": "GAINSAY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "headmaster",
+      "gives": "M",
+      "select": "first",
+      "note": "the head of master, its first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GAINSAYM",
+       "gives": "GYMNASIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A headteacher who objects to a restructuring of schools.",
+     "walkthrough": "'Headmaster' reads as one person but splits into head plus master, giving just M.",
+     "definitionFit": "Gymnasia is the plural of gymnasium, the name for an academic secondary school in Germany and elsewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "headmaster"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +489,47 @@
     "text": "Post in the form of an omen",
     "enumeration": "6"
    },
-   "solution": "ASSIGN"
+   "solution": "ASSIGN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSIGN",
+    "definitions": [
+     {
+      "text": "Post",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the form of",
+      "gives": "AS",
+      "note": "as means in the role or form of"
+     },
+     {
+      "clueFragment": "an omen",
+      "gives": "SIGN",
+      "note": "an omen is a sign of things to come"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SIGN"
+     ]
+    },
+    "explanation": {
+     "surface": "Mail arriving that looks like a portent.",
+     "walkthrough": "'Post' looks like a noun for mail, but it is the verb meaning to station someone.",
+     "definitionFit": "To post someone somewhere is to assign them to a job or place of duty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Post"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +543,51 @@
     "text": "It's difficult to get model aroused",
     "enumeration": "6"
    },
-   "solution": "THORNY"
+   "solution": "THORNY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THORNY",
+    "definitions": [
+     {
+      "text": "difficult",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous car"
+     },
+     {
+      "clueFragment": "aroused",
+      "gives": "HORNY",
+      "note": "slang for sexually excited"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HORNY"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a model in the mood is hard work.",
+     "walkthrough": "Model T is the classic Ford car, a common crossword source of T.",
+     "definitionFit": "A thorny problem is a tricky, awkward one, as full of snags as a briar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +601,60 @@
     "text": "End of Guinness barrel, or of cigarette",
     "enumeration": "4"
    },
-   "solution": "STUB"
+   "solution": "STUB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STUB",
+    "definitions": [
+     {
+      "text": "cigarette",
+      "at": 30,
+      "note": "read with 'End of' from the start of the clue: the end of a cigarette"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "End of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only the close of the drink's name is kept"
+     }
+    ],
+    "linkWords": [
+     "or of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guinness",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of Guinness"
+     },
+     {
+      "clueFragment": "barrel",
+      "gives": "TUB",
+      "note": "a tub is a barrel-like container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TUB"
+     ]
+    },
+    "explanation": {
+     "surface": "The dregs of a keg of stout, or a cigarette end.",
+     "walkthrough": "'End of' works twice: it picks the last letter of Guinness, and with 'or of cigarette' it gives the definition, the butt left after smoking.",
+     "definitionFit": "A stub is the short remaining stump of a cigarette after it has been smoked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "barrel"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +668,58 @@
     "text": "Washing over - consequently gain forgiveness",
     "enumeration": "10"
    },
-   "solution": "ABSOLUTION"
+   "solution": "ABSOLUTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABSOLUTION",
+    "definitions": [
+     {
+      "text": "forgiveness",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "a word lying over another covers it, so one goes round the other"
+     }
+    ],
+    "linkWords": [
+     "gain"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Washing",
+      "gives": "ABLUTION",
+      "note": "ablutions are acts of washing oneself"
+     },
+     {
+      "clueFragment": "consequently",
+      "gives": "SO",
+      "note": "so means therefore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SO",
+      "LUTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Ritual washing brings pardon for sins.",
+     "walkthrough": "'Washing over' reads as a phrase, but over is the signal for one word covering another.",
+     "definitionFit": "Absolution is the formal release from guilt or sin, especially as granted by a priest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Washing"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +733,65 @@
     "text": "Rig out for soiree of sorrow",
     "enumeration": "6"
    },
-   "solution": "GRIEVE"
+   "solution": "GRIEVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GRIEVE",
+    "definitions": [
+     {
+      "text": "sorrow",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means wrong or disordered, so the three letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rig",
+      "gives": "RIG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soiree",
+      "gives": "EVE",
+      "note": "a soiree is an evening do, from French soir; eve is the old word for evening"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRI",
+      "EVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIG",
+       "gives": "GRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kitting someone out for a sad evening party.",
+     "walkthrough": "'Rig out' looks like dressing up, but out is the shuffle signal on rig.",
+     "definitionFit": "To grieve and to sorrow are both verbs for feeling deep sadness, especially after a loss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +805,67 @@
     "text": "Free terrorists snap title up",
     "enumeration": "10"
    },
-   "solution": "EMANCIPATE"
+   "solution": "EMANCIPATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMANCIPATE",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the string is read from the bottom toward the top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrorists",
+      "gives": "ETA",
+      "note": "ETA was the Basque separatist group"
+     },
+     {
+      "clueFragment": "snap",
+      "gives": "PIC",
+      "note": "a snap is a photo, a pic"
+     },
+     {
+      "clueFragment": "title",
+      "gives": "NAME",
+      "note": "a title is a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMAN",
+      "CIP",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "ETAPICNAME",
+       "to": "EMANCIPATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Militants release a photo that gives away a name.",
+     "walkthrough": "'Free' looks like an adjective, but it is the verb to set free.",
+     "definitionFit": "To emancipate is to set someone free from slavery or other restraint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "snap"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +879,65 @@
     "text": "Solemn air of old king rolling species of cannabis",
     "enumeration": "8"
    },
-   "solution": "GRAVITAS"
+   "solution": "GRAVITAS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GRAVITAS",
+    "definitions": [
+     {
+      "text": "Solemn air",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolling",
+      "for": "reversal",
+      "note": "something rolling turns over, so the plant name is read backwards"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old king",
+      "gives": "GR",
+      "note": "Georgius Rex, King George"
+     },
+     {
+      "clueFragment": "species of cannabis",
+      "gives": "SATIVA",
+      "note": "Cannabis sativa is the best-known species"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GR",
+      "AVITAS"
+     ],
+     "reversals": [
+      {
+       "from": "SATIVA",
+       "to": "AVITAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stoned former monarch with an unlikely look of dignity.",
+     "walkthrough": "GR, for Georgius Rex, appears on old coins and postboxes.",
+     "definitionFit": "Gravitas is dignified seriousness of manner, the weighty bearing of someone to be taken seriously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rolling"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +951,64 @@
     "text": "Farewell to artist returning to the mountain",
     "enumeration": "6"
    },
-   "solution": "ARARAT"
+   "solution": "ARARAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARARAT",
+    "definitions": [
+     {
+      "text": "the mountain",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the whole string runs backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Farewell",
+      "gives": "TARA",
+      "note": "ta-ra is an informal goodbye"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "ARAT"
+     ],
+     "reversals": [
+      {
+       "from": "TARARA",
+       "to": "ARARAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Waving off a painter who heads back to the hills.",
+     "walkthrough": "Ta-ra is a northern English cheerio; RA is a member of the Royal Academy. The first 'to' belongs to the wordplay's joining.",
+     "definitionFit": "Mount Ararat in Turkey is the peak where Noah's Ark came to rest, hence the mountain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +1022,58 @@
     "text": "What's got into a parasite at the pub?",
     "enumeration": "8"
    },
-   "solution": "ALEHOUSE"
+   "solution": "ALEHOUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALEHOUSE",
+    "definitions": [
+     {
+      "text": "pub",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "got into",
+      "for": "container",
+      "note": "something that has got into another is now inside it"
+     }
+    ],
+    "linkWords": [
+     "at the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What",
+      "gives": "EH",
+      "note": "eh? asks someone to repeat"
+     },
+     {
+      "clueFragment": "a parasite",
+      "gives": "ALOUSE",
+      "note": "a louse is a parasitic insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "EH",
+      "OUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what's bitten a person in a bar.",
+     "walkthrough": "The 's is 'has': EH has got into A LOUSE, A-L-EH-OUSE.",
+     "definitionFit": "An alehouse is an old word for a tavern or public house serving beer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "What"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1087,58 @@
     "text": "Dined, consuming barrel of pitch properly",
     "enumeration": "6"
    },
-   "solution": "ATTUNE"
+   "solution": "ATTUNE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ATTUNE",
+    "definitions": [
+     {
+      "text": "pitch properly",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming takes something in, so the meal word swallows the cask"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dined",
+      "gives": "ATE",
+      "note": "past tense of eat"
+     },
+     {
+      "clueFragment": "barrel",
+      "gives": "TUN",
+      "note": "a tun is a large cask"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TUN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ate, and drank down a whole cask too.",
+     "walkthrough": "'Barrel of pitch' tempts one to think of a tar barrel; pitch belongs to the musical definition instead.",
+     "definitionFit": "To attune an instrument is to bring it into tune, setting its pitch correctly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1152,58 @@
     "text": "Immortal carrying Cross inside and outside",
     "enumeration": "8"
    },
-   "solution": "EXTERNAL"
+   "solution": "EXTERNAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXTERNAL",
+    "definitions": [
+     {
+      "text": "outside",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "a word carrying another holds it within itself"
+     }
+    ],
+    "linkWords": [
+     "inside and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Immortal",
+      "gives": "ETERNAL",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "Cross",
+      "gives": "X",
+      "note": "X is a cross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "TERNAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A god bearing a crucifix within and without.",
+     "walkthrough": "X goes inside ETERNAL after the E. 'Inside and outside' looks like one phrase, but only 'outside' defines.",
+     "definitionFit": "External describes what is on the outer surface or comes from outside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1217,65 @@
     "text": "Helpless dairymaid raised a great many",
     "enumeration": "6"
    },
-   "solution": "MYRIAD"
+   "solution": "MYRIAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "MYRIAD",
+    "definitions": [
+     {
+      "text": "a great many",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means without, so the word for help is taken away"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raised means the remaining letters are read upward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dairymaid",
+      "gives": "DAIRYMAID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Helpless",
+      "gives": "AID",
+      "note": "help is aid, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MYRIAD"
+     ],
+     "reversals": [
+      {
+       "from": "DAIRYM",
+       "to": "MYRIAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defenceless milkmaid brought up a large brood.",
+     "walkthrough": "'Helpless' reads as one adjective, but it splits as help plus less, a removal instruction on the maid's own name.",
+     "definitionFit": "Myriad means countless or a vast number, from the Greek for ten thousand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Helpless"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1289,50 @@
     "text": "China has many an ornamental garden",
     "enumeration": "8"
    },
-   "solution": "CROCKERY"
+   "solution": "CROCKERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROCKERY",
+    "definitions": [
+     {
+      "text": "China",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred, a crossword's many"
+     },
+     {
+      "clueFragment": "an ornamental garden",
+      "gives": "ROCKERY",
+      "note": "a rockery is a garden of stones and alpines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ROCKERY"
+     ]
+    },
+    "explanation": {
+     "surface": "The country of China boasts a number of decorative gardens.",
+     "walkthrough": "'China' looks like the country, but it is porcelain tableware.",
+     "definitionFit": "Crockery is plates, cups and dishes, and china is the fine porcelain kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1346,52 @@
     "text": "Initially rock hard, yet the Hammersmith Mauler gets beat",
     "enumeration": "6"
    },
-   "solution": "RHYTHM"
+   "solution": "RHYTHM",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RHYTHM",
+    "definitions": [
+     {
+      "text": "beat",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each following word"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rock hard, yet the Hammersmith Mauler",
+      "gives": "RHYTHM",
+      "select": "first",
+      "note": "first letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHYTHM"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough boxer nicknamed after a London district gets punched.",
+     "walkthrough": "The Hammersmith Mauler is an invented boxer's nickname; Hammersmith is a district of west London.",
+     "definitionFit": "A musical beat is the regular pulse that makes up the rhythm of a piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1405,59 @@
     "text": "A case of silence stifling passion",
     "enumeration": "6"
    },
-   "solution": "SHEATH"
+   "solution": "SHEATH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHEATH",
+    "definitions": [
+     {
+      "text": "A case",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stifling",
+      "for": "container",
+      "note": "to stifle is to smother, so the hush wraps round the feeling"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "sh! calls for quiet"
+     },
+     {
+      "clueFragment": "passion",
+      "gives": "HEAT",
+      "note": "the heat of passion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HEAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "An example of feelings being kept quiet.",
+     "walkthrough": "'A case of' looks like 'an instance of', but 'A case' is the definition and 'of' the link.",
+     "definitionFit": "A sheath is a close-fitting case, as for a knife or sword blade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1471,53 @@
     "text": "Belt encircling a tyrant",
     "enumeration": "6"
    },
-   "solution": "SATRAP"
+   "solution": "SATRAP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SATRAP",
+    "definitions": [
+     {
+      "text": "tyrant",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "encircling",
+      "for": "container",
+      "note": "encircling means going all round, so the belt holds the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belt",
+      "gives": "STRAP",
+      "note": "a belt is a strap"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "TRAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A strap fastened round a despot.",
+     "definitionFit": "A satrap was a Persian provincial governor, and the word now means a petty despot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1531,77 @@
     "text": "Soda-server is absorbing Mahler's First and Tchaikovsky's (or one of their ilk)",
     "enumeration": "10"
    },
-   "solution": "SYMPHONIST"
+   "solution": "SYMPHONIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SYMPHONIST",
+    "definitions": [
+     {
+      "text": "one of their ilk",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First",
+      "for": "letter_selection",
+      "note": "first picks the opening letter of each composer's name"
+     },
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing takes something in, so the soda device holds a letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soda-server",
+      "gives": "SYPHON",
+      "note": "a soda syphon dispenses fizzy water"
+     },
+     {
+      "clueFragment": "Mahler's",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of Mahler"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tchaikovsky's",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of Tchaikovsky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SY",
+      "M",
+      "PHON",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A soda dispenser apparently soaking up the music of two great composers.",
+     "walkthrough": "Mahler and Tchaikovsky are both famed for their symphonies, so the definition points back at them; 'First' serves both names.",
+     "definitionFit": "A symphonist is a composer of symphonies, as Mahler and Tchaikovsky were."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "First"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1615,43 @@
     "text": "Animal utterance involving trunk?",
     "enumeration": "4"
    },
-   "solution": "BARK"
+   "solution": "BARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BARK",
+    "definitions": [
+     {
+      "text": "Animal utterance",
+      "at": 0
+     },
+     {
+      "text": "involving trunk",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal utterance",
+      "note": "first meaning: the sound a dog makes"
+     },
+     {
+      "clueFragment": "involving trunk",
+      "note": "second meaning: the rough outer covering of a tree"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Trunk' suggests an elephant's trumpeting, but it is the trunk of a tree.",
+     "definitionFit": "The word is both the cry of a dog and the tough outer layer covering a tree's stem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1665,58 @@
     "text": "Live without a seaman's doll",
     "enumeration": "4"
    },
-   "solution": "BABE"
+   "solution": "BABE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BABE",
+    "definitions": [
+     {
+      "text": "doll",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so the verb sits round the sailor"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Live",
+      "gives": "BE",
+      "note": "to be is to exist"
+     },
+     {
+      "clueFragment": "a seaman",
+      "gives": "AB",
+      "note": "AB is an able seaman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting by without a sailor's toy.",
+     "walkthrough": "'Without' looks like lacking, but here it is the old sense outside.",
+     "definitionFit": "Babe and doll are both slang terms for an attractive young woman or a sweetheart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1730,55 @@
     "text": "Demonstrative about alien goddess",
     "enumeration": "6"
    },
-   "solution": "THETIS"
+   "solution": "THETIS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THETIS",
+    "definitions": [
+     {
+      "text": "goddess",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the pointing word goes round the visitor"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Demonstrative",
+      "gives": "THIS",
+      "note": "this is a demonstrative pronoun"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "the film extraterrestrial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ET",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "An emotional person talks about a deity from another world.",
+     "walkthrough": "'Demonstrative' looks like emotionally open, but it is the grammar term for words like this and that.",
+     "definitionFit": "Thetis was a sea nymph of Greek myth, mother of Achilles, often counted a goddess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Demonstrative"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1798,54 @@
      }
     ]
    },
-   "solution": "DEADBEAT"
+   "solution": "DEADBEAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEAD BEAT",
+    "definitions": [
+     {
+      "text": "Overcome by exhaustion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "a treatment works something over, so these letters are processed into a new order"
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debated a",
+      "gives": "DEBATEDA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEBATEDA",
+       "gives": "DEADBEAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Worn out after arguing a medical therapy.",
+     "walkthrough": "'Treatment' looks like medical care, but it is the shuffle signal.",
+     "definitionFit": "Dead beat is an informal phrase meaning utterly worn out, completely tired."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   }
  ]
 }
