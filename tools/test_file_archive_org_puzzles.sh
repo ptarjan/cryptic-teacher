@@ -1213,6 +1213,34 @@ c = clue_cases["times-16960"]
 text = f.column_text(f.columns([[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])))
 check("a line printed across both clue columns ends the column (Times 16,960)",
       (False, True), ("Collins" in text, "\nPeer inside the pearty gztes" in text))
+def case_columns(name):
+    c = clue_cases[name]
+    words, gbox = [[tuple(w)] for w in c["chWords"]], tuple(c["gbox"])
+    return [[l[4] for l in col] for col in f.columns(words, gbox, split=f.under_gutter(words, gbox))]
+c16136 = case_columns("times-16136")
+check("a row RapidOCR reads across a narrow gutter is cut at the right clue's number, not read as a notice"
+      " (Times 16,136)",
+      ("11 Scandinavian hzs no right to", "perhaps? (10).", "12 Sympathetic type on long desert", "(4)."),
+      (c16136[0][6], c16136[0][26], c16136[1][7], c16136[1][-1]))
+c15328 = case_columns("times-15328")
+check("a line across the gutter is cut at a misread number (\"l4\", \"I6\") and one starting just left of it"
+      " (Times 15,328)",
+      (["12 Poct hrrs the uurk 'e", "13Thev nere unr!hy"], ["l4 Aias Peter Simple? The real",
+                                                            "I6 DeniedhrJack-aaed ton.", "24 Paper. set up balf their"]),
+      ([t for t in c15328[0] if t.startswith(("12 ", "13"))],
+       [t for t in c15328[1] if t.startswith(("l4", "I6", "24"))]))
+c13696 = case_columns("times-13696")
+check("a line across the gutter at two rows' heights is cut so the line under its right half is kept"
+      " (Times 13,696 24D)",
+      (["Charles on the river (6).", "24 Jobs for the boys, such as", "Horner ? (5)."], True),
+      (c13696[1][c13696[1].index("24 Jobs for the boys, such as") - 1:][:3],
+       "20 Shnor the works-ike Isa-" in c13696[0]))
+check("a centred notice with no clue number near the gutter still spans it",
+      [(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")],
+      f.split_across([(100, 0, 700, 20, "Prize Crossword in The Times tomorrow")], [400]))
+check("a clue number far from the gutter does not cut a line across it",
+      [(100, 0, 700, 20, "12 Poet shows the work returned again and again here")],
+      f.split_across([(100, 0, 700, 20, "12 Poet shows the work returned again and again here")], [400]))
 d16626 = parsed_of("times-16626", "djvu")
 check("\"Prize Crossword in\" between two clues is in neither (Times 16,626 3D, 4D)",
       ("Bones of little girl in centre of trail", "Of great significance to chaps in Missouri.all French"),
