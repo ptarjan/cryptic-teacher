@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Who's unlikely to waver, going after criminal?",
     "enumeration": "9"
    },
-   "solution": "CONSTABLE"
+   "solution": "CONSTABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "CONSTABLE",
+    "definitions": [
+     {
+      "text": "Who's unlikely to waver, going after criminal?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going after",
+      "for": "charade",
+      "note": "one piece goes after the other, so the steady word is placed second in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict, a jailed criminal"
+     },
+     {
+      "clueFragment": "unlikely to waver",
+      "gives": "STABLE",
+      "note": "something steady and firm is unlikely to waver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "STABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A steadfast figure who pursues lawbreakers without wavering.",
+     "walkthrough": "The whole clue does double duty: it builds the answer and also describes a police officer, the steady person whose job is chasing lawbreakers.",
+     "definitionFit": "A police officer of the lowest rank pursues lawbreakers, so the entire question describes that job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 6,
@@ -47,7 +97,49 @@
     "text": "Very little money these days for accommodation",
     "enumeration": "3"
    },
-   "solution": "PAD"
+   "solution": "PAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAD",
+    "definitions": [
+     {
+      "text": "accommodation",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very little money",
+      "gives": "P",
+      "note": "p is a penny, a tiny sum"
+     },
+     {
+      "clueFragment": "these days",
+      "gives": "AD",
+      "note": "AD, anno domini, marks the present era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "Complaining that rent leaves almost nothing in the purse nowadays.",
+     "definitionFit": "A pad is informal slang for a flat or place where someone lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "days"
+    }
+   }
   },
   {
    "number": 8,
@@ -61,7 +153,71 @@
     "text": "Belief in a male divinity? The reverse",
     "enumeration": "5"
    },
-   "solution": "DOGMA"
+   "solution": "DOGMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DOGMA",
+    "definitions": [
+     {
+      "text": "Belief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The reverse",
+      "for": "reversal",
+      "note": "the setter tells us to take the preceding phrase back to front, last letter first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the standard abbreviation for male"
+     },
+     {
+      "clueFragment": "divinity",
+      "gives": "GOD",
+      "note": "a god is a divine being"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOG",
+      "M",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AMGOD",
+       "to": "DOGMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theological question: is faith in a masculine deity, or the opposite?",
+     "walkthrough": "'The reverse' seems to propose a female goddess; instead it reads A M GOD from the end, giving DOGMA.",
+     "definitionFit": "Dogma is a firmly held doctrine or tenet, a principle accepted as true."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "reverse"
+    }
+   }
   },
   {
    "number": 9,
@@ -75,7 +231,43 @@
     "text": "Dogged volunteer?",
     "enumeration": "7"
    },
-   "solution": "TERRIER"
+   "solution": "TERRIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TERRIER",
+    "definitions": [
+     {
+      "text": "Dogged",
+      "at": 0
+     },
+     {
+      "text": "volunteer",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dogged",
+      "note": "first sense: a tenacious little dog breed, famous for not letting go"
+     },
+     {
+      "clueFragment": "volunteer",
+      "note": "second sense: a member of the Territorial Army, Britain's reserve of part-time volunteer soldiers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Dogged' reads as an adjective, but here it hints at a dog; a Terrier is also slang for a Territorial Army soldier, the British volunteer reserve.",
+     "definitionFit": "The word names both a persistent breed of hound and a part-time soldier in Britain's Territorial reserve force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dogged"
+    }
+   }
   },
   {
    "number": 10,
@@ -89,7 +281,52 @@
     "text": "Tenor has drunk lots of water",
     "enumeration": "5,3"
    },
-   "solution": "NORTHSEA"
+   "solution": "NORTHSEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NORTH SEA",
+    "definitions": [
+     {
+      "text": "lots of water",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "someone drunk staggers about, so these letters lurch into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tenor has",
+      "gives": "TENORHAS",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENORHAS",
+       "gives": "NORTHSEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer has knocked back a great quantity of water.",
+     "walkthrough": "'drunk' looks like the verb to drink, but it is the anagram signal.",
+     "definitionFit": "The North Sea is a large body of salt water between Britain and mainland Europe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 11,
@@ -103,7 +340,53 @@
     "text": "Corn's kernel missing? That's a puzzle",
     "enumeration": "4"
    },
-   "solution": "MAZE"
+   "solution": "MAZE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MAZE",
+    "definitions": [
+     {
+      "text": "a puzzle",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kernel missing",
+      "for": "deletion",
+      "note": "a kernel is the centre of something, and missing says that central letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corn's",
+      "gives": "MAIZE",
+      "note": "maize is corn, the cereal crop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "ZE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cob of corn with no grain inside would be a mystery.",
+     "walkthrough": "The middle letter of MAIZE is I; drop it to leave MAZE.",
+     "definitionFit": "A maze is a labyrinth of paths, a puzzle to find the way through."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kernel"
+    }
+   }
   },
   {
    "number": 13,
@@ -117,7 +400,55 @@
     "text": "A thousand pounds given by obese woman's relative",
     "enumeration": "11"
    },
-   "solution": "GRANDFATHER"
+   "solution": "GRANDFATHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRANDFATHER",
+    "definitions": [
+     {
+      "text": "relative",
+      "at": 41
+     }
+    ],
+    "linkWords": [
+     "given by",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A thousand pounds",
+      "gives": "GRAND",
+      "note": "a grand is slang for a thousand pounds or dollars"
+     },
+     {
+      "clueFragment": "obese",
+      "gives": "FAT",
+      "note": "a plain synonym for very overweight"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "HER",
+      "note": "her stands for a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAND",
+      "FAT",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "An overweight woman's relative is handed a thousand pounds.",
+     "definitionFit": "A grandparent, a parent's father, is a family relation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -131,7 +462,51 @@
     "text": "Unexpected report by European church leader",
     "enumeration": "4"
    },
-   "solution": "POPE"
+   "solution": "POPE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POPE",
+    "definitions": [
+     {
+      "text": "church leader",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unexpected report",
+      "gives": "POP",
+      "note": "a report is a bang, and a sudden one is a pop"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A surprising news story written by a European about a religious head.",
+     "walkthrough": "'report' looks like a news story, but here it means a sharp noise.",
+     "definitionFit": "The Pope heads the Roman Catholic Church."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 18,
@@ -145,7 +520,62 @@
     "text": "If not heavy, any number can be carried during plane journey",
     "enumeration": "2-6"
    },
-   "solution": "INFLIGHT"
+   "solution": "INFLIGHT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IN-FLIGHT",
+    "definitions": [
+     {
+      "text": "during plane journey",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can be carried",
+      "for": "container",
+      "note": "a thing carried is held inside, so the number goes within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "If",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "any number",
+      "gives": "N",
+      "note": "n stands for an unspecified number in algebra"
+     },
+     {
+      "clueFragment": "not heavy",
+      "gives": "LIGHT",
+      "note": "the opposite of heavy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "F",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Rules about baggage: if it isn't heavy, you may carry any number on board.",
+     "walkthrough": "The hyphenated answer is split 2-6; the number is tucked into the first word, not the second.",
+     "definitionFit": "In-flight describes things that happen or are provided while an aircraft is airborne."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carried"
+    }
+   }
   },
   {
    "number": 21,
@@ -159,7 +589,42 @@
     "text": "Book player who's on the bench?",
     "enumeration": "7"
    },
-   "solution": "RESERVE"
+   "solution": "RESERVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RESERVE",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     },
+     {
+      "text": "player who's on the bench",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Book",
+      "note": "first sense: to set aside in advance, as with a table"
+     },
+     {
+      "clueFragment": "player who's on the bench",
+      "note": "second sense: a substitute waiting to come on in a team game"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Book' looks like a noun but is the verb, as in booking a seat.",
+     "definitionFit": "The word is both a verb for holding something ahead of time and a noun for a substitute team member."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 22,
@@ -173,7 +638,53 @@
     "text": "After little time, register provocative post",
     "enumeration": "5"
    },
-   "solution": "TROLL"
+   "solution": "TROLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROLL",
+    "definitions": [
+     {
+      "text": "provocative post",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "after places the second word behind the first, setting the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     },
+     {
+      "clueFragment": "register",
+      "gives": "ROLL",
+      "note": "a roll is a list of names, as in a school register"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROLL"
+     ]
+    },
+    "explanation": {
+     "surface": "Soon after signing up, someone writes an inflammatory message online.",
+     "definitionFit": "On the internet, a troll is a deliberately inflammatory message meant to provoke a reaction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "register"
+    }
+   }
   },
   {
    "number": 23,
@@ -187,7 +698,49 @@
     "text": "Article those people abridged",
     "enumeration": "3"
    },
-   "solution": "THE"
+   "solution": "THE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THE",
+    "definitions": [
+     {
+      "text": "Article",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abridged",
+      "for": "deletion",
+      "note": "an abridged text is cut short, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those people",
+      "gives": "THEY",
+      "note": "they refers to those people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE"
+     ]
+    },
+    "explanation": {
+     "surface": "An item of writing by a certain group, shortened for print.",
+     "walkthrough": "'Article' looks like a newspaper piece, but it is the grammatical term.",
+     "definitionFit": "In grammar 'the' is the definite article, a determiner placed before nouns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 24,
@@ -201,7 +754,61 @@
     "text": "Mostly sage Tories in a state",
     "enumeration": "9"
    },
-   "solution": "WISCONSIN"
+   "solution": "WISCONSIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WISCONSIN",
+    "definitions": [
+     {
+      "text": "a state",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sage",
+      "gives": "WISE",
+      "note": "a sage person is wise"
+     },
+     {
+      "clueFragment": "Tories",
+      "gives": "CONS",
+      "note": "Cons is short for Conservatives, Britain's Tory party"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIS",
+      "CONS",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Remarks that most of the wise Conservatives are in some condition or other.",
+     "walkthrough": "'a state' looks like a condition, but it is a US state.",
+     "definitionFit": "Wisconsin is one of the fifty United States, in the Midwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 1,
@@ -215,7 +822,46 @@
     "text": "Allowing church bell's sound",
     "enumeration": "6"
    },
-   "solution": "CEDING"
+   "solution": "CEDING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CEDING",
+    "definitions": [
+     {
+      "text": "Allowing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "bell's sound",
+      "gives": "DING",
+      "note": "the ring of a bell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "DING"
+     ]
+    },
+    "explanation": {
+     "surface": "Permitting the church bells to ring out.",
+     "definitionFit": "To cede is to yield or grant, so ceding means conceding or allowing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Allowing"
+    }
+   }
   },
   {
    "number": 2,
@@ -229,7 +875,49 @@
     "text": "Part of UK allied to German land",
     "enumeration": "5"
    },
-   "solution": "NIGER"
+   "solution": "NIGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NIGER",
+    "definitions": [
+     {
+      "text": "land",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "allied to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of UK",
+      "gives": "NI",
+      "note": "NI is Northern Ireland, one of the UK's four nations"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "Ger is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "A British region allied with Germany over territory.",
+     "definitionFit": "Niger is a country in West Africa, a nation or land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "allied"
+    }
+   }
   },
   {
    "number": 3,
@@ -243,7 +931,60 @@
     "text": "Feeling pain after half a term working in classroom",
     "enumeration": "8"
    },
-   "solution": "TEACHING"
+   "solution": "TEACHING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEACHING",
+    "definitions": [
+     {
+      "text": "working in classroom",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half a",
+      "for": "deletion",
+      "note": "only half of the following word is kept, the front part"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the feeling behind the shortened word in the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feeling pain",
+      "gives": "ACHING",
+      "note": "to ache is to feel pain"
+     },
+     {
+      "clueFragment": "term",
+      "gives": "TERM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "ACHING"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher hurting by the middle of term.",
+     "walkthrough": "Half a word here means its first half; the pain piece follows it in the answer even though it comes first in the clue.",
+     "definitionFit": "Teaching is the job of instructing pupils, done in a school room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "term"
+    }
+   }
   },
   {
    "number": 4,
@@ -257,7 +998,42 @@
     "text": "One likely to drop thin shortbread biscuits?",
     "enumeration": "13"
    },
-   "solution": "BUTTERFINGERS"
+   "solution": "BUTTERFINGERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BUTTERFINGERS",
+    "definitions": [
+     {
+      "text": "One likely to drop",
+      "at": 0
+     },
+     {
+      "text": "thin shortbread biscuits",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One likely to drop",
+      "note": "first sense: a clumsy person who often lets things fall"
+     },
+     {
+      "clueFragment": "thin shortbread biscuits",
+      "note": "second sense: slim buttery cookie sticks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark marks the second sense as playful, buttery finger-shaped biscuits rather than an established name.",
+     "definitionFit": "The word is an informal name for a clumsy person who keeps dropping things, and literally slim biscuits made with butter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -271,7 +1047,45 @@
     "text": "Nobleman is not entirely fearless",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "Nobleman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "hidden_word",
+      "note": "not entirely says only part of the next word is used, a run inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fearless",
+      "gives": "EARL",
+      "note": "the letters inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "An aristocrat whose courage has its limits.",
+     "definitionFit": "An earl is a British peer ranking above a viscount, a titled aristocrat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entirely"
+    }
+   }
   },
   {
    "number": 6,
@@ -285,7 +1099,41 @@
     "text": "Uncommunicative soldier",
     "enumeration": "7"
    },
-   "solution": "PRIVATE"
+   "solution": "PRIVATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRIVATE",
+    "definitions": [
+     {
+      "text": "Uncommunicative",
+      "at": 0
+     },
+     {
+      "text": "soldier",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncommunicative",
+      "note": "first sense: keeping one's affairs to oneself"
+     },
+     {
+      "clueFragment": "soldier",
+      "note": "second sense: the lowest rank in the army"
+     }
+    ],
+    "explanation": {
+     "surface": "A reticent serviceman who keeps quiet.",
+     "definitionFit": "The word means reserved or secretive as an adjective, and as a noun the lowest army rank."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -299,7 +1147,66 @@
     "text": "Woman never upset after social event",
     "enumeration": "6"
    },
-   "solution": "DOREEN"
+   "solution": "DOREEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DOREEN",
+    "definitions": [
+     {
+      "text": "Woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset turns the word over, so it reads bottom to top"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the overturned word behind the event in the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "social event",
+      "gives": "DO",
+      "note": "a do is a party"
+     },
+     {
+      "clueFragment": "never",
+      "gives": "NEER",
+      "note": "ne'er is the poetic contraction of never"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "REEN"
+     ],
+     "reversals": [
+      {
+       "from": "NEER",
+       "to": "REEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who is never troubled once a party is over.",
+     "walkthrough": "DO then NEER reversed, REEN, gives DOREEN.",
+     "definitionFit": "Doreen is a woman's first name, standing for any woman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 12,
@@ -313,7 +1220,74 @@
     "text": "Pointed weapon finally left in toilets, oddly",
     "enumeration": "8"
    },
-   "solution": "STILETTO"
+   "solution": "STILETTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "STILETTO",
+    "definitions": [
+     {
+      "text": "Pointed weapon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally keeps only the end letter of the word before it"
+     },
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "oddly means in a strange way, so these letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the single letter is placed inside the jumbled word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter"
+     },
+     {
+      "clueFragment": "toilets",
+      "gives": "TOILETS",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STILE",
+      "T",
+      "TO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOILETS",
+       "gives": "STILETO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dagger was abandoned in the lavatories.",
+     "walkthrough": "'oddly' tempts one to take alternate letters of the next word, but here it jumbles them.",
+     "definitionFit": "A stiletto is a short dagger with a slim tapering blade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 14,
@@ -327,7 +1301,50 @@
     "text": "Possibly ropiest comeback",
     "enumeration": "7"
    },
-   "solution": "RIPOSTE"
+   "solution": "RIPOSTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIPOSTE",
+    "definitions": [
+     {
+      "text": "comeback",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several arrangements of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ropiest",
+      "gives": "ROPIEST",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROPIEST",
+       "gives": "RIPOSTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retort that may well be the weakest one going.",
+     "walkthrough": "Ropiest is British slang for worst or shoddiest.",
+     "definitionFit": "A riposte is a quick, clever retort, a verbal comeback."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -341,7 +1358,44 @@
     "text": "Alcoholic drink giving you energy",
     "enumeration": "6"
    },
-   "solution": "SPIRIT"
+   "solution": "SPIRIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPIRIT",
+    "definitions": [
+     {
+      "text": "Alcoholic drink",
+      "at": 0
+     },
+     {
+      "text": "energy",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "giving you"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alcoholic drink",
+      "note": "first sense: a distilled liquor such as gin or whisky"
+     },
+     {
+      "clueFragment": "energy",
+      "note": "second sense: liveliness and vigour"
+     }
+    ],
+    "explanation": {
+     "surface": "A tipple that perks you up.",
+     "definitionFit": "The word covers both distilled liquors like vodka and the vigour or verve a person shows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -355,7 +1409,49 @@
     "text": "Pinched Christmas cake, middle bit missing",
     "enumeration": "6"
    },
-   "solution": "STOLEN"
+   "solution": "STOLEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STOLEN",
+    "definitions": [
+     {
+      "text": "Pinched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle bit missing",
+      "for": "deletion",
+      "note": "the central letter of the cake word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christmas cake",
+      "gives": "STOLLEN",
+      "note": "stollen is a German fruit loaf eaten at Christmas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STO",
+      "LEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nicked the festive cake and the centre is gone.",
+     "walkthrough": "'Pinched' looks like part of the cake story, but it is the definition.",
+     "definitionFit": "Pinched is informal for taken by theft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pinched"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1465,45 @@
     "text": "Gloucestershire's superficially attractive appearance",
     "enumeration": "5"
    },
-   "solution": "GLOSS"
+   "solution": "GLOSS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLOSS",
+    "definitions": [
+     {
+      "text": "superficially attractive appearance",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gloucestershire",
+      "gives": "GLOS",
+      "note": "Glos is the abbreviation for Gloucestershire, an English county"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLOS",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An English county's shallow charm.",
+     "definitionFit": "A gloss is a shiny surface or a deceptively fine outward show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1517,43 @@
     "text": "Ship's company sounded cocky",
     "enumeration": "4"
    },
-   "solution": "CREW"
+   "solution": "CREW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CREW",
+    "definitions": [
+     {
+      "text": "Ship's company",
+      "at": 0
+     },
+     {
+      "text": "sounded cocky",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ship's company",
+      "note": "first sense: the sailors who run a vessel"
+     },
+     {
+      "clueFragment": "sounded cocky",
+      "note": "second sense: the old past tense of crow, what a cockerel did"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'sounded cocky' suggests seeming arrogant, but it means made a cock's noise.",
+     "definitionFit": "A crew is the team of sailors aboard, and crew is an old past tense of crow, a rooster's call."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cocky"
+    }
+   }
   }
  ]
 }
