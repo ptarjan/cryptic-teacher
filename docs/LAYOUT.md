@@ -740,6 +740,10 @@ tools/ci_shards.js                           splits the test scripts across the 
 tools/test_ci_coverage.js                    checks every test in tools/ is run, in exactly one
                                              shard, by the workflow a later push cannot cancel,
                                              so no check is quietly optional
+tools/test_ci_cache_deps.js                  checks the smoke test's declared cache
+                                             dependencies cover every file it reaches, so a
+                                             cached pass is never served after one of them
+                                             changes
 tools/qr_check.py                            decodes qr.js’s own output with a real decoder — a
                                              wrong QR code draws perfectly and simply never
                                              scans

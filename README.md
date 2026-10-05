@@ -384,8 +384,10 @@ will eventually contain any sentence you might use as a signal.
 
 CI runs it over the whole corpus on every push, in slices, through a
 per-puzzle result cache (`tools/ci_cache.js`). A result stands while the
-puzzle file and the smoke test's code are both unchanged, so a push that
-only adds puzzles re-runs just those, and a code change re-runs everything.
+puzzle file and the files the smoke test reaches (`SMOKE_DEPS`, guarded by
+`tools/test_ci_cache_deps.js`) are both unchanged, so a push that only adds
+puzzles or edits docs re-runs just the new puzzles, and a change to the app,
+the page build or the data re-runs everything.
 `.github/workflows/nightly-smoke.yml` sweeps the corpus again each night
 with no cache, for anything the cache could hide.
 

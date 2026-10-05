@@ -41,9 +41,51 @@ const ROOT = path.join(__dirname, "..");
 
 // Each cached check, by the test file that runs it, and the files its result
 // depends on (path prefixes), or null for "everything outside puzzles/".
+//
+// smoke_test.js's list is every file it requires or reads, directly or through
+// the code it runs: the JS it requires, the app and pages it boots, the Python
+// that builds the pages and index it reads (build_seo_pages.py, fetch_puzzle.py,
+// build_abbreviations.py and every tools/ module they import) and the data
+// under tools/data/. Left out on purpose: puzzles/ (keyed per puzzle), docs/,
+// the *.md files, scratch/, household-plugins/, .github/ and the rest of
+// tools/. The one assertion over the whole tree, build_readme.py
+// --check-layout (every tracked file has a row in docs/LAYOUT.md), and the
+// shelled-out sub-tests are made by slice 0, which is never skipped, so a
+// docs-only push still gets them and they need no key. tools/test_ci_cache_deps.js keeps the list from going stale:
+// it fails when a file the smoke test reaches is not named here.
+// Over-including costs a re-run; under-including serves a stale pass.
+const SMOKE_DEPS = [
+    "app.js", "analytics.js", "index.html", "style.css", "qr.js", "sw.js", "site.webmanifest",
+    "favicon", "apple-touch-icon", "icon-192.png", "icon-512.png", "og.png", "sync/", "vendor/",
+    "tools/alert.sh", "tools/annotation.py", "tools/annotation_backlog.json",
+    "tools/app_tables.py", "tools/apply_solution.py", "tools/blog_facts.py",
+    "tools/blog_facts_gold.jsonl", "tools/boilerplate.py", "tools/build_abbreviations.py",
+    "tools/build_lexicon.js", "tools/build_readme.py", "tools/build_seo_pages.py",
+    "tools/check_shapes.js", "tools/ci_cache.js", "tools/clue_index.py", "tools/clue_types.py",
+    "tools/clueability.py", "tools/corroborate.py", "tools/ctc_transcripts.py",
+    "tools/daily_update.sh", "tools/data/", "tools/definitions.py", "tools/difficulty.py",
+    "tools/difficulty_check.py", "tools/difficulty_page.html", "tools/enumeration.py",
+    "tools/errata.py", "tools/fake_dom.js", "tools/fetch_lexicon.sh",
+    "tools/fetch_privateeye.py", "tools/fetch_puzzle.py", "tools/fetch_times_listing.py",
+    "tools/file_archive_org_puzzles.py", "tools/file_penguin_puzzle.py",
+    "tools/file_trove_puzzles.py", "tools/find_answer_leaks.py", "tools/grid_fill.py",
+    "tools/groups.py", "tools/indicator_keys.py", "tools/json_merge.py",
+    "tools/letter_facts.py", "tools/make_og.sh", "tools/make_og_card.py",
+    "tools/nightly_worktree.sh", "tools/normalise_linked_enumerations.py", "tools/ocr_clues.py",
+    "tools/ocr_full_pass.sh", "tools/ocr_remote.py", "tools/og_card.html",
+    "tools/og_page_card.html", "tools/page_card.py", "tools/parallel.py",
+    "tools/prereset_backfill.sh", "tools/provenance.py", "tools/push_puzzle_commit.sh",
+    "tools/puzzle_integrity.py", "tools/puzzle_paths.js", "tools/puzzle_paths.py",
+    "tools/puzzle_schema.py", "tools/puzzle_tags.py", "tools/reconstruct_grid.py",
+    "tools/reindex.js", "tools/scan_crop.py", "tools/scan_queue.py", "tools/series.py",
+    "tools/showcase.py", "tools/smoke_test.js", "tools/stamp_assets.py",
+    "tools/test_alert_claimed.sh", "tools/test_nightly_worktree.sh",
+    "tools/test_notify_race.js", "tools/test_prereset_paths.sh", "tools/test_push_hold.js",
+    "tools/trove_clue_ocr.py", "tools/trove_grid.py", "tools/trove_solution_ocr.py",
+    "tools/tutorial.html", "tools/validate_annotations.py", "tools/vlm_reader.py",
+];
 const CHECKS = {
-  // Boots the whole app and builds the pages it reads; no narrower list holds.
-  "tools/smoke_test.js": { deps: null },
+  "tools/smoke_test.js": { deps: SMOKE_DEPS },
 };
 
 // Every tracked file as path -> blob, read from the commit's tree, so it needs
@@ -157,7 +199,7 @@ function merge(cacheFile, resultsDir, outFile, shapesDir) {
   return bad;
 }
 
-module.exports = { CHECKS, codeKey, puzzles, inSlice, readCache, uncached, resultsFor, idOf };
+module.exports = { CHECKS, SMOKE_DEPS, codeKey, puzzles, inSlice, readCache, uncached, resultsFor, idOf };
 
 if (require.main === module && process.argv[2] === "--drop-cached") {
   const cache = readCache(process.argv[3]);

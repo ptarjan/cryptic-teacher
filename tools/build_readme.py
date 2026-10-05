@@ -257,6 +257,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_unclued_squares.js", "a square only an unclued light covers can be revealed, and the picker asks for it"),
     ("building and checking the site", "tools/ci_shards.js", "splits the test scripts across the workflow’s parallel jobs, so the suite takes as long as its slowest single script rather than all of them added up"),
     ("building and checking the site", "tools/test_ci_coverage.js", "checks every test in tools/ is run, in exactly one shard, by the workflow a later push cannot cancel, so no check is quietly optional"),
+    ("building and checking the site", "tools/test_ci_cache_deps.js", "checks the smoke test's declared cache dependencies cover every file it reaches, so a cached pass is never served after one of them changes"),
     ("building and checking the site", "tools/qr_check.py", "decodes qr.js’s own output with a real decoder — a wrong QR code draws perfectly and simply never scans"),
     ("building and checking the site", "tools/tutorial.html", "source of the learn/ lesson"),
     ("building and checking the site", "tools/difficulty_page.html", "the prose of the difficulty/ page; every number in it is filled in at build time"),
