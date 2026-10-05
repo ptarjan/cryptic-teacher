@@ -47,6 +47,27 @@ def valid_select(v):
     return v in SELECT_WORDS or (isinstance(v, int) and not isinstance(v, bool) and 2 <= v <= 20)
 
 
+def recount():
+    """Rewrite each family's `n` from the corpus: per annotated entry, one hit
+    for every family its types use (the share tools/smoke_test.js checks)."""
+    from puzzle_paths import puzzle_files
+    seen = {f["name"]: 0 for f in FAMILIES}
+    for path in puzzle_files():
+        for e in json.loads(path.read_text(encoding="utf-8")).get("entries") or ():
+            types = (e.get("annotation") or {}).get("type")
+            if isinstance(types, list):
+                for fam in {TYPES[t]["family"] for t in types if t in TYPES}:
+                    seen[fam] += 1
+    for f in DATA["families"]:
+        f["n"] = seen[f["name"]]
+    PATH.write_text(json.dumps(DATA, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(", ".join(f"{f['name']} {f['n']}" for f in DATA["families"]))
+
+
 if __name__ == "__main__":
-    for f in FAMILIES:
-        print(f"{f['label']}: {', '.join(t for t in NAMES if TYPES[t]['family'] == f['name'])}")
+    import sys
+    if sys.argv[1:] == ["--recount"]:
+        recount()
+    else:
+        for f in FAMILIES:
+            print(f"{f['label']}: {', '.join(t for t in NAMES if TYPES[t]['family'] == f['name'])}")
