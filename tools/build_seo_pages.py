@@ -263,6 +263,12 @@ def index_json():
     return json.loads((puzzle_paths.PUZZLE_DIR / "index.json").read_text(encoding="utf-8"))
 
 
+def row_date(puzzle):
+    """The date on an archive row, "Sat 3 Oct 2026": the app list's form, and the
+    only one a row is written in (series.ROW_DATE_FMT; "1995" for a book)."""
+    return datestr(puzzle, series_meta.ROW_DATE_FMT)
+
+
 def datestr(puzzle, fmt="%A %-d %B %Y"):
     # The weekday is in the DEFAULT because a Guardian week has a shape — Monday
     # gentle, Friday and the Saturday prize hard — so it is a difficulty cue, not
@@ -470,7 +476,7 @@ def clue_html(e, blog_note=True):
     # bare too.
     if ann.get("fromBlog") and ann.get("indicators"):
         bits.append('<p><em>Indicators:</em> '
-                    + ", ".join(f'<mark>{esc(i["text"])}</mark>' for i in ann["indicators"])
+                    + build_abbreviations.LIST_SEP.join(f'<mark>{esc(i["text"])}</mark>' for i in ann["indicators"])
                     + (' <span class="s-note">worked out from the letters</span>' if "indicators" in inferred else "")
                     + "</p>")
     if ann.get("fromBlog"):
@@ -653,7 +659,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
         masthead(crumbs),
         "<main class=\"static-main\">",
         f"<h1>{pk} Crossword" + (f", {dw}" if day else f" No {pretty}") + "</h1>",
-        f'<p class="s-facts">{" &middot; ".join(facts)}</p>',
+        f'<p class="s-facts">{build_abbreviations.LIST_SEP.join(facts)}</p>',
         f'<p class="s-cta"><a class="cta" href="{solve_url(puz["id"])}">Solve it yourself, '
         f'with hints one step at a time &rarr;</a></p>',
     ]
@@ -778,7 +784,7 @@ def hub_row(p, note=None):
     The row opens the puzzle in the app; an archive row adds a small link to
     its answer page, which is how a crawler reaches every one (homepage_nav)."""
     d = p.get("difficulty") or {}
-    when = datestr(p)
+    when = row_date(p)
     badge = diff_badge(d["band"]) if d.get("band") else ""
     # The app's hintsBadge() in the same words: ours, a blog's (the index's
     # `blog`, see has_blog_hints), or none.
@@ -989,7 +995,7 @@ def hub_link():
 def year_links(series, years):
     """A series' years as links, each with its puzzle count: the one way the
     hub and the series page list them."""
-    return " &middot; ".join(
+    return build_abbreviations.LIST_SEP.join(
         f'<a href="{site_url(listing_path(series, y))}">{esc(y)}</a> ({len(ps):,})'
         for y, ps in years.items())
 
@@ -1421,7 +1427,7 @@ def showcase_page(secs, meta):
             "<h1>Unusual puzzles</h1>",
             "<p>Most cryptic crosswords follow the same pattern. These break it, or set "
             "a record. Each one opens ready to solve, with hints one step at a time.</p>",
-            '<p class="s-years">' + " &middot; ".join(
+            '<p class="s-years">' + build_abbreviations.LIST_SEP.join(
                 f'<a href="#{slug}">{esc(heading)}</a>' for slug, heading, *_ in secs)
             + "</p>"]
     for slug, heading, blurb, cards, full in secs:
@@ -1683,7 +1689,7 @@ def learn_indicators(m):
     """A /learn/ marker, <!-- indicators: TYPE --> or <!-- indicators: table -->,
     as the most used indicators with how many clues used each."""
     def run(t, n):
-        return ", ".join(f'<em>{esc(indicator_label(k))}</em>{build_abbreviations.count_html(c)}'
+        return build_abbreviations.LIST_SEP.join(f'<em>{esc(indicator_label(k))}</em>{build_abbreviations.count_html(c)}'
                          for k, c in ranked_indicators(t)[:n])
     if m.group(1) != "table":
         return run(m.group(1), LEARN_INLINE)
@@ -1747,7 +1753,7 @@ def indicators_page(found):
         "word is how many clues used it that way. The same word can do more than one job: "
         "<em>about</em> is a container, but it can also mean an anagram. "
         f"{linked:,} of the words are links to a real clue that uses them.</p>",
-        "<p>Jump to: " + " &middot; ".join(
+        "<p>Jump to: " + build_abbreviations.LIST_SEP.join(
             f'<a href="#{t}">{clue_types.label(t)}</a>' for t in types) + "</p>",
     ]
     for t in types:
@@ -1756,10 +1762,10 @@ def indicators_page(found):
         body += [f'<h2 id="{t}">{clue_types.label(t).capitalize()} indicators</h2>',
                  f"<p>{INDICATOR_TYPES[t]}</p>",
                  "<p><strong>Most used:</strong> "
-                 + " &middot; ".join(item(t, k, n) for k, n in top) + "</p>"]
+                 + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in top) + "</p>"]
         if rest:
             body += [f"<details><summary>All {len(ranked):,} {clue_types.label(t)} indicators</summary>",
-                     "<p>" + " &middot; ".join(item(t, k, n) for k, n in rest) + "</p>",
+                     "<p>" + build_abbreviations.LIST_SEP.join(item(t, k, n) for k, n in rest) + "</p>",
                      "</details>"]
     body += [f'<p class="s-cta"><a class="cta" href="{BASE}/learn/">New to cryptics? '
              f'Learn how the clues work &rarr;</a></p>', "</main>"]

@@ -27,6 +27,9 @@ import json
 import re
 from pathlib import Path
 
+#: Between the items of every list the site prints: " · ". app.js LIST_SEP.
+LIST_SEP = " &middot; "
+
 ROOT = Path(__file__).resolve().parent.parent
 # Clue word -> {letters: clues}, off the solving blogs and our own annotations
 # (tools/letter_facts.py --lexicons). Read by usage(), for table() and the page.
@@ -215,7 +218,7 @@ def ranked(pairs):
 def common_html(senses, n=40):
     """The n readings the table holds that most clues use, each with its count."""
     top = ranked(sorted((w, k) for w, ks in senses.items() for k in ks))[:n]
-    return '<p class="glossary-common">' + ", ".join(
+    return '<p class="glossary-common">' + LIST_SEP.join(
         f'<a href="#{anchor(w)}">{w}</a> <strong>{k}</strong>{count_html(clues(w, k))}'
         for w, k in top) + "</p>"
 
@@ -226,7 +229,7 @@ def families_html():
     fams = sorted(((sum(clues(*m) for m in members), name, ranked(members))
                    for name, members in families()), key=lambda f: -f[0])
     return '<dl class="glossary-families">\n' + "\n".join(
-        f"<div><dt>{name}{count_html(total)}</dt><dd>" + " &middot; ".join(
+        f"<div><dt>{name}{count_html(total)}</dt><dd>" + LIST_SEP.join(
             f'<a href="#{anchor(w)}">{w}</a> <strong>{k}</strong>{count_html(clues(w, k))}'
             for w, k in members)
         + "</dd></div>" for total, name, members in fams) + "\n</dl>"
@@ -286,7 +289,7 @@ def table_html(senses, links=None):
         for w in words:
             letters = sorted(senses[w], key=lambda k: (-clues(w, k), k))
             word = f'<a href="{links[w]}">{w}</a>' if w in links else w
-            out.append(f'<div id="{anchor(w)}"><dt>{word}</dt><dd>' + " &middot; ".join(
+            out.append(f'<div id="{anchor(w)}"><dt>{word}</dt><dd>' + LIST_SEP.join(
                 k + count_html(clues(w, k)) for k in letters) + "</dd></div>")
         out.append("</dl>")
     return "\n".join(out)
