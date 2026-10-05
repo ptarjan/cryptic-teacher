@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Abandoned cargo found in the morning by planes",
     "enumeration": "6"
    },
-   "solution": "JETSAM"
+   "solution": "JETSAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JETSAM",
+    "definitions": [
+     {
+      "text": "Abandoned cargo",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "one thing set by another sits right beside it, so the two pieces join end to end"
+     }
+    ],
+    "linkWords": [
+     "found"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "planes",
+      "gives": "JETS",
+      "note": "jets are aircraft"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "ante meridiem, the usual abbreviation for morning hours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JETS",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Cargo dumped overboard at dawn, discovered beside aircraft.",
+     "walkthrough": "The clue reads 'in the morning by planes' backwards: the morning abbreviation comes after the aircraft.",
+     "definitionFit": "Jetsam is goods thrown overboard from a ship to lighten it, then washed ashore or left floating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "planes"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,40 @@
     "text": "Point at end of cone",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "Point",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Point at end of cone",
+      "note": "surface reading: the sharp tip of a cone"
+     },
+     {
+      "clueFragment": "end of cone",
+      "note": "setter's reading: the last letter of the word cone is the abbreviation for a compass point"
+     }
+    ],
+    "explanation": {
+     "surface": "The sharp tip found at the narrow end of a cone.",
+     "walkthrough": "The final letter of 'cone' is E, the standard abbreviation for this compass direction, so the point really is at the end of cone.",
+     "definitionFit": "It is one of the four cardinal compass points, the direction of sunrise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cone"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +147,40 @@
     "text": "Jensen, perhaps: a car for the fleet",
     "enumeration": "9"
    },
-   "solution": "SPEEDSTER"
+   "solution": "SPEEDSTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SPEEDSTER",
+    "definitions": [
+     {
+      "text": "Jensen, perhaps: a car for the fleet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a car for the fleet",
+      "note": "surface reading: a vehicle bought for a company's pool of cars"
+     },
+     {
+      "clueFragment": "fleet",
+      "note": "setter's reading: fleet as an adjective meaning swift, so a car for the swift"
+     }
+    ],
+    "explanation": {
+     "surface": "A Jensen saloon chosen as a company fleet car.",
+     "walkthrough": "Jensen was a British maker of fast sports cars. 'Fleet' looks like a company's vehicle pool, but it means quick.",
+     "definitionFit": "A speedster is a fast sporty car, or someone who drives at high speed, and the Jensen was one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fleet"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +194,67 @@
     "text": "Service! Butler's holding it up",
     "enumeration": "6"
    },
-   "solution": "MATINS"
+   "solution": "MATINS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MATINS",
+    "definitions": [
+     {
+      "text": "Service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means the word is read from bottom to top"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "the possessive word grips the other word inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Butler's",
+      "gives": "MANS",
+      "note": "a butler is a man, a manservant, so Butler's is man's"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "TI",
+      "note": "the word it, read upwards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "TI",
+      "NS"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation about a church service delayed because the butler is holding things up.",
+     "walkthrough": "'Holding it up' reads as delaying matters, but 'up' reverses 'it' and 'holding' places it inside MAN'S.",
+     "definitionFit": "Matins is the morning prayer service of the Anglican and Catholic churches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Butler's"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +268,56 @@
     "text": "Cider's masquerading as cocktails",
     "enumeration": "8"
    },
-   "solution": "SIDECARS"
+   "solution": "SIDECARS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIDECARS",
+    "definitions": [
+     {
+      "text": "cocktails",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "masquerading",
+      "for": "anagram",
+      "note": "something masquerading appears in disguise, so the letters take on a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cider's",
+      "gives": "CIDERS",
+      "note": "taken as written, the apostrophe ignored"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIDERSAS",
+       "gives": "SIDECARS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cider dressed up and passed off as cocktails.",
+     "walkthrough": "'as' looks like a link between cider and cocktails, but its letters are part of the mix.",
+     "definitionFit": "A sidecar is a classic mixed drink of brandy, orange liqueur and lemon juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "as"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +337,40 @@
      }
     ]
    },
-   "solution": "SUSPENSEACCOUNT"
+   "solution": "SUSPENSEACCOUNT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUSPENSE ACCOUNT",
+    "definitions": [
+     {
+      "text": "Where the money hangs in the balance?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hangs in the balance",
+      "note": "surface reading: money whose fate is uncertain"
+     },
+     {
+      "clueFragment": "balance",
+      "note": "setter's reading: the accountant's balance sheet, where a sum is parked until it can be assigned"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering where money sits while its fate remains undecided.",
+     "walkthrough": "The idiom for an undecided outcome doubles as bookkeeping language: a balance sheet with unallocated items held in waiting.",
+     "definitionFit": "In bookkeeping this is a temporary ledger where uncertain entries are held until they are properly classified."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hangs"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +384,57 @@
     "text": "Evangelist holding up half a bottle",
     "enumeration": "8"
    },
-   "solution": "DEMIJOHN"
+   "solution": "DEMIJOHN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEMIJOHN",
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding up",
+      "for": "charade",
+      "note": "in a down clue the thing doing the holding up sits underneath, supporting what comes first"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half",
+      "gives": "DEMI",
+      "note": "demi- is the prefix meaning half"
+     },
+     {
+      "clueFragment": "Evangelist",
+      "gives": "JOHN",
+      "note": "John is one of the four Gospel writers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMI",
+      "JOHN"
+     ]
+    },
+    "explanation": {
+     "surface": "A gospel writer propping up half a bottle of wine.",
+     "walkthrough": "'Half a bottle' reads as one phrase, but 'half' belongs to the wordplay and 'a' is only a link.",
+     "definitionFit": "A demijohn is a large glass or stone bottle with a narrow neck, often wicker-covered, used for wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +448,43 @@
     "text": "Problem E. Coli causes internally",
     "enumeration": "5"
    },
-   "solution": "COLIC"
+   "solution": "COLIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "COLIC",
+    "definitions": [
+     {
+      "text": "Problem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "internally",
+      "for": "hidden_word",
+      "note": "internally points to what lies inside the run of words, not the words themselves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E. Coli causes",
+      "gives": "COLIC",
+      "note": "the letters run across the words, ignoring spaces and punctuation"
+     }
+    ],
+    "explanation": {
+     "surface": "A bacterium making trouble inside the gut.",
+     "walkthrough": "'Causes internally' reads as the bacterium acting inside the body, but 'internally' marks the letters hidden within.",
+     "definitionFit": "Colic is severe abdominal pain, a medical complaint, so a fair if broad problem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "internally"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +498,75 @@
     "text": "Student in fancy dress, rude and out of control",
     "enumeration": "10"
    },
-   "solution": "RUDDERLESS"
+   "solution": "RUDDERLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RUDDERLESS",
+    "definitions": [
+     {
+      "text": "out of control",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy dress is a disguise, and fancy as an adjective signals an elaborate rearrangement"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits within its letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress",
+      "gives": "DRESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rude",
+      "gives": "RUDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L for learner, as on a learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUDDER",
+      "L",
+      "ESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRESSRUDE",
+       "gives": "RUDDERESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student at a costume party behaving rudely and getting out of hand.",
+     "walkthrough": "'Fancy dress' looks like a costume, but 'fancy' shuffles both dress and rude, with the learner inside.",
+     "definitionFit": "A ship without a rudder cannot be steered, so the word figuratively means aimless and lacking direction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +580,65 @@
     "text": "George, perhaps, in an appeal for fireproof material",
     "enumeration": "8"
    },
-   "solution": "ASBESTOS"
+   "solution": "ASBESTOS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ASBESTOS",
+    "definitions": [
+     {
+      "text": "fireproof material",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something put in another thing goes inside its letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "SOS",
+      "note": "the distress call, an urgent appeal for help"
+     },
+     {
+      "clueFragment": "George, perhaps",
+      "gives": "BEST",
+      "note": "George Best, the famous Northern Irish footballer of the 1960s and 70s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "BEST",
+      "OS"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called George making a plea for fire-resistant stuff.",
+     "walkthrough": "'George, perhaps' wants to be a saint or king, but it is the footballer George Best.",
+     "definitionFit": "Asbestos is a fibrous mineral formerly used widely for insulation because it does not burn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "George"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +652,58 @@
     "text": "Young man in the grip of old maid's illness",
     "enumeration": "6"
    },
-   "solution": "MALADY"
+   "solution": "MALADY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MALADY",
+    "definitions": [
+     {
+      "text": "illness",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the grip of",
+      "for": "container",
+      "note": "something held in a grip is enclosed by whatever grips it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old maid",
+      "gives": "MAY",
+      "note": "may is an archaic poetic word for a maiden"
+     },
+     {
+      "clueFragment": "Young man",
+      "gives": "LAD",
+      "note": "a lad is a boy or youth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "LAD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A spinster's ailment caused by a youth she clings to.",
+     "walkthrough": "'Old maid' looks like a spinster, but it is the archaic word may, a maiden.",
+     "definitionFit": "A malady is a disease or ailment, a slightly formal synonym for sickness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +723,40 @@
      }
     ]
    },
-   "solution": "DINNERJACKET"
+   "solution": "DINNERJACKET",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DINNER JACKET",
+    "definitions": [
+     {
+      "text": "DJ",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "DJ coming out of the closet!",
+      "note": "surface reading: a disc jockey publicly revealing he is gay"
+     },
+     {
+      "clueFragment": "closet",
+      "note": "setter's reading: the wardrobe from which a formal garment is taken to be worn"
+     }
+    ],
+    "explanation": {
+     "surface": "A club disc jockey announcing his sexuality.",
+     "walkthrough": "DJ is also the standard British abbreviation for the formal evening jacket, which is literally taken out of the wardrobe.",
+     "definitionFit": "The abbreviation DJ is common British shorthand for a tuxedo, worn with a black bow tie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "closet"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +770,66 @@
     "text": "Colourful man detaining boy in penthouse",
     "enumeration": "10"
    },
-   "solution": "FLAMBOYANT"
+   "solution": "FLAMBOYANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLAMBOYANT",
+    "definitions": [
+     {
+      "text": "Colourful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detaining",
+      "for": "container",
+      "note": "to detain someone is to hold him, so the first word keeps the other inside"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the whole group goes inside the home named next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "penthouse",
+      "gives": "FLAT",
+      "note": "a penthouse is a top-floor flat"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "MAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "BOY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLA",
+      "M",
+      "BOY",
+      "AN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A flamboyant man keeping a boy in his penthouse.",
+     "definitionFit": "Flamboyant means showy and vivid, strikingly bold in style or colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "penthouse"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +843,40 @@
     "text": "Home for the plain-dweller?",
     "enumeration": "4"
    },
-   "solution": "FLAT"
+   "solution": "FLAT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FLAT",
+    "definitions": [
+     {
+      "text": "Home for the plain-dweller?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plain-dweller",
+      "note": "surface reading: someone who lives on open level country"
+     },
+     {
+      "clueFragment": "Home",
+      "note": "setter's reading: a dwelling, and the word for level ground is also an apartment"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking what kind of house suits a person living on the prairie.",
+     "walkthrough": "The answer means both level, like a plain, and a set of rooms to live in.",
+     "definitionFit": "A flat is a British apartment, and flat also means level, so it suits someone from plains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plain-dweller"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +890,58 @@
     "text": "He'd clues arranged in a list",
     "enumeration": "8"
    },
-   "solution": "SCHEDULE"
+   "solution": "SCHEDULE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCHEDULE",
+    "definitions": [
+     {
+      "text": "a list",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means set out in a new order, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He'd",
+      "gives": "HED",
+      "note": "taken as written, the apostrophe ignored"
+     },
+     {
+      "clueFragment": "clues",
+      "gives": "CLUES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEDCLUES",
+       "gives": "SCHEDULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter who had laid out his crossword clues in an orderly list.",
+     "definitionFit": "A schedule is a written table or plan of items, times or events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clues"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +961,59 @@
      }
     ]
    },
-   "solution": "DEMIMONDE"
+   "solution": "DEMIMONDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEMI-MONDE",
+    "definitions": [
+     {
+      "text": "shady section",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switch",
+      "for": "anagram",
+      "note": "to switch things is to swap their places, so the letters change positions"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dimmed",
+      "gives": "DIMMED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONEDIMMED",
+       "gives": "DEMIMONDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dimmer switch used to throw part of a room into shade.",
+     "walkthrough": "'Switch' sits beside 'dimmed' as a light switch, but it is the shuffle signal.",
+     "definitionFit": "The demi-monde is a group on the fringes of respectable society, especially kept women or people of dubious reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "switch"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1027,56 @@
     "text": "Liquid hydrogen delayed explosion",
     "enumeration": "8"
    },
-   "solution": "ALDEHYDE"
+   "solution": "ALDEHYDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALDEHYDE",
+    "definitions": [
+     {
+      "text": "Liquid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "explosion",
+      "for": "anagram",
+      "note": "an explosion blows things apart, scattering the letters into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hydrogen",
+      "gives": "H",
+      "note": "H is the chemical symbol for hydrogen"
+     },
+     {
+      "clueFragment": "delayed",
+      "gives": "DELAYED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HDELAYED",
+       "gives": "ALDEHYDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Liquid hydrogen fuel causing a late blast, as in a rocket test.",
+     "walkthrough": "'Liquid hydrogen' reads as a single fuel, but 'Liquid' is the definition and only hydrogen goes in the mix.",
+     "definitionFit": "Aldehyde, or acetaldehyde, is a volatile colourless organic liquid, so a liquid is a fair example-style definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Liquid"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1090,39 @@
     "text": "It's fine when it's rolled",
     "enumeration": "8"
    },
-   "solution": "UMBRELLA"
+   "solution": "UMBRELLA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UMBRELLA",
+    "definitions": [
+     {
+      "text": "It's fine when it's rolled",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's fine when it's rolled",
+      "note": "surface reading: something that is acceptable once rolled up, like a cigarette or lawn"
+     },
+     {
+      "clueFragment": "fine",
+      "note": "setter's reading: fine weather, the dry days when this rain-shielding object stays furled"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Fine' looks like 'all right', but it means dry weather: on a sunny day the rain shield stays rolled up.",
+     "definitionFit": "An umbrella is kept tightly furled in good weather and only opened when rain falls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1136,41 @@
     "text": "Do without a form of address",
     "enumeration": "4"
    },
-   "solution": "MISS"
+   "solution": "MISS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MISS",
+    "definitions": [
+     {
+      "text": "Do without",
+      "at": 0
+     },
+     {
+      "text": "a form of address",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do without",
+      "note": "first meaning: to manage without something, or feel its absence"
+     },
+     {
+      "clueFragment": "a form of address",
+      "note": "second meaning: the title used for an unmarried woman"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two parts are separate meanings with no link word between them.",
+     "definitionFit": "The verb means to lack or forgo something, and the noun is the courtesy title for an unmarried woman or girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1184,54 @@
     "text": "Article spoiled by troubled waters?",
     "enumeration": "6"
    },
-   "solution": "WASTER"
+   "solution": "WASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WASTER",
+    "definitions": [
+     {
+      "text": "Article spoiled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "troubled water is churned up, so the letters are stirred into another order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "waters",
+      "gives": "WATERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WATERS",
+       "gives": "WASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something ruined by being dropped into rough seas.",
+     "walkthrough": "In manufacturing a waster is a faulty item, such as a pot cracked in firing, that must be thrown away.",
+     "definitionFit": "A waster is a defective product rejected during manufacture, a spoiled piece of work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1251,47 @@
      }
     ]
    },
-   "solution": "COUNTERCLAIM"
+   "solution": "COUNTERCLAIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COUNTER-CLAIM",
+    "definitions": [
+     {
+      "text": "demanding response",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bar",
+      "gives": "COUNTER",
+      "note": "the counter is the bar in a shop or pub"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "CLAIM",
+      "note": "to call for something is to claim it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COUNTER",
+      "CLAIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A shout across the pub bar insisting on an answer.",
+     "walkthrough": "'Bar call' sounds like last orders in a pub, but the two words build the answer separately.",
+     "definitionFit": "A counterclaim is a claim made in reply to another, typically by a defendant in a lawsuit, so it both demands and responds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1305,46 @@
     "text": "Rings of light in gathering clouds",
     "enumeration": "5"
    },
-   "solution": "NIMBI"
+   "solution": "NIMBI",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIMBI",
+    "definitions": [
+     {
+      "text": "Rings of light",
+      "at": 0
+     },
+     {
+      "text": "gathering clouds",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rings of light",
+      "note": "first meaning: haloes, as round the heads of saints"
+     },
+     {
+      "clueFragment": "gathering clouds",
+      "note": "second meaning: grey rain-bearing clouds as they build up"
+     }
+    ],
+    "explanation": {
+     "surface": "Haloes of light glowing amid storm clouds massing overhead.",
+     "walkthrough": "The plural of nimbus covers both senses; 'in' only links them.",
+     "definitionFit": "A nimbus is both a halo around a holy figure and a dark rain cloud, and this is its Latin plural."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1358,46 @@
     "text": "Escaped, they say, by using passage",
     "enumeration": "4"
    },
-   "solution": "FLUE"
+   "solution": "FLUE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLUE",
+    "definitions": [
+     {
+      "text": "passage",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "what people say is heard rather than read, so the sound matters, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "by using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Escaped",
+      "gives": "FLUE",
+      "soundsLike": "FLEW",
+      "note": "to flee is to escape, past tense flew, sounding the same as the chimney duct"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone who got away by slipping through a secret corridor.",
+     "definitionFit": "A flue is a duct or pipe for smoke and hot air, a narrow channel through a chimney."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1411,56 @@
     "text": "Call my order quietly",
     "enumeration": "6"
    },
-   "solution": "CALMLY"
+   "solution": "CALMLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CALMLY",
+    "definitions": [
+     {
+      "text": "quietly",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "order",
+      "for": "anagram",
+      "note": "to order things is to put them into a sequence, here a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Call",
+      "gives": "CALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CALLMY",
+       "gives": "CALMLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner asking for their order to be called out softly.",
+     "walkthrough": "'Order' looks like a meal order, but it tells you to rearrange the two words before it.",
+     "definitionFit": "Calmly means in a composed, untroubled manner, close to doing something in a hushed way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1474,40 @@
     "text": "Clear away the seaweed?",
     "enumeration": "8"
    },
-   "solution": "UNTANGLE"
+   "solution": "UNTANGLE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "UNTANGLE",
+    "definitions": [
+     {
+      "text": "Clear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear away the seaweed?",
+      "note": "surface reading: removing weed from a beach or boat"
+     },
+     {
+      "clueFragment": "the seaweed",
+      "note": "setter's reading: tangle is a kind of large kelp, and undoing it means removing it"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tidying a beach strewn with kelp.",
+     "walkthrough": "Tangle is a name for large brown seaweed, so the prefix un- on that weed's name reads as removing it.",
+     "definitionFit": "To untangle something is to free it from knots, clearing a mess into order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seaweed"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1521,50 @@
     "text": "Grating sulphur with a large fork",
     "enumeration": "8"
    },
-   "solution": "STRIDENT"
+   "solution": "STRIDENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIDENT",
+    "definitions": [
+     {
+      "text": "Grating",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is the chemical symbol for sulphur"
+     },
+     {
+      "clueFragment": "a large fork",
+      "gives": "TRIDENT",
+      "note": "a trident is a three-pronged spear, like a big fork"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An iron grating with a sulphur smell and a pitchfork, like a devil's gate.",
+     "walkthrough": "'Grating' looks like a noun for a grille, but it is an adjective meaning harsh.",
+     "definitionFit": "A strident sound is loud and harsh, unpleasantly rasping on the ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grating"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1578,39 @@
     "text": "Smoking jacket?",
     "enumeration": "6"
    },
-   "solution": "REEFER"
+   "solution": "REEFER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REEFER",
+    "definitions": [
+     {
+      "text": "Smoking jacket?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smoking jacket?",
+      "note": "surface reading: the velvet coat a gentleman wears to smoke after dinner"
+     },
+     {
+      "clueFragment": "Smoking",
+      "note": "setter's reading: the answer is both a cannabis cigarette and a short double-breasted coat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One word covers both halves: a sailor's thick double-breasted jacket and slang for a joint of cannabis.",
+     "definitionFit": "A reefer is a heavy close-fitting naval jacket and also slang for a marijuana cigarette that people smoke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Smoking"
+    }
+   }
   }
  ]
 }
