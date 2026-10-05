@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,77 @@
     "text": "Animal has good fair treatment and fine housing",
     "enumeration": "7"
    },
-   "solution": "GIRAFFE"
+   "solution": "GIRAFFE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GIRAFFE",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treatment",
+      "for": "anagram",
+      "note": "giving something a treatment works it over and changes its form, so the word before it gets rearranged"
+     },
+     {
+      "text": "housing",
+      "for": "letter_selection",
+      "note": "a housing is the outer casing of a thing, so only the outside letters of the word before it are kept"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the usual abbreviation for good"
+     },
+     {
+      "clueFragment": "fair",
+      "gives": "FAIR",
+      "note": "the four letters to be rearranged"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "FE",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "IRAF",
+      "FE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FAIR",
+       "gives": "IRAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A zoo animal is being looked after well and kept in a decent enclosure.",
+     "walkthrough": "'and' is padding that joins the pieces; 'fine housing' is the shell of the word fine, not a nice enclosure.",
+     "definitionFit": "The giraffe is a tall long-necked African mammal, a specific example of a creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +120,60 @@
     "text": "Looked happy going round new church",
     "enumeration": "7"
    },
-   "solution": "GLANCED"
+   "solution": "GLANCED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLANCED",
+    "definitions": [
+     {
+      "text": "Looked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round means surrounding, so the word for happy encloses the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy",
+      "gives": "GLAD",
+      "note": "glad means happy"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLA",
+      "N",
+      "CE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looked pleased as they walked around a newly built church.",
+     "definitionFit": "To glance is to take a brief look, so glanced matches looked as a past tense verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +187,67 @@
     "text": "Charged agent with obstruction and evasion, initially",
     "enumeration": "7"
    },
-   "solution": "REPLETE"
+   "solution": "REPLETE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "REPLETE",
+    "definitions": [
+     {
+      "text": "Charged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start, so only the opening letter of the word before is taken"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep is a sales representative or agent"
+     },
+     {
+      "clueFragment": "obstruction",
+      "gives": "LET",
+      "note": "let is an old word for hindrance, as in without let or hindrance"
+     },
+     {
+      "clueFragment": "evasion",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of evasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "LET",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A police report: an agent has been charged with obstructing justice and evading arrest.",
+     "walkthrough": "'Charged' looks like an arrest but means filled up, as a glass is charged.",
+     "definitionFit": "Charged can mean loaded or filled to capacity, and replete means full or well supplied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Charged"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +261,50 @@
     "text": "Cast for fine fish",
     "enumeration": "5"
    },
-   "solution": "FLING"
+   "solution": "FLING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLING",
+    "definitions": [
+     {
+      "text": "Cast",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "LING",
+      "note": "the ling is a long sea fish of the cod family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler casts a line hoping for a good fish.",
+     "walkthrough": "'Cast' sounds like fishing, which fits the surface, but it is a plain verb for throw.",
+     "definitionFit": "To fling is to throw something with force, the same act as to cast or hurl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +318,55 @@
     "text": "Guessed date and times are wrong",
     "enumeration": "9"
    },
-   "solution": "ESTIMATED"
+   "solution": "ESTIMATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTIMATED",
+    "definitions": [
+     {
+      "text": "Guessed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "are wrong",
+      "for": "anagram",
+      "note": "if the letters are wrong they need putting right in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "TIMES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DATETIMES",
+       "gives": "ESTIMATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone guessed at the date and the hours and got them wrong.",
+     "definitionFit": "To estimate is to make a rough calculation or judgement, so estimated is a synonym for guessed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "times"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +380,72 @@
     "text": "Wife's rented ragtop punctured and spun noisily",
     "enumeration": "7"
    },
-   "solution": "WHIRRED"
+   "solution": "WHIRRED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "WHIRRED",
+    "definitions": [
+     {
+      "text": "spun noisily",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word is its opening letter, so only the start of rag is kept"
+     },
+     {
+      "text": "punctured",
+      "for": "container",
+      "note": "something punctured has a thing pushed into it, so one piece goes inside another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife's",
+      "gives": "W",
+      "note": "W is the abbreviation for wife; the 's stands for has"
+     },
+     {
+      "clueFragment": "rented",
+      "gives": "HIRED",
+      "note": "rented and hired are synonyms"
+     },
+     {
+      "clueFragment": "ragtop",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of rag, the front part of this compound word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HI",
+      "R",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife's hired soft-top car gets a puncture and goes spinning off the road with a din.",
+     "walkthrough": "'ragtop' looks like one word for a convertible but splits into rag plus top. The R goes inside HIRED, after the W.",
+     "definitionFit": "To whirr is to rotate rapidly with a buzzing or humming sound, so the past tense means spun with noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ragtop"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +459,65 @@
     "text": "About half the population has cut back on space",
     "enumeration": "5"
    },
-   "solution": "WOMEN"
+   "solution": "WOMEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WOMEN",
+    "definitions": [
+     {
+      "text": "About half the population",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going in the opposite direction, so the word for cut is read from the end"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut",
+      "gives": "MOW",
+      "note": "to mow is to cut grass"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's unit of space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOM",
+      "EN"
+     ],
+     "reversals": [
+      {
+       "from": "MOW",
+       "to": "WOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Roughly half of the people have had to cut down on room.",
+     "walkthrough": "MOW reversed gives WOM; EN is a printing measure of space, half an em.",
+     "definitionFit": "Females make up roughly fifty per cent of humanity, a witty description rather than a dictionary synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +531,83 @@
     "text": "Found popular leader of this South American country's revolution to be losing heart",
     "enumeration": "9"
    },
-   "solution": "INTRODUCE"
+   "solution": "INTRODUCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "INTRODUCE",
+    "definitions": [
+     {
+      "text": "Found",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is the one at its front, so only its opening letter is kept"
+     },
+     {
+      "text": "revolution",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the country is written backwards"
+     },
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "losing its heart means its centre letter drops out"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of this"
+     },
+     {
+      "clueFragment": "South American country's",
+      "gives": "ECUADOR",
+      "note": "Ecuador is a country in South America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "RODUCE"
+     ],
+     "reversals": [
+      {
+       "from": "ECUADOR",
+       "to": "RODAUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A popular revolutionary leader in a South American country loses his nerve.",
+     "walkthrough": "ECUADOR reversed is RODAUCE; dropping its middle letter A leaves RODUCE.",
+     "definitionFit": "To found a custom or institution is to start or bring it in, which is to introduce it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +621,69 @@
     "text": "A semi-virgin oil ruined Italian dish",
     "enumeration": "7"
    },
-   "solution": "RAVIOLI"
+   "solution": "RAVIOLI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RAVIOLI",
+    "definitions": [
+     {
+      "text": "Italian dish",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "semi-",
+      "for": "letter_selection",
+      "note": "semi means half, so only the first half of the following word is kept"
+     },
+     {
+      "text": "ruined",
+      "for": "anagram",
+      "note": "something ruined is wrecked out of its proper shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "virgin",
+      "gives": "VIR",
+      "select": "first",
+      "note": "the first three of its six letters"
+     },
+     {
+      "clueFragment": "oil",
+      "gives": "OIL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AVIROIL",
+       "gives": "RAVIOLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Using second-rate olive oil spoiled the pasta.",
+     "walkthrough": "'semi-virgin' parodies extra virgin olive oil, but it means half of virgin.",
+     "definitionFit": "Ravioli are small square pasta parcels with a filling, a classic dish of Italy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "semi-virgin"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +697,71 @@
     "text": "Be entitled to leave — time to go's half five",
     "enumeration": "7"
    },
-   "solution": "DESERVE"
+   "solution": "DESERVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DESERVE",
+    "definitions": [
+     {
+      "text": "Be entitled to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go",
+      "for": "deletion",
+      "note": "something told to go must leave, so the time abbreviation is dropped from the word"
+     },
+     {
+      "text": "half",
+      "for": "letter_selection",
+      "note": "half keeps only two of the four letters of the number word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leave",
+      "gives": "DESERT",
+      "note": "to desert is to leave or abandon"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "five",
+      "gives": "VE",
+      "select": "last",
+      "note": "the second half of the number word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DESER",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker's claim to leave work at half past five because it is time to go.",
+     "walkthrough": "'half five' is British for half past five, but here it is half the word five. DESERT loses T.",
+     "definitionFit": "To deserve something is to merit it, to have earned the right or claim to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +775,52 @@
     "text": "Choose a parking place",
     "enumeration": "7"
    },
-   "solution": "APPOINT"
+   "solution": "APPOINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APPOINT",
+    "definitions": [
+     {
+      "text": "Choose",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "POINT",
+      "note": "a point is a particular place or spot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "POINT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to pick somewhere to leave the car.",
+     "definitionFit": "To appoint someone is to select or name them for a post, a synonym for choose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parking"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +834,60 @@
     "text": "Reasons for acting in some ITV play",
     "enumeration": "7"
    },
-   "solution": "MOTIVES"
+   "solution": "MOTIVES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MOTIVES",
+    "definitions": [
+     {
+      "text": "Reasons for acting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "play",
+      "for": "anagram",
+      "note": "play suggests loose movement, so the letters of the words before it are allowed to move around"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "SOME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ITV",
+      "gives": "ITV",
+      "note": "taken as written; ITV is a British television channel"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMEITV",
+       "gives": "MOTIVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor wonders about a character's motivation in a television drama on ITV, a British commercial channel.",
+     "walkthrough": "'acting' and 'play' together suggest the theatre, but play is the signal to shuffle the seven letters.",
+     "definitionFit": "Motives are what drive a person to do something, the grounds behind their behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +901,65 @@
     "text": "Priest's to run physical training in unpolluted setting",
     "enumeration": "9"
    },
-   "solution": "CLERGYMAN"
+   "solution": "CLERGYMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CLERGYMAN",
+    "definitions": [
+     {
+      "text": "Priest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in unpolluted setting",
+      "for": "container",
+      "note": "a setting surrounds what sits in it, so the earlier pieces are placed inside the word for unpolluted"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unpolluted",
+      "gives": "CLEAN",
+      "note": "unpolluted means clean; this is the outer word"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for a run"
+     },
+     {
+      "clueFragment": "physical training",
+      "gives": "GYM",
+      "note": "gym is short for gymnastics, school physical exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLE",
+      "R",
+      "GYM",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest plans to lead an exercise class somewhere with fresh clean air.",
+     "walkthrough": "The 's is short for is, and 'to' is padding. 'run' as R comes from cricket scoring.",
+     "definitionFit": "A clergyman is a male member of the clergy, and a priest is one such ordained minister."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setting"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +973,69 @@
     "text": "Love party game's retro whiff",
     "enumeration": "5"
    },
-   "solution": "ODOUR"
+   "solution": "ODOUR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ODOUR",
+    "definitions": [
+     {
+      "text": "whiff",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retro",
+      "for": "reversal",
+      "note": "retro means looking backwards, so the letters for game are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is an informal word for a party"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is short for rugby union"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "DO",
+      "UR"
+     ],
+     "reversals": [
+      {
+       "from": "RU",
+       "to": "UR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a party catches the smell of an old-fashioned game.",
+     "definitionFit": "A whiff is a faint smell, and an odour is any smell, so the two are near synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +1049,59 @@
     "text": "Could be a nightmare, when tot swallows drug",
     "enumeration": "5"
    },
-   "solution": "DREAM"
+   "solution": "DREAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAM",
+    "definitions": [
+     {
+      "text": "Could be a nightmare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "what is swallowed ends up inside the swallower, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tot",
+      "gives": "DRAM",
+      "note": "a tot is a small measure of spirits, as is a dram"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "E",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A nightmare scenario: a small child gets hold of drugs and swallows them.",
+     "walkthrough": "'tot' looks like a toddler but is a measure of whisky; E goes inside DRAM.",
+     "definitionFit": "A nightmare is one kind of vision during sleep, so the general term is defined by an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tot"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1115,73 @@
     "text": "Preserve condition restricting weapon a boy's after",
     "enumeration": "9"
    },
-   "solution": "MARMALADE"
+   "solution": "MARMALADE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MARMALADE",
+    "definitions": [
+     {
+      "text": "Preserve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting means hemming in, so the condition goes round the following pieces"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the second piece behind the first in the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "condition",
+      "gives": "ME",
+      "note": "ME is myalgic encephalomyelitis, chronic fatigue syndrome"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "ARM",
+      "note": "an arm is a weapon, as in firearm"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boy's",
+      "gives": "LAD",
+      "note": "a lad is a boy; the 's stands for is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARM",
+      "A",
+      "LAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy is after a jar of jam kept out of reach.",
+     "walkthrough": "'condition' is not a state of repair but the illness chronic fatigue syndrome, abbreviated to its two initials.",
+     "definitionFit": "Marmalade is a citrus jam, and a preserve is any fruit cooked with sugar to keep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "condition"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1195,58 @@
     "text": "Quite sour cocktail is a shade of blue",
     "enumeration": "9"
    },
-   "solution": "TURQUOISE"
+   "solution": "TURQUOISE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TURQUOISE",
+    "definitions": [
+     {
+      "text": "a shade of blue",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cocktail",
+      "for": "anagram",
+      "note": "a cocktail is a mixture, so the letters of the words before it are mixed up"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quite",
+      "gives": "QUITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sour",
+      "gives": "SOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "QUITESOUR",
+       "gives": "TURQUOISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tart mixed drink turns out to be bright blue, like a blue curacao.",
+     "definitionFit": "Turquoise is a greenish-blue colour named after the gemstone, so it is one tint within the blue range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cocktail"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1270,73 @@
      }
     ]
    },
-   "solution": "RUETHEDAY"
+   "solution": "RUETHEDAY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RUE THE DAY",
+    "definitions": [
+     {
+      "text": "Regret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking sits in the way, inside the passage, so the letter goes within the word for routine"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue under means placed lower, so these pieces follow the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routine",
+      "gives": "RUT",
+      "note": "a rut is a dull fixed routine"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "man's",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     },
+     {
+      "clueFragment": "24 hours",
+      "gives": "DAY",
+      "note": "a day lasts twenty-four hours"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "E",
+      "T",
+      "HE",
+      "DAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A man regrets spending his whole day stuck in a draining routine.",
+     "walkthrough": "In a down clue 'under' means the later pieces come below, that is after, the routine with its energy inside.",
+     "definitionFit": "To rue the day is an idiom meaning to bitterly wish something had never happened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy-blocking"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1350,42 @@
     "text": "Kind of paper case",
     "enumeration": "9"
    },
-   "solution": "CARTRIDGE"
+   "solution": "CARTRIDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARTRIDGE",
+    "definitions": [
+     {
+      "text": "Kind of paper",
+      "at": 0
+     },
+     {
+      "text": "case",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of paper",
+      "note": "first meaning: a thick rough drawing paper"
+     },
+     {
+      "clueFragment": "case",
+      "note": "second meaning: a casing holding a bullet and its charge, or ink for a printer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like one description of stationery; the two halves are separate meanings.",
+     "definitionFit": "Cartridge paper is heavy drawing stock, and a cartridge is also a container for ammunition or ink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1399,45 @@
     "text": "Report of rogue animal",
     "enumeration": "7"
    },
-   "solution": "CHEETAH"
+   "solution": "CHEETAH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHEETAH",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Report of",
+      "for": "homophone",
+      "note": "a report is something heard spoken, so the word is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rogue",
+      "gives": "CHEETAH",
+      "soundsLike": "CHEATER",
+      "note": "a rogue is a swindler or cheater, said without sounding the final r"
+     }
+    ],
+    "explanation": {
+     "surface": "News reaches us of a rogue animal on the loose.",
+     "walkthrough": "In a non-rhotic British accent cheater and the big cat sound the same.",
+     "definitionFit": "The cheetah is a spotted big cat of Africa, the fastest land mammal, so it is a specific creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rogue"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1457,39 @@
      }
     ]
    },
-   "solution": "RATRUNS"
+   "solution": "RATRUNS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RAT RUNS",
+    "definitions": [
+     {
+      "text": "Short cuts",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short cuts",
+      "note": "surface reading: quicker routes, side streets drivers use to avoid traffic"
+     },
+     {
+      "clueFragment": "for escaping spies?",
+      "note": "setter's reading: a turncoat or informer is a rat, and to run is to escape"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful second reading: traitors fleeing take these routes.",
+     "definitionFit": "In Britain this term means minor residential streets motorists use to bypass congestion, a kind of shortcut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spies"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1503,62 @@
     "text": "Discharge of English judge by European court",
     "enumeration": "5"
    },
-   "solution": "EJECT"
+   "solution": "EJECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EJECT",
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "J",
+      "E",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A European court dismisses an English judge from office.",
+     "definitionFit": "To eject is to throw out or emit forcibly, a synonym for discharge as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Discharge"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1578,42 @@
      }
     ]
    },
-   "solution": "EATINTO"
+   "solution": "EATINTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EAT INTO",
+    "definitions": [
+     {
+      "text": "Nibble at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a portion of, so the letters are a run lifted from the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat in tortilla",
+      "gives": "EATINTO",
+      "note": "the run of letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone nibbles the filling in a wrap.",
+     "definitionFit": "To eat into something is to gradually wear it away, much as nibbling slowly erodes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1627,47 @@
     "text": "Drives in and out of American streets",
     "enumeration": "7"
    },
-   "solution": "THRUSTS"
+   "solution": "THRUSTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THRUSTS",
+    "definitions": [
+     {
+      "text": "Drives",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in and out of American",
+      "gives": "THRU",
+      "note": "thru is the US spelling of through, which means in one side and out the other"
+     },
+     {
+      "clueFragment": "streets",
+      "gives": "STS",
+      "note": "St is the abbreviation for street, plural STS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THRU",
+      "STS"
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist drives around the streets of an American city.",
+     "walkthrough": "'Drives in and out' looks like the definition, but only Drives is; the rest is through in American spelling.",
+     "definitionFit": "A thrust is a forceful push, and drives here is the plural noun for powerful forward movements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drives"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1681,67 @@
     "text": "Special rate covers 10+",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "+",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Special",
+      "for": "anagram",
+      "note": "a special version is a modified one, so the word after it is altered in order"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "a cover goes round what it protects, so the shuffled word goes around the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rate",
+      "gives": "RATE",
+      "note": "the four letters to be rearranged"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "X",
+      "note": "X is the Roman numeral for ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "TRA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATE",
+       "gives": "ETRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A special price applies to groups of more than ten people.",
+     "walkthrough": "The plus sign is the definition, read as a word; ETRA goes round X.",
+     "definitionFit": "A plus is an addition on top of something, and an extra is an additional item or charge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Special"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1755,63 @@
     "text": "Cushion chair to raise height of Queen behind composer",
     "enumeration": "9"
    },
-   "solution": "UPHOLSTER"
+   "solution": "UPHOLSTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPHOLSTER",
+    "definitions": [
+     {
+      "text": "Cushion chair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so the royal abbreviation is placed later in the word than the composer"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raise height of",
+      "gives": "UP",
+      "note": "to up something is to raise it"
+     },
+     {
+      "clueFragment": "composer",
+      "gives": "HOLST",
+      "note": "Gustav Holst, English composer of The Planets"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "HOLST",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Raising a seat with a cushion so that the Queen sits higher than the composer behind her.",
+     "walkthrough": "'Cushion' looks like a noun, but with chair it is the verb phrase to pad a seat. Holst wrote The Planets.",
+     "definitionFit": "To upholster furniture is to fit it with padding, springs and a fabric covering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cushion"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1825,61 @@
     "text": "Join organisation providing end to poverty",
     "enumeration": "5"
    },
-   "solution": "UNIFY"
+   "solution": "UNIFY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UNIFY",
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end to",
+      "for": "letter_selection",
+      "note": "an end to a word is its final letter, so only that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "organisation",
+      "gives": "UN",
+      "note": "UN is the United Nations"
+     },
+     {
+      "clueFragment": "providing",
+      "gives": "IF",
+      "note": "providing means on condition that, as if does"
+     },
+     {
+      "clueFragment": "poverty",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing letter of poverty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "IF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An appeal to sign up to a charity that will end poverty.",
+     "definitionFit": "To unify is to bring things together into one, which is to join or combine them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "providing"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1893,65 @@
     "text": "Left Lincoln with second-class ticket",
     "enumeration": "5"
    },
-   "solution": "LABEL"
+   "solution": "LABEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LABEL",
+    "definitions": [
+     {
+      "text": "ticket",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second picks out the letter in position two of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Lincoln",
+      "gives": "ABE",
+      "note": "Abraham Lincoln was known as Abe"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "L",
+      "select": 2,
+      "note": "the letter in position two of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ABE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone left the city of Lincoln on a second-class train ticket.",
+     "walkthrough": "'second-class' looks like a ticket grade, but it means the second letter of class.",
+     "definitionFit": "A ticket is a tag attached to goods showing a price or details, the same as a label."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second-class"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1965,54 @@
     "text": "I am nuts swimming in a dangerous wave",
     "enumeration": "7"
    },
-   "solution": "TSUNAMI"
+   "solution": "TSUNAMI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TSUNAMI",
+    "definitions": [
+     {
+      "text": "dangerous wave",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "things swimming drift about freely, so the letters are moved into new places"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I am nuts",
+      "gives": "IAMNUTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IAMNUTS",
+       "gives": "TSUNAMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer admits to madness for being out in a huge perilous wave.",
+     "definitionFit": "A tsunami is a huge sea wave caused by an earthquake, deadly when it reaches the shore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +2026,81 @@
     "text": "Daughter's note taking back insult about king proves false",
     "enumeration": "7"
    },
-   "solution": "DEBUNKS"
+   "solution": "DEBUNKS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "DEBUNKS",
+    "definitions": [
+     {
+      "text": "proves false",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking back",
+      "for": "reversal",
+      "note": "taking something back returns it the way it came, so the word for insult runs the other way"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the turned word goes around the abbreviation for king"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a note of the musical scale"
+     },
+     {
+      "clueFragment": "insult",
+      "gives": "SNUB",
+      "note": "a snub is a slight or insult"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "BUNKS"
+     ],
+     "reversals": [
+      {
+       "from": "SNUB",
+       "to": "BUNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter's letter withdrawing an insult about a king shows a claim was untrue.",
+     "walkthrough": "SNUB reversed is BUNS, and K goes inside it.",
+     "definitionFit": "To debunk an idea is to expose it as a sham, showing it to be untrue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 27,
@@ -475,7 +2114,78 @@
     "text": "Chap's coming round, so I straightened line in stockings",
     "enumeration": "7"
    },
-   "solution": "HOSIERY"
+   "solution": "HOSIERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "HOSIERY",
+    "definitions": [
+     {
+      "text": "stockings",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "straightened",
+      "for": "anagram",
+      "note": "straightening something rearranges it into proper order, so these letters are reordered"
+     },
+     {
+      "text": "coming round",
+      "for": "container",
+      "note": "coming round means encircling, so the word for chap wraps around the shuffled letters"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     },
+     {
+      "clueFragment": "so I",
+      "gives": "SOI",
+      "note": "the three letters to be rearranged"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OSI",
+      "E",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOI",
+       "gives": "OSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man comes round, and someone straightens the seam on her stockings.",
+     "walkthrough": "The 's is short for is; 'line' as railway is a common crossword abbreviation.",
+     "definitionFit": "Hosiery is the collective trade term for socks, tights and similar knitted legwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 28,
@@ -489,7 +2199,61 @@
     "text": "Building slowly absorbing earth goes off-white",
     "enumeration": "7"
    },
-   "solution": "YELLOWS"
+   "solution": "YELLOWS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "YELLOWS",
+    "definitions": [
+     {
+      "text": "goes off-white",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking something in, so the extra letter joins inside the other word"
+     },
+     {
+      "text": "Building",
+      "for": "anagram",
+      "note": "building puts materials together into a new structure, so the letters are reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slowly",
+      "gives": "SLOWLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "E",
+      "note": "E is the abbreviation for earth"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLOWLYE",
+       "gives": "YELLOWS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building slowly picks up grime and its white paint dulls.",
+     "definitionFit": "White paint or paper yellows as it ages, taking on a faded pale tint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Building"
+    }
+   }
   }
  ]
 }
