@@ -1271,6 +1271,36 @@ def held_dates(series):
     return out
 
 
+#: {path: ((mtime_ns, size), (url, date))} of each puzzle file held_scans has read.
+_SCANS = {}
+
+
+def held_scans(series):
+    """{(source.url, date): [numbers]} of every filed puzzle in a series that
+    names a scan page: one page on one day is one puzzle."""
+    out = {}
+    for p in (ROOT / "puzzles" / series).glob("*/*.json"):
+        st = p.stat()
+        stamp = (st.st_mtime_ns, st.st_size)
+        seen = _SCANS.get(p)
+        if seen is None or seen[0] != stamp:
+            d = json.loads(p.read_text())
+            seen = _SCANS[p] = (stamp, ((d.get("source") or {}).get("url"), (d.get("date") or "")[:10]))
+        if seen[1][0]:
+            out.setdefault(seen[1], []).append(int(p.stem.split("-")[1]))
+    return out
+
+
+def same_scan(number, url, day, series):
+    """Why `number` cannot file (None if it can): another number in the series
+    already holds this scan page `url` for `day`, so the OCR misread one
+    number."""
+    others = [m for m in held_scans(series).get((url, day.isoformat()), ()) if m != number]
+    if others:
+        return f"No {number} is the scan page No {others[0]} already holds ({url}, {day})"
+    return None
+
+
 def placed(n, day, held):
     """(number, None) that an edition of `day` read as No `n` files as, or
     (None, why) it cannot file. The edition's date is trusted over a number
@@ -1308,6 +1338,8 @@ def filed_number(d, found, hit):
         return None, day, (f"No {n} is not near the {paper.expected(day)} the date "
                            f"{day} implies: the item's date is wrong")
     number, why = placed(n, day, held_dates(paper.series))
+    if number is not None:
+        why = same_scan(number, PAGE_URL.format(item=found["item"], leaf=hit["leaf"]), day, paper.series)
     return number, day, why
 
 
