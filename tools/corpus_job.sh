@@ -26,7 +26,7 @@ TRIES=3
 READ_SECONDS="${CORPUS_JOB_SECONDS:-3000}"
 mkdir -p "$OUT" "$CH/failed"
 
-publish() {  # publish <series> <what>: every puzzle file the filer touched (it also marks other series reprints)
+publish() {  # publish <series> <what> (all puzzles/)
   git add -- puzzles || return 1
   git diff --cached --quiet -- puzzles && return 0
   git commit -q -m "$(printf 'Corpus queue %s: %s\n\nCo-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>' "$NAME" "$2")" -- puzzles || return 1
