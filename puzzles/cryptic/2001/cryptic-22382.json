@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Capital one invested in a new casino",
     "enumeration": "7"
    },
-   "solution": "NICOSIA"
+   "solution": "NICOSIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NICOSIA",
+    "definitions": [
+     {
+      "text": "Capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something goes inside it, so the first piece is placed within the second"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of the word is a remade one, so its letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "casino",
+      "gives": "CASINO",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICOS",
+      "I",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASINO",
+       "gives": "NICOSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone puts a single unit of money into a newly opened gambling house.",
+     "walkthrough": "The letters of casino are rearranged as NICOSA and the I slips in before the final A.",
+     "definitionFit": "Nicosia is the seat of government of Cyprus, so it is a national capital city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,55 @@
     "text": "Pointlessly altering any line",
     "enumeration": "7"
    },
-   "solution": "INANELY"
+   "solution": "INANELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INANELY",
+    "definitions": [
+     {
+      "text": "Pointlessly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "altering",
+      "for": "anagram",
+      "note": "altering changes the arrangement, so the letters are shifted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "any",
+      "gives": "ANY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "LINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANYLINE",
+       "gives": "INANELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor changing lines for no good reason.",
+     "definitionFit": "Inanely means in a silly, empty way, without sense or purpose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +172,51 @@
     "text": "Head leaves the platform in resentment",
     "enumeration": "5"
    },
-   "solution": "ODIUM"
+   "solution": "ODIUM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ODIUM",
+    "definitions": [
+     {
+      "text": "resentment",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head leaves",
+      "for": "deletion",
+      "note": "the head of a word is its first letter, and leaving means it is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the platform",
+      "gives": "PODIUM",
+      "note": "a podium is a raised platform for a speaker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODIUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A leader walks off the stage in a huff.",
+     "walkthrough": "'Head' looks like a person in charge, but it is the first letter.",
+     "definitionFit": "Odium is widespread hatred or disgust directed at someone, a strong form of bitterness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +230,60 @@
     "text": "Painting technique Pam is to become involved in",
     "enumeration": "7"
    },
-   "solution": "IMPASTO"
+   "solution": "IMPASTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPASTO",
+    "definitions": [
+     {
+      "text": "Painting technique",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "become involved in",
+      "for": "anagram",
+      "note": "things that become involved get entangled, so the letters are mixed together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pam",
+      "gives": "PAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PAMISTO",
+       "gives": "IMPASTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pam is going to take up a particular method of painting.",
+     "walkthrough": "'Pam is to' reads as a plan for Pam; all three words are the letters to rearrange.",
+     "definitionFit": "Impasto is the application of paint in thick layers so brushstrokes stand out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +303,46 @@
      }
     ]
    },
-   "solution": "POPEYED"
+   "solution": "POPEYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POP-EYED",
+    "definitions": [
+     {
+      "text": "amazed",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "POP",
+      "note": "pop is an informal word for father"
+     },
+     {
+      "clueFragment": "looked",
+      "gives": "EYED",
+      "note": "to eye something is to look at it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "EYED"
+     ]
+    },
+    "explanation": {
+     "surface": "Father stared in astonishment.",
+     "definitionFit": "Someone pop-eyed has eyes bulging with surprise, an idiom for being astonished."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "looked"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +356,55 @@
     "text": "Hungry boy - or about to be",
     "enumeration": "6"
    },
-   "solution": "OLIVER"
+   "solution": "OLIVER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OLIVER",
+    "definitions": [
+     {
+      "text": "Hungry boy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to be",
+      "gives": "LIVE",
+      "note": "to live is to exist, to be"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LIVE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A boy who is hungry now, or soon will be.",
+     "walkthrough": "'About to be' reads as soon-to-be, but splits into a container signal and a verb.",
+     "definitionFit": "Oliver Twist is Dickens's workhouse orphan, famously hungry enough to ask for more gruel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +424,49 @@
      }
     ]
    },
-   "solution": "EASYGOING"
+   "solution": "EASYGOING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EASY-GOING",
+    "definitions": [
+     {
+      "text": "Calm",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "painless",
+      "gives": "EASY",
+      "note": "easy means without pain or difficulty"
+     },
+     {
+      "clueFragment": "death",
+      "gives": "GOING",
+      "note": "going is a euphemism for dying"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASY",
+      "GOING"
+     ]
+    },
+    "explanation": {
+     "surface": "A peaceful, pain-free end to life.",
+     "definitionFit": "An easy-going person is relaxed and placid, unworried by things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "death"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +486,39 @@
      }
     ]
    },
-   "solution": "EGOTRIP"
+   "solution": "EGOTRIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EGO TRIP",
+    "definitions": [
+     {
+      "text": "Presumably, I get a lift during this tour",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Presumably, I get a lift during this tour",
+      "note": "surface reading: someone expects to be given a ride while travelling"
+     },
+     {
+      "clueFragment": "I get a lift",
+      "note": "setter's reading: the self, the I, gets a boost from a self-indulgent venture"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Lift' sounds like a ride in a car, but it is a boost to self-esteem; the I is the self.",
+     "definitionFit": "The phrase names an activity pursued mainly to flatter one's own vanity and sense of importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +538,38 @@
      }
     ]
    },
-   "solution": "BREAKINGPOINT"
+   "solution": "BREAKINGPOINT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BREAKING POINT",
+    "definitions": [
+     {
+      "text": "Where strain will cause a parting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where strain will cause a parting",
+      "note": "surface reading: the stage at which tension in a relationship makes a couple separate"
+     },
+     {
+      "clueFragment": "parting",
+      "note": "setter's reading: a physical rupture, the spot where a stressed material snaps"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Parting' suggests lovers separating; read literally it is a material giving way under load.",
+     "definitionFit": "This is the limit of stress at which something gives way, literally or emotionally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "parting"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +583,63 @@
     "text": "Transport will be back at eleven",
     "enumeration": "4"
    },
-   "solution": "TAXI"
+   "solution": "TAXI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TAXI",
+    "definitions": [
+     {
+      "text": "Transport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the short word beside it is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "will be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written, then turned round"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "XI",
+      "note": "XI is eleven in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "XI"
+     ],
+     "reversals": [
+      {
+       "from": "AT",
+       "to": "TA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A promise that the car will return to collect you at eleven o'clock.",
+     "definitionFit": "A cab is a hired vehicle, one form of transport for passengers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +653,54 @@
     "text": "Leave the wrong impression",
     "enumeration": "10"
    },
-   "solution": "PERMISSION"
+   "solution": "PERMISSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PERMISSION",
+    "definitions": [
+     {
+      "text": "Leave",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something wrong is not in its proper order, so the letters must be put right by rearranging"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impression",
+      "gives": "IMPRESSION",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMPRESSION",
+       "gives": "PERMISSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to go away giving a misleading idea of yourself.",
+     "walkthrough": "'Leave' reads as a verb but is the noun, as in shore leave.",
+     "definitionFit": "Leave as a noun means consent or authorisation to do something, as in 'by your leave'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leave"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +714,56 @@
     "text": "Greek god, part herald, part messenger",
     "enumeration": "6"
    },
-   "solution": "HERMES"
+   "solution": "HERMES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HERMES",
+    "definitions": [
+     {
+      "text": "Greek god",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part",
+      "for": "letter_selection",
+      "note": "only a portion of the following word is taken, here its opening three letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "herald",
+      "gives": "HER",
+      "select": 3,
+      "note": "the first three letters of herald"
+     },
+     {
+      "clueFragment": "messenger",
+      "gives": "MES",
+      "select": 3,
+      "note": "the first three letters of messenger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "MES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek deity described as partly a herald and partly a messenger.",
+     "walkthrough": "The second 'part' does the same job for messenger. The surface is also true: Hermes was the herald and messenger of the gods.",
+     "definitionFit": "Hermes is the Olympian deity of travellers and thieves, messenger of Zeus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +777,44 @@
     "text": "They returned hurt, watched on 60s' TV",
     "enumeration": "8"
    },
-   "solution": "AVENGERS"
+   "solution": "AVENGERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AVENGERS",
+    "definitions": [
+     {
+      "text": "They returned hurt",
+      "at": 0
+     },
+     {
+      "text": "watched on 60s' TV",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They returned hurt",
+      "note": "first meaning: people who pay back an injury with revenge"
+     },
+     {
+      "clueFragment": "watched on 60s' TV",
+      "note": "second meaning: the British spy series starring Steed and Mrs Peel"
+     }
+    ],
+    "explanation": {
+     "surface": "People who came back injured, seen on television in the 1960s.",
+     "walkthrough": "'Returned' means repaid, not came back. The Avengers was a British 1960s spy series with John Steed and Emma Peel.",
+     "definitionFit": "Those who take revenge repay harm done to them, and the title also names a classic television show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "returned"
+    }
+   }
   },
   {
    "number": 14,
@@ -239,7 +828,55 @@
     "text": "My! Chopin's unusually melodic",
     "enumeration": "9"
    },
-   "solution": "SYMPHONIC"
+   "solution": "SYMPHONIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SYMPHONIC",
+    "definitions": [
+     {
+      "text": "melodic",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "done unusually means not in the normal way, so the letters fall into a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "My",
+      "gives": "MY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Chopin's",
+      "gives": "CHOPINS",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MYCHOPINS",
+       "gives": "SYMPHONIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation of surprise at how tuneful Chopin's music is.",
+     "definitionFit": "Symphonic describes harmonious orchestral music, close to tuneful in a loose sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusually"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +890,45 @@
     "text": "Mad, being had",
     "enumeration": "9"
    },
-   "solution": "POSSESSED"
+   "solution": "POSSESSED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POSSESSED",
+    "definitions": [
+     {
+      "text": "Mad",
+      "at": 0
+     },
+     {
+      "text": "being had",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mad",
+      "note": "first meaning: wild, as if controlled by a demon"
+     },
+     {
+      "clueFragment": "being had",
+      "note": "second meaning: owned, in someone's ownership"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Being had' suggests being cheated, but it simply means owned.",
+     "definitionFit": "Possessed describes someone frenzied as if by a spirit, and also anything that is owned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "had"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +942,45 @@
     "text": "Fast getting chilly",
     "enumeration": "5"
    },
-   "solution": "NIPPY"
+   "solution": "NIPPY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NIPPY",
+    "definitions": [
+     {
+      "text": "Fast",
+      "at": 0
+     },
+     {
+      "text": "chilly",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast",
+      "note": "first meaning: quick and agile"
+     },
+     {
+      "clueFragment": "chilly",
+      "note": "second meaning: sharply cold"
+     }
+    ],
+    "explanation": {
+     "surface": "Weather turning cold quickly.",
+     "definitionFit": "Informally a small nimble car is nippy, and so is biting cold weather that nips the skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fast"
+    }
+   }
   },
   {
    "number": 17,
@@ -281,7 +994,64 @@
     "text": "Pass out with many a twitch",
     "enumeration": "5"
    },
-   "solution": "SPASM"
+   "solution": "SPASM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SPASM",
+    "definitions": [
+     {
+      "text": "a twitch",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean disordered or wrong, so the word before it is jumbled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pass",
+      "gives": "PASS",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "M",
+      "note": "M, a thousand in Roman numerals, stands for many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAS",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PASS",
+       "gives": "SPAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone faints, with many a jerk of the body.",
+     "walkthrough": "'Pass out' reads as fainting, but the two words split into fodder and signal.",
+     "definitionFit": "A spasm is a sudden involuntary muscle contraction, which is what a twitch is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1065,56 @@
     "text": "A plain repair I made a mess of",
     "enumeration": "7"
    },
-   "solution": "PRAIRIE"
+   "solution": "PRAIRIE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRAIRIE",
+    "definitions": [
+     {
+      "text": "A plain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made a mess of",
+      "for": "anagram",
+      "note": "making a mess of something throws it into disorder, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repair",
+      "gives": "REPAIR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPAIRI",
+       "gives": "PRAIRIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone botched a straightforward mending job.",
+     "walkthrough": "'Plain' looks like the adjective simple, but it is the noun for flat land.",
+     "definitionFit": "A prairie is a large area of flat grassland, especially in North America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1128,57 @@
     "text": "Get garage to assemble parts",
     "enumeration": "9"
    },
-   "solution": "AGGREGATE"
+   "solution": "AGGREGATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGGREGATE",
+    "definitions": [
+     {
+      "text": "parts",
+      "at": 23,
+      "note": "a plural noun for a singular one: an aggregate is a whole made up of many parts"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to assemble",
+      "for": "anagram",
+      "note": "assembling means putting pieces together into a new arrangement, so the letters are rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "garage",
+      "gives": "GARAGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETGARAGE",
+       "gives": "AGGREGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking a car repair shop to put the components together.",
+     "walkthrough": "'Assemble parts' reads as one instruction, but the definition is the last word alone.",
+     "definitionFit": "An aggregate is a mass formed by gathering many separate units or elements together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "garage"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1192,42 @@
     "text": "Edited version of the Bible",
     "enumeration": "7"
    },
-   "solution": "REVISED"
+   "solution": "REVISED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REVISED",
+    "definitions": [
+     {
+      "text": "Edited",
+      "at": 0
+     },
+     {
+      "text": "version of the Bible",
+      "at": 7,
+      "note": "a noun phrase for the adjective in the title Revised Version"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edited",
+      "note": "first meaning: corrected and amended"
+     },
+     {
+      "clueFragment": "version of the Bible",
+      "note": "second meaning: the ... Version, the 1880s English translation"
+     }
+    ],
+    "explanation": {
+     "surface": "An amended translation of scripture.",
+     "definitionFit": "The adjective means altered after review, and is the first word of the Victorian Bible translation's title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1241,44 @@
     "text": "They admit they're often punched",
     "enumeration": "7"
    },
-   "solution": "TICKETS"
+   "solution": "TICKETS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TICKETS",
+    "definitions": [
+     {
+      "text": "They admit",
+      "at": 0
+     },
+     {
+      "text": "they're often punched",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They admit",
+      "note": "first meaning: things that grant entry"
+     },
+     {
+      "clueFragment": "they're often punched",
+      "note": "second meaning: things an inspector clips holes in"
+     }
+    ],
+    "explanation": {
+     "surface": "People who confess and then frequently get hit.",
+     "walkthrough": "'Admit' suggests confessing, and 'punched' suggests violence; both apply to passes clipped by an inspector.",
+     "definitionFit": "Passes for travel or events let the holder enter, and conductors clip holes in them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "admit"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1292,47 @@
     "text": "Give the signal to pass a bottle of wine",
     "enumeration": "6"
    },
-   "solution": "FLAGON"
+   "solution": "FLAGON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLAGON",
+    "definitions": [
+     {
+      "text": "a bottle of wine",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Give the signal",
+      "gives": "FLAG",
+      "note": "to flag is to signal, as with a waved flag"
+     },
+     {
+      "clueFragment": "to pass",
+      "gives": "ON",
+      "note": "on, as in waving someone on to go past"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLAG",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone signals for the wine to be handed round the table.",
+     "walkthrough": "To flag someone on is to wave them through.",
+     "definitionFit": "A flagon is a large vessel with a handle and spout for serving wine or cider."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1346,67 @@
     "text": "Later exchanges in court battle",
     "enumeration": "8"
    },
-   "solution": "WATERLOO"
+   "solution": "WATERLOO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WATERLOO",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchanges",
+      "for": "anagram",
+      "note": "letters that exchange places swap around into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the other, enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Later",
+      "gives": "LATER",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "WOO",
+      "note": "to court someone is to woo them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATERL",
+      "OO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATER",
+       "gives": "ATERL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Subsequent exchanges in a court of law over a legal fight.",
+     "walkthrough": "'Court' looks like a law court, but it is the verb meaning to romance.",
+     "definitionFit": "Waterloo was the 1815 battle where Wellington defeated Napoleon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1420,58 @@
     "text": "5 to 4 on the winner that's lively",
     "enumeration": "6"
    },
-   "solution": "VIVACE"
+   "solution": "VIVACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIVACE",
+    "definitions": [
+     {
+      "text": "lively",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "to",
+     "on",
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "5",
+      "gives": "V",
+      "note": "V is five in Roman numerals"
+     },
+     {
+      "clueFragment": "4",
+      "gives": "IV",
+      "note": "IV is four in Roman numerals"
+     },
+     {
+      "clueFragment": "the winner",
+      "gives": "ACE",
+      "note": "an ace in tennis is a winning serve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IV",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Betting odds of five to four laid on the horse that is the most spirited.",
+     "walkthrough": "'5 to 4 on' reads as betting odds, but the numbers are Roman numerals joined in order.",
+     "definitionFit": "Vivace is a musical direction meaning play briskly and in a spirited manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 25,
@@ -393,7 +1485,39 @@
     "text": "Parties appeal to him",
     "enumeration": "5"
    },
-   "solution": "VOTER"
+   "solution": "VOTER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VOTER",
+    "definitions": [
+     {
+      "text": "Parties appeal to him",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parties appeal to him",
+      "note": "surface reading: a man who loves going to social gatherings"
+     },
+     {
+      "clueFragment": "Parties",
+      "note": "setter's reading: political parties canvass a person at election time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Parties' suggests celebrations, but it means political parties seeking support.",
+     "definitionFit": "This is a member of the electorate whose ballot candidates try to win at elections."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Parties"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1537,39 @@
      }
     ]
    },
-   "solution": "PRESSGANGS"
+   "solution": "PRESSGANGS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PRESS GANGS",
+    "definitions": [
+     {
+      "text": "They impressed old sailors",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They impressed old sailors",
+      "note": "surface reading: people who won the admiration of veteran seamen"
+     },
+     {
+      "clueFragment": "impressed",
+      "note": "setter's reading: to impress is also to force men into naval service, as these press parties did"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Impressed' suggests admiration, but its old sense is forcible enlistment in the navy.",
+     "definitionFit": "These were bands of men who seized civilians and compelled them to serve aboard warships."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impressed"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1583,44 @@
     "text": "English flower seen on the golf course",
     "enumeration": "4"
    },
-   "solution": "TEES"
+   "solution": "TEES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEES",
+    "definitions": [
+     {
+      "text": "English flower",
+      "at": 0
+     },
+     {
+      "text": "seen on the golf course",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English flower",
+      "note": "first meaning: a river in north-east England; a flower is something that flows"
+     },
+     {
+      "clueFragment": "seen on the golf course",
+      "note": "second meaning: the pegs or starting areas golfers drive from"
+     }
+    ],
+    "explanation": {
+     "surface": "A bloom from England growing on a golf course.",
+     "walkthrough": "'Flower' is crossword code for a river, something that flows. The Tees runs through Teesside to the North Sea.",
+     "definitionFit": "The name is both a northern English river and the plural of the peg a golf ball rests on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1634,50 @@
     "text": "Badly aligned at the front",
     "enumeration": "7"
    },
-   "solution": "LEADING"
+   "solution": "LEADING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LEADING",
+    "definitions": [
+     {
+      "text": "at the front",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badly",
+      "for": "anagram",
+      "note": "something done badly is botched and out of order, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aligned",
+      "gives": "ALIGNED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALIGNED",
+       "gives": "LEADING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something crooked at its forward end.",
+     "definitionFit": "A runner who is ahead of the field is in first position, heading the race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "aligned"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1691,41 @@
     "text": "Speak to one's home",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Speak to",
+      "at": 0
+     },
+     {
+      "text": "one's home",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speak to",
+      "note": "first meaning: to direct remarks at someone"
+     },
+     {
+      "clueFragment": "one's home",
+      "note": "second meaning: where a person lives, as written on a letter"
+     }
+    ],
+    "explanation": {
+     "surface": "Talking to one's house.",
+     "definitionFit": "The word is a verb for formally speaking to an audience and a noun for the place of residence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
