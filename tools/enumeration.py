@@ -19,8 +19,15 @@ _PRINTED = r"\d+(?:(?:\s*" + _MARK + r"){0,2}\s*\d+)*"
 
 # The trailing bracket: an enumeration, or "()" where a feed lost it. A stray
 # trailing comma inside ("(9,)") is a misprint of the same count, and a closing
-# quote after it ("(4)’", a blog's markup leaking) is no part of the clue.
-_TAIL = re.compile(r"\s*\(\s*(?:(" + _PRINTED + r")[\s,]*)?\)[\s’”\"']*$")
+# quote or mark after it ("(4)’", "(4))", "(7)!", "(8,5);", "(5)>": a blog's
+# markup or a feed's punctuation leaking) is no part of the clue.
+_JUNK = r"[\s’”\"'()\[\]<>;.!?:,\-–—…|]*"
+_TAIL = re.compile(r"\s*\(\s*(?:(" + _PRINTED + r")[\s,]*)?\)(" + _JUNK + r")$")
+
+#: The largest total a tail's junk is trusted behind: a bracket of bigger
+#: numbers followed by a mark is a year or a quantity in the clue's own words
+#: ("... Wall Street share prices (1929)?").
+JUNK_LIMIT = 60
 
 #: The stored form (the schema's `enumeration` pattern): marks unspaced,
 #: dashes as "-", apostrophes as "'", a lone space or " and " between counts.
@@ -50,6 +57,23 @@ def _spelling(printed):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def _tail(printed):
+    """The trailing count bracket of a printed line, or None. Marks after the
+    bracket belong to it only behind a count small enough to be one."""
+    m = _TAIL.search(printed)
+    if m and m.group(2).strip() and m.group(1) and sum(counts(m.group(1))) > JUNK_LIMIT:
+        return None
+    return m
+
+
+def stray(clue):
+    """True when a clue's text ends in a count bracket with marks after it
+    ("... (4))", "... (7)!", "... (8,5);"): whatever count it names, the
+    marks are no part of the clue (the write gate refuses these)."""
+    m = _tail(clue.get("text") or "")
+    return bool(m and m.group(2).strip())
+
+
 def split(printed):
     """A printed clue line -> (text or None, enumeration or None).
 
@@ -57,7 +81,7 @@ def split(printed):
     and "(see 3dn.)" stay text. An empty "()" is dropped as a lost enumeration.
     text is None when the line held nothing but the enumeration."""
     printed = printed or ""
-    m = _TAIL.search(printed)
+    m = _tail(printed)
     if not m:
         return (printed.rstrip() or None), None
     text = printed[:m.start()].rstrip()
@@ -65,7 +89,7 @@ def split(printed):
     # A source that prints the count itself and has one appended after it
     # ("Set meal (5,1'4) (5,5)") leaves the same total twice; the echo is cut
     # with the count it repeats.
-    while enum and (e := _TAIL.search(text)) and e.group(1) and counts(e.group(1)) \
+    while enum and (e := _tail(text)) and e.group(1) and counts(e.group(1)) \
             and sum(counts(e.group(1))) == sum(counts(enum)):
         text = text[:e.start()].rstrip()
     return (text or None), enum
