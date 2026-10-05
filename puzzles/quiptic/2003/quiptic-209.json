@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "Concerning the study of good food (no topping) - it's great!",
     "enumeration": "10"
    },
-   "solution": "ASTRONOMIC"
+   "solution": "ASTRONOMIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASTRONOMIC",
+    "definitions": [
+     {
+      "text": "great",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no topping",
+      "for": "deletion",
+      "note": "in a down entry the top is the first letter, so having no topping means the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concerning the study of good food",
+      "gives": "GASTRONOMIC",
+      "note": "gastronomy is the study of good eating, and this is its adjective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTRONOMIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A food critic exclaims that a book about fine dining, sadly missing its garnish, is still wonderful.",
+     "walkthrough": "Remove the G from GASTRONOMIC to leave ASTRONOMIC.",
+     "definitionFit": "Astronomic, like astronomical, describes something enormous, as vast as the distances between stars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "topping"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +94,50 @@
     "text": "Doubter acting so odd",
     "enumeration": "8"
    },
-   "solution": "AGNOSTIC"
+   "solution": "AGNOSTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGNOSTIC",
+    "definitions": [
+     {
+      "text": "Doubter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "something odd is irregular and out of its usual shape, so these letters are put into a strange new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acting so",
+      "gives": "ACTINGSO",
+      "note": "the eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTINGSO",
+       "gives": "AGNOSTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sceptic is behaving strangely.",
+     "definitionFit": "An agnostic doubts that the existence of God can be known, so is a doubter in religious matters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,40 @@
     "text": "Conceit at the book fair?",
     "enumeration": "6"
    },
-   "solution": "VANITY"
+   "solution": "VANITY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "VANITY",
+    "definitions": [
+     {
+      "text": "Conceit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conceit at the book fair?",
+      "note": "surface reading: an author showing off at a publishing trade fair"
+     },
+     {
+      "clueFragment": "the book fair",
+      "note": "setter's reading: the fair named in a book, the one in Bunyan's Pilgrim's Progress that gave Thackeray his novel title"
+     }
+    ],
+    "explanation": {
+     "surface": "Authors preening themselves at a literary trade fair.",
+     "walkthrough": "The fair in the book is Vanity Fair, from Bunyan's Pilgrim's Progress and Thackeray's novel; its first word means conceit.",
+     "definitionFit": "Vanity is excessive pride in one's appearance or achievements, which is exactly what conceit means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +198,58 @@
     "text": "Trophy for working horse, worn out",
     "enumeration": "4"
    },
-   "solution": "GONG"
+   "solution": "GONG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GONG",
+    "definitions": [
+     {
+      "text": "Trophy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worn out",
+      "for": "container",
+      "note": "something worn on the outside covers what is beneath, so the horse word wraps around the other piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "GG",
+      "note": "gee-gee, a childish word for a horse, abbreviated"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A prize awarded to a tired old workhorse.",
+     "walkthrough": "'Worn out' looks like it means exhausted, but it says GG is worn on the outside of ON.",
+     "definitionFit": "Gong is British slang for a medal or award, so it serves as an informal word for a trophy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worn"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +263,65 @@
     "text": "Many by Spey caber-tossing - in virtual reality",
     "enumeration": "10"
    },
-   "solution": "CYBERSPACE"
+   "solution": "CYBERSPACE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CYBERSPACE",
+    "definitions": [
+     {
+      "text": "virtual reality",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossing",
+      "for": "anagram",
+      "note": "tossing throws things about, so these letters land in a different order"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred, a crossword stand-in for many"
+     },
+     {
+      "clueFragment": "Spey caber",
+      "gives": "SPEYCABER",
+      "note": "the nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "YBERSPACE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPEYCABER",
+       "gives": "YBERSPACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds watch caber-tossing by the River Spey at a Highland games, but it is all a computer simulation.",
+     "walkthrough": "The Spey is a Scottish river, and tossing the caber (a long tree trunk) is a Highland games event; 'caber-tossing' splits so that 'tossing' works on SPEY CABER.",
+     "definitionFit": "Cyberspace is the notional world of computer networks, a virtual realm rather than physical reality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tossing"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +335,57 @@
     "text": "Made much of the upside-down puddings",
     "enumeration": "8"
    },
-   "solution": "STRESSED"
+   "solution": "STRESSED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STRESSED",
+    "definitions": [
+     {
+      "text": "Made much of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upside-down",
+      "for": "reversal",
+      "note": "in a down entry turning a word upside-down means reading it from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puddings",
+      "gives": "DESSERTS",
+      "note": "puddings is the British word for desserts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRESSED"
+     ],
+     "reversals": [
+      {
+       "from": "DESSERTS",
+       "to": "STRESSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fussed over upside-down cakes, like a pineapple upside-down pudding.",
+     "walkthrough": "STRESSED read backwards is DESSERTS, a well-known reversal.",
+     "definitionFit": "To stress a point is to emphasise it, so stressed means emphasised or made much of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upside-down"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +399,42 @@
     "text": "Lhasa mosaic hiding Asian titbit",
     "enumeration": "6"
    },
-   "solution": "SAMOSA"
+   "solution": "SAMOSA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SAMOSA",
+    "definitions": [
+     {
+      "text": "Asian titbit",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "hidden_word",
+      "note": "the words keep something concealed inside them, so look within the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lhasa mosaic",
+      "gives": "SAMOSA",
+      "note": "spanning the end of the city name and the start of the tiling word"
+     }
+    ],
+    "explanation": {
+     "surface": "A tiled mosaic in Lhasa, Tibet's capital, conceals a snack.",
+     "definitionFit": "A samosa is a small fried pastry from South Asia, a savoury snack or titbit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mosaic"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +448,44 @@
     "text": "Ditch large corporation boss",
     "enumeration": "4"
    },
-   "solution": "DYKE"
+   "solution": "DYKE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DYKE",
+    "definitions": [
+     {
+      "text": "Ditch",
+      "at": 0
+     },
+     {
+      "text": "large corporation boss",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ditch",
+      "note": "first meaning: a channel or embankment for water"
+     },
+     {
+      "clueFragment": "large corporation boss",
+      "note": "second meaning: Greg ..., once Director-General of the BBC, known in Britain as the Corporation"
+     }
+    ],
+    "explanation": {
+     "surface": "A demand to sack the chief executive of a big company.",
+     "walkthrough": "'Ditch' reads as a verb meaning get rid of, but it is a noun. The BBC is often called 'the Corporation', and Greg Dyke ran it from 2000 to 2004.",
+     "definitionFit": "A dyke is a drainage ditch or bank, and Greg Dyke was head of the British Broadcasting Corporation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ditch"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +499,56 @@
     "text": "Underwriter's gesture to a Conservative",
     "enumeration": "9"
    },
-   "solution": "SIGNATORY"
+   "solution": "SIGNATORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIGNATORY",
+    "definitions": [
+     {
+      "text": "Underwriter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gesture",
+      "gives": "SIGN",
+      "note": "a sign is a gesture"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGN",
+      "A",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "An insurance underwriter waves to a Conservative politician.",
+     "definitionFit": "To underwrite originally meant to sign underneath, so one who signs a document, a signatory, is literally an underwriter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "gesture"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +562,60 @@
     "text": "Waterworks close due to rent anomaly, ultimately",
     "enumeration": "5"
    },
-   "solution": "TEARY"
+   "solution": "TEARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TEARY",
+    "definitions": [
+     {
+      "text": "Waterworks close",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of the word just before it, so take its final letter"
+     }
+    ],
+    "linkWords": [
+     "due to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rent",
+      "gives": "TEAR",
+      "note": "a rent is a tear or rip"
+     },
+     {
+      "clueFragment": "anomaly",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of anomaly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A water company's plant is shut down because of an irregularity in its rent.",
+     "walkthrough": "'Waterworks' is slang for tears, so 'waterworks close' means about to cry. 'Rent' is a rip, read as TEAR, not money.",
+     "definitionFit": "Someone teary is on the verge of crying, so the waterworks, meaning tears, are near at hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +629,56 @@
     "text": "Carnival city can get German revelling",
     "enumeration": "7"
    },
-   "solution": "RIOTING"
+   "solution": "RIOTING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIOTING",
+    "definitions": [
+     {
+      "text": "revelling",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carnival city",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, famous for its carnival"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIO",
+      "TIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "The carnival in Rio lets a German visitor party.",
+     "walkthrough": "'Can' looks like the verb 'is able to' but is the noun, a tin.",
+     "definitionFit": "Rioting can mean unrestrained merrymaking, as in a riot of fun, so it matches noisy revelling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +692,61 @@
     "text": "Look at Archer's comeback - not a pretty sight",
     "enumeration": "7"
    },
-   "solution": "EYESORE"
+   "solution": "EYESORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EYESORE",
+    "definitions": [
+     {
+      "text": "not a pretty sight",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comeback",
+      "for": "reversal",
+      "note": "a comeback is a return journey, so the Archer's name is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look at",
+      "gives": "EYE",
+      "note": "to eye something is to look at it"
+     },
+     {
+      "clueFragment": "Archer",
+      "gives": "EROS",
+      "note": "Eros, the Greek god of love, is armed with bow and arrows"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "SORE"
+     ],
+     "reversals": [
+      {
+       "from": "EROS",
+       "to": "SORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Seeing Jeffrey Archer return to public life is an unwelcome view.",
+     "walkthrough": "Archer looks like the politician-novelist Jeffrey Archer, but it is Eros, the winged archer of love.",
+     "definitionFit": "An eyesore is something ugly to look at, so it is literally not a pretty sight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Archer"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +760,58 @@
     "text": "Daft teachers go to the limits of technology",
     "enumeration": "5"
    },
-   "solution": "NUTTY"
+   "solution": "NUTTY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NUTTY",
+    "definitions": [
+     {
+      "text": "Daft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the limits of",
+      "for": "letter_selection",
+      "note": "limits are the outer edges, so take the first and last letters of the next word"
+     }
+    ],
+    "linkWords": [
+     "go to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teachers",
+      "gives": "NUT",
+      "note": "the NUT was the National Union of Teachers in Britain"
+     },
+     {
+      "clueFragment": "technology",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of technology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUT",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Foolish teachers push technology as far as it can go.",
+     "definitionFit": "Nutty is informal for crazy or foolish, a close synonym of daft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "teachers"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +825,57 @@
     "text": "It's designed for ablutions by western tree bear",
     "enumeration": "9"
    },
-   "solution": "WASHSTAND"
+   "solution": "WASHSTAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WASHSTAND",
+    "definitions": [
+     {
+      "text": "It's designed for ablutions",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "western",
+      "gives": "W",
+      "note": "W is the abbreviation for western"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a tree"
+     },
+     {
+      "clueFragment": "bear",
+      "gives": "STAND",
+      "note": "to bear something is to stand it, tolerate it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ASH",
+      "STAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A western tree is planned to be a bear's bathroom.",
+     "walkthrough": "'Bear' looks like the animal, but it is the verb, to put up with.",
+     "definitionFit": "A washstand is a piece of furniture holding a basin and jug for washing yourself, the ablutions of the clue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bear"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +889,40 @@
     "text": "Sussex town made famous by Longfellow?",
     "enumeration": "10"
    },
-   "solution": "WILMINGTON"
+   "solution": "WILMINGTON",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WILMINGTON",
+    "definitions": [
+     {
+      "text": "Sussex town",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made famous by Longfellow?",
+      "note": "surface reading: a place celebrated by the American poet Henry Wadsworth Longfellow"
+     },
+     {
+      "clueFragment": "Longfellow",
+      "note": "setter's reading: a long fellow, the tall chalk hill figure called the Long Man, cut into the downs by this village"
+     }
+    ],
+    "explanation": {
+     "surface": "A town in Sussex owes its fame to a poem by Longfellow.",
+     "walkthrough": "Sussex is a county in southern England; the Long Man of Wilmington is a huge chalk figure of a man on the hillside there.",
+     "definitionFit": "Wilmington is a village in East Sussex, best known for the Long Man figure on the neighbouring hill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Longfellow"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +942,50 @@
      }
     ]
    },
-   "solution": "DRYBATTERY"
+   "solution": "DRYBATTERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRY BATTERY",
+    "definitions": [
+     {
+      "text": "Power pack",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "empty",
+      "gives": "DRY",
+      "note": "a dry well or bottle is empty"
+     },
+     {
+      "clueFragment": "guns",
+      "gives": "BATTERY",
+      "note": "a battery is a group of artillery guns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "BATTERY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a power supply for guns that have run out of ammunition.",
+     "definitionFit": "A dry battery is a cell with paste rather than liquid electrolyte, a portable source of electrical power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "guns"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1005,66 @@
      }
     ]
    },
-   "solution": "MICHAELMASDAISY"
+   "solution": "MICHAELMASDAISY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MICHAELMAS DAISY",
+    "definitions": [
+     {
+      "text": "bloomer",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncontrolled",
+      "for": "anagram",
+      "note": "letters out of control run wild and fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "shows",
+     "'s revealed"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Portillo, perhaps",
+      "gives": "MICHAEL",
+      "note": "Michael Portillo is a British former Conservative minister and TV presenter; 'perhaps' marks him as one example of the name"
+     },
+     {
+      "clueFragment": "dismay as",
+      "gives": "DISMAYAS",
+      "note": "the eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MICHAEL",
+      "MASDAISY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DISMAYAS",
+       "gives": "MASDAISY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A politician cannot hide his alarm when his embarrassing gaffe comes to light.",
+     "walkthrough": "'Bloomer' looks like a blunder, which suits the politician, but here it is a flowering plant.",
+     "definitionFit": "A Michaelmas daisy is an autumn-flowering aster, and anything that flowers can be called a bloomer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bloomer"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1084,69 @@
      }
     ]
    },
-   "solution": "ATOMBOMB"
+   "solution": "ATOMBOMB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ATOM BOMB",
+    "definitions": [
+     {
+      "text": "Weapon of mass destruction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "angry",
+      "for": "anagram",
+      "note": "an angry crowd is unruly and disordered, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "found in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "grave",
+      "gives": "TOMB",
+      "note": "a tomb is a grave"
+     },
+     {
+      "clueFragment": "mob",
+      "gives": "MOB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TOMB",
+      "OMB"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOB",
+       "gives": "OMB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deadly weapon is discovered buried in a grave beside a furious crowd.",
+     "definitionFit": "An atom bomb is a nuclear weapon, the textbook example of a weapon able to destroy on a mass scale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1160,56 @@
     "text": "Terrorists and North way in to to arms scandal",
     "enumeration": "8"
    },
-   "solution": "IRANGATE"
+   "solution": "IRANGATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRANGATE",
+    "definitions": [
+     {
+      "text": "arms scandal",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and",
+     "to to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Terrorists",
+      "gives": "IRA",
+      "note": "the Irish Republican Army"
+     },
+     {
+      "clueFragment": "North",
+      "gives": "N",
+      "note": "N is the abbreviation for North"
+     },
+     {
+      "clueFragment": "way in",
+      "gives": "GATE",
+      "note": "a gate is a way in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRA",
+      "N",
+      "GATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Terrorists from the north find an entrance into an arms deal.",
+     "walkthrough": "The clue as published repeats 'to'. Irangate, or Iran-Contra, was the 1980s US scandal over secret arms sales to Iran.",
+     "definitionFit": "Irangate was the Reagan-era affair in which weapons were sold covertly to Iran, a political scandal about arms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1223,51 @@
     "text": "Acid-like shower covers Rio",
     "enumeration": "9"
    },
-   "solution": "CORROSIVE"
+   "solution": "CORROSIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORROSIVE",
+    "definitions": [
+     {
+      "text": "Acid-like",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shower",
+      "for": "anagram",
+      "note": "a shower scatters things about as they fall, so these letters come down in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "covers Rio",
+      "gives": "COVERSRIO",
+      "note": "the nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COVERSRIO",
+       "gives": "CORROSIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Acid rain falls over Rio de Janeiro.",
+     "walkthrough": "'Shower' reads as rain, the subject of the sentence, but it tells you to scatter the letters.",
+     "definitionFit": "Acids eat away at metal and stone, and corrosive describes any substance with that destructive, eating action."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1281,56 @@
     "text": "Curtis Strange's sort of course, they say",
     "enumeration": "6"
    },
-   "solution": "RUSTIC"
+   "solution": "RUSTIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUSTIC",
+    "definitions": [
+     {
+      "text": "sort of course, they say",
+      "at": 17,
+      "note": "'course, they say' sounds like coarse, so this means rough or unrefined"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Strange",
+      "for": "anagram",
+      "note": "a strange arrangement is an unfamiliar one, so the name before it is rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curtis",
+      "gives": "CURTIS",
+      "note": "the six letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CURTIS",
+       "gives": "RUSTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The kind of golf course the American champion Curtis Strange prefers.",
+     "walkthrough": "Curtis Strange is a golfer, so 'course' suggests a golf course; 'they say' turns it into its sound-alike coarse.",
+     "definitionFit": "Rustic means simple and unrefined, as country things are thought to be, which is a sort of coarse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Strange"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1344,64 @@
     "text": "Climber needs a fix to make the return",
     "enumeration": "5"
    },
-   "solution": "LIANA"
+   "solution": "LIANA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LIANA",
+    "definitions": [
+     {
+      "text": "Climber",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to make the return",
+      "for": "reversal",
+      "note": "making a return means going back the way you came, so the pieces are read backwards"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fix",
+      "gives": "NAIL",
+      "note": "to nail something is to fix it in place"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIAN",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ANAIL",
+       "to": "LIANA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mountaineer needs a fixed rope or peg to get back down.",
+     "walkthrough": "'Climber' suggests a mountaineer, but it is a plant.",
+     "definitionFit": "A liana is a long woody vine of tropical forests that climbs up trees toward the light."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Climber"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1415,49 @@
     "text": "General method is slack",
     "enumeration": "6"
    },
-   "solution": "LEEWAY"
+   "solution": "LEEWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEEWAY",
+    "definitions": [
+     {
+      "text": "slack",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "General",
+      "gives": "LEE",
+      "note": "Robert E. Lee, the Confederate general"
+     },
+     {
+      "clueFragment": "method",
+      "gives": "WAY",
+      "note": "a way of doing something is a method"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEE",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "The general's approach is lazy.",
+     "definitionFit": "Leeway is room for manoeuvre or allowance, the same as slack given in a rope or schedule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "General"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1471,53 @@
     "text": "Mixed beans go into food container",
     "enumeration": "7"
    },
-   "solution": "NOSEBAG"
+   "solution": "NOSEBAG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOSEBAG",
+    "definitions": [
+     {
+      "text": "food container",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mixed",
+      "for": "anagram",
+      "note": "mixing stirs the contents together, so these letters lose their original order"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beans go",
+      "gives": "BEANSGO",
+      "note": "the seven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEANSGO",
+       "gives": "NOSEBAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mixture of beans is tipped into a lunchbox.",
+     "definitionFit": "A nosebag is a bag of feed hung over a horse's head, so it holds the animal's food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mixed"
+    }
+   }
   },
   {
    "number": 22,
@@ -387,7 +1531,50 @@
     "text": "Refusal to sanction a recess",
     "enumeration": "4"
    },
-   "solution": "NOOK"
+   "solution": "NOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOOK",
+    "definitions": [
+     {
+      "text": "a recess",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refusal",
+      "gives": "NO",
+      "note": "no is a refusal"
+     },
+     {
+      "clueFragment": "sanction",
+      "gives": "OK",
+      "note": "to OK something is to approve or sanction it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "OK"
+     ]
+    },
+    "explanation": {
+     "surface": "Parliament declines to approve a holiday break.",
+     "walkthrough": "'Recess' suggests a parliamentary holiday, but it is an alcove.",
+     "definitionFit": "A nook is a small sheltered corner or alcove in a room, which is what a recess in a wall is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recess"
+    }
+   }
   },
   {
    "number": 23,
@@ -401,7 +1588,50 @@
     "text": "Father figure has a load to carry",
     "enumeration": "7"
    },
-   "solution": "FREIGHT"
+   "solution": "FREIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREIGHT",
+    "definitions": [
+     {
+      "text": "load to carry",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "has a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "EIGHT",
+      "note": "eight is a figure, a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "EIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A dad has a heavy burden to bear.",
+     "walkthrough": "'Father figure' reads as one phrase but splits into two pieces.",
+     "definitionFit": "Freight is goods transported by lorry, ship or train, a cargo load to be carried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1645,59 @@
     "text": "Initially foreign editors expose government people",
     "enumeration": "4"
    },
-   "solution": "FEDS"
+   "solution": "FEDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FEDS",
+    "definitions": [
+     {
+      "text": "government people",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the next word is used"
+     }
+    ],
+    "linkWords": [
+     "expose"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreign",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of foreign"
+     },
+     {
+      "clueFragment": "editors",
+      "gives": "EDS",
+      "note": "ed is short for editor, so eds are editors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Overseas newspaper editors uncover state officials.",
+     "walkthrough": "Feds is US slang for federal agents, such as the FBI.",
+     "definitionFit": "Feds are officers of the US federal government, especially federal law-enforcement agents."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expose"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1711,56 @@
     "text": "Investigator's uncertainty after taking love drug",
     "enumeration": "5"
    },
-   "solution": "OPIUM"
+   "solution": "OPIUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPIUM",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "after taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "Investigator",
+      "gives": "PI",
+      "note": "a private investigator"
+     },
+     {
+      "clueFragment": "uncertainty",
+      "gives": "UM",
+      "note": "um is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PI",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective is unsure after taking a love potion.",
+     "definitionFit": "Opium is a narcotic made from poppy sap, an addictive drug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1780,46 @@
      }
     ]
    },
-   "solution": "OLDMASTER"
+   "solution": "OLDMASTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OLD MASTER",
+    "definitions": [
+     {
+      "text": "painter",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ex",
+      "gives": "OLD",
+      "note": "ex means former, old"
+     },
+     {
+      "clueFragment": "graduate",
+      "gives": "MASTER",
+      "note": "a master is a holder of a master's degree, a graduate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "MASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A former university student who now paints.",
+     "definitionFit": "An Old Master is a great European artist from before about 1800, or one of their paintings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "graduate"
+    }
+   }
   }
  ]
 }
