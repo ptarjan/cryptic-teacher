@@ -709,6 +709,10 @@ def position_of(series, number):
     return split_number(series, number)[1]
 
 
+#: Every date on a puzzle row or list, "Sat 3 Oct 2026". app.js puzzleDate().
+ROW_DATE_FMT = "%a %-d %b %Y"
+
+
 def display_number(series, number):
     """The number as a reader is shown it, with the word that introduces it.
 

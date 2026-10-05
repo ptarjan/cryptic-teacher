@@ -3855,7 +3855,7 @@
     // on the table.
     const defStep = steps[steps.length - 1];
     if ((ann.linkWords || []).length && defStep) {
-      const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(", ");
+      const lw = ann.linkWords.map((w) => `<mark class="link">${esc(w)}</mark>`).join(LIST_SEP);
       defStep.html += `<p class="muted">${lw} ${ann.linkWords.length > 1 ? "are" : "is"}
         just a link — words that join the definition to the wordplay and add
         no letters of their own.</p>`;
@@ -3866,7 +3866,7 @@
       // A blog marks its indicators and credits them to a mechanism only when
       // it names a single type, so pairing its words with operations would guess.
       const ops = ann.fromBlog ? [] : indicatorOps(t, ann.blocks || []);
-      const marks = inds.map((i) => `<mark class="ind">${esc(i.text)}</mark>`).join(", ");
+      const marks = inds.map((i) => `<mark class="ind">${esc(i.text)}</mark>`).join(LIST_SEP);
       // What is only true of THIS clue comes first: an indicator's `note` says
       // why these words signal their mechanism here, and failing that its `for`
       // names the operation it asks for. Where every indicator has one of the
@@ -5306,7 +5306,7 @@
         legend.push('<mark class="link">link words</mark>');
       }
       if (legend.length) {
-        bodyHTML += `<div class="legend">${legend.join(" · ")} highlighted in the clue above</div>`;
+        bodyHTML += `<div class="legend">${legend.join(LIST_SEP)} highlighted in the clue above</div>`;
       }
 
       // A rung that has been asked for but not yet handed over: the solver is
@@ -6059,7 +6059,7 @@
     whenStartedLoaded(() => {
       if (!P || P.id !== id || milestoneNote.id !== id) return;
       const hit = solverStats(Date.now()).milestones.filter((m) => m.id === id && (any || m.at === stamp));
-      milestoneNote.text = hit.map((m) => m.label).join(" · ");
+      milestoneNote.text = hit.map((m) => m.label).join(LIST_SEP);
       drawScoreExtras();
     });
   }
@@ -6368,6 +6368,8 @@
   function dayWords(y, m, d, short) {
     return `${d} ${short ? MONTHS[m].slice(0, 3) : MONTHS[m]} ${y}`;
   }
+  // Between the items of every list the app prints (tools/build_abbreviations.py LIST_SEP).
+  const LIST_SEP = " · ";
   function localDay(t) { return dayWords(t.getFullYear(), t.getMonth(), t.getDate(), true); }
   function puzzleDate(p) {
     if (p.year !== undefined) {
@@ -7084,7 +7086,7 @@
                      : "not one hint used");
     if (mins) bits.push(`<strong>${mins}</strong> minute${mins === 1 ? "" : "s"} at it`);
     parts.line.innerHTML = `<p class="shout">Finished — you completed the whole grid.</p>`
-      + `<p class="tally">${bits.join(" · ")}</p>`
+      + `<p class="tally">${bits.join(LIST_SEP)}</p>`
       + voteRowHTML(voteTarget(null), "How was the puzzle?", "Enjoyed it", "Not really");
     wireVotes(parts.line, () => celebrate(true, false));
     // The box sits between the title and the grid, so where it is at the moment

@@ -105,6 +105,9 @@ row = B.hub_row(meta["cryptic-8"])
 check("an archive row opens the app and links the answer page beside it",
       row.startswith(f'<li><a href="{B.BASE}/?p=cryptic-8">')
       and f'<a class="p-answers" href="{B.BASE}/puzzles/cryptic-8/">answers</a></li>' in row, row)
+import re
+check("an archive row dates itself in the app list's short form",
+      re.search(r'<span class="p-meta">(\w{3} \d{1,2} \w{3} \d{4}|\d{4})</span>', row), row)
 listing = f'<ul class="s-index">{row}</ul>'
 check("the archive listings may link answer pages beside the row, their crawl path",
       not refused("puzzles/series/cryptic/2020/index.html", listing))

@@ -63,7 +63,9 @@ M = lambda t: re.match(r"<!-- indicators: (\w+) -->", f"<!-- indicators: {t} -->
 b.LEARN_INLINE, b.LEARN_TABLE = 2, 3
 plain = lambda h: re.sub(r"<[^>]+>|&nbsp;", " ", h).split()
 check("an inline list is the head, ranked, with counts",
-      ["variety", "9", ",", "touched", "5"], plain(b.learn_indicators(M("anagram"))))
+      ["variety", "9", "&middot;", "touched", "5"], plain(b.learn_indicators(M("anagram"))))
+check("an inline list is joined with the site's dot, not a comma",
+      True, b.build_abbreviations.LIST_SEP in b.learn_indicators(M("anagram")) and "," not in b.learn_indicators(M("anagram")))
 table = b.learn_indicators(M("table"))
 check("the table has a row per type, each capped and linked to its full list",
       [("Anagram", 3, "anagram", "5"), ("Reversal", 1, "reversal", "1"), ("Charade", 1, "charade", "1")],
