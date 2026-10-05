@@ -559,9 +559,13 @@ RULE_OPS = {
     "reversed": lambda w: {w[::-1]},
     "vowels removed": lambda w: {re.sub("[AEIOU]", "", w)},
     "a letter dropped": lambda w: {w[:i] + w[i + 1:] for i in range(len(w))},
+    "a letter dropped or added": lambda w: {w[:i] + w[i + 1:] for i in range(len(w))},
     "a letter dropped wherever it occurs": lambda w: {w.replace(c, "") for c in set(w)},
-    "shifted one letter on": lambda w: {"".join(chr((ord(c) - 64) % 26 + 65) for c in w)},
+    "Caesar-shifted": lambda w: {"".join(chr((ord(c) - 65 + k) % 26 + 65) for c in w) for k in range(1, 26)},
 }
+#: Rules that go both ways: the entry is the answer made by the rule, or
+#: the answer is the entry made by it (a letter added is one dropped back).
+TWO_WAY = {"a letter dropped or added"}
 #: Each Genius whose preamble alters answers in a way code can check: the
 #: rule (RULE_OPS) code applies to make entries the post may not print, or
 #: None, and the alteration ops its entries may take. An entry differing
@@ -571,10 +575,10 @@ ALTERED_BY = {
     181: ("a letter dropped", {"deletion"}),  # "one letter too long for the grid"
     196: ("a letter dropped", {"deletion"}),  # "a letter removed before entry"
     197: ("vowels removed", {"deletion"}),    # "ll vwls hv bn rmvd frm bth cls nd sltns"
-    210: ("shifted one letter on", {"substitution"}),  # the preamble enciphered so
+    210: ("Caesar-shifted", {"substitution"}),  # the preamble enciphered so; PATH as ALES
     216: (None, {"anagram"}),                 # downs "treated" by the acrosses: letters sorted
     220: (None, {"substitution"}),            # Morse code's dots and dashes swapped
-    221: ("a letter dropped", {"deletion", "insertion"}),  # 8 a letter long, 8 a letter short
+    221: ("a letter dropped or added", {"deletion", "insertion"}),  # 8 a letter long, 8 a letter short
     222: (None, {"substitution"}),            # acrosses entered as homophones
     226: (None, {"substitution"}),            # "one single-letter change"
     239: ("a letter dropped", {"deletion"}),  # "entered without this letter"
@@ -585,7 +589,9 @@ ALTERED_BY = {
 NAMED_ENTRY = re.compile(r"(?i:entered as|entry(?: is)?:?|enter(?:ing)?|becomes?|giving|gives|"
                          r"→|->|=>|>)\s*[‘'\"(]?([A-Z]+(?:[ '’\-][A-Z]+)*)(?![a-z])")
 #: The capitals a post line opens with, its number stripped.
-HEADLINE = re.compile(r"\s*[‘'\"]?([A-Z]+(?:[ '’\-][A-Z]+)*)(?![a-z])")
+#: A one-letter word carries on only into more capitals: "CATCH A COLD",
+#: not "EXTREMISM I think".
+HEADLINE = re.compile(r"\s*[‘'\"]?([A-Z]+(?:[ '’\-](?:[A-Z]{2,}|[A-Z](?=[ '’\-][A-Z])))*)(?![a-z])")
 #: The same with letters bracketed off, "HOOT(NANNY)", "[BORIS] GODUNOV".
 BRACKETED = re.compile(r"\s*((?:[\[(]?[A-Z]+[\])]?)(?:[ '’\-]?[\[(]?[A-Z]+[\])]?)*)(?![a-z])")
 
@@ -725,10 +731,14 @@ def assemble_altered(number, pdf, post, date, url):
         if not words:
             return None, f"no entry the post or rule gives fits {first[0]} {first[1]}"
         slots[first] = (cells, words)
-    fills = unique_fill(slots)
-    if len(fills) != 1:
-        return None, f"{len(fills) or 'no'} fills of the post's entries agree at every crossing"
-    fill = fills[0]
+    # Of the fills whose crossings all agree, the one taking fewest words
+    # the rule made rather than the post printed; a tie files nothing.
+    fills = unique_fill(slots, limit=50)
+    made = [sum(w not in said[k] for k, w in f.items()) for f in fills]
+    best = [f for f, m in zip(fills, made) if m == min(made, default=0)]
+    if len(best) != 1 or len(fills) == 50:
+        return None, f"{len(best) or 'no'} fills of the post's entries agree at every crossing"
+    fill = best[0]
     at = {cell: ch for k, w in fill.items() for cell, ch in zip(slots[k][0], w)}
     for l in unclued:
         if l not in fill:
@@ -736,11 +746,18 @@ def assemble_altered(number, pdf, post, date, url):
                 return None, f"unclued {l[0]} {l[1]}: the post prints no entry and crossings leave a square open"
             fill[l] = "".join(at[cell] for cell in lights[l])
             said[l] = [fill[l]]
-    # The answer is the first word the post prints that is the entry or
-    # that an op the preamble allows turns into it.
+    # The answer: where the preamble's rule is code's, the first word the
+    # post prints that the rule turns into the entry, else the entry itself;
+    # otherwise the first word printed that is the entry or that an op the
+    # preamble allows turns into it.
     altered = {}
     for k, w in fill.items():
-        frm = next((x for x in said[k] if x == w or steps_for(x, w, ops)), None)
+        if rule:
+            frm = next((x for x in said[k] if x != w and steps_for(x, w, ops) and (
+                w in RULE_OPS[rule](x) or (rule in TWO_WAY and x in RULE_OPS[rule](w)))),
+                w if w in said[k] else None)
+        else:
+            frm = next((x for x in said[k] if x == w or steps_for(x, w, ops)), None)
         if frm is None:
             return None, f"{k[0]} {k[1]}: no {'/'.join(sorted(ops)) or 'alteration the preamble allows'} turns what the post prints ({', '.join(said[k][:3])}) into {w}"
         if frm != w:
