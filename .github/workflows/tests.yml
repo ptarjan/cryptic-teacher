@@ -105,10 +105,12 @@ jobs:
         # removing an entry here is the only edit a reshard needs.
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     # A run that stops making progress otherwise sits on GitHub's 6h default,
-    # holding a red check over every commit behind it. A shard is about seven
-    # minutes of checkout, build and scripts; fifteen leaves room for a slow
-    # runner, and a shard near it means ci_shards.js's COST needs re-measuring.
-    timeout-minutes: 15
+    # holding a red check over every commit behind it. A shard is a few minutes
+    # of checkout, build and scripts when the smoke test's results are cached,
+    # and longer after a code change re-runs it over the whole corpus; thirty
+    # leaves room for that, and a shard near it means ci_shards.js's COST or
+    # SLICES needs re-measuring.
+    timeout-minutes: 30
     defaults:
       run:
         shell: bash .github/offline.sh {0}
@@ -124,6 +126,15 @@ jobs:
       # filer, the title band finder) need them.
       - run: pip install numpy pillow pypdf opencv-python-headless
         shell: bash
+      # The smoke test's per-puzzle results from earlier runs (tools/ci_cache.js):
+      # the newest entry, which on master is the last master run that saved.
+      # A miss leaves no file, and every puzzle is checked.
+      - name: Restore the corpus result cache
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/ci-cache.json
+          key: ci-results-${{ github.sha }}
+          restore-keys: ci-results-
       # The loop globs both of the repo's test-file spellings and asks
       # tools/ci_shards.js for this shard's slice. An item is a script, or
       # "<script> i/n" for one slice of a script too heavy for a single job.
@@ -145,6 +156,11 @@ jobs:
             echo "shard $SHARD of $SHARDS was handed no tests out of ${#all[@]}"
             exit 1
           fi
+          # A slice of a cached check whose every puzzle already passed with this
+          # code has nothing to do (tools/ci_cache.js); slice 0 always runs.
+          node tools/ci_cache.js --drop-cached "$RUNNER_TEMP/ci-cache.json" \
+            < "$RUNNER_TEMP/mine" > "$RUNNER_TEMP/todo"
+          mv "$RUNNER_TEMP/todo" "$RUNNER_TEMP/mine"
           cat "$RUNNER_TEMP/mine"
           if node tools/ci_shards.js --needs-pages < "$RUNNER_TEMP/mine"; then
             echo "pages=true" >> "$GITHUB_OUTPUT"
@@ -165,43 +181,26 @@ jobs:
       - name: Build the pages the tests read
         if: steps.pick.outputs.pages == 'true'
         run: python3 tools/build_seo_pages.py
-      # The smoke test sweeps a fixed sample of the corpus plus every puzzle
-      # this push or PR touched; the whole corpus is nightly-smoke.yml's. The
-      # changed paths come from a diff against the base, fetched as a bare
-      # commit with no blobs (a name-only diff needs only the trees). Before the
-      # network is cut. A base that cannot be fetched (a new branch, a forced
-      # push) falls back to the commit's parent.
-      - name: List the puzzle files this change touched
-        if: steps.pick.outputs.pages == 'true'
-        shell: bash
-        env:
-          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
-        run: |
-          if [ -n "$BASE" ] && git fetch -q --depth=1 --filter=blob:none origin "$BASE" 2>/dev/null; then
-            from=$BASE
-          else
-            git fetch -q --depth=2 origin HEAD 2>/dev/null || true
-            from=HEAD^
-          fi
-          {
-            echo "CT_CHANGED<<EOF"
-            git diff --name-only "$from" HEAD -- puzzles/ || true
-            echo "EOF"
-          } >> "$GITHUB_ENV"
-          echo "changed puzzle files: $(git diff --name-only "$from" HEAD -- puzzles/ | wc -l)"
       - name: Run this shard of the test scripts
+        env:
+          SHARD: ${{ matrix.shard }}
         run: |
           mapfile -t mine < "$RUNNER_TEMP/mine"
           before=$(git status --porcelain)
           fails=()
           # ci_shards.js's PARALLEL items start at once, in the background,
           # each logging to its own file; the rest run one by one beside them.
+          # Each reads the result cache and, when it passes, writes what it
+          # checked to results/ for the cache job.
+          mkdir -p "$RUNNER_TEMP/results"
           mapfile -t par < <(node tools/ci_shards.js --parallel < "$RUNNER_TEMP/mine")
           mapfile -t seq < <(node tools/ci_shards.js --serial < "$RUNNER_TEMP/mine")
           pids=()
           for n in "${!par[@]}"; do
             item=${par[$n]}
-            CI_SLICE="${item#* }" node "${item%% *}" > "$RUNNER_TEMP/par-$n.log" 2>&1 &
+            CI_SLICE="${item#* }" CT_CACHE="$RUNNER_TEMP/ci-cache.json" \
+              CT_RESULTS_OUT="$RUNNER_TEMP/results/$SHARD-$n.json" \
+              node "${item%% *}" > "$RUNNER_TEMP/par-$n.log" 2>&1 &
             pids+=($!)
           done
           for item in "${seq[@]}"; do
@@ -246,6 +245,66 @@ jobs:
             exit 1
           fi
           echo "shard: ${#mine[@]} test item(s) passed"
+      # Even from a red shard: a slice writes its results only when it passed.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: results-${{ matrix.shard }}
+          path: ${{ runner.temp }}/results/
+          if-no-files-found: ignore
+
+  # Folds the passing slices' results into the restored cache and saves it
+  # under this commit, so the next run checks only what changed. Fails when a
+  # puzzle has no passing result for the current code (every push checks the
+  # whole corpus) or the corpus lost a rare shape the smoke test needs
+  # (tools/check_shapes.js over the union the cache keeps). Saved even then:
+  # what is in it passed.
+  cache:
+    name: corpus result cache
+    runs-on: ubuntu-latest
+    needs: test
+    if: always()
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      # The trees are all ci_cache.js reads (git ls-tree), so no blobs.
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            .github
+            tools
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/cache/restore@v4
+        with:
+          path: ${{ runner.temp }}/ci-cache.json
+          key: ci-results-${{ github.sha }}
+          restore-keys: ci-results-
+      # None to download is not an error here: merge fails on any puzzle left
+      # without a passing result, which is the check that matters.
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: results-*
+          path: ${{ runner.temp }}/results
+          merge-multiple: true
+      - name: Merge this run's results into the cache
+        id: merge
+        run: |
+          node tools/ci_cache.js merge "$RUNNER_TEMP/ci-cache.json" "$RUNNER_TEMP/results" \
+            "$RUNNER_TEMP/ci-cache.json" "$RUNNER_TEMP/shapes"
+      - name: The corpus still holds every rare shape
+        if: always() && steps.merge.outcome != 'skipped'
+        run: node tools/check_shapes.js "$RUNNER_TEMP/shapes"
+      - uses: actions/cache/save@v4
+        if: always() && steps.merge.outcome != 'skipped'
+        with:
+          path: ${{ runner.temp }}/ci-cache.json
+          key: ci-results-${{ github.sha }}-${{ github.run_attempt }}
 
   # The single check that means the suite is green. It runs even when something
   # it needs failed — `if: always()` — because a skipped job has no conclusion
@@ -253,7 +312,7 @@ jobs:
   tests-passed:
     name: tests-passed
     runs-on: ubuntu-latest
-    needs: [generated, test]
+    needs: [generated, test, cache]
     if: always()
     timeout-minutes: 5
     steps:
@@ -262,10 +321,12 @@ jobs:
           GENERATED: ${{ needs.generated.result }}
           # For a matrix job this is 'success' only when every shard succeeded.
           TESTS: ${{ needs.test.result }}
+          CACHE: ${{ needs.cache.result }}
         run: |
           echo "generated files are current: $GENERATED"
           echo "test shards: $TESTS"
-          if [ "$GENERATED" = success ] && [ "$TESTS" = success ]; then
+          echo "corpus result cache: $CACHE"
+          if [ "$GENERATED" = success ] && [ "$TESTS" = success ] && [ "$CACHE" = success ]; then
             echo "all test scripts passed"
             exit 0
           fi

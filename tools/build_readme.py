@@ -508,6 +508,7 @@ LAYOUT = [
     ("fetching", "tools/test_discard_alert.sh", "does a rejected annotation alert only when the puzzle is parked?"),
     ("fetching", "tools/check_shapes.js", "the corpus-wide half of tools/smoke_test.js's shape() checks"),
     ("fetching", "tools/ninas.py", "unannounced messages in finished grids that blogs point out, each checked against our grid"),
+    ("fetching", "tools/ci_cache.js", "the per-puzzle result cache that lets every push check the whole corpus"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

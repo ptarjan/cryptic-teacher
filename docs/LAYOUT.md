@@ -1475,5 +1475,7 @@ tools/check_shapes.js                        the corpus-wide half of tools/smoke
                                              shape() checks
 tools/ninas.py                               unannounced messages in finished grids that blogs
                                              point out, each checked against our grid
+tools/ci_cache.js                            the per-puzzle result cache that lets every push
+                                             check the whole corpus
 ```
 <!-- LAYOUT-END -->
