@@ -504,6 +504,7 @@ LAYOUT = [
     ("fetching", "tools/test_prereset_index_lock.sh", "do the pool's concurrent runs commit only their own puzzle?"),
     ("fetching", "tools/test_anagram_ring.sh", "a clue typed anagram gets the anagram ring: app.js deals the whole-answer anagram's fodder, else the longest part-anagram's, and the validator warns (ratcheted as assembly.anagrams) when a clue typed anagram names no fodder"),
     ("fetching", "tools/test_discard_alert.sh", "does a rejected annotation alert only when the puzzle is parked?"),
+    ("fetching", "tools/check_shapes.js", "the corpus-wide half of tools/smoke_test.js's shape() checks"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

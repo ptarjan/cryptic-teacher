@@ -37,7 +37,7 @@
 # SAMPLE and NUMBERLESS_SAMPLE take it as far as you have patience for.
 #
 # Before any of that, the conventions the search leans on are re-counted over
-# all 15,931 puzzles. Every one of them was measured off this corpus rather
+# every 40th puzzle (all of them under CT_FULL=1, which the nightly sets). Every one of them was measured off this corpus rather
 # than taken from a book on crossword construction, and a corpus that has
 # grown a series since is a corpus that can have quietly falsified one —
 # "no light shorter than three" and "at least half of every light is checked"
@@ -156,14 +156,21 @@ check "$out0" "NAMES_ASYMMETRY ['not 180-degree symmetric']" \
 same "and a puzzle whose printed numbering is not its grid's is told apart from it" \
   "$(field SPOTS_BAD_LIST "$out0")" "True"
 
-echo "the conventions, re-counted over every puzzle on disk"
+# Every STEP-th puzzle on disk, in file order, which is a fixed and evenly
+# spread draw. CT_FULL=1 (the nightly job) takes all of them: the recount over
+# the whole corpus was most of this script's two minutes, and a convention that
+# a fortieth of the corpus satisfies and the rest breaks is found by the night.
+if [ -n "${CT_FULL:-}" ]; then STEP=1; else STEP="${RECONSTRUCT_STEP:-40}"; fi
+export STEP
+echo "the conventions, re-counted over every ${STEP}th puzzle on disk (all of them when CT_FULL is set)"
 out1=$(PYTHONPATH="$REPO/tools" python3 - <<'PY'
+import os
 import reconstruct_grid as R
 from fetch_puzzle import read_puzzle_file, puzzle_files
 
 total = sym = min2_row = min2_col = gap_row = gap_col = 0
 thin = short = 0
-for path in puzzle_files():
+for path in list(puzzle_files())[::int(os.environ["STEP"])]:
     puzzle = read_puzzle_file(path)
     # An unclued light's cells are in no entry, so the entries do not describe
     # its grid; these conventions are about grids the entries draw whole. A
@@ -254,10 +261,12 @@ least "at least 99.5% of grids are 180-degree symmetric" \
 # The mirror image of the rules above: two rules the tool deliberately does
 # not enforce, held out of it because this corpus breaks them. The day the
 # corpus stops breaking them is the day that sentence needs rewriting.
+# A two-cell light is rare enough that a sample can hold none, so it is the
+# full pass that says one exists; the under-half count scales with the draw.
 least "some puzzle still has a two-cell light, so no minimum length may be imposed" \
-  "$(field HAS_A_TWO_CELL_LIGHT "$out1")" "1"
+  "$(field HAS_A_TWO_CELL_LIGHT "$out1")" "$([ "$STEP" = 1 ] && echo 1 || echo 0)"
 least "thousands still have a light under half checked, so no checking rule may be imposed" \
-  "$(field HAS_A_LIGHT_UNDER_HALF_CHECKED "$out1")" "1000"
+  "$(field HAS_A_LIGHT_UNDER_HALF_CHECKED "$out1")" "$((1000 / STEP))"
 
 echo "reconstruction against the corpus, sampled across every series and size"
 out2=$(SAMPLE="${SAMPLE:-26}" NUMBERLESS_SAMPLE="${NUMBERLESS_SAMPLE:-4}" \

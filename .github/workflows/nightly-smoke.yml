@@ -37,4 +37,56 @@ jobs:
           python3 tools/build_abbreviations.py
           python3 tools/fetch_puzzle.py --reindex
       - run: python3 tools/build_seo_pages.py
-      - run: CT_FULL=1 CI=1 CI_SLICE=${{ matrix.slice }}/16 node tools/smoke_test.js
+      - run: |
+          mkdir -p "$RUNNER_TEMP/shapes"
+          CT_FULL=1 CI=1 CI_SLICE=${{ matrix.slice }}/16 \
+            CT_SHAPES_OUT="$RUNNER_TEMP/shapes/slice-${{ matrix.slice }}.json" node tools/smoke_test.js
+      # Which rare shapes this slice saw, for the job below. Even when the slice
+      # failed: a missing report is itself a failure there.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: shapes-${{ matrix.slice }}
+          path: ${{ runner.temp }}/shapes/slice-${{ matrix.slice }}.json
+          if-no-files-found: ignore
+
+  # "The corpus holds an example of X" is true when SOME slice saw X, so it is
+  # asserted here over the union (tools/check_shapes.js), and fails loudly when
+  # a slice never reported.
+  shapes:
+    name: corpus shapes
+    needs: smoke
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shapes-*
+          path: shapes
+          merge-multiple: true
+      - run: node tools/check_shapes.js shapes
+
+  # The full-corpus pass of the script tests.yml runs on a sample.
+  reconstruct:
+    name: reconstruct_grid over the whole corpus
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash .github/offline.sh {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy pillow pypdf opencv-python-headless
+        shell: bash
+      - run: |
+          python3 tools/build_abbreviations.py
+          python3 tools/fetch_puzzle.py --reindex
+      - run: CT_FULL=1 bash tools/test_reconstruct_grid.sh

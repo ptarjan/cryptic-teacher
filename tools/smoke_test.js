@@ -550,9 +550,19 @@ if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_IN
 // that statement. So the floor stands in CI and becomes "more than none" here.
 // A slice holds about 1/n of the corpus, so it owes about 1/n of the floor.
 const enough = (n, floor) => n > (FULL ? floor / SLICE.n : 0);
-// A shape the corpus holds a few dozen of is in some slices and not others, so
-// that the corpus holds one at all is said by the unsliced full run alone.
-const WHOLE = FULL && SLICE.n === 1;
+// "The corpus holds an example of rare shape X" is a statement about the whole
+// corpus, which no sample and no single slice can make: a sample may hold none
+// and a slice holds a sixteenth. So such a check goes through shape(). A run
+// that finds none skips the section that needed one; it never fails on that
+// alone. Under CT_FULL each slice writes which shapes it saw to $CT_SHAPES_OUT
+// (end of this file), and tools/check_shapes.js, run once after every slice by
+// nightly-smoke.yml, fails on a shape no slice saw or a slice that never
+// reported. The section itself still runs wherever an example turns up.
+const shapesSeen = {};
+const shape = (name, found) => {
+  shapesSeen[name] = shapesSeen[name] || !!found;
+  return !!found;
+};
 // Which blocks are building blocks and what each shows, read out of app.js, so
 // the test and the app cannot disagree about which piece is which.
 const APP_BLOCKS = (() => {
@@ -2059,7 +2069,7 @@ const noneAnnotated = (p) => {
   return puz && !puz.blog && puz.entries.every((e) => !e.annotation);
 };
 const autoPuzzle = allPuzzles.find((p) => !p.annotated && p.hasSolutions && noneAnnotated(p));
-const autoRow = assert(autoPuzzle, "the corpus holds a puzzle with no annotation and no blog")
+const autoRow = shape("a puzzle with no annotation and no blog", autoPuzzle)
   && pickerRowFor(autoPuzzle.id);
 // Guarded: everything below is about the row, so without it the reads throw
 // and the stack trace hides every later test rather than reporting one FAIL.
@@ -2166,7 +2176,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     && !(e.blog.inferred || []).includes("definitions");
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog
     && puzzles[p.id].entries.some(blogDef));
-  if (assert(target, "the sample holds an un-annotated puzzle with blog facts")) {
+  if (shape("an un-annotated puzzle with blog facts", target)) {
     const puz = puzzles[target.id];
     const e = puz.entries.find(blogDef);
     // As the page prints it: "Big Dave's" arrives as "Big Dave&#39;s".
@@ -2303,9 +2313,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     && (x.blog.inferred || []).includes("type") && x.blog.typeCore
     && !(x.blog.definitions || []).length && !(x.blog.blocks || []).length && !(x.blog.indicators || []).length);
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
-  // Rare enough that some slices hold none; the unsliced run must find one.
-  if ((target || SLICE.n === 1)
-      && assert(target, "the sample holds an un-annotated clue whose only blog fact is an inferred core type")
+  if (shape("an un-annotated clue whose only blog fact is an inferred core type", target)
       && openFromPicker(target.id)) {
     const e = hit(target);
     registry["clue-" + entryId(e)].listeners.click[0]();
@@ -2328,7 +2336,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   const hit = (p) => (puzzles[p.id].entries || []).find((x) => !x.annotation && x.blog
     && (x.blog.blocks || []).some(piece(x)));
   const target = allPuzzles.find((p) => !p.annotated && puzzles[p.id] && puzzles[p.id].blog && hit(p));
-  if (assert(target, "the sample holds an un-annotated clue with blog blocks") && openFromPicker(target.id)) {
+  if (shape("an un-annotated clue with blog blocks", target) && openFromPicker(target.id)) {
     const e = hit(target);
     registry["clue-" + entryId(e)].listeners.click[0]();
     for (let guard = 0; guard < 20; guard++) {
@@ -2546,7 +2554,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         if (JSON.stringify((e.annotation || {}).type) === '["cryptic_definition"]') cds.push({ id, e });
       }
     }
-    assert(cds.length, "the corpus still has a cryptic definition to check");
+    shape("a cryptic definition whose answer the ladder must not leak", cds.length);
     // The fixed prose is the family blurbs and every literal stretch of the
     // rungs' html templates in app.js: "picture something else at first" is
     // not a leak of FIRST.
@@ -2615,7 +2623,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         if (says(prose.join(" "), a.answer)) hits.push({ id, e });
       }
     }
-    assert(hits.length || !FULL, "the corpus still has a clue whose answer is a word of its own family or type prose");
+    shape("a clue whose answer is a word of its own family or type prose", hits.length);
     for (const h of hits) {
       openClue(h);
       for (let i = 0; i < 8; i++) {
@@ -2649,7 +2657,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         }
       }
     }
-    assert(risky.length, "the corpus still has a block whose letters are the whole answer");
+    shape("a block whose letters are the whole answer", risky.length);
     for (const r of risky) {
       openClue(r);
       for (let i = 0; i < 8; i++) {
@@ -3068,8 +3076,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       }
     }
     assert(seenTypes.size > 20, "the sweep saw the corpus's variety of types: " + seenTypes.size);
-    // A statement about the whole corpus: the nightly's sample can hold none.
-    assert(!WHOLE || repeatedDefs.length, "the sweep saw a clue whose definition's words occur twice in it");
+    shape("a clue whose definition's words occur twice in it", repeatedDefs.length);
     // Five rungs exist, so five names exist. A sixth means a branch phrased a
     // label for its clue type, whatever the wording turned out to be.
     const LABEL_SET = LADDER.map((r) => r.label);
@@ -4483,6 +4490,12 @@ global.realSetTimeout(() => {
   // pile of undated saves.
   assert(saved && typeof saved.updated === "number" && saved.updated > 0,
     "every save is timestamped, so it can be merged later even if sync is off today");
+  const missing = Object.keys(shapesSeen).filter((k) => !shapesSeen[k]);
+  if (process.env.CT_SHAPES_OUT) {
+    fs.writeFileSync(process.env.CT_SHAPES_OUT, JSON.stringify({ slice: SLICE.i, of: SLICE.n, shapes: shapesSeen }));
+  } else if (missing.length) {
+    console.log(`(no example here of: ${missing.join("; ")}; the nightly run checks the corpus holds them)`);
+  }
   console.log(failures ? `\n${failures} FAILURE(S)` : "\nSMOKE TEST PASSED");
   process.exit(failures ? 1 : 0);
 }, 400);
@@ -5209,10 +5222,11 @@ global.realSetTimeout(() => {
       }
       if (two) break;
     }
-    assert(two, "the corpus has a two-piece clue to check the floor against");
-    assert(two && !/id="gm-slot-\d+"/.test(two.html),
-      `a two-piece clue is asked a piece at a time, not matched (${two && two.id} ${
-        two && entryId(two.e)}): ` + (two && two.html.slice(0, 300)));
+    if (shape("a two-piece clue to check the floor against", two)) {
+      assert(!/id="gm-slot-\d+"/.test(two.html),
+        `a two-piece clue is asked a piece at a time, not matched (${two.id} ${
+          entryId(two.e)}): ` + two.html.slice(0, 300));
+    }
   }
 
   let walked = null, tried = 0;
@@ -5443,8 +5457,7 @@ global.realSetTimeout(() => {
     }
     if (target) break;
   }
-  assert(target, "the corpus has a multi-piece blocks rung to damage");
-  if (target) {
+  if (shape("a multi-piece blocks rung to damage", target)) {
     const { id, e } = target;
     const key = "ct:" + id;
     const kept = storage[key];
@@ -5931,7 +5944,7 @@ global.realSetTimeout(() => {
     }
     if (found) break;
   }
-  if (assert(found, "some clue in the corpus is a charade AND an extraction")) {
+  if (shape("a clue that is a charade AND an extraction", found)) {
     const open = () => {
       registry["btn-picker"].onclick();
       const li = pickerRowFor(found.id);
@@ -6038,7 +6051,7 @@ global.realSetTimeout(() => {
   for (const name of ["double_definition", "cryptic_definition"]) {
     const want = CLUE_TYPES.types.find((t) => t.name === name).label;
     const found = pick(name);
-    assert(found, "the corpus has a clue typed " + want);
+    if (!shape("a clue typed " + want, found)) continue;
     registry["btn-picker"].onclick();
     const li = pickerRowFor(found.id);
     assert(li, "picker finds the " + want + " puzzle");
@@ -6164,7 +6177,7 @@ global.realSetTimeout(() => {
     }
     if (pure && third) break;
   }
-  assert(pure || !FULL, "the corpus has a double definition whose blocks are its two definitions");
+  shape("a double definition whose blocks are its two definitions", pure);
   if (pure && open(pure.id, pure.e)) {
     assert(!/building blocks/i.test(labels()),
       `${pure.id} ${entryId(pure.e)}: "${clueText(pure.e)}" offers no building blocks: ${labels()}`);
@@ -6178,7 +6191,7 @@ global.realSetTimeout(() => {
           + registry["hint-body"].innerHTML));
     }
   }
-  assert(third || !WHOLE, "the corpus has a double definition with a sense the split does not name");
+  shape("a double definition with a sense the split does not name", third);
   if (third && open(third.id, third.e)) {
     assert(/building blocks/i.test(labels()),
       `${third.id} ${entryId(third.e)}: "${clueText(third.e)}" keeps the building blocks for the sense `
@@ -6241,7 +6254,7 @@ global.realSetTimeout(() => {
     }
     if (ana && cha) break;
   }
-  assert(ana || !FULL, "the corpus has a pure anagram whose fodder is every unnamed word");
+  shape("a pure anagram whose fodder is every unnamed word", ana);
   if (ana && open(ana.id, ana.e)) {
     const b = climbToBlocks();
     if (assert(b, `${ana.id} ${entryId(ana.e)}: the building blocks are reachable`)) {
@@ -6250,7 +6263,7 @@ global.realSetTimeout(() => {
         + registry["hint-body"].innerHTML);
     }
   }
-  assert(cha || !FULL, "the corpus has a two-piece charade whose every word is claimed");
+  shape("a two-piece charade whose every word is claimed", cha);
   if (cha && open(cha.id, cha.e)) {
     const b = climbToBlocks();
     if (assert(b, `${cha.id} ${entryId(cha.e)}: the building blocks are reachable`)) {
@@ -6794,8 +6807,7 @@ global.realSetTimeout(() => {
     }
     if (found) break;
   }
-  assert(found, "somewhere in the corpus an indicator is more than one word "
-    + `(tried ${tried} clues whose indicators are all locatable)`);
+  shape("an indicator that is more than one word", found);
   if (found) {
     found.spans.forEach((s) => registry["gw-" + s[0]].onclick());
     registry["guess-check"].onclick();
