@@ -476,26 +476,25 @@ const openId = bootLoaded[0];
 // count below is gated on, because those counts are statements about the whole
 // corpus and a sample cannot make them.
 const FULL = !!process.env.CT_FULL;
-// A push or PR sweeps the sample above PLUS every puzzle the change touched:
-// CT_CHANGED holds the changed paths under puzzles/ (tests.yml diffs against the
-// base), and each one's id is its file name without the extension. The full
-// corpus is the nightly workflow's (nightly-smoke.yml, CT_FULL=1).
-const CHANGED = new Set((process.env.CT_CHANGED || "").split(/\s+/).filter(Boolean)
-  .map((f) => path.basename(f).replace(/\.(json|js)$/, "")));
-// CI runs this file as several jobs at once, CI_SLICE="i/n" in each, and each
-// one sweeps the puzzles whose id hashes to its slice: together they sweep all
-// of it, in a fraction of the wall time. The checks that are not sweeps run in
-// every slice (they are seconds), except the shelled-out ones, which slice 0
-// runs alone. Unset, this run is the only slice.
+// CI_SLICE="i/n" makes this run one of n slices of the corpus, by puzzle id
+// (tools/ci_cache.js's inSlice, the one slicing rule). The checks that are not
+// sweeps run in every slice (they are seconds), except the shelled-out ones,
+// which slice 0 runs alone. Unset, this run is the only slice.
 const SLICE = (() => {
   const m = /^(\d+)\/(\d+)$/.exec(process.env.CI_SLICE || "");
   return m && +m[1] < +m[2] ? { i: +m[1], n: +m[2] } : { i: 0, n: 1 };
 })();
-const inSlice = (key) => {
-  let h = 2166136261;  // FNV-1a: stable across runs and machines
-  for (const c of String(key)) h = Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0;
-  return h % SLICE.n === SLICE.i;
-};
+const ciCache = require("./ci_cache.js");
+const inSlice = (key) => ciCache.inSlice(key, SLICE.i, SLICE.n);
+// tests.yml sweeps the whole corpus on every push, but through a result cache
+// (tools/ci_cache.js): CT_CACHE names the restored cache, and this slice sweeps
+// the sample above PLUS every puzzle of its slice with no passing result for
+// this code. A passing run writes what it checked to $CT_RESULTS_OUT (end of
+// this file) for the cache. The cache-free full sweep is the nightly's
+// (nightly-smoke.yml, CT_FULL=1).
+const CHANGED = new Set(process.env.CT_CACHE
+  ? ciCache.uncached(ciCache.readCache(process.env.CT_CACHE), "tools/smoke_test.js", SLICE.i, SLICE.n)
+  : []);
 function load(p) {
   if (global.window.CRYPTIC_PUZZLES[p.id]) return;
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles", p.file), "utf8"))(global.window);
@@ -541,8 +540,8 @@ const corpus = (() => {
 corpus.forEach(load);
 assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= (FULL ? 25 : 5),
   "the corpus is loaded for the checks below");
-if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_INDEX.puzzles.length}; `
-  + "the nightly run and CT_FULL=1 sweep all of them)");
+if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_INDEX.puzzles.length}, `
+  + `${CHANGED.size} of them uncached in slice ${SLICE.i}/${SLICE.n}; CT_FULL=1 sweeps all of them)`);
 // A floor under how much a sweep found is a statement about the CORPUS, and a
 // sample cannot make it. What the floor is really guarding against is a sweep
 // that quietly stopped finding anything — a filter that matches nothing passes
@@ -4495,6 +4494,10 @@ global.realSetTimeout(() => {
     fs.writeFileSync(process.env.CT_SHAPES_OUT, JSON.stringify({ slice: SLICE.i, of: SLICE.n, shapes: shapesSeen }));
   } else if (missing.length) {
     console.log(`(no example here of: ${missing.join("; ")}; the nightly run checks the corpus holds them)`);
+  }
+  if (process.env.CT_RESULTS_OUT && !failures) {
+    fs.writeFileSync(process.env.CT_RESULTS_OUT, JSON.stringify(ciCache.resultsFor("tools/smoke_test.js",
+      Object.keys(global.window.CRYPTIC_PUZZLES), shapesSeen)));
   }
   console.log(failures ? `\n${failures} FAILURE(S)` : "\nSMOKE TEST PASSED");
   process.exit(failures ? 1 : 0);

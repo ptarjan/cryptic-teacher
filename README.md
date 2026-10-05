@@ -357,7 +357,7 @@ python3 tools/fetch_puzzle.py --reindex
 
 ```
 python3 tools/build_seo_pages.py        # the crawlable pages (generated, not committed)
-node tools/smoke_test.js                # the app, driven headless against the whole corpus
+node tools/smoke_test.js                # the app, driven headless against a sample of the corpus
 python3 tools/validate_annotations.py   # no argument: every puzzle
 python3 tools/build_readme.py --check   # this file still describes this repo
 ```
@@ -381,6 +381,13 @@ highlight that does not sit where the annotation says, or a sound clue that
 never prints what it sounds like. **Assertions match the markup the app
 emits, never an English phrase.** Annotation prose is written by a model and
 will eventually contain any sentence you might use as a signal.
+
+CI runs it over the whole corpus on every push, in slices, through a
+per-puzzle result cache (`tools/ci_cache.js`). A result stands while the
+puzzle file and the smoke test's code are both unchanged, so a push that
+only adds puzzles re-runs just those, and a code change re-runs everything.
+`.github/workflows/nightly-smoke.yml` sweeps the corpus again each night
+with no cache, for anything the cache could hide.
 
 ### Generated regions of this file
 

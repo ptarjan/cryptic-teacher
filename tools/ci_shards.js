@@ -35,9 +35,11 @@
 // re-measured 2026-10-05 from run 37311849285). Every script that took three seconds or
 // more is here; the default covers the rest and any test written since.
 const COST = {
-  // The sampled sweep; the whole corpus is nightly-smoke.yml's. Re-measured
-  // 2026-10-05 from run 37332590401.
-  "tools/smoke_test.js": 76,
+  // One slice of the whole corpus with nothing cached, the case a code change
+  // pays; a slice whose every puzzle is cached is dropped before it runs
+  // (tools/ci_cache.js). Estimated 2026-10-05 from run 37311849285, where a
+  // 1/24 slice ran past 12 minutes four-wide.
+  "tools/smoke_test.js": 480,
   "tools/test_push_conflict.sh": 17,
   "tools/test_reconstruct_grid.sh": 25,
   "tools/test_paper_mode.js": 62,
@@ -56,7 +58,7 @@ const COST = {
 const DEFAULT_COST = 3;
 
 // How many slices each splittable script runs as (see the header).
-const SLICES = {};
+const SLICES = { "tools/smoke_test.js": 40 };
 
 // See the header: run concurrently within a shard, CORES at a time.
 const PARALLEL = new Set(["tools/smoke_test.js"]);

@@ -1,7 +1,10 @@
-# The smoke test on the WHOLE corpus, once a night. tests.yml runs it on a fixed
-# sample plus the puzzles a push touched, because opening every puzzle in the
-# ~40,000-puzzle index is most of an hour of CPU. Anything that breaks one old
-# puzzle only (a generator fed an odd clue, a sweep-wide count) lands here.
+# The smoke test on the WHOLE corpus, once a night, with no cache. tests.yml
+# also covers the whole corpus on every push, but through a per-puzzle result
+# cache (tools/ci_cache.js), which trusts a result while the puzzle file and the
+# test's code are unchanged and keeps rare-shape sightings between code
+# changes. This run trusts nothing, so whatever the cache could hide (a puzzle
+# whose result depends on another one, the last example of a shape edited
+# away, a dependency the cache key misses) still turns up within a day.
 # Sliced by puzzle id (CI_SLICE), one job per slice; slice 0 also runs the
 # shelled-out checks.
 name: Nightly full-corpus smoke test
