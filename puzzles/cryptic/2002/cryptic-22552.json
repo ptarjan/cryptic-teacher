@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Do away with tax",
     "enumeration": "6"
    },
-   "solution": "EXCISE"
+   "solution": "EXCISE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXCISE",
+    "definitions": [
+     {
+      "text": "Do away with",
+      "at": 0
+     },
+     {
+      "text": "tax",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do away with",
+      "note": "first meaning: to cut out or remove"
+     },
+     {
+      "clueFragment": "tax",
+      "note": "second meaning: a duty levied on goods made at home"
+     }
+    ],
+    "explanation": {
+     "surface": "A campaigner calls for a tax to be scrapped.",
+     "walkthrough": "One word is both a verb for cutting something out and a noun for a duty on home-produced goods.",
+     "definitionFit": "To excise is to remove surgically or strike out, and excise duty is a government levy on goods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tax"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,55 @@
     "text": "Obscure excerpts from film in Early English",
     "enumeration": "7"
    },
-   "solution": "ECLIPSE"
+   "solution": "ECLIPSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ECLIPSE",
+    "definitions": [
+     {
+      "text": "Obscure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the excerpts inside the abbreviation that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early English",
+      "gives": "EE",
+      "note": "EE is the standard abbreviation for Early English"
+     },
+     {
+      "clueFragment": "excerpts from film",
+      "gives": "CLIPS",
+      "note": "film excerpts are clips"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CLIPS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Little-known extracts from a film made in Early English.",
+     "walkthrough": "'Obscure' reads as an adjective; here it is the verb meaning to block out.",
+     "definitionFit": "To eclipse is to hide or block the light of something, just as to obscure is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Obscure"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +148,61 @@
     "text": "Topless club started by college kid",
     "enumeration": "5"
    },
-   "solution": "CISCO"
+   "solution": "CISCO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CISCO",
+    "definitions": [
+     {
+      "text": "kid",
+      "at": 32,
+      "note": "the Cisco Kid, a fictional Western hero"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Topless",
+      "for": "deletion",
+      "note": "topless means without a top, so the first letter is dropped"
+     },
+     {
+      "text": "started by",
+      "for": "charade",
+      "note": "started by says the next piece goes at the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "C",
+      "note": "C is a standard abbreviation for college"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "DISCO",
+      "note": "a dance club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ISCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A student runs a topless nightclub.",
+     "walkthrough": "'Kid' is not a child: it is the second word of the Cisco Kid, the Western character, so the answer is his first name.",
+     "definitionFit": "The Cisco Kid was a famous Western cowboy hero of films, radio and television, named after this word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "kid"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +216,72 @@
     "text": "Goes around introducing first lover to second partners",
     "enumeration": "7"
    },
-   "solution": "SWIVELS"
+   "solution": "SWIVELS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SWIVELS",
+    "definitions": [
+     {
+      "text": "Goes around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the next word"
+     },
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "introducing means bringing it in among the others, inside them"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "WIVES",
+      "note": "wives are marriage partners"
+     },
+     {
+      "clueFragment": "lover",
+      "gives": "L",
+      "select": "first",
+      "note": "the initial letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WIVE",
+      "L",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A philanderer brings a new lover to meet his second wife.",
+     "walkthrough": "The lover's initial slips in before the last letter of WIVES, all after S.",
+     "definitionFit": "To swivel is to turn around on a pivot, so swivels means turns or goes around."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +295,44 @@
     "text": "Kind of oil, which helps things to run smoothly",
     "enumeration": "6"
    },
-   "solution": "CASTOR"
+   "solution": "CASTOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASTOR",
+    "definitions": [
+     {
+      "text": "Kind of oil",
+      "at": 0
+     },
+     {
+      "text": "which helps things to run smoothly",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kind of oil",
+      "note": "first meaning: the oil pressed from a bean, famous as a laxative"
+     },
+     {
+      "clueFragment": "which helps things to run smoothly",
+      "note": "second meaning: a small swivelling wheel fixed under furniture"
+     }
+    ],
+    "explanation": {
+     "surface": "An oil praised as a lubricant that keeps machinery running smoothly.",
+     "walkthrough": "The surface pretends both halves describe one lubricating oil; the second half is really the little wheel under a chair or trolley.",
+     "definitionFit": "Castor oil is a known variety, and a castor is a small wheel letting furniture roll easily across floors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +346,48 @@
     "text": "Acknowledgement of a letter delivered",
     "enumeration": "6"
    },
-   "solution": "AVOWAL"
+   "solution": "AVOWAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AVOWAL",
+    "definitions": [
+     {
+      "text": "Acknowledgement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "delivered as a speech is spoken out, so the phrase is heard rather than read"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a letter",
+      "gives": "AVOWAL",
+      "soundsLike": "A VOWEL",
+      "note": "a letter such as A or E is a vowel"
+     }
+    ],
+    "explanation": {
+     "surface": "Confirmation that a letter has arrived in the post.",
+     "walkthrough": "'Letter delivered' suggests the post; the letter is one of the alphabet and 'delivered' means spoken.",
+     "definitionFit": "An avowal is an open declaration or admission, which is an acknowledgement of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +401,64 @@
     "text": "Reactionary transport board will be easy to lead",
     "enumeration": "9"
    },
-   "solution": "TRACTABLE"
+   "solution": "TRACTABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRACTABLE",
+    "definitions": [
+     {
+      "text": "easy to lead",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reactionary",
+      "for": "reversal",
+      "note": "a reactionary wants to go backwards, so the vehicle is written in reverse"
+     }
+    ],
+    "linkWords": [
+     "will be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transport",
+      "gives": "CART",
+      "note": "a cart is a means of transport"
+     },
+     {
+      "clueFragment": "board",
+      "gives": "TABLE",
+      "note": "a board can be a table, as in board and lodging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAC",
+      "TABLE"
+     ],
+     "reversals": [
+      {
+       "from": "CART",
+       "to": "TRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conservative transport board will be easily steered.",
+     "walkthrough": "'Reactionary' looks like politics, describing the board; it tells you to reverse the vehicle.",
+     "definitionFit": "A tractable person or animal is docile and manageable, readily controlled or guided."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Reactionary"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +472,60 @@
     "text": "Welder without money raised a screen",
     "enumeration": "7"
    },
-   "solution": "REREDOS"
+   "solution": "REREDOS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "REREDOS",
+    "definitions": [
+     {
+      "text": "a screen",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without money",
+      "for": "deletion",
+      "note": "without money says the abbreviation for pounds sterling is taken out"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised in a down clue means read upwards, from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welder",
+      "gives": "SOLDERER",
+      "note": "a solderer joins metal, a kind of welder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REREDOS"
+     ],
+     "reversals": [
+      {
+       "from": "SODERER",
+       "to": "REREDOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A penniless welder put up a screen.",
+     "walkthrough": "L stands for pounds, from the Latin libra. SOLDERER without it is SODERER, which reads upwards as REREDOS.",
+     "definitionFit": "A reredos is an ornamental screen or partition behind a church altar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +539,67 @@
     "text": "Dreaming Rovers failing MOT, lass is numb",
     "enumeration": "13"
    },
-   "solution": "SOMNAMBULISTS"
+   "solution": "SOMNAMBULISTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOMNAMBULISTS",
+    "definitions": [
+     {
+      "text": "Dreaming Rovers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "a failing car is broken down, so the letters are put together another way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MOT",
+      "gives": "MOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lass",
+      "gives": "LASS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "numb",
+      "gives": "NUMB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MOTLASSISNUMB",
+       "gives": "SOMNAMBULISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A girl is numb after her Rover cars fail the MOT test.",
+     "walkthrough": "Rover was a British car make, and the MOT is Britain's annual roadworthiness test for vehicles.",
+     "definitionFit": "Sleepwalkers wander about while asleep, so they are rovers who are dreaming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rovers"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +613,49 @@
     "text": "More unmarked fruit",
     "enumeration": "4"
    },
-   "solution": "PLUS"
+   "solution": "PLUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLUS",
+    "definitions": [
+     {
+      "text": "More",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unmarked",
+      "for": "deletion",
+      "note": "un- marks an absence, so the abbreviation for the old German mark is struck out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PLUMS",
+      "note": "a stone fruit, in the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Extra fruit that has no blemishes on it.",
+     "walkthrough": "M stands for the mark, the old German currency; taking it out of PLUMS leaves PLUS.",
+     "definitionFit": "Plus is used as an adjective or noun meaning additional, extra or something added beyond."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unmarked"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +669,70 @@
     "text": "New location on-line for image-worship",
     "enumeration": "10"
    },
-   "solution": "ICONOLATRY"
+   "solution": "ICONOLATRY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ICONOLATRY",
+    "definitions": [
+     {
+      "text": "image-worship",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new has been remade, so these letters are set in a fresh order"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, on means placed after, so the line comes at the end"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "location",
+      "gives": "LOCATION",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY is the usual abbreviation for railway, a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICONOLAT",
+      "RY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOCATION",
+       "gives": "ICONOLAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new website location where people can go to worship images online.",
+     "walkthrough": "'On-line' looks like internet jargon, but it splits: 'on' places the railway line after the rearranged word.",
+     "definitionFit": "Iconolatry is the veneration of icons or religious pictures, literally the worship of images."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "on-line"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +746,60 @@
     "text": "First of old parliamentarians with attitude, getting cross",
     "enumeration": "6"
    },
-   "solution": "OPPOSE"
+   "solution": "OPPOSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OPPOSE",
+    "definitions": [
+     {
+      "text": "cross",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "first of asks for only the opening letter of each following word"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old parliamentarians",
+      "gives": "OP",
+      "select": "first",
+      "note": "the initial letters of these two words"
+     },
+     {
+      "clueFragment": "attitude",
+      "gives": "POSE",
+      "note": "a pose is an attitude struck or adopted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "POSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Old MPs with attitude growing angry in the Commons.",
+     "walkthrough": "'Cross' looks like an adjective meaning angry; here it is the verb meaning to go against someone.",
+     "definitionFit": "To cross a person is to thwart or go against them, which is what opposing means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +819,39 @@
      }
     ]
    },
-   "solution": "NEAPTIDE"
+   "solution": "NEAPTIDE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NEAP TIDE",
+    "definitions": [
+     {
+      "text": "Twice each month one has small ups and downs",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Twice each month one has small ups and downs",
+      "note": "surface reading: someone with a regular, mild mood swing"
+     },
+     {
+      "clueFragment": "small ups and downs",
+      "note": "setter's reading: the sea's smallest rise and fall, which comes around the first and third quarters of the moon"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone whose moods go up and down a little twice a month.",
+     "definitionFit": "Neap tides occur twice in each lunar month and have the least difference between high and low water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ups"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +865,71 @@
     "text": "Dreary River Oise breaking over motorway",
     "enumeration": "9"
    },
-   "solution": "WEARISOME"
+   "solution": "WEARISOME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WEARISOME",
+    "definitions": [
+     {
+      "text": "Dreary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "anagram",
+      "note": "a word that breaks falls apart, and its letters are reassembled differently"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in an across clue, over means coming just before, so the road follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "gives": "WEAR",
+      "note": "the Wear is a river in north-east England, through Durham"
+     },
+     {
+      "clueFragment": "Oise",
+      "gives": "OISE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M is the abbreviation for motorway, as in M1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEAR",
+      "ISOME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OISEM",
+       "gives": "ISOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dull river, the Oise, bursting its banks over a motorway.",
+     "walkthrough": "'River' is not the Oise: it is a second river, the Wear, while the French name is just letters to rearrange with the motorway.",
+     "definitionFit": "Wearisome describes something tiresome and tedious, which is what dreary means of a task or day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oise"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +949,58 @@
      }
     ]
    },
-   "solution": "RAREEVENT"
+   "solution": "RAREEVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RARE EVENT",
+    "definitions": [
+     {
+      "text": "once in a blue moon",
+      "at": 26,
+      "note": "an adverbial phrase for the noun answer: a thing that occurs only very seldom"
+     }
+    ],
+    "linkWords": [
+     "issued"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blue",
+      "gives": "RARE",
+      "note": "blue steak is cooked so lightly it is very underdone"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "EVEN",
+      "note": "uniform means regular, level"
+     },
+     {
+      "clueFragment": "shirt",
+      "gives": "T",
+      "note": "a T-shirt, the letter named after its shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RARE",
+      "EVEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A blue uniform shirt is handed out only very rarely.",
+     "walkthrough": "'Blue' twice in the clue misleads: the first is a steak order, the second belongs to the idiom.",
+     "definitionFit": "Once in a blue moon means very seldom, so something occurring that way is uncommon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blue"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1014,51 @@
     "text": "One twice got the bird",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IBIS",
+    "definitions": [
+     {
+      "text": "the bird",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "got"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "twice",
+      "gives": "BIS",
+      "note": "bis is Latin for twice, called out for an encore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "BIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer gave an encore and was booed off.",
+     "walkthrough": "'Got the bird' is theatre slang for being hissed; here 'the bird' is simply the definition. Bis appears in musical scores to mean repeat.",
+     "definitionFit": "The ibis is a long-legged wading fowl with a curved bill, sacred in ancient Egypt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "got"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1072,40 @@
     "text": "See 25",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MERE",
+    "definitions": [
+     {
+      "text": "See 25",
+      "at": 0,
+      "note": "the definition, Stuff, is in the clue at 25, which covers both lights"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See 25",
+      "gives": "MERE",
+      "note": "at 25, what goes with Cumbrian butter: Buttermere is a lake in Cumbria's Lake District"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MERE"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The linked clue at 25 builds CASHMERE; this light holds the second half, the lake word that follows butter in a Cumbrian place name.",
+     "definitionFit": "A mere is a lake or pond, and with the first half it makes the soft woollen fabric, a kind of stuff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1119,77 @@
     "text": "Monster returns, supporting Mao's introduction to China",
     "enumeration": "7"
    },
-   "solution": "MEISSEN"
+   "solution": "MEISSEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "MEISSEN",
+    "definitions": [
+     {
+      "text": "China",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returns means comes back, so the monster's name is written backwards"
+     },
+     {
+      "text": "introduction",
+      "for": "letter_selection",
+      "note": "an introduction is the opening, so only the first letter is used"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, supporting means sitting below, so this goes underneath"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mao's",
+      "gives": "M",
+      "select": "first",
+      "note": "the initial letter of the name"
+     },
+     {
+      "clueFragment": "Monster",
+      "gives": "NESSIE",
+      "note": "the Loch Ness monster's nickname"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EISSEN"
+     ],
+     "reversals": [
+      {
+       "from": "NESSIE",
+       "to": "EISSEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monster comes back to back Mao as he is introduced to China.",
+     "walkthrough": "'China' looks like the country, but it is lower-case china, porcelain; the capital C is only at the start of the line.",
+     "definitionFit": "Meissen is a fine German porcelain, so it is a type of china for the table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1203,89 @@
     "text": "Freedom fighters in holy city shortly to take up pilgrimage, you say?",
     "enumeration": "9"
    },
-   "solution": "MUJAHEDIN"
+   "solution": "MUJAHEDIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "homophone",
+     "reversal",
+     "container"
+    ],
+    "answer": "MUJAHEDIN",
+    "definitions": [
+     {
+      "text": "Freedom fighters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means cut short, so the final letter of the city is dropped"
+     },
+     {
+      "text": "you say",
+      "for": "homophone",
+      "note": "say asks for a letter that is pronounced like the pronoun before it"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "turned up means turned back on itself, so the pilgrimage is written backwards"
+     },
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "the shortened city takes in the other pieces, holding them inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holy city",
+      "gives": "MEDINA",
+      "note": "Medina is Islam's second holy city"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U sounds like the pronoun"
+     },
+     {
+      "clueFragment": "pilgrimage",
+      "gives": "HAJ",
+      "note": "the hajj, the pilgrimage to Mecca, is also spelt haj"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "U",
+      "JAH",
+      "EDIN"
+     ],
+     "reversals": [
+      {
+       "from": "HAJ",
+       "to": "JAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guerrillas based in a holy city setting out on a pilgrimage.",
+     "walkthrough": "MEDIN is Medina shortened; U and the turned-round JAH go inside it after the M, giving MUJAHEDIN.",
+     "definitionFit": "Mujahedin are Islamic guerrilla fighters, notably those resisting Soviet occupation in Afghanistan, often styled freedom fighters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1299,66 @@
     "text": "Balmy Mr Capp carrying nowt to Tyneside",
     "enumeration": "7"
    },
-   "solution": "ANODYNE"
+   "solution": "ANODYNE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ANODYNE",
+    "definitions": [
+     {
+      "text": "Balmy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding something within, so the nothing goes inside"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mr Capp",
+      "gives": "ANDY",
+      "note": "Andy Capp, the cartoon working man from north-east England"
+     },
+     {
+      "clueFragment": "nowt",
+      "gives": "O",
+      "note": "nowt is northern dialect for nothing, a zero"
+     },
+     {
+      "clueFragment": "Tyneside",
+      "gives": "NE",
+      "note": "Tyneside is in the North East of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "O",
+      "DY",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cartoon character Andy Capp, a bit barmy, bringing nothing to Tyneside.",
+     "walkthrough": "'Balmy' sounds like barmy, mad; here it means soothing. Andy Capp is a long-running Daily Mirror strip cartoon character.",
+     "definitionFit": "An anodyne is a painkiller, so as an adjective it means soothing or mild, like a balm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Balmy"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1372,77 @@
     "text": "One can produce a score when rising composer (no saint) catches cold",
     "enumeration": "7"
    },
-   "solution": "INCISOR"
+   "solution": "INCISOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "INCISOR",
+    "definitions": [
+     {
+      "text": "One can produce a score",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no saint",
+      "for": "deletion",
+      "note": "no saint tells you to drop the abbreviation for saint"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "rising in a down clue means read from the bottom up"
+     },
+     {
+      "text": "catches",
+      "for": "container",
+      "note": "catches means holds within, so the cold goes inside"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "composer",
+      "gives": "ROSSINI",
+      "note": "the Italian opera composer"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "ISOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROSINI",
+       "to": "INISOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rising composer needs a cold to produce a score.",
+     "walkthrough": "A score here is a scratch or cut, not music. ROSSINI loses one S for saint, then reads upward as INISOR.",
+     "definitionFit": "An incisor is a sharp front cutting tooth, so it can score or notch something it bites."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1456,45 @@
     "text": "Meat for each basket",
     "enumeration": "6"
    },
-   "solution": "HAMPER"
+   "solution": "HAMPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAMPER",
+    "definitions": [
+     {
+      "text": "basket",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meat",
+      "gives": "HAM",
+      "note": "ham is a cured meat"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in per head"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAM",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "Meat for each person, packed in a picnic basket.",
+     "definitionFit": "A hamper is a large lidded wicker basket, often used for picnics or food gifts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1508,50 @@
     "text": "Well-read people in orbit are tilting over",
     "enumeration": "8"
    },
-   "solution": "LITERATI"
+   "solution": "LITERATI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LITERATI",
+    "definitions": [
+     {
+      "text": "Well-read people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "tilting over suggests tipping all the way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orbit are tilting",
+      "gives": "ITARETIL",
+      "note": "the letters straddling these three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Educated people in space, tipping over as they orbit.",
+     "walkthrough": "Read backwards, orbIT ARE TILting gives LITERATI.",
+     "definitionFit": "The literati are the educated, literary class, people widely read in books and letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "orbit"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1565,43 @@
     "text": "Service post",
     "enumeration": "6"
    },
-   "solution": "OFFICE"
+   "solution": "OFFICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OFFICE",
+    "definitions": [
+     {
+      "text": "Service",
+      "at": 0
+     },
+     {
+      "text": "post",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service",
+      "note": "first meaning: a form of church worship"
+     },
+     {
+      "clueFragment": "post",
+      "note": "second meaning: a position or job of authority"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Service post' reads like the mail, but the words are separate meanings.",
+     "definitionFit": "An office is a prescribed liturgical rite in church, and also a position of responsibility someone holds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1615,57 @@
     "text": "Flippant cashier promises to pay for small plane",
     "enumeration": "5"
    },
-   "solution": "FACET"
+   "solution": "FACET",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FACET",
+    "definitions": [
+     {
+      "text": "small plane",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cashier",
+      "for": "deletion",
+      "note": "to cashier is to dismiss from service, so these letters are thrown out"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flippant",
+      "gives": "FACETIOUS",
+      "note": "facetious means flippant, not serious"
+     },
+     {
+      "clueFragment": "promises to pay",
+      "gives": "IOUS",
+      "note": "IOUs are written promises to pay a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FACET"
+     ]
+    },
+    "explanation": {
+     "surface": "A flippant bank cashier promises to repay the cost of a light aircraft.",
+     "walkthrough": "'Cashier' looks like a bank clerk; it is the verb to dismiss. 'Plane' is a flat surface, not an aircraft.",
+     "definitionFit": "A facet is one of the small flat cut surfaces on a gemstone, a little plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1679,78 @@
     "text": "So upset, doctor runs off to therapy to get treatment ?",
     "enumeration": "10"
    },
-   "solution": "OSTEOPATHY"
+   "solution": "OSTEOPATHY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OSTEOPATHY",
+    "definitions": [
+     {
+      "text": "treatment",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "runs off",
+      "for": "deletion",
+      "note": "something that runs off has left, so the cricket abbreviation for runs is removed"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the letters are mixed up"
+     },
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with, which also calls for rearranging"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So",
+      "gives": "SO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "therapy",
+      "gives": "THERAPY",
+      "note": "taken as written; R for runs comes out of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSTEOPATHY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOTOTHEAPY",
+       "gives": "OSTEOPATHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An upset patient's doctor runs off to therapy for treatment.",
+     "walkthrough": "'Doctor' looks like a person in the story, but it is a verb telling you to rearrange. R is the cricket abbreviation for runs.",
+     "definitionFit": "Osteopathy is a form of manual therapy that manipulates bones and muscles, a kind of medical care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1764,50 @@
     "text": "Stuff dough and what goes with Cumbrian butter",
     "enumeration": "4"
    },
-   "solution": "CASH"
+   "solution": "CASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASH",
+    "definitions": [
+     {
+      "text": "Stuff",
+      "at": 0,
+      "note": "defines the whole linked answer CASHMERE, of which this light holds the first half"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dough",
+      "gives": "CASH",
+      "note": "dough is slang for money"
+     },
+     {
+      "clueFragment": "what goes with Cumbrian butter",
+      "note": "the second half of the linked answer, entered at 16: Buttermere is a lake in Cumbria"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Stuffing dough with butter, as in a Cumbrian recipe.",
+     "walkthrough": "This clue serves 25 and 16 together, giving CASHMERE; the rest of it, what goes with butter in Cumbria, is the lake Buttermere, so 16 is its second half.",
+     "definitionFit": "Stuff is an old word for woven fabric, and cashmere is a fine wool cloth from goats."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stuff"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1821,58 @@
     "text": "The birds and the bees and a flower finished off King Cole",
     "enumeration": "6"
    },
-   "solution": "NATURE"
+   "solution": "NATURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NATURE",
+    "definitions": [
+     {
+      "text": "The birds and the bees",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finished off",
+      "for": "charade",
+      "note": "finished off says this piece completes the word, coming at its end"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King Cole",
+      "gives": "NAT",
+      "note": "Nat King Cole was an American singer"
+     },
+     {
+      "clueFragment": "a flower",
+      "gives": "URE",
+      "note": "a flower is something that flows, a river; the Ure runs through Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAT",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds, bees and a flower polished off old King Cole.",
+     "walkthrough": "'Finished off' places the river at the end of the singer's first name. A flower in crosswords is often a river.",
+     "definitionFit": "Birds and bees, plants and animals, are the natural world, so they stand for the whole of nature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1886,43 @@
     "text": "A pointer for a Bunthorne?",
     "enumeration": "6"
    },
-   "solution": "SETTER"
+   "solution": "SETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTER",
+    "definitions": [
+     {
+      "text": "A pointer",
+      "at": 0
+     },
+     {
+      "text": "a Bunthorne",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A pointer",
+      "note": "first meaning: a gun dog, a breed related to the pointer, that indicates game"
+     },
+     {
+      "clueFragment": "a Bunthorne",
+      "note": "second meaning: Bunthorne was a well-known Guardian crossword compiler"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Bunthorne was a pseudonym used by a Guardian crossword compiler, so he is an example of a puzzle maker; the question mark flags the definition by example.",
+     "definitionFit": "A setter is a gun dog that indicates game, and also the person who composes a crossword."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pointer"
+    }
+   }
   }
  ]
 }
