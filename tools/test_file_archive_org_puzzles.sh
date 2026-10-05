@@ -842,6 +842,19 @@ check("a puzzle whose write raises is logged, counted and skipped; the rest are 
       (["corpus/times-18180.json"], [18179], True, True),
       (wrote, [v["number"] for v in failed], "is not in the clue" in failed[0]["writeFailed"],
        "1  write failed: ValueError" in summary.getvalue()))
+# --edition limits the scans as well as the reads: the named edition and
+# the days after it (its solution) are scanned, no other edition.
+eds = [ed_dir.parent / n for n in ("1990-01-01_1", "1990-01-02_2", "1990-03-01_50")] + \
+      [ed_dir.parent.parent / "NewsUK1991UKEnglish" / "1991-01-02_9"]
+scanned, read = [], []
+f.edition_dirs = lambda cache, paper=None: eds
+f.scan = lambda d: scanned.append(d.name) or {"puzzles": [{"number": 1, "leaf": 1, "box": None}], "solutions": []}
+f.read_puzzle = lambda d, found, hit, solutions: read.append(d.name) or ({"number": 1}, None)
+f.run(cache=ed_dir.parent.parent, write=False, ledger=Path(os.environ["TMP"]) / "l4.jsonl",
+      source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"),
+      editions=["NewsUK1990UKEnglish/1990-01-01_1"])
+check("--edition scans that edition and the days after it, reads it alone",
+      (["1990-01-01_1", "1990-01-02_2"], ["1990-01-01_1"]), (sorted(scanned), read))
 (f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
  fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file) = saved
 
