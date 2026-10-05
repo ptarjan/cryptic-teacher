@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "County side's opening game",
     "enumeration": "5"
    },
-   "solution": "CHESS"
+   "solution": "CHESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHESS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "side",
+      "for": "letter_selection",
+      "note": "one side of a word is one of its halves, so only half of the county's name is kept"
+     },
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is where something begins, so only the first letter of that word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "County",
+      "gives": "CHES",
+      "select": "first",
+      "note": "the front half of Cheshire, an English county"
+     },
+     {
+      "clueFragment": "side's",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of side's"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A county sports team's first match of the season.",
+     "walkthrough": "'County side' looks like a cricket team; read it as one side (half) of CHESHIRE, an English county in the north-west.",
+     "definitionFit": "Chess is a board game played between two players with kings, queens and pawns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "side's"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,56 @@
     "text": "Was able to dismiss unionist as indifferent",
     "enumeration": "4"
    },
-   "solution": "COLD"
+   "solution": "COLD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COLD",
+    "definitions": [
+     {
+      "text": "indifferent",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dismiss",
+      "for": "deletion",
+      "note": "to dismiss something is to send it away, so that letter leaves the word"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Was able",
+      "gives": "COULD",
+      "note": "past tense of can"
+     },
+     {
+      "clueFragment": "unionist",
+      "gives": "U",
+      "note": "U is the abbreviation for Unionist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone managed to sack a trade unionist because they did not care.",
+     "definitionFit": "A cold manner is unfeeling and unenthusiastic, showing no warmth or interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unionist"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +174,77 @@
      }
     ]
    },
-   "solution": "EVENINGSTAR"
+   "solution": "EVENINGSTAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EVENING STAR",
+    "definitions": [
+     {
+      "text": "Venus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "Split",
+      "for": "anagram",
+      "note": "split means broken apart, so these letters are broken up and rearranged"
+     }
+    ],
+    "linkWords": [
+     "overwhelmed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Williams",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of Williams"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "veteran",
+      "gives": "VETERAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SGVETERANIN",
+       "gives": "EVENINGSTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Venus Williams loses to a seasoned German player in a match in Split, the Croatian city.",
+     "walkthrough": "Venus looks like the tennis player's first name, but it is the definition; Split is the anagram signal, not the Croatian city.",
+     "definitionFit": "The planet Venus appears brightly in the western sky after sunset, hence its traditional name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Split"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +258,55 @@
     "text": "Warily reluctant to drink rum of poor quality",
     "enumeration": "6"
    },
-   "solution": "SHODDY"
+   "solution": "SHODDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHODDY",
+    "definitions": [
+     {
+      "text": "of poor quality",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to drink",
+      "for": "container",
+      "note": "a drinker takes something inside, so the first word swallows the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Warily reluctant",
+      "gives": "SHY",
+      "note": "shy means wary and hesitant"
+     },
+     {
+      "clueFragment": "rum",
+      "gives": "ODD",
+      "note": "rum is British slang for strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ODD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A cautious person hesitates to drink some rather nasty rum.",
+     "walkthrough": "Rum reads as the spirit, but here it is the old British adjective meaning peculiar.",
+     "definitionFit": "Shoddy goods are badly made or inferior, cheap work done carelessly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +320,76 @@
     "text": "Initially misleading Poor Tom with Lear's confused state",
     "enumeration": "9"
    },
-   "solution": "MAELSTROM"
+   "solution": "MAELSTROM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MAELSTROM",
+    "definitions": [
+     {
+      "text": "confused state",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the next word counts"
+     },
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "poor means in bad condition, so the following letters are knocked out of shape"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "misleading",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of misleading"
+     },
+     {
+      "clueFragment": "Tom",
+      "gives": "TOM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Lear's",
+      "gives": "LEARS",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AELSTROM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOMLEARS",
+       "gives": "AELSTROM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In King Lear, Edgar disguised as Poor Tom shares the storm with the mad king.",
+     "walkthrough": "Poor Tom is Edgar's disguise in Shakespeare's King Lear, so 'Poor' seems part of a name; it is the anagram signal.",
+     "definitionFit": "A maelstrom is a powerful whirlpool, used figuratively for a scene of violent turmoil and chaos."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +403,46 @@
     "text": "Plain old declaration of intent",
     "enumeration": "9"
    },
-   "solution": "MANIFESTO"
+   "solution": "MANIFESTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANIFESTO",
+    "definitions": [
+     {
+      "text": "declaration of intent",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plain",
+      "gives": "MANIFEST",
+      "note": "manifest means clear or obvious"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANIFEST",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned, straightforward statement of what someone means to do.",
+     "definitionFit": "A manifesto is a public statement of a party's or group's policies and aims."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plain"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +456,62 @@
     "text": "A struggle with English for fellow in crew",
     "enumeration": "5"
    },
-   "solution": "EIGHT"
+   "solution": "EIGHT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "EIGHT",
+    "definitions": [
+     {
+      "text": "crew",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "X for Y means X takes the place of Y, so one letter is swapped out for another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A struggle",
+      "gives": "FIGHT",
+      "note": "a fight is a struggle"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "An Englishman standing in for a team-mate in a rowing crew has a battle on his hands.",
+     "walkthrough": "The English E replaces the fellow F at the front of the struggle word.",
+     "definitionFit": "An eight is a racing rowing boat or its team of eight oarsmen, as in the Boat Race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fellow"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +531,76 @@
      }
     ]
    },
-   "solution": "SHOPGIRL"
+   "solution": "SHOPGIRL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SHOP GIRL",
+    "definitions": [
+     {
+      "text": "retail assistant",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down entry, bringing something up means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     },
+     {
+      "clueFragment": "Work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     },
+     {
+      "clueFragment": "gear",
+      "gives": "RIG",
+      "note": "rig is equipment or gear"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "OP",
+      "GIR",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "RIG",
+       "to": "GIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet shop worker carries work equipment up on a rope.",
+     "definitionFit": "A shopgirl is an old term for a young woman who serves customers in a shop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +614,49 @@
     "text": "It's difficult to get out of game against Thailand",
     "enumeration": "3"
    },
-   "solution": "RUT"
+   "solution": "RUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUT",
+    "definitions": [
+     {
+      "text": "It's difficult to get out of",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is Rugby Union, a game"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle code for Thailand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough match against the Thai team that is hard to escape from.",
+     "definitionFit": "A rut is a deep groove or a dull routine, both hard to climb out of once in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +670,65 @@
     "text": "Monty's first thoughts about a flower show on TV",
     "enumeration": "10"
    },
-   "solution": "MASTERMIND"
+   "solution": "MASTERMIND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MASTERMIND",
+    "definitions": [
+     {
+      "text": "show on TV",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the name just before it"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monty's",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of Monty's"
+     },
+     {
+      "clueFragment": "a flower",
+      "gives": "ASTER",
+      "note": "the aster is a daisy-like garden flower"
+     },
+     {
+      "clueFragment": "thoughts",
+      "gives": "MIND",
+      "note": "the mind is where thoughts are held"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASTER",
+      "MIND"
+     ]
+    },
+    "explanation": {
+     "surface": "Monty Don, the TV gardener, muses on a flower show broadcast on television.",
+     "walkthrough": "'About' here means concerning, tying the thoughts to the flower; the flower's letters come before the thoughts. Mastermind is a long-running BBC quiz show.",
+     "definitionFit": "Mastermind is a BBC television quiz programme with its famous black chair and specialist subjects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +748,49 @@
      }
     ]
    },
-   "solution": "LIEDOWN"
+   "solution": "LIEDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIE DOWN",
+    "definitions": [
+     {
+      "text": "Accept without protest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remain",
+      "gives": "LIE",
+      "note": "to lie is to remain in a place, as in lie idle"
+     },
+     {
+      "clueFragment": "in adversity",
+      "gives": "DOWN",
+      "note": "down means in low spirits or fortune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIE",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to put up with hardship and endure it quietly.",
+     "definitionFit": "To lie down under something, or take it lying down, is to submit meekly without resisting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remain"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +804,77 @@
     "text": "Caves in over occupying the centre of Abbotsford following something very unpleasant",
     "enumeration": "7"
    },
-   "solution": "GROTTOS"
+   "solution": "GROTTOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GROTTOS",
+    "definitions": [
+     {
+      "text": "Caves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so this part goes behind the nasty thing"
+     },
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "to occupy a place is to sit inside it, so one piece goes within the other"
+     },
+     {
+      "text": "the centre of",
+      "for": "letter_selection",
+      "note": "the centre means only the middle letters of the place name are used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something very unpleasant",
+      "gives": "GROT",
+      "note": "grot is British slang for anything grubby or nasty"
+     },
+     {
+      "clueFragment": "Abbotsford",
+      "gives": "TS",
+      "select": "middle",
+      "note": "the two middle letters of Abbotsford"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GROT",
+      "T",
+      "O",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Something nasty collapses at the heart of Abbotsford, Walter Scott's Scottish home.",
+     "walkthrough": "'Caves in' looks like collapses, but Caves is the definition. Abbotsford has ten letters, so its centre is the fifth and sixth.",
+     "definitionFit": "Grottos are small caves, often picturesque or artificial ones in gardens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Caves"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +888,74 @@
     "text": "Untiring when debating life travelling round America",
     "enumeration": "13"
    },
-   "solution": "INDEFATIGABLE"
+   "solution": "INDEFATIGABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INDEFATIGABLE",
+    "definitions": [
+     {
+      "text": "Untiring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "travelling means moving about, so these letters move into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the rearranged letters go about the next piece"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debating",
+      "gives": "DEBATING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "LIFE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "A",
+      "note": "A is the abbreviation for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDEF",
+      "A",
+      "TIGABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEBATINGLIFE",
+       "gives": "INDEFTIGABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tireless debater argues about life on a tour of the United States.",
+     "definitionFit": "Indefatigable describes someone who never gets weary, persisting tirelessly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +969,76 @@
     "text": "Aggressive tendency to grab before taking a breather on the way up",
     "enumeration": "11"
    },
-   "solution": "BELLIGERENT"
+   "solution": "BELLIGERENT",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "BELLIGERENT",
+    "definitions": [
+     {
+      "text": "Aggressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to grab",
+      "for": "container",
+      "note": "grabbing something means holding it inside, so this word encloses the rest"
+     },
+     {
+      "text": "on the way up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tendency",
+      "gives": "BENT",
+      "note": "a bent is a natural inclination"
+     },
+     {
+      "clueFragment": "a breather",
+      "gives": "GILL",
+      "note": "a fish breathes through a gill"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "LLIG",
+      "ERE",
+      "NT"
+     ],
+     "reversals": [
+      {
+       "from": "GILL",
+       "to": "LLIG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A combative streak that grabs things before pausing for breath on a climb.",
+     "walkthrough": "The before word takes the upturned breather in front of it, and the tendency word holds both.",
+     "definitionFit": "Belligerent means hostile and eager to fight, warlike in attitude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breather"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1052,56 @@
     "text": "A variety of omens? Start worrying!",
     "enumeration": "10"
    },
-   "solution": "ASSORTMENT"
+   "solution": "ASSORTMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASSORTMENT",
+    "definitions": [
+     {
+      "text": "A variety",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worrying",
+      "for": "anagram",
+      "note": "worrying means pulling about and shaking, as a dog does a bone, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "omens",
+      "gives": "OMENS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Start",
+      "gives": "START",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OMENSSTART",
+       "gives": "ASSORTMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sees a whole range of bad omens and begins to fret.",
+     "walkthrough": "'Start worrying!' reads as advice to begin fretting; Start is fodder, worrying the signal.",
+     "definitionFit": "An assortment is a mixed collection of different kinds of things, such as chocolates in a box."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worrying"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1115,69 @@
     "text": "Idle talk about head of engineering plant",
     "enumeration": "4"
    },
-   "solution": "SAGE"
+   "solution": "SAGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SAGE",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the talk word is read backwards"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idle talk",
+      "gives": "GAS",
+      "note": "gas is empty chatter"
+     },
+     {
+      "clueFragment": "engineering",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of engineering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "GAS",
+       "to": "SAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pointless chatter about the chief of an engineering factory.",
+     "walkthrough": "Plant looks like a factory alongside engineering, but it means a herb.",
+     "definitionFit": "Sage is a grey-leaved aromatic herb, a garden plant used in cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1191,73 @@
     "text": "We object over having fish with fruit for sweet",
     "enumeration": "9"
    },
-   "solution": "SUGARPLUM"
+   "solution": "SUGARPLUM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUGARPLUM",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so the pronoun is read backwards"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We object",
+      "gives": "US",
+      "note": "us is the object form of we"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "GAR",
+      "note": "the gar is a long-snouted fish"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PLUM",
+      "note": "a plum is a fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "GAR",
+      "PLUM"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Diners complain about being served fish with fruit for pudding.",
+     "walkthrough": "'We object' looks like a protest; it means the grammatical object of we.",
+     "definitionFit": "A sugarplum is a small round sweet of boiled sugar, famous from The Nutcracker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1271,60 @@
     "text": "German book about packing fruit",
     "enumeration": "9"
    },
-   "solution": "GREENGAGE"
+   "solution": "GREENGAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREENGAGE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packing",
+      "for": "container",
+      "note": "packing something means stuffing it inside, so one piece goes into the middle of the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "ENGAGE",
+      "note": "to book a performer is to engage them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RE",
+      "ENGAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A German book all about packing fruit.",
+     "walkthrough": "The German and book pieces together pack the about piece between them.",
+     "definitionFit": "A greengage is a sweet green variety of plum, a fruit grown in orchards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1338,86 @@
     "text": "Film oddly ignored pursuing charge admitted by London area leader of Hell's Angels",
     "enumeration": "8"
    },
-   "solution": "SERAPHIM"
+   "solution": "SERAPHIM",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SERAPHIM",
+    "definitions": [
+     {
+      "text": "Angels",
+      "at": 76
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted by",
+      "for": "container",
+      "note": "admitted means let in, so the charge goes inside the other letters"
+     },
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "oddly ignored",
+      "for": "letter_selection",
+      "note": "ignoring the odd letters keeps just the even-numbered ones"
+     },
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "pursuing means chasing behind, so this part comes at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London area",
+      "gives": "SE",
+      "note": "SE is the south-east postcode district of London"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RAP",
+      "note": "a rap is a criminal charge"
+     },
+     {
+      "clueFragment": "Hell's",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of Hell's"
+     },
+     {
+      "clueFragment": "Film",
+      "gives": "IM",
+      "select": "alternate",
+      "note": "the second and fourth letters of film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "RAP",
+      "H",
+      "IM"
+     ]
+    },
+    "explanation": {
+     "surface": "A film about a London chapter of the Hell's Angels biker gang facing charges.",
+     "walkthrough": "Hell's Angels reads as the biker gang, but Hell's only gives its first letter and Angels is the definition.",
+     "definitionFit": "Seraphim are the highest order of angels, the plural of seraph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Angels"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1441,68 @@
      }
     ]
    },
-   "solution": "ONTHENOSE"
+   "solution": "ONTHENOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution",
+     "container"
+    ],
+    "answer": "ON THE NOSE",
+    "definitions": [
+     {
+      "text": "Win only",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so one word goes around another"
+     },
+     {
+      "text": "Not quite",
+      "for": "substitution",
+      "note": "not quite means nearly but not exactly, so a close relative of the word is used in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "ON",
+      "note": "on can mean against, as in an attack on"
+     },
+     {
+      "clueFragment": "those",
+      "gives": "THESE",
+      "note": "the near demonstrative, close to but not quite the far one"
+     },
+     {
+      "clueFragment": "a goal",
+      "gives": "NO",
+      "note": "having no goal at all, a nil score"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "THE",
+      "NO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A footballing jibe about a team that cannot score, betting only on a draw.",
+     "walkthrough": "A loose parse: 'Not quite' turns those into the near form these, which holds the no-goal piece.",
+     "definitionFit": "A bet placed on the nose backs a horse to finish first only, with no each-way place element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1516,50 @@
     "text": "Look for 'ROAD' in French",
     "enumeration": "4"
    },
-   "solution": "MIEN"
+   "solution": "MIEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIEN",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "'ROAD'",
+      "gives": "MI",
+      "note": "the M1 is Britain's main motorway, written with a 1 that looks like I"
+     },
+     {
+      "clueFragment": "in French",
+      "gives": "EN",
+      "note": "en is French for in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle asking what the French call a road.",
+     "walkthrough": "The M1 is the motorway from London to Leeds, a crossword staple for road. The clue tempts you to translate road into French, but only in is translated.",
+     "definitionFit": "A person's mien is their appearance or bearing, the look or manner they show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1573,63 @@
     "text": "Writer includes an afterthought on current digestive aid",
     "enumeration": "6"
    },
-   "solution": "PEPSIN"
+   "solution": "PEPSIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PEPSIN",
+    "definitions": [
+     {
+      "text": "digestive aid",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "includes",
+      "for": "container",
+      "note": "something that includes other things holds them inside it"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "PEN",
+      "note": "a pen is a writing instrument"
+     },
+     {
+      "clueFragment": "an afterthought",
+      "gives": "PS",
+      "note": "PS, postscript, is an afterthought added to a letter"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "PSI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer adds a postscript about the latest stomach remedy.",
+     "definitionFit": "Pepsin is a stomach enzyme that breaks down proteins, sometimes taken to assist digestion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 21,
@@ -383,7 +1657,63 @@
      }
     ]
    },
-   "solution": "TURNABLINDEYE"
+   "solution": "TURNABLINDEYE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TURN A BLIND EYE",
+    "definitions": [
+     {
+      "text": "Deliberately disregard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rambling",
+      "for": "anagram",
+      "note": "rambling means wandering about aimlessly, so the letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "innately",
+      "gives": "INNATELY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rude",
+      "gives": "RUDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INNATELYRUDEB",
+       "gives": "TURNABLINDEYE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ignoring a naturally boorish bishop's long-winded sermon.",
+     "definitionFit": "To turn a blind eye is the idiom for knowingly pretending not to notice something wrong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rambling"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1727,72 @@
     "text": "Place to go to suppress tension before start of the game",
     "enumeration": "5"
    },
-   "solution": "LOTTO"
+   "solution": "LOTTO",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "LOTTO",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppress",
+      "for": "container",
+      "note": "to suppress is to hold something down inside, so the loo word encloses the next letters"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place to go",
+      "gives": "LOO",
+      "note": "the loo is British slang for the toilet, where one goes"
+     },
+     {
+      "clueFragment": "tension",
+      "gives": "T",
+      "note": "T is the symbol for tension in physics"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "TT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Nervous before kick-off, a player heads to the toilet to calm down.",
+     "walkthrough": "'Place to go' is the toilet; loo is the British word.",
+     "definitionFit": "Lotto is a game of chance like bingo, also the name of a national lottery draw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1806,43 @@
     "text": "Give way in the beginning by the sound of it",
     "enumeration": "4"
    },
-   "solution": "CEDE"
+   "solution": "CEDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CEDE",
+    "definitions": [
+     {
+      "text": "Give way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "this phrase asks for a word that is heard the same as another one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the beginning",
+      "gives": "CEDE",
+      "soundsLike": "SEED",
+      "note": "a seed is the origin or start of something"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone seems to back down right at the outset.",
+     "definitionFit": "To cede is to yield or surrender ground, power or territory to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1856,51 @@
     "text": "Within which one may be heard having a go on an organ",
     "enumeration": "7"
    },
-   "solution": "EARSHOT"
+   "solution": "EARSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARSHOT",
+    "definitions": [
+     {
+      "text": "Within which one may be heard",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an organ",
+      "gives": "EAR",
+      "note": "the ear is an organ of hearing"
+     },
+     {
+      "clueFragment": "a go",
+      "gives": "SHOT",
+      "note": "a shot is a try or turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "SHOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a turn playing a church organ loudly enough to be heard.",
+     "walkthrough": "Organ suggests the instrument in a church, but it is a body part; 'on' puts the go after it.",
+     "definitionFit": "Earshot is the range of hearing, so within earshot means close enough to be heard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1914,52 @@
     "text": "Nonsense coming from revolutionary needing no introduction",
     "enumeration": "3"
    },
-   "solution": "ROT"
+   "solution": "ROT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ROT",
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needing no introduction",
+      "for": "deletion",
+      "note": "no introduction means the first letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolutionary",
+      "gives": "TROT",
+      "note": "Trot is short for Trotskyist, a revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROT"
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbish spouted by a famous revolutionary everybody already knows.",
+     "walkthrough": "'Needing no introduction' sounds like praise for a famous figure; it means losing the first letter.",
+     "definitionFit": "Rot is informal for rubbish or foolish talk, as in talking rot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1973,71 @@
     "text": "Extremely rare to have name removed from novelist's grave",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "grave",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the two extremes, the outer letters of the word"
+     },
+     {
+      "text": "removed from",
+      "for": "deletion",
+      "note": "removed from means a letter is taken out of the following word"
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novelist's",
+      "gives": "AUSTEN",
+      "note": "Jane Austen, the novelist"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "rare",
+      "gives": "RE",
+      "select": "outer",
+      "note": "first and last letters of rare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rare event: a famous novelist's grave left without a name.",
+     "walkthrough": "Grave looks like a burial place beside the novelist, but it is the adjective meaning serious.",
+     "definitionFit": "Austere means severe and stern in manner, which matches grave in the sense of solemn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grave"
+    }
+   }
   },
   {
    "number": 27,
@@ -473,7 +2057,77 @@
      }
     ]
    },
-   "solution": "TOTEMPOLE"
+   "solution": "TOTEMPOLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOTEM POLE",
+    "definitions": [
+     {
+      "text": "Tribal symbol",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tailless",
+      "for": "deletion",
+      "note": "tailless means the last letter is cut off"
+     },
+     {
+      "text": "on the way back",
+      "for": "reversal",
+      "note": "going back means the letters run from right to left"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat",
+      "gives": "TOM",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "met means encountered"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "POLE",
+      "note": "a Pole is a European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "TEM",
+      "POLE"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A docked cat met on a homeward walk alongside a European.",
+     "definitionFit": "A totem pole is a carved post bearing tribal emblems, made by Indigenous peoples of the Pacific Northwest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tailless"
+    }
+   }
   },
   {
    "number": 28,
@@ -487,7 +2141,64 @@
     "text": "Explosive constituent found in container brought back by soldiers",
     "enumeration": "5"
    },
-   "solution": "NITRE"
+   "solution": "NITRE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NITRE",
+    "definitions": [
+     {
+      "text": "Explosive constituent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "brought back means turned the other way, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "found in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "container",
+      "gives": "TIN",
+      "note": "a tin is a container"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT",
+      "RE"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers return with a canister holding part of a bomb.",
+     "definitionFit": "Nitre, potassium nitrate, is the oxidising ingredient in gunpowder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   }
  ]
 }
