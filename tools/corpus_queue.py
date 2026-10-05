@@ -30,7 +30,9 @@ is told. Each job is its own session; when its leader is gone the tick kills
 whatever of the session is left before it starts anything.
 
 `gate` names something a person must check before the job may start; tick
-stops there until pass-gate records it.
+stops there until pass-gate records it. `"needs": "vlm"` holds a job until
+the desktop VLM (tools/vlm_reader.py) answers: its editions were read without
+it, so reading them again without it would only repeat that reading.
 """
 import argparse
 import datetime
@@ -330,6 +332,17 @@ def account(name, state, dry):
     save_state(state)
 
 
+def vlm_url():
+    import vlm_reader
+    return vlm_reader.URL
+
+
+def vlm_up():
+    """Whether the desktop VLM answers now."""
+    import vlm_reader
+    return vlm_reader.reachable()
+
+
 def tick(dry):
     state, run = load_state(), running()
     if run:
@@ -352,6 +365,9 @@ def tick(dry):
         if not editions_of(job):
             print(f"{job['name']}: nothing to read")
             continue
+        if job.get("needs") == "vlm" and not vlm_up():
+            print(f"waiting: {job['name']} needs the VLM at {vlm_url()}, which does not answer")
+            return "waiting"
         launch(job, dry)
         return "started"
     print("the queue is empty")
