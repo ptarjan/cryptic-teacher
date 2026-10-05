@@ -241,6 +241,7 @@ def write_view(path):
     if only is not None:
         view["annotateOnly"] = only
     leaders = groups.leader_of(puzzle["entries"])
+    clue_rows = json.loads((data / "source_clue_wrong.json").read_text(encoding="utf-8"))
     printed = provenance.printed_answers(puzzle)
     model = ({entry_id(e) for e in puzzle["entries"] if entry_id(e) not in printed}
              if provenance.solution_origin_from_file(puzzle) == "model" else set())
@@ -432,6 +433,12 @@ def file_rows(path, pending, data=DATA):
             served[eid] = (answer_rows[key][0] if key in answer_rows
                            else letters(printed.get(eid)))
             problems = answer_typo_problems(puzzle, eid, fixes[eid], served[eid], fixes)
+        elif field == "printedClue":
+            key = f"{puzzle['id']}/{eid}"
+            held = clue_rows.get(key)
+            shown = held[0] if held else (by_id[eid]["clue"].get("text") or "")
+            problems = validate_annotations.clue_row_problems(
+                "" if validate_annotations.is_blank_clue(shown) else shown, v[0], v[1])
         else:
             continue
         if problems:
