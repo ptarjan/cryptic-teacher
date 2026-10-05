@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,45 @@
      }
     ]
    },
-   "solution": "HOLDYOURHORSES"
+   "solution": "HOLDYOURHORSES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOLD YOUR HORSES",
+    "definitions": [
+     {
+      "text": "Wait a minute",
+      "at": 0
+     },
+     {
+      "text": "have you a big enough stable to do it?",
+      "at": 15,
+      "note": "a cryptic question, not a synonym: the phrase read literally as holding a lot of horses"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wait a minute",
+      "note": "first meaning: an idiom urging someone to slow down and not rush"
+     },
+     {
+      "clueFragment": "have you a big enough stable to do it?",
+      "note": "second meaning: the idiom taken literally, keeping a whole herd of mounts in a stable"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to pause and asked whether they have the stabling for some grand equestrian plan.",
+     "walkthrough": "The second half is a joke on the idiom: to obey it literally you would need room to keep a herd.",
+     "definitionFit": "The idiom is an everyday plea to slow down and stop rushing ahead, exactly what pausing for a minute means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +97,76 @@
     "text": "Treating people that are out to make New York happy about alien",
     "enumeration": "12"
    },
-   "solution": "HYPNOTHERAPY"
+   "solution": "HYPNOTHERAPY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HYPNOTHERAPY",
+    "definitions": [
+     {
+      "text": "Treating people that are out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "make",
+      "for": "anagram",
+      "note": "to make something is to build it anew, so the following letters are reworked into a fresh order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the shuffled letters go round the word for a stranger"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "the standard abbreviation for the city or state"
+     },
+     {
+      "clueFragment": "happy",
+      "gives": "HAPPY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "OTHER",
+      "note": "something alien is foreign or other"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HYPN",
+      "OTHER",
+      "APY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NYHAPPY",
+       "gives": "HYPNAPY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A therapist sets out to cheer up New York by treating its unconscious patients about some alien.",
+     "walkthrough": "'Out' here means unconscious: the definition is a witty description of putting patients into a trance before treating them.",
+     "definitionFit": "Hypnotherapy is medical treatment given while patients are in a trance, so those being treated are effectively out cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +180,54 @@
     "text": "Ghastly old city in cover",
     "enumeration": "5"
    },
-   "solution": "LURID"
+   "solution": "LURID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LURID",
+    "definitions": [
+     {
+      "text": "Ghastly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another, here inside the word for a covering"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "LID",
+      "note": "a lid covers a pot or box"
+     },
+     {
+      "clueFragment": "old city",
+      "gives": "UR",
+      "note": "Ur is the ancient Mesopotamian city, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UR",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A ghastly ancient city lies buried under some covering.",
+     "definitionFit": "Lurid describes shocking, gruesome detail, so it serves as a synonym for horrifying or gruesome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +247,53 @@
      }
     ]
    },
-   "solution": "YESPLEASE"
+   "solution": "YESPLEASE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "YES PLEASE",
+    "definitions": [
+     {
+      "text": "polite acceptance",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Maybe",
+      "for": "anagram",
+      "note": "maybe suggests the letters are only one possible version, so they can be put in another order"
+     }
+    ],
+    "linkWords": [
+     "you'll get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleep easy",
+      "gives": "SLEEPEASY",
+      "note": "the letters of both words taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLEEPEASY",
+       "gives": "YESPLEASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A host wishes a guest a restful night and hopes for a courteous yes in return.",
+     "definitionFit": "The phrase is the courteous way of accepting an offer, adding a word of good manners to agreement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Maybe"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +307,53 @@
     "text": "Dirty article topped by relation",
     "enumeration": "7"
    },
-   "solution": "UNCLEAN"
+   "solution": "UNCLEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNCLEAN",
+    "definitions": [
+     {
+      "text": "Dirty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "topped by",
+      "for": "charade",
+      "note": "in a down entry, being topped by something puts that word above, so the relative comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relation",
+      "gives": "UNCLE",
+      "note": "an uncle is a family relation"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNCLE",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grubby piece of writing has a relative's name printed at its head.",
+     "definitionFit": "Unclean is a plain synonym for soiled or impure, the opposite of something washed and spotless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 5,
@@ -118,7 +367,47 @@
     "text": "Severely criticises Upton Park men for being over-theatrical",
     "enumeration": "7"
    },
-   "solution": "HAMMERS"
+   "solution": "HAMMERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAMMERS",
+    "definitions": [
+     {
+      "text": "Severely criticises",
+      "at": 0
+     },
+     {
+      "text": "Upton Park men",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for being over-theatrical"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Severely criticises",
+      "note": "first meaning: attacks or pounds someone verbally"
+     },
+     {
+      "clueFragment": "Upton Park men",
+      "note": "second meaning: the nickname of the West Ham United footballers, whose ground was Upton Park"
+     }
+    ],
+    "explanation": {
+     "surface": "A critic lays into some London footballers for their play-acting on the pitch.",
+     "walkthrough": "Upton Park was West Ham United's ground in east London; the club is nicknamed after a tool. 'For being over-theatrical' is a playful aside tying the nickname to ham acting.",
+     "definitionFit": "To pound someone with harsh criticism is a common figurative use, and the West Ham team share the same nickname."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 6,
@@ -132,7 +421,54 @@
     "text": "Defend oneself against lifting a potato?",
     "enumeration": "5"
    },
-   "solution": "REBUT"
+   "solution": "REBUT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REBUT",
+    "definitions": [
+     {
+      "text": "Defend oneself against",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lifting",
+      "for": "reversal",
+      "note": "in a down entry, lifting raises the word so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a potato",
+      "gives": "TUBER",
+      "note": "a potato is an example of a tuber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REBUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUBER",
+       "to": "REBUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A farm worker protests at being accused of digging up somebody's potato.",
+     "definitionFit": "To rebut an accusation is to argue against it and refute it, a way of answering an attack in argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lifting"
+    }
+   }
   },
   {
    "number": 7,
@@ -146,7 +482,72 @@
     "text": "Fish eating unknown carbon on fast days - very good",
     "enumeration": "9"
    },
-   "solution": "EXCELLENT"
+   "solution": "EXCELLENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EXCELLENT",
+    "definitions": [
+     {
+      "text": "very good",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eating another takes it inside, so the fish word swallows the next two pieces"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "-"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "EEL",
+      "note": "an eel is a fish"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "X",
+      "note": "x is the classic unknown quantity in algebra"
+     },
+     {
+      "clueFragment": "carbon",
+      "gives": "C",
+      "note": "C is the chemical symbol for carbon"
+     },
+     {
+      "clueFragment": "fast days",
+      "gives": "LENT",
+      "note": "Lent is the Christian season of fasting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "C",
+      "EL",
+      "LENT"
+     ]
+    },
+    "explanation": {
+     "surface": "An eel swallows something mysterious on a fasting day, which apparently is a fine thing.",
+     "walkthrough": "In a down entry 'on' means placed below, so the fasting season goes after the fish piece.",
+     "definitionFit": "Excellent is a straightforward synonym for outstandingly good or of superb quality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 8,
@@ -160,7 +561,44 @@
     "text": "He sat on three goddesses: capital!",
     "enumeration": "5"
    },
-   "solution": "PARIS"
+   "solution": "PARIS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PARIS",
+    "definitions": [
+     {
+      "text": "He sat on three goddesses",
+      "at": 0
+     },
+     {
+      "text": "capital",
+      "at": 27
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He sat on three goddesses",
+      "note": "first meaning: the Trojan prince who judged a beauty contest between Hera, Athena and Aphrodite"
+     },
+     {
+      "clueFragment": "capital",
+      "note": "second meaning: the French capital city"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone apparently perched on three divine women, and the exclamation calls it splendid.",
+     "walkthrough": "'Sat on' means sat in judgement on, not literally sat upon; the Judgement of Paris began the Trojan War.",
+     "definitionFit": "The mythical Trojan prince judged three goddesses, and the same name belongs to the capital of France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "sat"
+    }
+   }
   },
   {
    "number": 9,
@@ -174,7 +612,43 @@
     "text": "Recovery after which all is forgiven",
     "enumeration": "8"
    },
-   "solution": "COMEBACK"
+   "solution": "COMEBACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COMEBACK",
+    "definitions": [
+     {
+      "text": "Recovery",
+      "at": 0
+     },
+     {
+      "text": "after which all is forgiven",
+      "at": 9,
+      "note": "a cryptic pointer to the phrase it completes, not a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recovery",
+      "note": "first meaning: a return to former success or form"
+     },
+     {
+      "clueFragment": "after which all is forgiven",
+      "note": "second meaning: the words that precede 'all is forgiven' in the classic plea placed in a newspaper's personal column"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The old personal-ad formula reads '..., all is forgiven', so the answer is what comes before those words.",
+     "definitionFit": "A sportsman or performer staging a return to success after decline is said to make a strong return of this kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Recovery"
+    }
+   }
   },
   {
    "number": 10,
@@ -198,7 +672,50 @@
      }
     ]
    },
-   "solution": "FACETHEMUSIC"
+   "solution": "FACETHEMUSIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FACE THE MUSIC",
+    "definitions": [
+     {
+      "text": "don't abscond",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look at",
+      "gives": "FACE",
+      "note": "to face something is to look towards it"
+     },
+     {
+      "clueFragment": "notes",
+      "gives": "THEMUSIC",
+      "note": "notes on a stave are the written score"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FACE",
+      "THEMUSIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a musician: read your score and stay put on stage.",
+     "definitionFit": "The idiom means accepting the unpleasant consequences of one's actions instead of running away from them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 11,
@@ -218,7 +735,60 @@
      }
     ]
    },
-   "solution": "OLDBLUE"
+   "solution": "OLDBLUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OLD BLUE",
+    "definitions": [
+     {
+      "text": "once represented university",
+      "at": 23,
+      "note": "a verb phrase standing for the noun: one who once represented the university"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means entangled, so the letters are tangled up into another order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bull",
+      "gives": "BULL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doe",
+      "gives": "DOE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BULLDOE",
+       "gives": "OLDBLUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A male animal tangles with a female one, in a farmyard tale that strays into college sport.",
+     "walkthrough": "A Blue is someone who has competed for Oxford or Cambridge against the other; an old one did so in the past.",
+     "definitionFit": "A former Oxbridge sporting representative is called by this name, recalling the colours awarded for competing against the rival university."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 12,
@@ -232,7 +802,71 @@
     "text": "Pip's girl to make out in a rough sea",
     "enumeration": "7"
    },
-   "solution": "ESTELLA"
+   "solution": "ESTELLA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESTELLA",
+    "definitions": [
+     {
+      "text": "Pip's girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rough",
+      "for": "anagram",
+      "note": "a rough sea is churned up, so its letters are tossed into another order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the verb for discerning inside the churned letters"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make out",
+      "gives": "TELL",
+      "note": "to make out a difference is to tell it"
+     },
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "TELL",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEA",
+       "gives": "ESA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy's sweetheart is glimpsed in choppy water.",
+     "walkthrough": "Pip is the hero of Dickens's Great Expectations, hopelessly in love with Miss Havisham's ward.",
+     "definitionFit": "The heroine of the Dickens novel is the cold beauty whom its narrator loves from boyhood onwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "make"
+    }
+   }
   },
   {
    "number": 13,
@@ -246,7 +880,49 @@
     "text": "Entertainer at a plant",
     "enumeration": "5"
    },
-   "solution": "HOSTA"
+   "solution": "HOSTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOSTA",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Entertainer",
+      "gives": "HOST",
+      "note": "a host entertains guests"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A party host is found standing by a pot plant.",
+     "definitionFit": "Hostas are leafy perennial garden plants grown for their broad ornamental foliage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Entertainer"
+    }
+   }
   },
   {
    "number": 14,
@@ -260,7 +936,67 @@
     "text": "Englishman in Scotland sticks up in the window",
     "enumeration": "9"
    },
-   "solution": "SASSENACH"
+   "solution": "SASSENACH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SASSENACH",
+    "definitions": [
+     {
+      "text": "Englishman in Scotland",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the word reads from the bottom"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the turned word inside the frame of a window"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sticks",
+      "gives": "CANES",
+      "note": "canes are walking sticks"
+     },
+     {
+      "clueFragment": "the window",
+      "gives": "SASH",
+      "note": "a sash is a sliding window frame"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAS",
+      "SENAC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "CANES",
+       "to": "SENAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone props walking sticks up in a window.",
+     "walkthrough": "'Englishman in Scotland' reads like the definition plus a location, but the whole phrase is the definition.",
+     "definitionFit": "Scots use this mildly derogatory word for English people, from the Gaelic for Saxon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sticks"
+    }
+   }
   },
   {
    "number": 15,
@@ -280,7 +1016,44 @@
      }
     ]
    },
-   "solution": "NOSEPIECE"
+   "solution": "NOSEPIECE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NOSE-PIECE",
+    "definitions": [
+     {
+      "text": "Part of helmet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "they say",
+      "for": "homophone",
+      "note": "they say points to how words are spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to which peace is known",
+      "gives": "NOSEPIECE",
+      "soundsLike": "KNOWS PEACE",
+      "note": "the fragment describes something that is acquainted with calm"
+     }
+    ],
+    "explanation": {
+     "surface": "A bit of armour is said to have known tranquillity.",
+     "definitionFit": "On a medieval helmet the guard protecting the face's central feature is this protective bar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "peace"
+    }
+   }
   },
   {
    "number": 16,
@@ -294,7 +1067,84 @@
     "text": "Entry of piece from Navarone turns soprano into tenor",
     "enumeration": "9"
    },
-   "solution": "PAVAROTTI"
+   "solution": "PAVAROTTI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "substitution",
+     "charade"
+    ],
+    "answer": "PAVAROTTI",
+    "definitions": [
+     {
+      "text": "tenor",
+      "at": 48,
+      "note": "an example: the famous Italian tenor"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Entry of",
+      "for": "letter_selection",
+      "note": "the entry or way in to a word is its opening letter"
+     },
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "a piece from something is only part of it, so the film title is trimmed at both ends"
+     },
+     {
+      "text": "into",
+      "for": "substitution",
+      "note": "turning one voice into another swaps one abbreviation for the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Navarone",
+      "gives": "NAVARONE",
+      "note": "the film title, from The Guns of Navarone"
+     },
+     {
+      "clueFragment": "turns soprano",
+      "gives": "TS",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "I",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AVARO",
+      "T",
+      "T",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer makes his entrance from a war film and changes vocal range.",
+     "walkthrough": "A loose parse: the middle of Navarone supplies AVARO; the opening letters of 'turns soprano into' give TSI, and turning soprano (S) into tenor (T) makes TTI.",
+     "definitionFit": "Luciano Pavarotti was the most celebrated operatic tenor of his generation, so the definition is by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 17,
@@ -314,7 +1164,46 @@
      }
     ]
    },
-   "solution": "ROSEELDER"
+   "solution": "ROSEELDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROSE-ELDER",
+    "definitions": [
+     {
+      "text": "Bush",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stood up",
+      "gives": "ROSE",
+      "note": "past tense of rise"
+     },
+     {
+      "clueFragment": "church official",
+      "gives": "ELDER",
+      "note": "an elder is an officer in Presbyterian churches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROSE",
+      "ELDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A church elder got to his feet beside a shrub.",
+     "definitionFit": "The rose-elder is the guelder rose, a flowering shrub of hedgerows with white blossom and red berries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bush"
+    }
+   }
   },
   {
    "number": 18,
@@ -328,7 +1217,49 @@
     "text": "Popular protest at involuntary movement",
     "enumeration": "7"
    },
-   "solution": "DEMOTIC"
+   "solution": "DEMOTIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEMOTIC",
+    "definitions": [
+     {
+      "text": "Popular",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "protest",
+      "gives": "DEMO",
+      "note": "short for demonstration"
+     },
+     {
+      "clueFragment": "involuntary movement",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMO",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A demonstrator has a nervous twitch during a rally.",
+     "definitionFit": "Demotic means of the common people, as in everyday colloquial language rather than formal speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Popular"
+    }
+   }
   },
   {
    "number": 19,
@@ -342,7 +1273,62 @@
     "text": "Overseer loose again without energy",
     "enumeration": "7"
    },
-   "solution": "REFEREE"
+   "solution": "REFEREE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REFEREE",
+    "definitions": [
+     {
+      "text": "Overseer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the phrase for freed once more surrounds the symbol"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "RE",
+      "note": "the prefix meaning again"
+     },
+     {
+      "clueFragment": "loose",
+      "gives": "FREE",
+      "note": "loose means set free"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "F",
+      "E",
+      "REE"
+     ]
+    },
+    "explanation": {
+     "surface": "A supervisor has been let loose a second time and has run out of steam.",
+     "walkthrough": "'Without' looks like 'lacking', but here it is the old sense 'outside', so energy goes in rather than out.",
+     "definitionFit": "A referee supervises a game and enforces the rules, so the word can stand for anyone overseeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 20,
@@ -356,7 +1342,46 @@
     "text": "Examine church plant",
     "enumeration": "5"
    },
-   "solution": "VETCH"
+   "solution": "VETCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VETCH",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Examine",
+      "gives": "VET",
+      "note": "to vet is to check thoroughly"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VET",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone inspects a plant growing in the churchyard.",
+     "definitionFit": "Vetch is a climbing leguminous plant of the pea family, often grown as fodder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Examine"
+    }
+   }
   },
   {
    "number": 21,
@@ -370,7 +1395,46 @@
     "text": "Payment for quality?",
     "enumeration": "7"
    },
-   "solution": "PREMIUM"
+   "solution": "PREMIUM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PREMIUM",
+    "definitions": [
+     {
+      "text": "Payment",
+      "at": 0
+     },
+     {
+      "text": "quality",
+      "at": 12,
+      "note": "the answer is an adjective for top quality, the clue word a noun"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Payment",
+      "note": "first meaning: a sum paid regularly, as for insurance"
+     },
+     {
+      "clueFragment": "quality",
+      "note": "second meaning: of the highest grade, as in a top-grade brand"
+     }
+    ],
+    "explanation": {
+     "surface": "A customer wonders whether a charge is the price of better goods.",
+     "definitionFit": "An insurance instalment is called by this word, and it also labels top-grade goods sold at a higher price."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quality"
+    }
+   }
   },
   {
    "number": 22,
@@ -384,7 +1448,42 @@
     "text": "Workshy fellow, comparatively useless?",
     "enumeration": "5"
    },
-   "solution": "IDLER"
+   "solution": "IDLER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IDLER",
+    "definitions": [
+     {
+      "text": "Workshy fellow",
+      "at": 0
+     },
+     {
+      "text": "comparatively useless",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Workshy fellow",
+      "note": "first meaning: a lazy person who avoids work"
+     },
+     {
+      "clueFragment": "comparatively useless",
+      "note": "second meaning: the comparative of idle in its sense of futile or pointless"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Comparatively' asks for a comparative adjective, and idle can mean vain or useless, as in idle threats.",
+     "definitionFit": "A layabout who shirks labour is a lazybones, and the same word is the comparative form of futile, pointless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comparatively"
+    }
+   }
   },
   {
    "number": 23,
@@ -398,7 +1497,39 @@
     "text": "Front of member, back of back, front of member",
     "enumeration": "7"
    },
-   "solution": "FOREARM"
+   "solution": "FOREARM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FOREARM",
+    "definitions": [
+     {
+      "text": "Front of member, back of back, front of member",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Front of member, back of back, front of member",
+      "note": "surface reading: a jumble of fronts and backs, like a riddle about letters"
+     },
+     {
+      "clueFragment": "Front of member",
+      "note": "setter's reading: the forward part of a limb, where the hand-end of the arm lies"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The repeated fronts and backs read like letter-selection instructions, but no letters fit; the clue simply describes the part of the arm below the elbow.",
+     "definitionFit": "The lower part of the arm, between elbow and wrist, is the forward section of that limb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 24,
@@ -412,7 +1543,51 @@
     "text": "A green means don't allow to proceed",
     "enumeration": "5"
    },
-   "solution": "AVERT"
+   "solution": "AVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERT",
+    "definitions": [
+     {
+      "text": "don't allow to proceed",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "means"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "VERT",
+      "note": "vert is green in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A green traffic light is supposed to mean go, but here it signals the opposite.",
+     "walkthrough": "The surface plays on traffic lights, where green means go; vert is the heraldic word for green.",
+     "definitionFit": "To avert something is to prevent or ward it off, stopping it from happening or going ahead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 25,
@@ -426,7 +1601,57 @@
     "text": "Dance at Queen's on the Dee",
     "enumeration": "8"
    },
-   "solution": "BALLATER"
+   "solution": "BALLATER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BALLATER",
+    "definitions": [
+     {
+      "text": "on the Dee",
+      "at": 17,
+      "note": "a description of a place: a town on that river"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance",
+      "gives": "BALL",
+      "note": "a ball is a formal dance"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BALL",
+      "AT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A royal ball is held at the Queen's Scottish home by the river.",
+     "walkthrough": "The Dee is a Scottish river flowing past Balmoral, the royal estate, so the Queen is aptly placed.",
+     "definitionFit": "Ballater is a small Aberdeenshire town on the River Dee, close to Balmoral Castle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dance"
+    }
+   }
   },
   {
    "number": 26,
@@ -440,7 +1665,55 @@
     "text": "Locks for fortress not in favour",
     "enumeration": "5"
    },
-   "solution": "TRESS"
+   "solution": "TRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRESS",
+    "definitions": [
+     {
+      "text": "Locks",
+      "at": 0,
+      "note": "plural in the clue; the answer is one lock of hair"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means leave out, so the word for supporting is removed from the stronghold"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortress",
+      "gives": "FORTRESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in favour",
+      "gives": "FOR",
+      "note": "to be for something is to be in favour of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Locks for a castle gate are no longer in favour.",
+     "walkthrough": "'Locks for fortress' looks like security hardware, but locks are hair here.",
+     "definitionFit": "A tress is a long lock of hair, so the plural locks loosely defines it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Locks"
+    }
+   }
   },
   {
    "number": 27,
@@ -454,7 +1727,72 @@
     "text": "Typical performance after tea - it's Eric's work",
     "enumeration": "14"
    },
-   "solution": "CHARACTERISTIC"
+   "solution": "CHARACTERISTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHARACTERISTIC",
+    "definitions": [
+     {
+      "text": "Typical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the word for a performance to follow the word for the drink"
+     },
+     {
+      "text": "work",
+      "for": "anagram",
+      "note": "work as something wrought means the following letters are fashioned into a new shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHAR",
+      "note": "char is slang for tea"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "ACT",
+      "note": "an act is a performance"
+     },
+     {
+      "clueFragment": "it's Eric",
+      "gives": "ITSERIC",
+      "note": "the letters taken together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "ACT",
+      "ERISTIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSERIC",
+       "gives": "ERISTIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After tea comes a show that is said to be Eric's handiwork, as usual.",
+     "walkthrough": "'After tea' puts the performance after the tea word; char is British slang for tea, from Chinese cha.",
+     "definitionFit": "Something characteristic is typical of a person or thing, showing its distinctive nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   }
  ]
 }
