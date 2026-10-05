@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Extended odds studied",
     "enumeration": "6"
    },
-   "solution": "SPREAD"
+   "solution": "SPREAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPREAD",
+    "definitions": [
+     {
+      "text": "Extended",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odds",
+      "gives": "SP",
+      "note": "SP is the starting price, the betting odds on a horse"
+     },
+     {
+      "clueFragment": "studied",
+      "gives": "READ",
+      "note": "to read a subject is to study it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "READ"
+     ]
+    },
+    "explanation": {
+     "surface": "A punter has pored over the betting odds at length.",
+     "walkthrough": "SP, short for starting price, is the standard abbreviation for the odds offered when a race starts.",
+     "definitionFit": "Something spread out has been stretched or opened to its full width, so both are past participles of opening wide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odds"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,72 @@
     "text": "Party, cold one, in country going north",
     "enumeration": "6"
    },
-   "solution": "SOCIAL"
+   "solution": "SOCIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SOCIAL",
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going north",
+      "for": "reversal",
+      "note": "in a down entry, going north means reading from the bottom upwards, so the country is turned round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the cold one sits inside the other word, enclosed by its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "LAOS",
+      "note": "a country in Southeast Asia"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "CI",
+      "AL"
+     ],
+     "reversals": [
+      {
+       "from": "LAOS",
+       "to": "SOAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party where someone has a cold drink in a land heading north.",
+     "walkthrough": "The cold one goes in after the country has been turned round, not before.",
+     "definitionFit": "A social is an informal gathering or get-together, so the noun is a synonym for a party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +175,50 @@
      }
     ]
    },
-   "solution": "ROOTCAUSE"
+   "solution": "ROOTCAUSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROOT CAUSE",
+    "definitions": [
+     {
+      "text": "Basic reason",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being tipsy",
+      "for": "anagram",
+      "note": "a tipsy person staggers about, so the letters before it are knocked into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to carouse",
+      "gives": "TOCAROUSE",
+      "note": "the letters taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOCAROUSE",
+       "gives": "ROOTCAUSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drunkenness turns out to be the underlying excuse for a night of revelry.",
+     "definitionFit": "A root cause is the fundamental origin of a problem, the most basic underlying explanation behind it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tipsy"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +232,45 @@
     "text": "Some tea's sampled? Here's region producing it",
     "enumeration": "5"
    },
-   "solution": "ASSAM"
+   "solution": "ASSAM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASSAM",
+    "definitions": [
+     {
+      "text": "region producing it",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "only some of the letters of the following words are used, a run lying across them"
+     }
+    ],
+    "linkWords": [
+     "Here's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea's sampled",
+      "gives": "ASSAM",
+      "note": "a run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sipping tea is told where that brew was grown.",
+     "walkthrough": "ASSAM sits inside tea'S SAMpled; 'it' in the definition refers back to the tea.",
+     "definitionFit": "Assam is a state in north-east India famous for growing the strong black tea that carries its name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +284,60 @@
     "text": "Attacked since corruption of ideals",
     "enumeration": "8"
    },
-   "solution": "ASSAILED"
+   "solution": "ASSAILED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ASSAILED",
+    "definitions": [
+     {
+      "text": "Attacked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corruption of",
+      "for": "anagram",
+      "note": "corruption spoils and distorts, so the word that follows is twisted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "as can mean because or since"
+     },
+     {
+      "clueFragment": "ideals",
+      "gives": "SAILED",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SAILED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IDEALS",
+       "gives": "SAILED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was criticised because their high principles had been perverted.",
+     "definitionFit": "To be assailed is to be set upon violently or with criticism, a direct synonym in the past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "since"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +351,72 @@
     "text": "Well, time is element in voyage, unknown",
     "enumeration": "14"
    },
-   "solution": "SATISFACTORILY"
+   "solution": "SATISFACTORILY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SATISFACTORILY",
+    "definitions": [
+     {
+      "text": "Well",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the earlier words are placed inside the voyage word, enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "voyage",
+      "gives": "SAIL",
+      "note": "a sail is a trip by boat"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the usual abbreviation for time"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "element",
+      "gives": "FACTOR",
+      "note": "a factor is a contributing element"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "in algebra x, y and z stand for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TISFACTOR",
+      "IL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller reflects that timing is a key ingredient of an uncertain journey.",
+     "walkthrough": "'Well' looks like an introductory remark but it is the definition, used as an adverb.",
+     "definitionFit": "Doing something well means doing it to an acceptable standard, so both adverbs describe adequate performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +430,70 @@
     "text": "Issue raised during change in device measuring height",
     "enumeration": "9"
    },
-   "solution": "ALTIMETER"
+   "solution": "ALTIMETER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ALTIMETER",
+    "definitions": [
+     {
+      "text": "device measuring height",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising a word means reading it bottom to top"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another thing occurs inside it, so one word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Issue",
+      "gives": "EMIT",
+      "note": "to issue is to emit or send out"
+     },
+     {
+      "clueFragment": "change",
+      "gives": "ALTER",
+      "note": "to alter is to change"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "TIME",
+      "TER"
+     ],
+     "reversals": [
+      {
+       "from": "EMIT",
+       "to": "TIME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query raised while an instrument for gauging altitude is being modified.",
+     "walkthrough": "'Issue' looks like a noun meaning a problem, but it is the verb to send out.",
+     "definitionFit": "An altimeter is the instrument in aircraft that shows altitude, the craft's height above the ground or sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +507,49 @@
     "text": "Policy with new material",
     "enumeration": "5"
    },
-   "solution": "LINEN"
+   "solution": "LINEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LINEN",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policy",
+      "gives": "LINE",
+      "note": "a party line is its policy"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A company introduces a fresh rule about fabric.",
+     "definitionFit": "Linen is a cloth woven from flax fibres, so it is one kind of fabric or textile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Policy"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +563,79 @@
     "text": "Calamity regarding temperature reported to be rising around south",
     "enumeration": "8"
    },
-   "solution": "DISASTER"
+   "solution": "DISASTER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DISASTER",
+    "definitions": [
+     {
+      "text": "Calamity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the said word goes round the south letter, holding it inside"
+     },
+     {
+      "text": "to be rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means the whole string is read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regarding",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "reported",
+      "gives": "SAID",
+      "note": "what is reported has been said"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "AS",
+      "T",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RETSASID",
+       "to": "DISASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A weather report warns that soaring heat in the south could be catastrophic.",
+     "walkthrough": "'reported' looks like a sound-alike signal, but here it is simply a synonym supplying letters.",
+     "definitionFit": "A calamity is a sudden event causing great damage or suffering, which is exactly what a disaster is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "temperature"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +655,54 @@
      }
     ]
    },
-   "solution": "PAULARADCLIFFE"
+   "solution": "PAULARADCLIFFE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PAULA RADCLIFFE",
+    "definitions": [
+     {
+      "text": "long-distance runner",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is out of order",
+      "for": "anagram",
+      "note": "things out of order are jumbled from their proper sequence, so these letters must be put in a new one"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Afraid full pace",
+      "gives": "AFRAIDFULLPACE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFRAIDFULLPACE",
+       "gives": "PAULARADCLIFFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous athlete fears that running flat out breaks the rules.",
+     "walkthrough": "Paula Radcliffe is a British marathon runner who held the women's marathon world record for many years.",
+     "definitionFit": "She is a famous English marathon champion, so she is an example of an athlete who races over long distances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Afraid"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +716,75 @@
     "text": "Worker perhaps after middle of shift tucked into crusty item from bakery",
     "enumeration": "9"
    },
-   "solution": "CROISSANT"
+   "solution": "CROISSANT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "CROISSANT",
+    "definitions": [
+     {
+      "text": "item from bakery",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "only the central letter of the next word is kept"
+     },
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "the selected letter is pushed inside the crusty word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the worker comes after the rest in the finished string"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crusty",
+      "gives": "CROSS",
+      "note": "crusty means bad-tempered, or cross"
+     },
+     {
+      "clueFragment": "shift",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of the five"
+     },
+     {
+      "clueFragment": "Worker perhaps",
+      "gives": "ANT",
+      "note": "a worker ant is one kind; 'perhaps' marks an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRO",
+      "I",
+      "SS",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A baker on the late shift slips something crisp into the oven.",
+     "walkthrough": "'crusty' seems to describe bread, but it means irritable here.",
+     "definitionFit": "A croissant is a flaky crescent-shaped pastry, a typical product sold in a bakery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crusty"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +798,67 @@
     "text": "Odd parts of tour, wrong, around capital city",
     "enumeration": "5"
    },
-   "solution": "TUNIS"
+   "solution": "TUNIS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TUNIS",
+    "definitions": [
+     {
+      "text": "capital city",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd parts of",
+      "for": "letter_selection",
+      "note": "odd parts are the first, third and other odd-numbered letters of the next word"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning a word around points it the other way, so it is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tour",
+      "gives": "TU",
+      "select": "alternate",
+      "note": "the first and third letters"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "NIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIN",
+       "to": "NIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sightseeing trip goes off course near a nation's seat of government.",
+     "definitionFit": "Tunis is the capital of Tunisia in North Africa, so it is one specific example of a capital."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +872,71 @@
     "text": "Skills shown by airman with observations filled with refinement, missing nothing",
     "enumeration": "15"
    },
-   "solution": "ACCOMPLISHMENTS"
+   "solution": "ACCOMPLISHMENTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "ACCOMPLISHMENTS",
+    "definitions": [
+     {
+      "text": "Skills",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing nothing",
+      "for": "deletion",
+      "note": "nothing is the round letter zero, and missing it means that letter drops out"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "the observations word is filled, so the refinement word sits inside it"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airman",
+      "gives": "AC",
+      "note": "AC is an aircraftman, the lowest RAF rank"
+     },
+     {
+      "clueFragment": "observations",
+      "gives": "COMMENTS",
+      "note": "comments are remarks or observations"
+     },
+     {
+      "clueFragment": "refinement",
+      "gives": "POLISH",
+      "note": "polish is refinement or elegance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "COM",
+      "PLISH",
+      "MENTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot's flying abilities are noted in reports praising his polish, with nothing left out.",
+     "walkthrough": "'nothing' is the letter O, the shape of zero. An aircraftman is a junior rank in the Royal Air Force.",
+     "definitionFit": "Accomplishments are talents or abilities someone has acquired, so the plural noun is a synonym for skills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +950,92 @@
     "text": "United in hope, excited by revolutionary song giving joy",
     "enumeration": "8"
    },
-   "solution": "EUPHORIA"
+   "solution": "EUPHORIA",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "EUPHORIA",
+    "definitions": [
+     {
+      "text": "joy",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the united letter is placed among the letters of hope"
+     },
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited things are stirred up, so the combined letters are jumbled"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns round, so the song is read backwards"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the song follows straight on"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United in team names"
+     },
+     {
+      "clueFragment": "hope",
+      "gives": "HOPE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "AIR",
+      "note": "an air is a tune or song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUPHO",
+      "RIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOPEU",
+       "gives": "EUPHO"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Football fans thrilled by a stirring anthem of rebellion are filled with delight.",
+     "walkthrough": "'United' looks like part of a team name, but it is just the letter U, and 'revolutionary song' is a turned-around air rather than a political anthem.",
+     "definitionFit": "Euphoria is a feeling of intense happiness or elation, a stronger synonym for great joy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1049,68 @@
     "text": "Fashionable doctor admitted to risk, disregarding first obstacle",
     "enumeration": "9"
    },
-   "solution": "HINDRANCE"
+   "solution": "HINDRANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "HINDRANCE",
+    "definitions": [
+     {
+      "text": "obstacle",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disregarding first",
+      "for": "deletion",
+      "note": "the opening letter of the risk word is ignored and dropped"
+     },
+     {
+      "text": "admitted to",
+      "for": "container",
+      "note": "being admitted means being let inside, so these letters go within the risk word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashionable",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "the standard abbreviation"
+     },
+     {
+      "clueFragment": "risk",
+      "gives": "CHANCE",
+      "note": "to take a chance is to risk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "IN",
+      "DR",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy physician is taken into hospital despite the danger, ignoring the first barrier.",
+     "walkthrough": "The first letter dropped is the risk word's, not the doctor's; the other pieces then go in after its new first letter.",
+     "definitionFit": "A hindrance is something that gets in the way and holds progress back, just as an obstacle does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fashionable"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1124,50 @@
     "text": "Piece of furniture with flap, French article",
     "enumeration": "5"
    },
-   "solution": "TABLE"
+   "solution": "TABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABLE",
+    "definitions": [
+     {
+      "text": "Piece of furniture",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flap",
+      "gives": "TAB",
+      "note": "a tab is a small flap"
+     },
+     {
+      "clueFragment": "French article",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper describes a drop-leaf piece of furniture from France.",
+     "walkthrough": "'with flap' suggests a drop-leaf table, so the surface itself describes the answer.",
+     "definitionFit": "A table is a common household item with legs and a flat top, one standard kind of furniture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flap"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1181,59 @@
     "text": "Marsupial that has outlaw stifling utterance of surprise",
     "enumeration": "9"
    },
-   "solution": "BANDICOOT"
+   "solution": "BANDICOOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BANDICOOT",
+    "definitions": [
+     {
+      "text": "Marsupial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stifling",
+      "for": "container",
+      "note": "to stifle is to smother, so the outlaw wraps around the utterance"
+     }
+    ],
+    "linkWords": [
+     "that has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outlaw",
+      "gives": "BANDIT",
+      "note": "a bandit is an outlaw"
+     },
+     {
+      "clueFragment": "utterance of surprise",
+      "gives": "COO",
+      "note": "coo is an exclamation of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BANDI",
+      "COO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A pouched animal has a robber muffling its startled cry.",
+     "walkthrough": "'Coo!' is a British exclamation of mild surprise.",
+     "definitionFit": "The bandicoot is a small Australian animal that carries its young in a pouch, so it is one kind of marsupial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "outlaw"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1247,55 @@
     "text": "Fibre witch coated with red powder",
     "enumeration": "8"
    },
-   "solution": "ROUGHAGE"
+   "solution": "ROUGHAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROUGHAGE",
+    "definitions": [
+     {
+      "text": "Fibre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coated with",
+      "for": "container",
+      "note": "something coated is covered all round, so the powder wraps around the witch"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red powder",
+      "gives": "ROUGE",
+      "note": "rouge is red cosmetic powder"
+     },
+     {
+      "clueFragment": "witch",
+      "gives": "HAG",
+      "note": "a hag is a witch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROUG",
+      "HAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A witch's face is daubed with red make-up.",
+     "walkthrough": "'Fibre' looks like a thread, but it is dietary fibre.",
+     "definitionFit": "Roughage is the indigestible plant matter in food, which nutritionists also call dietary fibre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fibre"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1309,60 @@
     "text": "Sea duck completely ignoring lake",
     "enumeration": "5"
    },
-   "solution": "OCEAN"
+   "solution": "OCEAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OCEAN",
+    "definitions": [
+     {
+      "text": "Sea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so the lake letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of nought"
+     },
+     {
+      "clueFragment": "completely",
+      "gives": "CLEAN",
+      "note": "clean means completely, as in clean forgot"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CEAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A waterbird is entirely uninterested in the lake, preferring the sea.",
+     "walkthrough": "A duck in cricket is a batter's score of zero, hence O. CLEAN without L gives CEAN.",
+     "definitionFit": "Sea and ocean both name the large body of salt water covering most of the planet's surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1376,67 @@
     "text": "Bring down remote-controlled aircraft outside the ground",
     "enumeration": "8"
    },
-   "solution": "DETHRONE"
+   "solution": "DETHRONE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DETHRONE",
+    "definitions": [
+     {
+      "text": "Bring down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed or milled, so the word before it is broken and reshaped"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the aircraft goes outside, around the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remote-controlled aircraft",
+      "gives": "DRONE",
+      "note": "a drone is an unmanned aircraft"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ETH",
+      "RONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THE",
+       "gives": "ETH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shooting down a drone that was flying beyond the airfield.",
+     "walkthrough": "'Bring down' and 'ground' both suggest a crashing aircraft, but the definition is about removing a ruler.",
+     "definitionFit": "To dethrone is to remove a monarch or champion from power, which brings them down from their position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1450,79 @@
     "text": "Prime tips for hastily covering a stain up",
     "enumeration": "6"
    },
-   "solution": "HEYDAY"
+   "solution": "HEYDAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "HEYDAY",
+    "definitions": [
+     {
+      "text": "Prime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips for",
+      "for": "letter_selection",
+      "note": "tips are the ends, so the first and last letters of the next word are used"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means read from the bottom, backwards"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "the tips cover the other letters, sitting either side of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hastily",
+      "gives": "HY",
+      "select": "outer",
+      "note": "its first and last letters"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "stain",
+      "gives": "DYE",
+      "note": "a stain or dye colours a material"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EYDA",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "ADYE",
+       "to": "EYDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on quickly cleaning a stain that has come up.",
+     "walkthrough": "A and DYE are read upwards as EYDA and wrapped by H and Y.",
+     "definitionFit": "Someone's heyday is the period of their greatest success, the prime of their life or career."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prime"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1542,65 @@
      }
     ]
    },
-   "solution": "GENERALPRACTICE"
+   "solution": "GENERALPRACTICE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GENERAL PRACTICE",
+    "definitions": [
+     {
+      "text": "Doctor's work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the law word is placed inside the charge word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officer",
+      "gives": "GENERAL",
+      "note": "a general is a senior army officer"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "PRICE",
+      "note": "a charge is a price"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "ACT",
+      "note": "an act of parliament is a law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENERAL",
+      "PR",
+      "ACT",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A medic's job alongside an army officer, with legal duties.",
+     "walkthrough": "'by' just places the two parts side by side. In Britain a GP, or general practitioner, is a family doctor working in general practice.",
+     "definitionFit": "General practice is the field of medicine covering everyday community care, the work of a family physician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1614,42 @@
     "text": "Dark time one of King Arthur's men reported",
     "enumeration": "5"
    },
-   "solution": "NIGHT"
+   "solution": "NIGHT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "NIGHT",
+    "definitions": [
+     {
+      "text": "Dark time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means spoken out, so it is the pronunciation of the knight that matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one of King Arthur's men",
+      "gives": "NIGHT",
+      "soundsLike": "KNIGHT",
+      "note": "Arthur's followers were knights of the Round Table"
+     }
+    ],
+    "explanation": {
+     "surface": "A legend of a gloomy hour for a member of the Round Table.",
+     "definitionFit": "The hours after sunset when there is no daylight are the dark part of each day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1663,70 @@
     "text": "Progress slowly beginning to concern and upset lord",
     "enumeration": "5"
    },
-   "solution": "CREEP"
+   "solution": "CREEP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "CREEP",
+    "definitions": [
+     {
+      "text": "Progress slowly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning is the first letter only of the next word"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned over, which in a down entry flips the word upwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concern",
+      "gives": "C",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "lord",
+      "gives": "PEER",
+      "note": "a peer is a member of the nobility"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEER",
+       "to": "REEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Inching forward, starting to worry and annoying a nobleman.",
+     "definitionFit": "To creep is to move forward very slowly and quietly, inching along rather than striding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1740,43 @@
     "text": "Part of cargo, necessary element",
     "enumeration": "5"
    },
-   "solution": "ARGON"
+   "solution": "ARGON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARGON",
+    "definitions": [
+     {
+      "text": "element",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "only a part of the following words is used, a run of letters lying across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cargo, necessary",
+      "gives": "ARGON",
+      "note": "a run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some of a ship's freight is an essential ingredient.",
+     "walkthrough": "'necessary element' reads as one phrase, but 'necessary' supplies letters and only 'element' defines.",
+     "definitionFit": "Argon is a noble gas, number 18 in the periodic table, so it is a chemical element."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "necessary"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1790,62 @@
     "text": "Note adapted hose, old invention",
     "enumeration": "9"
    },
-   "solution": "FALSEHOOD"
+   "solution": "FALSEHOOD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "FALSEHOOD",
+    "definitions": [
+     {
+      "text": "invention",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adapted",
+      "for": "anagram",
+      "note": "something adapted has been altered to fit, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "FA",
+      "note": "fa is the fourth note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "hose, old",
+      "gives": "HOSEOLD",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "LSEHOOD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOSEOLD",
+       "gives": "LSEHOOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A memo about a modified hosepipe, an ancient innovation.",
+     "walkthrough": "'invention' looks like a new device, but it means a made-up story.",
+     "definitionFit": "An invention can be something fabricated or made up, which is a lie or untruth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "invention"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1859,66 @@
     "text": "Admired English horse covering miles with energy",
     "enumeration": "8"
    },
-   "solution": "ESTEEMED"
+   "solution": "ESTEEMED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ESTEEMED",
+    "definitions": [
+     {
+      "text": "Admired",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "the horse covers the other letters, wrapping around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E for English"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "STEED",
+      "note": "a steed is a horse"
+     },
+     {
+      "clueFragment": "miles",
+      "gives": "M",
+      "note": "M for miles"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STEE",
+      "ME",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A praised English racehorse covers long distances with vigour.",
+     "definitionFit": "To be esteemed is to be held in high regard and respected, a past participle like the definition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1932,62 @@
     "text": "Lack of interest in course occupying a year",
     "enumeration": "6"
    },
-   "solution": "APATHY"
+   "solution": "APATHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APATHY",
+    "definitions": [
+     {
+      "text": "Lack of interest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "something occupying a space sits inside it, so the course goes within the other letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "PATH",
+      "note": "a path is a course or route"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PATH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A student who loses enthusiasm for a degree course after a year.",
+     "definitionFit": "Apathy is indifference, the absence of enthusiasm or concern about anything."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   }
  ]
 }
