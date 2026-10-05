@@ -1,0 +1,304 @@
+#!/usr/bin/env python3
+"""How far each newspaper series' archive years are from a full year, and why.
+
+    python3 tools/archive_coverage.py                 # every scanned series, ranked
+    python3 tools/archive_coverage.py --series times  # one series
+    python3 tools/archive_coverage.py --json out.json # the same, machine-readable
+    python3 tools/archive_coverage.py --save          # also keep it for tomorrow's deltas
+
+The goal (docs/ARCHIVE_COVERAGE.md): every archive year holds about as many
+puzzles as a modern year, about 300 for a Mon-Sat daily. For each series and
+year this counts:
+
+  printed   editions the paper printed (PRINTED below: weekdays, gaps)
+  scanned   printed editions archive.org holds a scan of (the cached item
+            listings of tools/fetch_archive_org_editions.py)
+  filed     printed dates with a puzzle file in puzzles/<series>/
+
+and gives every printed, unfiled edition one reason, read off the filer's
+ledger (~/.cache/archive_org_editions/filed.jsonl): no scan, scan not
+fetched, not yet read, no grid, no reading parses, blank clues held back, ...
+The classes are ranked: recoverable ones (a fetch, a reader fix, a re-read)
+first, by size; an edition already listed in a job of
+tools/data/corpus_queue.json is counted as queued.
+
+--save writes ~/.cache/archive_coverage/latest.json (the previous one becomes
+previous.json), from which the per-year deltas are printed.
+"""
+import argparse
+import collections
+import datetime
+import json
+import os
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+
+import corpus_queue
+import fetch_archive_org_editions as fetcher
+
+CACHE = Path(os.path.expanduser("~/.cache/archive_org_editions"))
+LEDGER = CACHE / "filed.jsonl"
+STATE = Path(os.path.expanduser("~/.cache/archive_coverage"))
+
+#: Which days each series printed: the weekdays (0 = Monday), the first day
+#: of its crossword, and the spans it did not appear at all. Christmas Day
+#: is never printed. A series is counted only once it has a row here.
+PRINTED = {
+    "times": {"weekdays": range(6), "first": "1930-02-01",
+              # The Times was shut by the lock-out of 1 Dec 1978 to 12 Nov 1979.
+              "gaps": [("1978-12-01", "1979-11-12")]},
+    "cryptic": {"weekdays": range(6), "first": "1929-01-05", "gaps": []},
+    "ftcryptic": {"weekdays": range(6), "first": "1930-01-01", "gaps": []},
+    "telegraph": {"weekdays": range(6), "first": "1925-07-30", "gaps": []},
+}
+
+#: Every unfiled-edition class: (key, what it means, the fix, recoverable).
+#: Recoverable means this pipeline (fetch, OCR, refile) can still get it.
+CLASSES = [
+    ("not-fetched", "archive.org has the scan; tools/fetch_archive_org_editions.py has not fetched it",
+     "fetch_archive_org_editions.py --group <paper>", True),
+    ("fetch-failed", "the scan's fetch failed (failures.tsv) and has not been retried",
+     "fetch_archive_org_editions.py --group <paper>", True),
+    ("not-read", "fetched, never read by the filer", "ocr_full_pass.sh (or a refile list)", True),
+    ("blank-clues", "read; a clue is blank (readings disagree), held back", "re-read: better readers / VLM", True),
+    ("no-grid", "read; no grid found or rebuilt", "grid reader fix, then refile", True),
+    ("clues-dont-fit", "read; the rebuilt grid disagrees with the clues", "clue reader fix, then refile", True),
+    ("no-reading-parses", "read; no reading of the clue columns parses", "clue reader fix, then refile", True),
+    ("not-a-grid", "read; the ink under the title is not a grid", "grid finder fix, then refile", True),
+    ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True),
+    ("read-not-filed", "read whole, but no file for that date", "look at the ledger row", True),
+    ("no-crossword-found", "fetched; no crossword heading found on any page", "detector fix (DETECTOR_VERSION)", True),
+    ("filed-other-date", "its puzzle number is filed, under another date", "date the file right", True),
+    ("number-date-mismatch", "the item's date and the puzzle number disagree", "none: archive.org's date is wrong", False),
+    ("no-filer", "archive.org has the scan, in a one-issue-per-item collection the filer does not read",
+     "teach fetch_archive_org_editions.py and the filer the collection (ONE_ISSUE_GROUPS)", True),
+    ("no-listing", "the year's archive.org item listing is not cached", "fetch_archive_org_editions.py --group <paper>", True),
+    ("no-scan", "archive.org holds no scan of this edition", "another source (Trove, a book, a blog)", False),
+]
+CLASS = {c[0]: c for c in CLASSES}
+
+#: fetch_archive_org_editions.py groups holding a paper's issues one item
+#: each, which file_archive_org_puzzles.py does not read yet.
+ONE_ISSUE_GROUPS = {"times": ["pub_times"]}
+
+
+def printed_dates(series, until):
+    spec = PRINTED[series]
+    gaps = [(datetime.date.fromisoformat(a), datetime.date.fromisoformat(b)) for a, b in spec["gaps"]]
+    d = datetime.date.fromisoformat(spec["first"])
+    while d <= until:
+        if d.weekday() in spec["weekdays"] and (d.month, d.day) != (12, 25) and not any(a <= d <= b for a, b in gaps):
+            yield d.isoformat()
+        d += datetime.timedelta(days=1)
+
+
+def corpus(series):
+    """{date: puzzle number} and {number: date} of the series' filed puzzles."""
+    by_date, by_number = {}, {}
+    for path in (ROOT / "puzzles" / series).glob("*/*.json"):
+        try:
+            p = json.loads(path.read_text())
+        except (OSError, ValueError):
+            continue
+        if p.get("date"):
+            by_date.setdefault(p["date"], p.get("number"))
+            by_number[p.get("number")] = p["date"]
+    return by_date, by_number
+
+
+def unread_collections(paper):
+    """{date: item} of `paper`'s issues in its ONE_ISSUE_GROUPS."""
+    out = {}
+    for group in ONE_ISSUE_GROUPS.get(paper.key, ()):
+        try:
+            items = json.loads((CACHE / "items" / f"_group_{group}.json").read_text())
+        except (OSError, ValueError):
+            continue
+        for i in items:
+            if i.get("date"):
+                out.setdefault(i["date"][:10], i["identifier"])
+    return out
+
+
+def scans(paper):
+    """({date: "<item>/<slug>"} of every edition archive.org lists for
+    `paper`, {year: listing cached}) from the cached item metadata."""
+    out, listed = {}, {}
+    group = {"times": "times", "ft": "ft", "guardian": "guardian", "telegraph": "telegraph"}[paper.key]
+    try:
+        items = [i["identifier"] for i in json.loads((CACHE / "items" / f"_group_{group}.json").read_text())]
+    except (OSError, ValueError):
+        items = []
+    for item in items:
+        m = paper.item.match(item)
+        if not m:
+            continue
+        path = CACHE / "items" / f"{item}.json"
+        listed[int(m.group(1))] = path.exists()
+        if not path.exists():
+            continue
+        for name in fetcher.editions_of(json.loads(path.read_text())):
+            date = fetcher.edition_date(name)
+            if date:
+                out.setdefault(date, f"{item}/{fetcher.slug_of(item, name)}")
+    return out, listed
+
+
+def failed_fetches():
+    """The "<item>/<slug>" of every edition failures.tsv logs, less those done.tsv has."""
+    def rows(name):
+        try:
+            return [ln.split("\t") for ln in (CACHE / name).read_text(encoding="utf-8").splitlines()]
+        except OSError:
+            return []
+    done = {f"{r[0]}/{fetcher.slug_of(r[0], r[1])}" for r in rows("done.tsv") if len(r) >= 2}
+    return {f"{r[1]}/{fetcher.slug_of(r[1], r[2])}" for r in rows("failures.tsv") if len(r) >= 3} - done
+
+
+def ledger():
+    rows = {}
+    try:
+        text = LEDGER.read_text(encoding="utf-8")
+    except OSError:
+        return rows
+    for ln in text.splitlines():
+        if ln.strip():
+            r = json.loads(ln)
+            rows[r["edition"]] = r
+    return rows
+
+
+def verdict_class(row, by_number):
+    """The class of an unfiled edition the filer has read: `row` is its ledger row."""
+    vs = row.get("verdicts") or []
+    if not vs:
+        return "no-crossword-found"
+    v = next((v for v in vs if v.get("id")), vs[0])
+    if v.get("number") in by_number:
+        return "filed-other-date"
+    refused = v.get("refused") or ""
+    if refused:
+        if "not a grid" in refused:
+            return "not-a-grid"
+        if "parses" in refused:
+            return "no-reading-parses"
+        return "number-date-mismatch"
+    pending = (v.get("pending") or "").split(":")[0]
+    if pending == "no grid":
+        return "no-grid"
+    if pending:
+        return "clues-dont-fit"
+    if v.get("refusedWrite") or v.get("writeFailed"):
+        return "write-refused"
+    if v.get("blank") or "blank" in (v.get("skip") or ""):
+        return "blank-clues"
+    return "read-not-filed"
+
+
+def cover(paper, today):
+    series = paper.series
+    by_date, by_number = corpus(series)
+    listing, listed = scans(paper)
+    rows, failed = ledger(), failed_fetches()
+    elsewhere = unread_collections(paper)
+    queued = corpus_queue.queued_editions()
+    years = collections.defaultdict(lambda: collections.Counter())
+    classes = collections.defaultdict(lambda: {"editions": 0, "queued": 0, "years": collections.Counter(),
+                                               "sample": []})
+    for date in printed_dates(series, today):
+        y = int(date[:4])
+        ys = years[y]
+        ys["printed"] += 1
+        ed = listing.get(date)
+        if ed or date in elsewhere:
+            ys["scanned"] += 1
+        if date in by_date:
+            ys["filed"] += 1
+            continue
+        if not ed and date in elsewhere:
+            cls = "no-filer"
+        elif not ed:
+            cls = "no-scan" if listed.get(y, True) else "no-listing"
+        elif ed in rows:
+            cls = verdict_class(rows[ed], by_number)
+        elif ed in failed:
+            cls = "fetch-failed"
+        elif (CACHE / ed / "pages.json").exists():
+            cls = "not-read"
+        else:
+            cls = "not-fetched"
+        c = classes[cls]
+        c["editions"] += 1
+        c["years"][y] += 1
+        if ed and ed in queued:
+            c["queued"] += 1
+        if ed and len(c["sample"]) < 3:
+            c["sample"].append(ed)
+    # Only the years a scan or a filed puzzle reaches: the rest is a source we lack.
+    shown = {y: dict(c) for y, c in sorted(years.items()) if c["scanned"] or c["filed"]}
+    modern = sorted(c["filed"] for y, c in years.items() if y >= today.year - 8 and y < today.year)
+    ranked = sorted(classes.items(), key=lambda kv: (not CLASS[kv[0]][3], -(kv[1]["editions"] - kv[1]["queued"])))
+    return {
+        "series": series, "paper": paper.key,
+        "modernYear": modern[len(modern) // 2] if modern else None,
+        "years": shown,
+        "classes": [{"class": k, "means": CLASS[k][1], "fix": CLASS[k][2], "recoverable": CLASS[k][3],
+                     "editions": v["editions"], "queued": v["queued"],
+                     "years": dict(sorted(v["years"].items())), "sample": v["sample"]}
+                    for k, v in ranked],
+    }
+
+
+def report(cov, previous=None, top=8):
+    """The ranked text table of one series' coverage; `previous` is the
+    same series out of the last --save, for the per-year deltas."""
+    out = [(f"== {cov['series']} (archive.org paper {cov['paper']}); a modern year files "
+            f"{cov['modernYear']} =="), "Unfiled editions by class, recoverable first (queued = in a corpus_queue job):"]
+    for c in cov["classes"][:top]:
+        span = list(c["years"])
+        out.append(f"  {c['editions']:6,} {c['class']:<22} queued {c['queued']:5,}  "
+                   f"{'' if c['recoverable'] else '(not recoverable here) '}{span[0]}-{span[-1]}  fix: {c['fix']}")
+    prev = (previous or {}).get("years", {})
+    out.append("year  printed scanned  filed  gap   (delta filed since last save)")
+    for y, c in cov["years"].items():
+        p = prev.get(str(y), prev.get(y, {})).get("filed")
+        delta = "" if p is None or p == c.get("filed", 0) else f"  {c.get('filed', 0) - p:+d}"
+        out.append(f"{y}  {c.get('printed', 0):7} {c.get('scanned', 0):7} {c.get('filed', 0):6} "
+                   f"{c.get('printed', 0) - c.get('filed', 0):4}{delta}")
+    return "\n".join(out)
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--series", action="append", help="times, cryptic, ftcryptic, telegraph (default: all)")
+    ap.add_argument("--json", type=Path, help="write the coverage here as JSON")
+    ap.add_argument("--save", action="store_true", help="keep it as latest.json for the next run's deltas")
+    ap.add_argument("--top", type=int, default=8, help="classes listed per series")
+    args = ap.parse_args(argv)
+    import file_archive_org_puzzles as filer  # slow (the OCR stack), so only once asked
+    today = datetime.datetime.now().astimezone().date()
+    papers = [p for p in filer.PAPERS.values() if p.series in PRINTED and (not args.series or p.series in args.series)]
+    try:
+        previous = json.loads((STATE / "latest.json").read_text())
+    except (OSError, ValueError):
+        previous = {}
+    result = {"at": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
+              "series": {p.series: cover(p, today) for p in papers}}
+    for s, cov in result["series"].items():
+        print(report(cov, previous.get("series", {}).get(s), args.top))
+        print()
+    if args.json:
+        args.json.write_text(json.dumps(result, indent=1))
+    if args.save:
+        STATE.mkdir(parents=True, exist_ok=True)
+        if (STATE / "latest.json").exists():
+            os.replace(STATE / "latest.json", STATE / "previous.json")
+        (STATE / "latest.json").write_text(json.dumps(result, indent=1))
+    return result
+
+
+if __name__ == "__main__":
+    main()
