@@ -371,7 +371,7 @@ def reading(d, found, hit, laid, verdict):
         "name": f"Listener crossword No {hit['number']:,}" + (f": {hit['title']}" if hit.get("title") else ""),
         "setter": hit.get("setter"),
         "date": found["date"],
-        "source": {"url": fa.PAGE_URL.format(item=found["item"], leaf=hit["leaf"])},
+        "source": {"url": fa.PAGE_URL.format(edition=fa.edition_of(d, found), leaf=hit["leaf"])},
         "unfiled": "a Listener's entries are its preamble's alterations of the answers; "
                    "filing needs them read off the preamble",
         "verdict": verdict,
