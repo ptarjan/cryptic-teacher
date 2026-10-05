@@ -475,7 +475,13 @@ const openId = bootLoaded[0];
 // still exercised — and CI loads all of it. FULL is the flag every sweep-wide
 // count below is gated on, because those counts are statements about the whole
 // corpus and a sample cannot make them.
-const FULL = !!process.env.CI || !!process.env.CT_FULL;
+const FULL = !!process.env.CT_FULL;
+// A push or PR sweeps the sample above PLUS every puzzle the change touched:
+// CT_CHANGED holds the changed paths under puzzles/ (tests.yml diffs against the
+// base), and each one's id is its file name without the extension. The full
+// corpus is the nightly workflow's (nightly-smoke.yml, CT_FULL=1).
+const CHANGED = new Set((process.env.CT_CHANGED || "").split(/\s+/).filter(Boolean)
+  .map((f) => path.basename(f).replace(/\.(json|js)$/, "")));
 // CI runs this file as several jobs at once, CI_SLICE="i/n" in each, and each
 // one sweeps the puzzles whose id hashes to its slice: together they sweep all
 // of it, in a fraction of the wall time. The checks that are not sweeps run in
@@ -527,13 +533,14 @@ const corpus = (() => {
     newest((p) => !p.date && p.annotated).slice(0, 1),
     // Already loaded, but the sections above derive their expectations from
     // whatever booted and the sample must not be read as dropping it.
-    all.filter((p) => p.id === openId));
+    all.filter((p) => p.id === openId),
+    all.filter((p) => CHANGED.has(p.id)));
 })();
 corpus.forEach(load);
 assert(Object.keys(global.window.CRYPTIC_PUZZLES).length >= (FULL ? 25 : 5),
   "the corpus is loaded for the checks below");
 if (!FULL) console.log(`(sampled ${corpus.length} puzzles of ${global.CRYPTIC_INDEX.puzzles.length}; `
-  + "CI and CT_FULL=1 sweep all of them)");
+  + "the nightly run and CT_FULL=1 sweep all of them)");
 // A floor under how much a sweep found is a statement about the CORPUS, and a
 // sample cannot make it. What the floor is really guarding against is a sweep
 // that quietly stopped finding anything — a filter that matches nothing passes
@@ -923,8 +930,8 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   // ten: each one boots a second node or bash to test the Worker, the cron and
   // the burn's shell, none of which app.js can break. CI pays for them; the
   // edit-and-run loop does not, because a loop nobody waits out is the only
-  // kind that gets run before a push. Change any of these and run CT_FULL=1.
-  if (FULL && SLICE.i === 0) {
+  // kind that gets run before a push. Change any of these and run CI=1.
+  if ((FULL || process.env.CI) && SLICE.i === 0) {
     const hold = require("child_process").spawnSync(
       process.execPath, [path.join(ROOT, "tools/test_push_hold.js")], { encoding: "utf8" });
     assert(hold.status === 0,
