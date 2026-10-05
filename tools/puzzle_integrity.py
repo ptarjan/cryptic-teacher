@@ -638,6 +638,12 @@ def check_shape(puzzle, today, flags):
         if enumeration.unsplit(e["clue"], {e.get("length"), group_total}):
             flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} ends in its "
                           f"enumeration; enumeration.split() it into clue.enumeration"))
+        # Marks left after the count ("(4))", "(7)!", "(8,5);") are a feed's or
+        # a blog's markup, whatever the count says; split() cuts them with it.
+        elif enumeration.stray(e["clue"]):
+            flags.append(("SHAPE", pid, f"{eid}: clue text {clue!r} has stray "
+                          f"marks after its enumeration; enumeration.split() "
+                          f"it into clue.enumeration"))
         # A letter left stuck to the clue's last mark ("gateau?d") is a source's
         # stray character: no clue prints a letter directly after "?" or "!".
         if re.search(r"[?!][A-Za-z]{1,2}$", clue):

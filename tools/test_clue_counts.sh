@@ -60,5 +60,19 @@ check("a repeated count is refused", len(shape(bad)), 1)
 bad = copy.deepcopy(puzzle)
 bad["entries"][0]["clue"]["text"] += "?d"
 check("a stray letter is refused", len(shape(bad)), 1)
+for junk in ("))", "!", ";", ">", ".", "..", " –"):
+    check(f"marks {junk!r} after the count are cut",
+          enumeration.split(f"Consider a short period in river (7){junk}"),
+          ("Consider a short period in river", "7"))
+check("stray marks after a count are stray", enumeration.stray({"text": "Erotic troupe in seedy void (6)!"}), True)
+check("a mismatched count behind marks is stray", enumeration.stray({"text": "Mother's cross raised (3);"}), True)
+check("a bare count is not stray", enumeration.stray({"text": "Erotic troupe (6)"}), False)
+check("a year behind a mark is the clue's words",
+      enumeration.split("Be remembered as would Titanic (1912) or prices (1929)?"),
+      ("Be remembered as would Titanic (1912) or prices (1929)?", None))
+check("an echo behind marks is cut", enumeration.split("Dip in river (7)). (7)"), ("Dip in river", "7"))
+bad = copy.deepcopy(puzzle)
+bad["entries"][0]["clue"]["text"] += " (3);"
+check("stray marks behind any count are refused", len(shape(bad)), 1)
 sys.exit(1 if fails else 0)
 PY
