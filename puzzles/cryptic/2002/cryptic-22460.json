@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Rated the Guardian in 17, perhaps",
     "enumeration": "6"
    },
-   "solution": "ABUSED"
+   "solution": "ABUSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ABUSED",
+    "definitions": [
+     {
+      "text": "Rated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the newspaper is placed inside the state described by the other entry"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "17, perhaps",
+      "gives": "ABED",
+      "note": "17 across means not yet roused from sleep, i.e. lying in bed"
+     },
+     {
+      "clueFragment": "the Guardian",
+      "gives": "US",
+      "note": "the clue appears in the Guardian, so the paper refers to itself as us"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "US",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer has given the Guardian a rating while lounging under the covers.",
+     "walkthrough": "'Rated' is the old sense of berated or scolded. The Guardian calls itself 'us', and 17, UNAWAKENED, is a way of being abed.",
+     "definitionFit": "To rate someone in the old sense is to scold them angrily, which is to have treated them with harsh insulting words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rated"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,43 @@
     "text": "Battle overhead?",
     "enumeration": "9"
    },
-   "solution": "BALACLAVA"
+   "solution": "BALACLAVA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BALACLAVA",
+    "definitions": [
+     {
+      "text": "Battle",
+      "at": 0
+     },
+     {
+      "text": "overhead?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Battle",
+      "note": "first meaning: the 1854 Crimean War battle"
+     },
+     {
+      "clueFragment": "overhead?",
+      "note": "second meaning: something worn over the head, a woollen hood covering face and neck"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Overhead' is read cryptically as 'worn over the head'; the question mark flags the stretch.",
+     "definitionFit": "The knitted hood took its name from the Crimean battle, where British soldiers wore such garments against the cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "overhead"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +148,43 @@
     "text": "Since it's said to be 8 acrossing",
     "enumeration": "6"
    },
-   "solution": "SEEING"
+   "solution": "SEEING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEEING",
+    "definitions": [
+     {
+      "text": "Since",
+      "at": 0
+     },
+     {
+      "text": "it's said to be 8 acrossing",
+      "at": 6,
+      "note": "the proverb 'seeing is believing'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Since",
+      "note": "first meaning: a conjunction meaning given that"
+     },
+     {
+      "clueFragment": "it's said to be 8 acrossing",
+      "note": "second meaning: 8 across plus -ing makes believing, and the proverb equates the answer with believing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "8 across is BELIEVE, so '8 acrossing' is 'believing', and the saying is 'seeing is believing'.",
+     "definitionFit": "As a conjunction the word means considering that, a synonym of since; and the proverb says it is believing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +204,59 @@
      }
     ]
    },
-   "solution": "DRESSCODE"
+   "solution": "DRESSCODE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DRESS CODE",
+    "definitions": [
+     {
+      "text": "written about ties, etc",
+      "at": 23,
+      "note": "a set of rules written about what to wear"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Various",
+      "for": "anagram",
+      "note": "various suggests the letters may come in a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "screeds",
+      "gives": "SCREEDS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "do",
+      "gives": "DO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SCREEDSDO",
+       "gives": "DRESSCODE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of long rambling texts are produced about neckties and similar accessories.",
+     "definitionFit": "A dress code is a set of rules, usually written down, stating required clothing such as jackets and neckties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Various"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +270,60 @@
     "text": "Giant about to veto explosive game",
     "enumeration": "6"
    },
-   "solution": "GOBANG"
+   "solution": "GOBANG",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOBANG",
+    "definitions": [
+     {
+      "text": "explosive game",
+      "at": 20,
+      "note": "go bang means explode, a hint at the answer's sound"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the giant's name goes round, enclosing the word for veto"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giant",
+      "gives": "GOG",
+      "note": "Gog is one of the legendary giants Gog and Magog, guardians of the City of London"
+     },
+     {
+      "clueFragment": "veto",
+      "gives": "BAN",
+      "note": "to veto is to ban"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "BAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A giant is on the point of forbidding a game involving explosions.",
+     "walkthrough": "Gog is one of the two giants of London legend. Split as two words the answer means explode, which explains 'explosive'.",
+     "definitionFit": "Gobang is a Japanese board game of placing five stones in a row, and its name read as two words means explode."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Giant"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +337,45 @@
     "text": "Forbidding many brothers that told tales",
     "enumeration": "5"
    },
-   "solution": "GRIMM"
+   "solution": "GRIMM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIMM",
+    "definitions": [
+     {
+      "text": "brothers that told tales",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forbidding",
+      "gives": "GRIM",
+      "note": "a forbidding look is a grim one"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand, i.e. many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRIM",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Some stern siblings are said to have told stories.",
+     "definitionFit": "The Brothers Grimm, Jacob and Wilhelm, collected and published German fairy stories such as Hansel and Gretel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +395,46 @@
      }
     ]
    },
-   "solution": "BROWNOFF"
+   "solution": "BROWNOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROWN OFF",
+    "definitions": [
+     {
+      "text": "to make one fed up?",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chancellor",
+      "gives": "BROWN",
+      "note": "Gordon Brown was Chancellor of the Exchequer when this puzzle appeared"
+     },
+     {
+      "clueFragment": "on holiday",
+      "gives": "OFF",
+      "note": "someone on holiday is off work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROWN",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A finance minister goes on leave, leaving someone thoroughly irritated.",
+     "definitionFit": "To brown someone off is British slang for to annoy or depress them, leaving them bored and exasperated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chancellor"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +448,45 @@
     "text": "Tennis impossible with this group",
     "enumeration": "5"
    },
-   "solution": "NONET"
+   "solution": "NONET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NONET",
+    "definitions": [
+     {
+      "text": "Tennis impossible with this",
+      "at": 0,
+      "note": "read as two words, a lack of mesh across the court"
+     },
+     {
+      "text": "group",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tennis impossible with this",
+      "note": "split into two words, the answer describes a court lacking its mesh barrier, making play impossible"
+     },
+     {
+      "clueFragment": "group",
+      "note": "second meaning: a band of nine musicians"
+     }
+    ],
+    "explanation": {
+     "surface": "A band of players finds a game of tennis cannot be played with them around.",
+     "walkthrough": "Split as NO NET it means no tennis is possible; as one word it is a group of nine.",
+     "definitionFit": "A nonet is a group of nine performers, or a piece written for nine instruments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tennis"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +500,81 @@
     "text": "(and 9) Challenge to faith zone: the first First Lady, one lacerated by love, enters",
     "enumeration": "7"
    },
-   "solution": "BELIEVE"
+   "solution": "BELIEVE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "deletion"
+    ],
+    "answer": "BELIEVE",
+    "definitions": [
+     {
+      "text": "Challenge to faith",
+      "at": 8,
+      "note": "defines the whole phrase, first word here and the rest at 9"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "everything after the colon goes into the word for zone"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "zone",
+      "gives": "BELT",
+      "note": "a belt is a zone, as in a green belt or commuter belt"
+     },
+     {
+      "clueFragment": "the first",
+      "gives": "I",
+      "note": "I is the Roman numeral for one, the first"
+     },
+     {
+      "clueFragment": "First Lady",
+      "gives": "EVE",
+      "note": "Eve was the first woman"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "lacerated",
+      "gives": "TORN",
+      "note": "something lacerated is torn"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEL",
+      "I",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A disputed area is in question as a president's wife, cut up by an affair, comes in.",
+     "walkthrough": "The wordplay builds the whole phrase across this light and 9 across: everything after the colon sits inside the zone word, and this light keeps only its first seven letters.",
+     "definitionFit": "The phrase introduces something so startling that the listener may doubt it, testing credulity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +588,65 @@
     "text": "Member of Eastern alliance in resting place under attack",
     "enumeration": "11"
    },
-   "solution": "BELEAGUERED"
+   "solution": "BELEAGUERED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BELEAGUERED",
+    "definitions": [
+     {
+      "text": "under attack",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the alliance member and the compass point go inside the place for resting"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for Eastern"
+     },
+     {
+      "clueFragment": "Member of",
+      "gives": "LEAGUER",
+      "note": "read with the word after 'Eastern': a leaguer is a member of a league, or alliance"
+     },
+     {
+      "clueFragment": "alliance",
+      "note": "the second half of the phrase whose letters the previous block gives; it adds nothing of its own"
+     },
+     {
+      "clueFragment": "resting place",
+      "gives": "BED",
+      "note": "a bed is where one rests"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ELEAGUER",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier of an eastern bloc pact, lying in a grave, finds himself assailed.",
+     "walkthrough": "'Member of alliance' is split by 'Eastern', which goes in front of it; both then sit inside the resting place.",
+     "definitionFit": "Beleaguered means besieged, surrounded by an enemy, and by extension beset by many troubles at once."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Eastern"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +670,38 @@
      }
     ]
    },
-   "solution": "ITORNOT"
+   "solution": "ITORNOT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IT OR NOT",
+    "definitions": [
+     {
+      "text": "See 8",
+      "at": 1,
+      "note": "this light continues the phrase clued at 8 across"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "note": "surface reading: an instruction to look elsewhere"
+     },
+     {
+      "clueFragment": "8",
+      "note": "setter's reading: the clue at 8 across defines the whole phrase, and this light holds its second half"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue at 8 across gives the full expression of disbelief; this light takes its last three words.",
+     "definitionFit": "These words complete the stock phrase used to introduce an astonishing fact, as in the Ripley's newspaper feature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -209,7 +715,39 @@
     "text": "Outstanding acolyte in love?",
     "enumeration": "11"
    },
-   "solution": "TORCHBEARER"
+   "solution": "TORCHBEARER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TORCHBEARER",
+    "definitions": [
+     {
+      "text": "Outstanding acolyte in love?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outstanding acolyte",
+      "note": "surface reading: a pre-eminent altar server, who carries candles in procession"
+     },
+     {
+      "clueFragment": "in love?",
+      "note": "setter's reading: someone pining for an unrequited love is said to carry a flame for that person"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An acolyte carries a lit candle in church; someone in love 'carries a torch'; and a torchbearer is also a leader who stands out.",
+     "definitionFit": "The word covers a leader of a movement, a carrier of a ceremonial flame, and jokingly a hopeless admirer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "acolyte"
+    }
+   }
   },
   {
    "number": 11,
@@ -233,7 +771,61 @@
      }
     ]
    },
-   "solution": "LOCHNESSMONSTER"
+   "solution": "LOCHNESSMONSTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LOCH NESS MONSTER",
+    "definitions": [
+     {
+      "text": "an illusion",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Could be",
+      "for": "anagram",
+      "note": "could be suggests the letters might form something else once rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A hundred and fifty",
+      "gives": "CL",
+      "note": "C is a hundred and L fifty in Roman numerals"
+     },
+     {
+      "clueFragment": "honest",
+      "gives": "HONEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sermons",
+      "gives": "SERMONS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLHONESTSERMONS",
+       "gives": "LOCHNESSMONSTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher delivers a hundred and fifty truthful homilies, which may be nothing but a mirage.",
+     "definitionFit": "The fabled creature of the Scottish loch has never been proved to exist, so sightings may be tricks of the eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "honest"
+    }
+   }
   },
   {
    "number": 12,
@@ -247,7 +839,46 @@
     "text": "One road off",
     "enumeration": "4"
    },
-   "solution": "AWAY"
+   "solution": "AWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWAY",
+    "definitions": [
+     {
+      "text": "off",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "WAY",
+      "note": "a way is a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Off here means not present, as in 'off sick'.",
+     "definitionFit": "Someone off, or absent, is elsewhere; both words describe being gone from home or work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 13,
@@ -267,7 +898,68 @@
      }
     ]
    },
-   "solution": "GOOSEFLESH"
+   "solution": "GOOSEFLESH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GOOSE FLESH",
+    "definitions": [
+     {
+      "text": "fear of Christmas dinner?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests the words are spoiled and should be rearranged"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means the jumbled letters go within the exclamation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golly!",
+      "gives": "GOSH",
+      "note": "both are mild exclamations of surprise"
+     },
+     {
+      "clueFragment": "Feel so",
+      "gives": "FEELSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "OSEFLE",
+      "SH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FEELSO",
+       "gives": "OSEFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims at how poorly they feel, dreading the festive meal.",
+     "walkthrough": "Goose is the traditional Christmas roast, so the goose has most to fear.",
+     "definitionFit": "Goose pimples rise on the skin from fear or cold, and the bird is the classic Christmas roast, hence the joke."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Feel"
+    }
+   }
   },
   {
    "number": 14,
@@ -281,7 +973,43 @@
     "text": "Egotishtical seafood?",
     "enumeration": "9"
    },
-   "solution": "SHELLFISH"
+   "solution": "SHELLFISH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SHELLFISH",
+    "definitions": [
+     {
+      "text": "seafood?",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Egotishtical",
+      "for": "homophone",
+      "note": "the slurred lisping spelling tells us a word is to be pronounced the same way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Egotishtical",
+      "gives": "SHELLFISH",
+      "soundsLike": "SHELFISH",
+      "note": "egotistical means selfish, here lisped with sh for s"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The misspelling shows a lisp: 'selfish' said with a lisp sounds like the answer.",
+     "definitionFit": "Crabs, mussels, oysters and prawns are all edible sea creatures with shells, served as food from the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -295,7 +1023,63 @@
     "text": "Rescheduling debt, male model is under attack",
     "enumeration": "9"
    },
-   "solution": "EMBATTLED"
+   "solution": "EMBATTLED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMBATTLED",
+    "definitions": [
+     {
+      "text": "under attack",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rescheduling",
+      "for": "anagram",
+      "note": "rescheduling puts things in a new order, as these letters must be"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "debt",
+      "gives": "DEBT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "MALE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous early car"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEBTMALET",
+       "gives": "EMBATTLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A male fashion model whose loan is being restructured is besieged by creditors.",
+     "definitionFit": "An embattled position is one beset by enemies or difficulties, surrounded and fighting off hostile forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1093,65 @@
     "text": "I paid and managed Morse's liberation",
     "enumeration": "8"
    },
-   "solution": "RANSOMER"
+   "solution": "RANSOMER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RANSOMER",
+    "definitions": [
+     {
+      "text": "I paid",
+      "at": 0,
+      "note": "the answer speaking: one who paid for a release"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberation",
+      "for": "anagram",
+      "note": "the detective's name is freed from its usual order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "to manage a business is to run it"
+     },
+     {
+      "clueFragment": "Morse's",
+      "gives": "MORSE",
+      "note": "taken as written, without the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAN",
+      "SOMER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MORSE",
+       "gives": "SOMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims to have paid to free Inspector Morse from kidnappers.",
+     "walkthrough": "Inspector Morse is the Oxford detective of TV fame; here his name is just letters.",
+     "definitionFit": "A ransomer pays money to secure the release of a captive, so could say they handed over the cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "liberation"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1165,71 @@
     "text": "All of us together having a naughty weak end in bed",
     "enumeration": "10"
    },
-   "solution": "UNAWAKENED"
+   "solution": "UNAWAKENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UNAWAKENED",
+    "definitions": [
+     {
+      "text": "in bed",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naughty",
+      "for": "anagram",
+      "note": "naughty implies misbehaving, so the letters will not stay in line"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "All of us together",
+      "gives": "UN",
+      "note": "the United Nations unites all of us nations together"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weak end",
+      "gives": "WEAKEND",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "A",
+      "WAKENED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WEAKEND",
+       "gives": "WAKENED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Everyone spends a saucy, lazy weekend under the covers.",
+     "walkthrough": "'Weak end' sounds like 'weekend', helping the naughty surface.",
+     "definitionFit": "Someone still asleep and not yet roused is typically lying abed, so the participle fits the phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "naughty"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1243,46 @@
     "text": "Tramp 'eard in the wind?",
     "enumeration": "4"
    },
-   "solution": "OBOE"
+   "solution": "OBOE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "OBOE",
+    "definitions": [
+     {
+      "text": "in the wind",
+      "at": 12,
+      "note": "a member of the orchestra's wind section"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'eard",
+      "for": "homophone",
+      "note": "heard said with a dropped aitch, so we listen to a dropped-aitch pronunciation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tramp",
+      "gives": "OBOE",
+      "soundsLike": "'OBO",
+      "note": "a hobo is a tramp, said here without its opening h"
+     }
+    ],
+    "explanation": {
+     "surface": "A vagrant is overheard somewhere out in the breeze.",
+     "walkthrough": "Dropping the h is Cockney speech, signalled by the apostrophe in 'eard.",
+     "definitionFit": "The oboe is a double-reed woodwind instrument, part of an orchestra's woodwind section."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1296,43 @@
     "text": "Carnivore one has words with",
     "enumeration": "6"
    },
-   "solution": "WEASEL"
+   "solution": "WEASEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WEASEL",
+    "definitions": [
+     {
+      "text": "Carnivore",
+      "at": 0
+     },
+     {
+      "text": "one has words with",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carnivore",
+      "note": "first meaning: a small slender flesh-eating mammal"
+     },
+     {
+      "clueFragment": "one has words with",
+      "note": "second meaning: the thing joined with 'words' in a phrase for evasive language"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Has words with' looks like quarrelling; it means the word that goes with 'words'.",
+     "definitionFit": "The animal is a small predatory mammal; weasel words are deliberately evasive or misleading phrases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "words"
+    }
+   }
   },
   {
    "number": 20,
@@ -371,7 +1352,54 @@
      }
     ]
    },
-   "solution": "REFUSECOLLECTOR"
+   "solution": "REFUSECOLLECTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REFUSE COLLECTOR",
+    "definitions": [
+     {
+      "text": "or. . .",
+      "at": 22,
+      "note": "the ellipsis carries on into 23 across, whose song line names this person"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don''t grant",
+      "gives": "REFUSE",
+      "note": "to refuse is not to grant"
+     },
+     {
+      "clueFragment": "a prayer",
+      "gives": "COLLECT",
+      "note": "a collect is a short prayer in church liturgy"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REFUSE",
+      "COLLECT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchgoer is told their prayer is turned down, and a threat follows.",
+     "walkthrough": "The definition lies in the next clue: the music-hall song says 'My old man's a dustman', and a dustman is a British rubbish collector.",
+     "definitionFit": "Read across both clues, the old man of the song is a dustman, the British name for a rubbish collector."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "prayer"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1413,49 @@
     "text": "At high speed I make records",
     "enumeration": "5"
    },
-   "solution": "FASTI"
+   "solution": "FASTI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FASTI",
+    "definitions": [
+     {
+      "text": "records",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At high speed",
+      "gives": "FAST",
+      "note": "fast means at high speed"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAST",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts of setting speed records.",
+     "definitionFit": "Fasti were the Roman calendars and official registers listing festivals, consuls and events, so they are chronicles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "records"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1469,49 @@
     "text": "A once capsized boat",
     "enumeration": "5"
    },
-   "solution": "CANOE"
+   "solution": "CANOE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANOE",
+    "definitions": [
+     {
+      "text": "boat",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capsized",
+      "for": "anagram",
+      "note": "capsized means overturned, so the letters are tumbled about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A once",
+      "gives": "AONCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AONCE",
+       "gives": "CANOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vessel that has at some time turned over.",
+     "definitionFit": "A canoe is a light narrow paddled craft, a kind of small vessel for water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1525,60 @@
     "text": ". . .\"my old man\" will go mad - nuts - barmy",
     "enumeration": "7"
    },
-   "solution": "DUSTMAN"
+   "solution": "DUSTMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DUSTMAN",
+    "definitions": [
+     {
+      "text": "\"my old man\"",
+      "at": 5,
+      "note": "from the song 'My old man's a dustman'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barmy",
+      "for": "anagram",
+      "note": "barmy means crazy, so the letters go wild"
+     }
+    ],
+    "linkWords": [
+     "will go"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mad",
+      "gives": "MAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nuts",
+      "gives": "NUTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADNUTS",
+       "gives": "DUSTMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's father is about to lose his mind entirely.",
+     "walkthrough": "'Mad' and 'nuts' both look like indicators, but they are the letters; 'barmy' is the signal.",
+     "definitionFit": "The Cockney music-hall song 'My Old Man's a Dustman' names the father's job: a rubbish collector."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "mad"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1592,64 @@
     "text": "Timeless affront to a river that is narrow",
     "enumeration": "7"
    },
-   "solution": "INSULAR"
+   "solution": "INSULAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INSULAR",
+    "definitions": [
+     {
+      "text": "narrow",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Timeless",
+      "for": "deletion",
+      "note": "less means without, so the letter for time is removed"
+     }
+    ],
+    "linkWords": [
+     "that is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "affront",
+      "gives": "INSULT",
+      "note": "an affront is an insult"
+     },
+     {
+      "clueFragment": "to a",
+      "gives": "A",
+      "note": "a taken as written, after to"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSUL",
+      "A",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is insulted that a river is described as being slim.",
+     "walkthrough": "T is the abbreviation for time, removed from INSULT.",
+     "definitionFit": "Narrow in the sense of narrow-minded: inward-looking and uninterested in other cultures or ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "narrow"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1663,53 @@
     "text": "Stick a bit right in",
     "enumeration": "6"
    },
-   "solution": "PIERCE"
+   "solution": "PIERCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIERCE",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us the abbreviation goes inside the word for a bit"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit",
+      "gives": "PIECE",
+      "note": "a bit is a piece"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "R",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to push a fragment straight in.",
+     "definitionFit": "To stick a pin or knife into something is to puncture or penetrate it with a point."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1723,58 @@
     "text": "Man without a cover for the compound",
     "enumeration": "6"
    },
-   "solution": "HALIDE"
+   "solution": "HALIDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HALIDE",
+    "definitions": [
+     {
+      "text": "compound",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so the cover wraps round the man"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cover",
+      "gives": "HIDE",
+      "note": "a hide is a cover, as used by birdwatchers"
+     },
+     {
+      "clueFragment": "Man",
+      "gives": "AL",
+      "note": "Al is a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AL",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man has no shelter at the walled site.",
+     "walkthrough": "'Without' looks like 'lacking' but means 'outside'.",
+     "definitionFit": "A halide is a chemical compound of a halogen such as chlorine with another element, like sodium chloride."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   }
  ]
 }
