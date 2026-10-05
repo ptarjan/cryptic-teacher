@@ -1608,10 +1608,16 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const MONS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const seen = {};
+  // The date column, or for a date-keyed paper (its column left empty) the
+  // title, which is then the dated form: one date per row either way.
+  const rowDate = (li) => {
+    const h = li.children[0].innerHTML;
+    const meta = (/<span class="p-meta">([^<]*)</.exec(h) || [])[1] || "";
+    return meta || (/<span class="p-num"[^>]*>([^<]*)</.exec(h) || [])[1] || "";
+  };
   pickerRows().forEach((li) => {
-    const m = li.children[0].innerHTML.match(/<span class="p-meta">(\w{3}) ((\d{1,2}) (\w{3}) (\d{4}))</);
-    assert(m && MONS.includes(m[4]), "every picker row carries a weekday and a date: "
-      + (li.children[0].innerHTML.match(/p-meta">[^<]*/) || ["(none)"])[0]);
+    const m = rowDate(li).match(/^(\w{3}) ((\d{1,2}) (\w{3}) (\d{4}))$/);
+    if (!assert(m && MONS.includes(m[4]), "every picker row carries a weekday and a date: " + rowDate(li))) return;
     const want = DAYS[new Date(Date.UTC(+m[5], MONS.indexOf(m[4]), +m[3])).getUTCDay()];
     assert(m[1] === want, `${m[2]} was a ${want}, not a ${m[1]}`);
     seen[want] = (seen[want] || 0) + 1;
@@ -1625,9 +1631,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   const hits = drainPicker();
   assert(hits.length >= seen[day],
     `searching "${full.toLowerCase()}" finds its ${seen[day]} row(s), got ${hits.length}`);
-  assert(hits.every((li) => new RegExp(`p-meta">${day} `).test(li.children[0].innerHTML)),
-    `and finds nothing else: ` + hits.map((li) =>
-      (li.children[0].innerHTML.match(/p-meta">[^<]*/) || [""])[0]).join(" | "));
+  assert(hits.every((li) => rowDate(li).startsWith(day + " ")),
+    `and finds nothing else: ` + hits.map(rowDate).join(" | "));
   typeInPicker("");
 }
 
