@@ -1653,6 +1653,9 @@ def read_puzzle(d, found, hit, solutions):
             laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
         except RuntimeError:
             pass
+    # Each filed clue as the readings print it: its count's shape, each word's
+    # capital, hyphen and spelling.
+    laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
     laid, blank = one_light_each(laid, blank, fits)
     laid, blank = unfit_blanked(laid, blank, lengths)
     verdict["lights"] = len(rg.light_cells(grid))

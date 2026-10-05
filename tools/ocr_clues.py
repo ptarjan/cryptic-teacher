@@ -11,9 +11,13 @@ tools/file_trove_puzzles.py for the Canberra Times) reads them the same way:
   - reconcile() puts each laid clue's text to every other reading: agree()
     settles each word on the spelling the readings share, then on the one
     lexicon spelling (tools/data/lexicon.tsv, with the corpus's own clue
-    words), and files the clue blank when nothing wins. vlm_pick() then
-    shows each blank clue's readings to the desktop's VLM
+    words), then on the known word every reading's slips point to
+    (consensus()), and files the clue blank when nothing wins. vlm_pick()
+    then shows each blank clue's readings to the desktop's VLM
     (tools/vlm_reader.py), when it answers.
+  - as_printed() holds every filed clue, voted or picked, to what the
+    readings print for its light: the count's shape ("(5-4)", not a lost
+    count's "(9)"), and each word's capital, hyphen and known spelling.
   - suspect() is the check a filer runs before it writes: the words of a
     clue no reader could have meant (a digit or a stray mark inside a word,
     a capital after small letters, a word neither the lexicon nor the
@@ -267,7 +271,10 @@ def rank(word):
                 if not line.startswith("#"):
                     w, r = line.split("\t", 2)[:2]
                     _LEXICON.setdefault(w.lower(), int(r))
-    return _LEXICON.get(word.lower()) or _LEXICON.get(word.lower().replace("'", ""))
+    low = word.lower()
+    if low.endswith("'s") and len(low) > 3 and low[:-2] in _LEXICON:
+        return _LEXICON[low[:-2]]  # "that's" is as common as "that"
+    return _LEXICON.get(low) or _LEXICON.get(low.replace("'", ""))
 
 
 def is_word(word):
@@ -458,6 +465,106 @@ def swappable(text, at, word):
     return not (any(c.isupper() for c in word[1:]) or re.fullmatch(LIGHT_WORD, word)
                 or text[at + len(word):at + len(word) + 1] == "-"
                 or (at and text[at - 1] in "-'\u2019"))
+
+
+#: What a slip costs in slips(): a letter worn type or the readers turn into
+#: another (CONFUSED, or one of SLIPS' pairs of letters); any other letter
+#: changed, lost or put in costs 1.
+SLIP_COST = 0.5
+#: An apostrophe the print has and the reader lost costs this: readers drop
+#: one far more often than they make one up ("cant" for "can't").
+LOST_MARK = 0.25
+_SLIP_PAIRS = frozenset(CONFUSED) | frozenset((b, a) for a, b in CONFUSED)
+_SLIP_RUNS = tuple(p for p in SLIPS if len(p[0]) != len(p[1]))
+_SLIP_RUNS += tuple((b, a) for a, b in _SLIP_RUNS)
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def slips(a, b):
+    """What it costs a reader to read `b` where `a` is printed, case aside:
+    the edit distance with SLIP_COST for a likely slip ("tbar's" for "that's"
+    is 1, two slips)."""
+    a, b = a.lower(), b.lower()
+    n, m = len(a), len(b)
+    d = [[0.0] * (m + 1) for _ in range(n + 1)]
+    for i in range(1, n + 1):
+        d[i][0] = d[i - 1][0] + (LOST_MARK if a[i - 1] == "'" else 1)
+    for j in range(1, m + 1):
+        d[0][j] = d[0][j - 1] + 1
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            x, y = a[i - 1], b[j - 1]
+            sub = 0 if x == y else SLIP_COST if (x, y) in _SLIP_PAIRS else 1
+            best = min(d[i - 1][j - 1] + sub, d[i - 1][j] + (LOST_MARK if x == "'" else 1), d[i][j - 1] + 1)
+            for p, q in _SLIP_RUNS:
+                if i >= len(p) and j >= len(q) and a[i - len(p):i] == p and b[j - len(q):j] == q:
+                    best = min(best, d[i - len(p)][j - len(q)] + SLIP_COST)
+            d[i][j] = best
+    return d[n][m]
+
+
+def near_words(word):
+    """The known words a reader may have misread as `word` (lower case): up
+    to two CONFUSED letters off, or one CONFUSED letter and one other change."""
+    w = word.lower()
+    out = set()
+    for v in {w} | confused(w):
+        out |= {c for c in {v} | confused(v) | edits(v) if len(c) > 1 and known(c)}
+    return out
+
+
+#: The shortest word the lexicon's consensus settles: "Sbc" may be "She",
+#: "Abe" or "Sac", where no reading's slips say which.
+CONSENSUS_MIN = 4
+#: What one reading's slips may add to a spelling's cost at most: a reading
+#: of another word (aligned off by one) says nothing of this one.
+CONSENSUS_CAP = 3.0
+#: What a tenfold rarer word costs, against SLIP_COST a slip: the readers'
+#: "thar's" is a slip from "that's" far likelier than a goat.
+RARITY_COST = 0.25
+#: The rank a known word the lexicon lacks counts as (a name the corpus's
+#: clues use).
+UNRANKED = 100000
+#: How much cheaper the consensus must be than the next spelling.
+CONSENSUS_MARGIN = 0.5
+
+
+def consensus(read, before=None, after=None):
+    """The known word the readings `read` (each reading's word at one place,
+    any case) most likely all misread, or None (when the readings' middle
+    length is under CONSENSUS_MIN): of the known words near any
+    reading and within a letter of their middle length and of the first
+    reading's (the clue's own, which it replaces), the one whose slips from every reading (slips(), each capped at
+    CONSENSUS_CAP) plus its rarity cost least, CONSENSUS_MARGIN under the
+    next, a tie going to the one that fits its neighbours in the corpus's
+    clues FIT_MARGIN better. At least two readings must lie within one
+    change (or a quarter of its letters' changes) of it, and a spelling
+    most readings share gives way only to a word one slip from it ("Ciry" is "City"; "Jenkyns" stays a name)."""
+    read = [r.lower() for r in read if r and re.fullmatch(r"[A-Za-z]+(?:'[A-Za-z]+)?", r)]
+    size = sorted(map(len, read))[len(read) // 2] if read else 0
+    if len(read) < 2 or size < CONSENSUS_MIN:
+        return None
+    cands = set().union(*(near_words(r) for r in set(read)))
+    if not cands:
+        return None
+    # A spelling most readings share is theirs, not a slip, unless the
+    # word is one slip from it ("Jaques" stays; "Ciry" is "City").
+    shared = max(read, key=read.count)
+    held = read.count(shared) * 2 > len(read)
+
+    def cost(c):
+        return (sum(min(slips(c, r), CONSENSUS_CAP) for r in read)
+                + RARITY_COST * math.log10(rank(c) or UNRANKED))
+    ranked = sorted((cost(c), c) for c in cands)
+    best = ranked[0][1]
+    if len(best) < CONSENSUS_MIN or max(abs(len(best) - size), abs(len(best) - len(read[0]))) > 1 or sum(slips(best, r) <= max(1.0, len(best) / 4) for r in read) < 2:
+        return None
+    if held and slips(best, shared) > SLIP_COST:
+        return None
+    rivals = [c for k, c in ranked[1:] if k - ranked[0][0] < CONSENSUS_MARGIN]
+    if rivals and all(fit(best, before, after) - fit(c, before, after) < FIT_MARGIN for c in rivals):
+        return None
+    return best
 
 
 #: The letters a digit standing alone may be a reader's misread of.
@@ -705,10 +812,17 @@ def agree(clue, others, keep_known=False):
             drop.add(i)
             continue
         votes = {a: 1}
-        spelt = {a: w}
+        forms = {a: [w]}
         for v in got.values():
             votes[v.lower()] = votes.get(v.lower(), 0) + 1
-            spelt.setdefault(v.lower(), v)
+            forms.setdefault(v.lower(), []).append(v)
+        # The clue's first word takes a capital when half its readings print
+        # one (a reading that lost the capital, "involve", outvotes none);
+        # else, and inside the clue, the first reading's case stands (a
+        # reader's "In" for "in" is as common as a capital lost).
+        spelt = {s: fs[0][:1].upper() + fs[0][1:]
+                 if i == 0 and 2 * sum(f[:1].isupper() for f in fs) >= len(fs) else fs[0]
+                 for s, fs in forms.items()}
         plainer = [v for v in got.values() if v.lower() == a and not CAPS_IN_WORD.search(v)]
         if CAPS_IN_WORD.search(w) and plainer:
             # A capital inside the word that another reader did not see ("bacK").
@@ -744,9 +858,22 @@ def agree(clue, others, keep_known=False):
                     # "eh", which worn type prints as "ch".
                     words_ = printed + [c for c in fits if c != printed[0]]
                 elif fit(fits[0], before, after) - fit(fits[1], before, after) < FIT_MARGIN:
-                    return None, f"readings differ: {w} / {' / '.join(got.values())}"
+                    # Else the known word every reading's slips point to.
+                    settled = consensus(read, before, after)
+                    if not settled:
+                        return None, f"readings differ: {w} / {' / '.join(got.values())}"
+                    words_ = [settled]
+                    spelt.setdefault(settled, settled.capitalize() if w[:1].isupper() else settled)
                 else:
                     words_ = fits
+        if len(words_) > 1 and votes[words_[0]] == votes[words_[1]] and (
+                (settled := consensus(read, before, after)) and settled != words_[0]
+                and (rank(settled) or 10 ** 9) * SLIP_RATIO < (rank(words_[0]) or 10 ** 9)):
+            # A tie in votes, settled on a rare word, goes to the far commoner
+            # known word every reading's slips point to ("that's", not the
+            # "thar's" one reader saw).
+            words_ = [settled]
+            spelt.setdefault(settled, settled.capitalize() if w[:1].isupper() else settled)
         if words_ and keep_known and known(a) and i not in specked and words_[0] != a and not (
                 len(got) == len(others) and all(v.lower() == words_[0] for v in got.values())):
             pick = a
@@ -772,6 +899,12 @@ def agree(clue, others, keep_known=False):
             # no dictionary knows: "Jenkyns" where this reading has "Jcnkyns".
             pick = max(votes, key=votes.get)
             how = "settled by the readings"
+        elif settled := consensus(read, before, after):
+            # No spelling wins the vote: the known word every reading's
+            # slips point to ("another" for "anoibcr / anotacr / auotber").
+            pick = settled
+            spelt.setdefault(pick, pick.capitalize() if w[:1].isupper() else pick)
+            how = "settled by the lexicon"
         elif max(votes.values()) > 1 and votes[a] == 1 and len(a) > 3 and w[0].islower():
             return None, f"two readings agree on a non-word: {w} / {' / '.join(got.values())}"
         else:
@@ -1035,7 +1168,7 @@ NUMBERED_IN = re.compile(
 PAGE_TEXT = re.compile(r"\bcr\w{4,8}d\W{1,3}(?:page|p)\W{0,2}\d"
                        r"|\bpuzzle\s+no\W{0,2}\s*\d"
                        r"|\bsolution\s+(?:to|of)\s+(?:\S+\s+){0,4}(?:puzzle|competition)\b"
-                       r"|(?-i:\(\s*\d{1,2}(?:[,.\-]\s?\d{1,2})*[).]?\s+(?:_|[A-Z])(?![^()]*\)))", re.I)
+                       r"|(?-i:\(\s*\d{1,2}(?:[,.\-]\s?\d{1,2})*[).]?\s+(?:_|[A-Z])(?![^()]*\)))", re.IGNORECASE)
 
 
 #: A list's heading read into a clue: "ACROSS" or "DOWN" in capitals,
@@ -1496,6 +1629,140 @@ def vlm_pick(texts, laid, blank, parse, pick):
             continue
         laid[lid] = (got, laid[lid][1], laid[lid][2])
         del blank[lid]
+    return laid, blank
+
+
+# ------------------------------------------------------------ as the readings print it
+
+def readings_for(texts, lid, parse):
+    """[(text, {count, ...})] each reading's clue for one light ("N-across")."""
+    n, direction = lid.split("-")
+    out = []
+    for t in texts.values():
+        parsed, _ = parse(t) if t.strip() else (None, None)
+        for c in (parsed or {}).get(direction, []):
+            if c["tokens"] and int(n) in c["tokens"][0]:
+                out.append((clean(c["text"]), c.get("enums") or set()))
+                break
+    return out
+
+
+def shape(enum):
+    """A count as the print sets it: "5-4", "3,6", "9"."""
+    return re.sub(r"\s+", "", enum or "").replace(".", ",")
+
+
+def printed_count(enum, counts, cells):
+    """(count, why): the count most readings print that fills the clue's
+    `cells` (`counts`: each reading's {counts}), against the laid `enum`.
+    A reader loses a hyphen or a comma far more often than it makes one,
+    so a tie goes to the count with more parts, then to `enum`; two
+    counts no rule parts are no count (None, why)."""
+    fill = [next((shape(e) for e in sorted(es) if sum(map(int, re.findall(r"\d+", e))) == cells), None)
+            for es in counts]
+    fill = [f for f in fill if f]
+    if not fill or not cells:
+        return enum, None
+    top = max(fill.count(f) for f in fill)
+    best = {f for f in fill if fill.count(f) == top}
+    parts = max(len(re.findall(r"\d+", f)) for f in best)
+    best = {f for f in best if len(re.findall(r"\d+", f)) == parts}
+    if shape(enum) in best or len(best) == 1:
+        return (enum if shape(enum) in best else best.pop()), None
+    return None, f"readings print counts {' / '.join(sorted(best))}"
+
+
+WORD = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?")
+COMPOUND = re.compile(r"\b([A-Za-z]+)-([A-Za-z]+)\b")
+
+
+def printed_words(text, theirs):
+    """`text` with each word as the readings `theirs` (each one's clue text)
+    print it: the clue's first word takes the capital a reading prints
+    ("Involve", not "involve"), a word loses a capital inside it most
+    readings lack ("bacK"); a word no lexicon knows where most readings that have a word
+    there have one known word takes it; two words most readings join with a
+    hyphen ("re-forms") are joined so, and only those."""
+    words = list(WORD.finditer(text))
+    if not words or not theirs:
+        return text
+    low = [m.group().lower() for m in words]
+    there = [[] for _ in words]
+    for t in theirs:
+        ws = WORD.findall(t)
+        for i, j in align(low, [v.lower() for v in ws]):
+            if i is not None and j is not None:
+                there[i].append(ws[j])
+    out, k = "", 0
+    for i, m in enumerate(words):
+        w, a = m.group(), low[i]
+        new = w
+        same = [v for v in there[i] if v.lower() == a]
+        if same:
+            top = max(same, key=same.count)
+            if i == 0 and w[0].islower() and any(v[0].isupper() for v in same):
+                new = w[0].upper() + w[1:]
+            elif CAPS_IN_WORD.search(w) and not CAPS_IN_WORD.search(top) and same.count(top) * 2 > len(there[i]):
+                new = top  # a capital inside the word most readings do not see ("bacK")
+        elif not known(a) and not formed(a):
+            got = [v for v in there[i] if known(v)]
+            top = max(got, key=lambda v: (got.count(v), similar(v.lower(), a)), default=None)
+            if top and got.count(top) * 2 > len(there[i]) and similar(top.lower(), a) >= 0.5:
+                new = top if top[0].isupper() == w[0].isupper() else (
+                    top.capitalize() if w[0].isupper() else top.lower())
+        out += text[k:m.start()] + new
+        k = m.end()
+    out += text[k:]
+    # Hyphens: each compound some reading prints, put where most readings
+    # with those letters print it so and taken out where none does.
+    hyphened, joined = {}, {}
+    for t in theirs:
+        for m in COMPOUND.finditer(t):
+            key = (m.group(1) + m.group(2)).lower()
+            hyphened.setdefault(key, set()).add(m.group(1).lower())
+        for w in WORD.findall(t):
+            joined[w.lower()] = joined.get(w.lower(), 0) + 1
+    for key, heads in hyphened.items():
+        for head in heads:
+            n = sum(1 for t in theirs if re.search(rf"\b{head}-{key[len(head):]}\b", t, re.IGNORECASE))
+            if n >= joined.get(key, 0):
+                out = re.sub(rf"\b({head})({key[len(head):]})\b", r"\1-\2", out, flags=re.IGNORECASE)
+    # A word split at a line end, the hyphen read as a mark ("Words, worth"):
+    # joined where a reading prints it whole, another prints a mark between
+    # its halves, and none prints them with only a space between.
+    for a, b in itertools.pairwise(list(WORD.finditer(out))[::-1]):
+        x, y = b.group(), a.group()
+        whole = (x + y).lower()
+        if not (out[b.end():a.start()].isspace() and known(whole) and whole in joined):
+            continue
+        if any(re.search(rf"\b{x}[,.:;]\s*{y}\b", t, re.IGNORECASE) for t in theirs) and not any(
+                re.search(rf"\b{x}\s+{y}\b", t, re.IGNORECASE) for t in theirs):
+            out = out[:b.end()] + out[a.start():]
+    for m in list(COMPOUND.finditer(out))[::-1]:
+        key = (m.group(1) + m.group(2)).lower()
+        if key not in hyphened and joined.get(key, 0) * 2 > len(theirs):
+            out = out[:m.start()] + m.group(1) + m.group(2) + out[m.end():]
+    return out
+
+
+def as_printed(texts, laid, blank, parse, lengths):
+    """(laid, blank) with every filed clue held to what the readings `texts`
+    print for its light: its count takes the shape most of them print
+    (printed_count; "(5-4)", not the "(9)" a lost count left), and its
+    words their capitals, hyphens and known spellings (printed_words). A
+    count no reading settles files the clue blank. The last check before
+    filing, after the vote and the VLM's pick alike."""
+    laid, blank = dict(laid), dict(blank)
+    for lid, (text, enum, group) in list(laid.items()):
+        if not text or lid in blank or SEE_RE.match(text):
+            continue
+        theirs = readings_for(texts, lid, parse)
+        cells = sum(lengths.get(k, 0) for k in (group or [lid]))
+        enum, why = printed_count(enum, [es for _, es in theirs], cells)
+        if why:
+            laid[lid], blank[lid] = ("", None, group), why
+            continue
+        laid[lid] = (printed_words(text, [t for t, _ in theirs]), enum, group)
     return laid, blank
 
 
