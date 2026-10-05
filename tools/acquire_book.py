@@ -396,6 +396,7 @@ def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
     silent mistake, and every puzzle it filed cited a book it did not come
     from for good. There is no second argument to disagree with now.
     """
+    import puzzle_integrity
     from fetch_puzzle import write_puzzle_file
     from file_penguin_puzzle import build as build_penguin
 
@@ -419,8 +420,11 @@ def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
     out_dir.mkdir(parents=True, exist_ok=True)
     # Named in out_dir; when out_dir is the corpus, write_puzzle_file files it
     # under its series and year folder instead and returns that path.
-    path = write_puzzle_file(out_dir / f"{built['id']}.json", built,
-                             generator="tools/acquire_book.py")
+    try:
+        path = write_puzzle_file(out_dir / f"{built['id']}.json", built,
+                                 generator="tools/acquire_book.py")
+    except puzzle_integrity.RefusedWrite as err:
+        return None, [str(err)]
     return path, []
 
 
