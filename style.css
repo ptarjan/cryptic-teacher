@@ -195,8 +195,6 @@ button:disabled:hover { border-color: var(--line); }
 }
 #picker-search:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 #picker-list { list-style: none; margin: 8px 0 0; padding: 0; }
-/* Paper mode's switch: under the list, quiet, and one tap anywhere on the line. */
-.paper-toggle { display: flex; gap: 6px; align-items: center; margin: 10px 0 0; cursor: pointer; }
 #picker-list li.picker-empty { padding: 10px 4px; font-size: .9rem; }
 #picker-list li { border-top: 1px solid var(--line); }
 #picker-list button {
@@ -730,6 +728,9 @@ button:disabled:hover { border-color: var(--line); }
   margin: 10px 0 14px; font-size: .8rem;
 }
 .toolbar-label { color: var(--muted); text-transform: uppercase; letter-spacing: 1px; font-size: .7rem; }
+/* Paper mode's switch: a checkbox among the checks it replaces, one tap
+   anywhere on the words. */
+.paper-toggle { display: inline-flex; gap: 4px; align-items: center; color: var(--muted); cursor: pointer; }
 /* This was an empty 10px spacer, which inside a 6px-gap flex row rendered as a
    22px hole between "grid" and "clear entry" — wider than the gaps either side
    of it and attached to nothing, so the row read as badly spaced rather than
