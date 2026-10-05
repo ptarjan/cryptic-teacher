@@ -30,6 +30,7 @@ MIN_CLUES = 6
 #: post), so neither is a mis-filed copy of the other.
 REPRINTS = {
     frozenset(pair): why for pair, why in (
+        (("canberra-720523", "canberra-720926"), "the Canberra Times printed one Times puzzle twice, 1972-05 and 1972-09"),
         (("cryptic-25328", "cryptic-26328"), "Pasquale prize, rerun 2011 -> 2014"),
         (("ftcryptic-13761", "ftcryptic-14223"), "Jason rerun, one clue reworded"),
         (("ftcryptic-14853", "ftcryptic-14947"), "Aardvark rerun, one clue reworded"),
