@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Withdraw and wander across border, not hard",
     "enumeration": "6"
    },
-   "solution": "REMOVE"
+   "solution": "REMOVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "REMOVE",
+    "definitions": [
+     {
+      "text": "Withdraw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "one word lying across another spans it, so the wandering word straddles the border word"
+     },
+     {
+      "text": "not hard",
+      "for": "deletion",
+      "note": "hard is abbreviated to a single letter, and 'not' tells us to drop that letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wander",
+      "gives": "ROVE",
+      "note": "to rove is to wander"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "HEM",
+      "note": "a hem is the border of a garment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EM",
+      "OVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller retreats and drifts over a frontier, avoiding difficult terrain.",
+     "walkthrough": "H for hard is the pencil-grade convention; the border word is trimmed before going inside.",
+     "definitionFit": "To remove something is to take it away or pull it out, the same as withdrawing it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hard"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,51 @@
     "text": "Country club ripe for reform",
     "enumeration": "8"
    },
-   "solution": "REPUBLIC"
+   "solution": "REPUBLIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPUBLIC",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for reform",
+      "for": "anagram",
+      "note": "something ready for reform is about to be reshaped, so these letters will be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club ripe",
+      "gives": "CLUBRIPE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLUBRIPE",
+       "gives": "REPUBLIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rural members' club is overdue for a shake-up.",
+     "walkthrough": "'Country club' reads as one phrase, but 'Country' is the definition and 'club ripe' is the fodder.",
+     "definitionFit": "A republic is a state without a monarch, so it is one kind of nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,49 @@
     "text": "Mother quietly forming plan",
     "enumeration": "3"
    },
-   "solution": "MAP"
+   "solution": "MAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAP",
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "forming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "Ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p (piano) is the musical marking for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A mum silently works out her scheme.",
+     "definitionFit": "A map can be a diagram or layout, and to map something out is to plan it, so a map serves as a plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quietly"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,77 @@
     "text": "Government ending in ruin, engulfed by corruption and acrimony",
     "enumeration": "9"
    },
-   "solution": "VIRULENCE"
+   "solution": "VIRULENCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "VIRULENCE",
+    "definitions": [
+     {
+      "text": "acrimony",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its final letter, so only that letter of the next word is kept"
+     },
+     {
+      "text": "engulfed by",
+      "for": "container",
+      "note": "whatever is engulfed is swallowed up inside something else, so these letters go within the outer word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corruption",
+      "gives": "VI",
+      "note": "first part of vice, which means corruption"
+     },
+     {
+      "clueFragment": "Government",
+      "gives": "RULE",
+      "note": "rule is government"
+     },
+     {
+      "clueFragment": "ruin",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of ruin"
+     },
+     {
+      "clueFragment": "corruption",
+      "gives": "CE",
+      "note": "rest of vice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "RULE",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A regime collapses amid graft and bitter recriminations.",
+     "walkthrough": "RULE plus the N of ruin sits inside VICE (corruption), giving VIRULENCE.",
+     "definitionFit": "Virulence is extreme bitterness or hostility in speech, which is what acrimony describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Government"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +305,47 @@
     "text": "Poor saint given the blame",
     "enumeration": "8"
    },
-   "solution": "STRAPPED"
+   "solution": "STRAPPED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRAPPED",
+    "definitions": [
+     {
+      "text": "Poor",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "given the blame",
+      "gives": "RAPPED",
+      "note": "to be rapped is to be rebuked or blamed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RAPPED"
+     ]
+    },
+    "explanation": {
+     "surface": "A penniless holy man is unfairly accused.",
+     "walkthrough": "'Poor' looks like pity for the saint, but it is the definition.",
+     "definitionFit": "Strapped, as in strapped for cash, describes someone short of money, which is being poor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +365,89 @@
      }
     ]
    },
-   "solution": "TONGUETWISTER"
+   "solution": "TONGUETWISTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TONGUE-TWISTER",
+    "definitions": [
+     {
+      "text": "Hard thing to say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixture of",
+      "for": "anagram",
+      "note": "a mixture jumbles its ingredients, so the letters of the word that follows are scrambled"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it in, so the visitor word wraps around the mixed letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "visitor",
+      "gives": "GUEST",
+      "note": "a guest is a visitor"
+     },
+     {
+      "clueFragment": "wit",
+      "gives": "TWI",
+      "note": "the letters of wit rearranged"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is the sound of hesitation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "N",
+      "GUE",
+      "TWI",
+      "ST",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WIT",
+       "gives": "TWI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newcomer struggles to say something, stumbling between wit and hesitation.",
+     "walkthrough": "'to' looks like a link after the definition, but it supplies letters. Only the three letters of wit are mixed, not the whole phrase.",
+     "definitionFit": "A tongue-twister is a phrase deliberately designed to be difficult to pronounce quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visitor"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +461,55 @@
     "text": "Embarrass sailor when joined by husband",
     "enumeration": "5"
    },
-   "solution": "ABASH"
+   "solution": "ABASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABASH",
+    "definitions": [
+     {
+      "text": "Embarrass",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "joined by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a sailor"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "AS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman is put to shame when his husband turns up.",
+     "definitionFit": "To abash someone is to make them feel ashamed or self-conscious, the same as embarrassing them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "when"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +523,65 @@
     "text": "Student of stamps from Hawaii absorbed by illustration on catalogue",
     "enumeration": "11"
    },
-   "solution": "PHILATELIST"
+   "solution": "PHILATELIST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PHILATELIST",
+    "definitions": [
+     {
+      "text": "Student of stamps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed by",
+      "for": "container",
+      "note": "what is absorbed is soaked up inside something else, so the Hawaii letters go within the illustration word"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "illustration",
+      "gives": "PLATE",
+      "note": "a plate is a full-page illustration in a book"
+     },
+     {
+      "clueFragment": "Hawaii",
+      "gives": "HI",
+      "note": "HI is the postal abbreviation for Hawaii"
+     },
+     {
+      "clueFragment": "catalogue",
+      "gives": "LIST",
+      "note": "a catalogue is a list"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HI",
+      "LATE",
+      "LIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A stamp collector studies a Hawaiian picture in a dealer's catalogue.",
+     "walkthrough": "In a down clue 'on' means placed after, so the catalogue word comes last. A plate is a full-page picture in a book.",
+     "definitionFit": "A philatelist collects and studies postage stamps, so is literally a student of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +595,59 @@
     "text": "Protest over central features of latest downgrade",
     "enumeration": "6"
    },
-   "solution": "DEMOTE"
+   "solution": "DEMOTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEMOTE",
+    "definitions": [
+     {
+      "text": "downgrade",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central features of",
+      "for": "letter_selection",
+      "note": "the central features of a word are the letters at its middle, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protest",
+      "gives": "DEMO",
+      "note": "a demo is a protest march"
+     },
+     {
+      "clueFragment": "latest",
+      "gives": "TE",
+      "select": "middle",
+      "note": "the middle two letters of latest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMO",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A protest is staged over the newest cutbacks.",
+     "walkthrough": "In a down clue 'over' puts DEMO above TE.",
+     "definitionFit": "To demote someone is to move them to a lower rank, which is to downgrade them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "features"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +667,63 @@
      }
     ]
    },
-   "solution": "PAPERTHIN"
+   "solution": "PAPERTHIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PAPER-THIN",
+    "definitions": [
+     {
+      "text": "Flimsy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the pest word stands outside the place, wrapping round it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pest",
+      "gives": "PA",
+      "note": "first part of pain, a pest or nuisance"
+     },
+     {
+      "clueFragment": "place in Australia",
+      "gives": "PERTH",
+      "note": "Perth is the capital of Western Australia"
+     },
+     {
+      "clueFragment": "pest",
+      "gives": "IN",
+      "note": "rest of pain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "PERTH",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian town is plagued by insects, its buildings feeble.",
+     "walkthrough": "A pain, as in 'a pain in the neck', is a pest; it wraps round PERTH to give PAPER-THIN.",
+     "definitionFit": "Something paper-thin is as thin as a sheet of paper, so weak and insubstantial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pest"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +743,68 @@
      }
     ]
    },
-   "solution": "HERBERTHOOVER"
+   "solution": "HERBERTHOOVER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HERBERT HOOVER",
+    "definitions": [
+     {
+      "text": "US president",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "what is held by something sits within its grasp, so the allotted place goes inside the admired one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one who’s admired",
+      "gives": "HER",
+      "note": "first part of hero, someone admired"
+     },
+     {
+      "clueFragment": "Allotted place",
+      "gives": "BERTH",
+      "note": "a berth is an assigned sleeping place or mooring"
+     },
+     {
+      "clueFragment": "one who’s admired",
+      "gives": "O",
+      "note": "rest of hero"
+     },
+     {
+      "clueFragment": "more than",
+      "gives": "OVER",
+      "note": "over means more than"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "BERTH",
+      "O",
+      "O",
+      "VER"
+     ]
+    },
+    "explanation": {
+     "surface": "A man allotted a post is admired more than the president.",
+     "walkthrough": "The admired one is a hero, split after its third letter to take the allotted place.",
+     "definitionFit": "Herbert Hoover was the thirty-first President of the United States, from 1929 to 1933."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Allotted"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +818,79 @@
     "text": "Combine in retreat, filled with love, following a principle",
     "enumeration": "5"
    },
-   "solution": "AXIOM"
+   "solution": "AXIOM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "AXIOM",
+    "definitions": [
+     {
+      "text": "principle",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in retreat",
+      "for": "reversal",
+      "note": "a retreating army goes back the way it came, so the combine word is read backwards"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled with another thing holds it inside"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after, so these letters are placed behind the article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Combine",
+      "gives": "MIX",
+      "note": "to mix is to combine"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, which looks like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "XI",
+      "O",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "MIX",
+       "to": "XIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A combine harvester backs away, loaded up, guided by a rule.",
+     "walkthrough": "MIX turned round is XIM; O goes inside, after A: AXIOM. 'Combine' looks like the farm machine.",
+     "definitionFit": "An axiom is a statement accepted as self-evidently true, a basic rule or principle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Combine"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +904,41 @@
     "text": "Precious stone in course of robbery lost",
     "enumeration": "5"
    },
-   "solution": "BERYL"
+   "solution": "BERYL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BERYL",
+    "definitions": [
+     {
+      "text": "Precious stone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in course of",
+      "for": "hidden_word",
+      "note": "something found in the course of other words lies within their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "robbery lost",
+      "gives": "BERYL",
+      "note": "the letters run across the join of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A jewel goes missing during a heist.",
+     "definitionFit": "Beryl is a mineral gemstone, varieties of which include emerald and aquamarine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +962,54 @@
      }
     ]
    },
-   "solution": "ROCKTHEBOAT"
+   "solution": "ROCKTHEBOAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROCK THE BOAT",
+    "definitions": [
+     {
+      "text": "Create problems",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed or milled, so these letters are broken up and remade"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back to other",
+      "gives": "BACKTOOTHER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BACKTOOTHER",
+       "gives": "ROCKTHEBOAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone causes trouble by returning to a different pitch.",
+     "walkthrough": "'ground' looks like a noun for a playing field; it is the past tense of grind.",
+     "definitionFit": "To rock the boat is an idiom meaning to disturb a stable situation and stir up trouble."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1023,45 @@
     "text": "Plaster in unfinished project",
     "enumeration": "9"
    },
-   "solution": "ROUGHCAST"
+   "solution": "ROUGHCAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROUGHCAST",
+    "definitions": [
+     {
+      "text": "Plaster",
+      "at": 0
+     },
+     {
+      "text": "unfinished project",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plaster",
+      "note": "first meaning: a coarse plaster of lime and gravel for outside walls"
+     },
+     {
+      "clueFragment": "unfinished project",
+      "note": "second meaning: a rough first draft or outline of a plan"
+     }
+    ],
+    "explanation": {
+     "surface": "Building work is left half done, plastered over.",
+     "definitionFit": "Roughcast is both a pebbly render for exterior walls and a preliminary, crudely shaped draft of a scheme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plaster"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1075,60 @@
     "text": "Certain tin, once damaged, fixed",
     "enumeration": "13"
    },
-   "solution": "INCONTESTABLE"
+   "solution": "INCONTESTABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INCONTESTABLE",
+    "definitions": [
+     {
+      "text": "Certain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "a damaged thing is knocked out of shape, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin, once",
+      "gives": "TINONCE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "fixed",
+      "gives": "STABLE",
+      "note": "something fixed is stable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCONTE",
+      "STABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TINONCE",
+       "gives": "INCONTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tin can, once dented, has definitely been repaired.",
+     "definitionFit": "Incontestable means beyond dispute, so something incontestable is certain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fixed"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1142,61 @@
     "text": "Inwardly, not half grabbed by courageous idea",
     "enumeration": "9"
    },
-   "solution": "BRAINWAVE"
+   "solution": "BRAINWAVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BRAINWAVE",
+    "definitions": [
+     {
+      "text": "idea",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not half",
+      "for": "deletion",
+      "note": "not half of a word means only half of it survives, so the back half is lost"
+     },
+     {
+      "text": "grabbed by",
+      "for": "container",
+      "note": "something grabbed is held tight inside another's grip"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courageous",
+      "gives": "BRAVE",
+      "note": "brave means courageous"
+     },
+     {
+      "clueFragment": "Inwardly",
+      "gives": "INWARDLY",
+      "note": "taken as written before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "INWA",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bold thought held halfway inside.",
+     "walkthrough": "'Inwardly' looks like an insertion signal but is the word to be halved.",
+     "definitionFit": "A brainwave is a sudden clever thought or inspiration, so it is an idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Inwardly"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1210,91 @@
     "text": "Write about railway climbing above spot up in mountains",
     "enumeration": "8"
    },
-   "solution": "PYRENEES"
+   "solution": "PYRENEES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "PYRENEES",
+    "definitions": [
+     {
+      "text": "mountains",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the write word goes round the railway letters"
+     },
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing in a down clue means rising from bottom to top, so the railway letters are read upward"
+     },
+     {
+      "text": "above",
+      "for": "charade",
+      "note": "in a down clue one part placed above another simply comes first"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "up in a down clue tells us the spot word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write",
+      "gives": "PEN",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "Ry is an abbreviation for railway"
+     },
+     {
+      "clueFragment": "spot",
+      "gives": "SEE",
+      "note": "to spot is to see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "YR",
+      "EN",
+      "EES"
+     ],
+     "reversals": [
+      {
+       "from": "RY",
+       "to": "YR"
+      },
+      {
+       "from": "SEE",
+       "to": "EES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travel writer describes a mountain railway climbing to a viewpoint high up.",
+     "walkthrough": "Both 'climbing' and 'up' work in a down clue, where reading upward means reading backwards.",
+     "definitionFit": "The Pyrenees are a mountain range forming the border between France and Spain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1308,68 @@
     "text": "Act heartily, in unreal style, embracing it",
     "enumeration": "13"
    },
-   "solution": "THEATRICALITY"
+   "solution": "THEATRICALITY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "THEATRICALITY",
+    "definitions": [
+     {
+      "text": "Act heartily, in unreal style, embracing it",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in unreal style",
+      "for": "anagram",
+      "note": "done in an unreal style, the words are not presented as they are but artificially remade"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold in one's arms, so the rearranged letters wrap round the last word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act heartily",
+      "gives": "ACTHEARTILY",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THEATRICAL",
+      "IT",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTHEARTILY",
+       "gives": "THEATRICALY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a ham: perform with gusto and artifice, throwing yourself into it.",
+     "walkthrough": "The whole clue describes the answer: acting heartily in an unreal way and embracing the role is theatricality.",
+     "definitionFit": "Theatricality is an exaggerated, showy manner suited to the stage, which is what overacting heartily and artificially produces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "heartily"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1383,62 @@
     "text": "Doctor’s account about one work of decorative art",
     "enumeration": "6"
    },
-   "solution": "MOSAIC"
+   "solution": "MOSAIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MOSAIC",
+    "definitions": [
+     {
+      "text": "work of decorative art",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the account word goes round the one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor’s",
+      "gives": "MOS",
+      "note": "MO, medical officer, is a doctor; add the S"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "ac is the abbreviation for account"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOS",
+      "A",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A physician describes a single piece of ornamental art.",
+     "walkthrough": "MO, medical officer, is the usual crossword doctor, and the apostrophe-S is kept as a letter.",
+     "definitionFit": "A mosaic is a picture or pattern made from small pieces of tile or glass, a decorative artwork."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1452,63 @@
     "text": "Drive away into plain and go too far",
     "enumeration": "9"
    },
-   "solution": "OVERSHOOT"
+   "solution": "OVERSHOOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OVERSHOOT",
+    "definitions": [
+     {
+      "text": "go too far",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "the drive-away word goes into the plain word, landing inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plain",
+      "gives": "OVER",
+      "note": "first part of overt, meaning plain or open"
+     },
+     {
+      "clueFragment": "Drive away",
+      "gives": "SHOO",
+      "note": "to shoo is to drive away"
+     },
+     {
+      "clueFragment": "plain",
+      "gives": "T",
+      "note": "rest of overt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "SHOO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist heads off across flat country and goes too far.",
+     "walkthrough": "'Drive' and 'plain' suggest a car crossing open country; SHOO goes inside OVERT.",
+     "definitionFit": "To overshoot is to pass beyond a target or stopping point, which is going too far."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1522,66 @@
     "text": "Jargon from south and north taken in by convict",
     "enumeration": "5"
    },
-   "solution": "SLANG"
+   "solution": "SLANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SLANG",
+    "definitions": [
+     {
+      "text": "Jargon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "what is taken in by something is absorbed within it"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "convict",
+      "gives": "LAG",
+      "note": "an old lag is a convict"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LA",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Prison talk spread from one end of the country to the other via a prisoner.",
+     "walkthrough": "S, then N inside LAG: SLANG. 'Lag', as in old lag, is British slang for a prisoner.",
+     "definitionFit": "Slang is informal vocabulary peculiar to a group, much like jargon, the specialised talk of a trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1595,51 @@
     "text": "Fool soldiers in compound",
     "enumeration": "5"
    },
-   "solution": "NITRE"
+   "solution": "NITRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NITRE",
+    "definitions": [
+     {
+      "text": "compound",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fool",
+      "gives": "NIT",
+      "note": "a nit, short for nitwit, is a fool"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE, the Royal Engineers, are soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot is among troops inside a military camp.",
+     "walkthrough": "'compound' looks like an army enclosure; it is the chemical sense.",
+     "definitionFit": "Nitre is potassium nitrate, a chemical compound used in gunpowder and fertiliser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "compound"
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1653,48 @@
     "text": "Smell air for meat at regular intervals",
     "enumeration": "5"
    },
-   "solution": "AROMA"
+   "solution": "AROMA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AROMA",
+    "definitions": [
+     {
+      "text": "Smell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "taking letters at regular intervals means picking every other one and skipping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air for meat",
+      "gives": "AROMA",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AROMA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sniffs the air for the scent of a roast at mealtimes.",
+     "definitionFit": "An aroma is a pleasant, distinctive odour, so it is a smell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intervals"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1708,60 @@
     "text": "Articulate poetry about Indonesian island",
     "enumeration": "9"
    },
-   "solution": "VERBALISE"
+   "solution": "VERBALISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VERBALISE",
+    "definitions": [
+     {
+      "text": "Articulate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the poetry word goes round the island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poetry",
+      "gives": "VER",
+      "note": "first part of verse, meaning poetry"
+     },
+     {
+      "clueFragment": "Indonesian island",
+      "gives": "BALI",
+      "note": "Bali is an island in Indonesia"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "SE",
+      "note": "rest of verse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "BALI",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Verses are written about a tropical island.",
+     "walkthrough": "'Articulate' looks like an adjective for the poetry; it is the verb.",
+     "definitionFit": "To verbalise is to express something in words, which is what articulating a thought means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Articulate"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1775,43 @@
     "text": "Essential part of Arctic ecosystem",
     "enumeration": "3"
    },
-   "solution": "ICE"
+   "solution": "ICE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "ICE",
+    "definitions": [
+     {
+      "text": "Essential part of Arctic ecosystem",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "a part of the following words is taken, so the letters lie inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arctic ecosystem",
+      "gives": "ICE",
+      "note": "the letters run across the join of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A statement about what polar habitats depend on.",
+     "walkthrough": "The whole clue is also the definition: frozen water underpins life at the North Pole.",
+     "definitionFit": "Sea ice is the foundation of polar habitats, supporting algae, seals and polar bears alike."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1825,62 @@
     "text": "Group around judge filled with self-esteem",
     "enumeration": "8"
    },
-   "solution": "CATEGORY"
+   "solution": "CATEGORY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CATEGORY",
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled with another thing holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "around",
+      "gives": "CA",
+      "note": "ca, circa, means around"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "TRY",
+      "note": "to try a case is to judge it"
+     },
+     {
+      "clueFragment": "self-esteem",
+      "gives": "EGO",
+      "note": "ego is self-esteem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "T",
+      "EGO",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A band of people surround a pompous magistrate.",
+     "walkthrough": "'around' looks like a container signal, but here it is CA, the abbreviation for circa; EGO fills TRY.",
+     "definitionFit": "A category is a class or set of things sharing characteristics, so it is a group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1894,61 @@
     "text": "Resolution keeping experts going without a break",
     "enumeration": "6"
    },
-   "solution": "RECESS"
+   "solution": "RECESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RECESS",
+    "definitions": [
+     {
+      "text": "break",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something is holding it inside, so the resolution word goes round the experts"
+     },
+     {
+      "text": "going without a",
+      "for": "deletion",
+      "note": "going without something means doing without it, so the single letter named is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resolution",
+      "gives": "RES",
+      "note": "res is an abbreviation for resolution"
+     },
+     {
+      "clueFragment": "experts",
+      "gives": "ACES",
+      "note": "aces are experts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A decision keeps the professionals working non-stop.",
+     "walkthrough": "'without a break' reads as one phrase meaning non-stop, but it splits: the A is dropped and 'break' is the definition.",
+     "definitionFit": "A recess is a pause in proceedings, such as a parliamentary holiday or a school playtime, so it is a break."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   }
  ]
 }
