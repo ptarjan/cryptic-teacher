@@ -2620,6 +2620,24 @@ def edit_distance(a, b):
 SCAN_READ = "Scan reads: "
 
 
+def clue_row_problems(served, printed, why):
+    """What stops a SOURCE_CLUE_WRONG row [served, printed, why] being a
+    correction with evidence: it must change the text, and its note must argue
+    the case (an OCR misread needs only a short one, a clue read off the scan
+    is evidenced by the page however short the clue). One rule for the filer
+    (annotate_check) and tools/test_source_answer_wrong.sh."""
+    floor = (len(SCAN_READ) + 1 if why.startswith(SCAN_READ)
+             else 25 if why.startswith("OCR misread: ") else 40)
+    problems = []
+    if served.strip() == printed.strip():
+        problems.append("corrects nothing: the clue as printed is the clue as shown, "
+                        "so put the corrected clue first and the evidence second")
+    if len(why) < floor:
+        problems.append(f"the evidence {why!r} is under {floor} characters: say what the "
+                        f"OCR read and what the page prints")
+    return problems
+
+
 def scan_read(pid, eid):
     """Whether light `eid`'s SOURCE_CLUE_WRONG row was read off `pid`'s scan,
     which tools/scan_crop.py can show: a clue read off the page is the

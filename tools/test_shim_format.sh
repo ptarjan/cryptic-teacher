@@ -64,10 +64,23 @@ const dir = process.argv[2];
 const sorted = (v) => Array.isArray(v) ? v.map(sorted)
   : v && typeof v === "object"
     ? Object.fromEntries(Object.keys(v).sort().map((k) => [k, sorted(v[k])])) : v;
-const want = fs.readFileSync(path.join(dir, "want"), "utf8").split("\n").filter(Boolean);
+// The corpus's expected puzzles together outgrow one JS string (Node caps it near
+// 512 MB), so "want" is read a line at a time, never whole.
+function* lines(file) {
+  const fd = fs.openSync(file, "r"), buf = Buffer.alloc(1 << 20);
+  let rest = Buffer.alloc(0), got;
+  while ((got = fs.readSync(fd, buf, 0, buf.length, null)) > 0) {
+    rest = Buffer.concat([rest, buf.subarray(0, got)]);
+    for (let nl; (nl = rest.indexOf(10)) >= 0; rest = rest.subarray(nl + 1)) {
+      if (nl) yield rest.subarray(0, nl).toString("utf8");
+    }
+  }
+  fs.closeSync(fd);
+  if (rest.length) yield rest.toString("utf8");
+}
 const win = {};
 let bad = 0, n = 0;
-for (const line of want) {
+for (const line of lines(path.join(dir, "want"))) {
   const id = JSON.parse(line).id;
   new Function("window", fs.readFileSync(path.join(dir, "shims", id + ".js"), "utf8"))(win);
   const got = JSON.stringify(sorted(win.CRYPTIC_PUZZLES[id]));

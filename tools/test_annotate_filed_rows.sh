@@ -43,7 +43,7 @@ try:
     shown = puzzle["entries"][0]["clue"]["text"]
     pending = A.default_input(path)
     pending.write_text(json.dumps({
-        a: {"answer": "X", "printedClue": ["Printed words", "OCR misread: test"]},
+        a: {"answer": "X", "printedClue": ["Printed words", "OCR misread: the OCR read test words"]},
         b: {"answer": "Y", "blocks": [{"clueFragment": "Father", "gives": "FR"},
                                       {"clueFragment": "like Uriah", "gives": "UMBLE"}],
             "setterError": ["FR UMBLE", "FUMBLER", "test"]}}))
@@ -52,7 +52,7 @@ try:
         [f"printedClue {a}", f"setterError {b}"]))
     clue_rows = json.loads((data / "source_clue_wrong.json").read_text())
     check("printedClue's row opens with the clue as shown",
-          clue_rows[f"times-18749/{a}"] == [shown, "Printed words", "OCR misread: test"])
+          clue_rows[f"times-18749/{a}"] == [shown, "Printed words", "OCR misread: the OCR read test words"])
     check("setterError's row is as given",
           json.loads((data / "setter_error.json").read_text())[f"times-18749/{b}"]
           == ["FR UMBLE", "FUMBLER", "test"])
@@ -65,7 +65,7 @@ try:
           and V.SETTER_ERROR[("times-18749", b)][1] == "FUMBLER")
 
     # A re-run keeps what the source served, not the mended text.
-    ann[a]["printedClue"] = ["Printed words again", "OCR misread: test"]
+    ann[a]["printedClue"] = ["Printed words again", "OCR misread: the OCR read test words"]
     pending.write_text(json.dumps(ann))
     AC.file_rows(path, pending, data)
     check("a re-filed row keeps the clue as shown",

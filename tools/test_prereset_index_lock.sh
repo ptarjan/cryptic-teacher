@@ -21,7 +21,11 @@ fails=0
 race() {  # race <lock|nolock>: prints how many runs' commits held only their own file
   local tree
   tree="$(mktemp -d)"
-  git -C "$tree" init -q && git -C "$tree" commit -q --allow-empty -m base
+  # An identity of the scratch repo's own: CI has none, and a commit that cannot
+  # be made reads as a lost race.
+  git -C "$tree" init -q && git -C "$tree" config user.name "index lock test" &&
+    git -C "$tree" config user.email "index-lock-test@example.invalid" &&
+    git -C "$tree" commit -q --allow-empty -m base
   (
     cd "$tree" || exit 1
     for i in 1 2 3 4 5 6 7 8; do
