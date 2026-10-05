@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Contest German head of Nando's leaving mushrooms in",
     "enumeration": "12"
    },
-   "solution": "CHAMPIONSHIP"
+   "solution": "CHAMPIONSHIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHAMPIONSHIP",
+    "definitions": [
+     {
+      "text": "Contest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "letters that are leaving walk out of the longer word, which is left without them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mushrooms",
+      "gives": "CHAMPIGNONS",
+      "note": "champignons are button mushrooms, from the French"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the standard abbreviation for German"
+     },
+     {
+      "clueFragment": "Nando's",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of the restaurant chain's name"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "HIP",
+      "note": "in fashion, trendy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAMPIONS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A German boss of the Nando's chicken chain walks out of a mushroom-eating competition.",
+     "walkthrough": "Take G and N out of CHAMPIGNONS to leave CHAMPIONS, then add HIP for CHAMPIONSHIP.",
+     "definitionFit": "A championship is a competition held to decide the title holder, so it is a kind of contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +115,61 @@
     "text": "Symbol like an apostrophe from Cornwall, mostly over breaks",
     "enumeration": "7"
    },
-   "solution": "CORONIS"
+   "solution": "CORONIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CORONIS",
+    "definitions": [
+     {
+      "text": "Symbol like an apostrophe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word, so its final letter is dropped"
+     },
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "something that breaks a word splits it apart and sits in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from Cornwall",
+      "gives": "CORNISH",
+      "note": "the adjective for things from Cornwall"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "O",
+      "NIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on where some apostrophe-like mark came from: Cornwall, mostly.",
+     "walkthrough": "Cornwall is the county at the south-west tip of England; its adjective drops its last letter before being split.",
+     "definitionFit": "A coronis is a mark in Greek writing, shaped like an apostrophe, that shows two words have been run together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,71 @@
     "text": "Third piece of meat with mint gravy, but no stuffing, brings expression of regret",
     "enumeration": "7"
    },
-   "solution": "APOLOGY"
+   "solution": "APOLOGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "APOLOGY",
+    "definitions": [
+     {
+      "text": "expression of regret",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Third piece of",
+      "for": "letter_selection",
+      "note": "the third piece of a word is its letter in position three"
+     },
+     {
+      "text": "but no stuffing",
+      "for": "letter_selection",
+      "note": "with no stuffing the inside of the word is removed and only its two ends remain"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "brings"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meat",
+      "gives": "A",
+      "select": 3,
+      "note": "the third letter of meat"
+     },
+     {
+      "clueFragment": "mint",
+      "gives": "POLO",
+      "note": "Polo is a brand of mint sweet with a hole in the middle"
+     },
+     {
+      "clueFragment": "gravy",
+      "gives": "GY",
+      "select": "outer",
+      "note": "the first and last letters of gravy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLO",
+      "GY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Sunday roast served with mint and gravy but no stuffing draws an apology from the cook.",
+     "definitionFit": "An apology is a statement saying sorry, which is exactly a spoken or written expression of regret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuffing"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +261,59 @@
     "text": "Month with clergyman for Spooner's financial officer",
     "enumeration": "9"
    },
-   "solution": "PAYMASTER"
+   "solution": "PAYMASTER",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "PAYMASTER",
+    "definitions": [
+     {
+      "text": "financial officer",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for Spooner's",
+      "for": "spoonerism",
+      "note": "Spooner swapped the opening sounds of words, so the starts of the two words trade places"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Month",
+      "gives": "PAY",
+      "soundsLike": "MAY",
+      "note": "May is the fifth month; it gives up its opening sound to the next word"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "MASTER",
+      "soundsLike": "PASTOR",
+      "note": "a pastor is a minister in charge of a congregation; it takes the opening sound of the month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAY",
+      "MASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric and a month somehow combine into the person who pays the wages.",
+     "walkthrough": "Swap the initial M and P of MAY PASTOR to get PAY MASTER.",
+     "definitionFit": "A paymaster is the official responsible for paying out wages and salaries, an officer handling money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +333,43 @@
      }
     ]
    },
-   "solution": "ONCUE"
+   "solution": "ONCUE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ON CUE",
+    "definitions": [
+     {
+      "text": "Where chalk may be found",
+      "at": 0
+     },
+     {
+      "text": "when needed",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where chalk may be found",
+      "note": "first meaning: snooker players chalk the tip of their stick"
+     },
+     {
+      "clueFragment": "when needed",
+      "note": "second meaning: at exactly the right moment, as an actor responding to a prompt"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first reading is literal: blue chalk sits on the tip of a snooker stick.",
+     "definitionFit": "Doing something exactly at the right moment, like an actor coming in at a prompt, is doing it at the needed time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chalk"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +383,49 @@
     "text": "Replacement fruit is majestic",
     "enumeration": "7"
    },
-   "solution": "SUBLIME"
+   "solution": "SUBLIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBLIME",
+    "definitions": [
+     {
+      "text": "majestic",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Replacement",
+      "gives": "SUB",
+      "note": "a sub is a substitute player"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "LIME",
+      "note": "a green citrus fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "LIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A substitute piece of fruit is pronounced magnificent.",
+     "definitionFit": "Sublime describes something of awe-inspiring grandeur or beauty, close in sense to grand and stately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Replacement"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +439,38 @@
     "text": "Extremely cheap film service provided by the BBC?",
     "enumeration": "7"
    },
-   "solution": "IPLAYER"
+   "solution": "IPLAYER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "IPLAYER",
+    "definitions": [
+     {
+      "text": "Extremely cheap film service provided by the BBC?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely cheap film service",
+      "note": "surface reading: a bargain-basement streaming or cinema offer"
+     },
+     {
+      "clueFragment": "provided by the BBC?",
+      "note": "setter's reading: the corporation's own online catch-up service, free to anyone holding a TV licence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The BBC's online catch-up service carries no subscription for licence payers, so it is very cheap; the question mark flags the loose definition.",
+     "definitionFit": "The BBC's streaming platform lets viewers watch programmes and movies online at no extra charge beyond the licence fee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "cheap"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +490,74 @@
      }
     ]
    },
-   "solution": "SHEPHERDSPIE"
+   "solution": "SHEPHERDSPIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHEPHERDS PIE",
+    "definitions": [
+     {
+      "text": "traditional British dish",
+      "at": 52
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "SHE",
+      "note": "the pronoun for a girl"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power in physics"
+     },
+     {
+      "clueFragment": "Girl's",
+      "gives": "HER",
+      "note": "the possessive pronoun for a girl"
+     },
+     {
+      "clueFragment": "daughter's",
+      "gives": "DS",
+      "note": "D is the abbreviation for daughter, plus the S of the possessive"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "the physics symbol again"
+     },
+     {
+      "clueFragment": "That is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHE",
+      "P",
+      "HER",
+      "DS",
+      "P",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A string of questions about girl power and a daughter's power, mother to child.",
+     "walkthrough": "Every piece is a small word or abbreviation, joined in clue order.",
+     "definitionFit": "Shepherd's pie is minced lamb baked under mashed potato, a long-established home-cooked meal in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "power"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +571,67 @@
     "text": "Hurt leg and backside in machinery, leading to sympathy",
     "enumeration": "7"
    },
-   "solution": "HARMONY"
+   "solution": "HARMONY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HARMONY",
+    "definitions": [
+     {
+      "text": "sympathy",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backside",
+      "for": "letter_selection",
+      "note": "the backside of a word is its rear end, its final letter"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in",
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hurt",
+      "gives": "HARM",
+      "note": "to hurt is to harm"
+     },
+     {
+      "clueFragment": "leg",
+      "gives": "ON",
+      "note": "the leg side in cricket is also called the on side"
+     },
+     {
+      "clueFragment": "machinery",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of machinery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARM",
+      "ON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurts a leg and a backside caught in machinery, and earns sympathy for it.",
+     "walkthrough": "Leg and on are interchangeable names for one half of a cricket field.",
+     "definitionFit": "Harmony means agreement of feeling between people, which is one sense of sympathy as accord or fellow feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +645,73 @@
     "text": "Made Charlie shake less with drugs, primarily",
     "enumeration": "7"
    },
-   "solution": "COBBLED"
+   "solution": "COBBLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COBBLED",
+    "definitions": [
+     {
+      "text": "Made",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less",
+      "for": "deletion",
+      "note": "less means minus, so the abbreviation that follows is taken away"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the word's opening letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "shake",
+      "gives": "WOBBLE",
+      "note": "to shake or wobble"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OBBLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called Charlie was made to shake less, thanks chiefly to medication.",
+     "walkthrough": "'Less with' is a deletion of the abbreviation W, not a comparison about shaking.",
+     "definitionFit": "Cobbled, as in cobbled together, means put together roughly or hastily, so it means constructed or produced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charlie"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +725,81 @@
     "text": "Hell on earth having husband promoted? Need to change, being crestfallen",
     "enumeration": "12"
    },
-   "solution": "DISHEARTENED"
+   "solution": "DISHEARTENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "cycling",
+     "anagram"
+    ],
+    "answer": "DISHEARTENED",
+    "definitions": [
+     {
+      "text": "crestfallen",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "promoted",
+      "for": "cycling",
+      "note": "in a down entry a promoted letter rises to the top, moving from the end to the start"
+     },
+     {
+      "text": "to change",
+      "for": "anagram",
+      "note": "the word that needs to change has its letters rearranged"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hell",
+      "gives": "DIS",
+      "note": "Dis is the underworld of Roman myth, and Dante's name for the city of hell"
+     },
+     {
+      "clueFragment": "earth",
+      "gives": "EARTH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "husband",
+      "note": "H is the abbreviation for husband, identifying which letter of the previous word moves"
+     },
+     {
+      "clueFragment": "Need",
+      "gives": "NEED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "HEART",
+      "ENED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEED",
+       "gives": "ENED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Life is hell on earth while the husband gets promoted, and a crestfallen wife needs a change.",
+     "walkthrough": "In a down entry, promoting a letter lifts it to the top, so the last letter of the planet jumps to the front.",
+     "definitionFit": "Someone disheartened has lost heart and confidence, which is exactly the downcast, dejected state of being crestfallen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "promoted"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +813,47 @@
     "text": "The first woman to criticise young explorer",
     "enumeration": "7"
    },
-   "solution": "PANDORA"
+   "solution": "PANDORA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANDORA",
+    "definitions": [
+     {
+      "text": "The first woman",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to criticise",
+      "gives": "PAN",
+      "note": "critics pan a show they dislike"
+     },
+     {
+      "clueFragment": "young explorer",
+      "gives": "DORA",
+      "note": "Dora the Explorer is a cartoon girl from children's television"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "DORA"
+     ]
+    },
+    "explanation": {
+     "surface": "The first woman to criticise a youthful adventurer.",
+     "walkthrough": "'The first woman to' reads as a record-breaker; the definition stops at woman.",
+     "definitionFit": "In Greek myth Pandora was the first mortal female, made by the gods and given the jar of evils."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +867,68 @@
     "text": "US city flooded by great lake beginning to suspect goddesses of vengeance",
     "enumeration": "7"
    },
-   "solution": "ERINYES"
+   "solution": "ERINYES",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ERINYES",
+    "definitions": [
+     {
+      "text": "goddesses of vengeance",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flooded by",
+      "for": "container",
+      "note": "a city flooded by water is surrounded by it, so the lake wraps around the city"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great lake",
+      "gives": "ERIE",
+      "note": "Lake Erie is one of North America's Great Lakes"
+     },
+     {
+      "clueFragment": "US city",
+      "gives": "NY",
+      "note": "NY is New York"
+     },
+     {
+      "clueFragment": "suspect",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of suspect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERI",
+      "NY",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An American city is swamped by one of the Great Lakes, and suspicion grows of divine revenge.",
+     "definitionFit": "The Erinyes are the Furies of Greek mythology, female deities who pursued wrongdoers and punished crimes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flooded"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +942,44 @@
     "text": "Outspoken characters representing South American writing",
     "enumeration": "5"
    },
-   "solution": "ESSAY"
+   "solution": "ESSAY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ESSAY",
+    "definitions": [
+     {
+      "text": "writing",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outspoken",
+      "for": "homophone",
+      "note": "something outspoken is said out loud, so we want how the letters are pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "characters representing South American",
+      "gives": "ESSAY",
+      "soundsLike": "S A",
+      "note": "SA is the abbreviation for South American, and its two letters are named in turn"
+     }
+    ],
+    "explanation": {
+     "surface": "Some frank figures stand for a South American.",
+     "walkthrough": "Say the two letters S and A as their names and you hear the answer.",
+     "definitionFit": "An essay is a short written composition on one subject, a piece of prose writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Outspoken"
+    }
+   }
   },
   {
    "number": 14,
@@ -251,7 +1003,67 @@
      }
     ]
    },
-   "solution": "TOADEGREE"
+   "solution": "TOADEGREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TO A DEGREE",
+    "definitions": [
+     {
+      "text": "for a bit",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Amphibian",
+      "gives": "TOAD",
+      "note": "a toad is an amphibian"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. stands for exempli gratia, for example"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     },
+     {
+      "clueFragment": "crocodile",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of crocodile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOAD",
+      "EG",
+      "RE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A toad, say, hitches a short ride on a crocodile's back.",
+     "definitionFit": "To a degree means somewhat or partly, which is what for a bit means in phrases like worried for a bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1077,64 @@
     "text": "Outrage about break-ins oddly ignored in assessment",
     "enumeration": "9"
    },
-   "solution": "APPRAISAL"
+   "solution": "APPRAISAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "APPRAISAL",
+    "definitions": [
+     {
+      "text": "assessment",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly ignored",
+      "for": "letter_selection",
+      "note": "ignoring the odd-numbered letters leaves just the even ones"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word is placed around the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outrage",
+      "gives": "APPAL",
+      "note": "to appal is to outrage or shock"
+     },
+     {
+      "clueFragment": "break-ins",
+      "gives": "RAIS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APP",
+      "RAIS",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Outrage over burglaries, with odd ones ignored when the damage is assessed.",
+     "definitionFit": "An appraisal is a formal evaluation of worth or performance, so it is an assessment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break-ins"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1148,50 @@
     "text": "Pulls on holiday in racing facility",
     "enumeration": "9"
    },
-   "solution": "DRAGSTRIP"
+   "solution": "DRAGSTRIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAGSTRIP",
+    "definitions": [
+     {
+      "text": "racing facility",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "on",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pulls",
+      "gives": "DRAGS",
+      "note": "drags means hauls or pulls"
+     },
+     {
+      "clueFragment": "holiday",
+      "gives": "TRIP",
+      "note": "a trip is a short holiday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAGS",
+      "TRIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tugs a suitcase through a racing venue while away on holiday.",
+     "definitionFit": "A dragstrip is a short straight track built for drag racing, so it is a place for racing cars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pulls"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1205,48 @@
     "text": "An idiot making port in Belgium",
     "enumeration": "7"
    },
-   "solution": "ANTWERP"
+   "solution": "ANTWERP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANTWERP",
+    "definitions": [
+     {
+      "text": "port in Belgium",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "TWERP",
+      "note": "a twerp is a silly person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "TWERP"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool ends up making a harbour in Belgium.",
+     "definitionFit": "Antwerp is a major Flemish city on the Scheldt and one of Europe's largest seaports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1260,61 @@
     "text": "Make more agreeable number after second number one",
     "enumeration": "7"
    },
-   "solution": "SWEETEN"
+   "solution": "SWEETEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEETEN",
+    "definitions": [
+     {
+      "text": "Make more agreeable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first named word behind the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "number one",
+      "gives": "WEE",
+      "note": "number one is a child's word for a wee"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "TEN",
+      "note": "a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to improve things by putting one number after another.",
+     "walkthrough": "Number one is nursery slang for urinating, a wee in British English.",
+     "definitionFit": "To sweeten a deal or offer is to add something that makes it more attractive and pleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1328,43 @@
     "text": "Patent Uncle Arthur's masks",
     "enumeration": "5"
    },
-   "solution": "CLEAR"
+   "solution": "CLEAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CLEAR",
+    "definitions": [
+     {
+      "text": "Patent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "masks",
+      "for": "hidden_word",
+      "note": "a mask covers a face, so these words conceal the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncle Arthur's",
+      "gives": "CLEAR",
+      "note": "inside the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Uncle Arthur holds a patent on face masks.",
+     "walkthrough": "Patent reads as a noun about an invention, but it is the adjective meaning obvious.",
+     "definitionFit": "Patent as an adjective means plain and evident, as in a patent lie, so it means obvious or plain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Patent"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1384,55 @@
      }
     ]
    },
-   "solution": "CUTRATE"
+   "solution": "CUTRATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CUT-RATE",
+    "definitions": [
+     {
+      "text": "American discounted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cop",
+      "for": "container",
+      "note": "to cop is to catch or nab, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appealing",
+      "gives": "CUTE",
+      "note": "cute means attractive"
+     },
+     {
+      "clueFragment": "traitor",
+      "gives": "RAT",
+      "note": "a rat is someone who betrays others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUT",
+      "RAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An American with a discount offers it to a turncoat policeman.",
+     "walkthrough": "'Cop' looks like a policeman, but it is a verb here: CUTE catches RAT.",
+     "definitionFit": "Cut-rate means sold at a reduced price, a term chiefly from the US, matching cheap or reduced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cop"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1446,42 @@
     "text": "Building completed if I certified walls",
     "enumeration": "7"
    },
-   "solution": "EDIFICE"
+   "solution": "EDIFICE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDIFICE",
+    "definitions": [
+     {
+      "text": "Building",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "walls",
+      "for": "hidden_word",
+      "note": "the outer words act as walls around the answer, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completed if I certified",
+      "gives": "EDIFICE",
+      "note": "running across the phrase"
+     }
+    ],
+    "explanation": {
+     "surface": "A building is finished once an inspector certifies its walls.",
+     "definitionFit": "An edifice is a large imposing structure, so it is a building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "walls"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1495,62 @@
     "text": "Corrupt official in place, ending in tyranny",
     "enumeration": "7"
    },
-   "solution": "PUTREFY"
+   "solution": "PUTREFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PUTREFY",
+    "definitions": [
+     {
+      "text": "Corrupt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending in",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in place",
+      "gives": "PUT",
+      "note": "to stay put is to remain in place"
+     },
+     {
+      "clueFragment": "official",
+      "gives": "REF",
+      "note": "a ref is a match official"
+     },
+     {
+      "clueFragment": "tyranny",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of tyranny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUT",
+      "REF",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A corrupt official installed in his post ends up a tyrant.",
+     "walkthrough": "The pieces sit out of clue order: the place word comes first, then the official.",
+     "definitionFit": "To putrefy is to rot or decay, and corrupt as a verb also means to go bad."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Corrupt"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1564,59 @@
     "text": "Calls island on Shetland, to begin with",
     "enumeration": "5"
    },
-   "solution": "YELLS"
+   "solution": "YELLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YELLS",
+    "definitions": [
+     {
+      "text": "Calls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with points to just the first letter of the word"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "YELL",
+      "note": "Yell is one of the Shetland islands"
+     },
+     {
+      "clueFragment": "Shetland",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of Shetland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YELL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A note on an island in the Shetlands, to start with.",
+     "walkthrough": "Shetland is the island group north of Scotland; Yell is its second-largest island.",
+     "definitionFit": "Yells are loud cries, and calls can mean shouts, as in calling out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Calls"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1630,54 @@
     "text": "With legs either side of Scandinavian woman, start to empathise",
     "enumeration": "7"
    },
-   "solution": "ASTRIDE"
+   "solution": "ASTRIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASTRIDE",
+    "definitions": [
+     {
+      "text": "With legs either side of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scandinavian woman",
+      "gives": "ASTRID",
+      "note": "Astrid is a common Scandinavian woman's name"
+     },
+     {
+      "clueFragment": "empathise",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter of empathise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTRID",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sits with legs either side of a Scandinavian woman, a start to empathy.",
+     "definitionFit": "Astride is a preposition meaning straddling, positioned with one leg on each side of something like a horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1691,58 @@
     "text": "Study plugs and other things with no teeth",
     "enumeration": "7"
    },
-   "solution": "EDENTAL"
+   "solution": "EDENTAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EDENTAL",
+    "definitions": [
+     {
+      "text": "with no teeth",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plugs",
+      "for": "container",
+      "note": "a plug fills a gap, so this word fills the space inside the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is a private study"
+     },
+     {
+      "clueFragment": "other things",
+      "gives": "ETAL",
+      "note": "et al. is Latin shorthand for and others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DEN",
+      "TAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist's reading on fillings and other matters for the toothless.",
+     "walkthrough": "'Plugs' suggests dental fillings, but it is the instruction to put one piece inside the other.",
+     "definitionFit": "Edental is a zoological term for animals lacking teeth, such as anteaters and sloths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plugs"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1756,58 @@
     "text": "Extremely snide comment under the breath in coastal area",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEASIDE",
+    "definitions": [
+     {
+      "text": "coastal area",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes, the first and last letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snide",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of snide"
+     },
+     {
+      "clueFragment": "comment under the breath",
+      "gives": "ASIDE",
+      "note": "an aside is a remark made quietly, apart from the main talk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ASIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone mutters a very snide remark while at the beach.",
+     "definitionFit": "The seaside is the land beside the sea, especially a resort, so it is a region along the coast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1831,51 @@
      }
     ]
    },
-   "solution": "UPONESSLEEVE"
+   "solution": "UPONESSLEEVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UP ONES SLEEVE",
+    "definitions": [
+     {
+      "text": "prepared in advance",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "letters arriving unexpectedly come in an unforeseen order, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Use envelopes",
+      "gives": "USEENVELOPES",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USEENVELOPES",
+       "gives": "UPONESSLEEVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to use envelopes made ready beforehand for an unexpected need.",
+     "walkthrough": "A trick kept up the sleeve is hidden but ready, like a card a magician has planted.",
+     "definitionFit": "Having something up one's sleeve means holding a secret plan or resource ready for later use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "envelopes"
+    }
+   }
   }
  ]
 }
