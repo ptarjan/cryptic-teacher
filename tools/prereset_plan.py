@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """How wide the pre-reset backfill runs, and in what order it takes the queue.
 
-The job's goal is every five-hour window spent to 100%: quota left on a window
-when it turns over is gone. Interactive bridge work comes first, so the burn
-takes only what would otherwise be wasted. It keeps in flight the width that
-would spend, by the reset, what the window has left after the bridge's own
-projected spend, and no more than the machine has free once everything else
-on it is counted: memory over the size of a run, and idle cores over a run's
-measured CPU.
+The job's goal is the weekly window spent to EXHAUSTED right at its reset:
+quota left on the week when it turns over is gone, and quota spent early locks
+Paul out for the rest of the week. Interactive bridge work comes first, so the
+burn takes only what would otherwise be wasted. It keeps in flight the width
+that would spend, evenly until the weekly reset, what the week has left after
+the bridge's own projected spend, and no more than the machine has free once
+everything else on it is counted: memory over the size of a run, and idle
+cores over a run's measured CPU. The five-hour window is only a ceiling: a
+lockout is napped through by prereset_backfill.sh.
 
 The queue is backlog(): every un-annotated puzzle, those without all their
 answers included (the burn solves them cold, then annotates them). Its order
@@ -38,13 +40,23 @@ import series
 
 REPO = Path(__file__).resolve().parent.parent
 
-# Running wider than the need only spends the window early, which locks the
-# account out until the reset, so the need sets the width. It aims at the reset
-# itself, rounded rather than rounded up: re-read at every checkpoint, the need
-# corrects for the per-run rate's interval-to-interval noise as the reset nears.
-# The five-hour window. A reset the meter puts in the past means the window has
-# turned over since it was read: the whole of a fresh one is left to spend.
-WINDOW_HOURS = 5.0
+# Running wider than the need only spends the week early, which locks the
+# account out until the weekly reset, so the need sets the width. It aims at the
+# reset itself, rounded rather than rounded up: re-read at every checkpoint, the
+# need corrects for the per-run rate's interval-to-interval noise as the reset
+# nears. A reset the meter puts in the past means the week has turned over since
+# it was read: the whole of a fresh one is left to spend.
+WINDOW_HOURS = 7 * 24.0
+# The weekly meter's level the need aims at: prereset_backfill.sh stops there,
+# and exports its own value.
+EXHAUSTED = float(os.environ.get("EXHAUSTED") or 99)
+# The rates are measured on the five-hour meter, which moves several points for
+# each weekly one. Five-hour points per weekly point is the two meters' rises
+# side by side in usage-history.csv over the last RATIO_SPAN_S, skipping any
+# interval where either fell (a reset); under RATIO_MIN_POINTS weekly points
+# leaves it unknown.
+RATIO_SPAN_S = 7 * 86400
+RATIO_MIN_POINTS = 10
 # The width when neither the meter nor the last logged width can be read.
 DEFAULT_WIDTH = 14
 # The ceiling when memory cannot be read: ~6 GB of runs.
@@ -116,20 +128,43 @@ def per_run_rate(lines):
     return points / run_hours
 
 
-def need(pct, hours_left, rate, bridge_rate=0.0):
-    """Runs that would spend, by the reset, what the five-hour window has left
-    after the bridge's projected spend (bridge_rate points an hour), 0 when the
-    bridge alone spends it. A reset already passed is a fresh window, all of it
-    left. None when any input is missing or unusable."""
+def need(pct, hours_left, rate, bridge_rate, ratio):
+    """Runs that would spend, by the weekly reset, what the week has left up to
+    EXHAUSTED after the bridge's projected spend, 0 when the bridge alone spends
+    it. pct and hours_left are the weekly meter's; rate (per run-hour) and
+    bridge_rate (an hour) are five-hour points, ratio five-hour points per
+    weekly point. A reset already passed is a fresh week, all of it left. None
+    when any input is missing or unusable."""
     try:
         if pct is not None and hours_left <= 0:
             pct, hours_left = 0, WINDOW_HOURS
-        if rate <= 0:
+        if rate <= 0 or ratio <= 0:
             return None
-        left = 100 - pct - max(0.0, bridge_rate or 0.0) * hours_left
+        left = (EXHAUSTED - pct) * ratio - max(0.0, bridge_rate or 0.0) * hours_left
         return max(0, round(left / (hours_left * rate)))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
+
+
+def five_per_weekly(csv_text, start, end):
+    """Five-hour points per weekly point over the rows in [start, end]: the sum
+    of the five-hour meter's rises over the weekly meter's, in the intervals
+    where both were read and neither fell. None under RATIO_MIN_POINTS weekly."""
+    rows = {}
+    for line in (csv_text or "").splitlines():
+        f = line.split(",")
+        try:
+            if len(f) >= 3 and start <= float(f[0]) <= end:
+                rows.setdefault(float(f[0]), {})[f[1]] = float(f[2])
+        except ValueError:
+            continue
+    both = [r for _, r in sorted(rows.items()) if "five_hour" in r and "seven_day" in r]
+    five = weekly = 0.0
+    for a, b in itertools.pairwise(both):
+        d5, d7 = b["five_hour"] - a["five_hour"], b["seven_day"] - a["seven_day"]
+        if d5 >= 0 and d7 >= 0:
+            five, weekly = five + d5, weekly + d7
+    return five / weekly if weekly >= RATIO_MIN_POINTS else None
 
 
 def meter_rise(csv_text, start, end):
@@ -390,20 +425,23 @@ def bridge_spend(now=None):
 
 
 def width(arg=None, floor=1):
-    """The width to keep in flight, from the live five-hour meter and reset, the
-    bridge's measured spend, the burn's rate and last width, and the machine.
-    The inputs go to stderr."""
+    """The width to keep in flight, from the live weekly meter and reset, the
+    bridge's measured spend, the burn's rate and last width, the five-hour to
+    weekly ratio, and the machine. The inputs go to stderr."""
     home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
     lines = (_read(home / ".prereset.log") or "").splitlines()
     current = current_width(arg, lines)
-    runs_needed = bridge = None
+    runs_needed = bridge = ratio = None
     try:
         import weekly_usage
-        pct = weekly_usage.usage_pct("session")
-        hours_left, _ = weekly_usage.resets_in_hours("session")
+        pct = weekly_usage.usage_pct("weekly")
+        hours_left, _ = weekly_usage.resets_in_hours("weekly")
         bridge, rate = bridge_spend()
         rate = rate or per_run_rate(lines)
-        runs_needed = need(pct, hours_left, rate, bridge or 0.0)
+        now = time.time()
+        ratio = five_per_weekly(_read(weekly_usage.SAMPLE_CSV_PATH),
+                                now - RATIO_SPAN_S, now)
+        runs_needed = need(pct, hours_left, rate, bridge or 0.0, ratio)
     except Exception as exc:  # noqa: BLE001 — an unread meter leaves the need unknown
         print(f"width: meter unread: {exc}", file=sys.stderr)
     rss = burn_rss_kb()
@@ -414,7 +452,9 @@ def width(arg=None, floor=1):
     shown = (f"{bridge:.1f} pts/h" if bridge is not None else "unread")
     cores = (f"others {load[0]:.2f} burn {load[1]:.2f} of {os.cpu_count()} cores"
              if load else "cores unread")
-    print(f"width {w}: need {runs_needed} (bridge {shown}), memory cap {mem}, "
+    per = f"{ratio:.2f}" if ratio else "unread"
+    print(f"width {w}: need {runs_needed} for weekly {EXHAUSTED:g}% at its reset "
+          f"(bridge {shown}, {per} five-hour pts per weekly), memory cap {mem}, "
           f"cpu cap {cpu} ({cores}), current {current}", file=sys.stderr)
     return w
 
@@ -442,7 +482,7 @@ def self_test():
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + len(METER_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 2
+         + len(CPU_CASES) + len(METER_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 2
          + len(BACKLOG_CASES))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
@@ -465,22 +505,43 @@ WIDTH_CASES = [
     ((0, 40, 40, 14, 0), 0),       # ...and none for one that naps at 0
     ((26, 40, 0, 14, 0), 0),       # no core idle, for one that naps
 ]
-# (pct, hours to reset, per-run rate, bridge points an hour) -> need
+# (weekly pct, hours to weekly reset, per-run rate and bridge points an hour
+#  in five-hour points, five-hour points per weekly) -> need; EXHAUSTED is 99
 NEED_CASES = [
-    ((90, 2.0, 1.95, 0), 3),      # 10 points over 3.9 run-hours
-    ((60, 1.0, 1.95, 0), 21),     # 40 points in 1h
-    ((100, 1.0, 1.95, 0), 0),     # window spent
-    ((None, 1.0, 1.95, 0), None),
-    ((50, 0.0, 1.95, 0), 10),     # reset passed: a fresh window, 100 points in 5h
-    ((100, -0.1, 1.95, 0), 10),   # the meter still shows the window just spent
-    ((50, None, 1.95, 0), None),  # reset unread
+    ((89, 10.0, 2.0, 0, 6.0), 3),     # 10 weekly = 60 five-hour over 10h at 2 a run
+    ((59, 10.0, 2.0, 0, 6.0), 12),    # 40 weekly = 240 over 20 run-hours a run
+    ((99, 10.0, 2.0, 0, 6.0), 0),     # week spent to EXHAUSTED
+    ((100, 10.0, 2.0, 0, 6.0), 0),    # past it
+    ((None, 10.0, 2.0, 0, 6.0), None),
+    ((50, None, 2.0, 0, 6.0), None),  # reset unread
+    ((50, 10.0, 2.0, 0, None), None),  # ratio unread
+    ((50, 10.0, 0, 0, 6.0), None),    # no rate
+    # reset passed: a fresh week, 99 x 6 points over 168h at 2 a run-hour
+    ((50, 0.0, 2.0, 0, 6.0), 2),
+    ((100, -0.1, 2.0, 0, 6.0), 2),    # the meter still shows the week just spent
     # The bridge's projected spend comes off the top: the burn takes the surplus.
-    ((60, 1.0, 1.95, 20), 10),    # bridge takes 20 of the 40 points left
-    ((40, 4.0, 1.95, 10), 3),     # 60 left, bridge 40 of it by the reset
-    ((40, 4.0, 1.95, 15), 0),     # bridge alone spends the window: nothing to take
-    ((48, 4.0, 4.4, 38), 0),      # 2026-10-01 08:40: bridge at 38 points an hour
-    ((50, 0.0, 1.95, 10), 5),     # fresh window: 100 - 50 over 5h
-    ((60, 1.0, 1.95, None), 21),  # bridge unmeasured: nothing subtracted
+    ((59, 10.0, 2.0, 12, 6.0), 6),    # bridge 120 of the 240 left by the reset
+    ((59, 10.0, 2.0, 24, 6.0), 0),    # bridge alone spends the week
+    ((59, 10.0, 2.0, None, 6.0), 12),  # bridge unmeasured: nothing subtracted
+    # 2026-10-04: weekly 10% with 58h to go, bridge 4 an hour, 1.95 a run, 6.5
+    ((10, 58.0, 1.95, 4, 6.5), 3),
+]
+# (csv text, start, end) -> five-hour points per weekly point
+_PAIR = "{0},five_hour,{1},9999999999\n{0},seven_day,{2},9999999999\n"
+RATIO_CASES = [
+    ("".join(_PAIR.format(t, f, w) for t, f, w in [(0, 0, 10), (1, 60, 20)]),
+     0, 9, 6.0),
+    # a five-hour reset: that interval says nothing, the next one counts
+    ("".join(_PAIR.format(t, f, w) for t, f, w in
+             [(0, 0, 10), (1, 60, 20), (2, 5, 21), (3, 65, 31)]), 0, 9, 6.0),
+    # a weekly reset likewise
+    ("".join(_PAIR.format(t, f, w) for t, f, w in
+             [(0, 0, 90), (1, 60, 2), (2, 120, 12)]), 0, 9, 6.0),
+    # rows outside the span are left out: too few weekly points then
+    ("".join(_PAIR.format(t, f, w) for t, f, w in [(0, 0, 10), (5, 60, 20)]),
+     1, 9, None),
+    ("garbage", 0, 9, None),
+    (None, 0, 9, None),
 ]
 # (csv text, start, end) -> (points, hours) the five-hour meter rose
 _ROW = "{},five_hour,{},9999999999\n{},seven_day,50,9999999999\n"
@@ -525,7 +586,8 @@ def width_self_test():
               + [(need, a, w) for a, w in NEED_CASES]
               + [(mem_cap, (m, r), w) for m, r, w in MEM_CASES]
               + [(cpu_cap, (o, b, c, r), w) for o, b, c, r, w in CPU_CASES]
-              + [(meter_rise, (t, a, b), w) for t, a, b, w in METER_CASES])
+              + [(meter_rise, (t, a, b), w) for t, a, b, w in METER_CASES]
+              + [(five_per_weekly, (t, a, b), w) for t, a, b, w in RATIO_CASES])
     for fn, args, want in checks:
         if fn(*args) != want:
             print(f"FAIL {fn.__name__}{args} = {fn(*args)} (want {want})", file=sys.stderr)
