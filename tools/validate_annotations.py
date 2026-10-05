@@ -3317,9 +3317,11 @@ def main(argv):
                               else f"{f} unchanged (observed {abs(n)} more, kept the tighter cap)"
                               for f, n in moved.items()))
         elif any(v > 0 for v in moved.values()):
+            # Not a failure: a shrink is the burn working. The nightly
+            # tools/prereset_backfill.sh is the one writer of the file.
             print("backlog shrank (" + ", ".join(f"{f} -{n}" for f, n in moved.items() if n > 0)
-                  + ") — run `python3 tools/validate_annotations.py --tighten` to record it, "
-                    "or those clues can silently go missing again.")
+                  + ") — not a failure; tools/prereset_backfill.sh records it tonight "
+                    "with `python3 tools/validate_annotations.py --tighten`.")
     return 1 if failed else 0
 
 

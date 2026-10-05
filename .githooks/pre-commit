@@ -2,4 +2,8 @@
 # A tracked file with no layout row fails CI; refuse the commit instead.
 # Fix: python3 tools/build_readme.py --add-missing, then stage docs/LAYOUT.md
 # and tools/build_readme.py.
-exec python3 tools/build_readme.py --check-layout
+python3 tools/build_readme.py --check-layout || exit 1
+# An annotation quoting words its clue no longer holds fails the deploy's
+# validate run and holds every deploy after it; refuse it here instead.
+staged=$(git diff --cached --name-only --diff-filter=AM -- 'puzzles/*.json')
+[ -z "$staged" ] || printf '%s\n' "$staged" | xargs python3 tools/puzzle_integrity.py --quotes
