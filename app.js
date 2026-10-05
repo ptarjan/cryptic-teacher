@@ -6476,28 +6476,6 @@
     return pickerTerms.filter((t) => t.toLowerCase().includes(q));
   }
 
-  // What the bands mean, behind the ? beside the difficulty menu: the badges'
-  // title= needs a pointer to hover and so is never read on an iPad. The counts
-  // are read off the collection every time, never written down.
-  // Which note is open, or null.
-  let pickerNote = null;
-  function difficultyNoteHTML() {
-    const n = {};
-    INDEX.puzzles.forEach((p) => {
-      const b = p.difficulty && p.difficulty.band;
-      if (b) n[b.toLowerCase()] = (n[b.toLowerCase()] || 0) + 1;
-    });
-    const counts = pickerBandList().filter((b) => n[b])
-      .map((b) => `<span class="band-count">${bandPill(b)} ${n[b].toLocaleString("en-GB")}</span>`)
-      .join("");
-    return "Difficulty compares a puzzle with the others on this site, not with "
-      + "crosswords in general: the papers don\u2019t publish ratings. It is worked out "
-      + "from the grid, the clues and the answers, and on Times puzzles from the solve "
-      + "times commenters post. "
-      + `<a href="${DIFFICULTY_PAGE}">How difficulty is rated</a>. `
-      + (counts ? "Puzzles in each band now:<span class=\"band-counts\">" + counts + "</span>" : "");
-  }
-
   let pickerBands = null;
   function pickerBandList() {
     if (pickerBands) return pickerBands;
@@ -6550,7 +6528,7 @@
     const opt = (keys, label) => `<option value="${keys.join(",")}">${esc(label)} (${
       size(keys).toLocaleString("en-GB")})</option>`;
     const seriesOpt = (s) => opt([s], titleCase((SERIES_BADGE[s] || [s])[0]));
-    paperMenu = `<option value="">All papers</option>`
+    paperMenu = `<option value="">Paper</option>`
       + multi.map((g) => `<optgroup label="${esc(papers[g[0]])}">`
         + opt(g, "All " + papers[g[0]]) + g.map(seriesOpt).join("") + "</optgroup>").join("")
       + (single.length ? `<optgroup label="${multi.length ? "Other papers" : "Papers"}">`
@@ -6558,7 +6536,7 @@
     return paperMenu;
   }
   function bandMenuHTML() {
-    return `<option value="">Any difficulty</option>`
+    return `<option value="">Difficulty</option>`
       + pickerBandList().map((b) => `<option value="${esc(b)}">${esc(titleCase(b))}</option>`).join("");
   }
   // Only the tags some listed puzzle carries, in the index's order: an option
@@ -6568,7 +6546,7 @@
     const info = INDEX.tags || {};
     const used = Object.keys(info).filter((t) => INDEX.puzzles.some((p) => hasTag(p, t)));
     const name = (s) => s[0].toUpperCase() + s.slice(1);
-    return `<option value="">Any feature</option>`
+    return `<option value="">Feature</option>`
       + used.map((t) => `<option value="${esc(t)}">${esc(name(info[t].label))}</option>`).join("");
   }
   // The rows the three menus allow, or null when all say "all".
@@ -6657,14 +6635,19 @@
     // Abbreviated, and the weekday leads. The row is tight — see the note
     // below about the nowrap element shoving the line — and "Sat" in front is
     // read at a glance where a trailing full "Saturday" would just be length.
-    const d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
+    let d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
+    // A date-keyed number is the date, so the title is the dated form and the
+    // date column is left empty: one date per row (hub_row in build_seo_pages.py).
+    const dated = DATE_NUMBERED.has(p.series) && p.date;
+    const title = dated ? d : displayNumber(p);
+    if (dated) d = "";
     const btn = document.createElement("button");
     // Order here is the grid's, not the eye's: the badges are markup-last but
     // render on their own second line (see .p-tags in style.css). Progress
     // sits with them because it is a status like they are, and because
     // gluing it onto the date made the one nowrap element in the row long
     // enough to shove everything else off the line.
-    btn.innerHTML = `<span class="p-num" data-number="${p.number}">${displayNumber(p)}</span>
+    btn.innerHTML = `<span class="p-num" data-number="${p.number}">${title}</span>
         <span class="p-setter">${esc(p.setter || "")}</span>
         <span class="p-meta">${d}</span>
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated, p.blog)}${sourceBadge(p)}${tagBadges(p)}
@@ -6727,12 +6710,9 @@
       };
     });
     ["picker-paper", "picker-band", "picker-tag"].forEach((id) => $(id).classList.toggle("on", !!$(id).value));
-    $("picker-diff-help").setAttribute("aria-expanded", String(pickerNote === "diff"));
-    // A chosen feature says what it means where the bands do. Choosing it is
-    // the asking, so it needs no ? of its own; an open band note wins.
+    // A chosen feature says what it means: choosing it is the asking.
     const tagInfo = (INDEX.tags || {})[($("picker-tag") || {}).value || ""];
-    setHTML($("picker-note"), pickerNote === "diff" ? difficultyNoteHTML()
-      : tagInfo ? esc(tagInfo.blurb) : "");
+    setHTML($("picker-note"), tagInfo ? esc(tagInfo.blurb) : "");
     const filtered = !!(q || pickerFilter());
     const rows = pickerRows(q);
     // This render is throwing away the list the last observer was watching.
@@ -7420,10 +7400,6 @@
     $("picker-paper").addEventListener("change", keepMenus);
     $("picker-band").addEventListener("change", keepMenus);
     $("picker-tag").addEventListener("change", keepMenus);
-    $("picker-diff-help").onclick = () => {
-      pickerNote = pickerNote === "diff" ? null : "diff";
-      renderPicker();
-    };
     $("picker-search").addEventListener("keydown", (ev) => {
       if (ev.key === "Escape") { togglePicker(false); focusKbd(); return; }
       if (ev.key !== "Enter") return;
