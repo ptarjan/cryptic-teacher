@@ -19,7 +19,7 @@ _PRINTED = r"\d+(?:(?:\s*" + _MARK + r"){0,2}\s*\d+)*"
 
 # The trailing bracket: an enumeration, or "()" where a feed lost it. A stray
 # trailing comma inside ("(9,)") is a misprint of the same count, and a closing
-# quote or mark after it ("(4)’", "(4))", "(7)!", "(8,5);", "(5)>": a blog's
+# quote or mark after it ("(4)’", "(4))", "(7)!", "(5)>": a blog's
 # markup or a feed's punctuation leaking) is no part of the clue.
 _JUNK = r"[\s’”\"'()\[\]<>;.!?:,\-–—…|]*"
 _TAIL = re.compile(r"\s*\(\s*(?:(" + _PRINTED + r")[\s,]*)?\)(" + _JUNK + r")$")
@@ -66,12 +66,59 @@ def _tail(printed):
     return m
 
 
-def stray(clue):
-    """True when a clue's text ends in a count bracket with marks after it
-    ("... (4))", "... (7)!", "... (8,5);"): whatever count it names, the
-    marks are no part of the clue (the write gate refuses these)."""
+def two_counts(clue):
+    """True when the clue's text closes on the first of two counts the source
+    printed, the second being `enumeration`: "Mother's cross raised (3); (4)"
+    is text "... (3);" over "4", Big Dave's "Platform from up on high? (5) (7)"
+    is text "... (5)" over "7", and "(6;6)" holds both in one bracket. The
+    first is the paper's own: a preamble's second count, a theme's count of
+    the letters the wordplay makes, a cross-reference to other clues, or a
+    misprint the blog corrected after it."""
     m = _tail(clue.get("text") or "")
-    return bool(m and m.group(2).strip())
+    if not (m and m.group(1)):
+        return False
+    return _paired(m) or (not m.group(2).strip() and "enumeration" in clue)
+
+
+def _paired(m):
+    """A tail written as the first of two counts with ";" after or inside it:
+    the two counts may share a total (Cyclops 537's "(6,5); (4,7)"), so this
+    is never an echo to cut."""
+    return ";" in m.group(1) or m.group(2).strip() == ";"
+
+
+def _own(clue, totals):
+    stored = clue.get("enumeration")
+    return {*totals, *((sum(counts(stored)),) if stored else ())}
+
+
+def stray(clue, totals=()):
+    """True when a clue's text ends in its own count with marks after it
+    ("... (4))", "... (7)!"): a copy of the count the light, its group or the
+    stored enumeration (`totals`) already says, behind a feed's or a blog's
+    markup, which split() cuts (the write gate refuses these). A count that
+    says anything else is no copy; disagrees() names it."""
+    m = _tail(clue.get("text") or "")
+    if not (m and m.group(1) and m.group(2).strip()) or two_counts(clue):
+        return False
+    return sum(counts(m.group(1))) in _own(clue, totals)
+
+
+def disagrees(clue, totals=()):
+    """The count closing a clue's text, as printed, when marks follow it and
+    it names neither the light, its group nor the stored enumeration
+    (`totals`), else None: "... (7.8) ' -" read off a scan's "(7,6)". It is
+    no copy for split() to cut and no second count (two_counts()), so the
+    text is another entry's or the count was misread, and cutting it would
+    hide which; the write gate refuses it. A year or quantity above
+    JUNK_LIMIT is the clue's own words."""
+    m = _tail(clue.get("text") or "")
+    if not (m and m.group(1) and m.group(2).strip()) or two_counts(clue):
+        return None
+    total = sum(counts(m.group(1)))
+    if total > JUNK_LIMIT or total in _own(clue, totals):
+        return None
+    return m.group(1)
 
 
 def split(printed):
@@ -90,7 +137,7 @@ def split(printed):
     # ("Set meal (5,1'4) (5,5)") leaves the same total twice; the echo is cut
     # with the count it repeats.
     while enum and (e := _tail(text)) and e.group(1) and counts(e.group(1)) \
-            and sum(counts(e.group(1))) == sum(counts(enum)):
+            and not _paired(e) and sum(counts(e.group(1))) == sum(counts(enum)):
         text = text[:e.start()].rstrip()
     return (text or None), enum
 
@@ -137,6 +184,9 @@ def unsplit(clue, totals=()):
     linked group's, or the stored enumeration's (`totals`): "Set meal (5,1'4)"
     over "5,5". A bracket whose numbers are no such total is the clue's own
     words ("... (1917)", "... (500)") and stays."""
+    m = _tail(clue.get("text") or "")
+    if m and m.group(1) and _paired(m) and "enumeration" in clue:
+        return False
     enum = split(clue.get("text", ""))[1]
     if enum is None:
         return False

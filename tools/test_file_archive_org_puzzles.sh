@@ -141,6 +141,9 @@ for text, enum, cells, want in [
         ("The solution to the Collins Competition will now Qualifier puzzle", "4", 4, "holds the page's text"),
         ("None", "5", 5, "the text is the word None"),
         ("Fine island, jolly compact", "5", 4, "its count"),
+        # ftcryptic-7261 8-down: the scan prints (7,6), one reading "(7.8) ' -".
+        ("Advice note can change ' prior announcement (7.8) ' -", "7,6", 13, "its words end in a count"),
+        ("Mother's cross raised (3);", "4", 4, None),
         ("Laugh immoderately as Jack gets into quarrel", "4,5", 9, None),
         ("3 3 on the watch", "5", 5, None),
         ("under twenty-one", "5", 5, None),
