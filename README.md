@@ -66,6 +66,7 @@ Other features:
 | `tools/annotate_prompt.md` | The prompt used to annotate a puzzle. |
 | `tools/AUTHORING.md` | Writing our own puzzles. |
 | `docs/LAYOUT.md` | Every tracked file and what it is for (generated). |
+| `docs/ARCHIVE_COVERAGE.md` | Filling the archive years from newspaper scans: the coverage tracker and the OCR job queue. |
 
 ## Run it
 

@@ -1,0 +1,14 @@
+about    = "Count every archive year's filed puzzles against the editions printed, and wake the room when no corpus job runs and fixable editions remain"
+room     = "cryptic-crosswords"
+# After the 04:30 restart and the 04:35 tick that resumes a killed job, so
+# "no job running" means the queue really is idle.
+schedule = "50 5 * * *"
+where    = "container"
+run      = "/Users/pt/github/cryptic-teacher/tools/corpus_queue.sh"
+args     = ["nightly"]
+log      = "/Users/pt/github/cryptic-teacher/.archive_coverage.log"
+timeout  = 1800
+
+[env]
+XDG_CONFIG_HOME  = "/Users/pt/.config"
+CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"

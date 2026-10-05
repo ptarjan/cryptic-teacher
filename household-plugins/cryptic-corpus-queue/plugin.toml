@@ -1,0 +1,15 @@
+about    = "Keep one corpus OCR job of tools/data/corpus_queue.json running: start the next, resume one a restart killed, wake on a stall"
+room     = "cryptic-crosswords"
+# Hourly: the 04:30 container restart kills a running job, and this is what
+# resumes it. A tick costs a worktree reset and a few file reads; the job it
+# starts runs detached in its own session, so this returns in seconds.
+schedule = "35 * * * *"
+where    = "container"
+run      = "/Users/pt/github/cryptic-teacher/tools/corpus_queue.sh"
+args     = ["tick"]
+log      = "/Users/pt/github/cryptic-teacher/.corpus_queue.log"
+timeout  = 600
+
+[env]
+XDG_CONFIG_HOME  = "/Users/pt/.config"
+CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"
