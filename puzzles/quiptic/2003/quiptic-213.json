@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "The Spanish valet initially goes in to check fabric",
     "enumeration": "6"
    },
-   "solution": "VELVET"
+   "solution": "VELVET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "VELVET",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter only of the word it follows"
+     },
+     {
+      "text": "goes in",
+      "for": "container",
+      "note": "goes in says these letters are placed inside another word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish for the"
+     },
+     {
+      "clueFragment": "valet",
+      "gives": "V",
+      "select": "first",
+      "note": "the first letter of valet"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "VET",
+      "note": "to vet is to check or examine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "EL",
+      "VET"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish manservant goes in to inspect some cloth.",
+     "definitionFit": "Velvet is a soft cloth with a dense short pile, so it is one kind of fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "check"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +113,76 @@
     "text": "Nonconformist church returns some money to most of wealthy",
     "enumeration": "9"
    },
-   "solution": "ECCENTRIC"
+   "solution": "ECCENTRIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "deletion"
+    ],
+    "answer": "ECCENTRIC",
+    "definitions": [
+     {
+      "text": "Nonconformist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "something that returns goes back the way it came, so the abbreviation is read backwards"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means all but the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "some money",
+      "gives": "CENT",
+      "note": "a cent is a small sum of money"
+     },
+     {
+      "clueFragment": "wealthy",
+      "gives": "RICH",
+      "note": "rich means wealthy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EC",
+      "CENT",
+      "RIC"
+     ],
+     "reversals": [
+      {
+       "from": "CE",
+       "to": "EC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dissenting church hands some cash back to the very rich.",
+     "walkthrough": "'Nonconformist church' reads as one phrase, but the definition is the first word alone; church is CE, reversed.",
+     "definitionFit": "An eccentric person departs from conventional behaviour, which is what a nonconformist does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nonconformist"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +196,59 @@
     "text": "Underwear gets two thirds dry in vicar's dressing room",
     "enumeration": "6"
    },
-   "solution": "VESTRY"
+   "solution": "VESTRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "VESTRY",
+    "definitions": [
+     {
+      "text": "vicar's dressing room",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "two thirds",
+      "for": "deletion",
+      "note": "two thirds of a three-letter word means one of its letters is dropped, here the first"
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underwear",
+      "gives": "VEST",
+      "note": "a vest is an undershirt in British usage"
+     },
+     {
+      "clueFragment": "dry",
+      "gives": "DRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VEST",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar's underclothes are left partly dried in the room where he robes.",
+     "walkthrough": "In Britain a vest is a sleeveless undershirt, not a waistcoat. The last two of the three letters of dry are kept.",
+     "definitionFit": "A vestry is the room in a church where clergy keep and put on their vestments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Underwear"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +262,65 @@
     "text": "Murderers executed after throttling first three characters in \"Tales of Adventure\"",
     "enumeration": "9"
    },
-   "solution": "THRILLERS"
+   "solution": "THRILLERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "THRILLERS",
+    "definitions": [
+     {
+      "text": "Tales of Adventure",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first three characters",
+      "for": "letter_selection",
+      "note": "only the opening trio of letters of the word named is kept"
+     },
+     {
+      "text": "executed",
+      "for": "deletion",
+      "note": "executed suggests beheading, so the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "throttling",
+      "gives": "THR",
+      "select": "first",
+      "note": "the first three letters of throttling"
+     },
+     {
+      "clueFragment": "Murderers",
+      "gives": "KILLERS",
+      "note": "killers are murderers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THR",
+      "ILLERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Killers are put to death after strangling someone, a plot from a book of adventure stories.",
+     "walkthrough": "'After' places the beheaded murderers behind the three letters, so THR comes first.",
+     "definitionFit": "Thrillers are exciting stories of crime, suspense or adventure, so they are tales of that kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "executed"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +334,71 @@
     "text": "Policeman puts note on work before agent comes back",
     "enumeration": "6"
    },
-   "solution": "COPPER"
+   "solution": "COPPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "COPPER",
+    "definitions": [
+     {
+      "text": "Policeman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "comes back",
+      "for": "reversal",
+      "note": "coming back means travelling the other way, so the word is read right to left"
+     }
+    ],
+    "linkWords": [
+     "puts",
+     "on",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "C",
+      "note": "C is a musical note"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep is a sales agent or representative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OP",
+      "PER"
+     ],
+     "reversals": [
+      {
+       "from": "REP",
+       "to": "PER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer leaves a memo on a job before a spy returns.",
+     "definitionFit": "Copper is informal slang for a police officer, from the idea that police cop, or catch, criminals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +412,51 @@
     "text": "Blimey! Soldier's after the dog",
     "enumeration": "5"
    },
-   "solution": "CORGI"
+   "solution": "CORGI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CORGI",
+    "definitions": [
+     {
+      "text": "the dog",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "'s after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blimey!",
+      "gives": "COR",
+      "note": "cor is a British exclamation of surprise, like blimey"
+     },
+     {
+      "clueFragment": "Soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COR",
+      "GI"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims in alarm because a soldier is chasing the dog.",
+     "walkthrough": "Blimey and cor are both British exclamations of surprise. The soldier comes after the exclamation.",
+     "definitionFit": "A corgi is a short-legged Welsh breed, famously kept by the Queen, so it is a dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +470,44 @@
     "text": "Caution the girl!",
     "enumeration": "8"
    },
-   "solution": "PRUDENCE"
+   "solution": "PRUDENCE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRUDENCE",
+    "definitions": [
+     {
+      "text": "Caution",
+      "at": 0
+     },
+     {
+      "text": "the girl",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caution",
+      "note": "first meaning: carefulness, good judgement about risk"
+     },
+     {
+      "clueFragment": "the girl",
+      "note": "second meaning: a woman's first name"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tells a girl off or warns her.",
+     "walkthrough": "'Caution' looks like a verb, warning the girl, but it is a noun meaning carefulness.",
+     "definitionFit": "Prudence means wise carefulness about risk, and it is also a traditional female given name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Caution"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +521,49 @@
     "text": "Compel former lover to take turn",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "Compel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "turn",
+      "gives": "ACT",
+      "note": "a turn is an act or routine on a variety stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forces an old flame to have a go.",
+     "definitionFit": "To exact obedience or payment is to demand it forcibly, which is to compel it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +577,66 @@
     "text": "It's fashionable on Channel Islands for son to get gold tooth",
     "enumeration": "7"
    },
-   "solution": "INCISOR"
+   "solution": "INCISOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCISOR",
+    "definitions": [
+     {
+      "text": "tooth",
+      "at": 56
+     }
+    ],
+    "linkWords": [
+     "It's",
+     "on",
+     "for",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means in fashion"
+     },
+     {
+      "clueFragment": "Channel Islands",
+      "gives": "CI",
+      "note": "CI is the abbreviation for the Channel Islands"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CI",
+      "S",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "On Jersey or Guernsey it is trendy for a boy to have a gold tooth.",
+     "walkthrough": "The Channel Islands are British islands off the coast of Normandy.",
+     "definitionFit": "An incisor is one of the sharp cutting teeth at the front of the mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +650,57 @@
     "text": "Soldier takes child by train to island",
     "enumeration": "11"
    },
-   "solution": "INFANTRYMAN"
+   "solution": "INFANTRYMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFANTRYMAN",
+    "definitions": [
+     {
+      "text": "Soldier",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "takes",
+     "by",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "INFANT",
+      "note": "an infant is a young child"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, the train service"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "MAN",
+      "note": "the Isle of Man is an island in the Irish Sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFANT",
+      "RY",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier travels with a youngster on a train to an island.",
+     "definitionFit": "An infantryman is a foot soldier, a member of the army's infantry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +714,53 @@
     "text": "Regret cutting remark uttered about plant",
     "enumeration": "7"
    },
-   "solution": "RHUBARB"
+   "solution": "RHUBARB",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RHUBARB",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uttered",
+      "for": "homophone",
+      "note": "uttered means spoken, so the answer only needs to match when said"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RHU",
+      "soundsLike": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "cutting remark",
+      "gives": "BARB",
+      "note": "a barb is a wounding remark, spelt as it sounds"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is sorry for a sharp comment made about a plant.",
+     "walkthrough": "Said together, the two words make the plant's name; the first is spelt differently.",
+     "definitionFit": "Rhubarb is a garden plant whose sour pink stalks are cooked and eaten like fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +774,53 @@
     "text": "Grief over death will never beat me anyway",
     "enumeration": "11"
    },
-   "solution": "BEREAVEMENT"
+   "solution": "BEREAVEMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEREAVEMENT",
+    "definitions": [
+     {
+      "text": "Grief over death",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "anyway",
+      "for": "anagram",
+      "note": "anyway here means in any order at all, so the letters may be rearranged freely"
+     }
+    ],
+    "linkWords": [
+     "will"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "never beat me",
+      "gives": "NEVERBEATME",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEVERBEATME",
+       "gives": "BEREAVEMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A defiant mourner says sorrow will never defeat them.",
+     "definitionFit": "Bereavement is the loss of someone close through their dying, and the sorrow that follows it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "anyway"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +840,55 @@
      }
     ]
    },
-   "solution": "FUNERALDIRECTOR"
+   "solution": "FUNERALDIRECTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FUNERAL DIRECTOR",
+    "definitions": [
+     {
+      "text": "He undertakes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sort out",
+      "for": "anagram",
+      "note": "to sort out is to rearrange into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "true friend, Carol",
+      "gives": "TRUEFRIENDCAROL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRUEFRIENDCAROL",
+       "gives": "FUNERALDIRECTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man promises to help a loyal friend called Carol with her problems.",
+     "walkthrough": "'He undertakes' reads as someone promising; it means he is an undertaker.",
+     "definitionFit": "An undertaker is a person who arranges burials, so a funeral director is one who undertakes in that sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "undertakes"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +902,74 @@
     "text": "One gets confused about first Roman Emperor",
     "enumeration": "4"
    },
-   "solution": "NERO"
+   "solution": "NERO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NERO",
+    "definitions": [
+     {
+      "text": "Emperor",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets confused",
+      "for": "anagram",
+      "note": "something confused is muddled, so its letters are jumbled"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out only the opening letter of the word that follows"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going round, so the jumbled letters surround the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Roman",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of Roman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "R",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "NEO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gets muddled about who was the first Roman emperor.",
+     "walkthrough": "'First Roman Emperor' tempts you to Augustus; first only takes a letter from Roman.",
+     "definitionFit": "Nero was the notorious Roman emperor said to have fiddled while Rome burned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +983,81 @@
     "text": "Brownish infusion contains cooked carrot and tomato, initially",
     "enumeration": "10"
    },
-   "solution": "TERRACOTTA"
+   "solution": "TERRACOTTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "TERRACOTTA",
+    "definitions": [
+     {
+      "text": "Brownish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains says one word holds the other letters inside it"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked food is changed from its raw state, so these letters are reworked"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word it follows"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infusion",
+      "gives": "TEA",
+      "note": "tea is an infusion of leaves in hot water"
+     },
+     {
+      "clueFragment": "carrot",
+      "gives": "CARROT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tomato",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tomato"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "RRACOTT",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARROTT",
+       "gives": "RRACOTT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brown herbal brew has carrot and tomato cooked in it.",
+     "definitionFit": "Terracotta is unglazed fired clay, and as an adjective it names its brownish-orange colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "infusion"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1071,47 @@
     "text": "Letting go, yet hiring again",
     "enumeration": "9"
    },
-   "solution": "RELEASING"
+   "solution": "RELEASING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RELEASING",
+    "definitions": [
+     {
+      "text": "Letting go",
+      "at": 0
+     },
+     {
+      "text": "hiring again",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "yet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Letting go",
+      "note": "first meaning: freeing, setting loose"
+     },
+     {
+      "clueFragment": "hiring again",
+      "note": "second meaning: read as ..., renting out once more"
+     }
+    ],
+    "explanation": {
+     "surface": "An employer sacks staff and then takes them back on.",
+     "walkthrough": "'Letting go' suggests dismissing workers, which makes 'hiring again' look like its opposite; the second sense splits the word as re-leasing.",
+     "definitionFit": "Releasing means freeing; split as re-leasing it means renting property out a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hiring"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1125,70 @@
     "text": "Tease and heartlessly taunt poor Eliza",
     "enumeration": "9"
    },
-   "solution": "TANTALIZE"
+   "solution": "TANTALIZE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TANTALIZE",
+    "definitions": [
+     {
+      "text": "Tease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartlessly",
+      "for": "deletion",
+      "note": "without a heart means the central letter of the word is removed"
+     },
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "poor here means in bad shape, so the name's letters are knocked into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taunt",
+      "gives": "TAUNT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Eliza",
+      "gives": "ELIZA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TANT",
+      "ALIZE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELIZA",
+       "gives": "ALIZE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cruelly mocks and torments a hapless woman named Eliza.",
+     "walkthrough": "The heart of taunt is its middle letter U. The answer uses the American -ize spelling.",
+     "definitionFit": "To tantalize is to torment by offering something just out of reach, a cruel kind of teasing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartlessly"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1202,56 @@
     "text": "Proposal to add potassium to large amount of fish food",
     "enumeration": "8"
    },
-   "solution": "PLANKTON"
+   "solution": "PLANKTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLANKTON",
+    "definitions": [
+     {
+      "text": "fish food",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "to add",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Proposal",
+      "gives": "PLAN",
+      "note": "a plan is a proposal"
+     },
+     {
+      "clueFragment": "potassium",
+      "gives": "K",
+      "note": "K is the chemical symbol for potassium"
+     },
+     {
+      "clueFragment": "large amount",
+      "gives": "TON",
+      "note": "a ton is informally a large amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "K",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A suggestion to add a mineral supplement to a big batch of fish feed.",
+     "definitionFit": "Plankton are tiny drifting organisms in the sea that many fish and whales eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "potassium"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1265,64 @@
     "text": "King taunts speaker; not the first to tinker without considering the consequences",
     "enumeration": "10"
    },
-   "solution": "RECKLESSLY"
+   "solution": "RECKLESSLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RECKLESSLY",
+    "definitions": [
+     {
+      "text": "without considering the consequences",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the first",
+      "for": "deletion",
+      "note": "not the first means the opening letter of the word is left off"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     },
+     {
+      "clueFragment": "taunts speaker",
+      "gives": "HECKLES",
+      "note": "to heckle a speaker is to taunt them with interruptions"
+     },
+     {
+      "clueFragment": "tinker",
+      "gives": "SLY",
+      "note": "Christopher Sly is the drunken tinker in Shakespeare's The Taming of the Shrew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ECKLES",
+      "SLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A king jeers at an orator and then fiddles with things without thinking ahead.",
+     "walkthrough": "'Tinker' looks like a verb meaning fiddle; it is the tinker Sly from the Shakespeare comedy's opening scenes.",
+     "definitionFit": "To act recklessly is to behave rashly, heedless of danger or of what might follow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tinker"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1336,70 @@
     "text": "Joint to eke out round any number",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "Joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of order, so the word's letters are rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the rearranged letters go about the single letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eke",
+      "gives": "EKE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "any number",
+      "gives": "N",
+      "note": "N stands for an unspecified number in maths"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "N",
+      "EE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EKE",
+       "gives": "KEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cut of meat to be made to stretch round any number of diners.",
+     "walkthrough": "'Eke out' looks like one phrasal verb; here out is the anagram signal.",
+     "definitionFit": "The knee is the hinge between thigh and lower leg, one of the body's joints."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Joint"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1413,51 @@
     "text": "Make money out of trip",
     "enumeration": "6"
    },
-   "solution": "PROFIT"
+   "solution": "PROFIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PROFIT",
+    "definitions": [
+     {
+      "text": "Make money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of order, so the following letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of trip",
+      "gives": "OFTRIP",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFTRIP",
+       "gives": "PROFIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone earns cash from a journey.",
+     "walkthrough": "'Out of' reads as a single phrase meaning from; the out is the signal and of belongs to the letters.",
+     "definitionFit": "To profit is to gain financially from something, earning more than it cost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1477,49 @@
      }
     ]
    },
-   "solution": "MOVINGSTAIRCASE"
+   "solution": "MOVINGSTAIRCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOVING STAIRCASE",
+    "definitions": [
+     {
+      "text": "takes one to a different level",
+      "at": 17,
+      "note": "a verb phrase describing what the noun answer does"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emotional",
+      "gives": "MOVING",
+      "note": "moving means stirring the emotions"
+     },
+     {
+      "clueFragment": "flight",
+      "gives": "STAIRCASE",
+      "note": "a flight of stairs is a staircase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOVING",
+      "STAIRCASE"
+     ]
+    },
+    "explanation": {
+     "surface": "An emotionally stirring escape lifts someone's spirits to a new plane.",
+     "walkthrough": "'Flight' suggests fleeing or flying; it is a flight of stairs.",
+     "definitionFit": "An escalator carries passengers up or down between the floors of a building, from one storey to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flight"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1533,53 @@
     "text": "Meeting place off a road",
     "enumeration": "5"
    },
-   "solution": "VENUE"
+   "solution": "VENUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VENUE",
+    "definitions": [
+     {
+      "text": "Meeting place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "off means taken away, so the letter named is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "AVENUE",
+      "note": "an avenue is a road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VENUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gathering spot located just off a street.",
+     "walkthrough": "'Off a road' reads as a location; it says the letter a comes off a word for road.",
+     "definitionFit": "A venue is the place where an event, match or gathering is held."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1593,50 @@
     "text": "Brown ape is injured",
     "enumeration": "5"
    },
-   "solution": "SEPIA"
+   "solution": "SEPIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEPIA",
+    "definitions": [
+     {
+      "text": "Brown",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injured",
+      "for": "anagram",
+      "note": "something injured is damaged out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ape is",
+      "gives": "APEIS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APEIS",
+       "gives": "SEPIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brown monkey has been hurt.",
+     "definitionFit": "Sepia is a reddish-brown pigment originally made from cuttlefish ink, and the colour of old photographs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Brown"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1656,71 @@
      }
     ]
    },
-   "solution": "NONSTOP"
+   "solution": "NONSTOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NON-STOP",
+    "definitions": [
+     {
+      "text": "without rest",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of order, so the letters attached to it are rearranged"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "No is the abbreviation for number"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     },
+     {
+      "clueFragment": "outpost",
+      "gives": "POST",
+      "note": "the word splits into the signal out followed by the letters p, o, s, t"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "N",
+      "STOP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POST",
+       "gives": "STOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Soldiers at a remote northern station toil on without a break.",
+     "walkthrough": "'Outpost' looks like one word, but it splits into the signal out and the letters of post.",
+     "definitionFit": "Something non-stop carries on continuously, without pause or rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outpost"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1734,62 @@
     "text": "Perpetrate war with me replacing company at the front",
     "enumeration": "7"
    },
-   "solution": "INFLICT"
+   "solution": "INFLICT",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "INFLICT",
+    "definitions": [
+     {
+      "text": "Perpetrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing",
+      "for": "substitution",
+      "note": "replacing says one short piece takes the place of another inside the word"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "at the front"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "war",
+      "gives": "CONFLICT",
+      "note": "a conflict is a war"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "I",
+      "note": "I is the speaker, me"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NFLICT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wages war after taking over a firm's leadership.",
+     "definitionFit": "To inflict harm is to impose or carry it out on someone, which is perpetrating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1803,64 @@
     "text": "Rupture with that woman destroyed Ian",
     "enumeration": "6"
    },
-   "solution": "HERNIA"
+   "solution": "HERNIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HERNIA",
+    "definitions": [
+     {
+      "text": "Rupture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "something destroyed is wrecked, so the name's letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     },
+     {
+      "clueFragment": "Ian",
+      "gives": "IAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "NIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IAN",
+       "gives": "NIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A break-up with a certain woman left Ian devastated.",
+     "walkthrough": "'Rupture' reads as a break-up between partners; it is the medical sense.",
+     "definitionFit": "A hernia is a medical rupture where an organ pushes through the muscle wall that holds it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Rupture"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1874,42 @@
     "text": "Some sang at herb harvest",
     "enumeration": "6"
    },
-   "solution": "GATHER"
+   "solution": "GATHER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GATHER",
+    "definitions": [
+     {
+      "text": "harvest",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words, so the answer is a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sang at herb",
+      "gives": "GATHER",
+      "note": "a run of letters spanning the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Farm workers sang while bringing in the herbs.",
+     "definitionFit": "To harvest crops is to collect and bring them in, which is what gather means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sang"
+    }
+   }
   }
  ]
 }
