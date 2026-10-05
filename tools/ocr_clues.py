@@ -536,6 +536,26 @@ def rejoin(theirs, low):
     return out
 
 
+def ends_joined(theirs, low):
+    """Another reading's tokens with the clue's first or last word joined
+    again where it split it over a line end ("hair. Style" before the
+    count, for this clue's "hairstyle"): two words next to the number that
+    bounds the clue, which together spell this clue's word at that end."""
+    if not low:
+        return theirs
+    out = list(theirs)
+    for k in range(len(out) - 2, -1, -1):
+        a, b = out[k], out[k + 1]
+        if not (a.isalpha() and b.isalpha()):
+            continue
+        joined = (a + b).lower()
+        last = joined == low[-1] and (k + 2 == len(out) or out[k + 2] == BREAK)
+        first = joined == low[0] and (k == 0 or out[k - 1] == BREAK)
+        if last or first:
+            out[k:k + 2] = [a + b.lower()]
+    return out
+
+
 def agree(clue, others, keep_known=False):
     """(text or None, how) for one clue against the other readings' words
     and marks (`others`: one list per reading, or one list alone). Each word
@@ -584,7 +604,7 @@ def agree(clue, others, keep_known=False):
     extra = [{} for _ in range(len(mine) + 1)]  # gap before i -> {word: readings}
     leads, trails = [], []
     for k, theirs in enumerate(others):
-        theirs = rejoin(theirs, low)
+        theirs = ends_joined(rejoin(theirs, low), low)
         at = 0
         pairs = align(low, [w.lower() for w in theirs])
         lead, trail = ends(pairs, theirs)
@@ -1086,18 +1106,32 @@ def trimmed(text, lid, voted=True):
 
 
 def opening_printed(text, own, streams):
-    """Whether another reading prints the clue's number straight before
-    its first two words ("13 under twenty-one", "5 3 3 on the watch"): an
-    opening the print has, however it looks, and no line lost before it."""
-    head = text.split()[:2]
+    """The first word another reading prints straight after the clue's
+    number, when its first two words read as the clue's do, whatever their
+    case and slips ("13 under twenty-one", "5 3 3 on the watch", "24 Fish
+    enjoyed" for "fish enjqycd"): an opening the print has, and no line lost
+    before it; else None."""
+    head = text.replace("\u2019", "'").split()[:2]
     if not head:
-        return False
-    words = r"\s+".join(re.escape(w) for w in head)
-    line = re.compile(rf"(?m)^\W{{0,2}}{own}\W?\s+{words}(?![\w])")
-    return any(line.search(s) if isinstance(s, str) else
-               re.match(rf"\W{{0,2}}{words}(?![\w])", s.get(f"{own}-across", "") or "")
-               or re.match(rf"\W{{0,2}}{words}(?![\w])", s.get(f"{own}-down", "") or "")
-               for s in streams)
+        return None
+    mine = " ".join(head).lower()
+    starts = []
+    for s in streams:
+        if isinstance(s, str):
+            starts += [m.group(1) for m in re.finditer(rf"(?m)^\W{{0,2}}{own}\W?\s+(.*)$", s)]
+        else:
+            starts += [s.get(f"{own}-{way}") or "" for way in ("across", "down")]
+    for line in starts:
+        theirs = line.replace("\u2019", "'").split()[:len(head)]
+        if len(theirs) == len(head) and similar(mine, " ".join(theirs).lower()) >= OPENING_SIMILAR:
+            return theirs[0]
+    return None
+
+
+#: How like the clue's first two words another reading's two after the
+#: clue's number must read for the print to have them there: "fish enjqycd"
+#: against "Fish enjoyed" is 0.83, "in judgment" against "When Cleopatra" 0.4.
+OPENING_SIMILAR = 0.75
 
 
 def reconcile(laid, streams, lengths=None, keep_known=False):
@@ -1158,12 +1192,17 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         ref = re.match(r"(\d{1,2})(?:,| (?:across|down|ac|dn)\b)?\s+[a-z]", text or "")
         opens_on_light = bool(ref and lengths and int(ref.group(1)) != own
                               and any(k.startswith(ref.group(1) + "-") for k in lengths))
-        if not opens_on_light and re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or "") \
-                and not opening_printed(text, own, streams):
-            # Lower case first: the clue's opening ("23s about") was lost.
-            blank[lid] = "starts mid-clue"
-            out[lid] = ("", enum, group)
-            continue
+        if not opens_on_light and re.match(r"[^A-Za-z\"'(.]*\s*[a-z]", text or ""):
+            printed = opening_printed(text, own, streams)
+            if printed is None:
+                # Lower case first: the clue's opening ("23s about") was lost.
+                blank[lid] = "starts mid-clue"
+                out[lid] = ("", enum, group)
+                continue
+            if printed[0].isupper():
+                # The print's capital, misread small ("ln school", "fish").
+                at = re.search(r"[a-z]", text).start()
+                text = text[:at] + text[at].upper() + text[at + 1:]
         if enum is None and (lengths or {}).get(lid):
             # The other readings vote on the words, so a cut-short end shows.
             enum = str(lengths[lid])
@@ -1318,6 +1357,10 @@ def suspect(text, vouched=()):
             if slipped(flat):
                 out.append((raw, "a word misread as a name"))
                 break
+    # A bracket the clue never closes, or never opened, is a letter or a
+    # count misread ("is (this", "for ) record").
+    if (text or "").count("(") != (text or "").count(")"):
+        out.append((next(r for r in text.split() if "(" in r or ")" in r), "a bracket never closed or opened"))
     return out
 
 

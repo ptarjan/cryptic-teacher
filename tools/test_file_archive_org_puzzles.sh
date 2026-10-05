@@ -578,6 +578,32 @@ check("a clue without a count, holding another clue's number, or starting mid-cl
        ["2-across", "3-across", "5-down"]),
       ({k: v[0] for k, v in got.items()}, sorted(blank)))
 
+# A capital misread small is the print's opening when another reading has
+# the clue's number before the same two words (No 20,282, 24 across); a
+# first line lost (17 across) is still a clue starting mid-clue.
+got, blank = ocr_clues.reconcile({"24-across": ("fish enjqycd on board", "5", None),
+                                  "17-across": ("in judgment, as staged in 1934", "5,4", None)},
+                                 ["22 Pole steps on dangerous ground (9).\n24 Fish enjoyed on board (5).\n"
+                                  "17 When Cleopatra was green\nin judgment, as staged in 1934 (5, 4).\n26 Sherry"] * 2)
+check("a misread capital opens the clue the print has; a lost first line still blanks",
+      ({"24-across": "Fish enjoyed on board", "17-across": ""}, ["17-across"]),
+      ({k: v[0] for k, v in got.items()}, sorted(blank)))
+# A word split over a line end in the other readings ("hair.\nStyle") is
+# no word lost after the clue's end (No 16,205, 21 across); a clue whose
+# last word is lost is.
+stream = ["20 Painter (7).\n21 Vain display with a severe hair.\nStyle (9).\n23 Intransigent supporter"] * 2
+check("a word the other readings split over a line end is the clue's whole last word, not a lost end",
+      ("Vain display with a severe hairstyle", None),
+      (ocr_clues.reconcile({"21-across": ("Vain display with a severe hair¬ style", "9", None)}, stream)[0]["21-across"][0],
+       ocr_clues.reconcile({"21-across": ("Vain display with a severe hair¬ style", "9", None)}, stream)[1].get("21-across")))
+check("a clue whose last word the reading lost, the others disagreeing on it, still blanks", ["21-across"],
+      sorted(ocr_clues.reconcile({"21-across": ("Vain display with a severe hair", "9", None)},
+                                 [stream[0], stream[0].replace("Style", "Stylus")])[1]))
+check("a bracket the clue never closes is a misread; a closed one stands",
+      ([("(this", "a bracket never closed or opened")], []),
+      (ocr_clues.suspect("Information influencing children initially is (this"),
+       ocr_clues.suspect("Bottom (of a ship) here")))
+
 # edition_dirs(): the years in turn, so a capped run reaches every decade.
 cache = Path(os.environ["TMP"]) / "cache"
 for item, eds in (("NewsUK1974UKEnglish", ["1974-05-01_1", "1974-05-02_2"]),
