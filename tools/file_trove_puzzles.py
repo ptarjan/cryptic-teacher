@@ -79,6 +79,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
+import canberra_london_numbers
 import enumeration
 import ocr_clues
 import reconstruct_grid as rg
@@ -809,9 +810,25 @@ def build(aid, meta, ocr, grid, how, laid, day):
         "date": day.isoformat(),
         "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
         "source": {"url": ARTICLE.format(aid),
-                   "gridOrigin": "published" if how == "image" else "reconstructed"},
+                   "gridOrigin": "published" if how == "image" else "reconstructed",
+                   **reprint_of(aid)},
         "entries": entries,
     }
+
+
+#: The cache whose london_numbers.json reprint_of reads; main sets --cache.
+LONDON_CACHE = CACHE
+_LONDON = None
+
+
+def reprint_of(aid):
+    """{"reprintOf": "times-N"} when tools/canberra_london_numbers.py's map
+    in LONDON_CACHE names the London puzzle article `aid` reprints, else {}."""
+    global _LONDON
+    if _LONDON is None:
+        _LONDON = canberra_london_numbers.load(LONDON_CACHE / "london_numbers.json")
+    n = (_LONDON.get(str(aid)) or {}).get("number")
+    return {"reprintOf": f"times-{n}"} if n else {}
 
 
 _HELD = None
@@ -1100,6 +1117,8 @@ def main(argv=None):
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ID", help="print one article's verdict and grid")
     args = ap.parse_args(argv)
+    global LONDON_CACHE
+    LONDON_CACHE = args.cache
     if args.show:
         verdict, puzzle = consider(args.cache / args.show, {})
         print(json.dumps(verdict, indent=1))

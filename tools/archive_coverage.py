@@ -35,6 +35,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
+import canberra_london_numbers
 import fetch_archive_org_editions as fetcher
 
 CACHE = Path(os.path.expanduser("~/.cache/archive_org_editions"))
@@ -74,6 +75,8 @@ CLASSES = [
     ("no-filer", "archive.org has the scan, in a one-issue-per-item collection the filer does not read",
      "teach fetch_archive_org_editions.py and the filer the collection (ONE_ISSUE_GROUPS)", True),
     ("no-listing", "the year's archive.org item listing is not cached", "fetch_archive_org_editions.py --group <paper>", True),
+    ("canberra-reprint", "archive.org holds no scan; a cached Canberra Times article reprints it (tools/canberra_london_numbers.py)",
+     "fetch_trove.py zones $(canberra_london_numbers.py --ids scanless), then file_trove_puzzles.py", True),
     ("no-scan", "archive.org holds no scan of this edition", "another source (Trove, a book, a blog)", False),
 ]
 CLASS = {c[0]: c for c in CLASSES}
@@ -202,6 +205,8 @@ def cover(paper, today):
     listing, listed = scans(paper)
     rows, failed = ledger(), failed_fetches()
     elsewhere = unread_collections(paper)
+    reprinted = {r["londonDate"] for r in canberra_london_numbers.load().values()
+                 if r.get("londonDate")} if series == "times" else set()
     years = collections.defaultdict(lambda: collections.Counter())
     classes = collections.defaultdict(lambda: {"editions": 0, "years": collections.Counter(),
                                                "sample": []})
@@ -218,7 +223,7 @@ def cover(paper, today):
         if not ed and date in elsewhere:
             cls = "no-filer"
         elif not ed:
-            cls = "no-scan" if listed.get(y, True) else "no-listing"
+            cls = ("canberra-reprint" if date in reprinted else "no-scan") if listed.get(y, True) else "no-listing"
         elif ed in rows:
             cls = verdict_class(rows[ed], by_number)
         elif ed in failed:
