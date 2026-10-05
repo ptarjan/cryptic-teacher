@@ -1325,11 +1325,6 @@ def paper_of(d):
     return next((p for p in PAPERS.values() if p.item.match(Path(d).parent.name)), TIMES)
 
 
-#: The Times of the 1970s-80s prints its blocks grey (67-82% ink in the
-#: scans), not solid; the grid must still be symmetric to stand.
-BLOCK_ABOVE = 0.6
-
-
 def issues_between(a, b):
     """How many issues (six a week, none on Sunday) follow day `a` up to and
     including the later day `b`."""
@@ -1489,10 +1484,8 @@ def read_puzzle(d, found, hit, solutions):
     gpath.parent.mkdir(parents=True, exist_ok=True)
     # Cut afresh on every read, so the crop is always of this grid box.
     img.crop((gbox[0] - 6, gbox[1] - 6, gbox[2] + 6, gbox[3] + 6)).save(gpath)
-    image, why = trove_grid.read_grid(gpath, block_above=BLOCK_ABOVE)
+    image, why = trove_grid.read_grid(gpath)
     g = image
-    if g and not trove_grid.symmetric(g):
-        g, why = None, "not 180-degree symmetric"
     if not g:
         verdict["imageUnread"] = why
     texts, dropped = screened(texts, g)

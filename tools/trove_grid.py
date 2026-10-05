@@ -12,10 +12,15 @@ read_grid(path) returns (rows, None), each row a string of "#" (block) and
   3. Within its bounding box, the white cells are paper patches walled in by
      rules. Each is counted onto a row and column from its neighbours (a
      curled page's pitch drifts), and the rows and columns they fill give the
-     cell count; a patch off its row's or column's line is a refusal.
-  4. Each cell's middle (clear of its rules and of the number in its corner)
-     is either mostly ink or mostly paper. A cell in between is a refusal:
-     a smudge or a fold, not a guess.
+     cell count.
+  4. A block is solid ink or a halftone stipple whose dots reach every part
+     of the cell; a light holds at most its number, a speck or a rule's
+     edge. Each cell and its 180-degree mirror are scored together on how
+     far ink spreads through their middles, and lights and blocks are the
+     two sides of the widest gap between scores: a narrow gap, a light with
+     no neighbouring light, lights in two patches, or a light's paper patch
+     off its row's or column's line is a refusal, not a guess. The grid
+     returned is symmetric by construction.
 
 Pure Pillow + numpy; the caller checks the result against the clue list.
 """
@@ -26,13 +31,11 @@ from itertools import pairwise
 import numpy as np
 from PIL import Image
 
-#: A cell with no white patch is a block only if its middle is this inky.
-BLOCK_ABOVE = 0.85
-#: ...and a light only if it is at most this inky.
-WHITE_BELOW = 0.25
 #: A white patch further than this share of a cell from its row's and
 #: column's line refuses the grid.
 OFF_LATTICE = 0.25
+#: Lights and blocks must be split by a gap at least this wide in pair score.
+MIN_GAP = 0.15
 SIZES = (9, 11, 13, 15, 17, 19, 21, 23, 27)
 
 
@@ -138,7 +141,7 @@ def steps(pos):
     return out
 
 
-def read_grid(path, block_above=BLOCK_ABOVE):
+def read_grid(path):
     """(rows, None) or (None, why): see the module docstring."""
     gray = np.asarray(Image.open(path).convert("L"), dtype=np.uint8)
     cut = otsu(gray)
@@ -155,9 +158,8 @@ def read_grid(path, block_above=BLOCK_ABOVE):
     if w < 100 or not 0.85 <= w / h <= 1.18:
         return None, f"the largest ink patch is {w}x{h}, not a square grid"
     step = 2
-    small = pooled(sub, step)
     walls = pooled(not_paper[y0:y0 + h, x0:x0 + w], step)
-    sh, sw = small.shape
+    sh, sw = walls.shape
     # The white cells: paper patches walled in by rules. A cell's number
     # leaves it one patch; specks and the margin outside the frame are not
     # cell-sized. Their median side is the pitch less a rule.
@@ -220,50 +222,76 @@ def read_grid(path, block_above=BLOCK_ABOVE):
         return (fy[0] + fy[1] * r + fy[2] * c + dy[r],
                 fx[0] + fx[1] * r + fx[2] * c + dx[c])
 
-    cells = set()
+    # A block is solid ink or a halftone stipple, which can be pale enough to
+    # leave paper patches as big as a light's. What tells them apart is
+    # spread: a stipple's dots reach every part of the cell, while a light
+    # holds at most its number (top-left, skipped), a speck, or the edge of
+    # a rule. Each cell is scored on its middle, cut into tiles a tenth of a
+    # pitch: the share of tiles holding ink, times the least share of tile
+    # rows and of tile columns holding any.
+    big = pitch * step
+    t = max(2, round(big / 10))
+    half = 0.32 * big
+    score = np.zeros((n, n))
+    for r in range(n):
+        for c in range(n):
+            cy, cx = centre(r, c)
+            cy, cx = cy * step + y0, cx * step + x0
+            m = not_paper[max(0, int(cy - half)):int(cy + half), max(0, int(cx - half)):int(cx + half)]
+            th, tw = m.shape[0] // t, m.shape[1] // t
+            if not th or not tw:
+                return None, f"r{r + 1}c{c + 1} lies outside the image"
+            tiles = m[:th * t, :tw * t].reshape(th, t, tw, t).any(axis=(1, 3))
+            tiles[:th // 2, :tw // 2] = False
+            rest = th * tw - (th // 2) * (tw // 2)
+            score[r, c] = tiles.sum() / rest * min(tiles.any(axis=1).mean(), tiles.any(axis=0).mean())
+    # The grid is 180-degree symmetric, so a cell and its mirror are one
+    # reading: a pale block's score is lifted by its mirror's, and a speck in
+    # a light is halved. Lights and blocks are the two sides of the widest
+    # gap between pair scores; a narrow one is no split at all.
+    pair = (score + score[::-1, ::-1]) / 2
+    vals = np.unique(pair)
+    if len(vals) < 2:
+        return None, "every cell reads alike"
+    i = int(np.argmax(np.diff(vals)))
+    if vals[i + 1] - vals[i] < MIN_GAP:
+        return None, f"no clear split between lights and blocks (widest gap {vals[i + 1] - vals[i]:.2f})"
+    cut_at = (vals[i] + vals[i + 1]) / 2
+    grid = ["".join("#" if pair[r, c] > cut_at else "." for c in range(n)) for r in range(n)]
     for (area, cy, cx, hh, ww), (r, c) in zip(patches, place):
+        if grid[r][c] == "#":
+            continue  # paper between a stipple's dots
         ey, ex = centre(r, c)
         if abs(cy - ey) > OFF_LATTICE * pitch or abs(cx - ex) > OFF_LATTICE * pitch:
             return None, f"the white patch at r{r + 1}c{c + 1} sits off the lattice"
-        cells.add((r, c))
-    grid, unsure = [], {}
-    for r in range(n):
-        row = ""
-        for c in range(n):
-            # The middle of the cell, clear of its rules and of the number in
-            # its top-left corner: solid ink is a block, bare paper a light.
-            ey, ex = centre(r, c)
-            q = pitch * 0.18
-            ey, ex = ey + pitch * 0.08, ex + pitch * 0.08
-            share = float(small[max(0, int(ey - q)):int(ey + q) + 1,
-                                max(0, int(ex - q)):int(ex + q) + 1].mean())
-            if (r, c) in cells or share <= WHITE_BELOW:
-                row += "."
-            elif share >= block_above:
-                row += "#"
-            else:
-                row += "?"
-                unsure[(r, c)] = share
-        grid.append(row)
-    # A cell neither light nor block (a big number's ink, a pale block) is
-    # what its mirror cell is: a grid stands only when symmetric.
-    for (r, c), share in unsure.items():
-        mirror = grid[n - 1 - r][n - 1 - c]
-        if mirror == "?":
-            return None, f"r{r + 1}c{c + 1} is neither a light nor a block ({share:.0%} ink)"
-        grid[r] = grid[r][:c] + mirror + grid[r][c + 1:]
-    return grid, None
+    why = unchecked(grid)
+    return (None, why) if why else (grid, None)
 
 
-def symmetric(grid):
+def unchecked(grid):
+    """Why these blocks are no crossword's, or None: every light cell lies
+    in a run of two or more lights across or down, and the lights are one
+    connected patch."""
     n = len(grid)
-    return all(grid[y][x] == grid[n - 1 - y][len(grid[0]) - 1 - x]
-               for y in range(n) for x in range(len(grid[0])))
+    white = {(r, c) for r in range(n) for c in range(n) if grid[r][c] == "."}
+    if not white:
+        return "no light cells"
+    for r, c in sorted(white):
+        if not ({(r, c - 1), (r, c + 1), (r - 1, c), (r + 1, c)} & white):
+            return f"the light at r{r + 1}c{c + 1} has no neighbouring light"
+    seen, todo = set(), [min(white)]
+    while todo:
+        r, c = todo.pop()
+        if (r, c) in seen:
+            continue
+        seen.add((r, c))
+        todo += [p for p in ((r, c - 1), (r, c + 1), (r - 1, c), (r + 1, c)) if p in white]
+    return None if seen == white else "the lights are not one connected patch"
 
 
 if __name__ == "__main__":
     for p in sys.argv[1:]:
         g, why = read_grid(p)
-        print(p, why or ("symmetric" if symmetric(g) else "NOT symmetric"))
+        print(p, why or "")
         for row in g or ():
             print(" ", row)

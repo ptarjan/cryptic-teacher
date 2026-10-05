@@ -254,9 +254,7 @@ def read(d, found, hit, solutions=None):
     gpath = fa.CROPS / "grids" / f"{d.name}_jumbo{n}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
     img.crop((grid[0] - 6, grid[1] - 6, grid[2] + 6, grid[3] + 6)).save(gpath)
-    g, why = trove_grid.read_grid(gpath, block_above=fa.BLOCK_ABOVE)
-    if g and not trove_grid.symmetric(g):
-        g, why = None, "not 180-degree symmetric"
+    g, why = trove_grid.read_grid(gpath)
     if not g:
         verdict["refused"] = f"grid unread: {why}"
         return verdict, None

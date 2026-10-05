@@ -914,8 +914,6 @@ def consider(d, taken):
     if (d / "grid.jpg").exists():
         g, why = trove_grid.read_grid(d / "grid.jpg")
         image = g
-        if g and not trove_grid.symmetric(g):
-            g, why = None, "not 180-degree symmetric"
         if g:
             laid, why = match(parsed, g)
             if laid is not None:

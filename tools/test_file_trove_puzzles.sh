@@ -26,8 +26,8 @@ trap 'rm -rf "$tmp"' EXIT
 got=$(cd "$REPO/tools" && python3 -c "
 import trove_grid
 g, why = trove_grid.read_grid('$FIX/102024288/grid.jpg')
-print(' '.join(g) if g else why, trove_grid.symmetric(g) if g else '')")
-check "grid read off the 1 June 1972 scan" ".....#......... .#.#.#.#.#.#.#. .........#..... .#.#.#.#.#.#.#. .....#......... .###.#.#.###.## .......#....... .#.#.#####.#.#. .......#....... ##.###.#.#.###. .........#..... .#.#.#.#.#.#.#. .....#......... .#.#.#.#.#.#.#. .........#..... True" "$got"
+print(' '.join(g) if g else why)")
+check "grid read off the 1 June 1972 scan" ".....#......... .#.#.#.#.#.#.#. .........#..... .#.#.#.#.#.#.#. .....#......... .###.#.#.###.## .......#....... .#.#.#####.#.#. .......#....... ##.###.#.#.###. .........#..... .#.#.#.#.#.#.#. .....#......... .#.#.#.#.#.#.#. .........#....." "$got"
 
 # A first run files the cryptic, skips the solution, holds back the one
 # whose count disagrees with its picture.
@@ -64,7 +64,8 @@ before=$(stat -c %Y "$tmp/out/canberra-720601.json" 2>/dev/null || stat -f %m "$
 sleep 1
 second=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/cache" --out "$tmp/out")
 after=$(stat -c %Y "$tmp/out/canberra-720601.json" 2>/dev/null || stat -f %m "$tmp/out/canberra-720601.json")
-check "second run: same verdicts" "$first" "$second"
+# (A slow first run also prints its five-minute progress line.)
+check "second run: same verdicts" "$(grep -v ' of [0-9]* read$' <<<"$first")" "$second"
 check "second run: the filed puzzle untouched" "$before" "$after"
 
 # Reading the article again (--reread) leaves a filed puzzle as it is, so the
