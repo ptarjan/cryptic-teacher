@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Not in suitable attire",
     "enumeration": "6"
    },
-   "solution": "OUTFIT"
+   "solution": "OUTFIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTFIT",
+    "definitions": [
+     {
+      "text": "attire",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not in",
+      "gives": "OUT",
+      "note": "someone not in is out"
+     },
+     {
+      "clueFragment": "suitable",
+      "gives": "FIT",
+      "note": "fit means suitable or appropriate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "FIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns up badly dressed for the occasion.",
+     "walkthrough": "'Not in suitable attire' reads as one phrase, but it splits into two pieces and a one-word definition at the end.",
+     "definitionFit": "An outfit is a set of clothes worn together, which is what attire means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suitable"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,64 @@
     "text": "University can come up to an accepted standard",
     "enumeration": "4"
    },
-   "solution": "UNIT"
+   "solution": "UNIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "UNIT",
+    "definitions": [
+     {
+      "text": "an accepted standard",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "come up",
+      "for": "reversal",
+      "note": "in a down entry, coming up means the word is read from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "University",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A university manages to reach a recognised level of quality.",
+     "walkthrough": "'can' looks like a verb meaning 'is able to', but it is the noun, a tin.",
+     "definitionFit": "A unit is a fixed quantity agreed upon for measuring, such as the metre or kilogram."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +161,39 @@
     "text": "No paying guest has this room above water",
     "enumeration": "9"
    },
-   "solution": "FREEBOARD"
+   "solution": "FREEBOARD",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FREEBOARD",
+    "definitions": [
+     {
+      "text": "No paying guest has this room above water",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No paying guest has this",
+      "note": "surface reading: a guest who does not pay for meals and lodging"
+     },
+     {
+      "clueFragment": "room above water",
+      "note": "setter's reading: the clearance on a ship between waterline and deck"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A guest who pays nothing gets free board, but 'room' here is space, the height of a ship's side above the water.",
+     "definitionFit": "Freeboard is the nautical term for the distance between the waterline and the upper deck of a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "room"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +207,66 @@
     "text": "Ill-fated US soldier trapped in overturned wagon",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TRAGIC",
+    "definitions": [
+     {
+      "text": "Ill-fated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "a vehicle overturned is upside down, so in a down entry its word is read upwards"
+     },
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "something trapped in something else sits inside it, enclosed on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wagon",
+      "gives": "CART",
+      "note": "a cart is a simple wagon"
+     },
+     {
+      "clueFragment": "US soldier",
+      "gives": "GI",
+      "note": "GI is the familiar term for an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "GI",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CART",
+       "to": "TRAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unlucky American soldier is pinned under a wagon that has rolled over.",
+     "definitionFit": "Something tragic ends in disaster or suffering, so it is doomed or unlucky in its fate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overturned"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +286,39 @@
      }
     ]
    },
-   "solution": "REDBRICK"
+   "solution": "REDBRICK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RED-BRICK",
+    "definitions": [
+     {
+      "text": "Obviously not Oxbridge material",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obviously not Oxbridge",
+      "note": "surface reading: a student not clever enough for Oxford or Cambridge"
+     },
+     {
+      "clueFragment": "material",
+      "note": "setter's reading: the building material of newer universities, as opposed to ancient stone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Redbrick universities are the English civic universities founded in the Victorian era, named for their brick buildings, contrasted with ancient Oxford and Cambridge.",
+     "definitionFit": "The term describes British universities built in brick in industrial cities, outside the older Oxbridge pair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +338,39 @@
      }
     ]
    },
-   "solution": "REARGUARDACTION"
+   "solution": "REARGUARDACTION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "REARGUARD ACTION",
+    "definitions": [
+     {
+      "text": "It may enable fighters to make a comeback",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fighters to make a comeback",
+      "note": "surface reading: boxers or teams recovering after losing ground"
+     },
+     {
+      "clueFragment": "It may enable",
+      "note": "setter's reading: troops at the back holding off the enemy while the army retreats"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A comeback sounds like a recovery, but here it means literally coming back, a retreat covered by the soldiers at the rear.",
+     "definitionFit": "A rearguard action is fighting by the rear troops to protect an army as it withdraws."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +390,51 @@
      }
     ]
    },
-   "solution": "DEEDPOLL"
+   "solution": "DEEDPOLL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEED POLL",
+    "definitions": [
+     {
+      "text": "required for new title",
+      "at": 15,
+      "note": "a descriptive definition: what the document is needed for"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Action",
+      "gives": "DEED",
+      "note": "a deed is an act or action"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "POLL",
+      "note": "poll is an old word for the head, as in poll tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEED",
+      "POLL"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss must take some step before someone can be given a new job title.",
+     "walkthrough": "A deed poll is the British legal document used to change one's name.",
+     "definitionFit": "Changing a surname or title officially in Britain requires signing this legal declaration, so it is what a new name needs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +448,64 @@
     "text": "With spirit, a sailor gets up to dance",
     "enumeration": "5"
    },
-   "solution": "RUMBA"
+   "solution": "RUMBA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RUMBA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets up",
+      "for": "reversal",
+      "note": "getting up means rising, so in a down entry the word reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "With",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit, a strong liquor"
+     },
+     {
+      "clueFragment": "a sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "BA"
+     ],
+     "reversals": [
+      {
+       "from": "AB",
+       "to": "BA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor, fortified by drink, rises to take a turn on the dance floor.",
+     "definitionFit": "The rumba is a Cuban ballroom dance with swaying hip movements."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +519,55 @@
     "text": "Hardcastle is converted in religious places",
     "enumeration": "10"
    },
-   "solution": "CATHEDRALS"
+   "solution": "CATHEDRALS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CATHEDRALS",
+    "definitions": [
+     {
+      "text": "religious places",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is converted",
+      "for": "anagram",
+      "note": "converted means changed into another form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hardcastle",
+      "gives": "HARDCASTLE",
+      "note": "taken as written; it sounds like a person's surname"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HARDCASTLE",
+       "gives": "CATHEDRALS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Hardcastle finds religion in churches.",
+     "walkthrough": "'converted' fits the religious surface perfectly, which hides that it signals rearrangement.",
+     "definitionFit": "Cathedrals are the principal churches of dioceses, so they are places of worship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "converted"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +581,55 @@
     "text": "Widely shown film of American disaster",
     "enumeration": "8"
    },
-   "solution": "CINERAMA"
+   "solution": "CINERAMA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CINERAMA",
+    "definitions": [
+     {
+      "text": "Widely shown film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disaster",
+      "for": "anagram",
+      "note": "a disaster wrecks things, leaving the letters in ruins to be rebuilt"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "AMERICAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AMERICAN",
+       "gives": "CINERAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Hollywood disaster movie is screened everywhere.",
+     "walkthrough": "'Widely shown' suggests a film in every cinema; it really means shown on a wide screen.",
+     "definitionFit": "Cinerama was a widescreen projection process using three cameras, so its films were literally shown wide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Widely"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +643,69 @@
     "text": "It is displayed when mien changes extremely threateningly",
     "enumeration": "6"
    },
-   "solution": "ENMITY"
+   "solution": "ENMITY",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENMITY",
+    "definitions": [
+     {
+      "text": "It is displayed when mien changes extremely threateningly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "a word that changes alters its form, so its letters are shuffled"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only first and last letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mien",
+      "gives": "MIEN",
+      "note": "taken as written; mien is a person's look or bearing"
+     },
+     {
+      "clueFragment": "threateningly",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENMI",
+      "TY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MIEN",
+       "gives": "ENMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hostility shows when someone's expression turns menacing.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: hostility is what shows when a face turns threatening.",
+     "definitionFit": "Enmity is hostility or ill will, the feeling revealed by a sudden menacing look."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 11,
@@ -211,7 +725,39 @@
      }
     ]
    },
-   "solution": "BRIDGEPLAYER"
+   "solution": "BRIDGEPLAYER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BRIDGE PLAYER",
+    "definitions": [
+     {
+      "text": "He may have to make several calls before getting the contract",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make several calls before getting the contract",
+      "note": "surface reading: a salesman phoning round before winning a business deal"
+     },
+     {
+      "clueFragment": "He may have to",
+      "note": "setter's reading: a card player bidding in an auction for the right to play a hand"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In the card game bridge, bids are called 'calls' and the final bid is 'the contract'.",
+     "definitionFit": "A participant at the bridge table bids during the auction until one side wins the contract to play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "calls"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +777,50 @@
      }
     ]
    },
-   "solution": "SAFEBLOWER"
+   "solution": "SAFEBLOWER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAFE-BLOWER",
+    "definitions": [
+     {
+      "text": "the explosives expert",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "provided for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secure",
+      "gives": "SAFE",
+      "note": "safe means secure, out of danger"
+     },
+     {
+      "clueFragment": "telephone",
+      "gives": "BLOWER",
+      "note": "blower is British slang for the telephone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAFE",
+      "BLOWER"
+     ]
+    },
+    "explanation": {
+     "surface": "An encrypted phone line is supplied to a bomb disposal specialist.",
+     "walkthrough": "A safeblower is a criminal who blows open safes with explosives.",
+     "definitionFit": "A safe-blower cracks strongboxes using explosive charges, making the thief a specialist with explosives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Secure"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +834,44 @@
     "text": "Senile and repetitive state",
     "enumeration": "4"
    },
-   "solution": "GAGA"
+   "solution": "GAGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAGA",
+    "definitions": [
+     {
+      "text": "Senile",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repetitive state",
+      "gives": "GAGA",
+      "note": "GA, the abbreviation for the US state of Georgia, repeated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAGA"
+     ]
+    },
+    "explanation": {
+     "surface": "An old person grows doddery and says the same things over and over.",
+     "walkthrough": "'repetitive state' sounds like a mental condition, but it is a US state abbreviation written twice.",
+     "definitionFit": "Gaga is an informal word for confused or doddering through old age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +885,53 @@
     "text": "Go really wild with a symbolic tale",
     "enumeration": "8"
    },
-   "solution": "ALLEGORY"
+   "solution": "ALLEGORY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALLEGORY",
+    "definitions": [
+     {
+      "text": "a symbolic tale",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "letters running wild are out of control and out of order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go really",
+      "gives": "GOREALLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOREALLY",
+       "gives": "ALLEGORY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to let loose with an imaginative fable.",
+     "definitionFit": "An allegory is a story whose characters and events stand for deeper moral or political meanings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +945,39 @@
     "text": "Provisionally supply one seeking earthly riches",
     "enumeration": "9"
    },
-   "solution": "GRUBSTAKE"
+   "solution": "GRUBSTAKE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GRUBSTAKE",
+    "definitions": [
+     {
+      "text": "Provisionally supply one seeking earthly riches",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Provisionally supply",
+      "note": "surface reading: to fund someone for the time being"
+     },
+     {
+      "clueFragment": "one seeking earthly riches",
+      "note": "setter's reading: to give food to a gold prospector digging in the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Provisionally' sounds like 'temporarily' but means 'with provisions', and 'earthly riches' are minerals dug from the earth.",
+     "definitionFit": "To grubstake is to furnish a prospector with food and equipment in return for a share of any find."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Provisionally"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +991,56 @@
     "text": "Spoils Worcestershire opener's time at the crease",
     "enumeration": "8"
    },
-   "solution": "WINNINGS"
+   "solution": "WINNINGS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WINNINGS",
+    "definitions": [
+     {
+      "text": "Spoils",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opener's",
+      "for": "letter_selection",
+      "note": "an opener comes first, so only the initial letter of the county is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worcestershire",
+      "gives": "W",
+      "select": "first",
+      "note": "the county's first letter"
+     },
+     {
+      "clueFragment": "time at the crease",
+      "gives": "INNINGS",
+      "note": "in cricket, the crease is where the batsman stands, and an innings is a turn at batting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "INNINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A Worcestershire opening batsman throws away his turn at bat.",
+     "walkthrough": "The cricket surface makes 'Spoils' look like a verb (ruins), but it is the noun for gains; Worcestershire is an English county with a cricket team.",
+     "definitionFit": "Winnings are money or prizes gained, just as spoils are the booty taken by victors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoils"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1054,39 @@
     "text": "It's a blow that has to be faced",
     "enumeration": "8"
    },
-   "solution": "HEADWIND"
+   "solution": "HEADWIND",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEADWIND",
+    "definitions": [
+     {
+      "text": "It's a blow that has to be faced",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a blow that has to be faced",
+      "note": "surface reading: a setback or misfortune one must confront"
+     },
+     {
+      "clueFragment": "It's",
+      "note": "setter's reading: a gust blowing straight into one's face"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Blow' suggests a misfortune, but it is literally the wind blowing, and 'faced' is meant physically.",
+     "definitionFit": "A headwind blows directly against the direction of travel, so walkers or pilots must move straight into it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1100,45 @@
     "text": "Fruit, nothing like a peach we hear",
     "enumeration": "4"
    },
-   "solution": "UGLI"
+   "solution": "UGLI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "UGLI",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken word, so the spelling differs from the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing like a peach",
+      "gives": "UGLI",
+      "soundsLike": "UGLY",
+      "note": "a peach is an attractive person, so the opposite is unattractive"
+     }
+    ],
+    "explanation": {
+     "surface": "A fruit that looks nothing like a peach.",
+     "walkthrough": "The ugli is a wrinkled Jamaican citrus fruit named for its appearance; 'a peach' in slang is a beauty.",
+     "definitionFit": "The ugli is a hybrid citrus, a cross of grapefruit and tangerine, so it is a fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "peach"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1152,47 @@
     "text": "The boring bits of exercises",
     "enumeration": "6"
    },
-   "solution": "DRILSS"
+   "solution": "DRILLS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRILLS",
+    "definitions": [
+     {
+      "text": "The boring bits",
+      "at": 0
+     },
+     {
+      "text": "exercises",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The boring bits",
+      "note": "first meaning: tools that bore holes"
+     },
+     {
+      "clueFragment": "exercises",
+      "note": "second meaning: repeated practice routines, as in military training"
+     }
+    ],
+    "explanation": {
+     "surface": "The tedious parts of a workout.",
+     "walkthrough": "'boring' looks like 'dull', but it means making holes.",
+     "definitionFit": "Drill bits bore holes, and drills are repetitive training routines such as parade-ground practice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boring"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1212,39 @@
      }
     ]
    },
-   "solution": "PLAYINGCARDS"
+   "solution": "PLAYINGCARDS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PLAYING CARDS",
+    "definitions": [
+     {
+      "text": "They are suited for indoor games",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "They are suited",
+      "note": "surface reading: people dressed appropriately for an activity"
+     },
+     {
+      "clueFragment": "for indoor games",
+      "note": "setter's reading: items divided into hearts, clubs, diamonds and spades for parlour games"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'suited' sounds like 'appropriate' or 'dressed', but a pack is divided into four suits.",
+     "definitionFit": "A standard pack is split into four suits and used for games such as bridge, poker and rummy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suited"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1258,39 @@
     "text": "Bound to pull together",
     "enumeration": "5"
    },
-   "solution": "YOKED"
+   "solution": "YOKED",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "YOKED",
+    "definitions": [
+     {
+      "text": "Bound to pull together",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bound to pull together",
+      "note": "surface reading: certain to cooperate as a team"
+     },
+     {
+      "clueFragment": "Bound",
+      "note": "setter's reading: oxen tied by a wooden crossbar so they haul in tandem"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Bound to' looks like 'certain to', but it means literally tied, like a pair of oxen.",
+     "definitionFit": "Animals that are yoked are joined at the neck by a wooden frame so they haul a load as a pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bound"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1304,58 @@
     "text": "Drop of moisture round bearing is not good",
     "enumeration": "4"
    },
-   "solution": "BEAD"
+   "solution": "BEAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEAD",
+    "definitions": [
+     {
+      "text": "Drop of moisture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means encircling it, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not good",
+      "gives": "BAD",
+      "note": "bad is the opposite of good"
+     },
+     {
+      "clueFragment": "bearing",
+      "gives": "E",
+      "note": "east is a compass bearing, abbreviated E"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "Damp around a mechanical bearing is a problem.",
+     "walkthrough": "'bearing' suggests a machine part, but it is a compass direction.",
+     "definitionFit": "A bead is a small round drop of liquid, such as a bead of sweat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1369,67 @@
     "text": "Come to a potentially weak point",
     "enumeration": "6"
    },
-   "solution": "AWAKEN"
+   "solution": "AWAKEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "AWAKEN",
+    "definitions": [
+     {
+      "text": "Come to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "potentially",
+      "for": "anagram",
+      "note": "potentially means in a possible form, so the word could be rearranged into another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weak",
+      "gives": "WEAK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "N",
+      "note": "a compass point, north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WAKE",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WEAK",
+       "gives": "WAKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Arriving at a spot that might prove vulnerable.",
+     "walkthrough": "'Come to' reads as 'arrive at', but it means regain consciousness.",
+     "definitionFit": "To come to is to recover consciousness, and to awaken is to stop sleeping or rouse oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Come"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1449,42 @@
      }
     ]
    },
-   "solution": "ILLFATED"
+   "solution": "ILLFATED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ILL-FATED",
+    "definitions": [
+     {
+      "text": "Doomed",
+      "at": 0
+     },
+     {
+      "text": "to have poor health",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doomed",
+      "note": "first meaning: destined for misfortune"
+     },
+     {
+      "clueFragment": "to have poor health",
+      "note": "second meaning, read literally: fated to be sick"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the literal reading: one whose fate is to be unwell.",
+     "definitionFit": "Ill-fated means destined to fail or meet misfortune, which is what doomed means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1504,51 @@
      }
     ]
    },
-   "solution": "TRADESIN"
+   "solution": "TRADESIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRADES IN",
+    "definitions": [
+     {
+      "text": "exchanges",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters fall in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strained",
+      "gives": "STRAINED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRAINED",
+       "gives": "TRADESIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Conversations that are unusually tense.",
+     "walkthrough": "'exchanges' suggests words between people, but it is the verb for handing over an old item as part-payment.",
+     "definitionFit": "To trade in an old car is to give it up in part exchange for a new one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exchanges"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1562,43 @@
     "text": "Stable companion?",
     "enumeration": "6"
    },
-   "solution": "STEADY"
+   "solution": "STEADY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STEADY",
+    "definitions": [
+     {
+      "text": "Stable",
+      "at": 0
+     },
+     {
+      "text": "companion",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stable",
+      "note": "first meaning: firm, not wobbling"
+     },
+     {
+      "clueFragment": "companion",
+      "note": "second meaning: a regular boyfriend or girlfriend"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together, 'Stable companion' sounds like a horse's stablemate; the two words are separate meanings.",
+     "definitionFit": "Steady means firm and unshakeable, and a steady is a regular romantic partner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stable"
+    }
+   }
   }
  ]
 }
