@@ -31,6 +31,15 @@ script(*[(500, b"boom")] * 4)
 try: tv.get("/tile/9"); msg = ""
 except ft.Transient as e: msg = str(e)
 check("persistent 500 raises Transient naming url and status", "HTTP 500" in msg and "/tile/9" in msg)
+import http.cookiejar
+def cookie(name):
+    return http.cookiejar.Cookie(0, name, "x", None, False, "trove.nla.gov.au", False, False,
+                                 "/", True, False, None, False, None, None, {})
+tv.jar.set_cookie(cookie("app_affinity")); tv.jar.set_cookie(cookie("JSESSIONID"))
+script((503, b"down"), (200, b"fine"))
+tv.get("/c")
+check("a 5xx drops only the backend-affinity cookie",
+      [c.name for c in tv.jar] == ["JSESSIONID"])
 script(urllib.error.URLError("timed out"), (403, b"no"))
 try: tv.get("/b"); msg = ""
 except ft.Transient: msg = "transient"

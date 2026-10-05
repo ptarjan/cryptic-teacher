@@ -135,6 +135,10 @@ class Trove:
             if status < 500:
                 return status, body
             err = f"HTTP {status}: {body[:100]!r}"
+            # app_affinity pins every request to one backend; a backend that
+            # 503s keeps 503ing, so the retry asks for another one.
+            for c in [c for c in self.jar if c.name == "app_affinity"]:
+                self.jar.clear(c.domain, c.path, c.name)
         raise Transient(f"{err} for {url} after {tries} tries")
 
     def get(self, url, headers=None, ok=(200,)):
