@@ -441,6 +441,14 @@ def gutter(lines, grid, top, lo=None, hi=None):
     return best[1]
 
 
+#: How far right of the grid a clue line under it may end when it starts
+#: well inside the grid's width (a skewed page's long line overhangs the
+#: grid): the reach of the crop the RapidOCR readers read (rapid_lines()).
+#: A word starting nearer the grid's edge than ACROSS_GUTTER is held to the
+#: window's right edge, so a speck in the margin beside it joins no clue.
+RIGHT_REACH = 30
+
+
 def windows(grid, third=None, margin=40, above=None, left=None, split=None):
     """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
     is in [x0, x1), right edge at most the right edge and top at least the
@@ -498,6 +506,11 @@ def split_across(ws, gutters, height=None):
             at = [(abs(w[0] + width * m.start() / len(text) - x), m.start()) for m in NEXT_CLUE.finditer(text)]
             near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
             if near is None:
+                if x - w[0] <= ACROSS_GUTTER and w[2] - x > x - w[0]:
+                    # Starting just left of the gutter and lying mostly right
+                    # of it: a skewed page's right-column line, its left edge
+                    # drifted over the straight gutter.
+                    w, tall = (x,) + w[1:], (x,) + tall[1:]
                 continue
             out.append((w[0], tall[1], x - 1, tall[3], text[:near[1]].rstrip()))
             w = tall = (x, tall[1], w[2], tall[3], text[near[1]:])
@@ -513,13 +526,15 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     gx0, gy0, gx1, gy1 = grid
     bottom = gy0 - 3 if above else left_bottom(grid) if left else gy1 + 1.8 * (gx1 - gx0)
     wins = windows(grid, third, margin, above, left, split)
+    reach = gx1 + RIGHT_REACH if above is None and not left else None
     cols = [[] for _ in wins]
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
     height = heights[len(heights) // 2] if heights else None
     for ws in lines:
         ws = split_across(ws, [w[1] for w in wins[:-1]], height)
         for side, (x0, x1, right, top) in enumerate(wins):
-            part = [w for w in ws if x0 <= w[0] < x1 and w[2] <= right and top <= w[1] <= bottom]
+            part = [w for w in ws if x0 <= w[0] < x1 and top <= w[1] <= bottom and (
+                w[2] <= right or reach and w[2] <= reach and w[0] < gx1 - ACROSS_GUTTER)]
             if part:
                 text = " ".join(w[4] for w in part)
                 if side + 1 < len(wins) and min(w[0] for w in part) < x1 - ACROSS_GUTTER \
@@ -551,7 +566,9 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                 # lost ("Peer inside the pearly gates").
                 carried = (side and above is None and not left and re.match(r"[A-Z][a-z]", line[4])
                            and len(re.findall(r"[A-Za-z]{2,}", line[4])) >= 3)
-                if not re.match(r"\W*\d", line[4]) and not carried:
+                # A clue's number 1 read as I, l, J, ! or | (tidy() reads it
+                # back): "I Very late at night".
+                if not re.match(r"\W*(?:\d|[IlJ!|]\s?(?=[A-Z][a-z]))", line[4]) and not carried:
                     continue
             kept.append(line)
             last = line[1]
@@ -603,7 +620,7 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
     crop is read again (a bare list is a cache from before crops were kept)."""
     gx0, gy0, gx1, gy1 = grid
     gw = gx1 - gx0
-    box = (max(0, gx0 - margin), gy1, min(img.width, gx1 + 30), min(img.height, int(gy1 + 1.8 * gw)))
+    box = (max(0, gx0 - margin), gy1, min(img.width, gx1 + RIGHT_REACH), min(img.height, int(gy1 + 1.8 * gw)))
     if third:
         box = (box[0], min(gy1, third[1]), min(img.width, gx1 + 15 + third[0]), box[3])
     if above is not None:
