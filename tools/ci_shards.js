@@ -56,7 +56,7 @@ const COST = {
 const DEFAULT_COST = 3;
 
 // How many slices each splittable script runs as (see the header).
-const SLICES = { "tools/smoke_test.js": 24 };
+const SLICES = {};
 
 // See the header: run concurrently within a shard, CORES at a time.
 const PARALLEL = new Set(["tools/smoke_test.js"]);
