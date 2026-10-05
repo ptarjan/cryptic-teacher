@@ -151,6 +151,27 @@ check("archive.org: an edition read without the VLM is read again once it answer
 f.vlm.version = lambda: "v2"
 check("archive.org: a new VLM model alone makes nothing due", [], aread())
 
+# The VLM goes down mid-run: the editions read after it failed carry no
+# "vlm", a pass while it is still down leaves them, and the first pass once
+# it answers reads them again. read_edition's second value is the worker's
+# vlm_reader.reachable(), which a failed ask turns False (checked below).
+def vlm_rows():
+    return {json.loads(l)["edition"][-1]: "vlm" in json.loads(l) for l in aledger.read_text().splitlines()}
+real_read = f.read_edition
+f.input_hash = lambda d: "files2"
+f.read_edition = lambda d, found: ([], d.name < "1990-01-03")
+aread()
+check("archive.org: editions read after the VLM went down mid-run carry no vlm",
+      {"1": True, "2": True, "3": False, "4": False}, vlm_rows())
+f.vlm.reachable = lambda: False
+check("archive.org: while it is still down, nothing is due", [], aread())
+f.vlm.reachable = lambda: True
+f.read_edition = lambda d, found: ([], True)
+time.sleep(1.1)  # readAt is to the second, and aread() spots a read by it
+check("archive.org: once it answers, the next pass reads them again", ["3", "4"], aread())
+check("archive.org: and they carry the VLM now", {"1": True, "2": True, "3": True, "4": True}, vlm_rows())
+f.read_edition, f.input_hash = real_read, (lambda d: "files")
+
 real_scan = f.scan
 def raising(d):
     raise ValueError("height and width must be > 0")
@@ -190,8 +211,28 @@ F.vlm.reachable, F.vlm.version = (lambda: True), (lambda: "v1")
 check("Trove: an article read without the VLM is read again once it answers", 3, len(tread()))
 F.vlm.version = lambda: "v2"
 check("Trove: a new VLM model alone makes nothing due", [], tread())
+real_consider = F.consider_article
+F.consider_article = lambda d: (read.append(d.name) or ({"skip": "test"}, None, d.name < "200"))
+check("Trove: every article is read through a mid-run outage", ["100", "200", "300"], tread(reread=q.when("2100-01-01T00:00:00+00:00")))
+F.vlm.reachable = lambda: False
+check("Trove: while the VLM is down, the articles read without it wait", [], tread())
+F.vlm.reachable = lambda: True
+check("Trove: once it answers, the next pass reads them again", ["200", "300"], tread())
+F.consider_article = real_consider
 check("Trove: articles= reads those again, and no other", ["200"], tread(articles=["200"]))
 
+# A failed ask is what turns a worker's reachable() False mid-run.
+import importlib, vlm_reader
+importlib.reload(vlm_reader)
+from PIL import Image
+vlm_reader.URL, vlm_reader._UP[vlm_reader.MODEL] = "http://127.0.0.1:9", True
+vlm_reader.CACHE = Path(os.environ["TMP"]) / "vlm"
+try:
+    vlm_reader.ask(Image.new("L", (4, 4)), "outage test")
+except RuntimeError:
+    pass
+check("a VLM that stops answering mid-run reads as down for the rest of that worker's run", False,
+      vlm_reader.reachable())
 print(f"FAILS {fails}")
 EOF
 )

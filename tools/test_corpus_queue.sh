@@ -1,8 +1,9 @@
 #!/bin/bash
-# Does tools/corpus_queue.py count a chunk directory's progress without its
-# .tries files (under a dotted path like ~/.cache), take a recycled pid for a
-# dead job, see a filer's ledger lock, kill all of a dead job's session, and
-# count a launch that read no chunk; and does tools/archive_coverage.py count the editions the Times
+# Does tools/corpus_queue.py take a recycled pid for a dead job, see a
+# filer's ledger lock, kill all of a dead job's session, start the full pass
+# with no edition list, count a pass that finished or read a source as
+# progress and hold it after two dead launches, and refuse any edition-list
+# job; and does tools/archive_coverage.py count the editions the Times
 # printed (no Sundays, no Christmas, none in the 1979 lock-out) and give an
 # unfiled edition the class its ledger row says?
 set -euo pipefail
@@ -15,15 +16,6 @@ sys.path.insert(0, "tools")
 from pathlib import Path
 import corpus_queue as q
 import archive_coverage as cov
-
-d = Path(os.environ["HOME"]) / ".cache" / "t.chunks"
-d.mkdir(parents=True)
-for n in ("c_001_times_times", "c_001_times_times.tries", "c_aa"):
-    (d / n).write_text("NewsUK1987UKEnglish/1987-06-10_62791\n")
-job = {"name": "t", "chunks": str(d)}
-assert [c.name for c in q.remaining(job)] == ["c_001_times_times", "c_aa"], q.remaining(job)
-assert q.editions_of(job) == ["NewsUK1987UKEnglish/1987-06-10_62791"] * 2
-assert q.chunk_files(d) == q.remaining(job) and q.chunk_files(d / "failed") == []
 
 import signal, subprocess
 p = subprocess.Popen(["bash", "-c", "sleep 300 & sleep 300 & wait"], start_new_session=True)
@@ -39,26 +31,63 @@ q.end_session(p.pid, grace=2)
 assert q.session_pids(p.pid) == [], q.session_pids(p.pid)
 assert q.end_session(os.getsid(0)) == [], "never its own session"
 
-q.jobs = lambda: [job]
-q.wake = lambda text, dry: None
-state = {"gates": {}, "jobs": {"t": {"remainingAtLaunch": 2}}}
-q.account("t", state, False)
-q.account("t", state, False)
-assert state["jobs"]["t"]["deadLaunches"] == 2 and state["jobs"]["t"]["held"], state
-
 q.STATE_DIR.mkdir(parents=True, exist_ok=True)
 q.RUNNING.write_text(json.dumps({"name": "t", "pid": os.getpid(), "start": q.proc_start(os.getpid())}))
 assert q.running()["pid"] == os.getpid()
 q.RUNNING.write_text(json.dumps({"name": "t", "pid": os.getpid(), "start": "1"}))
 assert q.running() is None, "a recycled pid is not the job"
+q.RUNNING.unlink()
 
-lock = Path(os.environ["HOME"]) / "filed.lock"
-q.LEDGER_LOCKS = [lock]
+ledger = Path(os.environ["HOME"]) / "filed.jsonl"
+lock = q.lock_of(ledger)
+q.LEDGERS = [ledger]
 lock.touch()
 assert q.ledger_held() is None
 with open(lock, "w") as f:
     fcntl.flock(f, fcntl.LOCK_EX)
     assert q.ledger_held() == lock
+    assert q.tick(False) == "busy", "a filer run by hand is a corpus job"
+
+# The standing job: tick starts the full pass, with no edition list, and the
+# pass's end is accounted from its exit status and the ledgers.
+woken = []
+q.wake = lambda text, dry: woken.append(text)
+fake = Path(os.environ["HOME"]) / "pass.sh"
+args = Path(os.environ["HOME"]) / "args"
+q.FULL_PASS = fake
+def wait_end(pid):
+    """The pass is this process's child here (the tick's in use exits first)."""
+    try:
+        os.waitpid(pid, 0)
+    except ChildProcessError:
+        pass
+def run_pass(body):
+    """Start a pass running `body`, let it end, and reap it as the next tick does first."""
+    fake.write_text(f'echo "$@" > {args}\n' + body)
+    assert q.tick(False) == "started"
+    wait_end(q.running()["pid"])
+    q.reap(q.load_state(), False)
+    return q.load_state()
+st = run_pass("exit 0")
+assert args.read_text().strip() == "", "the pass takes no arguments: no edition list"
+assert st["lastExit"]["rc"] == 0 and st["deadLaunches"] == 0, st
+assert run_pass(f"echo row >> {ledger}; exit 1")["deadLaunches"] == 0, "an unfinished pass that read a source made progress"
+assert run_pass("exit 1")["deadLaunches"] == 1, "one that read nothing is a dead launch"
+assert run_pass("exit 1")["held"], "two in a row hold the pass"
+assert q.tick(False) == "held" and "held" in woken[-1], woken
+q.main(["release"])
+assert run_pass("exit 0")["deadLaunches"] == 0, "a released pass starts again"
+
+# An edition-list job has nowhere to go: no queue file, no job argument.
+assert not (q.ROOT / "tools" / "data" / "corpus_queue.json").exists(), "edition-list jobs are gone; never bring them back"
+assert not hasattr(q, "jobs") and "--edition" not in q.command()
+for bad in (["tick", "times_cluefit"], ["adopt", "times_cluefit", "1"], ["tick", "--list", "eds.txt"]):
+    try:
+        q.main(bad)
+    except SystemExit as e:
+        assert e.code == 2, (bad, e.code)
+    else:
+        raise AssertionError(f"{bad} was taken")
 
 import datetime
 days = list(cov.printed_dates("times", datetime.date(1980, 12, 31)))

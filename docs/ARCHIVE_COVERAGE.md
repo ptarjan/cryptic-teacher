@@ -26,54 +26,65 @@ Every unfiled edition gets exactly one class, read off the filer's ledger
 not read, blank clues held back, no grid, clues don't fit, no reading parses,
 not a grid, no crossword found, archive.org's date wrong, a collection the
 filer does not read yet, and no scan at all. Classes this pipeline can still
-recover are listed first, largest first. An edition that is already listed in a
-queued job counts as queued.
+recover are listed first, largest first.
 
 `--json FILE` writes the same data as JSON. `--save` keeps it in
 `~/.cache/archive_coverage/latest.json`, and the next run prints each year's
 change against it.
 
-## 2. The queue: `tools/data/corpus_queue.json` and `tools/corpus_queue.py`
+## 2. The standing job: `tools/ocr_full_pass.sh`, kept running by `tools/corpus_queue.py`
 
-The queue file lists the corpus OCR jobs in the order they run. Each job is an
-edition list (refile lists, re-read lists) or the open annotation re-read
-requests (`"requested": true`). Only one corpus job runs at a time.
-`python3 tools/corpus_queue.py tick` treats another job as running in two cases:
+There is one corpus OCR job, and it takes no edition list. `ocr_full_pass.sh`
+runs each scan filer over its whole cache. The filers decide what is due
+(`due_reason` in `tools/file_archive_org_puzzles.py` and
+`tools/file_trove_puzzles.py`):
+
+- never read;
+- its inputs changed (new files, or the solutions it can see);
+- read without the VLM, and the VLM answers now;
+- read before `REREAD_BEFORE` in `ocr_full_pass.sh`.
+
+The pass then reads the sources annotation asked to have read again
+(`tools/scan_queue.py requested`), and ends. Running it again is always safe:
+a pass with nothing due ends in minutes.
+
+So nothing is ever queued by hand:
+
+- **A reader change** that should change past readings sets `REREAD_BEFORE`
+  to the time it landed. The next pass reads again everything read before it.
+- **A VLM outage** leaves the sources read during it without a `vlm` stamp.
+  That includes outages that start mid-run: a failed ask marks the VLM down
+  for the rest of that worker's run. The first pass after the VLM answers
+  again reads those sources again.
+
+An edition-list job cannot be written: `tools/test_corpus_queue.sh` fails if a
+queue file or a job argument appears.
+
+`python3 tools/corpus_queue.py tick` starts the pass whenever no corpus job is
+running. Another job counts as running in two cases:
 
 - the pid in `~/.cache/corpus_queue/running.json` is alive, with the same
-  kernel start time (a job started by hand is recorded with `adopt NAME PID`);
-- a scan filer holds a ledger lock (`tools/scan_queue.py` `lock()`).
+  kernel start time (a pass started by hand is recorded with `adopt PID`);
+- a scan filer holds a ledger lock (`tools/scan_queue.py` `lock()`), such as
+  a filer run by hand.
 
-If neither is true, `tick` starts the first job that is not done.
+The pass runs in its own worktree. Each filer runs in hour-long slices, each
+slice is under a hard `timeout`, and after every slice the puzzles it filed
+are committed and pushed. Each filer's ledger is saved after every source, so
+a killed pass resumes where it stopped. It logs to
+`~/.cache/corpus_queue/full_pass.log`.
 
-Each job runs through `tools/corpus_job.sh`, in its own worktree:
+The hourly tick also checks that the pass is making progress:
 
-- The list is split into chunks of 20 editions. Each chunk is read with a
-  `timeout`, committed by pathspec and pushed.
-- Editions the ledger shows as read are struck from the chunk.
-- A chunk that still has editions after three tries moves to `failed/`.
-- When the last chunk is done, the job starts the next one in the queue.
+- It wakes the room once when the log stops growing for an hour.
+- It kills whatever is left of a dead pass's session before it starts
+  anything.
+- A launch that ends unfinished without reading a source (no ledger moved) is
+  a dead launch. Two in a row hold the pass, and the room is told.
 
-Every job writes its own log, `~/.cache/corpus_queue/<name>.log`. The hourly
-tick does three more things:
-
-- It resumes a job that a restart killed.
-- It wakes the room once when a job's log stops growing for an hour.
-- It kills whatever is left of a dead job's session (its reindex, filer and
-  `timeout` all share it) before it starts anything.
-- It holds a job whose launches end twice in a row without finishing a chunk,
-  and says so.
-
-The tick itself rebuilds nothing, so it returns in seconds; the job rebuilds
-`puzzles/index.*` in its own session. To stop a job, run
-`corpus_queue.py stop NAME`: it kills the job's whole session and holds it
-until `corpus_queue.py release NAME`.
-
-A job with a `gate` (a check a person must make first) waits until
-`corpus_queue.py pass-gate NAME "evidence"` is run. A job with
-`"needs": "vlm"` waits until the desktop VLM answers. `status` lists every job.
-
-To add work, append a job to the queue file and commit it.
+To stop the pass, run `corpus_queue.py stop`, which kills its whole session
+and holds it. To let it start again, run `corpus_queue.py release`. `status`
+shows whether it is running, held or idle, and how the last pass ended.
 
 ## 3. The nightly: `household-plugins/cryptic-archive-coverage`
 
@@ -82,7 +93,9 @@ origin/master:
 
 - **`cryptic-corpus-queue`** runs `tick` every hour at :35.
 - **`cryptic-archive-coverage`** runs `nightly` at 05:50. This runs the
-  tracker with `--save`. If no corpus job is running and recoverable editions
-  are left that no job covers, or the queue is stopped at a gate, it wakes
-  #cryptic-crosswords. The message gives the top classes and the per-year
-  filed/printed counts with their deltas, so the next fix gets started.
+  tracker with `--save`. When no corpus job is running, it wakes
+  #cryptic-crosswords in two cases: the pass is held, or the last pass read
+  everything due and recoverable editions are still unfiled. Those editions
+  need a reader fix that bumps `REREAD_BEFORE`. The message gives the top
+  classes and the per-year filed/printed counts with their deltas, so the next
+  fix gets started.

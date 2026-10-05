@@ -1,27 +1,35 @@
 #!/bin/bash
-# Read every archive.org edition and Trove article the scan filers have not
-# read yet, and those REREAD_BEFORE asks for again, to the end, then stop.
+# Read every archive.org edition and Trove article the scan filers find due,
+# to the end, then stop: never read, inputs changed, read without the VLM
+# that now answers, or read before REREAD_BEFORE (each filer's due_reason),
+# then the sources annotation asked to be read again.
 #
-#     setsid nohup bash tools/ocr_full_pass.sh >>~/.cache/ocr_full_pass.log 2>&1 </dev/null &
+#     (started by: python3 tools/corpus_queue.py tick, hourly, whenever no
+#     corpus job runs; `corpus_queue.py adopt PID` claims one started by hand)
 #
-# The nightly reads none of them: the scans are cached by hand-run fetchers
-# (tools/fetch_trove.py fetch, then fetch_trove.py zones for the clue columns
-# of articles left pending; tools/fetch_archive_org_editions.py), so run this
-# after one, or after changing a reader, to file what they now read. This
-# pass only reads caches and never downloads: an article whose clue columns
-# are not cached stays pending ("no reading of the page's clues") until
-# fetch_trove.py zones caches them. Resumable: each filer's ledger
-# (~/.cache/trove/filed.jsonl, ~/.cache/archive_org_editions/filed.jsonl)
-# is saved after every source, the never-read go first, and a rerun picks up
-# where a killed one stopped. Each filer runs in OCR_FULL_PASS_CHUNK-second
-# slices; after each, the puzzles it filed are committed and pushed, so a
-# kill loses at most one slice's files (their readings stay in
-# archiveorg-source). --wait queues behind any other filer holding a ledger.
+# This is the one standing corpus job. It takes no edition list: the filers
+# decide what is due, so running it again is always safe and a pass with
+# nothing due ends in minutes. A source read while the VLM was down is read
+# again by the first pass after it answers.
 #
 # A code change makes nothing due by itself: whoever makes one that should
-# change past readings sets REREAD_BEFORE to the time it landed, and this
-# reads again every source last read before then (each filer's --reread).
-# Rows read after it are done, so slices and reruns resume, not restart.
+# change past readings sets REREAD_BEFORE to the time it landed, and the next
+# pass reads again every source last read before then (each filer's
+# --reread). Rows read after it are done, so slices and reruns resume, not
+# restart.
+#
+# The scans are cached by hand-run fetchers (tools/fetch_trove.py fetch,
+# then fetch_trove.py zones for the clue columns of articles left pending;
+# tools/fetch_archive_org_editions.py). This pass only reads caches and never
+# downloads: an article whose clue columns are not cached stays pending ("no
+# reading of the page's clues") until fetch_trove.py zones caches them.
+# Resumable: each filer's ledger (~/.cache/trove/filed.jsonl,
+# ~/.cache/archive_org_editions/filed.jsonl) is saved after every source,
+# the never-read go first, and a rerun picks up where a killed one stopped.
+# Each filer runs in OCR_FULL_PASS_CHUNK-second slices, each under a hard
+# `timeout`; after each, the puzzles it filed are committed and pushed, so a
+# kill loses at most one slice's files (their readings stay in
+# archiveorg-source). --wait queues behind any other filer holding a ledger.
 #
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
 . "$(dirname "$0")/nightly_worktree.sh"
@@ -30,6 +38,9 @@ cd "$(dirname "$0")/.." || exit 1
 # Every line reaches the log as it is printed, never at a slice's end.
 export PYTHONUNBUFFERED=1
 CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
+# A slice starts no source after CHUNK seconds; one still reading this long
+# after is stuck, and the slice ends there (the pass resumes next tick).
+GRACE=1800
 # Each archive.org edition is read on the desktop, the vote and all
 # (tools/ocr_remote.py; OCR_REMOTE= to read here), so most of each worker's
 # time is a wait on it: this host keeps the scans, the Trove filer's parsing
@@ -37,8 +48,9 @@ CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
-# Scan filer: readings screened against the grid, VLM picks held to the readers
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-03T15:22:00+00:00}"
+# Grid reader: lattice fitted to warped, marked and stickered scans (e9b8d39),
+# after the heading/bracket, faint-foot, grey-block and clue-number readers
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-05T14:43:41+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
 
 attempt_push() {
@@ -63,7 +75,7 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
     echo "=== $what: slice from $(date '+%F %T') ==="
     # Streamed as it goes (a line per source read), so the log shows what it
     # is doing now; the copy in $out is read for the slice's tally.
-    nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait 2>&1 | tee "$out"
+    timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait 2>&1 | tee "$out"
     rc=${PIPESTATUS[0]}
     publish "$what" || echo "commit failed for $what"
     [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; rm -f "$out"; return 1; }
