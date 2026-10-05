@@ -312,25 +312,59 @@ FRAME_SHARE = 0.8
 FOOT_INSET = 0.1
 #: How far, in pixels, a grid's top frame may reach up into its title's box.
 TITLE_OVERLAP = 12
+#: The share of a strip's pixel rows a column of ink must fill to be a
+#: rule running down through it.
+RULE_SHARE = 0.7
+#: The fewest rules crossing a row of cells: a 15x15 grid's has 16, less
+#: those its blocks join.
+MIN_RULES = 8
+#: How deep, in pitches between the rules crossing it, a grid's last row of
+#: cells is, with the foot frame under it.
+ROW_DEPTH = (0.75, 1.5)
+#: The least pitch, as a share of the grid's width: a 27x27 grid's.
+MIN_PITCH = 0.03
 
 
-def dark_rows(img, box):
+def rule_runs(ink):
+    """[(x0, x1)] of each run of columns of a strip of ink that fill
+    RULE_SHARE of its rows: the vertical rules (and blocks) crossing it."""
     import numpy as np
-    gray = np.asarray(img.crop(box).convert("L"), dtype=np.uint8)
-    return (gray < trove_grid.otsu(gray)).mean(axis=1)
+    full = np.concatenate(([False], ink.mean(axis=0) >= RULE_SHARE, [False]))
+    edges = np.flatnonzero(full[1:] != full[:-1])
+    return list(zip(edges[::2].tolist(), edges[1::2].tolist()))
+
+
+def cells_under(ink, foot):
+    """Whether the strip of `ink` under row `foot` is a row of cells:
+    MIN_RULES rules cross it, and it is as deep as the pitch between them.
+    A clue line touching the grid has no rules crossing it, or is shallower."""
+    import numpy as np
+    runs = rule_runs(ink[foot + 1:])
+    if len(runs) < MIN_RULES:
+        return False
+    gaps = [g for g in np.diff([a for a, _ in runs]) if g >= MIN_PITCH * ink.shape[1]]
+    if not gaps:
+        return False
+    pitch = float(np.median(gaps))
+    return ROW_DEPTH[0] * pitch <= ink.shape[0] - foot - 1 <= ROW_DEPTH[1] * pitch
 
 
 def footed(img, box):
     """`box` ending at the grid's foot frame, the lowest row in its bottom
     FOOT_INSET that ink covers FRAME_SHARE of: "ACROSS" printed touching the
     grid joins its ink, and the box would end under the first clue line,
-    which every clue crop then loses. Unchanged when no row is a frame."""
+    which every clue crop then loses. Unchanged when no row is a frame, or
+    the strip under it is the grid's last row of cells (its own foot frame
+    too faint or turned to fill FRAME_SHARE of any one row)."""
+    import numpy as np
     if box is None:
         return None
-    rows = dark_rows(img, box)
+    gray = np.asarray(img.crop(box).convert("L"), dtype=np.uint8)
+    ink = gray < trove_grid.otsu(gray)
+    rows = ink.mean(axis=1)
     reach = int(FOOT_INSET * len(rows))
     foot = next((k for k in range(len(rows) - 1, len(rows) - 1 - reach, -1) if rows[k] >= FRAME_SHARE), None)
-    if foot is None or foot == len(rows) - 1:
+    if foot is None or foot == len(rows) - 1 or cells_under(ink, foot):
         return box
     trimmed = (box[0], box[1], box[2], box[1] + foot + 1)
     return trimmed if grid_shaped(trimmed) else box
