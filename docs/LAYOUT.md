@@ -1488,6 +1488,10 @@ tools/test_ocr_remote.sh                     does tools/ocr_remote.py compare ev
                                              model a read can load, and send back an edition
                                              whose read on the desktop opened a file it was not
                                              sent?
+tools/test_ocr_vote_checks.sh                does the clue vote file each word, count, capital
+                                             and hyphen as the readings print them, and settle
+                                             a word they all misread on the known word their
+                                             slips point to?
 tools/test_prereset_index_lock.sh            do the pool's concurrent runs commit only their
                                              own puzzle?
 tools/test_anagram_ring.sh                   a clue typed anagram gets the anagram ring: app.js
