@@ -457,6 +457,44 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None):
     return out
 
 
+#: Where a clue starts inside a recogniser's line: its number ("12", "l4",
+#: "I6", "18:") and a capital.
+NEXT_CLUE = re.compile(r"(?<=\s)(?:\d{1,2}|[IlJ|!]\d|\d[IlsSoO])\W{0,2}\s*[A-Z\"'\u2018\u201c]")
+#: How far, in pixels, from a gutter a clue's number in a line read across
+#: it may be placed by its share of the line's characters.
+SPLIT_SLACK = 80
+
+
+def split_across(ws, gutters, height=None):
+    """`ws` with each word read across a gutter (RapidOCR reads two
+    columns' rows as one line where the gutter is narrow: "11 Scandinavian
+    has no right to 12 Sympathetic type") cut at the clue number placed
+    nearest that gutter, the halves either side of it. A line with no clue
+    number near the gutter (a notice printed across both) stays whole. A
+    word taller than `height` (a line's) spans two rows set at different
+    heights: each half is given that height about its middle, so the line
+    printed under either half is not read as a second copy of it."""
+    out = []
+    for w in ws:
+        if height and w[3] - w[1] > height:
+            mid = (w[1] + w[3]) / 2
+            tall = (w[0], mid - height / 2, w[2], mid + height / 2, w[4])
+        else:
+            tall = w
+        for x in gutters:
+            if not (w[0] < x and w[2] > x + ACROSS_GUTTER):
+                continue
+            text, width = w[4], w[2] - w[0]
+            at = [(abs(w[0] + width * m.start() / len(text) - x), m.start()) for m in NEXT_CLUE.finditer(text)]
+            near = min((a for a in at if a[0] <= SPLIT_SLACK), default=None)
+            if near is None:
+                continue
+            out.append((w[0], tall[1], x - 1, tall[3], text[:near[1]].rstrip()))
+            w = tall = (x, tall[1], w[2], tall[3], text[near[1]:])
+        out.append(w)
+    return out
+
+
 def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None):
     """The clue columns under the grid (and with `third`, right of it; with
     `above`, over it; with `left`, left of it; see windows()): [[(y0, y1, x0,
@@ -466,7 +504,10 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     bottom = gy0 - 3 if above else left_bottom(grid) if left else gy1 + 1.8 * (gx1 - gx0)
     wins = windows(grid, third, margin, above, left, split)
     cols = [[] for _ in wins]
+    heights = sorted(w[3] - w[1] for ws in lines for w in ws)
+    height = heights[len(heights) // 2] if heights else None
     for ws in lines:
+        ws = split_across(ws, [w[1] for w in wins[:-1]], height)
         for side, (x0, x1, right, top) in enumerate(wins):
             part = [w for w in ws if x0 <= w[0] < x1 and w[2] <= right and top <= w[1] <= bottom]
             if part:
