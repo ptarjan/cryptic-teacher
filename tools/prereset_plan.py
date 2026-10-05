@@ -13,13 +13,12 @@ lockout is napped through by prereset_backfill.sh.
 
 The queue is backlog(): every un-annotated puzzle, those without all their
 answers included (the burn solves them cold, then annotates them). Its order
-is backlog()'s: the puzzles a lockout cut off first, then the puzzles /showcase/
-would pick once annotated (showcase.wanted), then each series' first
-puzzle (series.is_first_issue), then each series' OLDEST_PER_SERIES oldest
-puzzles, oldest first, then the partly annotated ones, fewest clues
-missing first, then Cracking the Cryptic's puzzles, then the puzzles with a
-notable tag (tools/puzzle_tags.py), then the indicator cover
-(tools/indicator_cover.py).
+is head_of_queue()'s (Paul, 2026-10-04): the puzzles a lockout cut off first,
+then the puzzles /showcase/ would pick once annotated (showcase.wanted), then
+each series' first puzzle (series.is_first_issue), then each series'
+OLDEST_PER_SERIES oldest puzzles, oldest first, then the puzzles with a notable
+tag (tools/puzzle_tags.py), then the indicator cover (tools/indicator_cover.py),
+then the rest round-robin across the series, newest first inside each one.
 
     tools/prereset_plan.py [--may-pause] --width [CURRENT]  # runs to keep in flight
     tools/prereset_plan.py --backlog "ANNOTATE_BLOCKED" "SOLVE_BLOCKED"  # the queue
@@ -482,7 +481,7 @@ def self_test():
     bad = (cover_self_test(covers) + width_self_test() + tag_self_test()
            + first_self_test() + backlog_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
-         + len(CPU_CASES) + len(METER_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 2
+         + len(CPU_CASES) + len(METER_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
          + len(BACKLOG_CASES))
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
@@ -697,29 +696,86 @@ FIRST_CASES = [
 ]
 
 
+def _dated(pid, day, annotated=False):
+    return {"id": pid, "series": pid.rsplit("-", 1)[0], "date": day,
+            "annotated": annotated, "hasSolutions": True}
+
+
 def first_self_test():
     bad = 0
-    from datetime import date
     # each series' 10 oldest go first, oldest first behind pinned, so 1967
     # outranks 2026; the 11th oldest keeps its queue place, as does the undated
-    days = {f"times-{i}": ("times", date(1974, 1, i)) for i in range(1, 12)}
-    days |= {"canberra-3": ("canberra", date(1967, 2, 1)),
-             "cryptic-30000": ("cryptic", date(2026, 9, 1))}
+    rows = [_dated(f"times-{i}", f"1974-01-{i:02}") for i in range(1, 12)]
+    rows += [_dated("canberra-3", "1967-02-01"), _dated("cryptic-30000", "2026-09-01")]
     queue = ["cryptic-30000", "nodate-1"] + [f"times-{i}" for i in range(11, 0, -1)] + ["canberra-3"]
-    got = oldest_per_series(queue, ["r"], days)
+    got = oldest_per_series(queue, ["r"], rows)
     want = ["r", "canberra-3"] + [f"times-{i}" for i in range(1, 11)] + ["cryptic-30000"]
     if got != want:
         print(f"FAIL oldest_per_series = {got} (want {want})", file=sys.stderr)
         bad += 1
-    if oldest_per_series(queue, ["times-1"], days, 1) != ["times-1", "canberra-3", "times-2",
-                                                          "cryptic-30000"]:
-        print("FAIL oldest_per_series counts a pinned puzzle among the n", file=sys.stderr)
+    # The 10 are the series' oldest on file, not the oldest left in the queue:
+    # annotating times-1..3 must not pull times-11 up, which is what walked
+    # every series oldest-first, 10 at a time, until 2026-10-04.
+    done = [dict(r, annotated=r["id"] in ("times-1", "times-2", "times-3")) for r in rows]
+    got = oldest_per_series([q for q in queue if q not in ("times-1", "times-2", "times-3")],
+                            [], done)
+    want = ["canberra-3"] + [f"times-{i}" for i in range(4, 11)] + ["cryptic-30000"]
+    if got != want:
+        print(f"FAIL oldest_per_series slides as the oldest are annotated: {got} (want {want})",
+              file=sys.stderr)
         bad += 1
+    # a row the burn cannot take (no answers, clues unreadable) is not among the n
+    blank = [dict(r, hasSolutions=False, clues={"present": 1, "total": 30})
+             if r["id"] == "times-1" else r for r in rows]
+    if "times-11" not in oldest_per_series(queue, [], blank):
+        print("FAIL oldest_per_series counts an untakeable puzzle among the n", file=sys.stderr)
+        bad += 1
+    bad += head_self_test()
     for queue, pinned, want in FIRST_CASES:
         got = first_issues(queue, list(pinned))
         if got != want:
             print(f"FAIL first_issues({queue}, {pinned}) = {got} (want {want})", file=sys.stderr)
             bad += 1
+    return bad
+
+
+# Paul, 2026-10-04: cut-offs, showcase, No 1, 10 oldest, notable tags, then
+# the rest round-robin newest first, whatever order the queue came in.
+_HEAD_ROWS = ([_dated(f"cryptic-{22640 + i}", f"2002-{1 + i // 28:02}-{1 + i % 28:02}")
+               for i in range(40)]
+              + [_dated(f"times-{28780 + i}", f"2024-01-{1 + i:02}") for i in range(5)]
+              + [_dated("quiptic-1", "1999-01-01"), _dated("cryptic-30128", "2026-09-30"),
+                 _dated("everyman-4000", "2026-09-28")])
+
+
+def head_self_test():
+    bad = 0
+    # the queue as a re-plan hands it over: ascending, newly eligible at the back
+    queue = sorted((r["id"] for r in _HEAD_ROWS), key=lambda i: int(i.rsplit("-", 1)[1]))
+    queue.remove("cryptic-30128")
+    queue.append("cryptic-30128")
+    ordered, pinned, _ = head_of_queue(queue, ["cryptic-22700"], _HEAD_ROWS,
+                                       {"times-28782"}, {"cryptic-22670": ["unclued"]})
+    oldest = [f"cryptic-{22640 + i}" for i in range(10)]
+    want_pins = (["cryptic-22700", "times-28782", "quiptic-1"] + oldest
+                 + [f"times-{28780 + i}" for i in (0, 1, 3, 4)] + ["everyman-4000", "cryptic-22670"])
+    # oldest first across series: the cryptic's 2002 ten, the Times' 2024 four,
+    # the everyman's only one
+    if pinned != want_pins:
+        print(f"FAIL head_of_queue pins {pinned} (want {want_pins})", file=sys.stderr)
+        bad += 1
+    rest = [i for i in ordered if i not in pinned]
+    if rest[:3] != ["cryptic-30128", "cryptic-22679", "cryptic-22678"]:
+        print(f"FAIL head_of_queue's rest is not newest first: {rest[:3]}", file=sys.stderr)
+        bad += 1
+    if sorted(ordered) != sorted(queue):
+        print("FAIL head_of_queue lost or added ids", file=sys.stderr)
+        bad += 1
+    # an id the index lacks keeps its place at the back; a duplicate is kept
+    got = newest_first(["zz-1", "cryptic-22640", "cryptic-22641", "cryptic-22640"], _HEAD_ROWS)
+    if got != ["cryptic-22641", "cryptic-22640", "cryptic-22640", "zz-1"]:
+        print(f"FAIL newest_first = {got}", file=sys.stderr)
+        bad += 1
     return bad
 
 
@@ -837,16 +893,6 @@ def cover_self_test(covers):
     return bad
 
 
-def ctc_puzzles():
-    """Puzzles Cracking the Cryptic solved on video (tools/ctc_transcripts.py).
-    Their praise is our only human signal of what makes a clue good, and a
-    praised clue teaches the setting prompt nothing until it is annotated."""
-    path = REPO / "tools/data/ctc_moments.json"
-    if not path.exists():
-        return set()
-    return {v["puzzle"] for v in json.loads(path.read_text())["videos"] if v["puzzle"]}
-
-
 # Tags too common to jump the queue on. A plain pangram is about one puzzle in
 # thirty and "barred" is every Mephisto: promoting either would have the burn do
 # little else, which is what queue-jumping the SNITCH-rated Times did (be5b581,
@@ -856,16 +902,31 @@ COMMON_TAGS = {"pangram", "barred"}
 INDEX = REPO / "puzzles" / "index.json"
 
 
+_INDEXES = {}
+
+
+def read_index(index_path=INDEX):
+    """The index at index_path, read once a process; {} when there is none."""
+    key = str(index_path)
+    if key not in _INDEXES:
+        try:
+            _INDEXES[key] = json.loads(Path(index_path).read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            _INDEXES[key] = {}
+    return _INDEXES[key]
+
+
+def index_rows(index_path=INDEX):
+    index = read_index(index_path)
+    return index.get("puzzles", []) + index.get("unlisted", [])
+
+
 def tagged_puzzles(index_path=INDEX):
     """{id: its tags outside COMMON_TAGS} from the index, which the burn
     rebuilds as it starts, so a puzzle tagged since is promoted on the next run.
     Empty when there is no index to read."""
-    try:
-        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return {}
     out = {}
-    for row in index.get("puzzles", []) + index.get("unlisted", []):
+    for row in index_rows(index_path):
         notable = [t for t in row.get("tags", ()) if t not in COMMON_TAGS]
         if notable:
             out[row["id"]] = notable
@@ -876,9 +937,8 @@ def showcase_wanted(index_path=INDEX):
     """The unannotated puzzles /showcase/ would pick (tools/showcase.py), which
     shows only annotated ones: a reader opens a pick to solve it with hints.
     Empty when there is no index to read."""
-    try:
-        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
-    except (OSError, ValueError):
+    index = read_index(index_path)
+    if not index:
         return set()
     import showcase
     return set(showcase.wanted(showcase.corpus_facts(index)))
@@ -896,50 +956,29 @@ def promote(queue, pinned, tagged):
     return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
 
 
-# How many of each series' oldest puzzles still needing work go ahead of the
-# rest of the queue. Old puzzles are interesting; a few per series is enough to
-# reach every paper's oldest without the burn doing little else.
+# How many of each series' oldest puzzles go ahead of the rest of the queue
+# (Paul, 2026-10-04: "10 oldest can be front too"). Old puzzles are
+# interesting; a few per series reach every paper's oldest without the burn
+# doing little else.
 OLDEST_PER_SERIES = 10
 
 
-def puzzle_days(index_path=INDEX):
-    """{id: (series, day)} for the index's dated rows (series.puzzle_day).
-    Empty when there is no index to read."""
-    try:
-        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return {}
-    days = {}
-    for r in index.get("puzzles", []) + index.get("unlisted", []):
-        day = series.puzzle_day(r)
-        if day:
-            days[r["id"]] = (r["series"], day)
-    return days
-
-
-def oldest_per_series(queue, pinned, days, n=OLDEST_PER_SERIES):
-    """pinned, then each series' n oldest queued puzzles (days is {id: (series,
-    day)}), oldest first. An undated puzzle is not known to be old."""
+def oldest_per_series(queue, pinned, rows, n=OLDEST_PER_SERIES):
+    """pinned, then the queued ones among each series' n oldest puzzles the
+    burn can take (rows annotated, answered or cold-solvable, dated by
+    series.puzzle_day), oldest first. The n are picked from the whole index,
+    annotated rows included, so annotating them does not pull the next oldest
+    up: a set picked from the queue alone slides, and walks every series
+    oldest-first."""
+    from fetch_puzzle import cold_solvable
     lanes = {}
-    for pid in queue:
-        if pid in days and pid not in pinned:
-            lanes.setdefault(days[pid][0], []).append(pid)
-    picked = [pid for lane in lanes.values()
-              for pid in sorted(lane, key=lambda p: days[p][1])[:n]]
-    return pinned + sorted(picked, key=lambda p: days[p][1])
-
-
-def partly_annotated(index_path=INDEX):
-    """{id: clues it lacks} for the puzzles that have hints and lack some (the
-    index's `unannotated`). A run annotates only those clues, so each costs a
-    fraction of a puzzle. Empty when there is no index to read."""
-    try:
-        index = json.loads(Path(index_path).read_text(encoding="utf-8"))
-    except (OSError, ValueError):
-        return {}
-    return {r["id"]: r["unannotated"]
-            for r in index.get("puzzles", []) + index.get("unlisted", [])
-            if r.get("unannotated")}
+    for r in rows:
+        day = series.puzzle_day(r)
+        if day and (r.get("annotated") or r.get("hasSolutions") or cold_solvable(r)):
+            lanes.setdefault(r["series"], []).append((day, r["id"]))
+    oldest = sorted(x for lane in lanes.values() for x in sorted(lane)[:n])
+    queued = set(queue)
+    return pinned + [pid for _, pid in oldest if pid in queued and pid not in pinned]
 
 
 # Series order within a round, so a window cut short by a lockout has spent
@@ -976,16 +1015,21 @@ def backlog(rows, annotate_blocked=(), solve_blocked=(), only=()):
     yet dated off its neighbours holds neither, so puzzle_day() makes the key a
     day; undated sorts last inside its lane and never raises. only, when given,
     narrows the queue to those series keys."""
-    from datetime import date
-
     from fetch_puzzle import cold_solvable
     annotate_blocked, solve_blocked, only = set(annotate_blocked), set(solve_blocked), set(only)
     todo = [p for p in rows
             if not p["annotated"] and p["id"] not in annotate_blocked
             and (p.get("hasSolutions") or (cold_solvable(p) and p["id"] not in solve_blocked))
             and (not only or p["series"] in only)]
+    return round_robin(todo)
+
+
+def round_robin(rows):
+    """rows round-robin across their series, BY_DEMAND's first, newest first
+    inside each series; undated last in its lane."""
+    from datetime import date
     lanes = {}
-    for p in todo:
+    for p in rows:
         lanes.setdefault(p["series"], []).append(p)
     for lane in lanes.values():
         lane.sort(key=lambda p: series.puzzle_day(p) or date.min, reverse=True)
@@ -1023,31 +1067,42 @@ def unsolved(pid):
     return not all(e.get("solution") for e in read_puzzle_file(resolve_puzzle(pid))["entries"])
 
 
-def cover_first(pinned):
-    """The ids on stdin, reordered: pinned first, then the showcase's wanted
-    puzzles, then each series' first
-    puzzle, then each series' OLDEST_PER_SERIES oldest puzzles, oldest first,
-    then the partly annotated
-    puzzles, then Cracking the Cryptic's puzzles, then the puzzles with a
-    notable tag, then the indicator cover, then the rest as they came. The
-    summary goes to stderr, which is the burn's log."""
-    import indicator_cover
-    queue = sys.stdin.read().split()
-    ctc = ctc_puzzles()
-    partial = partly_annotated()
-    before = len(pinned)
-    pinned = promote(queue, pinned, showcase_wanted())
-    print(f"showcase: {len(pinned) - before} queued puzzles /showcase/ wants go first",
-          file=sys.stderr)
+def newest_first(queue, rows):
+    """The queue's ids round-robin newest first (round_robin), whatever order
+    they came in; ids the index lacks keep their order at the back."""
+    by_id = {r["id"]: r for r in rows}
+    return ([r["id"] for r in round_robin([by_id[i] for i in queue if i in by_id])]
+            + [i for i in queue if i not in by_id])
+
+
+def head_of_queue(queue, pinned, rows, wanted=(), tagged=()):
+    """(the queue newest first, the ids that go ahead of it in order): pinned
+    (cut off by a lockout), then /showcase/'s wanted, then each series' No 1,
+    then each series' oldest few, then the notable-tagged; each set in queue
+    order but the oldest, which go oldest first. The whole queue is re-sorted,
+    so ids the caller appended (puzzles made eligible mid-run) take their
+    date's place rather than the back."""
+    queue = newest_first(queue, rows)
+    stages = [len(pinned)]
+    pinned = promote(queue, list(pinned), wanted)
+    stages.append(len(pinned))
     pinned = first_issues(queue, pinned)
-    pinned = oldest_per_series(queue, pinned, puzzle_days())
-    pinned = pinned + sorted((pid for pid in queue if pid in partial and pid not in pinned),
-                             key=partial.get)
-    pinned = pinned + [pid for pid in queue if pid in ctc and pid not in pinned]
-    tagged = tagged_puzzles()
-    before = len(pinned)
+    pinned = oldest_per_series(queue, pinned, rows)
+    stages.append(len(pinned))
     pinned = promote(queue, pinned, tagged)
-    print(f"tagged: {len(pinned) - before} queued puzzles with a notable tag go first",
+    stages.append(len(pinned))
+    return queue, pinned, stages
+
+
+def cover_first(pinned):
+    """The ids on stdin, in head_of_queue()'s order with the indicator cover
+    behind its pins. The summary goes to stderr, which is the burn's log."""
+    import indicator_cover
+    queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, index_rows(),
+                                     showcase_wanted(), tagged_puzzles())
+    print(f"showcase: {n[1] - n[0]} queued puzzles /showcase/ wants go first",
+          file=sys.stderr)
+    print(f"tagged: {n[3] - n[2]} queued puzzles with a notable tag go first",
           file=sys.stderr)
     ordered, picks, weight = indicator_cover.plan(queue, pinned)
     reached = set().union(*(m for _, m in picks))

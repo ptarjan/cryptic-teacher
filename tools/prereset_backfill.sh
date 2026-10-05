@@ -246,8 +246,10 @@ requeue_failed() {
   done
   [ ${#back[@]} -eq 0 ] && return 0
   echo "  requeuing ${back[*]} — the window that refused them has turned over"
-  queue=("${back[@]}" "${queue[@]:$at}")
-  at=0
+  # queue[0..at) stays: the checkpoint's backlog re-read reads an index built
+  # at start, which still lists what this run annotated, and appends any id
+  # the queue no longer holds.
+  queue=("${queue[@]:0:$at}" "${back[@]}" "${queue[@]:$at}")
 }
 
 # Run one claude task against the repo. Returns non-zero if the run failed.
@@ -598,12 +600,10 @@ pool_interval_start() {
   POOL_BEFORE=$(python3 tools/weekly_usage.py 2>/dev/null || echo 0)
   POOL_BEFORE_S=$(python3 tools/weekly_usage.py --group session 2>/dev/null || echo 0)
   wide=$(wave_width)
-  # Ahead of the round-robin: the unannotated puzzles /showcase/ would pick
-  # (tools/showcase.py wanted()), then each series' first puzzle, then each series'
-  # oldest few (OLDEST_PER_SERIES), oldest first, then the partly annotated puzzles, then
-  # Cracking the Cryptic's puzzles, then the puzzles with a notable tag (tools/puzzle_tags.py), then the puzzles that give an
-  # indicator on /indicators/ its first annotated clue (tools/indicator_cover.py). Cut-off puzzles stay first. Anything but a whole
-  # permutation back leaves the order as it was. A dry run plans once.
+  # The order is tools/prereset_plan.py --cover-first's (head_of_queue), which
+  # re-sorts the whole of queue[at..], so what the re-read appends takes its
+  # date's place. Cut-off puzzles stay first. Anything but a whole permutation
+  # back leaves the order as it was. A dry run plans once.
   if [ "$POOL_REORDER" = 1 ] && [ "$at" -lt "${#queue[@]}" ] &&
      { [ "$DRY_RUN" = 0 ] || [ "$POOL_PLANNED" = 0 ]; }; then
     # A run lasts days: the backlog is read again, so a puzzle filed or made
