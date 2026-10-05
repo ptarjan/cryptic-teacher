@@ -5,6 +5,7 @@ Run it:
 
     python3 tools/puzzle_integrity.py            # every defect, with a per-check tally
     python3 tools/puzzle_integrity.py --quiet     # only the defects; silent when clean
+    python3 tools/puzzle_integrity.py --quotes FILE...  # QUOTE alone, on those files
 
 Everything else in tools/ checks the work we ADD to a puzzle: validate_annotations.py
 grades the annotation, coverage_report.py counts what each series holds. Nothing
@@ -101,6 +102,12 @@ The flags, in the order they matter:
             validate_annotations — markup or an undecodable character in the
             puzzle's text, or the legs of a linked answer naming different
             groups.
+  QUOTE     an annotation quoting words its clue does not hold: a definition,
+            indicator, link word or block's clueFragment that is not a substring
+            of the clue text. A clue's text cleaned in place ("(7))" cut off the
+            end) without its annotation is the usual way in. Checked on every
+            write and, for the puzzle files a commit stages, by
+            .githooks/pre-commit (`--quotes FILE...`).
   FILED     a puzzle file that is not where puzzle_paths.file_for puts it:
             puzzles/<series>/<year>/<id>.json, the year its `date`'s. A file in
             the wrong year folder, under a name that is not its id, or left flat
@@ -202,7 +209,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # The flags, in the order they are reported. One tuple, read by both the
 # per-finding listing and the tally, so a check cannot be added to one and
 # missed from the other.
-FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "FILED", "NEARDUP")
+FLAGS = ("LENGTH", "ORDER", "APOSTROPHE", "CROSS", "CELLS", "ALTERED", "GRID", "NUMBER", "DATE", "SETTER", "SHAPE", "PROV", "QUOTE", "FILED", "NEARDUP")
 
 # No cryptic crossword in this corpus predates the Guardian's, which began in 1929.
 # A date below this is a page the publisher mis-filed or a fetcher that lost one,
@@ -1144,6 +1151,30 @@ def check_puzzle(puzzle, today, flags):
     check_puzzle_text(puzzle, flags)
     check_preamble(puzzle, flags)
     check_duplicated_clues(puzzle, flags)
+    check_annotation_quotes(puzzle, flags)
+
+
+def annotation_quotes(ann):
+    """(what, text) for every piece of clue text an annotation quotes."""
+    out = [("definition", d.get("text")) for d in ann.get("definitions") or [] if isinstance(d, dict)]
+    out += [("indicator", i.get("text")) for i in ann.get("indicators") or [] if isinstance(i, dict)]
+    out += [("linkWord", w) for w in ann.get("linkWords") or []]
+    out += [("block fragment", b.get("clueFragment")) for b in ann.get("blocks") or [] if isinstance(b, dict)]
+    return [(what, t) for what, t in out if isinstance(t, str) and t]
+
+
+def check_annotation_quotes(puzzle, flags):
+    """Every word an annotation quotes is in its clue, so editing a clue's text
+    without its annotation is refused on write and at commit (.githooks/pre-commit)."""
+    for e in puzzle.get("entries") or []:
+        ann = e.get("annotation")
+        if not isinstance(ann, dict):
+            continue
+        clue = (e.get("clue") or {}).get("text", "")
+        for what, text in annotation_quotes(ann):
+            if text not in clue:
+                flags.append(("QUOTE", puzzle.get("id"), f"{entry_id(e)}: {what} {text!r} is not "
+                              f"in the clue {clue!r}; edit the annotation with the clue"))
 
 
 def check_duplicated_clues(puzzle, flags):
@@ -1518,6 +1549,15 @@ def audit(files, paths, today, only=None):
 
 
 def main(argv):
+    if argv[:1] == ["--quotes"]:
+        flags = []
+        for path in argv[1:]:
+            puzzle = json.loads(Path(path).read_text(encoding="utf-8"))
+            if isinstance(puzzle, dict) and "entries" in puzzle:
+                check_annotation_quotes(puzzle, flags)
+        for flag, pid, what in flags:
+            print(f"{flag:<9} {pid:<22} {what}")
+        return 1 if flags else 0
     quiet = "--quiet" in argv
     targets = [a for a in argv if not a.startswith("--")]
     started = time.time()

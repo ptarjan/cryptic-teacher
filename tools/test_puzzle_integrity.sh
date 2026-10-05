@@ -54,8 +54,9 @@ TODAY = date(2026, 10, 5)
 # cryptic-24104 holds two findings UNLINKED_IN_SOURCE forgives, so every
 # mutation below also proves forgiving them does not blank out the rest of it.
 # cryptic-24447 holds the corpus's three-plus-light group ALL AND SUN DRY.
+# times-29329 is annotated, so its clue can be edited out from under its annotation.
 base = {pid: pi.read_puzzle_file(pi.puzzle_paths.find(pid))
-        for pid in ("cryptic-24104", "cryptic-24447")}
+        for pid in ("cryptic-24104", "cryptic-24447", "times-29329")}
 
 
 def kinds(pid, mutate=None):
@@ -95,6 +96,9 @@ MUTATIONS = {
     "SETTER": ("cryptic-24104", lambda p, by: p.update(setter="Unknown")),
     "SHAPE": ("cryptic-24104", lambda p, by: by["2-down"]["clue"].update(text="")),
     "PROV": ("cryptic-24104", lambda p, by: p["solutions"].update(origin="bogus")),
+    # The clue cleaned in place and its annotation left quoting the old words.
+    "QUOTE": ("times-29329", lambda p, by: by["20-down"]["clue"].update(
+        text=by["20-down"]["clue"]["text"].replace("Dip ", "Plunge "))),
 }
 for pid in base:
     print("PRISTINE", pid, kinds(pid))
