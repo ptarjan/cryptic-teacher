@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Drink – plastic bottles?",
     "enumeration": "4"
    },
-   "solution": "ASTI"
+   "solution": "ASTI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASTI",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "hidden_word",
+      "note": "the word plastic holds or contains the answer within its letters, as a bottle holds a drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plastic",
+      "gives": "ASTI",
+      "note": "the four letters after the opening P of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A grumble about wine sold in plastic bottles rather than glass.",
+     "definitionFit": "Asti is a sparkling Italian wine from Piedmont, so it is a type of alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +85,68 @@
     "text": "Send out old lover half-heartedly, unfortunate start of tiff",
     "enumeration": "6"
    },
-   "solution": "EXPORT"
+   "solution": "EXPORT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "EXPORT",
+    "definitions": [
+     {
+      "text": "Send out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-heartedly",
+      "for": "deletion",
+      "note": "doing something half-heartedly here means losing half of the doubled middle of the following word"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old lover",
+      "gives": "EX",
+      "note": "a former partner is an ex"
+     },
+     {
+      "clueFragment": "unfortunate",
+      "gives": "POOR",
+      "note": "a poor fellow is an unfortunate one"
+     },
+     {
+      "clueFragment": "tiff",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of tiff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "POR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ending things with a former partner after an unhappy little quarrel.",
+     "walkthrough": "'Half-heartedly' applies to the word after it, not the lover: of its doubled central letters only one survives.",
+     "definitionFit": "To export goods is to ship them abroad, dispatching them beyond the country's borders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half-heartedly"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +160,70 @@
     "text": "Train sentry to work, sacking one-time bully",
     "enumeration": "10"
    },
-   "solution": "TYRANNISER"
+   "solution": "TYRANNISER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TYRANNISER",
+    "definitions": [
+     {
+      "text": "bully",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to work",
+      "for": "anagram",
+      "note": "setting letters to work puts them into a fresh, functioning arrangement"
+     },
+     {
+      "text": "sacking",
+      "for": "deletion",
+      "note": "sacking means dismissing, so a letter is dropped from the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Train",
+      "gives": "TRAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sentry",
+      "gives": "SENTRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one-time",
+      "gives": "T",
+      "note": "one time is T, the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYRANNISER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAINSENTRY",
+       "gives": "TYRANNISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drill sergeant drives a guard hard, then fires a man who used to bully.",
+     "walkthrough": "'One-time' looks like 'former', describing the bully, but it means one letter T, which is sacked from the fodder before the rearrangement.",
+     "definitionFit": "A tyranniser rules or treats others oppressively and cruelly, which is exactly what a bully does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one-time"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +237,62 @@
     "text": "Group entertainment where the French replaces us",
     "enumeration": "6"
    },
-   "solution": "CIRCLE"
+   "solution": "CIRCLE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CIRCLE",
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "replaces tells us one letter pair is swapped out for another inside a word"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entertainment",
+      "gives": "CIRCUS",
+      "note": "a circus is a travelling show"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CIRC",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A show where a French phrase stands in for an English one.",
+     "walkthrough": "The US at the end of CIRCUS is swapped for LE.",
+     "definitionFit": "A circle is a set of people sharing interests, such as a circle of friends or a literary circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertainment"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +306,54 @@
     "text": "Hand over – criminal pocketed present once more",
     "enumeration": "8"
    },
-   "solution": "RECONFER"
+   "solution": "RECONFER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RECONFER",
+    "definitions": [
+     {
+      "text": "present once more",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pocketed",
+      "for": "container",
+      "note": "something pocketed is put away inside, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hand over",
+      "gives": "REFER",
+      "note": "to refer a matter is to hand it on to someone else"
+     },
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CON",
+      "FER"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook pockets money while handing over a package.",
+     "definitionFit": "To confer is to bestow or award, so to reconfer is to bestow a title or honour again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +367,49 @@
     "text": "Coaches without starting exercises",
     "enumeration": "4"
    },
-   "solution": "USES"
+   "solution": "USES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "USES",
+    "definitions": [
+     {
+      "text": "exercises",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without starting",
+      "for": "deletion",
+      "note": "without its start means the word loses its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coaches",
+      "gives": "BUSES",
+      "note": "coaches are long-distance buses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "Sports coaches putting players through drills without warming up first.",
+     "walkthrough": "'Coaches' and 'exercises' suggest sports training; coaches are vehicles and exercises is a verb meaning employs.",
+     "definitionFit": "To exercise a right or skill is to employ it, so exercises can stand for uses as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Coaches"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +423,57 @@
     "text": "Islander is against bird-droppings being cleared at last",
     "enumeration": "8"
    },
-   "solution": "ANTIGUAN"
+   "solution": "ANTIGUAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANTIGUAN",
+    "definitions": [
+     {
+      "text": "Islander",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being cleared at last",
+      "for": "deletion",
+      "note": "the final letter is cleared away, so the word loses its tail"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "ANTI",
+      "note": "anti means opposed to"
+     },
+     {
+      "clueFragment": "bird-droppings",
+      "gives": "GUANO",
+      "note": "guano is the excrement of seabirds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANTI",
+      "GUAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A resident complains about seabird mess being cleaned up at long last.",
+     "definitionFit": "A native of Antigua, the Caribbean island, is called an Antiguan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cleared"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +487,58 @@
     "text": "Bachelor place unfinished and vile",
     "enumeration": "4"
    },
-   "solution": "BASE"
+   "solution": "BASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BASE",
+    "definitions": [
+     {
+      "text": "vile",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "something unfinished lacks its end, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bachelor",
+      "gives": "BA",
+      "note": "BA is a Bachelor of Arts degree"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "SET",
+      "note": "to place something is to set it down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A single man's flat, half-done and squalid.",
+     "walkthrough": "'Bachelor' suggests the single letter B, but here it is the degree BA.",
+     "definitionFit": "Base as an adjective means morally low, contemptible or ignoble, just like vile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +558,61 @@
      }
     ]
    },
-   "solution": "SIXTYFIVE"
+   "solution": "SIXTYFIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIXTY-FIVE",
+    "definitions": [
+     {
+      "text": "age close to retirement",
+      "at": 3
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toys",
+      "for": "anagram",
+      "note": "to toy with something is to play about with it, so the letters are juggled"
+     }
+    ],
+    "linkWords": [
+     "At",
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ivy fit",
+      "gives": "IVYFIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "SEX",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IVYFITSEX",
+       "gives": "SIXTYFIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky picture of a sprightly woman named Ivy, nearly a pensioner, enjoying adult toys.",
+     "walkthrough": "'Toys' reads as a noun in the surface but is a verb signalling rearrangement. Sixty-five was long the standard UK pension age.",
+     "definitionFit": "Sixty-five was the traditional state pension age in Britain, so it is the number of years at which people near retiring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "toys"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +626,65 @@
     "text": "Queen’s retired getting something to go",
     "enumeration": "5"
    },
-   "solution": "SENNA"
+   "solution": "SENNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SENNA",
+    "definitions": [
+     {
+      "text": "something to go",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means withdrawn or gone back, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen",
+      "gives": "ANNE",
+      "note": "Queen Anne, British monarch"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the possessive S taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ENNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANNES",
+       "to": "SENNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A queen who has stepped down obtains something to help her leave.",
+     "walkthrough": "'Something to go' sounds like a means of departure, but it is a laxative that helps one go to the toilet.",
+     "definitionFit": "Senna is a plant-derived laxative, a remedy that makes a constipated person able to go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +698,58 @@
     "text": "One tooth at the back extracted in Italian city",
     "enumeration": "5"
    },
-   "solution": "IMOLA"
+   "solution": "IMOLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IMOLA",
+    "definitions": [
+     {
+      "text": "Italian city",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the back extracted",
+      "for": "deletion",
+      "note": "pulling out the back means the tail letter of the word is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "tooth",
+      "gives": "MOLAR",
+      "note": "a molar is a back grinding tooth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MOLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist in Italy pulls a back tooth.",
+     "walkthrough": "'At the back' looks like it places the tooth in the mouth, but it is the tooth word's last letter that is extracted.",
+     "definitionFit": "Imola is a town near Bologna, home to the motor racing circuit where Ayrton Senna was killed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +763,48 @@
     "text": "Exchange of opinions in bad-tempered attack",
     "enumeration": "9"
    },
-   "solution": "CROSSFIRE"
+   "solution": "CROSSFIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSFIRE",
+    "definitions": [
+     {
+      "text": "Exchange of opinions",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bad-tempered",
+      "gives": "CROSS",
+      "note": "cross means irritable"
+     },
+     {
+      "clueFragment": "attack",
+      "gives": "FIRE",
+      "note": "to fire on is to attack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "FIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A disagreement escalates into an angry assault.",
+     "definitionFit": "Crossfire, figuratively, is a lively argument with remarks traded from several sides, like shots crossing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +818,58 @@
     "text": "Relations relaxed in shelter that river surrounds",
     "enumeration": "7"
    },
-   "solution": "DETENTE"
+   "solution": "DETENTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DETENTE",
+    "definitions": [
+     {
+      "text": "Relations relaxed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounds",
+      "for": "container",
+      "note": "surrounds means wraps round, so one word sits within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Wales, England and Scotland"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "TENT",
+      "note": "a tent is a canvas shelter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TENT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Holidaymakers unwind in a tent pitched beside a river.",
+     "walkthrough": "The Dee is a British river.",
+     "definitionFit": "Détente is the easing of tension between hostile countries, a phrase used chiefly of Cold War diplomacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Relations"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +883,53 @@
     "text": "Fabric searched after turning over",
     "enumeration": "5"
    },
-   "solution": "DENIM"
+   "solution": "DENIM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DENIM",
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after turning over",
+      "for": "reversal",
+      "note": "turning something over flips it, so the word is read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "searched",
+      "gives": "MINED",
+      "note": "to mine is to dig for ore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENIM"
+     ],
+     "reversals": [
+      {
+       "from": "MINED",
+       "to": "DENIM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cloth that has been rummaged through after being flipped.",
+     "definitionFit": "Denim is the hard-wearing twilled cotton cloth used to make jeans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "searched"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +943,55 @@
     "text": "Recipe to make rum loaf?",
     "enumeration": "7"
    },
-   "solution": "FORMULA"
+   "solution": "FORMULA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FORMULA",
+    "definitions": [
+     {
+      "text": "Recipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "make",
+      "for": "anagram",
+      "note": "to make something is to construct it, so the letters are put together anew"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rum loaf",
+      "gives": "RUMLOAF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUMLOAF",
+       "gives": "FORMULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for baking a boozy loaf of bread.",
+     "walkthrough": "The question mark flags that the recipe is for the letters, not for baking.",
+     "definitionFit": "A formula is a set method or list of ingredients and quantities for producing something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1005,60 @@
     "text": "Departing minister – again one no good following",
     "enumeration": "10"
    },
-   "solution": "RETREATING"
+   "solution": "RETREATING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RETREATING",
+    "definitions": [
+     {
+      "text": "Departing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so these pieces are tacked on after the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minister – again",
+      "gives": "RETREAT",
+      "note": "to minister to is to treat, so ministering again is to re-treat"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "standard abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETREAT",
+      "I",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A cabinet minister leaving office has another go and fails.",
+     "walkthrough": "'Minister' looks like a government noun but is the verb to tend, as in treating a patient.",
+     "definitionFit": "Retreating is withdrawing or pulling back, which is a way of leaving a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "minister"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1072,49 @@
     "text": "Maiden more disinterested, beginning to leave",
     "enumeration": "5"
    },
-   "solution": "AIRER"
+   "solution": "AIRER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AIRER",
+    "definitions": [
+     {
+      "text": "Maiden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to leave",
+      "for": "deletion",
+      "note": "its beginning leaving means the word drops its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more disinterested",
+      "gives": "FAIRER",
+      "note": "disinterested means impartial, so fair, and more of it is fairer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRER"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman grows more indifferent and starts to walk away.",
+     "walkthrough": "'Maiden' suggests a girl; it is the northern English name for a clothes-drying frame.",
+     "definitionFit": "In northern England a maiden is a clothes horse, the wooden frame on which washing is dried."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Maiden"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1128,53 @@
     "text": "Traps with ensnared amphibians",
     "enumeration": "5"
    },
-   "solution": "NEWTS"
+   "solution": "NEWTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEWTS",
+    "definitions": [
+     {
+      "text": "amphibians",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ensnared",
+      "for": "container",
+      "note": "ensnared means caught inside, so a letter is held within the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Traps",
+      "gives": "NETS",
+      "note": "nets catch fish and animals"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "W",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "Pond creatures caught in traps.",
+     "definitionFit": "Newts are small tailed amphibians related to salamanders, living partly on land and partly in water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1188,65 @@
     "text": "Tennis player’s wish with high aims",
     "enumeration": "8"
    },
-   "solution": "WILLIAMS"
+   "solution": "WILLIAMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WILLIAMS",
+    "definitions": [
+     {
+      "text": "Tennis player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "high",
+      "for": "anagram",
+      "note": "high means drunk or stoned, so the letters stagger into another order"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wish",
+      "gives": "WILL",
+      "note": "will means desire"
+     },
+     {
+      "clueFragment": "aims",
+      "gives": "AIMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WILL",
+      "IAMS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIMS",
+       "gives": "IAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis star wishes for success with ambitious goals.",
+     "walkthrough": "The surface reads high as lofty ambition; it is the anagram signal. Williams is also the F1 team Senna was driving for when he died.",
+     "definitionFit": "Serena and Venus Williams are American sisters who both won many Grand Slam singles titles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "high"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1260,43 @@
     "text": "Port from Uruguay region",
     "enumeration": "3"
    },
-   "solution": "AYR"
+   "solution": "AYR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AYR",
+    "definitions": [
+     {
+      "text": "Port",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from means taken out of, so the letters are lifted from inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uruguay region",
+      "gives": "AYR",
+      "note": "spans the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A harbour located in an area of Uruguay.",
+     "walkthrough": "Ayr is a Scottish port, not one in South America.",
+     "definitionFit": "Ayr is a harbour town on the Firth of Clyde in south-west Scotland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Uruguay"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1310,61 @@
     "text": "Record keeper, an important boxer of note",
     "enumeration": "8"
    },
-   "solution": "ANNALIST"
+   "solution": "ANNALIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANNALIST",
+    "definitions": [
+     {
+      "text": "Record keeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxer",
+      "for": "container",
+      "note": "a boxer here is something that puts things in a box, so the joined words hold a letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "important",
+      "gives": "ALIST",
+      "note": "A-list means top-ranking or important"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "n. is the abbreviation for note"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "N",
+      "ALIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous fighter with a musical side keeps records.",
+     "walkthrough": "'Boxer' tempts the solver towards Ali, but it is the container signal: the first two pieces hold the note between them.",
+     "definitionFit": "An annalist writes annals, the year-by-year historical records of events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxer"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1378,50 @@
     "text": "Ant right to get cosmetic preparation",
     "enumeration": "5"
    },
-   "solution": "TONER"
+   "solution": "TONER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TONER",
+    "definitions": [
+     {
+      "text": "cosmetic preparation",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ant",
+      "gives": "TONE",
+      "note": "Ant and Tone are both pet forms of the name Anthony"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TONE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Ant is entitled to a beauty product.",
+     "walkthrough": "Ant swaps for another short form of Anthony; together with the next answer back from 19 it spells AYRTON, as in Ayrton Senna, the puzzle's theme.",
+     "definitionFit": "A toner is a skincare lotion applied to cleanse the face and tighten pores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ant"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1435,76 @@
     "text": "Sexy Malcolm’s crew collecting limousine with ladies initially inside",
     "enumeration": "7"
    },
-   "solution": "MCLAREN"
+   "solution": "MCLAREN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MCLAREN",
+    "definitions": [
+     {
+      "text": "Sexy Malcolm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting means picking up and taking in, so one word holds the next"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so a single letter sits in the vehicle word"
+     },
+     {
+      "text": "initially",
+      "for": "container",
+      "note": "initially points to only the first letter being placed within the vehicle"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crew",
+      "gives": "MEN",
+      "note": "a crew is a team of men"
+     },
+     {
+      "clueFragment": "limousine",
+      "gives": "CAR",
+      "note": "a limousine is a large car"
+     },
+     {
+      "clueFragment": "ladies",
+      "gives": "L",
+      "note": "first letter of ladies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "C",
+      "L",
+      "AR",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's gang picks up some women in a stretch limo.",
+     "walkthrough": "Malcolm McLaren managed the Sex Pistols, hence Sexy. McLaren is also the team with which Senna won his three world titles.",
+     "definitionFit": "Malcolm McLaren was the impresario who managed the punk band the Sex Pistols in the 1970s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sexy"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1518,56 @@
     "text": "Doctor’s companion left stopping impatient motorist",
     "enumeration": "7"
    },
-   "solution": "BLEEPER"
+   "solution": "BLEEPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLEEPER",
+    "definitions": [
+     {
+      "text": "Doctor’s companion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping means plugging a gap, so one letter goes inside a word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impatient motorist",
+      "gives": "BEEPER",
+      "note": "an impatient driver keeps sounding the horn"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "EEPER"
+     ]
+    },
+    "explanation": {
+     "surface": "Doctor Who's sidekick has walked out after a driver's road rage.",
+     "walkthrough": "'Doctor's companion' suggests Doctor Who; it is the pager hospital doctors carry.",
+     "definitionFit": "A bleeper is a pager, the small device that summons hospital doctors and travels everywhere with them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "companion"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1581,66 @@
     "text": "Cabaret actress upset after brother’s a nut",
     "enumeration": "6"
    },
-   "solution": "BRAZIL"
+   "solution": "BRAZIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BRAZIL",
+    "definitions": [
+     {
+      "text": "nut",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means turned upside down, which in a down entry flips the name"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "’s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brother",
+      "gives": "BR",
+      "note": "standard abbreviation for brother"
+     },
+     {
+      "clueFragment": "Cabaret actress",
+      "gives": "LIZA",
+      "note": "Liza Minnelli starred in the film Cabaret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "AZIL"
+     ],
+     "reversals": [
+      {
+       "from": "LIZA",
+       "to": "AZIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sibling thinks a distressed Liza Minnelli is crazy.",
+     "walkthrough": "'A nut' reads as a crazy person; it is the nut itself. Brazil is also Senna's home country.",
+     "definitionFit": "A brazil is the large, three-sided, oily seed of a South American tree, eaten as a nut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1654,48 @@
     "text": "Cheers for plonk!",
     "enumeration": "6"
    },
-   "solution": "PROSIT"
+   "solution": "PROSIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROSIT",
+    "definitions": [
+     {
+      "text": "Cheers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "plonk",
+      "gives": "SIT",
+      "note": "to plonk oneself down is to sit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "SIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A toast raised to cheap wine.",
+     "walkthrough": "Plonk is British slang for cheap wine, which the surface uses; here it is the verb to sit down heavily. Remove the I and the answer gives Prost, Senna's rival.",
+     "definitionFit": "Prosit is a Latin-derived toast used in Germany, meaning may it benefit you, like cheers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plonk"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1709,65 @@
     "text": "Scrap – can it still be recycled with reduced temperature?",
     "enumeration": "9"
    },
-   "solution": "SCINTILLA"
+   "solution": "SCINTILLA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SCINTILLA",
+    "definitions": [
+     {
+      "text": "Scrap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "be recycled",
+      "for": "anagram",
+      "note": "recycling remakes material into something new, so the letters are reworked"
+     },
+     {
+      "text": "with reduced temperature",
+      "for": "deletion",
+      "note": "reducing the temperature means its abbreviation is taken away from the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can it still",
+      "gives": "CANITSTILL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCINTILLA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CANISTILL",
+       "gives": "SCINTILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a tin can may still be recycled after cooling.",
+     "walkthrough": "One T is dropped from the ten letters, and the nine left are rearranged.",
+     "definitionFit": "A scintilla is a tiny trace or particle, so it means a scrap, as in not a scrap of evidence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrap"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1781,61 @@
     "text": "Trading insults finally before beer",
     "enumeration": "4"
    },
-   "solution": "SALE"
+   "solution": "SALE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SALE",
+    "definitions": [
+     {
+      "text": "Trading",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the word"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means coming first, so this letter precedes the drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insults",
+      "gives": "S",
+      "select": "last",
+      "note": "last letter of insults"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a kind of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Drinkers swap insults before downing their pints.",
+     "walkthrough": "'Trading' sounds like swapping insults; it is the definition meaning selling.",
+     "definitionFit": "A sale is the exchange of goods for money, the business of buying and selling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trading"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1849,65 @@
     "text": "Check website regularly after start of tennis",
     "enumeration": "4"
    },
-   "solution": "TEST"
+   "solution": "TEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TEST",
+    "definitions": [
+     {
+      "text": "Check",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter alone"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means following, so these letters come second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of tennis"
+     },
+     {
+      "clueFragment": "website",
+      "gives": "EST",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of website"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "Checking a website for tennis results.",
+     "definitionFit": "A test is an examination or trial to verify something, so to test is to check it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1921,74 @@
     "text": "March on, principally occupying 19 maybe in revolution",
     "enumeration": "5"
    },
-   "solution": "TROOP"
+   "solution": "TROOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "reversal"
+    ],
+    "answer": "TROOP",
+    "definitions": [
+     {
+      "text": "March",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means chiefly, pointing to the leading letter of the word"
+     },
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "occupying means taking up residence within, so the letter goes inside"
+     },
+     {
+      "text": "in revolution",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter of on"
+     },
+     {
+      "clueFragment": "19 maybe",
+      "gives": "PORT",
+      "note": "the answer at 19 is an example of a port"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "O",
+      "P"
+     ],
+     "reversals": [
+      {
+       "from": "POORT",
+       "to": "TROOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Revolutionaries marching on to take over a place.",
+     "walkthrough": "O goes inside PORT to give POORT, which is then read backwards.",
+     "definitionFit": "To troop is to walk together in a group, as soldiers or a crowd marching along."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +2002,64 @@
     "text": "Way to knock up hard",
     "enumeration": "4"
    },
-   "solution": "PATH"
+   "solution": "PATH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PATH",
+    "definitions": [
+     {
+      "text": "Way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word is written bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knock",
+      "gives": "TAP",
+      "note": "a tap is a light knock"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "TAP",
+       "to": "PAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A method of quickly throwing something together firmly.",
+     "walkthrough": "'Knock up' reads as a phrase meaning to make quickly, but up belongs with knock as a reversal signal.",
+     "definitionFit": "A path is a track or route, so it means a way through or along somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +2073,44 @@
     "text": "More than one light punches",
     "enumeration": "5"
    },
-   "solution": "LAMPS"
+   "solution": "LAMPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAMPS",
+    "definitions": [
+     {
+      "text": "More than one light",
+      "at": 0
+     },
+     {
+      "text": "punches",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than one light",
+      "note": "first meaning: plural of a device that gives illumination"
+     },
+     {
+      "clueFragment": "punches",
+      "note": "second meaning: slang verb for hits hard with the fist"
+     }
+    ],
+    "explanation": {
+     "surface": "Several gentle blows land.",
+     "walkthrough": "Light seems to describe the punches as soft, but it is a noun.",
+     "definitionFit": "Lamps are devices giving light, and to lamp someone is British slang for hitting them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +2124,60 @@
     "text": "Bacon perhaps has insects cooked with it",
     "enumeration": "9"
    },
-   "solution": "SCIENTIST"
+   "solution": "SCIENTIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCIENTIST",
+    "definitions": [
+     {
+      "text": "Bacon perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means prepared or altered, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insects",
+      "gives": "INSECTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSECTSIT",
+       "gives": "SCIENTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rasher of bacon fried up with bugs.",
+     "walkthrough": "'Bacon' suggests breakfast but is Francis Bacon, philosopher and pioneer of the scientific method; Roger Bacon also fits.",
+     "definitionFit": "Francis Bacon championed experimental method, so he is an example of a person who studies nature systematically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Bacon"
+    }
+   }
   }
  ]
 }
