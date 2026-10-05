@@ -49,8 +49,44 @@ print("PLAIN", S.number_date("cryptic", 30111) is None
 
 PY
 )
+# Mirror: the picker row prints exactly what the archive row prints, for a
+# feed, a book and each date-keyed series. app.js's displayNumber() is run
+# against tools/series.py display_number() on the same puzzles.
+mirror=$(cd "$REPO" && PYTHONPATH="$REPO/tools" python3 - <<'PY' 2>&1
+import json, subprocess
+import series as S
+books = {str(i): {"shelf": r["shelf"], "volume": r["volume"], "was": r["was"]}
+         for i, r in S.BOOKS.items()}
+dated = sorted(k for k in S.SERIES if "numberIsDate" in S.meta(k))
+cases = [{"series": "cryptic", "number": 30127, "date": "2026-10-02"},
+         {"series": "quiptic", "number": 999, "date": "2026-10-02"},
+         {"series": "book", "number": 3018, "year": 1995}]
+for k in dated:
+    num = int("20260922"[len(S.meta(k)["numberIsDate"]):])
+    cases.append({"series": k, "number": num, "date": S.number_date(k, num).isoformat()})
+js = r"""
+const src = require("fs").readFileSync("app.js", "utf8");
+const cut = (a, b) => { const s = src.indexOf(a), e = src.indexOf(b, s); return src.slice(s, src.indexOf("\n  }\n", e) + 4); };
+const body = cut("  const BOOKS = INDEX.books", "function displayNumber")
+  + cut("  const WEEKDAYS", "function puzzleDate");
+const f = new Function("INDEX", body + "; return { displayNumber };")(JSON.parse(process.argv[1]));
+console.log(JSON.stringify(JSON.parse(process.argv[2]).map(f.displayNumber)));
+"""
+got = json.loads(subprocess.run(["node", "-e", js, json.dumps({"books": books, "dateNumbered": dated}),
+                                 json.dumps(cases)], capture_output=True, text=True, check=True).stdout)
+ok = True
+for c, g in zip(cases, got):
+    want = S.display_number(c["series"], c["number"])
+    if g != want:
+        ok = False
+        print(f"BAD mirror {c['series']}-{c['number']}: app {g!r}, archive {want!r}")
+print("MIRROR", ok and len(got) == len(cases))
+PY
+)
+out="$out
+$mirror"
 echo "$out"
-for k in SOME PAGES PLAIN; do
+for k in SOME PAGES PLAIN MIRROR; do
   echo "$out" | grep -qx "$k True" || { echo "FAIL: $k"; exit 1; }
 done
 echo "PASS"

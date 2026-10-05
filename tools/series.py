@@ -721,9 +721,8 @@ def display_number(series, number):
     kind is printed too it already carries the volume, and the page prints
     position_of() so the volume is not said twice.
 
-    Mirrored by displayNumber() in app.js for the picker and archive rows,
-    bar the date-keyed form: the picker prints the stored number, which its
-    number search matches on, beside the row's own date.
+    Mirrored by displayNumber() in app.js for the picker rows, which must
+    print the same string (tools/test_date_numbers.sh).
     """
     if (day := number_date(series, number)):
         return day.strftime("%-d %b %Y")

@@ -687,14 +687,20 @@
     return row && position ? { row, position } : null;
   }
 
-  // What a solver reads instead of the stored number. Mirrors
-  // display_number() in tools/series.py: "No 3,018" names a puzzle no book
-  // prints, and with one chip for the whole shelf a bare "No 18" would name
-  // thirty different puzzles.
+  // The series whose stored number is the print date (tools/series.py
+  // numberIsDate), so the number is shown as the day it names.
+  const DATE_NUMBERED = new Set(INDEX.dateNumbered || []);
+
+  // What a solver reads instead of the stored number: display_number() in
+  // tools/series.py, which writes the same row on the archive pages, so the two
+  // must agree character for character (tools/test_date_numbers.sh). "No 3,018"
+  // names a puzzle no book prints, and with one chip for the whole shelf a bare
+  // "No 18" would name thirty different puzzles.
   function displayNumber(p) {
     const b = bookOf(p.series, p.number);
-    return b ? `${b.row.shelf} ${b.row.volume} No ${b.position}`
-             : `№ ${p.number}`;
+    if (b) return `${b.row.shelf} ${b.row.volume} No ${b.position}`;
+    if (DATE_NUMBERED.has(p.series) && p.date) return puzzleDate(p).shortWords;
+    return `No ${Number(p.number).toLocaleString("en-GB")}`;
   }
 
   // Every id this puzzle has ever had, from the days when a book was its own
@@ -5913,7 +5919,7 @@
   }
   function statsMilestonesHTML(st) {
     // 0 is a save from before letters were stamped: the day is unknown, not 1970.
-    const when = (t) => t ? new Date(t).toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" }) : "";
+    const when = (t) => t ? localDay(new Date(t)) : "";
     // The journey, not the map: the last few reached and the next two ahead.
     const reached = st.milestones.filter((m) => m.id).sort((a, b) => a.at - b.at).slice(-3);
     const ahead = st.milestones.filter((m) => !m.id).slice(0, 2);
@@ -5987,7 +5993,7 @@
     const today = new Date(st.now);
     const start = new Date(today.getFullYear(), today.getMonth(), today.getDate() - today.getDay() - 51 * 7);
     const level = (k) => (!k ? 0 : k < 5 ? 1 : k < 15 ? 2 : k < 30 ? 3 : 4);
-    const fmt = (d) => d.toLocaleDateString(undefined, { day: "numeric", month: "short", year: "numeric" });
+    const fmt = localDay;
     let cells = "";
     for (let i = 0; ; i++) {
       const d = new Date(start.getFullYear(), start.getMonth(), start.getDate() + i);
@@ -6070,14 +6076,14 @@
     const d = p.difficulty;
     if (!d) return "";
     const pct = d.percentile === null || d.percentile === undefined ? "" :
-      ` — harder than ${d.percentile}% of the puzzles here`;
+      ` — harder than ${d.percentile}% of rated puzzles here`;
     const basis = (d.basis || []).join(", ");
     // The SNITCH rates the Times: the index carries the interquartile NITCH of
     // each band's rated puzzles per series, and only bands with enough of them.
     const nitch = ((INDEX.snitchRanges || {})[p.series] || {})[d.band];
     const snitch = nitch ? ` ${d.band} puzzles in this series typically score SNITCH ${nitch.q1}–${nitch.q3}.` : "";
     return `<span class="badge diff diff-${d.band.toLowerCase()}" title="${esc(
-      d.band + pct + ". Based on " + basis + ", compared with the other puzzles on this site." + snitch
+      d.band.toLowerCase() + pct + ". Based on " + basis + ", compared with the other puzzles on this site." + snitch
       + " Tap the badge for how difficulty is rated."
     )}">${esc(d.band.toLowerCase())}</span>`;
   }
@@ -6340,12 +6346,29 @@
   //
   // A book puzzle holds its book's `year` and no `date`: the imprint prints no
   // day, so there is no weekday to show and iso is the year alone.
+  //
+  // `words` is the day as the archive pages print it, "3 October 2026", and
+  // `shortWords` the row's "3 Oct 2026" (tools/series.py display_number);
+  // `iso` stays for search, since that is what a solver might paste.
   const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July",
+    "August", "September", "October", "November", "December"];
+  // A calendar day in words, the one way the app prints one.
+  function dayWords(y, m, d, short) {
+    return `${d} ${short ? MONTHS[m].slice(0, 3) : MONTHS[m]} ${y}`;
+  }
+  function localDay(t) { return dayWords(t.getFullYear(), t.getMonth(), t.getDate(), true); }
   function puzzleDate(p) {
-    if (p.year !== undefined) return { iso: String(p.year), day: "", short: "" };
-    if (!p.date) return { iso: "", day: "", short: "" };
-    const day = WEEKDAYS[new Date(p.date).getUTCDay()] || "";
-    return { iso: p.date, day, short: day.slice(0, 3) };
+    if (p.year !== undefined) {
+      const y = String(p.year);
+      return { iso: y, day: "", short: "", words: y, shortWords: y };
+    }
+    if (!p.date) return { iso: "", day: "", short: "", words: "", shortWords: "" };
+    const t = new Date(p.date);
+    const day = WEEKDAYS[t.getUTCDay()] || "";
+    const [y, m, d] = [t.getUTCFullYear(), t.getUTCMonth(), t.getUTCDate()];
+    return { iso: p.date, day, short: day.slice(0, 3),
+             words: dayWords(y, m, d, false), shortWords: dayWords(y, m, d, true) };
   }
   // The half of a puzzle's search text that cannot change while the page is
   // open: every word in it is read off INDEX, which is loaded once and never
@@ -6374,7 +6397,7 @@
     // shows has to be the one that matches.
     const series = p.series || "cryptic";
     return (staticHay[p.id] = [p.number, String(p.number).replace(/(\d)(\d{3})$/, "$1,$2"),
-      displayNumber(p), p.setter, dd.iso, dd.day,
+      displayNumber(p), p.setter, dd.iso, dd.words, dd.day,
       series, (SERIES_BADGE[series] || [""])[0],
       p.difficulty ? p.difficulty.band : "",
       ...(p.tags || []).map((k) => ((INDEX.tags || {})[k] || {}).label || "")].join(" ").toLowerCase());
@@ -6603,14 +6626,14 @@
     // Abbreviated, and the weekday leads. The row is tight — see the note
     // below about the nowrap element shoving the line — and "Sat" in front is
     // read at a glance where a trailing full "Saturday" would just be length.
-    const d = dd.short ? `${dd.short} ${dd.iso}` : dd.iso;
+    const d = dd.short ? `${dd.short} ${dd.shortWords}` : dd.shortWords;
     const btn = document.createElement("button");
     // Order here is the grid's, not the eye's: the badges are markup-last but
     // render on their own second line (see .p-tags in style.css). Progress
     // sits with them because it is a status like they are, and because
     // gluing it onto the date made the one nowrap element in the row long
     // enough to shove everything else off the line.
-    btn.innerHTML = `<span class="p-num">${displayNumber(p)}</span>
+    btn.innerHTML = `<span class="p-num" data-number="${p.number}">${displayNumber(p)}</span>
         <span class="p-setter">${esc(p.setter || "")}</span>
         <span class="p-meta">${d}</span>
         <span class="p-tags">${seriesBadge(p)}${difficultyBadge(p)}${hintsBadge(p.annotated, p.blog)}${sourceBadge(p)}${tagBadges(p)}
@@ -6954,7 +6977,7 @@
     $("puzzle-title").innerHTML =
       esc(P.name) +
       (setter ? ` — set by <em>${esc(setter)}</em>` : "") +
-      (when.iso ? ` <span class="muted">· ${when.day ? when.day + " " : ""}${when.iso}</span>` : "") +
+      (when.words ? ` <span class="muted">· ${when.day ? when.day + " " : ""}${when.words}</span>` : "") +
       (meta.annotated ? "" : " " + hintsBadge(false, P.blog && entries.some((e) => e.blog) && P.blog.name)) +
       // Prize puzzles publish their answers about a week late, and this site
       // solves them in the meantime rather than leaving its newest puzzle

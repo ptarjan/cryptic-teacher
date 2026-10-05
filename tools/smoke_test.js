@@ -112,19 +112,14 @@ const LADDER = (() => {
 })();
 assert(LADDER.length === 5, "the ladder has five rungs: " + LADDER.map((r) => r.key).join(", "));
 
-// A row's innerHTML carries "№ 1183", and past ~600 puzzles the archive also
-// carries "№ 11830".."№ 11839" — every one of which contains "№ 1183" as a
-// plain substring. `.includes("№ " + num)` picked whichever row came first,
-// which for most of this file's history was always the row it meant, until
-// the corpus grew enough digits to make that a coincidence rather than a
-// guarantee (Paul, backfill past 1,183 puzzles, 2026-09-17). Anchored so a
-// number can only match its own row, not a longer number it happens to
-// prefix.
+// A row's number span carries the stored number as data-number, read here
+// rather than the printed "No 1,183", which a book or a date-keyed paper prints
+// as something else. Quoted, so 1183 cannot match the row of 11830.
 // An annotation's definitions, as clue text; `at` counts code points, so
 // cpToIdx turns it into a JS string index.
 const defTexts = (a) => ((a && a.definitions) || []).map((d) => d.text);
 const cpToIdx = (s, at) => [...s].slice(0, at).join("").length;
-const rowHasNumber = (html, num) => new RegExp("№ " + num + "(?!\\d)").test(html);
+const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
 
 // --- the vendored decoder is the build vendor/README.md pins ---
 // A dependency nobody can diff is one nobody reads. The hash is written down in
@@ -805,8 +800,8 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
      "Penguin book 5 No 18" without a second table of shelf labels — which is
      exactly what an 18-key BOOK_SHELF object in app.js used to be.
 
-     A book whose row the index does not carry prints its number raw ("№
-     3018"), which is the right failure for an index deployed before the table
+     A book whose row the index does not carry prints its number raw ("No
+     3,018"), which is the right failure for an index deployed before the table
      existed and the wrong state for this checkout. */
   const books = global.CRYPTIC_INDEX.books || {};
   assert(Object.keys(books).length > 0,
@@ -1598,12 +1593,13 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 // lies about being one.
 {
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  const MONS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   const seen = {};
   pickerRows().forEach((li) => {
-    const m = li.children[0].innerHTML.match(/<span class="p-meta">(\w{3}) (\d{4}-\d{2}-\d{2})</);
-    assert(m, "every picker row carries a weekday and a date: "
+    const m = li.children[0].innerHTML.match(/<span class="p-meta">(\w{3}) ((\d{1,2}) (\w{3}) (\d{4}))</);
+    assert(m && MONS.includes(m[4]), "every picker row carries a weekday and a date: "
       + (li.children[0].innerHTML.match(/p-meta">[^<]*/) || ["(none)"])[0]);
-    const want = DAYS[new Date(m[2] + "T00:00:00Z").getUTCDay()];
+    const want = DAYS[new Date(Date.UTC(+m[5], MONS.indexOf(m[4]), +m[3])).getUTCDay()];
     assert(m[1] === want, `${m[2]} was a ${want}, not a ${m[1]}`);
     seen[want] = (seen[want] || 0) + 1;
   });
@@ -1637,8 +1633,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
      * no progress on the archive — a static page has no per-solver state;
      * the archive badges BOTH coverage states, the app only the exception,
        because the picker lists annotated puzzles and the archive lists all;
-     * the number and the date are written long on the archive and short in the
-       picker, which is a 430px panel. */
+     * the date is written long on the archive and short in the picker, which
+       is a 430px panel: "Saturday 3 October 2026" there, "Sat 3 Oct 2026" here. */
 {
   const AXES = ["series", "difficulty", "coverage", "source", "progress"];
   const PARTS = ["p-num", "p-setter", "p-meta", "p-tags"];
@@ -1872,7 +1868,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // Structural rather than textual, so deleting the badge can't quietly turn
   // this into a test of nothing: the listed numbers must BE the annotated ones.
   const annotatedNums = new Set(allPuzzles.filter((p) => p.annotated).map((p) => String(p.number)));
-  const listedNums = others.map((li) => (li.children[0].innerHTML.match(/№ (\d+)/) || [])[1]);
+  const listedNums = others.map((li) => (li.children[0].innerHTML.match(/data-number="(\d+)"/) || [])[1]);
   const strays = listedNums.filter((n) => !annotatedNums.has(n));
   assert(listedNums.length && !strays.length,
     "un-annotated puzzles are listed by default: " + strays.join(", "));
@@ -1900,7 +1896,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // The number narrows; the number and the series together identify. A number
   // shared by two series has to come back as two rows there and one row here.
   pickerSearchFor(target.id);
-  assert(drainPicker().length === 1 && pickerHTMLNow().includes("№ " + target.number),
+  assert(drainPicker().length === 1 && rowHasNumber(pickerHTMLNow(), target.number),
     `number plus series finds exactly one puzzle: ${target.id}`);
   // And that number is the whole number. Every puzzle number of five digits or
   // fewer is a run of digits inside some longer one once an archive is this
@@ -1913,7 +1909,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     && numbers.some((m) => m.length > n.length && m.includes(n)));
   typeInPicker(short);
   const found = drainPicker().map((li) =>
-    (li.children[0].innerHTML.match(/№ ([\d,]+)/) || [])[1]);
+    (li.children[0].innerHTML.match(/data-number="(\d+)"/) || [])[1]);
   assert(found.length === 1 && found[0].replace(/,/g, "") === short,
     "a number search matches whole numbers only, not digits inside a longer one: "
     + short + " found " + found.join(", "));
