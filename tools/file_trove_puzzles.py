@@ -958,22 +958,23 @@ def consider(d, taken):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seconds=None, workers=1,
-        wait=False, reread=None):
+        wait=False, reread=None, articles=None):
     """File what is new under `cache`; `puzzles` is a directory to write to
     instead of the corpus (tests). No article is started once `seconds` have
     passed; `workers` are read at once (scan_queue). Returns the tally it
     prints; None when another run holds the ledger and `wait` is not set.
-    `reread` (a datetime) reads again every article last read before it."""
+    `reread` (a datetime) reads again every article last read before it;
+    `articles` (ids) reads those again, and no other."""
     deadline = None if seconds is None else time.monotonic() + seconds
     ledger = Path(ledger or cache / "filed.jsonl")
     with scan_queue.lock(ledger, wait) as mine:
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
             return None
-        return _run(cache, write, ledger, out, puzzles, deadline, workers, reread)
+        return _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles)
 
 
-def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
+def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles=None):
     os.environ.setdefault("OCR_THREADS", str(max(1, (os.cpu_count() or 1) // max(1, workers))))
     known = {}
     if ledger.exists():
@@ -995,7 +996,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread):
             waited = row.get("pending", "").startswith("no reading of the page's clues")
             row["inputs"] = "" if waited and trove_clue_ocr.zone_images(d.name, clue_zones(d)) else h
             row.pop("hash")
-        if due_reason(row, h, seen_by, reread):
+        if (d.name in articles) if articles else due_reason(row, h, seen_by, reread):
             due[d] = h
     queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
                              lambda row: row is None or "inputs" not in row)
@@ -1095,6 +1096,8 @@ def main(argv=None):
     ap.add_argument("--reread", nargs="?", const="now", metavar="BEFORE",
                     help="read again every article last read before BEFORE (an ISO time; default now): "
                          "the one-off after a change to this code or the VLM model, which alone makes nothing due")
+    ap.add_argument("--article", action="append", metavar="ID",
+                    help="read this article again, and no other (repeatable)")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ID", help="print one article's verdict and grid")
     args = ap.parse_args(argv)
@@ -1105,7 +1108,8 @@ def main(argv=None):
             print(json.dumps(puzzle, indent=1)[:4000])
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        seconds=args.seconds, workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread))
+        seconds=args.seconds, workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread),
+        articles=args.article)
     if not args.out:
         trove_solution_ocr.fill_corpus(args.cache, write=not args.dry_run)
     return 0

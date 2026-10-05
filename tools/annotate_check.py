@@ -4,6 +4,7 @@
     python3 tools/annotate_check.py cryptic-30098
     python3 tools/annotate_check.py --view cryptic-30098   # the run's input
     python3 tools/annotate_check.py cryptic-30098 --patch FILE
+    python3 tools/annotate_check.py --reread times-18749   # misread? ask the OCR again
 
 --patch merges FILE, {"8-down": {"definitionFit": "...", "blocks": [...]}},
 into tools/_ann_<ID>.json first: each named field replaced, null removing it,
@@ -34,6 +35,12 @@ command needs an approval these runs cannot give and aborts whole, having run
 nothing. Worse still is the shape the transcripts showed: fix one warning,
 re-run, read the next warning, fix that. One run already knows everything that
 is wrong, so this says all of it at once and asks for one edit back.
+
+--reread, run by tools/prereset_backfill.sh on a finished run before it
+commits or discards it, asks the scan filer to read an OCR'd puzzle's source
+again (scan_queue.request_reread) when the run met a misread clue: it filed
+a printedClue row HEAD does not have, or check_clue_unchanged or
+check_anagram_letters fails. Exit 0 when a re-read was queued.
 
 Exit code is the validator's: 0 when the puzzle is publishable. Warnings and
 audit hits are worth fixing and do not fail the build.
@@ -696,10 +703,63 @@ def name_checks(report):
     return "\n".join(out)
 
 
+#: The checks a misread clue fails: the run rewrote the clue to fit its
+#: parse, or the clue's fodder cannot give the answer's letters.
+MISREAD_CHECKS = ("check_clue_unchanged", "check_anagram_letters")
+
+
+def misread(path):
+    """([(entry id, printed clue)] as HEAD has the puzzle (the source's
+    reading), [what met a misread]) for the puzzle at `path`: "printedClue"
+    for a source_clue_wrong.json row HEAD lacks, and each of MISREAD_CHECKS
+    that fails."""
+    puzzle = read_puzzle_file(path)
+    pid = puzzle["id"]
+    committed = validate_annotations.committed_entries(path)
+    entries = committed if committed is not None else {entry_id(e): e for e in puzzle["entries"]}
+    import enumeration
+    clues = [(eid, enumeration.printed(e["clue"])) for eid, e in entries.items()]
+    why = []
+    rows = json.loads((DATA / "source_clue_wrong.json").read_text(encoding="utf-8"))
+    head = subprocess.run(["git", "show", "HEAD:tools/data/source_clue_wrong.json"], cwd=ROOT,
+                          capture_output=True, text=True, check=False)
+    held = json.loads(head.stdout) if head.returncode == 0 else {}
+    if any(k.split("/", 1)[0] == pid and held.get(k) != v for k, v in rows.items()):
+        why.append("printedClue")
+    errors = []
+    validate_annotations.check_clue_unchanged(puzzle, path, errors)
+    if errors:
+        why.append("check_clue_unchanged")
+    for e in puzzle["entries"]:
+        errors = []
+        if e.get("annotation"):
+            tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
+            validate_annotations.check_anagram_letters(pid, entry_id(e), tag, e["annotation"], errors)
+        if errors:
+            why.append("check_anagram_letters")
+            break
+    return clues, why
+
+
+def reread(pid):
+    """Queue an OCR re-read of `pid`'s source when its run met a misread;
+    0 when one was queued."""
+    import scan_queue
+    path = resolve_puzzle(pid)
+    clues, why = misread(path)
+    req = why and scan_queue.request_reread(read_puzzle_file(path), clues, why)
+    if not req:
+        return 1
+    print(f"{pid}: queued an OCR re-read of {req['filer']} {req['source']} ({', '.join(req['why'])})")
+    return 0
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help"):
         print(__doc__.strip())
         return 0
+    if argv[0] == "--reread":
+        return reread(argv[1])
     if argv[0] == "--view":
         print(write_view(resolve_puzzle(argv[1])).relative_to(ROOT))
         return 0

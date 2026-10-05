@@ -1393,8 +1393,13 @@ tools/test_shared_continuation.sh            does a light whose clue names two l
 tools/ocr_full_pass.sh                       read every Trove article and archive.org edition
                                              the scan filers have not read yet, to the end,
                                              then stop
-tools/scan_queue.py                          the read queue the scan filers share
-                                             (tools/file_archive_org_puzzles.py,
+tools/scan_queue.py                          the read queue the scan filers share, and the
+                                             re-reads annotation asks of them
+tools/test_scan_reread.sh                    does an annotation that meets a misread clue on an
+                                             OCR'd puzzle queue its scan for a re-read, once
+                                             per reading of its clues, does the burn leave the
+                                             puzzle alone until the re-read lands, and take it
+                                             back after?
 tools/test_scan_queue.sh                     does tools/scan_queue.py read the never-read
                                              first, never send the queue back to the start,
                                              keep N sources in flight, stop at its deadline,

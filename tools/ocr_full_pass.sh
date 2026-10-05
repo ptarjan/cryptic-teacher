@@ -77,6 +77,21 @@ for paper in telegraph guardian ft times; do
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
 done
 slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
+# The sources an annotation run asked to be read again, having met a misread
+# clue on a puzzle filed from them (tools/scan_queue.py request_reread): each
+# read closes its request, and the burn takes the puzzle again after it.
+for paper in telegraph guardian ft times; do
+  asked=()
+  while read -r src; do asked+=(--edition "$src"); done < <(python3 tools/scan_queue.py requested archive "$paper")
+  [ "${#asked[@]}" -gt 0 ] || continue
+  slices "$paper re-reads annotation asked for" python3 tools/file_archive_org_puzzles.py --paper "$paper" \
+    "${asked[@]}" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
+done
+asked=()
+while read -r src; do asked+=(--article "$src"); done < <(python3 tools/scan_queue.py requested trove)
+if [ "${#asked[@]}" -gt 0 ]; then
+  slices "Trove re-reads annotation asked for" python3 tools/file_trove_puzzles.py "${asked[@]}" || exit 1
+fi
 # Name the London Times puzzle each canberra file reprints (source.reprintOf).
 # The Times slices match too, but before this pass's canberra files exist.
 nice -n 19 python3 tools/file_archive_org_puzzles.py --match-canberra ||
