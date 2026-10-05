@@ -82,6 +82,28 @@ check("a themed preamble sets special rules", "special-rules" in tagged(real("ft
 check("a corrected clue does not", "special-rules" not in tagged(real("cryptic-27981")))
 check("nor does a sponsorship note", "special-rules" not in tagged(real("cryptic-23450")))
 
+# --- a nina the paper kept quiet: a blog quotes it, our grid spells it ---
+import ninas
+thanks = real("independent-8651")
+said = "This would normally suggest a nina: around the perimeter we have A BIG THANK YOU TO ALL TEST SOLVERS."
+check("a perimeter message a post quotes near 'nina' is found",
+      (ninas.find(thanks, said) or ())[:2] == ("perimeter", "ABIGTHANKYOUTOALLTESTSOLVERS"),
+      ninas.find(thanks, said))
+check("the same words with nothing pointing at the grid are not a nina",
+      ninas.find(thanks, "A BIG THANK YOU TO ALL TEST SOLVERS.") is None)
+check("answers the blogger writes out side by side are not a nina",
+      ninas.find(thanks, "No nina here. ATTAIN IDIOLECT BASEBALL") is None,
+      ninas.find(thanks, "No nina here. ATTAIN IDIOLECT BASEBALL"))
+check("an answer and the next word's first letter are not a nina",
+      ninas.find(real("cryptic-26253"), "Any nina? 11 TURBINE Engine 12 ENCLAVE") is None)
+check("the words in lower case are prose, not a quoted message",
+      ninas.find(thanks, "A nina: around the perimeter we have a big thank you to all test solvers.") is None)
+split = "A nina: around the perimeter A B I G THANK YOU TO ALL TEST SOLVERS."
+check("letters a parsing splits off are not words of the message",
+      (ninas.find(thanks, split) or ())[1:2] == ("THANKYOUTOALLTESTSOLVERS",), ninas.find(thanks, split))
+check("a blogged nina in tools/data/ninas.json tags the puzzle",
+      "hidden-message" in tagged(thanks))
+
 # --- the grid's shape ---
 check("a Listener is a barred grid", "barred" in tagged(real("listener-1")))
 check("a published grid a half turn does not map onto is asymmetric",

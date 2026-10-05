@@ -993,6 +993,10 @@ tools/data/ctc_parse_check.json              per annotated clue CtC solved on vi
                                              anagram fodder and short pieces against what the
                                              solver said explaining it, with the words that
                                              disagreed; a summary by field and type on top
+tools/data/ninas.json                        tools/ninas.py's output: per puzzle, the hidden
+                                             message a blog points out, where it runs in our
+                                             grid and the post; puzzle_tags reads it for the
+                                             nina tag
 tools/data/ctc_unstick.json                  per stuck or long-waited clue CtC solved on video:
                                              what the solver said in the 20 seconds before the
                                              solve that unlocked it (definition, indicator,
@@ -1464,5 +1468,7 @@ tools/test_discard_alert.sh                  does a rejected annotation alert on
                                              puzzle is parked?
 tools/check_shapes.js                        the corpus-wide half of tools/smoke_test.js's
                                              shape() checks
+tools/ninas.py                               unannounced messages in finished grids that blogs
+                                             point out, each checked against our grid
 ```
 <!-- LAYOUT-END -->

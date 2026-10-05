@@ -350,6 +350,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/ctc_moments.json", "every reaction ctc_transcripts.py found: video, puzzle, trigger words, a minute of transcript, and the clue it was tied to"),
     ("tables everything else reads", "tools/data/ctc_solve_times.json", "per clue of each timed Cracking the Cryptic solve video: when it was read and solved, seconds since the previous solve, solve rank 0-1 within the video, and a stuck flag"),
     ("tables everything else reads", "tools/data/ctc_parse_check.json", "per annotated clue CtC solved on video: agree, disagree or unknown for its definition, type, anagram fodder and short pieces against what the solver said explaining it, with the words that disagreed; a summary by field and type on top"),
+    ("tables everything else reads", "tools/data/ninas.json", "tools/ninas.py's output: per puzzle, the hidden message a blog points out, where it runs in our grid and the post; puzzle_tags reads it for the nina tag"),
     ("tables everything else reads", "tools/data/ctc_unstick.json", "per stuck or long-waited clue CtC solved on video: what the solver said in the 20 seconds before the solve that unlocked it (definition, indicator, device, short piece, crossing letters, other sense) and the ladder rungs that show it; a summary by clue type against quick solves, with every rung order scored"),
     ("tables everything else reads", "tools/data/yt_solvers/", "the same moments, solve times, parse check and unstick tables for each other solve channel, as <slug>_<kind>.json, plus skill_check.json (our per-clue difficulty against each channel's waits, pooled by solver skill, and the solvers against each other) and unstick_by_skill.json (what unlocked hard solves at each skill level)"),
     ("tables everything else reads", "tools/data/ctc_reasons.json", "the judge's verdict, reasons and the solver's own words for each reacted-to clue"),
@@ -505,6 +506,7 @@ LAYOUT = [
     ("fetching", "tools/test_anagram_ring.sh", "a clue typed anagram gets the anagram ring: app.js deals the whole-answer anagram's fodder, else the longest part-anagram's, and the validator warns (ratcheted as assembly.anagrams) when a clue typed anagram names no fodder"),
     ("fetching", "tools/test_discard_alert.sh", "does a rejected annotation alert only when the puzzle is parked?"),
     ("fetching", "tools/check_shapes.js", "the corpus-wide half of tools/smoke_test.js's shape() checks"),
+    ("fetching", "tools/ninas.py", "unannounced messages in finished grids that blogs point out, each checked against our grid"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the
