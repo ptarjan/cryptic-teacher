@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "Player afterwards grabbing bath into which I dipped",
     "enumeration": "8"
    },
-   "solution": "THESPIAN"
+   "solution": "THESPIAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THESPIAN",
+    "definitions": [
+     {
+      "text": "Player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing means seizing and holding, so the first word wraps around what follows"
+     },
+     {
+      "text": "into which",
+      "for": "container",
+      "note": "the second word must take the letter into it, so the following item sits inside it"
+     },
+     {
+      "text": "dipped",
+      "for": "container",
+      "note": "dipped as into a bath, so the single letter goes inside the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "afterwards",
+      "gives": "THEN",
+      "note": "afterwards means then, next"
+     },
+     {
+      "clueFragment": "bath",
+      "gives": "SPA",
+      "note": "a spa is a bath or mineral spring"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "SP",
+      "I",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A sportsman, after the game, takes a long soak in the tub.",
+     "walkthrough": "I goes into SPA to make SPIA, and THEN grabs that to give THESPIAN.",
+     "definitionFit": "A thespian is an actor, and a player is an old word for someone who performs on stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Player"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +115,42 @@
     "text": "Flat arc on doughnut rings",
     "enumeration": "5"
    },
-   "solution": "CONDO"
+   "solution": "CONDO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CONDO",
+    "definitions": [
+     {
+      "text": "Flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rings",
+      "for": "hidden_word",
+      "note": "the outer words ring or encircle the answer, which sits inside the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arc on doughnut",
+      "gives": "CONDO",
+      "note": "the letters run across the end of arc, all of on and the start of doughnut"
+     }
+    ],
+    "explanation": {
+     "surface": "A doughnut decorated with flat arcs of icing in rings.",
+     "definitionFit": "A condo, short for condominium, is an American term for an apartment, which Britons call a flat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flat"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +170,70 @@
      }
     ]
    },
-   "solution": "TRUEBLUE"
+   "solution": "TRUEBLUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TRUE BLUE",
+    "definitions": [
+     {
+      "text": "Diehard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "applied to the first word, oddly means strangely, so its letters are arranged in a new way"
+     },
+     {
+      "text": "both",
+      "for": "letter_selection",
+      "note": "both tells us oddly works twice; for the second word it means keep only the letters in odd positions"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brute",
+      "gives": "BRUTE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "louse",
+      "gives": "LUE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUEB",
+      "LUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRUTE",
+       "gives": "TRUEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A die-hard supporter is described as both a brute and a louse.",
+     "walkthrough": "'Oddly' does double duty, as the 'both' signals: brute is scrambled, and louse gives its odd letters. True blue is a British idiom for an unwavering Conservative loyalist.",
+     "definitionFit": "A true-blue person is staunchly loyal and unwavering, which is what a die-hard supporter is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 4,
@@ -87,7 +253,51 @@
      }
     ]
    },
-   "solution": "INSITU"
+   "solution": "INSITU",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN SITU",
+    "definitions": [
+     {
+      "text": "placed there",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Base",
+      "for": "anagram",
+      "note": "base means debased or corrupted, so the following letters are degraded into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unit is",
+      "gives": "UNITIS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNITIS",
+       "gives": "INSITU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military base unit has been stationed at a site.",
+     "walkthrough": "'Base unit' reads like a phrase about a military post; 'Base' is only the signal to rearrange.",
+     "definitionFit": "In situ is Latin for in its original position, so something in situ has been put in that place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Base"
+    }
+   }
   },
   {
    "number": 5,
@@ -101,7 +311,74 @@
     "text": "A dude describing life force in instant coffee",
     "enumeration": "9"
    },
-   "solution": "MACCHIATO"
+   "solution": "MACCHIATO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MACCHIATO",
+    "definitions": [
+     {
+      "text": "coffee",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe can mean to draw a line round, so the first item encircles the next"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the assembled letters are placed inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dude",
+      "gives": "CAT",
+      "note": "a cat is slang for a cool guy, a dude"
+     },
+     {
+      "clueFragment": "life force",
+      "gives": "CHI",
+      "note": "chi is the vital energy in Chinese philosophy"
+     },
+     {
+      "clueFragment": "instant",
+      "gives": "MO",
+      "note": "a mo is a moment, an instant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "C",
+      "CHI",
+      "AT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Some laid-back guy is said to find his energy in a mug of instant coffee.",
+     "walkthrough": "A cat is old jazz slang for a cool man, and chi is the Chinese life energy. The surface's 'instant coffee' is a false pairing: this espresso drink is not instant.",
+     "definitionFit": "A macchiato is an espresso stained with a dash of milk, a kind of coffee served in cafés."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instant"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +392,45 @@
     "text": "State possible response to ‘will she dance with me?’ in the Cavern Club?",
     "enumeration": "6"
    },
-   "solution": "ALASKA"
+   "solution": "ALASKA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ALASKA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the Cavern Club",
+      "for": "homophone",
+      "note": "the famous Liverpool venue tells us to hear the words in a Scouse accent"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "possible response to ‘will she dance with me?’",
+      "gives": "ALASKA",
+      "soundsLike": "AL ASKER",
+      "note": "'I'll ask her' as a Liverpudlian would say it"
+     }
+    ],
+    "explanation": {
+     "surface": "A shy lad at a Liverpool club wonders whether a girl will dance with him.",
+     "walkthrough": "The Cavern Club is the Liverpool venue where the Beatles played; in a Scouse accent 'I'll ask her' comes out roughly as the state's name.",
+     "definitionFit": "Alaska is the largest of the fifty United States, bought from Russia in 1867."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +450,51 @@
      }
     ]
    },
-   "solution": "SCHOOLRUN"
+   "solution": "SCHOOLRUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCHOOL RUN",
+    "definitions": [
+     {
+      "text": "twice-daily pain?",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "then",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drill",
+      "gives": "SCHOOL",
+      "note": "to school is to train or drill"
+     },
+     {
+      "clueFragment": "dart",
+      "gives": "RUN",
+      "note": "to dart is to run quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCHOOL",
+      "RUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A military drill and a sprint make for a painful routine twice a day.",
+     "walkthrough": "The school run is the British term for parents driving children to and from school each morning and afternoon.",
+     "definitionFit": "Ferrying children to class and collecting them later happens every morning and afternoon, a familiar parental chore and nuisance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Drill"
+    }
+   }
   },
   {
    "number": 7,
@@ -155,7 +514,51 @@
      }
     ]
    },
-   "solution": "SHRINKWRAPPED"
+   "solution": "SHRINKWRAPPED",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SHRINK-WRAPPED",
+    "definitions": [
+     {
+      "text": "in a film?",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out loud",
+      "for": "homophone",
+      "note": "spoken out loud, the word sounds like another word with a different spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Freud",
+      "gives": "SHRINK",
+      "note": "Freud was a psychoanalyst, and shrink is slang for one"
+     },
+     {
+      "clueFragment": "made some noise for da boise, and da crowd",
+      "gives": "WRAPPED",
+      "soundsLike": "RAPPED",
+      "note": "performing rap for an audience"
+     }
+    ],
+    "explanation": {
+     "surface": "Sigmund Freud imagined performing hip-hop to the homeboys in a movie.",
+     "walkthrough": "'Da boise' and 'da crowd' set the rap scene; the performing word sounds like one meaning covered.",
+     "definitionFit": "Shrink-wrapped goods are sealed in tight plastic film, so they are enclosed in a film."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +572,49 @@
     "text": "Bright element that’s metallic blue",
     "enumeration": "5"
    },
-   "solution": "AGLOW"
+   "solution": "AGLOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGLOW",
+    "definitions": [
+     {
+      "text": "Bright",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "element that’s metallic",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver, a metallic element"
+     },
+     {
+      "clueFragment": "blue",
+      "gives": "LOW",
+      "note": "blue means depressed, feeling low"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A shiny metal with a blue sheen gleams brightly.",
+     "definitionFit": "Something aglow is glowing with light or colour, so it is radiant and shining."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +634,78 @@
      }
     ]
    },
-   "solution": "WORKINGMOTHER"
+   "solution": "WORKINGMOTHER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "WORKING MOTHER",
+    "definitions": [
+     {
+      "text": "female juggler?",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tossed up",
+      "for": "reversal",
+      "note": "in a down clue, thrown upwards means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "above",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sequence of items",
+      "gives": "ROW",
+      "note": "a row is a line or series of things"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "KING",
+      "note": "a chess piece, a man on the board"
+     },
+     {
+      "clueFragment": "thousand",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "more",
+      "gives": "OTHER",
+      "note": "other as in additional, further"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOR",
+      "KING",
+      "M",
+      "OTHER"
+     ],
+     "reversals": [
+      {
+       "from": "ROW",
+       "to": "WOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus act where items are tossed in the air by a woman juggling.",
+     "walkthrough": "The juggler is no circus act: she balances a job with raising children.",
+     "definitionFit": "A working mother famously juggles employment and childcare, keeping many commitments in the air at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "juggler"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +719,61 @@
     "text": "Rise not right, owed what’s left",
     "enumeration": "7"
    },
-   "solution": "RESIDUE"
+   "solution": "RESIDUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RESIDUE",
+    "definitions": [
+     {
+      "text": "what’s left",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "anagram",
+      "note": "something that is not right is wrong or out of order, so these letters are reshuffled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rise",
+      "gives": "RISE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "owed",
+      "gives": "DUE",
+      "note": "money owed is due"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESI",
+      "DUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RISE",
+       "gives": "RESI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pay rise has not been given properly, and money is still owed.",
+     "walkthrough": "'Not right' looks like an instruction to drop the R; here it means the word is wrong, rearranged.",
+     "definitionFit": "A residue is the remainder of something after the rest has been removed or used up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +787,62 @@
     "text": "One of a set with it is cutting well",
     "enumeration": "7"
    },
-   "solution": "INCISOR"
+   "solution": "INCISOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INCISOR",
+    "definitions": [
+     {
+      "text": "One of a set",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "cutting into something means going inside it, so this word is placed within the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with it",
+      "gives": "IN",
+      "note": "in means fashionable, with it"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "COR",
+      "note": "cor! is a British exclamation of surprise, like well!"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "C",
+      "IS",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable member of a group is good at cutting.",
+     "walkthrough": "'Cutting' seems to describe the tooth itself, but it is the instruction to insert. 'Set' is a set of teeth.",
+     "definitionFit": "An incisor is one of the front cutting teeth in a set, the full collection of teeth in a mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +856,54 @@
     "text": "Zip has caught a collar",
     "enumeration": "4"
    },
-   "solution": "NAIL"
+   "solution": "NAIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NAIL",
+    "definitions": [
+     {
+      "text": "collar",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has caught",
+      "for": "container",
+      "note": "one word catches and holds the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Zip",
+      "gives": "NIL",
+      "note": "zip is slang for nothing, nil"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A zip has got stuck in a shirt collar.",
+     "definitionFit": "To collar someone is to seize or arrest them, and to nail a suspect is to catch them too."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Zip"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +917,62 @@
     "text": "Cream: initial lump briefly whipped",
     "enumeration": "10"
    },
-   "solution": "ILLUMINATI"
+   "solution": "ILLUMINATI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ILLUMINATI",
+    "definitions": [
+     {
+      "text": "Cream",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "said briefly, the word is cut short, losing its final letter"
+     },
+     {
+      "text": "whipped",
+      "for": "anagram",
+      "note": "whipped as cream is beaten up, so these letters are churned into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "initial",
+      "gives": "INITIAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lump",
+      "gives": "LUM",
+      "note": "the word without its last letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INITIALLUM",
+       "gives": "ILLUMINATI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lump in the cream that was whipped is spotted at first.",
+     "walkthrough": "'Whipped' belongs naturally with 'Cream' in the surface, but cream here is the definition, meaning the elite.",
+     "definitionFit": "The Illuminati are an elite, enlightened or secretive group, and the cream of society is its elite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cream"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +986,71 @@
     "text": "Soldier on with a lawyer initially – and one’s assistant?",
     "enumeration": "9"
    },
-   "solution": "PARALEGAL"
+   "solution": "PARALEGAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PARALEGAL",
+    "definitions": [
+     {
+      "text": "one’s assistant?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "LEG",
+      "note": "in cricket the on side is also called the leg side"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lawyer",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "LEG",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier serving alongside a lawyer, who is their assistant.",
+     "walkthrough": "'with' joins the pieces, and 'one' in the definition points back to the lawyer.",
+     "definitionFit": "A paralegal is trained staff who helps a solicitor or attorney with legal work, so is a lawyer's aide."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1064,55 @@
     "text": "Hopeful cop bedecked in flag",
     "enumeration": "7"
    },
-   "solution": "WANNABE"
+   "solution": "WANNABE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WANNABE",
+    "definitions": [
+     {
+      "text": "Hopeful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bedecked in",
+      "for": "container",
+      "note": "something bedecked in finery is covered by it, so the first item is wrapped in the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flag",
+      "gives": "WANE",
+      "note": "to flag is to tire, to wane"
+     },
+     {
+      "clueFragment": "cop",
+      "gives": "NAB",
+      "note": "to cop is to catch, to nab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAN",
+      "NAB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An aspiring police officer is draped in a national flag.",
+     "walkthrough": "Both 'cop' and 'flag' are verbs here, not a police officer and a banner.",
+     "definitionFit": "A wannabe is someone who hopes or aspires to be something, an eager aspirant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flag"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1126,42 @@
     "text": "Appropriate work of farrier or glazier?",
     "enumeration": "7"
    },
-   "solution": "FITTING"
+   "solution": "FITTING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FITTING",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     },
+     {
+      "text": "work of farrier or glazier?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Appropriate",
+      "note": "first meaning: suitable, proper"
+     },
+     {
+      "clueFragment": "work of farrier or glazier?",
+      "note": "second meaning: what both tradesmen do, putting shoes on horses or glass in windows"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Appropriate' could be a verb meaning take; it is the adjective here.",
+     "definitionFit": "The word is both an adjective for suitable or apt and a noun for installing something such as a horseshoe or pane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Appropriate"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1175,51 @@
     "text": "Sugar in snacks chilled for Spooner?",
     "enumeration": "8"
    },
-   "solution": "FRUCTOSE"
+   "solution": "FRUCTOSE",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "FRUCTOSE",
+    "definitions": [
+     {
+      "text": "Sugar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for Spooner",
+      "for": "spoonerism",
+      "note": "Reverend Spooner famously swapped the opening sounds of words, so we exchange them here"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snacks chilled",
+      "gives": "FRUCTOSE",
+      "soundsLike": "TUCK FROZE",
+      "note": "tuck is British school slang for snacks and sweets, and froze means chilled; swap their opening sounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRUCTOSE"
+     ]
+    },
+    "explanation": {
+     "surface": "There is sugar in some cold snacks.",
+     "walkthrough": "Swap the opening sounds of TUCK FROZE to get FRUCK TOZE, which sounds like the sugar.",
+     "definitionFit": "Fructose is the natural sugar found in fruit and honey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1233,63 @@
     "text": "Coin wasted on old Chinese pottery, homeward bound",
     "enumeration": "8"
    },
-   "solution": "INCOMING"
+   "solution": "INCOMING",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INCOMING",
+    "definitions": [
+     {
+      "text": "homeward bound",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "something wasted is ruined, so the letters are broken up and rearranged"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Coin",
+      "gives": "COIN",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "old Chinese pottery",
+      "gives": "MING",
+      "note": "Ming porcelain, made under the old Ming dynasty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCO",
+      "MING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COIN",
+       "gives": "INCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Money squandered on an antique Chinese vase on the way home.",
+     "definitionFit": "Incoming describes something arriving or coming in, heading back to base or home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1303,57 @@
     "text": "Bloomer putting pot like that on stove",
     "enumeration": "10"
    },
-   "solution": "AGAPANTHUS"
+   "solution": "AGAPANTHUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGAPANTHUS",
+    "definitions": [
+     {
+      "text": "Bloomer",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "putting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stove",
+      "gives": "AGA",
+      "note": "an Aga is a British brand of range cooker"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "PAN",
+      "note": "a pan is a cooking pot"
+     },
+     {
+      "clueFragment": "like that",
+      "gives": "THUS",
+      "note": "thus means in that way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA",
+      "PAN",
+      "THUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook places a pot on the stove like that.",
+     "walkthrough": "'Bloomer' suggests a mistake or a loaf of bread; it is a flower. Placed 'on' the stove, the pot and 'like that' come after it.",
+     "definitionFit": "The agapanthus, or African lily, is a plant that produces showy blue flowers, so it blooms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bloomer"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1367,76 @@
     "text": "A record of events Nigeria cleared up for country",
     "enumeration": "6"
    },
-   "solution": "ANGOLA"
+   "solution": "ANGOLA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANGOLA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cleared",
+      "for": "letter_selection",
+      "note": "a cleared word has its insides emptied, leaving only its outer letters"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "record of events",
+      "gives": "LOG",
+      "note": "a log is a record kept of events"
+     },
+     {
+      "clueFragment": "Nigeria",
+      "gives": "NA",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "GOL",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ALOGNA",
+       "to": "ANGOLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record of events in Nigeria is cleared up as a country's diary.",
+     "definitionFit": "Angola is a nation in south-west Africa, a former Portuguese colony on the Atlantic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cleared"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1450,43 @@
     "text": "Tuft of threads secured in effect, as Sellotaped",
     "enumeration": "6"
    },
-   "solution": "TASSEL"
+   "solution": "TASSEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TASSEL",
+    "definitions": [
+     {
+      "text": "Tuft of threads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "secured in",
+      "for": "hidden_word",
+      "note": "the answer is held fast inside the following run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "effect, as Sellotaped",
+      "gives": "TASSEL",
+      "note": "the letters run across the end of effect, all of as and the start of Sellotaped"
+     }
+    ],
+    "explanation": {
+     "surface": "Some loose threads are fixed in place with sticky tape.",
+     "walkthrough": "Sellotape is the British brand name for clear sticky tape.",
+     "definitionFit": "A tassel is a bunch of loose threads bound at one end, used as a decoration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "secured"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1500,49 @@
     "text": "Answer every crossword has, ostensibly acronymic",
     "enumeration": "4"
    },
-   "solution": "ECHO"
+   "solution": "ECHO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ECHO",
+    "definitions": [
+     {
+      "text": "Answer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "acronymic",
+      "for": "letter_selection",
+      "note": "an acronym is made from the opening letters of words, so we take those"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every crossword has, ostensibly",
+      "gives": "ECHO",
+      "select": "first",
+      "note": "the first letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECHO"
+     ]
+    },
+    "explanation": {
+     "surface": "Every crossword seems to have an answer that looks like an acronym.",
+     "walkthrough": "'Answer' sounds like a grid answer; it is a verb, to reply or reverberate back.",
+     "definitionFit": "An echo answers a sound by repeating it back, and to echo is to answer in kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Answer"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1556,55 @@
     "text": "Five in love in Paris, split",
     "enumeration": "5"
    },
-   "solution": "RIVEN"
+   "solution": "RIVEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIVEN",
+    "definitions": [
+     {
+      "text": "split",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item is set inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love in Paris",
+      "gives": "RIEN",
+      "note": "rien is French for nothing, which is love in tennis"
+     },
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "V",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Five people in love in Paris end up splitting up.",
+     "walkthrough": "'Love in Paris' looks like romance, but it is the French for the score zero.",
+     "definitionFit": "Riven is the past participle of rive, meaning torn apart or split."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1618,62 @@
     "text": "Endless joy filling holes, sow seed?",
     "enumeration": "7"
    },
-   "solution": "PIGLETS"
+   "solution": "PIGLETS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "PIGLETS",
+    "definitions": [
+     {
+      "text": "sow seed?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "endless means the word loses its final letter"
+     },
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "the first item fills the second, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holes",
+      "gives": "PITS",
+      "note": "pits are holes in the ground"
+     },
+     {
+      "clueFragment": "joy",
+      "gives": "GLE",
+      "note": "glee without its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "GLE",
+      "TS"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener happily fills holes and sows seed.",
+     "walkthrough": "'Sow' is the female pig, not the gardening verb, and 'seed' means offspring.",
+     "definitionFit": "A sow's offspring are her young, the baby pigs born to her."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sow"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1687,61 @@
     "text": "One wearing cap, hot, pull it off",
     "enumeration": "7"
    },
-   "solution": "TRIUMPH"
+   "solution": "TRIUMPH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRIUMPH",
+    "definitions": [
+     {
+      "text": "pull it off",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "the first item wears the second, so it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cap",
+      "gives": "TRUMP",
+      "note": "to cap is to top or outdo, to trump"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "I",
+      "UMP",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a hot cap is told to take it off.",
+     "definitionFit": "To triumph is to succeed or win, and to pull it off is to achieve success."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cap"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1755,63 @@
     "text": "Time in state halved for Greek character",
     "enumeration": "5"
    },
-   "solution": "DELTA"
+   "solution": "DELTA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DELTA",
+    "definitions": [
+     {
+      "text": "Greek character",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "halved",
+      "for": "deletion",
+      "note": "halved means only the first half of the word is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "DELA",
+      "note": "the first half of Delaware, an American state"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEL",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Time spent in a state of halving for some Greek figure.",
+     "definitionFit": "Delta is the fourth letter of the Greek alphabet, shaped like a triangle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1825,55 @@
     "text": "New Yorker, say, organ welcoming satirical voice?",
     "enumeration": "9"
    },
-   "solution": "EASTERNER"
+   "solution": "EASTERNER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EASTERNER",
+    "definitions": [
+     {
+      "text": "New Yorker, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so the second item sits inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "organ",
+      "gives": "EAR",
+      "note": "the ear is an organ of hearing"
+     },
+     {
+      "clueFragment": "satirical voice",
+      "gives": "STERNE",
+      "note": "Laurence Sterne, the 18th-century satirical novelist of Tristram Shandy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "STERNE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A New York magazine's ear is open to a satirical writer.",
+     "walkthrough": "'New Yorker' evokes the magazine famous for satire; here it is just a resident of the US east coast.",
+     "definitionFit": "A New Yorker lives on the eastern seaboard of America, so is an example of someone from the east."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Yorker"
+    }
+   }
   }
  ]
 }
