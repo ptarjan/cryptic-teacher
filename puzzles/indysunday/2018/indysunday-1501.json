@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Destructive creature endlessly ensnaring married medics?",
     "enumeration": "6"
    },
-   "solution": "LOCUMS"
+   "solution": "LOCUMS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LOCUMS",
+    "definitions": [
+     {
+      "text": "medics?",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter of the creature is cut off"
+     },
+     {
+      "text": "ensnaring",
+      "for": "container",
+      "note": "to ensnare is to trap something, so the shortened creature wraps around the abbreviation for married"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Destructive creature",
+      "gives": "LOCUST",
+      "note": "a locust swarm devastates crops"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOCU",
+      "M",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A crop-eating pest has somehow trapped a group of married doctors.",
+     "walkthrough": "LOCUST loses its T to become LOCUS, and M goes inside it. The question mark flags that locums are a particular kind of medic.",
+     "definitionFit": "Locums are doctors who stand in temporarily for colleagues who are absent, so they are medics by example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "creature"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,50 @@
     "text": "Protester in factory diluted fluid",
     "enumeration": "7"
    },
-   "solution": "LUDDITE"
+   "solution": "LUDDITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LUDDITE",
+    "definitions": [
+     {
+      "text": "Protester in factory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluid",
+      "for": "anagram",
+      "note": "something fluid has no fixed shape, so the letters before it flow into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "diluted",
+      "gives": "DILUTED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DILUTED",
+       "gives": "LUDDITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protesting at a factory complains that a liquid has been watered down.",
+     "definitionFit": "The original Luddites were nineteenth-century textile workers who smashed mill machinery in protest at mechanisation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "fluid"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,55 @@
     "text": "Runs taken by players in international game",
     "enumeration": "5"
    },
-   "solution": "CRAPS"
+   "solution": "CRAPS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRAPS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken by",
+      "for": "container",
+      "note": "what is taken by someone is held within their grasp, so it goes inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runs",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for runs"
+     },
+     {
+      "clueFragment": "players in international",
+      "gives": "CAPS",
+      "note": "a player picked for a national side is said to win a cap, so caps are international players"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "APS"
+     ]
+    },
+    "explanation": {
+     "surface": "Players in an international match score runs.",
+     "walkthrough": "In Britain a sportsperson chosen to play for their country is awarded a cap, so 'caps' can mean international players.",
+     "definitionFit": "Craps is a gambling pastime played with two dice, popular in American casinos, so it is a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runs"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,70 @@
     "text": "Some bananas left next to the French wine",
     "enumeration": "7"
    },
-   "solution": "MOSELLE"
+   "solution": "MOSELLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MOSELLE",
+    "definitions": [
+     {
+      "text": "wine",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "going bananas is going crazy, so the letters beside it are scrambled wildly"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some",
+      "gives": "SOME",
+      "note": "taken as written, as fodder"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the usual abbreviation for left"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOSE",
+      "L",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOME",
+       "gives": "MOSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a bunch of bananas has been left beside a bottle of French wine.",
+     "walkthrough": "'Some bananas' looks like a quantity of fruit, but 'bananas' is the scrambling signal acting on 'Some'.",
+     "definitionFit": "Moselle is white wine made in the valley of the river of that name, chiefly in Germany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +300,54 @@
     "text": "Graphics in electronic communication causes pain",
     "enumeration": "6"
    },
-   "solution": "SMARTS"
+   "solution": "SMARTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMARTS",
+    "definitions": [
+     {
+      "text": "causes pain",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic communication",
+      "gives": "SMS",
+      "note": "SMS is the text-messaging service on mobile phones"
+     },
+     {
+      "clueFragment": "Graphics",
+      "gives": "ART",
+      "note": "graphics is artwork, as in clip art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SM",
+      "ART",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Pictures sent in a digital message are upsetting someone.",
+     "definitionFit": "To smart is to sting or hurt, so a wound that smarts gives pain to its owner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Graphics"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +361,70 @@
     "text": "King stopping gnome swimming in river",
     "enumeration": "6"
    },
-   "solution": "MEKONG"
+   "solution": "MEKONG",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MEKONG",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "something swimming moves about freely, so the letters before it drift into a new order"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping a gap means plugging it, so the royal letter sits inside the rearranged word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gnome",
+      "gives": "GNOME",
+      "note": "taken as written, as fodder"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "K",
+      "ONG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GNOME",
+       "gives": "MEONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch prevents a garden gnome from going for a swim in a river.",
+     "definitionFit": "The Mekong is the great South-east Asian waterway flowing from Tibet through Laos, Cambodia and Vietnam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +438,69 @@
     "text": "Reserve of illicit drug found during recent reshuffle",
     "enumeration": "9"
    },
-   "solution": "RETICENCE"
+   "solution": "RETICENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RETICENCE",
+    "definitions": [
+     {
+      "text": "Reserve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reshuffle",
+      "for": "anagram",
+      "note": "a reshuffle reorganises a cabinet or a pack, so the letters of the word beside it are reordered"
+     },
+     {
+      "text": "found during",
+      "for": "container",
+      "note": "something found during a period lies inside it, so the drug sits within the other letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recent",
+      "gives": "RECENT",
+      "note": "taken as written, as fodder"
+     },
+     {
+      "clueFragment": "illicit drug",
+      "gives": "ICE",
+      "note": "ice is street slang for crystal methamphetamine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RET",
+      "ICE",
+      "NCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RECENT",
+       "gives": "RETNCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stockpile of banned narcotics turns up during a recent government reshuffle.",
+     "definitionFit": "Reserve as a noun means restraint in speech and manner, the same quality as being reluctant to speak out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reserve"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +514,57 @@
     "text": "Spend lots of money for plant around lake",
     "enumeration": "7"
    },
-   "solution": "SPLURGE"
+   "solution": "SPLURGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPLURGE",
+    "definitions": [
+     {
+      "text": "Spend lots of money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so the plant's letters wrap the next item"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "SPURGE",
+      "note": "spurge is a euphorbia, a plant with milky sap"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "L",
+      "URGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pays a fortune for a plant to go round their garden pond.",
+     "definitionFit": "To splurge is to splash out extravagantly on something, a verb for lavish one-off spending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +584,72 @@
      }
     ]
    },
-   "solution": "HORSECHESTNUT"
+   "solution": "HORSECHESTNUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HORSE CHESTNUT",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upturned",
+      "for": "reversal",
+      "note": "in a down entry something turned upside down reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal",
+      "gives": "HORSE",
+      "note": "a horse is an animal"
+     },
+     {
+      "clueFragment": "trunk",
+      "gives": "CHEST",
+      "note": "the trunk of the body is the chest; a trunk is also a chest for storage"
+     },
+     {
+      "clueFragment": "cask",
+      "gives": "TUN",
+      "note": "a tun is a large barrel for wine or beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORSE",
+      "CHEST",
+      "NUT"
+     ],
+     "reversals": [
+      {
+       "from": "TUN",
+       "to": "NUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elephant with its trunk flips a barrel over to reach some fruit.",
+     "walkthrough": "'Animal with trunk' paints an elephant, but the animal and the trunk are separate pieces.",
+     "definitionFit": "A horse chestnut is the shiny brown seed, the conker, of the tree of that name, loosely called its fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "trunk"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +663,50 @@
     "text": "Dead funny old Scandinavian books",
     "enumeration": "4"
    },
-   "solution": "EDDA"
+   "solution": "EDDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDDA",
+    "definitions": [
+     {
+      "text": "old Scandinavian books",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means odd or peculiar, so the word before it is put in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead",
+      "gives": "DEAD",
+      "note": "taken as written, as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEAD",
+       "gives": "EDDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ancient Norse literature is described as deathly comic.",
+     "definitionFit": "The Edda is a pair of medieval Icelandic collections of Norse mythology and poetry, the Poetic and Prose Eddas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +726,49 @@
      }
     ]
    },
-   "solution": "STOCKSTILL"
+   "solution": "STOCKSTILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOCK STILL",
+    "definitions": [
+     {
+      "text": "not shifting",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flowers",
+      "gives": "STOCKS",
+      "note": "stocks are scented garden flowers"
+     },
+     {
+      "clueFragment": "cashier's workstation",
+      "gives": "TILL",
+      "note": "the till is the cash register where a cashier works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOCKS",
+      "TILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A vase of flowers sits beside the checkout of a shop.",
+     "definitionFit": "Stock-still describes someone motionless, standing rigid without moving a muscle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flowers"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +782,49 @@
     "text": "Fuel stamps on letter",
     "enumeration": "6"
    },
-   "solution": "DIESEL"
+   "solution": "DIESEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIESEL",
+    "definitions": [
+     {
+      "text": "Fuel",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stamps",
+      "gives": "DIES",
+      "note": "dies are tools that stamp shapes or designs into metal"
+     },
+     {
+      "clueFragment": "letter",
+      "gives": "EL",
+      "note": "el is the spelt-out name of the letter L"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIES",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "Postage stamps stuck on an envelope, with fuel the odd subject.",
+     "definitionFit": "Diesel is the heavy oil burned in compression-ignition engines of lorries, trains and many cars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stamps"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +838,70 @@
     "text": "Firm welcoming head of informatics with new cushy job",
     "enumeration": "8"
    },
-   "solution": "SINECURE"
+   "solution": "SINECURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SINECURE",
+    "definitions": [
+     {
+      "text": "cushy job",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming guests means taking them in, so the other letters go inside the firm word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "SECURE",
+      "note": "firm and secure both mean fixed fast"
+     },
+     {
+      "clueFragment": "informatics",
+      "gives": "I",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "N",
+      "ECURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A company takes on an IT person in an easy new post.",
+     "definitionFit": "A sinecure is a paid position needing little or no work, the archetypal easy number."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +915,65 @@
     "text": "Mention of soldiers about to break barricade",
     "enumeration": "9"
    },
-   "solution": "REFERENCE"
+   "solution": "REFERENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REFERENCE",
+    "definitions": [
+     {
+      "text": "Mention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to break",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so these letters split the barricade"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     },
+     {
+      "clueFragment": "barricade",
+      "gives": "FENCE",
+      "note": "a fence is a barrier"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning, as in a letter heading"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FE",
+      "RE",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A report of troops on the point of smashing through a barricade.",
+     "walkthrough": "'about to' reads as 'on the point of', but the phrase splits: 'about' is one piece and 'to break' is the insertion signal.",
+     "definitionFit": "A reference is a passing allusion to something, just as a mention is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +987,61 @@
     "text": "Additional cast member losing a fan?",
     "enumeration": "9"
    },
-   "solution": "EXTRACTOR"
+   "solution": "EXTRACTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EXTRACTOR",
+    "definitions": [
+     {
+      "text": "fan?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means doing without it, so the named letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Additional",
+      "gives": "EXTRA",
+      "note": "extra means additional"
+     },
+     {
+      "clueFragment": "cast member",
+      "gives": "ACTOR",
+      "note": "an actor is a member of a play's cast"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written, then removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXTRA",
+      "CTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A film extra loses an admirer, or an extra cast member goes.",
+     "walkthrough": "An extra is itself a cast member, which helps the surface. ACTOR drops its A to leave CTOR.",
+     "definitionFit": "An extractor fan pulls stale air out of kitchens and bathrooms; the question mark admits a fan is only one kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fan"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1055,44 @@
     "text": "Cook needs to cover joint",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cover",
+      "for": "hidden_word",
+      "note": "the outer words cover the answer, so it lies concealed across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook needs",
+      "gives": "KNEE",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A chef has to wrap up a cut of meat.",
+     "walkthrough": "'joint' suggests a roast for the cook, but it is the body's hinge.",
+     "definitionFit": "The knee is the hinge between the thigh and lower leg, a major body joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1106,56 @@
     "text": "Social workers like carrying books",
     "enumeration": "4"
    },
-   "solution": "ANTS"
+   "solution": "ANTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANTS",
+    "definitions": [
+     {
+      "text": "Social workers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it within, so the books go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as and like both mean in the manner of"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Social workers seem to be lugging case files around.",
+     "walkthrough": "'Social workers' sounds like a profession, but it describes colony-living insects.",
+     "definitionFit": "These insects live in organised colonies with a caste of labourers, so they are literally social workers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Social"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1169,75 @@
     "text": "Hospital leaving asylum to use different approaches",
     "enumeration": "7"
    },
-   "solution": "AVENUES"
+   "solution": "AVENUES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AVENUES",
+    "definitions": [
+     {
+      "text": "approaches",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "when someone leaves a place they are no longer in it, so that letter is removed"
+     },
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "different means changed, so the letters of the word before it are put in a changed order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "asylum",
+      "gives": "HAVEN",
+      "note": "a haven is a refuge, a place of asylum"
+     },
+     {
+      "clueFragment": "Hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     },
+     {
+      "clueFragment": "use",
+      "gives": "USE",
+      "note": "taken as written, as fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVEN",
+      "UES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USE",
+       "gives": "UES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital leaves the asylum system to try other methods of treatment.",
+     "walkthrough": "'asylum' suggests a mental hospital, fitting the surface, but here it means refuge.",
+     "definitionFit": "Avenues are lines of approach to a problem, as in exploring every avenue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "asylum"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1251,58 @@
     "text": "Measuring device in safe containing two notes",
     "enumeration": "9"
    },
-   "solution": "PEDOMETER"
+   "solution": "PEDOMETER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEDOMETER",
+    "definitions": [
+     {
+      "text": "Measuring device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the notes go within the safe"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "safe",
+      "gives": "PETER",
+      "note": "peter is old criminal slang for a safe"
+     },
+     {
+      "clueFragment": "two notes",
+      "gives": "DOME",
+      "note": "do and me are two notes of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DOME",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A gauge has been locked in a strongbox along with a couple of banknotes.",
+     "walkthrough": "Peter is underworld slang for a safe, used by safecrackers called peter-men.",
+     "definitionFit": "A pedometer counts the steps a walker takes, so it is a gadget for measuring distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1316,64 @@
     "text": "European officer featuring in work of Theban king ...",
     "enumeration": "7"
    },
-   "solution": "OEDIPUS"
+   "solution": "OEDIPUS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OEDIPUS",
+    "definitions": [
+     {
+      "text": "Theban king",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featuring in",
+      "for": "container",
+      "note": "something featuring in a work appears within it, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OPUS",
+      "note": "an opus is a work, especially of music"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "DI",
+      "note": "a DI is a detective inspector, a police officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "E",
+      "DI",
+      "PUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A European official appears in a play about a Greek king.",
+     "walkthrough": "The ellipsis runs on into the next clue, linking two tragic royals, Theban and Danish.",
+     "definitionFit": "Oedipus ruled Thebes in Greek legend after unknowingly killing his father and marrying his mother."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1387,83 @@
     "text": "... played a part in Scandinavian uprising outside court close to Elsinore",
     "enumeration": "7"
    },
-   "solution": "ENACTED"
+   "solution": "ENACTED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENACTED",
+    "definitions": [
+     {
+      "text": "played a part",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down entry rising means reading upwards, from bottom to top"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its last letter"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so the turned word encloses the rest"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scandinavian",
+      "gives": "DANE",
+      "note": "a Dane is a native of Denmark"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "Elsinore",
+      "gives": "E",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENA",
+      "CT",
+      "E",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DANE",
+       "to": "ENAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the tragic theme, someone took a role in a Danish revolt outside Hamlet's castle.",
+     "walkthrough": "Elsinore is the castle setting of Hamlet, so the surface carries on from the previous clue's Theban play.",
+     "definitionFit": "To have enacted something is to have acted it out on stage, performing a role."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1477,62 @@
     "text": "Patch covering base of rectangular perforation",
     "enumeration": "6"
    },
-   "solution": "PIERCE"
+   "solution": "PIERCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PIERCE",
+    "definitions": [
+     {
+      "text": "perforation",
+      "at": 35,
+      "note": "noun, whereas the answer is usually a verb; Chambers allows it as a noun for a hole"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "base of",
+      "for": "letter_selection",
+      "note": "in a down entry the base of a word is its bottom, final letter"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering something means lying over and around it, so the patch encloses that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Patch",
+      "gives": "PIECE",
+      "note": "a piece of cloth is a patch"
+     },
+     {
+      "clueFragment": "rectangular",
+      "gives": "R",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "R",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A patch is sewn over a hole at the bottom of an oblong cloth.",
+     "definitionFit": "To pierce is to make a hole through something, and the word can name such a puncture itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1546,66 @@
     "text": "Start of Christian period reportedly overlooked by one studying clay tablets?",
     "enumeration": "8"
    },
-   "solution": "CERAMIST"
+   "solution": "CERAMIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "homophone"
+    ],
+    "answer": "CERAMIST",
+    "definitions": [
+     {
+      "text": "one studying clay tablets?",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     },
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard, so the word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christian",
+      "gives": "C",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "ERA",
+      "note": "an era is a period of history"
+     },
+     {
+      "clueFragment": "overlooked",
+      "gives": "MIST",
+      "soundsLike": "MISSED",
+      "note": "overlooked means missed, which sounds like mist"
+     }
+    ],
+    "explanation": {
+     "surface": "An archaeologist dates clay tablets to the earliest Christian age but misses something.",
+     "walkthrough": "'one studying clay tablets' suggests a scholar of cuneiform; the question mark flags that a potter making tiles works with clay too.",
+     "definitionFit": "A ceramist is a potter or expert in ceramics, who works with fired clay objects such as tiles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tablets"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1619,49 @@
     "text": "Money for puppet given to Arab",
     "enumeration": "6"
    },
-   "solution": "DOLLAR"
+   "solution": "DOLLAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOLLAR",
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puppet",
+      "gives": "DOLL",
+      "note": "a doll is a toy figure like a puppet"
+     },
+     {
+      "clueFragment": "Arab",
+      "gives": "AR",
+      "note": "AR is an abbreviation for Arab or Arabic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOLL",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash is handed over for a puppet sold to an Arab buyer.",
+     "definitionFit": "The dollar is the currency unit of the US and many other countries, so it stands for cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "puppet"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1675,50 @@
     "text": "Sign book by artist",
     "enumeration": "5"
    },
-   "solution": "LIBRA"
+   "solution": "LIBRA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIBRA",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "LIB",
+      "note": "lib is short for liber, Latin for book"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "an RA is a Royal Academician, a member of the Royal Academy of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIB",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "An author autographs a book next to the illustrator.",
+     "walkthrough": "'Sign' looks like a verb for autographing, but it is a noun meaning star sign.",
+     "definitionFit": "Libra, the scales, is the seventh of the twelve zodiac constellations used in astrology."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1738,65 @@
      }
     ]
    },
-   "solution": "BUTTERBUMP"
+   "solution": "BUTTERBUMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BUTTER-BUMP",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fat",
+      "gives": "BUTTER",
+      "note": "butter is a dairy fat"
+     },
+     {
+      "clueFragment": "bottom",
+      "gives": "BUM",
+      "note": "bum is British slang for the bottom"
+     },
+     {
+      "clueFragment": "swamp",
+      "gives": "P",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTTER",
+      "BUM",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A plump-rumped bird lives near a marsh.",
+     "definitionFit": "Butterbump is an old dialect name for the bittern, a booming wading bird of reed beds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1810,58 @@
     "text": "Blunt stick attached to end of rifle",
     "enumeration": "4"
    },
-   "solution": "BATE"
+   "solution": "BATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BATE",
+    "definitions": [
+     {
+      "text": "Blunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stick",
+      "gives": "BAT",
+      "note": "a bat is a stick for hitting a ball"
+     },
+     {
+      "clueFragment": "rifle",
+      "gives": "E",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bayonet-like stick is fixed to the muzzle of a gun.",
+     "definitionFit": "To bate is an old verb meaning to lessen or restrain, as to dull the edge or force of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1875,40 @@
     "text": "Reddish-brown herb",
     "enumeration": "6"
    },
-   "solution": "SORREL"
+   "solution": "SORREL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SORREL",
+    "definitions": [
+     {
+      "text": "Reddish-brown",
+      "at": 0
+     },
+     {
+      "text": "herb",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reddish-brown",
+      "note": "first meaning: the colour of a chestnut horse"
+     },
+     {
+      "clueFragment": "herb",
+      "note": "second meaning: a sour-leaved salad plant"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "Sorrel is both a light chestnut colour, used of horses, and a sharp-tasting leafy plant used in cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1922,69 @@
     "text": "One end of drill breaking stuff found on beach in Corfu, say",
     "enumeration": "6"
    },
-   "solution": "ISLAND"
+   "solution": "ISLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ISLAND",
+    "definitions": [
+     {
+      "text": "Corfu, say",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into something means getting inside it, so that letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "drill",
+      "gives": "L",
+      "select": "last",
+      "note": "its final letter"
+     },
+     {
+      "clueFragment": "stuff found on beach",
+      "gives": "SAND",
+      "note": "sand is what beaches are made of"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "L",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A drill bit breaks into sand on a Corfu beach.",
+     "walkthrough": "'Corfu, say' is a definition by example, which 'say' signals.",
+     "definitionFit": "Corfu is a Greek isle in the Ionian Sea, so it is one example of land surrounded by water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drill"
+    }
+   }
   }
  ]
 }
