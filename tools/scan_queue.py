@@ -244,6 +244,28 @@ def open_requests():
     return [r for r in requests() if is_open(r, known)]
 
 
+#: Reads before this moment predate the re-read requests (0c3f15f); a puzzle
+#: they left with a printedClue row has not been re-read since.
+FLAGGED_BEFORE = "2026-10-05T07:26:02-06:00"
+CLUE_ROWS = Path(__file__).resolve().parent / "data" / "source_clue_wrong.json"
+
+
+def flagged_requests():
+    """A request per puzzle that has a source_clue_wrong row (a clue the
+    scan misprinted or the OCR misread) and whose filer-ledger source was
+    last read before FLAGGED_BEFORE: the same shape as request_reread's, so
+    the source's next read closes it. Derived from the table, so it cannot go
+    stale."""
+    ids = {k.split("/", 1)[0] for k in json.loads(CLUE_ROWS.read_text(encoding="utf-8"))}
+    known, t = sources(), when(FLAGGED_BEFORE)
+    return [{"id": i, "filer": f, "source": key, "why": ["printedClue"], "requestedAt": FLAGGED_BEFORE}
+            for i, (f, key, row) in sorted(known.items()) if i in ids and read_before(row, t)]
+
+
+def all_open_requests():
+    return open_requests() + flagged_requests()
+
+
 def request_reread(puzzle, clues, why):
     """Ask for `puzzle`'s source to be read again; `clues` is [(entry id,
     printed clue)] as the source gave them, `why` the checks that met a
@@ -270,7 +292,7 @@ def request_reread(puzzle, clues, why):
 
 def main(argv):
     if argv[:1] == ["open"]:
-        print("\n".join(sorted({r["id"] for r in open_requests()})))
+        print("\n".join(sorted({r["id"] for r in all_open_requests()})))
         return 0
     if argv[:1] == ["requested"] and len(argv) >= 2:
         filer, paper = argv[1], (argv[2] if len(argv) > 2 else None)
@@ -279,7 +301,7 @@ def main(argv):
             import file_archive_org_puzzles
             want = file_archive_org_puzzles.PAPERS[paper].series
         import provenance
-        print("\n".join(sorted({r["source"] for r in open_requests() if r["filer"] == filer
+        print("\n".join(sorted({r["source"] for r in all_open_requests() if r["filer"] == filer
                                 and (want is None or provenance.series_of_id(r["id"]) == want)})))
         return 0
     print(__doc__, file=sys.stderr)
