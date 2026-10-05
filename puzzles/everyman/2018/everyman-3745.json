@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Electronic fault restricting new display",
     "enumeration": "6"
    },
-   "solution": "EVINCE"
+   "solution": "EVINCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVINCE",
+    "definitions": [
+     {
+      "text": "display",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "to restrict something is to hem it in, so the first pair of words wraps around the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Electronic",
+      "gives": "E",
+      "note": "E is the standard abbreviation for electronic"
+     },
+     {
+      "clueFragment": "fault",
+      "gives": "VICE",
+      "note": "a vice is a moral failing or fault"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "VI",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A broken electronic gadget, with a fault that stops a new screen from showing anything.",
+     "walkthrough": "E and VICE run together as a single outer word, EVICE, which holds the N: E-VI(N)CE.",
+     "definitionFit": "To evince a feeling is to show it plainly, so both verbs mean making something visible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,67 @@
     "text": "Leaf vegetable? Need, in a stew, about four",
     "enumeration": "6"
    },
-   "solution": "ENDIVE"
+   "solution": "ENDIVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENDIVE",
+    "definitions": [
+     {
+      "text": "Leaf vegetable?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a stew",
+      "for": "anagram",
+      "note": "being in a stew means being agitated and mixed up, so the letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the jumbled letters surround the Roman numeral"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Need",
+      "gives": "NEED",
+      "note": "the letters to be jumbled"
+     },
+     {
+      "clueFragment": "four",
+      "gives": "IV",
+      "note": "the Roman numeral for four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "IV",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEED",
+       "gives": "ENDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook who needs a leafy vegetable for a stew, about four of them.",
+     "walkthrough": "'In a stew' looks like cooking, which suits the vegetable, but it is the jumble signal.",
+     "definitionFit": "Endive is a salad plant eaten for its leaves; the question mark admits that 'leaf vegetable' is a loose description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stew"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,49 @@
     "text": "Vignette, proper text with odd parts missing, read",
     "enumeration": "9"
    },
-   "solution": "INTERPRET"
+   "solution": "INTERPRET",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "INTERPRET",
+    "definitions": [
+     {
+      "text": "read",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with odd parts missing",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are dropped, leaving only the even ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vignette, proper text",
+      "gives": "INTERPRET",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on, counted straight through the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTERPRET"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor reading a short sketch whose proper text has bits missing.",
+     "walkthrough": "Count through vignette, proper and text as one run of letters, keeping every even-numbered one.",
+     "definitionFit": "To read a situation is to understand or construe its meaning, the sense of interpret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +234,77 @@
     "text": "Beginnings of markings usually in curve upward in skull",
     "enumeration": "7"
    },
-   "solution": "CRANIUM"
+   "solution": "CRANIUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "CRANIUM",
+    "definitions": [
+     {
+      "text": "skull",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginnings of",
+      "for": "letter_selection",
+      "note": "beginnings asks for the opening letter of each of the next two words"
+     },
+     {
+      "text": "upward",
+      "for": "reversal",
+      "note": "in a down clue going upward means reading the assembled letters from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in skull"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "markings usually",
+      "gives": "MU",
+      "select": "first",
+      "note": "first letters of these two words"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "curve",
+      "gives": "ARC",
+      "note": "an arc is a curve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRA",
+      "NI",
+      "UM"
+     ],
+     "reversals": [
+      {
+       "from": "MUINARC",
+       "to": "CRANIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skull markings that typically curve upward, as an anatomist might note.",
+     "walkthrough": "The first 'in' looks like a container signal but supplies its own letters; the whole string is then read upward.",
+     "definitionFit": "The cranium is the part of the skeleton enclosing the brain, and in loose use the whole skull."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +318,65 @@
     "text": "Old bottles, emptied and preserved, hidden",
     "enumeration": "8"
    },
-   "solution": "OBSCURED"
+   "solution": "OBSCURED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OBSCURED",
+    "definitions": [
+     {
+      "text": "hidden",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "a word that is emptied loses all its inside letters and keeps only its two ends"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the usual abbreviation for old"
+     },
+     {
+      "clueFragment": "bottles",
+      "gives": "BS",
+      "select": "outer",
+      "note": "just the first and last letters of this word"
+     },
+     {
+      "clueFragment": "preserved",
+      "gives": "CURED",
+      "note": "meat or fish that is preserved by salting or smoking is cured"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BS",
+      "CURED"
+     ]
+    },
+    "explanation": {
+     "surface": "Old bottles, drained and then pickled, have been put away out of sight.",
+     "walkthrough": "'Old bottles' looks like an old object holding something, but here 'bottles' is not a container signal: it is just a word whose ends are kept.",
+     "definitionFit": "Something obscured is concealed or made hard to see, which is the same as being kept out of view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +396,72 @@
      }
     ]
    },
-   "solution": "BARNACLEGOOSE"
+   "solution": "BARNACLEGOOSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BARNACLE GOOSE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocky",
+      "for": "anagram",
+      "note": "rocky means unsteady and shaken, so the letters that follow are shaken into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the first word goes around the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "found",
+      "gives": "BASE",
+      "note": "to found something is to base it, as in found a theory on evidence"
+     },
+     {
+      "clueFragment": "crag, lone",
+      "gives": "CRAGLONE",
+      "note": "letters to be jumbled"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, so O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "RNACLEGOO",
+      "SE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRAGLONEO",
+       "gives": "RNACLEGOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lone duck is spotted near a rocky crag by a birdwatcher.",
+     "walkthrough": "'Duck' looks like the bird the clue is about, but it is a cricket zero, O, which joins the jumble. A duck in cricket is a batter's score of nought.",
+     "definitionFit": "The barnacle goose is a black-and-white Arctic goose that winters on the coasts of north-west Europe, so it is a bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +475,72 @@
     "text": "Contrast in heart broken by politician, heart of oak",
     "enumeration": "7"
    },
-   "solution": "COMPARE"
+   "solution": "COMPARE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COMPARE",
+    "definitions": [
+     {
+      "text": "Contrast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "something broken by another thing is split open with that thing put into the gap"
+     },
+     {
+      "text": "heart of",
+      "for": "letter_selection",
+      "note": "heart of means the central letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "CORE",
+      "note": "the core of something is its heart"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "an MP is a Member of Parliament"
+     },
+     {
+      "clueFragment": "oak",
+      "gives": "A",
+      "select": "middle",
+      "note": "the middle letter of this three-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MP",
+      "A",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician cuts into the heart of the matter, as if splitting the heart of an oak.",
+     "walkthrough": "Two different 'heart's do two jobs here: the first is a synonym, the second asks for a middle letter. 'In' is just a link.",
+     "definitionFit": "To contrast two things is to set them side by side to show differences, which is one way to compare them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +554,44 @@
     "text": "Speaker's beginning course",
     "enumeration": "5"
    },
-   "solution": "ROUTE"
+   "solution": "ROUTE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ROUTE",
+    "definitions": [
+     {
+      "text": "course",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Speaker's",
+      "for": "homophone",
+      "note": "a speaker's version is how something is said, so the next word is heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beginning",
+      "gives": "ROUTE",
+      "soundsLike": "ROOT",
+      "note": "the root of something is its beginning or origin; the answer can be said the same way"
+     }
+    ],
+    "explanation": {
+     "surface": "A speaker opens a talk at the start of a course of lectures.",
+     "walkthrough": "This depends on saying the answer to rhyme with 'boot', the usual British pronunciation.",
+     "definitionFit": "A route is a course or way taken to get from one place to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +605,75 @@
     "text": "Pleasant fantasy story finally penned by father on quantity of paper",
     "enumeration": "8"
    },
-   "solution": "DAYDREAM"
+   "solution": "DAYDREAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "DAYDREAM",
+    "definitions": [
+     {
+      "text": "Pleasant fantasy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally asks for only the last letter of the word before it"
+     },
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "something penned is shut in a pen, so the single letter goes inside the word for a parent"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means placed above, so the parent piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "DAD",
+      "note": "an everyday word for father"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "quantity of paper",
+      "gives": "REAM",
+      "note": "a ream is a fixed quantity of paper, traditionally 500 sheets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "Y",
+      "D",
+      "REAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A father writes a happy fantasy story at the end of a big stack of paper.",
+     "walkthrough": "'Penned' looks like writing, which suits the father telling a story, but it means enclosed.",
+     "definitionFit": "A daydream is a pleasant fantasy indulged in while awake, a reverie of wishful thinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penned"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +687,61 @@
     "text": "Revolutionary nonsense transported critic",
     "enumeration": "9"
    },
-   "solution": "DETRACTOR"
+   "solution": "DETRACTOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DETRACTOR",
+    "definitions": [
+     {
+      "text": "critic",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns right round, so the words after it are read from the end back to the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nonsense",
+      "gives": "ROT",
+      "note": "rot is rubbish or nonsense"
+     },
+     {
+      "clueFragment": "transported",
+      "gives": "CARTED",
+      "note": "goods that are carted are transported"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETRAC",
+      "TOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROTCARTED",
+       "to": "DETRACTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper report: radical nonsense has carried away a reviewer.",
+     "walkthrough": "ROT and CARTED, read together right to left, give DETRACTOR.",
+     "definitionFit": "A detractor disparages or runs down something, which is what a hostile critic does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +755,49 @@
     "text": "Agitators break rule most recklessly",
     "enumeration": "13"
    },
-   "solution": "TROUBLEMAKERS"
+   "solution": "TROUBLEMAKERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TROUBLEMAKERS",
+    "definitions": [
+     {
+      "text": "Agitators",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recklessly",
+      "for": "anagram",
+      "note": "done recklessly means done wildly and carelessly, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "break rule most",
+      "gives": "BREAKRULEMOST",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BREAKRULEMOST",
+       "gives": "TROUBLEMAKERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Protesters flout the rules more wildly than anyone.",
+     "definitionFit": "Troublemakers stir up unrest and cause disturbances, just as agitators provoke people to protest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +811,60 @@
     "text": "Shy maiden, poor, left out",
     "enumeration": "5"
    },
-   "solution": "MOUSY"
+   "solution": "MOUSY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MOUSY",
+    "definitions": [
+     {
+      "text": "Shy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out says the letter just named is taken away and missing from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "poor",
+      "gives": "LOUSY",
+      "note": "lousy means very poor in quality"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left; this is the letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OUSY"
+     ]
+    },
+    "explanation": {
+     "surface": "A timid young woman, impoverished and left out of things.",
+     "walkthrough": "A maiden is a cricket over with no runs, so it is M. Take the L out of LOUSY and put M in front.",
+     "definitionFit": "Mousy describes a quiet, timid person who keeps in the background, like a shy little mouse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +878,53 @@
     "text": "Rig vote designed to cause feeling of instability",
     "enumeration": "7"
    },
-   "solution": "VERTIGO"
+   "solution": "VERTIGO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VERTIGO",
+    "definitions": [
+     {
+      "text": "feeling of instability",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means put together to a new plan, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to cause"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rig vote",
+      "gives": "RIGVOTE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIGVOTE",
+       "gives": "VERTIGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An election fix, cooked up to unsettle the political scene.",
+     "definitionFit": "Vertigo is a dizzy sensation of spinning or losing balance, a physical sense of being unsteady."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +938,65 @@
     "text": "Inexpert, united, right behind a friend",
     "enumeration": "7"
    },
-   "solution": "AMATEUR"
+   "solution": "AMATEUR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMATEUR",
+    "definitions": [
+     {
+      "text": "Inexpert",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind places the first two letters after the next pair in the finished word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "MATE",
+      "note": "a mate is a friend"
+     },
+     {
+      "clueFragment": "united",
+      "gives": "U",
+      "note": "U is the abbreviation for United, as in football club names"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MATE",
+      "U",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone clumsy, backed up by a pal, gets support from behind.",
+     "definitionFit": "As an adjective, amateur means unskilled or unprofessional, so an amateur job is an inexpert one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "united"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1016,54 @@
      }
     ]
    },
-   "solution": "PRIMABALLERINA"
+   "solution": "PRIMABALLERINA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRIMA BALLERINA",
+    "definitions": [
+     {
+      "text": "Important dancer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracked",
+      "for": "anagram",
+      "note": "something cracked is broken apart, so these letters break up and re-form"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rib, in alarm, pale",
+      "gives": "RIBINALARMPALE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIBINALARMPALE",
+       "gives": "PRIMABALLERINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading dancer has broken a rib and gone white with fright.",
+     "walkthrough": "The 'in' is part of the fodder, not a container signal.",
+     "definitionFit": "The prima ballerina is the principal female dancer of a ballet company, its most senior and important performer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1077,50 @@
     "text": "Run up with documents from debtors? Not interested",
     "enumeration": "9"
    },
-   "solution": "INCURIOUS"
+   "solution": "INCURIOUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCURIOUS",
+    "definitions": [
+     {
+      "text": "Not interested",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run up",
+      "gives": "INCUR",
+      "note": "to run up a debt is to incur it"
+     },
+     {
+      "clueFragment": "documents from debtors",
+      "gives": "IOUS",
+      "note": "an IOU is a signed note acknowledging a debt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCUR",
+      "IOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone running up debts and holding IOUs, but not caring about it.",
+     "walkthrough": "'Run up' looks like the up-means-reverse signal of a down clue, but it is just the phrase for running up a bill.",
+     "definitionFit": "Incurious describes a person lacking curiosity, who shows no desire to know or find out more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1134,63 @@
     "text": "Satisfactorily located in row, good home",
     "enumeration": "8"
    },
-   "solution": "DWELLING"
+   "solution": "DWELLING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DWELLING",
+    "definitions": [
+     {
+      "text": "home",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "located in",
+      "for": "container",
+      "note": "located in says the first word sits inside the noise word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a din is a loud noise, a row"
+     },
+     {
+      "clueFragment": "Satisfactorily",
+      "gives": "WELL",
+      "note": "doing something well is doing it satisfactorily"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A nice place to live, conveniently sited in a terrace.",
+     "walkthrough": "'Row' suggests a row of houses, fitting home, but it is the noisy kind of row.",
+     "definitionFit": "A dwelling is a house or other place where someone lives, a formal word for a residence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1214,89 @@
      }
     ]
    },
-   "solution": "WITHAVENGEANCE"
+   "solution": "WITHAVENGEANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "WITH A VENGEANCE",
+    "definitions": [
+     {
+      "text": "vigorously",
+      "at": 70
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought about",
+      "for": "reversal",
+      "note": "brought about is a sailing phrase for turning a ship round, so the short abbreviation faces the other way"
+     },
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "to defend something is to surround and guard it, so one piece sits inside another"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sense",
+      "gives": "WIT",
+      "note": "wit is good sense or intelligence"
+     },
+     {
+      "clueFragment": "retreat",
+      "gives": "HAVEN",
+      "note": "a haven is a place of refuge or retreat"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates exempli gratia, for example"
+     },
+     {
+      "clueFragment": "champion",
+      "gives": "ACE",
+      "note": "an ace is an expert or champion"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIT",
+      "HAVEN",
+      "GE",
+      "A",
+      "N",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A war report: a champion fighting hard to hold the north, with good sense and a place to fall back to.",
+     "walkthrough": "WIT + HAVEN + GE, then ACE holding N: WIT-HAVEN-GE-A(N)CE.",
+     "definitionFit": "The idiom with a vengeance means forcefully or to an extreme degree, i.e. done with great energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1310,60 @@
     "text": "Gang ahead after a scrap",
     "enumeration": "7"
    },
-   "solution": "ABANDON"
+   "solution": "ABANDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABANDON",
+    "definitions": [
+     {
+      "text": "scrap",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the group and the forward word behind the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Gang",
+      "gives": "BAND",
+      "note": "a band is a group or gang"
+     },
+     {
+      "clueFragment": "ahead",
+      "gives": "ON",
+      "note": "on means forward, ahead, as in go on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BAND",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A gang gets in front of others after a fight.",
+     "walkthrough": "'Scrap' suggests a fight, which suits the gang, but it is the verb meaning give up.",
+     "definitionFit": "To scrap a plan is to drop or give it up, which is to abandon it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1383,55 @@
      }
     ]
    },
-   "solution": "ALISTER"
+   "solution": "ALISTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "A-LISTER",
+    "definitions": [
+     {
+      "text": "Top star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the two-letter word inside the verb that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "remake",
+      "gives": "ALTER",
+      "note": "to remake something is to alter it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "IS",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "A big celebrity is cast in a film remake.",
+     "walkthrough": "'Remake' reads like a film, but here it is the verb meaning change.",
+     "definitionFit": "An A-lister is a celebrity on the A-list, the top tier of the most famous people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remake"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1445,51 @@
     "text": "Batting, lean and mean",
     "enumeration": "6"
    },
-   "solution": "INTEND"
+   "solution": "INTEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INTEND",
+    "definitions": [
+     {
+      "text": "mean",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Batting",
+      "gives": "IN",
+      "note": "in cricket the side batting is in"
+     },
+     {
+      "clueFragment": "lean",
+      "gives": "TEND",
+      "note": "to lean towards something is to tend towards it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer at the crease who is thin and nasty.",
+     "walkthrough": "'Lean and mean' looks like two adjectives describing a player, but lean is a verb and mean is the definition.",
+     "definitionFit": "To mean to do something is to have it as a purpose, the verb sense of intend."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mean"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1503,56 @@
     "text": "Monk admitting naughty dance",
     "enumeration": "7"
    },
-   "solution": "LAMBADA"
+   "solution": "LAMBADA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAMBADA",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so the first word takes the next one inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monk",
+      "gives": "LAMA",
+      "note": "a lama is a Buddhist monk in Tibet"
+     },
+     {
+      "clueFragment": "naughty",
+      "gives": "BAD",
+      "note": "a naughty child is a bad one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAM",
+      "BAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A holy man lets in someone who does a racy dance.",
+     "walkthrough": "The Tibetan monk is the usual crossword monk, alongside the abbreviation for a friar.",
+     "definitionFit": "The lambada is a fast, sensual Brazilian partner dance popular around 1990."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Monk"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1566,57 @@
     "text": "Type of whisky available initially in country",
     "enumeration": "5"
    },
-   "solution": "MALTA"
+   "solution": "MALTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MALTA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially asks for just the first letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type of whisky",
+      "gives": "MALT",
+      "note": "malt whisky is made from malted barley"
+     },
+     {
+      "clueFragment": "available",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A kind of whisky can be bought at first in a particular country.",
+     "definitionFit": "Malta is an island nation in the Mediterranean, south of Sicily, so it is a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1630,78 @@
     "text": "Letter, second sent round by Conservative in club",
     "enumeration": "7"
    },
-   "solution": "OMICRON"
+   "solution": "OMICRON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "OMICRON",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent round",
+      "for": "reversal",
+      "note": "sent round means turned to face the other way, so the short word is read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the party abbreviation inside the golf word"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "IRON",
+      "note": "an iron is a type of golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OM",
+      "I",
+      "C",
+      "RON"
+     ],
+     "reversals": [
+      {
+       "from": "MO",
+       "to": "OM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter is posted round, delivered by a Tory member of a club.",
+     "walkthrough": "'Letter' and 'sent round' suggest the post, but the letter is from the Greek alphabet, and the club is for golf.",
+     "definitionFit": "Omicron is the fifteenth character of the Greek alphabet, so it is a letter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1715,51 @@
     "text": "One day, provoked, did nothing",
     "enumeration": "5"
    },
-   "solution": "IDLED"
+   "solution": "IDLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IDLED",
+    "definitions": [
+     {
+      "text": "did nothing",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "provoked",
+      "gives": "LED",
+      "note": "led in the sense of drew on or induced, as in led someone to act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "D",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goaded one day, but stayed passive and did not respond.",
+     "definitionFit": "To idle is to pass time lazily without working, so having idled means having been inactive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1773,65 @@
     "text": "Conductor using baton with energy after return",
     "enumeration": "9"
    },
-   "solution": "ELECTRODE"
+   "solution": "ELECTRODE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ELECTRODE",
+    "definitions": [
+     {
+      "text": "Conductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the stick and the physics symbol behind the voting word"
+     }
+    ],
+    "linkWords": [
+     "using",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "return",
+      "gives": "ELECT",
+      "note": "to return a candidate to parliament is to elect them"
+     },
+     {
+      "clueFragment": "baton",
+      "gives": "ROD",
+      "note": "a baton is a short rod or stick"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy in physics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELECT",
+      "ROD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An orchestra conductor waves the baton energetically after coming back on stage.",
+     "walkthrough": "The surface pictures a music conductor; the definition means an electrical one.",
+     "definitionFit": "An electrode is a terminal through which electric current passes into or out of a circuit, a kind of electrical conductor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Conductor"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1845,71 @@
     "text": "Aim to go back aboard schooner perhaps for pleasure",
     "enumeration": "8"
    },
-   "solution": "GLADNESS"
+   "solution": "GLADNESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GLADNESS",
+    "definitions": [
+     {
+      "text": "pleasure",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go back",
+      "for": "reversal",
+      "note": "going back means travelling in the opposite direction, so the word is read from its end"
+     },
+     {
+      "text": "aboard",
+      "for": "container",
+      "note": "aboard means on board, held inside a vessel, so one word sits in the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aim",
+      "gives": "END",
+      "note": "an end is a goal or aim"
+     },
+     {
+      "clueFragment": "schooner perhaps",
+      "gives": "GLASS",
+      "note": "a schooner is a large glass for sherry or beer, so it is an example of one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLA",
+      "DNE",
+      "SS"
+     ],
+     "reversals": [
+      {
+       "from": "END",
+       "to": "DNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailing back aboard a schooner purely for the fun of it.",
+     "walkthrough": "'Schooner' suggests a sailing ship, which 'aboard' supports, but here it is a big drinking glass, a British and Australian measure for sherry or beer.",
+     "definitionFit": "Gladness is a state of being happy or pleased, a close synonym of pleasure as a feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "schooner"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1923,41 @@
     "text": "Blunder, as edited, partly rubbed out",
     "enumeration": "6"
    },
-   "solution": "ERASED"
+   "solution": "ERASED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERASED",
+    "definitions": [
+     {
+      "text": "rubbed out",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partly",
+      "for": "hidden_word",
+      "note": "partly says only a part of the run of words is wanted, sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blunder, as edited",
+      "gives": "ERASED",
+      "note": "the letters run across the end of the first word, the whole second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A mistake that, once edited, was partly deleted.",
+     "definitionFit": "Erased means wiped away or removed, as pencil marks are when rubbed out with an eraser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
