@@ -31,6 +31,11 @@ def check(name, got, want):
 
 check("echoed count is cut", enumeration.split("Set meal (5,1’4) (5,5)"), ("Set meal", "5,5"))
 check("prime and non-breaking marks read", enumeration.split("Whip (3-1′-4-5)"), ("Whip", "3-1'4-5"))
+check("echo behind a stray closing quote is cut (toughie-3684 6D)",
+      enumeration.split("Hassled on and off outside quiet church recess (4)’ (4)"),
+      ("Hassled on and off outside quiet church recess", "4"))
+check("count behind a stray closing quote is unsplit",
+      enumeration.unsplit({"text": "Hassled (4)’", "enumeration": "4"}, {4}), True)
 check("a different total is not an echo", enumeration.split("Platform (7) (5)"), ("Platform (7)", "5"))
 clue = {"text": "Set meal (5,1’4)", "enumeration": "5,5"}
 check("count under an enumeration is unsplit", enumeration.unsplit(clue, {10}), True)
