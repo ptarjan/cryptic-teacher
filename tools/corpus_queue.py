@@ -6,6 +6,8 @@
     python3 tools/corpus_queue.py nightly [--dry-run] # coverage + wake the room if work is idle
     python3 tools/corpus_queue.py adopt NAME PID      # a job started by hand is this queue's job
     python3 tools/corpus_queue.py pass-gate NAME WHY  # NAME's precondition is met (WHY: the evidence)
+    python3 tools/corpus_queue.py stop NAME           # kill NAME's whole session and hold it
+    python3 tools/corpus_queue.py release NAME        # let a held job start again
 
 The jobs, in order, are tools/data/corpus_queue.json. Each names a list of
 archive.org editions (`list`, one "<item>/<slug>" a line) or the open
@@ -23,7 +25,9 @@ recycled pid is not mistaken for it), or when a scan filer holds a ledger
 lock (tools/scan_queue.py lock(): the archive.org and Trove filers,
 ocr_full_pass.sh). A tick that finds either does nothing but check the
 job's log: no new line for STALL_MINUTES wakes the room once per stall. A
-job that dies twice without finishing a chunk is held and the room is told.
+job that ends twice in a row without finishing a chunk is held and the room
+is told. Each job is its own session; when its leader is gone the tick kills
+whatever of the session is left before it starts anything.
 
 `gate` names something a person must check before the job may start; tick
 stops there until pass-gate records it.
@@ -33,6 +37,7 @@ import datetime
 import fcntl
 import json
 import os
+import signal
 import subprocess
 import sys
 import time
@@ -65,9 +70,14 @@ def chunks_dir(job):
     return expand(job["chunks"]) if job.get("chunks") else STATE_DIR / f"{job['name']}.chunks"
 
 
+def chunk_files(d):
+    """The chunk files in directory `d`: c_* with no suffix (not .tries, .left)."""
+    return sorted(c for c in Path(d).glob("c_*") if "." not in c.name and c.is_file())
+
+
 def remaining(job):
     d = chunks_dir(job)
-    return sorted(c for c in d.glob("c_*") if "." not in c.name) if d.is_dir() else None
+    return chunk_files(d) if d.is_dir() else None
 
 
 def load_state():
@@ -89,6 +99,47 @@ def proc_start(pid):
     except OSError:
         return None
     return stat.rsplit(")", 1)[1].split()[19]
+
+
+def session_of(pid):
+    """The session id of `pid`, None if it is gone."""
+    try:
+        return int(Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[3])
+    except (OSError, IndexError, ValueError):
+        return None
+
+
+def session_pids(sid):
+    """Every live process in session `sid`."""
+    out = []
+    for p in Path("/proc").iterdir():
+        if p.name.isdigit() and session_of(p.name) == sid:
+            out.append(int(p.name))
+    return out
+
+
+def end_session(sid, grace=10):
+    """Kill whatever is left of a job's session: launch() starts each job as a
+    session leader, so its reindex, filer and `timeout` (which moves its child
+    into a process group of its own) all carry the job's pid as their session
+    id, and the kernel does not reuse that number while any of them lives.
+    TERM, then KILL what is still there after `grace` seconds. Returns the pids."""
+    if sid == os.getsid(0):
+        return []
+    pids = session_pids(sid)
+    for sig in (signal.SIGTERM, signal.SIGKILL):
+        for pid in pids:
+            try:
+                os.kill(pid, sig)
+            except ProcessLookupError:
+                pass
+        if sig == signal.SIGKILL:
+            break
+        for _ in range(grace * 10):
+            if not session_pids(sid):
+                return pids
+            time.sleep(0.1)
+    return pids
 
 
 def running():
@@ -243,17 +294,27 @@ def stall_check(run, state, dry):
 
 
 def reap(state, dry):
-    """running.json names a job that is no longer running: count whether
-    its launch finished a chunk, and hold it after DEAD_LAUNCHES that did not."""
+    """running.json names a job whose leader is no longer running: kill what
+    is left of its session, then account for the launch."""
     try:
         r = json.loads(RUNNING.read_text())
     except (OSError, ValueError):
         return
-    job = next((j for j in jobs() if j["name"] == r["name"]), None)
     if dry:
-        print(f"[dry run] {r['name']} (pid {r['pid']}) has exited")
+        print(f"[dry run] {r['name']} (pid {r['pid']}) has exited; would end session {r['pid']}: "
+              f"{session_pids(r['pid'])}")
         return
+    left = end_session(r["pid"])
+    if left:
+        print(f"{r['name']}: killed {len(left)} leftover processes of its session ({left})")
     RUNNING.unlink()
+    account(r["name"], state, dry)
+
+
+def account(name, state, dry):
+    """A launch of job `name` has ended: count whether it finished a chunk,
+    and hold the job after DEAD_LAUNCHES in a row that did not."""
+    job = next((j for j in jobs() if j["name"] == name), None)
     if job is None:
         return
     js = state["jobs"].setdefault(job["name"], {})
@@ -365,6 +426,10 @@ def main(argv=None):
     g.add_argument("why")
     r = sub.add_parser("release")
     r.add_argument("name")
+    s = sub.add_parser("stop", help="kill the running job and everything it started, and hold it")
+    s.add_argument("name")
+    c = sub.add_parser("chunks", help="the chunk files left in a directory, one path a line")
+    c.add_argument("dir", type=Path)
     f = sub.add_parser("finished", help="corpus_job.sh's last act: clear running.json, start the next")
     f.add_argument("name")
     u = sub.add_parser("unread", help="the editions of a chunk file the ledger has not read since a time")
@@ -403,10 +468,22 @@ def main(argv=None):
                 RUNNING.unlink()
         except (OSError, ValueError):
             pass
-        state = load_state()
-        state["jobs"].setdefault(args.name, {})["deadLaunches"] = 0
-        save_state(state)
+        # A job that ends with its chunks still there read none of them; it
+        # counts like any other dead launch rather than starting itself again.
+        account(args.name, load_state(), False)
         tick(False)
+    elif args.cmd == "stop":
+        r = running()
+        if not r or r["name"] != args.name:
+            sys.exit(f"{args.name} is not running")
+        state = load_state()
+        state["jobs"].setdefault(args.name, {})["held"] = True
+        save_state(state)
+        print(f"{args.name}: held; killed session {r['pid']}: {end_session(r['pid'])}")
+        RUNNING.unlink()
+    elif args.cmd == "chunks":
+        for c in chunk_files(args.dir):
+            print(c)
     elif args.cmd == "unread":
         sys.path.insert(0, str(ROOT / "tools"))
         import scan_queue

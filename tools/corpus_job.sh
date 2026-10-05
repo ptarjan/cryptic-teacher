@@ -12,6 +12,10 @@
 # is deleted. A chunk still holding editions after three tries moves to
 # failed/ so one bad edition cannot hold the job. Last, it hands back to
 # corpus_queue.py, which starts the next job.
+#
+# The job is a session leader (corpus_queue.py launch); everything it starts
+# shares its session, and `corpus_queue.py stop` or the next tick after the
+# leader dies kills the whole session, not just this shell.
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 set -u
@@ -35,13 +39,8 @@ publish() {  # publish <series> <what>
   echo "push failed 5 times; the commit stays here and goes with the next chunk"
 }
 
-next_chunk() {  # the first chunk file left (c_<NNN>_<paper>_<series>, no suffix)
-  local f
-  for f in "$CH"/c_*; do
-    case "$f" in *.*) continue ;; esac
-    [ -f "$f" ] && { echo "$f"; return 0; }
-  done
-  return 1
+next_chunk() {  # the first chunk file left
+  python3 tools/corpus_queue.py chunks "$CH" | head -n 1 | grep .
 }
 
 while c=$(next_chunk); do
@@ -74,8 +73,7 @@ while c=$(next_chunk); do
     echo "$base: $(wc -l < "$c") editions left for the next try"
   fi
 done
-failed=0
-for f in "$CH"/failed/c_*; do case "$f" in *.*) ;; *) [ -f "$f" ] && failed=$((failed + 1)) ;; esac; done
+failed=$(python3 tools/corpus_queue.py chunks "$CH/failed" | wc -l | tr -d ' ')
 echo "=== $(date '+%F %T') $NAME: no chunks left ($failed failed)"
 # Let go of this tree's lease first: the next job is started from here and needs it.
 exec 9>&-

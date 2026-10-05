@@ -1,7 +1,8 @@
 #!/bin/bash
 # Does tools/corpus_queue.py count a chunk directory's progress without its
-# .tries files, take a recycled pid for a dead job, and see a filer's ledger
-# lock; and does tools/archive_coverage.py count the editions the Times
+# .tries files (under a dotted path like ~/.cache), take a recycled pid for a
+# dead job, see a filer's ledger lock, kill all of a dead job's session, and
+# count a launch that read no chunk; and does tools/archive_coverage.py count the editions the Times
 # printed (no Sundays, no Christmas, none in the 1979 lock-out) and give an
 # unfiled edition the class its ledger row says?
 set -euo pipefail
@@ -9,21 +10,43 @@ cd "$(dirname "$0")/.."
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 HOME="$tmp" python3 - <<'PY'
-import fcntl, json, os, sys
+import fcntl, json, os, sys, time
 sys.path.insert(0, "tools")
 from pathlib import Path
 import corpus_queue as q
 import archive_coverage as cov
 
-d = Path(os.environ["HOME"]) / "chunks"
-d.mkdir()
+d = Path(os.environ["HOME"]) / ".cache" / "t.chunks"
+d.mkdir(parents=True)
 for n in ("c_001_times_times", "c_001_times_times.tries", "c_aa"):
     (d / n).write_text("NewsUK1987UKEnglish/1987-06-10_62791\n")
 job = {"name": "t", "chunks": str(d)}
 assert [c.name for c in q.remaining(job)] == ["c_001_times_times", "c_aa"], q.remaining(job)
 assert q.editions_of(job) == ["NewsUK1987UKEnglish/1987-06-10_62791"] * 2
+assert q.chunk_files(d) == q.remaining(job) and q.chunk_files(d / "failed") == []
 
-q.STATE_DIR.mkdir(parents=True)
+import signal, subprocess
+p = subprocess.Popen(["bash", "-c", "sleep 300 & sleep 300 & wait"], start_new_session=True)
+for _ in range(50):
+    if len(q.session_pids(p.pid)) == 3:
+        break
+    time.sleep(0.1)
+assert len(q.session_pids(p.pid)) == 3, q.session_pids(p.pid)
+p.send_signal(signal.SIGKILL)
+p.wait()
+assert len(q.session_pids(p.pid)) == 2, "the leader's children outlive it"
+q.end_session(p.pid, grace=2)
+assert q.session_pids(p.pid) == [], q.session_pids(p.pid)
+assert q.end_session(os.getsid(0)) == [], "never its own session"
+
+q.jobs = lambda: [job]
+q.wake = lambda text, dry: None
+state = {"gates": {}, "jobs": {"t": {"remainingAtLaunch": 2}}}
+q.account("t", state, False)
+q.account("t", state, False)
+assert state["jobs"]["t"]["deadLaunches"] == 2 and state["jobs"]["t"]["held"], state
+
+q.STATE_DIR.mkdir(parents=True, exist_ok=True)
 q.RUNNING.write_text(json.dumps({"name": "t", "pid": os.getpid(), "start": q.proc_start(os.getpid())}))
 assert q.running()["pid"] == os.getpid()
 q.RUNNING.write_text(json.dumps({"name": "t", "pid": os.getpid(), "start": "1"}))

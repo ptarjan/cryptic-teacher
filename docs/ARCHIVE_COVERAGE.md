@@ -59,7 +59,15 @@ tick does three more things:
 
 - It resumes a job that a restart killed.
 - It wakes the room once when a job's log stops growing for an hour.
-- It holds a job that dies twice without finishing a chunk, and says so.
+- It kills whatever is left of a dead job's session (its reindex, filer and
+  `timeout` all share it) before it starts anything.
+- It holds a job whose launches end twice in a row without finishing a chunk,
+  and says so.
+
+The tick itself rebuilds nothing, so it returns in seconds; the job rebuilds
+`puzzles/index.*` in its own session. To stop a job, run
+`corpus_queue.py stop NAME`: it kills the job's whole session and holds it
+until `corpus_queue.py release NAME`.
 
 A job with a `gate` (a check a person must make first) waits until
 `corpus_queue.py pass-gate NAME "evidence"` is run. `status` lists every job.
