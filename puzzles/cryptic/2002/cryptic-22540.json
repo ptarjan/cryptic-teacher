@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Haste leading to downfall",
     "enumeration": "13"
    },
-   "solution": "PRECIPITATION"
+   "solution": "PRECIPITATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PRECIPITATION",
+    "definitions": [
+     {
+      "text": "Haste",
+      "at": 0
+     },
+     {
+      "text": "downfall",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Haste",
+      "note": "first meaning: rash hurry, acting too suddenly"
+     },
+     {
+      "clueFragment": "downfall",
+      "note": "second meaning: rain, snow or hail coming down from the sky"
+     }
+    ],
+    "explanation": {
+     "surface": "A cautionary tale: rushing things brings about someone's ruin.",
+     "walkthrough": "'Downfall' reads as ruin, but here it is literal weather falling from the clouds.",
+     "definitionFit": "The word means both headlong rashness of action and the meteorological term for rain or snow that falls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "downfall"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,61 @@
     "text": "Restrained eastern journalists about colour",
     "enumeration": "9"
    },
-   "solution": "REPRESSED"
+   "solution": "REPRESSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPRESSED",
+    "definitions": [
+     {
+      "text": "Restrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the colour goes round the other words, wrapping them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colour",
+      "gives": "RED",
+      "note": "red is a colour"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "journalists",
+      "gives": "PRESS",
+      "note": "the press is journalists collectively"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "PRESS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Reporters in the East are held back over their politics.",
+     "walkthrough": "'Colour' sits at the end but its letters form the outside of the answer, wrapping everything else.",
+     "definitionFit": "Repressed means held in check or kept under control, synonymous with curbed or suppressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "colour"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,54 @@
     "text": "Artist right about bird",
     "enumeration": "5"
    },
-   "solution": "COROT"
+   "solution": "COROT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COROT",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the bird's letters go round the other piece, surrounding it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "COOT",
+      "note": "a coot is a water bird"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is correct about a particular bird.",
+     "definitionFit": "Jean-Baptiste-Camille Corot was a nineteenth-century French landscape painter, forerunner of Impressionism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +219,67 @@
     "text": "Drunken sot in chaste pose",
     "enumeration": "7"
    },
-   "solution": "POSTURE"
+   "solution": "POSTURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "POSTURE",
+    "definitions": [
+     {
+      "text": "pose",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunken",
+      "for": "anagram",
+      "note": "a drunk staggers about, so these letters lurch into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chaste",
+      "gives": "PURE",
+      "note": "chaste means pure"
+     },
+     {
+      "clueFragment": "sot",
+      "gives": "SOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OST",
+      "URE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOT",
+       "gives": "OST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunkard strikes a virtuous attitude.",
+     "definitionFit": "A posture is the position in which a body is held, synonymous with a stance or attitude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "chaste"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +293,56 @@
     "text": "Part of plant I lent doctor by mistake",
     "enumeration": "7"
    },
-   "solution": "TENDRIL"
+   "solution": "TENDRIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TENDRIL",
+    "definitions": [
+     {
+      "text": "Part of plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by mistake",
+      "for": "anagram",
+      "note": "something arranged by mistake comes out wrong, so the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I lent",
+      "gives": "ILENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ILENTDR",
+       "gives": "TENDRIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone accidentally hands a physician a piece of greenery.",
+     "walkthrough": "'Doctor' looks like the anagram signal; here it just gives DR.",
+     "definitionFit": "A tendril is the slender curling shoot a climbing plant uses to twine around supports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +362,68 @@
      }
     ]
    },
-   "solution": "TALKSENSE"
+   "solution": "TALKSENSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TALK SENSE",
+    "definitions": [
+     {
+      "text": "Speak logically",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be upset",
+      "for": "anagram",
+      "note": "something upset is knocked over, so the letters spill into a new order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "says which piece comes later in the answer, the discussion word going first"
+     }
+    ],
+    "linkWords": [
+     "though"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "discussions",
+      "gives": "TALKS",
+      "note": "talks are formal discussions"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "SEEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALKS",
+      "ENSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEN",
+       "gives": "ENSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A negotiator argues reasonably, though visibly distressed after the meetings.",
+     "definitionFit": "To talk sense is an idiom meaning to say reasonable, rational things rather than nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +437,45 @@
     "text": "Took a piece, or part, of animal",
     "enumeration": "5"
    },
-   "solution": "OKAPI"
+   "solution": "OKAPI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OKAPI",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part, of",
+      "for": "hidden_word",
+      "note": "only a portion of the opening words is wanted, a run of their letters"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Took a piece",
+      "gives": "OKAPI",
+      "note": "the letters sit inside, straddling the first three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone helped themselves to a slice, or a portion, of meat from a beast.",
+     "definitionFit": "The okapi is a forest-dwelling African mammal related to the giraffe, with zebra-striped legs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +489,47 @@
     "text": "Settlement in lodgings",
     "enumeration": "13"
    },
-   "solution": "ACCOMMODATION"
+   "solution": "ACCOMMODATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACCOMMODATION",
+    "definitions": [
+     {
+      "text": "Settlement",
+      "at": 0
+     },
+     {
+      "text": "lodgings",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Settlement",
+      "note": "first meaning: a compromise or agreement reached between parties"
+     },
+     {
+      "clueFragment": "lodgings",
+      "note": "second meaning: rooms or a place to stay"
+     }
+    ],
+    "explanation": {
+     "surface": "A legal deal struck while staying in rented rooms.",
+     "walkthrough": "'Settlement' suggests a village or colony, which fits lodgings too well; here it is a compromise between parties.",
+     "definitionFit": "The word means both a convenient arrangement reached by compromise and a place where people are housed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Settlement"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +549,66 @@
      }
     ]
    },
-   "solution": "GEIGERCOUNTER"
+   "solution": "GEIGERCOUNTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GEIGER COUNTER",
+    "definitions": [
+     {
+      "text": "detection equipment",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means read from the bottom up, so the order flips"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two soldiers",
+      "gives": "REGI",
+      "note": "RE (Royal Engineers) and GI (an American private) are two kinds of soldier"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. abbreviates the Latin exempli gratia, for example"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "COUNTER",
+      "note": "counter means against or opposed to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEIGER",
+      "COUNTER"
+     ],
+     "reversals": [
+      {
+       "from": "REGIEG",
+       "to": "GEIGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of soldiers stand up to resist a sweep by detectors.",
+     "walkthrough": "RE is the Royal Engineers, a British Army corps.",
+     "definitionFit": "A Geiger counter is an instrument that detects and measures ionising radiation by its clicks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +622,70 @@
     "text": "Is on a par with study about fancy dress",
     "enumeration": "9"
    },
-   "solution": "CAPARISON"
+   "solution": "CAPARISON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CAPARISON",
+    "definitions": [
+     {
+      "text": "fancy dress",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one thing sitting on another means it is placed straight after it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the study word goes round the other letters, wrapping them on both sides"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "CON",
+      "note": "to con is to study or peruse closely"
+     },
+     {
+      "clueFragment": "a par",
+      "gives": "APAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APAR",
+      "IS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Comparing two things as equal, with someone examining a costume.",
+     "walkthrough": "'Is on a par' looks like a single phrase meaning equal to; it must be split, with 'on' meaning placed after. To con is an old word for to study.",
+     "definitionFit": "A caparison is an ornamental cloth covering for a horse, by extension any rich decorative clothing or finery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "par"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +699,45 @@
     "text": "Permission to resign",
     "enumeration": "5"
    },
-   "solution": "LEAVE"
+   "solution": "LEAVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAVE",
+    "definitions": [
+     {
+      "text": "Permission",
+      "at": 0
+     },
+     {
+      "text": "resign",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permission",
+      "note": "first meaning: authorisation, as in being granted time off"
+     },
+     {
+      "clueFragment": "resign",
+      "note": "second meaning: to quit a job or post"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asking the boss whether they may quit.",
+     "definitionFit": "As a noun the word means sanctioned absence or consent; as a verb it means to depart from employment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Permission"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +751,50 @@
     "text": "Nothing green is apparent",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "apparent",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "the figure zero looks like the letter O"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "VERT",
+      "note": "vert is the heraldic word for green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERT"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement that inexperience is plain for all to see.",
+     "walkthrough": "VERT is the term for green used in coats of arms.",
+     "definitionFit": "Something overt is done openly, plainly visible and not concealed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +808,49 @@
     "text": "Never still on world body's day off",
     "enumeration": "9"
    },
-   "solution": "UNRESTING"
+   "solution": "UNRESTING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNRESTING",
+    "definitions": [
+     {
+      "text": "Never still",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "world body's",
+      "gives": "UN",
+      "note": "the United Nations is the world body; the 's joins it to what follows"
+     },
+     {
+      "clueFragment": "day off",
+      "gives": "RESTING",
+      "note": "someone on their day off is taking it easy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RESTING"
+     ]
+    },
+    "explanation": {
+     "surface": "The United Nations never pauses, even on its holiday.",
+     "definitionFit": "Unresting describes someone who keeps moving and never takes a break, constantly active."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Never"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +864,53 @@
     "text": "US miler collapses in chaos",
     "enumeration": "7"
    },
-   "solution": "MISRULE"
+   "solution": "MISRULE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MISRULE",
+    "definitions": [
+     {
+      "text": "chaos",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collapses",
+      "for": "anagram",
+      "note": "a runner who collapses falls in a heap, so these letters fall apart and land jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US miler",
+      "gives": "USMILER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USMILER",
+       "gives": "MISRULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American middle-distance runner falls over in a disorderly race.",
+     "definitionFit": "Misrule is bad or disorderly government, and by extension general anarchy and confusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collapses"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +924,77 @@
     "text": "Worlds depicted in one piece of poetry about sunburst",
     "enumeration": "9"
    },
-   "solution": "UNIVERSES"
+   "solution": "UNIVERSES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "UNIVERSES",
+    "definitions": [
+     {
+      "text": "Worlds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "burst",
+      "for": "anagram",
+      "note": "when something bursts its contents scatter, landing in a fresh order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the scattered letters go round the poetic piece, surrounding it"
+     }
+    ],
+    "linkWords": [
+     "depicted in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "piece of poetry",
+      "gives": "VERSE",
+      "note": "a verse is a stanza or poem"
+     },
+     {
+      "clueFragment": "sunburst",
+      "gives": "SUN",
+      "note": "only the first three letters are fodder; the rest of the word is the scrambling signal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "I",
+      "VERSE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUN",
+       "gives": "UNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cosmic realms portrayed in a single stanza about a solar flare.",
+     "walkthrough": "'Sunburst' looks like one image of light, but it must be split into a word and its indicator; the letter I here is the Roman numeral.",
+     "definitionFit": "Universes are whole cosmic systems; in a looser sense each is a self-contained world or sphere of existence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sunburst"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1008,52 @@
     "text": "Real ink may be thinner",
     "enumeration": "7"
    },
-   "solution": "LANKIER"
+   "solution": "LANKIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LANKIER",
+    "definitions": [
+     {
+      "text": "thinner",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may be",
+      "for": "anagram",
+      "note": "saying the letters may be something else invites forming a different word from them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Real ink",
+      "gives": "REALINK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALINK",
+       "gives": "LANKIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A claim that genuine ink might be more watery than the fake stuff.",
+     "walkthrough": "'Thinner' tempts as a paint solvent for ink; it is the comparative adjective, slimmer.",
+     "definitionFit": "Lanky means tall and thin, so the comparative form describes a more gangling, slender person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "thinner"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1067,54 @@
     "text": "Tied it in a knot and began",
     "enumeration": "9"
    },
-   "solution": "INITIATED"
+   "solution": "INITIATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INITIATED",
+    "definitions": [
+     {
+      "text": "began",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knot",
+      "for": "anagram",
+      "note": "a knot twists strands round each other, so the letters before it are tangled up"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tied it in a",
+      "gives": "TIEDITINA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIEDITINA",
+       "gives": "INITIATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fastened a rope with a knot and got started.",
+     "walkthrough": "'In a knot' reads as one phrase, but 'in a' belongs to the fodder and only 'knot' signals the tangle.",
+     "definitionFit": "To initiate something is to set it going, so the past tense matches started or commenced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knot"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1128,61 @@
     "text": "Art movement is mad about assent in Russia",
     "enumeration": "7"
    },
-   "solution": "DADAISM"
+   "solution": "DADAISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DADAISM",
+    "definitions": [
+     {
+      "text": "Art movement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "turned about means rearranged, so the words before it are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "assent in Russia",
+      "gives": "DA",
+      "note": "da is Russian for yes"
+     },
+     {
+      "clueFragment": "is mad",
+      "gives": "ISMAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "DAISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISMAD",
+       "gives": "DAISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is crazy about getting a yes in Moscow.",
+     "walkthrough": "'Mad' looks like the anagram signal, but it is part of the fodder; 'about' does the scrambling.",
+     "definitionFit": "Dadaism was the early twentieth-century anti-art movement founded in Zurich, famed for absurdity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mad"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1196,65 @@
     "text": "Average set turning out to be least generous",
     "enumeration": "7"
    },
-   "solution": "MEANEST"
+   "solution": "MEANEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MEANEST",
+    "definitions": [
+     {
+      "text": "least generous",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning out",
+      "for": "anagram",
+      "note": "turning things out jumbles them, as when emptying a drawer"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Average",
+      "gives": "MEAN",
+      "note": "the mean is the arithmetical average"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "SET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "EST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SET",
+       "gives": "EST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ordinary group proves to be the stingiest of all.",
+     "walkthrough": "'Average' plays on two senses of mean: the statistical one in the wordplay and the stingy one in the definition.",
+     "definitionFit": "Mean in the sense of stingy or tight-fisted has the superlative form for the most miserly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Average"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1268,60 @@
     "text": "Clergyman is to run about town in Italy",
     "enumeration": "7"
    },
-   "solution": "TREVISO"
+   "solution": "TREVISO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREVISO",
+    "definitions": [
+     {
+      "text": "town in Italy",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "run about",
+      "for": "container",
+      "note": "to run about something is to go round it, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Clergyman",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a clergyman"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REV",
+      "IS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A vicar sets off to tour around an Italian town.",
+     "definitionFit": "Treviso is a city in the Veneto region of north-east Italy, near Venice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1341,39 @@
      }
     ]
    },
-   "solution": "THETIME"
+   "solution": "THETIME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THE TIME",
+    "definitions": [
+     {
+      "text": "If you want it, ask a policeman if he has it",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "If you want it, ask a policeman",
+      "note": "surface reading: advice to seek help from a constable, which is what you might do when lost"
+     },
+     {
+      "clueFragment": "if he has it",
+      "note": "setter's reading: the music-hall song says if you want to know what o'clock it is, ask a policeman, who carries a watch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The old music-hall song 'If You Want to Know the Time, Ask a Policeman' supplies the answer; British bobbies were known for their pocket watches.",
+     "definitionFit": "The phrase is what you ask a passer-by for when you need to know the hour of day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "policeman"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1387,63 @@
     "text": "Self-restrained mood at tea break",
     "enumeration": "9"
    },
-   "solution": "TEMPERATE"
+   "solution": "TEMPERATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TEMPERATE",
+    "definitions": [
+     {
+      "text": "Self-restrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "break",
+      "for": "anagram",
+      "note": "to break something is to smash it, leaving the pieces in a new order"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mood",
+      "gives": "TEMPER",
+      "note": "a temper is a state of mind or mood"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPER",
+      "ATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEA",
+       "gives": "ATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping calm over a cuppa during a tea break.",
+     "definitionFit": "Temperate means showing moderation and self-control, especially about drink and appetite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1457,43 @@
     "text": "The point of a story or lesson",
     "enumeration": "5"
    },
-   "solution": "MORAL"
+   "solution": "MORAL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MORAL",
+    "definitions": [
+     {
+      "text": "The point of a story",
+      "at": 0
+     },
+     {
+      "text": "lesson",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The point of a story",
+      "note": "first meaning: the message a fable is meant to convey"
+     },
+     {
+      "clueFragment": "lesson",
+      "note": "second meaning: a teaching drawn from experience"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The noun names the instructive message at the end of a fable, an ethical teaching to be learnt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1507,46 @@
     "text": "Memorial to a dog",
     "enumeration": "5"
    },
-   "solution": "CAIRN"
+   "solution": "CAIRN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CAIRN",
+    "definitions": [
+     {
+      "text": "Memorial",
+      "at": 0
+     },
+     {
+      "text": "dog",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "to a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Memorial",
+      "note": "first meaning: a heap of stones raised as a landmark or monument"
+     },
+     {
+      "clueFragment": "dog",
+      "note": "second meaning: a small, shaggy Scottish terrier"
+     }
+    ],
+    "explanation": {
+     "surface": "A monument raised in honour of a beloved pet.",
+     "definitionFit": "The word names both a mound of piled stones marking a grave or summit and a breed of Highland terrier."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Memorial"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1560,46 @@
     "text": "Shout for food",
     "enumeration": "5"
    },
-   "solution": "CHEER"
+   "solution": "CHEER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHEER",
+    "definitions": [
+     {
+      "text": "Shout",
+      "at": 0
+     },
+     {
+      "text": "food",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shout",
+      "note": "first meaning: a cry of encouragement or applause"
+     },
+     {
+      "clueFragment": "food",
+      "note": "second meaning: an old sense meaning fare, as in good festive provisions"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone yelling to be fed.",
+     "definitionFit": "Besides a rousing hurrah, the word in an older sense means fare or victuals, as in Christmas good cheer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "food"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1613,53 @@
     "text": "Gorse destroyed by monsters",
     "enumeration": "5"
    },
-   "solution": "OGRES"
+   "solution": "OGRES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OGRES",
+    "definitions": [
+     {
+      "text": "monsters",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "what is wrecked loses its form, so the plant's letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gorse",
+      "gives": "GORSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GORSE",
+       "gives": "OGRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heathland shrubs trampled flat by giant creatures.",
+     "definitionFit": "Ogres are man-eating giants of folklore and fairy tale, the classic storybook brutes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1673,53 @@
     "text": "Recent pie cooked over middle point",
     "enumeration": "9"
    },
-   "solution": "EPICENTRE"
+   "solution": "EPICENTRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPICENTRE",
+    "definitions": [
+     {
+      "text": "middle point",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked figuratively means doctored or altered, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Recent pie",
+      "gives": "RECENTPIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RECENTPIE",
+       "gives": "EPICENTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A freshly baked pie is heated through to the middle.",
+     "definitionFit": "An epicentre is the ground point above an earthquake's origin, hence figuratively the central focus of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1743,64 @@
      }
     ]
    },
-   "solution": "BLESSTHEBRIDE"
+   "solution": "BLESSTHEBRIDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BLESS THE BRIDE",
+    "definitions": [
+     {
+      "text": "show",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rolls",
+      "for": "anagram",
+      "note": "things that roll tumble over and over, ending up in a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Officially approve",
+      "gives": "BLESS",
+      "note": "to bless a plan is to give it official sanction"
+     },
+     {
+      "clueFragment": "their bedrolls",
+      "gives": "THEIRBED",
+      "note": "the fodder is 'their bed'; the tail of the second word is the scrambling signal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLESS",
+      "THEBRIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THEIRBED",
+       "gives": "THEBRIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone formally inspects a couple's sleeping bags for display.",
+     "walkthrough": "'Bedrolls' looks like one word, but it splits into the fodder 'bed' and the indicator 'rolls'.",
+     "definitionFit": "Bless the Bride is a 1947 London stage musical by A. P. Herbert and Vivian Ellis, a West End show."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bedrolls"
+    }
+   }
   }
  ]
 }
