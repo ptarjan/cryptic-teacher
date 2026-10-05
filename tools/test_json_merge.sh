@@ -23,7 +23,7 @@ git config user.name test
 mkdir -p tools/data
 cp "$ROOT/tools/json_merge.py" "$ROOT/.gitattributes" tools/ 2>/dev/null
 mv tools/.gitattributes .
-eval "$(grep -E "config (merge|filter)\.json-keys" "$ROOT/tools/nightly_worktree.sh" |
+eval "$(grep -E "config (merge|filter)\.(json-keys|puzzle-json)" "$ROOT/tools/nightly_worktree.sh" |
   sed 's/git -C "$(dirname "${BASH_SOURCE\[0\]}")"/git/')"
 check "driver registered from nightly_worktree.sh" \
   "$(git config merge.json-keys.driver)" "python3 tools/json_merge.py %O %A %B"
@@ -115,5 +115,41 @@ git rebase --abort 2>/dev/null
 for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*/\1/p' "$ROOT/.gitattributes"); do
   check "$f is one line per key" "$(canonical < "$ROOT/$f")" True
 done
+
+# A puzzle both nightly jobs annotated (everyman-4172, 2026-10-05): the update's
+# commit also carried new data, the burn's only its annotation. The rebase
+# resolves itself, keeps origin's annotation, and keeps the update's data.
+git checkout -q master
+mkdir -p puzzles/x
+puzzle() { python3 - "$@" <<'PY'
+import json, sys
+p = "puzzles/x/x-1.json"
+try: d = json.load(open(p))
+except FileNotFoundError: d = {"id": "x-1", "entries": [
+    {"number": n, "direction": "across", "solution": s} for n, s in ((1, "AB"), (2, "CD"))]}
+for kv in sys.argv[1:]:
+    k, v = kv.split("=")
+    if k == "date": d["date"] = v
+    else:
+        e = d["entries"][int(k)]
+        e["annotation"] = {"by": v}
+        d["annotatedBy"] = sorted(set(d.get("annotatedBy", []) + [v]))
+open(p, "w").write(json.dumps(d, indent=1, ensure_ascii=False) + "\n")
+PY
+}
+puzzle; git add -A; git commit -qm puzzle
+git checkout -qb update; puzzle 0=update 1=update date=2026-10-04; git commit -qam update
+git checkout -q master; puzzle 0=burn 1=burn; git commit -qam burn
+git checkout -q update; git rebase -q master >/dev/null 2>&1
+check "rebase over a puzzle both sides annotated completes" "$(git ls-files -u | wc -l | tr -d ' ')" 0
+check "origin's annotation is kept whole, the update's data too" \
+  "$(python3 -c 'import json; d=json.load(open("puzzles/x/x-1.json")); print([e["annotation"]["by"] for e in d["entries"]], d["date"], d["annotatedBy"])')" \
+  "['burn', 'burn'] 2026-10-04 ['burn', 'update']"
+git checkout -q master; puzzle date=2026-01-01; git commit -qam d1
+git checkout -q update; puzzle date=2026-02-02; git commit -qam d2
+git rebase -q master >/dev/null 2>&1
+check "a field both sides changed differently is a marked conflict" \
+  "$([ -n "$(git ls-files -u)" ] && grep -c '^<<<<<<< ' puzzles/x/x-1.json)" 1
+git rebase --abort 2>/dev/null
 
 [ "$fails" = 0 ] && echo "json_merge: all checks passed" || { echo "json_merge: $fails FAILED"; exit 1; }

@@ -25,13 +25,28 @@ parses is mergeable however it was spaced. Keys and lists that were sorted stay
 sorted. Anything that does not parse as a JSON object exits 1 and git falls back
 to an ordinary conflict.
 
+`--puzzle` is the driver for the puzzle files (puzzles/**/*.json), which the
+daily update and the pre-reset burn both annotate: when they annotate the same
+puzzle in the same night, the two commits rewrite every entry's lines and a line
+merge cannot place them. Here the merge is the same three-way walk, except that
+`entries` merge entry by entry (both sides must hold the same lights in the same
+order), an entry's `annotation` is one value (two annotations are never spliced
+together; when both sides wrote one, %A's is kept, which in a rebase and in
+push_puzzle_commit.sh's merge-tree is the one already on origin and so already
+on the site), `annotatedBy` is a union, and anything else both sides changed
+differently is a real conflict, written with conflict markers by
+`git merge-file` so no caller can stage it as resolved. The result is written in
+write_puzzle_file's layout.
+
 The clean filter is what keeps that layout in the repository: `git add` stores
 dump_lines of whatever is on disk, so a row typed in by hand (an annotating
 model editing the file) is staged in the canonical layout. Input that does not
 parse is staged as it is, and the merge refuses it later.
 """
 import json
+import subprocess
 import sys
+from pathlib import Path
 
 MISSING = object()
 
@@ -85,6 +100,60 @@ def merge(o, a, b, path=""):
     return b
 
 
+class Conflict(Exception):
+    pass
+
+
+def entry_key(e):
+    return (e.get("number"), e.get("direction")) if isinstance(e, dict) else e
+
+
+def merge_puzzle(o, a, b, path=""):
+    if a == b:
+        return a
+    if a == o:
+        return b
+    if b == o:
+        return a
+    key = path.rsplit("/", 1)[-1]
+    if key == "annotation":
+        return a
+    if isinstance(a, dict) and isinstance(b, dict):
+        base = o if isinstance(o, dict) else {}
+        out = {}
+        for k in list(a) + [k for k in b if k not in a]:
+            v = merge_puzzle(base.get(k, MISSING), a.get(k, MISSING),
+                             b.get(k, MISSING), f"{path}/{k}")
+            if v is not MISSING:
+                out[k] = v
+        return out
+    if isinstance(a, list) and isinstance(b, list):
+        if key == "annotatedBy":
+            return merge_lists(o, a, b)
+        if key == "entries" and isinstance(o, list) and \
+                [entry_key(e) for e in o] == [entry_key(e) for e in a] == \
+                [entry_key(e) for e in b]:
+            return [merge_puzzle(x, y, z, f"{path}/{entry_key(y)}")
+                    for x, y, z in zip(o, a, b)]
+    raise Conflict(path or "/")
+
+
+def main_puzzle(o_path, a_path, b_path):
+    try:
+        o, a, b = (json.loads(Path(p).read_text(encoding="utf-8"))
+                   for p in (o_path, a_path, b_path))
+        merged = merge_puzzle(o, a, b)
+    except (ValueError, Conflict) as err:
+        print(f"json_merge --puzzle: {type(err).__name__} at {err}; "
+              "leaving a marked conflict", file=sys.stderr)
+        subprocess.run(["git", "merge-file", "-L", "current", "-L", "base",
+                        "-L", "other", a_path, o_path, b_path], check=False)
+        return 1
+    with open(a_path, "w", encoding="utf-8") as f:
+        f.write(json.dumps(merged, indent=1, ensure_ascii=False) + "\n")
+    return 0
+
+
 def main(o_path, a_path, b_path):
     texts = []
     for p in (o_path, a_path, b_path):
@@ -120,6 +189,8 @@ if __name__ == "__main__":
     if sys.argv[1:] == ["--clean"]:
         sys.stdout.write(clean(sys.stdin.read()))
         sys.exit(0)
+    if len(sys.argv) == 5 and sys.argv[1] == "--puzzle":
+        sys.exit(main_puzzle(*sys.argv[2:]))
     if len(sys.argv) != 4:
-        sys.exit("usage: json_merge.py ANCESTOR CURRENT OTHER | json_merge.py --clean")
+        sys.exit("usage: json_merge.py [--puzzle] ANCESTOR CURRENT OTHER | json_merge.py --clean")
     sys.exit(main(*sys.argv[1:]))
