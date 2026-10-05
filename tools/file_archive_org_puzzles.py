@@ -608,6 +608,17 @@ def tidy(text):
             line = re.sub(r"^[.,:;*'_•·]{1,2}\s?(?=[\dIl]\d?\s)", "", line)
             # A clue's number 1 read as I or l: "I7 More", "IA fruitful".
             line = re.sub(r"^[Il](?=\d\b|\d\s|[A-Z]\s)", "1", line)
+            # A clue's number with a speck run into its first word: "1'In the",
+            # "1.Associate's", "l^Finished", ". 1. Maltreat", "-1--He said".
+            line = re.sub(r"^(?:[^\w\s(]|_){1,3}\s?(?=[Il]?\d{1,2}(?:[^\w\s(]|_){0,3}\s?[A-Z\"'])", "", line)
+            line = re.sub(r"^[Il]?(\d{1,2})(?:[^\w\s(]|_){1,3}\s?(?=[A-Z\"'])", r"\1 ", line)
+            line = re.sub(r"^[Il](\d)?(?:[^\w\s(]|_){1,3}\s?(?=[A-Z][a-z])", lambda m: f"1{m[1] or ''} ", line)
+            # A 1 read as I, J, ! or | run into a capitalised word: "IPheasant",
+            # "JTool", "!What makes".
+            line = re.sub(r"^[IlJ!|](?=[A-Z][a-z])", "1 ", line)
+            # A number read as specks alone: ") With", "• £■ So"; the grid
+            # places the clue ("?" below).
+            line = re.sub(r"^(?:[^\w\s(\"'][^\w\s(]{0,2}\s?){1,3}(?=[A-Z][a-z])", "", line)
         line = re.sub(r"^(\d{1,2})(?=[A-Z][a-z]|[A-Z]\s)", r"\1 ", line)
         # "15 Adanger out east": a clue's opening "A" run into the next word,
         # unless the whole is a misspelling of a commoner word ("Arived").
@@ -642,8 +653,11 @@ HEADING_TAIL = re.compile(r"(?<=\))\W{0,2}\s+(ACROSS|DOWN)\W*$")
 
 
 #: A count torn at a clue's end: "(" read as 1, I or l ("17).", "IS).") or
-#: lost, ")" read as a letter or lost ("(5X", "(8k", "(8").
-TORN_COUNT = re.compile(r"(?<=\S)\s*(?:\(([\dS]{1,2})[A-Za-z]?|(?<=\s)[1Il]([\dS]{1,2})\))\W{0,2}$")
+#: lost, ")" read as a letter or lost ("(5X", "(8k", "(8"); both torn: "("
+#: read as T, t, f or j and ")" lost ("T10"), or a lone digit between
+#: "(" read as 1, I or l and ")" as j, J, l or I ("16j", "I6l").
+TORN_COUNT = re.compile(r"(?<=\S)\s*(?:\(([\dS]{1,2})[A-Za-z]?|(?<=\s)[1Il]([\dS]{1,2})\)"
+                        r"|(?<=\s)[Ttfj]([\dS]{1,2})\)?|(?<=\s)([1Il][\dS])[jJlI])\W{0,2}$")
 
 
 def counts_mended(lines):
@@ -669,7 +683,9 @@ def counts_mended(lines):
             continue
         if m[2] and m[2].isdigit() and int("1" + m[2]) <= 15:
             continue  # "12)": a count of 12 lost its bracket, or of 2 its "(": unsure
-        out[k] = line[:m.start()] + f" ({m[1] or m[2]})"
+        if m[4] and m[4].isdigit() and int(m[4]) <= 15:
+            continue  # "12l": a count of 12 or of 2: unsure
+        out[k] = line[:m.start()] + f" ({m[1] or m[2] or m[3] or m[4][1:]})"
     return out
 
 
@@ -752,7 +768,9 @@ def merge_rows(col):
     rows = []
     for piece in sorted(col, key=lambda l: (l[0] + l[1]) / 2):
         mid = (piece[0] + piece[1]) / 2
-        if rows and rows[-1][0][0] <= mid <= rows[-1][0][1]:
+        # The row's band is all its pieces': "Am-" read apart from
+        # "understood" and both above "1 Historian" are one printed row.
+        if rows and min(p[0] for p in rows[-1]) <= mid <= max(p[1] for p in rows[-1]):
             over = [p for p in rows[-1] if min(p[3], piece[3]) - max(p[2], piece[2])
                     > 0.5 * (piece[3] - piece[2])]
             if not over:
