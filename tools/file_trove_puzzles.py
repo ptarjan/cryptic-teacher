@@ -116,7 +116,8 @@ NUM = rf"[{DIGITISH}]{{1,2}}"
 #: digit it read as a dash ("1- Ask" for 12).
 JUNK_NUM = r"(?:[a-zA-Z]|\d{1,2}[\-~^*]|[a-zA-Z#?*%&$£!|'■\"`.,]{0,2}[#?*%&$£!|'■\"`.,][a-zA-Z#?*%&$£!|'■\"`.,]{0,2})"
 BRACKET = re.compile(rf"\(([^()]{{1,12}})\)\s*\.?|\(([{DIGITISH},\-]{{1,5}}?)[\]}}>Vv]?\.?(?=\s|$)"
-                     r"|(?<=\s)[jJft\[{<]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1(\d)\)\s*\.?")
+                     r"|(?<=\s)[jJft\[{<]\s?(\d{1,2}(?:[,\-]\d{1,2})*)\)\s*\.?|(?<=\s)1([1-9])\)\s*\.?"
+                     r"|(?<=\s)(\d{1,2}(?:,\s?\d{1,2}|-\d{1,2})*)\)\s*\.?")
 
 
 # ------------------------------------------------------------ the article
@@ -382,7 +383,7 @@ def clues(text):
             # A bracket that reads as no count ends the clue only before a
             # number with a digit in it: "(laugh!) is beginning" is not
             # clue 15's start.
-            lost = not enum_readings(e.group(1) or e.group(2) or e.group(3) or e.group(4))
+            lost = not enum_readings(next(g for g in e.groups() if g is not None))
             if not after.strip() or (start.match(rest, e.end())
                                      and not (lost and not re.match(r"\s*\S?\d", after))):
                 end = e
@@ -390,7 +391,7 @@ def clues(text):
         if end is None:
             out.append({"tokens": tokens, "text": rest.strip(), "enums": set(), "see": None})
             break
-        raw = end.group(1) or end.group(2) or end.group(3) or end.group(4)
+        raw = next(g for g in end.groups() if g is not None)
         enums = enum_readings(raw)
         if end.group(2) and re.search(r"[1lI]$", raw):
             enums |= enum_readings(raw[:-1])
