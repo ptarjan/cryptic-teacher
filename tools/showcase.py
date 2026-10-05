@@ -25,7 +25,8 @@ import series as series_meta
 # A tag that implies another shows in that one's section, by its own label.
 NOT_SHOWCASED = {}
 
-# At most this many puzzles of one series in a feature's section on /showcase/.
+# At most this many puzzles of one series among a feature's cards on /showcase/;
+# its own page lists them all.
 FEATURE_PER_SERIES = {"hidden-message": 3, "asymmetric": 2, "barred": 3, "big-grid": 2,
                       "unclued": 3, "letters-given": 3, "special-rules": 3}
 
@@ -135,12 +136,13 @@ def feature_spec(fs, tag):
 
 
 # Each list as (slug, heading, blurb, which puzzles, ranking, card note,
-# per_series): the rankings, every feature, then the round numbers. Each
-# list is its candidates by ranking, at most per_series from one series: all
-# of them, or the top FULL of a ranking (a key other than newest_first), which
-# can run to thousands. /showcase/<slug>/ shows the list and /showcase/ its
-# first PER_SECTION. A per_series of 1 lets a ranking that one series
-# dominates show several papers.
+# per_series): the rankings, every feature, then the round numbers. A
+# ranking's list is its candidates by ranking, at most per_series from one
+# series: all of them, or the top FULL of a ranking (a key other than
+# newest_first), which can run to thousands. A feature's list is every
+# candidate, per_series picking only the cards /showcase/ shows (sections).
+# A per_series of 1 lets a ranking that one series dominates show several
+# papers.
 def specs(fs):
     return [
         ("longest", "The longest answers",
@@ -172,27 +174,48 @@ FULL = 100
 ONE_PER_SERIES = " Here, no two from the same series."
 
 
+def unhinted_note(n):
+    """What a feature's own page adds when the puzzle list holds more of it
+    than the page may show: the page lists only puzzles with our hints."""
+    if not n:
+        return ""
+    return (f" Only puzzles with our hints are listed here; {n} more have it, "
+            "and the feature menu in the puzzle list finds them.")
+
+
 def sections(all_facts, hinted=True):
     """[(slug, heading, blurb, [(fact dict, card note)], full)] in page order,
     full being (blurb, cards, "all 21" or "top 100") for /showcase/<slug>/, or
-    None where the section already shows everything it has. Each section is
-    ranked once: /showcase/ shows the first PER_SECTION of the list its own
-    page shows, so the two always agree, and a puzzle may be in several
-    sections. With hinted, only the puzzles we have annotated are candidates."""
+    None where the section already shows everything it has. A puzzle may be in
+    several sections. With hinted, only the puzzles we have annotated are
+    candidates.
+
+    A ranking is ranked once, at most per_series from a series, so /showcase/
+    shows the first PER_SECTION of its own page. A feature's own page lists
+    every candidate with the feature, newest first, and says how many more
+    the puzzle list holds unhinted: "all 7" must be all of them. Its
+    per_series only spreads the PER_SECTION cards /showcase/ picks."""
+    all_facts = list(all_facts)
     fs = [f for f in all_facts if f["annotated"] or not hinted]
     out = []
     for slug, heading, blurb, cands, key, note, per_series in specs(fs):
-        whole = ranked(cands, key, per_series)
+        feature = slug in puzzle_tags.TAGS
+        whole = ranked(cands, key, None if feature else per_series)
         if not whole:
             continue
-        if key is not newest_first and len(whole) > FULL:
+        shown = ranked(cands, key, per_series)[:PER_SECTION] if feature else whole[:PER_SECTION]
+        if key is not newest_first and not feature and len(whole) > FULL:
             whole, label = whole[:FULL], f"top {FULL}"
         else:
             label = f"all {len(whole)}"
         blurb += ONE_PER_SERIES if per_series == 1 else ""
+        full_blurb = blurb
+        if feature:
+            full_blurb += unhinted_note(sum(
+                1 for f in all_facts if puzzle_tags.has_tag(f["tags"], slug)) - len(whole))
         cards = [(f, note(f)) for f in whole]
-        full = (blurb, cards, label) if len(cards) > PER_SECTION else None
-        out.append((slug, heading, blurb, cards[:PER_SECTION], full))
+        full = (full_blurb, cards, label) if len(cards) > len(shown) else None
+        out.append((slug, heading, blurb, [(f, note(f)) for f in shown], full))
     oldest = oldest_per_paper(fs)
     if oldest:
         out.append(("oldest", "The oldest",

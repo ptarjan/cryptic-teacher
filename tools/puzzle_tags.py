@@ -94,7 +94,8 @@ TAGS = {
     },
     "big-grid": {
         "label": "big grid",
-        "blurb": "A bigger grid than its series usually prints.",
+        "blurb": "A bigger grid than its series usually prints, or than the "
+                 "usual fifteen by fifteen, as a jumbo is.",
     },
     "letters-given": {
         "label": "letters given",
@@ -302,19 +303,33 @@ def grid_area(puzzle):
     return puzzle["dimensions"]["rows"] * puzzle["dimensions"]["cols"]
 
 
+def usual_area(counts):
+    """The commonest area in {area: puzzles}, if it holds USUAL_SHARE of them."""
+    area = max(counts, key=lambda a: (counts[a], -a))
+    return area if counts[area] >= USUAL_SHARE * sum(counts.values()) else None
+
+
 def big_grids(areas):
     """The ids of the puzzles whose grid is bigger than their series' usual
-    size. `areas` is [(id, series, rows * cols)] over the corpus. A series
-    whose commonest size holds less than USUAL_SHARE of it has no usual size
-    (the Listener changes shape every week), so none of it is tagged."""
-    by_series = {}
+    size, or than the corpus's (15 by 15), whichever is smaller. `areas` is
+    [(id, series, rows * cols)] over the corpus. So a Times Jumbo, 23 by 23
+    every week, is a big grid, while a 13 by 13 series' 15 by 15 special is
+    one too. A series whose commonest size holds less than USUAL_SHARE of it
+    has no usual size (the Listener changes shape every week) and is held to
+    the corpus's alone."""
+    by_series, everywhere = {}, {}
     for _, series, area in areas:
         counts = by_series.setdefault(series, {})
         counts[area] = counts.get(area, 0) + 1
-    usual = {}
+        everywhere[area] = everywhere.get(area, 0) + 1
+    if not everywhere:
+        return set()
+    corpus = usual_area(everywhere)
+    limit = {}
     for series, counts in by_series.items():
-        area = max(counts, key=lambda a: (counts[a], -a))
-        if counts[area] >= USUAL_SHARE * sum(counts.values()):
-            usual[series] = area
+        own = usual_area(counts)
+        bounds = [a for a in (own, corpus) if a]
+        if bounds:
+            limit[series] = min(bounds)
     return {pid for pid, series, area in areas
-            if series in usual and area > usual[series]}
+            if series in limit and area > limit[series]}

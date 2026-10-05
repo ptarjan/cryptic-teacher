@@ -60,8 +60,20 @@ def fake(i, series, **kw):
 pool = ([fake(i, "cryptic", tags=["hidden-message", "jigsaw"]) for i in range(1, 9)]
         + [fake(i, "cyclops", tags=["hidden-message"]) for i in range(1, 3)])
 got = sc.sections(pool)
-check("/showcase/ shows the first of each section's own page, in every section",
-      all(full is None or cards == full[1][:sc.PER_SECTION] for *_, cards, full in got))
+check("/showcase/ shows the first of a ranking's own page",
+      all(full is None or cards == full[1][:sc.PER_SECTION]
+          for slug, _, _, cards, full in got if slug not in sc.puzzle_tags.TAGS))
+check("/showcase/ shows a feature's cards from its own page",
+      all(full is None or all(c in full[1] for c in cards) for *_, cards, full in got))
+page = next(full for slug, *_, full in got if slug == "hidden-message")
+check("a feature's own page lists every hinted puzzle with it, whatever the series",
+      page[2] == "all 10" and len(page[1]) == 10, page[2])
+few = sc.sections([fake(i, "mephisto", tags=["barred"]) for i in range(1, 9)])
+check("a feature one series holds still gets its own page of all of them",
+      next(full for slug, *_, full in few if slug == "barred")[2] == "all 8")
+mixed = sc.sections([fake(i, "cryptic", tags=["barred"], annotated=i < 9) for i in range(1, 13)])
+check("a feature's page says how many more the puzzle list holds unhinted",
+      "4 more have it" in next(full for slug, *_, full in mixed if slug == "barred")[0])
 msg = next(cards for slug, _, _, cards, _ in got if slug == "hidden-message")
 check("no series takes more than its share of a section",
       sum(f["series"] == "cryptic" for f, _ in msg) == 3, [f["id"] for f, _ in msg])
