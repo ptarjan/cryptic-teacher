@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Rushes to hide son",
     "enumeration": "5"
    },
-   "solution": "PELTS"
+   "solution": "PELTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PELTS",
+    "definitions": [
+     {
+      "text": "Rushes",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hide",
+      "gives": "PELT",
+      "note": "a pelt is an animal's skin or hide"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PELT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hurries off to conceal their boy.",
+     "walkthrough": "'Rushes' reads as the verb of the surface but is the definition, and 'hide' is a noun, not a verb.",
+     "definitionFit": "To pelt is to move very fast, as in pelting down the road, so pelts means hurries along."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,71 @@
     "text": "Cake made from tip of pale bananas not eaten",
     "enumeration": "9"
    },
-   "solution": "PANETTONE"
+   "solution": "PANETTONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PANETTONE",
+    "definitions": [
+     {
+      "text": "Cake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tip of",
+      "for": "letter_selection",
+      "note": "the tip of a word is its very first letter, so only that is taken"
+     },
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "going bananas is going crazy, so the following words are scrambled"
+     }
+    ],
+    "linkWords": [
+     "made from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pale",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of pale"
+     },
+     {
+      "clueFragment": "not eaten",
+      "gives": "ANETTONE",
+      "note": "the eight letters of not eaten rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ANETTONE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTEATEN",
+       "gives": "ANETTONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cake baked with pale bananas that nobody wanted.",
+     "walkthrough": "'Bananas' looks like the cake's ingredient but means crazy, the anagram signal.",
+     "definitionFit": "Panettone is a tall Italian sweet bread with dried fruit, eaten at Christmas, a kind of cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +171,42 @@
     "text": "Fabric lining sparkly cradle",
     "enumeration": "5"
    },
-   "solution": "LYCRA"
+   "solution": "LYCRA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LYCRA",
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lining",
+      "for": "hidden_word",
+      "note": "a lining sits inside a garment, so the answer sits inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sparkly cradle",
+      "gives": "LYCRA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A glittery cot with a fabric lining.",
+     "definitionFit": "Lycra is a trademark stretchy synthetic fibre used in sportswear, so it is a fabric."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lining"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +220,65 @@
     "text": "Fairy and supporters returned to nick",
     "enumeration": "7"
    },
-   "solution": "SNAFFLE"
+   "solution": "SNAFFLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SNAFFLE",
+    "definitions": [
+     {
+      "text": "nick",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the combined words are read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fairy",
+      "gives": "ELF",
+      "note": "an elf is a fairy creature"
+     },
+     {
+      "clueFragment": "supporters",
+      "gives": "FANS",
+      "note": "fans are supporters of a team"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAF",
+      "FLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELFFANS",
+       "to": "SNAFFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fairy and her fans went back to the police station.",
+     "walkthrough": "'Nick' suggests a British slang police station; here it is the slang verb meaning steal.",
+     "definitionFit": "To snaffle is British slang for taking something quickly, often without permission, like to pinch or steal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nick"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +292,50 @@
     "text": "Communication government intended to announce",
     "enumeration": "9"
    },
-   "solution": "STATEMENT"
+   "solution": "STATEMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "STATEMENT",
+    "definitions": [
+     {
+      "text": "Communication",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to announce",
+      "for": "homophone",
+      "note": "announcing is saying something out loud, so the word for intended is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "government",
+      "gives": "STATE",
+      "note": "the state is the governing body of a country"
+     },
+     {
+      "clueFragment": "intended",
+      "gives": "MENT",
+      "soundsLike": "MEANT",
+      "note": "intended means meant, which is spoken the same as this ending"
+     }
+    ],
+    "explanation": {
+     "surface": "A government's intended message is about to be made public.",
+     "walkthrough": "STATE plus a sound-alike of MEANT gives STATEMENT.",
+     "definitionFit": "A statement is a formal message or declaration, a kind of communication issued to others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intended"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +349,60 @@
     "text": "Serbian contracted skin problem from grass",
     "enumeration": "6"
    },
-   "solution": "SNITCH"
+   "solution": "SNITCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SNITCH",
+    "definitions": [
+     {
+      "text": "grass",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contracted",
+      "for": "letter_selection",
+      "note": "a contracted word is shortened to its first and last letters, as in abbreviations like Dr"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serbian",
+      "gives": "SN",
+      "select": "outer",
+      "note": "the first and last letters of Serbian"
+     },
+     {
+      "clueFragment": "skin problem",
+      "gives": "ITCH",
+      "note": "an itch is an irritation of the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SN",
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Serb caught an itchy skin complaint from grass.",
+     "walkthrough": "'Grass' looks like the source of an allergy but is British slang for an informer.",
+     "definitionFit": "To grass on someone and to snitch both mean informing on them to the police or authorities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grass"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +416,49 @@
     "text": "Last word by competent subject",
     "enumeration": "8"
    },
-   "solution": "AMENABLE"
+   "solution": "AMENABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMENABLE",
+    "definitions": [
+     {
+      "text": "subject",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last word",
+      "gives": "AMEN",
+      "note": "amen is said at the end of a prayer"
+     },
+     {
+      "clueFragment": "competent",
+      "gives": "ABLE",
+      "note": "able means capable or competent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMEN",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Having the last word belongs to a capable person.",
+     "definitionFit": "Amenable means liable or open to something, as in 'subject to' a law or influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "subject"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +472,68 @@
     "text": "Bouncy castle collapsing round setter",
     "enumeration": "7"
    },
-   "solution": "ELASTIC"
+   "solution": "ELASTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ELASTIC",
+    "definitions": [
+     {
+      "text": "Bouncy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collapsing",
+      "for": "anagram",
+      "note": "a collapsing structure falls into disorder, so these letters fall into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the jumbled letters go around the setter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "castle",
+      "gives": "ELASTC",
+      "note": "the letters of castle rearranged"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to himself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELAST",
+      "I",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASTLE",
+       "gives": "ELASTC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An inflatable castle deflates around the puzzle's compiler.",
+     "walkthrough": "'Bouncy castle' reads as one thing, but 'Bouncy' alone is the definition.",
+     "definitionFit": "Something elastic springs back into shape when stretched, so it is springy and bouncy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "castle"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +547,80 @@
     "text": "English row about food close to Spanish city",
     "enumeration": "9"
    },
-   "solution": "EDINBURGH"
+   "solution": "EDINBURGH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EDINBURGH",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the slang word for food is read backwards"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a din is a loud noise or row"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "GRUB",
+      "note": "grub is slang for food"
+     },
+     {
+      "clueFragment": "Spanish",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of Spanish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DIN",
+      "BURG",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "GRUB",
+       "to": "BURG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An English quarrel about food near a Spanish city.",
+     "walkthrough": "'Spanish city' looks like the definition, but Spanish only gives its last letter.",
+     "definitionFit": "The Scottish capital is a specific example of the general category: a large, important urban settlement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spanish"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +634,47 @@
     "text": "Youngsters support partners",
     "enumeration": "5"
    },
-   "solution": "TEENS"
+   "solution": "TEENS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEENS",
+    "definitions": [
+     {
+      "text": "Youngsters",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee supports a golf ball"
+     },
+     {
+      "clueFragment": "partners",
+      "gives": "NS",
+      "note": "North and South are partners in bridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Young people stand by their partners.",
+     "walkthrough": "In bridge, North and South play as a pair against East and West.",
+     "definitionFit": "Teens are people aged thirteen to nineteen, adolescents rather than adults."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "partners"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +688,77 @@
     "text": "Sailor in awfully nice surroundings points to fruit",
     "enumeration": "9"
    },
-   "solution": "NECTARINE"
+   "solution": "NECTARINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "NECTARINE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "something done awfully is done badly, so these letters come out jumbled"
+     },
+     {
+      "text": "surroundings",
+      "for": "container",
+      "note": "surroundings encircle whatever sits in them, so the sailor goes inside"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nice",
+      "gives": "NECI",
+      "note": "the letters of nice rearranged"
+     },
+     {
+      "clueFragment": "Sailor",
+      "gives": "TAR",
+      "note": "a tar is an old word for a seaman"
+     },
+     {
+      "clueFragment": "points",
+      "gives": "NE",
+      "note": "N and E, two points of the compass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEC",
+      "TAR",
+      "I",
+      "NE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NICE",
+       "gives": "NECI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor in pleasant surroundings is pointed towards some fruit.",
+     "walkthrough": "'Points' suggests directions to the fruit, but it gives two compass points.",
+     "definitionFit": "A nectarine is a smooth-skinned variety of peach, a common stone fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "points"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +772,70 @@
     "text": "Capulets' second newlywed leaving Romeo in lodge",
     "enumeration": "5"
    },
-   "solution": "ABIDE"
+   "solution": "ABIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ABIDE",
+    "definitions": [
+     {
+      "text": "lodge",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second points to the letter in second position of the possessive word before it"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so the letter for Romeo goes out of the word for newlywed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capulets'",
+      "gives": "A",
+      "select": 2,
+      "note": "the second letter of Capulets"
+     },
+     {
+      "clueFragment": "newlywed",
+      "gives": "BRIDE",
+      "note": "a bride is a woman just married"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Juliet, a Capulet, newly wed, must leave Romeo and stay behind.",
+     "walkthrough": "'Lodge' looks like a noun for a building, but here it is the verb meaning reside.",
+     "definitionFit": "To abide is an old word for dwell or stay somewhere, just as to lodge is to reside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +849,69 @@
     "text": "Pictures returned to fellows in charge of illegal trade",
     "enumeration": "7"
    },
-   "solution": "TRAFFIC"
+   "solution": "TRAFFIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAFFIC",
+    "definitions": [
+     {
+      "text": "illegal trade",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned goes back the way it came, so the word for pictures is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pictures",
+      "gives": "ART",
+      "note": "pictures are works of art"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "FF",
+      "note": "F is the abbreviation for fellow, doubled for the plural"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the standard abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "FF",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paintings sent back to men who run a black-market business.",
+     "definitionFit": "Traffic as a noun means dealing in illegal goods, as in drug or arms traffic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pictures"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +925,53 @@
     "text": "Ban site for redevelopment in part of French Riviera",
     "enumeration": "7"
    },
-   "solution": "ANTIBES"
+   "solution": "ANTIBES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIBES",
+    "definitions": [
+     {
+      "text": "part of French Riviera",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for redevelopment",
+      "for": "anagram",
+      "note": "redevelopment rebuilds something in a new form, so these letters are rebuilt"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ban site",
+      "gives": "BANSITE",
+      "note": "the seven letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BANSITE",
+       "gives": "ANTIBES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Planners bar a plot from redevelopment on the Côte d'Azur.",
+     "definitionFit": "Antibes is a resort town between Cannes and Nice, on the Mediterranean coast of southern France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ban"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +985,69 @@
     "text": "Shellfish found in broken toys by European river",
     "enumeration": "6"
    },
-   "solution": "OYSTER"
+   "solution": "OYSTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OYSTER",
+    "definitions": [
+     {
+      "text": "Shellfish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken thing is in pieces, so these letters are put back in another order"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toys",
+      "gives": "OYST",
+      "note": "the letters of toys rearranged"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OYST",
+      "E",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOYS",
+       "gives": "OYST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shellfish turns up among smashed playthings beside a river in Europe.",
+     "definitionFit": "An oyster is an edible bivalve mollusc, a kind of shellfish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1061,65 @@
     "text": "Waving flags found in prop containing English chart",
     "enumeration": "9"
    },
-   "solution": "SEMAPHORE"
+   "solution": "SEMAPHORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEMAPHORE",
+    "definitions": [
+     {
+      "text": "Waving flags",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding within, so the word for prop goes around the other pieces"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prop",
+      "gives": "SHORE",
+      "note": "to shore up is to prop, and a shore is a prop or support"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "chart",
+      "gives": "MAP",
+      "note": "a chart is a map"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "E",
+      "MAP",
+      "HORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Signal flags discovered in a stage prop wrapped round an English chart.",
+     "walkthrough": "'Prop' looks theatrical, but a shore is a beam that props up a wall.",
+     "definitionFit": "Semaphore is signalling by holding two flags in set positions, so it is a system of waving flags."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prop"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1139,65 @@
      }
     ]
    },
-   "solution": "BLACKROD"
+   "solution": "BLACKROD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BLACK ROD",
+    "definitions": [
+     {
+      "text": "parliamentary usher",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop a gap is to plug it, so these pieces go into the middle of the word for person"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person",
+      "gives": "BOD",
+      "note": "bod is informal British for a person"
+     },
+     {
+      "clueFragment": "Want",
+      "gives": "LACK",
+      "note": "to want is to lack"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LACK",
+      "R",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch wants to prevent someone being appointed to a ceremonial post.",
+     "walkthrough": "Bod is informal British for a person, often used in crosswords.",
+     "definitionFit": "Black Rod is the official of the House of Lords who summons the Commons at the State Opening of Parliament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Want"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1211,69 @@
     "text": "Competition in foreign chalet overseen by academic",
     "enumeration": "9"
    },
-   "solution": "DECATHLON"
+   "solution": "DECATHLON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DECATHLON",
+    "definitions": [
+     {
+      "text": "Competition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign means strange or alien, so these letters take an unfamiliar order"
+     },
+     {
+      "text": "overseen by",
+      "for": "container",
+      "note": "in a down clue, being overseen means the academic sits above and around, enclosing the jumble"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "academic",
+      "gives": "DON",
+      "note": "a don is a university lecturer"
+     },
+     {
+      "clueFragment": "chalet",
+      "gives": "ECATHL",
+      "note": "the letters of chalet rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ECATHL",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHALET",
+       "gives": "ECATHL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A contest held in a chalet abroad, supervised by a professor.",
+     "definitionFit": "A decathlon is an athletics contest of ten events, a competition for all-round athletes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foreign"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1287,65 @@
     "text": "Sends out for meals containing cassava root",
     "enumeration": "8"
    },
-   "solution": "LAUNCHES"
+   "solution": "LAUNCHES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LAUNCHES",
+    "definitions": [
+     {
+      "text": "Sends out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "root",
+      "for": "letter_selection",
+      "note": "the root is the starting point, so only the first letter is kept"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the word for meals goes around"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meals",
+      "gives": "LUNCHES",
+      "note": "lunches are midday meals"
+     },
+     {
+      "clueFragment": "cassava",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of cassava"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "UNCHES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone orders out for meals with cassava root in them.",
+     "walkthrough": "'Root' fits the vegetable, but it signals only the first letter.",
+     "definitionFit": "To launch is to send off a ship, rocket or product, so launches means sends out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "root"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1359,83 @@
     "text": "Chaps at head of table tucking into meal cooked with cheese",
     "enumeration": "8"
    },
-   "solution": "EMMENTAL"
+   "solution": "EMMENTAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "EMMENTAL",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that is taken"
+     },
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking changes the form of the ingredients, so these letters are mixed"
+     },
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "tucking into something puts you inside it, so the first pieces go within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "table",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of table"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "EMAL",
+      "note": "the letters of meal rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "MENT",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEAL",
+       "gives": "EMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Men at the head of the table tuck into a meal made with cheese.",
+     "walkthrough": "'At head of table' sounds like seating, but it only takes the table's first letter.",
+     "definitionFit": "Emmental is a Swiss hard cheese with large holes, so it is an example of the defining word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1449,42 @@
     "text": "Distinguished restaurant fully booked?",
     "enumeration": "7"
    },
-   "solution": "NOTABLE"
+   "solution": "NOTABLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTABLE",
+    "definitions": [
+     {
+      "text": "Distinguished",
+      "at": 0
+     },
+     {
+      "text": "restaurant fully booked?",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distinguished",
+      "note": "first meaning: famous, worthy of note"
+     },
+     {
+      "clueFragment": "restaurant fully booked?",
+      "note": "second meaning, read as two words: what a full restaurant tells you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as NO TABLE, it is a full restaurant's reply; the question mark flags this whimsical reading.",
+     "definitionFit": "Notable means remarkable or eminent, which is what distinguished means of a person or achievement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1498,56 @@
     "text": "Try substantial detailed typeface",
     "enumeration": "6"
    },
-   "solution": "GOTHIC"
+   "solution": "GOTHIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GOTHIC",
+    "definitions": [
+     {
+      "text": "typeface",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detailed",
+      "for": "deletion",
+      "note": "read as de-tailed, it means with the tail cut off, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "GO",
+      "note": "a go is an attempt or try"
+     },
+     {
+      "clueFragment": "substantial",
+      "gives": "THICK",
+      "note": "thick means solid and substantial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "THIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Try out a heavy, intricate font.",
+     "walkthrough": "'Detailed' looks like intricate but splits as de-tailed: THICK loses its K.",
+     "definitionFit": "Gothic is a heavy black-letter style of type, so it names a kind of font."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detailed"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1561,49 @@
     "text": "Colours of old bits of cooks' equipment?",
     "enumeration": "7"
    },
-   "solution": "ORANGES"
+   "solution": "ORANGES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORANGES",
+    "definitions": [
+     {
+      "text": "Colours",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "bits of cooks' equipment?",
+      "gives": "RANGES",
+      "note": "a range is a large cooking stove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RANGES"
+     ]
+    },
+    "explanation": {
+     "surface": "The colours of antique kitchen gear.",
+     "walkthrough": "A range is a large kitchen stove, such as an Aga.",
+     "definitionFit": "Orange is a colour between red and yellow, so oranges are shades of that colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1617,45 @@
     "text": "Series of deposits",
     "enumeration": "6"
    },
-   "solution": "SCALES"
+   "solution": "SCALES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCALES",
+    "definitions": [
+     {
+      "text": "Series",
+      "at": 0
+     },
+     {
+      "text": "deposits",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Series",
+      "note": "first meaning: graded sequences, as of musical notes"
+     },
+     {
+      "clueFragment": "deposits",
+      "note": "second meaning: crusty layers left by hard water in kettles"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Series of deposits' sounds like bank payments; the two nouns are separate meanings of one word.",
+     "definitionFit": "Scales are ordered sequences of notes or grades, and also chalky crusts left by hard water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deposits"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1669,74 @@
     "text": "Device for winding pasta twists into drained corn",
     "enumeration": "7"
    },
-   "solution": "CAPSTAN"
+   "solution": "CAPSTAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CAPSTAN",
+    "definitions": [
+     {
+      "text": "Device for winding",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twists",
+      "for": "anagram",
+      "note": "twisting something bends it out of shape, so these letters are rearranged"
+     },
+     {
+      "text": "drained",
+      "for": "letter_selection",
+      "note": "drained means emptied of its contents, leaving only the outside letters"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corn",
+      "gives": "CN",
+      "select": "outer",
+      "note": "the outer letters of corn"
+     },
+     {
+      "clueFragment": "pasta",
+      "gives": "APSTA",
+      "note": "the letters of pasta rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APSTA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PASTA",
+       "gives": "APSTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen gadget that twirls pasta in with sweetcorn after draining it.",
+     "walkthrough": "'Device for winding' looks like a pasta fork in the surface, but it is a ship's winch.",
+     "definitionFit": "A capstan is a revolving drum on a ship around which rope or cable is wound to haul it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "twists"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1750,58 @@
     "text": "Swear by remedy containing sulphur",
     "enumeration": "5"
    },
-   "solution": "CURSE"
+   "solution": "CURSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CURSE",
+    "definitions": [
+     {
+      "text": "Swear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the word for remedy goes around the symbol"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remedy",
+      "gives": "CURE",
+      "note": "a cure is a remedy"
+     },
+     {
+      "clueFragment": "sulphur",
+      "gives": "S",
+      "note": "S is the chemical symbol for sulphur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swears by a sulphur-based treatment.",
+     "walkthrough": "'Swear by' reads as trust in, but 'by' is only a link.",
+     "definitionFit": "To curse is to use bad language, so it means the same as to swear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swear"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1815,56 @@
     "text": "Priest in hut finding prayer beads",
     "enumeration": "7"
    },
-   "solution": "CHAPLET"
+   "solution": "CHAPLET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHAPLET",
+    "definitions": [
+     {
+      "text": "prayer beads",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the abbreviation for priest inside the word for hut"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hut",
+      "gives": "CHALET",
+      "note": "a chalet is a wooden hut or cabin"
+     },
+     {
+      "clueFragment": "Priest",
+      "gives": "P",
+      "note": "P is a dictionary abbreviation for priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "P",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric in a mountain hut discovers a rosary.",
+     "definitionFit": "A chaplet is a string of beads used for counting prayers, a shorter form of the rosary."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1878,43 @@
     "text": "Animal stopping gorilla mating",
     "enumeration": "5"
    },
-   "solution": "LLAMA"
+   "solution": "LLAMA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LLAMA",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopping",
+      "for": "hidden_word",
+      "note": "stopping is plugging a gap, so the answer sits inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gorilla mating",
+      "gives": "LLAMA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A creature interrupting a pair of apes as they breed.",
+     "definitionFit": "A llama is a domesticated South American mammal related to the camel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gorilla"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1928,63 @@
     "text": "Lozenge recipe at hospital used by old doctor",
     "enumeration": "5"
    },
-   "solution": "RHOMB"
+   "solution": "RHOMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RHOMB",
+    "definitions": [
+     {
+      "text": "Lozenge",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "used by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R, from Latin recipe, heads prescriptions"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is a Bachelor of Medicine degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "H",
+      "O",
+      "MB"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly doctor prescribes a throat lozenge at the hospital.",
+     "walkthrough": "'Lozenge' suggests a throat sweet, but here it is the diamond shape. R heads old prescriptions, meaning 'take'.",
+     "definitionFit": "A rhomb, or rhombus, is a four-sided figure with equal sides, the diamond shape heraldry calls a lozenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lozenge"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +2004,84 @@
      }
     ]
    },
-   "solution": "HOLYGRAIL"
+   "solution": "HOLYGRAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "HOLY GRAIL",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first part of",
+      "for": "letter_selection",
+      "note": "the first part of a word is its opening letter, so only that is kept"
+     },
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating changes words into a new form, so these letters are rewritten in a new order"
+     }
+    ],
+    "linkWords": [
+     "found in",
+     "and",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hope",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of Hope"
+     },
+     {
+      "clueFragment": "Glory",
+      "gives": "GLORY",
+      "note": "taken as written, to be mixed with the H"
+     },
+     {
+      "clueFragment": "first rate",
+      "gives": "AI",
+      "note": "A1 means first rate, written with the letter I for the digit"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the standard abbreviation for lecturer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOLYGR",
+      "AI",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HGLORY",
+       "gives": "HOLYGR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A first-class lecturer renders 'Land of Hope and Glory' and finds a sacred cup in it.",
+     "walkthrough": "H with GLORY rearranged gives HOLYGR; AI and L finish HOLY GRAIL. A1 is printed AI in crosswords.",
+     "definitionFit": "The Holy Grail is the legendary cup or dish used by Christ at the Last Supper, a sacred vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +2095,95 @@
     "text": "Refreshment in reflective bishop's office including seven new loaves for starters",
     "enumeration": "9"
    },
-   "solution": "ELEVENSES"
+   "solution": "ELEVENSES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "ELEVENSES",
+    "definitions": [
+     {
+      "text": "Refreshment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "something new is made afresh, so the number's letters take a fresh order"
+     },
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters are the opening course, so only the initial letter is used"
+     },
+     {
+      "text": "reflective",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the office is read backwards"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including takes something in, so the office holds the other pieces"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop's office",
+      "gives": "SEE",
+      "note": "a bishop's see is his seat of office"
+     },
+     {
+      "clueFragment": "loaves",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of loaves"
+     },
+     {
+      "clueFragment": "seven",
+      "gives": "EVENS",
+      "note": "the letters of seven rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "EVENS",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEVEN",
+       "gives": "EVENS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "SEE",
+       "to": "EES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reflective bishop takes refreshment in his study, with seven fresh loaves to start.",
+     "walkthrough": "SEE backwards is EES, which holds L and EVENS, giving E-LEVENS-ES.",
+     "definitionFit": "Elevenses is a light mid-morning snack or drink, a British break taken around eleven o'clock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflective"
+    }
+   }
   },
   {
    "number": 29,
@@ -479,7 +2197,67 @@
     "text": "Rejected eggs containing a flaw",
     "enumeration": "5"
    },
-   "solution": "STAIN"
+   "solution": "STAIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STAIN",
+    "definitions": [
+     {
+      "text": "flaw",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word for eggs is read backwards"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the article goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eggs",
+      "gives": "NITS",
+      "note": "nits are the eggs of lice"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "IN"
+     ],
+     "reversals": [
+      {
+       "from": "NITS",
+       "to": "STIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eggs are sent back because they hold a defect.",
+     "walkthrough": "NITS reversed is STIN, which takes in A.",
+     "definitionFit": "A stain is a blemish or mark that spoils something, so it is a defect or flaw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eggs"
+    }
+   }
   }
  ]
 }
