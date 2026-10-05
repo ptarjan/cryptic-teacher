@@ -813,6 +813,9 @@ def is_word_only_capital(word, seen):
     return bool(seen) and all(v[0].isupper() for v in seen.values() if v.lower() == word.lower())
 
 
+FULL_WIDTH = {c: c - 0xfee0 for c in range(0xff01, 0xff5f)}
+
+
 def clean(text):
     """A reading without OCR's specks: a not-sign read for the hyphen that
     breaks a word over a line end is the join, an asterisk or bullet beside
@@ -820,6 +823,8 @@ def clean(text):
     full stop or an I is put back."""
     text = re.sub(r"\s*[*•|]+(?=\s|$)", "", re.sub(r"(?<=[a-z])¬\s*(?=[a-z])", "", text))
     text = text.replace("\u2019", "'").replace("\u2018", "'")
+    # A recogniser's full-width mark is the ASCII one ("\uff1f" for "?").
+    text = text.translate(FULL_WIDTH)
     # A pound sign in a word is an f the print's worn type turned ("o£").
     text = re.sub(r"\b[A-Za-z]*£[A-Za-z£]*",
                   lambda m: m.group(0).replace("£", "f") if is_word(m.group(0).replace("£", "f").lower())
@@ -1255,7 +1260,10 @@ def formed(word):
 #: Print specks OCR reads as symbols no clue prints, alone or on a word
 #: ("is»", "of£", "■").
 JUNK_MARK = re.compile(r"[■»«•|^~¬§¤©®°±¶¦]")
-JUNK = re.compile(JUNK_MARK.pattern + r"|(?<=[a-z])[£$]|[£$](?=[a-z])")
+#: A character no English clue prints: JUNK_MARK, a pound or dollar sign
+#: against a letter, or one from outside the Latin script (a recogniser's
+#: Chinese reading of a speck, "王4").
+JUNK = re.compile(JUNK_MARK.pattern + r"|(?<=[a-z])[£$]|[£$](?=[a-z])|[^\x00-\u024f\u2010-\u203a\u20ac]")
 
 
 def doubled(text):
@@ -1280,7 +1288,7 @@ def suspect(text, vouched=()):
         if DIGIT_IN_WORD.search(s) and not COUNTED.fullmatch(s.lstrip("£$")):
             out.append((raw, "a digit inside a word"))
             continue
-        if MARK_IN_WORD.search(s) or JUNK.search(raw):
+        if MARK_IN_WORD.search(s) or JUNK.search(raw) or re.search(r"[a-z]{2}\.[a-z]{2}", s):
             out.append((raw, "a stray mark inside a word"))
             continue
         if any(re.search(r"[A-Za-z]", p) and re.search(r"\d", p) and not (

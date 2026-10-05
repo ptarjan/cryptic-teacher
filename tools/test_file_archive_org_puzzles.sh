@@ -167,9 +167,13 @@ check("a suspect word, or a light no reading laid, is filed blank, a linked tail
        ["1-across", "4-down"]), (laid, sorted(blank)))
 check("a dash or comma run into the words either side is spaced",
       ["Hang play \u2014 change", "Two elements \u2014 somewhat", "now \u2014 then", "Good rum, as do, too",
-       "usage: acceptable", "1,000 men", "self-made"],
+       "usage: acceptable", "1,000 men", "self-made", "Why? Yes!"],
       [ocr_clues.clean(t) for t in ("Hang play--change", "Two elements\u2014somewhat", "now -- then",
-                                    "Good rum,as do,too", "usage:acceptable", "1,000 men", "self-made")])
+                                    "Good rum,as do,too", "usage:acceptable", "1,000 men", "self-made",
+                                    "Why\uff1f Yes\uff01")])
+check("a non-Latin character or a full stop inside a word is suspect", [True, True, False, False, False],
+      [bool(ocr_clues.suspect(t)) for t in ("\u738b4 Hang play", "Mutilate many.fish", "Caf\u00e9 \u2014 \u2018so\u2019 \u00a35",
+                                            "Oval . . . the C.I.D. man", "e.g. a dog")])
 check("a clue spaced by clean() is no longer suspect", [], ocr_clues.suspect(ocr_clues.clean("Agreed\u2014an unruly sort,as")))
 puz = {"entries": [{"number": 1, "direction": "across", "length": 6, "clue": {"text": "Fine", "enumeration": "6"}},
                    {"number": 2, "direction": "down", "length": 4, "group": ["2-down", "3-down"],
