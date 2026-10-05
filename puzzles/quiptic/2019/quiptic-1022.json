@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "The wounded, removing constraints, relaxed",
     "enumeration": "6"
    },
-   "solution": "CASUAL"
+   "solution": "CASUAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CASUAL",
+    "definitions": [
+     {
+      "text": "relaxed",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "removing means a word for the following thing is taken out of the first word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The wounded",
+      "gives": "CASUALTIES",
+      "note": "the wounded in a battle or accident are its casualties"
+     },
+     {
+      "clueFragment": "constraints",
+      "gives": "TIES",
+      "note": "ties are things that bind or restrict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASUAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Injured people, once freed from their restraints, settle down and relax.",
+     "walkthrough": "Take TIES off the end of CASUALTIES to leave CASUAL.",
+     "definitionFit": "Casual describes an easygoing, informal manner, a close synonym of laid-back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "constraints"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,70 @@
     "text": "Suppressed laugh from revolutionary accepting bad luck",
     "enumeration": "7"
    },
-   "solution": "CHUCKLE"
+   "solution": "CHUCKLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHUCKLE",
+    "definitions": [
+     {
+      "text": "Suppressed laugh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking something in, so one piece goes inside the other"
+     },
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests something gone wrong, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the revolutionary"
+     },
+     {
+      "clueFragment": "luck",
+      "gives": "LUCK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "UCKL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUCK",
+       "gives": "UCKL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary who suffers misfortune gives a stifled laugh.",
+     "walkthrough": "Che, for Che Guevara, is the crossword's usual revolutionary.",
+     "definitionFit": "A chuckle is a quiet, restrained laugh, kept low rather than loud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,43 @@
     "text": "Crack open the port",
     "enumeration": "5"
    },
-   "solution": "SPLIT"
+   "solution": "SPLIT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPLIT",
+    "definitions": [
+     {
+      "text": "Crack open",
+      "at": 0
+     },
+     {
+      "text": "the port",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crack open",
+      "note": "first meaning: to break apart along a line"
+     },
+     {
+      "clueFragment": "the port",
+      "note": "second meaning: a port city on the Croatian coast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like opening a bottle of port wine; the port is the Croatian city of Split.",
+     "definitionFit": "The verb means to break something apart, and it is also the name of a Croatian harbour city on the Adriatic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,57 @@
     "text": "In a pub (and continent), being 24",
     "enumeration": "7"
    },
-   "solution": "APHASIA"
+   "solution": "APHASIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APHASIA",
+    "definitions": [
+     {
+      "text": "being 24",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "In",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pub",
+      "gives": "PH",
+      "note": "PH is the map abbreviation for public house"
+     },
+     {
+      "clueFragment": "continent",
+      "gives": "ASIA",
+      "note": "Asia is a continent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PH",
+      "ASIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Sitting in a bar somewhere on a continent, someone is lost for words.",
+     "walkthrough": "24 refers to the answer to 24-across, AT A LOSS FOR WORDS.",
+     "definitionFit": "Aphasia is a medical condition, typically after brain injury, affecting the ability to produce or understand speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pub"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +293,56 @@
      }
     ]
    },
-   "solution": "USESUP"
+   "solution": "USESUP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "USES UP",
+    "definitions": [
+     {
+      "text": "Exhausts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interfering with",
+      "for": "anagram",
+      "note": "meddling with something disturbs its order, so these letters get jumbled together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puss",
+      "gives": "PUSS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "EU",
+      "gives": "EU",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUSSEU",
+       "gives": "USESUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat meddling in European Union affairs wears everyone out.",
+     "definitionFit": "To exhaust a supply is to consume all of it, leaving none remaining."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "puss"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +356,62 @@
     "text": "Senior common room initially admits greeting Spanish academic",
     "enumeration": "7"
    },
-   "solution": "SCHOLAR"
+   "solution": "SCHOLAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCHOLAR",
+    "definitions": [
+     {
+      "text": "academic",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially here asks for the initials of the phrase before it"
+     },
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "admits means lets something in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Senior common room",
+      "gives": "SCR",
+      "select": "first",
+      "note": "the initials, the usual abbreviation for a college's senior common room"
+     },
+     {
+      "clueFragment": "greeting Spanish",
+      "gives": "HOLA",
+      "note": "hola is the Spanish greeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "HOLA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A university staff room lets in a Spanish scholar after a greeting.",
+     "walkthrough": "A senior common room is the lounge for dons at an Oxford or Cambridge college.",
+     "definitionFit": "A scholar is a learned person engaged in study and research, the noun sense of academic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "greeting"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +425,74 @@
     "text": "Shocks US backed leader of rebel forces",
     "enumeration": "9"
    },
-   "solution": "SURPRISES"
+   "solution": "SURPRISES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SURPRISES",
+    "definitions": [
+     {
+      "text": "Shocks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means run backwards, so the short word is read in reverse"
+     },
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "leader of asks for the opening letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US",
+      "gives": "US",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rebel",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of rebel"
+     },
+     {
+      "clueFragment": "forces",
+      "gives": "PRISES",
+      "note": "to prise is to force something open with a lever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "R",
+      "PRISES"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "America supported a rebel leader's army, to general astonishment.",
+     "walkthrough": "'Forces' looks like a noun for troops but is the verb prises, as in forcing a lid.",
+     "definitionFit": "Surprises are unexpected events that startle someone, matching the plural noun or the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forces"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +506,49 @@
     "text": "Joke man is offensive",
     "enumeration": "7"
    },
-   "solution": "PUNGENT"
+   "solution": "PUNGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PUNGENT",
+    "definitions": [
+     {
+      "text": "offensive",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Joke",
+      "gives": "PUN",
+      "note": "a pun is a joke on words"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "gent is short for gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A joker making a crude joke is giving offence.",
+     "definitionFit": "A pungent smell is sharp and strong enough to be unpleasant, so it can offend the nose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offensive"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +562,61 @@
     "text": "Real hot Rolling Stone!",
     "enumeration": "6"
    },
-   "solution": "HONEST"
+   "solution": "HONEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "HONEST",
+    "definitions": [
+     {
+      "text": "Real",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rolling",
+      "for": "anagram",
+      "note": "something rolling tumbles over, so the letters tumble into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     },
+     {
+      "clueFragment": "Stone",
+      "gives": "STONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ONEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STONE",
+       "gives": "ONEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A genuinely sexy member of the Rolling Stones band.",
+     "walkthrough": "'Rolling Stone' reads as the band, but Rolling is the instruction to rearrange the following word.",
+     "definitionFit": "Real and honest both mean genuine, sincere and without pretence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rolling"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +644,51 @@
      }
     ]
    },
-   "solution": "PULLTHEOTHERONE"
+   "solution": "PULLTHEOTHERONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PULL THE OTHER ONE",
+    "definitions": [
+     {
+      "text": "I don't believe you!",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cast",
+      "for": "anagram",
+      "note": "to cast metal is to remould it, so the letters that follow are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thereupon to hell",
+      "gives": "THEREUPONTOHELL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEREUPONTOHELL",
+       "gives": "PULLTHEOTHERONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to go to hell, and the speaker scoffs in disbelief.",
+     "walkthrough": "The full phrase is 'pull the other one, it's got bells on', a British retort meaning you are teasing me.",
+     "definitionFit": "This British idiom is an informal expression of disbelief, suggesting the speaker is being teased or fooled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cast"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +702,44 @@
     "text": "Fish get these on in a hurry",
     "enumeration": "6"
    },
-   "solution": "SKATES"
+   "solution": "SKATES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SKATES",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "get these on in a hurry",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: flat cartilaginous sea fish related to rays"
+     },
+     {
+      "clueFragment": "get these on in a hurry",
+      "note": "second meaning: what you put on when told to hurry up"
+     }
+    ],
+    "explanation": {
+     "surface": "Fish are told to put something on quickly.",
+     "walkthrough": "'Get your skates on' is a British idiom meaning hurry up.",
+     "definitionFit": "Skates are both flat fish from the ray family and the footwear named in the idiom urging someone to move fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +753,57 @@
     "text": "Blown up grenade left in pieces",
     "enumeration": "8"
    },
-   "solution": "ENLARGED"
+   "solution": "ENLARGED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENLARGED",
+    "definitions": [
+     {
+      "text": "Blown up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in pieces",
+      "for": "anagram",
+      "note": "something in pieces has been broken apart, so the letters are scattered and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grenade",
+      "gives": "GRENADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GRENADEL",
+       "gives": "ENLARGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grenade went off and lies scattered in fragments.",
+     "walkthrough": "'Blown up' looks like an explosion, but here it means made bigger, as with a photograph.",
+     "definitionFit": "A photograph that is blown up has been made bigger, which is to say magnified."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blown"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +817,50 @@
     "text": "Nice sea song for fishmonger, perhaps",
     "enumeration": "8"
    },
-   "solution": "MERCHANT"
+   "solution": "MERCHANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MERCHANT",
+    "definitions": [
+     {
+      "text": "fishmonger, perhaps",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nice sea",
+      "gives": "MER",
+      "note": "mer is French for sea, as spoken in Nice"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "CHANT",
+      "note": "a chant is a simple song"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MER",
+      "CHANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant sea shanty is sung by a fishmonger.",
+     "walkthrough": "'Nice' looks like the adjective but is the French city, telling you to put sea into French.",
+     "definitionFit": "A fishmonger is one example of a trader who sells goods, hence the 'perhaps'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +874,55 @@
     "text": "No longer given punishment around prisoner's quarters",
     "enumeration": "9"
    },
-   "solution": "CANCELLED"
+   "solution": "CANCELLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANCELLED",
+    "definitions": [
+     {
+      "text": "No longer",
+      "at": 0,
+      "note": "an adjective phrase: no longer happening"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given punishment",
+      "gives": "CANED",
+      "note": "caned means beaten with a cane as punishment"
+     },
+     {
+      "clueFragment": "prisoner's quarters",
+      "gives": "CELL",
+      "note": "a prisoner lives in a cell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "CELL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner, once punished in his cell, is spared that treatment now.",
+     "definitionFit": "An event that has been cancelled is off, no longer going ahead as planned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +936,70 @@
     "text": "Change position with Matilda among swaying trees",
     "enumeration": "6"
    },
-   "solution": "RESITE"
+   "solution": "RESITE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RESITE",
+    "definitions": [
+     {
+      "text": "Change position",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swaying",
+      "for": "anagram",
+      "note": "things that sway move about, so these letters shift into a new order"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among places the setter inside the letters of the other word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees",
+      "gives": "TREES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Matilda",
+      "gives": "I",
+      "note": "Matilda is the setter, who refers to herself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "I",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TREES",
+       "gives": "RESTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter relocates herself to sit among trees blowing in the wind.",
+     "walkthrough": "A setter naming herself in a clue usually stands for I or ME.",
+     "definitionFit": "To resite something is to place it at a new location, moving it elsewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Matilda"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1013,48 @@
     "text": "Exemplary heads in charge or not in charge",
     "enumeration": "6"
    },
-   "solution": "ICONIC"
+   "solution": "ICONIC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ICONIC",
+    "definitions": [
+     {
+      "text": "Exemplary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads",
+      "for": "letter_selection",
+      "note": "heads means the leading letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in charge or not in charge",
+      "gives": "ICONIC",
+      "select": "first",
+      "note": "the first letter of each of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICONIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Model bosses, whether running things or not.",
+     "definitionFit": "Something iconic is regarded as a classic representative, a standard model of its kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heads"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1068,54 @@
     "text": "Oddly no cruet for table",
     "enumeration": "7"
    },
-   "solution": "COUNTER"
+   "solution": "COUNTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COUNTER",
+    "definitions": [
+     {
+      "text": "table",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "anagram",
+      "note": "oddly means in a strange way, so the letters are set in an unusual order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no cruet",
+      "gives": "NOCRUET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOCRUET",
+       "gives": "COUNTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strangely, there is no salt-and-pepper set on the table.",
+     "walkthrough": "'Oddly' often means odd letters, but here every letter is used, and it is simply an anagram signal.",
+     "definitionFit": "A counter is a long flat surface in a shop or kitchen, a kind of work bench or serving board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1129,73 @@
     "text": "Beginning of symphony in C minor turned bloody",
     "enumeration": "7"
    },
-   "solution": "CRIMSON"
+   "solution": "CRIMSON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CRIMSON",
+    "definitions": [
+     {
+      "text": "bloody",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginning of",
+      "for": "letter_selection",
+      "note": "beginning of asks for the opening letter of the next word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     },
+     {
+      "text": "turned",
+      "for": "anagram",
+      "note": "turned means changed around, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "symphony",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of symphony"
+     },
+     {
+      "clueFragment": "C minor",
+      "gives": "CMINOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIM",
+      "S",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CMINOR",
+       "gives": "CRIMON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A symphony in C minor opens and the music becomes violent.",
+     "definitionFit": "Crimson is a deep red colour, the shade of blood, so it can describe something blood-coloured."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1209,42 @@
     "text": "Beautiful sweetheart is ticklish, a bit!",
     "enumeration": "8"
    },
-   "solution": "ARTISTIC"
+   "solution": "ARTISTIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ARTISTIC",
+    "definitions": [
+     {
+      "text": "Beautiful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "hidden_word",
+      "note": "a bit of the preceding words means the letters sit inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweetheart is ticklish",
+      "gives": "ARTISTIC",
+      "note": "the letters run across sweetheART IS TICklish"
+     }
+    ],
+    "explanation": {
+     "surface": "A gorgeous lover is slightly sensitive to tickling.",
+     "definitionFit": "Artistic work is aesthetically pleasing and shows creative skill, so it can be loosely described as lovely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1258,61 @@
     "text": "Raid ordered daily without purpose",
     "enumeration": "6"
    },
-   "solution": "ADRIFT"
+   "solution": "ADRIFT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ADRIFT",
+    "definitions": [
+     {
+      "text": "without purpose",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means arranged, so these letters are put into a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Raid",
+      "gives": "RAID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daily",
+      "gives": "FT",
+      "note": "the FT, or Financial Times, is a daily newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADRI",
+      "FT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAID",
+       "gives": "ADRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A raid ordered every day, for no apparent reason.",
+     "walkthrough": "'Daily' is a noun here: a daily paper.",
+     "definitionFit": "Someone adrift is aimless, lacking direction or goals, like a boat floating loose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "daily"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1332,44 @@
      }
     ]
    },
-   "solution": "TURNRED"
+   "solution": "TURNRED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURN RED",
+    "definitions": [
+     {
+      "text": "Be embarrassed",
+      "at": 0
+     },
+     {
+      "text": "to join Labour?",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be embarrassed",
+      "note": "first meaning: to blush"
+     },
+     {
+      "clueFragment": "to join Labour?",
+      "note": "second meaning: to become a socialist, red being Labour's colour"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is ashamed to sign up for the Labour Party.",
+     "walkthrough": "Labour is Britain's main left-wing party, whose colour is red; the question mark flags the playful sense.",
+     "definitionFit": "Blushing makes the face colour, and converting to left-wing politics is figuratively adopting the party's colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1383,51 @@
     "text": "Popular teams showing guts",
     "enumeration": "7"
    },
-   "solution": "INSIDES"
+   "solution": "INSIDES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSIDES",
+    "definitions": [
+     {
+      "text": "guts",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "teams",
+      "gives": "SIDES",
+      "note": "sides are teams in a game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIDES"
+     ]
+    },
+    "explanation": {
+     "surface": "Well-liked teams show real courage.",
+     "walkthrough": "'Guts' looks like courage but means the internal organs.",
+     "definitionFit": "Guts are the bowels and stomach, the internal organs of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "guts"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1441,44 @@
     "text": "Mother may be boss",
     "enumeration": "8"
    },
-   "solution": "SUPERIOR"
+   "solution": "SUPERIOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUPERIOR",
+    "definitions": [
+     {
+      "text": "Mother may be",
+      "at": 0
+     },
+     {
+      "text": "boss",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother may be",
+      "note": "first meaning: a Mother ... heads a convent, so this word may follow Mother"
+     },
+     {
+      "clueFragment": "boss",
+      "note": "second meaning: one's senior at work"
+     }
+    ],
+    "explanation": {
+     "surface": "Mum might turn out to be the one in charge.",
+     "walkthrough": "The first part is completed by the answer: Mother Superior, head of a convent of nuns.",
+     "definitionFit": "A superior is a person of higher rank, such as a manager, and the word also completes the title of a convent head."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mother"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1492,62 @@
     "text": "Firm or round boobs",
     "enumeration": "6"
    },
-   "solution": "ROBUST"
+   "solution": "ROBUST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ROBUST",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way, so the short word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boobs",
+      "gives": "BUST",
+      "note": "bust is a word for a woman's breasts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "BUST"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breasts described as firm or round.",
+     "walkthrough": "'Boobs' looks like a verb for blunders, but it is the noun for breasts.",
+     "definitionFit": "Robust means strong and sturdy, solid in construction, matching an adjective for solidity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boobs"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1561,42 @@
     "text": "Penniless in Pembrokeshire",
     "enumeration": "5"
    },
-   "solution": "BROKE"
+   "solution": "BROKE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BROKE",
+    "definitions": [
+     {
+      "text": "Penniless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in means the letters sit inside the following place name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pembrokeshire",
+      "gives": "BROKE",
+      "note": "the letters sit in pemBROKEshire"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone without money living in a Welsh county.",
+     "walkthrough": "Pembrokeshire is a county in south-west Wales.",
+     "definitionFit": "Being broke is the informal way of saying you have no money at all."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1628,73 @@
      }
     ]
    },
-   "solution": "ATALOSSFORWORDS"
+   "solution": "ATALOSSFORWORDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "AT A LOSS FOR WORDS",
+    "definitions": [
+     {
+      "text": "Stunned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crashed",
+      "for": "anagram",
+      "note": "something crashed is wrecked, so the words before it are broken up and rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the jumbled letters wrap about the final piece"
+     },
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "end asks for only the last letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solo of Star Wars",
+      "gives": "SOLOOFSTARWARS",
+      "note": "taken as written; Han Solo is the Star Wars character"
+     },
+     {
+      "clueFragment": "the world's",
+      "gives": "D",
+      "select": "last",
+      "note": "the final letter of world"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATALOSSFORWOR",
+      "D",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOLOOFSTARWARS",
+       "gives": "ATALOSSFORWORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Han Solo of Star Wars, stunned after a crash circling the globe.",
+     "definitionFit": "Someone stunned by surprise is often speechless, unable to think of anything to say."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crashed"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1708,58 @@
     "text": "It gnaws in its lair, surrounded by rubbish",
     "enumeration": "6"
    },
-   "solution": "RODENT"
+   "solution": "RODENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RODENT",
+    "definitions": [
+     {
+      "text": "It gnaws",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "surrounded by means one piece is enclosed inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rubbish",
+      "gives": "ROT",
+      "note": "rot means nonsense or rubbish"
+     },
+     {
+      "clueFragment": "its lair",
+      "gives": "DEN",
+      "note": "a den is an animal's lair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "DEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal chews away in its home, surrounded by garbage.",
+     "walkthrough": "'Its' reads as the rodent's own home, but it is just part of the phrase for an animal's lair.",
+     "definitionFit": "Rodents, such as rats and mice, are mammals defined by their constantly growing incisors used for chewing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rubbish"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1773,54 @@
     "text": "Suppliers of milkshakes not keeping quiet",
     "enumeration": "6"
    },
-   "solution": "UDDERS"
+   "solution": "UDDERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UDDERS",
+    "definitions": [
+     {
+      "text": "Suppliers of milk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not keeping",
+      "for": "deletion",
+      "note": "not keeping means the following item is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "milkshakes",
+      "gives": "SHUDDERS",
+      "note": "the word splits as milk plus shakes; the milk belongs to the definition, and shakes means shudders, trembles"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UDDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Milkshake makers who can't keep quiet.",
+     "walkthrough": "The surface reads 'milkshakes', but the split falls after 'milk'.",
+     "definitionFit": "Udders are the mammary glands of cows and goats, from which dairy produce is drawn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "milkshakes"
+    }
+   }
   }
  ]
 }
