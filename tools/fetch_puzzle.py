@@ -914,6 +914,9 @@ def generator_of(path):
     return source.get("acquiredBy") or "tools/fetch_puzzle.py"
 
 
+NEVER_DELETED_SERIES = {"azed"}
+
+
 def committed_copy(puzzle):
     """The puzzle's file as last committed, or None: what a puzzle that was
     deleted and is being filed again looked like before. That is HEAD's copy,
@@ -921,6 +924,10 @@ def committed_copy(puzzle):
     import subprocess  # noqa: PLC0415
     path = puzzle_paths.file_for(puzzle)
     if path is None or not path.is_relative_to(ROOT):
+        return None
+    # No Azed file has ever been committed or deleted, so there is no copy to
+    # find; the deleted-file search below walks all of history for each puzzle.
+    if puzzle_paths.series_folder(puzzle["id"]) in NEVER_DELETED_SERIES:
         return None
     rel = path.relative_to(ROOT).as_posix()
     out = subprocess.run(["git", "-C", str(ROOT), "show", f"HEAD:{rel}"],
