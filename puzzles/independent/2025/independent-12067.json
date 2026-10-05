@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,76 @@
     "text": "Retail worker overwhelmed by thank-you letters' positive conclusions",
     "enumeration": "11"
    },
-   "solution": "MERCHANDISE"
+   "solution": "MERCHANDISE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MERCHANDISE",
+    "definitions": [
+     {
+      "text": "Retail",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "to be overwhelmed by something is to be engulfed by it, so the worker sits inside the thank-you"
+     },
+     {
+      "text": "conclusions",
+      "for": "letter_selection",
+      "note": "conclusions are endings, so only the closing letter of each of the two words is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thank-you",
+      "gives": "MERCI",
+      "note": "French for thank you, as familiar in English"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "letters'",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "positive",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MERC",
+      "HAND",
+      "I",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A shop assistant is buried under thank-you letters that all end on an upbeat note.",
+     "walkthrough": "'Retail worker' reads as one phrase, but 'Retail' alone is the definition, used as a verb. MERC(HAND)I + SE gives MERCHANDISE.",
+     "definitionFit": "To merchandise goods is to promote and sell them in shops, which is what retailing them means as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Retail"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +119,54 @@
     "text": "Almost dead bone found in burial place possibly",
     "enumeration": "8"
    },
-   "solution": "MORIBUND"
+   "solution": "MORIBUND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MORIBUND",
+    "definitions": [
+     {
+      "text": "Almost dead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place lies inside it, so the bone goes within the burial place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bone",
+      "gives": "RIB",
+      "note": "a rib is a bone of the chest"
+     },
+     {
+      "clueFragment": "burial place possibly",
+      "gives": "MOUND",
+      "note": "a burial mound or barrow; 'possibly' flags an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "RIB",
+      "UND"
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeologist finds a bone in what might be a grave, belonging to someone nearly dead.",
+     "walkthrough": "'Almost dead bone' tempts a solver to read 'dead bone' together; the definition stops at 'dead'.",
+     "definitionFit": "Moribund describes someone or something at the point of death or in terminal decline."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +180,74 @@
     "text": "Silly person finally gives incomprehensible answer",
     "enumeration": "8"
    },
-   "solution": "RESPONSE"
+   "solution": "RESPONSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "RESPONSE",
+    "definitions": [
+     {
+      "text": "answer",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Silly",
+      "for": "anagram",
+      "note": "something silly is muddled and senseless, so the letters of the next word are jumbled"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of each of the two words after it"
+     },
+     {
+      "text": "incomprehensible",
+      "for": "anagram",
+      "note": "a muddle that cannot be understood suggests the letters must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person",
+      "gives": "PERSON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gives",
+      "gives": "S",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "incomprehensible",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERSONSE",
+       "gives": "RESPONSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool ends up mumbling a reply nobody can follow.",
+     "walkthrough": "'Silly person' looks like a single noun phrase meaning a fool, but 'Silly' signals the shuffle and 'incomprehensible' is both the last-letter source and an anagram signal.",
+     "definitionFit": "A response is a reply given to a question, so the two nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Silly"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +261,56 @@
     "text": "Prostitute has no right to become a physicist",
     "enumeration": "5"
    },
-   "solution": "HOOKE"
+   "solution": "HOOKE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOOKE",
+    "definitions": [
+     {
+      "text": "physicist",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no",
+      "for": "deletion",
+      "note": "to have no right means the letter standing for right must be dropped"
+     }
+    ],
+    "linkWords": [
+     "to become a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prostitute",
+      "gives": "HOOKER",
+      "note": "slang for a prostitute"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOOKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sex worker without any rights hopes to become a scientist.",
+     "walkthrough": "HOOKER loses its R. Robert Hooke was the 17th-century English scientist behind Hooke's law of elasticity.",
+     "definitionFit": "Robert Hooke studied elasticity and light and gave his name to a law of springs, making him a famous physicist."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +324,51 @@
     "text": "Number 10 in a certain context worried for new arrival",
     "enumeration": "7"
    },
-   "solution": "NEONATE"
+   "solution": "NEONATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEONATE",
+    "definitions": [
+     {
+      "text": "new arrival",
+      "at": 43
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number 10 in a certain context",
+      "gives": "NEON",
+      "note": "in the periodic table, element number 10 is neon"
+     },
+     {
+      "clueFragment": "worried",
+      "gives": "ATE",
+      "note": "as in 'what's eating you?', to eat someone is to worry them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEON",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at Number 10 Downing Street is anxious about a newcomer.",
+     "walkthrough": "'Number 10' suggests Downing Street; the 'certain context' is chemistry, where atomic number 10 is neon.",
+     "definitionFit": "A neonate is a newborn baby, literally someone who has just arrived in the world."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "10"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +388,73 @@
      }
     ]
    },
-   "solution": "INTEGER"
+   "solution": "INTEGER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "INTEGER",
+    "definitions": [
+     {
+      "text": "not just any number",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back",
+      "for": "reversal",
+      "note": "going back means the word before it is read from right to left"
+     },
+     {
+      "text": "central to",
+      "for": "container",
+      "note": "being central to two things puts it in the middle, between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "fashionable, in vogue"
+     },
+     {
+      "clueFragment": "Get",
+      "gives": "GET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "US TV series",
+      "gives": "ER",
+      "note": "ER is the American hospital drama"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TEG",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "GET",
+       "to": "TEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Get Back, the Beatles documentary, sits at the heart of a well-loved American television show.",
+     "walkthrough": "'Get Back' looks like the Beatles song or film, but 'Back' is the turnaround signal. ER is the long-running American hospital drama.",
+     "definitionFit": "An integer is a whole number, a particular kind of number rather than any fraction or decimal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Back"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +468,83 @@
     "text": "Former Tory securing millions in a mostly big exchange of land",
     "enumeration": "9"
    },
-   "solution": "EXCAMBION"
+   "solution": "EXCAMBION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "EXCAMBION",
+    "definitions": [
+     {
+      "text": "exchange of land",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing something means holding it fast inside, so the Tory word wraps what follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the millions letter is placed inside the next pieces"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all of the word, so its last letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "EX",
+      "note": "an ex is a former partner, so the prefix means former"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "CON",
+      "note": "Con is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "big",
+      "gives": "BIG",
+      "note": "taken as written, before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "C",
+      "AMBI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time Conservative pockets millions from a huge property swap.",
+     "walkthrough": "The millions letter goes inside 'a' plus the trimmed 'big', and the Tory abbreviation wraps that. Excambion is a term from Scots law.",
+     "definitionFit": "In Scots law an excambion is a contract by which one piece of land is swapped for another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "securing"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +558,42 @@
     "text": "Some enthusiastic church reformer",
     "enumeration": "3"
    },
-   "solution": "HUS"
+   "solution": "HUS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HUS",
+    "definitions": [
+     {
+      "text": "church reformer",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of a word means only part of it, so the answer lies inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "enthusiastic",
+      "gives": "HUS",
+      "note": "letters three to five of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A zealous churchman pushes for reform.",
+     "walkthrough": "Jan Hus was a Czech priest burnt at the stake in 1415, a forerunner of the Protestant Reformation.",
+     "definitionFit": "Jan Hus campaigned to reform the Catholic Church a century before Luther, so he is a classic church reformer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +607,51 @@
     "text": "Musical act shows style",
     "enumeration": "6"
    },
-   "solution": "HAIRDO"
+   "solution": "HAIRDO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRDO",
+    "definitions": [
+     {
+      "text": "style",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical",
+      "gives": "HAIR",
+      "note": "Hair is the 1960s rock musical"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "DO",
+      "note": "to act is to do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAIR",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A song-and-dance number shows off a certain flair.",
+     "walkthrough": "'Musical' looks like an adjective describing the act; it is the noun, the show Hair.",
+     "definitionFit": "A hairdo is the style in which someone's hair is cut and arranged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Musical"
+    }
+   }
   },
   {
    "number": 8,
@@ -176,7 +676,86 @@
     "8-down",
     "12-across",
     "17-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SOCIAL MEDIA PLATFORM",
+    "definitions": [
+     {
+      "text": "X  perhaps",
+      "at": 81
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only the start of the next word is kept"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast seed is scattered widely, so the preceding words are strewn into a new order"
+     },
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction comes first, so only the opening letter of the next word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "made a political",
+      "gives": "MADEAPOLITICAL",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "in favour of",
+      "gives": "FOR",
+      "note": "to be for something is to favour it"
+     },
+     {
+      "clueFragment": "Musk's",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OCIALMEDIAPLAT",
+      "FOR",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MADEAPOLITICAL",
+       "gives": "OCIALMEDIAPLAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A head of state gives a party political broadcast backing the arrival of Elon Musk's X.",
+     "walkthrough": "S + scrambled MADE A POLITICAL + FOR + M gives SOCIAL MEDIA PLATFORM; 'broadcast' looks part of 'political broadcast' but is the shuffle signal.",
+     "definitionFit": "X, formerly Twitter and owned by Elon Musk, is one example of an online network where users post and share content."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 9,
@@ -209,7 +788,80 @@
      }
     ]
    },
-   "solution": "OPTICDISC"
+   "solution": "OPTICDISC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OPTIC DISC",
+    "definitions": [
+     {
+      "text": "Part of eye",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after something places this piece second in the line"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letters of the two words around it are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operation",
+      "gives": "OP",
+      "note": "OP is the short form of operation"
+     },
+     {
+      "clueFragment": "movement that can't be controlled",
+      "gives": "TIC",
+      "note": "a tic is an involuntary twitch"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cancelled",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "TIC",
+      "D",
+      "IS",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient with an eye twitch has their surgery date called off.",
+     "walkthrough": "OP + TIC, then D + IS + C: 'initially' applies to both 'date' and 'cancelled', while 'is' stays whole.",
+     "definitionFit": "The optic disc is the spot on the retina where the optic nerve leaves the eyeball, the blind spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 11,
@@ -223,7 +875,68 @@
     "text": "One expected to make a comeback - was a manager in, say, a period of growth earlier",
     "enumeration": "9"
    },
-   "solution": "BOOMERANG"
+   "solution": "BOOMERANG",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BOOMERANG",
+    "definitions": [
+     {
+      "text": "One expected to make a comeback",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the managing word sits inside the abbreviation for say"
+     },
+     {
+      "text": "earlier",
+      "for": "charade",
+      "note": "placed earlier means this piece goes in front of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a period of growth",
+      "gives": "BOOM",
+      "note": "an economic boom"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g., for example, is what 'say' means in 'a fruit, say'"
+     },
+     {
+      "clueFragment": "was a manager",
+      "gives": "RAN",
+      "note": "to run a business is to manage it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOM",
+      "E",
+      "RAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A former boss is tipped to return, having run things in a boom time.",
+     "walkthrough": "BOOM + E(RAN)G. 'One expected to make a comeback' sounds like a sports star or a politician.",
+     "definitionFit": "A boomerang is a curved throwing stick that is designed to fly back to the thrower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "comeback"
+    }
+   }
   },
   {
    "number": 12,
@@ -256,7 +969,68 @@
     "text": "Former tennis player mostly very unpleasant like Edberg initially",
     "enumeration": "7"
    },
-   "solution": "NASTASE"
+   "solution": "NASTASE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NASTASE",
+    "definitions": [
+     {
+      "text": "Former tennis player",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter of the word is dropped"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the name before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very unpleasant",
+      "gives": "NASTY",
+      "note": "nasty means very unpleasant"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like, in the same way"
+     },
+     {
+      "clueFragment": "Edberg",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAST",
+      "AS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time tennis star was mostly rather horrid, just like Stefan Edberg.",
+     "walkthrough": "Ilie Nastase was a Romanian world number one in the 1970s, known for his temper; Edberg is another tennis star, here just a source of E.",
+     "definitionFit": "Ilie Nastase won the US Open and French Open and was the first official ATP number one, a retired tennis champion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Edberg"
+    }
+   }
   },
   {
    "number": 14,
@@ -270,7 +1044,67 @@
     "text": "Welcome inspiring fellows following a concert",
     "enumeration": "9"
    },
-   "solution": "AGREEMENT"
+   "solution": "AGREEMENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AGREEMENT",
+    "definitions": [
+     {
+      "text": "concert",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so the welcome takes the fellows inside it"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so this assembly is placed after the article"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Welcome",
+      "gives": "GREET",
+      "note": "to greet is to welcome"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "MEN",
+      "note": "fellows are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GREE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Fans give an uplifting reception to some chaps after a gig.",
+     "walkthrough": "A + GREE(MEN)T. 'Concert' looks like a musical event, but it means harmony, as in acting 'in concert'.",
+     "definitionFit": "Concert in the sense of acting in concert means accord or harmony of purpose, which is agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "concert"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1118,52 @@
     "text": "Heartless confrontation causes havoc",
     "enumeration": "4"
    },
-   "solution": "RUIN"
+   "solution": "RUIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RUIN",
+    "definitions": [
+     {
+      "text": "havoc",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letter of the next word is removed"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "confrontation",
+      "gives": "RUNIN",
+      "note": "a run-in is a quarrel or clash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cold-hearted clash wreaks destruction.",
+     "walkthrough": "RUN-IN loses its central N. 'Causes havoc' reads as a verb phrase, but 'causes' only links; 'havoc' alone is the definition.",
+     "definitionFit": "Ruin as a noun means wholesale destruction and devastation, which is what havoc is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "causes"
+    }
+   }
   },
   {
    "number": 16,
@@ -298,7 +1177,82 @@
     "text": "Energy provider at last involved in rising fuels for Turkish palace",
     "enumeration": "8"
    },
-   "solution": "SERAGLIO"
+   "solution": "SERAGLIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "SERAGLIO",
+    "definitions": [
+     {
+      "text": "Turkish palace",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word before it"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading the letters from bottom to top"
+     },
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "being involved in something puts it inside, so the first two letters go within the rest"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "provider",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "fuels",
+      "gives": "OILGAS",
+      "note": "two fuels, oil and gas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ER",
+      "AGLIO"
+     ],
+     "reversals": [
+      {
+       "from": "OILGAS",
+       "to": "SAGLIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A power company's rising fuel bills help pay for an Ottoman palace.",
+     "walkthrough": "'Energy provider' looks like a utility company, but it splits into E and the last letter of 'provider'. OIL and GAS read upwards give SAGLIO, with ER inserted.",
+     "definitionFit": "The seraglio was the sultan's palace in Istanbul, especially its harem quarters, so it is a Turkish palace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "provider"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1279,48 @@
     "text": "Dangerous beast demolished half of plates, dishes etc.",
     "enumeration": "4"
    },
-   "solution": "CROC"
+   "solution": "CROC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CROC",
+    "definitions": [
+     {
+      "text": "Dangerous beast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "demolished half of",
+      "for": "deletion",
+      "note": "demolishing half of something knocks down half, so only half of the word survives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plates, dishes etc.",
+      "gives": "CROCKERY",
+      "note": "crockery is the general word for plates, dishes and cups"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROC"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild animal on the rampage has smashed half the tableware.",
+     "walkthrough": "The first half of CROCKERY survives; a croc is informal for a crocodile.",
+     "definitionFit": "A croc is short for crocodile, a large reptile that can kill people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1334,51 @@
     "text": "Traditional Russian or Ukrainian function with dry white wine",
     "enumeration": "7"
    },
-   "solution": "COSSACK"
+   "solution": "COSSACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COSSACK",
+    "definitions": [
+     {
+      "text": "Traditional Russian or Ukrainian",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "COS",
+      "note": "cos is the short form of the cosine function in trigonometry"
+     },
+     {
+      "clueFragment": "dry white wine",
+      "gives": "SACK",
+      "note": "sack is an old name for dry white wines such as sherry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COS",
+      "SACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A traditional Slavic celebration where dry white wine is served.",
+     "walkthrough": "'Function' looks like a party; it is the mathematical cosine. Sack is the Shakespearean name for sherry, beloved of Falstaff.",
+     "definitionFit": "The Cossacks were the free warrior communities of the Russian and Ukrainian steppes, now a traditional identity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1392,62 @@
     "text": "Keep secret visit short, previously being drunk",
     "enumeration": "7"
    },
-   "solution": "CONCEAL"
+   "solution": "CONCEAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CONCEAL",
+    "definitions": [
+     {
+      "text": "Keep secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the final letter of the word is lost"
+     },
+     {
+      "text": "being drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about unsteadily, so these letters lurch into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "visit",
+      "gives": "CALL",
+      "note": "to call on someone is to visit them"
+     },
+     {
+      "clueFragment": "previously",
+      "gives": "ONCE",
+      "note": "once means at a former time"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CALONCE",
+       "gives": "CONCEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Keep quiet about a brief drop-in made some time ago while tipsy.",
+     "walkthrough": "CAL and ONCE are shuffled together: 'being drunk' covers both pieces.",
+     "definitionFit": "To conceal something is to hide it from others, which is keeping it secret."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1461,55 @@
     "text": "Two characters promoted in TV detective's unit",
     "enumeration": "7"
    },
-   "solution": "COULOMB"
+   "solution": "COULOMB",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COULOMB",
+    "definitions": [
+     {
+      "text": "unit",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Two characters promoted",
+      "for": "anagram",
+      "note": "promoting two characters moves a pair of letters higher up this down entry while the rest keep their places"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV detective's",
+      "gives": "COLUMBO",
+      "note": "Columbo is the scruffy LA detective of the US TV series"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COLUMBO",
+       "gives": "COULOMB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple of actors get a step up in the television detective's squad.",
+     "walkthrough": "In COLUMBO, the U moves up above the L and the final O moves up above the M: COULOMB. 'Characters' here means letters, not cast members.",
+     "definitionFit": "The coulomb is the SI unit of electric charge, named after the French physicist Charles-Augustin de Coulomb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1523,49 @@
     "text": "Emphatically not wearing a suit",
     "enumeration": "6"
    },
-   "solution": "SPADES"
+   "solution": "SPADES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPADES",
+    "definitions": [
+     {
+      "text": "a suit",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not wearing",
+      "for": "deletion",
+      "note": "not wearing means not being in, so the little word for in is taken off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emphatically",
+      "gives": "INSPADES",
+      "note": "'in spades' means emphatically, to a great degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPADES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone loudly declares they are certainly not putting on a suit.",
+     "walkthrough": "IN SPADES drops IN, since 'not wearing' means not in. 'Suit' looks like clothing but is a suit of cards.",
+     "definitionFit": "Spades is one of the four suits in a pack of playing cards, alongside hearts, diamonds and clubs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1579,57 @@
     "text": "Break down clues at first, that will get you extremely far",
     "enumeration": "6"
    },
-   "solution": "PARSEC"
+   "solution": "PARSEC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PARSEC",
+    "definitions": [
+     {
+      "text": "that will get you extremely far",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Break down",
+      "gives": "PARSE",
+      "note": "to parse a sentence is to break it down into its grammatical parts"
+     },
+     {
+      "clueFragment": "clues",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARSE",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to solvers: analyse the clues first and you will go a long way.",
+     "walkthrough": "The whole clue reads as crossword advice; the definition is a light-hearted description of a vast astronomical distance.",
+     "definitionFit": "A parsec is about 3.26 light years, so travelling one would take you an enormous distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "far"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1653,73 @@
    "group": [
     "23-across",
     "25-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "PEACE TALKS",
+    "definitions": [
+     {
+      "text": "way to end war",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes in front, so only the first letter of the country name is kept"
+     },
+     {
+      "text": "taking part in",
+      "for": "container",
+      "note": "those taking part in something are inside it, so the leader and others go within the summits"
+     }
+    ],
+    "linkWords": [
+     "to find a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canada's",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of the country"
+     },
+     {
+      "clueFragment": "and others",
+      "gives": "ETAL",
+      "note": "et al. is Latin shorthand for 'and others'"
+     },
+     {
+      "clueFragment": "summits",
+      "gives": "PEAKS",
+      "note": "peaks are mountain summits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEA",
+      "C",
+      "ETAL",
+      "KS"
+     ]
+    },
+    "explanation": {
+     "surface": "Canada's prime minister and fellow leaders attend summit meetings seeking an end to fighting.",
+     "walkthrough": "'Canada's leader' suggests the prime minister, but it only supplies a single letter. Et al. is Latin for 'and others'.",
+     "definitionFit": "Peace talks are negotiations between warring sides aimed at agreeing a ceasefire and settlement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "summits"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1733,73 @@
     "text": "Royal family treasuring good times over in European city",
     "enumeration": "9"
    },
-   "solution": "STUTTGART"
+   "solution": "STUTTGART",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "STUTTGART",
+    "definitions": [
+     {
+      "text": "European city",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treasuring",
+      "for": "container",
+      "note": "treasuring something means holding it close, so the royal family wraps the next pieces"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means the preceding letters are put in reverse order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal family",
+      "gives": "STUART",
+      "note": "the Stuarts were the royal house of Scotland and England"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "TT",
+      "note": "T for time, twice, as in the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STU",
+      "TT",
+      "G",
+      "ART"
+     ],
+     "reversals": [
+      {
+       "from": "GTT",
+       "to": "TTG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A royal dynasty cherishes the happy days now behind them.",
+     "walkthrough": "The Stuarts ruled Scotland and later England; 'times' gives two Ts, and 'over' turns the good-times pair round before it goes inside.",
+     "definitionFit": "Stuttgart is a major city in south-west Germany, capital of Baden-Württemberg."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 25,
@@ -460,7 +1826,67 @@
     "text": "Criminal director invented language books changed into Dutch",
     "enumeration": "9"
    },
-   "solution": "DESPERADO"
+   "solution": "DESPERADO",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "DESPERADO",
+    "definitions": [
+     {
+      "text": "Criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed into",
+      "for": "substitution",
+      "note": "something changed into another thing is swapped for it, so the books letters give way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "D is the abbreviation for director"
+     },
+     {
+      "clueFragment": "invented language",
+      "gives": "ESPERANTO",
+      "note": "Esperanto is the constructed international language"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the abbreviation for Dutch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ESPERA",
+      "D",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A crook of a film director creates a language whose books were translated into Dutch.",
+     "walkthrough": "'Books' is the New Testament abbreviation, a common crossword convention; 'changed into Dutch' swaps it for the Dutch abbreviation inside the invented language.",
+     "definitionFit": "A desperado is a reckless outlaw, especially of the American Wild West, so a criminal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 27,
@@ -484,7 +1910,66 @@
    "group": [
     "27-across",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LOLLO ROSSO",
+    "definitions": [
+     {
+      "text": "leaves",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuddled by",
+      "for": "container",
+      "note": "someone cuddled by others is held within their arms, so the singer goes inside"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very funny!",
+      "gives": "LOL",
+      "note": "LOL, laughing out loud, is the texting response to something very funny"
+     },
+     {
+      "clueFragment": "ladies perhaps",
+      "gives": "LOO",
+      "note": "the ladies is a women's toilet, an example of a loo"
+     },
+     {
+      "clueFragment": "Motown’s Diana",
+      "gives": "ROSS",
+      "note": "Diana Ross, Motown star of the Supremes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOL",
+      "LO",
+      "ROSS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic scene: Diana Ross is hugged by some women and then walks out.",
+     "walkthrough": "LOL + LO(ROSS)O. 'Leaves' looks like a verb, someone departing, but it is the noun: salad leaves.",
+     "definitionFit": "Lollo rosso is a frilly red-tinged Italian lettuce sold for its salad leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 28,
@@ -498,7 +1983,44 @@
     "text": "So poorly articulated",
     "enumeration": "3"
    },
-   "solution": "SIC"
+   "solution": "SIC",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIC",
+    "definitions": [
+     {
+      "text": "So",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "articulated",
+      "for": "homophone",
+      "note": "articulated means spoken out, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poorly",
+      "gives": "SIC",
+      "soundsLike": "SICK",
+      "note": "poorly means unwell"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone speaking in a sloppy, slurred way.",
+     "walkthrough": "'Poorly' looks like an adverb on 'articulated', but it is the British word for ill.",
+     "definitionFit": "Sic is Latin for thus or so, used in brackets to show a quoted error is reproduced as found."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 29,
@@ -522,7 +2044,39 @@
      }
     ]
    },
-   "solution": "TAKEBYSTORM"
+   "solution": "TAKEBYSTORM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TAKE BY STORM",
+    "definitions": [
+     {
+      "text": "Blow away",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blow away",
+      "note": "surface reading: to amaze or overwhelm an audience"
+     },
+     {
+      "clueFragment": "Blow away",
+      "note": "setter's reading: a gale carrying something off, seizing it by force of weather"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase means to impress hugely, but the setter also pictures a wind literally making off with something.",
+     "definitionFit": "To take a place by storm is to captivate it completely, exactly as blowing an audience away means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Blow"
+    }
+   }
   }
  ]
 }
