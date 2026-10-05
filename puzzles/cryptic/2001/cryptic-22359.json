@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Green turnover, the sweet of Napoleon's exile?",
     "enumeration": "7"
    },
-   "solution": "DUPABLE"
+   "solution": "DUPABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DUPABLE",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turnover",
+      "for": "reversal",
+      "note": "a turnover flips something over, so the pastry built from the next words is turned end to end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Napoleon's exile",
+      "gives": "ELBA",
+      "note": "the Mediterranean island Napoleon was banished to in 1814"
+     },
+     {
+      "clueFragment": "the sweet",
+      "gives": "PUD",
+      "note": "short for pudding, the British word for dessert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUP",
+      "ABLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELBAPUD",
+       "to": "DUPABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A green pastry turnover offered as the dessert Napoleon ate in exile.",
+     "walkthrough": "Turnover looks like the pastry itself but is the signal: ELBA PUD read backwards gives DUPABLE.",
+     "definitionFit": "Green means naive and inexperienced, so easily fooled or tricked by others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "turnover"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,51 @@
     "text": "He composed for the lute in D: plus \"The  _____ the Pussy Cat\"",
     "enumeration": "7"
    },
-   "solution": "DOWLAND"
+   "solution": "DOWLAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWLAND",
+    "definitions": [
+     {
+      "text": "He composed for the lute",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "plus",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "D",
+      "gives": "D",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "The  _____ the Pussy Cat",
+      "gives": "OWLAND",
+      "note": "Edward Lear's nonsense poem title, whose missing words fill the blank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OWLAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A lute composer's work listed in D, alongside a nursery poem title.",
+     "walkthrough": "Lear's poem is 'The Owl and the Pussy-Cat', so the blank holds OWL AND; D plus that gives DOWLAND, the Elizabethan lutenist John Dowland.",
+     "definitionFit": "John Dowland was the leading Elizabethan songwriter and lutenist, famous for his ayres and Lachrimae."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plus"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +163,57 @@
     "text": "One using a blind pig's trotter (I 'ad one fricasseed)",
     "enumeration": "15"
    },
-   "solution": "PRESTIDIGITATOR"
+   "solution": "PRESTIDIGITATOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRESTIDIGITATOR",
+    "definitions": [
+     {
+      "text": "One using a blind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fricasseed",
+      "for": "anagram",
+      "note": "fricasseed meat is chopped and stewed, so the letters before it are cut up and recombined"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pig's trotter",
+      "gives": "PIGSTROTTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I 'ad one",
+      "gives": "IADI",
+      "note": "I 'ad taken as written, dropped aitch and all, then one as the Roman numeral I"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIGSTROTTERIADI",
+       "gives": "PRESTIDIGITATOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cockney cook boasting of a pig's trotter stew, served to someone blind.",
+     "walkthrough": "A blind here is a deception or feint, not a person who cannot see, nor a window shade.",
+     "definitionFit": "A conjuror relies on sleight of hand, feints and misdirection, which is exactly using a blind to deceive an audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blind"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +227,43 @@
     "text": "Spooner an admirer of Sandy Wilson was he?",
     "enumeration": "9"
    },
-   "solution": "BOYFRIEND"
+   "solution": "BOYFRIEND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOYFRIEND",
+    "definitions": [
+     {
+      "text": "Spooner",
+      "at": 0
+     },
+     {
+      "text": "an admirer of Sandy Wilson was he",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spooner",
+      "note": "first meaning: someone who spoons, old slang for kissing and cuddling a sweetheart"
+     },
+     {
+      "clueFragment": "an admirer of Sandy Wilson was he",
+      "note": "second meaning: the title of Sandy Wilson's 1953 musical comedy about a romantic admirer"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Spooner suggests the reverend and his swapped sounds, but there is no spoonerism: to spoon is to court amorously. The Boy Friend is Sandy Wilson's 1920s-pastiche musical.",
+     "definitionFit": "A suitor who spoons with a girl is her sweetheart, and Sandy Wilson's best-known stage show bears that title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spooner"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +277,47 @@
     "text": "Caligula's horseplay?",
     "enumeration": "5"
    },
-   "solution": "EQUUS"
+   "solution": "EQUUS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EQUUS",
+    "definitions": [
+     {
+      "text": "Caligula's horse",
+      "at": 0
+     },
+     {
+      "text": "play",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caligula's horse",
+      "note": "first meaning: the Latin word a Roman emperor would use for a horse"
+     },
+     {
+      "clueFragment": "play",
+      "note": "second meaning: Peter Shaffer's 1973 stage drama about a boy who blinds horses"
+     },
+     {
+      "clueFragment": "horseplay",
+      "note": "surface padding: the single word is split, its two halves serving the two meanings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Horseplay reads as one word for rough fun, but it splits into a horse in Caligula's Latin and a play; Caligula famously planned to make his horse a consul.",
+     "definitionFit": "The Latin noun for horse is also the title of Peter Shaffer's celebrated psychological drama for the stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "horseplay"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +331,63 @@
     "text": "One getting the time from a record label",
     "enumeration": "7"
    },
-   "solution": "EPITHET"
+   "solution": "EPITHET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPITHET",
+    "definitions": [
+     {
+      "text": "label",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a record",
+      "gives": "EP",
+      "note": "an extended-play record"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "I",
+      "THE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone learns the time from a record label, as if reading a clock off a disc.",
+     "walkthrough": "Record label looks like one phrase for a music company; label alone is the definition and the record supplies EP at the front.",
+     "definitionFit": "An epithet is a descriptive name or tag attached to a person, such as Ivan the Terrible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "label"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +401,67 @@
     "text": "Spite re-engendered when one's discharge is thus prevented",
     "enumeration": "9"
    },
-   "solution": "EPISTASIS"
+   "solution": "EPISTASIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EPISTASIS",
+    "definitions": [
+     {
+      "text": "discharge is thus prevented",
+      "at": 31,
+      "note": "a clause describing the condition, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "re-engendered",
+      "for": "anagram",
+      "note": "something engendered afresh is produced anew, so the preceding word is remade in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spite",
+      "gives": "SPITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in 'as he left', meaning when"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "I for one, plus the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPIST",
+      "AS",
+      "IS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPITE",
+       "gives": "EPIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spiteful mood revived at the moment a bodily discharge is blocked.",
+     "definitionFit": "In medicine, epistasis is the checking or suppression of a bodily discharge or flow, such as bleeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spite"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +475,43 @@
     "text": "Hellenic horseman's heavenly humour",
     "enumeration": "5"
    },
-   "solution": "ICHOR"
+   "solution": "ICHOR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ICHOR",
+    "definitions": [
+     {
+      "text": "heavenly humour",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s",
+      "for": "hidden_word",
+      "note": "the possessive marks what the two words hold between them, so the answer is owned within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hellenic horseman",
+      "gives": "ICHOR",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A Greek rider whose mood or temper is sublime.",
+     "walkthrough": "Humour here is the old sense of a bodily fluid, not wit.",
+     "definitionFit": "In Greek myth ichor is the ethereal fluid flowing in the veins of the gods, a celestial bodily humour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "humour"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +525,51 @@
     "text": "Like the Guardian's diarist, harpy had colonic disorder",
     "enumeration": "15"
    },
-   "solution": "HYPOCHONDRIACAL"
+   "solution": "HYPOCHONDRIACAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HYPOCHONDRIACAL",
+    "definitions": [
+     {
+      "text": "Like the Guardian's diarist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disorder",
+      "for": "anagram",
+      "note": "a disorder is a muddle, so the letters of the words before it are thrown out of place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harpy had colonic",
+      "gives": "HARPYHADCOLONIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HARPYHADCOLONIC",
+       "gives": "HYPOCHONDRIACAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper columnist's tale of a shrewish woman with a bowel complaint.",
+     "walkthrough": "Disorder fits the medical surface, but here it scrambles the letters; the diarist is a columnist forever fretting about imagined ailments.",
+     "definitionFit": "Someone who constantly worries over imagined illnesses, as a fussy health-obsessed columnist might, is described with this adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "disorder"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +583,47 @@
     "text": "Lawrence Sikes's frail occupation",
     "enumeration": "7"
    },
-   "solution": "TENANCY"
+   "solution": "TENANCY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENANCY",
+    "definitions": [
+     {
+      "text": "occupation",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lawrence",
+      "gives": "TE",
+      "note": "the initials of T. E. Lawrence, Lawrence of Arabia"
+     },
+     {
+      "clueFragment": "Sikes's frail",
+      "gives": "NANCY",
+      "note": "Bill Sikes's girlfriend in Oliver Twist; a frail is old slang for a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "NANCY"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Lawrence Sikes holds a delicate job.",
+     "walkthrough": "Frail looks like an adjective but is slang for a woman; Lawrence and Sikes are two different men.",
+     "definitionFit": "Tenancy is the holding or occupying of property as a tenant, so the occupation of a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frail"
+    }
+   }
   },
   {
    "number": 9,
@@ -195,7 +659,40 @@
    "group": [
     "9-across",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "WHEN YOU WISH UPON A STAR",
+    "definitions": [
+     {
+      "text": "Cricket's great hit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cricket's great hit created pain: so why was he run out?",
+      "note": "surface reading: a big shot in a cricket match ends painfully and a batsman is run out"
+     },
+     {
+      "clueFragment": "so why was he run out?",
+      "note": "setter's reading: the reply to why a leading player got run out is that you wished pain on him; the Cricket is Jiminy Cricket"
+     }
+    ],
+    "explanation": {
+     "surface": "A batsman's huge shot hurt somebody, and the question is why he was then run out.",
+     "walkthrough": "Cricket is Jiminy Cricket of Disney's Pinocchio, whose famous song is the answer; to wish pain upon a star batsman is the joking reason he was run out.",
+     "definitionFit": "Jiminy Cricket sings this Oscar-winning song in Disney's Pinocchio, making it the insect character's best-known hit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cricket's"
+    }
+   }
   },
   {
    "number": 10,
@@ -229,7 +726,65 @@
     "text": "Petronius's book of the day: \"I cry no tears\"",
     "enumeration": "9"
    },
-   "solution": "SATYRICON"
+   "solution": "SATYRICON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SATYRICON",
+    "definitions": [
+     {
+      "text": "Petronius's book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tears",
+      "for": "anagram",
+      "note": "to tear something is to rip it apart, so the three words before it are pulled to pieces and rearranged"
+     }
+    ],
+    "linkWords": [
+     "of the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "SAT",
+      "note": "the abbreviation for Saturday"
+     },
+     {
+      "clueFragment": "I cry no",
+      "gives": "ICRYNO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "YRICON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ICRYNO",
+       "gives": "YRICON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer calls Petronius's work the book of the day yet says it moves nobody.",
+     "walkthrough": "Tears looks like weeping, the noun, but it is the verb meaning rips.",
+     "definitionFit": "The Satyricon is the comic Latin novel attributed to Petronius, Nero's arbiter of elegance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +798,57 @@
     "text": "They are feeble with many more eccentric hesitations",
     "enumeration": "9"
    },
-   "solution": "DODDERERS"
+   "solution": "DODDERERS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DODDERERS",
+    "definitions": [
+     {
+      "text": "They are feeble",
+      "at": 0,
+      "note": "a clause standing for the plural noun"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many",
+      "gives": "D",
+      "note": "the Roman numeral for five hundred, a large number"
+     },
+     {
+      "clueFragment": "more eccentric",
+      "gives": "ODDER",
+      "note": "comparative of odd"
+     },
+     {
+      "clueFragment": "hesitations",
+      "gives": "ERS",
+      "note": "er is the sound of hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ODDER",
+      "ERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Frail old people who are even stranger and full of hesitant ums and ers.",
+     "walkthrough": "Many more looks like a pair, but many alone gives D and more goes with eccentric.",
+     "definitionFit": "Dodderers are weak, shaky people who totter about unsteadily, usually through age."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "many"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +862,52 @@
     "text": "Such purgatives use \"Vacant\" indicators",
     "enumeration": "9"
    },
-   "solution": "EVACUANTS"
+   "solution": "EVACUANTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVACUANTS",
+    "definitions": [
+     {
+      "text": "Such purgatives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "indicators",
+      "for": "anagram",
+      "note": "a joke on the clue itself: it uses vacant signals, so the letters before are rearranged with no real word telling you so"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "use \"Vacant\"",
+      "gives": "USEVACANT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USEVACANT",
+       "gives": "EVACUANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Laxatives that empty you out, labelled like a lavatory door showing Vacant.",
+     "walkthrough": "The vacant indicators are self-mocking: the clue admits its own signal is empty, yet the purgatives also leave you vacant.",
+     "definitionFit": "Evacuants are medicines that empty the bowels, a class of laxatives or purges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "indicators"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +921,61 @@
     "text": "Spokespersons, at day's end, are not like underwriters!",
     "enumeration": "5"
    },
-   "solution": "PROSY"
+   "solution": "PROSY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PROSY",
+    "definitions": [
+     {
+      "text": "not like underwriters",
+      "at": 33,
+      "note": "read as under-writers, people who write sparingly"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the last of day is kept"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spokespersons",
+      "gives": "PROS",
+      "note": "PROs are public relations officers, who speak for a company"
+     },
+     {
+      "clueFragment": "day's",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Company spokesmen at the close of business are nothing like insurance underwriters.",
+     "walkthrough": "Underwriters are not insurers here but under-writers, writers who say too little; prosy writing is long-winded.",
+     "definitionFit": "Prosy means tediously wordy and dull, the opposite of terse, sparing writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "underwriters"
+    }
+   }
   },
   {
    "number": 14,
@@ -285,7 +989,78 @@
     "text": "Cricket's charge is constant: no blasted choice out East (See 9,10 across)",
     "enumeration": "9"
    },
-   "solution": "PINOCCHIO"
+   "solution": "PINOCCHIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "PINOCCHIO",
+    "definitions": [
+     {
+      "text": "Cricket's charge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "going out means leaving, so the compass point named after it is dropped from the word"
+     },
+     {
+      "text": "blasted",
+      "for": "anagram",
+      "note": "something blasted is blown apart, so the following word is shattered and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "constant",
+      "gives": "PI",
+      "note": "the mathematical constant"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "choice",
+      "gives": "CHOICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "East",
+      "gives": "E",
+      "note": "the compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "NO",
+      "CCHIO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOIC",
+       "gives": "OCCHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer's fee is fixed, with no wretched option in the Orient.",
+     "walkthrough": "Cricket is Jiminy Cricket, appointed Pinocchio's conscience; charge means the one in his care, not a fee.",
+     "definitionFit": "In the Disney film the Blue Fairy assigns Jiminy Cricket to look after the wooden puppet, his ward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 15,
@@ -299,7 +1074,59 @@
     "text": "Take one good mind set",
     "enumeration": "5"
    },
-   "solution": "RIGID"
+   "solution": "RIGID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIGID",
+    "definitions": [
+     {
+      "text": "set",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R, from Latin recipe, is the abbreviation for take on prescriptions"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "the abbreviation for good"
+     },
+     {
+      "clueFragment": "mind",
+      "gives": "ID",
+      "note": "the id is the instinctive part of the mind in Freud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "G",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to adopt a decent, settled way of thinking.",
+     "walkthrough": "Mind set reads as mindset; the definition is set alone.",
+     "definitionFit": "Set in the sense of fixed or firm, as a jelly sets hard and stiff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mind"
+    }
+   }
   },
   {
    "number": 15,
@@ -313,7 +1140,56 @@
     "text": "Make a further modification to confit, as it were?",
     "enumeration": "7"
    },
-   "solution": "READAPT"
+   "solution": "READAPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "READAPT",
+    "definitions": [
+     {
+      "text": "Make a further modification",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "as it were"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "con",
+      "gives": "READ",
+      "note": "to con is to study or read over"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "APT",
+      "note": "fit meaning suitable"
+     },
+     {
+      "clueFragment": "confit",
+      "note": "surface padding: the dish name is split into its two halves, which supply the pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "READ",
+      "APT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook alters a recipe for confit, the preserved duck dish, once more.",
+     "walkthrough": "Confit is the French dish of meat preserved in fat, but it splits into con and fit.",
+     "definitionFit": "To readapt is to adapt again, altering something once more for new circumstances."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "confit"
+    }
+   }
   },
   {
    "number": 16,
@@ -327,7 +1203,71 @@
     "text": "Compounds run in when in seed cultivation",
     "enumeration": "9"
    },
-   "solution": "ARSENIDES"
+   "solution": "ARSENIDES",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ARSENIDES",
+    "definitions": [
+     {
+      "text": "Compounds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the running letter is placed within the word for when"
+     },
+     {
+      "text": "cultivation",
+      "for": "anagram",
+      "note": "cultivating ground turns it over, so the words before are dug up and reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as meaning when"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "the cricket scoring abbreviation"
+     },
+     {
+      "clueFragment": "in seed",
+      "gives": "INSEED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARS",
+      "ENIDES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSEED",
+       "gives": "ENIDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chemical compounds seep in while seeds are being grown.",
+     "definitionFit": "Arsenides are chemical compounds of arsenic with a more electropositive element, such as gallium."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cultivation"
+    }
+   }
   },
   {
    "number": 17,
@@ -341,7 +1281,43 @@
     "text": "Hot rod accessory? One might spare the rod",
     "enumeration": "7"
    },
-   "solution": "SPOILER"
+   "solution": "SPOILER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPOILER",
+    "definitions": [
+     {
+      "text": "Hot rod accessory",
+      "at": 0
+     },
+     {
+      "text": "One might spare the rod",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot rod accessory",
+      "note": "first meaning: an aerofoil fitted to a car to cut lift"
+     },
+     {
+      "clueFragment": "One might spare the rod",
+      "note": "second meaning: from the proverb spare the rod and spoil the child, someone who indulges"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two rods are unrelated: a souped-up car and a cane for punishment.",
+     "definitionFit": "A tail wing on a modified car is a spoiler, and an indulgent parent who never punishes spoils children."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rod"
+    }
+   }
   },
   {
    "number": 18,
@@ -355,7 +1331,74 @@
     "text": "Characteristic trait disturbing, but ultimately docile",
     "enumeration": "9"
    },
-   "solution": "ATTRIBUTE"
+   "solution": "ATTRIBUTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ATTRIBUTE",
+    "definitions": [
+     {
+      "text": "Characteristic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbing",
+      "for": "anagram",
+      "note": "disturbing things moves them out of place, so the word before is jumbled"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of the next word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trait",
+      "gives": "TRAIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "but",
+      "gives": "BUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "docile",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of docile"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATTRI",
+      "BUT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRAIT",
+       "gives": "ATTRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A personality quirk that is unsettling, though the person is gentle at heart.",
+     "walkthrough": "Characteristic trait looks like one phrase; trait is fodder and Characteristic alone is the noun definition.",
+     "definitionFit": "An attribute is a quality or feature regarded as belonging to someone or something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trait"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1412,44 @@
     "text": "The feet of William Birkett",
     "enumeration": "5"
    },
-   "solution": "IAMBI"
+   "solution": "IAMBI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IAMBI",
+    "definitions": [
+     {
+      "text": "The feet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means made from, so the answer is formed out of the letters of the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "William Birkett",
+      "gives": "IAMBI",
+      "note": "the end of the first name runs into the start of the surname"
+     }
+    ],
+    "explanation": {
+     "surface": "A reference to the actual feet of a man named William Birkett.",
+     "walkthrough": "Feet are metrical units in verse, not body parts.",
+     "definitionFit": "Iambi is the plural of iambus, the poetic foot of one short syllable followed by a long."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feet"
+    }
+   }
   },
   {
    "number": 20,
@@ -383,7 +1463,49 @@
     "text": "Get wind, say, of the \"Solvers'' Guardian\"",
     "enumeration": "5"
    },
-   "solution": "EURUS"
+   "solution": "EURUS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EURUS",
+    "definitions": [
+     {
+      "text": "wind",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say means spoken, so the words are to be pronounced and the spelling follows the sound"
+     }
+    ],
+    "linkWords": [
+     "Get",
+     "of the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solvers'' Guardian",
+      "gives": "EURUS",
+      "soundsLike": "YOUR US",
+      "note": "a setter addressing solvers says your, and the newspaper calls itself us"
+     }
+    ],
+    "explanation": {
+     "surface": "Catching a rumour of something to do with the newspaper's own solvers' pages.",
+     "walkthrough": "Get wind sounds like learning a rumour; wind alone is the definition.",
+     "definitionFit": "Eurus is the god of the east wind in Greek myth, and the name of that wind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Get"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1519,66 @@
     "text": "Transport circuit in which one's invested capital",
     "enumeration": "5"
    },
-   "solution": "CAIRO"
+   "solution": "CAIRO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CAIRO",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested",
+      "for": "container",
+      "note": "to invest is literally to clothe or surround, so the single letter is wrapped by the words around it"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transport",
+      "gives": "CAR",
+      "note": "a car is a means of transport"
+     },
+     {
+      "clueFragment": "circuit",
+      "gives": "O",
+      "note": "a ring-shaped letter, like a circuit"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "I",
+      "note": "the Roman numeral for one; the 's means 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "I",
+      "R",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A transport loop that someone has put money into.",
+     "walkthrough": "Invested and capital suggest finance; capital is a city and invested means enclosed.",
+     "definitionFit": "Cairo is the capital city of Egypt, on the Nile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1592,58 @@
     "text": "Committing no criminal act. Ah, to be a republican!",
     "enumeration": "15"
    },
-   "solution": "ANTIMONARCHICAL"
+   "solution": "ANTIMONARCHICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTIMONARCHICAL",
+    "definitions": [
+     {
+      "text": "republican",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Committing",
+      "for": "anagram",
+      "note": "committing here means carrying out or perpetrating, so the letters that follow are acted upon and rearranged"
+     }
+    ],
+    "linkWords": [
+     "to be a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no criminal act",
+      "gives": "NOCRIMINALACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Ah",
+      "gives": "AH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOCRIMINALACTAH",
+       "gives": "ANTIMONARCHICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sigh that opposing the monarchy is no crime, wishing to be a republican.",
+     "definitionFit": "A republican opposes rule by a king or queen, preferring an elected head of state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Committing"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1657,70 @@
     "text": "Delays return of sewer rat we abandoned for one",
     "enumeration": "7"
    },
-   "solution": "TARRIES"
+   "solution": "TARRIES",
+   "annotation": {
+    "type": [
+     "substitution",
+     "reversal"
+    ],
+    "answer": "TARRIES",
+    "definitions": [
+     {
+      "text": "Delays",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned for",
+      "for": "substitution",
+      "note": "something abandoned for another thing is dropped and replaced by it"
+     },
+     {
+      "text": "return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the whole thing is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sewer rat",
+      "gives": "SEWERRAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "we",
+      "gives": "WE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TARRIES"
+     ],
+     "reversals": [
+      {
+       "from": "SEIRRAT",
+       "to": "TARRIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Postponements in the comeback of a rodent we left behind in the drains.",
+     "walkthrough": "Swap WE in SEWERRAT for I to get SEIRRAT, then read it backwards.",
+     "definitionFit": "To tarry is to linger or delay, so tarries means delays as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Delays"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1734,66 @@
     "text": "Kitty's in Kent, right? Is one getting the wind up?",
     "enumeration": "7"
    },
-   "solution": "SPOOLER"
+   "solution": "SPOOLER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPOOLER",
+    "definitions": [
+     {
+      "text": "one getting the wind up",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the kitty is placed within the abbreviation for Kent's region"
+     }
+    ],
+    "linkWords": [
+     "Is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kent",
+      "gives": "SE",
+      "note": "Kent is a county in the South East of England"
+     },
+     {
+      "clueFragment": "Kitty",
+      "gives": "POOL",
+      "note": "a kitty is a pool of shared money"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POOL",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a cat living in Kent is getting scared.",
+     "walkthrough": "Getting the wind up means getting frightened, but here it is literal: winding thread or tape up.",
+     "definitionFit": "A spooler is a person or machine that winds thread, film or tape onto spools."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kitty"
+    }
+   }
   }
  ]
 }
