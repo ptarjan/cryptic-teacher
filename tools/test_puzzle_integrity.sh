@@ -167,6 +167,12 @@ for name, p in [("CLEAN", sibling(later)),
     path = put(p)
     cli(name)
     path.unlink()
+# The same copy, listed in clue_index.REPRINTS: one puzzle the paper printed twice.
+import clue_index
+clue_index.REPRINTS[frozenset(("cryptic-24447", "cryptic-24448"))] = "fixture"
+path = put(sibling(later, same_clues=len(real["entries"])))
+cli("REPRINT")
+path.unlink()
 PY
 )
 died "$out2" "the scratch-corpus CLI"
@@ -175,6 +181,7 @@ same "a later number dated earlier: exit 1, DATE alone" "$(grep '^DATE ' <<<"$ou
 same "all but one clue shared: exit 1, NEARDUP alone" "$(grep '^NEARDUP ' <<<"$out2" | cut -d' ' -f2-)" "1 NEARDUP"
 # A copy shares every clue too, so NEARDUP rides along with DUPLICATE.
 same "the same puzzle under another id: exit 1, DUPLICATE" "$(grep '^DUPLICATE ' <<<"$out2" | cut -d' ' -f2-)" "1 DUPLICATE,NEARDUP"
+same "the same puzzle as a listed reprint: exit 0, every tally 0" "$(grep '^REPRINT ' <<<"$out2" | cut -d' ' -f2-)" "0 none"
 
 echo "exactness: a lengthened key must not still match, and dropping one table must not touch the other"
 combo=$(PYTHONPATH="$REPO/tools" python3 - 2>&1 <<'PY'
