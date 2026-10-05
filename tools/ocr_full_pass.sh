@@ -49,9 +49,10 @@ export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # Scan filer: the clue vote files counts, capitals, hyphens and words as
-# the readings print them and settles misread words on the lexicon (5b97ed5),
-# after the skewed-page clue line fix (fc9ff99) and the grid lattice fit (e9b8d39)
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-05T22:59:49+00:00}"
+# the readings print them and settles misread words on the lexicon (5b97ed5,
+# 0188ade), after the skewed-page clue line fix (fc9ff99) and the grid
+# lattice fit (e9b8d39)
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-05T23:13:40+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
 
 attempt_push() {
