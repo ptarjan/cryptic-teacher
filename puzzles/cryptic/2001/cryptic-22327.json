@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Song following less than mature north bank resident",
     "enumeration": "8"
    },
-   "solution": "RIPARIAN"
+   "solution": "RIPARIAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RIPARIAN",
+    "definitions": [
+     {
+      "text": "bank resident",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less than",
+      "for": "deletion",
+      "note": "less than the whole word means it falls short, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mature",
+      "gives": "RIP",
+      "note": "ripe, cut short by its final letter"
+     },
+     {
+      "clueFragment": "Song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in opera"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIP",
+      "ARIA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living on the north bank of a river is described by song and maturity.",
+     "walkthrough": "'Following' tells us the song comes after the shortened word for mature.",
+     "definitionFit": "Riparian describes a creature or person living on a riverside, so used as a noun it is one who dwells there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 1,
@@ -60,7 +120,54 @@
     "text": "Show disgust about the Queen's hairpiece",
     "enumeration": "6"
    },
-   "solution": "PERUKE"
+   "solution": "PERUKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PERUKE",
+    "definitions": [
+     {
+      "text": "hairpiece",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first piece wraps round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Show disgust",
+      "gives": "PUKE",
+      "note": "to puke is to vomit, a crude display of revulsion"
+     },
+     {
+      "clueFragment": "the Queen's",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the Queen's royal cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ER",
+      "UKE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recoils in disgust at the monarch's wig.",
+     "definitionFit": "A peruke is a periwig, the long powdered wig worn in the seventeenth and eighteenth centuries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 3,
@@ -74,7 +181,50 @@
     "text": "Run out by nut in extravagant style",
     "enumeration": "6"
    },
-   "solution": "ROCOCO"
+   "solution": "ROCOCO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROCOCO",
+    "definitions": [
+     {
+      "text": "extravagant style",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run out",
+      "gives": "RO",
+      "note": "RO is the cricket scorecard abbreviation for run out"
+     },
+     {
+      "clueFragment": "nut",
+      "gives": "COCO",
+      "note": "coco is the coconut palm and its nut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "COCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman is dismissed thanks to some nutcase, in a showy way.",
+     "walkthrough": "'By' simply places the nut beside the cricket abbreviation.",
+     "definitionFit": "Rococo is the ornate eighteenth-century decorative manner, known for elaborate flourishes and excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 4,
@@ -88,7 +238,46 @@
     "text": "\"Fall, O Simon Russell!\" said 21",
     "enumeration": "10"
    },
-   "solution": "AUTOMOBILE"
+   "solution": "AUTOMOBILE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AUTOMOBILE",
+    "definitions": [
+     {
+      "text": "21",
+      "at": 30,
+      "note": "21 is WHEELS, slang for a car"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken, so the quoted words count for how they sound when uttered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"Fall, O Simon Russell!\"",
+      "gives": "AUTOMOBILE",
+      "soundsLike": "AUTUMN O BEALE",
+      "note": "fall is the American autumn, and Simon Russell Beale is an English stage actor"
+     }
+    ],
+    "explanation": {
+     "surface": "A dramatic cry of command to an actor, as if on stage.",
+     "walkthrough": "Fall gives the season, not a tumble; spoken quickly, autumn, O and the actor's surname Beale run together into one familiar word.",
+     "definitionFit": "Wheels is informal slang for a car, and an automobile is a motor car."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fall"
+    }
+   }
   },
   {
    "number": 5,
@@ -102,7 +291,69 @@
     "text": "Return of a Catholic beast to a city in Poland",
     "enumeration": "6"
    },
-   "solution": "CRACOW"
+   "solution": "CRACOW",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "CRACOW",
+    "definitions": [
+     {
+      "text": "a city in Poland",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the opening words are written right to left"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Catholic",
+      "gives": "RC",
+      "note": "RC stands for Roman Catholic"
+     },
+     {
+      "clueFragment": "beast",
+      "gives": "COW",
+      "note": "a cow is a farm beast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRA",
+      "COW"
+     ],
+     "reversals": [
+      {
+       "from": "ARC",
+       "to": "CRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An animal belonging to a Catholic is brought back to a Polish city.",
+     "walkthrough": "Only 'a Catholic' is turned round; the beast follows unchanged.",
+     "definitionFit": "Cracow is the older English spelling of Krakow, the historic royal capital in southern Poland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Return"
+    }
+   }
   },
   {
    "number": 6,
@@ -116,7 +367,51 @@
     "text": "Ancient road revealed in weary dig",
     "enumeration": "8"
    },
-   "solution": "RIDGEWAY"
+   "solution": "RIDGEWAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIDGEWAY",
+    "definitions": [
+     {
+      "text": "Ancient road",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revealed in",
+      "for": "anagram",
+      "note": "what a dig turns up has been churned out of the ground, so the letters emerge in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weary dig",
+      "gives": "WEARYDIG",
+      "note": "the two words supply all eight letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEARYDIG",
+       "gives": "RIDGEWAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Archaeologists, tired from their excavation, uncover an old track.",
+     "walkthrough": "The Ridgeway is a prehistoric track running across the chalk downs of southern England.",
+     "definitionFit": "The Ridgeway is often called Britain's oldest road, used since prehistoric times along the downland ridge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revealed"
+    }
+   }
   },
   {
    "number": 7,
@@ -130,7 +425,48 @@
     "text": "Fiddle some figures like the modern Mrs Beeton?",
     "enumeration": "8"
    },
-   "solution": "COOKBOOK"
+   "solution": "COOKBOOK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COOKBOOK",
+    "definitions": [
+     {
+      "text": "like the modern Mrs Beeton?",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fiddle",
+      "gives": "COOK",
+      "note": "to cook accounts is to falsify them"
+     },
+     {
+      "clueFragment": "some figures",
+      "gives": "BOOK",
+      "note": "a book is a set of accounts, as in cooking the books"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COOK",
+      "BOOK"
+     ]
+    },
+    "explanation": {
+     "surface": "A modern celebrity cook is accused of fiddling the accounts.",
+     "walkthrough": "Mrs Beeton wrote the Victorian bestseller Book of Household Management, largely recipes.",
+     "definitionFit": "Mrs Beeton's famous work was a recipe manual, so her present-day equivalent would be a recipe volume; the question mark flags the loose personification."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fiddle"
+    }
+   }
   },
   {
    "number": 8,
@@ -150,7 +486,61 @@
      }
     ]
    },
-   "solution": "WATTYLER"
+   "solution": "WATTYLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WAT TYLER",
+    "definitions": [
+     {
+      "text": "against Richard II",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the word from its bottom to its top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Electrical unit",
+      "gives": "WATT",
+      "note": "the watt is the SI unit of power"
+     },
+     {
+      "clueFragment": "trust",
+      "gives": "RELY",
+      "note": "to rely on is to trust"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WATT",
+      "YLER"
+     ],
+     "reversals": [
+      {
+       "from": "RELY",
+       "to": "YLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Electrical engineering set against a medieval king.",
+     "walkthrough": "In a down clue 'up' reads the word for trust from bottom to top. Wat Tyler led the 1381 Peasants' Revolt against the young Richard II.",
+     "definitionFit": "The definition is a cryptic description: the rebel leader whose uprising was directed at King Richard the Second."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 9,
@@ -164,7 +554,66 @@
     "text": "Return of a priest to another, telling it as it was",
     "enumeration": "8"
    },
-   "solution": "VERACITY"
+   "solution": "VERACITY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "VERACITY",
+    "definitions": [
+     {
+      "text": "telling it as it was",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the opening words are written right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "REV",
+      "note": "Rev is short for Reverend, a priest's title"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "CITY",
+      "note": "picks up the previous clue: after 'to a city', this is to another city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VERA",
+      "CITY"
+     ],
+     "reversals": [
+      {
+       "from": "AREV",
+       "to": "VERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman goes back to another place, honestly reporting events.",
+     "walkthrough": "The clue echoes 5 across, which ends 'to a city'; here 'to another' means to another city, giving the plain word.",
+     "definitionFit": "Veracity is truthfulness, the quality of reporting events exactly as they happened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "another"
+    }
+   }
   },
   {
    "number": 10,
@@ -178,7 +627,60 @@
     "text": "Commercial decay keeps one deft",
     "enumeration": "6"
    },
-   "solution": "ADROIT"
+   "solution": "ADROIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADROIT",
+    "definitions": [
+     {
+      "text": "deft",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commercial",
+      "gives": "AD",
+      "note": "an ad, short for advertisement, is a commercial"
+     },
+     {
+      "clueFragment": "decay",
+      "gives": "ROT",
+      "note": "rot is decay"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "RO",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A decaying business somehow holds on to one skilful person.",
+     "definitionFit": "Adroit and deft are synonyms, both describing nimble skill with the hands or mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Commercial"
+    }
+   }
   },
   {
    "number": 11,
@@ -198,7 +700,54 @@
      }
     ]
    },
-   "solution": "LAKECOMO"
+   "solution": "LAKECOMO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAKE COMO",
+    "definitions": [
+     {
+      "text": "Italian water",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served",
+      "for": "anagram",
+      "note": "a served dish has been prepared and dished up, so the letters are worked into a new form"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook meal",
+      "gives": "COOKMEAL",
+      "note": "both words are the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COOKMEAL",
+       "gives": "LAKECOMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef's dinner is served alongside a glass of Italian mineral water.",
+     "walkthrough": "'Cook' looks like the anagram signal, but its letters belong in the mix; 'served' is what rearranges them.",
+     "definitionFit": "Lake Como is a famous body of water in Lombardy, northern Italy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 12,
@@ -212,7 +761,55 @@
     "text": "Author of 24 25 initially in a layer of shingle",
     "enumeration": "6"
    },
-   "solution": "PEBBLY"
+   "solution": "PEBBLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEBBLY",
+    "definitions": [
+     {
+      "text": "of shingle",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the poet's letters inside the word for a layer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a layer",
+      "gives": "PLY",
+      "note": "a ply is one layer or thickness"
+     },
+     {
+      "clueFragment": "Author of 24 25 initially",
+      "gives": "EBB",
+      "note": "the poem 24 25 is by Elizabeth Barrett Browning, and initially asks for her initials"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EBB",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's initials are found within a stratum of beach stones.",
+     "walkthrough": "'Initially' asks for the author's initials rather than first letters of clue words.",
+     "definitionFit": "Shingle is a beach of small rounded stones, so ground made of it is covered in pebbles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "layer"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +829,50 @@
      }
     ]
    },
-   "solution": "SECONDHOME"
+   "solution": "SECONDHOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECOND HOME",
+    "definitions": [
+     {
+      "text": "another place",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support for",
+      "gives": "SECOND",
+      "note": "to second a motion is to support it"
+     },
+     {
+      "clueFragment": "Sir Alec",
+      "gives": "HOME",
+      "note": "Sir Alec Douglas-Home was British Prime Minister in 1963 and 1964"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECOND",
+      "HOME"
+     ]
+    },
+    "explanation": {
+     "surface": "Political backing for a former Prime Minister comes from somewhere else.",
+     "walkthrough": "'Another place' is also Commons slang for the House of Lords, where Home sat as an earl, which adds to the misdirection.",
+     "definitionFit": "A second residence, such as a weekend cottage, is another place where someone lives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +892,62 @@
      }
     ]
    },
-   "solution": "OBOEDAMORE"
+   "solution": "OBOEDAMORE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OBOE DAMORE",
+    "definitions": [
+     {
+      "text": "an old pipe",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "something eaten ends up inside the eater, so the cheese goes within the rude fellow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old English",
+      "gives": "OE",
+      "note": "OE is the abbreviation for Old English"
+     },
+     {
+      "clueFragment": "Rude fellow",
+      "gives": "BOOR",
+      "note": "a boor is an ill-mannered man"
+     },
+     {
+      "clueFragment": "cheese",
+      "gives": "EDAM",
+      "note": "Edam is a Dutch cheese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BO",
+      "EDAM",
+      "OR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An oaf munches cheese and smokes an antique pipe.",
+     "walkthrough": "Two insertions: the cheese goes inside the rude fellow, and that goes 'in' the Old English abbreviation.",
+     "definitionFit": "The oboe d'amore is a baroque woodwind instrument, a slightly lower oboe much used by Bach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pipe"
+    }
+   }
   },
   {
    "number": 15,
@@ -266,7 +961,54 @@
     "text": "Started on fish in bottom of river",
     "enumeration": "8"
    },
-   "solution": "BROACHED"
+   "solution": "BROACHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BROACHED",
+    "definitions": [
+     {
+      "text": "Started on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the fish inside the river's bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bottom of river",
+      "gives": "BED",
+      "note": "a riverbed is the bottom of a river"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ROACH",
+      "note": "the roach is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROACH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler began fishing at the bottom of a river.",
+     "definitionFit": "To broach a subject or a cask is to open or begin it, so broached means started on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 16,
@@ -290,7 +1032,41 @@
      }
     ]
    },
-   "solution": "BYTHEWAY"
+   "solution": "BYTHEWAY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BY THE WAY",
+    "definitions": [
+     {
+      "text": "En route",
+      "at": 0
+     },
+     {
+      "text": "incidentally",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "En route",
+      "note": "first meaning: along the road, during a journey"
+     },
+     {
+      "clueFragment": "incidentally",
+      "note": "second meaning: a phrase introducing a passing remark"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two senses are literal and figurative uses of the same phrase.",
+     "definitionFit": "The phrase means both on the journey itself and, as an aside, by way of a passing comment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -304,7 +1080,56 @@
     "text": "Note left for bird with halo",
     "enumeration": "8"
    },
-   "solution": "GLORIOLE"
+   "solution": "GLORIOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GLORIOLE",
+    "definitions": [
+     {
+      "text": "halo",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "G",
+      "note": "G is a note of the musical scale"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "ORIOLE",
+      "note": "the oriole is a brightly coloured songbird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "L",
+      "ORIOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A note is left for a bird that wears a halo.",
+     "walkthrough": "'For' simply lines up the bird after the first two letters.",
+     "definitionFit": "A gloriole is an aureole or nimbus, the ring of light painted around a holy figure's head."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 18,
@@ -324,7 +1149,61 @@
      }
     ]
    },
-   "solution": "ROYALBLOOD"
+   "solution": "ROYALBLOOD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROYAL BLOOD",
+    "definitions": [
+     {
+      "text": "very blue fluid",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "network",
+      "for": "anagram",
+      "note": "a network is a mesh of criss-crossed strands, so the letters are woven into a new pattern"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oral",
+      "gives": "ORAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old boy",
+      "gives": "OLDBOY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORALOLDBOY",
+       "gives": "ROYALBLOOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exam plus the old boy network turns out a very upper-class product.",
+     "walkthrough": "'Old boy network' reads as one phrase, but 'network' is the signal: a net weaves strands into a new pattern.",
+     "definitionFit": "Aristocrats are said to have blue blood, and the bloodline of kings and queens is the bluest of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "network"
+    }
+   }
   },
   {
    "number": 19,
@@ -338,7 +1217,43 @@
     "text": "Depression? You need a holiday",
     "enumeration": "6"
    },
-   "solution": "RECESS"
+   "solution": "RECESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECESS",
+    "definitions": [
+     {
+      "text": "Depression?",
+      "at": 0
+     },
+     {
+      "text": "You need a holiday",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depression?",
+      "note": "first meaning: an alcove or hollow set back in a wall"
+     },
+     {
+      "clueFragment": "You need a holiday",
+      "note": "second meaning: a break from work, as when Parliament adjourns"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests advice for someone low in spirits; depression is a physical hollow, not a mood.",
+     "definitionFit": "The word means both a hollow or niche and a period when a legislature or school stops work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Depression"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1296,63 @@
    "group": [
     "21-down",
     "20-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEELS WITHIN",
+    "definitions": [
+     {
+      "text": "it's not that simple",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the weather saint is placed behind the western rat"
+     }
+    ],
+    "linkWords": [
+     "changes direction"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "W is the abbreviation for western"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "HEEL",
+      "note": "a heel is a cad, a rat"
+     },
+     {
+      "clueFragment": "Saint of the weather",
+      "gives": "SWITHIN",
+      "note": "St Swithin's Day rain is said to set the weather for forty days"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HEEL",
+      "SWITHIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Weather lore about St Swithin's Day turns out more complicated than it looks.",
+     "walkthrough": "The wordplay builds the grid's two lights, the saint after the western rat; the enumeration's final word repeats the first, the reading turning back to 21.",
+     "definitionFit": "Wheels within wheels describes a complex situation of hidden motives and influences, far from simple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rat"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1366,46 @@
     "text": "Tree with deposit on land",
     "enumeration": "6"
    },
-   "solution": "ASHORE"
+   "solution": "ASHORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASHORE",
+    "definitions": [
+     {
+      "text": "on land",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     },
+     {
+      "clueFragment": "with deposit",
+      "gives": "ORE",
+      "note": "an ore deposit is a body of mineral in rock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree stands on a mineral seam on dry land.",
+     "definitionFit": "Ashore means on the shore or on dry land, as opposed to at sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "deposit"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1425,68 @@
      }
     ]
    },
-   "solution": "IDLERICH"
+   "solution": "IDLERICH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IDLE RICH",
+    "definitions": [
+     {
+      "text": "with more money than industry",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wantonly",
+      "for": "anagram",
+      "note": "wantonly means recklessly and without restraint, so the letters are thrown about"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hug, so the jumbled letters wrap around the boy"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hild",
+      "gives": "IDLH",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "ERIC",
+      "note": "Eric is a boy's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDL",
+      "ERIC",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HILD",
+       "gives": "IDLH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saintly abbess named Hild behaves wantonly with a young man.",
+     "walkthrough": "Hild is St Hilda of Whitby, which makes 'wantonly' a scandalous joke.",
+     "definitionFit": "The idle rich are wealthy people who do not need to work, having money but no diligence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Hild"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1518,78 @@
    "group": [
     "24-across",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HOW DO I LOVE THEE",
+    "definitions": [
+     {
+      "text": "then please may I do a census on the roads?",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense means outside, so the greeting goes round the unction"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greeting",
+      "gives": "HOWDO",
+      "note": "'How do?' is a northern English greeting"
+     },
+     {
+      "clueFragment": "unction",
+      "gives": "OIL",
+      "note": "unction is anointing with oil"
+     },
+     {
+      "clueFragment": "surgeon",
+      "gives": "VET",
+      "note": "a vet is an animal surgeon"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he is the male pronoun"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOWD",
+      "OIL",
+      "O",
+      "VET",
+      "HE",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bluff greeting to a doctor, then a request to count traffic.",
+     "walkthrough": "'Without' means outside, so the greeting goes round the oil. Elizabeth Barrett Browning's sonnet continues 'Let me count the ways', which the census on the roads parodies.",
+     "definitionFit": "The poem's opening line is followed by 'Let me count the ways', and counting the ways is jokily a road traffic census."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "census"
+    }
+   }
   },
   {
    "number": 25,
@@ -480,7 +1622,49 @@
     "text": "Unexciting study of poet",
     "enumeration": "6"
    },
-   "solution": "DRYDEN"
+   "solution": "DRYDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRYDEN",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unexciting",
+      "gives": "DRY",
+      "note": "dry means dull"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull study of a poet's work.",
+     "definitionFit": "John Dryden was the leading English poet of the Restoration and the first Poet Laureate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 27,
@@ -504,7 +1688,81 @@
    "group": [
     "27-across",
     "1-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "PEASANTS' REVOLT",
+    "definitions": [
+     {
+      "text": "rising",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the space explorers inside the word for a pace"
+     },
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "backwards means the combined letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "under 8"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "step",
+      "gives": "STEP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Space explorers",
+      "gives": "NASA",
+      "note": "NASA is the US space agency"
+     },
+     {
+      "clueFragment": "in relation to",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "electrical unit",
+      "gives": "VOLT",
+      "note": "the volt is the unit of electrical potential"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEASANTS",
+      "RE",
+      "VOLT"
+     ],
+     "reversals": [
+      {
+       "from": "STNASAEP",
+       "to": "PEASANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Astronauts walking in reverse, rising in relation to electricity.",
+     "walkthrough": "'Under 8' points to Wat Tyler at 8 down, the revolt's leader; the 1381 rising in England was led by him.",
+     "definitionFit": "A revolt is an uprising, and the 1381 rebellion of English labourers against poll taxes was a famous rising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   }
  ]
 }
