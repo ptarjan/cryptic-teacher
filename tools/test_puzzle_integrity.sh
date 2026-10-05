@@ -429,7 +429,8 @@ shutil.copy(real, right)
 (puzzle_paths.PUZZLE_DIR / "index.json").write_text("{}")
 
 def filed():
-    flags, _ = pi.audit(puzzle_paths.puzzle_files(), date(2026, 9, 25))
+    files = pi.listing()
+    flags, _ = pi.audit(files, pi.published(files), date(2026, 9, 25))
     return sorted(what for kind, _pid, what in flags if kind == "FILED")
 
 print("CLEAN", len(filed()))

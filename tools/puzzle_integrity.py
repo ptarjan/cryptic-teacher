@@ -143,10 +143,12 @@ belongs in the fetcher or in a re-fetch, not in a repair pass over the files.
 """
 
 import hashlib
+import inspect
 import json
-import os
 import pickle
 import re
+import sqlite3
+import subprocess
 import sys
 import time
 import unicodedata
@@ -156,24 +158,43 @@ from itertools import pairwise, zip_longest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import groups  # noqa: E402 — linked answers
-from groups import entry_id  # noqa: E402
-from apply_solution import (check_fill, check_geometry, off_board,  # noqa: E402
-                            normalise)
-import enumeration  # noqa: E402
-from clue_index import ClueIndex, clue_keys  # noqa: E402
-import parallel  # noqa: E402
 import boilerplate  # noqa: E402
+import enumeration  # noqa: E402
 import errata  # noqa: E402
-from fetch_puzzle import (PER_LIGHT_ENUMERATION, clued, corrected_clue,  # noqa: E402
-                          duplicated_clues, group_orders, has_words, is_bare_letters, is_continuation,
-                          prints_own_count, read_puzzle_file)
+import groups  # noqa: E402 — linked answers
 import ocr_clues  # noqa: E402
-import puzzle_schema  # noqa: E402
-from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
+import parallel  # noqa: E402
 import provenance  # noqa: E402
 import puzzle_paths  # noqa: E402
+import puzzle_schema  # noqa: E402
 import series as series_meta  # noqa: E402
+from apply_solution import (  # noqa: E402
+    check_fill,
+    check_geometry,
+    normalise,
+    off_board,
+)
+from clue_index import (  # noqa: E402
+    MIN_CLUES,
+    THRESHOLD,
+    ClueIndex,
+    clue_keys,
+    known_copy,
+)
+from fetch_puzzle import (  # noqa: E402
+    PER_LIGHT_ENUMERATION,
+    clued,
+    corrected_clue,
+    duplicated_clues,
+    group_orders,
+    has_words,
+    is_bare_letters,
+    is_continuation,
+    prints_own_count,
+    read_puzzle_file,
+)
+from groups import entry_id  # noqa: E402
+from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -1244,15 +1265,17 @@ def check_filed(path, puzzle, flags):
         flags.append(("FILED", puzzle["id"], f"{_rel(path)} belongs at {_rel(want)}"))
 
 
-def check_strays(published, flags):
+def check_strays(published, flags, files):
     """FILED for every .json under puzzles/ that puzzle_files() does not walk
     — a flat puzzles/<id>.json, one loose in a series folder — other than the
     generated index and series output and the authored drafts."""
     root = puzzle_paths.PUZZLE_DIR
-    skip = {root / "index.json"}
-    for path in sorted(root.rglob("*.json")):
-        if path in published or path in skip or path.relative_to(root).parts[0] in ("series", "authored"):
+    prefix = root.relative_to(puzzle_paths.PUZZLE_DIR.parent).as_posix() + "/"
+    for name in sorted(files, key=lambda n: n.split("/")):
+        rel = name[len(prefix):].split("/")
+        if name in published or name == prefix + "index.json" or rel[0] in ("series", "authored"):
             continue
+        path = puzzle_paths.PUZZLE_DIR.parent / name
         try:
             puzzle = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, ValueError) as err:
@@ -1280,6 +1303,123 @@ def _one_file(path):
     return flags, row
 
 
+CACHE = Path.home() / ".cache" / "cryptic-teacher" / "integrity-rows.sqlite"
+
+
+def _git(*args):
+    out = subprocess.run(["git", "-C", str(puzzle_paths.PUZZLE_DIR.parent), *args], capture_output=True, check=True).stdout
+    return [x for x in out.decode("utf-8", "surrogateescape").split("\0") if x]
+
+
+def _blob_sha(path):
+    data = path.read_bytes()
+    return hashlib.sha1(b"blob %d\0" % len(data) + data).hexdigest()
+
+
+def listing():
+    """{name: git blob sha}, name being the path under the repo root as a
+    string (pathlib is the cost at 80k paths), of every .json under puzzles/ that is tracked or
+    untracked-and-not-ignored — what puzzle_files() and check_strays() walk,
+    read off git's index in a fraction of a second instead of a 40k-entry
+    directory walk. A file edited since the index was written is hashed from
+    its bytes. Outside a git checkout, every file is hashed."""
+    root = puzzle_paths.PUZZLE_DIR.parent
+    try:
+        tracked = {}
+        for rec in _git("ls-files", "-s", "-z", "--", "puzzles"):
+            meta, name = rec.split("\t", 1)
+            tracked[name] = meta.split()[1]
+        for name in _git("ls-files", "-d", "-z", "--", "puzzles"):
+            tracked.pop(name, None)
+        dirty = set(_git("ls-files", "-m", "-z", "--", "puzzles")) | set(
+            _git("ls-files", "-o", "--exclude-standard", "-z", "--", "puzzles"))
+        names = {n: (None if n in dirty else tracked.get(n))
+                 for n in set(tracked) | dirty if n.endswith(".json") and n not in ()}
+    except (OSError, subprocess.CalledProcessError):
+        names = {p.relative_to(root).as_posix(): None for p in puzzle_paths.PUZZLE_DIR.rglob("*.json")}
+    out = {}
+    for n, sha in names.items():
+        if sha is None:
+            try:
+                sha = _blob_sha(root / n)
+            except OSError:
+                continue
+        out[n] = sha
+    return out
+
+
+PUBLISHED_NAME = re.compile(r"[^/]*-[0-9][^/]*\.json")
+
+
+def published(files):
+    """The names in listing() that puzzle_files() would return, sorted."""
+    prefix = puzzle_paths.PUZZLE_DIR.relative_to(puzzle_paths.PUZZLE_DIR.parent).as_posix() + "/"
+    out = []
+    for name in files:
+        if name.startswith(prefix):
+            rel = name[len(prefix):].split("/")
+            if len(rel) == 3 and PUBLISHED_NAME.fullmatch(rel[2]):
+                out.append(name)
+    return sorted(out, key=lambda n: n.split("/"))
+
+
+def _fingerprint():
+    here = Path(__file__).resolve().parent
+    h = hashlib.sha1()
+    for name in ("clue_index.py", "series.py"):
+        h.update((here / name).read_bytes())
+    h.update(inspect.getsource(content_hash).encode())
+    h.update(inspect.getsource(date_of).encode())
+    return h.hexdigest()
+
+
+def _open_cache():
+    """The sqlite cache of cross-puzzle facts, keyed by git blob sha so that it
+    holds across checkouts and worktrees: one row per distinct file content
+    (id, digest, number of clue keys, the dated row) and one (clue key, row)
+    pair per clue key, indexed by key so a single puzzle's neighbours are an
+    index lookup instead of a 50 MB load."""
+    CACHE.parent.mkdir(parents=True, exist_ok=True)
+    conn = sqlite3.connect(CACHE, timeout=60)
+    conn.execute("PRAGMA synchronous=OFF")
+    fp = _fingerprint()
+    try:
+        ok = conn.execute("SELECT v FROM meta WHERE k='fp'").fetchone()
+    except sqlite3.OperationalError:
+        ok = None
+    if not ok or ok[0] != fp:
+        with conn:
+            conn.executescript(
+                "DROP TABLE IF EXISTS meta; DROP TABLE IF EXISTS rows; DROP TABLE IF EXISTS clues;"
+                "CREATE TABLE meta(k TEXT PRIMARY KEY, v TEXT);"
+                "CREATE TABLE rows(id INTEGER PRIMARY KEY, blob TEXT UNIQUE, pid TEXT, digest TEXT,"
+                " nkeys INTEGER, held BLOB);"
+                "CREATE TABLE clues(key TEXT, id INTEGER, PRIMARY KEY(key, id)) WITHOUT ROWID;")
+            conn.execute("INSERT INTO meta VALUES('fp', ?)", (fp,))
+    return conn
+
+
+def _store(conn, new):
+    """new: [(blob, (pid, digest, keys, held))] — rows the cache lacks."""
+    with conn:
+        for blob, (pid, digest, keys, held) in new:
+            cur = conn.execute("INSERT OR IGNORE INTO rows(blob, pid, digest, nkeys, held) VALUES(?,?,?,?,?)",
+                               (blob, pid, digest, len(keys), pickle.dumps(held)))
+            if cur.rowcount:
+                conn.executemany("INSERT OR IGNORE INTO clues VALUES(?,?)",
+                                 ((k, cur.lastrowid) for k in keys))
+
+
+def _cached(conn, files):
+    """{blob: (id, pid, digest, nkeys, held)} for the blobs of `files` the cache holds."""
+    wanted = set(files.values())
+    out = {}
+    for rid, blob, pid, digest, nkeys, held in conn.execute("SELECT id, blob, pid, digest, nkeys, held FROM rows"):
+        if blob in wanted:
+            out[blob] = (rid, pid, digest, nkeys, pickle.loads(held))
+    return out
+
+
 def _summary(path):
     """_one_file's cross-file row alone, for a file the run does not judge."""
     puzzle = read_puzzle_file(path)
@@ -1288,77 +1428,79 @@ def _summary(path):
             (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid))
 
 
-CACHE = Path.home() / ".cache" / "cryptic-teacher" / "integrity-rows.pickle"
+def _neardups(conn, cached, files, paths, mine_rows):
+    """The NEARDUP findings that name one of `mine_rows` ((pid, keys) pairs),
+    from the cache's clue index: every other puzzle sharing at least THRESHOLD
+    of the smaller one's clues, exactly what ClueIndex.pairs() reports for
+    those pairs."""
+    by_id = {}
+    for path in paths:                       # the last file of an id wins, as in ClueIndex
+        rid, pid, _, nkeys, _ = cached[files[path]]
+        by_id[pid] = (rid, nkeys)
+    found = set()
+    for pid, keys in mine_rows:
+        if not keys:
+            continue
+        marks = ",".join("?" * len(keys))
+        ids = dict(conn.execute(f"SELECT id, count(*) FROM clues WHERE key IN ({marks}) GROUP BY id", list(keys)))
+        for other, (rid, nkeys) in by_id.items():
+            shared = ids.get(rid)
+            if not shared or other == pid:
+                continue
+            small = min(len(keys), nkeys)
+            if small >= MIN_CLUES and shared >= THRESHOLD * small and not known_copy(pid, other):
+                a, b = sorted((pid, other))
+                na, nb = (len(keys), nkeys) if a == pid else (nkeys, len(keys))
+                found.add((a, b, shared, na, nb))
+    return sorted(found)
 
 
-def _rows_by_path(paths):
-    """_summary of every file in `paths`, re-reading only the files whose
-    size or mtime changed since the last run that saved the cache."""
-    try:
-        cached = pickle.loads(CACHE.read_bytes())
-    except (OSError, ValueError, EOFError, pickle.UnpicklingError):
-        cached = {}
-    out, stale = {}, []
-    for path in paths:
-        st = path.stat()
-        stamp = (st.st_mtime_ns, st.st_size)
-        hit = cached.get(str(path))
-        if hit and hit[0] == stamp:
-            out[path] = hit[1]
-        else:
-            stale.append((path, stamp))
-    for (path, stamp), row in zip(stale, parallel.pmap(_summary, [p for p, _ in stale])):
-        out[path] = row
-        cached[str(path)] = (stamp, row)
-    if stale:
-        _save_cache({str(p): v for p, v in cached.items() if Path(p) in out})
-    return out
-
-
-def _save_cache(cached):
-    try:
-        CACHE.parent.mkdir(parents=True, exist_ok=True)
-        tmp = CACHE.with_suffix(f".{os.getpid()}")
-        tmp.write_bytes(pickle.dumps(cached))
-        tmp.replace(CACHE)
-    except OSError:
-        pass
-
-
-def audit(paths, today, only=None):
+def audit(files, paths, today, only=None):
     """One flat list of (flag, puzzle id, what) plus the duplicate groups, over
-    the puzzle files `paths` and whatever else sits under puzzles/.
+    the puzzle files `paths` (published(files)) in `files` ({name: blob sha}, from listing()) and whatever
+    else sits under puzzles/.
 
-    With `only` (a set of files among `paths`), just those files are judged:
-    their own checks, and the DUPLICATE, NEARDUP and DATE findings that name
-    one of them, weighed against every other file through the cache."""
+    With `only` (a set of published files), just those files are judged: their
+    own checks, and the DUPLICATE, NEARDUP and DATE findings that name one of
+    them, weighed against every other file through the cache."""
     global _TODAY
     _TODAY = today
-    paths = list(paths)
-    judged = paths if only is None else [p for p in paths if p in only]
-    results = parallel.pmap(_one_file, judged)
+    judged = paths if only is None else [n for n in paths if n in only]
+    root = puzzle_paths.PUZZLE_DIR.parent
+    results = parallel.pmap(_one_file, [root / n for n in judged])
     flags, rows = [], {}
     for path, (own, row) in zip(judged, results):
         flags.extend(own)
         rows[path] = row
-    if only is None:
-        _save_cache({str(p): ((p.stat().st_mtime_ns, p.stat().st_size), rows[p]) for p in paths})
-    else:
-        rest = _rows_by_path([p for p in paths if p not in only])
-        rows = {p: rows.get(p) or rest[p] for p in paths}
+    conn = _open_cache()
+    cached = _cached(conn, files)
+    have = {files[p]: rows[p] for p in judged if files[p] not in cached}
+    rest = {}
+    for p in paths:
+        if files[p] not in cached and files[p] not in have:
+            rest.setdefault(files[p], p)
+    for blob, row in zip(rest, parallel.pmap(_summary, [root / n for n in rest.values()])):
+        have[blob] = row
+    if have:
+        _store(conn, list(have.items()))
+        cached = _cached(conn, files)
     by_content = defaultdict(list)
-    index = ClueIndex()
     held = []
     for path in paths:
-        pid, digest, keys, row = rows[path]
+        _, pid, digest, _, row = cached[files[path]]
         by_content[digest].append(pid)
-        index.add_keys(pid, keys)
         held.append(row)
     cross = []
     check_dates(held, cross)
     if only is None:
-        check_strays(set(paths), cross)
-    for a, b, k, na, nb in index.pairs():
+        check_strays(set(paths), cross, files)
+        index = ClueIndex()
+        for path in paths:
+            index.add_keys(rows[path][0], rows[path][2])
+        pairs = index.pairs()
+    else:
+        pairs = _neardups(conn, cached, files, paths, [(rows[p][0], rows[p][2]) for p in judged])
+    for a, b, k, na, nb in pairs:
         cross.append(("NEARDUP", a, f"{k} of {na} clues are the same as {b}'s ({nb}) "
                                     "— one is another's copy filed under a wrong id"))
     copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
@@ -1367,6 +1509,7 @@ def audit(paths, today, only=None):
         names = re.compile(r"\b(?:" + "|".join(map(re.escape, sorted(mine))) + r")\b")
         cross = [f for f in cross if f[1] in mine or names.search(f[2])]
         copies = [ids for ids in copies if mine & set(ids)]
+    conn.close()
     return flags + cross, copies
 
 
@@ -1377,9 +1520,10 @@ def main(argv):
     today = datetime.now(timezone.utc).date()
     # What this tool judges is the files, read straight off disk: the index
     # is not consulted, so a stale index.json is not a defect in them.
-    paths = puzzle_paths.puzzle_files()
-    only = {puzzle_paths.resolve_puzzle(a).resolve() for a in targets} if targets else None
-    flags, copies = audit(paths, today, only)
+    files = listing()
+    paths = published(files)
+    only = {puzzle_paths.resolve_puzzle(a).resolve().relative_to(puzzle_paths.PUZZLE_DIR.parent).as_posix() for a in targets} if targets else None
+    flags, copies = audit(files, paths, today, only)
     rows = only or paths
 
     for ids in copies:
