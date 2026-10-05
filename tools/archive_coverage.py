@@ -19,8 +19,7 @@ and gives every printed, unfiled edition one reason, read off the filer's
 ledger (~/.cache/archive_org_editions/filed.jsonl): no scan, scan not
 fetched, not yet read, no grid, no reading parses, blank clues held back, ...
 The classes are ranked: recoverable ones (a fetch, a reader fix, a re-read)
-first, by size; an edition already listed in a job of
-tools/data/corpus_queue.json is counted as queued.
+first, by size.
 
 --save writes ~/.cache/archive_coverage/latest.json (the previous one becomes
 previous.json), from which the per-year deltas are printed.
@@ -36,7 +35,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
-import corpus_queue
 import fetch_archive_org_editions as fetcher
 
 CACHE = Path(os.path.expanduser("~/.cache/archive_org_editions"))
@@ -56,18 +54,18 @@ PRINTED = {
 }
 
 #: Every unfiled-edition class: (key, what it means, the fix, recoverable).
-#: Recoverable means this pipeline (fetch, OCR, refile) can still get it.
+#: Recoverable means this pipeline (fetch, OCR, a re-read) can still get it.
 CLASSES = [
     ("not-fetched", "archive.org has the scan; tools/fetch_archive_org_editions.py has not fetched it",
      "fetch_archive_org_editions.py --group <paper>", True),
     ("fetch-failed", "the scan's fetch failed (failures.tsv) and has not been retried",
      "fetch_archive_org_editions.py --group <paper>", True),
-    ("not-read", "fetched, never read by the filer", "ocr_full_pass.sh (or a refile list)", True),
+    ("not-read", "fetched, never read by the filer", "the standing full pass (tools/ocr_full_pass.sh)", True),
     ("blank-clues", "read; a clue is blank (readings disagree), held back", "re-read: better readers / VLM", True),
-    ("no-grid", "read; no grid found or rebuilt", "grid reader fix, then refile", True),
-    ("clues-dont-fit", "read; the rebuilt grid disagrees with the clues", "clue reader fix, then refile", True),
-    ("no-reading-parses", "read; no reading of the clue columns parses", "clue reader fix, then refile", True),
-    ("not-a-grid", "read; the ink under the title is not a grid", "grid finder fix, then refile", True),
+    ("no-grid", "read; no grid found or rebuilt", "grid reader fix, then bump REREAD_BEFORE", True),
+    ("clues-dont-fit", "read; the rebuilt grid disagrees with the clues", "clue reader fix, then bump REREAD_BEFORE", True),
+    ("no-reading-parses", "read; no reading of the clue columns parses", "clue reader fix, then bump REREAD_BEFORE", True),
+    ("not-a-grid", "read; the ink under the title is not a grid", "grid finder fix, then bump REREAD_BEFORE", True),
     ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True),
     ("read-not-filed", "read whole, but no file for that date", "look at the ledger row", True),
     ("no-crossword-found", "fetched; no crossword heading found on any page", "detector fix (DETECTOR_VERSION)", True),
@@ -204,9 +202,8 @@ def cover(paper, today):
     listing, listed = scans(paper)
     rows, failed = ledger(), failed_fetches()
     elsewhere = unread_collections(paper)
-    queued = corpus_queue.queued_editions()
     years = collections.defaultdict(lambda: collections.Counter())
-    classes = collections.defaultdict(lambda: {"editions": 0, "queued": 0, "years": collections.Counter(),
+    classes = collections.defaultdict(lambda: {"editions": 0, "years": collections.Counter(),
                                                "sample": []})
     for date in printed_dates(series, today):
         y = int(date[:4])
@@ -233,20 +230,18 @@ def cover(paper, today):
         c = classes[cls]
         c["editions"] += 1
         c["years"][y] += 1
-        if ed and ed in queued:
-            c["queued"] += 1
         if ed and len(c["sample"]) < 3:
             c["sample"].append(ed)
     # Only the years a scan or a filed puzzle reaches: the rest is a source we lack.
     shown = {y: dict(c) for y, c in sorted(years.items()) if c["scanned"] or c["filed"]}
     modern = sorted(c["filed"] for y, c in years.items() if y >= today.year - 8 and y < today.year)
-    ranked = sorted(classes.items(), key=lambda kv: (not CLASS[kv[0]][3], -(kv[1]["editions"] - kv[1]["queued"])))
+    ranked = sorted(classes.items(), key=lambda kv: (not CLASS[kv[0]][3], -kv[1]["editions"]))
     return {
         "series": series, "paper": paper.key,
         "modernYear": modern[len(modern) // 2] if modern else None,
         "years": shown,
         "classes": [{"class": k, "means": CLASS[k][1], "fix": CLASS[k][2], "recoverable": CLASS[k][3],
-                     "editions": v["editions"], "queued": v["queued"],
+                     "editions": v["editions"],
                      "years": dict(sorted(v["years"].items())), "sample": v["sample"]}
                     for k, v in ranked],
     }
@@ -256,10 +251,10 @@ def report(cov, previous=None, top=8):
     """The ranked text table of one series' coverage; `previous` is the
     same series out of the last --save, for the per-year deltas."""
     out = [(f"== {cov['series']} (archive.org paper {cov['paper']}); a modern year files "
-            f"{cov['modernYear']} =="), "Unfiled editions by class, recoverable first (queued = in a corpus_queue job):"]
+            f"{cov['modernYear']} =="), "Unfiled editions by class, recoverable first:"]
     for c in cov["classes"][:top]:
         span = list(c["years"])
-        out.append(f"  {c['editions']:6,} {c['class']:<22} queued {c['queued']:5,}  "
+        out.append(f"  {c['editions']:6,} {c['class']:<22}  "
                    f"{'' if c['recoverable'] else '(not recoverable here) '}{span[0]}-{span[-1]}  fix: {c['fix']}")
     prev = (previous or {}).get("years", {})
     out.append("year  printed scanned  filed  gap   (delta filed since last save)")

@@ -1413,32 +1413,34 @@ tools/test_clue_record_shift.sh              does every Guardian clue record lan
                                              its number names?
 tools/test_shared_continuation.sh            does a light whose clue names two leaders end both
                                              answers?
-tools/ocr_full_pass.sh                       read every Trove article and archive.org edition
-                                             the scan filers have not read yet, to the end,
-                                             then stop
+tools/ocr_full_pass.sh                       the one standing corpus job: read every Trove
+                                             article and archive.org edition the scan filers
+                                             find due (never read, inputs changed, read without
+                                             the VLM that now answers, read before
+                                             REREAD_BEFORE) and the re-reads annotation asked
+                                             for, to the end, then stop
 tools/scan_queue.py                          the read queue the scan filers share, and the
                                              re-reads annotation asks of them
 tools/archive_coverage.py                    per series and year: editions printed, scanned on
                                              archive.org and filed, and every unfiled edition's
                                              reason off the filer's ledger, recoverable classes
                                              first (docs/ARCHIVE_COVERAGE.md)
-tools/corpus_queue.py                        the corpus OCR job queue: one job at a time (pid
-                                             file, ledger locks), starts the next, resumes a
-                                             killed one, wakes the room on a stall or, nightly,
-                                             when fixable editions sit unqueued
+tools/corpus_queue.py                        keeps the full pass running: one corpus job at a
+                                             time (pid file, ledger locks), starts
+                                             ocr_full_pass.sh whenever none runs, holds it
+                                             after two launches that read nothing, wakes the
+                                             room on a stall or, nightly, when it is held or
+                                             has read everything due and recoverable editions
+                                             remain
 tools/corpus_queue.sh                        the scheduled entry point for corpus_queue.py tick
                                              and nightly, from a worktree
-tools/corpus_job.sh                          run one corpus_queue job: read its chunks of
-                                             editions with bounded tries, commit and push each,
-                                             then start the next job
-tools/test_corpus_queue.sh                   does corpus_queue.py count a job's chunks without
-                                             their .tries files, take a recycled pid for a dead
-                                             job and see a filer's ledger lock; does
-                                             archive_coverage.py count the Times' printed days
-                                             and class an unfiled edition by its ledger row?
-tools/data/corpus_queue.json                 the corpus OCR jobs in the order they run: refile
-                                             and re-read lists, and the gates a person clears
-                                             first
+tools/test_corpus_queue.sh                   does corpus_queue.py take a recycled pid for a
+                                             dead job, see a filer's ledger lock, start the
+                                             full pass with no edition list, hold it after two
+                                             launches that read nothing, and refuse any
+                                             edition-list job; does archive_coverage.py count
+                                             the Times' printed days and class an unfiled
+                                             edition by its ledger row?
 tools/test_scan_reread.sh                    does an annotation that meets a misread clue on an
                                              OCR'd puzzle queue its scan for a re-read, once
                                              per reading of its clues, does the burn leave the
@@ -1447,7 +1449,10 @@ tools/test_scan_reread.sh                    does an annotation that meets a mis
 tools/test_scan_queue.sh                     does tools/scan_queue.py read the never-read
                                              first, never send the queue back to the start,
                                              keep N sources in flight, stop at its deadline,
-                                             and let only one run hold a ledger?
+                                             and let only one run hold a ledger; do both scan
+                                             filers read again, once the VLM answers, the
+                                             sources read while it was down, mid-run outages
+                                             included?
 tools/test_ann_normalize.sh                  what apply_annotations.normalize computes, so the
                                              run need not write it
 tools/derive_assembly.py                     an annotation's `assembly`, worked out from its
