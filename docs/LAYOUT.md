@@ -1425,6 +1425,16 @@ tools/archive_coverage.py                    per series and year: editions print
                                              archive.org and filed, and every unfiled edition's
                                              reason off the filer's ledger, recoverable classes
                                              first (docs/ARCHIVE_COVERAGE.md)
+tools/canberra_london_numbers.py             the London Times number of each cached Canberra
+                                             Times reprint (to Jan 1982): matched by clue
+                                             words, or bracketed between two matched days with
+                                             as many days as numbers; file_trove_puzzles.py
+                                             stamps reprintOf from it
+tools/test_canberra_london_numbers.sh        does canberra_london_numbers.py number a reprint
+                                             only by a clue match or an exact bracket, refuse a
+                                             span whose counts disagree and a re-run out of
+                                             order, and date a bracket only when the London
+                                             days agree?
 tools/corpus_queue.py                        keeps the full pass running: one corpus job at a
                                              time (pid file, ledger locks), starts
                                              ocr_full_pass.sh whenever none runs, holds it
