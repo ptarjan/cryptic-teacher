@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,47 @@
      }
     ]
    },
-   "solution": "CHANNELHOP"
+   "solution": "CHANNELHOP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHANNEL-HOP",
+    "definitions": [
+     {
+      "text": "To go from Dover to Calais",
+      "at": 0
+     },
+     {
+      "text": "change stations frequently",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "you'll need to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To go from Dover to Calais",
+      "note": "first meaning: to cross the English Channel by ferry or train"
+     },
+     {
+      "clueFragment": "change stations frequently",
+      "note": "second meaning: to keep flicking between television stations with the remote"
+     }
+    ],
+    "explanation": {
+     "surface": "A traveller crossing from England to France is warned that the journey involves lots of changes between railway stations.",
+     "walkthrough": "Dover and Calais face each other across the English Channel; 'stations' looks like railway stops but means TV stations.",
+     "definitionFit": "Hopping across the Channel is crossing it, while flicking restlessly between television stations is the everyday sense of the compound verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stations"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +96,60 @@
     "text": "Ring everybody following opening of club",
     "enumeration": "4"
    },
-   "solution": "CALL"
+   "solution": "CALL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CALL",
+    "definitions": [
+     {
+      "text": "Ring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its very first letter, so only that one is kept"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "one piece following another means it is written straight after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of club"
+     },
+     {
+      "clueFragment": "everybody",
+      "gives": "ALL",
+      "note": "everybody is all of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone telephones every member just after the club opens.",
+     "definitionFit": "To ring someone is to telephone them, which is a synonym of the verb meaning to phone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opening"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +163,60 @@
     "text": "Fabulous ship's load abandoned by crew's leader",
     "enumeration": "4"
    },
-   "solution": "ARGO"
+   "solution": "ARGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "ARGO",
+    "definitions": [
+     {
+      "text": "Fabulous ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader goes at the front, so only the first letter of the word is wanted"
+     },
+     {
+      "text": "abandoned by",
+      "for": "deletion",
+      "note": "what is abandoned is left behind, so that letter drops out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "load",
+      "gives": "CARGO",
+      "note": "a ship's load is its cargo"
+     },
+     {
+      "clueFragment": "crew's",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of crew"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary ship's cargo has been left behind by the man in charge of its sailors.",
+     "walkthrough": "Take C from CARGO to leave ARGO. 'Fabulous' here means belonging to fable or myth.",
+     "definitionFit": "The Argo was the legendary vessel of Jason and the Argonauts, a ship from Greek mythology and so fabled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Fabulous"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +236,58 @@
      }
     ]
    },
-   "solution": "NATIONALPARK"
+   "solution": "NATIONALPARK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATIONAL PARK",
+    "definitions": [
+     {
+      "text": "a place of natural beauty",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cultivated",
+      "for": "anagram",
+      "note": "cultivated ground is dug over and turned, so the letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Okra",
+      "gives": "OKRA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plantain",
+      "gives": "PLANTAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OKRAPLANTAIN",
+       "gives": "NATIONALPARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tropical vegetables are being grown in some lovely spot in the countryside.",
+     "definitionFit": "A national park is a protected area of countryside preserved because of its scenery and wildlife."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cultivated"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +307,54 @@
      }
     ]
    },
-   "solution": "LEMONSOLE"
+   "solution": "LEMONSOLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEMON SOLE",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sitting beneath",
+      "for": "charade",
+      "note": "in a down entry, what sits beneath another piece is written after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "citrus tree",
+      "gives": "LEMON",
+      "note": "a lemon is a citrus tree"
+     },
+     {
+      "clueFragment": "alone",
+      "gives": "SOLE",
+      "note": "sole means only or alone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEMON",
+      "SOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A solitary fish rests under a lemon tree.",
+     "definitionFit": "Lemon sole is a European flatfish, so it is an example of the general category named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +368,62 @@
     "text": "Drinks dispenser - choose one with bit of class",
     "enumeration": "5"
    },
-   "solution": "OPTIC"
+   "solution": "OPTIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OPTIC",
+    "definitions": [
+     {
+      "text": "Drinks dispenser",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a small piece of it, here just its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "choose",
+      "gives": "OPT",
+      "note": "to opt is to choose"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPT",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A bar customer is told to pick a drinks dispenser with a touch of class.",
+     "walkthrough": "An optic is the British name for the measuring device fixed to an upside-down spirits bottle in a pub.",
+     "definitionFit": "Pubs hang bottles of spirits upside down on these gadgets, which release a fixed measure of drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "class"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +437,42 @@
     "text": "Girl in film is stunning",
     "enumeration": "4"
    },
-   "solution": "MISS"
+   "solution": "MISS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MISS",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit inside the run of words that follows, spanning the word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film is stunning",
+      "gives": "MISS",
+      "note": "the end of film, all of is and the start of stunning"
+     }
+    ],
+    "explanation": {
+     "surface": "A young actress looks gorgeous in a movie.",
+     "definitionFit": "Miss is the title for an unmarried young woman and is used as a word for a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +486,62 @@
     "text": "Showman, one Italian chap entertaining president",
     "enumeration": "10"
    },
-   "solution": "IMPRESARIO"
+   "solution": "IMPRESARIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "IMPRESARIO",
+    "definitions": [
+     {
+      "text": "Showman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "Italian chap",
+      "gives": "MARIO",
+      "note": "a typical Italian man's name"
+     },
+     {
+      "clueFragment": "president",
+      "gives": "PRES",
+      "note": "the usual abbreviation for president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PRES",
+      "ARIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A showbiz figure, an Italian man, plays host to a head of state.",
+     "walkthrough": "'Italian chap' calls for a typical Italian first name, and 'entertaining' puts the president inside it, after the opening numeral.",
+     "definitionFit": "An impresario organises and stages shows, concerts or operas, which is what a showman in the business does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +561,47 @@
      }
     ]
    },
-   "solution": "SECONDHAND"
+   "solution": "SECONDHAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECOND-HAND",
+    "definitions": [
+     {
+      "text": "Used",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to support",
+      "gives": "SECOND",
+      "note": "to second a motion is to back it"
+     },
+     {
+      "clueFragment": "manual worker",
+      "gives": "HAND",
+      "note": "a farm or factory hand does physical labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECOND",
+      "HAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was employed to help a labourer.",
+     "walkthrough": "'Used' looks like a past-tense verb, but it is an adjective meaning not new.",
+     "definitionFit": "Second-hand goods have previously been owned by somebody else, which is the adjective sense of used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Used"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +615,63 @@
     "text": "To run away with companion on one is not breaking the law",
     "enumeration": "10"
    },
-   "solution": "LEGITIMATE"
+   "solution": "LEGITIMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEGITIMATE",
+    "definitions": [
+     {
+      "text": "not breaking the law",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one piece placed on another follows it directly"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To run away",
+      "gives": "LEGIT",
+      "note": "to leg it is slang for running off"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "companion",
+      "gives": "MATE",
+      "note": "a mate is a friend or companion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGIT",
+      "I",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Eloping with a partner on a single occasion is not a crime.",
+     "walkthrough": "'Leg it' is British slang for running away fast.",
+     "definitionFit": "Something legitimate is lawful and allowed, so it is within the rules rather than criminal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 10,
@@ -197,7 +685,62 @@
     "text": "Grand piano I installed in the City",
     "enumeration": "4"
    },
-   "solution": "EPIC"
+   "solution": "EPIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EPIC",
+    "definitions": [
+     {
+      "text": "Grand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed in",
+      "for": "container",
+      "note": "what is installed in something is fitted inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the City",
+      "gives": "EC",
+      "note": "EC is the postcode district of the City of London"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "P",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has had a grand piano put into their place in the financial district of London.",
+     "walkthrough": "The City is London's financial district, postcode EC; 'Grand piano' looks like a single instrument but splits into definition and wordplay.",
+     "definitionFit": "Epic means on a heroic or impressive scale, so it is a synonym of grand in the sense of large and imposing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Grand"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +760,66 @@
      }
     ]
    },
-   "solution": "INCONFIDENCE"
+   "solution": "INCONFIDENCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IN CONFIDENCE",
+    "definitions": [
+     {
+      "text": "privately",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "something that turns out surprisingly is not as expected, so these letters come out in another order"
+     },
+     {
+      "text": "nursing",
+      "for": "container",
+      "note": "to nurse something is to hold it close, so one word is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "find niece",
+      "gives": "FINDNIECE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prisoner",
+      "gives": "CON",
+      "note": "a con is a convict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CON",
+      "FIDENCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FINDNIECE",
+       "gives": "INFIDENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is astonished to discover their niece secretly caring for a convict.",
+     "definitionFit": "Something told in confidence is told secretly, on the understanding it will go no further, which is an adverbial idiom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nursing"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +839,53 @@
      }
     ]
    },
-   "solution": "GOINGCONCERN"
+   "solution": "GOINGCONCERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOING CONCERN",
+    "definitions": [
+     {
+      "text": "thriving business",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece coming after another is written second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaving",
+      "gives": "GOING",
+      "note": "going means departing or leaving"
+     },
+     {
+      "clueFragment": "Worry",
+      "gives": "CONCERN",
+      "note": "a concern is a worry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOING",
+      "CONCERN"
+     ]
+    },
+    "explanation": {
+     "surface": "Anxiety sets in once someone has quit a successful firm.",
+     "definitionFit": "A going concern is a company that is trading actively and profitably, an idiom from business and accounting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +899,54 @@
     "text": "What a PM should have, say, on vessel",
     "enumeration": "10"
    },
-   "solution": "STATECRAFT"
+   "solution": "STATECRAFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STATECRAFT",
+    "definitions": [
+     {
+      "text": "What a PM should have",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, a piece placed on another sits above it and so comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state is to say"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "CRAFT",
+      "note": "a craft is a boat or vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATE",
+      "CRAFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A prime minister is asked what qualities they need while aboard a boat.",
+     "walkthrough": "PM is the Prime Minister, Britain's head of government.",
+     "definitionFit": "Statecraft is skill in managing government affairs, a quality every head of government ought to possess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +960,58 @@
     "text": "Carol, after collecting logs, is sleeping",
     "enumeration": "10"
    },
-   "solution": "SLUMBERING"
+   "solution": "SLUMBERING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLUMBERING",
+    "definitions": [
+     {
+      "text": "sleeping",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "what collects something gathers it in, so that word goes inside"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carol",
+      "gives": "SING",
+      "note": "to carol is to sing"
+     },
+     {
+      "clueFragment": "logs",
+      "gives": "LUMBER",
+      "note": "lumber is cut timber"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LUMBER",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A carol singer, having gathered firewood, is now dozing.",
+     "definitionFit": "Slumbering is the literary word for being asleep, so the two participles are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1025,62 @@
     "text": "Tons left in USA oil centre",
     "enumeration": "5"
    },
-   "solution": "TULSA"
+   "solution": "TULSA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TULSA",
+    "definitions": [
+     {
+      "text": "oil centre",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter put in a word sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tons",
+      "gives": "T",
+      "note": "T is the abbreviation for tons"
+     },
+     {
+      "clueFragment": "USA",
+      "gives": "USA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "U",
+      "L",
+      "SA"
+     ]
+    },
+    "explanation": {
+     "surface": "Huge amounts of something are left lying around America.",
+     "walkthrough": "'Left' looks like a verb, as in abandoned, but it is the abbreviation L; Tulsa is a city in Oklahoma.",
+     "definitionFit": "Tulsa in Oklahoma grew rich on petroleum and once styled itself the oil capital of the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1094,50 @@
     "text": "One may aid healing - the spa, too, possibly",
     "enumeration": "9"
    },
-   "solution": "OSTEOPATH"
+   "solution": "OSTEOPATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OSTEOPATH",
+    "definitions": [
+     {
+      "text": "One may aid healing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests a different version of the words, so their letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the spa, too",
+      "gives": "THESPATOO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESPATOO",
+       "gives": "OSTEOPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A health spa as well as some practitioner might help you get better.",
+     "definitionFit": "An osteopath treats injuries by manipulating bones and muscles, a practitioner who helps the body recover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spa"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1151,39 @@
     "text": "Who can soothe the savage beast?",
     "enumeration": "9"
    },
-   "solution": "THERAPIST"
+   "solution": "THERAPIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THERAPIST",
+    "definitions": [
+     {
+      "text": "Who can soothe the savage beast?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Who can soothe the savage beast?",
+      "note": "surface reading: an echo of the saying that music has charms to soothe a savage breast"
+     },
+     {
+      "clueFragment": "Who can soothe the savage beast?",
+      "note": "setter's reading: a professional who calms people in distress, with a play on the sinister-looking split of its letters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "THERAPIST splits as THE RAPIST, a 'savage beast'; the clue echoes Congreve's line that music has charms to soothe a savage breast.",
+     "definitionFit": "A therapist treats mental or physical troubles, helping clients feel calmer, so soothing describes the job."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beast"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1197,49 @@
     "text": "Watch featured in US magazine article?",
     "enumeration": "9"
    },
-   "solution": "TIMEPIECE"
+   "solution": "TIMEPIECE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIMEPIECE",
+    "definitions": [
+     {
+      "text": "Watch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "featured in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US magazine",
+      "gives": "TIME",
+      "note": "Time is a weekly American news magazine"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "PIECE",
+      "note": "a piece is a written article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIME",
+      "PIECE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wristwatch appears in a story in an American magazine.",
+     "definitionFit": "A timepiece is any instrument for telling the hour, and a wristwatch is one such device."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Watch"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1253,42 @@
     "text": "Copy in safe ignored",
     "enumeration": "5"
    },
-   "solution": "FEIGN"
+   "solution": "FEIGN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FEIGN",
+    "definitions": [
+     {
+      "text": "Copy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit within the words that follow, straddling the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "safe ignored",
+      "gives": "FEIGN",
+      "note": "the end of safe and the start of ignored"
+     }
+    ],
+    "explanation": {
+     "surface": "A duplicate kept in a strongbox was overlooked.",
+     "definitionFit": "To feign is to imitate or simulate a feeling or action, so it is a looser synonym of the verb copy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Copy"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1308,65 @@
      }
     ]
    },
-   "solution": "CHERRYBRANDY"
+   "solution": "CHERRYBRANDY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CHERRY BRANDY",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "drinking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "CHERRY",
+      "note": "Cherry is a girl's name"
+     },
+     {
+      "clueFragment": "quality",
+      "gives": "BRAND",
+      "note": "a brand is a kind or quality of goods"
+     },
+     {
+      "clueFragment": "sherry",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of sherry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHERRY",
+      "BRAND",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman knocks back the end of her sherry, a fine drink.",
+     "walkthrough": "The pieces do not nest as 'drinking' suggests: the girl's name comes first, then BRAND, with the final Y of sherry tacked on at the end.",
+     "definitionFit": "Cherry brandy is a sweet liqueur made by steeping cherries in brandy, so it is a kind of alcoholic beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "quality"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1380,46 @@
     "text": "Fine British party",
     "enumeration": "5"
    },
-   "solution": "BRAVE"
+   "solution": "BRAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAVE",
+    "definitions": [
+     {
+      "text": "Fine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "RAVE",
+      "note": "a rave is a large dance party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A good British celebration.",
+     "definitionFit": "In the older sense, as in brave new world, brave means splendid or excellent, matching this adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1433,45 @@
     "text": "Attempt to wound with a knife",
     "enumeration": "4"
    },
-   "solution": "STAB"
+   "solution": "STAB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAB",
+    "definitions": [
+     {
+      "text": "Attempt",
+      "at": 0
+     },
+     {
+      "text": "wound with a knife",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempt",
+      "note": "first meaning: a try, as in having a go at something"
+     },
+     {
+      "clueFragment": "wound with a knife",
+      "note": "second meaning: to pierce someone with a blade"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one sentence about trying to injure someone; 'Attempt' is a noun on its own.",
+     "definitionFit": "Having a stab at something is trying it, and a stab is also a thrust with a pointed blade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Attempt"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1485,46 @@
     "text": "Look after a number, 500",
     "enumeration": "4"
    },
-   "solution": "TEND"
+   "solution": "TEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEND",
+    "definitions": [
+     {
+      "text": "Look after",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a number",
+      "gives": "TEN",
+      "note": "ten is a number"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to take care of a group of five hundred.",
+     "definitionFit": "To tend is to care for or attend to someone, the same as minding them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1538,48 @@
     "text": "A free flat",
     "enumeration": "4"
    },
-   "solution": "ARID"
+   "solution": "ARID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARID",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free from something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RID"
+     ]
+    },
+    "explanation": {
+     "surface": "An apartment available without rent.",
+     "walkthrough": "'Flat' looks like an apartment but means dull.",
+     "definitionFit": "An arid speech or book is dry and uninteresting, the same figurative sense as flat meaning lifeless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1593,65 @@
     "text": "Puppet - see girl holding one on the wagon",
     "enumeration": "10"
    },
-   "solution": "MARIONETTE"
+   "solution": "MARIONETTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MARIONETTE",
+    "definitions": [
+     {
+      "text": "Puppet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "a word holding others keeps them inside it"
+     }
+    ],
+    "linkWords": [
+     "see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "MARIE",
+      "note": "Marie is a girl's name"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on the wagon",
+      "gives": "TT",
+      "note": "TT means teetotal, and someone on the wagon has given up drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARI",
+      "ONE",
+      "TT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A puppet show features a young woman who has given up alcohol.",
+     "walkthrough": "ONE and TT go inside MARIE: MARI(ONE TT)E. TT, teetotal, is a convention for not drinking.",
+     "definitionFit": "A marionette is a puppet worked from above by strings, so it is one particular kind of the general term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wagon"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1665,60 @@
     "text": "Extremely short and colourful shrunken garment",
     "enumeration": "4"
    },
-   "solution": "TOGA"
+   "solution": "TOGA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TOGA",
+    "definitions": [
+     {
+      "text": "garment",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut down, so the word loses its final letter"
+     },
+     {
+      "text": "shrunken",
+      "for": "deletion",
+      "note": "a shrunken thing has become smaller, so this word too is trimmed at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely",
+      "gives": "TOO",
+      "note": "too means excessively or extremely"
+     },
+     {
+      "clueFragment": "colourful",
+      "gives": "GAY",
+      "note": "gay in its old sense of bright and colourful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "GA"
+     ]
+    },
+    "explanation": {
+     "surface": "A very short, brightly coloured item of clothing has shrunk in the wash.",
+     "walkthrough": "Both words are curtailed: TOO becomes TO and GAY becomes GA.",
+     "definitionFit": "A toga was the loose robe worn by citizens of ancient Rome, an item of clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1738,42 @@
      }
     ]
    },
-   "solution": "FEATHERBED"
+   "solution": "FEATHERBED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FEATHER BED",
+    "definitions": [
+     {
+      "text": "Type of mattress",
+      "at": 0
+     },
+     {
+      "text": "cushion",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type of mattress",
+      "note": "first meaning: a mattress stuffed with feathers"
+     },
+     {
+      "clueFragment": "cushion",
+      "note": "second meaning: to pamper or protect someone from hardship"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Cushion' looks like a noun beside the mattress, but it is a verb.",
+     "definitionFit": "A mattress filled with down is one sense, and to shield someone from difficulty, as in featherbedding an industry, is the verb sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cushion"
+    }
+   }
   }
  ]
 }
