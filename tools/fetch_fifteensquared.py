@@ -70,6 +70,9 @@ CATEGORIES = {
     # The FT prints no grid we can read, so tools/ft_puzzles.py rebuilds each
     # one from the clue numbers these posts carry.
     "FT": None,
+    # The Observer's barred Azed, filed by tools/azed_puzzles.py: the posts
+    # print every clue beside its answer, and the bars rebuild from those.
+    "Azed": None,
 }
 
 _last_request = [0.0]

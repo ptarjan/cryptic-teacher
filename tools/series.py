@@ -236,6 +236,18 @@ SERIES = {
         "perLightEnumeration": True,
         "datedFromNeighbours": True,
     },
+    # The Observer's barred Sunday puzzle, numbered on its own and always set
+    # by Azed: the bars rebuilt from fifteensquared's numbered answers
+    # (tools/azed_puzzles.py), as the Mephisto's are from its blog.
+    "azed": {
+        "kind": "Azed",
+        "publisher": "Observer",
+        "group": "Guardian",
+        "bylined": True,
+        "setter": "Azed",
+        "badge": "azed",
+        "blog": "fifteensquared.net",
+    },
     # The Listener: barred and thematic, its trick in a preamble, printed by
     # the BBC's magazine from 1930 and by the Times since 1991. Filed from the
     # Listener Team's archive PDFs and Wayback copies of the Times' pages
