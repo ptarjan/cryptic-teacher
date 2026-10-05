@@ -423,8 +423,8 @@ check "a retried refusal rebuilds with a wordplay-settled answer, as a correctio
       "[(2, ['Z'])]" "$(field SETTLED)"
 check "--resettle corrects the grids already written and refuses the rest" \
       "[(1, 1)] [4]" "$(field RESETTLE)"
-check "only the Mephisto of the barred series is rebuilt, by the parsed names" \
-      "['Other Crosswords'] ['Mephisto', 'mephisto']" "$(field BARRED)"
+check "only the Azed and Mephisto of the barred series are rebuilt, by the parsed names" \
+      "['Other Crosswords'] ['Azed', 'Mephisto', 'azed', 'mephisto']" "$(field BARRED)"
 check "a Weekend post with a Jumbo's entries is rebuilt at 23x23; the Club and TLS at 15x15" \
       "15 23 15 15 15" "$(field SIZE)"
 check "a Jumbo with more lights than a 23x23 holds is rebuilt at 27x27" \
