@@ -15,9 +15,14 @@ pypdf, the black squares from the page's rectangles.
 
 The answers are fifteensquared's ("Guardian Genius" category). A puzzle is
 filed only when the grid's numbering matches the clue list and every answer
-writes into the grid with each crossing agreeing; a trick that alters entries
-or withholds enumerations fails one of those checks and is left for its own
-handling, its class counted in the report.
+writes into the grid with each crossing agreeing. One that fails because its
+entries are altered, or the post prints its answers in a layout the reader
+misses, gets a second try (assemble_altered): each light may take any word
+the post prints for it, or what the preamble's rule (ALTERED_BY) makes of
+one, and the grid must take exactly one choice with every crossing agreeing.
+An entry that is not its answer carries the answer as `alteration.from`, by
+the op the preamble allows. The rest are left, their class counted in the
+report.
 
 Three steps, each reading the one before off disk: index.json, then
 pdf/<number>.pdf, then puzzles/.
@@ -211,7 +216,8 @@ def fetch(numbers=None, log=print):
 HEADER = re.compile(r"Genius\W{0,4}(?:crossword\W{0,4})?No\s*\.?\s*(\d{1,3})(?:\W{0,6}(?:Set\s+)?by\s+([A-Za-z]+))?", re.IGNORECASE)
 #: What the entry form and page furniture leave in the preamble: a byline
 #: printed apart from the header, a form's "Traced letter: ___", a link.
-FURNITURE = re.compile(r"(?i)\bset by [A-Za-z]+\b|[A-Z][\w ]{0,30}:\s*_{2,}|click here to register\.?")
+FURNITURE = re.compile(r"(?i)\bset by [A-Za-z]+\b|[A-Z][\w ]{0,30}:\s*_{2,}|click here to register\.?|"
+                       r"^\s*across\b|\bG\s?E\s?N\s?I\s?U\s?S\s+No\.?\s*\d+")
 #: A preamble that says answers change on their way into the grid: the
 #: write-up's answers are then the entries, and the clue's answer differs.
 ALTERED = re.compile(r"(?i)before (?:entry|being entered|entering)|(?:entry|entered) in the grid|"
@@ -503,6 +509,212 @@ def assemble(number, pdf, post, date, url):
     return puzzle, None
 
 
+# ------------------------------------------------------------------ altered entries
+
+#: What each preamble's rule makes of an answer, applied by code: the
+#: entries the answer may go in as besides itself.
+RULE_OPS = {
+    "reversed": lambda w: {w[::-1]},
+    "vowels removed": lambda w: {re.sub("[AEIOU]", "", w)},
+    "a letter dropped": lambda w: {w[:i] + w[i + 1:] for i in range(len(w))},
+    "a letter dropped wherever it occurs": lambda w: {w.replace(c, "") for c in set(w)},
+    "shifted one letter on": lambda w: {"".join(chr((ord(c) - 64) % 26 + 65) for c in w)},
+}
+#: Each Genius whose preamble alters answers in a way code can check: the
+#: rule (RULE_OPS) code applies to make entries the post may not print, or
+#: None, and the alteration ops its entries may take. An entry differing
+#: from its answer any other way, or in a puzzle not listed, files nothing.
+ALTERED_BY = {
+    154: ("reversed", {"reversal"}),          # "entered in one of two ways"
+    181: ("a letter dropped", {"deletion"}),  # "one letter too long for the grid"
+    196: ("a letter dropped", {"deletion"}),  # "a letter removed before entry"
+    197: ("vowels removed", {"deletion"}),    # "ll vwls hv bn rmvd frm bth cls nd sltns"
+    210: ("shifted one letter on", {"substitution"}),  # the preamble enciphered so
+    216: (None, {"anagram"}),                 # downs "treated" by the acrosses: letters sorted
+    220: (None, {"substitution"}),            # Morse code's dots and dashes swapped
+    221: ("a letter dropped", {"deletion", "insertion"}),  # 8 a letter long, 8 a letter short
+    222: (None, {"substitution"}),            # acrosses entered as homophones
+    226: (None, {"substitution"}),            # "one single-letter change"
+    239: ("a letter dropped", {"deletion"}),  # "entered without this letter"
+    248: (None, {"move"}),                    # acrosses rotated: DEMOTE as EMOTED
+    263: ("a letter dropped wherever it occurs", {"deletion"}),
+}
+#: A post naming an entry apart from the answer: "entered as EMOTED".
+NAMED_ENTRY = re.compile(r"(?i:entered as|entry(?: is)?:?|enter(?:ing)?|becomes?|giving|gives|"
+                         r"→|->|=>|>)\s*[‘'\"(]?([A-Z]+(?:[ '’\-][A-Z]+)*)(?![a-z])")
+#: The capitals a post line opens with, its number stripped.
+HEADLINE = re.compile(r"\s*[‘'\"]?([A-Z]+(?:[ '’\-][A-Z]+)*)(?![a-z])")
+#: The same with letters bracketed off, "HOOT(NANNY)", "[BORIS] GODUNOV".
+BRACKETED = re.compile(r"\s*((?:[\[(]?[A-Z]+[\])]?)(?:[ '’\-]?[\[(]?[A-Z]+[\])]?)*)(?![a-z])")
+
+
+def windows(rendered, clues):
+    """{first light: [post lines]}: each clue's lines, from the one opening
+    with its number to the next clue's, walked as fpp.blog_answers walks them."""
+    sections, way = collections.defaultdict(list), None
+    for ln in fpp.tftt.lines(rendered):
+        h = fpp.ft_puzzles.heading(ln) if ln else None
+        if h:
+            way = h
+        elif way and ln:
+            sections[way].append(ln)
+    out = {}
+    for direction in ("across", "down"):
+        sec = sections.get(direction, [])
+        mine = [c for c in clues if c["lights"][0][1] == direction and c["enumeration"]]
+        starts, pos = [], 0
+        for c in mine:
+            at = next((i for i in range(pos, len(sec))
+                       if (m := fpp.LIGHT_HEAD.match(sec[i])) and int(m.group(1)) == c["lights"][0][0]), None)
+            starts.append(at)
+            if at is not None:
+                pos = at + 1
+        for i, (c, at) in enumerate(zip(mine, starts)):
+            if at is not None:
+                end = next((s for s in starts[i + 1:] if s is not None), len(sec))
+                out[c["lights"][0]] = [fpp.STRIP_HEAD.sub("", sec[at])] + sec[at + 1:end]
+    return out
+
+
+def letters(s):
+    return re.sub(r"[^A-Z]", "", s.upper())
+
+
+def sources(lines, answer):
+    """The words the post prints for a clue, in order: the answer its
+    enumeration reads, the capitals each line opens with (bracketed letters
+    kept and dropped), and those it names as an entry."""
+    words = [answer] if answer else []
+    for ln in lines:
+        m = HEADLINE.match(ln)
+        if m:
+            words.append(letters(m.group(1)))
+        b = BRACKETED.match(ln)
+        if b and re.search(r"[\[(]", b.group(1)):
+            words += [letters(b.group(1)), letters(re.sub(r"[\[(][A-Z]+[\])]", "", b.group(1)))]
+        words += [letters(x) for x in NAMED_ENTRY.findall(ln)]
+    return list(dict.fromkeys(w for w in words if len(w) > 1))
+
+
+def candidates(words, rule):
+    """Every entry the post's words allow: each word, and what the
+    preamble's rule makes of it."""
+    out = set(words)
+    if rule:
+        out |= {v for w in words for v in RULE_OPS[rule](w) if v}
+    return out
+
+
+def unique_fill(slots, limit=2):
+    """[{key: word}] of up to `limit` ways to give each slot one of its words
+    with every shared square agreeing. slots: {key: (cells, {word})}."""
+    found, at = [], {}
+
+    def go(left, chosen):
+        if len(found) >= limit:
+            return
+        if not left:
+            found.append(dict(chosen))
+            return
+        def fits(k):
+            cells, words = slots[k]
+            return [w for w in words if all(at.get(c, ch) == ch for c, ch in zip(cells, w))]
+        k = min(left, key=lambda k: len(fits(k)))
+        cells, _ = slots[k]
+        for w in fits(k):
+            put = [c for c in cells if c not in at]
+            for c, ch in zip(cells, w):
+                at.setdefault(c, ch)
+            chosen[k] = w
+            go(left - {k}, chosen)
+            del chosen[k]
+            for c in put:
+                del at[c]
+
+    go(set(slots), {})
+    return found
+
+
+def steps_for(before, after, allowed):
+    """The one alteration step of an op the preamble allows that turns
+    `before` into `after`, or None."""
+    ops = puzzle_integrity.ALTERATION_OPS
+    for op in ("reversal", "move", "anagram", "deletion", "insertion", "substitution"):
+        if op in allowed and ops[op](before, after):
+            return [{"op": op}]
+    return None
+
+
+def assemble_altered(number, pdf, post, date, url):
+    """(puzzle, None) or (None, why not) for a Genius whose entries are not
+    all its answers: each light's entry is one the post prints for it or the
+    preamble's rule (ALTERED_BY) makes of its answer, and the grid takes exactly one
+    choice of them with every crossing agreeing. An entry not its answer
+    carries the answer as `alteration.from`."""
+    if post is None or not pdf["preamble"]:
+        return None, "no post or no preamble"
+    lights = rg.light_cells(pdf["grid"])
+    clued = [c for c in pdf["clues"] if c["enumeration"]]
+    listed = {l for c in pdf["clues"] for l in c["lights"]}
+    if listed != set(lights):
+        return None, "lights and clue list differ"
+    rendered = DASHES.sub("-", re.sub(r"&#(?:820[89]|821[012]|x201[0-4]);", "-", post["content"]["rendered"]))
+    answers, wins = blog_answers(rendered, pdf["clues"]), windows(rendered, pdf["clues"])
+    rule, ops = ALTERED_BY.get(number, (None, set()))
+    slots, said = {}, {}
+    for c in clued:
+        first = c["lights"][0]
+        cells = [cell for l in c["lights"] for cell in lights[l]]
+        said[first] = sources(wins.get(first, []), answers.get(first))
+        words = {w for w in candidates(said[first], rule) if len(w) == len(cells)}
+        if not words:
+            return None, f"no entry the post or rule gives fits {first[0]} {first[1]}"
+        slots[first] = (cells, words)
+    fills = unique_fill(slots)
+    if len(fills) != 1:
+        return None, f"{len(fills) or 'no'} fills of the post's entries agree at every crossing"
+    fill = fills[0]
+    # The answer is the first word the post prints that is the entry or
+    # that an op the preamble allows turns into it.
+    altered = {}
+    for k, w in fill.items():
+        frm = next((x for x in said[k] if x == w or steps_for(x, w, ops)), None)
+        if frm is None:
+            return None, f"{k[0]} {k[1]}: no {'/'.join(sorted(ops)) or 'alteration the preamble allows'} turns what the post prints ({', '.join(said[k][:3])}) into {w}"
+        if frm != w:
+            altered[k] = frm
+    if not altered and ALTERED.search(pdf["preamble"]):
+        return None, "the post prints entries alone: no answer before its alteration"
+    entries = fpp.entries_of(pdf, fill, pdf["grid"])
+    rec = {"post_id": f"fifteensquared-{post['id']}", "link": post.get("link"),
+           "date": post["date"][:10], "series": CATEGORY, "number": number,
+           "setter": pdf["setter"], "entries": entries}
+    row = {"grid": pdf["grid"], "number": number, "how": "the Guardian's PDF"}
+    puzzle, why = file_blog_puzzles.build(rec, row, SERIES, date, pdf["setter"])
+    if why:
+        return None, why
+    by = {(e["number"], e["direction"]): e for e in puzzle["entries"]}
+    for k, frm in altered.items():
+        if len(next(c for c in clued if c["lights"][0] == k)["lights"]) > 1:
+            return None, f"{k[0]} {k[1]} is a linked answer entered altered"
+        by[k]["alteration"] = {"from": frm, "steps": steps_for(frm, fill[k], ops)}
+    puzzle["preamble"] = pdf["preamble"]
+    puzzle["source"] = {"url": url, "gridOrigin": "published"}
+    puzzle["solutions"]["check"] = (
+        "grid and clues read from the Guardian's printable PDF, its numbering matching the "
+        "clue list; each light's entry one fifteensquared prints for it"
+        + (f" or the preamble's rule ({rule}) makes of its answer" if rule else "")
+        + ", the only choice of them whose crossings all agree; an entry not its answer "
+          "carries the answer as its alteration's `from`")
+    return puzzle, None
+
+
+#: The classes assemble() leaves that the altered-entry path may file.
+ALTERABLE = {"preamble alters entries (needs an alteration per answer)",
+             "answers cross wrongly (entries altered)", "enumeration is not the entry's length",
+             "a light's answer not read off the post"}
+
+
 def file(write=True, numbers=None, log=print):
     """File every fetched PDF not yet in puzzles/, newest first.
     Returns (filed, {class: [numbers]}, counts)."""
@@ -528,8 +740,11 @@ def file(write=True, numbers=None, log=print):
                 counts["parsed"] += 1
             if pdf["grid"] and not fpp.grid_matches(pdf["grid"], pdf["clues"]):
                 counts["grid consistent with clues"] += 1
-            puzzle, why = assemble(n, pdf, posts.get(n), datetime.date.fromisoformat(idx[str(n)]["date"]),
-                                   idx[str(n)]["url"])
+            date = datetime.date.fromisoformat(idx[str(n)]["date"])
+            puzzle, why = assemble(n, pdf, posts.get(n), date, idx[str(n)]["url"])
+            if why and why[0] in ALTERABLE:
+                alt, also = assemble_altered(n, pdf, posts.get(n), date, idx[str(n)]["url"])
+                puzzle, why = (alt, None) if alt else (None, (why[0], f"{why[1]}; altered: {also}"))
         except Exception as e:  # noqa: BLE001 — a malformed PDF is one puzzle
             puzzle, why = None, ("unreadable", f"{type(e).__name__}: {e}"[:160])
         if puzzle is not None:
