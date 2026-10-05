@@ -121,15 +121,19 @@ nothing to weigh for them and skip. Only entries that actually carry a solution
 are checked, so an empty grid passes and a half-filled one is still checked as far
 as it goes.
 
-The corpus it reads is the puzzle files on disk, puzzle_paths.puzzle_files().
-puzzles/index.json is generated from them and rebuilt here first, so the nightly
-leaves an index that matches what was judged — see fetch_puzzle.reindex.
+The corpus it reads is the puzzle files on disk, puzzle_paths.puzzle_files(),
+each read once, the per-file checks spread over every core (parallel.pmap).
+puzzles/index.json is neither read nor rebuilt: the nightly reindexes on its own.
 
-Cost: one rebuild of the index, then one pass, one read per file, no network. All
-six checks together, the index rebuild included, read the whole corpus in about
-half a minute — 13,969 puzzles, ~400k clues, on 2026-09-18 — so every check is on
-by default and none sits behind a flag. Nothing here is expensive enough to be worth
-the confusion of an off-by-default check.
+Pass puzzle ids or paths to judge just those files — every per-file check, and
+the DUPLICATE, NEARDUP and DATE findings that name one of them, weighed against
+the rest of the corpus through a cache of each file's clue keys, content hash
+and date (~/.cache/cryptic-teacher), re-read for any file whose size or mtime
+changed. That is the check for one edit:
+
+    python3 tools/puzzle_integrity.py --quiet cryptic-29000
+
+Every check is on by default and none sits behind a flag.
 
 Exits 1 if anything is flagged, so the nightly can alert on it. It reports and
 never writes: a defect here is a fetcher bug or a bad source page, and the fix
@@ -138,6 +142,8 @@ belongs in the fetcher or in a re-fetch, not in a repair pass over the files.
 
 import hashlib
 import json
+import os
+import pickle
 import re
 import sys
 import time
@@ -153,12 +159,13 @@ from groups import entry_id  # noqa: E402
 from apply_solution import (check_fill, check_geometry, off_board,  # noqa: E402
                             normalise)
 import enumeration  # noqa: E402
-from clue_index import ClueIndex  # noqa: E402
+from clue_index import ClueIndex, clue_keys  # noqa: E402
+import parallel  # noqa: E402
 import boilerplate  # noqa: E402
 import errata  # noqa: E402
 from fetch_puzzle import (PER_LIGHT_ENUMERATION, clued, corrected_clue,  # noqa: E402
                           duplicated_clues, group_orders, has_words, is_bare_letters, is_continuation,
-                          prints_own_count, read_puzzle_file, reindex)
+                          prints_own_count, read_puzzle_file)
 import ocr_clues  # noqa: E402
 import puzzle_schema  # noqa: E402
 from reconstruct_grid import grid_of, lights_from_grid, lights_of  # noqa: E402
@@ -1241,37 +1248,123 @@ def check_strays(published, flags):
         check_filed(path, puzzle, flags)
 
 
-def audit(paths, today):
+_TODAY = None
+
+
+def _one_file(path):
+    """Everything audit() needs from one file, for parallel.pmap: its own
+    flags, and what the cross-file checks weigh it by."""
+    flags = []
+    puzzle = read_puzzle_file(path)
+    check_filed(path, puzzle, flags)
+    pid = puzzle["id"]
+    held = (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid)
+    row = (pid, content_hash(puzzle), clue_keys(puzzle), held)
+    check_puzzle(puzzle, _TODAY, flags)
+    return flags, row
+
+
+def _summary(path):
+    """_one_file's cross-file row alone, for a file the run does not judge."""
+    puzzle = read_puzzle_file(path)
+    pid = puzzle["id"]
+    return (pid, content_hash(puzzle), clue_keys(puzzle),
+            (puzzle.get("series", "cryptic"), puzzle["number"], date_of(puzzle), pid))
+
+
+CACHE = Path.home() / ".cache" / "cryptic-teacher" / "integrity-rows.pickle"
+
+
+def _rows_by_path(paths):
+    """_summary of every file in `paths`, re-reading only the files whose
+    size or mtime changed since the last run that saved the cache."""
+    try:
+        cached = pickle.loads(CACHE.read_bytes())
+    except (OSError, ValueError, EOFError, pickle.UnpicklingError):
+        cached = {}
+    out, stale = {}, []
+    for path in paths:
+        st = path.stat()
+        stamp = (st.st_mtime_ns, st.st_size)
+        hit = cached.get(str(path))
+        if hit and hit[0] == stamp:
+            out[path] = hit[1]
+        else:
+            stale.append((path, stamp))
+    for (path, stamp), row in zip(stale, parallel.pmap(_summary, [p for p, _ in stale])):
+        out[path] = row
+        cached[str(path)] = (stamp, row)
+    if stale:
+        _save_cache({str(p): v for p, v in cached.items() if Path(p) in out})
+    return out
+
+
+def _save_cache(cached):
+    try:
+        CACHE.parent.mkdir(parents=True, exist_ok=True)
+        tmp = CACHE.with_suffix(f".{os.getpid()}")
+        tmp.write_bytes(pickle.dumps(cached))
+        tmp.replace(CACHE)
+    except OSError:
+        pass
+
+
+def audit(paths, today, only=None):
     """One flat list of (flag, puzzle id, what) plus the duplicate groups, over
-    the puzzle files `paths` and whatever else sits under puzzles/."""
-    flags, held = [], []
+    the puzzle files `paths` and whatever else sits under puzzles/.
+
+    With `only` (a set of files among `paths`), just those files are judged:
+    their own checks, and the DUPLICATE, NEARDUP and DATE findings that name
+    one of them, weighed against every other file through the cache."""
+    global _TODAY
+    _TODAY = today
+    paths = list(paths)
+    judged = paths if only is None else [p for p in paths if p in only]
+    results = parallel.pmap(_one_file, judged)
+    flags, rows = [], {}
+    for path, (own, row) in zip(judged, results):
+        flags.extend(own)
+        rows[path] = row
+    if only is None:
+        _save_cache({str(p): ((p.stat().st_mtime_ns, p.stat().st_size), rows[p]) for p in paths})
+    else:
+        rest = _rows_by_path([p for p in paths if p not in only])
+        rows = {p: rows.get(p) or rest[p] for p in paths}
     by_content = defaultdict(list)
     index = ClueIndex()
-    paths = list(paths)
+    held = []
     for path in paths:
-        puzzle = read_puzzle_file(path)
-        check_filed(path, puzzle, flags)
-        by_content[content_hash(puzzle)].append(puzzle["id"])
-        index.add(puzzle["id"], puzzle)
-        held.append((puzzle.get("series", "cryptic"), puzzle["number"],
-                     date_of(puzzle), puzzle["id"]))
-        check_puzzle(puzzle, today, flags)
-    check_dates(held, flags)
-    check_strays(set(paths), flags)
+        pid, digest, keys, row = rows[path]
+        by_content[digest].append(pid)
+        index.add_keys(pid, keys)
+        held.append(row)
+    cross = []
+    check_dates(held, cross)
+    if only is None:
+        check_strays(set(paths), cross)
     for a, b, k, na, nb in index.pairs():
-        flags.append(("NEARDUP", a, f"{k} of {na} clues are the same as {b}'s ({nb}) "
+        cross.append(("NEARDUP", a, f"{k} of {na} clues are the same as {b}'s ({nb}) "
                                     "— one is another's copy filed under a wrong id"))
     copies = sorted(sorted(ids) for ids in by_content.values() if len(ids) > 1)
-    return flags, copies
+    if only is not None:
+        mine = {rows[p][0] for p in judged}
+        names = re.compile(r"\b(?:" + "|".join(map(re.escape, sorted(mine))) + r")\b")
+        cross = [f for f in cross if f[1] in mine or names.search(f[2])]
+        copies = [ids for ids in copies if mine & set(ids)]
+    return flags + cross, copies
 
 
 def main(argv):
     quiet = "--quiet" in argv
+    targets = [a for a in argv if not a.startswith("--")]
     started = time.time()
-    # What this tool judges is the files; the index is rebuilt from the same
-    # walk so it cannot be stale, and a stale manifest is not a defect in them.
-    rows = reindex()["puzzles"]
-    flags, copies = audit(puzzle_paths.puzzle_files(), datetime.now(timezone.utc).date())
+    today = datetime.now(timezone.utc).date()
+    # What this tool judges is the files, read straight off disk: the index
+    # is not consulted, so a stale index.json is not a defect in them.
+    paths = puzzle_paths.puzzle_files()
+    only = {puzzle_paths.resolve_puzzle(a).resolve() for a in targets} if targets else None
+    flags, copies = audit(paths, today, only)
+    rows = only or paths
 
     for ids in copies:
         print(f"DUPLICATE {len(ids)} files hold the same puzzle: " + ", ".join(ids))

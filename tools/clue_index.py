@@ -78,9 +78,14 @@ class ClueIndex:
         self.by_clue = defaultdict(set)   # clue key -> ids
         self.size = {}                    # id -> number of clue keys
 
+        self.keys = {}                    # id -> its clue keys
+
     def add(self, pid, puzzle):
-        keys = clue_keys(puzzle)
+        self.add_keys(pid, clue_keys(puzzle))
+
+    def add_keys(self, pid, keys):
         self.size[pid] = len(keys)
+        self.keys[pid] = keys
         for k in keys:
             self.by_clue[k].add(pid)
 
@@ -112,24 +117,39 @@ class ClueIndex:
         return sorted(out, key=lambda m: -m[1])
 
     def pairs(self):
-        """Every near-duplicate pair (a, b, shared, na, nb) with a < b. Counts
-        shared clues through the index, so only puzzles that share a clue meet."""
-        hits = defaultdict(Counter)
-        for ids in self.by_clue.values():
-            if len(ids) > 1:
-                for a in ids:
-                    for b in ids:
-                        if a < b:
-                            hits[a][b] += 1
+        """Every near-duplicate pair (a, b, shared, na, nb) with a < b.
+
+        A pair passes only when the smaller puzzle shares at least `need` of
+        its clues, so any (size - need + 1) of its clues hold at least one
+        shared one. Each puzzle therefore looks up only that many of its
+        rarest clues, against partners no smaller than itself, and counts the
+        overlap exactly for each partner found. A clue every puzzle carries
+        ("See 1") is never what pairs two puzzles up."""
+        found = set()
+        for a, keys in self.keys.items():
+            size = len(keys)
+            if size < MIN_CLUES:
+                continue
+            need = _need(size)
+            rarest = sorted(keys, key=lambda k: (len(self.by_clue[k]), k))
+            for k in rarest[:size - need + 1]:
+                for b in self.by_clue[k]:
+                    if b != a and self.size[b] >= size:
+                        found.add((a, b) if a < b else (b, a))
         out = []
-        for a, row in sorted(hits.items()):
-            for b, shared in sorted(row.items()):
-                small = min(self.size[a], self.size[b])
-                if (small >= MIN_CLUES and shared >= THRESHOLD * small
-                        and not known_copy(a, b)):
-                    out.append((a, b, shared, self.size[a], self.size[b]))
+        for a, b in sorted(found):
+            shared = len(self.keys[a] & self.keys[b])
+            small = min(self.size[a], self.size[b])
+            if (small >= MIN_CLUES and shared >= THRESHOLD * small
+                    and not known_copy(a, b)):
+                out.append((a, b, shared, self.size[a], self.size[b]))
         return out
 
+
+def _need(size):
+    """The fewest shared clues that pass THRESHOLD for a puzzle of `size`."""
+    need = int(THRESHOLD * size)
+    return need if need >= THRESHOLD * size else need + 1
 
 if __name__ == "__main__":
     for a, b, k, na, nb in ClueIndex.build().pairs():
