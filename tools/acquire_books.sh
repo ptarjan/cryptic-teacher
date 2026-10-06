@@ -73,9 +73,9 @@ streak_write() {
   mkdir -p "$(dirname "$STREAK_FILE")" 2>/dev/null || true
   printf '%s\n' "$1" > "$STREAK_FILE" 2>/dev/null || true
 }
-RUN_HOURS=12           # the plugin manifest asks twice a day
-STREAK_ALERT_AT=20     # so: about ten days of refusals
-STREAK_ALERT_EVERY=60  # and about a month between reminders after that
+RUN_HOURS=1            # the plugin manifest asks hourly
+STREAK_ALERT_AT=240    # so: about ten days of refusals
+STREAK_ALERT_EVERY=720 # and about a month between reminders after that
 
 if [ "$rc" = 3 ]; then
   streak=$((streak + 1))
