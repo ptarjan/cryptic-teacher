@@ -29,6 +29,9 @@
   "check": "27 entries, 52 crossings, 0 conflicts",
   "officialKey": "never"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,57 @@
     "text": "Account for a secret service plant",
     "enumeration": "6"
    },
-   "solution": "ACACIA"
+   "solution": "ACACIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACACIA",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Account",
+      "gives": "AC",
+      "note": "AC is the standard short form of account, as in a/c"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "secret service",
+      "gives": "CIA",
+      "note": "the American intelligence agency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "A",
+      "CIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has to explain the presence of a spy agency's mole.",
+     "walkthrough": "'Plant' looks like a planted agent in a spy story; it is the definition, a tree or shrub.",
+     "definitionFit": "The acacia is a thorny tree or shrub, the wattle of Australia, so it is one kind of vegetation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 2,
@@ -56,7 +109,44 @@
     "text": "It’s not one’s own cot",
     "enumeration": "4"
    },
-   "solution": "CRIB"
+   "solution": "CRIB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRIB",
+    "definitions": [
+     {
+      "text": "It’s not one’s own",
+      "at": 0
+     },
+     {
+      "text": "cot",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s not one’s own",
+      "note": "first meaning: copied work, lifted from someone else"
+     },
+     {
+      "clueFragment": "cot",
+      "note": "second meaning: a baby's bed"
+     }
+    ],
+    "explanation": {
+     "surface": "A baby sleeps in a borrowed cot.",
+     "walkthrough": "The surface reads as one phrase about a borrowed bed; split it and the first part is plagiarised work, the second a baby's bed.",
+     "definitionFit": "A crib is a translation or answer copied from another student, and in America also an infant's bed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "own"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +160,60 @@
     "text": "Swelling belief about endless vista",
     "enumeration": "9"
    },
-   "solution": "CRESCENDO"
+   "solution": "CRESCENDO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CRESCENDO",
+    "definitions": [
+     {
+      "text": "Swelling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the view word loses its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "going around, so the creed word wraps the shortened view word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belief",
+      "gives": "CREDO",
+      "note": "a creed or statement of belief"
+     },
+     {
+      "clueFragment": "vista",
+      "gives": "SCEN",
+      "note": "a scene is a view, here cut short"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "SCEN",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "Faith grows around a view that seems to go on forever.",
+     "definitionFit": "In music a crescendo is a gradual increase in loudness, a swelling of the sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Swelling"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,10 +224,58 @@
    },
    "length": 6,
    "clue": {
-    "text": "Rendering of /a main or la béte?",
+    "text": "Rendering of la main or la bête?",
     "enumeration": "6"
    },
-   "solution": "ANIMAL"
+   "solution": "ANIMAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANIMAL",
+    "definitions": [
+     {
+      "text": "la bête",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rendering",
+      "for": "anagram",
+      "note": "rendering is a version or reworking, so the French words are reshaped"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "la main",
+      "gives": "LAMAIN",
+      "note": "French for the hand, used only for its letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LAMAIN",
+       "gives": "ANIMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A translator wonders how to render a French phrase: the hand, or the beast?",
+     "walkthrough": "'Rendering' also means translation, and the French phrase la bête translates directly to the answer, so the clue works both ways.",
+     "definitionFit": "La bête is French for the beast, and an English rendering of that is a creature or brute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rendering"
+    }
+   }
   },
   {
    "number": 5,
@@ -98,7 +289,52 @@
     "text": "Rumour to John Stuart of Don’s giant?",
     "enumeration": "8"
    },
-   "solution": "WINDMILL"
+   "solution": "WINDMILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WINDMILL",
+    "definitions": [
+     {
+      "text": "Don’s giant?",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "to",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rumour",
+      "gives": "WIND",
+      "note": "as in getting wind of something, a whisper of news"
+     },
+     {
+      "clueFragment": "John Stuart",
+      "gives": "MILL",
+      "note": "John Stuart Mill, the Victorian philosopher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIND",
+      "MILL"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip passed to a philosopher about a Spanish knight's imaginary enemy.",
+     "walkthrough": "Don Quixote charged at what he took to be giants; they were the sails of these, which is why the definition has a question mark.",
+     "definitionFit": "In Cervantes' novel the knight attacks mills turning in the breeze, believing them to be monstrous giants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Don’s"
+    }
+   }
   },
   {
    "number": 5,
@@ -122,7 +358,55 @@
      }
     ]
    },
-   "solution": "WYSTANHUGHAUDEN"
+   "solution": "WYSTANHUGHAUDEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WYSTAN HUGH AUDEN",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unlikely",
+      "for": "anagram",
+      "note": "an unlikely arrangement is not the natural one, so these letters must be rearranged"
+     }
+    ],
+    "linkWords": [
+     "who’d"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shun nude gay, what?",
+      "gives": "SHUNNUDEGAYWHAT",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHUNNUDEGAYWHAT",
+       "gives": "WYSTANHUGHAUDEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet who would avoid a naked gay man? That seems improbable.",
+     "walkthrough": "The joke is that the poet was himself gay, hence 'Unlikely'. W.H. Auden's first names were Wystan Hugh.",
+     "definitionFit": "W. H. Auden was the Anglo-American writer of verse such as Funeral Blues and September 1, 1939."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Unlikely"
+    }
+   }
   },
   {
    "number": 6,
@@ -136,7 +420,68 @@
     "text": "Many are MPs, frank, upstanding and doing more than right by the family",
     "enumeration": "8"
    },
-   "solution": "NEPOTISM"
+   "solution": "NEPOTISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NEPOTISM",
+    "definitions": [
+     {
+      "text": "doing more than right by the family",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upstanding",
+      "for": "reversal",
+      "note": "standing up in a down entry means the letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many",
+      "gives": "M",
+      "note": "M is the Roman numeral for a thousand, a great many"
+     },
+     {
+      "clueFragment": "are MPs",
+      "gives": "SIT",
+      "note": "members of Parliament sit, as in sitting for a constituency"
+     },
+     {
+      "clueFragment": "frank",
+      "gives": "OPEN",
+      "note": "candid, straightforward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEPO",
+      "TIS",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "MSITOPEN",
+       "to": "NEPOTISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A satirical aside: plenty of politicians are honest and upright, yet still favour their relatives.",
+     "walkthrough": "'Upstanding' looks like praise for the politicians; it turns the joined pieces upside down.",
+     "definitionFit": "Nepotism is favouritism shown to relatives, such as giving them jobs, which is more than their fair due."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "upstanding"
+    }
+   }
   },
   {
    "number": 7,
@@ -150,7 +495,39 @@
     "text": "In ancient Rome mum’s the word",
     "enumeration": "5"
    },
-   "solution": "MATER"
+   "solution": "MATER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MATER",
+    "definitions": [
+     {
+      "text": "In ancient Rome mum’s the word",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mum’s the word",
+      "note": "surface reading: the idiom for keeping a secret, in a Roman setting"
+     },
+     {
+      "clueFragment": "In ancient Rome mum’s the word",
+      "note": "setter's reading: the Latin word the Romans used for a mother"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Mum's the word' is an English idiom meaning keep quiet; here it literally asks what the word for mum was in Latin.",
+     "definitionFit": "Latin was the language of ancient Rome, and its noun for a mother is the source of maternal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mum’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -164,7 +541,67 @@
     "text": "Foreign articles about soldiers on hill — e.g. Moses?",
     "enumeration": "10"
    },
-   "solution": "LEGISLATOR"
+   "solution": "LEGISLATOR",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LEGISLATOR",
+    "definitions": [
+     {
+      "text": "e.g. Moses?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "around, so the French articles enclose the soldiers"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one piece sits on top of the next, so the hill comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Foreign articles",
+      "gives": "LESLA",
+      "note": "the French definite articles les and la"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "GI",
+      "note": "GI is an American soldier, used here as a plural"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "GI",
+      "SLA",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Imported articles wrapped round troops on a hilltop, reminding someone of the man on Mount Sinai.",
+     "walkthrough": "The GI goes inside the first article, LES, before the second article LA follows.",
+     "definitionFit": "Moses is the lawgiver of the Bible, who brought down the Ten Commandments, so he is an example of a lawmaker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hill"
+    }
+   }
   },
   {
    "number": 9,
@@ -178,7 +615,53 @@
     "text": "Wearies one as a prophet",
     "enumeration": "8"
    },
-   "solution": "TIRESIAS"
+   "solution": "TIRESIAS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIRESIAS",
+    "definitions": [
+     {
+      "text": "prophet",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wearies",
+      "gives": "TIRES",
+      "note": "makes weary"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "as a",
+      "gives": "AS",
+      "note": "the word as, with the article acting as a link"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIRES",
+      "I",
+      "AS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds a soothsayer tiresome.",
+     "walkthrough": "Tiresias is the blind seer of Greek myth who appears in Oedipus and The Waste Land.",
+     "definitionFit": "Tiresias was the blind Theban seer of Greek legend, who foretold Oedipus's fate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wearies"
+    }
+   }
   },
   {
    "number": 10,
@@ -192,7 +675,59 @@
     "text": "Writer gets label in the soup",
     "enumeration": "6"
    },
-   "solution": "POTAGE"
+   "solution": "POTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POTAGE",
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets",
+      "for": "container",
+      "note": "the writer receives something into himself, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "POE",
+      "note": "Edgar Allan Poe, the American author"
+     },
+     {
+      "clueFragment": "label",
+      "gives": "TAG",
+      "note": "a tag is a label attached to something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "TAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An author ends up labelled as being in trouble, in the soup.",
+     "walkthrough": "'In the soup' looks like the idiom for trouble; the soup itself is the definition.",
+     "definitionFit": "Potage is a thick French-style soup, from the old word pottage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "soup"
+    }
+   }
   },
   {
    "number": 11,
@@ -206,7 +741,66 @@
     "text": "Typify carter travelling in open carriage",
     "enumeration": "12"
    },
-   "solution": "CHARACTERISE"
+   "solution": "CHARACTERISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHARACTERISE",
+    "definitions": [
+     {
+      "text": "Typify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "something travelling moves around, so the driver's letters shift"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "inside, so the shuffled letters sit within the vehicle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carter",
+      "gives": "CARTER",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "open carriage",
+      "gives": "CHAISE",
+      "note": "a chaise is a light, often open, horse-drawn carriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "RACTER",
+      "ISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARTER",
+       "gives": "RACTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carter riding in an open carriage is a typical sight.",
+     "definitionFit": "To characterise something is to be typical of it or mark its distinctive qualities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "travelling"
+    }
+   }
   },
   {
    "number": 12,
@@ -220,7 +814,55 @@
     "text": "River dividing public transport route gives added bounce",
     "enumeration": "10"
    },
-   "solution": "TRAMPOLINE"
+   "solution": "TRAMPOLINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRAMPOLINE",
+    "definitions": [
+     {
+      "text": "gives added bounce",
+      "at": 38,
+      "note": "describes what the thing does rather than naming it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "splitting something apart, so the river sits between the two halves of the route"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public transport route",
+      "gives": "TRAMLINE",
+      "note": "the rails a tram runs along"
+     },
+     {
+      "clueFragment": "River",
+      "gives": "PO",
+      "note": "the Po is Italy's longest river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAM",
+      "PO",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A river cuts across a tram route.",
+     "definitionFit": "A trampoline is a sprung canvas frame that throws a jumper higher, adding spring to each leap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dividing"
+    }
+   }
   },
   {
    "number": 13,
@@ -234,7 +876,58 @@
     "text": "Amused expression of trapped king",
     "enumeration": "4"
    },
-   "solution": "GRIN"
+   "solution": "GRIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GRIN",
+    "definitions": [
+     {
+      "text": "Amused expression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped",
+      "for": "container",
+      "note": "caught in a snare, so the monarch is held inside the snare word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trapped",
+      "gives": "GIN",
+      "note": "a gin is a snare for catching animals"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A captured monarch manages a wry smile.",
+     "walkthrough": "'Trapped' does double duty: it names the gin, an old word for an animal trap, and says the king is inside it.",
+     "definitionFit": "A grin is a broad smile, the face someone pulls when entertained."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trapped"
+    }
+   }
   },
   {
    "number": 14,
@@ -248,7 +941,58 @@
     "text": "‘Hot-Lips’ (a MASH nurse) works here",
     "enumeration": "8"
    },
-   "solution": "HOSPITAL"
+   "solution": "HOSPITAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "HOSPITAL",
+    "definitions": [
+     {
+      "text": "‘Hot-Lips’ (a MASH nurse) works here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "works as in a set of workings, so the named letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot-Lips",
+      "gives": "HOTLIPS",
+      "note": "the nickname of Margaret Houlihan in the TV series M*A*S*H"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOTLIPSA",
+       "gives": "HOSPITAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Major Houlihan, nicknamed Hot Lips in M*A*S*H, has her workplace.",
+     "walkthrough": "The whole clue is the definition: MASH stands for Mobile Army Surgical Hospital, so Hot Lips really does work in one.",
+     "definitionFit": "M*A*S*H was set in a mobile army surgical unit in Korea, where nurse Houlihan treated wounded soldiers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +1006,48 @@
     "text": "Fascinate someone in hearing of your cholesterol intake",
     "enumeration": "9"
    },
-   "solution": "INFATUATE"
+   "solution": "INFATUATE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "INFATUATE",
+    "definitions": [
+     {
+      "text": "Fascinate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in hearing",
+      "for": "homophone",
+      "note": "as heard by a listener, so the phrase is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "someone"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of your cholesterol intake",
+      "gives": "INFATUATE",
+      "soundsLike": "IN FAT YOU ATE",
+      "note": "describing a diet: the fat you have eaten"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor talks about how much cholesterol a patient consumes.",
+     "walkthrough": "Spoken quickly, the phrase about fat consumption sounds like the verb.",
+     "definitionFit": "To infatuate is to inspire a foolish, intense passion in someone, captivating them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cholesterol"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1061,49 @@
     "text": "Scandal of Princess’s late Princess",
     "enumeration": "8"
    },
-   "solution": "DISGRACE"
+   "solution": "DISGRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISGRACE",
+    "definitions": [
+     {
+      "text": "Scandal",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess’s",
+      "gives": "DIS",
+      "note": "Di's, belonging to Diana, Princess of Wales"
+     },
+     {
+      "clueFragment": "late Princess",
+      "gives": "GRACE",
+      "note": "Grace Kelly, Princess of Monaco, who died in 1982"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "GRACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Gossip about one royal woman's dead royal relative.",
+     "definitionFit": "A disgrace is a shameful matter, the kind of event that causes public outrage and loss of honour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1117,60 @@
     "text": "Impressive post offices introduced to a Chinese dynasty",
     "enumeration": "8"
    },
-   "solution": "IMPOSING"
+   "solution": "IMPOSING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IMPOSING",
+    "definitions": [
+     {
+      "text": "Impressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced to",
+      "for": "container",
+      "note": "brought into the dynasty, so the offices go inside its name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "I",
+      "note": "a means one, and one is I"
+     },
+     {
+      "clueFragment": "Chinese dynasty",
+      "gives": "MING",
+      "note": "the Ming ruled China from 1368 to 1644"
+     },
+     {
+      "clueFragment": "post offices",
+      "gives": "POS",
+      "note": "PO is the abbreviation for post office, here plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "POS",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Grand postal buildings arrive in imperial China.",
+     "definitionFit": "Something imposing is grand in size or manner, making a strong impression on onlookers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "introduced"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1184,58 @@
     "text": "Whip that can turn into a sort of club",
     "enumeration": "4"
    },
-   "solution": "FLOG"
+   "solution": "FLOG",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "FLOG",
+    "definitions": [
+     {
+      "text": "Whip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "can turn into",
+      "for": "reversal",
+      "note": "turning round means reading the letters the other way"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sort of club",
+      "gives": "GOLF",
+      "note": "a golf club is one sort of club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLOG"
+     ],
+     "reversals": [
+      {
+       "from": "GOLF",
+       "to": "FLOG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A whip that can somehow be converted into a club.",
+     "walkthrough": "The clue runs backwards to usual: the answer, turned round, becomes the sport whose club is meant.",
+     "definitionFit": "To flog is to beat with a whip or rod as punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1249,51 @@
     "text": "Dark Lady loses her head on the way out",
     "enumeration": "6"
    },
-   "solution": "EGRESS"
+   "solution": "EGRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EGRESS",
+    "definitions": [
+     {
+      "text": "the way out",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses her head",
+      "for": "deletion",
+      "note": "losing the head means the first letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dark Lady",
+      "gives": "NEGRESS",
+      "note": "a dated term for a Black woman, now considered offensive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare's mysterious Dark Lady is beheaded on her way out.",
+     "walkthrough": "'Dark Lady' evokes Shakespeare's sonnets; the wordplay uses an old, now offensive word.",
+     "definitionFit": "An egress is an exit, a route by which one leaves a place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dark"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1313,53 @@
      }
     ]
    },
-   "solution": "MOVINGTARGET"
+   "solution": "MOVINGTARGET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOVING TARGET",
+    "definitions": [
+     {
+      "text": "tricky goal",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sentimental",
+      "gives": "MOVING",
+      "note": "touching, emotionally stirring"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "TAR",
+      "note": "pitch is a black tarry substance"
+     },
+     {
+      "clueFragment": "to attain",
+      "gives": "GET",
+      "note": "to get something is to attain it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOVING",
+      "TAR",
+      "GET"
+     ]
+    },
+    "explanation": {
+     "surface": "An emotional sales pitch aimed at reaching a hard objective.",
+     "walkthrough": "'Pitch' looks like a sales pitch; it is the sticky black substance.",
+     "definitionFit": "A moving target is a goal that keeps shifting, so it is difficult to reach or hit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1373,44 @@
     "text": "Sugary film made from an epic in Greek",
     "enumeration": "5"
    },
-   "solution": "ICING"
+   "solution": "ICING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ICING",
+    "definitions": [
+     {
+      "text": "Sugary film",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made from",
+      "for": "hidden_word",
+      "note": "made out of the following words, which hold the letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "epic in Greek",
+      "gives": "ICING",
+      "note": "the letters run across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A sweet movie adapted from a Greek epic, like the Iliad.",
+     "walkthrough": "'Film' suggests a movie; it is a thin coating.",
+     "definitionFit": "Icing is the thin sweet coating spread over cakes, a layer or skin of sugar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1424,45 @@
     "text": "City which features in shipbuilding",
     "enumeration": "4"
    },
-   "solution": "HULL"
+   "solution": "HULL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HULL",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     },
+     {
+      "text": "features in shipbuilding",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "note": "first meaning: the port city in Yorkshire, England"
+     },
+     {
+      "clueFragment": "features in shipbuilding",
+      "note": "second meaning: the body of a ship"
+     }
+    ],
+    "explanation": {
+     "surface": "A city known for building ships.",
+     "walkthrough": "Hull, on the Humber estuary in Yorkshire, is a port city with a shipping history, so the surface rings true.",
+     "definitionFit": "The hull is the main body or shell of a vessel, built first in any shipyard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1476,66 @@
     "text": "After thirty seconds, poor aim yields lowest points",
     "enumeration": "6"
    },
-   "solution": "MINIMA"
+   "solution": "MINIMA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MINIMA",
+    "definitions": [
+     {
+      "text": "lowest points",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "poor",
+      "for": "anagram",
+      "note": "a poor shot is badly made, so these letters are set wrong"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "yields"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thirty seconds",
+      "gives": "MIN",
+      "note": "thirty seconds is half a minute, and half of minute as a word is its first three letters"
+     },
+     {
+      "clueFragment": "aim",
+      "gives": "IMA",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "IMA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIM",
+       "gives": "IMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After half a minute of bad shooting, the scores are at their lowest.",
+     "walkthrough": "Half a minute is taken literally: half the word minute.",
+     "definitionFit": "Minima is the Latin plural of minimum, the smallest values or troughs on a graph."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1549,73 @@
     "text": "Early flier, late back, gets left in Australia",
     "enumeration": "8"
    },
-   "solution": "DAEDALUS"
+   "solution": "DAEDALUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "DAEDALUS",
+    "definitions": [
+     {
+      "text": "Early flier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from end to start"
+     },
+     {
+      "text": "gets",
+      "for": "charade",
+      "note": "the first piece acquires the next one, joining it on"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "inside, so the letter for left sits within the country"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late",
+      "gives": "DEAD",
+      "note": "the late someone is someone who has died"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "AUS",
+      "note": "the country's abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAED",
+      "A",
+      "L",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A pioneering aviator returns late and is stranded down under.",
+     "walkthrough": "Daedalus in Greek myth made wings of feathers and wax for himself and his son Icarus.",
+     "definitionFit": "In Greek legend Daedalus escaped Crete on wings he built, so he was among the first to fly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1635,58 @@
      }
     ]
    },
-   "solution": "PEAGREEN"
+   "solution": "PEAGREEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PEA-GREEN",
+    "definitions": [
+     {
+      "text": "boat’s shade in Lear?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "settle goes inside the writing word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to write",
+      "gives": "PEN",
+      "note": "to pen something is to write it"
+     },
+     {
+      "clueFragment": "Settle",
+      "gives": "AGREE",
+      "note": "to settle on terms is to agree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "AGREE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer prepares to describe the colour of a boat in a Lear poem.",
+     "walkthrough": "In Edward Lear's poem, the Owl and the Pussy-cat went to sea in a beautiful boat of this colour.",
+     "definitionFit": "Lear's nonsense poem describes the vessel as a beautiful pea-green boat, so this is its colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Settle"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1700,58 @@
     "text": "Brownshirts swallow their greeting to a girl",
     "enumeration": "6"
    },
-   "solution": "SHEILA"
+   "solution": "SHEILA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHEILA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallow",
+      "for": "container",
+      "note": "swallowing takes something inside, so the greeting goes within"
+     }
+    ],
+    "linkWords": [
+     "to a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brownshirts",
+      "gives": "SA",
+      "note": "the Sturmabteilung, the Nazi stormtroopers known as Brownshirts"
+     },
+     {
+      "clueFragment": "their greeting",
+      "gives": "HEIL",
+      "note": "the Nazi salute word, German for hail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HEIL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Stormtroopers give their salute to a young woman.",
+     "walkthrough": "Sheila is Australian slang for a woman or girl.",
+     "definitionFit": "In Australian and New Zealand slang a sheila is a young woman or girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swallow"
+    }
+   }
   }
  ]
 }
