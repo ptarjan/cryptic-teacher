@@ -215,11 +215,11 @@ F.vlm.version = lambda: "v2"
 check("Trove: a new VLM model alone makes nothing due", [], tread())
 real_consider = F.consider_article
 F.consider_article = lambda d: (read.append(d.name) or ({"skip": "test"}, None, None, d.name < "200"))
-check("Trove: every article is read through a mid-run outage", ["100", "200", "300"], tread(reread=q.when("2100-01-01T00:00:00+00:00")))
+check("Trove: every article is read through a mid-run outage", ["100", "200", "300"], sorted(tread(reread=q.when("2100-01-01T00:00:00+00:00"))))
 F.vlm.reachable = lambda: False
 check("Trove: while the VLM is down, the articles read without it wait", [], tread())
 F.vlm.reachable = lambda: True
-check("Trove: once it answers, the next pass reads them again", ["200", "300"], tread())
+check("Trove: once it answers, the next pass reads them again", ["200", "300"], sorted(tread()))
 F.consider_article = real_consider
 check("Trove: articles= reads those again, and no other", ["200"], tread(articles=["200"]))
 
