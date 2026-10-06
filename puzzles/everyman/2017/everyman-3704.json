@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,42 @@
      }
     ]
    },
-   "solution": "PICKUP"
+   "solution": "PICKUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICK UP",
+    "definitions": [
+     {
+      "text": "Learn",
+      "at": 0
+     },
+     {
+      "text": "rally",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learn",
+      "note": "first meaning: acquire knowledge or a skill casually"
+     },
+     {
+      "clueFragment": "rally",
+      "note": "second meaning: recover or improve, as a market or a patient does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like taking lessons from a tennis rally, but the two words are separate meanings of one phrasal verb.",
+     "definitionFit": "The phrasal verb means both to acquire knowledge informally and to recover or improve after a slump."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rally"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +91,55 @@
     "text": "Run through court, interrupting worship",
     "enumeration": "8"
    },
-   "solution": "PRACTISE"
+   "solution": "PRACTISE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRACTISE",
+    "definitions": [
+     {
+      "text": "Run through",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt something is to break into the middle of it, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the standard abbreviation for court"
+     },
+     {
+      "clueFragment": "worship",
+      "gives": "PRAISE",
+      "note": "to worship is to praise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRA",
+      "CT",
+      "ISE"
+     ]
+    },
+    "explanation": {
+     "surface": "A jogger crosses a courtyard during a church service.",
+     "walkthrough": "The answer takes the British -ISE spelling because it is a verb here; the noun is spelt practice.",
+     "definitionFit": "To rehearse a routine is to go over it repeatedly, a common idiom for practising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +153,63 @@
     "text": "Island that's cold over most of month",
     "enumeration": "5"
    },
-   "solution": "CAPRI"
+   "solution": "CAPRI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CAPRI",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue one piece written over another comes first, above it"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "taking most of a word means dropping its final letter"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold, as on a tap"
+     },
+     {
+      "clueFragment": "month",
+      "gives": "APRIL",
+      "note": "a month of the year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "APRI"
+     ]
+    },
+    "explanation": {
+     "surface": "An island with chilly weather for nearly a whole month.",
+     "walkthrough": "In a down answer, 'over' puts the first piece on top, so it comes first.",
+     "definitionFit": "Capri is a rocky Italian holiday isle in the Bay of Naples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cold"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +223,50 @@
     "text": "Disparaging inept army column in disarray",
     "enumeration": "15"
    },
-   "solution": "UNCOMPLIMENTARY"
+   "solution": "UNCOMPLIMENTARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNCOMPLIMENTARY",
+    "definitions": [
+     {
+      "text": "Disparaging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in disarray",
+      "for": "anagram",
+      "note": "things in disarray are jumbled out of order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inept army column",
+      "gives": "INEPTARMYCOLUMN",
+      "note": "taken as written, fifteen letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INEPTARMYCOLUMN",
+       "gives": "UNCOMPLIMENTARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sneering report on a badly marching column of soldiers.",
+     "definitionFit": "Disparaging remarks belittle someone, the opposite of flattering praise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "column"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +280,53 @@
     "text": "Worrier following American spy",
     "enumeration": "7"
    },
-   "solution": "FUSSPOT"
+   "solution": "FUSSPOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FUSSPOT",
+    "definitions": [
+     {
+      "text": "Worrier",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the usual short form for American"
+     },
+     {
+      "clueFragment": "spy",
+      "gives": "SPOT",
+      "note": "to spy something is to spot it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "US",
+      "SPOT"
+     ]
+    },
+    "explanation": {
+     "surface": "An anxious person tailed by a US secret agent.",
+     "walkthrough": "'Following' looks like it places the worrier after the spy, but it is just the abbreviation F.",
+     "definitionFit": "A fusspot frets over trivial details, an informal name for an anxious, fussy person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +340,49 @@
     "text": "Enthusiasm and energy decline",
     "enumeration": "4"
    },
-   "solution": "FADE"
+   "solution": "FADE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FADE",
+    "definitions": [
+     {
+      "text": "decline",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enthusiasm",
+      "gives": "FAD",
+      "note": "a fad is a passing craze or enthusiasm"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's keenness and vigour dwindle away.",
+     "definitionFit": "To decline gradually or lose strength is to fade, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Enthusiasm"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +402,70 @@
      }
     ]
    },
-   "solution": "SELFCENTREDNESS"
+   "solution": "SELFCENTREDNESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SELF-CENTREDNESS",
+    "definitions": [
+     {
+      "text": "narcissism",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word wrapped about another surrounds it"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another is written behind it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "track",
+      "gives": "SCENT",
+      "note": "a scent is the trail an animal leaves for hounds to track"
+     },
+     {
+      "clueFragment": "pixie",
+      "gives": "ELF",
+      "note": "a pixie is a small elf-like sprite"
+     },
+     {
+      "clueFragment": "Sign of embarrassment",
+      "gives": "REDNESS",
+      "note": "blushing shows as redness in the face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ELF",
+      "CENT",
+      "REDNESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A blush appears after a race involving a fairy creature, mixed with vanity.",
+     "walkthrough": "'Track' suggests a running track, but it is the trail a hound follows; 'with' just joins the definition on.",
+     "definitionFit": "Narcissism is excessive self-love, being wrapped up in oneself and one's own concerns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "track"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +479,50 @@
     "text": "Little by little, sound of silence spread",
     "enumeration": "9"
    },
-   "solution": "PIECEMEAL"
+   "solution": "PIECEMEAL",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "PIECEMEAL",
+    "definitions": [
+     {
+      "text": "Little by little",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound of",
+      "for": "homophone",
+      "note": "the sound of a word is what is heard, so a same-sounding spelling is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silence",
+      "gives": "PIECE",
+      "soundsLike": "PEACE",
+      "note": "peace is quiet, silence"
+     },
+     {
+      "clueFragment": "spread",
+      "gives": "MEAL",
+      "note": "a spread is a large meal laid out on the table"
+     }
+    ],
+    "explanation": {
+     "surface": "Quiet gradually spreads across a room.",
+     "definitionFit": "Done piecemeal means done in stages, one bit at a time rather than all together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +536,51 @@
     "text": "Sample varied treats",
     "enumeration": "6"
    },
-   "solution": "TASTER"
+   "solution": "TASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TASTER",
+    "definitions": [
+     {
+      "text": "Sample",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "things varied are changed about, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treats",
+      "gives": "TREATS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREATS",
+       "gives": "TASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Try an assortment of sweets.",
+     "walkthrough": "'Sample' looks like a verb but is the noun definition.",
+     "definitionFit": "A taster is a small portion offered to try, a sample of something larger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sample"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +594,47 @@
     "text": "Material change? Simple",
     "enumeration": "8"
    },
-   "solution": "CASHMERE"
+   "solution": "CASHMERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASHMERE",
+    "definitions": [
+     {
+      "text": "Material",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "change",
+      "gives": "CASH",
+      "note": "small change is coins, money or cash"
+     },
+     {
+      "clueFragment": "Simple",
+      "gives": "MERE",
+      "note": "mere means simple, nothing more than"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASH",
+      "MERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about altering a fabric, answered with 'easy'.",
+     "walkthrough": "'Change' looks like a verb but is loose money.",
+     "definitionFit": "Cashmere is a fine soft wool fabric made from the hair of Kashmir goats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +648,56 @@
     "text": "Snake in role of tempter, centrally",
     "enumeration": "3"
    },
-   "solution": "ASP"
+   "solution": "ASP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASP",
+    "definitions": [
+     {
+      "text": "Snake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centrally",
+      "for": "letter_selection",
+      "note": "taken centrally means only the middle letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in role of",
+      "gives": "AS",
+      "note": "acting in the role of someone is acting as them"
+     },
+     {
+      "clueFragment": "tempter",
+      "gives": "P",
+      "select": "middle",
+      "note": "the fourth of seven letters sits at the centre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "The serpent playing the tempter in Eden.",
+     "walkthrough": "The surface evokes the Garden of Eden, but 'in role of' is simply AS.",
+     "definitionFit": "The asp is a small venomous Egyptian cobra, famous from Cleopatra's death."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "role"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +711,76 @@
     "text": "New shop in frantic search for light fixtures",
     "enumeration": "11"
    },
-   "solution": "CHANDELIERS"
+   "solution": "CHANDELIERS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "CHANDELIERS",
+    "definitions": [
+     {
+      "text": "light fixtures",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frantic",
+      "for": "anagram",
+      "note": "a frantic search is wild and disordered, so its letters are scrambled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pieces inside the scrambled word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "shop",
+      "gives": "DELI",
+      "note": "a deli is a delicatessen, a kind of shop"
+     },
+     {
+      "clueFragment": "search",
+      "gives": "SEARCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "NDELI",
+      "ERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEARCH",
+       "gives": "CHAERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A desperate hunt in a newly opened shop for some lamps.",
+     "walkthrough": "'New shop' reads as a fresh store opening, but the two words supply separate pieces.",
+     "definitionFit": "Chandeliers are ornate hanging lights with several branches, ceiling fixtures for lighting a room."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shop"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +794,82 @@
     "text": "Succeeds in turning quiet after stumble involving hesitation",
     "enumeration": "8"
    },
-   "solution": "TRIUMPHS"
+   "solution": "TRIUMPHS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRIUMPHS",
+    "definitions": [
+     {
+      "text": "Succeeds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking something into its middle"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning means the word for quiet is read backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another follows it in the answer"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stumble",
+      "gives": "TRIP",
+      "note": "to trip is to stumble"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "UM",
+      "note": "um is the sound of a speaker hesitating"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "UM",
+      "P",
+      "HS"
+     ],
+     "reversals": [
+      {
+       "from": "SH",
+       "to": "HS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone manages to recover by going quietly after a hesitant stumble.",
+     "walkthrough": "'In' joins definition to wordplay; the hesitation sound sits inside the stumble, and the reversed quiet call goes last.",
+     "definitionFit": "To triumph is to win or prevail, so triumphs means wins out or prevails."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +883,61 @@
     "text": "Plan about border in south-east",
     "enumeration": "6"
    },
-   "solution": "SCHEME"
+   "solution": "SCHEME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SCHEME",
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these pieces inside the abbreviation for the region"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is short for circa, about"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "HEM",
+      "note": "a hem is the border of a garment"
+     },
+     {
+      "clueFragment": "south-east",
+      "gives": "SE",
+      "note": "SE is the compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CHEM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A proposal concerning a boundary in south-eastern England.",
+     "walkthrough": "'About' looks like 'concerning', but it is the abbreviation for circa.",
+     "definitionFit": "A scheme is a systematic plan or arrangement for achieving something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +957,61 @@
      }
     ]
    },
-   "solution": "SEVILLEORANGE"
+   "solution": "SEVILLEORANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEVILLE ORANGE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "EVIL",
+      "note": "evil means wicked, bad"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "LEO",
+      "note": "Leo is a sign of the zodiac"
+     },
+     {
+      "clueFragment": "assortment",
+      "gives": "RANGE",
+      "note": "a range is an assortment or selection"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EVIL",
+      "LEO",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A greengrocer describes fruit as small and rotten, placed before a sign above a mixed display.",
+     "definitionFit": "The Seville orange is a bitter citrus fruit used mainly for making marmalade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1025,64 @@
     "text": "Acrimonious against one group of three left in charge",
     "enumeration": "9"
    },
-   "solution": "VITRIOLIC"
+   "solution": "VITRIOLIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VITRIOLIC",
+    "definitions": [
+     {
+      "text": "Acrimonious",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "V is short for versus, against"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "group of three",
+      "gives": "TRIO",
+      "note": "a trio is a group of three"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "I",
+      "TRIO",
+      "L",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A bitter dispute: one person against a threesome left running things.",
+     "definitionFit": "Vitriolic words are caustic and bitter, as harsh as acid, which suits acrimonious quarrels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1102,67 @@
      }
     ]
    },
-   "solution": "RINGROAD"
+   "solution": "RINGROAD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RING ROAD",
+    "definitions": [
+     {
+      "text": "way around town",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "an organ played is worked over, so its letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reworked letters inside the word for clear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Organ",
+      "gives": "ORGAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clear",
+      "gives": "RID",
+      "note": "to rid a place is to clear it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "NGROA",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORGAN",
+       "gives": "NGROA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An organist plays in a clearing on a road circling a town.",
+     "walkthrough": "'Way around town' looks like part of the musical picture but is the definition.",
+     "definitionFit": "A ring road is a bypass route that circles a town centre to divert through traffic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Organ"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1176,76 @@
     "text": "Revealing lines in a letter, sadly, Romeo erased",
     "enumeration": "8"
    },
-   "solution": "TELLTALE"
+   "solution": "TELLTALE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "TELLTALE",
+    "definitions": [
+     {
+      "text": "Revealing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erased",
+      "for": "deletion",
+      "note": "erased means wiped out, so that letter is removed"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the lines inside the other fodder"
+     },
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things gone wrong, so the letters are muddled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is short for line, doubled for the plural"
+     },
+     {
+      "clueFragment": "a letter",
+      "gives": "ALETTER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELLTALE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LLALETTE",
+       "gives": "TELLTALE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sad love letter with Romeo's name rubbed out gives something away.",
+     "walkthrough": "R comes out of A LETTER, LL goes in, and the eight letters are shuffled.",
+     "definitionFit": "A telltale sign gives something away, revealing what was meant to stay hidden."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1269,72 @@
      }
     ]
    },
-   "solution": "TIMBERNERSLEE"
+   "solution": "TIMBERNERSLEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TIM BERNERS-LEE",
+    "definitions": [
+     {
+      "text": "computer scientist",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something means leaving it out"
+     },
+     {
+      "text": "foolishly",
+      "for": "anagram",
+      "note": "done foolishly means done in a silly, disordered way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beam",
+      "gives": "TIMBER",
+      "note": "a beam is a length of timber"
+     },
+     {
+      "clueFragment": "serenely",
+      "gives": "SERENELY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is an unknown quantity in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIMBER",
+      "NERSLEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SERENEL",
+       "gives": "NERSLEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone smiles calmly and absent-mindedly while ignoring a stranger.",
+     "walkthrough": "'Beam' looks like a verb, a smile, but it is a length of wood; the inventor's name is hyphenated.",
+     "definitionFit": "Sir Tim Berners-Lee is the British scientist who invented the World Wide Web."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Beam"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1348,55 @@
     "text": "United, apart from learner, seasoned",
     "enumeration": "6"
    },
-   "solution": "SPICED"
+   "solution": "SPICED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPICED",
+    "definitions": [
+     {
+      "text": "seasoned",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apart from",
+      "for": "deletion",
+      "note": "apart from means without, so that letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "United",
+      "gives": "SPLICED",
+      "note": "spliced means joined or united"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner driver's plate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ICED"
+     ]
+    },
+    "explanation": {
+     "surface": "A team, except for a trainee, is experienced.",
+     "walkthrough": "'Seasoned' suggests experienced, but here it is the culinary sense.",
+     "definitionFit": "Spiced food has been flavoured with spices, so it is seasoned."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "seasoned"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1410,66 @@
     "text": "Flexible part broken by turning spike",
     "enumeration": "6"
    },
-   "solution": "PLIANT"
+   "solution": "PLIANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PLIANT",
+    "definitions": [
+     {
+      "text": "Flexible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning means the word for spike is read backwards"
+     },
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "a word broken by another is split open with it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part",
+      "gives": "PT",
+      "note": "PT is the abbreviation for part"
+     },
+     {
+      "clueFragment": "spike",
+      "gives": "NAIL",
+      "note": "a nail is a metal spike"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LIAN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "NAIL",
+       "to": "LIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bendy component snapped by a rotating spike.",
+     "definitionFit": "Pliant things bend easily without breaking, so they are supple and flexible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1483,71 @@
     "text": "Extravagant friend, entertaining one, good behind bar",
     "enumeration": "8"
    },
-   "solution": "PRODIGAL"
+   "solution": "PRODIGAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PRODIGAL",
+    "definitions": [
+     {
+      "text": "Extravagant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain guests is to hold them within, so these pieces go inside"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "one piece behind another comes after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "ROD",
+      "note": "a rod is a bar"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RODIG",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A lavish friend buys a round at the pub.",
+     "walkthrough": "PAL holds ROD, I and G: P-RODIG-AL. 'Bar' suggests a pub but is a rod.",
+     "definitionFit": "Prodigal means wastefully lavish with money, as in the parable of the prodigal son."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1561,59 @@
     "text": "Letter in scam magician set up",
     "enumeration": "5"
    },
-   "solution": "GAMMA"
+   "solution": "GAMMA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GAMMA",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down clue set up means written upwards, so read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scam magician",
+      "gives": "AMMAG",
+      "note": "the run of letters across the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAMMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMMAG",
+       "to": "GAMMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A con artist plants a note during a magic trick.",
+     "definitionFit": "Gamma is the third character of the Greek alphabet, so it is a letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1627,43 @@
     "text": "Covering for head gangster",
     "enumeration": "4"
    },
-   "solution": "HOOD"
+   "solution": "HOOD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HOOD",
+    "definitions": [
+     {
+      "text": "Covering for head",
+      "at": 0
+     },
+     {
+      "text": "gangster",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Covering for head",
+      "note": "first meaning: a cowl or headpiece attached to a coat"
+     },
+     {
+      "clueFragment": "gangster",
+      "note": "second meaning: slang for a hoodlum, a thug"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a henchman covering for the boss, but the two halves are separate meanings.",
+     "definitionFit": "The word means both a soft cowl worn over the skull and, as slang, a criminal thug."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Covering"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1677,76 @@
     "text": "Join forces and pass law endlessly awkward to bear",
     "enumeration": "11"
    },
-   "solution": "COLLABORATE"
+   "solution": "COLLABORATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "COLLABORATE",
+    "definitions": [
+     {
+      "text": "Join forces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means the last letter is cut off"
+     },
+     {
+      "text": "awkward",
+      "for": "anagram",
+      "note": "something awkward is clumsy and out of shape, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pass",
+      "gives": "COL",
+      "note": "a col is a mountain pass"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "LAW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to bear",
+      "gives": "TOBEAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "LA",
+      "BORATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOBEAR",
+       "gives": "BORATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Politicians team up to pass a law that is hard to tolerate.",
+     "walkthrough": "'Pass law' reads like legislating, but pass is COL; LAW loses its W.",
+     "definitionFit": "To collaborate is to work together jointly, combining efforts on a shared project."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1760,49 @@
     "text": "Second area for extinct bird",
     "enumeration": "3"
    },
-   "solution": "MOA"
+   "solution": "MOA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOA",
+    "definitions": [
+     {
+      "text": "extinct bird",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "MO",
+      "note": "a mo is a moment, a second"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A further region set aside for a vanished species.",
+     "definitionFit": "The moa was a huge flightless New Zealand bird, hunted to extinction centuries ago."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1816,67 @@
     "text": "Rotten, stained clothing repelled expert",
     "enumeration": "7"
    },
-   "solution": "DECAYED"
+   "solution": "DECAYED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DECAYED",
+    "definitions": [
+     {
+      "text": "Rotten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "something repelled is driven back, so the word is read backwards"
+     },
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing something wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stained",
+      "gives": "DYED",
+      "note": "stained wood or cloth is dyed"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ECA",
+      "YED"
+     ],
+     "reversals": [
+      {
+       "from": "ACE",
+       "to": "ECA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grubby, soiled garment drove away a specialist.",
+     "walkthrough": "'Clothing' looks like garments but means wrapping around.",
+     "definitionFit": "Decayed matter has decomposed, so it is rotten through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1890,71 @@
     "text": "Get away from edge of fire grate, right away",
     "enumeration": "6"
    },
-   "solution": "ESCAPE"
+   "solution": "ESCAPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ESCAPE",
+    "definitions": [
+     {
+      "text": "Get away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edge of",
+      "for": "letter_selection",
+      "note": "the edge of a word is one of its end letters, here the last"
+     },
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "away means that letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fire",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "grate",
+      "gives": "SCRAPE",
+      "note": "to grate is to scrape"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SCAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees a fireplace straight away.",
+     "walkthrough": "'Grate' looks like a fireplace but is the verb scrape, which loses R.",
+     "definitionFit": "To escape is to get away or break free from confinement or danger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "grate"
+    }
+   }
   }
  ]
 }
