@@ -332,7 +332,17 @@ def read_box(d, leaf, img, box, key, verdict, split=None):
                 img, half, which, path.with_name(f"{key}.col{k}.{ocr_clues.reader_key(which)}.json"))]
         else:
             words[which] = ocr_words(img, box, which, path)
-    texts = {k: tidy(fa.tidy(text_of(columns(w)))) for k, w in words.items()}
+    return vote(words, verdict)
+
+
+def vote(words, verdict, cols=None):
+    """(verdict, {light: (text, enumeration, None)} or None) from each
+    reader's words ({reader: [(x0, y0, x1, y1, text)]}): each reading's
+    ACROSS and DOWN lists (`cols` of its words, else columns) parsed, laid by
+    number (pick) and voted on (ocr_clues.reconcile, ocr_clues.as_printed).
+    Shared by every Listener page reader (tools/gale_listener.py's too)."""
+    cols = cols or columns
+    texts = {k: tidy(fa.tidy(text_of(cols(w)))) for k, w in words.items()}
     tried = []
     for k, t in texts.items():
         parsed, why = parse(t) if t.strip() else (None, "no words")

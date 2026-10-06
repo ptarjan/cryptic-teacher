@@ -77,9 +77,18 @@ DOC_ID = re.compile(r"GALE\W{0,3}([A-Z]{2}\d{8,12})", re.IGNORECASE)
 MONTHS = {m: i for i, ms in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1) for m in [ms]}
 MON = r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?"
-ISO = re.compile(r"(?<!\d)(19[789]\d)[-_. ]?(0[1-9]|1[0-2])[-_. ]?(0[1-9]|[12]\d|3[01])(?!\d)")
-DMY = re.compile(r"(?<!\d)([0-3]?\d)(?:st|nd|rd|th)?[-_. ,]*" + MON + r"[-_. ,]*(19[789]\d)(?!\d)", re.IGNORECASE)
-MDY = re.compile(MON + r"[-_. ]*([0-3]?\d)(?:st|nd|rd|th)?[-_. ,]*(19[789]\d)(?!\d)", re.IGNORECASE)
+
+
+def date_patterns(year):
+    """[(pattern, order)] of the ways a file name spells a date whose year
+    matches the regex `year`: 1988-01-12, 12 Jan 1988, Jan 12 1988."""
+    return [(re.compile(r"(?<!\d)(" + year + r")[-_. ]?(0[1-9]|1[0-2])[-_. ]?(0[1-9]|[12]\d|3[01])(?!\d)"), "ymd"),
+            (re.compile(r"(?<!\d)([0-3]?\d)(?:st|nd|rd|th)?[-_. ,]*" + MON + r"[-_. ,]*(" + year + r")(?!\d)",
+                        re.IGNORECASE), "dmy"),
+            (re.compile(MON + r"[-_. ]*([0-3]?\d)(?:st|nd|rd|th)?[-_. ,]*(" + year + r")(?!\d)", re.IGNORECASE), "mdy")]
+
+
+DATES = date_patterns(r"19[789]\d")
 #: A Times cryptic number of 1974-99 (13,676 to ~21,400); Times issue
 #: numbers (59,000-66,000) and Gale document ids never fall in it.
 NUMBER = re.compile(r"(?<![\d,.])(1[3-9]|2[01])[,.]?(\d{3})(?![\d,])")
@@ -132,9 +141,9 @@ def day_of(number, by_number):
     return PRINTED[up] if up == down and 0 <= up < len(PRINTED) else None
 
 
-def name_date(name):
+def name_date(name, patterns=DATES):
     """The date a file name spells, or None."""
-    for rx, order in ((ISO, "ymd"), (DMY, "dmy"), (MDY, "mdy")):
+    for rx, order in patterns:
         m = rx.search(name)
         if m:
             parts = dict(zip(order, m.groups()))
@@ -314,12 +323,12 @@ def ssh(command, **kw):
     return subprocess.run(SSH + [HOST, command], check=True, capture_output=True, **kw)
 
 
-def mirror(out=sys.stdout):
-    """Copy the Mac inbox's page files to MIRROR: the new and changed ones;
+def mirror(out=sys.stdout, host_inbox=HOST_INBOX, into=MIRROR):
+    """Copy the Mac inbox's page files to `into`: the new and changed ones;
     a file gone from the inbox goes from the mirror. Only the Mac is asked."""
     q = shlex.quote
-    ssh(f"mkdir -p \"$HOME\"/{q(HOST_INBOX)}")
-    listing = ssh(f"cd \"$HOME\"/{q(HOST_INBOX)} && find . -maxdepth 1 -type f -exec stat -f '%z %m %N' {{}} +; exit 0",
+    ssh(f"mkdir -p \"$HOME\"/{q(host_inbox)}")
+    listing = ssh(f"cd \"$HOME\"/{q(host_inbox)} && find . -maxdepth 1 -type f -exec stat -f '%z %m %N' {{}} +; exit 0",
                   text=True).stdout
     there = {}
     for line in listing.splitlines():
@@ -327,29 +336,29 @@ def mirror(out=sys.stdout):
         name = name.removeprefix("./")
         if Path(name).suffix.lower() in PAGES:
             there[name] = (int(size), int(mtime))
-    MIRROR.mkdir(parents=True, exist_ok=True)
+    into.mkdir(parents=True, exist_ok=True)
     want = [n for n, (size, mtime) in there.items()
-            if not (MIRROR / n).exists() or (MIRROR / n).stat().st_size != size
-            or int((MIRROR / n).stat().st_mtime) != mtime]
+            if not (into / n).exists() or (into / n).stat().st_size != size
+            or int((into / n).stat().st_mtime) != mtime]
     for i in range(0, len(want), 100):
         batch = want[i:i + 100]
-        blob = ssh(f"cd \"$HOME\"/{q(HOST_INBOX)} && tar cf - -- {' '.join(q(n) for n in batch)}").stdout
+        blob = ssh(f"cd \"$HOME\"/{q(host_inbox)} && tar cf - -- {' '.join(q(n) for n in batch)}").stdout
         with tarfile.open(fileobj=io.BytesIO(blob)) as tar:
             for member in tar.getmembers():
                 if member.isfile() and Path(member.name).name in there:
-                    dest = MIRROR / Path(member.name).name
+                    dest = into / Path(member.name).name
                     dest.write_bytes(tar.extractfile(member).read())
                     os.utime(dest, (member.mtime, member.mtime))
         print(f"copied {len(batch)} file(s) from the Mac inbox", file=out)
-    for p in MIRROR.iterdir():
+    for p in into.iterdir():
         if p.name not in there:
             p.unlink()
             print(f"dropped {p.name}: gone from the Mac inbox", file=out)
 
 
-def publish(path=CHECKLIST):
+def publish(path=CHECKLIST, host_inbox=HOST_INBOX):
     """Copy the checklist into the Mac inbox."""
-    ssh(f"cat > \"$HOME\"/{shlex.quote(HOST_INBOX + '/' + CHECKLIST_NAME)}", input=path.read_bytes())
+    ssh(f"cat > \"$HOME\"/{shlex.quote(host_inbox + '/' + path.name)}", input=path.read_bytes())
 
 
 # ------------------------------------------------------------ the checklist
