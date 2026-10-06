@@ -47,6 +47,12 @@ REREAD_BEFORE = "2026-10-06T07:38:34+00:00"
 TEXT_DIR = (pathlib.Path(os.environ.get("XDG_STATE_HOME")
                          or pathlib.Path.home() / ".local" / "state")
             / "cryptic-teacher" / "ia-books")
+# A book leaf whose clues are a held puzzle's is that puzzle reprinted, not a
+# new book-N: tools/acquire_book.py files no copy and leaves its reading here,
+# <held id>/<identifier>-<position>.txt, one more voter on the held puzzle's
+# clues (tools/file_archive_org_puzzles.reprint_readings). Beside TEXT_DIR,
+# outside the repo, as the book text it is read from.
+REPRINT_DIR = TEXT_DIR.parent / "book-reprints"
 # Each book's last read: {identifier: {"on": "<UTC ISO time>", "found": N,
 # "filed": N}}, written by tools/acquire_book.py after every read.
 READS = ROOT / "tools" / "data" / "book_reads.json"
@@ -147,3 +153,29 @@ def main(argv):
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))
+
+
+def reprint_readings(pid, root=None):
+    """[Path] each book leaf's reading of held puzzle `pid` (REPRINT_DIR)."""
+    d = pathlib.Path(root or REPRINT_DIR) / pid
+    return sorted(d.glob("*.txt")) if d.is_dir() else []
+
+
+def save_reprint(pid, identifier, position, across, down, root=None):
+    """Keep a book leaf that reprints held puzzle `pid` as a reading of it:
+    one clue a line, "<number> <text> (<count>)", under ACROSS and DOWN, as
+    the archive.org filer's column readings are set out. `across` and `down`
+    are light_spec lights ([number, length, source, printed])."""
+    lines = []
+    for heading, lights in (("ACROSS", across), ("DOWN", down)):
+        lines.append(heading)
+        for light in lights:
+            printed = (light[3] if len(light) > 3 else None) or {}
+            if printed.get("clue"):
+                count = f" ({printed['enumeration']})" if printed.get("enumeration") else ""
+                lines.append(f"{light[0]} {printed['clue']}{count}")
+    d = pathlib.Path(root or REPRINT_DIR) / pid
+    d.mkdir(parents=True, exist_ok=True)
+    path = d / f"{identifier}-{position}.txt"
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path

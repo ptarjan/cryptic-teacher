@@ -452,6 +452,23 @@ def file_clues_only(puzzle_meta, across, down, identifier, clues_dir):
         return None, [str(err)]
 
 
+def reprint_of(pid, across, down, index=None):
+    """The held puzzle a book leaf reprints, or None: the id sharing at least
+    clue_index.THRESHOLD of its clues (clue_index.matches; a listed reprint
+    pair does not count). Such a leaf is not filed as `pid`: a Times
+    anthology's page is the daily Times puzzle printed again, so it becomes
+    one more reading of that puzzle (book_queue.save_reprint)."""
+    from clue_index import clue_keys
+    if index is None:
+        from fetch_puzzle import clue_index
+        index = clue_index()
+    texts = [((light[3] if len(light) > 3 else None) or {}).get("clue")
+             for light in list(across) + list(down)]
+    keys = clue_keys({"entries": [{"clue": t} for t in texts if t]})
+    hits = index.matches(pid, keys)
+    return hits[0][0] if hits else None
+
+
 # ------------------------------------------------------------------- driver
 
 def filed_positions(identifier, puzzle_dir):
@@ -582,6 +599,14 @@ def main(argv=None):
     for p in puzzles:
         bn = p["book_number"]
         across, down, notes, damage = build_spec(p)
+        copy = (reprint_of(puzzle_id(BOOK_SERIES, book_number(args.identifier, bn)),
+                           across, down) if args.file else None)
+        if copy:
+            path = book_queue.save_reprint(copy, args.identifier, bn, across, down)
+            print(f"  #{bn} reprints {copy}: kept as a reading of it at {path}",
+                  file=sys.stderr)
+            rows[bn] = {"book_number": bn, "status": "reprint", "reprint_of": copy}
+            continue
         reasons = list(damage) + grid_verdict.screen_spec(across, down)
         q = quality.get(bn, {})
         if q.get("confidence") == "low":

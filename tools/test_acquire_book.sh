@@ -305,3 +305,68 @@ if got != ["no-solution", "cut-short"]:
     raise SystemExit(f"FAIL a killed run's report says {got}, want ['no-solution', 'cut-short']")
 print("ok   a run killed mid-search leaves its unlanded searches cut-short")
 PYEOF
+
+# A leaf whose clues are a held puzzle's (a Times anthology reprinting the
+# daily) is not filed as a new book-N: it becomes a reading of the held puzzle,
+# one the archive.org filer's clue vote reads, and is never searched.
+python3 - "$tmp" <<'PYEOF'
+import json, sys
+from pathlib import Path
+sys.path.insert(0, "tools")
+import acquire_book as ab
+import book_queue
+import fetch_puzzle
+import file_archive_org_puzzles as fao
+from clue_index import ClueIndex
+
+tmp = Path(sys.argv[1]) / "reprint"
+tmp.mkdir()
+(tmp / "text.txt").write_text("x")
+book_queue.REPRINT_DIR = tmp / "book-reprints"
+held = [f"Held clue number {i} about something" for i in range(8)]
+fresh = [f"Another puzzle's clue {i} entirely" for i in range(8)]
+index = ClueIndex()
+index.add("times-99999", {"entries": [{"clue": {"text": t}} for t in held]})
+fetch_puzzle.clue_index = lambda: index
+
+
+def spec(texts):
+    return ([[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[:4])],
+            [[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[4:])], [], [])
+
+
+ab.parse_book = lambda _path: [{"book_number": 1, "across": [{"clue": held[0]}], "texts": held},
+                               {"book_number": 2, "across": [{"clue": fresh[0]}], "texts": fresh}]
+ab.build_quality_report = lambda _p: {"puzzles": []}
+ab.build_spec = lambda p: spec(p["texts"])
+ab.grid_verdict.screen_spec = lambda _a, _d: []
+searched = []
+
+
+def fake_search(jobs, _n):
+    for job in jobs:
+        searched.append(job["book_number"])
+        yield {"book_number": job["book_number"], "status": "unparseable", "nodes": 0,
+               "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
+               "conventions_broken": [], "detail": {}, "grids": []}
+
+
+ab._searched = fake_search
+ab.main(["isbn_9781902254067", "--text", str(tmp / "text.txt"), "--out", str(tmp), "--file", "--only", "1", "2"])
+rows = {r["book_number"]: r for r in json.loads((tmp / "isbn_9781902254067" / "report.json").read_text())["puzzles"]}
+if rows[1].get("status") != "reprint" or rows[1].get("reprint_of") != "times-99999":
+    raise SystemExit(f"FAIL a leaf reprinting times-99999 was reported {rows[1]}")
+if searched != [2]:
+    raise SystemExit(f"FAIL searched {searched}, want only the fresh leaf [2]")
+if list((tmp / "isbn_9781902254067").rglob("book-*.json")):
+    raise SystemExit("FAIL a reprint leaf was filed as a book puzzle")
+files = fao.book_reprint_files(99999, "times")
+if [p.name for p in files] != ["isbn_9781902254067-1.txt"]:
+    raise SystemExit(f"FAIL the reprint's reading is {files}, want isbn_9781902254067-1.txt")
+text = fao.reprint_text(files[0].read_text())
+if not text or held[0] not in text or held[7] not in text:
+    raise SystemExit(f"FAIL the archive.org filer does not read the reprint as a reading:\n{text}")
+if not fao.reprint_key([99999], "times"):
+    raise SystemExit("FAIL a book reprint does not make its Times edition due")
+print("ok   a leaf reprinting a held puzzle is kept as its reading, not filed as book-N")
+PYEOF

@@ -1898,29 +1898,39 @@ def reprint_text(text):
     return "\n".join(out) + "\n"
 
 
+def book_reprint_files(number, series, root=None):
+    """[Path] each book leaf's reading of `series`-`number`: a page of an
+    anthology (a Times crossword book) that reprints it, kept by
+    tools/acquire_book.py in place of a book-N copy (book_queue.save_reprint)."""
+    import book_queue
+    return book_queue.reprint_readings(series_meta.puzzle_id(series, number), root)
+
+
 def reprint_readings(number, series=REPRINTED):
-    """{reading name: text} of the Canberra Times reprints of `number` in
-    `series` (reprint_text): one more copy of the same print, each of its
-    readings a voter beside the scan's own (the London scan and the
-    Canberra one misread apart). {} for any other series or a number no
-    reprint is mapped to."""
-    if series != REPRINTED:
-        return {}
+    """{reading name: text} of the reprints of `number` in `series`
+    (reprint_text): the Canberra Times's of a Times puzzle and any book's.
+    Each is one more copy of the same print, its readings voters beside the
+    scan's own (the London scan and the Canberra one misread apart). {} for
+    a number no reprint is held of."""
     out = {}
-    for p in reprint_files(number):
+    for p in reprint_files(number) if series == REPRINTED else ():
         text = reprint_text(p.read_text(encoding="utf-8", errors="replace"))
         if text:
             out[f"canberra:{p.parent.name}:{p.stem}"] = text
+    for p in book_reprint_files(number, series):
+        text = reprint_text(p.read_text(encoding="utf-8", errors="replace"))
+        if text:
+            out[f"book:{p.stem}"] = text
     return out
 
 
 def reprint_key(numbers, series=REPRINTED):
-    """What the Canberra reprints of an edition's `numbers` hold, by file
-    name and size: part of the edition's inputs, so a reprint downloaded or
-    read after the edition was makes it due. "" when there is none."""
-    if series != REPRINTED:
-        return ""
-    files = [p for n in sorted(set(numbers)) for p in reprint_files(n)]
+    """What the reprints of an edition's `numbers` hold (the Canberra Times's
+    and the books'), by file name and size: part of the edition's inputs, so
+    a reprint downloaded or read after the edition was makes it due. ""
+    when there is none."""
+    files = [p for n in sorted(set(numbers))
+             for p in (reprint_files(n) if series == REPRINTED else []) + book_reprint_files(n, series)]
     if not files:
         return ""
     h = hashlib.sha256()
