@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Service finally made to employ female therapist",
     "enumeration": "8"
    },
-   "solution": "MASSEUSE"
+   "solution": "MASSEUSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MASSEUSE",
+    "definitions": [
+     {
+      "text": "female therapist",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Service",
+      "gives": "MASS",
+      "note": "Mass is a church service"
+     },
+     {
+      "clueFragment": "made",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "to employ",
+      "gives": "USE",
+      "note": "to employ something is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MASS",
+      "E",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A therapist hired at the end of a church service, as if the parish laid on a massage.",
+     "walkthrough": "MASS + E + USE gives MASSEUSE.",
+     "definitionFit": "A masseuse is a woman who gives massages professionally, a kind of physical therapist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Service"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,50 @@
     "text": "Old man gets old wall moulding",
     "enumeration": "4"
    },
-   "solution": "DADO"
+   "solution": "DADO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DADO",
+    "definitions": [
+     {
+      "text": "wall moulding",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "DAD",
+      "note": "one's old man is one's father"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAD",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly man acquires some antique decorative woodwork.",
+     "walkthrough": "'Old man' is slang for father, so the first old is not an abbreviation but part of a phrase.",
+     "definitionFit": "A dado is the lower band of an interior wall, often finished with a decorative rail or moulding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "man"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +162,58 @@
     "text": "Company messenger heading off as escort",
     "enumeration": "6"
    },
-   "solution": "CONVOY"
+   "solution": "CONVOY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CONVOY",
+    "definitions": [
+     {
+      "text": "escort",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "the head of a word is its first letter, and taking it off removes that letter"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "messenger",
+      "gives": "ENVOY",
+      "note": "an envoy carries messages between governments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "NVOY"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's courier sets off to act as a bodyguard.",
+     "walkthrough": "'Heading off' reads as setting out on a journey, but it tells you to drop the first letter.",
+     "definitionFit": "A convoy is a group of ships or vehicles travelling together under protection, an escort being a protective accompaniment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +227,65 @@
     "text": "Editor rising to partner's challenge",
     "enumeration": "8"
    },
-   "solution": "DEFIANCE"
+   "solution": "DEFIANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEFIANCE",
+    "definitions": [
+     {
+      "text": "challenge",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, a word that rises is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "Ed is the usual abbreviation for editor"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "FIANCE",
+      "note": "a fiancé is a partner one is engaged to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FIANCE"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor stands up to meet a challenge set by a partner.",
+     "walkthrough": "The 's stands for 'is', joining wordplay to definition.",
+     "definitionFit": "Defiance is open resistance or a challenge to authority, as in acting in defiance of orders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +299,55 @@
     "text": "Dean alarms swimming amphibian",
     "enumeration": "10"
    },
-   "solution": "SALAMANDER"
+   "solution": "SALAMANDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALAMANDER",
+    "definitions": [
+     {
+      "text": "amphibian",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "letters that are swimming are moving about freely, so they settle into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dean",
+      "gives": "DEAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alarms",
+      "gives": "ALARMS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DEANALARMS",
+       "gives": "SALAMANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A college dean is startled by a creature paddling in the water.",
+     "definitionFit": "The salamander is a lizard-shaped amphibian related to newts, living partly in water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +361,61 @@
     "text": "Prize bull losing footing in space",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ESTEEM",
+    "definitions": [
+     {
+      "text": "Prize",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing footing",
+      "for": "deletion",
+      "note": "the foot of a down entry is its bottom letter, and losing it drops the last letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits within the other, which wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "EM",
+      "note": "an em is a printer's unit of space"
+     },
+     {
+      "clueFragment": "bull",
+      "gives": "STEER",
+      "note": "a steer is a young castrated bull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STEE",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A prize-winning bull stumbles and loses its footing in an open space.",
+     "walkthrough": "STEER minus its last letter is STEE, placed in EM. An em is the width of a letter M in printing.",
+     "definitionFit": "To prize something is to hold it in high regard, which is what esteeming it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prize"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +429,58 @@
     "text": "Animal and a collection of teeth found in burial site",
     "enumeration": "8"
    },
-   "solution": "CATACOMB"
+   "solution": "CATACOMB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATACOMB",
+    "definitions": [
+     {
+      "text": "burial site",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "and",
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Animal",
+      "gives": "CAT",
+      "note": "a cat is an animal"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "collection of teeth",
+      "gives": "COMB",
+      "note": "a comb is a row of teeth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "A",
+      "COMB"
+     ]
+    },
+    "explanation": {
+     "surface": "Archaeologists find an animal and a set of teeth in a tomb.",
+     "walkthrough": "A comb's prongs are called teeth, so 'collection of teeth' is not a jaw.",
+     "definitionFit": "Catacombs are underground cemeteries with recesses for tombs, as in ancient Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "teeth"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +494,60 @@
     "text": "Mild chap ordered gin",
     "enumeration": "6"
    },
-   "solution": "BENIGN"
+   "solution": "BENIGN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BENIGN",
+    "definitions": [
+     {
+      "text": "Mild",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "something ordered has been arranged, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap",
+      "gives": "BEN",
+      "note": "Ben is a man's name, a typical chap"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "IGN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIN",
+       "gives": "IGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gentle fellow asks the barman for a gin.",
+     "definitionFit": "Benign means gentle or harmless, as in a benign climate or a benign tumour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +561,74 @@
     "text": "Pass starter of extra large mushy peas",
     "enumeration": "6"
    },
-   "solution": "ELAPSE"
+   "solution": "ELAPSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "ELAPSE",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starter of",
+      "for": "letter_selection",
+      "note": "the starter of a word is its opening letter"
+     },
+     {
+      "text": "mushy",
+      "for": "anagram",
+      "note": "mushy things have been mashed out of shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "E",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "peas",
+      "gives": "PEAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "L",
+      "APSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEAS",
+       "gives": "APSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone passes on a starter of an extra large helping of mushy peas.",
+     "walkthrough": "Mushy peas are a British side dish of mashed marrowfat peas, often served with fish and chips.",
+     "definitionFit": "When time passes it elapses, as in months had elapsed since the meeting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +642,42 @@
     "text": "Ghettos loosely surrounding northern capital",
     "enumeration": "4"
    },
-   "solution": "OSLO"
+   "solution": "OSLO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OSLO",
+    "definitions": [
+     {
+      "text": "northern capital",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "hidden_word",
+      "note": "the clue's own words surround the answer, which sits within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ghettos loosely",
+      "gives": "OSLO",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Run-down districts spread loosely around a Scandinavian city.",
+     "definitionFit": "Oslo is the capital of Norway, a country in the far north of Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loosely"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +691,49 @@
     "text": "Five shown to be justified",
     "enumeration": "10"
    },
-   "solution": "VINDICATED"
+   "solution": "VINDICATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VINDICATED",
+    "definitions": [
+     {
+      "text": "justified",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "shown",
+      "gives": "INDICATED",
+      "note": "shown or pointed out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "INDICATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Five people are proved right after all.",
+     "definitionFit": "Someone vindicated has been cleared or proved right, their actions justified by events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Five"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +747,53 @@
     "text": "Australian leaving country in need of food",
     "enumeration": "6"
    },
-   "solution": "HUNGRY"
+   "solution": "HUNGRY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HUNGRY",
+    "definitions": [
+     {
+      "text": "in need of food",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "someone leaving goes away, so that letter departs from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the abbreviation for Australian"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "HUNGARY",
+      "note": "a central European country"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUNGRY"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian emigrant departs from a country short of food.",
+     "walkthrough": "HUNGARY without its A gives HUNGRY.",
+     "definitionFit": "Being hungry means feeling the want of something to eat, an empty stomach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Australian"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +807,65 @@
     "text": "Environmentalists planting new vegetable in Mediterranean country",
     "enumeration": "10"
    },
-   "solution": "GREENPEACE"
+   "solution": "GREENPEACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GREENPEACE",
+    "definitions": [
+     {
+      "text": "Environmentalists",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "planting",
+      "for": "container",
+      "note": "planting something in a place sets it down inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mediterranean country",
+      "gives": "GREECE",
+      "note": "a country on the Mediterranean"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "vegetable",
+      "gives": "PEA",
+      "note": "the pea is a vegetable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREE",
+      "N",
+      "PEA",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Green campaigners plant a new crop in Greece.",
+     "walkthrough": "The new letter and the vegetable go in together, just before the country's C.",
+     "definitionFit": "Greenpeace is an international campaigning organisation dedicated to protecting the natural world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "planting"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +879,70 @@
     "text": "Officer's endgame designed to trap king",
     "enumeration": "8"
    },
-   "solution": "GENDARME"
+   "solution": "GENDARME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GENDARME",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means arranged to a plan, so these letters are set out afresh"
+     },
+     {
+      "text": "to trap",
+      "for": "container",
+      "note": "trapping something closes it inside the rest"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endgame",
+      "gives": "ENDGAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENDA",
+      "R",
+      "ME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENDGAME",
+       "gives": "GENDAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player's endgame is planned to trap the opposing king.",
+     "walkthrough": "The 's stands for 'is'. 'Endgame' and 'king' sound like chess but the king here is just R.",
+     "definitionFit": "A gendarme is a French police officer, from a paramilitary force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "king"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +956,53 @@
     "text": "First lady books special occasions",
     "enumeration": "6"
    },
-   "solution": "EVENTS"
+   "solution": "EVENTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENTS",
+    "definitions": [
+     {
+      "text": "occasions",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First lady",
+      "gives": "EVE",
+      "note": "Eve was the first woman in Genesis"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "NT",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A president's wife books venues for some special functions.",
+     "walkthrough": "'First lady' suggests a president's wife, but here it is the biblical Eve.",
+     "definitionFit": "Events are things that happen, especially notable occasions such as ceremonies or parties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +1016,49 @@
     "text": "Measures concentration shown by bird judges",
     "enumeration": "8"
    },
-   "solution": "TITRATES"
+   "solution": "TITRATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TITRATES",
+    "definitions": [
+     {
+      "text": "Measures concentration",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird",
+      "gives": "TIT",
+      "note": "the tit is a small songbird"
+     },
+     {
+      "clueFragment": "judges",
+      "gives": "RATES",
+      "note": "to rate is to judge or assess"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIT",
+      "RATES"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird's powers of concentration are assessed by judges.",
+     "definitionFit": "Titration is the laboratory method of finding a solution's strength by adding a reagent until a reaction is complete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concentration"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1072,44 @@
     "text": "Go from door to door selling bicycle part, reportedly",
     "enumeration": "6"
    },
-   "solution": "PEDDLE"
+   "solution": "PEDDLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PEDDLE",
+    "definitions": [
+     {
+      "text": "Go from door to door selling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard spoken, so the sound matters rather than the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bicycle part",
+      "gives": "PEDDLE",
+      "soundsLike": "PEDAL",
+      "note": "the lever a cyclist pushes with the foot"
+     }
+    ],
+    "explanation": {
+     "surface": "A travelling salesman goes round houses selling bike parts.",
+     "definitionFit": "To peddle is to hawk goods by travelling about, like a pedlar calling on homes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "selling"
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1123,60 @@
     "text": "Always remove injured soldiers",
     "enumeration": "8"
    },
-   "solution": "EVERMORE"
+   "solution": "EVERMORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EVERMORE",
+    "definitions": [
+     {
+      "text": "Always",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "injured",
+      "for": "anagram",
+      "note": "something injured is damaged out of shape, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remove",
+      "gives": "REMOVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "the Royal Engineers, a British army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVERMO",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REMOVE",
+       "gives": "EVERMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to always take away wounded troops from the field.",
+     "definitionFit": "Evermore is a literary word for for ever, at all times to come."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "injured"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1190,50 @@
     "text": "Learnt about feature of some animals",
     "enumeration": "6"
    },
-   "solution": "ANTLER"
+   "solution": "ANTLER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTLER",
+    "definitions": [
+     {
+      "text": "feature of some animals",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests being turned round and round, so the letters are scattered into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learnt",
+      "gives": "LEARNT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEARNT",
+       "gives": "ANTLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student has studied some characteristic of the animal kingdom.",
+     "definitionFit": "An antler is the branched bony growth on the head of deer, moose and similar animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1247,61 @@
     "text": "Waterborne creatures arrange untied knot",
     "enumeration": "8"
    },
-   "solution": "PLANKTON"
+   "solution": "PLANKTON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PLANKTON",
+    "definitions": [
+     {
+      "text": "Waterborne creatures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "untied",
+      "for": "anagram",
+      "note": "an untied knot comes loose, so its letters are freed to form a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrange",
+      "gives": "PLAN",
+      "note": "to plan is to arrange"
+     },
+     {
+      "clueFragment": "knot",
+      "gives": "KNOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "KTON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KNOT",
+       "gives": "KTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tiny sea creatures are told to sort out a loosened knot.",
+     "definitionFit": "Plankton are the minute organisms that drift in seas and lakes, carried along by water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "arrange"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1315,64 @@
     "text": "The French claimed independence with the German songs",
     "enumeration": "6"
    },
-   "solution": "LIEDER"
+   "solution": "LIEDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LIEDER",
+    "definitions": [
+     {
+      "text": "songs",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claimed",
+      "for": "container",
+      "note": "something claimed is taken in and held, so one letter goes inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "independence",
+      "gives": "I",
+      "note": "I is the abbreviation for independence or independent"
+     },
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "der is German for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "E",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "The French declared independence while the Germans sang.",
+     "definitionFit": "Lieder are German art songs, especially Romantic settings of poems for voice and piano by Schubert or Schumann."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "independence"
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1386,73 @@
     "text": "Father to include service before end of aisle is repaired",
     "enumeration": "6"
    },
-   "solution": "DARNED"
+   "solution": "DARNED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "DARNED",
+    "definitions": [
+     {
+      "text": "repaired",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "to include",
+      "for": "container",
+      "note": "to include is to take in, so the father wraps round the rest"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Father",
+      "gives": "DAD",
+      "note": "an informal word for father"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "RN",
+      "note": "the Royal Navy, one of the armed services"
+     },
+     {
+      "clueFragment": "aisle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "RN",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A church aisle, with a priest leading a service, is being mended.",
+     "walkthrough": "'Service' and 'aisle' suggest a church, but the service here is the navy.",
+     "definitionFit": "Darned means mended by weaving thread across a hole, as with socks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1466,58 @@
     "text": "Stop in dodgy side street",
     "enumeration": "6"
    },
-   "solution": "DESIST"
+   "solution": "DESIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESIST",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dodgy",
+      "for": "anagram",
+      "note": "dodgy means unreliable or out of order, so these letters are muddled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "side",
+      "gives": "SIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the usual abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIDEST",
+       "gives": "DESIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to halt in a shady back street.",
+     "definitionFit": "To desist is to cease or leave off doing something, formal for stop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dodgy"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1531,74 @@
     "text": "Eve out to secure good places to eat garden produce",
     "enumeration": "10"
    },
-   "solution": "VEGETABLES"
+   "solution": "VEGETABLES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "VEGETABLES",
+    "definitions": [
+     {
+      "text": "garden produce",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests disorder, so these letters are shuffled out of place"
+     },
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it fast inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eve",
+      "gives": "EVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "places to eat",
+      "gives": "TABLES",
+      "note": "tables are where meals are eaten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "G",
+      "E",
+      "TABLES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVE",
+       "gives": "VEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eve goes out to book good restaurants serving home-grown vegetables.",
+     "walkthrough": "'Eve out' reads as Eve going out for dinner, but out only rearranges her three letters.",
+     "definitionFit": "Vegetables are the edible plants grown in a kitchen garden, such as carrots or beans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1612,64 @@
     "text": "Adam finally taken in by falsehood gets fruit",
     "enumeration": "4"
    },
-   "solution": "LIME"
+   "solution": "LIME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LIME",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "being taken in by something places it inside that thing"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "falsehood",
+      "gives": "LIE",
+      "note": "a lie is a falsehood"
+     },
+     {
+      "clueFragment": "Adam",
+      "gives": "M",
+      "select": "last",
+      "note": "the final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "M",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Adam, at last fooled by a lie, receives some fruit, a twist on the Eden story.",
+     "definitionFit": "The lime is a small green citrus fruit with sour juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taken"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1683,48 @@
     "text": "Light using large unit of electrical current",
     "enumeration": "4"
    },
-   "solution": "LAMP"
+   "solution": "LAMP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAMP",
+    "definitions": [
+     {
+      "text": "Light",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "unit of electrical current",
+      "gives": "AMP",
+      "note": "the ampere, the SI unit of current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A light bulb drawing a big electrical load.",
+     "definitionFit": "Light here is a noun naming a source of illumination, and a lamp is one such source."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1738,59 @@
     "text": "Doctor cures earl for free",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "free",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are altered in order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cures",
+      "gives": "CURES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "earl",
+      "gives": "E",
+      "note": "E is the abbreviation for earl"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CURESE",
+       "gives": "RESCUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor treats an aristocrat without charging.",
+     "walkthrough": "'For free' reads as no charge, but 'for' is a link and free is a verb.",
+     "definitionFit": "To rescue someone is to set them loose from danger or captivity, to liberate them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1804,66 @@
     "text": "Frisky mare tucked into healthy-looking plant",
     "enumeration": "8"
    },
-   "solution": "ROSEMARY"
+   "solution": "ROSEMARY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ROSEMARY",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Frisky",
+      "for": "anagram",
+      "note": "a frisky animal jumps about playfully, so these letters move around"
+     },
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "something tucked into another is pushed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mare",
+      "gives": "MARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "healthy-looking",
+      "gives": "ROSY",
+      "note": "rosy cheeks suggest good health"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROS",
+      "EMAR",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARE",
+       "gives": "EMAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lively horse tucks into some lush greenery.",
+     "definitionFit": "Rosemary is an aromatic evergreen shrub whose needle-like leaves are used as a herb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tucked"
+    }
+   }
   }
  ]
 }
