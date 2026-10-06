@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,67 @@
      }
     ]
    },
-   "solution": "ASMANYAS"
+   "solution": "ASMANYAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "AS MANY AS",
+    "definitions": [
+     {
+      "text": "Up to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not to start",
+      "for": "deletion",
+      "note": "the explorer's name is to be used without its opening letter"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells us to read the phrase for 'for instance' from its end to its beginning"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maritime explorer",
+      "gives": "TASMAN",
+      "note": "Abel Tasman, the Dutch seafarer who reached Tasmania and New Zealand"
+     },
+     {
+      "clueFragment": "for instance",
+      "gives": "SAY",
+      "note": "say, as in 'say, a dog', introduces an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASMAN",
+      "YAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAY",
+       "to": "YAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling instruction about some seafarer and how far to go back, read as a navigator's log.",
+     "walkthrough": "Abel Tasman was the Dutch navigator after whom Tasmania is named; 'Up to' looks like a direction but means no more than.",
+     "definitionFit": "'As many as' sets an upper limit on a count, just like saying the number goes only so high."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Up"
+    }
+   }
   },
   {
    "number": 2,
@@ -57,7 +120,54 @@
     "text": "Rest the French in a month",
     "enumeration": "5"
    },
-   "solution": "SLEEP"
+   "solution": "SLEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEEP",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the French article inside the abbreviation for a month"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a month",
+      "gives": "SEP",
+      "note": "abbreviation for September"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "the masculine definite article in French"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LE",
+      "EP"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about French holiday habits: everyone rests during one particular month.",
+     "definitionFit": "Sleep is the body's nightly period of repose, so the noun or verb matches resting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 3,
@@ -71,7 +181,50 @@
     "text": "Road named \"Exploding Galaxy\"",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Galaxy",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exploding",
+      "for": "anagram",
+      "note": "something exploding is blown apart, so the letters of the two preceding words fly into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Road named",
+      "gives": "ROADNAMED",
+      "note": "the letters of both words are the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROADNAMED",
+       "gives": "ANDROMEDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A street has been christened with a dramatic cosmic title, perhaps after a nightclub or band.",
+     "definitionFit": "Andromeda is the large spiral galaxy nearest to our own Milky Way, a named example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Road"
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +238,63 @@
     "text": "We try confusing both sides in elite police operation",
     "enumeration": "7"
    },
-   "solution": "YEWTREE"
+   "solution": "YEWTREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "YEWTREE",
+    "definitions": [
+     {
+      "text": "police operation",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "both sides in",
+      "for": "letter_selection",
+      "note": "only the two outermost letters of the following word are kept"
+     },
+     {
+      "text": "confusing",
+      "for": "anagram",
+      "note": "confusing jumbles things up, so the letters are mixed into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We try",
+      "gives": "WETRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "elite",
+      "gives": "EE",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WETRYEE",
+       "gives": "YEWTREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elite squad admits its methods are confusing everyone involved in a big police operation.",
+     "walkthrough": "Operation Yewtree was the British police investigation, launched in 2012, into historic sexual abuse by Jimmy Savile and other celebrities.",
+     "definitionFit": "Yewtree is the code name of a famous Metropolitan Police investigation, so it names one specific police operation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "elite"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +308,54 @@
     "text": "Mrs Chase moves in to adjust power amplifiers",
     "enumeration": "15"
    },
-   "solution": "SERVOMECHANISMS"
+   "solution": "SERVOMECHANISMS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERVOMECHANISMS",
+    "definitions": [
+     {
+      "text": "power amplifiers",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "adjust",
+      "for": "anagram",
+      "note": "to adjust is to rearrange, so the letters of the phrase are reordered"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mrs Chase moves in",
+      "gives": "MRSCHASEMOVESIN",
+      "note": "all fifteen letters of the phrase are the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MRSCHASEMOVESIN",
+       "gives": "SERVOMECHANISMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A new neighbour, Mrs Chase, arrives and sets about tweaking the hi-fi equipment.",
+     "walkthrough": "'Moves in' reads like the anagram signal, but it is part of the material; the signal is 'adjust'.",
+     "definitionFit": "Servomechanisms use a small control signal to drive much greater mechanical force, so they amplify power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moves"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +369,52 @@
     "text": "Writer Jack left supported by academic",
     "enumeration": "6"
    },
-   "solution": "LONDON"
+   "solution": "LONDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LONDON",
+    "definitions": [
+     {
+      "text": "Writer Jack",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "supported by",
+      "gives": "ON",
+      "note": "something resting on another thing is supported by it"
+     },
+     {
+      "clueFragment": "academic",
+      "gives": "DON",
+      "note": "a university teacher, especially at Oxford or Cambridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ON",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist left his post and relied on the backing of a university lecturer.",
+     "definitionFit": "Jack London was the American author of The Call of the Wild and White Fang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supported"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +428,59 @@
     "text": "Advocates surrounding women with hens?",
     "enumeration": "7"
    },
-   "solution": "LAWYERS"
+   "solution": "LAWYERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAWYERS",
+    "definitions": [
+     {
+      "text": "Advocates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means the egg producers go around the abbreviation"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hens",
+      "gives": "LAYERS",
+      "note": "hens kept for eggs are called layers"
+     },
+     {
+      "clueFragment": "women",
+      "gives": "W",
+      "note": "standard abbreviation for women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "W",
+      "YERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A whimsical question about lawyers who come accompanied by women with hens.",
+     "walkthrough": "The wordplay is read from the end: 'hens' around 'women'; 'with' just joins the two.",
+     "definitionFit": "An advocate is one who pleads a case in court, which is what lawyers do professionally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hens"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +494,49 @@
     "text": "Voids reverse polarity of attractive forces",
     "enumeration": "5"
    },
-   "solution": "NULLS"
+   "solution": "NULLS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NULLS",
+    "definitions": [
+     {
+      "text": "Voids",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse polarity of",
+      "for": "substitution",
+      "note": "reversing polarity turns positive into negative, so the letter for one is swapped for the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attractive forces",
+      "gives": "PULLS",
+      "note": "a pull is a force drawing something towards it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ULLS"
+     ]
+    },
+    "explanation": {
+     "surface": "A physics instruction: flip the poles so that the attraction disappears.",
+     "walkthrough": "P stands for positive and N for negative, so reversing the polarity of PULLS turns its P into N.",
+     "definitionFit": "Nulls are zeros or empty values, things with no content, just as voids are empty spaces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "polarity"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +550,46 @@
     "text": "Is too heavy crossing a lot",
     "enumeration": "9"
    },
-   "solution": "OVERLOADS"
+   "solution": "OVERLOADS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERLOADS",
+    "definitions": [
+     {
+      "text": "Is too heavy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crossing",
+      "gives": "OVER",
+      "note": "to go over something is to cross it"
+     },
+     {
+      "clueFragment": "a lot",
+      "gives": "LOADS",
+      "note": "informal for a great quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "LOADS"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a load is too heavy when carried across a great distance.",
+     "definitionFit": "Something that overloads a structure puts more weight on it than it can bear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crossing"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +603,54 @@
     "text": "Parent swallowing tablet late",
     "enumeration": "4"
    },
-   "solution": "DEAD"
+   "solution": "DEAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEAD",
+    "definitions": [
+     {
+      "text": "late",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowing",
+      "for": "container",
+      "note": "swallowing takes the drug inside the parent"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parent",
+      "gives": "DAD",
+      "note": "informal for father"
+     },
+     {
+      "clueFragment": "tablet",
+      "gives": "E",
+      "note": "slang for an ecstasy tablet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent takes a pill well past the usual time.",
+     "definitionFit": "The late So-and-so is the deceased one, so 'late' in that sense means no longer living."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 10,
@@ -183,7 +664,62 @@
     "text": "Characters changing used to be random vowels",
     "enumeration": "10"
    },
-   "solution": "WEREWOLVES"
+   "solution": "WEREWOLVES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "WEREWOLVES",
+    "definitions": [
+     {
+      "text": "Characters changing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "random",
+      "for": "anagram",
+      "note": "random means in no fixed order, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to be",
+      "gives": "WERE",
+      "note": "past tense of be"
+     },
+     {
+      "clueFragment": "vowels",
+      "gives": "VOWELS",
+      "note": "taken as written before mixing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WERE",
+      "WOLVES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VOWELS",
+       "gives": "WOLVES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A word-game observation: the letters swapped around used to be vowels picked at random.",
+     "walkthrough": "'Characters' looks like letters, matching the word-game surface, but it means figures in folklore who transform.",
+     "definitionFit": "Werewolves are legendary beings who shift from human to wolf form, characters defined by transformation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Characters"
+    }
+   }
   },
   {
    "number": 11,
@@ -197,7 +733,55 @@
     "text": "Ancient city is home to Asian boat racket",
     "enumeration": "6"
    },
-   "solution": "UPROAR"
+   "solution": "UPROAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UPROAR",
+    "definitions": [
+     {
+      "text": "racket",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is home to",
+      "for": "container",
+      "note": "a place that is home to something holds it within its walls"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ancient city",
+      "gives": "UR",
+      "note": "the Sumerian city in Mesopotamia, a crossword favourite"
+     },
+     {
+      "clueFragment": "Asian boat",
+      "gives": "PROA",
+      "note": "a fast sailing outrigger of Malaysia and Indonesia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PROA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An old city harbours a craft from Asia caught up in some shady scheme.",
+     "walkthrough": "'Racket' tempts as a swindle, but here it means din.",
+     "definitionFit": "A racket is a loud noise or commotion, and an uproar is a noisy disturbance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "racket"
+    }
+   }
   },
   {
    "number": 12,
@@ -211,7 +795,73 @@
     "text": "Old priest reflected star director had exaggerated appeal",
     "enumeration": "8"
    },
-   "solution": "OVERSOLD"
+   "solution": "OVERSOLD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OVERSOLD",
+    "definitions": [
+     {
+      "text": "had exaggerated appeal",
+      "at": 35,
+      "note": "verb phrase for the past tense, as in 'they oversold it'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection shows things the other way round, so the priest's title runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "REV",
+      "note": "short for Reverend"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "SOL",
+      "note": "the Latin name for the Sun, our star"
+     },
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VER",
+      "SOL",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly clergyman, looking back, says a film star and director were overhyped.",
+     "definitionFit": "To oversell is to praise something beyond its merits, so oversold means claimed more appeal than deserved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 13,
@@ -225,7 +875,68 @@
     "text": "Fast way to understand king and queen being included in psalm",
     "enumeration": "8"
    },
-   "solution": "MISERERE"
+   "solution": "MISERERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MISERERE",
+    "definitions": [
+     {
+      "text": "psalm",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being included in",
+      "for": "container",
+      "note": "being included means the royal pair sit inside the verb for understanding"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fast way",
+      "gives": "MI",
+      "note": "the M1, Britain's first motorway, written with I for 1"
+     },
+     {
+      "clueFragment": "to understand",
+      "gives": "SEE",
+      "note": "'I see' means I understand"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for Rex, Latin for king"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "SE",
+      "R",
+      "ER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Fasting as a spiritual route to enlightenment, with royalty joining in a psalm.",
+     "walkthrough": "'Fast' suggests going without food, but 'Fast way' is the M1, the motorway from London to Leeds, with the digit read as the letter I.",
+     "definitionFit": "The Miserere is Psalm 51, named from its Latin opening 'Have mercy upon me'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fast"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +956,68 @@
      }
     ]
    },
-   "solution": "IRONHORSE"
+   "solution": "IRONHORSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "IRON HORSE",
+    "definitions": [
+     {
+      "text": "steam-powered locomotive",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last keeps only the final letter of the railway company's name"
+     },
+     {
+      "text": "emblazoned with",
+      "for": "container",
+      "note": "emblazoned with means bearing a mark on them, so the letter sits inside the hosiery"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf club",
+      "gives": "IRON",
+      "note": "a club with a metal head"
+     },
+     {
+      "clueFragment": "socks",
+      "gives": "HOSE",
+      "note": "hose is an old word for stockings or socks"
+     },
+     {
+      "clueFragment": "LNER's",
+      "gives": "R",
+      "select": "last",
+      "note": "final letter of LNER, the London and North Eastern Railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "HO",
+      "R",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Golfing socks decorated with a railway logo, worn by a steam enthusiast.",
+     "definitionFit": "Iron horse is an old nickname for a railway engine, coined when steam trains replaced horse-drawn transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1031,57 @@
     "text": "Indicator of Falangists retreating",
     "enumeration": "6"
    },
-   "solution": "SIGNAL"
+   "solution": "SIGNAL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SIGNAL",
+    "definitions": [
+     {
+      "text": "Indicator",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of means the answer comes from within the letters of the next word"
+     },
+     {
+      "text": "retreating",
+      "for": "reversal",
+      "note": "retreating goes backwards, so the concealed letters are read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Falangists",
+      "gives": "SIGNAL",
+      "note": "the run of letters a-l-a-n-g-i-s read backwards"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "LANGIS",
+       "to": "SIGNAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sign that Franco's Spanish fascists were falling back.",
+     "walkthrough": "The Falangists were the Spanish fascist movement behind Franco.",
+     "definitionFit": "A signal is a sign or light that indicates something, so it is an indicator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Indicator"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1101,57 @@
      }
     ]
    },
-   "solution": "GALANIGHT"
+   "solution": "GALANIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GALA NIGHT",
+    "definitions": [
+     {
+      "text": "spectacular show",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surprisingly",
+      "for": "anagram",
+      "note": "surprisingly suggests an unexpected arrangement, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "halting a",
+      "gives": "HALTINGA",
+      "note": "taken as written before mixing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GHALTINGA",
+       "gives": "GALANIGHT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The authorities unexpectedly call off a big public entertainment.",
+     "walkthrough": "'Halting' looks like a container or deletion signal, but its letters are part of the mix.",
+     "definitionFit": "A gala night is a festive evening of special entertainment, a grand occasion or show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "halting"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1165,64 @@
     "text": "Legendary hero from country near central Europe",
     "enumeration": "6"
    },
-   "solution": "ROLAND"
+   "solution": "ROLAND",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROLAND",
+    "definitions": [
+     {
+      "text": "Legendary hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central",
+      "for": "letter_selection",
+      "note": "central keeps only the middle pair of letters of the continent's name"
+     },
+     {
+      "text": "near",
+      "for": "charade",
+      "note": "near means the nation is placed right beside the selected letters"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe",
+      "gives": "RO",
+      "select": "middle",
+      "note": "the two middle letters of the six"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "LAND",
+      "note": "a land is a nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "LAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A mythical champion who came from a nation close to the heart of Europe.",
+     "walkthrough": "The surface invites POLAND; the wordplay builds the hero's name from the middle of Europe plus 'land'.",
+     "definitionFit": "Roland was the paladin of Charlemagne celebrated in the medieval Song of Roland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1236,50 @@
     "text": "Sand put around shovel",
     "enumeration": "7"
    },
-   "solution": "DUSTPAN"
+   "solution": "DUSTPAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DUSTPAN",
+    "definitions": [
+     {
+      "text": "shovel",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "turned around in the sense of moved about, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sand put",
+      "gives": "SANDPUT",
+      "note": "the letters of both words are the raw material"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SANDPUT",
+       "gives": "DUSTPAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has spread sand about and grabs a shovel to clear it.",
+     "definitionFit": "A dustpan is a small flat scoop for gathering sweepings, a kind of little shovel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1293,69 @@
     "text": "Having lost leader, get sealed somehow inside high school",
     "enumeration": "8"
    },
-   "solution": "HEADLESS"
+   "solution": "HEADLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HEADLESS",
+    "definitions": [
+     {
+      "text": "Having lost leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means by some unspecified means, so the letters are put together in some new way"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places the mixed letters within the abbreviation for the school"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "get sealed",
+      "gives": "SEALED",
+      "note": "the letters of the second word are the material; 'get' is a link"
+     },
+     {
+      "clueFragment": "high school",
+      "gives": "HS",
+      "note": "abbreviation for high school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EADLES",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEALED",
+       "gives": "EADLES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A school whose principal has left gets locked up until a replacement is found.",
+     "definitionFit": "Literally without a head, so headless describes something that has lost its chief or leader."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1369,50 @@
     "text": "Georgian city's impressive area",
     "enumeration": "7"
    },
-   "solution": "AUGUSTA"
+   "solution": "AUGUSTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AUGUSTA",
+    "definitions": [
+     {
+      "text": "Georgian city",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impressive",
+      "gives": "AUGUST",
+      "note": "august means grand and dignified"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUGUST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Boasting about the grand neighbourhood of a city in Georgia.",
+     "walkthrough": "Georgia here is the US state, not the Caucasian country; Augusta hosts the Masters golf tournament.",
+     "definitionFit": "Augusta is a city in the American state of Georgia, so it is a Georgian city."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Georgian"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1426,70 @@
     "text": "Uncomfortably hot politicians working for Daley?",
     "enumeration": "8"
    },
-   "solution": "THOMPSON"
+   "solution": "THOMPSON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "THOMPSON",
+    "definitions": [
+     {
+      "text": "Daley",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Uncomfortably",
+      "for": "anagram",
+      "note": "something uncomfortable is out of place, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "THO",
+      "note": "letters of the word mixed"
+     },
+     {
+      "clueFragment": "politicians",
+      "gives": "MPS",
+      "note": "Members of Parliament"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THO",
+      "MPS",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOT",
+       "gives": "THO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sweltering MPs labour on behalf of a city mayor named Daley.",
+     "walkthrough": "Daley suggests the Chicago mayors, but it is Daley Thompson, the British decathlete who won Olympic gold in 1980 and 1984. The question mark marks the name as a forename.",
+     "definitionFit": "Daley Thompson is the famous athlete, so his surname is what goes with the forename Daley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Daley"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1503,55 @@
     "text": "Individual gracious without cash",
     "enumeration": "5"
    },
-   "solution": "MONEY"
+   "solution": "MONEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MONEY",
+    "definitions": [
+     {
+      "text": "cash",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so the exclamation goes round the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gracious",
+      "gives": "MY",
+      "note": "'Gracious!' and 'My!' are both exclamations of surprise"
+     },
+     {
+      "clueFragment": "Individual",
+      "gives": "ONE",
+      "note": "one is a single individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ONE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly person who happens to be broke.",
+     "walkthrough": "'Without' looks like 'lacking', and the surface leans on that, but here it means outside.",
+     "definitionFit": "Money and cash are everyday synonyms for currency used to pay for things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1565,58 @@
     "text": "German athlete loses head becoming Arsenal player",
     "enumeration": "6"
    },
-   "solution": "GUNNER"
+   "solution": "GUNNER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "GUNNER",
+    "definitions": [
+     {
+      "text": "Arsenal player",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses head",
+      "for": "deletion",
+      "note": "losing its head means the sportsman's word drops its first letter"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "athlete",
+      "gives": "RUNNER",
+      "note": "a runner is a track athlete"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "UNNER"
+     ]
+    },
+    "explanation": {
+     "surface": "A German sportsman's career collapses before he joins a London football club.",
+     "walkthrough": "Arsenal, the London football club, are nicknamed the Gunners.",
+     "definitionFit": "Arsenal footballers are known as Gunners, after the club's origins at the Royal Arsenal munitions works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -391,7 +1630,63 @@
     "text": "Chap I don't know gets one in Berlin up",
     "enumeration": "5"
    },
-   "solution": "ERNIE"
+   "solution": "ERNIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ERNIE",
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the German word from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I don't know",
+      "gives": "ER",
+      "note": "the hesitant sound of someone unsure"
+     },
+     {
+      "clueFragment": "one in Berlin",
+      "gives": "EIN",
+      "note": "German for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "NIE"
+     ],
+     "reversals": [
+      {
+       "from": "EIN",
+       "to": "NIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled man admits ignorance as someone in Berlin gets out of bed.",
+     "definitionFit": "Ernie is a man's name, and crosswords often define first names as chap, fellow or man."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 25,
@@ -405,7 +1700,71 @@
     "text": "Article on Turkey reckons without rising exchanges",
     "enumeration": "10"
    },
-   "solution": "TRANSPOSES"
+   "solution": "TRANSPOSES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRANSPOSES",
+    "definitions": [
+     {
+      "text": "exchanges",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one thing on another comes after it"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a small word is removed from the verb for reckons"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turkey",
+      "gives": "TR",
+      "note": "international vehicle code for Turkey"
+     },
+     {
+      "clueFragment": "Article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "reckons",
+      "gives": "SUPPOSES",
+      "note": "to reckon is to suppose"
+     },
+     {
+      "clueFragment": "rising",
+      "gives": "UP",
+      "note": "something rising is going up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "AN",
+      "SPOSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper piece on Turkey reckons that trade is happening without any growth.",
+     "walkthrough": "Take UP out of SUPPOSES to leave SPOSES.",
+     "definitionFit": "To transpose is to make items swap places, so transposes means switches or exchanges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 26,
@@ -419,7 +1778,49 @@
     "text": "Arms oddly go up nose",
     "enumeration": "4"
    },
-   "solution": "GUNS"
+   "solution": "GUNS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GUNS",
+    "definitions": [
+     {
+      "text": "Arms",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly keeps the letters in the odd-numbered positions: first, third, fifth and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go up nose",
+      "gives": "GUNS",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters of the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUNS"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange image of limbs that rise up towards the nose.",
+     "definitionFit": "Arms means weapons, and guns are the commonest firearms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Arms"
+    }
+   }
   },
   {
    "number": 27,
@@ -433,7 +1834,54 @@
     "text": "African knights escort Irish singer",
     "enumeration": "6"
    },
-   "solution": "KENYAN"
+   "solution": "KENYAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KENYAN",
+    "definitions": [
+     {
+      "text": "African",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escort",
+      "for": "container",
+      "note": "to escort is to flank someone on both sides, so the singer is placed between the two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knights",
+      "gives": "KN",
+      "note": "K and N are both abbreviations for knight, so two knights"
+     },
+     {
+      "clueFragment": "Irish singer",
+      "gives": "ENYA",
+      "note": "the Irish singer famous for Orinoco Flow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ENYA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Two knights act as bodyguards to a famous Irish vocalist.",
+     "definitionFit": "A Kenyan is a native of Kenya in East Africa, so an African by nationality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "knights"
+    }
+   }
   },
   {
    "number": 28,
@@ -447,7 +1895,68 @@
     "text": "Alarmed scrum leader was first after hooker",
     "enumeration": "8"
    },
-   "solution": "STARTLED"
+   "solution": "STARTLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STARTLED",
+    "definitions": [
+     {
+      "text": "Alarmed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "leader keeps only the opening letter of the rugby word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the verb for leading comes behind the slang word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scrum",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "hooker",
+      "gives": "TART",
+      "note": "slang for a prostitute"
+     },
+     {
+      "clueFragment": "was first",
+      "gives": "LED",
+      "note": "to lead is to be in front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TART",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby report: the scrum's front man led the way just behind the hooker.",
+     "walkthrough": "In rugby the hooker is a forward in the scrum, but here 'hooker' is a prostitute.",
+     "definitionFit": "Startled means suddenly frightened or surprised, a near synonym of alarmed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hooker"
+    }
+   }
   }
  ]
 }
