@@ -75,8 +75,10 @@ for (const file of files) {
   if (meta(h, "og:image:width") !== "1200" || meta(h, "og:image:height") !== "630")
     bad("og:image:width/height is not 1200x630");
   const image = meta(h, "og:image") || "";
-  const m = image.match(/^https:\/\/cryptic\.paultarjan\.com\/([^?]+)\?v=([0-9a-f]{8})$/);
-  if (!m) { bad(`og:image ${image} is not an absolute stamped URL on this site`); continue; }
+  // The tracked index.html is unstamped; pages.yml stamps its own checkout.
+  const stamp = rel === "index.html" ? "(?:\\?v=([0-9a-f]{8}))?" : "\\?v=([0-9a-f]{8})";
+  const m = image.match(new RegExp(`^https://cryptic\\.paultarjan\\.com/([^?]+)${stamp}$`));
+  if (!m) { bad(`og:image ${image} is not an absolute${rel === "index.html" ? "" : " stamped"} URL on this site`); continue; }
   const [, img, v] = m;
   const puzzlePage = /^puzzles\/(?!series\/)[^/]+\/index\.html$/.test(rel);
   if (!puzzlePage && rel !== "index.html") {
