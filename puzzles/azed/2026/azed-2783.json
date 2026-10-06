@@ -38,6 +38,9 @@
   "date": "2026-09-13",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,64 @@
     "text": "Speaker holding right box for composer",
     "enumeration": "12"
    },
-   "solution": "ORCHESTRATOR"
+   "solution": "ORCHESTRATOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORCHESTRATOR",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "a speaker holding something keeps it inside, so the next words go within the word for speaker"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speaker",
+      "gives": "ORATOR",
+      "note": "a speaker is one who makes speeches"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "CHEST",
+      "note": "a chest is a large box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "R",
+      "CHEST",
+      "RATOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A public speaker clutches a box meant for some composer.",
+     "walkthrough": "The insertion goes after the speaker's opening letter, not in its middle, so the split point is the thing to find.",
+     "definitionFit": "Someone who scores music for an orchestra arranges or writes it, so the word can stand for a composer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +125,67 @@
     "text": "Odd bits of whin interspersed with grass in west-country stream",
     "enumeration": "5"
    },
-   "solution": "RHYNE"
+   "solution": "RHYNE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RHYNE",
+    "definitions": [
+     {
+      "text": "west-country stream",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd bits of",
+      "for": "letter_selection",
+      "note": "only scattered bits of the word whin are used, taking every other letter"
+     },
+     {
+      "text": "interspersed with",
+      "for": "container",
+      "note": "the kept letters are scattered through the next word rather than added at one end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "whin",
+      "gives": "HN",
+      "select": "alternate",
+      "note": "second and fourth letters of whin, a name for gorse"
+     },
+     {
+      "clueFragment": "grass",
+      "gives": "RYE",
+      "note": "rye is a cereal grass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "H",
+      "Y",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Gorse and grass growing by a stream in the south-west of England.",
+     "walkthrough": "H goes after the R of RYE and N after the Y: R-H-Y-N-E. A rhyne is a drainage ditch on the Somerset Levels.",
+     "definitionFit": "Chambers gives rhyne as a Somerset word for an open ditch or watercourse, a dialect term from England's south-west."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +199,63 @@
     "text": "Promissory note strangely clued with ﬁrst letter",
     "enumeration": "6"
    },
-   "solution": "CEDULA"
+   "solution": "CEDULA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CEDULA",
+    "definitions": [
+     {
+      "text": "Promissory note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "done strangely means done in an odd way, so the letters come out in an odd order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clued",
+      "gives": "CLUED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ﬁrst letter",
+      "gives": "A",
+      "note": "A is the first letter of the alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CEDUL",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUED",
+       "gives": "CEDUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle setter admits a promissory note was oddly clued from its first letter.",
+     "definitionFit": "A cedula is a Spanish or Philippine written order or IOU, a document promising payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +269,46 @@
     "text": "Elements of woody tissue esteemed capital",
     "enumeration": "7"
    },
-   "solution": "HADROME"
+   "solution": "HADROME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HADROME",
+    "definitions": [
+     {
+      "text": "Elements of woody tissue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "esteemed",
+      "gives": "HAD",
+      "note": "to have someone in a regard is to esteem them; had is the past form"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "ROME",
+      "note": "Rome is the capital of Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAD",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "A botanist praises the vital parts of wood in some highly regarded capital.",
+     "definitionFit": "Hadrome is the botanical term for the conducting cells of xylem, the water-carrying parts of wood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +322,62 @@
     "text": "Twining plant, treat mostly, as once, with chopper",
     "enumeration": "6"
    },
-   "solution": "SMILAX"
+   "solution": "SMILAX",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SMILAX",
+    "definitions": [
+     {
+      "text": "Twining plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the word for treat loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treat",
+      "gives": "SMILE",
+      "note": "a smile is slang for a drink, a treat stood to someone"
+     },
+     {
+      "clueFragment": "as once",
+      "note": "no letters: it marks the next word's spelling as an archaic one"
+     },
+     {
+      "clueFragment": "chopper",
+      "gives": "AX",
+      "note": "an old spelling of axe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMIL",
+      "AX"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener tackles a climbing plant with an axe, as in old times.",
+     "walkthrough": "'as once' marks AX as an archaic spelling of axe.",
+     "definitionFit": "Smilax is a genus of climbing plants, including sarsaparilla, that wind round supports with tendrils."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treat"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +391,44 @@
     "text": "What one player may hold, a couple of cards",
     "enumeration": "6"
    },
-   "solution": "TENACE"
+   "solution": "TENACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TENACE",
+    "definitions": [
+     {
+      "text": "What one player may hold",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a couple",
+      "note": "the next words give two pieces"
+     },
+     {
+      "clueFragment": "cards",
+      "gives": "TENACE",
+      "note": "a ten and an ace, two playing cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player looks at what is in their hand: a pair of cards.",
+     "walkthrough": "The two cards are a TEN and an ACE.",
+     "definitionFit": "In bridge or whist a tenace is a holding of the best and third-best cards of a suit, held by one player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +442,72 @@
     "text": "Weed, wretched specimen, mostly grown wild inside",
     "enumeration": "7"
    },
-   "solution": "RAGWORT"
+   "solution": "RAGWORT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "RAGWORT",
+    "definitions": [
+     {
+      "text": "Weed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the following word loses its last letter"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "running wild means out of control, so these letters lose their order"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "the jumbled letters are placed inside the word for the wretch"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wretched specimen",
+      "gives": "RAT",
+      "note": "a rat is a contemptible person"
+     },
+     {
+      "clueFragment": "grown",
+      "gives": "GROW",
+      "note": "the word minus its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "GWOR",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GROW",
+       "gives": "GWOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sorry weed that has largely run wild in a garden.",
+     "definitionFit": "Ragwort is a yellow-flowered wild plant of the daisy family, poisonous to livestock and treated as a weed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "grown"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +521,63 @@
     "text": "Poet, rising but not special, in costume",
     "enumeration": "6"
    },
-   "solution": "TOILET"
+   "solution": "TOILET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "TOILET",
+    "definitions": [
+     {
+      "text": "costume",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means reading the poet's name from the bottom up"
+     },
+     {
+      "text": "but not special",
+      "for": "deletion",
+      "note": "special is abbreviated S, and 'not' tells us to remove that letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet",
+      "gives": "TSELIOT",
+      "note": "T. S. Eliot, the poet of The Waste Land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOILET"
+     ],
+     "reversals": [
+      {
+       "from": "TSELIOT",
+       "to": "TOILEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet getting up in fancy dress.",
+     "walkthrough": "TOILEST loses its S. Toilet here is the older sense, as in toilette: one's dress or getting dressed.",
+     "definitionFit": "Toilet, like toilette, once meant the process of dressing and so one's attire or costume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +591,51 @@
     "text": "Not following circular, more out of date",
     "enumeration": "5"
    },
-   "solution": "OLDER"
+   "solution": "OLDER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OLDER",
+    "definitions": [
+     {
+      "text": "more out of date",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not following",
+      "for": "deletion",
+      "note": "following is abbreviated F in references, and 'not' strips that letter away"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circular",
+      "gives": "FOLDER",
+      "note": "a folder is a folded leaflet or circular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Disregarding a circular letter because it is now obsolete.",
+     "walkthrough": "'circular' looks like an adjective, but it is a noun: a leaflet, or FOLDER, which drops F.",
+     "definitionFit": "Something older is more ancient, further behind the times, so more out of date in a simple comparative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circular"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +649,72 @@
     "text": "Flour less some bran and grain we ate with ham mixed – little left",
     "enumeration": "9"
    },
-   "solution": "WHEATMEAL"
+   "solution": "WHEATMEAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WHEATMEAL",
+    "definitions": [
+     {
+      "text": "Flour less some bran",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "things mixed are stirred together, so the preceding letters are blended into a new order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grain",
+      "note": "part of the definition's surface; no letters"
+     },
+     {
+      "clueFragment": "we ate",
+      "gives": "WEATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ham",
+      "gives": "HAM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "little left",
+      "gives": "L",
+      "note": "a little of left: L is its abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHEATMEA",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WEATEHAM",
+       "gives": "WHEATMEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A menu note: flour and grain, and we ate it with ham, mixed, with little left over.",
+     "definitionFit": "Wheatmeal is brown flour with only some of the bran sifted out, between wholemeal and white."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +728,53 @@
     "text": "Para crawls, chaﬁng in loose old greatcoat",
     "enumeration": "10"
    },
-   "solution": "WRAPRASCAL"
+   "solution": "WRAPRASCAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WRAPRASCAL",
+    "definitions": [
+     {
+      "text": "loose old greatcoat",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaﬁng",
+      "for": "anagram",
+      "note": "chafing means rubbing and fretting, so the letters are rubbed out of their order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Para crawls",
+      "gives": "PARACRAWLS",
+      "note": "taken as written: a paratrooper crawls"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARACRAWLS",
+       "gives": "WRAPRASCAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A paratrooper crawls along, sore and rubbed raw inside a baggy old army coat.",
+     "definitionFit": "A wrap-rascal was an eighteenth-century loose overcoat or surtout, now a historical term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Para"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +788,62 @@
     "text": "Submerged by bog, (English) girl star in church opening",
     "enumeration": "10"
    },
-   "solution": "FENESTELLA"
+   "solution": "FENESTELLA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FENESTELLA",
+    "definitions": [
+     {
+      "text": "church opening",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Submerged by",
+      "for": "charade",
+      "note": "in a down entry, something submerged sits underneath, so the following pieces go below the word for bog"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bog",
+      "gives": "FEN",
+      "note": "a fen is marshy land"
+     },
+     {
+      "clueFragment": "(English)",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "girl star",
+      "gives": "STELLA",
+      "note": "a girl's name that is the Latin for star"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEN",
+      "E",
+      "STELLA"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl who is a star has sunk into a bog by a church window.",
+     "definitionFit": "A fenestella is a small window-like niche in a church wall, usually holding the piscina beside the altar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +857,49 @@
     "text": "Phone team for seating area",
     "enumeration": "8"
    },
-   "solution": "RINGSIDE"
+   "solution": "RINGSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RINGSIDE",
+    "definitions": [
+     {
+      "text": "seating area",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phone",
+      "gives": "RING",
+      "note": "to ring someone is to phone them"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team in sport"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RING",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Calling a sports team to book seats.",
+     "definitionFit": "Ringside seats are the places closest to a boxing ring, so the word names that spectator area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Phone"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +913,54 @@
     "text": "Amphibians, emanation gathering number",
     "enumeration": "5"
    },
-   "solution": "ANURA"
+   "solution": "ANURA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANURA",
+    "definitions": [
+     {
+      "text": "Amphibians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gathering",
+      "for": "container",
+      "note": "a thing gathering something draws it in, so the following letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emanation",
+      "gives": "AURA",
+      "note": "an aura is a subtle emanation surrounding something"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "URA"
+     ]
+    },
+    "explanation": {
+     "surface": "Frogs and toads give off some kind of emanation that gathers a crowd.",
+     "definitionFit": "Anura is the order of tailless amphibians, the frogs and toads, named as a zoological group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +974,55 @@
     "text": "Cheer without address? Resulting depression",
     "enumeration": "4"
    },
-   "solution": "GLEN"
+   "solution": "GLEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GLEN",
+    "definitions": [
+     {
+      "text": "Resulting depression",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the abbreviation for address is removed from the word for cheer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheer",
+      "gives": "GLADDEN",
+      "note": "to gladden is to cheer up"
+     },
+     {
+      "clueFragment": "address",
+      "gives": "ADD",
+      "note": "add. is the dictionary abbreviation for address"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GL",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Losing someone's cheer and finding yourself with no fixed address leaves you depressed.",
+     "walkthrough": "'Resulting' tells us the leftover letters are the answer; 'depression' is a hollow in the land, not low spirits.",
+     "definitionFit": "A glen is a narrow valley, a dip in the landscape, which is a depression in the geographical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1036,57 @@
     "text": "Ball penetrates small shield in game for two",
     "enumeration": "6"
    },
-   "solution": "PELOTA"
+   "solution": "PELOTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PELOTA",
+    "definitions": [
+     {
+      "text": "game for two",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penetrates",
+      "for": "container",
+      "note": "something that penetrates gets inside, so it is placed within the word for shield"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ball",
+      "gives": "O",
+      "note": "a ball is round, the shape of the letter O"
+     },
+     {
+      "clueFragment": "small shield",
+      "gives": "PELTA",
+      "note": "a pelta is a small light shield of ancient Greece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEL",
+      "O",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "A ball pierces a small shield during a two-player game.",
+     "definitionFit": "Pelota is the Basque court game in which a ball is hurled against a wall, played by two opponents or pairs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ball"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1100,57 @@
     "text": "To be consistent, male takes central part in company",
     "enumeration": "6"
    },
-   "solution": "COHERE"
+   "solution": "COHERE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COHERE",
+    "definitions": [
+     {
+      "text": "To be consistent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes central part in",
+      "for": "container",
+      "note": "to take the central part is to stand in the middle, so this goes inside the next word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he is the male pronoun"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CORE",
+      "note": "a core is a central group or nucleus of people, a company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "HE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man stays consistent by taking a leading role in a firm.",
+     "definitionFit": "To cohere is to hang together logically, as an argument or plan does when its parts agree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1164,49 @@
     "text": "Rambles over any moorland stretch? Leaders in ranges",
     "enumeration": "5"
    },
-   "solution": "ROAMS"
+   "solution": "ROAMS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ROAMS",
+    "definitions": [
+     {
+      "text": "ranges",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders in",
+      "for": "letter_selection",
+      "note": "leaders are the front runners, so each word gives up only its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rambles over any moorland stretch?",
+      "gives": "ROAMS",
+      "select": "first",
+      "note": "initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROAMS"
+     ]
+    },
+    "explanation": {
+     "surface": "A walker rambles over a stretch of moor in the hill ranges.",
+     "walkthrough": "'Rambles' wants to be the definition, but it supplies only its first letter; the definition is the verb at the end.",
+     "definitionFit": "To range is to wander freely over an area, so ranges is a straight verb synonym, as in roving over hills."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ranges"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1220,66 @@
     "text": "What this stands for follows in USSR possibly",
     "enumeration": "7"
    },
-   "solution": "SUNRISE"
+   "solution": "SUNRISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SUNRISE",
+    "definitions": [
+     {
+      "text": "this",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly means the letters might be arranged some other way"
+     },
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "what follows comes after, so the anagram goes first and this letter last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in USSR",
+      "gives": "INUSSR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "What this stands for",
+      "gives": "E",
+      "note": "the dawn sun marks a compass point, and E is its abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUNRIS",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INUSSR",
+       "gives": "SUNRIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about what some emblem might mean in the old Soviet Union.",
+     "walkthrough": "'this' points to the answer itself: the sun rises in the east, so a sunrise stands for E, which goes after the jumbled letters.",
+     "definitionFit": "The clue's 'this' refers to the solution itself, the dawn whose position signals east."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "USSR"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1293,63 @@
     "text": "Cross with stereo going wrong? Abnormal dryness",
     "enumeration": "7"
    },
-   "solution": "XEROTES"
+   "solution": "XEROTES",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "XEROTES",
+    "definitions": [
+     {
+      "text": "Abnormal dryness",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going wrong",
+      "for": "anagram",
+      "note": "a stereo going wrong is out of order, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cross",
+      "gives": "X",
+      "note": "X is the shape of a cross"
+     },
+     {
+      "clueFragment": "stereo",
+      "gives": "STEREO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "EROTES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STEREO",
+       "gives": "EROTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Annoyed that the stereo has broken down, with a dry throat to boot.",
+     "definitionFit": "Xerotes is a medical term for a dry habit of the body, an abnormal lack of moisture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1363,67 @@
     "text": "Oﬀer a better return than what’s fantastic? Cheers up within",
     "enumeration": "7"
    },
-   "solution": "OUTRATE"
+   "solution": "OUTRATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "OUTRATE",
+    "definitions": [
+     {
+      "text": "Oﬀer a better return than",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word reads from the bottom upwards"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within places the turned word inside the word for fantastic"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what’s fantastic",
+      "gives": "OUTRE",
+      "note": "outré means bizarre, beyond the bounds"
+     },
+     {
+      "clueFragment": "Cheers",
+      "gives": "TA",
+      "note": "ta is British informal thanks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTR",
+      "AT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An investor asks what fantastic deal pays better, and is cheered up by the answer.",
+     "walkthrough": "'Cheers' is British thanks, TA, not a toast.",
+     "definitionFit": "To outrate is to exceed in rate, as an investment yielding more than another does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheers"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1437,74 @@
     "text": "Directors from USA with time broadcast round Europe",
     "enumeration": "7"
    },
-   "solution": "AUTEURS"
+   "solution": "AUTEURS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AUTEURS",
+    "definitions": [
+     {
+      "text": "Directors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so these letters are strewn into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the jumbled letters enclose the abbreviation"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "USA",
+      "gives": "USA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Europe",
+      "gives": "EUR",
+      "note": "EUR is an abbreviation for Europe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUT",
+      "EUR",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USAT",
+       "gives": "AUTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American film directors' work, broadcast in time all round Europe.",
+     "definitionFit": "Auteurs are film directors whose personal style marks their films, the French word for authors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1518,66 @@
     "text": "Old singer, single, stuck in routine, given a lift",
     "enumeration": "6"
    },
-   "solution": "TENOUR"
+   "solution": "TENOUR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TENOUR",
+    "definitions": [
+     {
+      "text": "Old singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck in",
+      "for": "container",
+      "note": "stuck in means lodged inside, so the word for single goes within the next word"
+     },
+     {
+      "text": "given a lift",
+      "for": "reversal",
+      "note": "in a down entry, lifting means turning the word to read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "ONE",
+      "note": "one is a single"
+     },
+     {
+      "clueFragment": "routine",
+      "gives": "RUT",
+      "note": "a rut is a dull fixed routine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ENO",
+      "UR"
+     ],
+     "reversals": [
+      {
+       "from": "RUONET",
+       "to": "TENOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran single singer, stuck in a rut, gets a boost.",
+     "definitionFit": "Tenour is an obsolete spelling of tenor, the high male voice, so it names an old-style singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1591,51 @@
     "text": "Ropes sea-rat running wild",
     "enumeration": "6"
    },
-   "solution": "REATAS"
+   "solution": "REATAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REATAS",
+    "definitions": [
+     {
+      "text": "Ropes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running wild",
+      "for": "anagram",
+      "note": "running wild means out of control, so the letters break their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea-rat",
+      "gives": "SEARAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEARAT",
+       "gives": "REATAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pirate runs amok among the ship's ropes.",
+     "walkthrough": "A sea-rat is a pirate.",
+     "definitionFit": "A reata or riata is a lasso or lariat, the American cowboy's rope, so the plural means ropes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ropes"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1649,49 @@
     "text": "Stone ﬁssure causing struggle of old",
     "enumeration": "6"
    },
-   "solution": "STRIFT"
+   "solution": "STRIFT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRIFT",
+    "definitions": [
+     {
+      "text": "struggle of old",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stone",
+      "gives": "ST",
+      "note": "st is the abbreviation for stone, the weight"
+     },
+     {
+      "clueFragment": "ﬁssure",
+      "gives": "RIFT",
+      "note": "a rift is a crack or fissure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RIFT"
+     ]
+    },
+    "explanation": {
+     "surface": "A crack in a rock leads to an old quarrel.",
+     "definitionFit": "Strift is an obsolete form of strife, meaning conflict or contention, hence a struggle from bygone usage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stone"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1705,52 @@
     "text": "Powerful house, not the ﬁrst, showing strong growth?",
     "enumeration": "5"
    },
-   "solution": "TUART"
+   "solution": "TUART",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TUART",
+    "definitions": [
+     {
+      "text": "strong growth?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the ﬁrst",
+      "for": "deletion",
+      "note": "dropping the first means the royal name loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Powerful house",
+      "gives": "STUART",
+      "note": "the Stuarts were a royal house of Scotland and England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUART"
+     ]
+    },
+    "explanation": {
+     "surface": "A mighty dynasty, not its first king, showing healthy growth.",
+     "walkthrough": "'growth' is a plant: the tuart is a tree, and the question mark flags that.",
+     "definitionFit": "The tuart is a Western Australian eucalyptus with very hard, strong timber, a sturdy growing tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "growth"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1764,63 @@
     "text": "Early letters, super, turning up, revealing a woman’s sterility",
     "enumeration": "6"
    },
-   "solution": "ATOCIA"
+   "solution": "ATOCIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ATOCIA",
+    "definitions": [
+     {
+      "text": "a woman’s sterility",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means reading the word from the bottom"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early letters",
+      "gives": "ATOC",
+      "note": "A to C, the first letters of the alphabet"
+     },
+     {
+      "clueFragment": "super",
+      "gives": "AI",
+      "note": "A1 means first-class, written AI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATOC",
+      "IA"
+     ],
+     "reversals": [
+      {
+       "from": "AI",
+       "to": "IA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some early letters, very fine ones, reveal a woman's infertility.",
+     "definitionFit": "Atocia is a medical term for female sterility, inability to bear children."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1834,42 @@
     "text": "Writer taken to heart by westerners",
     "enumeration": "6"
    },
-   "solution": "STERNE"
+   "solution": "STERNE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STERNE",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken to heart by",
+      "for": "hidden_word",
+      "note": "held at the heart of a word means the answer sits within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "westerners",
+      "gives": "STERNE",
+      "note": "letters 3 to 8 of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "An author loved by people in the West.",
+     "definitionFit": "Laurence Sterne wrote Tristram Shandy, so his surname names a well-known writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1883,70 @@
     "text": "Bark of a kind, reverse of a soft stroke",
     "enumeration": "5"
    },
-   "solution": "TAPPA"
+   "solution": "TAPPA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TAPPA",
+    "definitions": [
+     {
+      "text": "Bark of a kind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse of",
+      "for": "reversal",
+      "note": "the reverse of a phrase is the phrase read backwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "p is piano, soft in music"
+     },
+     {
+      "clueFragment": "stroke",
+      "gives": "PAT",
+      "note": "a pat is a light stroke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAP",
+      "P",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "APPAT",
+       "to": "TAPPA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog's bark of some kind, the opposite of a gentle pat.",
+     "walkthrough": "'Bark' is tree bark, not a dog's.",
+     "definitionFit": "Tappa, or tapa, is the inner bark of the paper mulberry, beaten into cloth in the Pacific."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bark"
+    }
+   }
   },
   {
    "number": 29,
@@ -457,7 +1960,56 @@
     "text": "Lie about abstaining – from such?",
     "enumeration": "6"
    },
-   "solution": "TATTLE"
+   "solution": "TATTLE",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "TATTLE",
+    "definitions": [
+     {
+      "text": "Lie about abstaining – from such?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for lie encloses the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lie",
+      "gives": "TALE",
+      "note": "a tale is a falsehood"
+     },
+     {
+      "clueFragment": "abstaining",
+      "gives": "TT",
+      "note": "TT means teetotal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "TT",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rumour about someone being on the wagon, the sort of thing you should abstain from.",
+     "walkthrough": "The whole clue defines: idle gossip, a lie spread about, is what one should refrain from.",
+     "definitionFit": "Tattle is idle gossip or tale-telling, the kind of talk that spreads lies and that decent people abstain from."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "abstaining"
+    }
+   }
   },
   {
    "number": 30,
@@ -471,7 +2023,58 @@
     "text": "Upper house in the place of the seal, beginning within",
     "enumeration": "5"
    },
-   "solution": "LORDS"
+   "solution": "LORDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LORDS",
+    "definitions": [
+     {
+      "text": "Upper house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within places the word for beginning inside the abbreviation"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the place of the seal",
+      "gives": "LS",
+      "note": "L.S., locus sigilli, marks the place of the seal on a document"
+     },
+     {
+      "clueFragment": "beginning",
+      "gives": "ORD",
+      "note": "ord is an old word for a point or beginning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ORD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The House of Lords sits where the seal is placed, starting inside.",
+     "walkthrough": "LS is Latin locus sigilli; ORD is archaic for a beginning. The Lords is the upper house of Britain's Parliament.",
+     "definitionFit": "The House of Lords is the upper chamber of the UK Parliament, often called simply the Lords."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 31,
@@ -485,7 +2088,46 @@
     "text": "Container with gallon? Chinese oﬀenders have to bear it",
     "enumeration": "4"
    },
-   "solution": "CANG"
+   "solution": "CANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CANG",
+    "definitions": [
+     {
+      "text": "Chinese oﬀenders have to bear it",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Container",
+      "gives": "CAN",
+      "note": "a can is a container"
+     },
+     {
+      "clueFragment": "gallon",
+      "gives": "G",
+      "note": "g is an abbreviation for gallon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A container of a gallon that offenders in China must carry.",
+     "definitionFit": "A cang or cangue was a heavy wooden collar locked round a Chinese criminal's neck as punishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Container"
+    }
+   }
   },
   {
    "number": 32,
@@ -499,7 +2141,53 @@
     "text": "Such drivel lout of old is backing",
     "enumeration": "5"
    },
-   "solution": "DROOL"
+   "solution": "DROOL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DROOL",
+    "definitions": [
+     {
+      "text": "Such drivel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is backing",
+      "for": "reversal",
+      "note": "backing means going backwards, so the old word is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lout of old",
+      "gives": "LOORD",
+      "note": "loord is an obsolete word for a lout"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROOL"
+     ],
+     "reversals": [
+      {
+       "from": "LOORD",
+       "to": "DROOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned yob backs nonsense like this.",
+     "definitionFit": "Drool is foolish talk, nonsense, the same sense as drivel, which also means slobber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 33,
@@ -513,7 +2201,53 @@
     "text": "Being averse to food one set in place, I see",
     "enumeration": "8"
    },
-   "solution": "APOSITIC"
+   "solution": "APOSITIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APOSITIC",
+    "definitions": [
+     {
+      "text": "Being averse to food",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "set in place",
+      "gives": "POSIT",
+      "note": "to posit is to set in place"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "IC",
+      "note": "letters that read as the phrase: I, C for see"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POSIT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone without appetite sets a single place at table, I notice.",
+     "walkthrough": "IC sounds like 'I see'.",
+     "definitionFit": "Apositic is a medical term meaning lacking appetite, having an aversion to eating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 34,
@@ -527,7 +2261,60 @@
     "text": "Resinous medicine one twice swallows – reliable three times daily",
     "enumeration": "9"
    },
-   "solution": "ASAFETIDA"
+   "solution": "ASAFETIDA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASAFETIDA",
+    "definitions": [
+     {
+      "text": "Resinous medicine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "something that swallows takes things inside it, so the next words go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one twice",
+      "gives": "AA",
+      "note": "a, meaning one, written twice"
+     },
+     {
+      "clueFragment": "reliable",
+      "gives": "SAFE",
+      "note": "safe means dependable"
+     },
+     {
+      "clueFragment": "three times daily",
+      "gives": "TID",
+      "note": "t.i.d. is the prescription abbreviation for ter in die"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SAFE",
+      "TID",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's prescription: take a resinous medicine, a reliable one, three times a day.",
+     "definitionFit": "Asafetida is a strong-smelling gum resin from giant fennel, once used medicinally as an antispasmodic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallows"
+    }
+   }
   },
   {
    "number": 35,
@@ -541,7 +2328,70 @@
     "text": "Wherein you’ll see fat sheaves constructed with art – a ––?",
     "enumeration": "12"
    },
-   "solution": "HARVESTFEAST"
+   "solution": "HARVESTFEAST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "and_lit"
+    ],
+    "answer": "HARVESTFEAST",
+    "definitions": [
+     {
+      "text": "Wherein you’ll see fat sheaves constructed with art – a ––?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "constructed",
+      "for": "anagram",
+      "note": "constructed means built up afresh, so these letters are assembled anew"
+     },
+     {
+      "text": "with",
+      "for": "deletion",
+      "note": "the answer with this letter added makes the jumbled phrase, so that letter must come away from the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fat sheaves",
+      "gives": "FATSHEAVES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the single letter that the answer lacks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARVESTFEAST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FATSHEAVESART",
+       "gives": "HARVESTFEASTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A harvest celebration where sheaves of corn are artistically built into displays.",
+     "walkthrough": "A composite anagram: the answer plus A rearranges to FAT SHEAVES ART, so take A away from those letters. The whole clue is also the definition.",
+     "definitionFit": "A harvest feast or festival celebrates gathering the crop, with church decorations of sheaves and produce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   }
  ]
 }
