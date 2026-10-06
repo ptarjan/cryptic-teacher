@@ -253,6 +253,29 @@ for p in puzzles:
     if p["setter"] is None:
         fail(f"#{p['book_number']}: setter lost")
 
+print("case 7b: a page that is only a Down list is the rest of the puzzle before it")
+# Shaped like heraldcrosswordb0000unse #41: the Across list fills its page and
+# the Down list follows on a page of its own, numbers in a column apart from
+# the clues. Counted as a puzzle, that page put every later one a place late.
+long_across = "\n".join(["ACROSS"] + [f"{i} Long across clue {i} ({i % 9 + 3})"
+                                      for i in range(1, 27)])
+down_page = "\n".join(["DOWN", "", "1", "2", "4", ""]
+                      + [f"Down clue on its own page {i} ({i % 9 + 3})" for i in range(1, 10)])
+other_across = "\n".join(["Across clue in a lost heading's puzzle (5)"] * 8
+                         + ["DOWN"] + ["Down clue under it (5)"] * 8)
+book = "\f".join(["The Puzzles", "One\n" + long_across, down_page, "grid noise\n91",
+                  "Two\n" + leaf(2), "grid noise\n96", other_across, "Solutions"])
+with tempfile.TemporaryDirectory() as tmp:
+    path = Path(tmp) / "synthetic.txt"
+    path.write_text(book, encoding="utf-8")
+    puzzles = P.parse_book(path)
+check("puzzles found", [p["raw_number_ocr"] for p in puzzles], ["One", "Two", "Across clue in a lost heading's puzzle (5)"])
+check("#1 keeps its Across list", len(puzzles[0]["across"]), 26)
+check("#1 takes the Down page as its Down list", len(puzzles[0]["down"]), 9)
+check("#2 is the next printed puzzle", puzzles[1]["book_number"], 2)
+check("a page with clues above its Down heading is a puzzle of its own",
+      P.is_continuation_leaf(other_across), False)
+
 # ------------------------------------------------------------------ case 5
 print("case 5: a book grouped by setter names each group once, on a prose leaf")
 PROSE = "\n".join(["A line of the setter's profile, long enough to be prose."] * 5)

@@ -553,8 +553,16 @@ def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
         cut = None if down else down_restart(across)
         if cut is not None:
             across, down = across[:cut], across[cut:]
+        rest = trailing_idxs
+        if not down:
+            # The Down list on a page of its own, after this one.
+            for k, i in enumerate(trailing_idxs):
+                if (lines := down_page_lines(leaves[i])) is not None:
+                    down = [parse_clue_chunk(c) for c in segment_clues(lines)]
+                    rest = trailing_idxs[k + 1:]
+                    break
         if down:
-            down += continued_down(down, trailing_idxs, leaves)
+            down += continued_down(down, rest, leaves)
         record["across"], record["down"] = across, down
     elif mode == "jigsaw":
         record["clues"] = [parse_clue_chunk(c) for c in segment_clues(content_lines)]
@@ -608,12 +616,35 @@ def continued_down(down: list[dict], trailing_idxs: list[int],
     return found
 
 
+def down_page_lines(leaf: str) -> list[str] | None:
+    """The lines under the Down heading of a page that opens with one, else None.
+
+    "Opens with" means no clue comes before the heading. A page whose Across
+    heading OCR lost still has its Across clues above the Down heading, so it
+    is a puzzle of its own; a page that is only a Down list is the rest of the
+    puzzle before it (The Herald Crossword Book prints Ian Rankin's 49-light
+    puzzle's Down list on a page by itself).
+    """
+    lines = leaf.split("\n")
+    for i, line in enumerate(lines):
+        if _header_kind(line) == "DOWN":
+            return lines[i + 1:]
+        if ENUMERATION_RE.search(line.strip()):
+            return None
+    return None
+
+
 def is_continuation_leaf(leaf: str) -> bool:
     """A clue page with no Across heading and no jigsaw "Method:" line is the
-    rest of the previous puzzle's Down list, not a puzzle of its own."""
+    rest of the previous puzzle's Down list, not a puzzle of its own: either it
+    has no heading at all, or its only heading is a Down heading above every
+    clue on it."""
     lines = leaf.split("\n")
-    return (not any(_header_kind(ln) in ("ACROSS", "DOWN") for ln in lines)
-            and not any(ln.strip().lower().startswith("method:") for ln in lines))
+    if (any(_header_kind(ln) == "ACROSS" for ln in lines)
+            or any(ln.strip().lower().startswith("method:") for ln in lines)):
+        return False
+    return (down_page_lines(leaf) is not None
+            or not any(_header_kind(ln) == "DOWN" for ln in lines))
 
 
 def parse_book(text_path: Path) -> list[dict]:
