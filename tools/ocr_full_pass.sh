@@ -1,10 +1,15 @@
 #!/bin/bash
-# Fetch what the scan fetchers find missing, archive.org and Trove at once,
-# each for up to FETCH_SECONDS,
-# then read every archive.org edition and Trove article the scan filers find
-# due, to the end, then stop: never read, inputs changed, read without the VLM
-# that now answers, or read before REREAD_BEFORE (each filer's due_reason),
-# then the sources annotation asked to be read again.
+# Read every archive.org edition and Trove article the scan filers find due,
+# to the end: never read, inputs changed, read without the VLM that now
+# answers, or read before REREAD_BEFORE (each filer's due_reason), then the
+# sources annotation asked to be read again; then fetch what the scan
+# fetchers find missing, archive.org and Trove at once, each for up to
+# FETCH_SECONDS, for the next pass to read.
+#
+# The desktop VLM reads only in the filers' reads, never in a fetch or a
+# scan, so the work that keeps it busy goes first: every paper's due
+# editions whose scans stand (--no-scan) before any paper's scans, and the
+# fetch, which only CPU and network do, last.
 #
 #     (started by: python3 tools/corpus_queue.py tick, hourly, whenever no
 #     corpus job runs; `corpus_queue.py adopt PID` claims one started by hand)
@@ -25,7 +30,7 @@
 # doubled word, a stray letter): the read mends or blanks it (mend_held),
 # and the same for a Trove article (file_trove_puzzles.inputs_of).
 #
-# The scans are cached by the fetchers this pass runs first, archive.org's
+# The scans are cached by the fetchers this pass runs last, archive.org's
 # alongside Trove's, each host for at most FETCH_SECONDS and resumable, so a run with nothing missing costs seconds and
 # a long backlog is fetched a slice per pass: tools/fetch_archive_org_editions.py
 # (every group; an edition not in done.tsv at the current DETECTOR_VERSION is
@@ -35,8 +40,8 @@
 # article is read again once its zones land, so the next pass files it).
 # A fetcher already running (a hand run) is skipped, not doubled. The filers
 # only read caches. A pass that ends having fetched something starts the next
-# one at once (tools/corpus_queue.py chain), so a backlog does not wait for
-# the hourly tick.
+# one at once (tools/corpus_queue.py chain), which reads what it fetched, so
+# a backlog does not wait for the hourly tick.
 # Resumable: each filer's ledger (~/.cache/trove/filed.jsonl,
 # ~/.cache/archive_org_editions/filed.jsonl) is saved after every source,
 # the never-read go first, and a rerun picks up where a killed one stopped.
@@ -121,23 +126,8 @@ fetch() {  # fetch <what> <process regex> <seconds> <fetcher command...>: one bo
   echo "=== $what: from $(date '+%F %T'), at most ${seconds}s ==="
   timeout "$((seconds + GRACE))" nice -n 19 "$@" --seconds "$seconds" 2>&1
   rc=$?
-  [ "$rc" -eq 0 ] || echo "$what failed (rc=$rc); the pass reads what is cached, the next pass fetches again"
+  [ "$rc" -eq 0 ] || echo "$what failed (rc=$rc); the next pass reads what is cached and fetches again"
 }
-
-# archive.org and Trove are different hosts, so their fetches run at once,
-# each within FETCH_SECONDS (Trove's article fetch takes at most half, its
-# clue zones the rest), and the filers start once both have ended.
-# archive.org throttles each connection to ~100 KB/s, not the client (16 at
-# once measured ~100 KB/s each), so --jobs scales the fetch; a 429 lowers it.
-fetch "archive.org fetch" '^python3 (-u )?\S*fetch_archive_org_editions\.py' "$FETCH_SECONDS" \
-  python3 tools/fetch_archive_org_editions.py --jobs 12 &
-{
-  trove_start=$SECONDS
-  fetch "Trove fetch" '^python3 (-u )?\S*fetch_trove\.py' "$((FETCH_SECONDS / 2))" python3 tools/fetch_trove.py fetch
-  fetch "Trove clue zones" '^python3 (-u )?\S*fetch_trove\.py' "$((FETCH_SECONDS - (SECONDS - trove_start)))" \
-    python3 tools/fetch_trove.py zones
-} &
-wait
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # The Times pages Paul downloads by hand from Gale's Times Digital Archive
@@ -151,11 +141,18 @@ python3 tools/gale_inbox.py sync ||
 # new file's clues read once (ledger by file hash), the checklist published.
 python3 tools/gale_listener.py sync ||
   echo "gale_listener sync failed (rc=$?); the readings before stand, the checklist is not refreshed"
+# The reads that wait on no scan first, the VLM's work: every paper's
+# editions whose scans stand, then the Trove articles (that filer scans
+# nothing); then each paper's scans and the reads they make due.
+for paper in times telegraph guardian ft; do
+  slices "$paper off archive.org, scanned" python3 tools/file_archive_org_puzzles.py --paper "$paper" --no-scan \
+    --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
+done
+slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
 for paper in telegraph guardian ft times; do
   slices "$paper off archive.org" python3 tools/file_archive_org_puzzles.py --paper "$paper" \
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1
 done
-slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "$REREAD_BEFORE" || exit 1
 # The sources an annotation run asked to be read again, having met a misread
 # clue on a puzzle filed from them (tools/scan_queue.py request_reread): each
 # read closes its request, and the burn takes the puzzle again after it.
@@ -176,4 +173,19 @@ fi
 nice -n 19 python3 tools/file_archive_org_puzzles.py --match-canberra ||
   echo "file_archive_org_puzzles --match-canberra failed (rc=$?); canberra files keep the reprintOf they had"
 publish "Canberra reprints named" || echo "commit failed for the Canberra reprints"
+
+# archive.org and Trove are different hosts, so their fetches run at once,
+# each within FETCH_SECONDS (Trove's article fetch takes at most half, its
+# clue zones the rest); the next pass reads what they cached.
+# archive.org throttles each connection to ~100 KB/s, not the client (16 at
+# once measured ~100 KB/s each), so --jobs scales the fetch; a 429 lowers it.
+fetch "archive.org fetch" '^python3 (-u )?\S*fetch_archive_org_editions\.py' "$FETCH_SECONDS" \
+  python3 tools/fetch_archive_org_editions.py --jobs 12 &
+{
+  trove_start=$SECONDS
+  fetch "Trove fetch" '^python3 (-u )?\S*fetch_trove\.py' "$((FETCH_SECONDS / 2))" python3 tools/fetch_trove.py fetch
+  fetch "Trove clue zones" '^python3 (-u )?\S*fetch_trove\.py' "$((FETCH_SECONDS - (SECONDS - trove_start)))" \
+    python3 tools/fetch_trove.py zones
+} &
+wait
 echo "=== full pass done $(date '+%F %T') ==="

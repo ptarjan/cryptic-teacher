@@ -930,8 +930,29 @@ f.run(cache=ed_dir.parent.parent, write=False, ledger=Path(os.environ["TMP"]) / 
       editions=["NewsUK1990UKEnglish/1990-01-01_1"])
 check("--edition scans that edition and the days after it, reads it alone",
       (["1990-01-01_1", "1990-01-02_2"], ["1990-01-01_1"]), (sorted(scanned), read))
+# --no-scan scans nothing and reads only the due editions whose read waits
+# on no scan: not 1990-01-01, whose next day (its solution) is unscanned.
+l5 = Path(os.environ["TMP"]) / "l5.jsonl"
+l5.write_text("".join(json.dumps({"edition": f"{d.parent.name}/{d.name}", "filesHash": "h", "scanKey": f.scan_key(),
+                                  "scan": {"puzzles": [{"number": 1, "leaf": 1, "box": None}], "solutions": []}}) + "\n"
+                      for d in (eds[0], eds[2])))
+scanned.clear(); read.clear()
+summary = io.StringIO()
+f.run(cache=ed_dir.parent.parent, write=False, ledger=l5, source=Path(os.environ["TMP"]) / "src", out=summary,
+      scan_new=False)
+check("--no-scan scans nothing and reads only the editions no unscanned day's solution waits on",
+      ([], ["1990-03-01_50"], True), (scanned, read, "3 wait on a scan" in summary.getvalue()))
 (f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
  fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file) = saved
+check("unsettled: an unscanned edition holds back itself and the SOLUTION_DAYS before it, not after",
+      ["1990-01-01_1", "1990-01-02_2"], sorted(d.name for d in f.unsettled(eds, [eds[1]])))
+check("unsettled: an edition the scan of a dir dated SOLUTION_DAYS later still holds back; one day more does not",
+      [True, False], [Path("x/1990-01-01_1") in f.unsettled([Path("x/1990-01-01_1")], [Path(f"x/1990-01-0{k}_2")])
+                      for k in (1 + f.SOLUTION_DAYS, 2 + f.SOLUTION_DAYS)])
+check("unsettled: nothing unscanned holds nothing back; an undated unscanned dir holds back every dir",
+      [set(), set(eds)], [f.unsettled(eds, []), f.unsettled(eds, [Path("x/listener_x")])])
+check("edition_date finds the date anywhere in the name", [__import__("datetime").date(1930, 2, 1), None],
+      [f.edition_date(Path("per_times_the-times_1930-02-01_45426")), f.edition_date(Path("listener_x"))])
 
 import cross_validate
 a = cross_validate.ArchiveOrg()

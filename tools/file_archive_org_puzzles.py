@@ -103,6 +103,10 @@ whether the VLM read it), after each edition. Editions never read go first, then
 A change to this code or the VLM model makes nothing due: whoever makes it
 runs the re-read once, `--reread [BEFORE]` (every edition last read before
 BEFORE, an ISO time, default now; slices of one re-read share a BEFORE).
+--no-scan reads only the due editions whose scans stand, and the scans of the
+SOLUTION_DAYS after them (where their solutions print), and scans nothing:
+the desktop VLM's work that waits on no scan (tools/ocr_full_pass.sh runs it
+for every paper before any paper's scans).
 """
 import argparse
 import datetime
@@ -2519,12 +2523,14 @@ def progress(line):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None, editions=None):
+        source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None, editions=None, scan_new=True):
     """File what is new under `cache`: complete puzzles into the corpus, ones
     with a blank clue into `puzzles` when given. At most `limit` editions are
     read, none started after `seconds`, `workers` at once (scan_queue).
     `reread` (a datetime) reads again every edition last read before it;
     `editions` ("ITEM/EDITION" names) reads those again and no other.
+    Without `scan_new`, nothing is scanned and only the editions whose read
+    waits on no scan are read (unsettled).
     Returns the ledger rows; [] when another run holds the ledger and `wait`
     is not set."""
     deadline = None if seconds is None else time.monotonic() + seconds
@@ -2534,7 +2540,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
             return []
         return _run(cache, write, ledger, out, puzzles, limit, source, paper or TIMES, deadline, workers, reread,
-                    editions)
+                    editions, scan_new)
 
 
 def inputs_of(files_hash, found, series):
@@ -2594,6 +2600,32 @@ def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
 SOLUTION_DAYS = 7
 
 
+def edition_date(d):
+    """The date in an edition dir's name, or None."""
+    m = re.search(r"\d{4}-\d{2}-\d{2}", d.name)
+    return datetime.date.fromisoformat(m.group()) if m else None
+
+
+def unsettled(dirs, unscanned):
+    """The `dirs` whose read waits on a scan in `unscanned`: those and each
+    dated within SOLUTION_DAYS before one (its solution may print there);
+    every dir when an unscanned one, or the dir itself, has no date."""
+    if not unscanned:
+        return set()
+    import bisect
+    pending = [edition_date(d) for d in unscanned]
+    if None in pending:
+        return set(dirs)
+    pending.sort()
+    out = set(unscanned)
+    for d in dirs:
+        day = edition_date(d)
+        k = len(pending) if day is None else bisect.bisect_left(pending, day)
+        if day is None or k < len(pending) and (pending[k] - day).days <= SOLUTION_DAYS:
+            out.add(d)
+    return out
+
+
 def scan_near(dirs, rels, editions):
     """The edition dirs a run limited to `editions` scans: each named one and
     those of its item dated within SOLUTION_DAYS after it."""
@@ -2606,7 +2638,8 @@ def scan_near(dirs, rels, editions):
     return out
 
 
-def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None):
+def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,
+         scan_new=True):
     from fetch_puzzle import puzzle_path, write_puzzle_file
     known = {}
     if ledger.exists():
@@ -2639,6 +2672,14 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             scans[rels[d]] = row["scan"]
         else:
             unscanned[d] = fh
+    # Without scan_new, an edition whose read waits on a scan is left for
+    # the run that scans; every other edition's last scan stands.
+    held_back = set()
+    if not scan_new:
+        held_back = unsettled(dirs, unscanned)
+        for d in unscanned:
+            scans[rels[d]] = (known.get(rels[d]) or {}).get("scan") or {"puzzles": [], "solutions": []}
+        unscanned = {}
     # A scan that raises stands as one with no headings, kept under this
     # scan_key, so it is not made again until the scan code changes.
     saved = time.monotonic()
@@ -2666,7 +2707,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     due = {}
     for d in dirs:
         rel = rels[d]
-        if editions and rel not in editions:
+        if editions and rel not in editions or d in held_back:
             continue
         fh = known[rel]["filesHash"]
         h = inputs_of(fh, scans[rel], paper.series)
@@ -2733,7 +2774,8 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     tally = report(known[rels[d]] for d in dirs if rels[d] in known)
     if len(due) > fresh:
         tally["left for the next run"] = len(due) - fresh
-    print(f"{len(dirs)} {paper.key} editions in {cache}; {fresh} read this run", file=out)
+    print(f"{len(dirs)} {paper.key} editions in {cache}; {fresh} read this run"
+          + (f"; {len(held_back)} wait on a scan" if held_back else ""), file=out)
     for k in sorted(tally):
         print(f"  {tally[k]:5d}  {k}", file=out)
     return list(known.values())
@@ -2972,6 +3014,9 @@ def main(argv=None):
                     help="read this edition again, and no other (repeatable)")
     ap.add_argument("--mend-held", nargs="+", metavar="ID",
                     help="blank each clue these held filings give two lights, with no reading")
+    ap.add_argument("--no-scan", action="store_true",
+                    help="scan nothing; read only the due editions whose scans, and those of the days after "
+                         "them, stand")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
     ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
@@ -3013,7 +3058,8 @@ def main(argv=None):
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
         limit=args.limit, source=args.source, paper=PAPERS[args.paper], seconds=args.seconds,
-        workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread), editions=args.edition)
+        workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread), editions=args.edition,
+        scan_new=not args.no_scan)
     if args.paper == "times":
         match_canberra(args.source, write=not args.dry_run)
     return 0
