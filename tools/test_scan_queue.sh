@@ -192,6 +192,8 @@ for a in ("100", "200", "300"):
     (tcache / a).mkdir(parents=True)
     (tcache / a / "meta.json").write_text("{}")
 tledger = Path(os.environ["TMP"]) / "t.jsonl"
+tpuzzles = Path(os.environ["TMP"]) / "tpuzzles"  # not the corpus: reading it outlasts a 0.1s slice
+tpuzzles.mkdir()
 tledger.write_text(json.dumps({"article": "100", "hash": "old", "skip": "x", "readAt": "2026-10-01"}) + "\n"
                    + json.dumps({"article": "200", "hash": "old", "skip": "x", "readAt": "2026-09-01"}) + "\n")
 read = []
@@ -202,7 +204,7 @@ def slow(d, taken):
 F.consider = slow
 def tread(**kw):
     read.clear()
-    F.run(tcache, ledger=tledger, out=io.StringIO(), **kw)
+    F.run(tcache, ledger=tledger, out=io.StringIO(), puzzles=tpuzzles, **kw)
     return list(read)
 check("Trove: after the key change only the never-read article is read", ["300"], tread())
 check("Trove: --reread BEFORE reads the oldest-read first, one a slice, the ledger saved after each, then stops",
