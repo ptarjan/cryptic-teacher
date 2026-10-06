@@ -111,7 +111,9 @@ def _causes():
             "tools/times_grids.py", "the post gives answers and wordplay, no clues (times_grids.has_clues), "
             "mostly 2007-2016: exhausted on the blog; only another source's clues can file it", False, False)
         out[(blog, "no-grid")] = Cause(
-            "tools/times_grids.py", "the grid search found none (attempts.jsonl `how`)", True, False)
+            "tools/times_grids.py", "the grid search found none (attempts.jsonl `how`); a parser fix "
+            "that changes the post's lights makes it due (light_key), and a search fix needs "
+            "--retry-failed", True, False)
         out[(blog, "grid-not-filed")] = Cause(
             filer, f"a grid is rebuilt and the filer's {file_blog_puzzles.FILINGS} has no row for it: "
             "run the filer, which writes one per grid", True, True)
@@ -253,8 +255,8 @@ def blog_rows():
             if pid in grids:
                 cause = filings.get(pid, "grid-not-filed")
             else:
-                cause = ("no-grid" if pid in tried else
-                         "grid-not-tried" if times_grids.has_clues(r) else "answers-only")
+                cause = ("answers-only" if not times_grids.has_clues(r) else
+                         "no-grid" if pid in tried else "grid-not-tried")
             day = r.get("printed") or (r.get("date") or "")[:10]
             dates = ([day] if r.get("printed") else [day, day_after(day)]) if dated and day else []
             yield blog, key, r["number"], dates, cause
