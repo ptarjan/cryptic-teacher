@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Dull, not married, longed to be in a relationship",
     "enumeration": "8"
    },
-   "solution": "ATTACHED"
+   "solution": "ATTACHED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ATTACHED",
+    "definitions": [
+     {
+      "text": "in a relationship",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not married",
+      "for": "deletion",
+      "note": "married is abbreviated to a single letter in lists, and 'not' asks for that letter to be dropped from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dull",
+      "gives": "MATT",
+      "note": "matt describes a dull, non-glossy finish"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     },
+     {
+      "clueFragment": "longed",
+      "gives": "ACHED",
+      "note": "to ache for something is to long for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATT",
+      "ACHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A bored single person yearned for a partner.",
+     "walkthrough": "Matt is the dull, non-shiny finish of paint or photo paper; M for married is a standard abbreviation.",
+     "definitionFit": "Someone attached is romantically committed to a partner, the everyday sense of being spoken for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dull"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,77 @@
     "text": "Tourist, initially with bundle, led astray? That's nonsense",
     "enumeration": "7"
    },
-   "solution": "TWADDLE"
+   "solution": "TWADDLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "anagram"
+    ],
+    "answer": "TWADDLE",
+    "definitions": [
+     {
+      "text": "nonsense",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to only the opening letter of the word before it"
+     },
+     {
+      "text": "astray",
+      "for": "anagram",
+      "note": "something led astray wanders off its proper course, so the letters wander out of order"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tourist",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of the word"
+     },
+     {
+      "clueFragment": "bundle",
+      "gives": "WAD",
+      "note": "a wad is a bundle, as of banknotes"
+     },
+     {
+      "clueFragment": "led",
+      "gives": "DLE",
+      "note": "the three letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "WAD",
+      "DLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LED",
+       "gives": "DLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist carrying a bundle was misled, and someone dismisses the tale as rubbish.",
+     "walkthrough": "'with' just joins T to WAD; 'led' is both fodder and part of the surface phrase 'led astray'.",
+     "definitionFit": "Twaddle is silly, trivial talk or writing, a direct synonym for rubbish of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "led"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +187,73 @@
     "text": "One under influence, just about consumed with love",
     "enumeration": "14"
    },
-   "solution": "AFFECTIONATELY"
+   "solution": "AFFECTIONATELY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AFFECTIONATELY",
+    "definitions": [
+     {
+      "text": "with love",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, a piece placed under another comes after it, so the one-letter piece goes second"
+     },
+     {
+      "text": "consumed",
+      "for": "container",
+      "note": "the word for just about has swallowed the next piece, holding it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "influence",
+      "gives": "AFFECT",
+      "note": "to affect is to influence"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one; in a down clue it sits under the previous piece"
+     },
+     {
+      "clueFragment": "just about",
+      "gives": "ONLY",
+      "note": "only means just, as in 'just a few'; 'about' tells it to go round"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "ATE",
+      "note": "consumed food means ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFFECT",
+      "I",
+      "ON",
+      "ATE",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone under the influence, nearly overwhelmed by romantic feeling.",
+     "walkthrough": "'consumed' does double duty in the surface sense of overwhelmed, yet it supplies letters and also signals the wrapping; 'about' only tells the just word to go round.",
+     "definitionFit": "Doing something with love is doing it fondly and tenderly, which the adverb describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "influence"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +267,77 @@
     "text": "Herald getting hot and bothered bearing first of reports",
     "enumeration": "9"
    },
-   "solution": "HARBINGER"
+   "solution": "HARBINGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "HARBINGER",
+    "definitions": [
+     {
+      "text": "Herald",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bothered",
+      "for": "anagram",
+      "note": "something bothered is agitated and disturbed, so the letters are stirred up"
+     },
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "first of asks for just the opening letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     },
+     {
+      "clueFragment": "bearing",
+      "gives": "ARBINGE",
+      "note": "the seven letters rearranged"
+     },
+     {
+      "clueFragment": "reports",
+      "gives": "R",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ARBINGE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEARING",
+       "gives": "ARBINGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A town crier flustered by the heat, carrying early news.",
+     "walkthrough": "'bearing' looks like 'carrying' but is the anagram fodder.",
+     "definitionFit": "A harbinger announces or signals what is coming, just as a herald proclaims news ahead of an arrival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +351,43 @@
     "text": "Cheats held up essential cases",
     "enumeration": "5"
    },
-   "solution": "DUPES"
+   "solution": "DUPES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DUPES",
+    "definitions": [
+     {
+      "text": "Cheats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cases",
+      "for": "hidden_word",
+      "note": "the preceding words act as a case, holding the solution inside them across their word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "held up essential",
+      "gives": "DUPES",
+      "note": "the run of letters spanning the end of held, all of up and the start of essential"
+     }
+    ],
+    "explanation": {
+     "surface": "Swindlers are delayed by vital legal proceedings.",
+     "walkthrough": "'held up' reads as delayed, but the words are only a container for the letters.",
+     "definitionFit": "To dupe someone is to trick or deceive them, so the verb form matches cheats."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +401,46 @@
     "text": "Avoid work making bakery product",
     "enumeration": "4"
    },
-   "solution": "LOAF"
+   "solution": "LOAF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOAF",
+    "definitions": [
+     {
+      "text": "Avoid work",
+      "at": 0
+     },
+     {
+      "text": "bakery product",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Avoid work",
+      "note": "first meaning: to idle about"
+     },
+     {
+      "clueFragment": "bakery product",
+      "note": "second meaning: a shaped mass of baked bread"
+     }
+    ],
+    "explanation": {
+     "surface": "Skiving off by turning out something from the bakery.",
+     "definitionFit": "As a verb it means idling instead of working; as a noun it is a whole baked bread item."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "making"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +454,73 @@
     "text": "Newspaper covering latest in cuisine with duck and herb",
     "enumeration": "7"
    },
-   "solution": "OREGANO"
+   "solution": "OREGANO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OREGANO",
+    "definitions": [
+     {
+      "text": "herb",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "the newspaper word covers, wrapping round the next piece"
+     },
+     {
+      "text": "latest in",
+      "for": "letter_selection",
+      "note": "latest means the last letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper",
+      "gives": "ORGAN",
+      "note": "an organ is a publication that speaks for a group, such as a party newspaper"
+     },
+     {
+      "clueFragment": "cuisine",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of the word"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck in cricket is a score of zero, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "E",
+      "GAN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A food paper reviewing a duck dish seasoned with herbs.",
+     "walkthrough": "ORGAN wraps E to make OREGAN, then O is added.",
+     "definitionFit": "Oregano is an aromatic Mediterranean plant whose dried leaves season pizza and pasta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +534,48 @@
     "text": "Distant church in absurd situation",
     "enumeration": "5"
    },
-   "solution": "FARCE"
+   "solution": "FARCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FARCE",
+    "definitions": [
+     {
+      "text": "absurd situation",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Distant",
+      "gives": "FAR",
+      "note": "far means distant"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAR",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A remote parish church caught up in some ridiculous affair.",
+     "definitionFit": "A farce is a ridiculous, chaotic event, named after the stage comedy of improbable mishaps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +595,68 @@
      }
     ]
    },
-   "solution": "SODIUMCHLORIDE"
+   "solution": "SODIUMCHLORIDE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SODIUM CHLORIDE",
+    "definitions": [
+     {
+      "text": "salt",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swirling",
+      "for": "anagram",
+      "note": "swirling means churning round, so the letters are churned into new order"
+     },
+     {
+      "text": "going into",
+      "for": "container",
+      "note": "the single letter goes into the middle of the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "mud's heroic old",
+      "gives": "SODUMCHLORIDE",
+      "note": "the thirteen letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOD",
+      "I",
+      "UMCHLORIDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MUDSHEROICOLD",
+       "gives": "SODUMCHLORIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran sailor wading through churning mud.",
+     "walkthrough": "'old salt' looks like the sailor, but 'old' is fodder and only 'salt' defines.",
+     "definitionFit": "Common table salt is chemically this compound, so the chemical name names the salt itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "salt"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +670,67 @@
     "text": "Sloping surface around hard new frame",
     "enumeration": "7"
    },
-   "solution": "CHAMFER"
+   "solution": "CHAMFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHAMFER",
+    "definitions": [
+     {
+      "text": "Sloping surface",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the following word is made over in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "around",
+      "gives": "C",
+      "note": "C stands for circa, Latin for around"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil grade for hard"
+     },
+     {
+      "clueFragment": "frame",
+      "gives": "AMFER",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "AMFER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FRAME",
+       "gives": "AMFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A joiner's description of a bevelled edge on a fresh frame.",
+     "walkthrough": "'around' looks like a container indicator, but here it is the abbreviation C (circa).",
+     "definitionFit": "A chamfer is an angled cut where two faces meet, a bevel planed along an edge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +744,62 @@
     "text": "Two thousand in company stop and salute",
     "enumeration": "7"
    },
-   "solution": "COMMEND"
+   "solution": "COMMEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMMEND",
+    "definitions": [
+     {
+      "text": "salute",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "charade",
+      "note": "in company is read as joining the company word, which leads with the thousands following it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "Two thousand",
+      "gives": "MM",
+      "note": "M is the Roman numeral for a thousand, twice"
+     },
+     {
+      "clueFragment": "stop",
+      "gives": "END",
+      "note": "to end is to stop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MM",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm of two thousand staff halts work to pay tribute.",
+     "definitionFit": "To salute someone is to praise or honour them publicly, as when you commend their work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +813,58 @@
     "text": "United in support for innovator",
     "enumeration": "7"
    },
-   "solution": "PIONEER"
+   "solution": "PIONEER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIONEER",
+    "definitions": [
+     {
+      "text": "innovator",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the first word inside the support word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "PIER",
+      "note": "a pier is a supporting pillar"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "ONE",
+      "note": "people united are as one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "ONE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A team pulling together behind a trailblazer.",
+     "walkthrough": "'United' suggests a football club, but it means ONE.",
+     "definitionFit": "A pioneer is the first to explore or develop something new, an early trailblazer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +878,62 @@
     "text": "Monsieur with set of principles about French wine",
     "enumeration": "5"
    },
-   "solution": "MEDOC"
+   "solution": "MEDOC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MEDOC",
+    "definitions": [
+     {
+      "text": "French wine",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the principles word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monsieur",
+      "gives": "M",
+      "note": "M is the abbreviation for Monsieur"
+     },
+     {
+      "clueFragment": "set of principles",
+      "gives": "CODE",
+      "note": "a code is a set of rules or principles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EDOC"
+     ],
+     "reversals": [
+      {
+       "from": "CODE",
+       "to": "EDOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A principled Frenchman holding forth about his country's wines.",
+     "definitionFit": "Médoc is a red Bordeaux from the region of that name on the Gironde's left bank."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +947,50 @@
     "text": "Start development of giant site",
     "enumeration": "9"
    },
-   "solution": "INSTIGATE"
+   "solution": "INSTIGATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INSTIGATE",
+    "definitions": [
+     {
+      "text": "Start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "development of",
+      "for": "anagram",
+      "note": "development turns land into something different, so the letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giant site",
+      "gives": "INSTIGATE",
+      "note": "the nine letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIANTSITE",
+       "gives": "INSTIGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Building work begins on an enormous plot.",
+     "definitionFit": "To instigate is to set something going or bring it about, the transitive sense of start."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "development"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +1010,68 @@
      }
     ]
    },
-   "solution": "EVENINGPRIMROSE"
+   "solution": "EVENINGPRIMROSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVENING PRIMROSE",
+    "definitions": [
+     {
+      "text": "plant yielding essential oil",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still",
+      "gives": "EVEN",
+      "note": "even means still, as in 'even better'"
+     },
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor in Britain"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "RIM",
+      "note": "a rim is an edge"
+     },
+     {
+      "clueFragment": "grew",
+      "gives": "ROSE",
+      "note": "rose means increased"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "IN",
+      "GP",
+      "RIM",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable doctor cultivates a plant for its oil.",
+     "walkthrough": "'Still' and 'grew' both suggest growth in the surface; they give EVEN and ROSE.",
+     "definitionFit": "This yellow-flowered plant's seeds are pressed for an oil sold as a supplement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Still"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1085,65 @@
     "text": "Bitter artist with wit stifling exclamation of surprise",
     "enumeration": "9"
    },
-   "solution": "RANCOROUS"
+   "solution": "RANCOROUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RANCOROUS",
+    "definitions": [
+     {
+      "text": "Bitter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stifling",
+      "for": "container",
+      "note": "stifling smothers something by closing round it, so the exclamation sits inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "wit",
+      "gives": "NOUS",
+      "note": "nous is common sense, British slang for wits"
+     },
+     {
+      "clueFragment": "exclamation of surprise",
+      "gives": "COR",
+      "note": "cor! is a British exclamation of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "N",
+      "COR",
+      "OUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A resentful painter suppressing a cry of astonishment.",
+     "walkthrough": "RA stands for Royal Academician, a member of London's Royal Academy of Arts; nous and cor! are both everyday British words.",
+     "definitionFit": "Rancorous means full of deep-seated resentment and ill will, the same as bitter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wit"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1157,63 @@
     "text": "Advocate in conclusion less good, lacking weight",
     "enumeration": "7"
    },
-   "solution": "ENDORSE"
+   "solution": "ENDORSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENDORSE",
+    "definitions": [
+     {
+      "text": "Advocate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the weight abbreviation is left out of the previous word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conclusion",
+      "gives": "END",
+      "note": "the end is the conclusion"
+     },
+     {
+      "clueFragment": "less good",
+      "gives": "WORSE",
+      "note": "worse is the comparative of bad"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "ORSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer's closing argument falls short and carries no weight.",
+     "walkthrough": "'Advocate' looks like a noun (a lawyer) but is the verb.",
+     "definitionFit": "To endorse something is to publicly back or support it, which is what advocating means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Advocate"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1227,50 @@
     "text": "Deprived of right to vote since friends had changed",
     "enumeration": "15"
    },
-   "solution": "DISENFRANCHISED"
+   "solution": "DISENFRANCHISED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISENFRANCHISED",
+    "definitions": [
+     {
+      "text": "Deprived of right to vote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered, so the letters are put into an altered order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since friends had",
+      "gives": "DISENFRANCHISED",
+      "note": "the fifteen letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SINCEFRIENDSHAD",
+       "gives": "DISENFRANCHISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lost their vote because their friends changed allegiance.",
+     "definitionFit": "The franchise is the right to vote, so someone stripped of it has been excluded from the electorate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "friends"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1284,45 @@
     "text": "Wrong monarch in decline",
     "enumeration": "7"
    },
-   "solution": "SINKING"
+   "solution": "SINKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SINKING",
+    "definitions": [
+     {
+      "text": "in decline",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "KING",
+      "note": "a king is a monarch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIN",
+      "KING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sinful ruler whose reign is going downhill.",
+     "definitionFit": "Something sinking is going down or deteriorating, a figurative match for being on the wane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1336,53 @@
     "text": "Sentimental types thus following obligations",
     "enumeration": "7"
    },
-   "solution": "SOFTIES"
+   "solution": "SOFTIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOFTIES",
+    "definitions": [
+     {
+      "text": "Sentimental types",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so means thus"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "obligations",
+      "gives": "TIES",
+      "note": "ties are bonds or obligations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "F",
+      "TIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Soft-hearted people dutifully keeping their commitments.",
+     "walkthrough": "'following' looks like a position indicator but gives the letter F.",
+     "definitionFit": "Softies are tender-hearted, easily moved people, the informal word for the soft-centred kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1396,76 @@
     "text": "Gesture brought about by a direct love for sculptor",
     "enumeration": "9"
    },
-   "solution": "DONATELLO"
+   "solution": "DONATELLO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DONATELLO",
+    "definitions": [
+     {
+      "text": "sculptor",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought about",
+      "for": "reversal",
+      "note": "brought about means turned round, so the gesture word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gesture",
+      "gives": "NOD",
+      "note": "a nod is a gesture of the head"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "direct",
+      "gives": "TELL",
+      "note": "to tell someone what to do is to direct them"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DON",
+      "A",
+      "TELL",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "NOD",
+       "to": "DON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gesture of affection prompted by a forthright declaration of love.",
+     "definitionFit": "Donatello was the fifteenth-century Florentine master who made the bronze David."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "direct"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1479,62 @@
     "text": "Editor coming up with modest enticement",
     "enumeration": "5"
    },
-   "solution": "DECOY"
+   "solution": "DECOY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DECOY",
+    "definitions": [
+     {
+      "text": "enticement",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down entry coming up means rising from bottom to top, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     },
+     {
+      "clueFragment": "modest",
+      "gives": "COY",
+      "note": "coy means shy or modest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "COY"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shy editor making a demure attempt to lure someone.",
+     "definitionFit": "A decoy is a lure used to draw a person or animal into a trap, the very thing that entices."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1548,54 @@
     "text": "Sensational club without boundaries, free",
     "enumeration": "5"
    },
-   "solution": "LURID"
+   "solution": "LURID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LURID",
+    "definitions": [
+     {
+      "text": "Sensational",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without boundaries",
+      "for": "deletion",
+      "note": "boundaries are the outer edges, so the word loses its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "club",
+      "gives": "CLUB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "RID",
+      "note": "to rid is to free"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LU",
+      "RID"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild nightclub with no limits and free entry.",
+     "definitionFit": "Lurid means shocking or vividly graphic, the way a tabloid story is sensational."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1609,48 @@
     "text": "Unacceptable hesitation in proposal",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFER",
+    "definitions": [
+     {
+      "text": "proposal",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unacceptable",
+      "gives": "OFF",
+      "note": "behaviour that is off is unacceptable"
+     },
+     {
+      "clueFragment": "hesitation",
+      "gives": "ER",
+      "note": "er is a hesitant sound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Awkward pauses when someone makes a disappointing proposal.",
+     "definitionFit": "An offer is something put forward for acceptance, a bid or suggestion of terms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1664,64 @@
     "text": "Tale of horror in country around lake and river",
     "enumeration": "7"
    },
-   "solution": "CHILLER"
+   "solution": "CHILLER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHILLER",
+    "definitions": [
+     {
+      "text": "Tale of horror",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the country word goes around the next piece, enclosing it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "CHILE",
+      "note": "the South American country"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIL",
+      "L",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A ghost story set in a South American land by a lake and river.",
+     "definitionFit": "A chiller is a frightening story or film designed to send a shiver down the spine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1735,45 @@
     "text": "Opening with some soporific effects",
     "enumeration": "7"
    },
-   "solution": "ORIFICE"
+   "solution": "ORIFICE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORIFICE",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words, a run of letters inside them"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soporific effects",
+      "gives": "ORIFICE",
+      "note": "the run of letters across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A gaping mouth from the drowsy effects of a sleeping drug.",
+     "definitionFit": "An orifice is a hole or mouth-like aperture in the body or an object, so an opening."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soporific"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1787,64 @@
     "text": "Turned back with yen for ascetic discipline",
     "enumeration": "4"
    },
-   "solution": "YOGA"
+   "solution": "YOGA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "YOGA",
+    "definitions": [
+     {
+      "text": "ascetic discipline",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turned",
+      "for": "reversal",
+      "note": "turned means flipped round, so the combined letters read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "AGO",
+      "note": "back in time, as in 'years ago'"
+     },
+     {
+      "clueFragment": "yen",
+      "gives": "Y",
+      "note": "Y is the abbreviation for the Japanese yen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OGA"
+     ],
+     "reversals": [
+      {
+       "from": "AGOY",
+       "to": "YOGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning away from a craving in favour of self-denial.",
+     "walkthrough": "'Turned back' looks like a single reversal phrase, but 'back' supplies the letters.",
+     "definitionFit": "Yoga began as a Hindu spiritual practice of self-control and meditation, an austere regime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1858,78 @@
     "text": "Separate revolutionary agents infiltrating different side",
     "enumeration": "8"
    },
-   "solution": "DISPERSE"
+   "solution": "DISPERSE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "DISPERSE",
+    "definitions": [
+     {
+      "text": "Separate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "revolutionary means turned over, so the agents word reads backwards"
+     },
+     {
+      "text": "different",
+      "for": "anagram",
+      "note": "different means changed, so the following word is reordered"
+     },
+     {
+      "text": "infiltrating",
+      "for": "container",
+      "note": "agents infiltrating get inside, placing one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agents",
+      "gives": "REPS",
+      "note": "reps are sales agents"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "DISE",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SPER",
+      "SE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIDE",
+       "gives": "DISE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "REPS",
+       "to": "SPER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rebel spies working their way into the opposing camp.",
+     "definitionFit": "To disperse is to scatter in different directions, a verb sense of separating."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   }
  ]
 }
