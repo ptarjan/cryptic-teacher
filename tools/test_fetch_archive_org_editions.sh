@@ -72,5 +72,31 @@ check("the daily title detected: no prior leaves",
       [h["leaf"] for h in fa.crossword_hits(cryptic, prior)] == [13])
 ad = list(blank); ad[27] = page("CROSSWORD ENTHUSIASTS: Times Crossword Book 12,000 copies ACROSS")
 check("a crossword book advert is no title", [h["leaf"] for h in fa.crossword_hits(ad, prior)] == [21, 27])
+
+# Listings: a PDF archive.org never OCR'd is an unread scan, not an edition;
+# a run caches every yearly item's listing before it fetches any edition.
+meta = {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf"},
+                  {"name": "Apr 02 1981, Financial Times, #28436, UK (en).pdf"},
+                  {"name": "Apr 02 1981, Financial Times, #28436, UK (en)_djvu.txt"},
+                  {"name": "Apr 02 1981, Financial Times, #28436, UK (en)_text.pdf"}]}
+check("a PDF with no _djvu.txt is an unread scan",
+      fa.unread_scans(meta) == ["Apr 01 1981, Financial Times, #28435, UK (en)"]
+      and fa.editions_of(meta) == ["Apr 02 1981, Financial Times, #28436, UK (en)"])
+check("the yearly groups are the one-uploader ones",
+      {"ft", "times", "guardian", "telegraph"} <= fa.YEARLY_GROUPS
+      and not {"pub_times", "listener"} & fa.YEARLY_GROUPS)
+out = tempfile.mkdtemp()
+os.makedirs(f"{out}/items")
+with open(f"{out}/items/_group_ft.json", "w") as f:
+    json.dump([{"identifier": f"FinancialTimes{y}UKEnglish", "title": f"Financial Times , {y}, UK, English"}
+               for y in (1980, 1981)], f)
+meta_bytes = json.dumps(meta).encode()
+script(meta_bytes, meta_bytes)
+sys.argv = ["fetch", "--out", out, "--group", "ft", "--limit", "0", "--delay", "0"]
+with contextlib.redirect_stdout(io.StringIO()):
+    fa.main()
+check("a run lists every yearly item before its first edition",
+      all(os.path.exists(f"{out}/items/FinancialTimes{y}UKEnglish.json") for y in (1980, 1981))
+      and len(calls) == 2)
 sys.exit(1 if fails else 0)
 PY

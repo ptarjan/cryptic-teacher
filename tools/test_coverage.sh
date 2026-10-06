@@ -60,6 +60,23 @@ assert got == {("timesforthetimes", "no-grid"): 1, ("archive.org", "blank-clues"
 assert (r["exist"], r["filed"], r["missing"]) == (4, 1, 3)
 assert r["buckets"][-1]["cause"] == "no-source"     # not recoverable sorts last
 
+# Scan classes off the cached listings: a PDF archive.org never OCR'd is
+# "no-ocr", a year whose listing is not cached "no-listing", a date no item
+# holds "no-scan".
+import datetime
+cache = tmp / "cache"
+(cache / "items").mkdir(parents=True)
+(cache / "items" / "_group_ft.json").write_text(json.dumps(
+    [{"identifier": f"FinancialTimes{y}UKEnglish"} for y in (1980, 1981)]))
+(cache / "items" / "FinancialTimes1981UKEnglish.json").write_text(json.dumps(
+    {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf"}]}))
+saved = ac.CACHE, ac.LEDGER, ac.corpus
+ac.CACHE, ac.LEDGER, ac.corpus = cache, cache / "filed.jsonl", lambda s: ({}, {})
+got = {d: c for d, c, _, _ in ac.unfiled(filer.PAPERS["ft"], datetime.date(1981, 4, 2))}
+ac.CACHE, ac.LEDGER, ac.corpus = saved
+assert (got["1981-04-01"], got["1981-04-02"], got["1980-04-01"], got["1972-04-04"]) == \
+    ("no-ocr", "no-scan", "no-listing", "no-scan"), got
+
 
 def ledger(filed, buckets):
     rows = [{"source": s, "cause": c, "puzzles": n, **cov.CAUSES[(s, c)]._asdict(), "sample": ["k"]}
