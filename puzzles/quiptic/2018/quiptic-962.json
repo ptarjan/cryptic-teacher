@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Warden and police finally intercepting joyrider?",
     "enumeration": "9"
    },
-   "solution": "CARETAKER"
+   "solution": "CARETAKER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CARETAKER",
+    "definitions": [
+     {
+      "text": "Warden",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word just before it"
+     },
+     {
+      "text": "intercepting",
+      "for": "container",
+      "note": "to intercept is to get in the way, so one piece cuts into the middle of the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joyrider?",
+      "gives": "CARTAKER",
+      "note": "a joyrider takes a car, so whimsically a car-taker, hence the question mark"
+     },
+     {
+      "clueFragment": "police",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "E",
+      "TAKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A warden and the police at last catch a youth who has stolen a car for a spin.",
+     "walkthrough": "The question mark flags the whimsical coinage: a joyrider literally takes cars.",
+     "definitionFit": "A caretaker looks after a building or property, much as a warden has charge of a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Warden"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,75 @@
     "text": "Colour up after incapacitating heart with drink",
     "enumeration": "5"
    },
-   "solution": "CIDER"
+   "solution": "CIDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "CIDER",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its centre, so only the middle letters are kept"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom upwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind another in the final order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "incapacitating",
+      "gives": "CI",
+      "select": "middle",
+      "note": "the two middle letters of incapacitating"
+     },
+     {
+      "clueFragment": "Colour",
+      "gives": "RED",
+      "note": "red is a colour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CI",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flushes red after a drink knocks them out.",
+     "definitionFit": "Cider is an alcoholic drink made from fermented apple juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "incapacitating"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +191,56 @@
     "text": "Want regular free paper",
     "enumeration": "7"
    },
-   "solution": "REQUIRE"
+   "solution": "REQUIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REQUIRE",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regular",
+      "for": "letter_selection",
+      "note": "regular means at even intervals, so every other letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "RE",
+      "select": "alternate",
+      "note": "the second and fourth letters of free"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "QUIRE",
+      "note": "a quire is a quantity of paper, 24 or 25 sheets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "QUIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a regular free newspaper.",
+     "walkthrough": "'Paper' suggests a newspaper, but it is a quire, the paper-trade measure.",
+     "definitionFit": "To require something is to need it, and want can mean need or lack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +254,43 @@
     "text": "Creep like an amphibian?",
     "enumeration": "5"
    },
-   "solution": "TOADY"
+   "solution": "TOADY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOADY",
+    "definitions": [
+     {
+      "text": "Creep",
+      "at": 0
+     },
+     {
+      "text": "like an amphibian",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creep",
+      "note": "first meaning: a sycophant who fawns on superiors"
+     },
+     {
+      "clueFragment": "like an amphibian",
+      "note": "second meaning, whimsical: resembling a certain warty amphibian"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is a made-up adjective, hence the question mark.",
+     "definitionFit": "A toady is a flatterer who sucks up to people, which is what a creep is in British slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Creep"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +310,49 @@
      }
     ]
    },
-   "solution": "KEEPMUM"
+   "solution": "KEEPMUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KEEP MUM",
+    "definitions": [
+     {
+      "text": "Don't say anything",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delay",
+      "gives": "KEEP",
+      "note": "to keep someone is to delay or detain them"
+     },
+     {
+      "clueFragment": "old lady",
+      "gives": "MUM",
+      "note": "old lady is slang for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEEP",
+      "MUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning not to mention anything that might hold up an elderly woman.",
+     "definitionFit": "Keep mum is a British idiom for staying silent, so it is an instruction to say nothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delay"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +372,43 @@
      }
     ]
    },
-   "solution": "ROUNDTRIP"
+   "solution": "ROUNDTRIP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROUND-TRIP",
+    "definitions": [
+     {
+      "text": "Going there and back",
+      "at": 0
+     },
+     {
+      "text": "to get drinks from the bar",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Going there and back",
+      "note": "first meaning: a journey out and home again"
+     },
+     {
+      "clueFragment": "to get drinks from the bar?",
+      "note": "second meaning, cryptic: a trip made to fetch a round"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A round is a set of drinks bought for a group, so a trip for it is a cryptic second sense.",
+     "definitionFit": "A round trip is a journey to a place and back again to the start."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +422,56 @@
     "text": "Understood one's out for diplomacy",
     "enumeration": "4"
    },
-   "solution": "TACT"
+   "solution": "TACT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TACT",
+    "definitions": [
+     {
+      "text": "diplomacy",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out says a piece is removed and no longer present in the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Understood",
+      "gives": "TACIT",
+      "note": "tacit means understood without being stated"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "I",
+      "note": "one is the Roman numeral I; the 's is 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Something understood without words passes for diplomacy.",
+     "walkthrough": "TACIT loses its I to leave TACT.",
+     "definitionFit": "Tact is skill in handling people sensitively, the core quality of a good diplomat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +485,50 @@
     "text": "Label on French water is an artistic scene",
     "enumeration": "7"
    },
-   "solution": "TABLEAU"
+   "solution": "TABLEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TABLEAU",
+    "definitions": [
+     {
+      "text": "artistic scene",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "on",
+     "is an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Label",
+      "gives": "TAB",
+      "note": "a tab is a label"
+     },
+     {
+      "clueFragment": "French water",
+      "gives": "LEAU",
+      "note": "l'eau is French for the water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAB",
+      "LEAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A label on a bottle of French water makes an artistic picture.",
+     "definitionFit": "A tableau is a picturesque grouping of people or objects, as in a painting or stage scene."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Label"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +542,56 @@
     "text": "Debated criminal's fine and made a mistake",
     "enumeration": "9"
    },
-   "solution": "CONFERRED"
+   "solution": "CONFERRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFERRED",
+    "definitions": [
+     {
+      "text": "Debated",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "CON",
+      "note": "a con is a convict"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is fine, as in pencil grades"
+     },
+     {
+      "clueFragment": "made a mistake",
+      "gives": "ERRED",
+      "note": "to err is to make a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "F",
+      "ERRED"
+     ]
+    },
+    "explanation": {
+     "surface": "A court debated whether the criminal's fine was a mistake.",
+     "definitionFit": "To confer is to consult or talk things over together, so conferred means discussed or debated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +605,82 @@
     "text": "One day with English queen swilling tea's enough",
     "enumeration": "8"
    },
-   "solution": "ADEQUATE"
+   "solution": "ADEQUATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ADEQUATE",
+    "definitions": [
+     {
+      "text": "enough",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swilling",
+      "for": "anagram",
+      "note": "swilling sloshes liquid round, so the letters are swirled into a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "A",
+      "note": "one is a"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "QU",
+      "note": "Qu is an abbreviation for queen"
+     },
+     {
+      "clueFragment": "tea",
+      "gives": "TEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "E",
+      "QU",
+      "ATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEA",
+       "gives": "ATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spending one day with an English queen gulping tea is quite sufficient.",
+     "definitionFit": "Adequate means sufficient for the purpose, which is what enough describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swilling"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +694,42 @@
     "text": "Sophisticated characters found in suburban enclave",
     "enumeration": "6"
    },
-   "solution": "URBANE"
+   "solution": "URBANE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "URBANE",
+    "definitions": [
+     {
+      "text": "Sophisticated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "characters found in",
+      "for": "hidden_word",
+      "note": "the letters needed are already sitting inside the following words, just waiting to be found"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suburban enclave",
+      "gives": "URBANE",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Smart, cultivated types are to be found in a well-heeled suburban enclave.",
+     "definitionFit": "Urbane describes someone polished, courteous and worldly, which is exactly being sophisticated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "characters"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +743,53 @@
     "text": "Brilliant in binary code",
     "enumeration": "6"
    },
-   "solution": "BRAINY"
+   "solution": "BRAINY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRAINY",
+    "definitions": [
+     {
+      "text": "Brilliant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "code",
+      "for": "anagram",
+      "note": "putting something in code scrambles it, so the letters are encrypted into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "binary",
+      "gives": "BINARY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BINARY",
+       "gives": "BRAINY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows off their brilliance by writing in binary code.",
+     "definitionFit": "Brainy is an informal word for highly intelligent, so it matches brilliant in the clever sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "code"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +803,47 @@
     "text": "Angered by report of absurd death",
     "enumeration": "8"
    },
-   "solution": "MADDENED"
+   "solution": "MADDENED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MADDENED",
+    "definitions": [
+     {
+      "text": "Angered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report of",
+      "for": "homophone",
+      "note": "a report is something heard, so the words are judged by how they come across when spoken"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "absurd death",
+      "gives": "MADDENED",
+      "soundsLike": "MAD END",
+      "note": "absurd is mad, and a death is an end"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is furious on hearing of a ridiculous death.",
+     "walkthrough": "Said aloud, a mad end runs together into the past form of 'madden'; the extra -ED is glossed over by the sound.",
+     "definitionFit": "To madden is to make someone furious, so a person maddened has been made angry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "report"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +857,67 @@
     "text": "One's hiding key by south entrance",
     "enumeration": "6"
    },
-   "solution": "ACCESS"
+   "solution": "ACCESS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ACCESS",
+    "definitions": [
+     {
+      "text": "entrance",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "something hiding another keeps it tucked inside itself"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so one piece is set alongside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's",
+      "gives": "ACES",
+      "note": "an ace is a one in cards, and one's makes it plural-sounding: aces"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "C",
+      "note": "C is a musical key"
+     },
+     {
+      "clueFragment": "south",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "CES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hides a key by the southern entrance for a visitor.",
+     "walkthrough": "The 's of 'One's' is not a link: it is read as a possessive S turning ACE into ACES.",
+     "definitionFit": "Access is a means or way of getting in, so a door or entrance gives access."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "key"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +931,90 @@
     "text": "Couple wantonly gobbling ultimate burger won't half get fat",
     "enumeration": "9"
    },
-   "solution": "CORPULENT"
+   "solution": "CORPULENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CORPULENT",
+    "definitions": [
+     {
+      "text": "fat",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wantonly",
+      "for": "anagram",
+      "note": "wantonly means recklessly, without restraint, so the letters are thrown into disorder"
+     },
+     {
+      "text": "ultimate",
+      "for": "letter_selection",
+      "note": "ultimate means last, so the closing letter of the next word is used"
+     },
+     {
+      "text": "gobbling",
+      "for": "container",
+      "note": "gobbling swallows something, so one piece ends up inside the other"
+     },
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "half means only part of the word survives and the rest is cut"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple",
+      "gives": "COUPLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "burger",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of burger"
+     },
+     {
+      "clueFragment": "won't",
+      "gives": "WONT",
+      "note": "taken as written, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "R",
+      "PULE",
+      "NT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COUPLE",
+       "gives": "COPULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A greedy couple devouring burgers will hardly avoid putting on weight.",
+     "walkthrough": "Only the second half of won't, NT, is kept. 'Won't half' is also British slang for 'certainly will'.",
+     "definitionFit": "Corpulent means stout or overweight, an adjective for being fat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1028,65 @@
     "text": "Facial hair deficiency is burden on son",
     "enumeration": "9"
    },
-   "solution": "SIDEBURNS"
+   "solution": "SIDEBURNS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SIDEBURNS",
+    "definitions": [
+     {
+      "text": "Facial hair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deficiency",
+      "for": "anagram",
+      "note": "a deficiency is a defect, so the letters come out faulty and rearranged"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed next to, so one piece follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is burden",
+      "gives": "ISBURDEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIDEBURN",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISBURDEN",
+       "gives": "SIDEBURN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A father frets that his son's lack of facial hair weighs on him.",
+     "definitionFit": "Sideburns are strips of hair grown down the sides of a man's face in front of the ears."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deficiency"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1100,39 @@
     "text": "Waiting room for people who are late?",
     "enumeration": "8"
    },
-   "solution": "MORTUARY"
+   "solution": "MORTUARY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MORTUARY",
+    "definitions": [
+     {
+      "text": "Waiting room for people who are late?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Waiting room for people who are late?",
+      "note": "surface reading: a lounge for those who turn up behind schedule"
+     },
+     {
+      "clueFragment": "people who are late",
+      "note": "setter's reading: 'the late' are the dead, kept in a room until burial"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Late' means deceased, as in 'the late Mr Smith'.",
+     "definitionFit": "A place where bodies are kept until burial or cremation is a room where the dead wait."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "late"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1146,49 @@
     "text": "Make an assumption before umpire arrives",
     "enumeration": "8"
    },
-   "solution": "PREJUDGE"
+   "solution": "PREJUDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PREJUDGE",
+    "definitions": [
+     {
+      "text": "Make an assumption",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "arrives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "PRE",
+      "note": "pre- is the prefix meaning before"
+     },
+     {
+      "clueFragment": "umpire",
+      "gives": "JUDGE",
+      "note": "an umpire judges a contest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "JUDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone jumps to conclusions before the referee even turns up.",
+     "definitionFit": "To prejudge is to form a verdict in advance, without the evidence, which is assuming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "umpire"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1202,81 @@
     "text": "Short career on cash register's over, followed by year of fun!",
     "enumeration": "7"
    },
-   "solution": "JOLLITY"
+   "solution": "JOLLITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "JOLLITY",
+    "definitions": [
+     {
+      "text": "fun",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "short means cut off, so the last letter is dropped"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so the word is read backwards"
+     },
+     {
+      "text": "followed by",
+      "for": "charade",
+      "note": "followed by puts the next piece directly after the previous ones"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "career",
+      "gives": "JOB",
+      "note": "a job is a career"
+     },
+     {
+      "clueFragment": "cash register's",
+      "gives": "TILL",
+      "note": "a till is a cash register; the 's is 'is'"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JO",
+      "LLIT",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "TILL",
+       "to": "LLIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief career at the checkout is over, and then comes a year of fun.",
+     "definitionFit": "Jollity is cheerful merriment, which is what fun means as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "register's"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1290,69 @@
     "text": "Watches returning hero beheaded — it's an ugly sight",
     "enumeration": "7"
    },
-   "solution": "EYESORE"
+   "solution": "EYESORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "EYESORE",
+    "definitions": [
+     {
+      "text": "ugly sight",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "beheading takes off the head, so the first letter is lost"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning goes back the way it came, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "it's an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watches",
+      "gives": "EYES",
+      "note": "to eye is to watch"
+     },
+     {
+      "clueFragment": "hero",
+      "gives": "HERO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYES",
+      "ORE"
+     ],
+     "reversals": [
+      {
+       "from": "ERO",
+       "to": "ORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator watches a returning hero who has been decapitated, a grisly sight.",
+     "definitionFit": "An eyesore is something unpleasant to look at, especially an ugly building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Watches"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1366,58 @@
     "text": "Take off staff with salary protection",
     "enumeration": "6"
    },
-   "solution": "PARODY"
+   "solution": "PARODY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARODY",
+    "definitions": [
+     {
+      "text": "Take off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protection",
+      "for": "container",
+      "note": "protection wraps around and shields something, so one piece encloses the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salary",
+      "gives": "PAY",
+      "note": "salary is pay"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "ROD",
+      "note": "a staff is a rod or stick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "ROD",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An employer cuts staff while offering protection for salaries.",
+     "walkthrough": "'Take off' looks like removal; here it means mimic.",
+     "definitionFit": "To take someone off is to impersonate them for comic effect, which a parody does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1431,49 @@
     "text": "Break soldier with meanness",
     "enumeration": "7"
    },
-   "solution": "RESPITE"
+   "solution": "RESPITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESPITE",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, British Army soldiers"
+     },
+     {
+      "clueFragment": "meanness",
+      "gives": "SPITE",
+      "note": "spite is meanness or malice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SPITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier breaks ranks out of malice.",
+     "definitionFit": "A respite is a short rest or interval of relief, a break from something hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Break"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1487,72 @@
     "text": "Easily fooled listener about libel order",
     "enumeration": "8"
    },
-   "solution": "GULLIBLE"
+   "solution": "GULLIBLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GULLIBLE",
+    "definitions": [
+     {
+      "text": "Easily fooled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word is read backwards"
+     },
+     {
+      "text": "order",
+      "for": "anagram",
+      "note": "to order something is to rearrange it, so the letters are put in a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "listener",
+      "gives": "LUG",
+      "note": "lug is British slang for an ear, the listener"
+     },
+     {
+      "clueFragment": "libel",
+      "gives": "LIBEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUL",
+      "LIBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIBEL",
+       "gives": "LIBLE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "LUG",
+       "to": "GUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A credulous listener is taken in by a libel order.",
+     "definitionFit": "Gullible describes someone readily deceived or taken in, which is being easily fooled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "listener"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1566,55 @@
     "text": "Stop believer in God overshadowing saint",
     "enumeration": "6"
    },
-   "solution": "DESIST"
+   "solution": "DESIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DESIST",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overshadowing",
+      "for": "container",
+      "note": "to overshadow is to loom over and cover, so one piece is wrapped round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "believer in God",
+      "gives": "DEIST",
+      "note": "a deist believes in a God known through reason"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "S",
+      "note": "S is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "S",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A believer tells someone to stop casting a saint into the shade.",
+     "walkthrough": "DEIST goes round S, splitting as DE-S-IST.",
+     "definitionFit": "To desist is to cease doing something, a formal verb meaning stop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overshadowing"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1628,50 @@
     "text": "Very fond of little Dorothy's notes",
     "enumeration": "5"
    },
-   "solution": "DOTED"
+   "solution": "DOTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOTED",
+    "definitions": [
+     {
+      "text": "Very fond of",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little Dorothy",
+      "gives": "DOT",
+      "note": "Dot is a pet form of Dorothy"
+     },
+     {
+      "clueFragment": "notes",
+      "gives": "ED",
+      "note": "E and D are musical notes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone treasures the notes written by little Dorothy.",
+     "walkthrough": "The definition needs 'on' to follow: doted on means was very fond of.",
+     "definitionFit": "To dote is to lavish love on someone, so doted means was extremely fond of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1685,53 @@
     "text": "Bargain for least outlay",
     "enumeration": "5"
    },
-   "solution": "STEAL"
+   "solution": "STEAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEAL",
+    "definitions": [
+     {
+      "text": "Bargain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outlay",
+      "for": "anagram",
+      "note": "to lay out is to set things out afresh, so the letters are spread into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "least",
+      "gives": "LEAST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEAST",
+       "gives": "STEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper wants a bargain for the smallest spend.",
+     "definitionFit": "A steal is informal for something bought very cheaply, a real bargain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outlay"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1745,78 @@
     "text": "Older person in state housing gets tax at zero rate, initially",
     "enumeration": "6"
    },
-   "solution": "SENIOR"
+   "solution": "SENIOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SENIOR",
+    "definitions": [
+     {
+      "text": "Older person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "letter_selection",
+      "note": "a housing is an outer casing, so only the shell of the word is used"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the outside letters of state"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "NI",
+      "note": "NI is National Insurance, a UK tax on earnings"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     },
+     {
+      "clueFragment": "rate",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter of rate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "NI",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A pensioner in council housing pays no tax.",
+     "walkthrough": "National Insurance (NI) is a UK payroll tax. 'State housing' sounds like council flats, but housing asks for the shell of state.",
+     "definitionFit": "Senior is used as a noun for an elderly person, as in senior citizen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1830,51 @@
     "text": "Ravel viol duet went on longer",
     "enumeration": "8"
    },
-   "solution": "OUTLIVED"
+   "solution": "OUTLIVED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTLIVED",
+    "definitions": [
+     {
+      "text": "went on longer",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ravel",
+      "for": "anagram",
+      "note": "to ravel is to tangle, so the letters are knotted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "viol duet",
+      "gives": "VIOLDUET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VIOLDUET",
+       "gives": "OUTLIVED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duet for viols by the composer Ravel runs on and on.",
+     "walkthrough": "Ravel looks like the French composer but is the anagram signal.",
+     "definitionFit": "To outlive is to survive beyond someone or something, so outlived means lasted or went on longer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ravel"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1888,57 @@
     "text": "For example, put time in to give support",
     "enumeration": "4"
    },
-   "solution": "STAY"
+   "solution": "STAY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAY",
+    "definitions": [
+     {
+      "text": "give support",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put time in",
+      "for": "container",
+      "note": "putting something in means placing it inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example",
+      "gives": "SAY",
+      "note": "say is used to introduce an example"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to invest time in order to back someone up.",
+     "definitionFit": "To stay something is to prop or brace it; a stay is a supporting rope or brace."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "For"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1952,49 @@
     "text": "Drug's given healthy bloom",
     "enumeration": "9"
    },
-   "solution": "SPEEDWELL"
+   "solution": "SPEEDWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPEEDWELL",
+    "definitions": [
+     {
+      "text": "bloom",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "'s given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "gives": "SPEED",
+      "note": "speed is slang for amphetamine"
+     },
+     {
+      "clueFragment": "healthy",
+      "gives": "WELL",
+      "note": "well means healthy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPEED",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug is credited with producing a healthy flower.",
+     "definitionFit": "Speedwell is a small blue-flowered plant, so it is an example of a bloom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drug"
+    }
+   }
   }
  ]
 }
