@@ -1,5 +1,6 @@
 #!/bin/bash
-# Fetch what the scan fetchers find missing, for up to FETCH_SECONDS each,
+# Fetch what the scan fetchers find missing, archive.org and Trove at once,
+# each for up to FETCH_SECONDS,
 # then read every archive.org edition and Trove article the scan filers find
 # due, to the end, then stop: never read, inputs changed, read without the VLM
 # that now answers, or read before REREAD_BEFORE (each filer's due_reason),
@@ -24,8 +25,8 @@
 # doubled word, a stray letter): the read mends or blanks it (mend_held),
 # and the same for a Trove article (file_trove_puzzles.inputs_of).
 #
-# The scans are cached by the fetchers this pass runs first, each for at most
-# FETCH_SECONDS and resumable, so a run with nothing missing costs seconds and
+# The scans are cached by the fetchers this pass runs first, archive.org's
+# alongside Trove's, each host for at most FETCH_SECONDS and resumable, so a run with nothing missing costs seconds and
 # a long backlog is fetched a slice per pass: tools/fetch_archive_org_editions.py
 # (every group; an edition not in done.tsv at the current DETECTOR_VERSION is
 # due, so bumping it makes the editions due by itself), tools/fetch_trove.py
@@ -33,7 +34,9 @@
 # clue columns of the articles the Trove filer left pending; a pending
 # article is read again once its zones land, so the next pass files it).
 # A fetcher already running (a hand run) is skipped, not doubled. The filers
-# only read caches.
+# only read caches. A pass that ends having fetched something starts the next
+# one at once (tools/corpus_queue.py chain), so a backlog does not wait for
+# the hourly tick.
 # Resumable: each filer's ledger (~/.cache/trove/filed.jsonl,
 # ~/.cache/archive_org_editions/filed.jsonl) is saved after every source,
 # the never-read go first, and a rerun picks up where a killed one stopped.
@@ -97,23 +100,37 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
 }
 
 FETCH_SECONDS="${OCR_FULL_PASS_FETCH_SECONDS:-3600}"
-fetch() {  # fetch <what> <process regex> <fetcher command...>: one bounded fetch slice
-  local what="$1" running="$2" rc
-  shift 2
+fetch() {  # fetch <what> <process regex> <seconds> <fetcher command...>: one bounded fetch slice
+  local what="$1" running="$2" seconds="$3" rc
+  shift 3
   if pgrep -f "$running" >/dev/null; then
     echo "=== $what: skipped, a fetch is already running: $(pgrep -af "$running" | head -1 | cut -c1-200)"
     return 0
   fi
-  echo "=== $what: from $(date '+%F %T'), at most ${FETCH_SECONDS}s ==="
-  timeout "$((FETCH_SECONDS + GRACE))" nice -n 19 "$@" --seconds "$FETCH_SECONDS" 2>&1
+  if [ "$seconds" -le 0 ]; then
+    echo "=== $what: skipped, no time left this pass"
+    return 0
+  fi
+  echo "=== $what: from $(date '+%F %T'), at most ${seconds}s ==="
+  timeout "$((seconds + GRACE))" nice -n 19 "$@" --seconds "$seconds" 2>&1
   rc=$?
   [ "$rc" -eq 0 ] || echo "$what failed (rc=$rc); the pass reads what is cached, the next pass fetches again"
 }
 
-fetch "archive.org fetch" '^python3 (-u )?\S*fetch_archive_org_editions\.py' \
-  python3 tools/fetch_archive_org_editions.py --jobs 4
-fetch "Trove fetch" '^python3 (-u )?\S*fetch_trove\.py' python3 tools/fetch_trove.py fetch
-fetch "Trove clue zones" '^python3 (-u )?\S*fetch_trove\.py' python3 tools/fetch_trove.py zones
+# archive.org and Trove are different hosts, so their fetches run at once,
+# each within FETCH_SECONDS (Trove's article fetch takes at most half, its
+# clue zones the rest), and the filers start once both have ended.
+# archive.org throttles each connection to ~100 KB/s, not the client (16 at
+# once measured ~100 KB/s each), so --jobs scales the fetch; a 429 lowers it.
+fetch "archive.org fetch" '^python3 (-u )?\S*fetch_archive_org_editions\.py' "$FETCH_SECONDS" \
+  python3 tools/fetch_archive_org_editions.py --jobs 12 &
+{
+  trove_start=$SECONDS
+  fetch "Trove fetch" '^python3 (-u )?\S*fetch_trove\.py' "$((FETCH_SECONDS / 2))" python3 tools/fetch_trove.py fetch
+  fetch "Trove clue zones" '^python3 (-u )?\S*fetch_trove\.py' "$((FETCH_SECONDS - (SECONDS - trove_start)))" \
+    python3 tools/fetch_trove.py zones
+} &
+wait
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # The Times pages Paul downloads by hand from Gale's Times Digital Archive

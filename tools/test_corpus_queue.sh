@@ -2,7 +2,8 @@
 # Does tools/corpus_queue.py take a recycled pid for a dead job, see a
 # filer's ledger lock, kill all of a dead job's session, start the full pass
 # with no edition list, count a pass that finished or read a source as
-# progress (or fetched one) and hold it after two dead launches, and refuse any edition-list
+# progress (or fetched one) and hold it after two dead launches, chain the
+# next pass straight on after one that finished having fetched, and refuse any edition-list
 # job; and does tools/archive_coverage.py count the editions the Times
 # printed (no Sundays, no Christmas, none in the 1979 lock-out) and give an
 # unfiled edition the class its ledger row says?
@@ -55,8 +56,11 @@ q.wake = lambda text, dry: woken.append(text)
 fake = Path(os.environ["HOME"]) / "pass.sh"
 args = Path(os.environ["HOME"]) / "args"
 q.FULL_PASS = fake
+q.CHAIN = ["true"]
 def wait_end(pid):
-    """The pass is this process's child here (the tick's in use exits first)."""
+    """The pass is this process's child here (the tick's in use exits first).
+    Its pid comes from running.json: launch()'s Popen, collected, may already
+    have reaped a pass that ended, and running() then calls it gone."""
     try:
         os.waitpid(pid, 0)
     except ChildProcessError:
@@ -65,7 +69,7 @@ def run_pass(body):
     """Start a pass running `body`, let it end, and reap it as the next tick does first."""
     fake.write_text(f'echo "$@" > {args}\n' + body)
     assert q.tick(False) == "started"
-    wait_end(q.running()["pid"])
+    wait_end(json.loads(q.RUNNING.read_text())["pid"])
     q.reap(q.load_state(), False)
     return q.load_state()
 st = run_pass("exit 0")
@@ -79,6 +83,34 @@ assert run_pass("exit 1")["held"], "two in a row hold the pass"
 assert q.tick(False) == "held" and "held" in woken[-1], woken
 q.main(["release"])
 assert run_pass("exit 0")["deadLaunches"] == 0, "a released pass starts again"
+
+# A pass that finished having fetched starts the next at once; one that
+# fetched nothing, or did not finish, leaves it to the hourly tick.
+st = run_pass(f"echo edition >> {q.FETCHED[0]}; exit 0")
+assert st["lastExit"]["fetched"], st
+fake.write_text("exit 0")
+assert q.tick(False, chained=True) == "started"
+wait_end(json.loads(q.RUNNING.read_text())["pid"])
+q.reap(q.load_state(), False)
+assert q.load_state()["lastExit"]["fetched"] is False
+assert q.tick(False, chained=True) == "idle", "a pass that fetched nothing does not chain"
+run_pass(f"echo row >> {ledger}; echo edition >> {q.FETCHED[0]}; exit 1")
+assert q.tick(False, chained=True) == "idle", "an unfinished pass does not chain"
+
+# chain() leaves the pass's session and runs the chained tick once the
+# pass's leader (its parent) has exited.
+marker = Path(os.environ["HOME"]) / "chained"
+leader = subprocess.Popen(["bash", "-c", 'python3 -c "$1"; echo $$ > "$2.leader"', "x",
+                           f"import sys; sys.path.insert(0, 'tools'); import corpus_queue as q; "
+                           f"q.CHAINED_TICK = ['bash', '-c', 'echo $$ $(ps -o sid= $$) > {marker}']; q.chain()",
+                           str(marker)], start_new_session=True)
+leader.wait()
+for _ in range(100):
+    if marker.exists() and marker.read_text().strip():
+        break
+    time.sleep(0.1)
+pid, sid = map(int, marker.read_text().split())
+assert sid != leader.pid and pid == sid, (pid, sid, leader.pid)
 
 # An edition-list job has nowhere to go: no queue file, no job argument.
 assert not (q.ROOT / "tools" / "data" / "corpus_queue.json").exists(), "edition-list jobs are gone; never bring them back"

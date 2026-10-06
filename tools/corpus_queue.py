@@ -3,6 +3,7 @@
 
     python3 tools/corpus_queue.py status             # running, held or idle, and how the last pass ended
     python3 tools/corpus_queue.py tick [--dry-run]   # check the running pass, else start one
+    python3 tools/corpus_queue.py chain              # (the pass's last step) start the next at once if it fetched
     python3 tools/corpus_queue.py adopt PID          # a pass started by hand is this queue's
     python3 tools/corpus_queue.py stop               # kill the pass's whole session and hold it
     python3 tools/corpus_queue.py release            # let a held pass start again
@@ -17,6 +18,11 @@ pass reads all of it, plus the open annotation re-read requests, then ends.
 So a reader change that should change past readings bumps REREAD_BEFORE,
 and a VLM that was down when a source was read is used once it answers:
 the next tick's pass reads them. A pass with nothing due ends in minutes.
+A pass that finishes (exit 0) having fetched something (FETCHED moved) ran
+its fetchers to their time limit or to the end of the backlog, so it starts
+the next pass itself (chain: a tick --chained once its leader has exited),
+and a backlog is fetched back to back, not a slice an hour; the first pass
+that fetches nothing leaves the next start to the hourly tick.
 
 One corpus job at a time. Another one is running when the pid in
 ~/.cache/corpus_queue/running.json is alive and started when it says (so a
@@ -60,6 +66,14 @@ NAME = "full_pass"
 STALL_MINUTES = 60
 #: Launches in a row that end unfinished with no ledger row read before the pass is held.
 DEAD_LAUNCHES = 2
+#: What the pass's wrapper runs as it ends (command()): chain().
+CHAIN = ["python3", str(ROOT / "tools" / "corpus_queue.py"), "chain"]
+#: What chain() runs once the pass's leader has exited: a tick from the
+#: queue's own worktree at origin/master, holding its lease, so it never
+#: runs beside a scheduled tick.
+CHAINED_TICK = [str(ROOT / "tools" / "corpus_queue.sh"), "tick", "--chained"]
+#: How long chain() waits for the pass's leader to exit.
+CHAIN_WAIT = 60
 
 
 def load_state():
@@ -178,8 +192,24 @@ def wake(text, dry):
 
 
 def command():
-    """What launch() runs: the full pass, its exit status kept in EXIT."""
-    return ["bash", "-c", 'bash "$1"; echo $? > "$2"', NAME, str(FULL_PASS), str(EXIT)]
+    """What launch() runs: the full pass, its exit status kept in EXIT, then CHAIN."""
+    return ["bash", "-c", 'bash "$1"; echo $? > "$2"; shift 2; "$@"', NAME, str(FULL_PASS), str(EXIT), *CHAIN]
+
+
+def chain():
+    """The pass's last step: leave its session (the next tick kills what is
+    left of it) and, once its leader has exited, run CHAINED_TICK, which
+    starts the next pass if this one finished having fetched something.
+    Returns in the parent at once."""
+    leader = os.getppid()
+    if os.fork():
+        return
+    os.setsid()
+    for _ in range(CHAIN_WAIT * 10):
+        if proc_start(leader) is None:
+            break
+        time.sleep(0.1)
+    os.execvp(CHAINED_TICK[0], CHAINED_TICK)
 
 
 def launch(dry):
@@ -248,9 +278,11 @@ def account(r, state, dry):
     """A launch `r` (running.json's record) has ended: a pass that finished
     (exit 0) or read a source is progress; one that did neither is a dead
     launch, and DEAD_LAUNCHES in a row hold the pass."""
-    rc = exit_status()
-    state["lastExit"] = {"rc": rc, "at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
-    if rc == 0 or ledger_marks() != r["ledgers"]:
+    rc, marks = exit_status(), ledger_marks()
+    fetched = any(marks.get(str(p)) != r["ledgers"].get(str(p)) for p in FETCHED)
+    state["lastExit"] = {"rc": rc, "fetched": fetched,
+                         "at": datetime.datetime.now().astimezone().isoformat(timespec="seconds")}
+    if rc == 0 or marks != r["ledgers"]:
         state["deadLaunches"] = 0
     else:
         state["deadLaunches"] = state.get("deadLaunches", 0) + 1
@@ -262,7 +294,10 @@ def account(r, state, dry):
     save_state(state)
 
 
-def tick(dry):
+def tick(dry, chained=False):
+    """Start the full pass unless one runs, it is held, or a filer holds a
+    ledger; `chained` (chain()) starts it only after a pass that finished
+    having fetched something."""
     state, run = load_state(), running()
     if run:
         print(f"running: {run['name']} (pid {run['pid']}, since {run.get('launched', '?')})")
@@ -274,6 +309,10 @@ def tick(dry):
     if state.get("held"):
         print("the full pass is held; corpus_queue.py release lets it start again")
         return "held"
+    last = state.get("lastExit") or {}
+    if chained and not (last.get("rc") == 0 and last.get("fetched")):
+        print("the last pass fetched nothing or did not finish; the hourly tick starts the next")
+        return "idle"
     held = ledger_held()
     if held:
         print(f"a scan filer holds {held}; nothing started")
@@ -299,7 +338,10 @@ def status():
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("tick").add_argument("--dry-run", action="store_true")
+    t = sub.add_parser("tick")
+    t.add_argument("--dry-run", action="store_true")
+    t.add_argument("--chained", action="store_true", help="only after a pass that finished having fetched")
+    sub.add_parser("chain", help="the pass's last step: start the next pass once it has exited, if it fetched")
     sub.add_parser("status")
     sub.add_parser("adopt").add_argument("pid", type=int)
     sub.add_parser("stop", help="kill the running pass and everything it started, and hold it")
@@ -308,7 +350,9 @@ def main(argv=None):
     if args.cmd == "status":
         status()
     elif args.cmd == "tick":
-        tick(args.dry_run)
+        tick(args.dry_run, args.chained)
+    elif args.cmd == "chain":
+        chain()
     elif args.cmd == "adopt":
         start = proc_start(args.pid)
         if not start:
