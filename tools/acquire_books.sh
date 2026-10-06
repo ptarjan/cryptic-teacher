@@ -36,11 +36,18 @@
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
-# A checkout of nobody else's — see tools/nightly_worktree.sh.
+# A checkout of nobody else's — see tools/nightly_worktree.sh. What a dropped
+# read filed is pushed by the next start (CT_SALVAGE_PATHS), and while a read
+# runs it is committed every few minutes (tools/durable.sh).
+# shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
+CT_SALVAGE_PATHS="puzzles clues_only"
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
 . "$REPO/tools/alert.sh"
+# shellcheck disable=SC2034  # read by the sourced durable.sh
+DURABLE_PATHS=(puzzles clues_only)
+. "$REPO/tools/durable.sh"
 
 # Return anything the run left open, on every path out of this script.
 trap 'python3 "$REPO/tools/fetch_ia_book.py" --loans 2>&1 | sed "s/^/loans: /"' EXIT
@@ -100,7 +107,8 @@ read_started=$SECONDS
 for book in $(python3 tools/book_queue.py --reread); do
   [ $((SECONDS - read_started)) -lt "$READ_START_SECONDS" ] || break
   echo "reading $book from its text on disk"
-  timeout 5400 nice -n 19 python3 tools/acquire_book.py "$book" --file --puzzle-dir puzzles --jobs 2 --no-borrow
+  durable_run "Read $book (so far)" \
+    timeout 5400 nice -n 19 python3 tools/acquire_book.py "$book" --file --puzzle-dir puzzles --jobs 2 --no-borrow
   if [ $? = 124 ]; then
     echo "read of $book cut short at 90 minutes; recorded as read"
     python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; q.record_read(sys.argv[1], None, None)' "$book"

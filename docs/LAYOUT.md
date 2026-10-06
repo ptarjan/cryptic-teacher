@@ -860,6 +860,11 @@ tools/daily_update.sh                        daily script: fetch latest, annotat
                                              validate, commit
 tools/nightly_worktree.sh                    sourced first: re-execs a scheduled job in its own
                                              worktree, never the editor’s
+tools/durable.sh                             sourced by a long job that files into git: commits
+                                             and pushes what it filed every few minutes, and on
+                                             SIGTERM ends the job and commits first;
+                                             nightly_worktree.sh's CT_SALVAGE_PATHS pushes what
+                                             a SIGKILL left
 tools/json_merge.py                          git merge driver: the keyed JSON data files
                                              several writers append to merge per key, so a
                                              rebase never stops on a ledger row
@@ -1228,6 +1233,11 @@ tools/test_prereset_lock.sh                  does the pre-reset backfill still t
                                              nobody is holding?
 tools/test_nightly_worktree.sh               which tree does a scheduled job end up running in?
                                              checked by running one
+tools/test_durable.sh                        does a long job keep what it filed when left
+                                             running, sent SIGTERM, or SIGKILLed and restarted,
+                                             without filing anything twice; does
+                                             corpus_queue.py stop let the pass commit; does
+                                             every long scheduled job use tools/durable.sh?
 tools/data/source_answer_wrong.json          answers a source's key got wrong, keyed puzzle
                                              id/entry id: what it serves, the corrected
                                              letters, the evidence; read as

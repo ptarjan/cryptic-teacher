@@ -39,6 +39,7 @@ import hashlib
 import html
 import itertools
 import json
+import os
 import re
 import sys
 import time
@@ -1027,8 +1028,13 @@ def write_puzzle_file(path, puzzle, generator=None):
     puzzle_integrity.refuse_bad_write(puzzle, old)
     dest = puzzle_paths.file_for(puzzle) if corpus else path
     dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n",
+    # Whole or not at all: a long job's checkpoint (tools/durable.sh) commits
+    # the corpus while its writer is still filing, and a kill mid-write must
+    # not leave half a file for the next start to salvage.
+    part = dest.with_name(f".{dest.name}.part")
+    part.write_text(json.dumps(puzzle, indent=1, ensure_ascii=False) + "\n",
                     encoding="utf-8")
+    os.replace(part, dest)
     if held and held.resolve() != dest.resolve():
         held.unlink()
     # A puzzle filed with its grid leaves the clues-only state: one id, one

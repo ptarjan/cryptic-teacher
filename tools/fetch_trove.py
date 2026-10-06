@@ -51,6 +51,7 @@ No account and no API key. Three anonymous mechanisms, all plain HTTP:
   tile<L>-<col>-<row>, 256px, where page pixel p sits at p*scale + offset.
 """
 import argparse
+import contextlib
 import glob
 import hashlib
 import html
@@ -66,6 +67,17 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+
+
+@contextlib.contextmanager
+def atomic(path, mode="w"):
+    """Open `path` for writing whole or not at all: a kill mid-write leaves
+    the old file (or none), never a cut-off one that exists and so is skipped
+    as fetched forever (meta.json, a zone's PNG) or read as an index."""
+    part = f"{path}.part"
+    with open(part, mode) as f:
+        yield f
+    os.replace(part, path)
 
 BASE = "https://trove.nla.gov.au"
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -220,15 +232,16 @@ class Trove:
         _, ocr = self.get(f"/newspaper/rendition/nla.news-article{aid}.txt")
         paras = [html.unescape(re.sub(r"<[^>]+>", "", p)).strip()
                  for p in re.findall(r"<p>(.*?)</p>", ocr.decode("utf-8", "replace"), re.DOTALL)]
-        with open(os.path.join(d, "ocr.txt"), "w") as f:
+        with atomic(os.path.join(d, "ocr.txt")) as f:
             f.write("\n".join(p for p in paras if p) + "\n")
         grid = grid_zone(zones)
         meta["grid"] = grid
         if grid:
             img, level = self.crop(grid["page"], grid)
-            img.save(os.path.join(d, "grid.jpg"), quality=92)
+            with atomic(os.path.join(d, "grid.jpg"), "wb") as f:
+                img.save(f, format="JPEG", quality=92)
             meta["grid_level"], meta["grid_px"] = level, list(img.size)
-        with open(os.path.join(d, "meta.json"), "w") as f:
+        with atomic(os.path.join(d, "meta.json")) as f:
             json.dump(meta, f, indent=1)
         return meta
 
@@ -284,7 +297,8 @@ def fetch_zones(tv, out, zones, aid):
         p = os.path.join(d, f"zone{i}.png")
         if z != meta.get("grid") and not os.path.exists(p):
             img, _ = tv.crop(z["page"], z, pad=4)
-            img.save(p)
+            with atomic(p, "wb") as f:
+                img.save(f, format="PNG")
 
 
 def pending_zones(out, zones):
@@ -374,7 +388,7 @@ def main():
         for h in new:
             h["query"] = a.query
             known[h["id"]] = h
-        with open(path, "w") as f:
+        with atomic(path) as f:
             f.writelines(json.dumps(h) + "\n" for h in known.values())
         print(f"{year} {a.query}: {total} hits, {len(new)} new, {len(known)} in {path}")
     else:

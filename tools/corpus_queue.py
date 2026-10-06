@@ -5,7 +5,7 @@
     python3 tools/corpus_queue.py tick [--dry-run]   # check the running pass, else start one
     python3 tools/corpus_queue.py chain              # (the pass's last step) start the next at once if it fetched
     python3 tools/corpus_queue.py adopt PID          # a pass started by hand is this queue's
-    python3 tools/corpus_queue.py stop               # kill the pass's whole session and hold it
+    python3 tools/corpus_queue.py stop               # stop the pass (it commits what it filed first) and hold it
     python3 tools/corpus_queue.py release            # let a held pass start again
 
 There is one job and it takes no edition list. It first runs the scan
@@ -33,6 +33,10 @@ wakes the room once per stall. A pass that ends, not finished, without a
 ledger row read or a scan fetched (FETCHED) is a dead launch; DEAD_LAUNCHES in a row hold the pass and
 tell the room. The pass is its own session; when its leader is gone the
 tick kills whatever of the session is left before it starts anything.
+
+A stop is graceful: the pass's leader gets SIGTERM and up to STOP_GRACE
+seconds to end, which it spends ending its filer and committing what it
+filed (tools/durable.sh); only then is the rest of its session killed.
 """
 import argparse
 import datetime
@@ -74,6 +78,9 @@ CHAIN = ["python3", str(ROOT / "tools" / "corpus_queue.py"), "chain"]
 CHAINED_TICK = [str(ROOT / "tools" / "corpus_queue.sh"), "tick", "--chained"]
 #: How long chain() waits for the pass's leader to exit.
 CHAIN_WAIT = 60
+#: How long stop gives the pass, after SIGTERM, to end its filer and commit
+#: what it filed (tools/durable.sh: DURABLE_STOP_GRACE plus a commit and push).
+STOP_GRACE = 240
 
 
 def load_state():
@@ -89,18 +96,20 @@ def save_state(state):
 
 
 def proc_start(pid):
-    """The kernel's start time of `pid` (clock ticks since boot), None if it is gone."""
+    """The kernel's start time of `pid` (clock ticks since boot), None if it
+    is gone or a zombie (exited, its parent not yet reaping it)."""
     try:
-        stat = Path(f"/proc/{pid}/stat").read_text()
+        stat = Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()
     except OSError:
         return None
-    return stat.rsplit(")", 1)[1].split()[19]
+    return None if stat[0] == "Z" else stat[19]
 
 
 def session_of(pid):
-    """The session id of `pid`, None if it is gone."""
+    """The session id of `pid`, None if it is gone or a zombie."""
     try:
-        return int(Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[3])
+        stat = Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()
+        return None if stat[0] == "Z" else int(stat[3])
     except (OSError, IndexError, ValueError):
         return None
 
@@ -114,14 +123,25 @@ def session_pids(sid):
     return out
 
 
-def end_session(sid, grace=10):
+def end_session(sid, grace=10, leader_grace=0):
     """Kill whatever is left of a pass's session: launch() starts it as a
     session leader, so its filers and `timeout`s (which move their child into
     a process group of its own) all carry its pid as their session id, and
-    the kernel does not reuse that number while any of them lives. TERM, then
-    KILL what is still there after `grace` seconds. Returns the pids."""
+    the kernel does not reuse that number while any of them lives. With
+    `leader_grace`, the leader alone is sent TERM first and given that many
+    seconds to exit (the pass commits what it filed); then TERM to all,
+    then KILL what is still there after `grace` seconds. Returns the pids."""
     if sid == os.getsid(0):
         return []
+    if leader_grace and proc_start(sid) is not None:
+        try:
+            os.kill(sid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+        for _ in range(leader_grace * 10):
+            if proc_start(sid) is None:
+                break
+            time.sleep(0.1)
     pids = session_pids(sid)
     for sig in (signal.SIGTERM, signal.SIGKILL):
         for pid in pids:
@@ -192,8 +212,12 @@ def wake(text, dry):
 
 
 def command():
-    """What launch() runs: the full pass, its exit status kept in EXIT, then CHAIN."""
-    return ["bash", "-c", 'bash "$1"; echo $? > "$2"; shift 2; "$@"', NAME, str(FULL_PASS), str(EXIT), *CHAIN]
+    """What launch() runs: the full pass, its exit status kept in EXIT, then
+    CHAIN. A TERM to it (stop) is passed on to the pass, which commits what
+    it filed before it exits, and waited for."""
+    wrapper = ('bash "$1" & p=$!; trap \'kill -TERM "$p" 2>/dev/null\' TERM INT HUP; wait "$p"; rc=$?; '
+               'while kill -0 "$p" 2>/dev/null; do wait "$p"; rc=$?; done; echo "$rc" > "$2"; shift 2; "$@"')
+    return ["bash", "-c", wrapper, NAME, str(FULL_PASS), str(EXIT), *CHAIN]
 
 
 def chain():
@@ -374,7 +398,9 @@ def main(argv=None):
         state = load_state()
         state["held"] = True
         save_state(state)
-        print(f"held; killed session {r['pid']}: {end_session(r['pid'])}")
+        print(f"held; stopping session {r['pid']} (up to {STOP_GRACE}s for it to commit what it filed)", flush=True)
+        left = end_session(r["pid"], leader_grace=STOP_GRACE)
+        print("stopped" + (f"; killed what its leader left running: {left}" if left else ""))
         RUNNING.unlink()
 
 

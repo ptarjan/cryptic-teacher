@@ -293,6 +293,7 @@ LAYOUT = [
 
     ("scheduling", "tools/daily_update.sh", "daily script: fetch latest, annotate backlog, validate, commit"),
     ("scheduling", "tools/nightly_worktree.sh", "sourced first: re-execs a scheduled job in its own worktree, never the editor’s"),
+    ("scheduling", "tools/durable.sh", "sourced by a long job that files into git: commits and pushes what it filed every few minutes, and on SIGTERM ends the job and commits first; nightly_worktree.sh's CT_SALVAGE_PATHS pushes what a SIGKILL left"),
     ("scheduling", "tools/json_merge.py", "git merge driver: the keyed JSON data files several writers append to merge per key, so a rebase never stops on a ledger row"),
     ("scheduling", "tools/claude_path.sh", "sourced: finds the `claude` CLI wherever this machine keeps it, SDK-bundled copy included"),
     ("scheduling", "tools/alert.sh", "posts a run’s failures to Discord instead of burying them in a log"),
@@ -416,6 +417,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
     ("tables everything else reads", "tools/test_prereset_lock.sh", "does the pre-reset backfill still take over a lock nobody is holding?"),
     ("tables everything else reads", "tools/test_nightly_worktree.sh", "which tree does a scheduled job end up running in? checked by running one"),
+    ("tables everything else reads", "tools/test_durable.sh", "does a long job keep what it filed when left running, sent SIGTERM, or SIGKILLed and restarted, without filing anything twice; does corpus_queue.py stop let the pass commit; does every long scheduled job use tools/durable.sh?"),
     ("tables everything else reads", "tools/data/source_answer_wrong.json", "answers a source's key got wrong, keyed puzzle id/entry id: what it serves, the corrected letters, the evidence; read as fetch_puzzle.SOURCE_ANSWER_WRONG, merged per key"),
     ("tables everything else reads", "tools/data/source_clue_wrong.json", "clues a source serves or OCRs wrong, keyed puzzle id/entry id: how the served text opens, the clue as printed, the evidence; read as fetch_puzzle.SOURCE_CLUE_WRONG, merged per key"),
     ("tables everything else reads", "tools/data/setter_error.json", "clues the setter printed wrong, keyed puzzle id/entry id: the anagram fodder (words the clue prints, or a block's gives), the letters it should give (the answer or the part the anagram supplies), the evidence; validate_annotations.setter_error_problems refuses any other row; validate_annotations.SETTER_ERROR lets that one mismatch pass with a walkthrough saying so; merged per key"),

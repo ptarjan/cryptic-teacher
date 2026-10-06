@@ -131,6 +131,63 @@ sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).enco
   exec 7>&-
 }
 
+# ct_unstage_unparsable <tree>: take out of the index each staged .json that
+# does not parse (a write cut off by a kill), so no commit carries one.
+ct_unstage_unparsable() {
+  local bad
+  bad=$(git -C "$1" diff --cached --name-only --diff-filter=AM -- '*.json' |
+    (cd "$1" && python3 -c 'import json, sys
+for p in sys.stdin.read().split("\n"):
+    if p:
+        try:
+            json.load(open(p))
+        except (OSError, ValueError):
+            print(p)'))
+  [ -n "$bad" ] || return 0
+  printf '%s\n' "$bad" | (cd "$1" && xargs -d '\n' git reset -q --)
+  echo "left out of the commit, not parsable: $(printf '%s\n' "$bad" | tr '\n' ' ')" >&2
+}
+
+# _ct_salvage <tree> <job>: commit what a dropped run left under
+# CT_SALVAGE_PATHS (a .json that does not parse, a write cut off, is left
+# out), then push every commit the tree has that origin/master lacks with
+# tools/push_puzzle_commit.sh. A commit that will not push is kept on the
+# branch salvage/<job>-<time> and the room is told; the reset then goes ahead.
+_ct_salvage() {
+  local tree="$1" job="$2" c failed=0 msg lock
+  # A run killed mid-git leaves its lock, and mid-rebase its rebase: the
+  # lease says no run of this job is live, so one older than a minute is dead.
+  lock="$(git -C "$tree" rev-parse --git-dir)/index.lock"
+  [ -f "$lock" ] && [ -z "$(find "$lock" -mmin -1)" ] && rm -f "$lock"
+  git -C "$tree" rebase --abort >/dev/null 2>&1
+  for c in $CT_SALVAGE_PATHS; do
+    [ -e "$tree/$c" ] || continue
+    git -C "$tree" add -- "$c" || return 1
+  done
+  ct_unstage_unparsable "$tree"
+  if ! git -C "$tree" diff --cached --quiet; then
+    git -C "$tree" commit -q -m "$job: salvaged from a run that was dropped" || return 1
+  fi
+  # Oldest first; one origin/master already holds as the same patch (pushed
+  # by tools/push_puzzle_commit.sh, which leaves the local commit) is skipped.
+  for c in $(git -C "$tree" cherry origin/master HEAD | sed -n 's/^+ //p'); do
+    msg=$(git -C "$tree" log -1 --format=%s "$c")
+    if (cd "$tree" && bash tools/push_puzzle_commit.sh "$c" >/dev/null 2>&1); then
+      echo "WORKTREE: salvaged and pushed: $msg" >&2
+    else
+      failed=1
+    fi
+  done
+  if [ "$failed" = 1 ]; then
+    c="salvage/$job-$(date +%Y%m%d-%H%M%S)"
+    git -C "$tree" branch -q "$c" HEAD || return 1
+    echo "WORKTREE: a dropped run's commit would not push; kept on branch $c" >&2
+    . "$(dirname "${BASH_SOURCE[0]}")/alert.sh" 2>/dev/null &&
+      alert "$job: a dropped run left commits that would not push onto origin/master (a conflict?). They are kept on local branch $c; cherry-pick them from a worktree."
+  fi
+  return 0
+}
+
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
   _ct_job="$(basename "$0" .sh)"
@@ -170,6 +227,16 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
       echo "WORKTREE: fetch failed — working from whatever origin/master was last known" >&2
     }
     _ct_follow_origin
+    # A job that files into git as it goes (tools/durable.sh) sets
+    # CT_SALVAGE_PATHS: any local commit a dropped run (SIGKILL, OOM, reboot,
+    # a failed push) left, and what it filed under those paths uncommitted
+    # (none when set empty), is pushed here before the reset below discards it.
+    if [ -n "${CT_SALVAGE_PATHS+set}" ]; then
+      _ct_salvage "$_ct_tree" "$_ct_job" || {
+        echo "WORKTREE: cannot salvage $_ct_tree — the dropped run's work is parked, not reset" >&2
+        _ct_tree=""
+      }
+    fi
     # Tracked files back to the branch, untracked state left alone. A leftover
     # from a crashed run is discarded here rather than committed tonight.
     if ! git -C "$_ct_tree" reset -q --hard origin/master; then
