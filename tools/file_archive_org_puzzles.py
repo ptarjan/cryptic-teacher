@@ -2308,12 +2308,12 @@ def filled(puzzle):
             sum(1 for e in es if e.get("solution")))
 
 
-def improves(puzzle, path):
-    """Whether `puzzle` should replace the file at `path`: one this tool
+def improves(puzzle, path, tool=TOOL):
+    """Whether `puzzle` should replace the file at `path`: one `tool`
     filed, on the same grid, that the new reading beats on clues or answers
     and loses on neither."""
     old = json.loads(path.read_text())
-    if (old.get("source") or {}).get("acquiredBy") != TOOL \
+    if (old.get("source") or {}).get("acquiredBy") != tool \
             or trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return False
     def have(p, field):
@@ -2327,7 +2327,7 @@ def improves(puzzle, path):
     return filled(puzzle) != filled(old)
 
 
-def mend_held(puzzle, path):
+def mend_held(puzzle, path, tool=TOOL):
     """(the held file at `path` mended, {light: its clue now}), or None: each
     light the file gives a clue it gives another light too
     (fetch_puzzle.duplicated_clues), or a clue faults() refuses, takes this
@@ -2340,13 +2340,13 @@ def mend_held(puzzle, path):
     whose clue changes loses its annotation, written against the old words.
     A clue with a doubled word or a stray letter (strayed) is never kept:
     it takes this reading's clue, or goes blank.
-    None when no clue changes, the file is not this tool's, or it lies on
+    None when no clue changes, the file is not `tool`'s, or it lies on
     another grid than this reading. With no reading (`puzzle` None: its
     scan now reads as another number), only the shared clues go."""
     from fetch_puzzle import duplicated_clues
     old = json.loads(path.read_text())
     puzzle = puzzle or {"entries": []}
-    if (old.get("source") or {}).get("acquiredBy") != TOOL \
+    if (old.get("source") or {}).get("acquiredBy") != tool \
             or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
     shared = {i for ids in duplicated_clues(old["entries"]) for i in ids}
