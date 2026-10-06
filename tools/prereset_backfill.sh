@@ -1140,7 +1140,6 @@ if ! seo_err=$(python3 tools/build_seo_pages.py 2>&1); then
   printf '%s\n' "$seo_err"
   alert "the pre-reset backfill could not build the site pages, so its smoke test was skipped: $(printf '%s' "$seo_err" | tail -3)"
 fi
-python3 tools/stamp_assets.py
 if [ "$seo_ok" = 1 ] && command -v node >/dev/null 2>&1; then
   smoke_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset-smoke.XXXXXX")"
   node tools/smoke_test.js 2>&1 | tee "$smoke_log"
@@ -1155,11 +1154,6 @@ fi
 # The annotation payloads apply_annotations.py consumed, swept for the same
 # reason daily_update.sh sweeps them: ignored is not the same as cleaned up.
 rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json "$REPO/tools/_scan_"*.png
-
-# The stamps come back off before staging, for the reason daily_update.sh gives
-# at its own --unstamp: a ?v= hash in a tracked file is churn, and the deploy
-# workflow stamps its own checkout.
-python3 tools/stamp_assets.py --unstamp
 
 if [ -n "$(git status --porcelain)" ]; then
   # Everything, for the reason daily_update.sh gives at its own `add -A`: this

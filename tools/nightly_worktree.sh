@@ -74,6 +74,63 @@ git -C "$(dirname "${BASH_SOURCE[0]}")" config filter.json-keys.clean "python3 t
 git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.puzzle-json.name "per-entry puzzle merge (tools/json_merge.py --puzzle)"
 git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.puzzle-json.driver "python3 tools/json_merge.py --puzzle %O %A %B"
 
+# The main checkout is nobody's editor window: the plugin manifests and the
+# entry points the scheduler names are read from it, so it follows origin/master
+# at every job start, whichever tree the job was started from. Its tracked files
+# change only by this fast-forward. Two kinds of local edit are provably nothing
+# and are put back so they cannot block it: a file already holding
+# origin/master's content (a manifest edited live, then committed), and an
+# index.html that differs from HEAD only by asset stamps (stamping is the deploy
+# workflow's build step). Anything else — another edit, a branch, a local commit
+# — leaves it behind, and that wakes the room: every job reading it runs old
+# code until it moves. The alert text names no count, so it repeats only on
+# alert.sh's schedule while the cause is unchanged.
+_ct_follow_origin() {
+  local common home path cur edits why clobber
+  common="$(git -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute --git-common-dir)"
+  home="$(dirname "$common")"
+  # One job at a time; a job that finds another mid-update leaves it to that one.
+  exec 7>"$common/ct-follow-origin.lock"
+  flock -w 60 7 || { exec 7>&-; return 0; }
+  if [ "$(git -C "$home" symbolic-ref -q --short HEAD)" = master ]; then
+    while IFS= read -r path; do
+      [ -n "$path" ] && [ -f "$home/$path" ] || continue
+      cur="$(git -C "$home" hash-object -- "$path")"
+      if [ "$cur" = "$(git -C "$home" rev-parse -q --verify "origin/master:$path")" ] ||
+         { [ "$path" = index.html ] &&
+           [ "$(cd "$home" && python3 -c 'import sys; sys.path.insert(0, "tools"); import stamp_assets as s
+sys.stdout.buffer.write(s.unstamp(s.INDEX_HTML.read_text(encoding="utf-8")).encode("utf-8"))' 2>/dev/null |
+                git -C "$home" hash-object --path index.html --stdin)" = \
+             "$(git -C "$home" rev-parse -q --verify HEAD:index.html)" ]; }; then
+        git -C "$home" checkout -q -- "$path" &&
+          echo "WORKTREE: put back $path in $home — its edit was already on origin/master or only asset stamps" >&2
+      fi
+    done < <(git -C "$home" diff --name-only HEAD --)
+    git -C "$home" merge-base --is-ancestor origin/master HEAD ||
+      git -C "$home" merge -q --ff-only origin/master 2>/dev/null
+  fi
+  if ! git -C "$home" merge-base --is-ancestor origin/master HEAD; then
+    edits="$(git -C "$home" diff --name-only HEAD -- | head -8 | tr '\n' ' ')"
+    clobber="$(comm -12 <(git -C "$home" ls-files --others --exclude-standard | sort) \
+                        <(git -C "$home" diff --name-only --diff-filter=A HEAD origin/master | sort) | head -8 | tr '\n' ' ')"
+    if [ "$(git -C "$home" symbolic-ref -q --short HEAD)" != master ]; then
+      why="HEAD is $(git -C "$home" symbolic-ref -q --short HEAD || echo detached), not master"
+    elif ! git -C "$home" merge-base --is-ancestor HEAD origin/master; then
+      why="master has local commits origin/master does not"
+    elif [ -n "$edits" ]; then
+      why="uncommitted edits to tracked files: $edits"
+    elif [ -n "$clobber" ]; then
+      why="untracked files origin/master would overwrite: $clobber"
+    else
+      why="git merge --ff-only failed (a git lock held by another process?)"
+    fi
+    echo "WORKTREE: $home cannot fast-forward to origin/master: $why" >&2
+    . "$home/tools/alert.sh" 2>/dev/null &&
+      alert "the main checkout $home is behind origin/master and a job start could not fast-forward it — $why. Every scheduled job reads its manifest and entry script from there, so they run old code until it moves. Commit those changes from a worktree and put the checkout back (\`git -C $home checkout -- <file>\`); the next job start fast-forwards it."
+  fi
+  exec 7>&-
+}
+
 if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_main="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
   _ct_job="$(basename "$0" .sh)"
@@ -112,15 +169,7 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     git -C "$_ct_main" fetch -q origin master || {
       echo "WORKTREE: fetch failed — working from whatever origin/master was last known" >&2
     }
-    # The main checkout is nobody's editor window: the plugin manifests and the
-    # entry points the scheduler names are read from it, so it follows
-    # origin/master here, at every job start (the burn starts hourly). Only a
-    # clean fast-forward; a tree someone has dirtied or moved is left as found.
-    if [ -z "$(git -C "$_ct_main" status --porcelain --untracked-files=no)" ] &&
-       [ "$(git -C "$_ct_main" symbolic-ref -q --short HEAD)" = master ]; then
-      git -C "$_ct_main" merge -q --ff-only origin/master 2>/dev/null ||
-        echo "WORKTREE: $_ct_main could not fast-forward to origin/master" >&2
-    fi
+    _ct_follow_origin
     # Tracked files back to the branch, untracked state left alone. A leftover
     # from a crashed run is discarded here rather than committed tonight.
     if ! git -C "$_ct_tree" reset -q --hard origin/master; then

@@ -50,9 +50,9 @@ def want_stamps():
     """The hash each asset should carry live, computed from the files themselves
     rather than parsed out of local index.html.
 
-    daily_update.sh unstamps index.html before committing (the deploy workflow
-    stamps its own checkout, so what ships is stamped and what is stored is not)
-    and runs this script straight afterwards, against that same working tree. An
+    index.html is stored unstamped (the deploy workflow stamps its own
+    checkout, so what ships is stamped and what is stored is not), and
+    daily_update.sh runs this script against that same working tree. An
     unstamped index.html holds no expected hashes at all, so reading it made a
     healthy tree indistinguishable from an undeployed site and failed before
     either GitHub or the live page was ever looked at.
@@ -76,7 +76,7 @@ def shipped_index_stamp(head):
         subprocess.run(["git", "worktree", "add", "-q", "--detach", tmp, head],
                        cwd=ROOT, check=True, capture_output=True)
         # The same steps, in the same order, as .github/workflows/pages.yml:
-        # the reindex restamps index.html, which needs the glossary built.
+        # the glossary first, because the stamps hash it.
         for step in (["tools/build_abbreviations.py"],
                      ["tools/fetch_puzzle.py", "--reindex"]):
             run = subprocess.run([sys.executable, *step], cwd=tmp,

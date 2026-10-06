@@ -149,5 +149,53 @@ check "a dirty checkout is refused" \
   "$(echo "$out" | grep -c '^RAN IN ')" "0"
 git -C "$tmp/main" checkout -q -- tools/faketask.sh
 
+# 6. The main checkout follows origin/master at every job start. A local edit
+#    that is provably nothing — origin/master's own content, or index.html
+#    differing only by asset stamps — is put back rather than left to block it
+#    (on 2026-10-05 those two held it 758 commits behind for a day, silently);
+#    any other edit leaves it behind and says so in an alert.
+git clone -q -b master "$tmp/origin.git" "$tmp/other"
+upstream() { # upstream <file> <content>: commit and push from another clone
+  printf '%s\n' "$2" > "$tmp/other/$1"
+  git -C "$tmp/other" add -A
+  git -C "$tmp/other" -c user.email=t@t -c user.name=t commit -qm "$1"
+  git -C "$tmp/other" push -q origin HEAD:master
+}
+at_origin() { git -C "$tmp/main" fetch -q origin master
+  [ "$(git -C "$tmp/main" rev-parse HEAD)" = "$(git -C "$tmp/main" rev-parse origin/master)" ] && echo yes || echo no; }
+git -C "$tmp/main" checkout -q master
+git -C "$tmp/main" merge -q --ff-only origin/master
+cp "$ROOT/tools/stamp_assets.py" "$tmp/other/tools/"
+printf 'x\n' > "$tmp/other/app.js"
+upstream index.html '<script src="app.js"></script>'
+upstream manifest.toml 'schedule = "twice a day"'
+out="$(run "$tmp/trees")"
+check "a clean checkout behind origin/master is fast-forwarded" "$(at_origin)" yes
+
+upstream manifest.toml 'schedule = "hourly"'
+printf '%s\n' 'schedule = "hourly"' > "$tmp/main/manifest.toml"
+out="$(run "$tmp/trees")"
+check "an edit origin/master already holds does not block it" "$(at_origin)" yes
+check "and raises no alert" "$(echo "$out" | grep -c '^ALERT: ')" 0
+
+upstream index.html '<script src="app.js"></script>
+<p>new</p>'
+(cd "$tmp/main" && python3 tools/stamp_assets.py >/dev/null 2>&1)
+check "the stamp really dirtied index.html" "$(git -C "$tmp/main" diff --name-only)" index.html
+out="$(run "$tmp/trees")"
+check "asset stamps in index.html do not block it" "$(at_origin)" yes
+check "and leave it as stored" "$(git -C "$tmp/main" status --porcelain --untracked-files=no)" ""
+
+upstream manifest.toml 'schedule = "daily"'
+printf '%s\n' 'schedule = "by hand"' > "$tmp/main/manifest.toml"
+out="$(run "$tmp/trees")"
+check "a real edit is left where it is" "$(cat "$tmp/main/manifest.toml")" 'schedule = "by hand"'
+check "and it wakes the room naming the file" \
+  "$(echo "$out" | grep '^ALERT: ' | grep -c 'uncommitted edits to tracked files: manifest.toml')" 1
+check "and the job still runs" "$(echo "$out" | grep -c '^RAN IN ')" 1
+git -C "$tmp/main" checkout -q -- manifest.toml
+out="$(run "$tmp/trees")"
+check "once it is put back the next start fast-forwards" "$(at_origin)" yes
+
 [ "$fails" = 0 ] && echo "NIGHTLY WORKTREE PASSED" || echo "$fails check(s) failed"
 exit $((fails > 0))

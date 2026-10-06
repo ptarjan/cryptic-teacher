@@ -617,9 +617,9 @@ changing a file's bytes means changing its URL.**
   `python3 tools/stamp_assets.py` on its own checkout, so what ships is stamped
   and what is stored is not. A hash in a tracked file would change on every
   asset commit, which is churn and a source of nightly rebase conflicts.
-- **Do not commit a stamped `index.html`.** If you ran the stamper, or
-  `tools/fetch_puzzle.py --reindex` (which also restamps), run
-  `python3 tools/stamp_assets.py --unstamp` to put the tree back.
+- **Do not commit a stamped `index.html`.** If you ran the stamper, run
+  `python3 tools/stamp_assets.py --unstamp` to put the tree back. Nothing
+  else stamps it.
 - The smoke test checks that each reference exists, never the stamp itself.
 - Stamping does not fix caches still holding the old URL. Re-share a link to
   force a refetch, and expect a day's lag.
