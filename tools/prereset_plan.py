@@ -12,7 +12,10 @@ cores over a run's measured CPU. The five-hour window is only a ceiling: a
 lockout is napped through by prereset_backfill.sh.
 
 The queue is backlog(): every un-annotated puzzle, those without all their
-answers included (the burn solves them cold, then annotates them). Its order
+answers included (the burn solves them cold, then annotates them), and every
+puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
+grid in tools/apply_solution.py as the nightly's does. Those rank by the same
+rules as an index row: clues_only_rows() gives them one. Its order
 is head_of_queue()'s (Paul, 2026-10-04): the puzzles a lockout cut off first,
 then the puzzles /showcase/ would pick once annotated (showcase.wanted), then
 each series' first puzzle (series.is_first_issue), then each series'
@@ -482,7 +485,7 @@ def self_test():
            + first_self_test() + backlog_self_test())
     n = (len(covers) + len(WIDTH_CASES) + len(NEED_CASES) + len(MEM_CASES)
          + len(CPU_CASES) + len(METER_CASES) + len(RATIO_CASES) + 21 + len(TAG_CASES) + 2 + len(FIRST_CASES) + 3 + 4
-         + len(BACKLOG_CASES))
+         + len(BACKLOG_CASES) + 3)
     print(f"prereset plan self-test FAILED: {bad} of {n}" if bad
           else f"prereset plan self-test: {n} cases pass")
     return 1 if bad else 0
@@ -784,6 +787,8 @@ def _row(pid, day, solved=True, annotated=False, **extra):
             "annotated": annotated, "hasSolutions": solved, **extra}
 
 
+_HELD = {"id": "book-31039", "series": "book", "year": 2002,
+         "annotated": False, "hasSolutions": False}
 _SCAN = [_row("times-21042", "1999-03-01", solved=False),       # an OCR scan, no answers
          _row("canberra-500", "2001-01-01", solved=False),      # a whole series filed bare
          _row("times-29600", "2026-09-01"),
@@ -801,17 +806,55 @@ BACKLOG_CASES = [
     # $CT_SERIES narrows it
     (_SCAN, (), (), ("canberra",), ["canberra-500"]),
     (_SCAN[2:4], (), (), (), ["times-29600"]),
+    # a clues-only puzzle (clues_only_rows) is queued in its series' lane, here
+    # book's ahead of times' (neither is in BY_DEMAND); a failed solve holds it
+    # out like any other
+    (_SCAN[2:4] + [_HELD], (), (), (), ["book-31039", "times-29600"]),
+    (_SCAN[2:4] + [_HELD], (), ("book-31039",), (), ["times-29600"]),
 ]
 
 
 def backlog_self_test():
-    bad = 0
+    bad = clues_only_self_test()
     for rows, annotate, solve, only, want in BACKLOG_CASES:
         got = [p["id"] for p in backlog(rows, annotate, solve, only)]
         if got != want:
             print(f"FAIL backlog(ledgers {annotate}, {solve}, series {only}) = {got} "
                   f"(want {want})", file=sys.stderr)
             bad += 1
+    return bad
+
+
+def clues_only_self_test():
+    """A file in clues_only/ is a queue row, unsolved, and sorts by its year
+    among its series' indexed puzzles rather than at the back."""
+    import tempfile
+
+    import clues_only
+    bad = 0
+    real = clues_only.DIR
+    with tempfile.TemporaryDirectory() as tmp:
+        clues_only.DIR = Path(tmp)
+        try:
+            (Path(tmp) / "book").mkdir()
+            (Path(tmp) / "book" / "book-31039.json").write_text(json.dumps(
+                {"id": "book-31039", "number": 31039, "series": "book", "year": 2002,
+                 "clues": {"across": [], "down": []}}))
+            if clues_only_rows() != [_HELD]:
+                print(f"FAIL clues_only_rows = {clues_only_rows()} (want [{_HELD}])",
+                      file=sys.stderr)
+                bad += 1
+            if not unsolved("book-31039"):
+                print("FAIL unsolved(a clues-only id) is False: the burn would annotate "
+                      "a puzzle with no grid", file=sys.stderr)
+                bad += 1
+            rows = [_row("book-1001", None, year=1990)] + clues_only_rows()
+            got = newest_first(["book-1001", "book-31039"], rows)
+            if got != ["book-31039", "book-1001"]:
+                print(f"FAIL newest_first with a clues-only row = {got}", file=sys.stderr)
+                bad += 1
+        finally:
+            clues_only.DIR = real
     return bad
 
 
@@ -1040,20 +1083,36 @@ def round_robin(rows):
             for s in cycle if i < len(lanes[s])]
 
 
+def clues_only_rows():
+    """An index-shaped row for each puzzle held as its clues alone: unannotated,
+    no answers, every clue readable, dated by its `year` or `date`. The index
+    lists puzzles/ alone, so without these the queue never sees them."""
+    import clues_only
+    rows = []
+    for path in clues_only.files():
+        record = json.loads(path.read_text(encoding="utf-8"))
+        row = {"id": record["id"], "series": record["series"],
+               "annotated": False, "hasSolutions": False}
+        row.update({k: record[k] for k in ("year", "date") if k in record})
+        rows.append(row)
+    return rows
+
+
 def print_backlog(annotate_blocked, solve_blocked):
     """The queue's ids on stdout, from the index; its head and how many of it
     are to be solved first on stderr, which is the burn's log. A puzzle whose
     scan is queued for an OCR re-read (scan_queue.open_requests) is left out
     like an annotate-blocked one: its clue may be misread, and the re-read
     decides. $CT_SERIES, a space-separated list of series keys, narrows it to
-    those papers."""
+    those papers. Clues-only puzzles join it as clues_only_rows()."""
     import scan_queue
     index = json.loads(INDEX.read_text(encoding="utf-8"))
     rereads = {r["id"] for r in scan_queue.open_requests()}
     if rereads:
         print(f"  {len(rereads)} OCR'd puzzles wait on a re-read of their scan, left out until it lands",
               file=sys.stderr)
-    todo = backlog(index["puzzles"], annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
+    held = clues_only_rows()
+    todo = backlog(index["puzzles"] + held, annotate_blocked.split() + sorted(rereads), solve_blocked.split(),
                    os.environ.get("CT_SERIES", "").split())
     for p in todo[:5]:
         when = (f"{p['year']:<10}" if "year" in p
@@ -1063,13 +1122,19 @@ def print_backlog(annotate_blocked, solve_blocked):
         print(f"  ... and {len(todo) - 5} older", file=sys.stderr)
     print(f"  {sum(1 for p in todo if not p.get('hasSolutions'))} of them lack answers "
           "and are solved cold first", file=sys.stderr)
+    queued = {p["id"] for p in todo}
+    print(f"  {sum(1 for r in held if r['id'] in queued)} of those are held clues-only; "
+          "their solve derives the grid", file=sys.stderr)
     print(" ".join(p["id"] for p in todo))
     return 0
 
 
 def unsolved(pid):
     """Whether the puzzle's file lacks an answer to any entry: the burn solves
-    it cold before annotating it."""
+    it cold before annotating it. A puzzle held clues-only has no answer yet."""
+    import clues_only
+    if clues_only.find(pid):
+        return True
     from fetch_puzzle import read_puzzle_file
     from puzzle_paths import resolve_puzzle
     return not all(e.get("solution") for e in read_puzzle_file(resolve_puzzle(pid))["entries"])
@@ -1106,7 +1171,7 @@ def cover_first(pinned):
     """The ids on stdin, in head_of_queue()'s order with the indicator cover
     behind its pins. The summary goes to stderr, which is the burn's log."""
     import indicator_cover
-    queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, index_rows(),
+    queue, pinned, n = head_of_queue(sys.stdin.read().split(), pinned, index_rows() + clues_only_rows(),
                                      showcase_wanted(), tagged_puzzles())
     print(f"showcase: {n[1] - n[0]} queued puzzles /showcase/ wants go first",
           file=sys.stderr)

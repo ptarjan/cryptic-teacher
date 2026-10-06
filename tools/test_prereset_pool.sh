@@ -16,7 +16,9 @@
 #   - the tree is only synced with nothing in flight;
 #   - each checkpoint is handed the average in flight, measured;
 #   - a puzzle without all its answers is solved first, its fill applied and
-#     committed, then annotated in the same run.
+#     committed, then annotated in the same run;
+#   - a puzzle held clues-only commits its clues-only file's removal with the
+#     grid its solve filed.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPT="$REPO/tools/prereset_backfill.sh"
@@ -41,6 +43,7 @@ for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_ch
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
   eval "$block"
 done
+eval "$(grep '^clues_spec() {' "$SCRIPT")"
 
 now() { echo "$EPOCHREALTIME"; }
 FAIL_ID="pooltest-$$-5"
@@ -60,7 +63,14 @@ run_solve() {
   echo "end $1 $(now)" >>"$EVENTS"
   echo "solved $1" >"/tmp/ct-prereset-$1.txt"
 }
-git() { [ "$1" = rev-parse ] && { echo "$tree/${*: -1}"; return; }; echo "git $1 ${*: -1}" >>"$EVENTS"; }
+HELD_ID="pooltest-$$-held"
+git() {
+  [ "$1" = rev-parse ] && { echo "$tree/${*: -1}"; return; }
+  # only HELD_ID is tracked under clues_only/
+  [ "$1" = ls-files ] && { case "${*: -1}" in clues_only/*/"$HELD_ID".json) echo "${*: -1}" ;; esac; return; }
+  [ "$1" = add ] && echo "staged ${*:3}" >>"$EVENTS"
+  echo "git $1 ${*: -1}" >>"$EVENTS"
+}
 tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
 discard_puzzle() { echo "discard $1" >>"$EVENTS"; }
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
@@ -172,6 +182,17 @@ check "an answerless puzzle is solved, applied, committed, pushed, then annotate
       ($1 == "ok" || $1 == "fail") && $2 == id { printf "%s", $1 }' "$EVENTS")"
 check "the solve starts as a solve and requeues the puzzle for its annotation" "1 1" \
   "$(printf '%s\n' "$out" | grep -c "\[$UNSOLVED_ID\] started, solving it first") $(printf '%s\n' "$out" | grep -c "\[$UNSOLVED_ID\] solved, annotating it next")"
+# A clues-only puzzle's solve, applied: the same apply, and the commit carries
+# the grid it filed and the clues-only file it removed.
+: >"$EVENTS"
+echo '{}' >"/tmp/ct-prereset-$HELD_ID.fill"
+queue=() at=0
+solve_applied "$HELD_ID" >/dev/null
+check "a clues-only solve stages its grid and its clues-only file's removal" \
+  "staged -- puzzles/*/*/$HELD_ID.json clues_only/*/$HELD_ID.json" \
+  "$(grep '^staged' "$EVENTS")"
+check "a clues-only solve goes through apply_solution.py and is committed" "1 1" \
+  "$(grep -c "^applied $HELD_ID " "$EVENTS") $(grep -c '^git commit' "$EVENTS")"
 grep -q '^ALERT' "$EVENTS" && { echo "FAIL alert raised: $(grep '^ALERT' "$EVENTS")"; fails=$((fails + 1)); }
 
 if [ "$fails" -gt 0 ]; then
