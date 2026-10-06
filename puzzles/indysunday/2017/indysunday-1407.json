@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Medic bandages male American sea creature",
     "enumeration": "7"
    },
-   "solution": "GRAMPUS"
+   "solution": "GRAMPUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GRAMPUS",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bandages",
+      "for": "container",
+      "note": "to bandage something is to wrap round it, so the first word encloses the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medic",
+      "gives": "GP",
+      "note": "a GP is a general practitioner, a family doctor"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "RAM",
+      "note": "a ram is a male sheep"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAM",
+      "P",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor dressing the wounds of an American man who has met some creature of the sea.",
+     "walkthrough": "'Bandages' reads as a noun but is a verb here: the doctor wraps round the male, and the American is added on the end.",
+     "definitionFit": "A grampus is a cetacean, usually Risso's dolphin or loosely the killer whale, so a marine animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bandages"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +105,60 @@
     "text": "German consumed half of relative's cake",
     "enumeration": "6"
    },
-   "solution": "GATEAU"
+   "solution": "GATEAU",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GATEAU",
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "deletion",
+      "note": "taking only half of the word means the second half is cut away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "ATE",
+      "note": "consumed food means ate"
+     },
+     {
+      "clueFragment": "relative's",
+      "gives": "AUNT",
+      "note": "an aunt is a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ATE",
+      "AU"
+     ]
+    },
+    "explanation": {
+     "surface": "A German guest scoffs half of an aunt's cake.",
+     "definitionFit": "A gâteau is a rich layered cream cake, from the French word for cake."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "consumed"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +172,73 @@
     "text": "Surgically remove a belt twisted round bottom of tibia",
     "enumeration": "6"
    },
-   "solution": "ABLATE"
+   "solution": "ABLATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ABLATE",
+    "definitions": [
+     {
+      "text": "Surgically remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twisted",
+      "for": "anagram",
+      "note": "twisted letters are bent out of their original order"
+     },
+     {
+      "text": "bottom of",
+      "for": "letter_selection",
+      "note": "in a down clue the bottom of a word is its last letter"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one piece goes round the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a belt",
+      "gives": "ABELT",
+      "note": "fodder for the rearrangement"
+     },
+     {
+      "clueFragment": "tibia",
+      "gives": "A",
+      "select": "last",
+      "note": "final letter of tibia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABL",
+      "A",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ABELT",
+       "gives": "ABLTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An operation to take away a strap wrapped around the lower leg bone.",
+     "definitionFit": "In medicine to ablate is to cut away or destroy tissue, i.e. excise it in surgery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "belt"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +252,75 @@
     "text": "Minor fairy meeting pantheon's foremost goddess by lake",
     "enumeration": "10"
    },
-   "solution": "PERIPHERAL"
+   "solution": "PERIPHERAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PERIPHERAL",
+    "definitions": [
+     {
+      "text": "Minor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foremost",
+      "for": "letter_selection",
+      "note": "the foremost letter is the one at the front of the word"
+     },
+     {
+      "text": "meeting",
+      "for": "charade",
+      "note": "pieces meeting are placed side by side in sequence"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fairy",
+      "gives": "PERI",
+      "note": "a peri is a fairy of Persian myth"
+     },
+     {
+      "clueFragment": "pantheon's",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of pantheon"
+     },
+     {
+      "clueFragment": "goddess",
+      "gives": "HERA",
+      "note": "Hera is the Greek queen of the gods"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the map abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERI",
+      "P",
+      "HERA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A lesser sprite encounters the leading goddess of the gods beside some water.",
+     "definitionFit": "Peripheral issues are on the edge rather than central, so of little importance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Minor"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +334,47 @@
     "text": "Turf small part of hospital site",
     "enumeration": "5"
    },
-   "solution": "SWARD"
+   "solution": "SWARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWARD",
+    "definitions": [
+     {
+      "text": "Turf",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is short for small"
+     },
+     {
+      "clueFragment": "part of hospital site",
+      "gives": "WARD",
+      "note": "a ward is a section of a hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Grass laid on a little corner of the hospital grounds.",
+     "walkthrough": "'Turf' reads as a verb, to throw out, but it is the noun for grass.",
+     "definitionFit": "Sward is an expanse of short grass, the same as a lawn of turf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turf"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +388,49 @@
     "text": "Old lady tiring of dog",
     "enumeration": "7"
    },
-   "solution": "MASTIFF"
+   "solution": "MASTIFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASTIFF",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lady",
+      "gives": "MA",
+      "note": "one's old lady is one's mother, ma"
+     },
+     {
+      "clueFragment": "tiring",
+      "gives": "STIFF",
+      "note": "a stiff climb or task is hard going and tiring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "STIFF"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman worn out by walking her dog.",
+     "definitionFit": "The mastiff is a large, powerful breed of guard dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lady"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +444,61 @@
     "text": "Spoil good American girl with cocktail",
     "enumeration": "9"
    },
-   "solution": "MARGARITA"
+   "solution": "MARGARITA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARGARITA",
+    "definitions": [
+     {
+      "text": "cocktail",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoil",
+      "gives": "MAR",
+      "note": "to mar is to spoil"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is short for good"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is short for American"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "RITA",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "G",
+      "A",
+      "RITA"
+     ]
+    },
+    "explanation": {
+     "surface": "Ruining a nice American girl's evening with a drink.",
+     "definitionFit": "A margarita is a tequila-based drink served with lime and a salted rim, a mixed drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoil"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +512,56 @@
     "text": "Retired thief asked to steal money box",
     "enumeration": "4"
    },
-   "solution": "SAFE"
+   "solution": "SAFE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SAFE",
+    "definitions": [
+     {
+      "text": "money box",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to steal",
+      "for": "hidden_word",
+      "note": "the letters are stolen, lifted out of the run of text"
+     },
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "something retired withdraws, going back the way it came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thief asked",
+      "gives": "EFAS",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "EFAS",
+       "to": "SAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former burglar was asked to rob a strongbox.",
+     "definitionFit": "A safe is a secure locked box for keeping money and valuables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +575,85 @@
     "text": "Setter going to university before new art eclipses old impressionist",
     "enumeration": "8"
    },
-   "solution": "IMITATOR"
+   "solution": "IMITATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "IMITATOR",
+    "definitions": [
+     {
+      "text": "impressionist",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of the word means its letters are made over"
+     },
+     {
+      "text": "eclipses",
+      "for": "container",
+      "note": "to eclipse is to cover something over, hiding it within"
+     }
+    ],
+    "linkWords": [
+     "going to",
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter",
+      "gives": "I",
+      "note": "the setter refers to themselves as I"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "MIT",
+      "note": "Massachusetts Institute of Technology"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "fodder for the rearrangement"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is short for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MIT",
+      "AT",
+      "O",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ART",
+       "gives": "TAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle-setter goes to college before fresh art outshines an old Impressionist painter.",
+     "walkthrough": "'Impressionist' suggests Monet, but here it is a mimic.",
+     "definitionFit": "An impressionist is an entertainer who mimics famous people, i.e. one who copies others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impressionist"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +667,69 @@
     "text": "Trap set by crafty secretary upset salesman",
     "enumeration": "8"
    },
-   "solution": "FLYPAPER"
+   "solution": "FLYPAPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FLYPAPER",
+    "definitions": [
+     {
+      "text": "Trap",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset turns the word upside down, reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "set by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crafty",
+      "gives": "FLY",
+      "note": "fly is slang for sharp or cunning"
+     },
+     {
+      "clueFragment": "secretary",
+      "gives": "PA",
+      "note": "a personal assistant"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a sales representative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLY",
+      "PA",
+      "PER"
+     ],
+     "reversals": [
+      {
+       "from": "REP",
+       "to": "PER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snare laid by a cunning secretary has upset a travelling salesman.",
+     "definitionFit": "Flypaper is sticky paper hung up to catch insects, so it is a type of snare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +743,62 @@
     "text": "Tradesman's bill finally set in order",
     "enumeration": "5"
    },
-   "solution": "TILER"
+   "solution": "TILER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TILER",
+    "definitions": [
+     {
+      "text": "Tradesman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "set in",
+      "for": "container",
+      "note": "something set in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bill",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of bill"
+     },
+     {
+      "clueFragment": "order",
+      "gives": "TIER",
+      "note": "a tier is a rank or level in an order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "L",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A workman's invoice finally gets put right.",
+     "walkthrough": "The 's stands for 'is', joining definition and wordplay; L goes inside TIER.",
+     "definitionFit": "A tiler is a building tradesman who lays tiles on roofs, floors and walls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +818,54 @@
      }
     ]
    },
-   "solution": "AIRYFAIRY"
+   "solution": "AIRYFAIRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AIRY-FAIRY",
+    "definitions": [
+     {
+      "text": "Insubstantial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading off, the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fabulous creature",
+      "gives": "FAIRY",
+      "note": "a fairy is a creature of fable"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "FAIRY",
+      "note": "another of the same creature, this time whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRY",
+      "FAIRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A flimsy fairy-tale being losing its head alongside a second one.",
+     "definitionFit": "Airy-fairy describes ideas that are vague, impractical and lacking solid substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +879,70 @@
     "text": "Australian disputed point with college fellow from New Zealand",
     "enumeration": "10"
    },
-   "solution": "ANTIPODEAN"
+   "solution": "ANTIPODEAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANTIPODEAN",
+    "definitions": [
+     {
+      "text": "from New Zealand",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disputed",
+      "for": "anagram",
+      "note": "a disputed word is argued over and pulled about, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the abbreviation for Australian"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "POINT",
+      "note": "fodder for the rearrangement"
+     },
+     {
+      "clueFragment": "college fellow",
+      "gives": "DEAN",
+      "note": "a dean is a senior fellow of a college"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NTIPO",
+      "DEAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POINT",
+       "gives": "NTIPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian arguing a point with an academic who hails from New Zealand.",
+     "walkthrough": "'Australian' looks like the definition, and the answer would fit it, but it supplies only the single letter A; the definition is at the other end.",
+     "definitionFit": "Antipodean means belonging to the Antipodes, Australia and New Zealand, as seen from Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Australian"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +956,46 @@
     "text": "Scrap a musical genre",
     "enumeration": "4"
    },
-   "solution": "RAGA"
+   "solution": "RAGA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAGA",
+    "definitions": [
+     {
+      "text": "musical genre",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrap",
+      "gives": "RAG",
+      "note": "a rag is a scrap of cloth"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAG",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting rid of a whole style of music.",
+     "definitionFit": "A raga is a melodic framework in Indian classical music, so a style or form of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Scrap"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +1015,71 @@
      }
     ]
    },
-   "solution": "CHEESEDOFF"
+   "solution": "CHEESEDOFF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CHEESED OFF",
+    "definitions": [
+     {
+      "text": "annoyed and disappointed",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters take a new form"
+     },
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "one piece holds the other inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cook",
+      "gives": "CHEF",
+      "note": "a chef is a cook"
+     },
+     {
+      "clueFragment": "Defoe's",
+      "gives": "DEFOES",
+      "note": "fodder for the rearrangement, including the S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "ESEDOF",
+      "F"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEFOES",
+       "gives": "ESEDOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook reading Robinson Crusoe is fed up with it.",
+     "walkthrough": "'Novel' looks like a nod to Defoe's books but signals the rearrangement; Daniel Defoe wrote Robinson Crusoe.",
+     "definitionFit": "Cheesed off is British slang for irritated and fed up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1099,50 @@
      }
     ]
    },
-   "solution": "ENGLISHROSE"
+   "solution": "ENGLISHROSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENGLISH ROSE",
+    "definitions": [
+     {
+      "text": "traditional beauty",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters out of place are scattered and must be put back in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hero singles",
+      "gives": "HEROSINGLES",
+      "note": "fodder for the rearrangement"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEROSINGLES",
+       "gives": "ENGLISHROSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A champion picks out an old-fashioned looker.",
+     "definitionFit": "An English rose is a fair-skinned, classically pretty English woman, the stock image of conventional good looks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "singles"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1162,69 @@
      }
     ]
    },
-   "solution": "GHOSTTOWN"
+   "solution": "GHOSTTOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GHOST TOWN",
+    "definitions": [
+     {
+      "text": "rundown area",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first part of",
+      "for": "letter_selection",
+      "note": "the first part of a word is its opening letter"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "one piece hides the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Landlady",
+      "gives": "HOST",
+      "note": "a landlady is a host to her lodgers"
+     },
+     {
+      "clueFragment": "takings",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of takings"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "GOWN",
+      "note": "a gown is a dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HOS",
+      "T",
+      "T",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlady stashing some of the till money in her frock in a seedy neighbourhood.",
+     "walkthrough": "HOST hides T (HOST-T), and the result sits inside the dress.",
+     "definitionFit": "A ghost town is a deserted, decaying settlement, an extreme case of a run-down place."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1238,60 @@
     "text": "Stopped to question editor after expense account's reverse engineered",
     "enumeration": "8"
    },
-   "solution": "ACCOSTED"
+   "solution": "ACCOSTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCOSTED",
+    "definitions": [
+     {
+      "text": "Stopped to question",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse engineered",
+      "for": "charade",
+      "note": "engineered in reverse means the two items are put together in the opposite order to the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account"
+     },
+     {
+      "clueFragment": "expense",
+      "gives": "COST",
+      "note": "an expense is a cost"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "COST",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor collared over an expenses claim that was cooked backwards.",
+     "walkthrough": "'Expense account' is swapped round to account + expense, and editor comes after.",
+     "definitionFit": "To accost someone is to approach and stop them, typically to speak to them boldly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "engineered"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1305,76 @@
     "text": "Turn away from boxer with neat manoeuvre close to rope",
     "enumeration": "8"
    },
-   "solution": "ALIENATE"
+   "solution": "ALIENATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "ALIENATE",
+    "definitions": [
+     {
+      "text": "Turn away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvre",
+      "for": "anagram",
+      "note": "a manoeuvre moves things around, so these letters change places"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so the final letter is used"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxer",
+      "gives": "ALI",
+      "note": "Muhammad Ali, the boxer"
+     },
+     {
+      "clueFragment": "neat",
+      "gives": "NEAT",
+      "note": "fodder for the rearrangement"
+     },
+     {
+      "clueFragment": "rope",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALI",
+      "ENAT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEAT",
+       "gives": "ENAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer slips away from the ropes with a deft move.",
+     "definitionFit": "To alienate people is to estrange them, making them hostile or causing them to withdraw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1388,62 @@
     "text": "Work in association with colonel, having left sailor to speak",
     "enumeration": "11"
    },
-   "solution": "COLLABORATE"
+   "solution": "COLLABORATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLLABORATE",
+    "definitions": [
+     {
+      "text": "Work in association",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colonel",
+      "gives": "COL",
+      "note": "standard abbreviation for the rank"
+     },
+     {
+      "clueFragment": "having left",
+      "gives": "L",
+      "note": "L is short for left"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "an AB is an able seaman"
+     },
+     {
+      "clueFragment": "to speak",
+      "gives": "ORATE",
+      "note": "to orate is to make a speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "L",
+      "AB",
+      "ORATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A colonel who has abandoned a seaman wants a word.",
+     "walkthrough": "'Work in association with' reads as the full definition, but 'with' is the joining word and the wordplay starts at 'colonel'.",
+     "definitionFit": "To collaborate is to labour jointly with others on a shared project."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1467,62 @@
    "group": [
     "19-down",
     "21-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MAIDEN OVER",
+    "definitions": [
+     {
+      "text": "unproductive bowling spell",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "the chaps receive the help, taking it in between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chaps",
+      "gives": "MEN",
+      "note": "chaps are men"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help"
+     },
+     {
+      "clueFragment": "recovered from",
+      "gives": "OVER",
+      "note": "once you have recovered from an illness you are over it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AID",
+      "EN",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Men getting assistance after a poor stretch of play.",
+     "walkthrough": "M(AID)EN + OVER. In cricket an over is six balls bowled in a row; a maiden over is one from which the batsman scores no runs.",
+     "definitionFit": "A maiden over yields no runs, so it is a spell of bowling that produces nothing for the batting side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "recovered"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1536,59 @@
     "text": "Boisterous girls on a night out ignoring new prince",
     "enumeration": "6"
    },
-   "solution": "HEARTY"
+   "solution": "HEARTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HEARTY",
+    "definitions": [
+     {
+      "text": "Boisterous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "letters ignored are left out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girls on a night out",
+      "gives": "HENPARTY",
+      "note": "a hen party is a celebration for a bride-to-be and her women friends"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is short for new"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "P",
+      "note": "P is short for prince"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy bunch of women out on the town shunning a young royal.",
+     "walkthrough": "A hen party (or hen night) is the British name for a bachelorette party.",
+     "definitionFit": "Hearty means loud, vigorous and full of energy, close to rumbustious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prince"
+    }
+   }
   },
   {
    "number": 21,
@@ -388,7 +1615,56 @@
     "text": "No-win situation involving black neighbour of Black Beauty?",
     "enumeration": "10"
    },
-   "solution": "STABLEMATE"
+   "solution": "STABLEMATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STABLEMATE",
+    "definitions": [
+     {
+      "text": "neighbour of Black Beauty?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "the situation involves the colour, drawing it inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No-win situation",
+      "gives": "STALEMATE",
+      "note": "in chess, stalemate is a draw where nobody wins"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil-grade abbreviation for black"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STA",
+      "B",
+      "LEMATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A deadlock involving a dark-coated horse next door to the famous fictional one.",
+     "walkthrough": "Black Beauty is the horse in Anna Sewell's novel; the question mark flags a definition by example.",
+     "definitionFit": "A stablemate is a horse housed in the same stable, so a neighbour of any particular horse."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1678,42 @@
     "text": "Snub Indian bearing facial decoration",
     "enumeration": "5"
    },
-   "solution": "BINDI"
+   "solution": "BINDI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BINDI",
+    "definitions": [
+     {
+      "text": "facial decoration",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bearing",
+      "for": "hidden_word",
+      "note": "the words bear the answer, carrying it within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snub Indian",
+      "gives": "BINDI",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Ignoring someone from India by the look on their face.",
+     "definitionFit": "A bindi is a decorative dot worn on the forehead, especially by Hindu women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1727,49 @@
     "text": "Slide for special child",
     "enumeration": "4"
    },
-   "solution": "SKID"
+   "solution": "SKID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKID",
+    "definitions": [
+     {
+      "text": "Slide",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is short for special"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KID"
+     ]
+    },
+    "explanation": {
+     "surface": "A playground slide for a child with special needs.",
+     "definitionFit": "To skid is to slip or slide uncontrollably on a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slide"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1789,68 @@
      }
     ]
    },
-   "solution": "TRACKDOWN"
+   "solution": "TRACKDOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TRACK DOWN",
+    "definitions": [
+     {
+      "text": "Find",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its final letter is taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the earlier pieces sit inside the place named after this word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place to store luggage",
+      "gives": "RACK",
+      "note": "a luggage rack on a train"
+     },
+     {
+      "clueFragment": "hand",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of hand"
+     },
+     {
+      "clueFragment": "Ipswich, say",
+      "gives": "TOWN",
+      "note": "Ipswich is a town in Suffolk, an example of the class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RACK",
+      "D",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "Searching for somewhere to put your bags near at hand in a Suffolk town.",
+     "definitionFit": "To track down is to locate something after a search, i.e. to find it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ipswich"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1864,69 @@
     "text": "Old king rejected communist's command",
     "enumeration": "5"
    },
-   "solution": "ORDER"
+   "solution": "ORDER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ORDER",
+    "definitions": [
+     {
+      "text": "command",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so this word runs the other way"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is short for old"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin for king"
+     },
+     {
+      "clueFragment": "communist",
+      "gives": "RED",
+      "note": "a communist is a Red"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "R",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly monarch turns down a Marxist's instruction.",
+     "definitionFit": "An order is an instruction that must be obeyed, the same as a command."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 27,
@@ -464,7 +1940,58 @@
     "text": "Almost finish study of city",
     "enumeration": "7"
    },
-   "solution": "DRESDEN"
+   "solution": "DRESDEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DRESDEN",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finish",
+      "gives": "DRESS",
+      "note": "to dress stone or timber is to give it a finish"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRES",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly done with researching an urban area.",
+     "walkthrough": "'Finish' looks like the deletion signal with 'almost', but it is the word that loses a letter.",
+     "definitionFit": "Dresden is the capital of Saxony in eastern Germany, a major urban centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "finish"
+    }
+   }
   },
   {
    "number": 28,
@@ -478,7 +2005,46 @@
     "text": "Popular taste for period of innocence?",
     "enumeration": "7"
    },
-   "solution": "INFANCY"
+   "solution": "INFANCY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFANCY",
+    "definitions": [
+     {
+      "text": "period of innocence?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "what is in is fashionable or popular"
+     },
+     {
+      "clueFragment": "taste",
+      "gives": "FANCY",
+      "note": "a fancy for something is a taste or liking for it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FANCY"
+     ]
+    },
+    "explanation": {
+     "surface": "A craze from a more innocent era.",
+     "definitionFit": "Infancy is early childhood, the time of life before experience, hence the question mark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "taste"
+    }
+   }
   }
  ]
 }
