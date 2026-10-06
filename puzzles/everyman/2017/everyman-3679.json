@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Reject plant in row",
     "enumeration": "6"
    },
-   "solution": "DISOWN"
+   "solution": "DISOWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISOWN",
+    "definitions": [
+     {
+      "text": "Reject",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing set in another is placed inside it, so the first word goes within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "DIN",
+      "note": "a row is a loud noise, a din"
+     },
+     {
+      "clueFragment": "plant",
+      "gives": "SOW",
+      "note": "to plant seed is to sow it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SOW",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener rejects a seedling set in the wrong row.",
+     "walkthrough": "'Row' reads as a line of plants beside 'plant', but here it means a racket.",
+     "definitionFit": "To disown someone is to refuse any connection with them, a way of casting them off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,73 @@
     "text": "Proper defeat, lacking time to break fiendish codes",
     "enumeration": "8"
    },
-   "solution": "DECOROUS"
+   "solution": "DECOROUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "DECOROUS",
+    "definitions": [
+     {
+      "text": "Proper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking time",
+      "for": "deletion",
+      "note": "time is abbreviated T, and lacking it means that letter is removed"
+     },
+     {
+      "text": "fiendish",
+      "for": "anagram",
+      "note": "fiendish suggests something devilishly tangled, so the letters are mixed up"
+     },
+     {
+      "text": "to break",
+      "for": "container",
+      "note": "one word breaking another splits it open and sits in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defeat",
+      "gives": "ROUT",
+      "note": "a rout is a heavy defeat"
+     },
+     {
+      "clueFragment": "codes",
+      "gives": "CODES",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECO",
+      "ROU",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CODES",
+       "gives": "DECOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Code-breakers admit defeat against a devilish cipher in the proper manner.",
+     "walkthrough": "ROUT loses its T to give ROU, which breaks into DECOS, the jumbled codes.",
+     "definitionFit": "Decorous behaviour is seemly and in keeping with good taste and polite conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "defeat"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +185,69 @@
      }
     ]
    },
-   "solution": "SUREFIRE"
+   "solution": "SUREFIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SURE-FIRE",
+    "definitions": [
+     {
+      "text": "guaranteed",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the word before it"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "something catching another holds it, so the letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Browse",
+      "gives": "SURF",
+      "note": "to surf the web is to browse it"
+     },
+     {
+      "clueFragment": "update",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of update"
+     },
+     {
+      "clueFragment": "Anger",
+      "gives": "IRE",
+      "note": "ire is anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "E",
+      "F",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone browsing online is bound to get angry when an update finally arrives.",
+     "walkthrough": "'Anger guaranteed' looks like one phrase; only the last word is the definition.",
+     "definitionFit": "A surefire method is certain to succeed, so its result is guaranteed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Anger"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +261,42 @@
     "text": "Run through desert",
     "enumeration": "5"
    },
-   "solution": "WASTE"
+   "solution": "WASTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WASTE",
+    "definitions": [
+     {
+      "text": "Run through",
+      "at": 0
+     },
+     {
+      "text": "desert",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run through",
+      "note": "first meaning: to squander or use up"
+     },
+     {
+      "clueFragment": "desert",
+      "note": "second meaning: barren, uninhabited land"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like crossing a desert on foot; 'run through' means squander, as with money.",
+     "definitionFit": "You can squander money or resources, and a barren wilderness is called a wasteland or waste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +310,61 @@
     "text": "Benefit to a smaller extent during spree, losing energy",
     "enumeration": "8"
    },
-   "solution": "BLESSING"
+   "solution": "BLESSING",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BLESSING",
+    "definitions": [
+     {
+      "text": "Benefit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing energy",
+      "for": "deletion",
+      "note": "energy is abbreviated E in physics, and losing it means that letter is dropped from the word"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another event sits inside it, so one word is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spree",
+      "gives": "BINGE",
+      "note": "a binge is a bout of indulgence"
+     },
+     {
+      "clueFragment": "to a smaller extent",
+      "gives": "LESS",
+      "note": "less means to a smaller degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LESS",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice that cutting back during a wild spree pays off, provided you lose some energy.",
+     "walkthrough": "E is the standard abbreviation for energy, as in physics formulas.",
+     "definitionFit": "A blessing is something advantageous or welcome, a boon that does you good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +384,74 @@
      }
     ]
    },
-   "solution": "LEWISHAMILTON"
+   "solution": "LEWISHAMILTON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "LEWIS HAMILTON",
+    "definitions": [
+     {
+      "text": "Racing driver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising a word means reading it from the bottom up"
+     },
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "something consuming others swallows them, so they go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revealed",
+      "gives": "LETON",
+      "note": "let on means revealed a secret"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "WISH",
+      "note": "a wish is a desire"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "LIMA",
+      "note": "Lima is the capital of Peru"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "WISH",
+      "AMIL",
+      "TON"
+     ],
+     "reversals": [
+      {
+       "from": "LIMA",
+       "to": "AMIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racing driver confesses his ambition, and money is raised.",
+     "walkthrough": "Lewis Hamilton is the British Formula One world champion; 'raised capital' sounds like fundraising but is a city read upwards.",
+     "definitionFit": "Lewis Hamilton is a multiple Formula One world champion, an example of a racing driver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +465,77 @@
     "text": "Company, restricted by trees coming up, about to give signal for pause",
     "enumeration": "9"
    },
-   "solution": "SEMICOLON"
+   "solution": "SEMICOLON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "SEMICOLON",
+    "definitions": [
+     {
+      "text": "signal for pause",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down clue, coming up means reading from the bottom to the top"
+     },
+     {
+      "text": "restricted by",
+      "for": "container",
+      "note": "something restricted by another is hemmed in by it, so it sits inside"
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees",
+      "gives": "LIMES",
+      "note": "limes are trees, also called lindens"
+     },
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about, concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEMI",
+      "CO",
+      "L",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "LIMES",
+       "to": "SEMIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A firm hemmed in by woodland signals a break.",
+     "walkthrough": "LIMES upside down is SEMIL, which holds CO; ON is then added.",
+     "definitionFit": "A semicolon is a punctuation mark marking a pause longer than a comma's."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Company"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +549,50 @@
     "text": "Truly denied going wrong",
     "enumeration": "6"
    },
-   "solution": "INDEED"
+   "solution": "INDEED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDEED",
+    "definitions": [
+     {
+      "text": "Truly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going wrong",
+      "for": "anagram",
+      "note": "something going wrong falls into disorder, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "denied",
+      "gives": "DENIED",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DENIED",
+       "gives": "INDEED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that a denial has honestly gone awry.",
+     "definitionFit": "Indeed is an emphatic adverb meaning really or in fact, used to stress a statement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "denied"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +606,58 @@
     "text": "Uncertain about editor being eager",
     "enumeration": "6"
    },
-   "solution": "GREEDY"
+   "solution": "GREEDY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GREEDY",
+    "definitions": [
+     {
+      "text": "eager",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps around the other"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncertain",
+      "gives": "GREY",
+      "note": "a grey area is uncertain"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ed is the abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRE",
+      "ED",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An unsure editor is nonetheless keen.",
+     "walkthrough": "A grey area is a matter that is unclear, hence uncertain.",
+     "definitionFit": "Greedy can mean keenly desirous, as in being greedy for success, so eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Uncertain"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +671,65 @@
     "text": "Opener getting frantic rocks team",
     "enumeration": "9"
    },
-   "solution": "CORKSCREW"
+   "solution": "CORKSCREW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CORKSCREW",
+    "definitions": [
+     {
+      "text": "Opener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "frantic",
+      "for": "anagram",
+      "note": "something frantic is wild and disordered, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rocks",
+      "gives": "ROCKS",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "team",
+      "gives": "CREW",
+      "note": "a crew is a team, as of rowers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CORKS",
+      "CREW"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROCKS",
+       "gives": "CORKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sports opener who rattles the opposing team.",
+     "walkthrough": "'Opener' suggests a batsman or the first match of a season, but it is a tool for opening bottles.",
+     "definitionFit": "A corkscrew is the spiral tool used for opening wine bottles by pulling the cork."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Opener"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +743,50 @@
     "text": "Crept over site nervously looking back",
     "enumeration": "13"
    },
-   "solution": "RETROSPECTIVE"
+   "solution": "RETROSPECTIVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RETROSPECTIVE",
+    "definitions": [
+     {
+      "text": "looking back",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nervously",
+      "for": "anagram",
+      "note": "doing something nervously means jittery and unsettled, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crept over site",
+      "gives": "CREPTOVERSITE",
+      "note": "thirteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CREPTOVERSITE",
+       "gives": "RETROSPECTIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An intruder sneaks across a site, glancing anxiously behind.",
+     "definitionFit": "Retrospective describes something that surveys or concerns the past, so backward-looking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nervously"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +800,60 @@
     "text": "Fly westward for example and fade",
     "enumeration": "5"
    },
-   "solution": "MIDGE"
+   "solution": "MIDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MIDGE",
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "westward",
+      "for": "reversal",
+      "note": "in an across clue, travelling west means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for 'for example'"
+     },
+     {
+      "clueFragment": "fade",
+      "gives": "DIM",
+      "note": "to fade is to grow dim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MID",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGDIM",
+       "to": "MIDGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect flying west into the fading light.",
+     "definitionFit": "A midge is a tiny two-winged insect, a small gnat-like kind of fly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +867,42 @@
     "text": "Contemplate display",
     "enumeration": "7"
    },
-   "solution": "REFLECT"
+   "solution": "REFLECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REFLECT",
+    "definitions": [
+     {
+      "text": "Contemplate",
+      "at": 0
+     },
+     {
+      "text": "display",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Contemplate",
+      "note": "first meaning: to think deeply about"
+     },
+     {
+      "clueFragment": "display",
+      "note": "second meaning: to show or express"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two words look like a command to study an exhibition; they are separate senses of one verb.",
+     "definitionFit": "The verb covers both careful thought about something and showing or mirroring something outwardly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "display"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +916,42 @@
     "text": "Replace work",
     "enumeration": "7"
    },
-   "solution": "SUCCEED"
+   "solution": "SUCCEED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUCCEED",
+    "definitions": [
+     {
+      "text": "Replace",
+      "at": 0
+     },
+     {
+      "text": "work",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Replace",
+      "note": "first meaning: to follow someone in a post"
+     },
+     {
+      "clueFragment": "work",
+      "note": "second meaning: to turn out well, as a plan does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an instruction to redo a job; the two words are separate senses of one verb.",
+     "definitionFit": "You take over from a predecessor in office, and a scheme that comes off has had the desired result."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +965,52 @@
     "text": "Excessively excited by role as a nun",
     "enumeration": "12"
    },
-   "solution": "UNREASONABLY"
+   "solution": "UNREASONABLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNREASONABLY",
+    "definitions": [
+     {
+      "text": "Excessively",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "something excited is stirred up and agitated, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by role as a nun",
+      "gives": "BYROLEASANUN",
+      "note": "all twelve letters go into the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BYROLEASANUN",
+       "gives": "UNREASONABLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor gets far too worked up about being cast as a nun.",
+     "walkthrough": "'Excited by' looks like one phrase, but 'by' is part of the fodder.",
+     "definitionFit": "Doing something unreasonably means going beyond sensible limits, to an excessive or immoderate degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1024,61 @@
     "text": "Agile graduate absorbed by word puzzle, not small",
     "enumeration": "9"
    },
-   "solution": "ACROBATIC"
+   "solution": "ACROBATIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ACROBATIC",
+    "definitions": [
+     {
+      "text": "Agile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not small",
+      "for": "deletion",
+      "note": "small is abbreviated S, so not small means that letter is removed"
+     },
+     {
+      "text": "absorbed by",
+      "for": "container",
+      "note": "something absorbed by another is soaked up into it, so it goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "graduate",
+      "gives": "BA",
+      "note": "a BA, Bachelor of Arts, is a graduate"
+     },
+     {
+      "clueFragment": "word puzzle",
+      "gives": "ACROSTIC",
+      "note": "an acrostic is a word puzzle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACRO",
+      "BA",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A nimble graduate is engrossed in a puzzle.",
+     "walkthrough": "An acrostic is a puzzle whose line initials spell a word; S is the clothing-size abbreviation for small.",
+     "definitionFit": "Acrobatic movements are nimble and gymnastic, showing great physical agility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "absorbed"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1092,60 @@
     "text": "Poor old weaver, left out, intimidated",
     "enumeration": "8"
    },
-   "solution": "OVERAWED"
+   "solution": "OVERAWED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OVERAWED",
+    "definitions": [
+     {
+      "text": "intimidated",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "left is abbreviated L, and out means that letter is removed"
+     },
+     {
+      "text": "Poor",
+      "for": "anagram",
+      "note": "poor suggests something in a bad state, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old weaver",
+      "gives": "OLDWEAVER",
+      "note": "letters to be rearranged after the deletion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERAWED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ODWEAVER",
+       "gives": "OVERAWED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor old weaver, left out of things, feels cowed.",
+     "walkthrough": "OLD WEAVER loses its L before the shuffle.",
+     "definitionFit": "Overawed means so impressed or daunted as to be subdued, hence intimidated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Poor"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1159,70 @@
     "text": "Vicious cycle stopped by people showing mercy",
     "enumeration": "8"
    },
-   "solution": "CLEMENCY"
+   "solution": "CLEMENCY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CLEMENCY",
+    "definitions": [
+     {
+      "text": "mercy",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Vicious",
+      "for": "anagram",
+      "note": "vicious suggests something savage and violent, so the letters are knocked about"
+     },
+     {
+      "text": "stopped by",
+      "for": "container",
+      "note": "something stopped by another is plugged with it, so it goes in the middle"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cycle",
+      "gives": "CYCLE",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLE",
+      "MEN",
+      "CY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CYCLE",
+       "gives": "CLECY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People break a vicious cycle by showing compassion.",
+     "walkthrough": "'Vicious cycle' reads as a set phrase, but 'vicious' is the anagram signal.",
+     "definitionFit": "Clemency is leniency shown to an offender, a synonym for mercy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vicious"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1242,74 @@
      }
     ]
    },
-   "solution": "GRAPHICNOVEL"
+   "solution": "GRAPHICNOVEL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "GRAPHIC NOVEL",
+    "definitions": [
+     {
+      "text": "pictorial story",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "silly",
+      "for": "anagram",
+      "note": "silly means foolish and muddled, so the words beside it are scrambled"
+     },
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "something receiving another takes it in, so the scrambled letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serious",
+      "gives": "GRAVE",
+      "note": "grave means serious, solemn"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "chop in",
+      "gives": "CHOPIN",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "PHICNO",
+      "VE",
+      "L"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHOPIN",
+       "gives": "PHICNO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grave sentence is cut up into something silly in a comic.",
+     "walkthrough": "'Chop in' looks like a single action, but the two words are both the letters to rearrange.",
+     "definitionFit": "A graphic novel is a book-length narrative told in comic-strip panels, a story in pictures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chop"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1323,54 @@
     "text": "Preserve most of immense painting",
     "enumeration": "6"
    },
-   "solution": "CANVAS"
+   "solution": "CANVAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CANVAS",
+    "definitions": [
+     {
+      "text": "painting",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word is all but its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Preserve",
+      "gives": "CAN",
+      "note": "to can food is to preserve it"
+     },
+     {
+      "clueFragment": "immense",
+      "gives": "VAST",
+      "note": "vast means immense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "VAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A conservator saves the bulk of a huge painting.",
+     "definitionFit": "A canvas is an oil painting done on that fabric, so the word stands for the picture itself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Preserve"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1384,41 @@
     "text": "Merchant involved in nationwide alert",
     "enumeration": "6"
    },
-   "solution": "DEALER"
+   "solution": "DEALER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DEALER",
+    "definitions": [
+     {
+      "text": "Merchant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "involved in means caught up inside, so the letters run within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nationwide alert",
+      "gives": "DEALER",
+      "note": "the run straddles the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A trader is caught up in a national emergency warning.",
+     "definitionFit": "A dealer is a trader who buys and sells goods, so a merchant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1432,70 @@
     "text": "Sharp expert in charge capturing rook with bishop",
     "enumeration": "7"
    },
-   "solution": "ACERBIC"
+   "solution": "ACERBIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ACERBIC",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "a piece capturing others takes them in, so these letters are held within"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for rook"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "R",
+      "B",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess game in which a sharp player takes a rook and bishop.",
+     "walkthrough": "R and B are the standard chess notation letters for those pieces.",
+     "definitionFit": "Acerbic remarks are cutting and biting, so sharp in the sense of harsh in tone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capturing"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1509,70 @@
     "text": "Outburst from worker perhaps with spirit after end of shift",
     "enumeration": "7"
    },
-   "solution": "TANTRUM"
+   "solution": "TANTRUM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TANTRUM",
+    "definitions": [
+     {
+      "text": "Outburst",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter alone"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the other pieces come after this one, so it is placed first"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shift",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of shift"
+     },
+     {
+      "clueFragment": "worker perhaps",
+      "gives": "ANT",
+      "note": "a worker is a kind of ant, hence 'perhaps'"
+     },
+     {
+      "clueFragment": "spirit",
+      "gives": "RUM",
+      "note": "rum is a spirit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ANT",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker explodes at the end of a shift, perhaps fuelled by a drink.",
+     "walkthrough": "A worker is a sterile ant of the colony, a crossword favourite.",
+     "definitionFit": "A tantrum is an uncontrolled fit of temper, an angry outburst."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1586,63 @@
     "text": "Man under arrest not entirely in ideal position",
     "enumeration": "5"
    },
-   "solution": "NICHE"
+   "solution": "NICHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NICHE",
+    "definitions": [
+     {
+      "text": "ideal position",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not entirely means not the whole word, so its last letter is dropped"
+     },
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, one piece under another simply comes after it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrest",
+      "gives": "NICK",
+      "note": "nick is British slang for arrest"
+     },
+     {
+      "clueFragment": "Man",
+      "gives": "HE",
+      "note": "he is a male pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIC",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man under arrest is, ironically, somewhere he feels at home.",
+     "walkthrough": "In British slang to nick someone is to arrest them; 'under' places one piece below another in a down entry.",
+     "definitionFit": "A niche is a comfortable or suitable role, the place where someone fits best."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrest"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1656,70 @@
     "text": "Servant taking the box back full of drink",
     "enumeration": "5"
    },
-   "solution": "VALET"
+   "solution": "VALET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "VALET",
+    "definitions": [
+     {
+      "text": "Servant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "taking something back means reading it in the opposite direction"
+     },
+     {
+      "text": "full of",
+      "for": "container",
+      "note": "something full of a drink holds it within, so it goes inside"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the box",
+      "gives": "TV",
+      "note": "the box is slang for television"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "ale is a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ALE",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TV",
+       "to": "VT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant carries the telly back after a few drinks.",
+     "walkthrough": "'The box' is British slang for the television set.",
+     "definitionFit": "A valet is a manservant who looks after his employer's clothes and personal needs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1739,64 @@
      }
     ]
    },
-   "solution": "IANMCEWAN"
+   "solution": "IANMCEWAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IAN MCEWAN",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly suggests something done badly, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "emerging from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cinema",
+      "gives": "CINEMA",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "WAN",
+      "note": "wan means pale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IANMCE",
+      "WAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CINEMA",
+       "gives": "IANMCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author leaves a cinema looking awful, having seen an adaptation of their book.",
+     "walkthrough": "Ian McEwan is the British novelist of Atonement and Amsterdam, several of whose novels have been filmed.",
+     "definitionFit": "Ian McEwan is a celebrated English novelist, so an example of a writer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terribly"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1810,51 @@
     "text": "Odds rise rapidly in projection",
     "enumeration": "8"
    },
-   "solution": "SPROCKET"
+   "solution": "SPROCKET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPROCKET",
+    "definitions": [
+     {
+      "text": "projection",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odds",
+      "gives": "SP",
+      "note": "SP, starting price, is the odds on a horse at the start of a race"
+     },
+     {
+      "clueFragment": "rise rapidly",
+      "gives": "ROCKET",
+      "note": "prices that rise fast are said to rocket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "ROCKET"
+     ]
+    },
+    "explanation": {
+     "surface": "Betting odds shoot up as the punters forecast.",
+     "walkthrough": "'Projection' looks like a forecast to match the odds, but it is a tooth sticking out of a wheel.",
+     "definitionFit": "A sprocket is one of the teeth jutting from a wheel rim that engage a chain or film perforations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "projection"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1868,67 @@
     "text": "Prime fodder injected with revolutionary colourant",
     "enumeration": "6"
    },
-   "solution": "HEYDAY"
+   "solution": "HEYDAY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "HEYDAY",
+    "definitions": [
+     {
+      "text": "Prime",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something round, so the word is read backwards"
+     },
+     {
+      "text": "injected with",
+      "for": "container",
+      "note": "something injected with a substance has it put inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fodder",
+      "gives": "HAY",
+      "note": "hay is animal fodder"
+     },
+     {
+      "clueFragment": "colourant",
+      "gives": "DYE",
+      "note": "a dye is a colourant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "EYD",
+      "AY"
+     ],
+     "reversals": [
+      {
+       "from": "DYE",
+       "to": "EYD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Animal feed is laced with a radical new colouring agent.",
+     "walkthrough": "'Revolutionary' reads as radical, describing the colourant, but it signals turning the word round.",
+     "definitionFit": "Your heyday is the period of greatest success or vigour, the prime of life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prime"
+    }
+   }
   }
  ]
 }
