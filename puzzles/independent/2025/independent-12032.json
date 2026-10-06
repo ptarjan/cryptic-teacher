@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,78 @@
     "text": "Amount processed from approximate power sent into middle of factory shed",
     "enumeration": "10"
    },
-   "solution": "THROUGHPUT"
+   "solution": "THROUGHPUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "THROUGHPUT",
+    "definitions": [
+     {
+      "text": "Amount processed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "asks for the central letter of the seven-letter word that follows"
+     },
+     {
+      "text": "sent into",
+      "for": "container",
+      "note": "things sent into something end up inside it, so these letters go within the building word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "factory",
+      "gives": "T",
+      "select": "middle",
+      "note": "the fourth of seven letters"
+     },
+     {
+      "clueFragment": "shed",
+      "gives": "HUT",
+      "note": "a shed is a small hut"
+     },
+     {
+      "clueFragment": "approximate",
+      "gives": "ROUGH",
+      "note": "a rough figure is an approximate one"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the physics symbol for power"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ROUGH",
+      "P",
+      "UT"
+     ]
+    },
+    "explanation": {
+     "surface": "A report on how much a factory turned out, using rough power figures fed into a shed.",
+     "walkthrough": "'Middle of factory' takes its single central letter, which sits in front of the shed; the other two pieces then go inside the shed.",
+     "definitionFit": "Throughput is the quantity of material or work handled by a process in a given period."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shed"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +121,81 @@
     "text": "A chap reduced carbon dioxide, say, when importing foremost of modern alloys",
     "enumeration": "8"
    },
-   "solution": "AMALGAMS"
+   "solution": "AMALGAMS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "AMALGAMS",
+    "definitions": [
+     {
+      "text": "alloys",
+      "at": 70
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "a reduced word has been cut short, losing its final letter"
+     },
+     {
+      "text": "foremost of",
+      "for": "letter_selection",
+      "note": "the foremost part of a word is its opening letter"
+     },
+     {
+      "text": "when importing",
+      "for": "container",
+      "note": "importing means bringing something inside, so one piece takes in another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "MALE",
+      "note": "a chap is a male person; reduced, it loses its last letter"
+     },
+     {
+      "clueFragment": "carbon dioxide, say",
+      "gives": "GAS",
+      "note": "carbon dioxide is an example of a gas, hence 'say'"
+     },
+     {
+      "clueFragment": "modern",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MAL",
+      "GA",
+      "M",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describes a man lessening carbon dioxide output by bringing in modern alloys.",
+     "walkthrough": "A + MAL(e) + GA(M)S. Amalgams are alloys of mercury with another metal, as in dental fillings.",
+     "definitionFit": "An amalgam is a mixture of mercury with other metals, a type of alloy, so the plural matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chap"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +209,60 @@
     "text": "Theatre’s hired support to applaud, mostly quite oblivious to it",
     "enumeration": "6"
    },
-   "solution": "CLAQUE"
+   "solution": "CLAQUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CLAQUE",
+    "definitions": [
+     {
+      "text": "Theatre’s hired support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all of the word, so its final letter goes"
+     },
+     {
+      "text": "oblivious to it",
+      "for": "deletion",
+      "note": "being oblivious to something means taking no notice of it, so that little word is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "applaud",
+      "gives": "CLAP",
+      "note": "to applaud is to clap; mostly, it drops the last letter"
+     },
+     {
+      "clueFragment": "quite",
+      "gives": "QUITE",
+      "note": "taken as written, then the letters I and T are ignored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLA",
+      "QUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre pays people to clap, though they barely notice the show.",
+     "walkthrough": "CLA(p) + QU(it)E: 'oblivious to it' removes the word it from inside quite.",
+     "definitionFit": "A claque is a group of people paid to applaud a performer in a theatre, hired backing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oblivious"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +276,58 @@
     "text": "Risk losing quantity of memory? That’s a blow",
     "enumeration": "4"
    },
-   "solution": "GALE"
+   "solution": "GALE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GALE",
+    "definitions": [
+     {
+      "text": "a blow",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "a word that loses something has those letters taken out of it"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Risk",
+      "gives": "GAMBLE",
+      "note": "to risk is to gamble"
+     },
+     {
+      "clueFragment": "quantity of memory",
+      "gives": "MB",
+      "note": "MB, a megabyte, is a quantity of computer memory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frets about losing their memories, and calls it a real blow.",
+     "walkthrough": "Take MB out of GAMBLE. 'Blow' looks like a setback but means a strong wind.",
+     "definitionFit": "A blow is a storm or strong wind, and a gale is a very strong wind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blow"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +341,72 @@
     "text": "Medicines? 50% of bloggers will accept 75% of medicine for treatment",
     "enumeration": "10"
    },
-   "solution": "GERMICIDES"
+   "solution": "GERMICIDES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "GERMICIDES",
+    "definitions": [
+     {
+      "text": "Medicines?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "50% of",
+      "for": "letter_selection",
+      "note": "half of an eight-letter word is four letters, here its second half"
+     },
+     {
+      "text": "75% of",
+      "for": "letter_selection",
+      "note": "three quarters of an eight-letter word is its first six letters"
+     },
+     {
+      "text": "for treatment",
+      "for": "anagram",
+      "note": "letters given treatment are worked over and rearranged"
+     }
+    ],
+    "linkWords": [
+     "will accept"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloggers",
+      "gives": "GERS",
+      "select": "last",
+      "note": "the back half of the word"
+     },
+     {
+      "clueFragment": "medicine",
+      "gives": "MEDICI",
+      "select": "first",
+      "note": "the first six letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GERSMEDICI",
+       "gives": "GERMICIDES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query about whether half the bloggers would take most of their medicine as treatment.",
+     "walkthrough": "The question mark admits germicides are only loosely medicines; they kill germs rather than cure the patient.",
+     "definitionFit": "Germicides are substances used to kill germs, a broad class that includes some treatments, hence the question mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treatment"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +420,65 @@
     "text": "Made light rocks, disposing of deserted heavy rock",
     "enumeration": "8"
    },
-   "solution": "MEGALITH"
+   "solution": "MEGALITH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MEGALITH",
+    "definitions": [
+     {
+      "text": "heavy rock",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocks",
+      "for": "anagram",
+      "note": "something that rocks is shaken about, so the letters are jumbled"
+     },
+     {
+      "text": "disposing of",
+      "for": "deletion",
+      "note": "disposing of something gets rid of it, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made light",
+      "gives": "MADELIGHT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "deserted",
+      "gives": "D",
+      "note": "D is a standard abbreviation for deserted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEGALITH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAELIGHT",
+       "gives": "MEGALITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something made light of rocks after getting rid of a heavy, abandoned stone.",
+     "walkthrough": "Remove D from the letters of 'made light' and rearrange the rest. 'Rocks' looks like a noun but is the verb signalling the shuffle.",
+     "definitionFit": "A megalith is a large stone used in prehistoric monuments, literally a great rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocks"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +492,60 @@
     "text": "Dodgy cash? Scorn benefit payment, yielding nothing",
     "enumeration": "6"
    },
-   "solution": "BOODLE"
+   "solution": "BOODLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "BOODLE",
+    "definitions": [
+     {
+      "text": "Dodgy cash?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "yielding nothing",
+      "for": "deletion",
+      "note": "giving up nothing means surrendering the letter shaped like zero"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scorn",
+      "gives": "BOO",
+      "note": "to boo someone is to show scorn"
+     },
+     {
+      "clueFragment": "benefit payment",
+      "gives": "DOLE",
+      "note": "the dole is British slang for unemployment benefit"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOO",
+      "DLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneers at handouts of suspect money.",
+     "walkthrough": "BOO + D(o)LE. Boodle is old slang for money obtained by bribery or graft.",
+     "definitionFit": "Boodle is slang for money, especially bribes or illicit gains, which makes it dodgy cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "yielding"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +559,60 @@
     "text": "Cleaner’s plan to eradicate last of dirt",
     "enumeration": "4"
    },
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "CHAR",
+    "definitions": [
+     {
+      "text": "Cleaner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eradicate",
+      "for": "deletion",
+      "note": "eradicating something wipes it out, so a letter is removed"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plan",
+      "gives": "CHART",
+      "note": "a chart is a plan or map"
+     },
+     {
+      "clueFragment": "dirt",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner's scheme for getting rid of the remaining dirt.",
+     "walkthrough": "CHART loses its T. A char, or charwoman, is a British word for a cleaner.",
+     "definitionFit": "Char is short for charwoman, a woman employed to clean houses or offices."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plan"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +626,69 @@
     "text": "Make low buzz, one recently encountered around India",
     "enumeration": "9"
    },
-   "solution": "HUMILIATE"
+   "solution": "HUMILIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HUMILIATE",
+    "definitions": [
+     {
+      "text": "Make low",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word placed around a letter encloses it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "buzz",
+      "gives": "HUM",
+      "note": "a buzz is a hum"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "recently encountered",
+      "gives": "LATE",
+      "note": "late means recent, lately met"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "I",
+      "L",
+      "I",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to make a quiet buzz, with someone just met near India.",
+     "walkthrough": "HUM + I + L(I)ATE. 'Make low' reads like lowering a sound, but means bring someone down.",
+     "definitionFit": "To humiliate someone is to lower their dignity, to bring them low in the eyes of others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +702,64 @@
     "text": "Manage to back husband for a time",
     "enumeration": "5"
    },
-   "solution": "EPOCH"
+   "solution": "EPOCH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EPOCH",
+    "definitions": [
+     {
+      "text": "a time",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to back",
+      "for": "reversal",
+      "note": "going back reads the word from its end to its start"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "gives": "COPE",
+      "note": "to manage is to cope"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EPOC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "COPE",
+       "to": "EPOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone manages to support their husband for a while.",
+     "walkthrough": "COPE reversed, then H. 'Back' looks like supporting the husband but is the reversal signal.",
+     "definitionFit": "An epoch is a period of time, especially one marked by notable events."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +773,71 @@
     "text": "Indirect story about Queen attached to old book",
     "enumeration": "7"
    },
-   "solution": "OBLIQUE"
+   "solution": "OBLIQUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBLIQUE",
+    "definitions": [
+     {
+      "text": "Indirect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word is wrapped round another"
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a story is a lie, a fib"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "QU",
+      "note": "QU is an abbreviation for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "LI",
+      "QU",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An oblique tale about a queen, appended to some old volume.",
+     "walkthrough": "O + B, then LI(QU)E. 'Story' suggests the book's tale but means a lie.",
+     "definitionFit": "Oblique means not straightforward, indirect or slanting, as in an oblique hint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +857,51 @@
      }
     ]
    },
-   "solution": "MEANDER"
+   "solution": "MEANDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEANDER",
+    "definitions": [
+     {
+      "text": "diverge from the topic",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poor",
+      "gives": "MEAN",
+      "note": "mean means poor or shabby"
+     },
+     {
+      "clueFragment": "article in Bild",
+      "gives": "DER",
+      "note": "Bild is a German newspaper; der is the German definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "DER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bad piece in the German tabloid Bild wanders off the subject.",
+     "walkthrough": "Bild is the German newspaper, so the article wanted is a German 'the'.",
+     "definitionFit": "To meander is to wander aimlessly, and in speech or writing to stray off the subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +915,49 @@
     "text": "Serious German getting excellent review",
     "enumeration": "5"
    },
-   "solution": "GRAVE"
+   "solution": "GRAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRAVE",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German",
+      "gives": "G",
+      "note": "G is the abbreviation for German"
+     },
+     {
+      "clueFragment": "excellent review",
+      "gives": "RAVE",
+      "note": "a rave is an enthusiastic review"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A serious German writer receives glowing notices.",
+     "definitionFit": "Grave describes something solemn, weighty or important, like a grave matter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Serious"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +971,67 @@
     "text": "Clergies will get agitated about one",
     "enumeration": "9"
    },
-   "solution": "SACRILEGE"
+   "solution": "SACRILEGE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "container"
+    ],
+    "answer": "SACRILEGE",
+    "definitions": [
+     {
+      "text": "Clergies will get agitated about one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will get agitated",
+      "for": "anagram",
+      "note": "agitated letters are stirred up and come out in a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the stirred letters go round the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergies",
+      "gives": "CLERGIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "CRILEGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLERGIES",
+       "gives": "SCRILEGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Priests become worked up over a particular thing.",
+     "walkthrough": "The rearranged clergies go around A. The whole clue also describes the answer: sacrilege is just what clergy get upset about.",
+     "definitionFit": "Sacrilege is the violation of something sacred, the very offence that stirs churchmen to anger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +1045,48 @@
     "text": "Mike’s assessment: valid way to pay in America",
     "enumeration": "10"
    },
-   "solution": "SOUNDCHECK"
+   "solution": "SOUNDCHECK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOUNDCHECK",
+    "definitions": [
+     {
+      "text": "Mike’s assessment",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "valid",
+      "gives": "SOUND",
+      "note": "a sound argument is a valid one"
+     },
+     {
+      "clueFragment": "way to pay in America",
+      "gives": "CHECK",
+      "note": "the American spelling of cheque"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOUND",
+      "CHECK"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Mike has his work assessed, and is told a cheque is fine in the US.",
+     "walkthrough": "Mike is not a person: it is short for microphone.",
+     "definitionFit": "A soundcheck tests microphones and amplification before a performance, so it assesses the mic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mike’s"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1100,53 @@
     "text": "Science’s gloomy tone, in crisis",
     "enumeration": "10"
    },
-   "solution": "ENTOMOLOGY"
+   "solution": "ENTOMOLOGY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTOMOLOGY",
+    "definitions": [
+     {
+      "text": "Science",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in crisis",
+      "for": "anagram",
+      "note": "letters in crisis are in turmoil and fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gloomy tone",
+      "gives": "GLOOMYTONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GLOOMYTONE",
+       "gives": "ENTOMOLOGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Science is in a gloomy mood at a time of crisis.",
+     "definitionFit": "Entomology is the branch of zoology devoted to the study of insects, a science."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crisis"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1174,71 @@
      }
     ]
    },
-   "solution": "PASSROUNDTHEHAT"
+   "solution": "PASSROUNDTHEHAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PASS ROUND THE HAT",
+    "definitions": [
+     {
+      "text": "solicit donations",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during another sits within it"
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Authorise",
+      "gives": "PASS",
+      "note": "to pass a bill is to authorise it"
+     },
+     {
+      "clueFragment": "sequence of visits",
+      "gives": "ROUND",
+      "note": "a doctor's or milkman's round is a set series of calls"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "THAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the man",
+      "gives": "HE",
+      "note": "he refers to a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PASS",
+      "ROUND",
+      "T",
+      "HE",
+      "HAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Permission is given for a tour, during which a man is to collect money for charity.",
+     "walkthrough": "'That' is a real word of the wordplay here, not a link: the man sits inside it after its first letter.",
+     "definitionFit": "To pass round the hat is the idiom for collecting money from a group, originally by passing a hat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "during"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1252,74 @@
     "text": "Italian composer nearly quit about piano, hard one",
     "enumeration": "8"
    },
-   "solution": "RESPIGHI"
+   "solution": "RESPIGHI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "RESPIGHI",
+    "definitions": [
+     {
+      "text": "Italian composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite complete, so the final letter is dropped"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the shortened word goes round a letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quit",
+      "gives": "RESIGN",
+      "note": "to quit a job is to resign; nearly, it loses its last letter"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "P is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "P",
+      "IG",
+      "H",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian composer almost gave up over a piano, a tough instrument.",
+     "walkthrough": "RES(P)IG(n) + H + I. Ottorino Respighi wrote The Pines of Rome.",
+     "definitionFit": "Ottorino Respighi was an Italian composer of the early twentieth century, known for his Roman tone poems."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1333,55 @@
     "text": "Dissident keeping millions sealed in",
     "enumeration": "8"
    },
-   "solution": "HERMETIC"
+   "solution": "HERMETIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HERMETIC",
+    "definitions": [
+     {
+      "text": "sealed in",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it within, so one letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dissident",
+      "gives": "HERETIC",
+      "note": "a heretic dissents from orthodox belief"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for millions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "M",
+      "ETIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel hoards a fortune, locked away out of reach.",
+     "walkthrough": "HERE(M)TIC: M goes inside the dissident.",
+     "definitionFit": "Hermetic means airtight, so something hermetic is closed off completely, as if sealed in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "millions"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1401,51 @@
      }
     ]
    },
-   "solution": "TAKESIDES"
+   "solution": "TAKESIDES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAKE SIDES",
+    "definitions": [
+     {
+      "text": "Join party",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film extracts",
+      "gives": "TAKES",
+      "note": "takes are filmed shots or sections"
+     },
+     {
+      "clueFragment": "a certain date",
+      "gives": "IDES",
+      "note": "the ides is a set day in the Roman calendar, such as 15 March"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKES",
+      "IDES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone joins a party and shows film clips before a particular day.",
+     "walkthrough": "'Join party' looks like going to a celebration; here a party is a faction in a dispute.",
+     "definitionFit": "To take sides is to align with one faction in an argument, joining a party to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1459,59 @@
     "text": "Frog’s name for apparatus around old Euro-finance system",
     "enumeration": "6"
    },
-   "solution": "KERMIT"
+   "solution": "KERMIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KERMIT",
+    "definitions": [
+     {
+      "text": "Frog’s name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word placed around another encloses it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apparatus",
+      "gives": "KIT",
+      "note": "kit means equipment or apparatus"
+     },
+     {
+      "clueFragment": "old Euro-finance system",
+      "gives": "ERM",
+      "note": "the ERM was the European Exchange Rate Mechanism, before the euro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ERM",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "A frog gets named after equipment linked to an old European monetary arrangement.",
+     "walkthrough": "K(ERM)IT. Kermit is the Muppets' famous frog.",
+     "definitionFit": "Kermit is the name of the frog puppet in The Muppet Show, the best-known fictional frog."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "system"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1525,47 @@
     "text": "Hurriedly leave small stuff",
     "enumeration": "5"
    },
-   "solution": "SCRAM"
+   "solution": "SCRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCRAM",
+    "definitions": [
+     {
+      "text": "Hurriedly leave",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "stuff",
+      "gives": "CRAM",
+      "note": "to stuff is to cram"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes off with a few bits of luggage.",
+     "walkthrough": "'Stuff' looks like a noun, belongings, but it is the verb meaning pack tight.",
+     "definitionFit": "Scram is an informal command or verb meaning go away quickly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1579,67 @@
     "text": "Hardy heroine upset about a French evening?",
     "enumeration": "6"
    },
-   "solution": "SUNSET"
+   "solution": "SUNSET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SUNSET",
+    "definitions": [
+     {
+      "text": "evening?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upwards, so the word reads bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the turned word goes round the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hardy heroine",
+      "gives": "TESS",
+      "note": "Tess of the d'Urbervilles is Thomas Hardy's heroine"
+     },
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "UN",
+      "SET"
+     ],
+     "reversals": [
+      {
+       "from": "TESS",
+       "to": "SSET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thomas Hardy's heroine, distressed, spends an evening with a Frenchman.",
+     "walkthrough": "In a down clue 'upset' turns the word upwards. The question mark flags that the answer only marks the start of evening.",
+     "definitionFit": "Sunset is when the sun goes down, the point at which evening begins, so the link is loose."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1653,50 @@
     "text": "Make bright blunder with something attracting PETA’s attention?",
     "enumeration": "7"
    },
-   "solution": "FURBISH"
+   "solution": "FURBISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FURBISH",
+    "definitions": [
+     {
+      "text": "Make bright",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something attracting PETA’s attention?",
+      "gives": "FUR",
+      "note": "PETA, the animal-rights group, campaigns against fur"
+     },
+     {
+      "clueFragment": "blunder",
+      "gives": "BISH",
+      "note": "bish is British slang for a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUR",
+      "BISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes a bright mistake that draws the animal-rights lobby's notice.",
+     "walkthrough": "The pieces are read in reverse order to the clue: FUR + BISH.",
+     "definitionFit": "To furbish is to polish or brighten something up, as in refurbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bright"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1710,55 @@
     "text": "Movement of water shifting lake bird",
     "enumeration": "4"
    },
-   "solution": "FOWL"
+   "solution": "FOWL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOWL",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifting",
+      "for": "anagram",
+      "note": "a letter shifting moves to a new spot, rearranging the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Movement of water",
+      "gives": "FLOW",
+      "note": "a flow is moving water"
+     },
+     {
+      "clueFragment": "lake",
+      "note": "L, the abbreviation for lake, is the letter that moves"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLOW",
+       "gives": "FOWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lake bird is pushed about by the moving water.",
+     "walkthrough": "Move the L, lake, from second place in FLOW to the end.",
+     "definitionFit": "A fowl is a bird, especially a domestic or game bird such as a chicken or duck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lake"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1772,64 @@
     "text": "Fellow taking shelter, turning very polite?",
     "enumeration": "7"
    },
-   "solution": "GENTEEL"
+   "solution": "GENTEEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GENTEEL",
+    "definitions": [
+     {
+      "text": "very polite?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round means the word is read from the end to the start"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "GENT",
+      "note": "a gent is a fellow"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GENT",
+      "EEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEE",
+       "to": "EEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man takes cover and becomes very courteous.",
+     "walkthrough": "GENT + LEE reversed. The question mark is because genteel often implies affected politeness.",
+     "definitionFit": "Genteel means polite and refined, often to an exaggerated or self-conscious degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shelter"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1843,64 @@
     "text": "Surprised expression: output of vineyard not red initially",
     "enumeration": "4"
    },
-   "solution": "GAPE"
+   "solution": "GAPE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "GAPE",
+    "definitions": [
+     {
+      "text": "Surprised expression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the letter is removed"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "output of vineyard",
+      "gives": "GRAPE",
+      "note": "grapes are what a vineyard produces"
+     },
+     {
+      "clueFragment": "red",
+      "gives": "R",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "APE"
+     ]
+    },
+    "explanation": {
+     "surface": "A look of shock at a vineyard whose output isn't red at first.",
+     "walkthrough": "GRAPE without R. 'Red' tempts as wine colour but only supplies its first letter.",
+     "definitionFit": "A gape is a wide-mouthed stare of astonishment, an open-mouthed surprised look."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "red"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1914,49 @@
     "text": "Assess response from horse changing direction?",
     "enumeration": "5"
    },
-   "solution": "WEIGH"
+   "solution": "WEIGH",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WEIGH",
+    "definitions": [
+     {
+      "text": "Assess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing direction",
+      "for": "substitution",
+      "note": "a compass point is swapped for another, so one direction letter becomes a different one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "response from horse",
+      "gives": "NEIGH",
+      "note": "a horse responds with a neigh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EIGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone evaluates the reply a horse gives when it turns around.",
+     "walkthrough": "NEIGH starts with N for north; change that direction to W, west.",
+     "definitionFit": "To weigh something is to consider or evaluate it carefully, as in weighing options."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "direction"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1970,55 @@
     "text": "Old calculation that could make Phi cringe",
     "enumeration": "9"
    },
-   "solution": "CIPHERING"
+   "solution": "CIPHERING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CIPHERING",
+    "definitions": [
+     {
+      "text": "Old calculation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could make",
+      "for": "anagram",
+      "note": "the letters could be made into something new by rearranging them"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Phi cringe",
+      "gives": "PHICRINGE",
+      "note": "taken as written; Phi is the setter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PHICRINGE",
+       "gives": "CIPHERING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter Phi admits an old-fashioned calculation makes them wince.",
+     "walkthrough": "Phi is this puzzle's setter, so the clue jokes about its own author.",
+     "definitionFit": "Ciphering is an archaic term for doing arithmetic, working sums with figures."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Phi"
+    }
+   }
   }
  ]
 }
