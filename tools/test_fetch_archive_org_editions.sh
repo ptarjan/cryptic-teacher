@@ -127,5 +127,50 @@ with open(os.path.join(out, "done.tsv"), "a") as f:
     f.write(f"{item}\t{eds[1]}\t{fa.DETECTOR_VERSION}\n{item}\t{eds[2]}\t{fa.DETECTOR_VERSION}\n")
 rc, log = run()
 check("nothing due: finishes with no request", rc == 0 and "finished: 0 editions" in log, )
+
+# The "archive.org looks down" stop counts only connection errors, timeouts
+# and 5xx; an edition's own failure (an empty reply, a 404) resets the count.
+http = lambda c: urllib.error.HTTPError("u", c, "x", {}, None)
+check("outage: 5xx, refused, timeout",
+      all(fa.outage(e) for e in (http(500), http(503), urllib.error.URLError("refused"), TimeoutError(), ConnectionResetError())))
+check("no outage: 404, 429, an empty reply, a parse error",
+      not any(fa.outage(e) for e in (http(404), http(429), RuntimeError("no OBJECT"), fa.PageNumbering("empty"), ValueError())))
+def streak(errors):
+    r = fa.Run(tempfile.mkdtemp())
+    def boom(*a):
+        raise next(it)
+    it = iter(errors); real = fa.fetch_edition; fa.fetch_edition = boom
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for _ in errors:
+                r.edition(fx, "i", {}, "n")
+    finally:
+        fa.fetch_edition = real
+    return r.stop
+check("per-edition failures never stop the run", not streak([RuntimeError("no OBJECT")] * 20 + [http(404)] * 5))
+check("FAILURES_IN_A_ROW 5xx stop it", streak([http(502)] * fa.FAILURES_IN_A_ROW))
+check("a 404 between 5xx resets the count",
+      not streak([http(502)] * (fa.FAILURES_IN_A_ROW - 1) + [http(404)] + [http(502)] * (fa.FAILURES_IN_A_ROW - 1)))
+
+# Groups take turns: one item each, so a long group cannot starve the next.
+check("groups interleave", fa.interleave([["t1", "t2", "t3"], ["l1"], ["f1", "f2"]]) == ["t1", "l1", "f1", "t2", "f2", "t3"])
+
+# Leaf numbering: a scan starting with a colour card has djvu page k on leaf
+# k+1; the OBJECT's PAGE param places it, and the per-page endpoint's empty
+# reply or other-leaf reply sends the edition to the whole djvu.xml.
+obj = lambda n, t: (f'<OBJECT width="10" height="20"><PARAM name="PAGE" value="ed_{n:04d}.djvu"/>'
+                    f'<LINE><WORD>{t}</WORD></LINE></OBJECT>')
+xml = ("<DjVuXML><BODY>" + obj(1, "one") + obj(2, "two") + "</BODY></DjVuXML>").encode()
+check("page_texts places each OBJECT on its scan leaf",
+      fa.page_texts(xml) == [(0, 0, ""), (10, 20, "one"), (10, 20, "two")])
+meta = {"server": "s", "dir": "/d"}
+for reply, what in ((b"", "an empty words reply"), (obj(2, "two").encode(), "a words reply for another leaf")):
+    script(reply)
+    try: fa.sparse_djvu_xml(fx, meta, "ed", "ed", {1}, 3); raised = False
+    except fa.PageNumbering: raised = True
+    check(what + " raises PageNumbering", raised)
+script(obj(1, "one").encode())
+check("a words reply for its own leaf is kept",
+      fa.sparse_djvu_xml(fx, meta, "ed", "ed", {1}, 3)[1] == {1: (10, 20)})
 sys.exit(1 if fails else 0)
 PY
