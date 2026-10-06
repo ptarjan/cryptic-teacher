@@ -14,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, "tools")
 import archive_coverage as ac
 import coverage as cov
+ROOT_REAL = cov.ROOT
 import file_archive_org_puzzles as filer
 
 tmp = Path(sys.argv[1])
@@ -73,9 +74,44 @@ for stamp, cause in ((trove.wait, "crashed"), (trove.refuse, "no-grid"), (trove.
 # Every book status the ledger names is a book bucket.
 for s, _, _ in cov.BOOK_PUZZLE_STATUSES:
     assert ("book", s) in cov.CAUSES, s
-assert cov.book_status("shortlist-of-3") == "shortlist"
-assert cov.book_status("exact-unique") == "unique-not-filed"
-assert cov.book_status("something new") == "unknown-status"
+assert cov.book_status({"status": "shortlist-of-3"}) == "shortlist"
+assert cov.book_status({"status": "exact-unique", "filing": "filed unsolved"}) == "unique-not-filed"
+assert cov.book_status({"status": "exact-unique", "filing": "refused"}) == "unique-refused"
+assert cov.book_status({"status": "no-solution", "filing": "refused clues-only"}) == "clues-only-refused"
+assert cov.book_status({"status": "something new"}) == "unknown-status"
+
+# Every unfiled book position gets a named cause from the book's state:
+# a due book's old report is ignored (an older reader numbered its leaves),
+# and a book read by the reader in force is read off its report.
+import acquire_book, book_queue
+broot = tmp / "books"
+(broot / "tools" / "data").mkdir(parents=True)
+(broot / "puzzles" / "book" / "2000").mkdir(parents=True)
+(broot / "clues_only" / "book").mkdir(parents=True)
+(broot / "tools" / "data" / "books.json").write_text(json.dumps({"books": [
+    {"book_index": 1, "identifier": "fresh"}, {"book_index": 2, "identifier": "old-text"},
+    {"book_index": 3, "identifier": "lost"}, {"book_index": 4, "identifier": "never"}]}))
+(broot / "tools" / "data" / "book_candidates.json").write_text(json.dumps({"ranking": [
+    {"identifier": i, "estimated_puzzle_count": 6} for i in ("fresh", "old-text", "lost")]}))
+(broot / "puzzles" / "book" / "2000" / "book-1001.json").write_text("{}")
+(broot / "clues_only" / "book" / "book-1002.json").write_text("{}")
+(broot / "puzzles" / "book" / "2000" / "book-3001.json").write_text("{}")
+reads = broot / "reads.json"
+reads.write_text(json.dumps({"fresh": {"on": "9999-01-01", "found": 5}}))
+out = tmp / "reports"
+for ident, rows in (("fresh", [{"book_number": 3, "status": "no-solution", "filing": "refused clues-only"},
+                               {"book_number": 4, "status": "budget-exhausted"}]),
+                    ("old-text", [{"book_number": 1, "status": "exact-unique", "filing": "filed unsolved"}])):
+    (out / ident).mkdir(parents=True)
+    (out / ident / "report.json").write_text(json.dumps({"puzzles": rows}))
+texts = tmp / "texts"
+texts.mkdir()
+(texts / "old-text.txt").write_text("text")
+cov.ROOT, acquire_book.DEFAULT_OUT, book_queue.READS, book_queue.TEXT_DIR = broot, out, reads, texts
+got = {(b["cause"], b["puzzles"]) for b in cov.books().result()["buckets"]}
+assert got == {("clues-only-refused", 1), ("budget-exhausted", 1), ("read-no-report", 1), ("not-split", 1),
+               ("reread-due", 6), ("borrow-queued", 5)}, got
+cov.ROOT = ROOT_REAL
 
 # One bucket per missing puzzle: recoverable beats not, unclaimed is no-source.
 led = cov.Ledger("x", "numbers")

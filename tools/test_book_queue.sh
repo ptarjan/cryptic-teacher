@@ -59,6 +59,14 @@ check "--next names the head of that queue" "unread-best" \
 check "--count counts the unread, not the registry" "3" \
   "$(cd "$tree" && python3 tools/book_queue.py --count)"
 
+# A book with puzzles filed whose text is gone, once due, takes its ranking
+# place: clues-only filing makes its unfiled leaves worth a loan too.
+echo '{}' > "$tree/tools/data/book_reads.json"
+check "a due book whose text is gone is ranked with the unread, not behind them" \
+  "read-one unread-best unread-worse unranked " \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+echo '{"read-one": {"on": "9999-01-01"}}' > "$tree/tools/data/book_reads.json"
+
 # A pin jumps the ranking, an already-read or unknown pin is skipped.
 echo '{"pinned": ["read-one", "no-such-book", "unranked"]}' > "$tree/tools/data/book_pins.json"
 check "pinned book comes first; read and unknown pins are skipped" \
@@ -77,7 +85,7 @@ check "--next exits non-zero on an empty queue" "1" "$?"
 
 # RE-READS. Every book above is filed and none has a read on record, so all
 # are due. The ones whose text is on disk are re-read with no loan; the rest
-# go back to the borrow queue, behind any unread book.
+# go back to the borrow queue.
 rm "$tree/tools/data/book_reads.json"
 mkdir -p "$tree/state/cryptic-teacher/ia-books"
 echo text > "$tree/state/cryptic-teacher/ia-books/read-one.txt"
@@ -88,6 +96,16 @@ check "a due book whose text is gone is borrowed again" \
   "unread-best unread-worse unranked " \
   "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
 # A read on or after REREAD_BEFORE takes a book off both lists.
+(cd "$tree/tools" && python3 -c '
+import book_queue as q
+for i in ("read-one", "unread-best", "unread-worse", "unranked"):
+    q.record_read(i, 60, 50)')
+# A read earlier on the day the reader changed is the old reader's.
+check "a read hours before the reader change is still due" "True" \
+  "$(cd "$tree/tools" && python3 -c '
+import book_queue as q, json
+q.READS.write_text(json.dumps({"read-one": {"on": q.REREAD_BEFORE[:10] + "T00:00:01+00:00"}}))
+print(q.due("read-one"))')"
 (cd "$tree/tools" && python3 -c '
 import book_queue as q
 for i in ("read-one", "unread-best", "unread-worse", "unranked"):

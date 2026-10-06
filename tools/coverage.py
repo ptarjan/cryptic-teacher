@@ -17,7 +17,7 @@ Denominators:
   numbered series   first_number() (series.py) to the highest number held or listed
   canberra          Trove articles the filer read and did not skip as no cryptic
   book              each book's estimated_puzzle_count (tools/data/book_candidates.json,
-                    an upper bound: no record holds a book's printed count)
+                    an upper bound), or the puzzles its last read split, if more
 
 Each missing puzzle is claimed by the sources that know about it, and every
 claim is a (source, cause) pair from CAUSES, read off the pipeline's own
@@ -64,15 +64,23 @@ BOOK_PUZZLE_STATUSES = [
     ("budget-exhausted", "tools/acquire_book.py", "the search ran out (NODE_BUDGET, WALL_SECONDS)"),
     ("unparseable", "tools/reconstruct_grid.py", "the light spec was refused"),
     ("rejected-before-search", "tools/grid_verdict.py", "the spec failed the plausibility gate"),
-    ("unique-not-filed", "tools/file_penguin_puzzle.py", "exact-unique, yet not filed: the filer's refusal is prose only"),
+    ("unique-refused", "tools/acquire_book.py", "exact-unique and the filer refused it: report.json filing_problems"),
+    ("unique-not-filed", "tools/acquire_books.sh", "exact-unique and filed, yet the corpus lacks it: its publish failed (.books.log)"),
+    ("clues-only-refused", "tools/clues_only.py", "the clues-only filer refused it: report.json filing_problems"),
+    ("cut-short", "tools/acquire_books.sh", "the re-read's 90-minute bound ended the run before this search landed"),
+    ("split-moved", "tools/acquire_book.py", "this read split the book differently: the leaf is filed under another position (report.json filed_as)"),
+    ("id-taken", "tools/acquire_book.py", "this read split the book differently and another puzzle holds this leaf's id"),
     ("unknown-status", "tools/acquire_book.py", "a status coverage.BOOK_PUZZLE_STATUSES does not list: add it"),
 ]
 
 
-def book_status(status):
-    """The BOOK_PUZZLE_STATUSES key of a report row's status."""
+def book_status(row):
+    """The BOOK_PUZZLE_STATUSES key of an unfiled report row."""
+    status, filing = row.get("status"), row.get("filing")
+    if filing == "refused clues-only":
+        return "clues-only-refused"
     if status == "exact-unique":
-        return "unique-not-filed"
+        return "unique-refused" if filing == "refused" else "unique-not-filed"
     if (status or "").startswith("shortlist-of-"):
         return "shortlist"
     return status if any(s == status for s, _, _ in BOOK_PUZZLE_STATUSES) else "unknown-status"
@@ -119,14 +127,23 @@ def _causes():
     for status in ("no-credentials", "borrow-refused", "lending-limit", "text-not-public"):
         out[("book", status)] = Cause(
             "tools/acquire_book.py", f"archive.org said {status}: the loan, not the reader (report.json status)", True, False)
-    out[("book", "no-report")] = Cause(
-        "tools/book_queue.py", "no report.json: never attempted (acquire_books.sh takes the queue's next)", True, False)
-    out[("book", "partial-no-record")] = Cause(
-        "tools/acquire_book.py", "some filed and no report.json says why the rest were not", True, True)
+    out[("book", "reread-due")] = Cause(
+        "tools/acquire_books.sh", "read by an older reader, its text on disk: the hourly job re-reads one due "
+        "book a run (book_queue.py --reread)", True, False)
+    out[("book", "borrow-queued")] = Cause(
+        "tools/acquire_books.sh", "unread, or its text lost: only a loan reads it, one a run in "
+        "book_queue.py --next order, while archive.org lends", True, False)
+    out[("book", "not-split")] = Cause(
+        "tools/parse_penguin_book.py", "past the last puzzle the reader split: the estimate runs high, "
+        "or the splitter missed leaves", True, False)
+    out[("book", "read-no-report")] = Cause(
+        "tools/acquire_book.py", "book_reads.json records a read under the reader in force and no report.json "
+        "row says why this position is unfiled", True, True)
     # A read book's per-puzzle status (tools/grid_verdict.py verdict(), and
     # acquire_book.py's own two), for each position not filed.
     for status, owner, fix in BOOK_PUZZLE_STATUSES:
-        out[("book", status)] = Cause(owner, fix, True, status in ("unique-not-filed", "unknown-status"))
+        out[("book", status)] = Cause(owner, fix, status not in ("split-moved", "id-taken"),
+                                      status in ("unique-not-filed", "unknown-status"))
     return out
 
 
@@ -176,9 +193,11 @@ def jsonl(path):
 
 
 def held_numbers(series):
-    """The numbers of `series` filed in puzzles/, read off the file names."""
+    """The numbers of `series` filed in puzzles/ or held clues-only, read off
+    the file names."""
     out = set()
-    for p in (ROOT / "puzzles" / series).glob(f"*/{series}-*.json"):
+    for p in [*(ROOT / "puzzles" / series).glob(f"*/{series}-*.json"),
+              *(ROOT / "clues_only" / series).glob(f"{series}-*.json")]:
         try:
             out.add(int(p.stem.rsplit("-", 1)[1]))
         except ValueError:
@@ -360,6 +379,7 @@ def trove():
 
 def books():
     import acquire_book
+    import book_queue
     led = Ledger("book", "book positions (estimated_puzzle_count, an upper bound)")
     registry = json.loads((ROOT / "tools" / "data" / "books.json").read_text())["books"]
     try:
@@ -367,10 +387,11 @@ def books():
                for r in json.loads((ROOT / "tools" / "data" / "book_candidates.json").read_text())["ranking"]}
     except (OSError, ValueError, KeyError):
         est = {}
+    reads = book_queue.reads()
     filed = collections.defaultdict(set)
     for n in held_numbers("book"):
         filed[n // 1000].add(n % 1000)
-    unmeasured = []
+    unmeasured, no_id = [], []
     for b in registry:
         i, ident = b["book_index"], b["identifier"]
         got = filed.get(i, set())
@@ -378,26 +399,41 @@ def books():
         try:
             report = json.loads((acquire_book.DEFAULT_OUT / ident / "report.json").read_text())
         except (OSError, ValueError):
-            report = None
-        per = {r.get("book_number"): book_status(r.get("status")) for r in (report or {}).get("puzzles", [])}
-        # The positions a report or a filed puzzle proves exist, at least.
-        count = max([est.get(ident) or 0] + [n for n in per if isinstance(n, int)] + list(got))
-        if not est.get(ident) and not per:
+            report = {}
+        rows = {r.get("book_number"): r for r in report.get("puzzles", [])}
+        split = (reads.get(ident) or {}).get("found") or 0
+        # The positions an estimate, a read or a filed puzzle proves exist, at least.
+        count = max([est.get(ident) or 0, split] + [n for n in rows if isinstance(n, int)] + list(got))
+        if not count:
             unmeasured.append(ident)
-        stop = (report or {}).get("status")
+        due = book_queue.due(ident)
+        stop = report.get("status")
+        if not due:
+            no_id += [f"{i}:{n}" for n, r in rows.items() if r.get("status") == "id-taken"]
         for p in range(1, count + 1):
             if p in got:
                 continue
             led.exists.add(f"{i}:{p}")
-            if p in per:
-                led.claim(f"{i}:{p}", "book", per[p])
-            elif stop and ("book", stop) in CAUSES:
-                led.claim(f"{i}:{p}", "book", stop)
+            if stop and ("book", stop) in CAUSES:
+                cause = stop  # the read stopped at the text: a loan refused
+            elif due:
+                # A report from an older reader numbers its leaves that
+                # reader's way, so its rows are not this position's.
+                cause = "reread-due" if book_queue.text_of(ident) else "borrow-queued"
+            elif p in rows:
+                cause = book_status(rows[p])
+            elif split and p > split:
+                cause = "not-split"
             else:
-                led.claim(f"{i}:{p}", "book", "partial-no-record" if got else "no-report")
+                cause = "read-no-report"
+            led.claim(f"{i}:{p}", "book", cause)
+    if no_id:
+        # Not a position: the position is filed, by another puzzle of the book.
+        led.notes.append(f"{len(no_id)} book puzzles are unfiled because a re-read split moved another "
+                         f"puzzle onto their id (report.json id-taken; tools/acquire_book.py): {', '.join(no_id[:5])}")
     if unmeasured:
-        led.notes.append(f"{len(unmeasured)} of {len(registry)} books have no puzzle count on record "
-                         f"(tools/data/books.json, book_candidates.json): {', '.join(unmeasured[:5])}"
+        led.notes.append(f"{len(unmeasured)} of {len(registry)} books have no puzzle count until their first "
+                         f"read (never sampled for book_candidates.json): {', '.join(unmeasured[:5])}"
                          + (" ..." if len(unmeasured) > 5 else ""))
     return led
 

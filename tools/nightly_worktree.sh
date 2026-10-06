@@ -174,7 +174,11 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     export CT_IN_WORKTREE=1
     export CT_MAIN_CHECKOUT="$_ct_main"
     echo "=== running in $_ct_tree @ $(git -C "$_ct_tree" rev-parse --short HEAD) ==="
-    exec /bin/bash "$_ct_tree/tools/$(basename "$0")" "$@"
+    # Sourced, not run: bash reads a script FILE as it goes, and the job's own
+    # publish rebases this tree, so a rebase that rewrites the script would
+    # resume the new file at the old byte offset. `.` reads the whole file
+    # before running any of it. $0 stays the tree's path for dirname "$0".
+    exec /bin/bash -c '. "$0"' "$_ct_tree/tools/$(basename "$0")" "$@"
   fi
 
   # No worktree, no run. The main checkout is not a fallback: it is somebody's

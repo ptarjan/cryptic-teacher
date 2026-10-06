@@ -61,6 +61,28 @@ for built in fetch_puzzle.py.ran build_abbreviations.py.ran; do
     "$([ -e "$tmp/trees/faketask/$built" ] && echo yes || echo no)" "yes"
 done
 
+# A job's publish rebases its own tree, which can rewrite the running script.
+# Bash reads a script file as it goes, so the rest of the run must come from
+# the script as it was when the run began.
+cat > "$tmp/main/tools/selfedit.sh" <<'JOB'
+#!/bin/bash
+. "$(dirname "$0")/nightly_worktree.sh"
+printf '%s\n' '#!/bin/bash' '# a first line much longer than the one it replaces, as a rebase brings it ...' \
+  'echo "THE REWRITE RAN"' 'exit' > "$0"
+JOB
+# Longer than bash's read buffer, so the rest is read from the file later.
+for _ in $(seq 400); do echo "# padding padding padding padding padding padding" >> "$tmp/main/tools/selfedit.sh"; done
+echo 'echo "THE ORIGINAL FINISHED"' >> "$tmp/main/tools/selfedit.sh"
+git -C "$tmp/main" add tools/selfedit.sh
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm selfedit
+git -C "$tmp/main" push -q origin HEAD:master
+got="$(ALERT_ENV_FILE=/nonexistent CT_WORKTREE_ROOT="$tmp/trees" timeout 20 \
+  bash "$tmp/main/tools/selfedit.sh" 2>&1 | grep -v '^===')"
+check "a run whose script is rewritten mid-run finishes as it began" "$got" "THE ORIGINAL FINISHED"
+git -C "$tmp/main" rm -q tools/selfedit.sh
+git -C "$tmp/main" -c user.email=t@t -c user.name=t commit -qm "no selfedit"
+git -C "$tmp/main" push -q origin HEAD:master
+
 # 2. An index.lock outlives the process that took it — nothing in git ever
 #    clears one — so a single crashed command otherwise fails every future run
 #    of the job in the same way, forever.

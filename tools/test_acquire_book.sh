@@ -242,3 +242,57 @@ if failures:
     sys.exit(1)
 print("PASSED")
 PYEOF
+status=$?
+[ "$status" = 0 ] || exit "$status"
+
+# A run killed mid-search (the re-read's 90-minute bound) leaves a report.json
+# whose unlanded searches say cut-short, not a stale report or none.
+tmp="$(mktemp -d)"
+trap 'rm -rf "$tmp"' EXIT
+python3 - "$tmp" <<'PYEOF'
+import json, sys
+from pathlib import Path
+sys.path.insert(0, "tools")
+import acquire_book as ab
+
+tmp = Path(sys.argv[1])
+(tmp / "text.txt").write_text("x")
+lights = {"across": [{"number": 1, "clue": "a", "enumeration": "5"}], "down": []}
+ab.parse_book = lambda _path: [dict(lights, book_number=1), dict(lights, book_number=2)]
+ab.build_quality_report = lambda _p: {"puzzles": []}
+ab.build_spec = lambda _p: ([(1, 5, "plain")], [], [], [])
+ab.grid_verdict.screen_spec = lambda _a, _d: []
+
+
+class Killed(Exception):
+    pass
+
+
+class Pool:
+    def __init__(self, **_kw):
+        pass
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *_exc):
+        return False
+
+    def map(self, _fn, jobs):
+        yield {"book_number": jobs[0]["book_number"], "status": "no-solution", "nodes": 1,
+               "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
+               "conventions_broken": [], "detail": {}, "grids": []}
+        raise Killed
+
+
+ab.ProcessPoolExecutor = Pool
+try:
+    ab.main(["some-book", "--text", str(tmp / "text.txt"), "--out", str(tmp)])
+    raise SystemExit("FAIL the fake pool was never killed")
+except Killed:
+    pass
+got = [r["status"] for r in json.loads((tmp / "some-book" / "report.json").read_text())["puzzles"]]
+if got != ["no-solution", "cut-short"]:
+    raise SystemExit(f"FAIL a killed run's report says {got}, want ['no-solution', 'cut-short']")
+print("ok   a run killed mid-search leaves its unlanded searches cut-short")
+PYEOF
