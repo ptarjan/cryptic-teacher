@@ -538,6 +538,7 @@ LAYOUT_EXEMPT = re.compile(r"""
       ^tools/_                      # scratch scripts, named with a leading underscore
     | ^tools/__pycache__/
     | ^puzzles/                     # covered by the <series>/<year>/<series>-<n>.json line
+    | ^clues_only/                  # covered by the clues_only/<series>/<id>.json line
     | ^tools/data/favourite_grading/(packets|scores)/  # covered by the two directory lines
     | ^tools/data/penguin_partial_fills/            # covered by the directory line
     | ^tools/data/blog_facts/                       # covered by the directory line
