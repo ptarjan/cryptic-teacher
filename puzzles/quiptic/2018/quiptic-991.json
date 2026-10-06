@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Kudos! You finally solved a puzzle",
     "enumeration": "6"
    },
-   "solution": "SUDOKU"
+   "solution": "SUDOKU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SUDOKU",
+    "definitions": [
+     {
+      "text": "a puzzle",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points at the closing letter of the word just before it"
+     },
+     {
+      "text": "solved",
+      "for": "anagram",
+      "note": "a puzzle solved has been worked out, so these letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kudos",
+      "gives": "KUDOS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "You",
+      "gives": "U",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUDOKU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KUDOSU",
+       "gives": "SUDOKU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is congratulated for at last cracking a puzzle.",
+     "walkthrough": "The congratulation is the fodder: KUDOS plus the U ending 'You', rearranged, gives SUDOKU.",
+     "definitionFit": "Sudoku is a popular number-placement grid game, a specific example of the general category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Kudos"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,57 @@
     "text": "Sneaky to rip off your former following",
     "enumeration": "8"
    },
-   "solution": "STEALTHY"
+   "solution": "STEALTHY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEALTHY",
+    "definitions": [
+     {
+      "text": "Sneaky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following says this piece comes after the one before it in the answer"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rip off",
+      "gives": "STEAL",
+      "note": "to rip off is to steal"
+     },
+     {
+      "clueFragment": "your former",
+      "gives": "THY",
+      "note": "the archaic form of your"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEAL",
+      "THY"
+     ]
+    },
+    "explanation": {
+     "surface": "Copying an ex's admirers looks underhand.",
+     "walkthrough": "'Your former' is not an ex but the old word for your, THY.",
+     "definitionFit": "Stealthy means acting quietly and covertly to avoid notice, which is sly or furtive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,66 @@
     "text": "Look in a guide about communication",
     "enumeration": "8"
    },
-   "solution": "DIALOGUE"
+   "solution": "DIALOGUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DIALOGUE",
+    "definitions": [
+     {
+      "text": "communication",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the interjection inside the other letters"
+     },
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean moved around, so the letters of the phrase are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a guide",
+      "gives": "AGUIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or behold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIA",
+      "LO",
+      "GUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGUIDE",
+       "gives": "DIAGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks a guidebook for advice on communication.",
+     "definitionFit": "A dialogue is a conversation between people, an exchange of words, so a form of talk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Look"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +246,68 @@
     "text": "Birds briefly peck around the edges",
     "enumeration": "5"
    },
-   "solution": "KITES"
+   "solution": "KITES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "KITES",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter of the word for peck is dropped"
+     },
+     {
+      "text": "the edges",
+      "for": "letter_selection",
+      "note": "the edges points to the outside letters only of the word just read"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the shortened word goes outside the remaining letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peck",
+      "gives": "KIS",
+      "note": "a peck is a kiss, cut short"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the outside letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KI",
+      "TE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds peck around the borders of something.",
+     "walkthrough": "'the edges' does double duty: 'the' is the source and 'edges' tells you to keep its outer letters.",
+     "definitionFit": "Kites are birds of prey of the hawk family, so they are an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peck"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +327,51 @@
      }
     ]
    },
-   "solution": "FIGHTOFF"
+   "solution": "FIGHTOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIGHT OFF",
+    "definitions": [
+     {
+      "text": "Resist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engagement",
+      "gives": "FIGHT",
+      "note": "a military engagement is a battle"
+     },
+     {
+      "clueFragment": "cancelled",
+      "gives": "OFF",
+      "note": "an event that is cancelled is off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIGHT",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A wedding is called off, read as a question about resistance.",
+     "walkthrough": "'Engagement being cancelled' suggests a broken betrothal; read as a battle that is off, it splits into the two parts of the phrase.",
+     "definitionFit": "To fight off an attacker or illness is to repel or hold it back successfully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "engagement"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +385,68 @@
     "text": "Popular finishing round on practice green",
     "enumeration": "13"
    },
-   "solution": "INEXPERIENCED"
+   "solution": "INEXPERIENCED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INEXPERIENCED",
+    "definitions": [
+     {
+      "text": "green",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finishing",
+      "for": "letter_selection",
+      "note": "finishing picks out the last letter of the word that follows"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on here means added on to, so the end letter is tacked after the practice word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "popular things are in"
+     },
+     {
+      "clueFragment": "practice",
+      "gives": "EXPERIENCE",
+      "note": "practice builds experience"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "D",
+      "select": "last",
+      "note": "closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "EXPERIENCE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer completes a popular round on the practice putting green.",
+     "walkthrough": "The golfing scene makes 'green' look like part of a course; it is the definition, meaning new to something.",
+     "definitionFit": "Green describes someone naive and untried, lacking the skill that comes from practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +460,77 @@
     "text": "Woman gets bad vibe eating alternative to rabbit, for instance",
     "enumeration": "9"
    },
-   "solution": "HERBIVORE"
+   "solution": "HERBIVORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "HERBIVORE",
+    "definitions": [
+     {
+      "text": "rabbit, for instance",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bad",
+      "for": "anagram",
+      "note": "bad suggests something gone wrong, so the letters of the word are spoilt into another order"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so the scrambled letters surround the next piece"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     },
+     {
+      "clueFragment": "vibe",
+      "gives": "VIBE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alternative",
+      "gives": "OR",
+      "note": "or offers an alternative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "BIV",
+      "OR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VIBE",
+       "gives": "BIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman feels uneasy eating something other than rabbit.",
+     "walkthrough": "'eating alternative to rabbit' reads as a meal; in fact the rabbit is the definition, an animal that eats plants.",
+     "definitionFit": "Rabbits feed only on plants, so they are an example of a plant-eating animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +544,71 @@
     "text": "Last letters heading off from Rome reflected decline",
     "enumeration": "6"
    },
-   "solution": "OMEGAS"
+   "solution": "OMEGAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "OMEGAS",
+    "definitions": [
+     {
+      "text": "Last letters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "the head is the front, so taking it off removes the opening letter of the city"
+     },
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rome",
+      "gives": "OME",
+      "note": "the city without its first letter"
+     },
+     {
+      "clueFragment": "decline",
+      "gives": "SAG",
+      "note": "to sag is to droop or decline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OME",
+      "GAS"
+     ],
+     "reversals": [
+      {
+       "from": "SAG",
+       "to": "GAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Final letters sent from Rome reflect the city's decline.",
+     "walkthrough": "Omega is the last letter of the Greek alphabet, so its plural fits 'Last letters'.",
+     "definitionFit": "Omega is the final character of the Greek alphabet, so omegas are final letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +622,42 @@
     "text": "Some of life's terrors get worse",
     "enumeration": "6"
    },
-   "solution": "FESTER"
+   "solution": "FESTER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FESTER",
+    "definitions": [
+     {
+      "text": "get worse",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some of",
+      "for": "hidden_word",
+      "note": "some of says only a part of the following words is needed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "life's terrors",
+      "gives": "FESTER",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "The fears of life grow worse.",
+     "definitionFit": "A wound or a grievance that festers deteriorates, becoming more infected or bitter over time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "terrors"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +671,49 @@
     "text": "One time performance is flawless",
     "enumeration": "5"
    },
-   "solution": "EXACT"
+   "solution": "EXACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXACT",
+    "definitions": [
+     {
+      "text": "flawless",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One time",
+      "gives": "EX",
+      "note": "a one-time partner is an ex"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "ACT",
+      "note": "an act is a performance on stage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic praises a single past performance as perfect.",
+     "definitionFit": "Something exact is precise and correct in every detail, hence without any error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +727,83 @@
     "text": "Game over before getting to grips with first level is not fun",
     "enumeration": "9"
    },
-   "solution": "CHEERLESS"
+   "solution": "CHEERLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHEERLESS",
+    "definitions": [
+     {
+      "text": "not fun",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "anagram",
+      "note": "to do something over is to redo it, so the short word for before is remade in a new order"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the following word"
+     },
+     {
+      "text": "getting to grips with",
+      "for": "container",
+      "note": "to get to grips with something is to grasp it, so the game holds the other letters inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "CHESS",
+      "note": "a board game"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is the poetic word for before"
+     },
+     {
+      "clueFragment": "level",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "EER",
+      "L",
+      "ESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERE",
+       "gives": "EER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A game that has ended before its first round even got going is no fun.",
+     "walkthrough": "'Game over' reads as one phrase, but 'over' works on 'before'; ere is the poetic word for before.",
+     "definitionFit": "Cheerless means gloomy and joyless, which is the same as lacking any enjoyment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +831,69 @@
      }
     ]
    },
-   "solution": "CHAMPATTHEBIT"
+   "solution": "CHAMPATTHEBIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHAMP AT THE BIT",
+    "definitions": [
+     {
+      "text": "raring to go",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "potential",
+      "for": "anagram",
+      "note": "potential means not yet formed, so these letters could still be made into something else"
+     },
+     {
+      "text": "in front",
+      "for": "charade",
+      "note": "in front puts this piece at the start of the answer"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "winner",
+      "gives": "CHAMP",
+      "note": "short for champion"
+     },
+     {
+      "clueFragment": "I bet that",
+      "gives": "IBETTHAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAMP",
+      "ATTHEBIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IBETTHAT",
+       "gives": "ATTHEBIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A punter bets on a racehorse leading the field and eager to run.",
+     "walkthrough": "'potential winner' reads as one phrase, but 'potential' belongs to 'I bet that'.",
+     "definitionFit": "Champing at the bit describes a horse, or person, impatient and eager to start."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "potential"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +913,55 @@
      }
     ]
    },
-   "solution": "LOOKSHARP"
+   "solution": "LOOKSHARP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOOK SHARP",
+    "definitions": [
+     {
+      "text": "Hurry",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watch",
+      "gives": "LOOK",
+      "note": "to look is to watch"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the genealogical abbreviation for son"
+     },
+     {
+      "clueFragment": "instrument",
+      "gives": "HARP",
+      "note": "a stringed instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOK",
+      "S",
+      "HARP"
+     ]
+    },
+    "explanation": {
+     "surface": "A parent hurries off to see their son play an instrument.",
+     "definitionFit": "Look sharp is a British imperative meaning be quick, get a move on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +975,70 @@
     "text": "Trendy article about space is mindless",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "mindless",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the word for space is read backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trendy",
+      "gives": "IN",
+      "note": "fashionable things are in"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's unit of space"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "A",
+      "NE"
+     ],
+     "reversals": [
+      {
+       "from": "EN",
+       "to": "NE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fashionable magazine piece about outer space is dismissed as brainless.",
+     "walkthrough": "An en is a printer's space half the width of an em; here it is turned round after IN and A.",
+     "definitionFit": "Inane describes talk or behaviour that is silly and lacking sense or thought."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +1058,55 @@
      }
     ]
    },
-   "solution": "HOUSESPARROW"
+   "solution": "HOUSESPARROW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOUSE SPARROW",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sheltered by",
+      "for": "container",
+      "note": "something sheltered by another is held within it, so the terrace wraps round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrace",
+      "gives": "HOUSEROW",
+      "note": "a terrace is a row of houses joined together"
+     },
+     {
+      "clueFragment": "box",
+      "gives": "SPAR",
+      "note": "boxers spar in practice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOUSE",
+      "SPAR",
+      "ROW"
+     ]
+    },
+    "explanation": {
+     "surface": "A nesting box for birds is tucked against a terrace of houses.",
+     "walkthrough": "A terrace is a British row of joined houses, so it supplies HOUSE ... ROW; the question mark admits that loose phrase. Box is the verb, as in sparring.",
+     "definitionFit": "The house sparrow is a common small brown bird that nests around buildings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1120,53 @@
     "text": "I get manic about puzzling!",
     "enumeration": "9"
    },
-   "solution": "ENIGMATIC"
+   "solution": "ENIGMATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMATIC",
+    "definitions": [
+     {
+      "text": "puzzling",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means moved around, so the preceding letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I get manic",
+      "gives": "IGETMANIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENIGMATIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IGETMANIC",
+       "gives": "ENIGMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solver confesses to getting frantic over puzzles.",
+     "definitionFit": "Enigmatic describes something mysterious and hard to understand, so baffling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "puzzling"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1180,46 @@
     "text": "Worrying about looking after eggs",
     "enumeration": "8"
    },
-   "solution": "BROODING"
+   "solution": "BROODING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BROODING",
+    "definitions": [
+     {
+      "text": "Worrying",
+      "at": 0
+     },
+     {
+      "text": "looking after eggs",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worrying",
+      "note": "first meaning: fretting gloomily over something"
+     },
+     {
+      "clueFragment": "looking after eggs",
+      "note": "second meaning: what a hen does sitting on her clutch"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone frets over the care of eggs.",
+     "definitionFit": "The word means both dwelling anxiously on troubles and a hen sitting on eggs to hatch them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 16,
@@ -303,7 +1233,63 @@
     "text": "German article about break point for Rolling Stones?",
     "enumeration": "8"
    },
-   "solution": "DRIFTERS"
+   "solution": "DRIFTERS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DRIFTERS",
+    "definitions": [
+     {
+      "text": "Rolling Stones",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the German word goes round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German article",
+      "gives": "DER",
+      "note": "the masculine definite article in German"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "RIFT",
+      "note": "a rift is a break or split"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "S",
+      "note": "south, a compass point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RIFT",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A German music article covers the Rolling Stones' break-up.",
+     "walkthrough": "The band is a red herring: from the proverb, a rolling stone gathers no moss, so it is a person who never settles.",
+     "definitionFit": "Drifters move from place to place without roots, just as a rolling stone does in the proverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stones"
+    }
+   }
   },
   {
    "number": 17,
@@ -323,7 +1309,62 @@
      }
     ]
    },
-   "solution": "LITTLETERROR"
+   "solution": "LITTLETERROR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LITTLE TERROR",
+    "definitions": [
+     {
+      "text": "Naughty child",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "set fire to",
+      "gives": "LIT",
+      "note": "lit is the past of light"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T was an early Ford car"
+     },
+     {
+      "clueFragment": "permission",
+      "gives": "LET",
+      "note": "to let is to permit"
+     },
+     {
+      "clueFragment": "mistake",
+      "gives": "ERROR",
+      "note": "an error is a mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIT",
+      "T",
+      "LET",
+      "ERROR"
+     ]
+    },
+    "explanation": {
+     "surface": "A child set fire to a model, having been allowed to by mistake.",
+     "walkthrough": "'Model' gives T, from Ford's Model T. Permission given is LET, the past sense.",
+     "definitionFit": "Little terror is an affectionate idiom for a badly behaved youngster who causes trouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1378,50 @@
     "text": "Boasted that credit's due",
     "enumeration": "6"
    },
-   "solution": "CROWED"
+   "solution": "CROWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROWED",
+    "definitions": [
+     {
+      "text": "Boasted",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "the accounting abbreviation for credit"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "OWED",
+      "note": "a debt due is owed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "OWED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bragged that they deserve the credit.",
+     "definitionFit": "To crow is to brag loudly and triumphantly, as a cockerel sounds off, so it equals bragged."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 19,
@@ -351,7 +1435,62 @@
     "text": "Lewd about sailors half-stripped!",
     "enumeration": "6"
    },
-   "solution": "CARNAL"
+   "solution": "CARNAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "CARNAL",
+    "definitions": [
+     {
+      "text": "Lewd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "letter_selection",
+      "note": "something stripped has its outer layer removed, so only the inner letters of the word stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "short for circa, meaning approximately"
+     },
+     {
+      "clueFragment": "sailors",
+      "gives": "RN",
+      "note": "the Royal Navy"
+     },
+     {
+      "clueFragment": "half",
+      "gives": "AL",
+      "select": "middle",
+      "note": "the word without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "RN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A saucy picture of sailors with half their clothes off.",
+     "walkthrough": "'half-stripped' looks like a state of undress, but it is the word 'half' with its outer letters stripped away.",
+     "definitionFit": "Carnal relates to bodily and sexual desire, so it overlaps with lustful or lewd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1504,58 @@
     "text": "Kingdom has bona fide munificent leader",
     "enumeration": "5"
    },
-   "solution": "REALM"
+   "solution": "REALM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REALM",
+    "definitions": [
+     {
+      "text": "Kingdom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the opening letter of the word before is kept"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bona fide",
+      "gives": "REAL",
+      "note": "genuine"
+     },
+     {
+      "clueFragment": "munificent",
+      "gives": "M",
+      "select": "first",
+      "note": "opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A kingdom boasts a genuine, generous ruler.",
+     "definitionFit": "A realm is a territory ruled by a monarch, the same thing as a domain under a king."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1575,64 @@
      }
     ]
    },
-   "solution": "HACKEDOFF"
+   "solution": "HACKEDOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HACKED OFF",
+    "definitions": [
+     {
+      "text": "Annoyed",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "when",
+     "and",
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unscrupulous journalist",
+      "gives": "HACK",
+      "note": "a hack is a disreputable writer for the press"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "the figure looks like the letter"
+     },
+     {
+      "clueFragment": "fines",
+      "gives": "FF",
+      "note": "F is fine (as on pencils), doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HACK",
+      "ED",
+      "O",
+      "FF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is cross that a shady reporter and his editor escape without any penalty.",
+     "walkthrough": "F stands for fine, as in pencil grading, and doubling a letter abbreviation makes a plural.",
+     "definitionFit": "Hacked off is British slang for irritated or fed up, a colloquial synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fines"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1646,66 @@
     "text": "Eel artfully pierced by silver bird of prey",
     "enumeration": "5"
    },
-   "solution": "EAGLE"
+   "solution": "EAGLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EAGLE",
+    "definitions": [
+     {
+      "text": "bird of prey",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "artfully",
+      "for": "anagram",
+      "note": "artfully means with craft, so the letters are skilfully rearranged"
+     },
+     {
+      "text": "pierced by",
+      "for": "container",
+      "note": "something pierced has another thing driven into it, so the scrambled letters surround it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eel",
+      "gives": "EEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "AG",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EEL",
+       "gives": "ELE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eel is skewered by a silver bird of prey.",
+     "definitionFit": "The eagle is a large hunting raptor, a classic example of a predatory bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silver"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1729,64 @@
      }
     ]
    },
-   "solution": "WENTTOBED"
+   "solution": "WENTTOBED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WENT TO BED",
+    "definitions": [
+     {
+      "text": "Retired",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "moved",
+      "gives": "WENT",
+      "note": "went is the past of go"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to exist"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WENT",
+      "TO",
+      "BE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A pensioner gives up work and moves in with their daughter.",
+     "walkthrough": "'Retired' suggests leaving work, but here it means turning in for the night.",
+     "definitionFit": "To retire can mean to go off to sleep at night, so the phrase for that fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1800,69 @@
     "text": "For example, going back round edge reveals dirt",
     "enumeration": "5"
    },
-   "solution": "GRIME"
+   "solution": "GRIME",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GRIME",
+    "definitions": [
+     {
+      "text": "dirt",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going back",
+      "for": "reversal",
+      "note": "going back means travelling in the other direction, so the abbreviation is read backwards"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the reversed letters go either side of the next piece"
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For example",
+      "gives": "EG",
+      "note": "the abbreviation of exempli gratia"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "RIM",
+      "note": "a rim is an edge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RIM",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning something over reveals the dirt round its edge.",
+     "definitionFit": "Grime is ingrained dirt or soot, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1876,68 @@
     "text": "Elegant citadel's destroyed by end of battle",
     "enumeration": "8"
    },
-   "solution": "DELICATE"
+   "solution": "DELICATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DELICATE",
+    "definitions": [
+     {
+      "text": "Elegant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destroyed",
+      "for": "anagram",
+      "note": "a building destroyed is knocked down, so its letters can be rebuilt in a fresh order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out the closing letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "citadel",
+      "gives": "CITADEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "battle",
+      "gives": "E",
+      "select": "last",
+      "note": "closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELICATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CITADELE",
+       "gives": "DELICATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A graceful fortress is ruined at the close of a battle.",
+     "definitionFit": "Delicate describes something fine, dainty and refined in form, close to graceful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "destroyed"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1951,68 @@
     "text": "Joins forces with foreign gendarmes extracting DNA",
     "enumeration": "6"
    },
-   "solution": "MERGES"
+   "solution": "MERGES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MERGES",
+    "definitions": [
+     {
+      "text": "Joins forces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extracting",
+      "for": "deletion",
+      "note": "extracting means pulling something out, so the named letters are removed from the police word"
+     },
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign suggests something strange and unfamiliar, so the remaining letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gendarmes",
+      "gives": "GENDARMES",
+      "note": "French police officers, taken as written"
+     },
+     {
+      "clueFragment": "DNA",
+      "gives": "DNA",
+      "note": "taken as written, the letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MERGES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GERMES",
+       "gives": "MERGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Detectives team up with French police to take a DNA sample.",
+     "walkthrough": "Take D, N and A out of GENDARMES, leaving GERMES, then rearrange.",
+     "definitionFit": "To merge is to combine or unite with another body, so it amounts to joining together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extracting"
+    }
+   }
   }
  ]
 }
