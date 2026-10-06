@@ -256,6 +256,19 @@ tools/grid_verdict.py                        judges a recovered grid by CPU alon
                                              ambiguous pair a human must pick between, or a
                                              light list the OCR ate clues out of; every
                                              threshold carries the share of the corpus it costs
+tools/clues_only.py                          puzzles held as their clues alone in
+                                             clues_only/<series>/<id>.json, never published: a
+                                             filer whose grid search did not settle files the
+                                             clues in printed order with no numbers, positions
+                                             or answers; the nightly solve answers them and
+                                             tools/apply_solution.py derives the one grid the
+                                             answers cross in and files the puzzle in puzzles/
+tools/test_clues_only.sh                     strips a solved book puzzle to its clues, has
+                                             tools/apply_solution.py promote it, and checks the
+                                             derived grid and numbering are the published ones
+                                             and that no half state (a number, position or
+                                             answer on a clues-only light, an id in both
+                                             states) can be written
 tools/test_acquire_book.sh                   gates that pipeline on ten control puzzles from
                                              Penguin volume 5, failing if a single recovered
                                              grid or a single search node count moves

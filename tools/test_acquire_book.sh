@@ -193,7 +193,7 @@ else:
                 continue
             mine = fetch_puzzle.read_puzzle_file(path)
             corpus = fetch_puzzle.read_puzzle_file(puzzle_paths.find(pid))
-            if any(e["solution"] is not None for e in mine["entries"]):
+            if any(e.get("solution") is not None for e in mine["entries"]):
                 fail(f"{pid}: filed with answers; --unsolved must file none")
             if provenance.solution_detail(mine):
                 fail(f"{pid}: carries solution detail — an unsolved file "
@@ -203,7 +203,7 @@ else:
             # while the corpus copy carries its real git date. They are supposed
             # to differ; what must match is the puzzle.
             diffs = [k for k in set(mine) | set(corpus)
-                     if k not in {"solutions", "entries", "source"}
+                     if k not in {"solutions", "entries", "source", "annotatedBy"}
                      and mine.get(k) != corpus.get(k)]
             # Not solutions.origin: this files --unsolved and the corpus copies
             # have been solved since, so "unsolved" vs "model" is the pipeline

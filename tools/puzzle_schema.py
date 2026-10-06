@@ -324,6 +324,15 @@ def check_enums():
 
 
 BLOG_FACTS = TOOLS / "data" / "blog_facts"
+# A puzzle held as its clues alone (tools/clues_only.py): its own shape.
+CLUES_ONLY = "#/$defs/cluesOnly"
+
+
+def validate_clues_only(record):
+    """Every way a clues_only/ file departs from $defs/cluesOnly."""
+    out = []
+    _check(record, {"$ref": CLUES_ONLY}, "$", out)
+    return out
 
 
 def validate_blog_facts(row):
@@ -358,6 +367,13 @@ def main(argv):
                 shown = problems[:5] + ([f"... {len(problems) - 5} more"]
                                         if len(problems) > 5 else [])
                 print(f"{pid}: " + "; ".join(shown))
+        if not argv:
+            import clues_only
+            for path in clues_only.files():
+                problems = validate_clues_only(json.loads(path.read_text(encoding="utf-8")))
+                if problems:
+                    failed += 1
+                    print(f"clues-only {path.stem}: " + "; ".join(problems[:5]))
         blog_files = [] if argv else sorted(map(str, BLOG_FACTS.glob("*.json")))
         for name, bad in pool.map(_check_blog_file, blog_files):
             for pid, problems in bad.items():

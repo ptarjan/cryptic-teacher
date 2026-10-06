@@ -19,6 +19,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import clues_only  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
 from groups import entry_id  # noqa: E402
 from provenance import printed_answers  # noqa: E402
@@ -80,8 +81,33 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("number", help="puzzle id or bare number")
     args = ap.parse_args()
+    waiting = clues_only.read(args.number) if "-" in args.number else None
+    if waiting is not None:
+        print(clues_only_packet(waiting))
+        return
     path = resolve_puzzle(args.number)
     print(packet(read_puzzle_file(path)))
+
+
+def clues_only_packet(record):
+    """The packet for a puzzle held as its clues alone (tools/clues_only.py):
+    the clues in order and the fill shape, since there is no grid to cross."""
+    lines = [(f"{record['id']} is held as its clues alone: no grid yet, so no "
+              f"numbers and no crossing map. Fill shape, one answer per clue in "
+              f"the order below:"),
+             '    {"across": [{"answer": ..., "definition": ...}, ...], "down": [...]}',
+             ("--check-only derives the grid your answers cross in; it passes only "
+              "when exactly one grid holds them all, so a wrong answer shows as no "
+              "grid. A light's length is its own cells: a linked clue's answer is "
+              "split across its lights.")]
+    for direction in clues_only.DIRECTIONS:
+        lines.append(f"\n{direction.upper()}")
+        for i, light in enumerate(record["clues"][direction], 1):
+            clue = light["clue"]
+            count = f" ({clue['enumeration']})" if clue.get("enumeration") else ""
+            length = f" [{light['length']} cells]" if light.get("length") else ""
+            lines.append(f"  {i}. {clue.get('text', '')}{count}{length}")
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

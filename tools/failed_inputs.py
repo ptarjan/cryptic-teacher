@@ -45,6 +45,7 @@ ROOT = Path(__file__).resolve().parent.parent
 LEDGER = Path(os.environ.get("FAILED_INPUTS_FILE")
               or Path(os.environ.get("CT_MAIN_CHECKOUT") or ROOT) / ".failed_inputs.json")
 sys.path.insert(0, str(ROOT / "tools"))
+import clues_only  # noqa: E402
 import enumeration  # noqa: E402
 import puzzle_paths  # noqa: E402
 from groups import entry_id  # noqa: E402
@@ -78,7 +79,8 @@ def puzzle_inputs(pid):
     """
     path = puzzle_paths.find(pid)
     if path is None:
-        return None
+        # Held as its clues alone: those are its inputs (tools/clues_only.py).
+        return clues_only.read(pid) if "-" in str(pid) else None
     try:
         puzzle = json.loads(path.read_text(encoding="utf-8"))
     except (FileNotFoundError, ValueError):
