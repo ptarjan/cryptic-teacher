@@ -2065,10 +2065,36 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
 
 
 def inputs_of(files_hash, found, series):
-    """An edition's inputs: its files (input_hash) and, for a puzzle the
-    Canberra Times reprinted, the reprint's cached texts (reprint_key)."""
+    """An edition's inputs: its files (input_hash), for a puzzle the
+    Canberra Times reprinted the reprint's cached texts (reprint_key), and
+    whether a puzzle of it filed by this tool holds a clue ocr_clues.stray
+    flags, which a read mends or blanks (mend_held). _run keys the ledger
+    by the inputs after its write, so an edition is read once for it: a
+    clue the read could not mend (a reading on another grid) stays as it
+    is until the edition's other inputs move."""
     extra = reprint_key([p["number"] for p in found["puzzles"]], series)
+    numbers = [p["number"] for p in found["puzzles"]]
+    if any(strayed(json.loads(path.read_text())) for path in held_paths(series, numbers)):
+        extra = (extra or "") + "+strayed"
     return f"{files_hash}+{extra}" if extra else files_hash
+
+
+def held_paths(series, numbers):
+    """The corpus files this tool filed for puzzles `numbers` of `series`."""
+    from fetch_puzzle import puzzle_path
+    out = []
+    for n in numbers:
+        path = puzzle_path(series, n)
+        if path.exists() and (json.loads(path.read_text()).get("source") or {}).get("acquiredBy") == TOOL:
+            out.append(path)
+    return out
+
+
+def strayed(puzzle):
+    """The lights of a puzzle whose clue ocr_clues.stray flags (a doubled
+    word, a stray letter)."""
+    return {entry_id(e) for e in puzzle.get("entries") or ()
+            if ocr_clues.stray((e.get("clue") or {}).get("text") or "")}
 
 
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
@@ -2214,6 +2240,9 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                         write_puzzle_file, TOOL, path, puzzle, verdict):
                     held.add(hit_number)
             verdicts.append(verdict)
+        # Keyed by the inputs after this read's writes: a stray clue it
+        # mended no longer makes the edition due.
+        h = inputs_of(fh, found, paper.series)
         known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": fh, "scanKey": scan_key(),
                       "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
@@ -2309,6 +2338,8 @@ def mend_held(puzzle, path):
     refused clue stands: its words are all the corpus has of it
     (puzzle_integrity.check_rewrite). A light
     whose clue changes loses its annotation, written against the old words.
+    A clue with a doubled word or a stray letter (strayed) is never kept:
+    it takes this reading's clue, or goes blank.
     None when no clue changes, the file is not this tool's, or it lies on
     another grid than this reading. With no reading (`puzzle` None: its
     scan now reads as another number), only the shared clues go."""
@@ -2319,7 +2350,8 @@ def mend_held(puzzle, path):
             or puzzle["entries"] and trove_solution_ocr.puzzle_grid(old) != trove_solution_ocr.puzzle_grid(puzzle):
         return None
     shared = {i for ids in duplicated_clues(old["entries"]) for i in ids}
-    lost = shared | set(faults(old))
+    stray = strayed(old)
+    lost = shared | stray | set(faults(old))
     if not lost:
         return None
     now = {entry_id(e): e["clue"] for e in puzzle["entries"] if (e["clue"] or {}).get("text")}
@@ -2327,7 +2359,7 @@ def mend_held(puzzle, path):
     blank = enumeration.clue("", missing=True)
 
     def fallback(lid):
-        return blank if lid in shared or ocr_clues.bled((was[lid] or {}).get("text")) else was[lid]
+        return blank if lid in shared | stray or ocr_clues.bled((was[lid] or {}).get("text")) else was[lid]
     for e in old["entries"]:
         if entry_id(e) in lost:
             e["clue"] = now.get(entry_id(e)) or fallback(entry_id(e))

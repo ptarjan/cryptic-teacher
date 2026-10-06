@@ -175,6 +175,78 @@ check("a split half put in beside its word is named",
       oc.split_added("Point to Marlowe's burlesque, plodding on", "Point to Marlowe's bur burlesque, plodding ding on"))
 check("a pair the clue prints itself is not (mirror)", [], oc.split_added("Lost in India", "Lost in India"))
 
+# A doubled word, a reading's line start voted in again and a stray letter
+# are no print's (times-15684 13A "round t the heart"); each is mended from
+# a reading without it, or the clue goes blank: never filed.
+kinds = lambda t: [why for _, why in oc.stray(t)]
+check("a word doubled", ["a word doubled"], kinds("Study the money of country country"))
+check("a pair English doubles is not (mirror)", [], kinds("Last in in the river"))
+check("a pair with a mark between is not (mirror)", [], kinds("Hear, hear - deal in canvas"))
+check("an earlier word repeated inside the clue", ["an earlier word repeated inside the clue"],
+      kinds("Plan is to Plan destroy"))
+check("a repeat that reads as a phrase is not (mirror)", [], kinds("The art of The Times rush-hour commuter?"))
+check("a repeat after a sentence's end is not (mirror)", [], kinds("Jack and Dora wrong? Jack might be"))
+check("a stray letter inside the clue", ["a stray letter"], kinds("Ill temper visible round t the heart of Naples"))
+check("a stray letter at the end", ["a stray letter"], kinds("Turned up as new t"))
+check("the article, I, O and capitals are not (mirror)", [],
+      kinds("A man in S Africa, O what I see is a X"))
+check("a letter the clue names, e.g., 'e and v are not (mirror)", [],
+      kinds("Spells sorcerers with a c, e g at 'e black v white"))
+check("suspect() refuses a stray clue", True, bool(oc.suspect("Turned up as new t")))
+check("a stray letter is taken out where a reading lacks it",
+      "Ill temper visible round the heart of Naples",
+      oc.unstrayed("Ill temper visible round t the heart of Naples",
+                   ["Ill temper visible round the heart of Naples", "Ill temper visible round t the heart of Naples"]))
+check("a doubled word is taken out where a reading prints it once", "Plan is to destroy",
+      oc.unstrayed("Plan is to Plan destroy", ["Plan is to destroy"]))
+check("a small letter a reading prints as a capital takes it", "Decoration for Brand X",
+      oc.unstrayed("Decoration for Brand x", ["Decoration for Brand X"]))
+check("with no reading that lacks it, the flag stands (mirror)", "Turned up as new t",
+      oc.unstrayed("Turned up as new t", ["Turned up as new t", "Turned np as new t"]))
+two = lambda one: f"ACROSS\n1 {one} (5).\nDOWN\n2 Ore (3).\n"
+lens = {"1-across": 5, "2-down": 3}
+got, blank = fa.unfit_blanked(*oc.as_printed({"a": two("Turned up as new t"), "b": two("Turned up as new")},
+                                             {"1-across": ("Turned up as new t", "5", None), "2-down": ("Ore", "3", None)},
+                                             {}, fa.parse, lens), lens)
+check("the vote files the clue a reading prints without the letter", ("Turned up as new", {}),
+      (got["1-across"][0], blank))
+got, blank = fa.unfit_blanked(*oc.as_printed({"a": two("Turned up as new t"), "b": two("Turned up as new t")},
+                                             {"1-across": ("Turned up as new t", "5", None), "2-down": ("Ore", "3", None)},
+                                             {}, fa.parse, lens), lens)
+check("the vote files it blank when every reading has the letter (mirror)", ("", ["1-across"]),
+      (got["1-across"][0], sorted(blank)))
+
+# A held file's stray clue takes the new reading's, or goes blank, and the
+# write path lets it go blank.
+import json, tempfile
+from pathlib import Path
+import puzzle_integrity as pi
+def held_file(text):
+    return {"id": "times-1", "dimensions": {"cols": 5, "rows": 3},
+            "source": {"acquiredBy": fa.TOOL, "retrievedFrom": "ocr"},
+            "entries": [{"number": 1, "direction": "across", "position": {"x": 0, "y": 0}, "length": 5,
+                         "clue": {"text": text}},
+                        {"number": 2, "direction": "down", "position": {"x": 2, "y": 0}, "length": 3,
+                         "clue": {"text": "Ore (3)"}}]}
+path = Path(tempfile.mkdtemp()) / "times-1.json"
+path.write_text(json.dumps(held_file("Turned up as new t (5)")))
+check("a held stray clue takes the reading's", {"1-across": "Turned up as new (5)"},
+      (fa.mend_held(held_file("Turned up as new (5)"), path) or (None, None))[1])
+check("a held stray clue with no clean reading goes blank", {"1-across": ""},
+      (fa.mend_held(held_file(""), path) or (None, None))[1])
+path.write_text(json.dumps(held_file("Turned up as new (5)")))
+check("a held clean clue is left alone (mirror)", None, fa.mend_held(held_file(""), path))
+import provenance
+old = held_file("Turned up as new t (5)")
+old["source"]["retrievedFrom"] = sorted(provenance.OCR_CHANNELS)[0]
+flags = []
+pi.check_rewrite(old, held_file(""), flags)
+check("the write path lets a stray clue go blank", [], [x for x in flags if "1-across" in x[2]])
+old["entries"][0]["clue"]["text"] = "Turned up as new (5)"
+flags = []
+pi.check_rewrite(old, held_file(""), flags)
+check("and refuses blanking a clean one (mirror)", 1, len([x for x in flags if "1-across" in x[2]]))
+
 print(f"FAILS {fails}")
 EOF
 )
