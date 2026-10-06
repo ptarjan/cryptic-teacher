@@ -53,6 +53,10 @@ puzzles/<series>/<year>/<series>-<n>.json    one puzzle per file, plain JSON: th
                                              the payload; <year> is the UTC year of its date,
                                              or a book puzzle's `year`, or `undated` —
                                              tools/puzzle_paths.py owns the rule
+clues_only/<series>/<id>.json                a puzzle held as its clues alone until the
+                                             backfill's answers derive its grid;
+                                             tools/clues_only.py owns the shape and the
+                                             hand-off to puzzles/
 puzzles/<series>-<n>.js                      the same puzzle as a script, so app.js can inject
                                              it from file:// — flat, so its URL does not move
                                              with the source's year; built by
