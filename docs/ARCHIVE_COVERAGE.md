@@ -74,6 +74,12 @@ are committed and pushed. Each filer's ledger is saved after every source, so
 a killed pass resumes where it stopped. It logs to
 `~/.cache/corpus_queue/full_pass.log`.
 
+The pass fetches from archive.org and Trove at the same time, each for at most
+an hour, and starts filing once both have ended. A pass that finishes having
+fetched something starts the next one at once (`corpus_queue.py chain`, a
+`tick --chained`), so a fetch backlog runs back to back. The first pass that
+fetches nothing leaves the next start to the hourly tick.
+
 The hourly tick also checks that the pass is making progress:
 
 - It wakes the room once when the log stops growing for an hour.
