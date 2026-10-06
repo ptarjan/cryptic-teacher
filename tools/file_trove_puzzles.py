@@ -70,7 +70,9 @@ A file holding a stray clue makes its article due by itself (inputs_of).
 
 A change to this code or the VLM model makes nothing due: whoever makes it
 runs the re-read once, `--reread [BEFORE]` (every article last read before
-BEFORE, an ISO time, default now; slices of one re-read share a BEFORE).
+BEFORE, an ISO time, default now; slices of one re-read share a BEFORE), or,
+for a change that cures one cause, dates it in REREAD_CAUSES, which makes
+due only the articles waiting on that cause.
 """
 import argparse
 import datetime
@@ -121,13 +123,14 @@ CAUSES = [
     ("zones-not-fetched", "pending", "the page's clue columns are not cached, so no reading votes",
      "fetch_trove.py zones (download only)", True, "tools/fetch_trove.py"),
     ("no-grid", "pending", "the scan's grid is unread or disagrees, and the clues rebuild no unique grid",
-     "the grid reader or the clue repair, then --reread", True, "tools/file_trove_puzzles.py"),
+     ("the scan's grid mostly reads, symmetric, and clue counts or numbers disagree with it; counts_off "
+      "drops up to two counts it refuses: more of them, or the next day's solution grid, then --reread"), True, "tools/file_trove_puzzles.py"),
     ("rebuilt-grid-disagrees", "pending", "the grid rebuilt from the clues disagrees with them",
      "the clue parse, then --reread", True, "tools/file_trove_puzzles.py"),
     ("lights-without-clue", "pending", "a light of the grid has no clue in the OCR",
      "the clue repair (tools/trove_clue_ocr.py), then --reread", True, "tools/file_trove_puzzles.py"),
     ("clues-unread", "pending", "the readings' vote leaves a clue blank",
-     "better readers or the VLM: the standing full pass re-reads", True, "tools/ocr_clues.py"),
+     "the VLM: an article read while it was down is due once it answers (due_reason)", True, "tools/ocr_clues.py"),
     ("suspect-words", "pending", "a voted clue holds a word OCR made up (ocr_clues.suspect)",
      "better readers or the VLM: the standing full pass re-reads", True, "tools/ocr_clues.py"),
     ("no-print-date", "refused", "the OCR's first line gives no print date",
@@ -135,7 +138,8 @@ CAUSES = [
     ("no-clue-lists", "refused", "the OCR has no ACROSS and DOWN lists",
      "sections(), then --reread", True, "tools/file_trove_puzzles.py"),
     ("clues-dont-parse", "refused", "a clue list does not parse",
-     "clues(), then --reread", True, "tools/file_trove_puzzles.py"),
+     ("clues() (list_start drops what OCR read before a list's first number); "
+      "what is left breaks mid-list, then --reread"), True, "tools/file_trove_puzzles.py"),
     ("id-taken", "refused", "another article of the same day holds the puzzle id",
      "none: the day's other article is filed", False, "tools/file_trove_puzzles.py"),
     ("crashed", "refused", "the reader raised on this article",
@@ -403,6 +407,28 @@ def enum_readings(raw):
             and all(0 < int(n) <= 23 for n in re.findall(r"\d+", o)) and count(o) > 1}
 
 
+#: What OCR reads before a list's first clue number: specks, rules, a
+#: bracket, a repeated heading ("DOWN 1 City").
+SPECKS = r".,:;'’\"`<>«»■_|*•~^#=+\-—/\\\[\]()"
+LIST_JUNK = r"(?:\s|(?i:across|down)\b|[{}])*"
+
+
+def list_start(text, start):
+    """A list's text from its first clue number (`start` matches one): the
+    junk OCR read before it dropped (". 1 Old", "■ 2 Inform", "DOWN 1
+    City", ": I Virgil's"), a number glued to its clue parted ("1.Religion",
+    "1-Chinese"), and a list led by words, its first number lost ("Tend to
+    turn", "') Seeing"), led by "#" for the grid to place."""
+    m = re.match(LIST_JUNK.format(SPECKS) + r"(?=\d|[IlJjt|!]\s+[\"']?[A-Z])", text)
+    if m:
+        return re.sub(r"^(\d{1,2})[.,:;'’\-»•]+\s*(?=[\"'A-Za-z])", r"\1 ", text[m.end():])
+    if start.match(text):
+        return text
+    # The least junk: a quote may open the first clue.
+    m = re.match(LIST_JUNK.format(SPECKS) + r"?(?=[\"']?[A-Z][a-z])", text)
+    return "# " + text[m.end():] if m else text
+
+
 def clues(text):
     """The clues of one list in printed order: [{"tokens": [number readings
     of each light it names], "text", "enums": {readings}, "see": n}].
@@ -432,6 +458,7 @@ def clues(text):
         return f"({m[1]}) {core if readings(core) else '#'} "
     text = re.sub(r"\(([^()]{1,8})\)\.?\s*((?:[^\w\s()]{1,3}\s+){0,3}?[^\s(]{0,4}?)\s+(?=[A-Z][a-z']|[A-Z]\s|[\"'][A-Z])",
                   lost_number, text)
+    text = list_start(text, start)
     out, pos = [], 0
     while pos < len(text):
         m = start.match(text, pos)
@@ -671,8 +698,10 @@ def match(parsed, grid):
     return out, None
 
 
-#: The Canberra Times grid's side, which a rebuild searches.
+#: The Canberra Times grid's side, which a rebuild searches unless the scan
+#: reads as one of SIDES (some 1983 Sundays print a 13x13).
 SIDE = 15
+SIDES = (13, 15)
 #: The most cells a scanned grid may misread and still pick one of several
 #: grids the clue list allows: OCR's grid reader loses a square or two, not a
 #: pattern.
@@ -724,8 +753,9 @@ def rebuild(parsed, image=None):
     What the OCR leaves uncertain goes in unknown: a number read several
     ways, an enumeration read several ways, and each light of a linked clue,
     whose count is their sum. The across lengths are read with their mirrors
-    (mirrored()). Several grids are settled by the scan (`image`, the grid
-    read off it even where it disagrees with the clues)."""
+    (mirrored()). The grid is the scan's side (SIDES), else SIDE. Several
+    grids are settled by the scan (`image`, the grid read off it even where
+    it disagrees with the clues)."""
     spec = []
     for direction in ("across", "down"):
         options = [{count(e) for e in clue["enums"]} or None
@@ -736,8 +766,34 @@ def rebuild(parsed, image=None):
         for clue, length in zip(parsed[direction], lengths):
             tokens = clue["tokens"][0]
             spec.append((next(iter(tokens)) if len(tokens) == 1 else None, direction, length))
-    return rg.unique_grid(spec, cols=SIDE, rows=SIDE, max_nodes=REBUILD_NODES,
+    side = len(image) if image and len(image) == len(image[0]) and len(image) in SIDES else SIDE
+    return rg.unique_grid(spec, cols=side, rows=side, max_nodes=REBUILD_NODES,
                           pick=closest(image))
+
+
+def counts_off(parsed, image):
+    """(`parsed` with the counts the scan's grid refuses dropped, those
+    lights) when the scan reads as a symmetric grid and at most
+    MOST_DIGIT_SLIPS clue counts disagree with the light their number names
+    there ("(2)" over a six), else (parsed, []): a count misread past
+    DIGIT_SLIPS. The rebuild then takes those lights' lengths from the
+    others, and only a unique grid stands."""
+    if not image or any(image[r][c] != image[-1 - r][-1 - c]
+                        for r in range(len(image)) for c in range(len(image[r]))):
+        return parsed, []
+    lights = rg.light_cells(image)
+    out, off = {}, []
+    for direction in ("across", "down"):
+        length = {n: len(c) for (n, d), c in lights.items() if d == direction}
+        out[direction] = []
+        for clue in parsed[direction]:
+            named = [n for n in clue["tokens"][0] if n in length] if len(clue["tokens"]) == 1 else []
+            if clue["see"] is None and len(named) == 1 and clue["enums"] \
+                    and not any(count(e) == length[named[0]] for e in clue["enums"]):
+                off.append(f"{named[0]}-{direction}")
+                clue = {**clue, "enums": set()}
+            out[direction].append(clue)
+    return (out, off) if len(off) <= MOST_DIGIT_SLIPS else (parsed, [])
 
 
 # ------------------------------------------------------------ the vote
@@ -1015,16 +1071,27 @@ def inputs_of(d, held=None):
     return h
 
 
+#: A cause a code change may have cured, and when it landed: an article
+#: waiting or refused for it, last read before then, is due (due_reason),
+#: so the standing full pass re-reads it and nothing else.
+REREAD_CAUSES = {cause: "2026-10-06T13:33:44+00:00"
+                 for cause in ("no-grid", "rebuilt-grid-disagrees", "clues-dont-parse")}
+
+
 def due_reason(row, inputs, vlm_up, reread=None):
     """Why an article's ledger `row` is read again, or None: never read, its
-    `inputs` (input_hash) moved, read without the VLM that now answers, or
-    last read before `reread` (a datetime: the explicit --reread)."""
+    `inputs` (input_hash) moved, read without the VLM that now answers, its
+    cause cured since it was read (REREAD_CAUSES), or last read before
+    `reread` (a datetime: the explicit --reread)."""
     if not row or "inputs" not in row:
         return "never read"
     if row["inputs"] != inputs:
         return "inputs changed"
     if vlm_up and not row.get("vlm"):
         return "read without the VLM"
+    if row.get("cause") in REREAD_CAUSES and scan_queue.read_before(
+            row, scan_queue.when(REREAD_CAUSES[row["cause"]])):
+        return f"{row['cause']} cured since"
     if reread and scan_queue.read_before(row, reread):
         return "--reread"
     return None
@@ -1073,6 +1140,12 @@ def consider(d, taken):
         verdict["imageUnread"] = "no grid image"
     if grid is None:
         g, why = rebuild(parsed, image)
+        loose, off = counts_off(parsed, image)
+        if g is None and off:
+            g, _ = rebuild(loose, image)
+            if g is not None:
+                parsed = loose
+                verdict["countsFromScan"] = off
         if g is None:
             wait(verdict, "no-grid", f"no grid: {why}")
             return verdict, None, None

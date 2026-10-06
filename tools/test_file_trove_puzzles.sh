@@ -39,7 +39,9 @@ mkdir "$tmp/out"
 first=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/cache" --out "$tmp/out")
 check "first run: one filed" "1" "$(grep -c '  1  filed' <<<"$first")"
 check "first run: the solution grid skipped" "1" "$(grep -c 'skipped: a solution grid' <<<"$first")"
-check "first run: the disagreeing count held back" "1" "$(grep -c 'pending: no-grid' <<<"$first")"
+# The 13 June scan's "(5, J)" over a ten is dropped, the grid rebuilt
+# without it; the clues then wait for the page's readings.
+check "first run: the disagreeing count held back" "1" "$(grep -c 'pending: zones-not-fetched' <<<"$first")"
 
 got=$(python3 -c "
 import json
@@ -56,8 +58,8 @@ import json
 for line in open('$tmp/cache/filed.jsonl'):
     r = json.loads(line)
     if r['article'] == '102026080':
-        print(r['imageDisagrees'])")
-check "the disagreement is named, not forced" "1-across: the enumeration reads as ['5,1'], the grid holds 10 letters" "$got"
+        print(r['imageDisagrees'], r['countsFromScan'], r['grid'])")
+check "the disagreement is named, not forced" "1-across: the enumeration reads as ['5,1'], the grid holds 10 letters ['1-across', '11-down'] rebuilt" "$got"
 
 # A second run reads nothing new and writes nothing.
 before=$(stat -c %Y "$tmp/out/canberra-720601.json" 2>/dev/null || stat -f %m "$tmp/out/canberra-720601.json")
@@ -445,6 +447,44 @@ F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 'out
 print(len(read), len(set(read)))")
 check "the time budget stops new reads and leaves the rest pending" "1 2 True
 3 3" "$got"
+
+# What OCR read before a list's first number is not a clue; a list led by
+# words lost its first number, which the grid places.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+for t in ['. 1 Old (3) 2 Bed (4)', 'DOWN 1 City (6. 6). 2 Ab (3)', '1.Religion (6) 4 Hat (5)', ': I Virgil (5). 2 Ab (3)',
+          \"') Seeing it (5) 2 Ab (3)\", '\"Quoted\" clue (5) 2 Ab (3)', 'I knew a pit (6) 7 Is (8)']:
+    cl, why = F.clues(t)
+    print(why or ' '.join(f'{sorted(c[\"tokens\"][0])}:{c[\"text\"]}' for c in cl))")
+check "junk before a list's first number dropped, a lost one left for the grid" "[1]:Old [2]:Bed
+[1]:City [2]:Ab
+[1]:Religion [4]:Hat
+[1]:Virgil [2]:Ab
+[]:Seeing it [2]:Ab
+[]:\"Quoted\" clue [2]:Ab
+[1]:knew a pit [7]:Is" "$got"
+
+# A 13x13 scan is rebuilt at its own side.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+F.rg.unique_grid = lambda spec, cols, rows, **k: (None, cols)
+print(F.rebuild({'across': [], 'down': []}, ['.' * 13] * 13)[1], F.rebuild({'across': [], 'down': []})[1])")
+check "a rebuild searches the scan's side" "13 15" "$got"
+
+# A count the symmetric scan refuses past its digit slips ("(2)" over a
+# five) is dropped for the rebuild; a lopsided scan decides nothing. An
+# article waiting on a cause cured since it was read is due.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F
+grid = ['.....', '.#.#.', '.....', '.#.#.', '.....']
+across, _ = F.clues('1 One (2). 4 Two (5). 5 Three (5).')
+down, _ = F.clues('1 Four (5). 2 Five (5). 3 Six (5).')
+loose, off = F.counts_off({'across': across, 'down': down}, grid)
+print(off, loose['across'][0]['enums'], F.counts_off({'across': across, 'down': down}, ['....#'] + grid[1:])[1])
+row = {'inputs': 'x', 'vlm': True, 'cause': 'no-grid', 'readAt': '2026-10-06T10:00:00+00:00'}
+print(F.due_reason(row, 'x', True), F.due_reason({**row, 'readAt': '2099-01-01T00:00:00+00:00'}, 'x', True))")
+check "counts the scan refuses dropped; a cured cause makes its rows due" "['1-across'] set() []
+no-grid cured since None" "$got"
 
 # A re-read asked for (--article) beside cached articles never read (a fetch
 # landed them mid-pass): those are counted, not a crash, and stay unread.
