@@ -77,6 +77,13 @@ ac.CACHE, ac.LEDGER, ac.corpus = saved
 assert (got["1981-04-01"], got["1981-04-02"], got["1980-04-01"], got["1972-04-04"]) == \
     ("no-ocr", "no-scan", "no-listing", "no-scan"), got
 
+# A date no archive.org item holds is Gale's by hand inside its archive's
+# span, no source's outside it, and a series with no Gale archive has none.
+assert cov.scanless("ftcryptic", "1971-01-01") == ("gale", "by-hand-only")
+assert cov.scanless("ftcryptic", "1887-06-01") == ("none", "no-source")
+assert cov.scanless("telegraph", "1971-01-01") == ("none", "no-source")
+assert not cov.CAUSES[("gale", "by-hand-only")].actionable
+
 
 def ledger(filed, buckets):
     rows = [{"source": s, "cause": c, "puzzles": n, **cov.CAUSES[(s, c)]._asdict(), "sample": ["k"]}

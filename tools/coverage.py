@@ -86,6 +86,9 @@ def _causes():
             continue  # ("none", "no-source") below
         for source in (("trove",) if key == "canberra-reprint" else ("archive.org", "gale")):
             out[(source, key)] = Cause(owner, fix, recoverable, key == "refused-no-cause")
+    out[("gale", "by-hand-only")] = Cause(
+        "tools/gale_inbox.py", "only a Gale page Paul downloads by hand (Gale's terms forbid scripts): "
+        "tools/gale_inbox.py files what lands", False, False)
     out[("none", "no-source")] = Cause(
         "tools/first_issue.py", "no source we know prints it: find one (tools/first_issue.py SOURCES)", False, False)
     for blog, filer in (("timesforthetimes", "tools/file_times_puzzles.py"),
@@ -244,6 +247,20 @@ def gale_rows(by_number):
         yield "times", ed.split("/", 1)[1][:10], archive_coverage.verdict_class(row, by_number)
 
 
+#: The Gale archives of the Alberta Research Portal by series: (first, last)
+#: print date held. A date archive.org lacks inside one is there by hand only.
+GALE_SPANS = {
+    "times": ("1785-01-01", "2019-12-31"),        # The Times Digital Archive
+    "ftcryptic": ("1888-01-02", "2010-12-31"),    # Financial Times Historical Archive
+}
+
+
+def scanless(series, date):
+    """The (source, cause) of a print date no archive.org item holds."""
+    span = GALE_SPANS.get(series)
+    return ("gale", "by-hand-only") if span and span[0] <= date <= span[1] else ("none", "no-source")
+
+
 def printed(series, paper, today):
     """A daily counted by print date: archive_coverage's classes, then the
     blogs, the FT PDFs and Gale where they can deliver what the scans cannot."""
@@ -252,10 +269,10 @@ def printed(series, paper, today):
         led.exists.add(date)
         if cls is None:
             led.filed.add(date)
+        elif cls == "no-scan":
+            led.claim(date, *scanless(series, date))
         else:
-            led.claim(date, "none" if cls == "no-scan" else
-                      "trove" if cls == "canberra-reprint" else "archive.org",
-                      "no-source" if cls == "no-scan" else cls)
+            led.claim(date, "trove" if cls == "canberra-reprint" else "archive.org", cls)
     return led
 
 
