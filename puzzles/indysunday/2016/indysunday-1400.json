@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Back of car missing special sticker?",
     "enumeration": "6"
    },
-   "solution": "LIMPET"
+   "solution": "LIMPET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LIMPET",
+    "definitions": [
+     {
+      "text": "sticker",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back of",
+      "for": "deletion",
+      "note": "the back of something is its final part, which is the part that is to go"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "missing means absent, so the car word appears without its end letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "LIMO",
+      "note": "a limo is a long luxury car"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "PET",
+      "note": "a pet project or pet subject is a special favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIM",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist finds that a special sticker has fallen off the back of the car.",
+     "walkthrough": "'Back of car missing' reads as the car having lost its back end: LIMO without its last letter. 'missing' is part of that instruction, not a link.",
+     "definitionFit": "A limpet clings so firmly to rocks that its name is used for anything or anyone that sticks fast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "special"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +109,47 @@
      }
     ]
    },
-   "solution": "ALLTHERE"
+   "solution": "ALLTHERE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALL THERE",
+    "definitions": [
+     {
+      "text": "Nothing unaccounted for",
+      "at": 0
+     },
+     {
+      "text": "on one's trolley",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "presumably"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing unaccounted for",
+      "note": "first meaning: every item is present and counted"
+     },
+     {
+      "clueFragment": "on one's trolley",
+      "note": "second meaning: sane, the opposite of the slang 'off one's trolley' meaning mad"
+     }
+    ],
+    "explanation": {
+     "surface": "A shopper checks that every item is still sitting on the supermarket trolley.",
+     "walkthrough": "'Off one's trolley' is British slang for crazy, so being on it, presumably, means mentally sound. The surface makes it a literal shopping trolley.",
+     "definitionFit": "The phrase means both that every item is present and, of a person, being mentally alert and sane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trolley"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +173,60 @@
      }
     ]
    },
-   "solution": "UPTONOW"
+   "solution": "UPTONOW",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "UP TO NOW",
+    "definitions": [
+     {
+      "text": "so far",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Discovered",
+      "for": "hidden_word",
+      "note": "dis-covered means with the covering stripped off, so only the letters within the outer ones are kept"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "put about means turned to face the other way, so the kept letters are read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two - not put",
+      "gives": "WONOTPU",
+      "note": "the three words run together, ignoring the dash, with the outer T at each end stripped off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPTONOW"
+     ],
+     "reversals": [
+      {
+       "from": "WONOTPU",
+       "to": "UPTONOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two things have come to light, with one item not yet put about.",
+     "walkthrough": "Strip the T from each end of 'two not put' and read what is left backwards. The dash is only punctuation.",
+     "definitionFit": "Up to now and so far both mean until the present moment, an idiomatic pair of synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Discovered"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +240,82 @@
     "text": "It's chewed by dog after picking up clodhopper",
     "enumeration": "6"
    },
-   "solution": "RUSTIC"
+   "solution": "RUSTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "RUSTIC",
+    "definitions": [
+     {
+      "text": "clodhopper",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chewed",
+      "for": "anagram",
+      "note": "something chewed is mangled out of shape, so those letters are jumbled"
+     },
+     {
+      "text": "picking up",
+      "for": "reversal",
+      "note": "in a down entry, picked up means lifted, so the dog word runs from bottom to top"
+     },
+     {
+      "text": "by",
+      "for": "container",
+      "note": "held by the dog means gripped inside the dog word"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's",
+      "gives": "ITS",
+      "note": "taken as written, apostrophe ignored"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "CUR",
+      "note": "a cur is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "STI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITS",
+       "gives": "STI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "CUR",
+       "to": "RUC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog chews something it has just picked up, perhaps an old boot.",
+     "walkthrough": "In a down clue the dog reads upwards; 'after' only joins the definition to the wordplay, and a clodhopper here is a person, not a boot.",
+     "definitionFit": "A clodhopper is a clumsy country bumpkin, which is what a rustic means as a noun: an unsophisticated rural person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clodhopper"
+    }
+   }
   },
   {
    "number": 5,
@@ -111,7 +335,66 @@
      }
     ]
    },
-   "solution": "AIRROUTE"
+   "solution": "AIRROUTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "AIR ROUTE",
+    "definitions": [
+     {
+      "text": "Flight-path",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading off, the short word loses its first letter"
+     },
+     {
+      "text": "modified",
+      "for": "anagram",
+      "note": "something modified has been changed, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "O",
+      "select": "last",
+      "note": "the little word without its first letter"
+     },
+     {
+      "clueFragment": "Etruria",
+      "gives": "ETRURIA",
+      "note": "the ancient region of Italy, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRROUTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OETRURIA",
+       "gives": "AIRROUTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airline has changed the flight path heading off to Etruria in ancient Italy.",
+     "definitionFit": "An air route is the corridor an aircraft follows between places, the same as its planned flight path."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 6,
@@ -125,7 +408,69 @@
     "text": "Magnum, perhaps, hard to charge with a litre bottle",
     "enumeration": "5"
    },
-   "solution": "PHIAL"
+   "solution": "PHIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PHIAL",
+    "definitions": [
+     {
+      "text": "bottle",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to charge with",
+      "for": "container",
+      "note": "charging something means loading it, so the detective word is filled with the letter for hard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magnum, perhaps",
+      "gives": "PI",
+      "note": "Magnum PI was the private investigator of the TV series"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "litre",
+      "gives": "L",
+      "note": "L is the abbreviation for litre"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "H",
+      "I",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A magnum, the big wine bottle, is hard to fill with a single litre.",
+     "walkthrough": "'Magnum' suggests a large wine bottle, but here it is Thomas Magnum, the TV private eye. H goes inside PI, then A and L follow.",
+     "definitionFit": "A phial is a small glass bottle, usually for medicine or perfume, so bottle is its straightforward category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Magnum"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +484,70 @@
     "text": "Chairs put out around club in preparation for patients",
     "enumeration": "13"
    },
-   "solution": "PHARMACEUTICS"
+   "solution": "PHARMACEUTICS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PHARMACEUTICS",
+    "definitions": [
+     {
+      "text": "preparation for patients",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "chairs put out are spread about rather than in rows, so these letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so the jumbled letters enclose the club word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chairs put",
+      "gives": "CHAIRSPUT",
+      "note": "taken as written, ready to be jumbled"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "MACE",
+      "note": "a mace is a heavy club used as a weapon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHAR",
+      "MACE",
+      "UTICS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHAIRSPUT",
+       "gives": "PHARUTICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Chairs are set out in a club room, getting ready for patients to arrive.",
+     "walkthrough": "The anagram of CHAIRS PUT splits around MACE. 'in' joins wordplay to definition.",
+     "definitionFit": "Pharmaceutics is the science of preparing and dispensing medicines, the making-ready of drugs that patients take."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +561,48 @@
     "text": "The old man on intermission",
     "enumeration": "7"
    },
-   "solution": "PAUSING"
+   "solution": "PAUSING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAUSING",
+    "definitions": [
+     {
+      "text": "intermission",
+      "at": 15,
+      "note": "a noun, matched by the verbal noun 'pausing'"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father, one's old man"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "USING",
+      "note": "on drugs means using them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "USING"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad has gone out during the interval at the theatre.",
+     "walkthrough": "'on' looks like a link word, but it supplies the second part: someone on drugs is using.",
+     "definitionFit": "An intermission is a pause in a performance, and pausing names that act of temporarily stopping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "on"
+    }
+   }
   },
   {
    "number": 8,
@@ -173,7 +622,65 @@
      }
     ]
    },
-   "solution": "GRASSWIDOWERS"
+   "solution": "GRASSWIDOWERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GRASS WIDOWERS",
+    "definitions": [
+     {
+      "text": "Lonely husbands",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not fully",
+      "for": "deletion",
+      "note": "not fully means incomplete, so the understanding word loses its last letter"
+     },
+     {
+      "text": "unfortunately",
+      "for": "anagram",
+      "note": "something gone unfortunately has gone wrong, so the letters fall out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "understanding",
+      "gives": "GRASP",
+      "note": "a grasp of a subject is an understanding of it"
+     },
+     {
+      "clueFragment": "wise words",
+      "gives": "WISEWORDS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRASSWIDOWERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRASWISEWORDS",
+       "gives": "GRASSWIDOWERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lonely husbands fail to grasp the wise words offered to them, sadly.",
+     "walkthrough": "GRASP loses its P, and those letters are jumbled with WISE WORDS.",
+     "definitionFit": "Grass widowers are husbands left alone at home while their wives are away, hence lonely men temporarily without partners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "understanding"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +694,60 @@
     "text": "Not much to write about a parliamentarian collar",
     "enumeration": "6"
    },
-   "solution": "JAMPOT"
+   "solution": "JAMPOT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "JAMPOT",
+    "definitions": [
+     {
+      "text": "collar",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means placed around, so the small-amount word wraps the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not much to write",
+      "gives": "JOT",
+      "note": "a jot is a tiny amount, and to jot is to write briefly"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "parliamentarian",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "AMP",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about an MP's choice of collar would hardly fill a page.",
+     "walkthrough": "A jampot collar is the tall, round clerical collar worn by some clergy, so the definition is less obvious than it looks.",
+     "definitionFit": "A jampot is the nickname for a high round clerical collar, shaped like the neck of a jam jar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "collar"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +761,54 @@
     "text": "In error, leave to escape the onset of war?",
     "enumeration": "8"
    },
-   "solution": "OUTBREAK"
+   "solution": "OUTBREAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTBREAK",
+    "definitions": [
+     {
+      "text": "escape",
+      "at": 19
+     },
+     {
+      "text": "the onset of war",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In error",
+      "gives": "OUT",
+      "note": "a sum that is out is wrong"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "BREAK",
+      "note": "leave from work is a break"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "BREAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier mistakenly takes leave to get away before a war begins.",
+     "walkthrough": "Two definitions surround the wordplay: an outbreak is a prison escape and also the start of hostilities.",
+     "definitionFit": "An outbreak is a breakout from captivity and also the sudden start of something like war or disease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 11,
@@ -229,7 +836,39 @@
      }
     ]
    },
-   "solution": "AMATTEROFCOURSE"
+   "solution": "AMATTEROFCOURSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "A MATTER OF COURSE",
+    "definitions": [
+     {
+      "text": "It's routine",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone covering Aintree?",
+      "note": "cryptic meaning: a reporter assigned to a racecourse would cover the matters of that course"
+     },
+     {
+      "clueFragment": "It's routine",
+      "note": "straight meaning: something expected, done as normal practice"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Aintree is the Liverpool racecourse where the Grand National is run; a journalist covering it deals with matters of the course.",
+     "definitionFit": "Something done as a matter of course happens naturally and expectedly, which is what routine means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "covering"
+    }
+   }
   },
   {
    "number": 12,
@@ -243,7 +882,44 @@
     "text": "I doubt he eats very quickly",
     "enumeration": "7"
    },
-   "solution": "SCOFFER"
+   "solution": "SCOFFER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCOFFER",
+    "definitions": [
+     {
+      "text": "I doubt he",
+      "at": 0
+     },
+     {
+      "text": "he eats very quickly",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I doubt he",
+      "note": "first meaning: one who mocks and doubts, saying 'I doubt it'"
+     },
+     {
+      "clueFragment": "eats very quickly",
+      "note": "second meaning: one who gobbles food greedily"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is sceptical that a certain man really bolts his food.",
+     "walkthrough": "Read as a sentence it is a doubt about someone's eating; split, 'I doubt' describes a sceptic and 'he eats very quickly' describes a gobbler.",
+     "definitionFit": "To scoff is both to jeer with disbelief and, informally, to wolf down food, so the noun names both people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "doubt"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +933,64 @@
     "text": "Some cauliflower cheese, 75% reduced in store",
     "enumeration": "8"
    },
-   "solution": "FLOWERET"
+   "solution": "FLOWERET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FLOWERET",
+    "definitions": [
+     {
+      "text": "Some cauliflower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "75%",
+      "for": "deletion",
+      "note": "keeping three quarters of a four-letter cheese means its final letter goes"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so the reduced word sits within the trimmed cheese"
+     }
+    ],
+    "linkWords": [
+     "store"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheese",
+      "gives": "FETA",
+      "note": "feta is a Greek cheese"
+     },
+     {
+      "clueFragment": "reduced",
+      "gives": "LOWER",
+      "note": "a reduced price is a lower one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOWER",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A cauliflower cheese, mostly marked down, sits on a store shelf.",
+     "walkthrough": "'Some cauliflower cheese' looks like one dish, but the definition stops at 'cauliflower'. FETA loses a quarter to give FET, which holds LOWER.",
+     "definitionFit": "A floweret, or floret, is one of the small clustered heads that make up a cauliflower, so a portion of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheese"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +1010,48 @@
      }
     ]
    },
-   "solution": "INKEDIN"
+   "solution": "INKEDIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INKED IN",
+    "definitions": [
+     {
+      "text": "made permanent selection?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Topless",
+      "for": "deletion",
+      "note": "topless means with the top removed, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "online business service",
+      "gives": "LINKEDIN",
+      "note": "LinkedIn is the professional networking website"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INKEDIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A business website without its header has been chosen for good.",
+     "walkthrough": "A provisional team selection pencilled in is later inked in once it is final.",
+     "definitionFit": "Inked in means written in ink, so confirmed and fixed, as with a choice no longer provisional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Topless"
+    }
+   }
   },
   {
    "number": 15,
@@ -303,7 +1077,77 @@
      }
     ]
    },
-   "solution": "NOOBJECT"
+   "solution": "NOOBJECT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "NO OBJECT",
+    "definitions": [
+     {
+      "text": "considered unimportant?",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "turning up in a down entry means flipping so it reads from the bottom upwards"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the aircraft word wraps the drug letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gift",
+      "gives": "BOON",
+      "note": "a boon is a blessing or gift"
+     },
+     {
+      "clueFragment": "aircraft",
+      "gives": "JET",
+      "note": "a jet is an aircraft"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is the slang abbreviation for cocaine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOOB",
+      "JE",
+      "C",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "BOON",
+       "to": "NOOB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gift turns up on a plane carrying cocaine, which is treated as no big deal.",
+     "walkthrough": "In a down clue 'on' means placed above, so the reversed gift sits atop the aircraft.",
+     "definitionFit": "If money is no object it is not a consideration, so the phrase marks something as unimportant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Gift"
+    }
+   }
   },
   {
    "number": 16,
@@ -323,7 +1167,57 @@
      }
     ]
    },
-   "solution": "BOUNDTO"
+   "solution": "BOUNDTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOUND TO",
+    "definitions": [
+     {
+      "text": "Under legal obligation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invalid",
+      "for": "anagram",
+      "note": "an invalid argument is broken, so these letters are reassembled differently"
+     }
+    ],
+    "linkWords": [
+     "regarding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no doubt",
+      "gives": "NODOUBT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOUNDTO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NODOUBT",
+       "gives": "BOUNDTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer sounds certain about whether a contract is void.",
+     "walkthrough": "'no doubt' looks like the definition, since the answer can mean certain, but it is the anagram fodder.",
+     "definitionFit": "To be bound to do something is to be required by contract or law, which is a legal obligation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invalid"
+    }
+   }
   },
   {
    "number": 17,
@@ -347,7 +1241,56 @@
      }
     ]
    },
-   "solution": "OUTOFPROPORTION"
+   "solution": "OUTOFPROPORTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUT OF PROPORTION",
+    "definitions": [
+     {
+      "text": "Unbalanced",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "so"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not in",
+      "gives": "OUTOF",
+      "note": "out of stock means not in stock"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro is Latin for in favour of"
+     },
+     {
+      "clueFragment": "a bit",
+      "gives": "PORTION",
+      "note": "a portion is a bit of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTOF",
+      "PRO",
+      "PORTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feeling off balance is not taking part for a while.",
+     "walkthrough": "The ellipsis runs on to 20 across, which picks up the thread.",
+     "definitionFit": "Something out of proportion has its parts in the wrong relative sizes, so it is lopsided or unbalanced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 18,
@@ -361,7 +1304,67 @@
     "text": "In spin, Lion's caught by Hammer",
     "enumeration": "6"
    },
-   "solution": "PLEXOR"
+   "solution": "PLEXOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLEXOR",
+    "definitions": [
+     {
+      "text": "Hammer",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "in means placed inside, so the lion part sits within the spin letters"
+     },
+     {
+      "text": "caught",
+      "for": "container",
+      "note": "something caught by the lion is held inside it, so the multiplication letter goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spin",
+      "gives": "PR",
+      "note": "PR, public relations, is spin"
+     },
+     {
+      "clueFragment": "Lion's",
+      "gives": "LEO",
+      "note": "Leo is the lion of the zodiac"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "X is the multiplication sign, read as by, as in two by four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LE",
+      "X",
+      "O",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A spinning lion is caught out by a West Ham player, a Hammer.",
+     "walkthrough": "'by' is not a link but the times sign, as in two by four. West Ham footballers are nicknamed the Hammers, which hides the doctor's tool.",
+     "definitionFit": "A plexor is the small rubber-headed hammer a doctor uses to tap the body in percussion tests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hammer"
+    }
+   }
   },
   {
    "number": 19,
@@ -375,7 +1378,45 @@
     "text": "What to do if criterion is satisfied in sound test? Pass",
     "enumeration": "6"
    },
-   "solution": "TICKET"
+   "solution": "TICKET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TICKET",
+    "definitions": [
+     {
+      "text": "Pass",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in sound test",
+      "for": "homophone",
+      "note": "a sound test is a listening check, so the phrase is judged by how it is heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What to do if criterion is satisfied",
+      "gives": "TICKET",
+      "soundsLike": "TICK IT",
+      "note": "you put a tick against a box whose criterion is met"
+     }
+    ],
+    "explanation": {
+     "surface": "An examiner explains how to mark a test as passed once each criterion is met.",
+     "walkthrough": "'Pass' sits apart at the end after the question mark, looking like part of the exam story.",
+     "definitionFit": "A ticket is a pass granting entry or travel, as with a bus pass or a free admission voucher."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Pass"
+    }
+   }
   },
   {
    "number": 20,
@@ -389,7 +1430,43 @@
     "text": "... -1 after the round, the number for the next round?",
     "enumeration": "8"
    },
-   "solution": "NINETEEN"
+   "solution": "NINETEEN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NINETEEN",
+    "definitions": [
+     {
+      "text": "the number for the next round?",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "... -1 after the round, the number for the next round?",
+      "note": "surface reading: carrying on from 17 across, a golfer's scorecard figure after finishing"
+     },
+     {
+      "clueFragment": "-1",
+      "note": "setter's reading: the entry's own number minus one"
+     },
+     {
+      "clueFragment": "after the round, the number for the next round?",
+      "note": "setter's reading: golfers retire to the clubhouse bar, jokingly named as the extra hole after eighteen, to buy the next round of drinks"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "This is 20 across, and 20 minus 1 is the answer. The clubhouse bar is called the nineteenth hole, where a round of golf ends and a round of drinks begins.",
+     "definitionFit": "The golf club bar is nicknamed by this number, as the hole played after the regular eighteen, where drinks are bought."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 21,
@@ -403,7 +1480,53 @@
     "text": "Japanese duty officer's crucial manoeuvre",
     "enumeration": "6"
    },
-   "solution": "JOCKEY"
+   "solution": "JOCKEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JOCKEY",
+    "definitions": [
+     {
+      "text": "manoeuvre",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Japanese",
+      "gives": "J",
+      "note": "J is the abbreviation for Japanese"
+     },
+     {
+      "clueFragment": "duty officer's",
+      "gives": "OC",
+      "note": "OC is the officer commanding, the one on charge of a unit"
+     },
+     {
+      "clueFragment": "crucial",
+      "gives": "KEY",
+      "note": "a key point is a crucial one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "OC",
+      "KEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Japanese officer on duty makes a vital tactical move.",
+     "walkthrough": "Jockeying for position is manoeuvring to gain an advantage.",
+     "definitionFit": "To jockey is to manoeuvre skilfully for advantage, as riders do when jostling for position in a race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "manoeuvre"
+    }
+   }
   },
   {
    "number": 22,
@@ -427,7 +1550,70 @@
      }
     ]
    },
-   "solution": "SEETOIT"
+   "solution": "SEETOIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "SEE TO IT",
+    "definitions": [
+     {
+      "text": "Make sure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has no trace of",
+      "for": "deletion",
+      "note": "no trace of a word means not even its first letter, so that initial is struck out"
+     },
+     {
+      "text": "distributing",
+      "for": "anagram",
+      "note": "distributing spreads things around, so the remaining letters are dealt out in a new order"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noisette",
+      "gives": "NOISETTE",
+      "note": "a noisette is a small round piece of meat, or a hazelnut chocolate"
+     },
+     {
+      "clueFragment": "nuts",
+      "gives": "N",
+      "select": "first",
+      "note": "the trace of the word is its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEETOIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OISETTE",
+       "gives": "SEETOIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef checks that a nut-free noisette has no traces of nuts before serving.",
+     "walkthrough": "One N comes out of NOISETTE, and the other seven letters are rearranged.",
+     "definitionFit": "To see to it is to attend to something so that it happens, which is making sure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 23,
@@ -441,7 +1627,51 @@
     "text": "It's played on board ship by chemical engineer",
     "enumeration": "5"
    },
-   "solution": "CHESS"
+   "solution": "CHESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHESS",
+    "definitions": [
+     {
+      "text": "It's played on board",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chemical engineer",
+      "gives": "CHE",
+      "note": "ChE is the abbreviation for chemical engineer"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the steamship prefix"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemical engineer plays a game on board a ship.",
+     "walkthrough": "'on board ship' looks like one phrase, but the definition ends at 'board'. 'by' places the engineer next to the ship.",
+     "definitionFit": "Chess is the strategy game played with pieces on a chequered board of sixty-four squares."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "board"
+    }
+   }
   }
  ]
 }
