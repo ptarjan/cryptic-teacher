@@ -47,6 +47,15 @@ the next step):
 - **no OCR** (FT 1981): archive.org holds only image PDFs. Their page JPEGs
   come out with pypdf; the grid page is found by image, not by OCR.
 
+Blank clues are mostly the VLM being down, not faint print. On 2026-10-06,
+4,283 of the 4,425 Times editions had been read while llama-swap on the
+desktop was dead, and 88% of those verdicts held a blank clue, against 8% of
+the editions read with the VLM. Re-reading a 20-edition sample with the VLM
+cut 82 blanks to 18, and 14 of the 20 came out complete. The print was
+legible in every case checked. So an edition read without the VLM is due
+again whenever the VLM answers (`due_reason`), and the bucket drains as the
+full pass reads it, at a median of 48 s an edition with the VLM (21-290 s; llama-server serves one request at a time, so 20 workers do not go faster).
+
 `--json FILE` writes the same data as JSON. `--save` keeps it in
 `~/.cache/archive_coverage/latest.json`, and the next run prints each year's
 change against it.

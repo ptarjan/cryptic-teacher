@@ -123,6 +123,13 @@ check("columns read left then right, a row joined, a copy dropped, cut at the so
       f.column_text(f.columns(lines, grid)))
 far = [line("ACROSS", 100, 820), line("1 Nymph (8)", 100, 840), line("9 Gap (5)", 100, 840 + f.GAP + 40)]
 check("a gap ends a column", "ACROSS\n1 Nymph (8)", f.column_text(f.columns(far, grid)))
+# A clue's run-on line that opens on a STOP word ends nothing; the notice does.
+run_on = [line("DOWN", 100, 820), line("1 See last stages of Le Mans", 100, 840),
+          line("championship, possibly (4).", 130, 860), line("2 Impressive maiden (7).", 100, 880),
+          line("Championship final tomorrow", 100, 900), line("3 Not a clue (5)", 100, 920)]
+check("a run-on line opening on a STOP word is the clue's, a notice ends the column",
+      "DOWN\n1 See last stages of Le Mans\nchampionship, possibly (4).\n2 Impressive maiden (7).",
+      f.column_text(f.columns(run_on, grid)))
 
 # tidy(): OCR's slips in the print's shape.
 check("braces and square brackets read as round ones", "1 Poet's way (5)\n2 Talks (3,2)",
