@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Rate poet that's arranged musical work",
     "enumeration": "8"
    },
-   "solution": "OPERETTA"
+   "solution": "OPERETTA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPERETTA",
+    "definitions": [
+     {
+      "text": "musical work",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "that's arranged",
+      "for": "anagram",
+      "note": "arranged means put into a new order, so the two preceding words are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rate poet",
+      "gives": "RATEPOET",
+      "note": "the two words taken letter for letter as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATEPOET",
+       "gives": "OPERETTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic sizes up a poet whose verses have been set to music.",
+     "definitionFit": "An operetta is a light opera, a short stage piece with songs and spoken dialogue, so it is a kind of musical composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rate"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,54 @@
     "text": "Survey reported on queen, say, is source of stink",
     "enumeration": "7"
    },
-   "solution": "POLECAT"
+   "solution": "POLECAT",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "POLECAT",
+    "definitions": [
+     {
+      "text": "source of stink",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means said out loud, so the word is taken for its sound"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Survey",
+      "gives": "POLE",
+      "soundsLike": "POLL",
+      "note": "a poll is a survey of opinion"
+     },
+     {
+      "clueFragment": "queen, say",
+      "gives": "CAT",
+      "note": "a queen is a female cat, and 'say' marks the example"
+     }
+    ],
+    "explanation": {
+     "surface": "An opinion poll on the monarch causes a stink.",
+     "walkthrough": "A queen is a breeding female cat, not a monarch here.",
+     "definitionFit": "The polecat is a weasel-like mammal notorious for the foul-smelling fluid it releases when threatened."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "queen"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +154,49 @@
     "text": "Crime writer with good position on scale",
     "enumeration": "7"
    },
-   "solution": "RANKING"
+   "solution": "RANKING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANKING",
+    "definitions": [
+     {
+      "text": "position on scale",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crime writer",
+      "gives": "RANKIN",
+      "note": "Ian Rankin, Scottish author of the Inspector Rebus novels"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANKIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective novelist enjoys a high place in the bestseller list.",
+     "walkthrough": "Ian Rankin writes the Edinburgh-set Rebus crime novels.",
+     "definitionFit": "A ranking is the place something holds in an ordered list or hierarchy of grades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -85,7 +220,74 @@
      }
     ]
    },
-   "solution": "TAKEFORGRANTED"
+   "solution": "TAKEFORGRANTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TAKE FOR GRANTED",
+    "definitions": [
+     {
+      "text": "Treat casually",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last in",
+      "for": "letter_selection",
+      "note": "last in a word is its final letter, so only the end of the following word is kept"
+     },
+     {
+      "text": "held about",
+      "for": "container",
+      "note": "something held is gripped all round, so the president's name wraps the next pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opinion",
+      "gives": "TAKE",
+      "note": "a take is a view or angle on something"
+     },
+     {
+      "clueFragment": "US President",
+      "gives": "FORD",
+      "note": "Gerald Ford, 38th President"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "GRANT",
+      "note": "Ulysses S. Grant, another US President"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKE",
+      "FOR",
+      "GRANT",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A view that one American leader keeps on another's final days in the White House.",
+     "definitionFit": "To take something for granted is an idiom for failing to appreciate it, so treating it carelessly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +301,53 @@
     "text": "A Republican administered Scottish island",
     "enumeration": "5"
    },
-   "solution": "ARRAN"
+   "solution": "ARRAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARRAN",
+    "definitions": [
+     {
+      "text": "Scottish island",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "administered",
+      "gives": "RAN",
+      "note": "to run something is to manage it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "RAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An American politician governed an island off Scotland.",
+     "walkthrough": "Arran is an island in the Firth of Clyde.",
+     "definitionFit": "Arran is the large island in the Firth of Clyde off the west coast of Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Republican"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +361,62 @@
     "text": "Award, one held by top Sheffield Wednesday player",
     "enumeration": "8"
    },
-   "solution": "BESTOWAL"
+   "solution": "BESTOWAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BESTOWAL",
+    "definitions": [
+     {
+      "text": "Award",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "a thing held by another sits inside its grip, so the footballer surrounds the number"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top",
+      "gives": "BEST",
+      "note": "best as in finest or foremost"
+     },
+     {
+      "clueFragment": "Sheffield Wednesday player",
+      "gives": "OWL",
+      "note": "Sheffield Wednesday football club are nicknamed the Owls"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, the indefinite article, means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEST",
+      "OW",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A prize goes to the star footballer at Sheffield Wednesday.",
+     "walkthrough": "Sheffield Wednesday, an English football club, are known as the Owls.",
+     "definitionFit": "Bestowal is the act of conferring an honour or gift, so it is the granting of an award."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "player"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +436,67 @@
      }
     ]
    },
-   "solution": "STOCKINGFILLER"
+   "solution": "STOCKINGFILLER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STOCKING FILLER",
+    "definitions": [
+     {
+      "text": "Minor gift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after playing",
+      "for": "anagram",
+      "note": "after the musician's playing, the letters are left jumbled up"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside says the next piece goes within the reworked letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for cellist",
+      "gives": "FORCELLIST",
+      "note": "both words used as fodder"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "KING",
+      "note": "the king is a chess piece"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOC",
+      "KING",
+      "FILLER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORCELLIST",
+       "gives": "STOCFILLER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small present for a cellist after a performance, slipped in.",
+     "walkthrough": "'for' looks like a link word but is fodder. A stocking filler is a small Christmas present.",
+     "definitionFit": "A stocking filler is a small, inexpensive present put into a Christmas stocking, hence a minor gift."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +510,39 @@
     "text": "One opposed to people getting on?",
     "enumeration": "6"
    },
-   "solution": "AGEIST"
+   "solution": "AGEIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AGEIST",
+    "definitions": [
+     {
+      "text": "One opposed to people getting on?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One opposed to people getting on?",
+      "note": "surface reading: someone who objects to people boarding, or people getting along"
+     },
+     {
+      "clueFragment": "getting on",
+      "note": "setter's reading: getting on means growing old, so this is a person prejudiced against the elderly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Getting on' looks like boarding a bus or being friendly; it means growing older.",
+     "definitionFit": "An ageist discriminates against people on grounds of their age, especially older folk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "getting"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +556,53 @@
     "text": "Largely original company painting",
     "enumeration": "6"
    },
-   "solution": "FRESCO"
+   "solution": "FRESCO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FRESCO",
+    "definitions": [
+     {
+      "text": "painting",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Largely",
+      "for": "deletion",
+      "note": "largely means mostly but not wholly, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "original",
+      "gives": "FRESH",
+      "note": "fresh as in new and novel"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRES",
+      "CO"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's artwork is mostly original.",
+     "definitionFit": "A fresco is a picture made on wet plaster on a wall or ceiling, so a kind of painting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +616,48 @@
     "text": "Put away celebrity magazine hiding cover",
     "enumeration": "3"
    },
-   "solution": "EAT"
+   "solution": "EAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EAT",
+    "definitions": [
+     {
+      "text": "Put away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding cover",
+      "for": "deletion",
+      "note": "the cover of a thing is its front, and hiding it means the opening letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrity magazine",
+      "gives": "HEAT",
+      "note": "Heat is a British weekly celebrity gossip magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stashes a gossip magazine with its front page concealed.",
+     "walkthrough": "Heat is a British celebrity weekly; lose its first letter for the answer.",
+     "definitionFit": "To put away food is an informal idiom for consuming it, especially in large quantities."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Put"
+    }
+   }
   },
   {
    "number": 11,
@@ -195,7 +677,76 @@
      }
     ]
    },
-   "solution": "GARYLINEKER"
+   "solution": "GARYLINEKER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GARY LINEKER",
+    "definitions": [
+     {
+      "text": "TV presenter",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deployed",
+      "for": "anagram",
+      "note": "troops deployed are spread out into new positions, so these letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the reworked letters surround the next pieces"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keen girl",
+      "gives": "KEENGIRL",
+      "note": "the two words used letter for letter as fodder"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "network",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a network of lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "RY",
+      "LINEKER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KEENGIRL",
+       "gives": "GLINEKER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eager young woman gets a job with a broadcasting network as a television host.",
+     "walkthrough": "GARY LINEKER, former England footballer, long fronted the BBC's football highlights show Match of the Day.",
+     "definitionFit": "The former England striker became a long-serving BBC broadcaster, hosting the football highlights programme Match of the Day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "network"
+    }
+   }
   },
   {
    "number": 12,
@@ -209,7 +760,48 @@
     "text": "Procedure in course credits discussed",
     "enumeration": "7"
    },
-   "solution": "TACTICS"
+   "solution": "TACTICS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TACTICS",
+    "definitions": [
+     {
+      "text": "Procedure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is spoken, so the words are taken by their sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "course credits",
+      "gives": "TACTICS",
+      "soundsLike": "TACK TICKS",
+      "note": "a tack is a sailing course, and ticks are credits, as in buying on tick"
+     }
+    ],
+    "explanation": {
+     "surface": "A student checks the rules for earning credits on a college course.",
+     "walkthrough": "In British slang, buying 'on tick' means buying on credit, so ticks are credits.",
+     "definitionFit": "Tactics are the methods or planned steps adopted to achieve an aim, which is a procedure or approach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "credits"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +815,66 @@
     "text": "Greek character on reflection not wanting new fabric",
     "enumeration": "7"
    },
-   "solution": "CHIFFON"
+   "solution": "CHIFFON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CHIFFON",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection shows a thing back to front, so the following word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "chi is the 22nd letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "not wanting",
+      "gives": "OFF",
+      "note": "to be off something is to have no appetite for it"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "FFO",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "OFF",
+       "to": "FFO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek person thinks it over and decides against a new piece of cloth.",
+     "definitionFit": "Chiffon is a light, sheer material of silk or nylon, a textile used for scarves and evening dresses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reflection"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +888,70 @@
     "text": "Serve around Ascot possibly in sleeveless gear",
     "enumeration": "9"
    },
-   "solution": "WAISTCOAT"
+   "solution": "WAISTCOAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WAISTCOAT",
+    "definitions": [
+     {
+      "text": "sleeveless gear",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one of several versions, so the racecourse name is taken as a jumbled form"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the first word wraps the jumbled letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serve",
+      "gives": "WAIT",
+      "note": "to wait at table is to serve"
+     },
+     {
+      "clueFragment": "Ascot",
+      "gives": "ASCOT",
+      "note": "the racecourse name used letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAI",
+      "STCOA",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASCOT",
+       "gives": "STCOA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Staff serve drinks at Royal Ascot, perhaps dressed without sleeves.",
+     "walkthrough": "Ascot is a racecourse near Windsor famed for its smart dress code.",
+     "definitionFit": "A waistcoat is a close-fitting garment without sleeves, worn over a shirt, often under a jacket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Ascot"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +965,61 @@
     "text": "Policeman abroad backed a tiresome activity",
     "enumeration": "5"
    },
-   "solution": "GARDA"
+   "solution": "GARDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "GARDA",
+    "definitions": [
+     {
+      "text": "Policeman abroad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "something backed goes rearwards, so the following words are read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tiresome activity",
+      "gives": "DRAG",
+      "note": "a drag is a tedious chore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARD",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ADRAG",
+       "to": "GARDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An officer serving overseas supported some boring task.",
+     "walkthrough": "'abroad' is part of the definition: the Garda is the police force of the Irish Republic.",
+     "definitionFit": "A garda is a member of the Irish national police force, so an officer in a country other than Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backed"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1033,53 @@
     "text": "Woman during stroll open to suggestion",
     "enumeration": "8"
    },
-   "solution": "AMENABLE"
+   "solution": "AMENABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMENABLE",
+    "definitions": [
+     {
+      "text": "open to suggestion",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within the span of, so the name sits inside the walk"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stroll",
+      "gives": "AMBLE",
+      "note": "to amble is to walk at a leisurely pace"
+     },
+     {
+      "clueFragment": "Woman",
+      "gives": "ENA",
+      "note": "Ena is a woman's name, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "ENA",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman out for a leisurely walk is happy to take advice.",
+     "definitionFit": "Amenable describes someone willing to cooperate or be persuaded, receptive to ideas from others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1099,60 @@
      }
     ]
    },
-   "solution": "LOGON"
+   "solution": "LOGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOG-ON",
+    "definitions": [
+     {
+      "text": "surfers' access?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Symbol",
+      "gives": "LOGO",
+      "note": "a logo is an emblem or symbol"
+     },
+     {
+      "clueFragment": "ocean",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOGO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A beach emblem by the sea shows where wave riders can get in.",
+     "walkthrough": "The surfers are internet users, not wave riders; the question mark flags the pun.",
+     "definitionFit": "A log-on is the act of signing in to a computer system, the entry point for anyone browsing the internet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "surfers'"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1166,53 @@
     "text": "Police put in LA regarding union activity?",
     "enumeration": "7"
    },
-   "solution": "NUPTIAL"
+   "solution": "NUPTIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUPTIAL",
+    "definitions": [
+     {
+      "text": "regarding union activity?",
+      "at": 17,
+      "note": "an adjective phrase: of or relating to marriage"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Police",
+      "for": "anagram",
+      "note": "to police is to regulate and sort out, so the following letters are put in order anew"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put in LA",
+      "gives": "PUTINLA",
+      "note": "the three words taken letter for letter as fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUTINLA",
+       "gives": "NUPTIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cops are deployed in Los Angeles to watch over trade union action.",
+     "walkthrough": "The union is a wedding, not a labour union; the question mark flags the twist.",
+     "definitionFit": "Nuptial means relating to marriage or a wedding ceremony, the joining of two people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1226,63 @@
     "text": "Record exchange after book is banned in speech",
     "enumeration": "9"
    },
-   "solution": "DISCOURSE"
+   "solution": "DISCOURSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISCOURSE",
+    "definitions": [
+     {
+      "text": "speech",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after book is banned",
+      "for": "deletion",
+      "note": "banning the book means its abbreviation is struck out of the next word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "DISC",
+      "note": "a disc is a gramophone record"
+     },
+     {
+      "clueFragment": "exchange",
+      "gives": "BOURSE",
+      "note": "a bourse is a stock exchange, especially the Paris one"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "OURSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary censorship row: words traded after a novel is prohibited, recorded in a speech.",
+     "walkthrough": "A bourse is a continental stock exchange; drop its B for book.",
+     "definitionFit": "Discourse is formal spoken or written communication, such as a lecture or address on a subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1296,41 @@
     "text": "Inactive matador, man that's restricted",
     "enumeration": "7"
    },
-   "solution": "DORMANT"
+   "solution": "DORMANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DORMANT",
+    "definitions": [
+     {
+      "text": "Inactive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricted",
+      "for": "hidden_word",
+      "note": "restricted means confined, so the letters are held within the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matador, man that's",
+      "gives": "DORMANT",
+      "note": "runs from inside the first word, through the second, into the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A bullfighter is idle because he is held back.",
+     "definitionFit": "Dormant means temporarily inactive or asleep, like a volcano that has not erupted for years."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1344,60 @@
     "text": "Poisonous priest among group in charge",
     "enumeration": "6"
    },
-   "solution": "SEPTIC"
+   "solution": "SEPTIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SEPTIC",
+    "definitions": [
+     {
+      "text": "Poisonous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "among means surrounded by, so the cleric's letter sits inside the group"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "P",
+      "note": "P is the abbreviation for priest"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "IC is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "P",
+      "T",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A toxic cleric is part of the clique running things.",
+     "definitionFit": "Septic describes a wound infected with harmful bacteria, so it is poisoned or toxic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1411,61 @@
     "text": "Old internet piece encapsulating Northern figure",
     "enumeration": "6"
    },
-   "solution": "OBLONG"
+   "solution": "OBLONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBLONG",
+    "definitions": [
+     {
+      "text": "figure",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "encapsulating",
+      "for": "container",
+      "note": "to encapsulate is to enclose, so the web post wraps the compass letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "internet piece",
+      "gives": "BLOG",
+      "note": "a blog is an online article or journal"
+     },
+     {
+      "clueFragment": "Northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BLO",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "An old web post sums up a character from the north of England.",
+     "definitionFit": "An oblong is a rectangle longer than it is wide, a geometric shape or figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1479,66 @@
     "text": "Western man's agent recalled rumour",
     "enumeration": "7"
    },
-   "solution": "WHISPER"
+   "solution": "WHISPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WHISPER",
+    "definitions": [
+     {
+      "text": "rumour",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled is read as called back, so the word before it runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Western",
+      "gives": "W",
+      "note": "W is the abbreviation for western"
+     },
+     {
+      "clueFragment": "man's",
+      "gives": "HIS",
+      "note": "belonging to a man"
+     },
+     {
+      "clueFragment": "agent",
+      "gives": "REP",
+      "note": "a rep is a sales representative or agent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HIS",
+      "PER"
+     ],
+     "reversals": [
+      {
+       "from": "REP",
+       "to": "PER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy's agent remembers some gossip from out West.",
+     "definitionFit": "A whisper can mean a hint or piece of hearsay, so it stands for a rumour going around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1552,62 @@
     "text": "Thin biscuit a few baked with recipe",
     "enumeration": "5"
    },
-   "solution": "WAFER"
+   "solution": "WAFER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WAFER",
+    "definitions": [
+     {
+      "text": "Thin biscuit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "baked",
+      "for": "anagram",
+      "note": "baking transforms the mixture, so the letters come out in a new form"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a few",
+      "gives": "AFEW",
+      "note": "both words used as fodder"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, from Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAFE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AFEW",
+       "gives": "WAFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker makes a handful of thin biscuits following a recipe.",
+     "definitionFit": "A wafer is a very light, crisp biscuit, often served with ice cream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1621,61 @@
     "text": "Italian food over austere period old man hoards",
     "enumeration": "7"
    },
-   "solution": "POLENTA"
+   "solution": "POLENTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "POLENTA",
+    "definitions": [
+     {
+      "text": "Italian food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hoards",
+      "for": "container",
+      "note": "one who hoards keeps things stored within, so the father figure holds the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     },
+     {
+      "clueFragment": "austere period",
+      "gives": "LENT",
+      "note": "Lent is the forty days of fasting before Easter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "O",
+      "LENT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad stockpiles Italian staples to see him through a lean spell.",
+     "definitionFit": "Polenta is a dish of boiled cornmeal from northern Italy, eaten as porridge or set and fried."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hoards"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1689,64 @@
     "text": "Railing in almost perfect road race",
     "enumeration": "11"
    },
-   "solution": "FULMINATION"
+   "solution": "FULMINATION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FULMINATION",
+    "definitions": [
+     {
+      "text": "Railing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is cut"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perfect",
+      "gives": "FULL",
+      "note": "full in the sense of complete or entire"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "MI",
+      "note": "the M1 is Britain's main north-south motorway, written MI"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "NATION",
+      "note": "a race of people is a nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUL",
+      "MI",
+      "NATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A spectator shouts abuse during a road race that was nearly flawless.",
+     "walkthrough": "'Railing' looks like a fence; it means ranting. The M1 is Britain's London-to-Leeds motorway, the stock 'road' in crosswords.",
+     "definitionFit": "Railing means scolding or complaining bitterly, and a fulmination is a loud, angry denunciation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Railing"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1760,42 @@
     "text": "Jellied food packed in free lunches",
     "enumeration": "3"
    },
-   "solution": "EEL"
+   "solution": "EEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EEL",
+    "definitions": [
+     {
+      "text": "Jellied food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packed in",
+      "for": "hidden_word",
+      "note": "packed in means stowed inside, so the letters sit within the next two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free lunches",
+      "gives": "EEL",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A cockney pub hands out its traditional jellied dish with complimentary lunches.",
+     "walkthrough": "Jellied eels are a traditional East London dish.",
+     "definitionFit": "Eel set in its own stock is the classic East End delicacy, so it is a food that comes jellied."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1809,62 @@
     "text": "Object put between two rivers and yard in bucolic atmosphere",
     "enumeration": "8"
    },
-   "solution": "RURALITY"
+   "solution": "RURALITY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RURALITY",
+    "definitions": [
+     {
+      "text": "bucolic atmosphere",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put between",
+      "for": "container",
+      "note": "put between means slotted in the gap separating the pieces on either side"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two rivers",
+      "gives": "RURAL",
+      "note": "R is the abbreviation for river, followed by the Ural, a Russian river"
+     },
+     {
+      "clueFragment": "Object",
+      "gives": "IT",
+      "note": "it is a pronoun for any object"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RURAL",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Something is set down between two streams and a farmyard in a pastoral scene.",
+     "definitionFit": "Rurality is the quality of being countryside, and bucolic means relating to pleasant country life."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Object"
+    }
+   }
   }
  ]
 }
