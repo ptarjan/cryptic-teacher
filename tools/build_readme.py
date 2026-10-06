@@ -407,7 +407,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/test_provenance.sh", "does provenance actually REFUSE a puzzle that lies about where it came from?"),
     ("tables everything else reads", "tools/test_puzzle_source.sh", "holds where a puzzle came from to `source`, whose answers it holds to `solutions` and who wrote its hints to `annotatedBy`: a write lands all three and nothing that repeats them, the detail keys decide the origin, a key printed later replaces a model fill and remembers it, and provenance.check refuses detail that does not back its origin"),
     ("tables everything else reads", "tools/rank_book_candidates.py", "rank archive.org crossword books by whether acquiring one in full is worth it"),
-    ("tables everything else reads", "tools/acquire_books.sh", "read the next archive.org crossword book nobody has read yet \u2014 one book, one loan, one run"),
+    ("tables everything else reads", "tools/acquire_books.sh", "read the next archive.org crossword books nobody has read yet \u2014 up to three loans a run, then every book due"),
     ("tables everything else reads", "tools/book_queue.py", "which registered archive.org books have not been read yet, best first"),
     ("tables everything else reads", "tools/test_book_queue.sh", "does tools/book_queue.py still offer the right book to tools/acquire_books.sh?"),
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
@@ -637,32 +637,29 @@ def build_corpus():
     # counts go into a file that IS committed. Reading whatever the tree happened
     # to hold is how a README comes to name a corpus size nobody has any more.
     sys.path.insert(0, str(REPO / "tools"))
-    from fetch_puzzle import puzzle_path, read_puzzle_file, reindex
-    rows = reindex()["puzzles"]
+    import parallel
+    import series as series_meta
+    from fetch_puzzle import corpus_row, puzzle_files
+    # Counted from the puzzle files in one pass that writes nothing: a reindex
+    # would rewrite every shim and rescore every difficulty to learn the same
+    # counts, minutes on a loaded host. "Annotated" is per puzzle for the
+    # headline and per clue for the percentage: a puzzle counts as annotated
+    # only with every clue done, and a clue with one left blank still counts.
+    rows = [r for r in parallel.pmap(corpus_row, puzzle_files())
+            if not series_meta.unlisted(r[0])]
 
     by_series = {}
     for r in rows:
-        by_series[r["series"]] = by_series.get(r["series"], 0) + 1
+        by_series[r[0]] = by_series.get(r[0], 0) + 1
     unknown = set(by_series) - set(SERIES_NAMES)
     if unknown:
         fail(f"a new series is being fetched that the README has no name for: "
              f"{', '.join(sorted(unknown))}. Add it to SERIES_NAMES.")
 
-    # Counted from the puzzle files rather than the index, because "annotated"
-    # in the index is a per-puzzle flag and the interesting number is per clue:
-    # a puzzle counts as annotated with one clue left blank.
-    # Read off the committed .json rather than the row's `file`, which names the
-    # generated script the browser loads: a number that goes into a committed
-    # README comes from the committed source, and the parse is fetch_puzzle's.
-    clues = done = 0
-    for r in rows:
-        for e in read_puzzle_file(puzzle_path(r["series"], r["number"])).get("entries", []):
-            clues += 1
-            if e.get("annotation"):
-                done += 1
-
-    annotated = sum(1 for r in rows if r.get("annotated"))
-    blogged = sum(1 for r in rows if r.get("blog"))
+    clues = sum(r[3] for r in rows)
+    done = sum(r[4] for r in rows)
+    annotated = sum(1 for r in rows if r[1])
+    blogged = sum(1 for r in rows if r[2])
     parts = ", ".join(f"{SERIES_NAMES[s]} {n}"
                       for s, n in sorted(by_series.items(),
                                          key=lambda kv: -kv[1]))

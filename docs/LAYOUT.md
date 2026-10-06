@@ -1189,8 +1189,9 @@ tools/test_puzzle_source.sh                  holds where a puzzle came from to `
                                              refuses detail that does not back its origin
 tools/rank_book_candidates.py                rank archive.org crossword books by whether
                                              acquiring one in full is worth it
-tools/acquire_books.sh                       read the next archive.org crossword book nobody
-                                             has read yet — one book, one loan, one run
+tools/acquire_books.sh                       read the next archive.org crossword books nobody
+                                             has read yet — up to three loans a run, then every
+                                             book due
 tools/book_queue.py                          which registered archive.org books have not been
                                              read yet, best first
 tools/test_book_queue.sh                     does tools/book_queue.py still offer the right

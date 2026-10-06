@@ -1,6 +1,6 @@
 #!/bin/bash
-# Read the next archive.org crossword book nobody has read yet — one book, one
-# loan, one run.
+# Read the next archive.org crossword books nobody has read yet — up to three
+# loans a run, then every book due.
 #
 # WHY THIS IS A SCHEDULE AND NOT A LOOP. The only thing standing between them and the corpus is archive.org's
 # lending limit. That limit counts loans TAKEN over a period archive.org does

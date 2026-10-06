@@ -2621,6 +2621,19 @@ def cold_solvable(row):
     return not coverage or coverage["present"] * 2 > coverage["total"]
 
 
+def corpus_row(path):
+    """What the README's corpus line counts in one puzzle: (series, annotated,
+    blog, clues, annotated clues). The same reads as index_row() with none of its
+    writes -- no shim, no hash, no difficulty -- so counting the corpus does not
+    rebuild it."""
+    p = read_puzzle_file(path)
+    missing = len(unannotated_clues(p))
+    blog = bool(missing) and has_blog_hints(with_blog_facts(p))
+    entries = p.get("entries", [])
+    return (p["series"], not missing, blog, len(entries),
+            sum(1 for e in entries if e.get("annotation")))
+
+
 def index_row(path):
     """Write the puzzle's shim and return its row of the index, all but the
     difficulty, which reindex() adds from the corpus-wide ratings. One read of
