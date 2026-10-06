@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Break shower control",
     "enumeration": "8"
    },
-   "solution": "RESTRAIN"
+   "solution": "RESTRAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESTRAIN",
+    "definitions": [
+     {
+      "text": "control",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Break",
+      "gives": "REST",
+      "note": "a break is a rest from work"
+     },
+     {
+      "clueFragment": "shower",
+      "gives": "RAIN",
+      "note": "a shower is a brief fall of rain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone snaps the control knob of their shower.",
+     "walkthrough": "'Shower control' reads as one bathroom fitting, but the definition is the last word alone.",
+     "definitionFit": "To restrain something is to hold it in check, keeping it under your command."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shower"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +90,62 @@
     "text": "Salvage engineers head for scene, prompt",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "Salvage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head for",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a corps of the British Army"
+     },
+     {
+      "clueFragment": "scene",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of scene"
+     },
+     {
+      "clueFragment": "prompt",
+      "gives": "CUE",
+      "note": "a cue prompts an actor to speak"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "S",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Engineers head off to the scene of an emergency, quickly.",
+     "walkthrough": "'Prompt' looks like an adjective meaning quick, but it is the noun for an actor's signal.",
+     "definitionFit": "Both words, as verbs, mean saving goods or people from danger or loss."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prompt"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +159,50 @@
     "text": "Markings persist in varied form",
     "enumeration": "7"
    },
-   "solution": "STRIPES"
+   "solution": "STRIPES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRIPES",
+    "definitions": [
+     {
+      "text": "Markings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in varied form",
+      "for": "anagram",
+      "note": "a varied form of a word keeps its letters but changes their arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "persist",
+      "gives": "PERSIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PERSIST",
+       "gives": "STRIPES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some markings keep reappearing, though in changing shapes.",
+     "definitionFit": "Stripes are bands of colour, the kind of markings seen on a zebra or a uniform sleeve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "persist"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +222,50 @@
      }
     ]
    },
-   "solution": "REDCARPET"
+   "solution": "REDCARPET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RED CARPET",
+    "definitions": [
+     {
+      "text": "special treatment",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seaside town",
+      "gives": "REDCAR",
+      "note": "Redcar is a seaside town on the North Yorkshire coast"
+     },
+     {
+      "clueFragment": "favoured",
+      "gives": "PET",
+      "note": "a pet project or pet subject is a favoured one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDCAR",
+      "PET"
+     ]
+    },
+    "explanation": {
+     "surface": "A resort town is singled out for preferential handling.",
+     "walkthrough": "Redcar is a seaside resort in north-east England; split differently, its letters become a colour and a vehicle.",
+     "definitionFit": "Rolling out the red carpet means giving a guest a lavish, ceremonial welcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "town"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +279,55 @@
     "text": "Cooked dinner, teatime not exactly known",
     "enumeration": "13"
    },
-   "solution": "INDETERMINATE"
+   "solution": "INDETERMINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INDETERMINATE",
+    "definitions": [
+     {
+      "text": "not exactly known",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cooked",
+      "for": "anagram",
+      "note": "cooked food has been worked over and changed, and so are these letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dinner",
+      "gives": "DINNER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "teatime",
+      "gives": "TEATIME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DINNERTEATIME",
+       "gives": "INDETERMINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The hour of a cooked meal at teatime is vague.",
+     "definitionFit": "Something indeterminate has not been fixed or settled precisely, so its value or extent is vague."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cooked"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +341,64 @@
     "text": "Delay brought about by cut in pace",
     "enumeration": "6"
    },
-   "solution": "GALLOP"
+   "solution": "GALLOP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GALLOP",
+    "definitions": [
+     {
+      "text": "pace",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought about",
+      "for": "reversal",
+      "note": "to bring a ship about is to turn it round, so this word faces the other way"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delay",
+      "gives": "LAG",
+      "note": "a lag is a delay between events"
+     },
+     {
+      "clueFragment": "cut",
+      "gives": "LOP",
+      "note": "to lop is to cut off branches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAL",
+      "LOP"
+     ],
+     "reversals": [
+      {
+       "from": "LAG",
+       "to": "GAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slowdown is caused by someone cutting their running speed.",
+     "definitionFit": "A gallop is a horse's fastest pace, with all four feet off the ground at once."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +412,55 @@
     "text": "Bitter answer, cold and clear",
     "enumeration": "5"
    },
-   "solution": "ACRID"
+   "solution": "ACRID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACRID",
+    "definitions": [
+     {
+      "text": "Bitter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on a tap"
+     },
+     {
+      "clueFragment": "clear",
+      "gives": "RID",
+      "note": "to rid a place is to clear it of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "RID"
+     ]
+    },
+    "explanation": {
+     "surface": "A curt reply, frosty and unambiguous.",
+     "definitionFit": "An acrid taste or smell is sharp and pungent, as bitter things are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +474,54 @@
     "text": "Reasonable soldier accepted by resident",
     "enumeration": "7"
    },
-   "solution": "LOGICAL"
+   "solution": "LOGICAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOGICAL",
+    "definitions": [
+     {
+      "text": "Reasonable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepted by",
+      "for": "container",
+      "note": "something accepted by another is taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resident",
+      "gives": "LOCAL",
+      "note": "a local is someone who lives in the area"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "GI",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensible serviceman is welcomed by the townsfolk.",
+     "definitionFit": "A logical argument follows sound reasoning, so it is sensible and rational."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accepted"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +535,80 @@
     "text": "Tips from artist on height and width among rewards in courses",
     "enumeration": "8"
    },
-   "solution": "PATHWAYS"
+   "solution": "PATHWAYS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "PATHWAYS",
+    "definitions": [
+     {
+      "text": "courses",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tips from",
+      "for": "letter_selection",
+      "note": "the tips of a word are its two ends, so only the first and last are kept"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one part is set on the next, so they run straight on in order"
+     },
+     {
+      "text": "among",
+      "for": "container",
+      "note": "letters placed among others sit inside them"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist",
+      "gives": "AT",
+      "select": "outer",
+      "note": "the outside letters of artist"
+     },
+     {
+      "clueFragment": "height",
+      "gives": "H",
+      "note": "H is the abbreviation for height"
+     },
+     {
+      "clueFragment": "width",
+      "gives": "W",
+      "note": "W is the abbreviation for width"
+     },
+     {
+      "clueFragment": "rewards",
+      "gives": "PAYS",
+      "note": "pays are wages, rewards for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ATHW",
+      "AYS"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist's advice on measurements wins prizes on a training course.",
+     "definitionFit": "Pathways and courses are both routes or tracks along which something travels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tips"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +622,50 @@
     "text": "Quiet revolutionary in scrap",
     "enumeration": "5"
    },
-   "solution": "SHRED"
+   "solution": "SHRED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHRED",
+    "definitions": [
+     {
+      "text": "scrap",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "RED",
+      "note": "a Red is a communist revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A silent rebel is caught up in a fight.",
+     "walkthrough": "'Scrap' suggests a fight, but here it is a tiny fragment.",
+     "definitionFit": "A shred is a small torn strip or fragment, a scrap of material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scrap"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +679,46 @@
     "text": "Absolutely out of action? Correct",
     "enumeration": "9"
    },
-   "solution": "DOWNRIGHT"
+   "solution": "DOWNRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNRIGHT",
+    "definitions": [
+     {
+      "text": "Absolutely",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out of action",
+      "gives": "DOWN",
+      "note": "a system that is down is not working"
+     },
+     {
+      "clueFragment": "Correct",
+      "gives": "RIGHT",
+      "note": "right means correct"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a thing is completely broken, then agrees.",
+     "definitionFit": "Downright as an adverb means thoroughly or utterly, as in downright rude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +738,66 @@
      }
     ]
    },
-   "solution": "WASHINGPOWDER"
+   "solution": "WASHINGPOWDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WASHING POWDER",
+    "definitions": [
+     {
+      "text": "detergent",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "a developed thing has grown into a new shape, as these letters do"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the reworked letters go about, that is around, the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How rapid news",
+      "gives": "HOWRAPIDNEWS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WASHIN",
+      "G",
+      "POWDER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HOWRAPIDNEWS",
+       "gives": "WASHINPOWDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking news about a successful cleaning product spread fast.",
+     "definitionFit": "Washing powder is the granular detergent put into a washing machine to clean clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "developed"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +811,50 @@
     "text": "Playing part, is dunce lacking experience?",
     "enumeration": "11"
    },
-   "solution": "UNPRACTISED"
+   "solution": "UNPRACTISED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNPRACTISED",
+    "definitions": [
+     {
+      "text": "lacking experience",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing about with letters moves them into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part, is dunce",
+      "gives": "PARTISDUNCE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARTISDUNCE",
+       "gives": "UNPRACTISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor taking a role is a dimwit who hasn't rehearsed.",
+     "definitionFit": "Someone unpractised has not done something often enough to be skilled at it, so is inexperienced."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +868,41 @@
     "text": "Frighten bovine animal",
     "enumeration": "3"
    },
-   "solution": "COW"
+   "solution": "COW",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COW",
+    "definitions": [
+     {
+      "text": "Frighten",
+      "at": 0
+     },
+     {
+      "text": "bovine animal",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frighten",
+      "note": "first meaning: to intimidate or subdue"
+     },
+     {
+      "clueFragment": "bovine animal",
+      "note": "second meaning: a female of the cattle family"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone scares a farm animal.",
+     "definitionFit": "The word is a verb for intimidating someone into submission and a noun for a female farm beast giving milk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +916,67 @@
     "text": "Great stuff about spies, unknown outwardly",
     "enumeration": "13"
    },
-   "solution": "SUPERFICIALLY"
+   "solution": "SUPERFICIALLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUPERFICIALLY",
+    "definitions": [
+     {
+      "text": "outwardly",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes about, or around, the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Great",
+      "gives": "SUPER",
+      "note": "super means great"
+     },
+     {
+      "clueFragment": "stuff",
+      "gives": "FILL",
+      "note": "to fill is to stuff"
+     },
+     {
+      "clueFragment": "spies",
+      "gives": "CIA",
+      "note": "the CIA is the American intelligence agency"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "in algebra x, y and z stand for unknowns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUPER",
+      "FI",
+      "CIA",
+      "LL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Great work concerning spies whose identities remain secret, on the face of it.",
+     "definitionFit": "Superficially means judged by surface appearance only, which is how things look outwardly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +996,50 @@
      }
     ]
    },
-   "solution": "INRESERVE"
+   "solution": "INRESERVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN RESERVE",
+    "definitions": [
+     {
+      "text": "Set aside",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made up into a new form from raw ingredients"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reins, ever",
+      "gives": "REINSEVER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REINSEVER",
+       "gives": "INRESERVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider puts the reins down, always ready.",
+     "definitionFit": "Something held in reserve is kept back for later use, put aside until needed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1053,70 @@
     "text": "Nonsense in court about stage before strike",
     "enumeration": "8"
    },
-   "solution": "CLAPTRAP"
+   "solution": "CLAPTRAP",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CLAPTRAP",
+    "definitions": [
+     {
+      "text": "Nonsense",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes about, or around, the next"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "one part comes before the other in reading order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "stage",
+      "gives": "LAP",
+      "note": "a lap is one stage of a race or journey"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "RAP",
+      "note": "to rap is to strike sharply"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAP",
+      "T",
+      "RAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Rubbish talked in a courtroom about events before a walkout.",
+     "walkthrough": "'Strike' looks like industrial action, but it is a blow.",
+     "definitionFit": "Claptrap is pretentious empty talk, originally lines designed to win applause."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1136,55 @@
      }
     ]
    },
-   "solution": "LIGHTFINGERED"
+   "solution": "LIGHTFINGERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIGHT-FINGERED",
+    "definitions": [
+     {
+      "text": "Thieving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one part comes after the other in reading order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "LIGHT",
+      "note": "a light is something to start a fire, like a match"
+     },
+     {
+      "clueFragment": "identified",
+      "gives": "FINGERED",
+      "note": "to finger a suspect is to identify them to police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "FINGERED"
+     ]
+    },
+    "explanation": {
+     "surface": "A culprit is picked out after a football game.",
+     "walkthrough": "'Match' suggests a sporting fixture, but it is something you strike for a flame.",
+     "definitionFit": "Light-fingered describes someone given to pilfering, with fingers that lift things deftly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1198,43 @@
     "text": "One from Tyneside taking part in binge or dieting?",
     "enumeration": "7"
    },
-   "solution": "GEORDIE"
+   "solution": "GEORDIE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GEORDIE",
+    "definitions": [
+     {
+      "text": "One from Tyneside",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "hidden_word",
+      "note": "the word takes part in the phrase, sitting inside it across word boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "binge or dieting",
+      "gives": "GEORDIE",
+      "note": "found running across the end of binge, the whole of or and the start of dieting"
+     }
+    ],
+    "explanation": {
+     "surface": "A Newcastle native is either feasting or slimming.",
+     "walkthrough": "Tyneside is the area around Newcastle upon Tyne in north-east England.",
+     "definitionFit": "Geordie is the nickname for a native of Newcastle and the surrounding Tyneside area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "binge"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1248,46 @@
     "text": "Stop challenging traditionalist",
     "enumeration": "7"
    },
-   "solution": "DIEHARD"
+   "solution": "DIEHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIEHARD",
+    "definitions": [
+     {
+      "text": "traditionalist",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "DIE",
+      "note": "an engine that dies stops"
+     },
+     {
+      "clueFragment": "challenging",
+      "gives": "HARD",
+      "note": "a hard task is challenging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIE",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to quit questioning a conservative.",
+     "definitionFit": "A diehard clings stubbornly to old ways or beliefs, resisting all change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "challenging"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1301,59 @@
     "text": "Squat saint, rough, ignoring bishop",
     "enumeration": "6"
    },
-   "solution": "STUMPY"
+   "solution": "STUMPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STUMPY",
+    "definitions": [
+     {
+      "text": "Squat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "something ignored is left out, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "rough",
+      "gives": "BUMPY",
+      "note": "a bumpy road is rough"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "UMPY"
+     ]
+    },
+    "explanation": {
+     "surface": "A short, stocky holy man, coarse-mannered, snubs a bishop.",
+     "definitionFit": "Squat and stumpy both describe something short and thick, low and broad in build."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Squat"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1367,52 @@
     "text": "For support, sacrificing pawn",
     "enumeration": "3"
    },
-   "solution": "PRO"
+   "solution": "PRO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PRO",
+    "definitions": [
+     {
+      "text": "For",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sacrificing",
+      "for": "deletion",
+      "note": "a sacrificed piece is given up, so that letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "PROP",
+      "note": "a prop is a support"
+     },
+     {
+      "clueFragment": "pawn",
+      "gives": "P",
+      "note": "P is the chess notation for pawn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player gives up a pawn to gain backing.",
+     "definitionFit": "Pro as a preposition means in favour of, just as for does in 'arguments for and against'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "For"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1426,50 @@
     "text": "Tall plant unfamiliar to me was weed",
     "enumeration": "11"
    },
-   "solution": "MEADOWSWEET"
+   "solution": "MEADOWSWEET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEADOWSWEET",
+    "definitions": [
+     {
+      "text": "Tall plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfamiliar",
+      "for": "anagram",
+      "note": "something unfamiliar is not in its usual recognisable form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to me was weed",
+      "gives": "TOMEWASWEED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOMEWASWEED",
+       "gives": "MEADOWSWEET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener admits a tall plant they didn't know was a weed.",
+     "definitionFit": "Meadowsweet is a tall wild flower of damp meadows with creamy, fragrant blossom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weed"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1483,61 @@
     "text": "Spirits low on empty days",
     "enumeration": "5"
    },
-   "solution": "MOODS"
+   "solution": "MOODS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MOODS",
+    "definitions": [
+     {
+      "text": "Spirits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry one part placed on another sits above it, so it comes first"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an emptied word has its insides removed, leaving only the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to make the sound a cow makes"
+     },
+     {
+      "clueFragment": "days",
+      "gives": "DS",
+      "select": "outer",
+      "note": "the outside letters of days"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOO",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels downhearted on dull, empty days.",
+     "walkthrough": "'Spirits low' reads as gloom, but low is a cow's call and spirits is the definition.",
+     "definitionFit": "Moods and spirits both mean a person's state of mind or emotional temper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1551,60 @@
     "text": "Do I hear weirdly commercial band?",
     "enumeration": "9"
    },
-   "solution": "RADIOHEAD"
+   "solution": "RADIOHEAD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RADIOHEAD",
+    "definitions": [
+     {
+      "text": "band",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "weirdly",
+      "for": "anagram",
+      "note": "letters set out weirdly are in an odd, unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do I hear",
+      "gives": "DOIHEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RADIOHE",
+      "AD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOIHEAR",
+       "gives": "RADIOHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A listener wonders whether they are hearing a band that sold out.",
+     "definitionFit": "Radiohead is an English rock group, a band formed in Oxfordshire in the 1980s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1618,50 @@
     "text": "Sphere's true mass",
     "enumeration": "5"
    },
-   "solution": "REALM"
+   "solution": "REALM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REALM",
+    "definitions": [
+     {
+      "text": "Sphere",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "true",
+      "gives": "REAL",
+      "note": "real means true or genuine"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "M",
+      "note": "M is the symbol for mass"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REAL",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "The actual mass of a ball or planet.",
+     "walkthrough": "'Sphere' suggests a globe, but here it means a field of activity.",
+     "definitionFit": "A realm, like a sphere, is a domain or field of activity or influence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sphere"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1675,50 @@
     "text": "Place with comfort and delight",
     "enumeration": "6"
    },
-   "solution": "PLEASE"
+   "solution": "PLEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASE",
+    "definitions": [
+     {
+      "text": "delight",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Place",
+      "gives": "PL",
+      "note": "PL is the street-name abbreviation for place"
+     },
+     {
+      "clueFragment": "comfort",
+      "gives": "EASE",
+      "note": "ease is comfort"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PL",
+      "EASE"
+     ]
+    },
+    "explanation": {
+     "surface": "Somewhere offering comfort and pleasure.",
+     "definitionFit": "To please someone is to give them pleasure, which is to delight them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delight"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1732,68 @@
     "text": "Warm run with one aim in race",
     "enumeration": "8"
    },
-   "solution": "FRIENDLY"
+   "solution": "FRIENDLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FRIENDLY",
+    "definitions": [
+     {
+      "text": "Warm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "letters placed in another word sit inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "aim",
+      "gives": "END",
+      "note": "an end is an aim or goal"
+     },
+     {
+      "clueFragment": "race",
+      "gives": "FLY",
+      "note": "to fly is to race or rush along"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIEND",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner warms up with a single goal in a race.",
+     "definitionFit": "A friendly person shows warmth, being kind and welcoming to others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Warm"
+    }
+   }
   }
  ]
 }
