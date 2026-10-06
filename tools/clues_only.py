@@ -62,8 +62,9 @@ def read(pid, root=None):
     return json.loads(path.read_text(encoding="utf-8")) if path else None
 
 
-def files():
-    return sorted(DIR.glob("*/*.json"))
+def files(root=None):
+    """Every held clues-only file under `root` (default DIR)."""
+    return sorted((root or DIR).glob("*/*.json"))
 
 
 def lights_from_spec(across, down):
@@ -264,10 +265,12 @@ def builder(record):
     return BUILDERS.get(((record.get("source") or {}).get("acquiredBy"), grid_kind(record)))
 
 
-def solvable():
-    """[record] of every held puzzle a builder can promote: the only ones a
-    solve queue may take. The rest stay held as data."""
-    records = (json.loads(path.read_text(encoding="utf-8")) for path in files())
+def solvable(root=None):
+    """[record] of every puzzle held under `root` (default DIR) a builder can
+    promote: the only ones a solve queue may take. The rest stay held as data.
+    A queue passes the clues_only/ beside the index it reads, so a queue run
+    against another tree's index never takes this checkout's puzzles."""
+    records = (json.loads(path.read_text(encoding="utf-8")) for path in files(root))
     return [r for r in records if builder(r)]
 
 

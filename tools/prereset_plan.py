@@ -832,15 +832,15 @@ def clues_only_self_test():
     no row at all: its solve could never be promoted."""
     import tempfile
 
-    import clues_only
+    global INDEX
     bad = 0
-    real = clues_only.DIR
+    real = INDEX
     with tempfile.TemporaryDirectory() as tmp:
-        clues_only.DIR = Path(tmp)
+        INDEX = Path(tmp) / "puzzles" / "index.json"
         try:
-            (Path(tmp) / "book").mkdir()
+            (Path(tmp) / "clues_only" / "book").mkdir(parents=True)
             for pid, year in (("book-6039", 2004), ("book-31039", 2002)):
-                (Path(tmp) / "book" / f"{pid}.json").write_text(json.dumps(
+                (Path(tmp) / "clues_only" / "book" / f"{pid}.json").write_text(json.dumps(
                     {"id": pid, "number": int(pid.split("-")[1]), "series": "book",
                      "year": year, "source": {"acquiredBy": "tools/acquire_book.py"},
                      "clues": {"across": [], "down": []}}))
@@ -859,7 +859,7 @@ def clues_only_self_test():
                 print(f"FAIL newest_first with a clues-only row = {got}", file=sys.stderr)
                 bad += 1
         finally:
-            clues_only.DIR = real
+            INDEX = real
     return bad
 
 
@@ -1088,6 +1088,11 @@ def round_robin(rows):
             for s in cycle if i < len(lanes[s])]
 
 
+def held_dir():
+    """The clues_only/ of the tree INDEX belongs to: the queue reads one corpus."""
+    return INDEX.parent.parent / "clues_only"
+
+
 def clues_only_rows():
     """An index-shaped row for each puzzle held as its clues alone that a
     builder can promote (clues_only.solvable): unannotated, no answers, every
@@ -1095,7 +1100,7 @@ def clues_only_rows():
     alone, so without these the queue never sees them."""
     import clues_only
     rows = []
-    for record in clues_only.solvable():
+    for record in clues_only.solvable(held_dir()):
         row = {"id": record["id"], "series": record["series"],
                "annotated": False, "hasSolutions": False}
         row.update({k: record[k] for k in ("year", "date") if k in record})
@@ -1138,7 +1143,7 @@ def unsolved(pid):
     """Whether the puzzle's file lacks an answer to any entry: the burn solves
     it cold before annotating it. A puzzle held clues-only has no answer yet."""
     import clues_only
-    if clues_only.find(pid):
+    if clues_only.find(pid, held_dir()):
         return True
     from fetch_puzzle import read_puzzle_file
     from puzzle_paths import resolve_puzzle

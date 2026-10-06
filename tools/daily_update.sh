@@ -589,10 +589,12 @@ todo = sorted(((is_first_issue(p["id"]), puzzle_day(p) or datetime.date.min, p["
                if p["id"] in unsolved_ids and p["id"] not in unreadable
                and p["id"] not in tried), reverse=True)
 # Puzzles held as their clues alone (tools/clues_only.py) are solved here too,
-# those a builder can promote; the solve derives their grid. Dateless book
+# those a builder can promote; the solve derives their grid. Read from the
+# clues_only/ beside puzzles/index.json, the same tree as the index. Dateless book
 # reprints, so they go last.
 import clues_only
-todo += [(False, datetime.date.min, r["id"]) for r in clues_only.solvable()
+from pathlib import Path
+todo += [(False, datetime.date.min, r["id"]) for r in clues_only.solvable(Path("clues_only"))
          if r["id"] not in tried]
 print(" ".join(i for *_, i in todo[:limit]))
 EOF
