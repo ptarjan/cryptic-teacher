@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Shake tower of strength",
     "enumeration": "4"
    },
-   "solution": "ROCK"
+   "solution": "ROCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROCK",
+    "definitions": [
+     {
+      "text": "Shake",
+      "at": 0
+     },
+     {
+      "text": "tower of strength",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shake",
+      "note": "first meaning: to sway or move violently back and forth"
+     },
+     {
+      "clueFragment": "tower of strength",
+      "note": "second meaning: a dependable person others lean on"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is told to rattle a person everyone relies on.",
+     "walkthrough": "It reads as an instruction to shake a strong tower; the verb and the noun phrase are separate meanings of one word.",
+     "definitionFit": "The verb means to sway violently, as an earthquake does; the noun is a firm, reliable supporter, a person you can lean upon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shake"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +86,55 @@
     "text": "Cancel article in disgust",
     "enumeration": "6"
    },
-   "solution": "REPEAL"
+   "solution": "REPEAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPEAL",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it is placed inside that other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "disgust",
+      "gives": "REPEL",
+      "note": "to disgust is to repel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPE",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone angrily withdraws a piece of writing they find offensive.",
+     "walkthrough": "A goes inside REPEL, between its P and E, to give REPEAL.",
+     "definitionFit": "To repeal a law is to revoke it formally, so the verb is a synonym for annul or scrap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +148,62 @@
     "text": "Approach keeping fringes of hair yellow",
     "enumeration": "6"
    },
-   "solution": "CHROME"
+   "solution": "CHROME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHROME",
+    "definitions": [
+     {
+      "text": "yellow",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fringes of",
+      "for": "letter_selection",
+      "note": "the fringes of a word are its edges, so only its first and last letters are kept"
+     },
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "one word keeping another holds it within its own letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Approach",
+      "gives": "COME",
+      "note": "to approach is to come"
+     },
+     {
+      "clueFragment": "hair",
+      "gives": "HR",
+      "select": "outer",
+      "note": "the first and last letters of hair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HR",
+      "OME"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on dyeing, where the ends of the hair turn yellow.",
+     "walkthrough": "Chrome yellow is a bright pigment, which is why the word alone can name the colour.",
+     "definitionFit": "Chrome is short for chrome yellow, a vivid pigment from lead chromate used by painters and printers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Approach"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +223,67 @@
      }
     ]
    },
-   "solution": "THOMASMANN"
+   "solution": "THOMASMANN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THOMAS MANN",
+    "definitions": [
+     {
+      "text": "novelist",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "something complicated is tangled up, so these letters are rearranged"
+     },
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "a thing enthralled by another is held captive inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "MAN",
+      "note": "a fellow is a man"
+     },
+     {
+      "clueFragment": "maths, no",
+      "gives": "MATHSNO",
+      "note": "both words taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THOMAS",
+      "MAN",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MATHSNO",
+       "gives": "THOMASN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man captivated by tricky maths is clearly no writer of fiction.",
+     "walkthrough": "'No novelist' looks like a single phrase, but 'no' belongs to the anagram fodder and only 'novelist' defines.",
+     "definitionFit": "Thomas Mann was the German author of The Magic Mountain and Buddenbrooks, a Nobel-winning writer of long fiction."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "no"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +297,54 @@
     "text": "Spanish article supporting fashionable guest house",
     "enumeration": "5"
    },
-   "solution": "HOTEL"
+   "solution": "HOTEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOTEL",
+    "definitions": [
+     {
+      "text": "guest house",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, a piece supporting another sits beneath it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashionable",
+      "gives": "HOT",
+      "note": "hot means in fashion"
+     },
+     {
+      "clueFragment": "Spanish article",
+      "gives": "EL",
+      "note": "el is Spanish for 'the'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Spanish piece of writing backs a trendy place to stay.",
+     "walkthrough": "In a down answer the supporting piece is the lower one, so it comes second.",
+     "definitionFit": "A hotel is an establishment offering rooms and meals to paying visitors, much like a larger lodging house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +364,55 @@
      }
     ]
    },
-   "solution": "MARCOPOLO"
+   "solution": "MARCOPOLO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARCO POLO",
+    "definitions": [
+     {
+      "text": "Travelling merchant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hurt",
+      "gives": "MAR",
+      "note": "to mar is to damage"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "the usual abbreviation"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "POLO",
+      "note": "polo is a game played on horseback"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "CO",
+      "POLO"
+     ]
+    },
+    "explanation": {
+     "surface": "A roving trader damages a firm through some sport.",
+     "definitionFit": "Marco Polo was the Venetian trader who journeyed to China and the court of Kublai Khan in the thirteenth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 6,
@@ -139,7 +436,70 @@
      }
     ]
    },
-   "solution": "STIFFUPPERLIP"
+   "solution": "STIFFUPPERLIP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STIFF UPPER LIP",
+    "definitions": [
+     {
+      "text": "Sign of fortitude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with simply joins one piece on after the other"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the pieces being in another word means they are placed inside it"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quarrel",
+      "gives": "TIFF",
+      "note": "a tiff is a minor quarrel"
+     },
+     {
+      "clueFragment": "superior",
+      "gives": "UPPER",
+      "note": "upper means higher or superior"
+     },
+     {
+      "clueFragment": "error",
+      "gives": "SLIP",
+      "note": "a slip is a small mistake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TIFF",
+      "UPPER",
+      "LIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Showing courage despite a mistaken row with one's boss.",
+     "walkthrough": "The stiff upper lip is the British ideal of keeping emotions hidden under strain.",
+     "definitionFit": "Keeping a stiff upper lip is the British idiom for staying stoical and unemotional in the face of hardship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "superior"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +513,70 @@
     "text": "Judges in time consumed by bias err badly",
     "enumeration": "8"
    },
-   "solution": "ARBITERS"
+   "solution": "ARBITERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARBITERS",
+    "definitions": [
+     {
+      "text": "Judges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly means done wrongly, so these letters are put into a different order"
+     },
+     {
+      "text": "consumed by",
+      "for": "container",
+      "note": "something consumed by another is swallowed up inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "the abbreviation for time"
+     },
+     {
+      "clueFragment": "bias err",
+      "gives": "BIASERR",
+      "note": "both words taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARBI",
+      "T",
+      "ERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIASERR",
+       "gives": "ARBIERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Referees, given time, let their prejudice lead them into mistakes.",
+     "walkthrough": "The letters of bias err are rearranged and T goes inside them.",
+     "definitionFit": "An arbiter settles disputes with authority, so the plural is a synonym for adjudicators or referees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bias"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +590,61 @@
     "text": "Negative methods receiving notice in these times",
     "enumeration": "8"
    },
-   "solution": "NOWADAYS"
+   "solution": "NOWADAYS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NOWADAYS",
+    "definitions": [
+     {
+      "text": "in these times",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "a word receiving another takes it in among its own letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Negative",
+      "gives": "NO",
+      "note": "a negative answer"
+     },
+     {
+      "clueFragment": "methods",
+      "gives": "WAYS",
+      "note": "ways are methods"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice, an advertisement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "W",
+      "AD",
+      "AYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Pessimistic approaches get attention in the modern world.",
+     "definitionFit": "The adverb means at the present time, contrasting today with the past, exactly as the phrase about current times does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notice"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +658,60 @@
     "text": "Level still without one floor covering",
     "enumeration": "7"
    },
-   "solution": "PARQUET"
+   "solution": "PARQUET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PARQUET",
+    "definitions": [
+     {
+      "text": "floor covering",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the named letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Level",
+      "gives": "PAR",
+      "note": "on a par means level"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "QUIET",
+      "note": "still means silent"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "QUET"
+     ]
+    },
+    "explanation": {
+     "surface": "A flat, motionless floor that lacks something.",
+     "walkthrough": "QUIET loses its I to give QUET.",
+     "definitionFit": "Parquet is flooring of wooden blocks laid in a geometric pattern, so it covers a floor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Level"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +725,60 @@
     "text": "One doing less well than expected, suffering ruin, ached continually",
     "enumeration": "13"
    },
-   "solution": "UNDERACHIEVER"
+   "solution": "UNDERACHIEVER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNDERACHIEVER",
+    "definitions": [
+     {
+      "text": "One doing less well than expected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering words are damaged and knocked out of shape, so their letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruin, ached",
+      "gives": "RUINACHED",
+      "note": "both words taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "continually",
+      "gives": "EVER",
+      "note": "ever means always, continually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDERACHI",
+      "EVER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUINACHED",
+       "gives": "UNDERACHI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disappointing performer whose ruin brings constant pain.",
+     "definitionFit": "An underachiever performs below their ability or below what others predicted, the very description in the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +792,53 @@
     "text": "Colourful display in fantastic bar I own",
     "enumeration": "7"
    },
-   "solution": "RAINBOW"
+   "solution": "RAINBOW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RAINBOW",
+    "definitions": [
+     {
+      "text": "Colourful display",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fantastic",
+      "for": "anagram",
+      "note": "fantastic means wildly imagined, so these letters are reshaped into something new"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar I own",
+      "gives": "BARIOWN",
+      "note": "three words taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BARIOWN",
+       "gives": "RAINBOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pub landlord boasts of the brilliant light show at their place.",
+     "definitionFit": "A rainbow is the arc of spectral colours seen when sunlight passes through raindrops, a vivid show in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +852,68 @@
     "text": "Run into a wild, rough old animal",
     "enumeration": "9"
    },
-   "solution": "ARMADILLO"
+   "solution": "ARMADILLO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ARMADILLO",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into a word means being placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "the cricket abbreviation for a run"
+     },
+     {
+      "clueFragment": "a wild",
+      "gives": "AMAD",
+      "note": "a taken as written, and wild means mad"
+     },
+     {
+      "clueFragment": "rough",
+      "gives": "ILL",
+      "note": "feeling rough means feeling ill"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "MAD",
+      "ILL",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bumps into a savage, ageing, shaggy beast.",
+     "walkthrough": "R goes into A MAD after the A. Rough as a description of the animal looks like the definition, but it means unwell.",
+     "definitionFit": "The armadillo is a burrowing American mammal protected by bony plates, so it is an animal by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rough"
+    }
+   }
   },
   {
    "number": 13,
@@ -237,7 +927,67 @@
     "text": "Certain alien back in fashion",
     "enumeration": "5"
    },
-   "solution": "FATED"
+   "solution": "FATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "FATED",
+    "definitions": [
+     {
+      "text": "Certain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means going backwards, so the word is read from its end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the film's extra-terrestrial"
+     },
+     {
+      "clueFragment": "fashion",
+      "gives": "FAD",
+      "note": "a fad is a passing fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "TE",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "ET",
+       "to": "TE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A particular extraterrestrial is trendy again.",
+     "walkthrough": "Certain looks like a qualifier for alien but is the definition, in the sense of bound to happen.",
+     "definitionFit": "Something fated is destined by fate, so it is sure to happen, which is one sense of the adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Certain"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1007,96 @@
      }
     ]
    },
-   "solution": "GRAYSONPERRY"
+   "solution": "GRAYSONPERRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "GRAYSON PERRY",
+    "definitions": [
+     {
+      "text": "Artist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, so only its last letter is kept"
+     },
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is smashed into pieces, so these letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word about another wraps around it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "the abbreviation for good"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "a Royal Academician"
+     },
+     {
+      "clueFragment": "clarity",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of clarity"
+     },
+     {
+      "clueFragment": "sad",
+      "gives": "SORRY",
+      "note": "sorry means sad or regretful"
+     },
+     {
+      "clueFragment": "pen",
+      "gives": "PEN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RA",
+      "Y",
+      "SO",
+      "NPE",
+      "RRY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PEN",
+       "gives": "NPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clear-sighted painter is upset about a broken pen.",
+     "walkthrough": "The clue says 'artist' twice: the first defines, the second is RA, a member of the Royal Academy.",
+     "definitionFit": "Grayson Perry is the English potter and Turner Prize winner known for ceramics, tapestries and cross-dressing alter ego Claire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sad"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1110,71 @@
     "text": "Beatles song certainly rated uncommonly higher than unknown quantity",
     "enumeration": "9"
    },
-   "solution": "YESTERDAY"
+   "solution": "YESTERDAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "YESTERDAY",
+    "definitions": [
+     {
+      "text": "Beatles song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncommonly",
+      "for": "anagram",
+      "note": "uncommonly means in an unusual way, so these letters are placed in an unusual order"
+     },
+     {
+      "text": "higher than",
+      "for": "charade",
+      "note": "in a down entry, what is higher than another piece comes before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certainly",
+      "gives": "YES",
+      "note": "yes means certainly"
+     },
+     {
+      "clueFragment": "rated",
+      "gives": "RATED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "unknown quantity",
+      "gives": "Y",
+      "note": "y is an algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YES",
+      "TERDA",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATED",
+       "gives": "TERDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Beatles number is surely rated more highly than a mystery.",
+     "definitionFit": "Yesterday is the 1965 Paul McCartney ballad recorded by the Beatles, among the most covered pop songs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "quantity"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1194,67 @@
      }
     ]
    },
-   "solution": "SUMMEDUP"
+   "solution": "SUMMEDUP",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SUMMED UP",
+    "definitions": [
+     {
+      "text": "described concisely",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     },
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Day",
+      "gives": "D",
+      "note": "the abbreviation for day"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "SUMMER",
+      "note": "summer is a season"
+     },
+     {
+      "clueFragment": "cheerful",
+      "gives": "UP",
+      "note": "feeling up means feeling cheerful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUMME",
+      "D",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A summer's day spent in constant good spirits, captured in a few words.",
+     "walkthrough": "D goes into SUMMER before its R, and that R is then cut off, leaving SUMMED.",
+     "definitionFit": "To sum up is to give a brief overview, so something summed up has been put into few words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1268,71 @@
     "text": "Sailor breaking rule or prepared to give a hand?",
     "enumeration": "8"
    },
-   "solution": "LABOURER"
+   "solution": "LABOURER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LABOURER",
+    "definitions": [
+     {
+      "text": "a hand",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared means made up or worked over, so these letters are arranged afresh"
+     },
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "a word breaking another bursts into the middle of it"
+     }
+    ],
+    "linkWords": [
+     "to give"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "an able seaman"
+     },
+     {
+      "clueFragment": "rule or",
+      "gives": "RULEOR",
+      "note": "both words taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "AB",
+      "OURER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RULEOR",
+       "gives": "LOURER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is a seaman who flouts the regulations still willing to help out?",
+     "walkthrough": "'Prepared to give a hand' looks like the definition, but prepared works on the letters and only 'a hand' defines.",
+     "definitionFit": "A hand is a manual worker, as in a farm hand or factory hand, so a labourer fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1346,60 @@
     "text": "Not familiar with upper-class conduct, same all over the place",
     "enumeration": "12"
    },
-   "solution": "UNACCUSTOMED"
+   "solution": "UNACCUSTOMED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "UNACCUSTOMED",
+    "definitions": [
+     {
+      "text": "Not familiar with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "things all over the place are scattered in disorder, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the label for upper-class usage"
+     },
+     {
+      "clueFragment": "conduct, same",
+      "gives": "CONDUCTSAME",
+      "note": "both words taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NACCUSTOMED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CONDUCTSAME",
+       "gives": "NACCUSTOMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is not used to posh manners, which seem identical and chaotic.",
+     "definitionFit": "Being unaccustomed to something means having no experience of it, so you are not used to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conduct"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1413,42 @@
     "text": "Beautiful guess",
     "enumeration": "6"
    },
-   "solution": "DIVINE"
+   "solution": "DIVINE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DIVINE",
+    "definitions": [
+     {
+      "text": "Beautiful",
+      "at": 0
+     },
+     {
+      "text": "guess",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beautiful",
+      "note": "first meaning: lovely, heavenly"
+     },
+     {
+      "clueFragment": "guess",
+      "note": "second meaning: to work something out by intuition"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "An adjective and a verb that happen to share one spelling.",
+     "definitionFit": "Informally divine means delightful or gorgeous; as a verb it means to discover by insight, as a guess does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guess"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1462,55 @@
     "text": "Refuse to accept hard defeat",
     "enumeration": "6"
    },
-   "solution": "THRASH"
+   "solution": "THRASH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THRASH",
+    "definitions": [
+     {
+      "text": "defeat",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "a word that accepts another takes it into itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refuse",
+      "gives": "TRASH",
+      "note": "refuse is rubbish, trash"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "the pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "RASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines to take a heavy loss.",
+     "walkthrough": "Refuse looks like a verb, to decline, but it is the noun meaning rubbish.",
+     "definitionFit": "To thrash an opponent is to beat them heavily, so the verb is an informal synonym for trounce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1524,81 @@
     "text": "One with force reflected about love for language",
     "enumeration": "5"
    },
-   "solution": "MAORI"
+   "solution": "MAORI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "MAORI",
+    "definitions": [
+     {
+      "text": "language",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with simply joins one piece on after the other"
+     },
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection in a mirror runs the opposite way, so the letters are read backwards"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word about another goes around it"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "RAM",
+      "note": "to ram is to force"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "O",
+      "RI"
+     ],
+     "reversals": [
+      {
+       "from": "IRAM",
+       "to": "MARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone forceful turns around for love of a tongue.",
+     "walkthrough": "The first two pieces are joined before being read backwards, and only then wrapped around love. Love is zero in tennis scoring, hence the round letter.",
+     "definitionFit": "Maori is the Polynesian tongue of New Zealand's indigenous people, an official language there alongside English."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1612,73 @@
     "text": "Sorry about thousand libels, criminally elaborate",
     "enumeration": "9"
    },
-   "solution": "EMBELLISH"
+   "solution": "EMBELLISH",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "EMBELLISH",
+    "definitions": [
+     {
+      "text": "elaborate",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word about others goes around them"
+     },
+     {
+      "text": "criminally",
+      "for": "anagram",
+      "note": "criminally means wrongly or unlawfully, so these letters are put out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sorry",
+      "gives": "EH",
+      "note": "eh? is what you say when you ask someone to repeat themselves"
+     },
+     {
+      "clueFragment": "thousand",
+      "gives": "M",
+      "note": "the Roman numeral for a thousand"
+     },
+     {
+      "clueFragment": "libels",
+      "gives": "LIBELS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "M",
+      "BELLIS",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIBELS",
+       "gives": "BELLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An apology about vast defamation that was wickedly exaggerated.",
+     "walkthrough": "Sorry here is the question 'Sorry?' asked by someone who has misheard, which is EH, not an apology.",
+     "definitionFit": "To embellish is to add decoration or detail, so as a verb elaborate is a close synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sorry"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1692,49 @@
     "text": "Stop working for lord",
     "enumeration": "5"
    },
-   "solution": "BARON"
+   "solution": "BARON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BARON",
+    "definitions": [
+     {
+      "text": "lord",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "BAR",
+      "note": "to bar is to stop"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to cease labouring on behalf of a nobleman.",
+     "definitionFit": "A baron is the lowest rank of the British peerage, addressed as Lord, so he is a nobleman."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1748,61 @@
     "text": "Energy in motivation daughter gained",
     "enumeration": "7"
    },
-   "solution": "DERIVED"
+   "solution": "DERIVED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "DERIVED",
+    "definitions": [
+     {
+      "text": "gained",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "the physics symbol for energy"
+     },
+     {
+      "clueFragment": "motivation",
+      "gives": "DRIVE",
+      "note": "drive is motivation"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "E",
+      "RIVE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter acquired vigour and ambition.",
+     "definitionFit": "Something derived has been obtained or drawn from a source, so it matches gained as a past participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Energy"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1816,74 @@
     "text": "Model army's leader after survival seizing power",
     "enumeration": "7"
    },
-   "solution": "REPLICA"
+   "solution": "REPLICA",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REPLICA",
+    "definitions": [
+     {
+      "text": "Model",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seizing",
+      "for": "container",
+      "note": "a word seizing another grabs it and holds it inside"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its front, so only its first letter is kept"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places one piece behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "survival",
+      "gives": "RELIC",
+      "note": "a relic is something surviving from the past"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "the abbreviation for power"
+     },
+     {
+      "clueFragment": "army's",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "P",
+      "LIC",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A military figure, having outlasted all, takes over government.",
+     "walkthrough": "Survival here is a noun for a thing that has survived from the past, not the act of surviving.",
+     "definitionFit": "A replica is an exact copy, so a scale model of something is one kind of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1897,61 @@
     "text": "Painting left strangely grainy",
     "enumeration": "10"
    },
-   "solution": "PORTRAYING"
+   "solution": "PORTRAYING",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PORTRAYING",
+    "definitions": [
+     {
+      "text": "Painting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so these letters come out in an odd order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     },
+     {
+      "clueFragment": "grainy",
+      "gives": "GRAINY",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PORT",
+      "RAYING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRAINY",
+       "gives": "RAYING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A canvas was abandoned looking oddly textured.",
+     "walkthrough": "Painting reads as a noun for the picture but is the verb form, depicting.",
+     "definitionFit": "Portraying means depicting someone in a picture or words, so painting in the sense of representing is a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Painting"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1965,42 @@
     "text": "Network becomes helpful to some extent",
     "enumeration": "4"
    },
-   "solution": "MESH"
+   "solution": "MESH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MESH",
+    "definitions": [
+     {
+      "text": "Network",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "to some extent means only partly, so just a part of the words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "becomes helpful",
+      "gives": "MESH",
+      "note": "sitting across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A web of contacts proves partly useful.",
+     "definitionFit": "A mesh is a net of interlaced strands, so it is a synonym for a network of connected threads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Network"
+    }
+   }
   }
  ]
 }
