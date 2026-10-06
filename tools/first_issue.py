@@ -53,7 +53,8 @@ SOURCES = {
                         "Wayback holds in 2006 (tools/ft_pdf_puzzles.py index), and the "
                         "archive.org FT scans in 1971 (tools/file_archive_org_puzzles.py)"),
     "genius": (None, "the Guardian's Genius PDFs start around No 147 in 2016 (tools/genius_puzzles.py)"),
-    "azed": (None, "fifteensquared.net's Azed posts start in 2006 (tools/azed_puzzles.py)"),
+    "azed": (None, ("the Guardian's copies andlit.org.uk's index links start at No 1734 in 2005 "
+                    "(tools/andlit_azed.py), fifteensquared.net's posts in 2006 (tools/azed_puzzles.py)")),
     "listener": (None, "filed from the Listener Team's archive by tools/listener_puzzles.py"),
     "telegraph": (None, _TELEGRAPH),
     "toughie": (None, _TELEGRAPH),

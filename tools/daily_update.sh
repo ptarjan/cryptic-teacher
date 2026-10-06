@@ -287,6 +287,22 @@ else
 fi
 rm -f "$ft_out"
 
+phase azed 10
+# --- 1c1. The Observer's Azed from the Guardian's printable copies ---
+# tools/andlit_azed.py fetches the next copies andlit.org.uk's index links
+# (2s apart, oldest unfiled first), then files every cached copy whose grid
+# and clue list agree. Bounded per night so the archive drains politely.
+AZED_PER_NIGHT="${AZED_PER_NIGHT:-40}"
+azed_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-azed.XXXXXX")"
+if python3 tools/andlit_azed.py nightly --limit "$AZED_PER_NIGHT" >"$azed_out" 2>&1; then
+  grep -v '^  No ' "$azed_out"
+  grep -q '^filed [1-9]' "$azed_out" && python3 tools/fetch_puzzle.py --reindex
+else
+  cat "$azed_out"
+  alert "tools/andlit_azed.py failed, so no Azed is filed from the Guardian's copies until it is fixed:"$'\n'"\`\`\`"$'\n'"$(tail -12 "$azed_out" | cut -c1-200)"$'\n'"\`\`\`"
+fi
+rm -f "$azed_out"
+
 phase cross-validate 30
 # --- 1c3. Every copy of a puzzle at once (tools/cross_validate.py all) ---
 # Each pair above compares ours with one other copy. This puts every copy we

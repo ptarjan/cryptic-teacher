@@ -260,6 +260,11 @@ ACQUIRED_BY = {
         "what": "a fifteensquared write-up of the Observer's Azed: its clues and "
                 "numbered answers, the bars rebuilt from them by "
                 "tools/barred_grid.py's search"},
+    "tools/andlit_azed.py": {
+        "channel": "publisher",
+        "what": "the Guardian's printable copy of the Observer's Azed, reached through "
+                "andlit.org.uk's Azed index: clues and the barred grid read from the "
+                "HTML print page or vector PDF, answers fifteensquared's"},
     "tools/genius_puzzles.py": {
         "channel": "publisher",
         "what": "the Guardian's printable Genius PDF on uploads.guim.co.uk, its "
@@ -330,6 +335,11 @@ ACQUISITION_BY_SOURCE = {
                                     "tools/ft_pdf_puzzles.py --wayback"),
     # A second series off fifteensquared, which BLOG_FILER names the FT's filer for.
     ("azed", "fifteensquared.net"): ("tools/azed_puzzles.py",),
+    # The Guardian's printable copies, found through andlit.org.uk's index.
+    ("azed", "www.theguardian.com"): ("tools/andlit_azed.py",),
+    ("azed", "image.guardian.co.uk"): ("tools/andlit_azed.py",),
+    ("azed", "static.guim.co.uk"): ("tools/andlit_azed.py",),
+    ("azed", "uploads.guim.co.uk"): ("tools/andlit_azed.py",),
     ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),

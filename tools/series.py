@@ -237,8 +237,9 @@ SERIES = {
         "datedFromNeighbours": True,
     },
     # The Observer's barred Sunday puzzle, numbered on its own and always set
-    # by Azed: the bars rebuilt from fifteensquared's numbered answers
-    # (tools/azed_puzzles.py), as the Mephisto's are from its blog.
+    # by Azed: read from the Guardian's printable copies, grid and all
+    # (tools/andlit_azed.py), else the bars rebuilt from fifteensquared's
+    # numbered answers (tools/azed_puzzles.py), as the Mephisto's are.
     "azed": {
         "kind": "Azed",
         "publisher": "Observer",
