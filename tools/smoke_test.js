@@ -5018,8 +5018,11 @@ global.realSetTimeout(() => {
   // clue that renders as plain flowing text at rest and as N bordered chips
   // once tapping starts passes a "contains guess-clue" check just fine while
   // still reflowing under the solver.
+  // The worded count "(7, two words)" stays in the text and is not a box
+  // (app.js clueTokens).
   const wordCount = (clue) =>
-    (clue.match(/\S+/g) || []).length;
+    (clue.replace(/\(\s*\d{1,2}\s*,\s*(two|three|four|five|six|seven|eight)\s+words\s*\)\s*$/i, "")
+      .match(/\S+/g) || []).length;
   const boxCount = (html) => (html.match(/class="gw/g) || []).length;
   const restingHTML = registry["hint-clue"].innerHTML;
   const restingBoxes = boxCount(restingHTML);
