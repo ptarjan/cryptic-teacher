@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Mostly saves for a long time then tears to pieces",
     "enumeration": "7"
    },
-   "solution": "SAVAGES"
+   "solution": "SAVAGES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SAVAGES",
+    "definitions": [
+     {
+      "text": "tears to pieces",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all of the word is kept, so its tail end is cut off"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saves",
+      "gives": "SAVES",
+      "note": "taken as written before its ending is trimmed"
+     },
+     {
+      "clueFragment": "for a long time",
+      "gives": "AGES",
+      "note": "'for ages' means for a long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAV",
+      "AGES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hoards things for ages and then rips them up in a rage.",
+     "walkthrough": "Here 'mostly' drops the last two letters of saves, leaving SAV, a little more than the usual single letter.",
+     "definitionFit": "To savage something is to attack it ferociously, mauling or ripping it apart, as a dog might."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saves"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,65 @@
     "text": "Agreed ladettes removed a drunk",
     "enumeration": "7"
    },
-   "solution": "SETTLED"
+   "solution": "SETTLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SETTLED",
+    "definitions": [
+     {
+      "text": "Agreed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "something removed is taken away, so the single letter named next is struck out of the word"
+     },
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the remaining letters lurch into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladettes",
+      "gives": "LADETTES",
+      "note": "taken as written; ladettes are rowdy young women"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter to be taken out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SETTLED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LDETTES",
+       "gives": "SETTLED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A group of boisterous young women agree that one of them, having had too much, should be thrown out.",
+     "walkthrough": "Ladette is British slang for a young woman who behaves loudly and drinks heavily. Take the A out of it before rearranging.",
+     "definitionFit": "A matter that is settled has been decided or resolved, with all parties in accord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drunk"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,44 @@
     "text": "Offer to work for no money",
     "enumeration": "9"
    },
-   "solution": "VOLUNTEER"
+   "solution": "VOLUNTEER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VOLUNTEER",
+    "definitions": [
+     {
+      "text": "Offer",
+      "at": 0
+     },
+     {
+      "text": "work for no money",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Offer",
+      "note": "first meaning: to put yourself forward for a task"
+     },
+     {
+      "clueFragment": "work for no money",
+      "note": "second meaning: to do a job unpaid, as a charity helper does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase, an offer to work unpaid, but the verb and the description of unpaid labour are two separate senses of one word.",
+     "definitionFit": "To volunteer is both to offer your services freely and to do unpaid work as a helper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +224,45 @@
     "text": "Overeat Cheddar?",
     "enumeration": "5"
    },
-   "solution": "GORGE"
+   "solution": "GORGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GORGE",
+    "definitions": [
+     {
+      "text": "Overeat",
+      "at": 0
+     },
+     {
+      "text": "Cheddar",
+      "at": 8,
+      "note": "an example: Cheddar Gorge, not a synonym"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overeat",
+      "note": "first meaning: to stuff yourself with food"
+     },
+     {
+      "clueFragment": "Cheddar",
+      "note": "second meaning: a famous limestone ravine in Somerset, England"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether eating too much cheese counts as overindulging.",
+     "walkthrough": "Cheddar looks like the cheese, tying in with overeating, but it is the village whose deep ravine, Cheddar Gorge, is a well-known English landmark; the question mark flags the example.",
+     "definitionFit": "To gorge is to eat greedily to excess, and a gorge is a steep narrow valley such as the one at Cheddar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cheddar"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +276,50 @@
     "text": "Saint gagged and put on the rack",
     "enumeration": "9"
    },
-   "solution": "STRETCHED"
+   "solution": "STRETCHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRETCHED",
+    "definitions": [
+     {
+      "text": "put on the rack",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ST",
+      "note": "standard abbreviation for saint"
+     },
+     {
+      "clueFragment": "gagged",
+      "gives": "RETCHED",
+      "note": "gagged in the sense of heaved, almost vomited"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RETCHED"
+     ]
+    },
+    "explanation": {
+     "surface": "A martyred saint is silenced and tortured.",
+     "walkthrough": "Gagged suggests being silenced with a cloth, but here it means retching.",
+     "definitionFit": "The rack was a torture device that pulled a victim's limbs, so someone put on it was pulled out lengthways."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gagged"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +333,50 @@
     "text": "Smallest skirt for mother",
     "enumeration": "7"
    },
-   "solution": "MINIMUM"
+   "solution": "MINIMUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINIMUM",
+    "definitions": [
+     {
+      "text": "Smallest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skirt",
+      "gives": "MINI",
+      "note": "a mini is a very short skirt"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MUM",
+      "note": "British informal word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "MUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone picks out the tiniest skirt as a present for their mother.",
+     "definitionFit": "The minimum is the least possible amount, so it serves as an adjective meaning least or lowest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "skirt"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +390,48 @@
     "text": "Sentimental about peas?",
     "enumeration": "5"
    },
-   "solution": "MUSHY"
+   "solution": "MUSHY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MUSHY",
+    "definitions": [
+     {
+      "text": "Sentimental",
+      "at": 0
+     },
+     {
+      "text": "peas",
+      "at": 18,
+      "note": "describes the peas rather than meaning them"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sentimental",
+      "note": "first meaning: soppy, overly emotional"
+     },
+     {
+      "clueFragment": "peas",
+      "note": "second meaning: the word that goes before peas in a British side dish of mashed marrowfat peas"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone gets weepy and emotional about a dish of peas.",
+     "walkthrough": "Mushy peas are a British chip-shop side dish of soft mashed peas; the question mark signals the answer describes the peas.",
+     "definitionFit": "Soppy, cloying emotion is often called mushy, and soft pulped peas are literally so."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "peas"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +445,53 @@
     "text": "Story turned into rant on air",
     "enumeration": "9"
    },
-   "solution": "NARRATION"
+   "solution": "NARRATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NARRATION",
+    "definitions": [
+     {
+      "text": "Story",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "anagram",
+      "note": "turned means twisted around, so the letters that follow are put in a different order"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rant on air",
+      "gives": "RANTONAIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RANTONAIR",
+       "gives": "NARRATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale turns into an angry tirade when a broadcaster goes on air.",
+     "definitionFit": "A narration is a spoken or written account of events, the telling of a tale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +505,59 @@
     "text": "Majority accept Matilda is slightly wet",
     "enumeration": "5"
    },
-   "solution": "MOIST"
+   "solution": "MOIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOIST",
+    "definitions": [
+     {
+      "text": "slightly wet",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accept",
+      "for": "container",
+      "note": "to accept is to take in, so the first word holds the second within it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Majority",
+      "gives": "MOST",
+      "note": "the most is the greater part"
+     },
+     {
+      "clueFragment": "Matilda",
+      "gives": "I",
+      "note": "Matilda is the setter, who refers to herself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "I",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Most people agree that Matilda is a bit damp.",
+     "walkthrough": "A setter naming herself in a clue stands for I or ME; Matilda is this puzzle's setter.",
+     "definitionFit": "Moist describes something lightly damp, holding a little water without being soaked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Matilda"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +571,46 @@
     "text": "Game editor suited",
     "enumeration": "7"
    },
-   "solution": "MATCHED"
+   "solution": "MATCHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATCHED",
+    "definitions": [
+     {
+      "text": "suited",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "MATCH",
+      "note": "a match is a game or contest"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATCH",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A games editor approves something as fitting.",
+     "definitionFit": "Things that are matched go well together, so they are suited to each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +624,56 @@
     "text": "In brochure: literature about someone who works with walls and floors",
     "enumeration": "5"
    },
-   "solution": "TILER"
+   "solution": "TILER",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TILER",
+    "definitions": [
+     {
+      "text": "someone who works with walls and floors",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the run of words that follows"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the concealed letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brochure: literature",
+      "gives": "RELIT",
+      "note": "concealed across the end of the first word and start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "RELIT",
+       "to": "TILER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trade brochure carries reading matter about a tradesman who finishes walls and floors.",
+     "definitionFit": "A tiler is a tradesperson who lays ceramic tiles on walls, floors and bathroom surfaces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +687,55 @@
     "text": "Control coach interfering with others",
     "enumeration": "9"
    },
-   "solution": "RESTRAINT"
+   "solution": "RESTRAINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESTRAINT",
+    "definitions": [
+     {
+      "text": "Control",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interfering with",
+      "for": "container",
+      "note": "something interfering with a thing gets into the middle of it, so one word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "others",
+      "gives": "REST",
+      "note": "the rest are the others"
+     },
+     {
+      "clueFragment": "coach",
+      "gives": "TRAIN",
+      "note": "to coach is to train"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "TRAIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Discipline is needed when a sports coach meddles with the other players.",
+     "walkthrough": "Coach looks like a noun, a trainer or a bus, but works as the verb.",
+     "definitionFit": "Restraint is the act of holding back or keeping something in check, which is control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coach"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +749,65 @@
     "text": "Gently unravel line, gently cutting top",
     "enumeration": "9"
    },
-   "solution": "LENIENTLY"
+   "solution": "LENIENTLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LENIENTLY",
+    "definitions": [
+     {
+      "text": "Gently",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting top",
+      "for": "deletion",
+      "note": "cutting the top lops off the head, so the opening letter is dropped"
+     },
+     {
+      "text": "unravel",
+      "for": "anagram",
+      "note": "to unravel is to undo and tangle loose, so the letters come apart and regroup"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "LINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "gently",
+      "gives": "GENTLY",
+      "note": "taken as written, then beheaded"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LENIENTLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LINEENTLY",
+       "gives": "LENIENTLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for carefully untangling a line, like fishing line, and trimming the end.",
+     "walkthrough": "The first 'Gently' is the definition; the second loses its G and joins line in the letter mix.",
+     "definitionFit": "Acting leniently means treating someone mildly and without harshness, which is gentle treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unravel"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +821,39 @@
     "text": "Don't drop this letter!",
     "enumeration": "5"
    },
-   "solution": "AITCH"
+   "solution": "AITCH",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AITCH",
+    "definitions": [
+     {
+      "text": "Don't drop this letter!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don't drop this letter!",
+      "note": "surface reading: a warning not to let a piece of post fall"
+     },
+     {
+      "clueFragment": "this letter",
+      "note": "setter's reading: the name of the eighth letter of the alphabet, which many British speakers famously leave unsaid at the start of words"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Dropping your aitches' is the British phrase for not sounding the H, as in 'ouse for house'; the clue is the scolding a teacher might give.",
+     "definitionFit": "The spelled-out name of the letter H is what people are told not to drop in speech."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +867,58 @@
     "text": "Fear of father taking note",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Fear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means holding on to, so the first word takes the second inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "DAD",
+      "note": "informal word for father"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "the second note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A child is afraid of their father noticing something.",
+     "walkthrough": "RE is the second note in do-re-mi.",
+     "definitionFit": "Dread is great fear or apprehension about something to come, so the two nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +938,47 @@
      }
     ]
    },
-   "solution": "DOINGTIME"
+   "solution": "DOINGTIME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOING TIME",
+    "definitions": [
+     {
+      "text": "inside",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carrying out",
+      "gives": "DOING",
+      "note": "doing a task is carrying it out"
+     },
+     {
+      "clueFragment": "schedule",
+      "gives": "TIME",
+      "note": "to time something is to schedule it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOING",
+      "TIME"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone carries out a timetable while indoors.",
+     "walkthrough": "Inside looks like a container signal but is the definition: slang for being in prison.",
+     "definitionFit": "Doing time is the idiom for serving a prison sentence, and being inside is slang for being jailed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "inside"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +998,51 @@
      }
     ]
    },
-   "solution": "HAMFISTED"
+   "solution": "HAMFISTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAM-FISTED",
+    "definitions": [
+     {
+      "text": "Clumsy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chaotic",
+      "for": "anagram",
+      "note": "chaotic means in disorder, so the letters that follow are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm shafted",
+      "gives": "IMSHAFTED",
+      "note": "taken as written, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMSHAFTED",
+       "gives": "HAMFISTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bumbling, disorderly person complains that they have been cheated.",
+     "walkthrough": "Shafted is British slang for treated unfairly.",
+     "definitionFit": "Ham-fisted describes someone awkward and heavy-handed, lacking dexterity, which is clumsy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "chaotic"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1056,45 @@
     "text": "It was said guys rejected broadcast",
     "enumeration": "9"
    },
-   "solution": "MENTIONED"
+   "solution": "MENTIONED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MENTIONED",
+    "definitions": [
+     {
+      "text": "broadcast",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "It was said",
+      "for": "homophone",
+      "note": "was said points to how the phrase sounds when spoken rather than how it is spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guys rejected",
+      "gives": "MENTIONED",
+      "soundsLike": "MEN SHUNNED",
+      "note": "guys are men, and rejected means shunned; said together the phrase becomes one word"
+     }
+    ],
+    "explanation": {
+     "surface": "A report claims some men were turned away from a broadcast.",
+     "walkthrough": "'It was said' looks like the definition, but it is the sound signal; the definition is the last word.",
+     "definitionFit": "Something broadcast has been made known publicly, and something mentioned has been spoken of or made known."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1118,55 @@
      }
     ]
    },
-   "solution": "TAKEAHINT"
+   "solution": "TAKEAHINT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TAKE A HINT",
+    "definitions": [
+     {
+      "text": "Understand the subtlety",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown out",
+      "for": "anagram",
+      "note": "things thrown out are scattered, so these letters land in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kit Athena",
+      "gives": "KITATHENA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KITATHENA",
+       "gives": "TAKEAHINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone grasps the meaning behind a goddess's gear being discarded.",
+     "walkthrough": "The 's of Athena's is read as 'is', linking fodder and indicator.",
+     "definitionFit": "To take a hint is to pick up on an indirect suggestion, grasping what was implied subtly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Athena"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1180,70 @@
     "text": "Pro offer Ned rejected is not allowed",
     "enumeration": "9"
    },
-   "solution": "FORBIDDEN"
+   "solution": "FORBIDDEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "FORBIDDEN",
+    "definitions": [
+     {
+      "text": "not allowed",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected means sent back, so the name is written in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pro",
+      "gives": "FOR",
+      "note": "to be pro something is to be for it"
+     },
+     {
+      "clueFragment": "offer",
+      "gives": "BID",
+      "note": "a bid is an offer, as at auction"
+     },
+     {
+      "clueFragment": "Ned",
+      "gives": "NED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "BID",
+      "DEN"
+     ],
+     "reversals": [
+      {
+       "from": "NED",
+       "to": "DEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A professional's offer to someone called Ned is turned down as against the rules.",
+     "walkthrough": "Pro looks like a professional, but here it is the opposite of con.",
+     "definitionFit": "Something forbidden is prohibited or banned, which is exactly not permitted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pro"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1257,61 @@
     "text": "Refuse female almost deliriously",
     "enumeration": "7"
    },
-   "solution": "FLOTSAM"
+   "solution": "FLOTSAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "FLOTSAM",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deliriously",
+      "for": "anagram",
+      "note": "someone delirious is wildly confused, so the preceding word's letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation for female"
+     },
+     {
+      "clueFragment": "almost",
+      "gives": "ALMOST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOTSAM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALMOST",
+       "gives": "LOTSAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman nearly says no in a feverish frenzy.",
+     "walkthrough": "Refuse reads as the verb, to say no, but it is the noun meaning rubbish; almost is fodder, not a deletion signal.",
+     "definitionFit": "Flotsam is floating wreckage and debris, so it is rubbish or waste material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "almost"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1325,44 @@
     "text": "Some snake danced — not 20!",
     "enumeration": "5"
    },
-   "solution": "NAKED"
+   "solution": "NAKED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NAKED",
+    "definitions": [
+     {
+      "text": "not 20",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so only part of the following words is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "snake danced",
+      "gives": "NAKED",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A snake performs a dance, apparently without any clothes on.",
+     "walkthrough": "20 refers to the answer at 20 down, DRESSED, so 'not 20' is its opposite.",
+     "definitionFit": "Being naked means wearing no clothing, the opposite of being clothed or covered up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "danced"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1376,44 @@
     "text": "Covered crab or salad?",
     "enumeration": "7"
    },
-   "solution": "DRESSED"
+   "solution": "DRESSED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRESSED",
+    "definitions": [
+     {
+      "text": "Covered",
+      "at": 0
+     },
+     {
+      "text": "crab or salad",
+      "at": 8,
+      "note": "describes the dishes rather than meaning them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Covered",
+      "note": "first meaning: wearing clothes"
+     },
+     {
+      "clueFragment": "crab or salad",
+      "note": "second meaning: the word for a crab cleaned and served in its shell, or a salad with its oil and vinegar added"
+     }
+    ],
+    "explanation": {
+     "surface": "Is the covered dish a crab or a salad?",
+     "definitionFit": "To be clothed is to be covered, and a crab or salad prepared with its sauce or garnish is described the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Covered"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1427,70 @@
     "text": "Turn back to secure victory that is due",
     "enumeration": "5"
    },
-   "solution": "OWING"
+   "solution": "OWING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "OWING",
+    "definitions": [
+     {
+      "text": "due",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word is written going backwards"
+     },
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it firmly, so it is wrapped around what follows"
+     }
+    ],
+    "linkWords": [
+     "that is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn",
+      "gives": "GO",
+      "note": "a go is a turn in a game"
+     },
+     {
+      "clueFragment": "victory",
+      "gives": "WIN",
+      "note": "a win is a victory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "WIN",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "GO",
+       "to": "OG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A player takes their turn again to clinch a victory they deserve.",
+     "walkthrough": "Turn back looks like a single verb but is a noun with its reversal signal.",
+     "definitionFit": "Money owing is money still to be paid, which is money due."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1504,47 @@
     "text": "In Calais lessons could be British?",
     "enumeration": "5"
    },
-   "solution": "ISLES"
+   "solution": "ISLES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ISLES",
+    "definitions": [
+     {
+      "text": "British?",
+      "at": 27,
+      "note": "an example: completes the British Isles"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Calais lessons",
+      "gives": "ISLES",
+      "note": "found across the end of the port's name and the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether classes taken in the French port of Calais count as British.",
+     "walkthrough": "The question mark signals the definition is a completion: the British Isles.",
+     "definitionFit": "The British Isles are the island group comprising Britain, Ireland and the smaller nearby islands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lessons"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1558,50 @@
     "text": "Remove a timeline accidentally",
     "enumeration": "9"
    },
-   "solution": "ELIMINATE"
+   "solution": "ELIMINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELIMINATE",
+    "definitions": [
+     {
+      "text": "Remove",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accidentally",
+      "for": "anagram",
+      "note": "something done accidentally is muddled by chance, so the letters fall into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a timeline",
+      "gives": "ATIMELINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATIMELINE",
+       "gives": "ELIMINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone deletes a project's schedule by mistake.",
+     "definitionFit": "To eliminate is to get rid of or take away completely, so the two verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accidentally"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1615,45 @@
     "text": "Probably am there ahead of schedule",
     "enumeration": "5"
    },
-   "solution": "EARLY"
+   "solution": "EARLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARLY",
+    "definitions": [
+     {
+      "text": "Probably am",
+      "at": 0,
+      "note": "a cryptic hint: a.m. hours are probably early"
+     },
+     {
+      "text": "there ahead of schedule",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Probably am",
+      "note": "first meaning: a time marked a.m. is likely to be in the first part of the day"
+     },
+     {
+      "clueFragment": "there ahead of schedule",
+      "note": "second meaning: arriving before the appointed time"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone thinks they will probably arrive before the expected time.",
+     "walkthrough": "Am looks like the verb 'I am', but it is a.m., the morning hours.",
+     "definitionFit": "Early means arriving before the due time, and the morning hours marked a.m. come at the start of the day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "am"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1667,54 @@
     "text": "Time spell without any border force",
     "enumeration": "5"
    },
-   "solution": "IMPEL"
+   "solution": "IMPEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IMPEL",
+    "definitions": [
+     {
+      "text": "force",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without any border",
+      "for": "deletion",
+      "note": "with no border means the edges are trimmed away, leaving just the inner letters of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "TIME",
+      "note": "taken as written, then its outer letters go"
+     },
+     {
+      "clueFragment": "spell",
+      "gives": "SPELL",
+      "note": "taken as written, then its outer letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentence or a magic spell is described as having no edges.",
+     "definitionFit": "To impel is to drive or push someone into action, which is to force them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1734,50 @@
      }
     ]
    },
-   "solution": "SOLDIERON"
+   "solution": "SOLDIERON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SOLDIER ON",
+    "definitions": [
+     {
+      "text": "keep at it",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "surprisingly means in an unexpected way, so the letters turn up in an unexpected order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noel or Sid",
+      "gives": "NOELORSID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOELORSID",
+       "gives": "SOLDIERON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Against expectations, either Noel or Sid perseveres.",
+     "definitionFit": "To soldier on is the idiom for carrying on doggedly despite difficulty, which is persevering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Surprisingly"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1791,49 @@
     "text": "Aches starting? Probably analgesia is needed soon",
     "enumeration": "5"
    },
-   "solution": "PAINS"
+   "solution": "PAINS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "PAINS",
+    "definitions": [
+     {
+      "text": "Aches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting",
+      "for": "letter_selection",
+      "note": "starting points to where each word begins, so only its first letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Probably analgesia is needed soon",
+      "gives": "PAINS",
+      "select": "first",
+      "note": "the opening letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAINS"
+     ]
+    },
+    "explanation": {
+     "surface": "As aches begin, someone will probably need painkillers before long.",
+     "walkthrough": "Analgesia means pain relief.",
+     "definitionFit": "Pains and aches are both physical discomfort, so the plural nouns are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starting"
+    }
+   }
   },
   {
    "number": 27,
@@ -481,7 +1847,70 @@
     "text": "Proficiency of PM snatching disturbed rest",
     "enumeration": "7"
    },
-   "solution": "MASTERY"
+   "solution": "MASTERY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MASTERY",
+    "definitions": [
+     {
+      "text": "Proficiency",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "disturbed means thrown into disorder, so the word's letters are moved about"
+     },
+     {
+      "text": "snatching",
+      "for": "container",
+      "note": "snatching means grabbing hold of, so the first piece clutches the second inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "PM",
+      "gives": "MAY",
+      "note": "Theresa May, a former British Prime Minister"
+     },
+     {
+      "clueFragment": "rest",
+      "gives": "REST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "STER",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REST",
+       "gives": "STER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prime minister's skill is shown by grabbing some broken sleep.",
+     "walkthrough": "PM looks like afternoon, but it is Prime Minister; Theresa May led the UK government from 2016 to 2019.",
+     "definitionFit": "Mastery is complete command or expert skill in a subject, which is proficiency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 28,
@@ -495,7 +1924,50 @@
     "text": "Mixed luddite cocktail",
     "enumeration": "7"
    },
-   "solution": "DILUTED"
+   "solution": "DILUTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DILUTED",
+    "definitions": [
+     {
+      "text": "Mixed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cocktail",
+      "for": "anagram",
+      "note": "a cocktail is a blend of ingredients, so the letters are blended into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "luddite",
+      "gives": "LUDDITE",
+      "note": "taken as written; a Luddite opposes new technology"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUDDITE",
+       "gives": "DILUTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A technophobe orders a mixed drink.",
+     "definitionFit": "A diluted liquid has been thinned by having water or another liquid blended into it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cocktail"
+    }
+   }
   }
  ]
 }
