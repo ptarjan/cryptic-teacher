@@ -45,7 +45,7 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 POSITIONS_PER_VOLUME = 1000
 # A reader change that should file more of a book's leaves moves this to the
 # change's date, in the same commit.
-REREAD_BEFORE = "2026-10-07"
+REREAD_BEFORE = "2026-10-06"
 # Where a borrowed book's page OCR is kept. Not /tmp: a reboot wipes it, and
 # the only way back is another loan.
 TEXT_DIR = (pathlib.Path(os.environ.get("XDG_STATE_HOME")

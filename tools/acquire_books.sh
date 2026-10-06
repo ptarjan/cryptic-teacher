@@ -50,12 +50,17 @@ echo "=== $(date '+%Y-%m-%d %H:%M:%S') acquire_books"
 # losing a race is ordinary and being unable to push twice is not.
 publish() {  # publish <subject>
   local n
-  n="$(git status --porcelain -uall -- puzzles/ | wc -l | tr -d ' ')"
+  n="$(git status --porcelain -uall -- puzzles/ clues_only/ | wc -l | tr -d ' ')"
   echo "filed $n puzzles"
   git add -A -- puzzles/ tools/data/book_reads.json
+  # Puzzles held as their clues alone (tools/clues_only.py). git add refuses a
+  # pathspec that matches nothing, and the folder exists only once one is held.
+  if [ -e clues_only ] || [ -n "$(git ls-files clues_only)" ]; then
+    git add -A -- clues_only/
+  fi
   git diff --cached --quiet && return 0
   git commit -q -m "$1: $n puzzles" \
-    -m "Filed unsolved by tools/acquire_book.py; the nightly solve queue takes them from here." ||
+    -m "Filed unsolved by tools/acquire_book.py, with a grid or as clues only; the nightly solve queue takes them from here." ||
     return 1
   git fetch -q origin master && git rebase -q --autostash origin/master &&
     git push -q origin HEAD:master || {
@@ -116,7 +121,7 @@ if [ "$streak" -ge "$STREAK_ALERT_AT" ]; then
 fi
 streak_write 0
 
-filed="$(git status --porcelain -uall -- puzzles/ | wc -l | tr -d ' ')"
+filed="$(git status --porcelain -uall -- puzzles/ clues_only/ | wc -l | tr -d ' ')"
 if [ "$filed" = 0 ]; then
   alert "reading $id off archive.org succeeded but filed no puzzle. Its report says why it rejected every leaf. See .books.log."
 fi
