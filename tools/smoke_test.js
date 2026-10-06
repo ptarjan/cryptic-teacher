@@ -3706,8 +3706,10 @@ registry["reset-puzzle"].onclick();
           Math.floor(k / n) === Math.floor((k + 1) / n)) { i = k; break; }
     }
     assert(i >= 0, "the grid has two neighbouring squares in one row");
+    // Every row of the selected clue: a linked clue lights its continuations'
+    // rows too, and those may sit in the other direction's list.
     const activeId = () =>
-      (clues.find((r) => r.classList.contains("active")) || {}).id;
+      clues.filter((r) => r.classList.contains("active")).map((r) => r.id).join(" + ");
     // Drained rather than timed: a tap on a touch device waits for the keyboard
     // it just asked for, and how long that takes is not what is being asserted.
     const tapCell = (d) => {
@@ -3720,8 +3722,11 @@ registry["reset-puzzle"].onclick();
     win.pageYOffset = 2000; win.scrolls.length = 0;
     tapCell(kids[i]);
     // Two squares side by side in a row are one across light, but only if the
-    // cursor is running across — tapping the same square again flips it.
-    if (!/across/.test(activeId() || "")) tapCell(kids[i]);
+    // cursor is running across — tapping the same square again flips it. The
+    // neighbour lit is what says so: a down clue linked to an across one lights
+    // an across row while the cursor runs down.
+    if (!kids[i + 1].classList.contains("hl")) tapCell(kids[i]);
+    assert(kids[i + 1].classList.contains("hl"), "a second tap on a square turns the cursor across");
     const same = activeId();
 
     win.pageYOffset = 2000; win.scrolls.length = 0;
