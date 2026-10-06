@@ -91,10 +91,11 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
 }
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
-# The Times pages Paul saves by hand from Gale's Times Digital Archive into
-# his Mac's inbox become Times editions for the Times slices to read, each
-# due when its file lands (tools/gale_inbox.py asks the Mac, never Gale);
-# the checklist of editions still wanted is written back beside them.
+# The Times pages Paul downloads by hand from Gale's Times Digital Archive
+# become Times editions for the Times slices to read, each due when its file
+# lands (tools/gale_inbox.py asks the Mac and the desktop, never Gale). The
+# cryptic-gale-inbox plugin does the same every 3 minutes; this run makes
+# sure the pass starts from everything that has arrived.
 python3 tools/gale_inbox.py sync ||
   echo "gale_inbox sync failed (rc=$?); the Gale pages staged before stand, the checklist is not refreshed"
 # The Listener pages he saves from Gale's Listener Historical Archive: each

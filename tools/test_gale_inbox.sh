@@ -4,12 +4,14 @@
 # number in its name, numbered from the filed puzzles either side, laid out
 # as GaleTimes<year>UKEnglish/<date> with a Gale document's link, due again
 # when a file is added or replaced for that date and no other, and gone when
-# the inbox no longer holds it?
+# the inbox no longer holds it? Is a Gale download recognised by its name or
+# citation and routed to its paper's inbox, everything else left alone, and
+# does the checklist lead with progress, pages to redo and what to search?
 #
 #     bash tools/test_gale_inbox.sh
 #
-# Synthetic pages in a temp dir: no OCR, nothing asked of the Mac or Gale,
-# nothing written outside it.
+# Synthetic pages and PDFs in a temp dir: no OCR, nothing asked of the Mac,
+# the desktop or Gale, nothing written outside it.
 set -euo pipefail
 cd "$(dirname "$0")"
 tmp=$(mktemp -d)
@@ -60,7 +62,8 @@ Image.new("RGB", (400, 300), "white").save(inbox / "GALE|IF0503151598 1988-01-12
 Image.new("RGB", (400, 300), "white").save(inbox / "holiday snap.jpg")
 (inbox / "notes.txt").write_text("not a page")
 out = io.StringIO()
-g.stage(inbox, cache, out, un)
+g.MATCHES = Path(sys.argv[1]) / "matches.json"
+g.stage(inbox, cache, out, un, g.MATCHES)
 d = cache / "GaleTimes1988UKEnglish" / "1988-01-12"
 pages = json.loads((d / "pages.json").read_text())
 check("a dated page is staged as that date's Times edition", (True, "1988-01-12", 1),
@@ -68,42 +71,111 @@ check("a dated page is staged as that date's Times edition", (True, "1988-01-12"
 check("its source link is the Gale document's", g.DOC_URL.format("IF0503151598"), fa.page_url(d, {}, 0))
 check("a page set on an archive.org-wide page", fa.SCAN_WIDTH, Image.open(d / "leaf_0000.jpg").width)
 check("a file that names no edition is listed, not staged", ["holiday snap.jpg"],
-      [m["file"] for m in json.loads(un.read_text())])
+      [m["file"] for m in json.loads(un.read_text()) if not m.get("date")])
+check("a staged page with no grid on it is listed for redoing", ["GALE|IF0503151598 1988-01-12.jpg"],
+      [m["file"] for m in json.loads(un.read_text()) if m.get("date")])
+check("each file's match is kept, so a tick re-reads only what moved", 2,
+      len(json.loads(g.MATCHES.read_text())))
 check("the Times filer finds the staged edition", [d], [e for e in fa.edition_dirs(cache, fa.TIMES)])
 check("as a Times edition", fa.TIMES, fa.paper_of(d))
 check("and no other paper's", [], fa.edition_dirs(cache, fa.FT))
 first = fa.input_hash(d)
-g.stage(inbox, cache, io.StringIO(), un)
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("an inbox unchanged leaves the edition's inputs alone", first, fa.input_hash(d))
 check("and its inputs are its files' (inputs_of)", first, fa.inputs_of(first, {"puzzles": []}, "times"))
 Image.new("RGB", (400, 300), "white").save(inbox / "1988-01-12 page 2.png")
-g.stage(inbox, cache, io.StringIO(), un)
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 second = fa.input_hash(d)
 check("a second page for the date makes that edition due", (True, 2),
       (second != first, json.loads((d / "pages.json").read_text())["leaves"]))
 Image.new("RGB", (401, 300), "black").save(inbox / "1988-01-12 page 2.png")
-g.stage(inbox, cache, io.StringIO(), un)
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("a page replaced makes it due again", True, fa.input_hash(d) not in (first, second))
 other = cache / "GaleTimes1988UKEnglish" / "1988-01-13"
 Image.new("RGB", (400, 300), "white").save(inbox / "1988-01-13.jpg")
 before = fa.input_hash(d)
-g.stage(inbox, cache, io.StringIO(), un)
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("a page for another date is its own edition, the first left alone", (True, before),
       (other.exists(), fa.input_hash(d)))
 (inbox / "1988-01-13.jpg").unlink()
-g.stage(inbox, cache, io.StringIO(), un)
+g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("a page gone from the inbox takes its edition with it", False, other.exists())
 
-# The checklist: each wanted date with its number, the worst year first,
-# an edition in the inbox marked.
+# The checklist: progress, pages to redo, the next editions with what to
+# search for, then each year, the worst first.
 g.usual_pages = lambda: {1988: (16, 24, 18)}
-html = g.checklist([(D(1987, 3, 2), "no-scan"), (D(1988, 1, 12), "no-scan"), (D(1988, 1, 13), "no-scan")],
-                   cache, un)
-check("the worst year first", True, html.index("<h2>1988: 2 missing") < html.index("<h2>1987: 1 missing"))
-check("a date's number and page", True, "<td>Tue 12 Jan 1988</td><td>17,563</td><td>p. 16-24 (most 18)</td>" in html)
-check("an estimated number is marked", True, "<td>Mon 02 Mar 1987</td><td>~" in html)
-check("a staged date is marked in the inbox", True, "in inbox (1988-01-12 page 2.png, GALE|IF0503151598 1988-01-12.jpg)" in html)
-check("the unmatched file is listed", True, "holiday snap.jpg" in html)
+rows = [(D(1987, 3, 2), "no-scan"), (D(1988, 1, 12), "no-scan"), (D(1988, 1, 13), "no-scan"),
+        (D(1988, 1, 14), "no-scan")]
+html = g.checklist(rows, cache, un)
+check("the worst year first", True, html.index("<b>1988</b>: 3 missing") < html.index("<b>1987</b>: 1 missing"))
+check("progress counts the arrived editions", True, "<b>1 of 4</b> arrived, 3 to go" in html)
+nxt = html[html.index("<h2>Next up"):html.index("<h2>Everything")]
+check("next up starts at the worst year's first edition not arrived", True,
+      nxt.index("Wed 13 Jan 1988") < nxt.index("Thu 14 Jan 1988") < nxt.index("Mon 02 Mar 1987"))
+check("an arrived edition is not next up", False, "Tue 12 Jan 1988" in nxt)
+check("a search to copy for the puzzle's number", True,
+      """onclick="cp(this,&quot;\\&quot;Crossword Puzzle No 17,564\\&quot;&quot;,'1988-01-13')">Copy</button>""" in nxt)
+check("an estimated number says so", True, "number estimated" in nxt[nxt.index("Mon 02 Mar 1987"):])
+check("a date's likely page", True, "p. 18 (or 16-24)" in nxt)
+check("an arrived edition is marked", True, "arrived (1988-01-12 page 2.png, GALE|IF0503151598 1988-01-12.jpg)" in html)
+bad = html[html.index("Redo these"):html.index('<div class="how">')]
+check("an unmatched file is listed to redo", True, "holiday snap.jpg" in bad and "Rename it" in bad)
+check("a page with no grid is listed to redo", True, "no crossword grid" in bad)
+check("the page refreshes itself", True, 'http-equiv="refresh"' in html)
+check("it sends Paul to the portal, never a Gale deep link", (True, False),
+      (g.PORTAL in html, "gale.com" in html))
+check("a page for a date the list does not ask for is flagged", [("x.pdf", True)],
+      [(f, "not on the list" in why) for f, why in g.problems(rows, held, {D(1988, 2, 1): ["x.pdf"]}, Path("/nonexistent"))])
+check("but not one already filed", [], g.problems(rows, {17396: D(1987, 6, 30)}, {D(1987, 6, 30): ["y.pdf"]},
+                                                  Path("/nonexistent")))
+
+# Recognising and routing Gale files: by Gale's document id in the name or
+# Gale's citation in a PDF's text; the drop folder takes any page file;
+# nothing else in Downloads is touched.
+def pdf(text):
+    """A one-page PDF whose text is `text`."""
+    stream = f"BT /F1 12 Tf 72 720 Td ({text}) Tj ET".encode()
+    objs = [b"<< /Type /Catalog /Pages 2 0 R >>", b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+            b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R "
+            b"/Resources << /Font << /F1 5 0 R >> >> >>",
+            b"<< /Length %d >>\nstream\n" % len(stream) + stream + b"\nendstream",
+            b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>"]
+    out, offs = bytearray(b"%PDF-1.4\n"), []
+    for i, o in enumerate(objs, 1):
+        offs.append(len(out))
+        out += b"%d 0 obj\n" % i + o + b"\nendobj\n"
+    xref = len(out)
+    out += b"xref\n0 %d\n0000000000 65535 f \n" % (len(objs) + 1) + b"".join(b"%010d 00000 n \n" % o for o in offs)
+    out += b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n" % (len(objs) + 1, xref)
+    return bytes(out)
+
+times = g.pdf_text(pdf("The Times, 12 Jan. 1988, p. 18. The Times Digital Archive. Gale Document Number: GALE|IF0503151598"))
+listener = g.pdf_text(pdf("The Listener, 5 Feb. 1970, p. 190. The Listener Historical Archive. link.gale.com/apps/doc/X"))
+tax = g.pdf_text(pdf("Notice of assessment 2025. Canada Revenue Agency"))
+check("a PDF's text is read", True, "Times Digital Archive" in times)
+check("a file that is not a PDF has no text", "", g.pdf_text(b"\xff\xd8 jpeg bytes"))
+for name, text, dropped, want in [
+        ("GALE_IF0503151598.pdf", times, False, "times"),
+        ("GALE|IF0503151598.jpg", "", False, "times"),
+        ("download.pdf", times, False, "times"),
+        ("download.pdf", listener, False, "listener"),
+        ("GALE_CS123456789.pdf", listener, False, "listener"),
+        ("TARJAN.pdf", tax, False, None),
+        ("holiday.jpg", "", False, None),
+        ("Borderlands.iso", "", False, None),
+        ("GALE_IF0503151598.crdownload", "", False, None),
+        ("scan of 1988-01-12.jpg", "", True, "times"),
+        ("listener 1970-02-05.png", "", True, "listener"),
+        ("notes.txt", "", True, None)]:
+    check(f"{name!r} ({'drop folder' if dropped else 'Downloads'}) goes to", want, g.classify(name, text, dropped))
+check("a Downloads PDF without Gale's name is read to tell", True, g.needs_text("download.pdf", False))
+check("one with Gale's name is not", False, g.needs_text("GALE_IF0503151598.pdf", False))
+check("a drop-folder PDF is read for its paper", True, g.needs_text("x.pdf", True))
+check("a name already in the inbox gets a free one", "a (3).pdf", g.free_name("a.pdf", {"a.pdf", "a (2).pdf"}))
+check("listing lines parse, junk skipped", [("downloads", 10, 1759700000, "GALE_X 1.pdf"), ("desktop", 5, 1, "y.pdf")],
+      g.parse_listing("downloads\t10\t1759700000\t./GALE_X 1.pdf\nstat: junk\ndesktop\t5\t1\ty.pdf\r\n"))
+check("the inboxes share one root on the Media share", (True, True),
+      (g.HOST_INBOX.startswith(g.GALE_ROOT + "/"), g.LISTENER_INBOX.startswith(g.GALE_ROOT + "/")))
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY

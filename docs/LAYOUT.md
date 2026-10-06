@@ -831,8 +831,9 @@ tools/prereset_backfill.sh                   burns the tail of the weekly quota 
                                              ungated
 household-plugins/<name>/plugin.toml         when and where the household bridge runs each
                                              scheduled job (daily, prereset, books, annotate
-                                             audit, corpus queue, archive coverage); symlinked
-                                             from ~/.config/household/plugins/<name>, then
+                                             audit, corpus queue, archive coverage, Gale
+                                             inbox); symlinked from
+                                             ~/.config/household/plugins/<name>, then
                                              `tools/plugins.py --write` in the household repo
 tools/test_annotate_retry.sh                 drives that resume with a fake CLI, so it is not
                                              first tried on a night it is needed
@@ -1495,12 +1496,16 @@ tools/test_ocr_remote.sh                     does tools/ocr_remote.py compare ev
                                              sent?
 tools/gale_inbox.py                          the 1974-99 Times editions archive.org has no scan
                                              of, filled by hand from Gale's Times Digital
-                                             Archive: a checklist of each one's date, number
-                                             and page, and the Mac inbox Paul saves pages into,
-                                             mirrored over the ssh hatch and staged as
+                                             Archive: sweeps each Gale download out of the
+                                             desktop's and Mac's Downloads into its paper's
+                                             inbox on the Media share, mirrors the Times one
+                                             over the ssh hatch, stages it as
                                              GaleTimes<year>UKEnglish editions for
-                                             file_archive_org_puzzles.py; never requests
-                                             anything from Gale
+                                             file_archive_org_puzzles.py, and publishes a
+                                             checklist of what to search for next and which
+                                             pages to redo; never requests anything from Gale
+tools/gale_inbox.sh                          the scheduled entry point for gale_inbox.py sync,
+                                             every 3 minutes, from a worktree
 tools/gale_listener.py                       the Listener crosswords of 1930-91, read from the
                                              pages Paul saves by hand from Gale's Listener
                                              Historical Archive: a checklist of every puzzle
@@ -1519,7 +1524,11 @@ tools/test_gale_inbox.sh                     is a page saved into the Gale inbox
                                              date by its name or puzzle number, staged as that
                                              date's Times edition with its Gale link, due again
                                              when a page is added or replaced for that date and
-                                             no other, and listed on the checklist?
+                                             no other, and listed on the checklist; is a Gale
+                                             download recognised by its name or citation and
+                                             routed to its paper's inbox, everything else left
+                                             alone; does the checklist lead with progress,
+                                             pages to redo and what to search?
 tools/test_canberra_reprint_vote.sh          does a Canberra Times reprint vote on the
                                              archive.org scan's clues like any other reading,
                                              only for the London number

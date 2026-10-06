@@ -1,0 +1,19 @@
+about    = "Sweep the Gale pages Paul downloads by hand into their inboxes on the Media share, stage them and re-render the checklist, so it ticks each one off within minutes"
+room     = "cryptic-crosswords"
+# Every 3 minutes: Paul works through the checklist with it open, and a page
+# that was the wrong one should be flagged while he is still on that issue.
+# A tick that finds nothing new is two ssh listings (Mac, desktop) and a
+# worktree reset; it stages and re-renders only when a file moved, or hourly.
+# It never asks anything of Gale.
+schedule = "*/3 * * * *"
+where    = "container"
+# The job's own worktree, which tools/nightly_worktree.sh resets to
+# origin/master on every tick, so a pushed fix is live within 3 minutes.
+run      = "/Users/pt/.cryptic-teacher/gale_inbox/tools/gale_inbox.sh"
+args     = ["sync"]
+log      = "/Users/pt/github/cryptic-teacher/.gale_inbox.log"
+timeout  = 900
+
+[env]
+XDG_CONFIG_HOME  = "/Users/pt/.config"
+CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"
