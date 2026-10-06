@@ -458,15 +458,19 @@ def reprint_of(pid, across, down, index=None):
     pair does not count). Such a leaf is not filed as `pid`: a Times
     anthology's page is the daily Times puzzle printed again, so it becomes
     one more reading of that puzzle (book_queue.save_reprint)."""
-    from clue_index import clue_keys
     if index is None:
         from fetch_puzzle import clue_index
         index = clue_index()
+    hits = index.matches(pid, leaf_keys(across, down))
+    return hits[0][0] if hits else None
+
+
+def leaf_keys(across, down):
+    """The clue_index keys of a leaf's printed clues."""
+    from clue_index import clue_keys
     texts = [((light[3] if len(light) > 3 else None) or {}).get("clue")
              for light in list(across) + list(down)]
-    keys = clue_keys({"entries": [{"clue": t} for t in texts if t]})
-    hits = index.matches(pid, keys)
-    return hits[0][0] if hits else None
+    return clue_keys({"entries": [{"clue": t} for t in texts if t]})
 
 
 # ------------------------------------------------------------------- driver
@@ -596,16 +600,26 @@ def main(argv=None):
 
     # ---- stage 3a, screening, before any search is paid for
     jobs = []
+    # The leaves of this read headed for filing, by their clues: a scan that
+    # holds one page twice yields one puzzle at two positions, and the second
+    # is the first read again, not a puzzle the corpus lacks.
+    from clue_index import ClueIndex
+    this_read = ClueIndex()
     for p in puzzles:
         bn = p["book_number"]
+        pid = puzzle_id(BOOK_SERIES, book_number(args.identifier, bn))
         across, down, notes, damage = build_spec(p)
-        copy = (reprint_of(puzzle_id(BOOK_SERIES, book_number(args.identifier, bn)),
-                           across, down) if args.file else None)
+        copy = reprint_of(pid, across, down) if args.file else None
         if copy:
             path = book_queue.save_reprint(copy, args.identifier, bn, across, down)
             print(f"  #{bn} reprints {copy}: kept as a reading of it at {path}",
                   file=sys.stderr)
             rows[bn] = {"book_number": bn, "status": "reprint", "reprint_of": copy}
+            continue
+        twin = reprint_of(pid, across, down, this_read)
+        if twin:
+            print(f"  #{bn} is {twin} read again: not filed", file=sys.stderr)
+            rows[bn] = {"book_number": bn, "status": "duplicate-in-read", "same_as": twin}
             continue
         reasons = list(damage) + grid_verdict.screen_spec(across, down)
         q = quality.get(bn, {})
@@ -634,6 +648,7 @@ def main(argv=None):
             # search (most of a re-read's wall clock) is not paid again; the
             # clues are re-filed from this reading, so a parser fix reaches them.
             rows[bn]["status"] = "held-clues-only"
+            this_read.add_keys(pid, leaf_keys(across, down))
             path, problems = file_clues_only({"book_number": bn, "setter": p.get("setter")},
                                              across, down, args.identifier, clues_dir)
             rows[bn]["filed"] = str(path) if path else None
@@ -642,6 +657,7 @@ def main(argv=None):
                 rows[bn]["filing_problems"] = problems
             clues_filed += 1 if path else 0
         else:
+            this_read.add_keys(pid, leaf_keys(across, down))
             jobs.append({"book_number": bn, "across": across, "down": down})
     print(f"screen: {len(jobs)} to search, {len(puzzles) - len(jobs)} rejected "
           f"or held clues-only")

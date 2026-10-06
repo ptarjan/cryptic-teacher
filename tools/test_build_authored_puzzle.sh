@@ -69,6 +69,17 @@ with tempfile.TemporaryDirectory() as scratch:
     _, errors, _ = validate_annotations.validate_puzzle(written)
     fails += [f"validate_annotations: {e}" for e in errors]
 
+    # The same clues under a second id, by the same process: the index the
+    # first write entered refuses it, whichever filer asks.
+    copy = {**puzzle, "id": "authored-2", "number": 2}
+    try:
+        write_puzzle_file(puzzle_paths.file_for(copy), copy,
+                          generator="tools/build_authored_puzzle.py")
+        fails.append("a second id carrying authored-1's clues was filed")
+    except puzzle_integrity.RefusedWrite as err:
+        if [f[0] for f in err.flags] != ["NEARDUP"]:
+            fails.append(f"the copy was refused for {err.flags}, want NEARDUP")
+
 for f in fails:
     print("  FAIL:", f)
 if fails:
