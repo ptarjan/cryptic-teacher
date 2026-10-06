@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Make waves after senator's first stint",
     "enumeration": "6"
    },
-   "solution": "SCRIMP"
+   "solution": "SCRIMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCRIMP",
+    "definitions": [
+     {
+      "text": "stint",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first asks for only the opening letter of the word it qualifies"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the hair-styling phrase is placed second, behind the politician's letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senator's",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of senator"
+     },
+     {
+      "clueFragment": "Make waves",
+      "gives": "CRIMP",
+      "note": "to crimp hair is to put waves into it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRIMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician starts a short term in office by stirring up trouble.",
+     "walkthrough": "'Make waves' suggests causing a fuss, but here it means curling hair. 'After' tells you the hair word comes second.",
+     "definitionFit": "To stint is to be sparing or economical, which is exactly what scrimping means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "waves"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +111,61 @@
      }
     ]
    },
-   "solution": "SORTOF"
+   "solution": "SORTOF",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SORT OF",
+    "definitions": [
+     {
+      "text": "Rather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned around, so the playwright's surname is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind",
+      "gives": "SORT",
+      "note": "a kind is a sort or type"
+     },
+     {
+      "clueFragment": "Italian playwright",
+      "gives": "FO",
+      "note": "Dario Fo was an Italian playwright and Nobel laureate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SORT",
+      "OF"
+     ],
+     "reversals": [
+      {
+       "from": "FO",
+       "to": "OF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is described as rather kindly disposed towards an Italian dramatist.",
+     "walkthrough": "'Kind about' reads as an adjective plus preposition, but kind is the noun meaning type and about turns Fo round to OF.",
+     "definitionFit": "Sort of is a casual hedge meaning somewhat or to some degree, the same as rather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 2,
@@ -73,7 +185,64 @@
      }
     ]
    },
-   "solution": "REDPENCIL"
+   "solution": "REDPENCIL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RED-PENCIL",
+    "definitions": [
+     {
+      "text": "correct",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "On reflection",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the German article is read backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the German",
+      "gives": "DER",
+      "note": "der is the German masculine definite article"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PENCIL",
+      "note": "a pencil is something you write with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "PENCIL"
+     ],
+     "reversals": [
+      {
+       "from": "DER",
+       "to": "RED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After some thought, a German author is judged to be right.",
+     "walkthrough": "'Writer' suggests an author, but it is a writing implement.",
+     "definitionFit": "To red-pencil a text is to mark errors on it with a red pencil, as an editor or teacher does when correcting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "writer"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +256,56 @@
     "text": "Girl riddled with the French disease",
     "enumeration": "7"
    },
-   "solution": "MALARIA"
+   "solution": "MALARIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MALARIA",
+    "definitions": [
+     {
+      "text": "disease",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "riddled with",
+      "for": "container",
+      "note": "something riddled with a thing has it running all through its inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "MARIA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LA",
+      "note": "la is the French feminine definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "LA",
+      "RIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is full of the illness associated with France.",
+     "walkthrough": "'The French disease' is an old euphemism for syphilis, but 'the French' is its own piece and disease alone is the definition.",
+     "definitionFit": "Malaria is a mosquito-borne tropical illness causing recurring fever."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 4,
@@ -101,7 +319,54 @@
     "text": "Sadly it's cheap and imitative in style",
     "enumeration": "8"
    },
-   "solution": "PASTICHE"
+   "solution": "PASTICHE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PASTICHE",
+    "definitions": [
+     {
+      "text": "imitative in style",
+      "at": 21,
+      "note": "the answer is a noun, a work imitative in style"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sadly",
+      "for": "anagram",
+      "note": "sadly suggests something gone wrong or out of order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it's cheap",
+      "gives": "ITSCHEAP",
+      "note": "the eight letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSCHEAP",
+       "gives": "PASTICHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A critic laments that a work is both tawdry and derivative.",
+     "definitionFit": "A pastiche is an artistic work that copies or mixes the manner of other artists or periods."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sadly"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +380,52 @@
     "text": "Worries about abandoning God",
     "enumeration": "4"
    },
-   "solution": "ARES"
+   "solution": "ARES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARES",
+    "definitions": [
+     {
+      "text": "God",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "abandoning means leaving something behind, so that piece is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worries",
+      "gives": "CARES",
+      "note": "cares are worries"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c is short for circa, Latin for about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's anxieties are about losing their faith.",
+     "definitionFit": "Ares is the Greek god of war, counterpart of the Roman Mars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoning"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +439,41 @@
     "text": "Finished without a break",
     "enumeration": "7"
    },
-   "solution": "THROUGH"
+   "solution": "THROUGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THROUGH",
+    "definitions": [
+     {
+      "text": "Finished",
+      "at": 0
+     },
+     {
+      "text": "without a break",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "note": "first meaning: done, as in being completely done with something"
+     },
+     {
+      "clueFragment": "without a break",
+      "note": "second meaning: continuously from start to end, as in working the night"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone completed a task by working on it continuously.",
+     "definitionFit": "The word means done with something, and also from beginning to end without stopping, as in all night long."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +487,58 @@
     "text": "Henry, choking, is unable to sing",
     "enumeration": "5"
    },
-   "solution": "CHANT"
+   "solution": "CHANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHANT",
+    "definitions": [
+     {
+      "text": "sing",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "choking",
+      "for": "container",
+      "note": "something choked is held tight around the throat, so the other piece closes round this one"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unable",
+      "gives": "CANT",
+      "note": "can't means is unable"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Henry has a lump in his throat and can't perform his song.",
+     "walkthrough": "The surface makes Henry the one choking, but the inability word does the choking around him.",
+     "definitionFit": "To chant is to sing or intone words rhythmically, often on one note."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "choking"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +552,57 @@
     "text": "Detest being without energy to box",
     "enumeration": "8"
    },
-   "solution": "EXECRATE"
+   "solution": "EXECRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXECRATE",
+    "definitions": [
+     {
+      "text": "Detest",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "without",
+      "gives": "EX",
+      "note": "ex means without, as in shares sold ex dividend"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "the physics symbol for energy"
+     },
+     {
+      "clueFragment": "to box",
+      "gives": "CRATE",
+      "note": "to crate goods is to pack them in a box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "E",
+      "CRATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hates lacking the strength to fight in the ring.",
+     "walkthrough": "Box looks like the sport, but it means packing into a box.",
+     "definitionFit": "To execrate is to loathe or curse something, a formal synonym of detest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +616,58 @@
     "text": "Problem possibly caused by theologian in anger",
     "enumeration": "6"
    },
-   "solution": "RIDDLE"
+   "solution": "RIDDLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIDDLE",
+    "definitions": [
+     {
+      "text": "Problem possibly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the religious scholar inside the word for anger"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anger",
+      "gives": "RILE",
+      "note": "to rile is to anger"
+     },
+     {
+      "clueFragment": "theologian",
+      "gives": "DD",
+      "note": "DD is a Doctor of Divinity, a theologian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "DD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute arose from a churchman losing his temper.",
+     "walkthrough": "'Possibly' marks the definition as an example: a riddle is one kind of problem.",
+     "definitionFit": "A riddle is a puzzling question to be solved, which is one kind of problem."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "theologian"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +681,44 @@
     "text": "Iron sink",
     "enumeration": "8"
    },
-   "solution": "DECREASE"
+   "solution": "DECREASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DECREASE",
+    "definitions": [
+     {
+      "text": "Iron",
+      "at": 0
+     },
+     {
+      "text": "sink",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iron",
+      "note": "first meaning, read playfully: to iron is to take the creases out"
+     },
+     {
+      "clueFragment": "sink",
+      "note": "second meaning: to drop or lessen in amount"
+     }
+    ],
+    "explanation": {
+     "surface": "An iron and a sink sound like household chores in the kitchen and laundry.",
+     "walkthrough": "The first sense splits the word as de-crease: ironing removes creases.",
+     "definitionFit": "Ironing removes creases from cloth, and sinking means falling or lessening, which is the ordinary sense of the word."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Iron"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +732,46 @@
     "text": "Control oppressively on account of earlier budgetary excess",
     "enumeration": "8"
    },
-   "solution": "OVERRIDE"
+   "solution": "OVERRIDE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERRIDE",
+    "definitions": [
+     {
+      "text": "Control oppressively",
+      "at": 0
+     },
+     {
+      "text": "earlier budgetary excess",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "on account of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Control oppressively",
+      "note": "first meaning: to ride roughshod over, dominate"
+     },
+     {
+      "clueFragment": "earlier budgetary excess",
+      "note": "second meaning, read cryptically: an over, or excess, placed before a ride"
+     }
+    ],
+    "explanation": {
+     "surface": "A manager clamps down hard because of last year's overspend.",
+     "walkthrough": "The second part splits the word: OVER, a budget excess, comes earlier than RIDE, which echoes the first sense.",
+     "definitionFit": "To override is to trample over or overrule, imposing control on others regardless of their wishes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "budgetary"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +785,57 @@
     "text": "Australian girl getting good at German",
     "enumeration": "6"
    },
-   "solution": "DIGGER"
+   "solution": "DIGGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIGGER",
+    "definitions": [
+     {
+      "text": "Australian",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "DI",
+      "note": "Di, short for Diana, a girl's name"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "German",
+      "gives": "GER",
+      "note": "Ger is the abbreviation for German"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "G",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman from Australia is improving at learning German.",
+     "walkthrough": "Australian looks like an adjective for girl, but it is the definition on its own.",
+     "definitionFit": "Digger is slang for an Australian, especially an Australian soldier, from the goldfield miners."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Australian"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +849,59 @@
     "text": "Nationalist leader absent from German city's assembly",
     "enumeration": "6"
    },
-   "solution": "MUSTER"
+   "solution": "MUSTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "MUSTER",
+    "definitions": [
+     {
+      "text": "assembly",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is the letter at its front"
+     },
+     {
+      "text": "absent from",
+      "for": "deletion",
+      "note": "absent from means missing out of, so that letter is removed from the city name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nationalist",
+      "gives": "N",
+      "select": "first",
+      "note": "the opening letter of Nationalist"
+     },
+     {
+      "clueFragment": "German city's",
+      "gives": "MUNSTER",
+      "note": "Munster is a city in north-west Germany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUSTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A political party's figurehead fails to attend a gathering in a German city.",
+     "definitionFit": "A muster is a gathering of troops or people, an assembly for inspection or roll call."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nationalist"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +915,49 @@
     "text": "Stick with officer in command at this point",
     "enumeration": "6"
    },
-   "solution": "COHERE"
+   "solution": "COHERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COHERE",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officer in command",
+      "gives": "CO",
+      "note": "CO stands for Commanding Officer"
+     },
+     {
+      "clueFragment": "at this point",
+      "gives": "HERE",
+      "note": "here means at this place or point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "HERE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is told to stay with the commanding officer right here.",
+     "definitionFit": "To cohere is to hold together or adhere, meaning to stick firmly as one mass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +981,44 @@
      }
     ]
    },
-   "solution": "CHANGEOFHEART"
+   "solution": "CHANGEOFHEART",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHANGE OF HEART",
+    "definitions": [
+     {
+      "text": "Shift in compassion",
+      "at": 0
+     },
+     {
+      "text": "second thoughts",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "causing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shift in compassion",
+      "note": "first meaning, read literally: a move in one's feelings, heart standing for compassion"
+     },
+     {
+      "clueFragment": "second thoughts",
+      "note": "second meaning: reconsidering a decision"
+     }
+    ],
+    "explanation": {
+     "surface": "Feeling differently about someone makes you reconsider.",
+     "definitionFit": "The idiom means a reversal of opinion or intention, exactly what having second thoughts amounts to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1032,64 @@
     "text": "Lawyer coming up with choice of words indicating compulsive behaviour",
     "enumeration": "9"
    },
-   "solution": "ADDICTION"
+   "solution": "ADDICTION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ADDICTION",
+    "definitions": [
+     {
+      "text": "compulsive behaviour",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down entry, coming up means reading upwards, so the lawyer's letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "indicating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lawyer",
+      "gives": "DA",
+      "note": "DA is a District Attorney, a US lawyer"
+     },
+     {
+      "clueFragment": "choice of words",
+      "gives": "DICTION",
+      "note": "diction is the choice and use of words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "DICTION"
+     ],
+     "reversals": [
+      {
+       "from": "DA",
+       "to": "AD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer's phrasing betrays signs of an obsession.",
+     "definitionFit": "An addiction is a dependence on a substance or activity that leads to compulsive, hard-to-stop habits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "coming"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1103,56 @@
     "text": "House earliest of detainees somewhere in London",
     "enumeration": "8"
    },
-   "solution": "DWELLING"
+   "solution": "DWELLING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DWELLING",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "earliest of",
+      "for": "letter_selection",
+      "note": "earliest of asks for the opening letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detainees",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of detainees"
+     },
+     {
+      "clueFragment": "somewhere in London",
+      "gives": "WELLING",
+      "note": "Welling is a district of south-east London, in the borough of Bexley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELLING"
+     ]
+    },
+    "explanation": {
+     "surface": "Prisoners are being held at a location in the capital.",
+     "walkthrough": "House looks like a verb meaning to detain, but it is the noun definition.",
+     "definitionFit": "A dwelling is a home or residence, a place where people live, like a house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1172,60 @@
      }
     ]
    },
-   "solution": "WELLPRESERVED"
+   "solution": "WELLPRESERVED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WELL-PRESERVED",
+    "definitions": [
+     {
+      "text": "continuing to appear youthful",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the phrase for very reticent goes round the coin"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Extremely",
+      "gives": "WELL",
+      "note": "well means very, as in well pleased"
+     },
+     {
+      "clueFragment": "reticent",
+      "gives": "RESERVED",
+      "note": "reserved means reticent, holding back"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "p is the abbreviation for a penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WELL",
+      "P",
+      "RESERVED"
+     ]
+    },
+    "explanation": {
+     "surface": "A very shy woman named Penny still looks young.",
+     "walkthrough": "The coin goes inside, between the two words.",
+     "definitionFit": "Someone well-preserved shows few signs of ageing and still looks young for their years."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penny"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1245,67 @@
      }
     ]
    },
-   "solution": "PRORATA"
+   "solution": "PRORATA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRO RATA",
+    "definitions": [
+     {
+      "text": "in proportion",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "beginning to asks for the first letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Professional",
+      "gives": "PRO",
+      "note": "pro is short for professional"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     },
+     {
+      "clueFragment": "tutor",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of tutor"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "A is a standard abbreviation for amateur"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "RA",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A professional painter starts teaching a hobbyist how to draw things to scale.",
+     "definitionFit": "Pro rata is Latin for according to the rate, meaning proportionally or in proportion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1319,65 @@
     "text": "Check over last of manuscripts revealing what poets do",
     "enumeration": "7"
    },
-   "solution": "VERSIFY"
+   "solution": "VERSIFY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "VERSIFY",
+    "definitions": [
+     {
+      "text": "what poets do",
+      "at": 41,
+      "note": "the answer is a verb; the definition describes the action"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of asks for the final letter of the following word"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over means covering, so the checking word spreads across and around the letter"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Check",
+      "gives": "VERIFY",
+      "note": "to verify is to check"
+     },
+     {
+      "clueFragment": "manuscripts",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of manuscripts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "S",
+      "IFY"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor goes over the final pages of some documents to see what writers produce.",
+     "definitionFit": "To versify is to write verse or turn something into poetry, the activity of poets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Check"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1391,66 @@
     "text": "Forcefulness shown by transformed Green Party finally",
     "enumeration": "6"
    },
-   "solution": "ENERGY"
+   "solution": "ENERGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ENERGY",
+    "definitions": [
+     {
+      "text": "Forcefulness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transformed",
+      "for": "anagram",
+      "note": "transformed means changed in form, so the letters are put in a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Green",
+      "gives": "GREEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Party",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of party"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREENY",
+       "gives": "ENERGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rejuvenated environmentalist political party shows new vigour.",
+     "walkthrough": "'Green Party' reads as the political party, but Green is the anagram material and Party only gives its last letter.",
+     "definitionFit": "Energy is vigour or forceful vitality in action or speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1464,62 @@
     "text": "Fellow concerned with protecting old wound",
     "enumeration": "6"
    },
-   "solution": "LESION"
+   "solution": "LESION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LESION",
+    "definitions": [
+     {
+      "text": "wound",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "something protecting another wraps around it, so one piece goes outside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "LES",
+      "note": "Les, short for Leslie, is a man's name, a fellow"
+     },
+     {
+      "clueFragment": "concerned with",
+      "gives": "IN",
+      "note": "in means concerned with, as in being in property"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LES",
+      "I",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A man worried about guarding an old injury.",
+     "walkthrough": "Only the second piece does the protecting: the abbreviation for old sits inside it, after the man's name.",
+     "definitionFit": "A lesion is an area of damaged tissue in the body, such as a cut or sore, so a wound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "protecting"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1533,54 @@
     "text": "Hospital admitting American girl",
     "enumeration": "5"
    },
-   "solution": "SUSAN"
+   "solution": "SUSAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUSAN",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "a hospital admitting someone takes them inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospital",
+      "gives": "SAN",
+      "note": "san is short for sanatorium, a hospital"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US stands for United States, American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital takes in a young American woman as a patient.",
+     "definitionFit": "Susan is a common female first name, so a girl in crossword terms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1594,79 @@
     "text": "Container for Jack to carry rum in space",
     "enumeration": "8"
    },
-   "solution": "JERRYCAN"
+   "solution": "JERRYCAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "JERRYCAN",
+    "definitions": [
+     {
+      "text": "Container",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rum",
+      "for": "anagram",
+      "note": "rum means odd or strange, so the letters are jumbled"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the jumbled letters inside the printer's space"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jack",
+      "gives": "J",
+      "note": "J is the abbreviation for a jack in cards"
+     },
+     {
+      "clueFragment": "space",
+      "gives": "EN",
+      "note": "an en is a printer's space, half an em"
+     },
+     {
+      "clueFragment": "carry",
+      "gives": "CARRY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "J",
+      "E",
+      "RRYCA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CARRY",
+       "gives": "RRYCA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor called Jack needs something to bring his rum into space.",
+     "walkthrough": "Rum looks like the drink being carried, but it is the anagram signal meaning odd.",
+     "definitionFit": "A jerrycan is a flat-sided metal can for fuel or water, a type of portable container."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rum"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1680,65 @@
     "text": "Fraud squad's head about to get married",
     "enumeration": "4"
    },
-   "solution": "SCAM"
+   "solution": "SCAM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAM",
+    "definitions": [
+     {
+      "text": "Fraud",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "squad's",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of squad"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is short for circa, about"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "The head of the fraud squad is on the verge of a wedding.",
+     "walkthrough": "The surface reads 'Fraud squad' as one unit, but Fraud is the definition and squad only gives its first letter.",
+     "definitionFit": "A scam is a dishonest scheme or swindle, an informal word for fraud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "squad's"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1752,45 @@
     "text": "How W G Grace was sometimes photographed for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "example",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How W G Grace was sometimes photographed",
+      "gives": "INSTANCE",
+      "note": "the cricketer often posed for the camera in his batting stance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSTANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trivia question about the poses of a famous Victorian cricketer.",
+     "walkthrough": "W G Grace was the great bearded English cricketer of the Victorian era; a stance is the position a batsman takes up at the crease.",
+     "definitionFit": "An instance is a single case or illustration of something, used as a synonym of example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "photographed"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1804,72 @@
     "text": "More astute of Huw ultimately to remain in Ireland",
     "enumeration": "6"
    },
-   "solution": "WILIER"
+   "solution": "WILIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "WILIER",
+    "definitions": [
+     {
+      "text": "More astute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the name before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the word for remain inside the abbreviation for Ireland"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Huw",
+      "gives": "W",
+      "select": "last",
+      "note": "the final letter of Huw"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "IR",
+      "note": "IR is the abbreviation for Ireland"
+     },
+     {
+      "clueFragment": "remain",
+      "gives": "LIE",
+      "note": "to lie is to remain, as in lie fallow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "I",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welshman named Huw cleverly decides to stay in Ireland.",
+     "definitionFit": "Wily means crafty or cunning, so the comparative describes someone shrewder than another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remain"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1883,73 @@
     "text": "Policeman getting information on weapon discovered in the centre of Bordeaux",
     "enumeration": "8"
    },
-   "solution": "GENDARME"
+   "solution": "GENDARME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "GENDARME",
+    "definitions": [
+     {
+      "text": "Policeman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the centre of",
+      "for": "letter_selection",
+      "note": "the centre of asks for the middle letters of the word that follows"
+     },
+     {
+      "text": "discovered in",
+      "for": "container",
+      "note": "something discovered in a place is found inside it"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "Bordeaux",
+      "gives": "DE",
+      "select": "middle",
+      "note": "the two middle letters of Bordeaux"
+     },
+     {
+      "clueFragment": "weapon",
+      "gives": "ARM",
+      "note": "an arm is a weapon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "D",
+      "ARM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer gets a tip-off about a gun found in the middle of a French city.",
+     "walkthrough": "Gen is informal British for information, as in 'getting the gen'.",
+     "definitionFit": "A gendarme is a member of the French armed police, so a policeman in France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "weapon"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1963,80 @@
     "text": "Extremely silly to stop around Yemen's capital city",
     "enumeration": "6"
    },
-   "solution": "SYDNEY"
+   "solution": "SYDNEY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "SYDNEY",
+    "definitions": [
+     {
+      "text": "city",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "extremely asks for the extreme letters, the first and last of the word"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "around means turned round, so the word for stop is read backwards"
+     },
+     {
+      "text": "capital",
+      "for": "letter_selection",
+      "note": "a capital is a head letter, so only the first letter of the country is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silly",
+      "gives": "SY",
+      "select": "outer",
+      "note": "the first and last letters of silly"
+     },
+     {
+      "clueFragment": "to stop",
+      "gives": "END",
+      "note": "to end is to stop"
+     },
+     {
+      "clueFragment": "Yemen's",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of Yemen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SY",
+      "DNE",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "END",
+       "to": "DNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is very foolish to halt a journey around the Yemeni capital.",
+     "walkthrough": "'Yemen's capital' pretends to mean Sanaa, but only gives the first letter.",
+     "definitionFit": "Sydney is the largest city in Australia, the capital of New South Wales."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   }
  ]
 }
