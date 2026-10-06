@@ -16,7 +16,9 @@
 # change past readings sets REREAD_BEFORE to the time it landed, and the next
 # pass reads again every source last read before then (each filer's
 # --reread). Rows read after it are done, so slices and reruns resume, not
-# restart.
+# restart. A Canberra Times reprint downloaded or read after its London
+# edition makes that edition due by itself: the reprint's cached texts are
+# among the edition's inputs (file_archive_org_puzzles.inputs_of).
 #
 # The scans are cached by hand-run fetchers (tools/fetch_trove.py fetch,
 # then fetch_trove.py zones for the clue columns of articles left pending;

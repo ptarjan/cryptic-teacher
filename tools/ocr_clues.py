@@ -12,7 +12,10 @@ tools/file_trove_puzzles.py for the Canberra Times) reads them the same way:
     settles each word on the spelling the readings share, then on the one
     lexicon spelling (tools/data/lexicon.tsv, with the corpus's own clue
     words), then on the known word every reading's slips point to
-    (consensus()), and files the clue blank when nothing wins. vlm_pick()
+    (consensus()), and files the clue blank when nothing wins. relaid()
+    lays each blank clue again from each reading that printed it whole
+    (two others printing it alike, one of another copy) and puts it to the
+    rest. vlm_pick()
     then shows each blank clue's readings to the desktop's VLM
     (tools/vlm_reader.py), when it answers.
   - as_printed() holds every filed clue, voted or picked, to what the
@@ -758,6 +761,11 @@ def agree(clue, others, keep_known=False):
         if len(seen_ends) < 2:
             continue
         top = max(seen_ends, key=seen_ends.count)
+        if seen_ends.count(top) < 2 and len(seen_ends) * 2 < len(others):
+            # Specks a few of many readings each see apart (a second copy's
+            # readings vote too): no end is lost unless half the readings
+            # see words there, or two see the same ones.
+            continue
         words_at = [t for t in top if t not in MARKS]
         if side == "start" and len(words_at) == 1 and len(words_at[0]) == 1:
             # One letter before the clue is a misread clue number ("2I").
@@ -1424,6 +1432,79 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         else:
             out[lid] = (got, enum, group)
     return out, blank
+
+
+#: How many other readings must print a clue for the light at least
+#: RELAID_SIMILAR like a reading's for relaid() to lay it, one of them a
+#: reading of another copy (copy_of). Measured on Times editions with a
+#: Canberra reprint: one copy's readings alone re-laid 17 of 43 clues wrong.
+RELAID_READINGS = 2
+RELAID_SIMILAR = 0.8
+
+
+def split_added(before, after):
+    """[(word, word)] each pair of words side by side in `after` (a clue
+    the vote put words into) where one repeats the other or is its start or
+    end ("bur burlesque", "plodding ding", "requirement requirement") and
+    `before` has no such pair: a half of a word one copy split at its line
+    end and another did not, put in beside the whole word."""
+    def pairs(text):
+        ws = [w.lower() for w in re.findall(r"[A-Za-z]+", text or "")]
+        return {(a, b) for a, b in itertools.pairwise(ws) if len(a) >= 2 and len(b) >= 2
+                and (a == b or b.startswith(a) or a.endswith(b))}
+    return sorted(pairs(after) - pairs(before))
+
+
+def copy_of(name):
+    """The printed copy a reading named `name` read: "canberra:<article>"
+    for "canberra:<article>:<reader>", "" for the scan's own readers."""
+    return name.rsplit(":", 1)[0] if ":" in name else ""
+
+
+def relaid(texts, laid, blank, parse, lengths, keep_known=False):
+    """(laid, blank) with each clue the vote filed blank laid again from
+    each reading in `texts` ({name: text}) in turn: that reading's own clue
+    for the light, when its printed count fills the light and
+    RELAID_READINGS other readings print a like clue there, one of them of
+    another copy of the print (a reprint), put to every other reading
+    (reconcile, which alone proves nothing: it judges only the words it can
+    align). The first that wins the vote, and that fault() and suspect()
+    pass, is filed. A light laid from a reading that lost the clue's start
+    or end, or none, is filled by a reading that printed it whole. Linked
+    lights are left as they are."""
+    laid, blank = dict(laid), dict(blank)
+    parsed = {k: (parse(t)[0] if t.strip() else None) for k, t in texts.items()}
+    for lid in sorted(blank):
+        group = (laid.get(lid) or ("", None, None))[2]
+        if group or not lengths.get(lid):
+            continue
+        n, direction = lid.split("-")
+        cells = lengths[lid]
+        for k, p in parsed.items():
+            clue = next((c for c in (p or {}).get(direction, ()) if c["tokens"] and int(n) in c["tokens"][0]
+                         and len(c["tokens"]) == 1 and c["see"] is None), None)
+            if clue is None or not tokens(clue["text"]):
+                continue
+            fill = sorted(shape(e) for e in clue.get("enums") or () if sum(map(int, re.findall(r"\d+", e))) == cells)
+            if not fill:
+                continue
+            # Borne out: other readings print a like clue for the light, one
+            # of them a reading of another copy of the print.
+            alike = {j for j, q in parsed.items() if j != k and any(
+                c["tokens"] and int(n) in c["tokens"][0] and similar(c["text"].lower(), clue["text"].lower())
+                >= RELAID_SIMILAR for c in (q or {}).get(direction, ()))}
+            if len(alike) < RELAID_READINGS or all(copy_of(j) == copy_of(k) for j in alike):
+                continue
+            others = [t for j, t in texts.items() if j != k and t.strip()]
+            got, why = reconcile({lid: (clean(clue["text"]), fill[0], None)}, others, lengths, keep_known)
+            text, count, _ = got[lid]
+            if lid in why or not text or fault(text, count, cells) or suspect(text) or \
+                    split_added(clean(clue["text"]), text):
+                continue
+            laid[lid] = (text, count, None)
+            del blank[lid]
+            break
+    return laid, blank
 
 
 # ------------------------------------------------------------ the check

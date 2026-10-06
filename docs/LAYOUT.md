@@ -1311,8 +1311,9 @@ tools/file_archive_org_puzzles.py            files the daily Times, FT, Guardian
                                              fetch_archive_org_editions.py cached as
                                              times-<No>, ftcryptic-<No>, cryptic-<No> and
                                              telegraph-<No> (--paper): clues voted on by
-                                             archive.org's OCR, RapidOCR's two recognisers and
-                                             Tesseract, the grid read off the scan or rebuilt,
+                                             archive.org's OCR, RapidOCR's two recognisers,
+                                             Tesseract and the Canberra Times reprint's
+                                             readings, the grid read off the scan or rebuilt,
                                              answers off the next edition's solution grid;
                                              every reading kept for cross_validate.py's
                                              archiveorg adapter; names the Times puzzle each
@@ -1488,6 +1489,13 @@ tools/test_ocr_remote.sh                     does tools/ocr_remote.py compare ev
                                              model a read can load, and send back an edition
                                              whose read on the desktop opened a file it was not
                                              sent?
+tools/test_canberra_reprint_vote.sh          does a Canberra Times reprint vote on the
+                                             archive.org scan's clues like any other reading,
+                                             only for the London number
+                                             canberra_london_numbers.py maps it to and only in
+                                             the Times series, and does a reprint downloaded or
+                                             read later make that edition due again, and no
+                                             other?
 tools/test_ocr_vote_checks.sh                does the clue vote file each word, count, capital
                                              and hyphen as the readings print them, and settle
                                              a word they all misread on the known word their

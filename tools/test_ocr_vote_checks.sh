@@ -133,6 +133,48 @@ check("mirror: a formed word most readings share stands (times-14583 12A)",
       None, oc.consensus(["unscared", "unscared", "uncared"]))
 check("mirror: one reading alone settles nothing", None, oc.consensus(["auotber"]))
 
+# A clue's start is lost when half the other readings see words before it,
+# or two see the same ones; specks a few of many readings each see apart
+# (the scan's and a reprint's readings voting together) lose nothing.
+clean_ = lambda t: oc.marked(oc.clean(t), breaks=True)
+plain = clean_("12 This man gets sat on (4) 13 X")
+specks = [clean_("12 ry This man gets sat on (4) 13 X"), clean_("12 i This man gets sat on (4) 13 X")]
+check("two readings' different specks among seven lose no start",
+      "This man gets sat on", oc.agree("This man gets sat on", specks + [plain] * 5)[0])
+check("two readings' different words among three lose the start (mirror)",
+      None, oc.agree("This man gets sat on", specks + [plain])[0])
+check("two readings' same words among seven lose the start (mirror)",
+      None, oc.agree("This man gets sat on", [clean_("12 Long goad This man gets sat on (4) 13 X")] * 2 + [plain] * 5)[0])
+
+# A clue the vote left blank is laid again from a reading that printed it
+# whole, when that reading's count fills the light and the rest agree; a
+# reading whose count does not fill the light, or that the rest do not
+# bear out, lays nothing.
+lists = lambda one: f"ACROSS\n1 {one}\n5 Hill (4).\nDOWN\n2 Ore (3).\n"
+texts = {"djvu": lists("rifle Mary (5)."), "ch": lists("Lamb, I'd rifle Mary (5)."),
+         "en5": lists("Lamb, I'd rifle Mary (5)."), "canberra:7:ocr": lists("Lamb, I'd rifle Mary (5).")}
+lengths = {"1-across": 5, "5-across": 4, "2-down": 3}
+laid = {"1-across": ("", "5", None), "5-across": ("Hill", "4", None), "2-down": ("Ore", "3", None)}
+got, blank = oc.relaid(texts, laid, {"1-across": "starts mid-clue"}, fa.parse, lengths)
+check("a blank clue laid again from a reading that printed it whole", ("Lamb, I'd rifle Mary", "5", {}),
+      (got["1-across"][0], got["1-across"][1], blank))
+got, blank = oc.relaid(texts, laid, {"1-across": "starts mid-clue"}, fa.parse, {**lengths, "1-across": 6})
+check("a reading whose count does not fill the light lays nothing (mirror)", ("", ["1-across"]),
+      (got["1-across"][0], sorted(blank)))
+one_copy = {**{k: t for k, t in texts.items() if not k.startswith("canberra")}, "times": texts["ch"]}
+got, blank = oc.relaid(one_copy, laid, {"1-across": "starts mid-clue"}, fa.parse, lengths)
+check("one copy's readings alone lay nothing again (mirror)", ["1-across"], sorted(blank))
+alone = {**texts, "ch": lists("Pigs might fly (5)."), "en5": lists("Cows can jump (5)."), "canberra:7:ocr": lists("Nothing here (5).")}
+got, blank = oc.relaid(alone, laid, {"1-across": "starts mid-clue"}, fa.parse, lengths)
+check("a reading the rest do not bear out lays nothing (mirror)", ["1-across"], sorted(blank))
+
+# A word half the vote put in beside the whole word is a line-end split one
+# copy made and another did not; a pair the clue itself prints stands.
+check("a split half put in beside its word is named",
+      [("bur", "burlesque"), ("plodding", "ding")],
+      oc.split_added("Point to Marlowe's burlesque, plodding on", "Point to Marlowe's bur burlesque, plodding ding on"))
+check("a pair the clue prints itself is not (mirror)", [], oc.split_added("Lost in India", "Lost in India"))
+
 print(f"FAILS {fails}")
 EOF
 )
