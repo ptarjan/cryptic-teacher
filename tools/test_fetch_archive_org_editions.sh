@@ -118,11 +118,14 @@ def run(*extra):
                         "--group", "times", *extra], capture_output=True, text=True, timeout=60)
     return r.returncode, r.stdout + r.stderr
 rc, log = run("--seconds", "1e-9")
-check("--seconds past: nothing fetched, an old-version and an undone edition left for the next run",
-      rc == 0 and "2 left for the next run" in log and "FAIL" not in log)
+check("--seconds past: no item opened, nothing fetched",
+      rc == 0 and "0 editions this run; left for the next run: 0 editions of the item it stopped in, "
+      "and 1 items not opened" in log and "FAIL" not in log)
+rc, log = run("--list")
+check("an old-version and an undone edition are due", rc == 0 and "3 editions\t2 to do" in log)
 with open(os.path.join(out, "done.tsv"), "a") as f:
     f.write(f"{item}\t{eds[1]}\t{fa.DETECTOR_VERSION}\n{item}\t{eds[2]}\t{fa.DETECTOR_VERSION}\n")
-rc, log = run("--seconds", "1e-9")
+rc, log = run()
 check("nothing due: finishes with no request", rc == 0 and "finished: 0 editions" in log, )
 sys.exit(1 if fails else 0)
 PY

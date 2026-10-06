@@ -589,7 +589,7 @@ def main():
                 log(f"{item}: metadata failed, left for the next run: {e}")
 
     submitted = 0
-    left = 0
+    left = items_left = 0
     pending = set()
     with concurrent.futures.ThreadPoolExecutor(jobs) as pool:
         def room(limit):
@@ -598,8 +598,11 @@ def main():
             while len(pending) >= limit:
                 _, pending = concurrent.futures.wait(pending, return_when=concurrent.futures.FIRST_COMPLETED)
 
-        for group, item in plan:
+        for k, (group, item) in enumerate(plan):
             if run.stop:
+                break
+            if time.monotonic() >= stop_at:
+                items_left = len(plan) - k
                 break
             fx.deadline = time.monotonic() + ITEM_SECONDS
             try:
@@ -614,9 +617,6 @@ def main():
             todo = [x for x in names if (item, x) not in done]
             if args.list:
                 print(f"{group}\t{item}\t{len(names)} editions\t{len(todo)} to do")
-                continue
-            if todo and time.monotonic() >= stop_at:
-                left += len(todo)
                 continue
             if todo:
                 log(f"{group} {item}: {len(todo)}/{len(names)} editions to do")
@@ -644,8 +644,9 @@ def main():
         return run.exit_code
     if args.limit is not None and submitted >= args.limit:
         return 0
-    if left:
-        log(f"--seconds {args.seconds:.0f} reached: {run.n} editions this run, {left} left for the next run")
+    if left or items_left:
+        log(f"--seconds {args.seconds:g} reached: {run.n} editions this run; left for the next run: "
+            f"{left} editions of the item it stopped in, and {items_left} items not opened")
         return 0
     log(f"finished: {run.n} editions this run")
     return 0
