@@ -1193,6 +1193,13 @@ text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
 check("the clue columns left of the grid are read, across then down",
       (True, True), (text.startswith("ACROSS\nI Footwear"), "\nDOWN\n2 Fruit" in text))
 
+side, shaped, box = located("times1930-54-fold")
+check("a grid is found when a fold in the paper runs down through its title and into it (1930 No 54)",
+      ("below", True), (side, shaped))
+f.CLEAR_SHARE, saved_clear = -1, f.CLEAR_SHARE
+check("(mirror) without the clear row under the title the folded grid is refused", None, located("times1930-54-fold")[0])
+f.CLEAR_SHARE = saved_clear
+
 side, shaped, box = located("times-16960-foot")
 check("a grid box ends at the grid's foot frame, not under the ACROSS line touching it (Times 16,960)",
       ("below", 711), (side, box[3]))
@@ -1435,8 +1442,31 @@ check("1930 columns read in the lists' order",
       f.column_text(f.columns_of_four(rows, g30, gut, f.down_at(rows, g30, gut))))
 grid30 = ["...#", "....", "#...", "...."]
 check("1930 clues take their counts from the grid; a line that is no clue's number carries on",
-      "ACROSS\n1 Toe (3)\n4 Dose of a\nlong cure (4)\n6 Ask (3)\nDOWN\n1 Lone\nis far (2)",
-      f.counted("ACROSS\n1 Toe\n4 Dose of a\nlong cure\n6 Ask\nDOWN\n1 Lone\nis far", grid30))
+      "ACROSS\n1 Toe (3)\n4 Dose of a\nlong cure (4)\n6 Ask (3)\n7 Hop (4)\nDOWN\n1 Lone\nis far (2)\n2 Ox (4)\n"
+      "3 Up (4)\n5 Go (3)",
+      f.counted("ACROSS\n1 Toe\n4 Dose of a\nlong cure\n6 Ask\n7 Hop\nDOWN\n1 Lone\nis far\n2 Ox\n3 Up\n5 Go", grid30))
+# A lost number runs one clue into the next, and the grid's count fits
+# whatever text it is given (No 129, 1930-07-02: "+ Nitrate (anag.)", 4d's
+# number read "+", filed as 3d). The list must name the grid's lights in
+# order, or the clue next to the break is dropped.
+check("a clue followed by a later light's than the next (one skipped) is dropped, the skipped light left blank",
+      "ACROSS\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\nin Dickens\n+ Dose of a cure\n6 Ask\n7 Hop", grid30))
+check("a clue ending its list before the list's last light is dropped",
+      "ACROSS\n1 Toe (3)\n4 Dose (4)\nDOWN\n1 Lone (2)\n2 Ox (4)",
+      f.counted("ACROSS\n1 Toe\n4 Dose\n6 Ask\nhop\nDOWN\n1 Lone\n2 Ox\n3 Up", grid30))
+check("a number at or before the last clue's drops the clue it ran into",
+      "ACROSS\n1 Toe (3)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\n4 Dose\n1 Ask again\n6 Ask\n7 Hop", grid30))
+check("a guessed number the print then names drops the guess and the clue it was cut from",
+      "ACROSS\n1 Toe (3)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\n4 Dose of a cure.\nThat is London.\n6 Ask\n7 Hop", grid30))
+check("a break after guessed numbers drops them back to the last number read (No 54: 36a took 37a's words, the guesses ran one light behind)",
+      "ACROSS\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe\nthe offence.\nAsk again.\n7 Hop", grid30))
+check("a number read with a speck holding the next light's starts its clue (\"151\" for 15)",
+      "ACROSS\n1 Toe. (3)\n4 Dose (4)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe.\n141 Dose\n6 Ask\n7 Hop", grid30))
 check("a capital after a clue's full stop is the next light's clue, its number lost; the number run into its word",
       "ACROSS\n1 Toe. (3)\n4 Dose of a\nLondon cure. (4)\n6 Ask (3)\n7 Hop (4)",
       f.counted("ACROSS\n1 Toe.\nDose of a\nLondon cure.\n6.Ask\n7Hop", grid30))
