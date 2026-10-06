@@ -1339,7 +1339,14 @@ def edition_dirs(cache=CACHE, paper=None):
 
 def scan(d):
     """{"puzzles": [...], "solutions": [...]} for one edition directory: each
-    heading's number, leaf and box."""
+    heading's number, leaf and box. Read here, in one of
+    tools/ocr_remote.py's local slots (its title OCR on the desktop)."""
+    import ocr_remote
+    with ocr_remote.local_slot():
+        return _scan(d)
+
+
+def _scan(d):
     pages = json.loads((d / "pages.json").read_text())
     leaves = {p["leaf"] for p in pages.get("crossword_pages", ())
               if (d / f"leaf_{p['leaf']:04d}.jpg").exists()}
@@ -2740,13 +2747,14 @@ def read_edition(d, found):
     if got is not None:
         return got
     results = []
-    for hit in found["puzzles"]:
-        try:
-            verdict, puzzle = read_puzzle(d, found, hit, _SOLUTIONS)
-        except Exception as e:  # noqa: BLE001 -- one bad page is a verdict, not a crash
-            verdict, puzzle = refuse({"number": hit["number"]}, "crashed",
-                                     f"crashed: {type(e).__name__}: {e}"), None
-        results.append((verdict, puzzle))
+    with ocr_remote.local_slot():
+        for hit in found["puzzles"]:
+            try:
+                verdict, puzzle = read_puzzle(d, found, hit, _SOLUTIONS)
+            except Exception as e:  # noqa: BLE001 -- one bad page is a verdict, not a crash
+                verdict, puzzle = refuse({"number": hit["number"]}, "crashed",
+                                         f"crashed: {type(e).__name__}: {e}"), None
+            results.append((verdict, puzzle))
     return results, vlm.reachable()
 
 

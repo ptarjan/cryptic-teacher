@@ -56,9 +56,13 @@ CHUNK="${OCR_FULL_PASS_CHUNK:-3600}"
 # after is stuck, and the slice ends there (the pass resumes next tick).
 GRACE=1800
 # Each archive.org edition is read on the desktop, the vote and all
-# (tools/ocr_remote.py; OCR_REMOTE= to read here), so most of each worker's
-# time is a wait on it: this host keeps the scans, the Trove filer's parsing
-# and the filing, at nice 19, one OCR thread a worker when the desktop is off.
+# (tools/ocr_remote.py; OCR_REMOTE= to read here), and so are the clue OCR,
+# an image PDF's page search in the fetch and the Trove filer's grid search,
+# so most of each worker's time is a wait on it: this host keeps the scans'
+# headings, the Trove filer's parsing and the filing, at nice 19, one OCR
+# thread a worker. Whatever is read here (the desktop off or gaming) holds
+# one of ocr_remote's LOCAL_SLOTS (cores - 1) host-wide, so the 20 workers
+# never put 20 reads on this 4-core host.
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"

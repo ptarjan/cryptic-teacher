@@ -10,7 +10,10 @@ host that answers. tools/file_archive_org_puzzles.py's read_edition sends it
 a whole edition (its leaves, djvu text, the solution leaves it reads, its
 cached readings and the series' filed dates, as a tar) and gets back the
 verdicts, the puzzles and the crops it cached; any other reader sends one
-already-upscaled crop as PNG and gets the words back as JSON. The desktop
+already-upscaled crop as PNG and gets the words back as JSON. call() runs
+one of CALLS there: an image PDF's pages searched for grids
+(fetch_archive_org_editions.pdf_pages) and a grid search from a clue list
+(reconstruct(), the Trove filer's rebuild). The desktop
 runs the same code (every tracked file under tools/ but UNSHIPPED, shipped
 once into a directory named by their hash, so a running session's files are
 never overwritten), the same reader models and the same Python, Pillow,
@@ -27,11 +30,17 @@ one is closed before its next read and one waiting on a read is abandoned
 (the probe ends the desktop's side): this process reads locally until the
 desktop is idle again.
 
+Whatever is read here while OCR_REMOTE is set holds one of LOCAL_SLOTS
+host-wide slots (local_slot()): the full pass runs 20 workers for the
+desktop, and 20 reading here at once (the desktop off or gaming) put the
+4-core host at load 20-40.
+
 Desktop layout (C:\\Users\\micro\\ocrw): venv/ (the pinned Python packages),
 tess/ (conda-forge tesseract, micromamba), v-<code hash>/tools/ (shipped here);
 the reader models outside the code (en_PP-OCRv5_rec_mobile, en_PP-OCRv3_rec)
 in C:\\Users\\micro\\.cache\\rapidocr, as here in ~/.cache/rapidocr.
 """
+import contextlib
 import hashlib
 import json
 import os
@@ -40,6 +49,7 @@ import select
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 from pathlib import Path
 
@@ -62,6 +72,8 @@ UNSHIPPED = ("tools/data/blog_facts/", "tools/data/yt_solvers/")
 MANIFEST = "tools/shipped.txt"
 #: Seconds before a process that lost the desktop tries it again.
 RETRY = 600
+#: Reads made here at once, host-wide, while OCR_REMOTE is set (local_slot).
+LOCAL_SLOTS = int(os.environ.get("OCR_LOCAL_SLOTS") or max(1, (os.cpu_count() or 2) - 1))
 
 
 def shipped():
@@ -117,7 +129,7 @@ def versions():
     out = {"tesseract": (tess.stdout or tess.stderr).splitlines()[0].strip(),
            "onnxruntime": onnxruntime.__version__, "rapidocr": version("rapidocr_onnxruntime"),
            "numpy": numpy.__version__, "cv2": cv2.__version__, "pillow": PIL.__version__,
-           "libjpeg_turbo": features.version("libjpeg_turbo"), "python": f"{sys.version_info[0]}.{sys.version_info[1]}",
+           "libjpeg_turbo": features.version("libjpeg_turbo"), "pypdf": version("pypdf"), "python": f"{sys.version_info[0]}.{sys.version_info[1]}",
            "code": code_hash()}
     for which, model in models().items():
         out[which] = hashlib.sha1(model.read_bytes()).hexdigest() if model.exists() else None
@@ -228,6 +240,21 @@ def read_edition_here(req, blob, ask_mac):
         return {"results": results, "vlm": vlm_ok}, buf.getvalue()
 
 
+def _reconstruct_there(data, spec, **kw):
+    import reconstruct_grid
+    return reconstruct_grid.reconstruct([tuple(t) for t in spec], **kw), b""
+
+
+def _pdf_pages_there(data):
+    import fetch_archive_org_editions
+    return fetch_archive_org_editions.pdf_pages(data)
+
+
+#: What call() may run there: name -> f(payload bytes, *args, **kwargs)
+#: giving (a JSON-able result, bytes sent back after it).
+CALLS = {"reconstruct": _reconstruct_there, "pdf_pages": _pdf_pages_there}
+
+
 def serve():
     """Read crops and editions on stdin, words and verdicts on stdout: after a
     "ready" line with versions(), each request is a JSON line {"which",
@@ -235,8 +262,10 @@ def serve():
     or a line {"edition", ..., "bytes"} and that many bytes of tar
     (Session.edition), answered by a line {"results", "vlm", "bytes"} and
     that many bytes of tar, or a line {"reconstruct": job, "bytes": 0}
-    answered by tools/acquire_book.py's _reconstruct_one(job) as a line; any
-    can be answered by {"error"}."""
+    answered by tools/acquire_book.py's _reconstruct_one(job) as a line, or
+    a line {"call", "args", "kwargs", "bytes"} and that many bytes, answered
+    by a line {"result", "bytes"} and that many bytes (CALLS); any can be
+    answered by {"error"}."""
     os.environ["PATH"] = str(Path(HOME) / "tess" / "Library" / "bin") + os.pathsep + os.environ["PATH"]
     full_speed()
     # The full pass's 20 sessions share the 28-thread box: two threads each.
@@ -269,6 +298,15 @@ def serve():
                 say(acquire_book._reconstruct_one(req["reconstruct"]))
             except Exception as e:  # noqa: BLE001 -- the Mac searches this one itself and says why
                 say({"error": f"{type(e).__name__}: {e}"})
+            continue
+        if "call" in req:
+            try:
+                result, back = CALLS[req["call"]](data, *req["args"], **req["kwargs"])
+                head = {"result": result}
+            except Exception as e:  # noqa: BLE001 -- the Mac runs this one itself and says why
+                head, back = {"error": f"{type(e).__name__}: {e}"}, b""
+            out.write(json.dumps({**head, "bytes": len(back)}).encode() + b"\n" + back)
+            out.flush()
             continue
         if "edition" in req:
             try:
@@ -367,6 +405,12 @@ class Session:
         self.send({"reconstruct": job}, b"")
         return self.answer(READ_TIMEOUT)
 
+    def call(self, name, args, kwargs, data):
+        """(answer, the bytes after it) of CALLS[name] run there."""
+        self.send({"call": name, "args": args, "kwargs": kwargs}, data)
+        got = self.answer(EDITION_TIMEOUT)
+        return got, self.payload(got.get("bytes", 0), EDITION_TIMEOUT)
+
     def edition(self, head, tar):
         """(answer, tar of crops) for an edition (read_edition_here), asking
         this host's VLM what the desktop asks it meanwhile."""
@@ -420,7 +464,20 @@ def ship(host):
         raise Unavailable(f"shipping the code failed ({res.returncode}): {res.stderr.decode(errors='replace')[-300:]}")
 
 
-_STATE = {"pid": None, "session": None, "retry": 0.0, "local": None}
+#: This host's versions(), read once a process.
+_VERSIONS = {}
+#: Each thread's session: the fetcher reads PDFs on several threads at once,
+#: and one ssh session answers one request at a time.
+_THREAD = threading.local()
+
+
+def _state():
+    """This thread's {"session", "retry"}, fresh in a forked worker (the
+    parent's session is not its own)."""
+    st = getattr(_THREAD, "st", None)
+    if st is None or st["pid"] != os.getpid():
+        st = _THREAD.st = {"pid": os.getpid(), "session": None, "retry": 0.0}
+    return st
 #: Held while one process ships: the rest wait, then find the code there.
 SHIP_LOCK = Path(tempfile.gettempdir()) / "ocr_remote.ship.lock"
 
@@ -431,12 +488,13 @@ def log(line):
 
 def matched(s):
     """`s` when its versions are this host's, else None and why (closed)."""
-    differ = sorted(k for k in set(s.ready) | set(_STATE["local"]) if s.ready.get(k) != _STATE["local"].get(k))
+    local = _VERSIONS["local"]
+    differ = sorted(k for k in set(s.ready) | set(local) if s.ready.get(k) != local.get(k))
     if not differ:
         return s, None
     s.close()
     return None, f"{s.host}: not this host's readers: " + ", ".join(
-        f"{k} {s.ready.get(k)} here {_STATE['local'].get(k)}" for k in differ)
+        f"{k} {s.ready.get(k)} here {local.get(k)}" for k in differ)
 
 
 def opened(host, tries=3):
@@ -457,8 +515,8 @@ def connect():
     OCR_REMOTE's hosts that gives one, the code shipped there first when it
     is missing; else None, the reasons logged."""
     import fcntl
-    if _STATE["local"] is None:
-        _STATE["local"] = versions()
+    if "local" not in _VERSIONS:
+        _VERSIONS["local"] = versions()
     reasons = []
     for host in filter(None, os.environ.get("OCR_REMOTE", "").split(",")):
         try:
@@ -498,32 +556,32 @@ def session():
     again for RETRY seconds)."""
     if not hosts():
         return None
-    if _STATE["pid"] != os.getpid():  # a forked worker: the parent's session is not its own
-        _STATE.update(pid=os.getpid(), session=None, retry=0.0)
+    st = _state()
     if desktop_busy.busy(hosts()):
-        if _STATE["session"] is not None:
-            _STATE["session"].close()
-            _STATE["session"] = None
+        if st["session"] is not None:
+            st["session"].close()
+            st["session"] = None
         return None
-    if _STATE["session"] is None:
-        if time.monotonic() < _STATE["retry"]:
+    if st["session"] is None:
+        if time.monotonic() < st["retry"]:
             return None
-        _STATE["session"] = connect()
-        if _STATE["session"] is None:
-            _STATE["retry"] = time.monotonic() + RETRY
+        st["session"] = connect()
+        if st["session"] is None:
+            st["retry"] = time.monotonic() + RETRY
             return None
-        log(f"reading on {_STATE['session'].host}")
-    return _STATE["session"]
+        log(f"reading on {st['session'].host}")
+    return st["session"]
 
 
 def lost(e):
     """Close a session that stopped answering: tried again after RETRY
     seconds, or once the desktop is idle when it was ended for a game."""
+    st = _state()
     wait = 0 if desktop_busy.busy(hosts()) else RETRY
-    log(f"lost {_STATE['session'].host} ({e}), reading here; trying again "
+    log(f"lost {st['session'].host} ({e}), reading here; trying again "
         + (f"in {RETRY}s" if wait else "when the desktop is idle"))
-    _STATE["session"].close()
-    _STATE.update(session=None, retry=time.monotonic() + wait)
+    st["session"].close()
+    st.update(session=None, retry=time.monotonic() + wait)
 
 
 def edition_request(d, found, solutions):
@@ -595,13 +653,14 @@ def edition(d, found, solutions):
 def words(crop, which):
     """raw_words(crop, which) read on the desktop, or None when it is not
     set (no OCR_REMOTE) or not answering: then the caller reads it here."""
-    if session() is None:
+    s = session()
+    if s is None:
         return None
     import io
     buf = io.BytesIO()
     crop.save(buf, format="PNG", compress_level=1)
     try:
-        got = _STATE["session"].read(buf.getvalue(), which)
+        got = s.read(buf.getvalue(), which)
     except Unavailable as e:
         lost(e)
         return None
@@ -609,6 +668,72 @@ def words(crop, which):
         log(f"{which} failed there ({got['error']}), reading this crop here")
         return None
     return [tuple(w) for w in got["words"]]
+
+
+def call(name, *args, data=b"", **kwargs):
+    """(result, bytes) of CALLS[name](data, *args, **kwargs) run on the
+    desktop, or None when OCR_REMOTE is not set, the desktop is not
+    answering or the call failed there: then the caller runs it here, in
+    local_slot()."""
+    s = session()
+    if s is None:
+        return None
+    try:
+        got, back = s.call(name, list(args), kwargs, data)
+    except Unavailable as e:
+        lost(e)
+        return None
+    if "error" in got:
+        log(f"{name} failed there ({got['error']}), running it here")
+        return None
+    return got["result"], back
+
+
+def reconstruct(spec, **kwargs):
+    """reconstruct_grid.reconstruct(spec, **kwargs), run on the desktop when
+    call() can: the same search, the same grids."""
+    import reconstruct_grid
+    got = call("reconstruct", [list(t) for t in spec], **kwargs)
+    if got is None:
+        with local_slot():
+            return reconstruct_grid.reconstruct(spec, **kwargs)
+    found, info = got[0]
+    return [tuple(g) for g in found], info
+
+
+_HELD = threading.local()
+
+
+@contextlib.contextmanager
+def local_slot():
+    """Hold one of LOCAL_SLOTS slots, shared by every process on this host
+    (a lock file each), while reading here what OCR_REMOTE would read on the
+    desktop; nothing to hold without OCR_REMOTE. A thread already holding
+    one (a local edition read, then its crops' OCR) holds it on."""
+    if not hosts() or getattr(_HELD, "depth", 0):
+        _HELD.depth = getattr(_HELD, "depth", 0) + 1
+        try:
+            yield
+        finally:
+            _HELD.depth -= 1
+        return
+    import fcntl
+    while True:
+        for i in range(LOCAL_SLOTS):
+            f = open(Path(tempfile.gettempdir()) / f"ocr_remote.local.{i}.lock", "w")  # noqa: SIM115 -- held while the slot is
+            try:
+                fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            except BlockingIOError:
+                f.close()
+                continue
+            _HELD.depth = 1
+            try:
+                yield
+            finally:
+                _HELD.depth = 0
+                f.close()
+            return
+        time.sleep(random.uniform(0.2, 1.0))
 
 
 def check():

@@ -654,16 +654,15 @@ def reads_as_grid(page, box):
     return trove_grid.read_grid(buf)[0] is not None
 
 
-def fetch_pdf_edition(fx, item, name, d, bases):
-    """An edition archive.org holds as an image PDF only (one scanned image a
-    page, no OCR): each page with a grid on it is a crossword page, saved as
-    its leaf JPEG at SCAN_WIDTH and marked pdf. The djvu.xml.gz holds an empty
-    OBJECT a page, so the filer reads the titles by image (ocr_titles) as it
-    does a blank-OCR leaf."""
+def pdf_pages(data):
+    """({"leaves": page count, "hits": [hit]}, JPEG bytes) of an image PDF:
+    each page with a grid on it, at SCAN_WIDTH, its JPEG's length in its
+    hit's "bytes", the JPEGs end to end in the hits' order. Run on the
+    desktop when tools/ocr_remote.py can (~20 s of CPU an edition)."""
     import pypdf
     from PIL import Image
     Image.MAX_IMAGE_PIXELS = None
-    pdf = pypdf.PdfReader(io.BytesIO(fetch_first(fx, bases, ".pdf", name + ".pdf")))
+    pdf = pypdf.PdfReader(io.BytesIO(data))
     shaped = []  # (leaf, page, read as a grid) of each page with grid-shaped ink
     for leaf, p in enumerate(pdf.pages):
         images = p.images
@@ -676,13 +675,35 @@ def fetch_pdf_edition(fx, item, name, d, bases):
     # The pages whose grid reads; when none does (a faint grid), every
     # grid-shaped page, so the filer still looks for a title on each.
     keep = [x for x in shaped if x[2]] or shaped
-    hits = []
+    hits, jpegs = [], []
     for leaf, page, _ in keep:
         buf = io.BytesIO()
         page.save(buf, "JPEG", quality=90)
-        write_atomic(os.path.join(d, f"leaf_{leaf:04d}.jpg"), buf.getvalue())
-        hits.append({"leaf": leaf, "pdf": True, "width": page.width, "height": page.height})
-    count = len(pdf.pages)
+        jpegs.append(buf.getvalue())
+        hits.append({"leaf": leaf, "pdf": True, "width": page.width, "height": page.height, "bytes": len(jpegs[-1])})
+    return {"leaves": len(pdf.pages), "hits": hits}, b"".join(jpegs)
+
+
+def fetch_pdf_edition(fx, item, name, d, bases):
+    """An edition archive.org holds as an image PDF only (one scanned image a
+    page, no OCR): each page with a grid on it is a crossword page, saved as
+    its leaf JPEG at SCAN_WIDTH and marked pdf (pdf_pages). The djvu.xml.gz
+    holds an empty OBJECT a page, so the filer reads the titles by image
+    (ocr_titles) as it does a blank-OCR leaf."""
+    import ocr_remote
+    data = fetch_first(fx, bases, ".pdf", name + ".pdf")
+    got = ocr_remote.call("pdf_pages", data=data)
+    if got is None:
+        with ocr_remote.local_slot():
+            got = pdf_pages(data)
+    found, jpegs = got
+    hits, at = [], 0
+    for hit in found["hits"]:
+        n = hit.pop("bytes")
+        write_atomic(os.path.join(d, f"leaf_{hit['leaf']:04d}.jpg"), jpegs[at:at + n])
+        at += n
+        hits.append(hit)
+    count = found["leaves"]
     write_atomic(os.path.join(d, "djvu.xml.gz"), gzip.compress(
         b'<?xml version="1.0" encoding="UTF-8"?>\n<DjVuXML><BODY>\n'
         + b'<OBJECT width="0" height="0"></OBJECT>\n' * count + b"</BODY></DjVuXML>\n", 6))

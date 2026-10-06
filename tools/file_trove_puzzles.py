@@ -767,8 +767,9 @@ def rebuild(parsed, image=None):
             tokens = clue["tokens"][0]
             spec.append((next(iter(tokens)) if len(tokens) == 1 else None, direction, length))
     side = len(image) if image and len(image) == len(image[0]) and len(image) in SIDES else SIDE
+    import ocr_remote  # the search, on the desktop when it answers
     return rg.unique_grid(spec, cols=side, rows=side, max_nodes=REBUILD_NODES,
-                          pick=closest(image))
+                          pick=closest(image), search=ocr_remote.reconstruct)
 
 
 def counts_off(parsed, image):
