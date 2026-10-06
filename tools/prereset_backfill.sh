@@ -352,21 +352,26 @@ needs_solve() {
 # A finished solve run: write its fill if tools/apply_solution.py passes it,
 # commit and push that, and queue the puzzle to be annotated next. A rejected
 # fill writes nothing and goes in the solve ledger (tools/failed_inputs.py),
-# which keeps it out of the queue until its inputs change.
+# which keeps it out of the queue until its inputs change. A puzzle held as its
+# clues alone (tools/clues_only.py) is promoted by the same apply, which files
+# the grid it derives and deletes the clues-only file: both go in the commit.
 solve_applied() {
   local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
   local judged="" said="/tmp/ct-prereset-$1.txt" out sha
+  local -a spec=("$(puzzle_spec "$id")")
+  [ -n "$(git ls-files -- "$(clues_spec "$id")")" ] && spec+=("$(clues_spec "$id")")
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
   elif [ -s "$fill" ] &&
        python3 tools/apply_solution.py "$id" --fill "$fill" --model "$MODEL" --no-reindex >"$verdict" 2>&1; then
     index_lock
-    if ! out=$(git add -A -- "$(puzzle_spec "$id")" 2>&1 &&
+    if ! out=$(git add -A -- "${spec[@]}" 2>&1 &&
                git commit -q -m "$(printf 'Solve %s\n\n%s' "$id" "$(python3 tools/provenance.py trailer)")" 2>&1); then
-      git reset -q -- "$(puzzle_spec "$id")"
+      git reset -q -- "${spec[@]}"
       index_unlock
       alert "pre-reset backfill could not commit its solve of $id, so it is not annotated either: $(printf '%s' "$out" | tail -5)"
       discard_puzzle "$id"
+      [ "${#spec[@]}" -gt 1 ] && git checkout -- "${spec[1]}"
       rm -f "$fill" "$verdict"
       return 1
     fi
@@ -423,6 +428,8 @@ reopen_answers() {
 # whichever year folder, so a write that moved it to another year is staged or
 # undone as both halves of the rename.
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
+# A puzzle held as its clues alone, as a git pathspec (tools/clues_only.py).
+clues_spec() { printf 'clues_only/*/%s.json' "$1"; }
 # The pool's runs share one index. Unlocked, one run's `git add` dies on
 # index.lock while a sibling commits, and a commit takes whatever its siblings
 # have staged. So each stages, commits and names its commit under this lock,
@@ -1009,7 +1016,8 @@ fi
 # --- 1. un-annotated puzzles, and the answerless solved first ---------------
 # The queue, its order and what it leaves out are tools/prereset_plan.py's
 # backlog(). A puzzle without all its answers is solved cold (pool_launch)
-# before it is annotated: its clues are all a puzzle has to come with.
+# before it is annotated: its clues are all a puzzle has to come with. A puzzle
+# held as its clues alone is queued too; its solve files its grid.
 echo "un-annotated backlog, newest first:"
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
