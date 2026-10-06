@@ -23,6 +23,9 @@
   "date": "2026-10-06",
   "check": "30 entries, 62 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -35,7 +38,39 @@
    "clue": {
     "text": "Footwear the couple on an icy footpath needed?"
    },
-   "solution": "PAIROFSLIPPERS"
+   "solution": "PAIROFSLIPPERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PAIROFSLIPPERS",
+    "definitions": [
+     {
+      "text": "Footwear",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Footwear the couple on an icy footpath needed?",
+      "note": "surface reading: a pair of people on a frozen path needed proper shoes or boots"
+     },
+     {
+      "clueFragment": "the couple on an icy footpath",
+      "note": "setter's reading: two people losing their footing on ice are a twosome who keep sliding"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The answer is soft indoor footwear, but read the other way it describes two people (a pair) who are slipping on the ice.",
+     "definitionFit": "Slippers are soft indoor shoes, and they are always sold and worn as a matched couple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "needed"
+    }
+   }
   },
   {
    "number": 2,
@@ -49,7 +84,51 @@
     "text": "Fruit bun I agree needs cooking",
     "enumeration": "9"
    },
-   "solution": "AUBERGINE"
+   "solution": "AUBERGINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AUBERGINE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needs cooking",
+      "for": "anagram",
+      "note": "cooking transforms raw ingredients, so the preceding words are mixed up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bun I agree",
+      "gives": "BUNIAGREE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUNIAGREE",
+       "gives": "AUBERGINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baker agrees that the bun still has to go in the oven.",
+     "walkthrough": "Aubergine is the British word for eggplant; botanically it is a berry, so a fruit.",
+     "definitionFit": "Botanically the eggplant is a berry, the seed-bearing part of the plant, though cooks treat it as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fruit"
+    }
+   }
   },
   {
    "number": 3,
@@ -63,7 +142,61 @@
     "text": "Commanded communist to go around mid-July",
     "enumeration": "5"
    },
-   "solution": "RULED"
+   "solution": "RULED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RULED",
+    "definitions": [
+     {
+      "text": "Commanded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mid",
+      "for": "letter_selection",
+      "note": "mid asks for the central letters of the month name that follows it"
+     },
+     {
+      "text": "to go around",
+      "for": "container",
+      "note": "going around something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "communist",
+      "gives": "RED",
+      "note": "a red is a communist"
+     },
+     {
+      "clueFragment": "July",
+      "gives": "UL",
+      "select": "middle",
+      "note": "the two central letters of the month"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "UL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A communist official is told to travel around in the middle of summer.",
+     "definitionFit": "To rule is to govern or give orders, so a ruler who ruled has commanded."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "July"
+    }
+   }
   },
   {
    "number": 4,
@@ -83,7 +216,68 @@
      }
     ]
    },
-   "solution": "FIVEMILES"
+   "solution": "FIVEMILES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FIVE MILES",
+    "definitions": [
+     {
+      "text": "Distance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Initially",
+      "for": "letter_selection",
+      "note": "initially points to only the opening letter of the word just before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the earlier pieces inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queues",
+      "gives": "FILES",
+      "note": "files are lines of people, one behind another"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, without the apostrophe"
+     },
+     {
+      "clueFragment": "motored",
+      "gives": "M",
+      "select": "first",
+      "note": "opening letter of motored"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IVEM",
+      "ILES"
+     ]
+    },
+    "explanation": {
+     "surface": "A driver complains of covering a long way stuck in traffic jams.",
+     "walkthrough": "'Initially' governs only the word just before it, so motored contributes one letter; the queues are lines, not traffic.",
+     "definitionFit": "A measured length of road, five times the imperial unit, is a distance someone might travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "queues"
+    }
+   }
   },
   {
    "number": 5,
@@ -97,7 +291,65 @@
     "text": "Labour leader said you can find missing Lord",
     "enumeration": "5"
    },
-   "solution": "LUCAN"
+   "solution": "LUCAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "homophone",
+     "charade"
+    ],
+    "answer": "LUCAN",
+    "definitions": [
+     {
+      "text": "missing Lord",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means we use the sound of the next word, written as a letter"
+     }
+    ],
+    "linkWords": [
+     "find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "first letter of Labour"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U is pronounced like this pronoun"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "taken as written"
+     }
+    ],
+    "explanation": {
+     "surface": "A party chief claims you can track down a vanished peer.",
+     "walkthrough": "Lord Lucan, a British earl, disappeared in 1974 after his children's nanny was murdered and has never been found.",
+     "definitionFit": "The seventh Earl of that title vanished in 1974 and was declared dead decades later, never located."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 6,
@@ -111,7 +363,63 @@
     "text": "A trip arranged by shrewd bishop",
     "enumeration": "9"
    },
-   "solution": "PATRIARCH"
+   "solution": "PATRIARCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PATRIARCH",
+    "definitions": [
+     {
+      "text": "bishop",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means set out afresh, so the letters before it are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A trip",
+      "gives": "ATRIP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shrewd",
+      "gives": "ARCH",
+      "note": "arch means knowing or cunning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATRI",
+      "ARCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATRIP",
+       "gives": "PATRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clever churchman has organised an outing.",
+     "definitionFit": "In the Orthodox churches a patriarch is a senior bishop presiding over a major see."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trip"
+    }
+   }
   },
   {
    "number": 7,
@@ -125,7 +433,67 @@
     "text": "Climbing in before party, eat away",
     "enumeration": "5"
    },
-   "solution": "ERODE"
+   "solution": "ERODE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ERODE",
+    "definitions": [
+     {
+      "text": "eat away",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Climbing",
+      "for": "reversal",
+      "note": "in a down clue, climbing means the word reads from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in tells us one piece sits inside the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "OD",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EDORE",
+       "to": "ERODE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guests going upstairs before a party are told to eat up.",
+     "walkthrough": "The surface pairs 'Climbing in', but the parse takes 'party climbing' as one step and 'in before' as the next.",
+     "definitionFit": "To erode is to wear something down gradually, as water or acid gnaws at rock or metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Climbing"
+    }
+   }
   },
   {
    "number": 8,
@@ -139,7 +507,60 @@
     "text": "Postpone upsetting us while away",
     "enumeration": "7"
    },
-   "solution": "SUSPEND"
+   "solution": "SUSPEND",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SUSPEND",
+    "definitions": [
+     {
+      "text": "Postpone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "reversal",
+      "note": "upsetting means tipping over, so in a down clue the short word is turned upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "while away",
+      "gives": "SPEND",
+      "note": "to while away time is to spend it idly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "SPEND"
+     ],
+     "reversals": [
+      {
+       "from": "US",
+       "to": "SU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for a delay because the plan annoys us while we are on holiday.",
+     "definitionFit": "To suspend a meeting or sentence is to defer it or put it on hold until later."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "away"
+    }
+   }
   },
   {
    "number": 9,
@@ -153,7 +574,60 @@
     "text": "Bought off black bride, possibly",
     "enumeration": "6"
    },
-   "solution": "BRIBED"
+   "solution": "BRIBED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BRIBED",
+    "definitions": [
+     {
+      "text": "Bought off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly suggests one version among several, so the letters may be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "bride",
+      "gives": "BRIDE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIBED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BRIDE",
+       "gives": "RIBED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bride in a black dress might have been paid to marry.",
+     "definitionFit": "Bribing means paying someone illicitly to secure their cooperation, the same as buying them off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 10,
@@ -167,7 +641,42 @@
     "text": "Where Belgium holds revolt",
     "enumeration": "5"
    },
-   "solution": "REBEL"
+   "solution": "REBEL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REBEL",
+    "definitions": [
+     {
+      "text": "revolt",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "hidden_word",
+      "note": "holds says the words before it contain the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where Belgium",
+      "gives": "REBEL",
+      "note": "letters running across the end of one word into the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about which country is in rebellion.",
+     "definitionFit": "As a verb, to rebel is to rise up against authority, which is what revolting means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Belgium"
+    }
+   }
   },
   {
    "number": 11,
@@ -181,7 +690,68 @@
     "text": "Five court cases about middle-class holidays",
     "enumeration": "9"
    },
-   "solution": "VACATIONS"
+   "solution": "VACATIONS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "VACATIONS",
+    "definitions": [
+     {
+      "text": "holidays",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle",
+      "for": "letter_selection",
+      "note": "middle asks for the central letter of the word joined to it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps around a piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral for five"
+     },
+     {
+      "clueFragment": "court cases",
+      "gives": "ACTIONS",
+      "note": "lawsuits are legal actions"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "A",
+      "select": "middle",
+      "note": "the central letter of class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "AC",
+      "A",
+      "TIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Five lawsuits concerning middle-class families going on holiday.",
+     "definitionFit": "Vacations are periods of rest away from work or study, the American word for holidays."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "middle"
+    }
+   }
   },
   {
    "number": 12,
@@ -195,7 +765,55 @@
     "text": "Monotony of drill work on motorway",
     "enumeration": "7"
    },
-   "solution": "BOREDOM"
+   "solution": "BOREDOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOREDOM",
+    "definitions": [
+     {
+      "text": "Monotony",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drill",
+      "gives": "BORE",
+      "note": "to drill a hole is to bore it"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "DO",
+      "note": "to do is to work or perform"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "M is the prefix of British motorway numbers, as in M1"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BORE",
+      "DO",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "The tedium of roadworks drilling away on a motorway.",
+     "definitionFit": "Tedious sameness produces weariness and lack of interest, which is the state of being bored."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drill"
+    }
+   }
   },
   {
    "number": 13,
@@ -209,7 +827,53 @@
     "text": "Simplicity of a net I've designed",
     "enumeration": "7"
    },
-   "solution": "NAIVETE"
+   "solution": "NAIVETE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NAIVETE",
+    "definitions": [
+     {
+      "text": "Simplicity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "designed means newly drawn up, so these letters are laid out in fresh order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a net I've",
+      "gives": "ANETIVE",
+      "note": "taken as written, without the apostrophe"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANETIVE",
+       "gives": "NAIVETE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admires the plain style of a net they have made.",
+     "definitionFit": "Naivety is innocent lack of sophistication or guile, an artless simpleness of mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "net"
+    }
+   }
   },
   {
    "number": 14,
@@ -223,7 +887,49 @@
     "text": "Doctor sick of exercise",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRILL",
+    "definitions": [
+     {
+      "text": "exercise",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "DR is the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "sick",
+      "gives": "ILL",
+      "note": "ill means unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor who is tired of working out.",
+     "definitionFit": "A drill is a repeated training routine, such as a military or fire practice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sick"
+    }
+   }
   },
   {
    "number": 15,
@@ -237,7 +943,71 @@
     "text": "Learner takes one timid person home in car",
     "enumeration": "9"
    },
-   "solution": "LIMOUSINE"
+   "solution": "LIMOUSINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LIMOUSINE",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in asks for the word just before it to be placed inside the preceding piece"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L is the learner driver's plate"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "timid person",
+      "gives": "MOUSE",
+      "note": "a mouse is a shy, timid person"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "MOUS",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A learner driver gives a shy passenger a lift home.",
+     "walkthrough": "Being 'in' is being at home, and the word 'in' after it then places that piece inside the timid person.",
+     "definitionFit": "A limousine is a large luxurious chauffeured motor vehicle, a grand type of car."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 16,
@@ -251,7 +1021,52 @@
     "text": "Free student I scolded",
     "enumeration": "9"
    },
-   "solution": "LIBERATED"
+   "solution": "LIBERATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIBERATED",
+    "definitions": [
+     {
+      "text": "Free",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, a student"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "scolded",
+      "gives": "BERATED",
+      "note": "berated means told off angrily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "I",
+      "BERATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A released student recalls a telling-off.",
+     "definitionFit": "Liberated means set loose from confinement or control, so free is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Free"
+    }
+   }
   },
   {
    "number": 17,
@@ -265,7 +1080,70 @@
     "text": "Be taking on a role as Napoleon",
     "enumeration": "9"
    },
-   "solution": "BONAPARTE"
+   "solution": "BONAPARTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BONAPARTE",
+    "definitions": [
+     {
+      "text": "Napoleon",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means absorbing, so the short word holds the pieces that follow"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be",
+      "gives": "BE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "an actor's role is a part"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ON",
+      "A",
+      "PART",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor is told to play the French emperor.",
+     "definitionFit": "Napoleon was the French emperor, whose family surname this is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "role"
+    }
+   }
   },
   {
    "number": 18,
@@ -279,7 +1157,61 @@
     "text": "Count her fancy northern club",
     "enumeration": "9"
    },
-   "solution": "TRUNCHEON"
+   "solution": "TRUNCHEON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRUNCHEON",
+    "definitions": [
+     {
+      "text": "club",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fancy",
+      "for": "anagram",
+      "note": "fancy means elaborate or imagined, so the preceding words are dressed up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Count her",
+      "gives": "COUNTHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUNCHEO",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COUNTHER",
+       "gives": "TRUNCHEO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to include a woman in a tally for a smart club up north.",
+     "walkthrough": "A truncheon is a British police baton.",
+     "definitionFit": "A police baton is a short heavy stick, the kind of weapon called a club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 19,
@@ -293,7 +1225,50 @@
     "text": "Working on farm see fraternity member",
     "enumeration": "9"
    },
-   "solution": "FREEMASON"
+   "solution": "FREEMASON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FREEMASON",
+    "definitions": [
+     {
+      "text": "fraternity member",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Working",
+      "for": "anagram",
+      "note": "working means being processed or reworked, so these letters are put into new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on farm see",
+      "gives": "ONFARMSEE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONFARMSEE",
+       "gives": "FREEMASON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone labouring on a farm spots a member of a brotherhood.",
+     "definitionFit": "Freemasons belong to a secretive fraternal order, a brotherhood with lodges and rituals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Working"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1282,70 @@
     "text": "Airmen backing artist on leave wanted medley",
     "enumeration": "7"
    },
-   "solution": "FARRAGO"
+   "solution": "FARRAGO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FARRAGO",
+    "definitions": [
+     {
+      "text": "medley",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving in reverse, so the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "wanted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Airmen",
+      "gives": "RAF",
+      "note": "the Royal Air Force"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA, Royal Academician, is an artist"
+     },
+     {
+      "clueFragment": "leave",
+      "gives": "GO",
+      "note": "to leave is to go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAR",
+      "RA",
+      "GO"
+     ],
+     "reversals": [
+      {
+       "from": "RAF",
+       "to": "FAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pilots supporting a painter who is on leave were after a mixture.",
+     "definitionFit": "A farrago is a confused jumble or hotchpotch, a mixture of assorted things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1359,56 @@
     "text": "Company's Head Office exercise",
     "enumeration": "5"
    },
-   "solution": "HOUSE"
+   "solution": "HOUSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOUSE",
+    "definitions": [
+     {
+      "text": "Company",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Head",
+      "gives": "H",
+      "note": "H is the abbreviation for head"
+     },
+     {
+      "clueFragment": "Office",
+      "gives": "O",
+      "note": "O is the abbreviation for office"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "USE",
+      "note": "to exercise a right is to use it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "USE"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm's headquarters holds a training session.",
+     "walkthrough": "'Head Office' looks like one phrase but splits into two abbreviations.",
+     "definitionFit": "A house is a business firm or institution, as in a publishing or fashion house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Head"
+    }
+   }
   },
   {
    "number": 21,
@@ -335,7 +1422,43 @@
     "text": "Test a terrible container for one's property",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "one's property",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "container for",
+      "for": "hidden_word",
+      "note": "the preceding words act as a box holding the answer within their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Test a terrible",
+      "gives": "ESTATE",
+      "note": "letters running across the three words, starting after the first letter"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone tries out a dreadful box for keeping belongings.",
+     "walkthrough": "'Test a terrible' reads like an anagram with 'terrible' as its signal, but there are only five letters to shuffle; the words instead hold the answer.",
+     "definitionFit": "An estate is the land and possessions a person owns, everything they have taken together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "terrible"
+    }
+   }
   },
   {
    "number": 22,
@@ -349,7 +1472,68 @@
     "text": "Put off introducing infrequent transport",
     "enumeration": "7"
    },
-   "solution": "RAPTURE"
+   "solution": "RAPTURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RAPTURE",
+    "definitions": [
+     {
+      "text": "transport",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or out of place, so the word before it is jumbled"
+     },
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "introducing means bringing into, so one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infrequent",
+      "gives": "RARE",
+      "note": "rare means seldom happening"
+     },
+     {
+      "clueFragment": "Put",
+      "gives": "PUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "PTU",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PUT",
+       "gives": "PTU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is discouraged by bringing in a bus service that seldom runs.",
+     "walkthrough": "Transport here is the noun meaning overwhelming emotion, as in 'transports of joy'.",
+     "definitionFit": "Rapture is intense delight or ecstasy, an emotional state also called transport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "transport"
+    }
+   }
   },
   {
    "number": 23,
@@ -360,9 +1544,73 @@
    },
    "length": 5,
    "clue": {
+    "text": "Little singer has raised gratuity 1p!",
     "missing": true
    },
-   "solution": "PIPIT"
+   "solution": "PIPIT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PIPIT",
+    "definitions": [
+     {
+      "text": "Little singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised means lifted up, so in a down clue the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gratuity",
+      "gives": "TIP",
+      "note": "a tip is a gratuity"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the digit one written as the Roman numeral"
+     },
+     {
+      "clueFragment": "p",
+      "gives": "P",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "PIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIPIP",
+       "to": "PIPIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small-time singer gets a tip of just one penny.",
+     "walkthrough": "TIP, I and P together are turned upward. In Britain 1p is a one-penny coin; here it splits into I and P.",
+     "definitionFit": "The pipit is a small songbird, so a little creature that sings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 24,
@@ -376,7 +1624,61 @@
     "text": "Best French sleeping accommodation in Central Greece",
     "enumeration": "5"
    },
-   "solution": "ELITE"
+   "solution": "ELITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ELITE",
+    "definitions": [
+     {
+      "text": "Best",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Central",
+      "for": "letter_selection",
+      "note": "central means only the letters at the heart of the country name are wanted"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greece",
+      "gives": "EE",
+      "select": "middle",
+      "note": "the two central letters of the country"
+     },
+     {
+      "clueFragment": "French sleeping accommodation",
+      "gives": "LIT",
+      "note": "lit is French for bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LIT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Top-quality French hotel rooms are found in the middle of Greece.",
+     "definitionFit": "The elite are the select top group, the best people of any set."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accommodation"
+    }
+   }
   },
   {
    "number": 25,
@@ -390,7 +1692,66 @@
     "text": "Staff caught volunteers returning smelly animal",
     "enumeration": "7"
    },
-   "solution": "POLECAT"
+   "solution": "POLECAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "POLECAT",
+    "definitions": [
+     {
+      "text": "smelly animal",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the word before it is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Staff",
+      "gives": "POLE",
+      "note": "a pole is a staff"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     },
+     {
+      "clueFragment": "volunteers",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's former volunteer reserve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POLE",
+      "C",
+      "AT"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Workers caught volunteers coming back with a stinking creature.",
+     "definitionFit": "The polecat is a weasel-like mammal known for the foul-smelling fluid it releases."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Staff"
+    }
+   }
   },
   {
    "number": 26,
@@ -404,7 +1765,50 @@
     "text": "Lead from the local timber supplier",
     "enumeration": "5"
    },
-   "solution": "LEASH"
+   "solution": "LEASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEASH",
+    "definitions": [
+     {
+      "text": "Lead",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the local",
+      "gives": "LE",
+      "note": "the, as a local in France would say it"
+     },
+     {
+      "clueFragment": "timber supplier",
+      "gives": "ASH",
+      "note": "the ash tree supplies hardwood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A tip-off comes from the neighbourhood wood merchant.",
+     "walkthrough": "'Lead' is the dog's lead, not a clue or a tip; 'the local' asks for 'the' in the local language, French.",
+     "definitionFit": "A leash is the strap or cord used to hold a dog, which the British call its lead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 27,
@@ -418,7 +1822,51 @@
     "text": "Aim to pilfer novel sound device",
     "enumeration": "9"
    },
-   "solution": "AMPLIFIER"
+   "solution": "AMPLIFIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMPLIFIER",
+    "definitions": [
+     {
+      "text": "sound device",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the preceding letters take a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aim to pilfer",
+      "gives": "AIMPILFER",
+      "note": "taken as written, leaving out the small joining word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIMPILFER",
+       "gives": "AMPLIFIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thief sets out to steal a new piece of audio equipment.",
+     "walkthrough": "'to' is a link inside the fodder phrase and supplies no letters.",
+     "definitionFit": "An amplifier boosts electrical signals to drive loudspeakers, a piece of audio equipment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 28,
@@ -432,7 +1880,69 @@
     "text": "Turn away a vicar, coming back on time",
     "enumeration": "5"
    },
-   "solution": "AVERT"
+   "solution": "AVERT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AVERT",
+    "definitions": [
+     {
+      "text": "Turn away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means travelling in reverse, so the word reads right to left"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "vicar",
+      "gives": "REV",
+      "note": "Rev, short for Reverend, a vicar's title"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VER",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "REV",
+       "to": "VER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A clergyman returning punctually is sent off.",
+     "definitionFit": "To avert your eyes is to turn them aside, so the two phrases are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vicar"
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1966,53 @@
      }
     ]
    },
-   "solution": "ONTHETELEPHONE"
+   "solution": "ONTHETELEPHONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ON THE TELEPHONE",
+    "definitions": [
+     {
+      "text": "getting in touch?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Being about",
+      "for": "anagram",
+      "note": "being about suggests things moved around, so the letters are scattered and reset"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten to hope Helen",
+      "gives": "TENTOHOPEHELEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TENTOHOPEHELEN",
+       "gives": "ONTHETELEPHONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At about ten to the hour, someone hopes that Helen will make contact.",
+     "definitionFit": "Contacting somebody by phone call means being on a line with them, so it is one way of keeping in touch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ten"
+    }
+   }
   }
  ]
 }
