@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Fastener put forward, we hear?",
     "enumeration": "6"
    },
-   "solution": "BROOCH"
+   "solution": "BROOCH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BROOCH",
+    "definitions": [
+     {
+      "text": "Fastener",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a spoken sound, so the word for the phrase before it is matched by ear, not spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "put forward",
+      "gives": "BROOCH",
+      "soundsLike": "BROACH",
+      "note": "to broach a subject is to put it forward for discussion"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone wonders whether a clasp or catch is being pushed forward.",
+     "walkthrough": "BROACH (raise a topic) and BROOCH (a decorative pin) are said the same way.",
+     "definitionFit": "A brooch is a pinned ornament that clasps clothing, so it is a kind of fastener."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "forward"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +87,51 @@
     "text": "Bubbly rendition of some opus",
     "enumeration": "8"
    },
-   "solution": "ESPUMOSO"
+   "solution": "ESPUMOSO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESPUMOSO",
+    "definitions": [
+     {
+      "text": "Bubbly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rendition of",
+      "for": "anagram",
+      "note": "a rendition is a performance or version, so the following words are played back in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some opus",
+      "gives": "SOMEOPUS",
+      "note": "the two words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMEOPUS",
+       "gives": "ESPUMOSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lively performance of part of a musical work.",
+     "walkthrough": "'Bubbly' looks like an adjective for the performance; it is the noun for fizzy wine.",
+     "definitionFit": "Espumoso is Spanish sparkling wine, and bubbly is informal English for champagne or similar fizz."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Bubbly"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +145,74 @@
     "text": "Report written up about evacuation of desolate country",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SWEDEN",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down clue, writing something up runs it from bottom to top, so the word is read backwards"
+     },
+     {
+      "text": "evacuation of",
+      "for": "letter_selection",
+      "note": "evacuating a word empties out its insides, leaving only its first and last letters"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Report",
+      "gives": "NEWS",
+      "note": "a report is news"
+     },
+     {
+      "clueFragment": "desolate",
+      "gives": "DE",
+      "select": "outer",
+      "note": "the outside letters of desolate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWE",
+      "DE",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NEWS",
+       "to": "SWEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist files a story about an abandoned, bleak land.",
+     "walkthrough": "SWEN, news reversed, goes round DE to give SWEDEN.",
+     "definitionFit": "Sweden is a Scandinavian nation, an example of a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "evacuation"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +226,61 @@
     "text": "Excitement, America in song after leader deposed",
     "enumeration": "7"
    },
-   "solution": "AROUSAL"
+   "solution": "AROUSAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "AROUSAL",
+    "definitions": [
+     {
+      "text": "Excitement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed inside the other"
+     },
+     {
+      "text": "after leader deposed",
+      "for": "deletion",
+      "note": "a deposed leader is removed from the top, so the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "USA",
+      "note": "the United States of America"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "CAROL",
+      "note": "a carol is a song, especially a Christmas one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARO",
+      "USA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A patriotic anthem stirs the crowd once the president has been ousted.",
+     "walkthrough": "'Leader deposed' sounds political, but it only strips the first letter of the song word.",
+     "definitionFit": "Arousal is a state of being stirred up or stimulated, which is excitement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +294,54 @@
     "text": "Artist’s puzzling pass",
     "enumeration": "6"
    },
-   "solution": "STRAIT"
+   "solution": "STRAIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRAIT",
+    "definitions": [
+     {
+      "text": "pass",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "puzzling",
+      "for": "anagram",
+      "note": "something puzzling is mixed up and confusing, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "ARTIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTIST",
+       "gives": "STRAIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's baffling route through the mountains.",
+     "walkthrough": "'Pass' suggests a mountain route, but here it is a sea passage between two land masses.",
+     "definitionFit": "A strait is a narrow channel of water linking two seas, a sea passage ships pass through."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +361,73 @@
      }
     ]
    },
-   "solution": "SCREWEYE"
+   "solution": "SCREWEYE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SCREW EYE",
+    "definitions": [
+     {
+      "text": "fastener",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before"
+     },
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another thing is held within it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nuts",
+      "gives": "SCREWY",
+      "note": "nuts means crazy, as does screwy"
+     },
+     {
+      "clueFragment": "Device",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of Device"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCREW",
+      "E",
+      "Y",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A gadget held in place with nuts and a fixing of English make: a hardware catalogue entry.",
+     "walkthrough": "The last letter of Device goes inside SCREWY, then E follows. 'Nuts' looks like hardware, but means mad.",
+     "definitionFit": "A screw eye is a screw with a looped head, used for fixing hooks, wire or cord, so it is a fastener."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +441,46 @@
     "text": "Puzzle, short name",
     "enumeration": "9"
    },
-   "solution": "CROSSWORD"
+   "solution": "CROSSWORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSWORD",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short",
+      "gives": "CROSS",
+      "note": "being short with someone is being cross or curt"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "WORD",
+      "note": "a name is a word for something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "WORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief label for a brainteaser, as in a puzzle title.",
+     "definitionFit": "The thing being solved right now is a puzzle of interlocking words, the most familiar newspaper puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "short"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +494,43 @@
     "text": "Puzzled when in a jam?",
     "enumeration": "5"
    },
-   "solution": "STUCK"
+   "solution": "STUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STUCK",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     },
+     {
+      "text": "when in a jam",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzled",
+      "note": "first meaning: unable to work something out"
+     },
+     {
+      "clueFragment": "when in a jam",
+      "note": "second meaning: jammed fast, unable to move"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A jam can be a fix or literally something sticky, and either way you cannot get out.",
+     "definitionFit": "Being baffled and being wedged immovably both use the same past participle meaning unable to proceed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jam"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +544,62 @@
     "text": "Puzzle parody about prayer, puzzling",
     "enumeration": "9"
    },
-   "solution": "CONUNDRUM"
+   "solution": "CONUNDRUM",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CONUNDRUM",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first piece wraps round the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parody",
+      "gives": "COD",
+      "note": "cod is British slang for mock or parody, as in a cod accent"
+     },
+     {
+      "clueFragment": "prayer",
+      "gives": "NUN",
+      "note": "a nun is one who prays"
+     },
+     {
+      "clueFragment": "puzzling",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or strange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "NUN",
+      "D",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A spoof of a religious petition that leaves readers baffled.",
+     "walkthrough": "A prayer here is a person who prays, not the words said; cod and rum are British slang for mock and odd.",
+     "definitionFit": "A conundrum is a riddle or difficult problem, which is a puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prayer"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +613,47 @@
     "text": "Puzzled, female puzzle setter",
     "enumeration": "5"
    },
-   "solution": "FAZED"
+   "solution": "FAZED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAZED",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "puzzle setter",
+      "gives": "AZED",
+      "note": "Azed is the pseudonym of the Observer's long-running crossword setter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AZED"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who sets crosswords is herself left confused.",
+     "walkthrough": "Azed sets the famously hard crossword in the Observer, a British Sunday paper.",
+     "definitionFit": "Fazed means disconcerted or thrown off balance, close to bewildered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +667,42 @@
     "text": "Drab digs",
     "enumeration": "4"
    },
-   "solution": "FLAT"
+   "solution": "FLAT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLAT",
+    "definitions": [
+     {
+      "text": "Drab",
+      "at": 0
+     },
+     {
+      "text": "digs",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drab",
+      "note": "first meaning: dull, lifeless"
+     },
+     {
+      "clueFragment": "digs",
+      "note": "second meaning: a home, lodgings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Digs is British slang for lodgings; a flat is an apartment.",
+     "definitionFit": "The word describes something dull and monotonous, and is also British for an apartment where one lodges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "digs"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +716,43 @@
     "text": "Puzzled, as is wobbly?",
     "enumeration": "6"
    },
-   "solution": "THROWN"
+   "solution": "THROWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THROWN",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     },
+     {
+      "text": "as is wobbly",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzled",
+      "note": "first meaning: confused, put off one's stride"
+     },
+     {
+      "clueFragment": "as is wobbly",
+      "note": "second meaning: what happens to a wobbly, which is a tantrum one throws"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "To throw a wobbly is British slang for having a tantrum, so a wobbly is something thrown.",
+     "definitionFit": "Being disconcerted is being knocked off course, and a tantrum is something people fling, in the idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wobbly"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +776,43 @@
      }
     ]
    },
-   "solution": "ALLATSEA"
+   "solution": "ALLATSEA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALL AT SEA",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     },
+     {
+      "text": "as the entire sailing fleet",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzled",
+      "note": "first meaning: utterly confused"
+     },
+     {
+      "clueFragment": "as the entire sailing fleet",
+      "note": "second meaning, taken literally: every ship out on the ocean"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom for being lost and confused is read literally as every vessel being out on the water.",
+     "definitionFit": "The idiom describes complete bewilderment, and literally describes every ship being afloat on the ocean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fleet"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +826,47 @@
     "text": "Puzzled by weak broadcast?",
     "enumeration": "7"
    },
-   "solution": "FLOORED"
+   "solution": "FLOORED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLOORED",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "something broadcast is heard on air, so a word is matched by its sound"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weak",
+      "gives": "FLOORED",
+      "soundsLike": "FLAWED",
+      "note": "flawed means having a weakness"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone baffled by a feeble transmission.",
+     "walkthrough": "In a non-rhotic British accent FLAWED and FLOORED are said the same way.",
+     "definitionFit": "Floored means knocked down, and figuratively stumped, confounded, unable to respond."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +886,59 @@
      }
     ]
    },
-   "solution": "LIESOVER"
+   "solution": "LIESOVER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIES OVER",
+    "definitions": [
+     {
+      "text": "covers",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Painted",
+      "for": "anagram",
+      "note": "something painted is given a new look, so these letters are remade in another order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "veil",
+      "gives": "VEIL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rose",
+      "gives": "ROSE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VEILROSE",
+       "gives": "LIESOVER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Decorated bridal veils with roses on them as covers: a wedding display.",
+     "walkthrough": "'The Painted Veil' is a Maugham novel, a nice distraction; the anagram signal is the first word.",
+     "definitionFit": "Something that lies over another thing is spread on top of it, which is to cover it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Painted"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +952,42 @@
     "text": "Somewhat unenlightened, darkest Scandinavian literature",
     "enumeration": "4"
    },
-   "solution": "EDDA"
+   "solution": "EDDA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EDDA",
+    "definitions": [
+     {
+      "text": "Scandinavian literature",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means a part of, so a run of letters is taken from inside the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unenlightened, darkest",
+      "gives": "EDDA",
+      "note": "letters running across the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Gloomy, obscure Nordic writing for the poorly informed.",
+     "definitionFit": "The Eddas are the medieval Icelandic collections of Norse myth and poetry, core Scandinavian writings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unenlightened"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1001,43 @@
     "text": "Puzzled out?",
     "enumeration": "7"
    },
-   "solution": "STUMPED"
+   "solution": "STUMPED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STUMPED",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     },
+     {
+      "text": "out",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzled",
+      "note": "first meaning: baffled, at a loss"
+     },
+     {
+      "clueFragment": "out",
+      "note": "second meaning: dismissed in cricket by the wicketkeeper breaking the wicket"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Puzzled out' looks like a phrasal verb meaning solved; split it. In cricket a batsman who leaves the crease can be put out this way.",
+     "definitionFit": "The word means baffled, and also names a cricket dismissal where the keeper breaks the stumps."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1051,50 @@
     "text": "Troubleshooter, rock of the communications industry?",
     "enumeration": "8"
    },
-   "solution": "MEDIATOR"
+   "solution": "MEDIATOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEDIATOR",
+    "definitions": [
+     {
+      "text": "Troubleshooter",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the communications industry",
+      "gives": "MEDIA",
+      "note": "press, TV and radio together"
+     },
+     {
+      "clueFragment": "rock",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEDIA",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dependable figure, a rock, in the world of press and broadcasting.",
+     "walkthrough": "Read 'rock of the media' as the media followed by a rock.",
+     "definitionFit": "A mediator settles disputes between parties, so they are someone who sorts out trouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1108,47 @@
     "text": "Reportedly, officers in bits",
     "enumeration": "7"
    },
-   "solution": "KERNELS"
+   "solution": "KERNELS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KERNELS",
+    "definitions": [
+     {
+      "text": "bits",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said aloud, so the word is matched by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officers",
+      "gives": "KERNELS",
+      "soundsLike": "COLONELS",
+      "note": "colonels are senior army officers"
+     }
+    ],
+    "explanation": {
+     "surface": "News that army officers have been blown to pieces.",
+     "walkthrough": "COLONEL is pronounced like KERNEL, despite its spelling.",
+     "definitionFit": "Kernels are small seeds or grains, and figuratively the essential small parts of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bits"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1168,40 @@
      }
     ]
    },
-   "solution": "BEYONDME"
+   "solution": "BEYONDME",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BEYOND ME",
+    "definitions": [
+     {
+      "text": "Puzzling",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as name appears in men?",
+      "note": "surface reading: a name featuring among a group of men"
+     },
+     {
+      "clueFragment": "as name appears in men?",
+      "note": "setter's reading: in the word men, the letter for name comes after the first two letters"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone baffled at how a name got onto a list of men.",
+     "walkthrough": "In MEN, N (name) sits beyond ME, so the phrase BEYOND ME describes it; that phrase also means too hard for me to understand.",
+     "definitionFit": "Something beyond me is outside my understanding, which is puzzling to me."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "men"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1221,69 @@
      }
     ]
    },
-   "solution": "OHENRY"
+   "solution": "OHENRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "O HENRY",
+    "definitions": [
+     {
+      "text": "US author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go",
+      "for": "deletion",
+      "note": "to go means is to be removed, so these letters leave the word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so what is left wraps around the next piece"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "STORY",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is a chicken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "HEN",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "An American writer still has a long way to go with his story about a chicken.",
+     "walkthrough": "'Way to go' reads as distance remaining; it means the abbreviation for street must leave the tale.",
+     "definitionFit": "O. Henry was the pen name of the American short-story writer William Sydney Porter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1297,42 @@
     "text": "Puzzle strain",
     "enumeration": "6"
    },
-   "solution": "RIDDLE"
+   "solution": "RIDDLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIDDLE",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     },
+     {
+      "text": "strain",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzle",
+      "note": "first meaning: a question posed as a brainteaser"
+     },
+     {
+      "clueFragment": "strain",
+      "note": "second meaning: to sieve, as with a coarse sieve"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Strain' reads as effort, but it is the verb to sieve; a riddle is also a coarse garden sieve.",
+     "definitionFit": "The noun is a brainteaser, and the verb means to pass soil or gravel through a coarse sieve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strain"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1346,54 @@
     "text": "Ordered system for example in ice crystals",
     "enumeration": "6"
    },
-   "solution": "REGIME"
+   "solution": "REGIME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REGIME",
+    "definitions": [
+     {
+      "text": "Ordered system",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ice crystals",
+      "gives": "RIME",
+      "note": "rime is frost formed of ice crystals"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "standard abbreviation, exempli gratia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EG",
+      "IME"
+     ]
+    },
+    "explanation": {
+     "surface": "A structured classification, for instance in the study of ice crystals.",
+     "definitionFit": "A regime is a system or ordered way of governing or doing things, such as a diet or exercise plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crystals"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1407,48 @@
     "text": "Hang around for commentary of Birmingham match?",
     "enumeration": "6"
    },
-   "solution": "LOITER"
+   "solution": "LOITER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LOITER",
+    "definitions": [
+     {
+      "text": "Hang around",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "commentary of Birmingham",
+      "for": "homophone",
+      "note": "commentary is spoken, here in the local accent of that city, so the word is matched by how it is said there"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "LOITER",
+      "soundsLike": "LIGHTER",
+      "note": "a match is a lighter for fires, said in a Brummie accent"
+     }
+    ],
+    "explanation": {
+     "surface": "Waiting about to hear a commentary on a football fixture in Birmingham.",
+     "walkthrough": "'Match' looks like a game; it is something you strike to light. In the Birmingham accent (Brummie) LIGHTER comes out as LOITER.",
+     "definitionFit": "To loiter is to linger idly in a place, the same as to hang around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "match"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1462,41 @@
     "text": "Puzzle, dandy",
     "enumeration": "5"
    },
-   "solution": "POSER"
+   "solution": "POSER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POSER",
+    "definitions": [
+     {
+      "text": "Puzzle",
+      "at": 0
+     },
+     {
+      "text": "dandy",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Puzzle",
+      "note": "first meaning: a tricky question"
+     },
+     {
+      "clueFragment": "dandy",
+      "note": "second meaning: a man showing off his appearance"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The noun names a baffling question, and also someone who strikes affected attitudes to impress others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dandy"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1510,51 @@
     "text": "Puzzling array of giant mice",
     "enumeration": "9"
    },
-   "solution": "ENIGMATIC"
+   "solution": "ENIGMATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENIGMATIC",
+    "definitions": [
+     {
+      "text": "Puzzling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "array of",
+      "for": "anagram",
+      "note": "an array is an arrangement, so the letters are laid out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giant mice",
+      "gives": "GIANTMICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIANTMICE",
+       "gives": "ENIGMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A baffling collection of enormous rodents.",
+     "definitionFit": "Enigmatic means mysterious and hard to interpret, which is baffling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "array"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1568,56 @@
     "text": "Puzzling barrier back in grid",
     "enumeration": "5"
    },
-   "solution": "WEIRD"
+   "solution": "WEIRD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WEIRD",
+    "definitions": [
+     {
+      "text": "Puzzling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back in",
+      "for": "letter_selection",
+      "note": "the back of a word is its end, so only its last letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barrier",
+      "gives": "WEIR",
+      "note": "a weir is a low dam across a river"
+     },
+     {
+      "clueFragment": "grid",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter of grid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEIR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange obstacle sits at the back of the crossword grid.",
+     "walkthrough": "'Back' suggests a reversal, but no word here is reversed: it picks out the end of grid.",
+     "definitionFit": "Weird means strange and hard to explain, which is baffling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "barrier"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1631,58 @@
     "text": "Puzzled having guzzled, dummy going in",
     "enumeration": "9"
    },
-   "solution": "FLUMMOXED"
+   "solution": "FLUMMOXED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLUMMOXED",
+    "definitions": [
+     {
+      "text": "Puzzled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going in",
+      "for": "container",
+      "note": "going in means entering, so one piece is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guzzled",
+      "gives": "FED",
+      "note": "to guzzle is to eat greedily, so guzzled means fed"
+     },
+     {
+      "clueFragment": "dummy",
+      "gives": "LUMMOX",
+      "note": "a lummox is a clumsy, stupid person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LUMMOX",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Confused after eating too much, and then a dummy is put in the mouth.",
+     "walkthrough": "'Dummy' suggests a baby's pacifier, but it means a fool.",
+     "definitionFit": "Flummoxed means bewildered, completely at a loss, which is baffled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dummy"
+    }
+   }
   }
  ]
 }
