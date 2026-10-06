@@ -866,8 +866,8 @@ tools/prereset_backfill.sh                   burns the tail of the weekly quota 
                                              ungated
 household-plugins/<name>/plugin.toml         when and where the household bridge runs each
                                              scheduled job (daily, prereset, books, annotate
-                                             audit, corpus queue, archive coverage, Gale
-                                             inbox); symlinked from
+                                             audit, corpus queue, archive coverage, Gale inbox,
+                                             VLM health); symlinked from
                                              ~/.config/household/plugins/<name>, then
                                              `tools/plugins.py --write` in the household repo
 tools/test_annotate_retry.sh                 drives that resume with a fake CLI, so it is not
@@ -1621,5 +1621,16 @@ tools/desktop_probe.ps1                      the desktop's game processes, 3D lo
                                              sessions, as JSON, for tools/desktop_busy.py
 tools/test_desktop_busy.sh                   does desktop OCR and VLM work yield while Paul
                                              games, and resume after?
+tools/vlm_health.py                          wake the room when the desktop VLM has been down
+                                             for DOWN_FOR with no game
+tools/vlm_health.sh                          the scheduled entry point for tools/vlm_health.py
+                                             (the cryptic-vlm-health plugin), run from a
+                                             worktree at origin/master
+                                             (tools/nightly_worktree.sh).
+tools/vlm_health_probe.ps1                   what tools/vlm_health.py reports when the desktop
+                                             VLM is down, as one JSON line. "game" uses
+                                             D:\llm\game-guard.ps1's own rule (a process run
+                                             from D:\ outside D:\llm), because that guard is
+                                             what takes llama-swap down for one
 ```
 <!-- LAYOUT-END -->

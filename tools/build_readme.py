@@ -299,7 +299,7 @@ LAYOUT = [
     ("scheduling", "tools/claude_session.sh", "sourced: session ids, so a run that dies is resumed rather than paid for twice"),
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
-    ("scheduling", "household-plugins/<name>/plugin.toml", "when and where the household bridge runs each scheduled job (daily, prereset, books, annotate audit, corpus queue, archive coverage, Gale inbox); symlinked from ~/.config/household/plugins/<name>, then `tools/plugins.py --write` in the household repo"),
+    ("scheduling", "household-plugins/<name>/plugin.toml", "when and where the household bridge runs each scheduled job (daily, prereset, books, annotate audit, corpus queue, archive coverage, Gale inbox, VLM health); symlinked from ~/.config/household/plugins/<name>, then `tools/plugins.py --write` in the household repo"),
     ("scheduling", "tools/test_annotate_retry.sh", "drives that resume with a fake CLI, so it is not first tried on a night it is needed"),
     ("scheduling", "tools/test_apply_refusal.sh", "a refused annotation write names clue ids and no traceback, so the model does not map entries[N] by hand"),
     ("scheduling", "tools/annotate_postmortem.py", "why an annotation run died, read off its transcript — sent WITH the alert, so the report is not a pointer to a log"),
@@ -533,6 +533,9 @@ LAYOUT = [
     ("fetching", "tools/desktop_busy.py", "whether Paul is playing a game on his desktop, so the work we send there yields"),
     ("fetching", "tools/desktop_probe.ps1", "the desktop's game processes, 3D load and OCR sessions, as JSON, for tools/desktop_busy.py"),
     ("fetching", "tools/test_desktop_busy.sh", "does desktop OCR and VLM work yield while Paul games, and resume after?"),
+    ("fetching", "tools/vlm_health.py", "wake the room when the desktop VLM has been down for DOWN_FOR with no game"),
+    ("fetching", "tools/vlm_health.sh", "the scheduled entry point for tools/vlm_health.py (the cryptic-vlm-health plugin), run from a worktree at origin/master (tools/nightly_worktree.sh)."),
+    ("fetching", "tools/vlm_health_probe.ps1", "what tools/vlm_health.py reports when the desktop VLM is down, as one JSON line. \"game\" uses D:\\llm\\game-guard.ps1's own rule (a process run from D:\\ outside D:\\llm), because that guard is what takes llama-swap down for one"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

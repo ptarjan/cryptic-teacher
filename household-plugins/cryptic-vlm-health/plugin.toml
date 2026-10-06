@@ -1,0 +1,14 @@
+about    = "Wake the room when the desktop VLM has been down 30 minutes with no game running"
+room     = "cryptic-crosswords"
+# Every 5 minutes: an up VLM costs one HTTP request; a down one adds one ssh
+# probe of the desktop, which decides whether a game explains it.
+schedule = "*/5 * * * *"
+where    = "container"
+# The job's own worktree, reset to origin/master on every tick.
+run      = "/Users/pt/.cryptic-teacher/vlm_health/tools/vlm_health.sh"
+log      = "/Users/pt/github/cryptic-teacher/.vlm_health.log"
+timeout  = 240
+
+[env]
+XDG_CONFIG_HOME  = "/Users/pt/.config"
+CT_WORKTREE_ROOT = "/Users/pt/.cryptic-teacher"
