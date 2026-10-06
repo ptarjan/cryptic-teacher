@@ -5395,7 +5395,8 @@ global.realSetTimeout(() => {
   assert(after.includes("guess-verdict"),
     "asking for a new hint does not delete the verdict you were reading: " + after);
   assert(after.length >= before.length,
-    "the panel only ever grows: " + before.length + " -> " + after.length);
+    `the panel only ever grows (${walked.id} ${entryId(walked.e)}): `
+      + before.length + " -> " + after.length + "\nbefore: " + before + "\nafter: " + after);
   // The ladder stays reachable while a question stands. It used to go all-
   // disabled, so that a guess could not be walked around by buying a different
   // hint — and that cornered a solver who had simply picked the wrong rung
