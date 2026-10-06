@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Document about small rope",
     "enumeration": "6"
    },
-   "solution": "RECORD"
+   "solution": "RECORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECORD",
+    "definitions": [
+     {
+      "text": "Document",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re is Latin-derived shorthand for 'concerning'"
+     },
+     {
+      "clueFragment": "small rope",
+      "gives": "CORD",
+      "note": "a cord is a thin rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "CORD"
+     ]
+    },
+    "explanation": {
+     "surface": "A clerk files paperwork concerning a short length of rope.",
+     "definitionFit": "To record something is to put it down in writing, so both words mean set down officially."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +95,59 @@
      }
     ]
    },
-   "solution": "RUMBABA"
+   "solution": "RUMBABA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RUM BABA",
+    "definitions": [
+     {
+      "text": "pudding",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a word keeps only one of its two parts, here the back end of the Latin dance named just before"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance",
+      "gives": "RUMBA",
+      "note": "the rumba is a Cuban ballroom dance"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "BA",
+      "select": "last",
+      "note": "the tail end of the same dance name, rumba, taken again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUMBA",
+      "BA"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer pauses halfway through a dance to grab some pudding.",
+     "walkthrough": "The second 'dance' is the same rumba, of which only its final pair of letters is kept; 'half' is loose here.",
+     "definitionFit": "A rum baba is a small yeast sponge cake soaked in rum syrup, served as a dessert."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 2,
@@ -77,7 +171,50 @@
    "group": [
     "2-down",
     "25-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CUTTY SARK",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "destabilised",
+      "for": "anagram",
+      "note": "something destabilised is knocked out of its settled order, so the preceding words get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rusty tack",
+      "gives": "RUSTYTACK",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUSTYTACK",
+       "gives": "CUTTYSARK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A corroded fastening has made a vessel unstable.",
+     "definitionFit": "The Cutty Sark is a famous nineteenth-century tea clipper preserved in dry dock at Greenwich, London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tack"
+    }
+   }
   },
   {
    "number": 3,
@@ -91,7 +228,67 @@
     "text": "During bumpy ride, swan came to maturity",
     "enumeration": "7"
    },
-   "solution": "RIPENED"
+   "solution": "RIPENED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RIPENED",
+    "definitions": [
+     {
+      "text": "came to maturity",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bumpy",
+      "for": "anagram",
+      "note": "a bumpy journey jolts things about, so the letters of the ride are jumbled"
+     },
+     {
+      "text": "During",
+      "for": "container",
+      "note": "during places one thing inside the time span of another, so the bird goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ride",
+      "gives": "RIED",
+      "note": "the letters of ride rearranged"
+     },
+     {
+      "clueFragment": "swan",
+      "gives": "PEN",
+      "note": "a pen is a female swan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "PEN",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIDE",
+       "gives": "RIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "On a rough boat trip, a swan grew up.",
+     "walkthrough": "A pen is the female swan (the male is a cob), a convention worth learning.",
+     "definitionFit": "Fruit or ideas that have ripened have developed fully, reaching full growth or readiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swan"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +302,77 @@
     "text": "Obama upset about Republican's second-lowest life form",
     "enumeration": "6"
    },
-   "solution": "AMOEBA"
+   "solution": "AMOEBA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AMOEBA",
+    "definitions": [
+     {
+      "text": "lowest life form",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset means knocked over and disordered, so the president's name is rearranged"
+     },
+     {
+      "text": "second",
+      "for": "letter_selection",
+      "note": "second points to the letter in position two of the party word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the jumbled name goes round the chosen letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obama",
+      "gives": "AMOBA",
+      "note": "the former US president's name rearranged"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "E",
+      "select": 2,
+      "note": "the letter in second place of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMO",
+      "E",
+      "BA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OBAMA",
+       "gives": "AMOBA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political jibe: a Republican is the lowest form of life, and Obama is upset about it.",
+     "walkthrough": "The 's is 'is', joining the wordplay to the definition.",
+     "definitionFit": "This single-celled protozoan is the stock example of the most primitive kind of organism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Republican"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +386,83 @@
     "text": "Cry for help in publicity about end of democracy welcomed by PM",
     "enumeration": "6"
    },
-   "solution": "MAYDAY"
+   "solution": "MAYDAY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "MAYDAY",
+    "definitions": [
+     {
+      "text": "Cry for help",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out the final letter of the word that follows"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the combined advert and letter run backwards"
+     },
+     {
+      "text": "welcomed by",
+      "for": "container",
+      "note": "something welcomed by a host is taken inside, so the prime minister's name surrounds the rest"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement, a piece of publicity"
+     },
+     {
+      "clueFragment": "democracy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the closing letter of democracy"
+     },
+     {
+      "clueFragment": "PM",
+      "gives": "MAY",
+      "note": "Theresa May, UK prime minister 2016 to 2019"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "YDA",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "ADY",
+       "to": "YDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political lament: the prime minister presides over democracy's end amid spin.",
+     "walkthrough": "Theresa May was a British prime minister; her surname wraps round the reversed pieces.",
+     "definitionFit": "Mayday is the international radio distress call used by ships and aircraft in grave danger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "publicity"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +476,68 @@
     "text": "Get rid of cream containing minute angelica root",
     "enumeration": "9"
    },
-   "solution": "ELIMINATE"
+   "solution": "ELIMINATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ELIMINATE",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "root",
+      "for": "letter_selection",
+      "note": "a root is where a plant starts, so the opening letter of the herb is taken"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the word for cream wraps the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cream",
+      "gives": "ELITE",
+      "note": "the cream is the best, the elite"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "MIN",
+      "note": "min is the abbreviation for minute"
+     },
+     {
+      "clueFragment": "angelica",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of angelica"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "MIN",
+      "A",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cookery tip: discard cream that has a tiny bit of angelica root in it.",
+     "walkthrough": "Angelica is a herb whose candied stems decorate cakes, which suits the kitchen surface.",
+     "definitionFit": "To eliminate something is to remove or exclude it completely, a direct synonym for discarding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cream"
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +551,42 @@
     "text": "Frail men talking about complaint",
     "enumeration": "7"
    },
-   "solution": "AILMENT"
+   "solution": "AILMENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AILMENT",
+    "definitions": [
+     {
+      "text": "complaint",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "hidden_word",
+      "note": "about here means lying around within, so the letters sit inside the preceding run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frail men talking",
+      "gives": "AILMENT",
+      "note": "found running across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Elderly, weak men chatting about their health problems.",
+     "definitionFit": "A complaint in the medical sense is an illness or minor disorder, a standard synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +606,70 @@
      }
     ]
    },
-   "solution": "EDWINLANDSEER"
+   "solution": "EDWINLANDSEER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EDWIN LANDSEER",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange suggests something out of its usual form, so the following letters are reordered"
+     },
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "to protect something is to surround it, so the jumbled letters go round the cross-referenced word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new desire",
+      "gives": "EDWINSEER",
+      "note": "the letters of the two words rearranged"
+     },
+     {
+      "clueFragment": "22",
+      "gives": "LAND",
+      "note": "the answer to 22 across is estate, and an estate is land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDWIN",
+      "LAND",
+      "SEER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEWDESIRE",
+       "gives": "EDWINSEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist feels an odd new urge to look after a country estate.",
+     "walkthrough": "The 22 refers to 22 across, ESTATE, here a synonym for land.",
+     "definitionFit": "Sir Edwin Landseer was a Victorian artist famous for animal paintings and the Trafalgar Square lions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "desire"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +683,57 @@
     "text": "Dirty mark made by small dog with no tail",
     "enumeration": "4"
    },
-   "solution": "SMUT"
+   "solution": "SMUT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SMUT",
+    "definitions": [
+     {
+      "text": "Dirty mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no tail",
+      "for": "deletion",
+      "note": "with no tail means the end is cut off, so the dog word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "MUTT",
+      "note": "a mutt is a mongrel dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A little dog leaves a muddy stain on the carpet.",
+     "definitionFit": "Smut is a flake of soot or a dark smudge, so it names a small sooty stain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tail"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +753,70 @@
      }
     ]
    },
-   "solution": "PADDYFIELD"
+   "solution": "PADDYFIELD",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PADDY FIELD",
+    "definitions": [
+     {
+      "text": "agricultural land",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "troubled",
+      "for": "anagram",
+      "note": "troubled means disturbed and unsettled, so the letters of the next word are stirred up"
+     }
+    ],
+    "linkWords": [
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tantrum",
+      "gives": "PADDY",
+      "note": "a paddy is British slang for a fit of temper"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "FIEL",
+      "note": "the letters of life rearranged"
+     },
+     {
+      "clueFragment": "Dutch",
+      "gives": "D",
+      "note": "D is the abbreviation for Dutch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PADDY",
+      "FIEL",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIFE",
+       "gives": "FIEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fit of rage leads to a hard life on a Dutch farm.",
+     "walkthrough": "Paddy for a temper tantrum is everyday British slang.",
+     "definitionFit": "A paddy field is a flooded plot where rice is grown, a type of farmland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tantrum"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +830,66 @@
     "text": "Clergyman burying Yorick's head in ravine",
     "enumeration": "6"
    },
-   "solution": "CANYON"
+   "solution": "CANYON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CANYON",
+    "definitions": [
+     {
+      "text": "ravine",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a name is its opening letter"
+     },
+     {
+      "text": "burying",
+      "for": "container",
+      "note": "burying puts one thing inside another, so the churchman holds the letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clergyman",
+      "gives": "CANON",
+      "note": "a canon is a member of a cathedral's clergy"
+     },
+     {
+      "clueFragment": "Yorick's",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of Yorick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAN",
+      "Y",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A churchman buries the skull of Yorick, Hamlet's jester, in a gorge.",
+     "walkthrough": "The surface plays on Yorick's skull in Hamlet, so 'head' looks literal but means first letter.",
+     "definitionFit": "A canyon is a deep gorge with steep sides, so it is a large kind of ravine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +903,63 @@
     "text": "Pictures in one book of maps taken from periodicals",
     "enumeration": "8"
    },
-   "solution": "IMAGINES"
+   "solution": "IMAGINES",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IMAGINES",
+    "definitions": [
+     {
+      "text": "Pictures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken from",
+      "for": "deletion",
+      "note": "taken from means removed out of, so the map book is lifted out of the word for periodicals"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "periodicals",
+      "gives": "MAGAZINES",
+      "note": "magazines are periodical publications"
+     },
+     {
+      "clueFragment": "book of maps",
+      "gives": "AZ",
+      "note": "the A–Z is the standard British street atlas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MAGINES"
+     ]
+    },
+    "explanation": {
+     "surface": "A single atlas full of pictures is pulled from a stack of magazines.",
+     "walkthrough": "The A–Z is a British book of street maps; removing it from MAGAZINES leaves MAGINES.",
+     "definitionFit": "To picture something is to form a mental image of it, so pictures as a verb matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pictures"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +973,71 @@
     "text": "Plant found by pacifists drinking beer at university city",
     "enumeration": "9"
    },
-   "solution": "CALENDULA"
+   "solution": "CALENDULA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CALENDULA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something in, so the pacifist group's letters swallow the drink"
+     }
+    ],
+    "linkWords": [
+     "found by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pacifists",
+      "gives": "CND",
+      "note": "the Campaign for Nuclear Disarmament, a British peace movement"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a kind of beer"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "LA",
+      "note": "LA is Los Angeles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ALE",
+      "ND",
+      "U",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "Peace protesters having a pint at a college town spot a flower.",
+     "walkthrough": "CND, the Campaign for Nuclear Disarmament, is Britain's best-known anti-nuclear group.",
+     "definitionFit": "Calendula is the marigold genus, a flowering garden and medicinal herb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pacifists"
+    }
+   }
   },
   {
    "number": 14,
@@ -257,7 +1051,50 @@
     "text": "Spoil cape maybe belonging to a bishop",
     "enumeration": "9"
    },
-   "solution": "EPISCOPAL"
+   "solution": "EPISCOPAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPISCOPAL",
+    "definitions": [
+     {
+      "text": "belonging to a bishop",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maybe",
+      "for": "anagram",
+      "note": "maybe signals one possible version among several, so the letters may be arranged another way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spoil cape",
+      "gives": "SPOILCAPE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPOILCAPE",
+       "gives": "EPISCOPAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone may ruin a cloak that belongs to a cleric.",
+     "definitionFit": "Episcopal derives from the Greek for overseer, the root of bishop, and describes a bishop's office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spoil"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1108,60 @@
     "text": "Dunce finally excluded from class project",
     "enumeration": "4"
    },
-   "solution": "CAST"
+   "solution": "CAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "CAST",
+    "definitions": [
+     {
+      "text": "project",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "excluded from",
+      "for": "deletion",
+      "note": "excluded from means left out of, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dunce",
+      "gives": "E",
+      "select": "last",
+      "note": "the closing letter of dunce"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "CASTE",
+      "note": "a caste is a social class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A slow pupil is thrown out of a school assignment.",
+     "walkthrough": "'Project' looks like a noun for schoolwork, but it is the verb meaning to throw.",
+     "definitionFit": "To project is to throw or hurl forward, as one casts a line or a stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "project"
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1175,57 @@
     "text": "Eastern ruler's poem rejected",
     "enumeration": "4"
    },
-   "solution": "EMIR"
+   "solution": "EMIR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIR",
+    "definitions": [
+     {
+      "text": "Eastern ruler",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word is read the other way"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poem",
+      "gives": "RIME",
+      "note": "a rime is an old spelling of rhyme, a poem, as in Coleridge's Ancient Mariner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIR"
+     ],
+     "reversals": [
+      {
+       "from": "RIME",
+       "to": "EMIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Middle Eastern monarch's verse has been turned down.",
+     "walkthrough": "The 's is 'is', linking the definition to the wordplay.",
+     "definitionFit": "An emir is a Muslim prince or commander, a title of rulers in the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poem"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1239,71 @@
     "text": "Drain top of ulcer in Texas hospital complex",
     "enumeration": "7"
    },
-   "solution": "EXHAUST"
+   "solution": "EXHAUST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "EXHAUST",
+    "definitions": [
+     {
+      "text": "Drain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its opening letter"
+     },
+     {
+      "text": "complex",
+      "for": "anagram",
+      "note": "complex means intricately tangled, so all these letters are rearranged together"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ulcer",
+      "gives": "U",
+      "select": "first",
+      "note": "the opening letter of ulcer"
+     },
+     {
+      "clueFragment": "Texas",
+      "gives": "TEXAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UTEXASH",
+       "gives": "EXHAUST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor lances an ulcer in a Texan medical complex.",
+     "walkthrough": "'Complex' reads as a noun for a hospital campus, but it is the anagram signal.",
+     "definitionFit": "To drain someone or something is to use up all its strength or contents, the same as exhaust."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "complex"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1317,66 @@
     "text": "Sloth featured in handout found in pub next to church",
     "enumeration": "9"
    },
-   "solution": "INDOLENCE"
+   "solution": "INDOLENCE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INDOLENCE",
+    "definitions": [
+     {
+      "text": "Sloth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured in",
+      "for": "container",
+      "note": "something featured in a place appears inside it, so the handout goes within the pub"
+     }
+    ],
+    "linkWords": [
+     "found",
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "handout",
+      "gives": "DOLE",
+      "note": "the dole is British slang for state unemployment benefit"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DOLE",
+      "N",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Laziness shows up in the benefit claimant drinking in a pub by the church.",
+     "walkthrough": "'Next to' just places the church letters after the pub; 'the dole' is British for unemployment pay.",
+     "definitionFit": "Sloth, one of the seven deadly sins, is laziness or idleness, which is what indolence means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sloth"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1390,50 @@
     "text": "Supervise part of match on court",
     "enumeration": "7"
    },
-   "solution": "OVERSEE"
+   "solution": "OVERSEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERSEE",
+    "definitions": [
+     {
+      "text": "Supervise",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of match",
+      "gives": "OVER",
+      "note": "in cricket an over is a set of six balls, a section of play"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "SEE",
+      "note": "a see is a bishop's seat, and the Holy See is the papal court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "SEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee keeps an eye on one stage of a tennis match.",
+     "walkthrough": "'Court' suggests tennis, but it is the Holy See, the Pope's court. In a down clue, A on B puts A above B.",
+     "definitionFit": "To oversee is to watch over and direct work, a direct synonym for supervising it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 19,
@@ -341,7 +1447,78 @@
     "text": "Company linked to closure of Stormont upset Ireland's charmed circle",
     "enumeration": "7"
    },
-   "solution": "COTERIE"
+   "solution": "COTERIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "COTERIE",
+    "definitions": [
+     {
+      "text": "charmed circle",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "closure of",
+      "for": "letter_selection",
+      "note": "closure of means the end, so the final letter is taken"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "linked to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "Stormont",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of Stormont"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "EIRE",
+      "note": "Eire is the Irish name for Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "T",
+      "ERIE"
+     ],
+     "reversals": [
+      {
+       "from": "EIRE",
+       "to": "ERIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Political news: Stormont, Northern Ireland's parliament, shuts and upsets an inner clique.",
+     "walkthrough": "Stormont is the seat of the Northern Ireland Assembly in Belfast.",
+     "definitionFit": "A coterie is a small exclusive group with shared interests, often called a charmed circle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "closure"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1532,71 @@
     "text": "Pressure on singers to hold new nationalist flag",
     "enumeration": "6"
    },
-   "solution": "PENNON"
+   "solution": "PENNON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PENNON",
+    "definitions": [
+     {
+      "text": "flag",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "container",
+      "note": "to hold means to keep inside, so the opera company surrounds the letter for new"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pressure",
+      "gives": "P",
+      "note": "P is the physics symbol for pressure"
+     },
+     {
+      "clueFragment": "singers",
+      "gives": "ENO",
+      "note": "the English National Opera"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "nationalist",
+      "gives": "N",
+      "note": "N is the abbreviation for nationalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "EN",
+      "N",
+      "O",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A nationalist banner gets singers to raise a flag under pressure.",
+     "walkthrough": "ENO, English National Opera, is London's national opera company. In a down clue, P 'on' ENO puts it above.",
+     "definitionFit": "A pennon is a long narrow pointed flag, as once carried on a knight's lance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "singers"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1610,48 @@
     "text": "Draughts in politician's house reported",
     "enumeration": "8"
    },
-   "solution": "CHECKERS"
+   "solution": "CHECKERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHECKERS",
+    "definitions": [
+     {
+      "text": "Draughts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means passed on by word of mouth, so the sound of the house name counts"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "politician's house",
+      "gives": "CHECKERS",
+      "soundsLike": "CHEQUERS",
+      "note": "Chequers is the British prime minister's country residence in Buckinghamshire"
+     }
+    ],
+    "explanation": {
+     "surface": "There are cold air currents in a politician's home, so we hear.",
+     "walkthrough": "'Draughts' suggests cold air, but it is the board game. Chequers is the British PM's official country house.",
+     "definitionFit": "Checkers is the American name for the board game the British call draughts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Draughts"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1665,50 @@
     "text": "Electronic voice in car?",
     "enumeration": "6"
    },
-   "solution": "ESTATE"
+   "solution": "ESTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTATE",
+    "definitions": [
+     {
+      "text": "car?",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "voice",
+      "gives": "STATE",
+      "note": "to voice an opinion is to state it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A satnav or electronic assistant speaking from inside a car.",
+     "walkthrough": "The question mark marks the definition by example: an estate is one type of car.",
+     "definitionFit": "An estate is the British name for a station wagon, a car with an extended rear load area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "voice"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1722,68 @@
     "text": "Turned up remains containing a shocking weapon",
     "enumeration": "5"
    },
-   "solution": "TASER"
+   "solution": "TASER",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TASER",
+    "definitions": [
+     {
+      "text": "shocking weapon",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so the remains word wraps the article"
+     },
+     {
+      "text": "Turned up",
+      "for": "reversal",
+      "note": "turned up in a down clue means flipped to read from the bottom, so the result runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remains",
+      "gives": "REST",
+      "note": "the rest is what remains"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "A",
+      "SER"
+     ],
+     "reversals": [
+      {
+       "from": "RESAT",
+       "to": "TASER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remains are dug up with an alarming weapon among them.",
+     "walkthrough": "'Shocking' looks like an opinion, but it is literal: the weapon delivers an electric shock.",
+     "definitionFit": "A Taser is a stun gun firing darts that deliver an electric shock, so a weapon that shocks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shocking"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1797,58 @@
     "text": "Posters about defining feature of lingerie",
     "enumeration": "10"
    },
-   "solution": "SUSPENDERS"
+   "solution": "SUSPENDERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUSPENDERS",
+    "definitions": [
+     {
+      "text": "lingerie",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the word for posters goes round the marketing term"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posters",
+      "gives": "SENDERS",
+      "note": "people who post letters are senders"
+     },
+     {
+      "clueFragment": "defining feature",
+      "gives": "USP",
+      "note": "a USP is a unique selling point, a product's defining feature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "USP",
+      "ENDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Advertising posters discuss what makes some underwear distinctive.",
+     "walkthrough": "'Posters' reads as billboards, but it means people who post things.",
+     "definitionFit": "Suspenders, the straps holding up stockings in British usage, are an item of lingerie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Posters"
+    }
+   }
   },
   {
    "number": 25,
@@ -438,7 +1875,50 @@
     "text": "Money in fiction books",
     "enumeration": "6"
    },
-   "solution": "TALENT"
+   "solution": "TALENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALENT",
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fiction",
+      "gives": "TALE",
+      "note": "a tale is a story, a piece of fiction"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "There is money to be made in writing novels.",
+     "walkthrough": "'Money' looks like a word for skill's reward, but a talent was an ancient unit of weight and currency.",
+     "definitionFit": "A talent was a large sum of silver or gold used as currency in the ancient world, as in the biblical parable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Money"
+    }
+   }
   },
   {
    "number": 27,
@@ -452,7 +1932,59 @@
     "text": "Learn to service empty vehicle",
     "enumeration": "6"
    },
-   "solution": "HEARSE"
+   "solution": "HEARSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HEARSE",
+    "definitions": [
+     {
+      "text": "vehicle",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "empty means the inside is cleared out, leaving just the outer letters of the word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learn",
+      "gives": "HEAR",
+      "note": "to hear news is to learn it"
+     },
+     {
+      "clueFragment": "service",
+      "gives": "SE",
+      "select": "outer",
+      "note": "only the outer letters of service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAR",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to learn how to maintain an unoccupied vehicle.",
+     "walkthrough": "The 'service' that hints at funerals sits beside the hearse in the surface, though it only supplies letters.",
+     "definitionFit": "A hearse is the vehicle that carries a coffin to a funeral."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   }
  ]
 }
