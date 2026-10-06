@@ -1421,6 +1421,89 @@ def held_dates(series):
     return out
 
 
+#: Where the Canberra Times reprints of London Times puzzles are cached:
+#: Trove's text of each article (tools/fetch_trove.py), our readers' text of
+#: its clue columns beside the zones (tools/file_trove_puzzles.page_readings),
+#: and the London number of each (tools/canberra_london_numbers.py).
+TROVE = ftp.CACHE
+#: The series a Canberra reprint is a copy of.
+REPRINTED = "times"
+#: {London number: [article dirs]}, read once a process.
+_REPRINTS = {}
+
+
+def reprint_files(number, trove=None):
+    """[Path] each cached text of the Canberra reprints of London Times
+    `number`: Trove's article text and each reader's of its clue columns.
+    Only what is cached: nothing is read or fetched here."""
+    trove = Path(trove or TROVE)
+    if trove not in _REPRINTS:
+        import canberra_london_numbers
+        by = {}
+        for aid, row in canberra_london_numbers.load(trove / "london_numbers.json").items():
+            if row.get("number"):
+                by.setdefault(int(row["number"]), []).append(trove / aid)
+        _REPRINTS[trove] = by
+    out = []
+    for d in sorted(_REPRINTS[trove].get(int(number), ())):
+        out += [p for p in [d / "ocr.txt"] + sorted((ftp.clue_zones(d) / d.name).glob("read.*.txt")) if p.is_file()]
+    return out
+
+
+def reprint_text(text):
+    """A reprint reading as a column reading sets it out: its two lists
+    alone (the article's page text, solution note and next puzzle cut off),
+    one clue a line as "<number> <text> (<count>)", each number as its list's
+    order reads it ("I They're" is clue 1, no lost word "I") and a line-end
+    hyphen kept at a line end. A list that does not parse is kept cut to
+    its lists; None when there are none."""
+    parsed, _ = parse(text)
+    if parsed is None:
+        secs = ftp.sections(tidy(text))
+        return None if secs is None else f"ACROSS\n{secs['across']}\nDOWN\n{secs['down']}\n"
+    parsed, _ = ftp.renumber(parsed)
+    out = []
+    for direction in ("across", "down"):
+        out.append(direction.upper())
+        for c in parsed[direction]:
+            head = ", ".join(str(min(t)) for t in c["tokens"] if t) if c["tokens"] and c["tokens"][0] else ""
+            words = re.sub(r"(?<=[A-Za-z])- (?=[A-Za-z])", "-\n", c["text"].strip())
+            count = f" ({next(iter(c['enums']))})" if len(c.get("enums") or ()) == 1 else ""
+            out.append(f"{head} {words}{count}".strip())
+    return "\n".join(out) + "\n"
+
+
+def reprint_readings(number, series=REPRINTED):
+    """{reading name: text} of the Canberra Times reprints of `number` in
+    `series` (reprint_text): one more copy of the same print, each of its
+    readings a voter beside the scan's own (the London scan and the
+    Canberra one misread apart). {} for any other series or a number no
+    reprint is mapped to."""
+    if series != REPRINTED:
+        return {}
+    out = {}
+    for p in reprint_files(number):
+        text = reprint_text(p.read_text(encoding="utf-8", errors="replace"))
+        if text:
+            out[f"canberra:{p.parent.name}:{p.stem}"] = text
+    return out
+
+
+def reprint_key(numbers, series=REPRINTED):
+    """What the Canberra reprints of an edition's `numbers` hold, by file
+    name and size: part of the edition's inputs, so a reprint downloaded or
+    read after the edition was makes it due. "" when there is none."""
+    if series != REPRINTED:
+        return ""
+    files = [p for n in sorted(set(numbers)) for p in reprint_files(n)]
+    if not files:
+        return ""
+    h = hashlib.sha256()
+    for p in files:
+        h.update(f"{p.parent.name}/{p.name}:{p.stat().st_size}".encode())
+    return h.hexdigest()[:16]
+
+
 #: {path: ((mtime_ns, size), (url, date))} of each puzzle file held_scans has read.
 _SCANS = {}
 
@@ -1545,6 +1628,9 @@ def read_puzzle(d, found, hit, solutions):
                                      vlm.column_text(img, wins, list(cols.values())).splitlines())
         except RuntimeError:
             pass  # gone mid-run: read as without it; run() files it to be read again
+    # The Canberra Times reprint of the same puzzle is another copy of the
+    # print, its readings voters like the scan's own.
+    texts.update(reprint_readings(n, paper.series))
     # archive.org's words and RapidOCR's are the two readings; where
     # archive.org's OCR has no words for the columns, RapidOCR's two
     # recognisers are.
@@ -1648,6 +1734,9 @@ def read_puzzle(d, found, hit, solutions):
     fits = {lid for lid, (_, enum, group) in laid.items()
             if enum and not group and ftp.count(enum) == lengths.get(lid)}
     laid, blank = unfit_blanked(*reconcile(laid, stream, lengths), lengths)
+    # A clue the vote left blank, laid again from each reading that printed
+    # it whole (the reprint's among them) and put to the rest.
+    laid, blank = ocr_clues.relaid({k: t for k, t in texts.items() if t.strip()}, laid, blank, parse, lengths)
     if blank and "vlm" in texts and vlm.reachable():
         try:
             laid, blank = vlm_pick(img, wins, list(cols.values()), texts, laid, blank)
@@ -1975,6 +2064,13 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
                     editions)
 
 
+def inputs_of(files_hash, found, series):
+    """An edition's inputs: its files (input_hash) and, for a puzzle the
+    Canberra Times reprinted, the reprint's cached texts (reprint_key)."""
+    extra = reprint_key([p["number"] for p in found["puzzles"]], series)
+    return f"{files_hash}+{extra}" if extra else files_hash
+
+
 def due_reason(row, inputs, sol_seen, vlm_up, reread=None):
     """Why an edition's ledger `row` is read again, or None: never read, its
     files (input_hash) or the solutions it can see moved, its titles moved
@@ -2073,10 +2169,11 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         rel = rels[d]
         if editions and rel not in editions:
             continue
-        h = known[rel]["filesHash"]
+        fh = known[rel]["filesHash"]
+        h = inputs_of(fh, scans[rel], paper.series)
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         if editions or due_reason(known[rel], h, sol_seen, seen_by, reread):
-            due[d] = (h, sol_seen)
+            due[d] = (h, sol_seen, fh)
     queue = scan_queue.order(list(due), {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
         queue = queue[:limit]
@@ -2085,7 +2182,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
             [(d, scans[rels[d]]) for d in queue], read_edition, workers, deadline,
             init=set_solutions, initargs=(solutions,), failed=edition_failed):
         rel = rels[d]
-        h, sol_seen = due[d]
+        h, sol_seen, fh = due[d]
         fresh += 1
         verdicts = []
         for verdict, puzzle in results:
@@ -2117,7 +2214,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
                         write_puzzle_file, TOOL, path, puzzle, verdict):
                     held.add(hit_number)
             verdicts.append(verdict)
-        known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": h, "scanKey": scan_key(),
+        known[rel] = {"edition": rel, "inputs": h, "scan": found, "filesHash": fh, "scanKey": scan_key(),
                       "solutionsSeen": sol_seen, "verdicts": verdicts, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
             known[rel]["vlm"] = seen_by

@@ -203,6 +203,8 @@ def read_edition_here(req, blob, ask_mac):
                 for series, dates in req["held"].items()}
         fa.CROPS = crops
         fa.held_dates = held.__getitem__
+        reprints = req.get("reprints") or {}
+        fa.reprint_readings = lambda number, series=None: reprints.get(str(number), {})
         fa.set_solutions({int(n): {**sol, "dir": root / "ed" / sol["dir"]} for n, sol in req["solutions"].items()})
         _WATCH[:] = [(str(root), str(TOOLS.parent)), []]
         try:
@@ -493,8 +495,8 @@ def lost(e):
 def edition_request(d, found, solutions):
     """(header, tar) asking the desktop for read_edition(d, found): the
     edition's text and leaves, each title's solution leaf and cached
-    solution crop, the edition's cached readings, and its series' filed
-    dates."""
+    solution crop, the edition's cached readings, the readings of each
+    title's Canberra Times reprint, and its series' filed dates."""
     import io
     import tarfile
 
@@ -502,10 +504,13 @@ def edition_request(d, found, solutions):
     import vlm_reader
     rel = f"{d.parent.name}/{d.name}"
     files = {f"ed/{rel}/{name}": d / name for name in ("pages.json", "djvu.xml.gz") if (d / name).exists()}
-    sols = {}
+    sols, reprints = {}, {}
+    series = fa.paper_of(d).series
     for hit in found["puzzles"]:
         files[f"ed/{rel}/leaf_{hit['leaf']:04d}.jpg"] = d / f"leaf_{hit['leaf']:04d}.jpg"
         n, _, why = fa.filed_number(d, found, hit)
+        if why is None:
+            reprints[str(n)] = fa.reprint_readings(n, series)
         sol = solutions.get(n) if why is None else None
         if sol:
             sd = sol["dir"]
@@ -521,9 +526,9 @@ def edition_request(d, found, solutions):
         for arc, path in files.items():
             if path.exists():
                 tar.add(path, arcname=arc)
-    series = fa.paper_of(d).series
     held = {str(n): day.isoformat() for n, day in fa.held_dates(series).items()}
-    return ({"edition": rel, "found": found, "solutions": sols, "held": {series: held}, "vlm": vlm_reader.reachable()},
+    return ({"edition": rel, "found": found, "solutions": sols, "held": {series: held}, "reprints": reprints,
+             "vlm": vlm_reader.reachable()},
             buf.getvalue())
 
 
