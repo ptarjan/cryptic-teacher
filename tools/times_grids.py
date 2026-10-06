@@ -23,6 +23,7 @@ timesforthetimes by default); no network, no solving.
 """
 import argparse
 import collections
+import hashlib
 import itertools
 import json
 import re
@@ -117,9 +118,16 @@ def printed(rec):
     return sorted(rec["entries"], key=lambda e: (e["number"], order[e["direction"]]))
 
 
+def length(e):
+    """A light's length: its answer's, or for a blank answer its count's."""
+    if e["answer"] or not e.get("enumeration"):
+        return len(e["answer"]) or None
+    return sum(int(n) for n in re.findall(r"\d+", e["enumeration"]))
+
+
 def triples(rec):
     """The light list a reader of the blog has, in printed order."""
-    return [(e["number"], e["direction"], len(e["answer"])) for e in printed(rec)]
+    return [(e["number"], e["direction"], length(e)) for e in printed(rec)]
 
 
 def answers_fit(grid, rec):
@@ -225,13 +233,13 @@ def by_enumeration(rec):
     leaders = parser.leader_numbers(rec["entries"])
     lights, words, changed = [], [], False
     for e in printed(rec):
-        length, word = len(e["answer"]), e["answer"]
-        if parser.enum_agrees(e, leaders) is False:
+        span, word = length(e), e["answer"] or None
+        if word and parser.enum_agrees(e, leaders) is False:
             parts = [int(n) for n in re.findall(r"\d+", e["enumeration"])]
-            length, changed = sum(parts), True
-            cut = len(parts) > 1 and parts[0] <= len(word) < length
+            span, changed = sum(parts), True
+            cut = len(parts) > 1 and parts[0] <= len(word) < span
             word = word if cut else None
-        lights.append((e["number"], e["direction"], length))
+        lights.append((e["number"], e["direction"], span))
         words.append(word)
     return (lights, words) if changed else None
 
@@ -781,7 +789,7 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None
     if rec["series"] in BARRED:
         return solve_barred(rec, n)
     lights = triples(rec)
-    words = [e["answer"] for e in printed(rec)]
+    words = [e["answer"] or None for e in printed(rec)]
     try:
         sols, info = budget.search("answers in", lights, max_nodes, cols=n, rows=n,
                                    limit=limit, words=words,
@@ -871,15 +879,31 @@ def solved_already(out=None):
     return ids
 
 
-def attempted(attempts=None, retry=None):
+def light_key(rec):
+    """A digest of what the search reads off a record: each light's number,
+    direction, answer, count and heading, and the linked answers left unsplit.
+    An attempt stores it, so a parser fix that changes a puzzle's lights makes
+    that puzzle due again, and a fix that changes nothing in it does not."""
+    lights = sorted((e["number"], e["direction"], e["answer"], e.get("enumeration") or "",
+                     e.get("heading") or "") for e in rec["entries"])
+    unsplit = [(g["lights"], g.get("answer"), g.get("enumeration"))
+               for g in rec.get("unsplit") or ()]
+    raw = json.dumps([lights, unsplit], ensure_ascii=False, sort_keys=True)
+    return hashlib.sha1(raw.encode("utf-8")).hexdigest()[:12]
+
+
+def attempted(attempts=None, retry=None, keys=None):
     """post_id of every puzzle with an attempt on record.
 
-    A run tries only posts that have none: a change to the search, settle(),
-    the budget or the settled answers never re-tries old posts by itself; it
-    is retried once, by hand, with `retry`. That is a tuple of `how`
-    prefixes ("refused", "truncated", "no grid", ...), and a post whose latest
-    attempt starts with one of them is left out of the set, so it is tried
-    again; an empty tuple leaves out every one.
+    A run tries only posts that have none, or whose latest attempt read
+    lights other than the record has now: `keys` is {post_id: light_key} of
+    the records as parsed today, and an attempt whose `lights` differs, or
+    that has none because it predates them, is left out of the set. A change to the search, settle(), the budget or the
+    settled answers changes no record, so it re-tries old posts only by hand,
+    with `retry`. That is a tuple of `how` prefixes ("refused", "truncated",
+    "no grid", ...), and a post whose latest attempt starts with one of them
+    is left out of the set, so it is tried again; an empty tuple leaves out
+    every one.
     """
     attempts = attempts or ATTEMPTS
     last = {}
@@ -889,11 +913,11 @@ def attempted(attempts=None, retry=None):
                 a = json.loads(line)
             except ValueError:
                 continue       # the last line of a killed run, half written
-            last[a["post_id"]] = a.get("how", "")
-    if retry is None:
-        return set(last)
-    return {pid for pid, how in last.items()
-            if retry and not how.startswith(tuple(retry))}
+            last[a["post_id"]] = a
+    keys = keys or {}
+    return {pid for pid, a in last.items()
+            if not (retry is not None and (not retry or a.get("how", "").startswith(tuple(retry))))
+            and not (pid in keys and keys[pid] != a.get("lights"))}
 
 
 def open_out(fresh, out=None):
@@ -965,7 +989,9 @@ def resettle():
         with ATTEMPTS.open("a", encoding="utf-8") as log:
             for pid, why in refused.items():
                 log.write(json.dumps({"post_id": pid, "how": why,
-                                      "max_nodes": DEFAULT_MAX_NODES}) + "\n")
+                                      "max_nodes": DEFAULT_MAX_NODES,
+                                      **({"lights": light_key(every[pid])}
+                                         if pid in every else {})}) + "\n")
     return {"kept": len(kept), "fixed": fixed, "refused": refused}
 
 
@@ -998,7 +1024,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         import random
         random.Random(seed).shuffle(recs)
     done = set() if (fresh or not write) else (
-        solved_already(out_path) | attempted(attempts, retry))
+        solved_already(out_path)
+        | attempted(attempts, retry, {r["post_id"]: light_key(r) for r in recs}))
     if done:
         recs = [r for r in recs if r["post_id"] not in done]
         print(f"resuming: {len(done)} puzzle(s) already tried, per {attempts.name}")
@@ -1011,6 +1038,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     out = open_out(fresh, out_path) if write else None
     log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
     for i, rec in enumerate(recs, 1):
+        lit = light_key(rec)
         rec, made = amend(rec, settled)
         print(f"[{i}/{len(recs)}] post {rec['post_id']} {rec['series']} "
               f"{rec.get('number')}: {len(rec['entries'])} lights",
@@ -1036,7 +1064,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         how[key] += 1
         if log:
             log.write(json.dumps({"post_id": rec["post_id"], "how": why,
-                                  "max_nodes": max_nodes}) + "\n")
+                                  "max_nodes": max_nodes, "lights": lit}) + "\n")
             log.flush()
         by_series[rec["series"]][key] += 1
         if not grids:
@@ -1088,8 +1116,9 @@ def main():
                     help="also try again the puzzles with no grid whose last "
                          "attempt's outcome starts with a HOW (refused, "
                          "truncated, 'no grid', ...), or every one if none is "
-                         "given. A run never retries by itself: a change that "
-                         "could fix old failures runs this once")
+                         "given. A run retries by itself only a post whose "
+                         "lights the parser now reads otherwise: a search "
+                         "change that could fix old failures runs this once")
     ap.add_argument("--resettle", action="store_true",
                     help="correct or refuse the grids already written, "
                          "against the parsed records as they are now")

@@ -89,6 +89,18 @@ T.ATTEMPTS.write_text("".join(json.dumps({"post_id": pid, "how": how, "max_nodes
 print("TRIED", sorted(T.attempted()))
 print("RETRY_SOME", sorted({1, 2, 3, 4} - T.attempted(retry=("refused", "truncated"))))
 print("RETRY_ALL", sorted(T.attempted(retry=())))
+# ...unless the parser now reads the post's lights otherwise: an attempt keeps
+# the light_key it searched, and a record whose key has changed is due again.
+# So is an attempt with no key, which predates them; a record unchanged
+# since its attempt stays tried.
+lit = {"entries": [{"number": 1, "direction": "across", "answer": "AB", "enumeration": "2"}]}
+relit = {"entries": lit["entries"] + [{"number": 2, "direction": "down", "answer": "", "enumeration": "4"}]}
+with T.ATTEMPTS.open("a") as f:
+    f.write(json.dumps({"post_id": 5, "how": "no grid", "lights": T.light_key(lit)}) + "\n")
+    f.write(json.dumps({"post_id": 6, "how": "no grid", "lights": T.light_key(lit)}) + "\n")
+print("RELIT", sorted({1, 5, 6} - T.attempted(keys={1: T.light_key(relit), 5: T.light_key(relit),
+                                                    6: T.light_key(lit)})),
+      T.light_key(lit) == T.light_key({"entries": list(lit["entries"])}))
 # A linked answer the post prints whole (the Times and Telegraph parsers keep
 # its letters and count, no word breaks) is split by the grid: the search
 # that left it out fitted no grid for want of its lights. A post holding one
@@ -337,6 +349,10 @@ print("SIZE", T.size(many("Weekend Cryptic", 30)), T.size(many("Weekend Cryptic"
 print("SUPERJUMBO", T.size(many("timesjumbo", 62)), T.size(many("timesjumbo", 90)),
       T.size(many("Jumbo Cryptic", 90)))
 e = {"number": 1, "direction": "across", "answer": "AB"}
+blank_rec = {"entries": [{"number": 1, "direction": "across", "answer": "", "enumeration": "4,4"},
+                        {"number": 2, "direction": "down", "answer": "", "enumeration": None},
+                        {"number": 3, "direction": "down", "answer": "ABC", "enumeration": "3"}]}
+print("BLANK_LEN", T.triples(blank_rec))
 print("CLUES", T.has_clues({"entries": [dict(e, clue="Clue (2)")] * 10}),
       T.has_clues({"entries": [dict(e, clue="")] * 10}))
 PY
@@ -358,6 +374,7 @@ check "only --fresh starts the file over" "" "$(field FRESH)"
 check "a post with any attempt on record is not tried again" "[1, 2, 3, 4]" "$(field TRIED)"
 check "a retry names the outcomes it retries, by the latest attempt" "[2, 3]" "$(field RETRY_SOME)"
 check "an empty retry retries every failure" "[]" "$(field RETRY_ALL)"
+check "a post whose lights the parser now reads otherwise, or whose attempt predates the key, is due again" "[1, 5] True" "$(field RELIT)"
 check "a linked answer printed whole is split by the grid that fits" \
       "True unique, linked answer split by the grid" "$(field LINKED)"
 check "the split record carries the clue on its leader and See N on the rest" \
@@ -432,6 +449,8 @@ check "a Jumbo with more lights than a 23x23 holds is rebuilt at 27x27" \
 check "every search a puzzle runs draws on one budget" "True truncated" "$(field BOUNDED)"
 check "so does every split of a linked answer" "True truncated" "$(field BOUNDED_LINKED)"
 check "each search is logged under its post" True "$(field LOGGED)"
+check "a blank answer's light is its count long, or unknown with no count" \
+  "[(1, 'across', 8), (2, 'down', None), (3, 'down', 3)]" "$(field BLANK_LEN)"
 check "a post that gives only the answers is not searched" "True False" "$(field CLUES)"
 
 if [ "$fails" -gt 0 ]; then echo "$fails FAILURE(S)"; exit 1; fi

@@ -760,7 +760,8 @@ def one_entry_per_light(entries):
 
     A linked group emits an entry for every light it covers and the blogger
     may ALSO have printed one of those lights on a line of its own. Where the
-    two agree the repeat is dropped.
+    two agree the repeat is dropped, and so is a blank answer beside one the
+    post did print.
 
     Where they disagree, the light is already spoken for and the continuation
     is the one in the wrong place: the blog numbered it without a direction —
@@ -770,8 +771,11 @@ def one_entry_per_light(entries):
     seen, kept = {}, []
     for e in entries:
         key = (e["number"], e["direction"])
-        if seen.get(key) == e["answer"]:
+        if seen.get(key) == e["answer"] or (key in seen and not e["answer"]):
             continue
+        if seen.get(key) == "":          # a clue read unanswered, then answered
+            kept = [k for k in kept if (k["number"], k["direction"]) != key]
+            del seen[key]
         if key in seen and continuation_target(e["clue"]) is not None:
             other = "down" if e["direction"] == "across" else "across"
             if (e["number"], other) not in seen:
@@ -926,6 +930,18 @@ def read_entries(rendered):
         if len(lights) > 1:
             entries[-len(pieces)].update(_head=lights[1:], _plain=clue)
 
+    def unanswered():
+        """A clue with its count whose answer the post never printed in a form
+        this reader knows -- prose ("A hidden word IN Gha NA USE"), a name in
+        mixed case -- is still a light: its count is its length, and the
+        answer is left blank for the grid's crossings and the answer fill."""
+        if (lights and len(lights) == 1 and lights[0][0] != ORPHAN and clue and enum
+                and not CONTINUATION.match(clue) and lights[0] not in answered):
+            entries.append({"number": lights[0][0], "direction": lights[0][1],
+                            "answer": "", "clue": tidy(clue), "enumeration": enum})
+            if lights[0] in headed:
+                entries[-1]["heading"] = headed[lights[0]]
+
     for ln in rendered:
         if not ln:
             continue
@@ -943,6 +959,7 @@ def read_entries(rendered):
                 entries.clear()
                 unsplit.clear()
                 answered.clear()
+            unanswered()
             direction = heading
             last = 0
             lights, clue, enum = None, None, None
@@ -992,6 +1009,7 @@ def read_entries(rendered):
                 if (number, way) not in answered:
                     these = [(number, way)]
         if these is not None:
+            unanswered()
             lights, clue, enum = these, None, None
             head_clue = ln if len(these) > 1 else None
             if not rest:              # a bare number cell; its row follows
@@ -1042,6 +1060,7 @@ def read_entries(rendered):
             enum = ENUM.search(ln).group(1).strip()
             just_clued = CLUED_REACH
 
+    unanswered()
     number_orphans(entries)
     one_entry_per_light(entries)
     trim_continuations(entries)
