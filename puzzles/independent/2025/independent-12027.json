@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Poet Laureate departs still sharp",
     "enumeration": "4"
    },
-   "solution": "ACID"
+   "solution": "ACID",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACID",
+    "definitions": [
+     {
+      "text": "sharp",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "departs",
+      "for": "deletion",
+      "note": "whatever departs leaves the word, so those letters are taken away from the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet Laureate",
+      "gives": "PL",
+      "note": "the standard abbreviation of the title Poet Laureate"
+     },
+     {
+      "clueFragment": "still",
+      "gives": "PLACID",
+      "note": "still and calm, as a lake on a windless day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACID"
+     ]
+    },
+    "explanation": {
+     "surface": "A national poet stalks off, still smarting and cutting in his remarks.",
+     "walkthrough": "Remove PL from PLACID to leave ACID.",
+     "definitionFit": "Acid as an adjective describes a tart taste or a cutting tone, both senses of sharp."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,48 @@
     "text": "Skilled worker periodically saw Ruth in Spain",
     "enumeration": "7"
    },
-   "solution": "ARTISAN"
+   "solution": "ARTISAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ARTISAN",
+    "definitions": [
+     {
+      "text": "Skilled worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular gaps, so only every other letter of the phrase is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saw Ruth in Spain",
+      "gives": "ARTISAN",
+      "select": "alternate",
+      "note": "the even letters of the three-word phrase, starting with its second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTISAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker reports spotting a woman called Ruth on a trip to Spain.",
+     "definitionFit": "An artisan is a craftsman, a person trained in a manual trade such as carpentry or weaving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "periodically"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +157,70 @@
      }
     ]
    },
-   "solution": "ILLGOTTEN"
+   "solution": "ILLGOTTEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ILL-GOTTEN",
+    "definitions": [
+     {
+      "text": "taken dishonestly",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upsetting something tips it over so it reads from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tack will",
+      "gives": "ILL",
+      "note": "Tack is the setter, so the setter will becomes I'll, apostrophe dropped"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "GOT",
+      "note": "as in I get it meaning I have got it, understood"
+     },
+     {
+      "clueFragment": "after tax",
+      "gives": "NET",
+      "note": "pay after tax is net pay"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "GOT",
+      "TEN"
+     ],
+     "reversals": [
+      {
+       "from": "NET",
+       "to": "TEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter grumbles about losing money to the taxman, claiming it was taken from him dishonestly.",
+     "walkthrough": "I'LL + GOT + NET turned up to TEN. Setters often refer to themselves by their pseudonym, here Tack, for I or ME.",
+     "definitionFit": "Ill-gotten goods or gains are those acquired by illegal or unfair means, such as theft or fraud."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tack"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +234,56 @@
     "text": "Expert charging less created issue",
     "enumeration": "10"
    },
-   "solution": "REPRODUCED"
+   "solution": "REPRODUCED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPRODUCED",
+    "definitions": [
+     {
+      "text": "created issue",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charging",
+      "for": "container",
+      "note": "to charge a gun is to load it, so the second piece is loaded with the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "PRO",
+      "note": "short for professional, an expert"
+     },
+     {
+      "clueFragment": "less",
+      "gives": "REDUCED",
+      "note": "made less, cut down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PRO",
+      "DUCED"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist who cut their fees caused a fuss.",
+     "walkthrough": "The expert sits inside after the first two letters. Issue here means offspring, not a problem or a magazine number.",
+     "definitionFit": "To reproduce is to breed, and issue is an old legal word for children or descendants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +297,50 @@
     "text": "Showing flexibility, not starting and stopping",
     "enumeration": "6"
    },
-   "solution": "ENDING"
+   "solution": "ENDING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENDING",
+    "definitions": [
+     {
+      "text": "stopping",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not starting",
+      "for": "deletion",
+      "note": "not starting means the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Showing flexibility",
+      "gives": "BENDING",
+      "note": "flexing, giving way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is flexible but stalls, neither starting nor stopping.",
+     "definitionFit": "Ending a thing is bringing it to a halt, so ending and stopping are synonyms as verb forms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flexibility"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +360,48 @@
      }
     ]
    },
-   "solution": "RENTFREE"
+   "solution": "RENTFREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RENT-FREE",
+    "definitions": [
+     {
+      "text": "Not having to make payment",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tears",
+      "gives": "RENT",
+      "note": "rents are rips, as in cloth"
+     },
+     {
+      "clueFragment": "spared",
+      "gives": "FREE",
+      "note": "set free, let off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RENT",
+      "FREE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant let off the rent is spared tears of worry.",
+     "walkthrough": "Read the last two words as a rip that has been released: RENT then FREE. Tears looks like weeping but means rips.",
+     "definitionFit": "Living rent-free means occupying a place without paying the landlord, so no payment is required."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tears"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +421,83 @@
      }
     ]
    },
-   "solution": "DEVILSADVOCATE"
+   "solution": "DEVILSADVOCATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "DEVILS ADVOCATE",
+    "definitions": [
+     {
+      "text": "Contrarian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading from bottom to top"
+     },
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "something dividing another sits in the middle of it, splitting it in two"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was",
+      "gives": "LIVED",
+      "note": "existed, was alive"
+     },
+     {
+      "clueFragment": "down",
+      "gives": "SAD",
+      "note": "feeling low"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "short for circa, about"
+     },
+     {
+      "clueFragment": "X",
+      "gives": "VOTE",
+      "note": "an X on a ballot paper is a vote"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEVIL",
+      "SAD",
+      "VO",
+      "CA",
+      "TE"
+     ],
+     "reversals": [
+      {
+       "from": "LIVED",
+       "to": "DEVIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An awkward character fluctuated in mood over some unknown X.",
+     "walkthrough": "X looks like an unknown quantity, but it is the cross a voter marks on a ballot paper. Was up and down reads as mood swings but is two separate pieces.",
+     "definitionFit": "A devil's advocate argues the opposite case for argument's sake, which is exactly what a contrarian does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "X"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +511,45 @@
     "text": "Hide money for auditors",
     "enumeration": "5"
    },
-   "solution": "CACHE"
+   "solution": "CACHE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CACHE",
+    "definitions": [
+     {
+      "text": "Hide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for auditors",
+      "for": "homophone",
+      "note": "auditors are listeners, so the word is given as it would be heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "CACHE",
+      "soundsLike": "CASH",
+      "note": "ready money"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone conceals funds from the accountants who check the books.",
+     "walkthrough": "Auditors looks like accountants, but here it means people who hear.",
+     "definitionFit": "A cache is a hidden store, a hiding place for valuables or supplies, so hide works as a noun."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditors"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +563,62 @@
     "text": "Idle South American stopped working outside",
     "enumeration": "7"
    },
-   "solution": "DISUSED"
+   "solution": "DISUSED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISUSED",
+    "definitions": [
+     {
+      "text": "Idle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the last piece goes outside, wrapping round the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stopped working",
+      "gives": "DIED",
+      "note": "as an engine dies"
+     },
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "short for United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "S",
+      "US",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A South American worker downs tools and stands idle.",
+     "walkthrough": "South American looks like one idea, a person from that continent, but it splits into two separate abbreviations.",
+     "definitionFit": "Something disused is no longer in service, lying idle in the sense of unused machinery or buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 9,
@@ -187,7 +642,67 @@
      }
     ]
    },
-   "solution": "MILKOFMAGNESIA"
+   "solution": "MILKOFMAGNESIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MILK OF MAGNESIA",
+    "definitions": [
+     {
+      "text": "that will ease congestion",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version of the letters is a fresh arrangement of them"
+     },
+     {
+      "text": "going ahead",
+      "for": "charade",
+      "note": "going ahead places this piece at the front of the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "motorway",
+      "gives": "M",
+      "note": "as in the M1"
+     },
+     {
+      "clueFragment": "Folks imagine a",
+      "gives": "FOLKSIMAGINEA",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ILKOFMAGNESIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOLKSIMAGINEA",
+       "gives": "ILKOFMAGNESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People picture a new motorway being built to relieve traffic jams.",
+     "walkthrough": "The congestion is not road traffic but a blocked or upset gut.",
+     "definitionFit": "Milk of magnesia is a laxative and antacid remedy, easing a congested bowel or stomach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "congestion"
+    }
+   }
   },
   {
    "number": 10,
@@ -201,7 +716,54 @@
     "text": "Hard to believe that is 500 squared",
     "enumeration": "7"
    },
-   "solution": "TALLIED"
+   "solution": "TALLIED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALLIED",
+    "definitions": [
+     {
+      "text": "squared",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard to believe",
+      "gives": "TALL",
+      "note": "as in a tall story"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "id est, that is"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALL",
+      "IE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds it incredible that 500 multiplied by itself comes to some figure.",
+     "walkthrough": "Squared looks like a sum, but it means matched up.",
+     "definitionFit": "Two accounts that tally agree, and accounts that are squared have been brought into agreement or settled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "squared"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +777,45 @@
     "text": "Young nuns and what they should have?",
     "enumeration": "7"
    },
-   "solution": "NOVICES"
+   "solution": "NOVICES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOVICES",
+    "definitions": [
+     {
+      "text": "Young nuns",
+      "at": 0
+     },
+     {
+      "text": "what they should have",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Young nuns",
+      "note": "first meaning: nuns still in training before taking vows"
+     },
+     {
+      "clueFragment": "what they should have",
+      "note": "second meaning, split in two words: an absence of any bad habits"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the answer as two words, NO VICES, for the second meaning. The question mark flags the split.",
+     "definitionFit": "Novices are probationers in a religious order, and a woman training to be a nun is one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +835,72 @@
      }
     ]
    },
-   "solution": "STOCKINGFILLERS"
+   "solution": "STOCKINGFILLERS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "STOCKING FILLERS",
+    "definitions": [
+     {
+      "text": "Odd gifts relative left in sock?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odd",
+      "for": "anagram",
+      "note": "odd means strange or out of the ordinary, so the letters are made strange by rearranging them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gifts",
+      "gives": "GIFTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "REL",
+      "note": "a dictionary abbreviation of relative"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sock",
+      "gives": "SOCK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIFTSRELLINSOCK",
+       "gives": "STOCKINGFILLERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quirky aunt or uncle stuffs strange presents into a sock.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay: odd small gifts left by family in a Christmas sock. Odd here means miscellaneous as well as the anagram signal.",
+     "definitionFit": "Stocking fillers are cheap small presents placed in a hanging Christmas stocking, often from family members."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Odd"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +914,52 @@
     "text": "Held back by extremely fit one-armed brief",
     "enumeration": "6"
    },
-   "solution": "NOTIFY"
+   "solution": "NOTIFY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "NOTIFY",
+    "definitions": [
+     {
+      "text": "brief",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Held",
+      "for": "hidden_word",
+      "note": "letters held by the words are gripped inside them, waiting to be read out"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the letters are read right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremely fit one-armed",
+      "gives": "YFITON",
+      "note": "the run straddling the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "An athlete who has lost an arm is held back despite being very fit.",
+     "walkthrough": "The letters run from the end of extremely to the start of one; read backwards they give NOTIFY. Brief is the verb, as in briefing someone.",
+     "definitionFit": "To brief someone is to give them information or instructions, which is to notify them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +973,55 @@
     "text": "Fell over",
     "enumeration": "8"
    },
-   "solution": "RELAPSED"
+   "solution": "RELAPSED",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "RELAPSED",
+    "definitions": [
+     {
+      "text": "Fell over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "over can mean once more, as in starting a task over, which sits in front of the verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "RE",
+      "note": "the prefix meaning again"
+     },
+     {
+      "clueFragment": "Fell",
+      "gives": "LAPSED",
+      "note": "slipped, as into a bad habit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LAPSED"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "Over can mean again, as in do it over, so this is falling a second time rather than tumbling to the ground.",
+     "definitionFit": "To relapse is to fall back into a former illness or habit after an improvement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1035,51 @@
     "text": "This chap is too disturbed",
     "enumeration": "9"
    },
-   "solution": "SOCIOPATH"
+   "solution": "SOCIOPATH",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "SOCIOPATH",
+    "definitions": [
+     {
+      "text": "This chap is too disturbed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "disturbed letters are thrown out of order and must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap is too",
+      "gives": "CHAPISTOO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHAPISTOO",
+       "gives": "SOCIOPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone points to a man and declares him mentally unbalanced.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: rearrange the letters and the result describes such a chap.",
+     "definitionFit": "A sociopath has a personality disorder marked by antisocial behaviour, a man disturbed in mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1099,83 @@
      }
     ]
    },
-   "solution": "FORTYTWO"
+   "solution": "FORTYTWO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "FORTY-TWO",
+    "definitions": [
+     {
+      "text": "figure",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resorted",
+      "for": "anagram",
+      "note": "re-sorted means put in order again, so those letters are rearranged"
+     },
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "a word drinking another takes it inside, swallowing it"
+     },
+     {
+      "text": "uplifting",
+      "for": "charade",
+      "note": "in a down entry, lifting a piece up moves it to the top of the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Tory",
+      "gives": "TORY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "short for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ORTY",
+      "TWO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TORY",
+       "gives": "ORTY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative takes to drink alongside an inspiring woman.",
+     "walkthrough": "F goes to the top, then TORY rearranged, then TO holding W. Resorted reads as re-sorted, not went to a resort.",
+     "definitionFit": "Forty-two is a number, and a figure is a numeral or number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resorted"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1189,55 @@
     "text": "Home depressed after sex party stopped halfway",
     "enumeration": "8"
    },
-   "solution": "BUNGALOW"
+   "solution": "BUNGALOW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BUNGALOW",
+    "definitions": [
+     {
+      "text": "Home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stopped halfway",
+      "for": "deletion",
+      "note": "stopping halfway means only the first half of the phrase is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex party",
+      "gives": "BUNGABUNGA",
+      "note": "the name given to the parties of Italian prime minister Silvio Berlusconi"
+     },
+     {
+      "clueFragment": "depressed",
+      "gives": "LOW",
+      "note": "feeling down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUNGA",
+      "LOW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stays at home feeling down after an orgy was cut short.",
+     "walkthrough": "Bunga bunga was the tabloid name for the notorious parties of Italian prime minister Silvio Berlusconi; only half the phrase is kept.",
+     "definitionFit": "A bungalow is a one-storey house, a type of home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1257,59 @@
      }
     ]
    },
-   "solution": "BEARHUG"
+   "solution": "BEARHUG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEAR HUG",
+    "definitions": [
+     {
+      "text": "Hold",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tight",
+      "for": "anagram",
+      "note": "tight is slang for drunk, and drunken letters stagger out of order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her bag",
+      "gives": "HERBAG",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is Uniform in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERBAGU",
+       "gives": "BEARHUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to keep a firm grip on a woman's bag and uniform.",
+     "walkthrough": "Tight looks like an instruction to grip firmly, but it means drunk.",
+     "definitionFit": "A bear hug is a tight, crushing embrace, and a hold is a grip in wrestling or embracing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tight"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1323,78 @@
     "text": "See overcharge during meal withdrawn as one's bill turns up",
     "enumeration": "6"
    },
-   "solution": "AVOCET"
+   "solution": "AVOCET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "AVOCET",
+    "definitions": [
+     {
+      "text": "one's bill turns up",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during a thing falls inside it, so the first pieces go within"
+     },
+     {
+      "text": "withdrawn",
+      "for": "reversal",
+      "note": "withdrawn means pulled back, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "V",
+      "note": "short for vide, Latin for see"
+     },
+     {
+      "clueFragment": "overcharge",
+      "gives": "OC",
+      "note": "o/c is the commercial abbreviation for overcharge"
+     },
+     {
+      "clueFragment": "meal",
+      "gives": "TEA",
+      "note": "an early evening meal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "OC",
+      "ET"
+     ],
+     "reversals": [
+      {
+       "from": "TEA",
+       "to": "AET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner spots that they have been overcharged for a meal when the bill arrives.",
+     "walkthrough": "The bill is a beak, not a restaurant tab, and the definition describes the bird by its upturned beak.",
+     "definitionFit": "The avocet is a wading bird famous for its long slender beak that curves upwards at the tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1414,47 @@
      }
     ]
    },
-   "solution": "TAKESIN"
+   "solution": "TAKESIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAKES IN",
+    "definitions": [
+     {
+      "text": "Cheats",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "admit",
+      "gives": "TAKE",
+      "note": "as a school takes or admits pupils"
+     },
+     {
+      "clueFragment": "offence",
+      "gives": "SIN",
+      "note": "a wrongdoing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKE",
+      "SIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A swindler confesses to wrongdoing.",
+     "walkthrough": "Admit offence reads as a phrase, but it splits into two pieces read side by side.",
+     "definitionFit": "To take someone in is to deceive or fool them, which is what a cheat does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admit"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1468,64 @@
     "text": "I see American statesman's wife leaving for another",
     "enumeration": "6"
    },
-   "solution": "OHIOAN"
+   "solution": "OHIOAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OHIOAN",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "the wife leaving means that letter walks out of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I see",
+      "gives": "OH",
+      "note": "an exclamation of understanding"
+     },
+     {
+      "clueFragment": "American statesman",
+      "gives": "IOWAN",
+      "note": "a man from an American state, Iowa"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OH",
+      "IOAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician's wife walks out on him for another man.",
+     "walkthrough": "Statesman is read as state's man: an Iowan. Remove W and add OH in front. Another means another American state's man.",
+     "definitionFit": "Someone from Ohio is also a man of an American state, so he is another such state-dweller beside the Iowan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "statesman"
+    }
+   }
   },
   {
    "number": 21,
@@ -403,7 +1549,38 @@
      }
     ]
    },
-   "solution": "AGAINSTTHECLOCK"
+   "solution": "AGAINSTTHECLOCK",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AGAINST THE CLOCK",
+    "definitions": [
+     {
+      "text": "in a hurry",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "This could make someone like me seethe",
+      "note": "surface reading: something that would infuriate the setter"
+     },
+     {
+      "clueFragment": "in a hurry",
+      "note": "setter's reading: a crossword setter racing a deadline is under time pressure and gets cross"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Someone like me is the setter, Tack; solvers racing to finish fast would irritate a setter who wants the puzzle savoured.",
+     "definitionFit": "Working against the clock means racing to finish before time runs out, so rushed or hurried."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seethe"
+    }
+   }
   },
   {
    "number": 22,
@@ -417,7 +1594,42 @@
     "text": "In Canada ptarmigans change with conditions",
     "enumeration": "5"
    },
-   "solution": "ADAPT"
+   "solution": "ADAPT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADAPT",
+    "definitions": [
+     {
+      "text": "change with conditions",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer is in the words that follow, sitting inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Canada ptarmigans",
+      "gives": "ADAPT",
+      "note": "the run straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Canadian ptarmigans turn white in winter to suit the weather.",
+     "walkthrough": "The ptarmigan, a grouse, really does moult into white plumage for snow, so the surface is true.",
+     "definitionFit": "To adapt is to adjust to new circumstances, altering to fit a changed environment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -431,7 +1643,66 @@
     "text": "Phones the man a day ahead of schedule",
     "enumeration": "7"
    },
-   "solution": "HEADSET"
+   "solution": "HEADSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADSET",
+    "definitions": [
+     {
+      "text": "Phones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ahead of",
+      "for": "charade",
+      "note": "ahead of places what comes before in front of the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the man",
+      "gives": "HE",
+      "note": "pronoun for a man"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "schedule",
+      "gives": "SET",
+      "note": "to set a time is to schedule it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "A",
+      "D",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "A man rings someone a day earlier than planned.",
+     "walkthrough": "Phones is a noun here, the headphones, not the verb.",
+     "definitionFit": "A headset is a pair of headphones, often with a microphone, and phones is a casual word for headphones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Phones"
+    }
+   }
   },
   {
    "number": 24,
@@ -445,7 +1716,47 @@
     "text": "Public covers costs",
     "enumeration": "7"
    },
-   "solution": "OUTLAYS"
+   "solution": "OUTLAYS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTLAYS",
+    "definitions": [
+     {
+      "text": "costs",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public",
+      "gives": "OUT",
+      "note": "as a secret that is out is public"
+     },
+     {
+      "clueFragment": "covers",
+      "gives": "LAYS",
+      "note": "as a cloth lays over a table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "LAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "A public body pays for its expenses.",
+     "walkthrough": "Covers is a verb, as in laying a floor.",
+     "definitionFit": "Outlays are sums spent, expenditure on something, so they are costs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "covers"
+    }
+   }
   },
   {
    "number": 25,
@@ -465,7 +1776,54 @@
      }
     ]
    },
-   "solution": "GETSAROUND"
+   "solution": "GETSAROUND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GETS AROUND",
+    "definitions": [
+     {
+      "text": "Becomes known",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranging",
+      "for": "anagram",
+      "note": "arranging puts letters into a new order, as a musician arranges a piece"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "great sound",
+      "gives": "GREATSOUND",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREATSOUND",
+       "gives": "GETSAROUND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician makes a name by producing a fine sound.",
+     "walkthrough": "Arranging and sound point to music, but arranging is the signal to rearrange.",
+     "definitionFit": "News or a rumour that gets around spreads widely, so it comes to be widely heard of."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arranging"
+    }
+   }
   },
   {
    "number": 26,
@@ -479,7 +1837,58 @@
     "text": "Polish barman, ignoring procedure, makes punch",
     "enumeration": "4"
    },
-   "solution": "CHIN"
+   "solution": "CHIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHIN",
+    "definitions": [
+     {
+      "text": "punch",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "ignoring something leaves it out, so those letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Polish barman",
+      "gives": "CHOPIN",
+      "note": "the Polish composer, a man whose music is written in bars"
+     },
+     {
+      "clueFragment": "procedure",
+      "gives": "OP",
+      "note": "short for operation, a surgical procedure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bartender from Poland skips the formalities and mixes a punch.",
+     "walkthrough": "Barman looks like a bartender but means a composer of bars of music. Polish could also be the verb.",
+     "definitionFit": "To chin someone is British slang for punching them on the jaw."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barman"
+    }
+   }
   }
  ]
 }
