@@ -101,6 +101,7 @@ from light_spec import build_spec, coverage  # noqa: E402
 from parse_penguin_book import build_quality_report, parse_book  # noqa: E402
 from reconstruct_grid import conventions_broken, reconstruct  # noqa: E402
 import clues_only  # noqa: E402
+from series import BOOK_SERIES, book_number, puzzle_id  # noqa: E402
 from clues_only import entries_from_grid  # noqa: E402
 
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
@@ -500,6 +501,13 @@ def main(argv=None):
         print(f"skip: {len(puzzles) - len(fresh)} already filed, {len(fresh)} to read")
     puzzles = fresh
 
+    import puzzle_paths
+    # Clues-only puzzles go beside the puzzles: the corpus's clues_only/ when
+    # filing for real, the scratch tree's otherwise.
+    clues_dir = (None if puzzle_paths.in_corpus(puzzle_dir / "x.json")
+                 else work / "clues_only")
+    clues_filed = 0
+
     # ---- stage 3a, screening, before any search is paid for
     jobs, rows = [], {}
     for p in puzzles:
@@ -526,16 +534,23 @@ def main(argv=None):
                         "down": [[lg[0], lg[1], lg[2]] for lg in down]}}
         if reasons:
             rows[bn]["status"] = "rejected-before-search"
+        elif args.file and clues_only.find(
+                puzzle_id(BOOK_SERIES, book_number(args.identifier, bn)), clues_dir):
+            # Held clues-only already: its answers will place it, so the
+            # search (most of a re-read's wall clock) is not paid again; the
+            # clues are re-filed from this reading, so a parser fix reaches them.
+            rows[bn]["status"] = "held-clues-only"
+            path, problems = file_clues_only({"book_number": bn, "setter": p.get("setter")},
+                                             across, down, args.identifier, clues_dir)
+            rows[bn]["filed"] = str(path) if path else None
+            rows[bn]["filing"] = "re-filed clues-only" if path else "refused clues-only"
+            if problems:
+                rows[bn]["filing_problems"] = problems
+            clues_filed += 1 if path else 0
         else:
             jobs.append({"book_number": bn, "across": across, "down": down})
-    print(f"screen: {len(jobs)} to search, {len(puzzles) - len(jobs)} rejected first")
-
-    import puzzle_paths
-    # Clues-only puzzles go beside the puzzles: the corpus's clues_only/ when
-    # filing for real, the scratch tree's otherwise.
-    clues_dir = (None if puzzle_paths.in_corpus(puzzle_dir / "x.json")
-                 else work / "clues_only")
-    clues_filed = 0
+    print(f"screen: {len(jobs)} to search, {len(puzzles) - len(jobs)} rejected "
+          f"or held clues-only")
 
     def file_row(bn, row):
         """Stage 4 for one searched puzzle; 1 when it was filed with a grid."""
