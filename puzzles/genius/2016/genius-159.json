@@ -25,6 +25,9 @@
   "date": "2016-10-02",
   "check": "grid and clues read from the Guardian's printable PDF, its numbering matching the clue list; each light's entry one fifteensquared prints for it, the only choice of them whose crossings all agree; an entry not its answer carries the answer as its alteration's `from`"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,76 @@
     "text": "Fodder providing last part of answer is concealed in second half of clue",
     "enumeration": "7"
    },
-   "solution": "PASTURE"
+   "solution": "PASTURE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PASTURE",
+    "definitions": [
+     {
+      "text": "Fodder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last part of",
+      "for": "letter_selection",
+      "note": "the final part of a word is its closing letter, so only the end of the next word is kept"
+     },
+     {
+      "text": "concealed in",
+      "for": "container",
+      "note": "something concealed in a place sits inside it, so one piece goes within the other"
+     },
+     {
+      "text": "second half of",
+      "for": "letter_selection",
+      "note": "the second half of a four-letter word is its final pair of letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "providing",
+     "is"
+    ],
+    "blocks": [
+     {
+      "gives": "PAST",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "UE",
+      "note": "the second half of this four-letter word"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "U",
+      "R",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A self-referential instruction that seems to tell the solver where to find animal feed inside the clue itself.",
+     "walkthrough": "The wordplay builds only URE; the preamble's slice PAST from PASTRAMI goes in front to make PASTURE.",
+     "definitionFit": "Pasture is grassland grazed by livestock, so the growing grass serves as animal feed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "answer"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +124,59 @@
     "text": "History records agricultural methods introduced originally for beef production",
     "enumeration": "8"
    },
-   "solution": "PASTRAMI"
+   "solution": "PASTRAMI",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PASTRAMI",
+    "definitions": [
+     {
+      "text": "beef production",
+      "at": 63
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "what comes originally is what comes first, so each word gives its opening letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "History",
+      "gives": "PAST",
+      "note": "history is what is past"
+     },
+     {
+      "clueFragment": "records agricultural methods introduced",
+      "gives": "RAMI",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "RAMI"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical study of farming practices that were brought in to raise beef cattle.",
+     "walkthrough": "This answer is the '2' of the preamble: ten other answers contain a slice of it.",
+     "definitionFit": "Pastrami is a seasoned, smoked cured meat usually made from brisket, so it is something produced from cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "records"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +196,55 @@
      }
     ]
    },
-   "solution": "DOVERSOLE"
+   "solution": "DOVERSOLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DOVER SOLE",
+    "definitions": [
+     {
+      "text": "a bit of a catch",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "represent",
+      "for": "anagram",
+      "note": "to re-present something is to present it afresh in a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "maybe"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does lover",
+      "gives": "DOESLOVER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOESLOVER",
+       "gives": "DOVERSOLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a boyfriend counts as a good catch in the romantic sense.",
+     "walkthrough": "'Catch' suggests an eligible partner, but here it means a haul of fish.",
+     "definitionFit": "The Dover sole is a prized flatfish, so one would be part of a fisherman's haul."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "catch"
+    }
+   }
   },
   {
    "number": 4,
@@ -96,7 +268,77 @@
    "group": [
     "4-down",
     "22-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DAVID BOWIE",
+    "definitions": [
+     {
+      "text": "Star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group of letters is placed in another, so it sits inside it"
+     },
+     {
+      "text": "setting up of",
+      "for": "reversal",
+      "note": "in a down clue, setting something up raises it, so the word is read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "keen",
+      "gives": "AVID",
+      "note": "avid means eager"
+     },
+     {
+      "clueFragment": "play second fiddle perhaps",
+      "gives": "BOW",
+      "note": "to bow is to defer, as one playing second fiddle does"
+     },
+     {
+      "clueFragment": "festival",
+      "gives": "EID",
+      "note": "Eid is a Muslim festival"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AVID",
+      "BOW",
+      "IE"
+     ],
+     "reversals": [
+      {
+       "from": "EID",
+       "to": "DIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity is happy to take a supporting role at some music festival.",
+     "walkthrough": "'Fiddle' suggests violin playing and a bow, but the bow here is the deferential bending kind.",
+     "definitionFit": "David Bowie was a hugely famous rock singer, a star of music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 5,
@@ -110,7 +352,54 @@
     "text": "France’s wingers attack",
     "enumeration": "6"
    },
-   "solution": "STRAFE"
+   "solution": "STRAFE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STRAFE",
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wingers",
+      "for": "letter_selection",
+      "note": "wingers play on the flanks, so only the two edge letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "gives": "STRA",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "France’s",
+      "gives": "FE",
+      "select": "outer",
+      "note": "the edge letters of the country name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRA",
+      "FE"
+     ]
+    },
+    "explanation": {
+     "surface": "French wide players launching an attack in a football match.",
+     "walkthrough": "This is one of the ten answers holding a slice of 2 down that the wordplay leaves out.",
+     "definitionFit": "To strafe is to attack with gunfire from low-flying aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wingers"
+    }
+   }
   },
   {
    "number": 6,
@@ -124,7 +413,79 @@
     "text": "Revolutionary design for nurturing surrounding landscape?",
     "enumeration": "7"
    },
-   "solution": "FRAMING"
+   "solution": "FRAMING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "FRAMING",
+    "definitions": [
+     {
+      "text": "surrounding landscape?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the letters run backwards"
+     },
+     {
+      "text": "nurturing",
+      "for": "letter_selection",
+      "note": "the words nurture, or hold within, the letters wanted across their join"
+     }
+    ],
+    "blocks": [
+     {
+      "gives": "RAMI",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "design",
+      "gives": "G",
+      "select": 5,
+      "note": "the fifth letter, where the run of letters held across the two words starts"
+     },
+     {
+      "clueFragment": "design",
+      "gives": "N",
+      "select": "last",
+      "note": "the closing letter, next in the run"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter, ending the run of three"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RAMI",
+      "NG"
+     ],
+     "reversals": [
+      {
+       "from": "GNF",
+       "to": "FNG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Suggests a radical new scheme for raising crops or livestock.",
+     "walkthrough": "The wordplay gives only FNG; the slice RAMI goes after its first letter to make FRAMING.",
+     "definitionFit": "Framing is the border put round a picture, such as a painted landscape; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "nurturing"
+    }
+   }
   },
   {
    "number": 7,
@@ -138,7 +499,57 @@
     "text": "Soldier and mistress almost say: \"I always lie\"",
     "enumeration": "7"
    },
-   "solution": "PARADOX"
+   "solution": "PARADOX",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PARADOX",
+    "definitions": [
+     {
+      "text": "say: \"I always lie\"",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "PARA",
+      "note": "a paratrooper"
+     },
+     {
+      "clueFragment": "mistress",
+      "gives": "DOXY",
+      "note": "an old word for a mistress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "DOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier and his lover, one of whom confesses to being a habitual liar.",
+     "definitionFit": "The liar's statement is a classic self-contradiction: if it is true, it is false, an example of a logical puzzle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 8,
@@ -152,7 +563,55 @@
     "text": "Nationalist queen leading support for Clydesdale?",
     "enumeration": "7"
    },
-   "solution": "PASTERN"
+   "solution": "PASTERN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTERN",
+    "definitions": [
+     {
+      "text": "support for Clydesdale?",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "leading"
+    ],
+    "blocks": [
+     {
+      "gives": "PAST",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina"
+     },
+     {
+      "clueFragment": "Nationalist",
+      "gives": "N",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "ER",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish nationalist monarch at the front of a campaign of backing for the Clyde region.",
+     "walkthrough": "'Leading' places the queen before the nationalist; a Clydesdale is a breed of heavy draught horse, not the Scottish valley.",
+     "definitionFit": "The pastern is the part of a horse's leg between fetlock and hoof, which helps bear its weight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Clydesdale"
+    }
+   }
   },
   {
    "number": 9,
@@ -172,7 +631,56 @@
      }
     ]
    },
-   "solution": "MUDDYWATERS"
+   "solution": "MUDDYWATERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MUDDY WATERS",
+    "definitions": [
+     {
+      "text": "guitarist",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loss of",
+      "for": "deletion",
+      "note": "losing something means it is taken away, so the named word goes"
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fan confusion",
+      "gives": "MUDDYTHEWATERS",
+      "note": "to muddy the waters is to stir up confusion"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUDDY",
+      "WATERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fan in disarray after the death of a favourite musician.",
+     "definitionFit": "Muddy Waters was the stage name of an influential American blues singer and guitar player."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fan"
+    }
+   }
   },
   {
    "number": 10,
@@ -186,7 +694,59 @@
     "text": "Last time to act having gone bust?",
     "enumeration": "6"
    },
-   "solution": "STATUE"
+   "solution": "STATUE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STATUE",
+    "definitions": [
+     {
+      "text": "bust?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having gone",
+      "for": "deletion",
+      "note": "something that has gone is no longer there, so the letter is removed"
+     }
+    ],
+    "linkWords": [
+     "Last",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "STATUTE",
+      "note": "an act of parliament"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATU",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The final chance to do something before going bankrupt.",
+     "walkthrough": "'Last' says which T goes: the final one in STATUTE, not the first.",
+     "definitionFit": "A bust is a sculpture of head and shoulders, one example of a sculpted figure; the question mark flags the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 11,
@@ -210,7 +770,67 @@
      }
     ]
    },
-   "solution": "UPINARMS"
+   "solution": "UPINARMS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "UP IN ARMS",
+    "definitions": [
+     {
+      "text": "Incensed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so these letters are missing"
+     },
+     {
+      "text": "liberal",
+      "for": "anagram",
+      "note": "liberal means free and loose, so the letters are rearranged freely"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puritanism",
+      "gives": "PURITANISM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is a coy word for sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UPINARMS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PURANISM",
+       "gives": "UPINARMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone outraged by a permissive form of puritanism that lacks any sex.",
+     "definitionFit": "Up in arms is an idiom for being angrily protesting, which matches being enraged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "liberal"
+    }
+   }
   },
   {
    "number": 12,
@@ -224,7 +844,49 @@
     "text": "Women fish for compliments? Not this one!",
     "enumeration": "9"
    },
-   "solution": "BROADSIDE"
+   "solution": "BROADSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BROADSIDE",
+    "definitions": [
+     {
+      "text": "for compliments? Not this one!",
+      "at": 11,
+      "note": "the definition is negative: something that is not a compliment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women",
+      "gives": "BROADS",
+      "note": "American slang for women"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "IDE",
+      "note": "a freshwater fish of the carp family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BROADS",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Women fishing for compliments are told they will not get one.",
+     "walkthrough": "'Fish for' looks like one phrase; split it, and fish gives the letters while the rest defines.",
+     "definitionFit": "A broadside is a fierce verbal attack, the very opposite of praise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 13,
@@ -238,7 +900,48 @@
     "text": "Dummy’s not too bright we hear",
     "enumeration": "5"
    },
-   "solution": "FEINT"
+   "solution": "FEINT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FEINT",
+    "definitions": [
+     {
+      "text": "Dummy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is spoken, so the sound matters, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not too bright",
+      "gives": "FEINT",
+      "soundsLike": "FAINT",
+      "note": "a faint light is not too bright"
+     }
+    ],
+    "explanation": {
+     "surface": "A gibe that a stupid person is not very clever.",
+     "walkthrough": "'Not too bright' reads as dim-witted; it is a dim light.",
+     "definitionFit": "A dummy in sport is a pretended move to deceive an opponent, which is a mock attack."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bright"
+    }
+   }
   },
   {
    "number": 14,
@@ -252,7 +955,66 @@
     "text": "Dead soldiers described by short note covering two sides",
     "enumeration": "9"
    },
-   "solution": "BILATERAL"
+   "solution": "BILATERAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "BILATERAL",
+    "definitions": [
+     {
+      "text": "covering two sides",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "described by",
+      "for": "container",
+      "note": "to describe a shape is to draw round it, so one piece goes round the other"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead",
+      "gives": "LATE",
+      "note": "the late means the dead"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RA",
+      "note": "Royal Artillery"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "BILL",
+      "note": "a bill is a written note or account"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "LATERA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Fallen soldiers listed on a brief memo.",
+     "definitionFit": "Bilateral means involving or affecting both sides, as in a two-party agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "described"
+    }
+   }
   },
   {
    "number": 15,
@@ -272,7 +1034,39 @@
      }
     ]
    },
-   "solution": "PILLOWFIGHT"
+   "solution": "PILLOWFIGHT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PILLOW FIGHT",
+    "definitions": [
+     {
+      "text": "Bedroom action?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bedroom action?",
+      "note": "surface reading: something more intimate in the bedroom"
+     },
+     {
+      "clueFragment": "Bedroom action?",
+      "note": "setter's reading: a playful battle fought with bedding"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The suggestive phrase points to romance, but the action is children battering each other with what lies on the bed.",
+     "definitionFit": "A game where people swing soft cushions from the bed at each other is literally action in a bedroom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "action"
+    }
+   }
   },
   {
    "number": 16,
@@ -286,7 +1080,60 @@
     "text": "Browbeating, nonetheless, contributes to unnatural death",
     "enumeration": "8"
    },
-   "solution": "HEADBUTT"
+   "solution": "HEADBUTT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEADBUTT",
+    "definitions": [
+     {
+      "text": "Browbeating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unnatural",
+      "for": "anagram",
+      "note": "unnatural means not in the normal state, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "contributes to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nonetheless",
+      "gives": "BUT",
+      "note": "but means nevertheless"
+     },
+     {
+      "clueFragment": "death",
+      "gives": "DEATH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BUTDEATH",
+       "gives": "HEADBUTT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bullying behaviour that still leads to a suspicious death.",
+     "walkthrough": "'Browbeating' means bullying, but read literally it is beating with the brow.",
+     "definitionFit": "A headbutt is a blow struck with the forehead, literally a beating delivered by the brow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Browbeating"
+    }
+   }
   },
   {
    "number": 17,
@@ -300,7 +1147,61 @@
     "text": "The old Democratic leader was unfaithful",
     "enumeration": "7"
    },
-   "solution": "STRAYED"
+   "solution": "STRAYED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STRAYED",
+    "definitions": [
+     {
+      "text": "was unfaithful",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "gives": "STRA",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "The old",
+      "gives": "YE",
+      "note": "ye is an archaic form of the"
+     },
+     {
+      "clueFragment": "Democratic",
+      "gives": "D",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRA",
+      "YE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A former Democratic party leader who cheated on his spouse.",
+     "walkthrough": "The wordplay builds only YED; the slice STRA goes in front.",
+     "definitionFit": "To stray is to wander from a partner, a common euphemism for committing adultery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 18,
@@ -314,7 +1215,45 @@
     "text": "Amount of money made on site",
     "enumeration": "7"
    },
-   "solution": "REVENUE"
+   "solution": "REVENUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REVENUE",
+    "definitions": [
+     {
+      "text": "Amount of money made",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on the subject of"
+     },
+     {
+      "clueFragment": "site",
+      "gives": "VENUE",
+      "note": "a venue is a site for an event"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VENUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes money earned at a location, like takings on site.",
+     "definitionFit": "Revenue is income, the money a business or government takes in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -328,7 +1267,58 @@
     "text": "Tube from Heathrow terminal",
     "enumeration": "5"
    },
-   "solution": "STRAW"
+   "solution": "STRAW",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "STRAW",
+    "definitions": [
+     {
+      "text": "Tube",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terminal",
+      "for": "letter_selection",
+      "note": "a terminal letter is one at the end, so only the closing one is kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "gives": "STRA",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "Heathrow",
+      "gives": "W",
+      "select": "last",
+      "note": "closing letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRA",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "Taking the London Underground (the Tube) from an airport terminal.",
+     "walkthrough": "'Tube' and 'terminal' paint London transport; Heathrow is London's main airport.",
+     "definitionFit": "A drinking straw is a thin hollow pipe for sipping liquid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tube"
+    }
+   }
   },
   {
    "number": 20,
@@ -342,7 +1332,60 @@
     "text": "Walsall entertains a couple of stars",
     "enumeration": "6"
    },
-   "solution": "ASTRAL"
+   "solution": "ASTRAL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ASTRAL",
+    "definitions": [
+     {
+      "text": "of stars",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertains a couple",
+      "for": "letter_selection",
+      "note": "the place name entertains, or holds inside it, a pair of letters to be picked out"
+     }
+    ],
+    "blocks": [
+     {
+      "gives": "ASTR",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "Walsall",
+      "gives": "A",
+      "select": 2,
+      "note": "the second letter, first of the pair held inside the town name"
+     },
+     {
+      "clueFragment": "Walsall",
+      "gives": "L",
+      "select": 3,
+      "note": "the third letter, second of the pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTR",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Walsall, a town in the English West Midlands, plays host to two celebrities.",
+     "walkthrough": "'A couple of stars' reads as two celebrities, but the couple belongs to the wordplay and 'of stars' is the definition.",
+     "definitionFit": "Astral is an adjective meaning relating to the heavenly bodies in the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertains"
+    }
+   }
   },
   {
    "number": 21,
@@ -356,7 +1399,68 @@
     "text": "Have a great time turning 13",
     "enumeration": "9"
    },
-   "solution": "STRATAGEM"
+   "solution": "STRATAGEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STRATAGEM",
+    "definitions": [
+     {
+      "text": "13",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "Have a"
+    ],
+    "blocks": [
+     {
+      "gives": "STRA",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "MEGA",
+      "note": "slang for great"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRA",
+      "TAGEM"
+     ],
+     "reversals": [
+      {
+       "from": "MEGAT",
+       "to": "TAGEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful wish to enjoy oneself on reaching the age of thirteen.",
+     "walkthrough": "'13' looks like a birthday but refers to the answer at 13 across. A slice of 2 down, absent from the wordplay, starts the answer.",
+     "definitionFit": "A feint is a deceptive move, and a stratagem is a scheme or trick to outwit an opponent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "13"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1487,51 @@
     "text": "Move fast to make fast pony",
     "enumeration": "8"
    },
-   "solution": "DARTMOOR"
+   "solution": "DARTMOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DARTMOOR",
+    "definitions": [
+     {
+      "text": "pony",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move fast",
+      "gives": "DART",
+      "note": "to dart is to move quickly"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "MOOR",
+      "note": "to moor a boat is to make it fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DART",
+      "MOOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Urging speed to get a pony to go quickly.",
+     "walkthrough": "'Fast' is used twice in different senses: quick, then secured.",
+     "definitionFit": "The Dartmoor is a breed of small hardy horse from the moorland in Devon, England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1545,65 @@
     "text": "It’s symbolic when other people repeatedly take sides in brawl",
     "enumeration": "6"
    },
-   "solution": "EMBLEM"
+   "solution": "EMBLEM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EMBLEM",
+    "definitions": [
+     {
+      "text": "It’s symbolic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "take",
+      "for": "container",
+      "note": "to take something in is to hold it inside"
+     },
+     {
+      "text": "sides",
+      "for": "letter_selection",
+      "note": "the sides of a word are its outer letters"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other people repeatedly",
+      "gives": "EMEM",
+      "note": "'em is short for them, given twice"
+     },
+     {
+      "clueFragment": "brawl",
+      "gives": "BL",
+      "select": "outer",
+      "note": "outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "BL",
+      "EM"
+     ]
+    },
+    "explanation": {
+     "surface": "Onlookers repeatedly picking sides in a fight is said to mean something.",
+     "definitionFit": "An emblem is a badge or sign standing for an idea, so it is a symbolic thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1617,71 @@
     "text": "Conclusion of tale in small volume of Potter’s work",
     "enumeration": "7"
    },
-   "solution": "CERAMIC"
+   "solution": "CERAMIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CERAMIC",
+    "definitions": [
+     {
+      "text": "Potter’s work",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Conclusion of",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its closing letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "E",
+      "select": "last",
+      "note": "closing letter"
+     },
+     {
+      "clueFragment": "small volume",
+      "gives": "CC",
+      "note": "cubic centimetres"
+     },
+     {
+      "gives": "RAMI",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "E",
+      "RAMI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "The end of a story in a slim book by Beatrix Potter.",
+     "walkthrough": "'Potter' suggests Beatrix or Harry, but it is a maker of pots. The wordplay gives CEC; the slice RAMI goes before the last C.",
+     "definitionFit": "Ceramic is fired clay, the stuff a pottery maker produces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Potter’s"
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1695,73 @@
     "text": "Though not even turned 18, he’s a famous scientist",
     "enumeration": "7"
    },
-   "solution": "PASTEUR"
+   "solution": "PASTEUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "PASTEUR",
+    "definitions": [
+     {
+      "text": "he’s a famous scientist",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the following word is taken out"
+     },
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round means the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "Though"
+    ],
+    "blocks": [
+     {
+      "gives": "PAST",
+      "note": "a slice of the beef at 2 down, supplied by the preamble and not by the clue"
+     },
+     {
+      "clueFragment": "18",
+      "gives": "REVENUE",
+      "note": "the answer at 18 down"
+     },
+     {
+      "clueFragment": "even",
+      "gives": "EVEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "EUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUE",
+       "to": "EUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prodigy who became a famous scientist before even reaching eighteen.",
+     "walkthrough": "'18' looks like an age but refers to the answer at 18 down. 'Not even' looks like odd letters but removes the word itself.",
+     "definitionFit": "Louis Pasteur was the French chemist known for pasteurisation and vaccines, a celebrated man of science."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   }
  ]
 }
