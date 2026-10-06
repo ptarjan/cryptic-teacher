@@ -1,8 +1,8 @@
 #!/bin/bash
-# The scheduled entry point for tools/corpus_queue.py (tick, nightly): runs it
+# The scheduled entry point for tools/corpus_queue.py tick: runs it
 # from a worktree at origin/master (tools/nightly_worktree.sh). Arguments pass through.
 # The tick must return in seconds (the plugin's timeout is 600s), and neither
-# it nor the nightly coverage count reads puzzles/index.* or abbreviations.js:
+# it nor tools/coverage.sh reads puzzles/index.* or abbreviations.js:
 # no rebuild here. The job it starts rebuilds them in its own session.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
 CT_GENERATED=none

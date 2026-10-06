@@ -1445,11 +1445,24 @@ tools/corpus_queue.py                        keeps the full pass running: one co
                                              time (pid file, ledger locks), starts
                                              ocr_full_pass.sh whenever none runs, holds it
                                              after two launches that read nothing, wakes the
-                                             room on a stall or, nightly, when it is held or
-                                             has read everything due and recoverable editions
-                                             remain
-tools/corpus_queue.sh                        the scheduled entry point for corpus_queue.py tick
-                                             and nightly, from a worktree
+                                             room on a stall or when two launches in a row read
+                                             nothing
+tools/corpus_queue.sh                        the scheduled entry point for corpus_queue.py
+                                             tick, from a worktree
+tools/coverage.py                            the coverage ledger: every series' puzzles that
+                                             exist (print dates, numbers back to issue one,
+                                             Trove articles, book positions), the ones filed,
+                                             and each missing puzzle in one (source, cause)
+                                             bucket naming the module that owns its fix, read
+                                             off the pipelines' own fields; daily it saves,
+                                             diffs against the last run and queues the top
+                                             recoverable buckets and any regression for the room
+tools/coverage.sh                            the scheduled entry point for coverage.py daily,
+                                             from a worktree
+tools/test_coverage.sh                       does every ledger bucket name a module that
+                                             exists, every filer refusal have a bucket, every
+                                             missing puzzle land in exactly one bucket, and the
+                                             daily run queue a note only when it carries work?
 tools/test_corpus_queue.sh                   does corpus_queue.py take a recycled pid for a
                                              dead job, see a filer's ledger lock, start the
                                              full pass with no edition list, hold it after two

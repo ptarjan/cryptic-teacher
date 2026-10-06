@@ -27,6 +27,7 @@ previous.json), from which the per-year deltas are printed.
 import argparse
 import collections
 import datetime
+import functools
 import json
 import os
 import sys
@@ -54,30 +55,35 @@ PRINTED = {
     "telegraph": {"weekdays": range(6), "first": "1925-07-30", "gaps": []},
 }
 
-#: Every unfiled-edition class: (key, what it means, the fix, recoverable).
+#: Every unfiled-edition class: (key, what it means, the fix, recoverable,
+#: the module that owns the fix). tools/coverage.py buckets by these.
 #: Recoverable means this pipeline (fetch, OCR, a re-read) can still get it.
 CLASSES = [
     ("not-fetched", "archive.org has the scan; tools/fetch_archive_org_editions.py has not fetched it",
-     "fetch_archive_org_editions.py --group <paper>", True),
+     "fetch_archive_org_editions.py --group <paper>", True, "tools/fetch_archive_org_editions.py"),
     ("fetch-failed", "the scan's fetch failed (failures.tsv) and has not been retried",
-     "fetch_archive_org_editions.py --group <paper>", True),
-    ("not-read", "fetched, never read by the filer", "the standing full pass (tools/ocr_full_pass.sh)", True),
-    ("blank-clues", "read; a clue is blank (readings disagree), held back", "re-read: better readers / VLM", True),
-    ("no-grid", "read; no grid found or rebuilt", "grid reader fix, then bump REREAD_BEFORE", True),
-    ("clues-dont-fit", "read; the rebuilt grid disagrees with the clues", "clue reader fix, then bump REREAD_BEFORE", True),
-    ("no-reading-parses", "read; no reading of the clue columns parses", "clue reader fix, then bump REREAD_BEFORE", True),
-    ("not-a-grid", "read; the ink under the title is not a grid", "grid finder fix, then bump REREAD_BEFORE", True),
-    ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True),
-    ("read-not-filed", "read whole, but no file for that date", "look at the ledger row", True),
-    ("no-crossword-found", "fetched; no crossword heading found on any page", "detector fix (DETECTOR_VERSION)", True),
-    ("filed-other-date", "its puzzle number is filed, under another date", "date the file right", True),
-    ("number-date-mismatch", "the item's date and the puzzle number disagree", "none: archive.org's date is wrong", False),
+     "fetch_archive_org_editions.py --group <paper>", True, "tools/fetch_archive_org_editions.py"),
+    ("not-read", "fetched, never read by the filer", "the standing full pass (tools/ocr_full_pass.sh)", True, "tools/ocr_full_pass.sh"),
+    ("blank-clues", "read; a clue is blank (readings disagree), held back", "re-read: better readers / VLM", True, "tools/file_archive_org_puzzles.py"),
+    ("no-grid", "read; no grid found or rebuilt", "grid reader fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
+    ("clues-dont-fit", "read; the rebuilt grid disagrees with the clues", "clue reader fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
+    ("no-reading-parses", "read; no reading of the clue columns parses", "clue reader fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
+    ("not-a-grid", "read; the ink under the title is not a grid", "grid finder fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
+    ("crashed", "read; the reader raised on this title", "the traceback in the ledger's refused", True, "tools/file_archive_org_puzzles.py"),
+    ("refused-no-cause", "read before refusals filed a cause; the next read stamps one",
+     "the standing full pass re-reads it (bump REREAD_BEFORE in tools/ocr_full_pass.sh)", True, "tools/ocr_full_pass.sh"),
+    ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True, "tools/file_archive_org_puzzles.py"),
+    ("read-not-filed", "read whole, but no file for that date", "look at the ledger row", True, "tools/file_archive_org_puzzles.py"),
+    ("no-crossword-found", "fetched; no crossword heading found on any page we hold",
+     "the fetcher holds the wrong pages: find the crossword page in the whole issue (only a crosswordless issue leaves the count), then DETECTOR_VERSION", True, "tools/fetch_archive_org_editions.py"),
+    ("filed-other-date", "its puzzle number is filed, under another date", "date the file right", True, "tools/file_archive_org_puzzles.py"),
+    ("number-date-mismatch", "the item's date and the puzzle number disagree", "none: archive.org's date is wrong", False, "tools/file_archive_org_puzzles.py"),
     ("no-filer", "archive.org has the scan, in a one-issue-per-item collection the filer does not read",
-     "teach fetch_archive_org_editions.py and the filer the collection (ONE_ISSUE_GROUPS)", True),
-    ("no-listing", "the year's archive.org item listing is not cached", "fetch_archive_org_editions.py --group <paper>", True),
+     "teach fetch_archive_org_editions.py and the filer the collection (ONE_ISSUE_GROUPS)", True, "tools/fetch_archive_org_editions.py"),
+    ("no-listing", "the year's archive.org item listing is not cached", "fetch_archive_org_editions.py --group <paper>", True, "tools/fetch_archive_org_editions.py"),
     ("canberra-reprint", "archive.org holds no scan; a cached Canberra Times article reprints it (tools/canberra_london_numbers.py)",
-     "fetch_trove.py zones $(canberra_london_numbers.py --ids scanless), then file_trove_puzzles.py", True),
-    ("no-scan", "archive.org holds no scan of this edition", "another source (Trove, a book, a blog)", False),
+     "fetch_trove.py zones $(canberra_london_numbers.py --ids scanless), then file_trove_puzzles.py", True, "tools/fetch_trove.py"),
+    ("no-scan", "archive.org holds no scan of this edition", "another source (Trove, a book, a blog)", False, "tools/first_issue.py"),
 ]
 CLASS = {c[0]: c for c in CLASSES}
 
@@ -96,17 +102,44 @@ def printed_dates(series, until):
         d += datetime.timedelta(days=1)
 
 
+@functools.lru_cache(maxsize=None)
 def corpus(series):
-    """{date: puzzle number} and {number: date} of the series' filed puzzles."""
-    by_date, by_number = {}, {}
-    for path in (ROOT / "puzzles" / series).glob("*/*.json"):
+    """{date: puzzle number} and {number: date} of the series' filed puzzles.
+    Each file's (date, number) is kept in STATE/corpus-<series>.json against
+    its mtime and size, so a run re-reads only the files that changed."""
+    cache_path = STATE / f"corpus-{series}.json"
+    try:
+        cache = json.loads(cache_path.read_text())
+    except (OSError, ValueError):
+        cache = {}
+    fresh, by_date, by_number = {}, {}, {}
+    for path in sorted((ROOT / "puzzles" / series).glob("*/*.json")):
         try:
-            p = json.loads(path.read_text())
-        except (OSError, ValueError):
+            st = path.stat()
+        except OSError:
             continue
-        if p.get("date"):
-            by_date.setdefault(p["date"], p.get("number"))
-            by_number[p.get("number")] = p["date"]
+        rel, stamp = f"{path.parent.name}/{path.name}", [st.st_mtime_ns, st.st_size]
+        hit = cache.get(rel)
+        if hit and hit[:2] == stamp:
+            date, number = hit[2], hit[3]
+        else:
+            try:
+                p = json.loads(path.read_text())
+            except (OSError, ValueError):
+                continue
+            date, number = p.get("date"), p.get("number")
+        fresh[rel] = stamp + [date, number]
+        if date:
+            by_date.setdefault(date, number)
+            by_number[number] = date
+    if fresh != cache:
+        try:
+            STATE.mkdir(parents=True, exist_ok=True)
+            tmp = cache_path.with_suffix(".tmp")
+            tmp.write_text(json.dumps(fresh))
+            os.replace(tmp, cache_path)
+        except OSError:
+            pass
     return by_date, by_number
 
 
@@ -173,28 +206,23 @@ def ledger():
 
 
 def verdict_class(row, by_number):
-    """The class of an unfiled edition the filer has read: `row` is its ledger row."""
+    """The class of an unfiled edition the filer has read: `row` is its
+    ledger row. Read off the verdict's fields, never its prose: a refusal
+    files its `cause` (file_archive_org_puzzles.REFUSALS), and one read
+    before that field existed is "refused-no-cause" until it is read again."""
     vs = row.get("verdicts") or []
     if not vs:
         return "no-crossword-found"
     v = next((v for v in vs if v.get("id")), vs[0])
     if v.get("number") in by_number:
         return "filed-other-date"
-    refused = v.get("refused") or ""
-    if refused:
-        if "not a grid" in refused:
-            return "not-a-grid"
-        if "parses" in refused:
-            return "no-reading-parses"
-        return "number-date-mismatch"
-    pending = (v.get("pending") or "").split(":")[0]
-    if pending == "no grid":
-        return "no-grid"
-    if pending:
-        return "clues-dont-fit"
+    if v.get("refused"):
+        return v.get("cause") or "refused-no-cause"
+    if v.get("pending"):
+        return "clues-dont-fit" if "grid" in v else "no-grid"
     if v.get("refusedWrite") or v.get("writeFailed"):
         return "write-refused"
-    if v.get("blank") or "blank" in (v.get("skip") or ""):
+    if v.get("blank"):
         return "blank-clues"
     return "read-not-filed"
 

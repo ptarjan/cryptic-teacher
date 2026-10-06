@@ -415,6 +415,38 @@ all of `docs/LAYOUT.md`. Each region sits between `<!-- NAME-START -->` and
   `tools/build_readme.py`, not here. A number typed by hand is never checked
   again.
 
+## Coverage ledger
+
+`tools/coverage.py` answers "which puzzles exist that we have not filed, and
+whose fix gets them?" for every series and source at once, so nobody has to
+spot a gap by hand. It reads caches and puzzle files only and takes seconds.
+
+- **Unit**: one puzzle of one series, deduplicated. Dailies the scan tracker
+  knows (`times`, `cryptic`, `ftcryptic`, `telegraph`) are counted by print
+  date back to their first crossword. Every other numbered series is counted
+  by number from `first_number()` to the highest one held. `canberra` counts
+  the Trove articles its filer read as a cryptic. `book` counts each
+  registered book's positions, from its report or its estimated count.
+- **Buckets**: each missing puzzle is in exactly one `(source, cause)` bucket
+  from `CAUSES`. Each bucket names its owning module and fix. The cause is
+  read off the pipeline's own fields (a verdict's `cause`, `blank`, `grid`,
+  a report's `status`), never off its prose. When a record holds only prose,
+  the puzzle goes in a `*-no-cause` bucket, and the missing enum is itself the
+  work. When two sources claim one puzzle, a source that can still deliver
+  wins. A puzzle no source claims is `none / no-source`: finding a source is
+  research, not a module fix.
+- **Reading it**: `python3 tools/coverage.py` lists the recoverable buckets
+  first, largest first. Then come the unrecoverable ones, then each series'
+  exist/filed/missing. `--json` writes the same data.
+- **Daily**: the `cryptic-archive-coverage` plugin runs
+  `tools/coverage.sh daily` at 05:50. It saves
+  `~/.cache/coverage_ledger/<date>.json` and `latest.json`, and diffs against
+  the previous run. It queues a note for #cryptic-crosswords
+  (`wake.sh -q`) only when there is work: the top three recoverable buckets
+  with their counts, owners and changes, plus any regression (a series filing
+  fewer puzzles, or a no-cause bucket that was empty before). A run with
+  neither queues nothing.
+
 ## Nightly jobs
 
 `tools/daily_update.sh` runs once a day on a machine with the `claude` CLI. In

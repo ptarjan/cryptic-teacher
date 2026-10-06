@@ -96,10 +96,12 @@ assert "1980-12-25" not in days and "1980-12-28" not in days and "1980-12-27" in
 
 cases = [
     ({"verdicts": []}, "no-crossword-found"),
-    ({"verdicts": [{"number": 1, "refused": "no reading parses"}]}, "no-reading-parses"),
-    ({"verdicts": [{"number": 1, "refused": "the ink under the title is 1x2, not a grid"}]}, "not-a-grid"),
+    ({"verdicts": [{"number": 1, "refused": "no reading parses", "cause": "no-reading-parses"}]}, "no-reading-parses"),
+    ({"verdicts": [{"number": 1, "refused": "1x2, not a grid", "cause": "not-a-grid"}]}, "not-a-grid"),
+    # The class is the verdict's fields, never its prose.
+    ({"verdicts": [{"number": 1, "refused": "the ink is not a grid"}]}, "refused-no-cause"),
     ({"verdicts": [{"number": 1, "pending": "no grid: the white cells span 14 rows"}]}, "no-grid"),
-    ({"verdicts": [{"number": 1, "pending": "rebuilt grid disagrees: 5-down"}]}, "clues-dont-fit"),
+    ({"verdicts": [{"number": 1, "pending": "no grid: anything", "grid": "#..."}]}, "clues-dont-fit"),
     ({"verdicts": [{"number": 1, "id": "times-1", "blank": {"1-across": "readings differ"}}]}, "blank-clues"),
     ({"verdicts": [{"number": 7, "id": "times-7"}]}, "filed-other-date"),
 ]
