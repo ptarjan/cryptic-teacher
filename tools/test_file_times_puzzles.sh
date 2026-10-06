@@ -33,10 +33,12 @@ letter = lambda y, x: chr(ord("A") + (y * 5 + x) % 26)
 cells = rg.light_cells(TINY)
 answer = {k: "".join(letter(*c) for c in cs) for k, cs in cells.items()}
 
-def rec(post_id, number, date, label="Daily Cryptic", clue=lambda k: f"Words for {k[0]} (%d)", title=""):
+# Each post's clues are its own, as two puzzles' are: write_puzzle_file refuses
+# a new id whose clues are a held one's.
+def rec(post_id, number, date, label="Daily Cryptic", clue=None, title=""):
     entries = []
     for k, a in answer.items():
-        text = clue(k)
+        text = clue(k) if clue else f"Words for {k[0]} {k[1]} in post {post_id} (%d)"
         entries.append({"number": k[0], "direction": k[1], "answer": a,
                         "clue": text and (text % len(a) if "%d" in text else text),
                         "enumeration": str(len(a))})

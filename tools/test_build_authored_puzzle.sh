@@ -80,6 +80,42 @@ with tempfile.TemporaryDirectory() as scratch:
         if [f[0] for f in err.flags] != ["NEARDUP"]:
             fails.append(f"the copy was refused for {err.flags}, want NEARDUP")
 
+    # A book page holding a newspaper's puzzle is the reprint, whichever was
+    # filed first: written after it, the newspaper's own id is filed, and
+    # the book file becomes a reading of it beside acquire_book's reprints.
+    # A book page reprinting a held newspaper puzzle is refused.
+    import book_queue
+    with tempfile.TemporaryDirectory() as other:
+        puzzle_paths.PUZZLE_DIR = Path(other) / "puzzles"
+        book_queue.REPRINT_DIR = Path(other) / "book-reprints"
+        book = {**{k: v for k, v in puzzle.items() if k != "date"},
+                "id": "book-13007", "number": 13007, "series": "book", "year": 1998,
+                "source": {**puzzle["source"],
+                           "url": "https://archive.org/details/isbn_9781902254067",
+                           "book": {"identifier": "isbn_9781902254067", "numberInBook": 7}}}
+        held = puzzle_paths.file_for(book)
+        held.parent.mkdir(parents=True)
+        held.write_text(json.dumps(book))
+        try:
+            write_puzzle_file(puzzle_paths.file_for(puzzle), puzzle,
+                              generator="tools/build_authored_puzzle.py")
+        except puzzle_integrity.RefusedWrite as err:
+            fails.append(f"the original was refused over a held book copy: {err}")
+        if not puzzle_paths.find("authored-1"):
+            fails.append("the original was not filed over a held book copy")
+        if puzzle_paths.find("book-13007"):
+            fails.append("the book copy of a newspaper puzzle is still filed")
+        reading = book_queue.REPRINT_DIR / "authored-1" / "isbn_9781902254067-7.txt"
+        clue = puzzle["entries"][0]["clue"]["text"]
+        if not reading.is_file() or clue not in reading.read_text():
+            fails.append(f"the book copy's clues are not kept at {reading}")
+        try:
+            write_puzzle_file(puzzle_paths.file_for(book), book)
+            fails.append("a book page reprinting a held puzzle was filed")
+        except puzzle_integrity.RefusedWrite as err:
+            if [f[0] for f in err.flags] != ["NEARDUP"]:
+                fails.append(f"the book reprint was refused for {err.flags}, want NEARDUP")
+
 for f in fails:
     print("  FAIL:", f)
 if fails:

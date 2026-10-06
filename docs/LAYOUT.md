@@ -251,8 +251,10 @@ tools/acquire_book.py                        takes a book from an archive.org id
                                              whose clues are a held puzzle's, a Times anthology
                                              reprinting the daily, is kept as a reading that
                                              votes on that puzzle's clues, not filed as a new
-                                             book-N), and a per-puzzle report of what it got
-                                             and why the rest failed
+                                             book-N; a newspaper puzzle filed after its book
+                                             copy turns the book-N file into that reading, in
+                                             fetch_puzzle.write_puzzle_file), and a per-puzzle
+                                             report of what it got and why the rest failed
 tools/light_spec.py                          turns one OCR'd clue list into the light spec the
                                              reconstructor wants, repairing linked fields,
                                              clues OCR ran together, and numbers that lost a

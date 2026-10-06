@@ -89,12 +89,17 @@ class ClueIndex:
         self.add_keys(pid, clue_keys(puzzle))
 
     def add_keys(self, pid, keys):
-        for k in self.keys.get(pid, ()):
-            self.by_clue[k].discard(pid)
+        self.discard(pid)
         self.size[pid] = len(keys)
         self.keys[pid] = keys
         for k in keys:
             self.by_clue[k].add(pid)
+
+    def discard(self, pid):
+        """Forget `pid` (a file deleted, or about to be re-added)."""
+        for k in self.keys.pop(pid, ()):
+            self.by_clue[k].discard(pid)
+        self.size.pop(pid, None)
 
     @classmethod
     def build(cls, paths=None):
