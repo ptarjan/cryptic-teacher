@@ -52,6 +52,13 @@ check "--next names the head of that queue" "unread-best" \
 check "--count counts the unread, not the registry" "3" \
   "$(cd "$tree" && python3 tools/book_queue.py --count)"
 
+# A pin jumps the ranking, an already-read or unknown pin is skipped.
+echo '{"pinned": ["read-one", "no-such-book", "unranked"]}' > "$tree/tools/data/book_pins.json"
+check "pinned book comes first; read and unknown pins are skipped" \
+  "unranked unread-best unread-worse " \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+rm "$tree/tools/data/book_pins.json"
+
 # Every book read: --next must FAIL rather than print nothing, or the caller
 # cannot tell "finished" from "broken" and alerts on a finished queue.
 for n in 2007 3007 4007; do echo '{}' > "$tree/puzzles/book/2000/book-$n.json"; done

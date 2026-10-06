@@ -17,6 +17,13 @@ Order is the ranking's own: tools/data/book_candidates.json lists candidates
 best first, and the loan that is granted should be spent on the best book still
 missing. Anything registered but absent from the ranking goes last, since
 nothing measured it.
+
+PINNED BOOKS go before the ranking: tools/data/book_pins.json's "pinned" list,
+first entry first. The ranking file is regenerated wholesale by
+tools/rank_book_candidates.py, so a priority written into it is lost on the next
+run; a person's "take this one next" lives in its own file. A pin only reorders
+the unread: a pinned book the corpus already holds, or that is not registered,
+is skipped, so a stale pin cannot re-borrow a read book.
 """
 import json
 import pathlib
@@ -50,7 +57,12 @@ def queue():
                 for row in ranking}
     counts = filed_counts()
     unread = [b for b in books if not counts.get(b["book_index"])]
-    unread.sort(key=lambda b: rank_of.get(b["identifier"], len(ranking)))
+    pins_path = ROOT / "tools" / "data" / "book_pins.json"
+    pinned = (json.loads(pins_path.read_text(encoding="utf-8"))["pinned"]
+              if pins_path.exists() else [])
+    pin_of = {identifier: i for i, identifier in enumerate(pinned)}
+    unread.sort(key=lambda b: (pin_of.get(b["identifier"], len(pinned)),
+                               rank_of.get(b["identifier"], len(ranking))))
     return [(b["identifier"], b["title"], estimate.get(b["identifier"]))
             for b in unread]
 

@@ -1101,6 +1101,9 @@ tools/data/book_acquisition_plan.json        the crossword books still to acquir
                                              volume, the puzzle count and clean fraction
                                              measured off a sample, and the evidence for every
                                              volume number — including the ones marked INVENTED
+tools/data/book_pins.json                    books to acquire before the ranking's order, which
+                                             tools/book_queue.py reads and the ranking tool
+                                             never rewrites
 tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 control
                                              tools/test_acquire_book.sh gates on: light specs,
                                              black-square patterns and a digest of the parser's

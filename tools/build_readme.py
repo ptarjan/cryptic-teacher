@@ -381,6 +381,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/data/books.json", "the shelf: one row per physical book, with the archive.org scan it was read from, the volume its cover prints, the label a reader sees and a book_index that is never reused \u2014 tools/series.py and app.js both read it and neither holds a copy"),
     ("tables everything else reads", "tools/data/book_candidates.json", "which archive.org crossword books are worth acquiring in full, measured one short loan at a time; a measurement, not a permanent fact"),
     ("tables everything else reads", "tools/data/book_acquisition_plan.json", "the crossword books still to acquire, in the order to take them: archive.org identifier, series and volume, the puzzle count and clean fraction measured off a sample, and the evidence for every volume number \u2014 including the ones marked INVENTED"),
+    ("tables everything else reads", "tools/data/book_pins.json", "books to acquire before the ranking's order, which tools/book_queue.py reads and the ranking tool never rewrites"),
     ("tables everything else reads", "tools/data/penguin5_control.json", "the ten-puzzle Penguin volume 5 control tools/test_acquire_book.sh gates on: light specs, black-square patterns and a digest of the parser's output, and none of the book's words"),
     ("tables everything else reads", "tools/data/sample_fill_11.json", "the worked 11x11 fill tools/AUTHORING.md walks through"),
     ("tables everything else reads", "tools/data/authored_A001_clues.json", "the hand-written clues for that fill"),
