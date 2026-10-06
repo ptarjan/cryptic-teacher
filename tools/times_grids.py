@@ -997,10 +997,15 @@ def resettle():
 
 def run(limit_puzzles=None, series=None, write=True, seed=None,
         max_nodes=DEFAULT_MAX_NODES, fresh=False, where=None, solver=None,
-        retry=None):
+        retry=None, budget_seconds=None, clock=time.monotonic):
     """Rebuild every parsed puzzle not yet tried, newest first, plus, with
     `retry`, the failures attempted() lets back in.
 
+    `budget_seconds` bounds the run by wall clock: no puzzle is started once
+    that many seconds have passed, so a backlog drains as fast as the time
+    allows and a parser change that makes hundreds due cannot stretch the
+    run. A puzzle already started runs to its own `max_nodes`; the rest stay
+    due for the next run.
     `where` is another blog's cache directory, holding its own parsed.jsonl,
     grids.jsonl and attempts.jsonl; the answers settled for this blog's posts
     are not applied there. `solver` stands in for solve()."""
@@ -1037,7 +1042,13 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
     holes = []
     out = open_out(fresh, out_path) if write else None
     log = attempts.open("w" if fresh else "a", encoding="utf-8") if write else None
+    start, due, tried = clock(), len(recs), 0
     for i, rec in enumerate(recs, 1):
+        if budget_seconds is not None and clock() - start >= budget_seconds:
+            print(f"budget of {budget_seconds:g}s spent: {due - tried} of {due} "
+                  f"puzzle(s) left for the next run")
+            break
+        tried = i
         lit = light_key(rec)
         rec, made = amend(rec, settled)
         print(f"[{i}/{len(recs)}] post {rec['post_id']} {rec['series']} "
@@ -1077,7 +1088,7 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         out.close()
     if log:
         log.close()
-    return {"n": len(recs), "how": how, "by_series": by_series, "holes": holes}
+    return {"n": tried, "how": how, "by_series": by_series, "holes": holes}
 
 
 def report(r):
@@ -1101,6 +1112,9 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--blog", choices=sorted(fetch_wp_blog.BLOGS), default="timesforthetimes")
     ap.add_argument("--limit", type=int, help="try only N puzzles")
+    ap.add_argument("--budget-seconds", type=float, metavar="S",
+                    help="start no puzzle after S seconds; the rest stay due, "
+                         "newest first, for the next run")
     ap.add_argument("--series", choices=sorted(SIZE), help="one series only")
     ap.add_argument("--seed", type=int, help="sample at random with this seed")
     ap.add_argument("--status", action="store_true",
@@ -1134,7 +1148,8 @@ def main():
               f"{len(r['refused'])} refused; wrote {OUT}")
         return 0
     r = run(a.limit, a.series, write=not a.status, seed=a.seed,
-            max_nodes=a.max_nodes, fresh=a.fresh, where=where, retry=a.retry_failed)
+            max_nodes=a.max_nodes, fresh=a.fresh, where=where, retry=a.retry_failed,
+            budget_seconds=a.budget_seconds)
     if r is None:
         return 1
     report(r)

@@ -241,19 +241,18 @@ blog_chain() {
   return $step_rc
 }
 blog_filed=0
-# Both rebuilds are bounded, newest untried first: tonight's posts, then a
-# slice of the archive behind them. Unbounded, a parser change that lets
-# hundreds of old posts parse is ground through in one night. Neither cap
-# holds a backlog back: every post with clues has been tried, so a night
-# tries only its own few. The untried rest are answers-only posts, which
-# times_grids skips.
-TIMES_PER_NIGHT="${TIMES_PER_NIGHT:-40}"
-TELEGRAPH_PER_NIGHT="${TELEGRAPH_PER_NIGHT:-40}"
+# Both rebuilds are bounded by wall clock, newest due first: times_grids
+# starts no post once its budget is spent, and the rest stay due for the next
+# night. A parser change that makes hundreds of old posts due again (a changed
+# light list re-dues its failure) drains as fast as the budget allows, and
+# can never stretch the nightly; a post already started runs to its node cap.
+TIMES_GRID_SECONDS="${TIMES_GRID_SECONDS:-600}"
+TELEGRAPH_GRID_SECONDS="${TELEGRAPH_GRID_SECONDS:-600}"
 blog_chain Times "fetch_wp_blog.py timesforthetimes" fetch_times_listing.py \
-  parse_timesforthetimes.py "times_grids.py --limit $TIMES_PER_NIGHT" \
+  parse_timesforthetimes.py "times_grids.py --budget-seconds $TIMES_GRID_SECONDS" \
   file_times_puzzles.py && blog_filed=1
 blog_chain Telegraph "fetch_wp_blog.py bigdave44" parse_bigdave44.py \
-  "times_grids.py --blog bigdave44 --limit $TELEGRAPH_PER_NIGHT" \
+  "times_grids.py --blog bigdave44 --budget-seconds $TELEGRAPH_GRID_SECONDS" \
   file_telegraph_puzzles.py && blog_filed=1
 # From 2015 the Telegraph's own bucket is the primary source: tonight's
 # puzzles, and blog-rebuilt files of the numbers it serves, refiled as printed.

@@ -445,7 +445,8 @@ tools/times_grids.py                         runs the numbering backwards on eit
                                              Telegraph withhold, narrowing a shortlist by where
                                              the answers cross; each attempt keeps its light
                                              list's digest, so a parser fix re-tries the posts
-                                             it changes
+                                             it changes; --budget-seconds stops starting posts
+                                             when the nightly's time is spent
 tools/test_times_grids.sh                    holds that rebuilder to a hand-built grid, because
                                              a wrong grid looks exactly like a right one
 tools/barred_grid.py                         rebuilds a barred grid's bars (the Mephisto) from

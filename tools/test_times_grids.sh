@@ -314,6 +314,16 @@ T.run(solver=stub)
 skipped = list(calls)
 T.run(solver=stub, retry=())
 print("RETRY_FAILED", skipped, calls)
+# A wall-clock budget stops starting puzzles once it is spent, newest first,
+# and the next run picks up the rest.
+w = pathlib.Path(tempfile.mkdtemp())
+(w / "parsed.jsonl").write_text("".join(json.dumps(post(n, rec_of(TINY), "a clue")) + "\n" for n in (1, 2, 3)))
+now, calls = [0], []
+def slow(rec, max_nodes):
+    calls.append(rec["post_id"]); now[0] += 10
+    return [], "no grid"
+first = T.run(where=w, solver=slow, budget_seconds=15, clock=lambda: now[0])["n"]
+print("TIME_BUDGET", list(calls), first, T.run(where=w, solver=slow, budget_seconds=15, clock=lambda: now[0])["n"], calls)
 # An answer settled from the wordplay rebuilds the refused puzzle when it is
 # retried.
 k = T.printed(lone)[6]
@@ -436,6 +446,8 @@ check "a run writes the corrected answer into the grid row" \
 check "and answers() reads the corrected answers back" True "$(field RUN_ANSWERS)"
 check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(field RUN_REFUSED)"
 check "a tried failure is retried only when the run is told to" "[] [2]" "$(field RETRY_FAILED)"
+check "a run starts no puzzle past its time budget; the next run tries the rest" \
+      "[3, 2] 2 1 [3, 2, 1]" "$(field TIME_BUDGET)"
 check "a retried refusal rebuilds with a wordplay-settled answer, as a correction" \
       "[(2, ['Z'])]" "$(field SETTLED)"
 check "--resettle corrects the grids already written and refuses the rest" \
