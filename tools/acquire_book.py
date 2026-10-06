@@ -406,7 +406,7 @@ def filed_positions(identifier, puzzle_dir):
     index = next((b["book_index"] for b in books
                   if b["identifier"] == identifier), None)
     if index is None:
-        return set()
+        return {}
     held = {}
     for path in Path(puzzle_dir).rglob("book-*.json"):
         number = path.stem.split("-", 1)[1]
@@ -483,9 +483,10 @@ def main(argv=None):
     if args.limit:
         puzzles = puzzles[:args.limit]
     print(f"split: {len(puzzles)} puzzles")
+    split_count = len(puzzles)
     # A leaf the corpus already holds is not read again: re-reading a book is
     # how a reader change reaches it, and the filed copy may carry answers.
-    held = filed_positions(args.identifier, puzzle_dir) if args.file else set()
+    held = filed_positions(args.identifier, puzzle_dir) if args.file else {}
     # A filed puzzle is also known by its clues, so a reader that splits the
     # book differently cannot file it a second time under another position.
     held_clues = {c: n for n, c in held.items() if c}
@@ -493,17 +494,17 @@ def main(argv=None):
         first_clue([c.get("clue") for c in p.get("across") or []])) for p in puzzles}
     # A position whose filed puzzle this split puts somewhere else.
     moved_off = {s for n, s in seen_as.items() if s is not None and s != n}
-    fresh = []
+    fresh, rows = [], {}
     for p in puzzles:
-        seen = seen_as[p["book_number"]]
-        if seen is not None and seen != p["book_number"]:
-            print(f"  #{p['book_number']} is filed as #{seen}: the split moved",
-                  file=sys.stderr)
-        elif seen is None and p["book_number"] in moved_off:
-            print(f"  #{p['book_number']} is not filed: #{p['book_number']}'s id "
-                  f"holds another puzzle of this book (the split moved)",
-                  file=sys.stderr)
-        if p["book_number"] not in held and seen is None:
+        bn, seen = p["book_number"], seen_as[p["book_number"]]
+        if seen is not None and seen != bn:
+            print(f"  #{bn} is filed as #{seen}: the split moved", file=sys.stderr)
+            rows[bn] = {"book_number": bn, "status": "split-moved", "filed_as": seen}
+        elif seen is None and bn in moved_off:
+            print(f"  #{bn} is not filed: #{bn}'s id holds another puzzle of "
+                  f"this book (the split moved)", file=sys.stderr)
+            rows[bn] = {"book_number": bn, "status": "id-taken"}
+        if bn not in held and seen is None:
             fresh.append(p)
     if held:
         print(f"skip: {len(puzzles) - len(fresh)} already filed, {len(fresh)} to read")
@@ -517,7 +518,7 @@ def main(argv=None):
     clues_filed = 0
 
     # ---- stage 3a, screening, before any search is paid for
-    jobs, rows = [], {}
+    jobs = []
     for p in puzzles:
         bn = p["book_number"]
         across, down, notes, damage = build_spec(p)
@@ -598,6 +599,23 @@ def main(argv=None):
     # ---- stage 3b, the search
     started = time.time()
     filed = 0
+
+    def save_report():
+        """report.json as it stands. Written as each search lands, so a run
+        killed by its bound leaves every unlanded search marked cut-short."""
+        ordered = [dict(rows[k], status=rows[k].get("status", "cut-short"))
+                   for k in sorted(rows)]
+        report = {"identifier": args.identifier,
+                  "text_source": how, "puzzles_found": split_count,
+                  "searched": len(jobs), "filed": filed, "filed_clues_only": clues_filed,
+                  "elapsed_sec": round(time.time() - started, 1),
+                  "thresholds": grid_verdict.THRESHOLDS,
+                  "discarded_rules": grid_verdict.DISCARDED,
+                  "puzzles": ordered}
+        report_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
+        return ordered
+
+    save_report()
     if jobs:
         with ProcessPoolExecutor(max_workers=args.jobs) as pool:
             for done, r in enumerate(pool.map(_reconstruct_one, jobs), 1):
@@ -613,6 +631,7 @@ def main(argv=None):
                 # ---- stage 4, as each search lands: a run killed by its
                 # timeout keeps every puzzle it had already derived.
                 filed += file_row(r["book_number"], row)
+                save_report()
 
     for row in rows.values():
         row.setdefault("grids", [])
@@ -620,17 +639,8 @@ def main(argv=None):
 
     # ---- stage 5
     if args.file and args.max_pages is None and not (args.only or args.limit):
-        book_queue.record_read(args.identifier, len(puzzles) + len(held),
-                               filed + len(held))
-    ordered = [rows[k] for k in sorted(rows)]
-    report = {"identifier": args.identifier,
-              "text_source": how, "puzzles_found": len(puzzles),
-              "searched": len(jobs), "filed": filed, "filed_clues_only": clues_filed,
-              "elapsed_sec": round(time.time() - started, 1),
-              "thresholds": grid_verdict.THRESHOLDS,
-              "discarded_rules": grid_verdict.DISCARDED,
-              "puzzles": ordered}
-    report_path.write_text(json.dumps(report, indent=1), encoding="utf-8")
+        book_queue.record_read(args.identifier, split_count, filed + len(held))
+    ordered = save_report()
 
     from collections import Counter
     tally = Counter(r["status"] for r in ordered)
