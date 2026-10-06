@@ -117,7 +117,10 @@ KNOWN_SETTERS = {
 # (up to 4 non-word, non-paren characters) rather than a fixed [.:!?]: a
 # stray OCR artifact like the "<" that follows a perfectly good "(6)" on
 # puzzle 49's last down clue must not cost a real, legible enumeration.
-ENUMERATION_RE = re.compile(r"\(([\d]+(?:[\s,\-][\d]+)*)\)[^\w()]{0,4}$")
+ENUMERATION_RE = re.compile(r"\(([\d]+(?:(?:\s*[,\-]\s*|\s)[\d]+)*)\)[^\w()]{0,4}$")
+# Two clues OCR'd onto one line: an enumeration, then the next clue's number.
+# The line is cut after the enumeration so each clue closes its own chunk.
+RUN_ON_RE = re.compile(r"(?<=\))[.]?\s+(?=\d{1,2}\s+[A-Z‘“\"'])")
 # The trailing direction ("See 14 Across") is the DOTTED-NUMBER LAYOUT's way
 # of writing what the Penguin volumes write as "See 14" — same clue, one more
 # printed word. Without it the line closes no chunk and silently glues itself
@@ -419,8 +422,18 @@ def segment_clues(lines: list[str]) -> list[str]:
     since leading numbers are the field OCR damaged worst."""
     chunks = []
     current: list[str] = []
+    split = []
     for raw in lines:
-        line = raw.strip()
+        parts = RUN_ON_RE.split(raw.strip())
+        # Cut only where the piece before really closes on an enumeration.
+        merged = [parts[0]]
+        for part in parts[1:]:
+            if ENUMERATION_RE.search(merged[-1]):
+                merged.append(part)
+            else:
+                merged[-1] += " " + part
+        split += merged
+    for line in split:
         if not line or is_garbage_line(line):
             continue
         current.append(line)
@@ -452,6 +465,14 @@ def parse_clue_chunk(chunk: str) -> dict:
         text = text[: enum_m.start()].rstrip()
     elif SEE_REFERENCE_RE.match(text.strip()):
         enumeration = None  # by design: a cross-reference clue has none
+
+    # No printed clue holds a brace: in a scan's OCR one is a misread mark,
+    # often the clue number itself ("}) Very wealthy tributary"), so the
+    # braces go, along with any bracket or stray mark they leave at the front.
+    if "{" in text or "}" in text:
+        text = re.sub(r"\s*[{}]+\s*", " ", text)
+        text = re.sub(r"^[^\w\"'‘“(.…]+", "", text.strip())
+        text = re.sub(r"\s{2,}", " ", text)
 
     return {
         "number": number,
@@ -494,6 +515,8 @@ def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
         across_lines, down_lines = split_across_down(content_lines)
         record["across"] = [parse_clue_chunk(c) for c in segment_clues(across_lines)]
         record["down"] = [parse_clue_chunk(c) for c in segment_clues(down_lines)]
+        if down_lines:
+            record["down"] += continued_down(record["down"], trailing_idxs, leaves)
     elif mode == "jigsaw":
         record["clues"] = [parse_clue_chunk(c) for c in segment_clues(content_lines)]
         record["across"] = []
@@ -505,10 +528,63 @@ def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
     return record
 
 
+def _number(clue: dict) -> int | None:
+    n = clue.get("number") or ""
+    return int(n) if n.isdigit() else None
+
+
+def continued_down(down: list[dict], trailing_idxs: list[int],
+                   leaves: list[str]) -> list[dict]:
+    """The Down clues printed on the pages after the clue page.
+
+    Some books (the Telegraph's) end the Down list under the grid on the next
+    page. Those clues are taken while each one's number is above the last
+    one read, so the grid's own noise and the next puzzle's clues never join.
+    """
+    last = max((n for n in map(_number, down) if n is not None), default=None)
+    if last is None:
+        return []
+    found = []
+    for i in trailing_idxs:
+        # A chunk opens only at a numbered line, so grid noise between
+        # clues is dropped rather than glued to the front of one.
+        chunks, current = [], None
+        for line in (ln.strip() for ln in leaves[i].split("\n")):
+            if LEADING_NUMBER_RE.match(line):
+                current = [line]
+            elif current is None or not line:
+                continue
+            else:
+                current.append(line)
+            if ENUMERATION_RE.search(line):
+                chunks.append(" ".join(current))
+                current = None
+        for chunk in chunks:
+            clue = parse_clue_chunk(chunk)
+            n = _number(clue)
+            if n is None or n <= last or not clue["enumeration"]:
+                continue
+            found.append(clue)
+            last = n
+    return found
+
+
+def is_continuation_leaf(leaf: str) -> bool:
+    """A clue page with no Across heading and no jigsaw "Method:" line is the
+    rest of the previous puzzle's Down list, not a puzzle of its own."""
+    lines = leaf.split("\n")
+    return (not any(_header_kind(ln) in ("ACROSS", "DOWN") for ln in lines)
+            and not any(ln.strip().lower().startswith("method:") for ln in lines))
+
+
 def parse_book(text_path: Path) -> list[dict]:
     leaves = load_leaves(text_path)
     start, end = find_puzzle_range(leaves)
     clue_idxs = classify_clue_leaves(leaves, start, end)
+    # A continuation page belongs to the puzzle before it: counting it as a
+    # puzzle would also shift every later puzzle's position in the book.
+    clue_idxs = [i for n, i in enumerate(clue_idxs)
+                 if n == 0 or not is_continuation_leaf(leaves[i])]
     groups = group_into_puzzles(clue_idxs, end)
     clue_set, codes, sections = set(clue_idxs), {}, []
     for i in range(end):

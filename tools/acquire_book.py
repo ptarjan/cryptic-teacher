@@ -93,6 +93,7 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 
+import book_queue  # noqa: E402
 import grid_verdict  # noqa: E402
 from light_spec import build_spec, coverage  # noqa: E402
 from parse_penguin_book import build_quality_report, parse_book  # noqa: E402
@@ -102,7 +103,7 @@ UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 PUBLIC_TEXT_URL = "https://archive.org/download/{id}/{id}_djvu.txt"
 METADATA_URL = "https://archive.org/metadata/{id}"
 # Where tools/fetch_ia_book.py leaves what a human borrowed earlier.
-FETCHED_TEXT_DIR = Path("/tmp/cryptic-teacher-ia-books")
+FETCHED_TEXT_DIR = book_queue.TEXT_DIR
 # Durable, not /tmp: the nightly restart empties /tmp, and tools/coverage.py
 # reads each book's report.json here for why its unfiled puzzles are unfiled.
 DEFAULT_OUT = Path.home() / ".cache" / "acquire_book"
@@ -432,6 +433,31 @@ def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
 
 # ------------------------------------------------------------------- driver
 
+def filed_positions(identifier, puzzle_dir):
+    """{position: first Across clue} of identifier's puzzles under puzzle_dir."""
+    books = json.loads((TOOLS / "data" / "books.json")
+                       .read_text(encoding="utf-8"))["books"]
+    index = next((b["book_index"] for b in books
+                  if b["identifier"] == identifier), None)
+    if index is None:
+        return set()
+    held = {}
+    for path in Path(puzzle_dir).rglob("book-*.json"):
+        number = path.stem.split("-", 1)[1]
+        if number.isdigit() and int(number) // book_queue.POSITIONS_PER_VOLUME == index:
+            entries = json.loads(path.read_text(encoding="utf-8")).get("entries") or []
+            held[int(number) % book_queue.POSITIONS_PER_VOLUME] = first_clue(
+                [(e.get("clue") or {}).get("text") for e in entries
+                 if e.get("direction") == "across"])
+    return held
+
+
+def first_clue(texts):
+    """A puzzle's first Across clue, folded for comparison, or None."""
+    text = next((t for t in texts if t), None)
+    return " ".join(text.lower().split())[:40] if text else None
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     # The identifier is the whole answer to "which book is this". It names the
@@ -491,6 +517,23 @@ def main(argv=None):
     if args.limit:
         puzzles = puzzles[:args.limit]
     print(f"split: {len(puzzles)} puzzles")
+    # A leaf the corpus already holds is not read again: re-reading a book is
+    # how a reader change reaches it, and the filed copy may carry answers.
+    held = filed_positions(args.identifier, puzzle_dir) if args.file else set()
+    # A filed puzzle is also known by its clues, so a reader that splits the
+    # book differently cannot file it a second time under another position.
+    held_clues = {c: n for n, c in held.items() if c}
+    fresh = []
+    for p in puzzles:
+        seen = held_clues.get(first_clue([c.get("clue") for c in p.get("across") or []]))
+        if seen is not None and seen != p["book_number"]:
+            print(f"  #{p['book_number']} is filed as #{seen}: the split moved",
+                  file=sys.stderr)
+        if p["book_number"] not in held and seen is None:
+            fresh.append(p)
+    if held:
+        print(f"skip: {len(puzzles) - len(fresh)} already filed, {len(fresh)} to read")
+    puzzles = fresh
 
     # ---- stage 3a, screening, before any search is paid for
     jobs, rows = [], {}
@@ -561,6 +604,9 @@ def main(argv=None):
             filed += 1
 
     # ---- stage 5
+    if args.file and args.max_pages is None and not (args.only or args.limit):
+        book_queue.record_read(args.identifier, len(puzzles) + len(held),
+                               filed + len(held))
     ordered = [rows[k] for k in sorted(rows)]
     report = {"identifier": args.identifier,
               "text_source": how, "puzzles_found": len(puzzles),

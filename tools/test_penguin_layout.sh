@@ -106,6 +106,38 @@ check("number", got["number"], None)
 check("clue text carries no leading dot", got["clue"],
       "Orphan dot where the digit was")
 
+print("case 4b: a brace is OCR noise, never clue text (book-23195)")
+for chunk, want in (("}) Very wealthy tributary (8)", "Very wealthy tributary"),
+                    ("28 Why a vocalist may be employed } cheaply... (3,1,4)",
+                     "Why a vocalist may be employed cheaply..."),
+                    ("...a {high-flying} vocalist (6)", "...a high-flying vocalist")):
+    got = P.parse_clue_chunk(chunk)["clue"]
+    check(f"braces dropped from {chunk[:24]!r}", got, want)
+
+print("case 4c: the Down list continues on the grid page after the clue page")
+leaves = ["Across\n1 First across clue (5)\nDown\n1 First down (5)\n2 Second down (4)",
+          "GRIDNOISE\n3 Third down clue that\nwraps a line (4)\nQXZ\n2 Next puzzle? (3)\n"
+          "26 Late down (4)\nSetter: Someone"]
+more = P.continued_down([{"number": "1"}, {"number": "2"}], [1], leaves)
+check("continued numbers, ascending, noise and lower numbers dropped",
+      [c["number"] for c in more], ["3", "26"])
+check("a wrapped continued clue is joined", more[0]["clue"], "Third down clue that wraps a line")
+check("no numbered Down list, nothing continued", P.continued_down([], [1], leaves), [])
+check("a page of clues with no heading continues the puzzle before it",
+      P.is_continuation_leaf("12 Recount (4,1,5)\n13 Prior (10)"), True)
+check("a jigsaw page is a puzzle of its own",
+      P.is_continuation_leaf("Method: Solve the clues\n\nA clue (5)"), False)
+check("an Across page is a puzzle of its own",
+      P.is_continuation_leaf("ACROSS\n1 A clue (5)"), False)
+
+print("case 4d: two clues OCR'd onto one line are cut at the enumeration")
+chunks = P.segment_clues(["11 Historical example of violence run forth (4, 5). 12 Lower the flag (5)",
+                          "13 Not (2) a number cut (3)"])
+check("run-on line split, '(4, 5)' read as an enumeration",
+      [P.parse_clue_chunk(c)["enumeration"] for c in chunks], ["4,5", "5", "3"])
+check("a bracket mid-clue with no number after it does not cut",
+      P.parse_clue_chunk(chunks[2])["clue"], "Not (2) a number cut")
+
 print("case 5: clue TEXT that opens with a number keeps every character")
 for chunk in ("1,000 request face-covering (4)",
               "100 resigned because of the split (5)"):
