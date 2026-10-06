@@ -199,7 +199,11 @@ def verdict_class(row, by_number):
     return "read-not-filed"
 
 
-def cover(paper, today):
+def unfiled(paper, today):
+    """(date, class, edition, elsewhere) of each printed date of `paper`
+    through `today`, in date order: class None for a filed date, else its
+    CLASSES key; edition the archive.org "<item>/<slug>" or None; elsewhere
+    whether a one-issue collection holds it."""
     series = paper.series
     by_date, by_number = corpus(series)
     listing, listed = scans(paper)
@@ -207,20 +211,12 @@ def cover(paper, today):
     elsewhere = unread_collections(paper)
     reprinted = {r["londonDate"] for r in canberra_london_numbers.load().values()
                  if r.get("londonDate")} if series == "times" else set()
-    years = collections.defaultdict(lambda: collections.Counter())
-    classes = collections.defaultdict(lambda: {"editions": 0, "years": collections.Counter(),
-                                               "sample": []})
     for date in printed_dates(series, today):
         y = int(date[:4])
-        ys = years[y]
-        ys["printed"] += 1
         ed = listing.get(date)
-        if ed or date in elsewhere:
-            ys["scanned"] += 1
         if date in by_date:
-            ys["filed"] += 1
-            continue
-        if not ed and date in elsewhere:
+            cls = None
+        elif not ed and date in elsewhere:
             cls = "no-filer"
         elif not ed:
             cls = ("canberra-reprint" if date in reprinted else "no-scan") if listed.get(y, True) else "no-listing"
@@ -232,6 +228,23 @@ def cover(paper, today):
             cls = "not-read"
         else:
             cls = "not-fetched"
+        yield date, cls, ed, date in elsewhere
+
+
+def cover(paper, today):
+    series = paper.series
+    years = collections.defaultdict(lambda: collections.Counter())
+    classes = collections.defaultdict(lambda: {"editions": 0, "years": collections.Counter(),
+                                               "sample": []})
+    for date, cls, ed, elsewhere in unfiled(paper, today):
+        y = int(date[:4])
+        ys = years[y]
+        ys["printed"] += 1
+        if ed or elsewhere:
+            ys["scanned"] += 1
+        if cls is None:
+            ys["filed"] += 1
+            continue
         c = classes[cls]
         c["editions"] += 1
         c["years"][y] += 1
