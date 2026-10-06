@@ -247,9 +247,12 @@ tools/normalise_linked_enumerations.py       puts a solve record’s linked answ
 tools/acquire_book.py                        takes a book from an archive.org identifier to
                                              filed puzzles with no model in the loop: public
                                              text layer, split, light spec, reconstructed grid,
-                                             filed unsolved for the nightly solve queue, and a
-                                             per-puzzle report of what it got and why the rest
-                                             failed
+                                             filed unsolved for the nightly solve queue (a leaf
+                                             whose clues are a held puzzle's, a Times anthology
+                                             reprinting the daily, is kept as a reading that
+                                             votes on that puzzle's clues, not filed as a new
+                                             book-N), and a per-puzzle report of what it got
+                                             and why the rest failed
 tools/light_spec.py                          turns one OCR'd clue list into the light spec the
                                              reconstructor wants, repairing linked fields,
                                              clues OCR ran together, and numbers that lost a
@@ -275,7 +278,9 @@ tools/test_clues_only.sh                     strips a solved book puzzle to its 
                                              states) can be written
 tools/test_acquire_book.sh                   gates that pipeline on ten control puzzles from
                                              Penguin volume 5, failing if a single recovered
-                                             grid or a single search node count moves
+                                             grid or a single search node count moves; and is a
+                                             reprint of a held puzzle kept as its reading,
+                                             never filed?
 tools/test_ia_borrow.sh                      holds the one archive.org refusal string that
                                              means two different things apart, so a book whose
                                              copies are all out is never read as one that needs

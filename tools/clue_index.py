@@ -30,8 +30,11 @@ MIN_CLUES = 6
 #: post), so neither is a mis-filed copy of the other.
 REPRINTS = {
     frozenset(pair): why for pair, why in (
+        (("book-19003", "book-23183"), "Telegraph Book 28 No 3, reprinted as Big Book of Brain Sharpener vol 1 No 183"),
         (("book-19005", "book-23185"), "Telegraph Book 28 No 5, reprinted as Big Book of Brain Sharpener vol 1 No 185"),
         (("book-19012", "book-23191"), "Telegraph Book 28 No 12, reprinted as Big Book of Brain Sharpener vol 1 No 191"),
+        (("book-19028", "book-23184"), "Telegraph Book 28 No 28, reprinted as Big Book of Brain Sharpener vol 1 No 184"),
+        (("book-19050", "book-23211"), "Telegraph Book 28 No 50, reprinted as Big Book of Brain Sharpener vol 1 No 211"),
         (("canberra-720523", "canberra-720926"), "the Canberra Times printed one Times puzzle twice, 1972-05 and 1972-09"),
         (("cryptic-25328", "cryptic-26328"), "Pasquale prize, rerun 2011 -> 2014"),
         (("ftcryptic-13761", "ftcryptic-14223"), "Jason rerun, one clue reworded"),
