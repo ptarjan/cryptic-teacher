@@ -157,8 +157,8 @@ check "the clue keeps its text and enumeration" \
   "First lick of paint on great building (6) | 5,7" "$(got CLUE)"
 check "a braced white-on-white answer is read; the suffix gives the direction" \
   "9a=AROMA 1d=COTERIE" "$(got BRACED)"
-check "a white answer is read whatever bracket was typed for one of its braces" \
-  "9a=AROMA 1d=COTERIE 2d=SKUA" "$(got SLIPPED)"
+check "a white answer is read whatever bracket was typed for one of its braces, and a clue with none is a blank light" \
+  "9a=AROMA 1d=COTERIE 2d=SKUA 3d=" "$(got SLIPPED)"
 check "the Toughie heading's byline is the setter" "Robyn" "$(got BYLINE)"
 check "a setter category names the setter" "Dada Zandio" "$(got CATEGORY)"
 check "the blogger is never the setter" "None" "$(got BLOGGER)"

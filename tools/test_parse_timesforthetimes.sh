@@ -546,7 +546,8 @@ check "an unclosed brace deletes nothing past its own line" \
 # An answer with no dash after it is read off the clue's enumeration: the
 # leading words are the answer when their lengths are the enumeration's.
 # Mixed case counts only with a dash after it, since wordplay opens with an
-# ordinary word too, and a length that disagrees is never an answer.
+# ordinary word too, and a length that disagrees is never an answer: that
+# light is kept with its answer blank, for the grid's crossings to fill.
 nodash='<table><tr><td><strong>Across</strong></td></tr>
 <tr><td>8</td><td>Case I mixed up, going round information bureaux (8)</td></tr>
 <tr><td></td><td>AGENCIES GEN (information) inside an anagram of CASE I</td></tr>
@@ -563,7 +564,7 @@ nodash='<table><tr><td><strong>Across</strong></td></tr>
 <tr><td>14</td><td>Twisted relation (7)</td></tr>
 <tr><td></td><td>Anagram of RELATION less one letter</td></tr></table>'
 check "an answer with no dash is read off its enumeration, and only then" \
-  "8:AGENCIES 9:BOND 10:CHOPCHOP 11:TIS 12:CHAMPION" \
+  "8:AGENCIES 9:BOND 10:CHOPCHOP 11:TIS 12:CHAMPION 13: 14:" \
   "$(run "$nodash" | cut -d'|' -f1,3 | tr '|\n' ': ' | sed 's/ $//')"
 
 # The enumeration also cuts wordplay run on with no dash off an answer -- but
