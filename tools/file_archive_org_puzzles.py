@@ -180,6 +180,17 @@ SOLUTION = re.compile(r"^\W*solution\s+(?:to|of)\s+puzzle\s+no\.?\s*" + NUMBER, 
 STOP = re.compile(r"^\W*(solution|crossword|concise|times\s+two|the\s+times\s+crossword|the\s+solution\s+(?:to|of)"
                   r"|championship|jumbo|\w{0,10}\s+(of|to)\s+puzzle|\S{4,9}\s+t[ao]m+or+ow|publ\w+\s+by"
                   r"|\S+\s+cr[o0]s+w[o0u]r?d\W+\w{2,5}\s+\d+)\b", re.I)
+#: A line opening on a lowercase word ("championship. possibly (4).") runs
+#: on a clue from the line above: a notice opens on a capital.
+CONTINUED = re.compile(r"\W*[a-z]{4,}\b")
+
+
+def stops(text):
+    """Whether a column line ends the clues: a STOP line, never a clue's
+    run-on line."""
+    return bool(STOP.match(text)) and not CONTINUED.match(text)
+
+
 #: The vertical gap, in pixels at the scan's 3296x4672, that ends a column.
 GAP = 80
 #: How far, in pixels, a line must start left of the split between two
@@ -570,7 +581,7 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
         col = merge_rows(col)
         kept, last = [], None
         for line in col:
-            if kept and (STOP.match(line[4]) or line[4] == NOTICE or line[0] - last > GAP):
+            if kept and (stops(line[4]) or line[4] == NOTICE or line[0] - last > GAP):
                 break
             if line[4] == NOTICE:
                 continue
