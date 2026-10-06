@@ -88,14 +88,11 @@ shows whether it is running, held or idle, and how the last pass ended.
 
 ## 3. The nightly: `household-plugins/cryptic-archive-coverage`
 
-Two plugins run `tools/corpus_queue.sh`, which runs from a worktree at
-origin/master:
-
-- **`cryptic-corpus-queue`** runs `tick` every hour at :35.
-- **`cryptic-archive-coverage`** runs `nightly` at 05:50. This runs the
-  tracker with `--save`. When no corpus job is running, it wakes
-  #cryptic-crosswords in two cases: the pass is held, or the last pass read
-  everything due and recoverable editions are still unfiled. Those editions
-  need a reader fix that bumps `REREAD_BEFORE`. The message gives the top
-  classes and the per-year filed/printed counts with their deltas, so the next
-  fix gets started.
+- **`cryptic-corpus-queue`** runs `tools/corpus_queue.sh tick` every hour at
+  :35. It wakes the room on a stall and when it holds the pass.
+- **`cryptic-archive-coverage`** runs `tools/coverage.sh daily` at 05:50: the
+  coverage ledger (`tools/coverage.py`, see the README's "Coverage ledger").
+  The ledger takes this tracker's classes for the scan series and adds every
+  other source (blogs, FT PDFs, Gale, Trove, books). It queues the top
+  recoverable buckets and any regression for #cryptic-crosswords, and stays
+  silent when there are none.

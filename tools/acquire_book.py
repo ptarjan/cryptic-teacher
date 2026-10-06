@@ -103,7 +103,9 @@ PUBLIC_TEXT_URL = "https://archive.org/download/{id}/{id}_djvu.txt"
 METADATA_URL = "https://archive.org/metadata/{id}"
 # Where tools/fetch_ia_book.py leaves what a human borrowed earlier.
 FETCHED_TEXT_DIR = Path("/tmp/cryptic-teacher-ia-books")
-DEFAULT_OUT = Path("/tmp/acquire_book")
+# Durable, not /tmp: the nightly restart empties /tmp, and tools/coverage.py
+# reads each book's report.json here for why its unfiled puzzles are unfiled.
+DEFAULT_OUT = Path.home() / ".cache" / "acquire_book"
 
 # Stage 1 refused because the ACCOUNT is throttled, not because this book is
 # unavailable. Its own exit code so a driver can tell "this book failed" from

@@ -1,16 +1,14 @@
-about    = "Count every archive year's filed puzzles against the editions printed, and wake the room when the full pass is held or has read everything due and fixable editions remain"
+about    = "The coverage ledger (tools/coverage.py): every series' puzzles that exist, filed, and each missing one bucketed by cause and owning module; queues the top recoverable buckets and any regression for #cryptic-crosswords"
 room     = "cryptic-crosswords"
-# After the 04:30 restart and the 04:35 tick that resumes a killed job, so
-# "no job running" means the queue really is idle.
 schedule = "50 5 * * *"
 where    = "container"
-# The job's own worktree, not the main checkout: that one fast-forwards only
-# when clean, so a script newer than its last clean moment is not in it.
-# tools/nightly_worktree.sh resets this tree to origin/master on every run.
-run      = "/Users/pt/.cryptic-teacher/corpus_queue/tools/corpus_queue.sh"
-args     = ["nightly"]
-log      = "/Users/pt/github/cryptic-teacher/.archive_coverage.log"
-timeout  = 1800
+# Run from the corpus queue's worktree, which its hourly tick resets to
+# origin/master, so the script exists even when the main checkout is behind.
+# tools/nightly_worktree.sh then moves the run into a worktree of its own.
+run      = "/Users/pt/.cryptic-teacher/corpus_queue/tools/coverage.sh"
+args     = ["daily"]
+log      = "/Users/pt/github/cryptic-teacher/.coverage.log"
+timeout  = 600
 
 [env]
 XDG_CONFIG_HOME  = "/Users/pt/.config"

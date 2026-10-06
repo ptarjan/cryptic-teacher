@@ -1615,6 +1615,19 @@ def filed_number(d, found, hit):
     return number, day, why
 
 
+#: Why a title was refused: the verdict's `cause`, which tools/coverage.py
+#: buckets by. `refused` keeps the detail for a person.
+REFUSALS = ("number-date-mismatch", "not-a-grid", "no-reading-parses", "crashed")
+
+
+def refuse(verdict, cause, why):
+    """`verdict` refused for `cause` (one of REFUSALS), `why` the detail."""
+    if cause not in REFUSALS:
+        raise ValueError(f"refusal cause {cause!r} is not one of {REFUSALS}")
+    verdict["refused"], verdict["cause"] = why, cause
+    return verdict
+
+
 def read_puzzle(d, found, hit, solutions):
     """(verdict, puzzle or None) for one title on one page."""
     n, leaf = hit["number"], hit["leaf"]
@@ -1622,8 +1635,7 @@ def read_puzzle(d, found, hit, solutions):
     paper = paper_of(d)
     number, day, why = filed_number(d, found, hit)
     if why:
-        verdict["refused"] = why
-        return verdict, None
+        return refuse(verdict, "number-date-mismatch", why), None
     if number != n:
         verdict["read_as"], n = n, number
         verdict["number"] = n
@@ -1631,12 +1643,10 @@ def read_puzzle(d, found, hit, solutions):
     lines = leaf_lines(d / "djvu.xml.gz", {leaf}).get(leaf, [])
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"])
     if gbox is None:
-        verdict["refused"] = "no ink under the title"
-        return verdict, None
+        return refuse(verdict, "not-a-grid", "no ink under the title"), None
     gw, gh = gbox[2] - gbox[0], gbox[3] - gbox[1]
     if side is None or not shaped_on(img, gbox):
-        verdict["refused"] = f"the ink under the title is {gw}x{gh}, not a grid"
-        return verdict, None
+        return refuse(verdict, "not-a-grid", f"the ink under the title is {gw}x{gh}, not a grid"), None
     key = f"{d.name}_{n}"
     third = (paper.third, third_top(img, gbox, paper.third)) if paper.third else None
     m = paper.margin
@@ -1716,8 +1726,7 @@ def read_puzzle(d, found, hit, solutions):
         if laid is not None:
             break
     if not tried:
-        verdict["refused"] = "no reading parses"
-        return verdict, None
+        return refuse(verdict, "no-reading-parses", "no reading parses"), None
     ok, done, count, _, order, parsed, laid, why = max(tried, key=lambda t: t[:4])
     verdict["readings"] = list(order)
     verdict["clues"] = count
@@ -2325,8 +2334,8 @@ def read_edition(d, found):
         try:
             verdict, puzzle = read_puzzle(d, found, hit, _SOLUTIONS)
         except Exception as e:  # noqa: BLE001 -- one bad page is a verdict, not a crash
-            verdict, puzzle = {"number": hit["number"], "refused":
-                               f"crashed: {type(e).__name__}: {e}"}, None
+            verdict, puzzle = refuse({"number": hit["number"]}, "crashed",
+                                     f"crashed: {type(e).__name__}: {e}"), None
         results.append((verdict, puzzle))
     return results, vlm.reachable()
 
@@ -2335,7 +2344,8 @@ def edition_failed(item, error):
     """read_edition's result for an edition whose read raised: each title
     refused, as read_edition refuses a title whose read raises."""
     _, found = item
-    return [({"number": hit["number"], "refused": f"crashed: {error}"}, None) for hit in found["puzzles"]], False
+    return [(refuse({"number": hit["number"]}, "crashed", f"crashed: {error}"), None)
+            for hit in found["puzzles"]], False
 
 
 def filled(puzzle):

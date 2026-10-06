@@ -3,7 +3,6 @@
 
     python3 tools/corpus_queue.py status             # running, held or idle, and how the last pass ended
     python3 tools/corpus_queue.py tick [--dry-run]   # check the running pass, else start one
-    python3 tools/corpus_queue.py nightly [--dry-run]# coverage; wake the room when the pass needs a person
     python3 tools/corpus_queue.py adopt PID          # a pass started by hand is this queue's
     python3 tools/corpus_queue.py stop               # kill the pass's whole session and hold it
     python3 tools/corpus_queue.py release            # let a held pass start again
@@ -288,51 +287,10 @@ def status():
         print(f"last pass ended {last['at']}: " + ("killed" if last["rc"] is None else f"exit {last['rc']}"))
 
 
-def nightly(dry):
-    """Save the coverage count. Wake the room when the pass is held, or when
-    it finished (everything due is read) and recoverable editions are still
-    unfiled: what is left needs a reader change that bumps REREAD_BEFORE."""
-    import archive_coverage
-    cov = archive_coverage.main(["--save"] if not dry else [])
-    state, run = load_state(), running()
-    if run or ledger_held():
-        print("a corpus job is running; no wake")
-        return
-    lines = []
-    for s, c in cov["series"].items():
-        fix = [k for k in c["classes"] if k["recoverable"] and k["editions"]]
-        if fix:
-            lines.append(f"{s}: " + "; ".join(f"{k['class']} {k['editions']}" for k in fix[:4]))
-    if state.get("held"):
-        head = f"the full pass is held after {state.get('deadLaunches', 0)} dead launches; log {LOG}. "
-    elif (state.get("lastExit") or {}).get("rc") == 0 and lines:
-        head = ("the full pass has read everything due, and recoverable archive editions remain unfiled. "
-                "A reader fix that bumps REREAD_BEFORE in tools/ocr_full_pass.sh gets them. ")
-    else:
-        print("nothing for a person to do; no wake")
-        return
-    t = cov["series"].get("times")
-    years = ""
-    if t:
-        prev = {}
-        try:
-            prev = json.loads((archive_coverage.STATE / "previous.json").read_text())["series"]["times"]["years"]
-        except (OSError, ValueError, KeyError):
-            pass
-        years = " ".join(f"{y}:{c.get('filed', 0)}/{c.get('printed', 0)}"
-                         + (f"({c.get('filed', 0) - prev[str(y)]['filed']:+d})"
-                            if str(y) in prev and prev[str(y)].get("filed") != c.get("filed") else "")
-                         for y, c in t["years"].items() if int(y) < 2000)
-    wake(head + ("\nRecoverable unfiled editions: " + " | ".join(lines) if lines else "")
-         + (f"\nTimes filed/printed (delta): {years}" if years else "")
-         + "\nFull table: python3 tools/archive_coverage.py", dry)
-
-
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for name in ("tick", "nightly"):
-        sub.add_parser(name).add_argument("--dry-run", action="store_true")
+    sub.add_parser("tick").add_argument("--dry-run", action="store_true")
     sub.add_parser("status")
     sub.add_parser("adopt").add_argument("pid", type=int)
     sub.add_parser("stop", help="kill the running pass and everything it started, and hold it")
@@ -342,8 +300,6 @@ def main(argv=None):
         status()
     elif args.cmd == "tick":
         tick(args.dry_run)
-    elif args.cmd == "nightly":
-        nightly(args.dry_run)
     elif args.cmd == "adopt":
         start = proc_start(args.pid)
         if not start:
