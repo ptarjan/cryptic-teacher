@@ -113,6 +113,77 @@ WORKERS = 2
 #: its grid down: its own cap, ~10s on a 15x15.
 REBUILD_NODES = rg.DEFAULT_MAX_NODES
 
+#: Why an article waits or is refused: (cause, outcome, what it means, the
+#: fix, recoverable, the module that owns the fix). A `pending` or `refused`
+#: verdict carries its `cause` (wait(), refuse()), which tools/coverage.py
+#: buckets by; the prose beside it is the detail for a person.
+CAUSES = [
+    ("zones-not-fetched", "pending", "the page's clue columns are not cached, so no reading votes",
+     "fetch_trove.py zones (download only)", True, "tools/fetch_trove.py"),
+    ("no-grid", "pending", "the scan's grid is unread or disagrees, and the clues rebuild no unique grid",
+     "the grid reader or the clue repair, then --reread", True, "tools/file_trove_puzzles.py"),
+    ("rebuilt-grid-disagrees", "pending", "the grid rebuilt from the clues disagrees with them",
+     "the clue parse, then --reread", True, "tools/file_trove_puzzles.py"),
+    ("lights-without-clue", "pending", "a light of the grid has no clue in the OCR",
+     "the clue repair (tools/trove_clue_ocr.py), then --reread", True, "tools/file_trove_puzzles.py"),
+    ("clues-unread", "pending", "the readings' vote leaves a clue blank",
+     "better readers or the VLM: the standing full pass re-reads", True, "tools/ocr_clues.py"),
+    ("suspect-words", "pending", "a voted clue holds a word OCR made up (ocr_clues.suspect)",
+     "better readers or the VLM: the standing full pass re-reads", True, "tools/ocr_clues.py"),
+    ("no-print-date", "refused", "the OCR's first line gives no print date",
+     "header(), then --reread", True, "tools/file_trove_puzzles.py"),
+    ("no-clue-lists", "refused", "the OCR has no ACROSS and DOWN lists",
+     "sections(), then --reread", True, "tools/file_trove_puzzles.py"),
+    ("clues-dont-parse", "refused", "a clue list does not parse",
+     "clues(), then --reread", True, "tools/file_trove_puzzles.py"),
+    ("id-taken", "refused", "another article of the same day holds the puzzle id",
+     "none: the day's other article is filed", False, "tools/file_trove_puzzles.py"),
+    ("crashed", "refused", "the reader raised on this article",
+     "the traceback in the ledger's refused", True, "tools/file_trove_puzzles.py"),
+]
+_OUTCOME = {key: outcome for key, outcome, *_ in CAUSES}
+
+
+def wait(verdict, cause, why):
+    """`verdict` pending for `cause` (a "pending" key of CAUSES), `why` the detail."""
+    return _stamp(verdict, "pending", cause, why)
+
+
+def refuse(verdict, cause, why):
+    """`verdict` refused for `cause` (a "refused" key of CAUSES), `why` the detail."""
+    return _stamp(verdict, "refused", cause, why)
+
+
+def _stamp(verdict, outcome, cause, why):
+    if _OUTCOME.get(cause) != outcome:
+        raise ValueError(f"{outcome} cause {cause!r} is not one of CAUSES' {outcome} keys")
+    verdict[outcome], verdict["cause"] = why, cause
+    return verdict
+
+
+def ledger_row(aid, inputs, verdict):
+    """The ledger row of one read: a pending or refused verdict without its
+    CAUSES cause is refused, so no prose-only row is written."""
+    for outcome in ("pending", "refused"):
+        if verdict.get(outcome) and _OUTCOME.get(verdict.get("cause")) != outcome:
+            raise ValueError(f"article {aid}: {outcome} without a cause from CAUSES: {verdict}")
+    return {"article": aid, "inputs": inputs, **verdict, "readAt": scan_queue.now()}
+
+
+def stamp_cause(row, zones):
+    """Give a ledger row read before causes were recorded the cause its
+    structure shows: a read that reached the vote (it holds a `grid`) with no
+    clue columns cached is zones-not-fetched. Any other such row is made due
+    (its inputs cleared), so the next read records its cause. True when the
+    row is due."""
+    if row.get("cause") or not (row.get("pending") or row.get("refused")):
+        return False
+    if row.get("pending") and "grid" in row and not has_readings(row["article"], zones):
+        row["cause"] = "zones-not-fetched"
+        return False
+    row["inputs"] = ""
+    return True
+
 # A character OCR reads for a digit, and the digits it can stand for.
 SLIPS = {"S": "58", "s": "58", "I": "1", "l": "1", "i": "1", "J": "1", "j": "1",
          "!": "1", "|": "1", "X": "1", "O": "0", "o": "0", "B": "8", "Z": "2",
@@ -676,11 +747,10 @@ def page_readings(d, zones=None):
     ocr_clues.READERS reader, each cached beside the zones as
     read.<reader>.txt (the cache alone serves, without the zones); {} when
     neither is there."""
-    where = (zones or clue_zones(d)) / d.name
-    cached = {which: where / f"read.{ocr_clues.reader_key(which)}.txt" for which in ocr_clues.READERS}
-    images = trove_clue_ocr.zone_images(d.name, zones or clue_zones(d))
-    if not images and not all(p.exists() for p in cached.values()):
+    if not has_readings(d.name, zones or clue_zones(d)):
         return {}
+    cached = readings_cached(d.name, zones or clue_zones(d))
+    images = trove_clue_ocr.zone_images(d.name, zones or clue_zones(d))
     from PIL import Image
     out = {}
     for which, cache in cached.items():
@@ -690,6 +760,18 @@ def page_readings(d, zones=None):
             cache.write_text(text, encoding="utf-8")
         out[which] = cache.read_text(encoding="utf-8")
     return out
+
+
+def readings_cached(aid, zones):
+    """{reader: where page_readings caches its text of article `aid`'s zones}."""
+    return {which: zones / str(aid) / f"read.{ocr_clues.reader_key(which)}.txt" for which in ocr_clues.READERS}
+
+
+def has_readings(aid, zones):
+    """Whether page_readings has anything to read for article `aid`: its zone
+    images, or every reader's cached text of them."""
+    return bool(trove_clue_ocr.zone_images(aid, zones)) or all(
+        p.exists() for p in readings_cached(aid, zones).values())
 
 
 def stacked(images):
@@ -720,7 +802,8 @@ def parse_reading(text):
 def vote(d, laid, grid, zones=None):
     """(laid, why) with every clue's words put to our own readings of the
     page (ocr_clues.reconcile, Trove's text one voter among them). `why` is
-    None, or names each light with no clue, a clue no spelling wins, or a
+    None, or (its CAUSES cause, the detail): no reading to vote with, or
+    the detail names each light with no clue, a clue no spelling wins, or a
     word ocr_clues.suspect() refuses: only a puzzle whose every clue reads
     true is filed. Those lights are blank in `laid` (None when no reading
     or a lost light leaves nothing voted), which mends a held file's clue
@@ -728,11 +811,11 @@ def vote(d, laid, grid, zones=None):
     from PIL import Image
     texts = page_readings(d, zones)
     if not texts:
-        return None, "no reading of the page's clues to vote with (fetch_trove.py zones)"
+        return None, ("zones-not-fetched", "no reading of the page's clues to vote with (fetch_trove.py zones)")
     lengths = {f"{n}-{dr}": len(c) for (n, dr), c in rg.light_cells(grid).items()}
     lost = sorted(set(lengths) - set(laid), key=lambda k: (k.split("-")[1], int(k.split("-")[0])))
     if lost:
-        return None, f"no clue for {', '.join(lost)}"
+        return None, ("lights-without-clue", f"no clue for {', '.join(lost)}")
     images = [Image.open(p) for p in trove_clue_ocr.zone_images(d.name, zones or clue_zones(d))]
     # The desktop's VLM, when it answers, is one more reading, and reads
     # each clue the vote leaves blank shown every reading's text for it.
@@ -770,10 +853,10 @@ def vote(d, laid, grid, zones=None):
     bad = {k: v for k, v in bad.items() if v}
     laid = {k: ("", e, g) if k in blank or k in bad else (t, e, g) for k, (t, e, g) in laid.items()}
     if blank:
-        return laid, "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items()))
+        return laid, ("clues-unread", "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items())))
     if bad:
-        return laid, "suspect words: " + "; ".join(
-            f"{k} " + ", ".join(f"{w!r} ({why})" for w, why in v) for k, v in sorted(bad.items()))
+        return laid, ("suspect-words", "suspect words: " + "; ".join(
+            f"{k} " + ", ".join(f"{w!r} ({why})" for w, why in v) for k, v in sorted(bad.items())))
     return laid, None
 
 
@@ -883,8 +966,14 @@ def already_held(laid):
 
 def clue_zones(d):
     """Where tools/trove_clue_ocr.py caches the clue columns of the articles
-    in d's cache: ~/.cache/trove-clues beside ~/.cache/trove."""
-    return d.parent.parent / f"{d.parent.name}-clues"
+    in d's cache (zones_of)."""
+    return zones_of(d.parent)
+
+
+def zones_of(cache):
+    """Where tools/trove_clue_ocr.py caches the clue columns of the articles
+    in `cache`: ~/.cache/trove-clues beside ~/.cache/trove."""
+    return cache.parent / f"{cache.name}-clues"
 
 
 def input_hash(d):
@@ -952,15 +1041,15 @@ def consider(d, taken):
         return {"skip": what}, None, None
     day, _ = header(ocr)
     if day is None:
-        return {"refused": "no print date in the OCR's first line"}, None, None
+        return refuse({}, "no-print-date", "no print date in the OCR's first line"), None, None
     secs = sections(ocr)
     if secs is None:
-        return {"refused": "no ACROSS and DOWN lists in the OCR"}, None, None
+        return refuse({}, "no-clue-lists", "no ACROSS and DOWN lists in the OCR"), None, None
     parsed = {}
     for direction, text in secs.items():
         parsed[direction], why = clues(text)
         if why:
-            return {"refused": f"{direction} clues do not parse: {why}"}, None, None
+            return refuse({}, "clues-dont-parse", f"{direction} clues do not parse: {why}"), None, None
     parsed, repairs = trove_clue_ocr.repaired(d, parsed, clue_zones(d))
     parsed, moved = renumber(parsed)
     verdict = {"clues": sum(len(v) for v in parsed.values())}
@@ -985,11 +1074,11 @@ def consider(d, taken):
     if grid is None:
         g, why = rebuild(parsed, image)
         if g is None:
-            verdict["pending"] = f"no grid: {why}"
+            wait(verdict, "no-grid", f"no grid: {why}")
             return verdict, None, None
         laid, why = match(parsed, g)
         if laid is None:
-            verdict["pending"] = f"rebuilt grid disagrees: {why}"
+            wait(verdict, "rebuilt-grid-disagrees", f"rebuilt grid disagrees: {why}")
             return verdict, None, None
         grid, how = g, "rebuilt"
     verdict["grid"] = how
@@ -997,7 +1086,7 @@ def consider(d, taken):
     verdict["lights"] = len(rg.light_cells(grid))
     laid, why = vote(d, laid, grid)
     if why:
-        verdict["pending"] = why
+        wait(verdict, *why)
         return verdict, None, laid and build(meta["id"], meta, ocr, grid, how, laid, day)
     held = already_held(laid)
     if held:
@@ -1008,7 +1097,7 @@ def consider(d, taken):
     verdict["answersRead"] = trove_solution_ocr.fill(puzzle, answers)
     verdict["answersFrom"] = info.get("ocr")
     if puzzle["id"] in taken and taken[puzzle["id"]] != meta["id"]:
-        verdict["refused"] = f"{puzzle['id']} is article {taken[puzzle['id']]}'s"
+        refuse(verdict, "id-taken", f"{puzzle['id']} is article {taken[puzzle['id']]}'s")
         return verdict, None, None
     verdict["id"] = puzzle["id"]
     return verdict, puzzle, puzzle
@@ -1038,6 +1127,8 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
         for line in ledger.read_text().splitlines():
             row = json.loads(line)
             known[row["article"]] = row
+    for row in known.values():
+        stamp_cause(row, zones_of(cache))
     files = held_files(puzzles)
     taken = {row["id"]: a for a, row in known.items() if row.get("id")} | {p.stem: a for a, p in files.items()}
     # The VLM's readings are an input: an article read without it is read
@@ -1048,12 +1139,6 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
     for d in dirs:
         row = known.get(d.name)
         h = inputs_of(d, files.get(d.name))
-        if row and "inputs" not in row and "hash" in row:
-            # A row keyed by code and inputs together: its read stands for
-            # the inputs there now, unless it waited on clue zones now there.
-            waited = row.get("pending", "").startswith("no reading of the page's clues")
-            row["inputs"] = "" if waited and trove_clue_ocr.zone_images(d.name, clue_zones(d)) else h
-            row.pop("hash")
         if (d.name in articles) if articles else due_reason(row, h, seen_by, reread):
             due[d] = h
     queue = scan_queue.order(list(due), {d: known[d.name] for d in due if d.name in known},
@@ -1062,7 +1147,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
     reported = time.monotonic()
     for done, ((d,), got) in enumerate(scan_queue.parallel(
             [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,),
-            failed=lambda item, error: ({"refused": f"crashed: {error}"}, None, None, False)), 1):
+            failed=lambda item, error: (refuse({}, "crashed", f"crashed: {error}"), None, None, False)), 1):
         aid = d.name
         verdict, puzzle, voted, vlm_ok = got
         if time.monotonic() - reported >= 300:
@@ -1070,7 +1155,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
             print(f"  {done} of {len(queue)} read", file=out, flush=True)
         if puzzle is not None and puzzle["id"] in taken and taken[puzzle["id"]] != aid:
             # Another worker filed this id while this one read.
-            verdict, puzzle = {**verdict, "refused": f"{puzzle['id']} is article {taken[puzzle['id']]}'s"}, None
+            verdict, puzzle = refuse(dict(verdict), "id-taken", f"{puzzle['id']} is article {taken[puzzle['id']]}'s"), None
             verdict.pop("id", None)
         held = files.get(aid)
         if voted is not None and held and held.stem == voted["id"] and taken.get(voted["id"]) == aid:
@@ -1084,7 +1169,7 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
         # Keyed by the inputs after this read's writes: a stray clue it
         # mended no longer makes the article due.
         h = inputs_of(d, held)
-        row = {"article": aid, "inputs": h, **verdict, "readAt": scan_queue.now()}
+        row = ledger_row(aid, h, verdict)
         if seen_by and vlm_ok:
             row["vlm"] = seen_by
         if puzzle is not None:
@@ -1109,8 +1194,8 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
             continue
         key = ("filed" if row.get("id") else
                f"skipped: {row['skip']}" if row.get("skip") else
-               f"pending: {row['pending'].split(':')[0]}" if row.get("pending") else
-               f"refused: {row.get('refused', '?')[:60]}")
+               f"pending: {row.get('cause') or 'no cause'}" if row.get("pending") else
+               f"refused: {row.get('cause') or 'no cause'}")
         tally[key] = tally.get(key, 0) + 1
         if row.get("id"):
             g = f"grid {row['grid']}"
@@ -1167,7 +1252,7 @@ def consider_article(d):
     try:
         verdict, puzzle, voted = consider(d, _TAKEN)
     except Exception as e:  # noqa: BLE001 -- one bad article is a verdict, not a crash
-        verdict, puzzle, voted = {"refused": f"crashed: {type(e).__name__}: {e}"}, None, None
+        verdict, puzzle, voted = refuse({}, "crashed", f"crashed: {type(e).__name__}: {e}"), None, None
     return verdict, puzzle, voted, vlm.reachable()
 
 
