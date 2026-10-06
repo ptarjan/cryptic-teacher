@@ -56,6 +56,15 @@ EMPTY_OCR_CHARS) is fetched instead, marked ocr_empty: ABBYY returns nothing
 for a page of dense share tables, and the 1980s FT prints its crossword on
 one (FT 3 Apr 1985, leaf 41). The filer finds the grid in those by image.
 
+When no page's text holds a daily crossword's numbered title (titled()),
+the OCR has garbled it or the page has no text, so the leaves the paper
+usually prints it on are fetched too, marked prior: the edition's last leaf
+(the 1970s-80s Times back page, ~90% of filed ones) and the PRIOR_LEAVES
+commonest crossword leaves of the item's other cached editions, counted both
+from the front and from the back (prior_leaves). The filer reads their titles
+by image (ocr_titles). An edition none of whose fetched leaves holds a title
+is one whose scan lacks the crossword page.
+
 A rerun skips every edition in done.tsv at the current DETECTOR_VERSION.
 Bumping DETECTOR_VERSION re-runs detection from the cached djvu.xml and
 fetches only the page images it newly finds; no text is downloaded again.
@@ -74,6 +83,7 @@ exit 4 and the errors in its log.
 """
 
 import argparse
+import collections
 import concurrent.futures
 import datetime
 import gzip
@@ -90,10 +100,14 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"
 SAMAAN = 'uploader:"samaan.alshayef@gmail.com"'
-DETECTOR_VERSION = 3
+DETECTOR_VERSION = 4
+#: How many of the leaves its item's other editions print their crossword on
+#: an edition with no crossword title in its text also fetches (prior_leaves).
+PRIOR_LEAVES = 2
 EMPTY_OCR_CHARS = 200
 RETRY_WAITS = (5, 15, 45, 120)
 ITEM_SECONDS = 300
@@ -112,6 +126,13 @@ GROUPS = [
     ("pub_sunday-times", "collection:pub_sunday-times", r"^Sunday Times ", None),
 ]
 
+#: A crossword title with its number ("Times Crossword Puzzle No 14,011",
+#: "CROSSWORD No. 8,650", "Crossword Puzzle No"). A front-page index line
+#: ("CROSSWORD - 28") has a two-digit page number, so a title needs three.
+NUMBERED = re.compile(r"(?i)cross\s?word\W{0,3}(?:puzzle\W{0,3})?(?:no\.?\s*)?\d[\d,.]{2,}|cross\s?word\s+puzzle\s+no")
+#: Numbered headings that are not the daily cryptic: its sister puzzles and
+#: the book adverts ("CROSSWORD ENTHUSIASTS").
+NOT_DAILY = re.compile(r"(?i)concise|jumbo|listener|quick|enthusiast|title|book")
 ENUM = re.compile(r"\(\s*\d{1,2}(?:\s*[,\-.]\s*\d{1,2}){0,4}\s*\)")
 HEADING = re.compile(
     r"(?i)(?:listener|jumbo|times|cryptic|prize|quick|concise|polymath|mephisto|"
@@ -270,8 +291,7 @@ def detect(text):
     """
     enums = len(ENUM.findall(text))
     headings = sorted({re.sub(r"\s+", " ", m.group(0)).strip() for m in HEADING.finditer(text)})
-    numbered = bool(re.search(r"(?i)cross\s?word\W{0,3}(?:puzzle\W{0,3})?(?:no\.?\s*)?\d[\d,.]{2,}", text))
-    numbered = numbered or bool(re.search(r"(?i)cross\s?word\s+puzzle\s+no", text))
+    numbered = bool(NUMBERED.search(text))
     titled = bool(re.search(r"(?i)cross\s?word", text))
     across = bool(re.search(r"\bACROSS\b|\bAcross\b", text))
     numbered = numbered or (across and bool(re.search(r"(?i)puzzle\s+no\.?\s*\d", text)))
@@ -342,8 +362,36 @@ def sparse_djvu_xml(fx, meta, item, name, leaves, count):
     return b"".join(parts), dims
 
 
-def crossword_hits(pages):
-    """The pages.json crossword_pages for [(width, height, text)] pages."""
+def titled(hit):
+    """Whether a crossword_pages hit's text holds a daily crossword's numbered title."""
+    return any(NUMBERED.search(h) and not NOT_DAILY.search(h) for h in hit.get("headings") or ())
+
+
+def prior_leaves(edition_dir, count):
+    """The leaves of an edition of `count` leaves its crossword most likely
+    lies on: its last, and the PRIOR_LEAVES commonest leaves holding a titled
+    crossword in its item's other cached editions, by leaf number and by
+    distance from the back."""
+    fronts, backs = collections.Counter(), collections.Counter()
+    for pj in Path(edition_dir).parent.glob("*/pages.json"):
+        if pj.parent.name == Path(edition_dir).name:
+            continue
+        try:
+            pages = json.loads(pj.read_text())
+        except (OSError, ValueError):
+            continue
+        for hit in pages.get("crossword_pages") or ():
+            if titled(hit):
+                fronts[hit["leaf"]] += 1
+                backs[pages["leaves"] - 1 - hit["leaf"]] += 1
+    leaves = {count - 1} | {n for n, _ in fronts.most_common(PRIOR_LEAVES)} \
+        | {count - 1 - n for n, _ in backs.most_common(PRIOR_LEAVES)}
+    return sorted(n for n in leaves if 0 <= n < count)
+
+
+def crossword_hits(pages, prior=()):
+    """The pages.json crossword_pages for [(width, height, text)] pages; when
+    none holds a crossword title, the `prior` leaves (prior_leaves) too."""
     hits = []
     for leaf, (w, h, text) in enumerate(pages):
         score, enums, headings = detect(text)
@@ -354,6 +402,11 @@ def crossword_hits(pages):
         # crossword on one: a blank-OCR leaf is a candidate when no text hit.
         hits = [{"leaf": leaf, "ocr_empty": True, "width": w, "height": h}
                 for leaf, (w, h, text) in enumerate(pages) if len(text.strip()) < EMPTY_OCR_CHARS]
+    if not any(titled(h) for h in hits):
+        have = {h["leaf"] for h in hits}
+        hits += [{"leaf": leaf, "prior": True, "width": pages[leaf][0], "height": pages[leaf][1]}
+                 for leaf in prior if leaf not in have]
+        hits.sort(key=lambda h: h["leaf"])
     return hits
 
 
@@ -380,7 +433,7 @@ def fetch_edition(fx, item, meta, name):
             cached = {"texts": texts, "words": {}}
     if cached is not None:
         texts, words = cached["texts"], cached["words"]
-        hits = crossword_hits([(0, 0, t) for t in texts])
+        hits = crossword_hits([(0, 0, t) for t in texts], prior_leaves(d, len(texts)))
         need = {h["leaf"] for h in hits} - {int(k) for k in words}
         try:
             if need or not os.path.exists(xml_path):
@@ -404,7 +457,7 @@ def fetch_edition(fx, item, meta, name):
                 write_atomic(path, gzip.compress(fetch_first(fx, bases, suffix, name + suffix), 6))
         with gzip.open(xml_path) as f:
             pages = page_texts(f.read())
-        hits = crossword_hits(pages)
+        hits = crossword_hits(pages, prior_leaves(d, len(pages)))
     jp2 = {f for f in files if f.endswith("_jp2.zip")}
     zipname = name + "_jp2.zip"
     if hits and zipname not in jp2:

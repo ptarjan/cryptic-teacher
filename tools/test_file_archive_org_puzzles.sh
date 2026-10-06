@@ -34,6 +34,26 @@ def line(text, x=100, y=100):
         x += 10 * len(w) + 8
     return out
 
+# A grid whose grey blocks are stippled thresholds to specks: grids_on still
+# finds it, so ocr_titles reads its title (1980-04-16, No 15,200: 13% ink).
+from PIL import Image, ImageDraw
+pg = Image.new("L", (3296, 4672), 240)
+dr = ImageDraw.Draw(pg)
+dr.rectangle([2000, 3500, 3000, 4500], fill=120)
+x0, y0, cell = 300, 2900, 40
+for k in range(16):
+    dr.line([(x0 + k * cell, y0), (x0 + k * cell, y0 + 15 * cell)], fill=0, width=1)
+    dr.line([(x0, y0 + k * cell), (x0 + 15 * cell, y0 + k * cell)], fill=0, width=1)
+for r in range(15):
+    for c in range(15):
+        if (r * 7 + c * 3) % 5 == 0:
+            for yy in range(0, cell, 6):
+                for xx in range(0, cell, 6):
+                    dr.point((x0 + c * cell + xx + 3, y0 + r * cell + yy + 3), fill=0)
+check("a stippled-block grid is a grid to read a title by", 1, len(f.grids_on(pg)))
+dr.rectangle([1500, 500, 2300, 1300], outline=0, width=3)
+check("a frame round a panel is not", 1, len(f.grids_on(pg)))
+
 # The title: the daily cryptic's, its number, a box ending at the number.
 hits = f.headings([line("THE TIMES CROSSWORD NO 19,742 1 1 times weathercall")], f.TITLE)
 check("1990s title read, junk after the number left out", (19742, 100 + 10*3+8 + 10*5+8 + 10*9+8 + 10*2+8 + 10*6),

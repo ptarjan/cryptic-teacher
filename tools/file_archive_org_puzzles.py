@@ -1058,8 +1058,9 @@ def scan(d):
 
 
 #: The least share of its box a grid's ink fills: a frame round a panel
-#: (3%) is not a grid; grids fill 35-45%.
-GRID_FILL = 0.2
+#: (3%) is not a grid; grids fill 35-45%, but one with stippled grey blocks
+#: thresholds to specks and fills 13% (the 1980 Times, 15,200).
+GRID_FILL = 0.1
 #: How far over and under a grid its title is looked for when archive.org's
 #: text has none: the 1995 Times prints it 250px over the grid.
 TITLE_REACH = 300
