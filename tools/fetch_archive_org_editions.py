@@ -15,12 +15,22 @@ Usage:
                 counted "left for the next run" (tools/ocr_full_pass.sh runs
                 it this way, so the corpus queue fetches in bounded slices)
 
-Sources, in fetch order (GROUPS below): the Times 1965/1974-99 full editions
+Sources (GROUPS below), whose items a run opens in turn, one item of each
+group then the next, so no group starves the rest within --seconds: the Times 1965/1974-99 full editions
 (NewsUK<year>UKEnglish, one item per year holding ~200 editions); the BBC
 Listener magazine (pub_listener, one item per issue); the same uploader's
 Financial Times, Guardian, Daily/Sunday Telegraph and 1971 Sunday Times; and
 archive.org's pub_times / pub_sunday-times (1930 on; the Times crossword began
 1 Feb 1930, so earlier issues are skipped).
+
+Leaf N is scan leaf N throughout: the jp2.zip member, the hOCR page index
+entry and pages.json's leaf. The djvu.xml and BookReaderGetTextWrapper.php
+number only the access-format leaves, so an issue whose scan starts with a
+colour card (the Listener's) has its djvu page k on leaf k+1; each OBJECT's
+PAGE param ("<edition>_0001.djvu") names its scan leaf, and page_texts places
+it there. The per-page endpoint cannot be asked by scan leaf, so when its
+reply is empty or names another leaf the edition takes the whole-_djvu.xml
+path.
 
 Layout under --out:
   items/<item>.json           cached /metadata/<item> response
@@ -46,7 +56,7 @@ per connection. The words' coordinates for each crossword leaf come from
 BookReaderGetTextWrapper.php, the reader's one-page djvu.xml (~200 KB, with the
 page's width and height). An edition without the two hOCR files (whole years,
 e.g. 1985) or whose offsets do not fit, or whose per-page endpoint fails with
-a 4xx, takes the whole-_djvu.xml path instead; so does one already cached
+a 4xx or by another numbering (above), takes the whole-_djvu.xml path instead; so does one already cached
 that way. Leaf N is <edition>_jp2/<edition>_NNNN.jp2 inside the edition's
 _jp2.zip.
 
@@ -81,8 +91,10 @@ with backoff (honouring Retry-After) on 429, 5xx and network errors.
 No edition holds the queue: retries stop once it has had ITEM_SECONDS, and
 an edition whose request then fails is logged to failures.tsv and left
 undone for the next run, and the run moves on. FAILURES_IN_A_ROW editions
-failing back to back means archive.org itself is down: the run stops with
-exit 4 and the errors in its log.
+failing back to back on a connection error, a timeout or a 5xx (outage())
+means archive.org itself is down: the run stops with exit 4 and the errors in
+its log. Any other failure (a 404, an empty reply) is the edition's own, and
+shows archive.org answering, so it resets the count.
 """
 
 import argparse
@@ -145,6 +157,28 @@ HEADING = re.compile(
     r"(?i)(?:listener|jumbo|times|cryptic|prize|quick|concise|polymath|mephisto|"
     r"inquisitor|azed|everyman|enigmatic|genius)?\W{0,3}cross\s?word[^\n]{0,30}"
     r"|puzzle\s+no\.?\s*\d[\d,.]*")
+
+
+class PageNumbering(Exception):
+    """The per-page words endpoint numbers this edition's leaves otherwise
+    than its scan: the caller takes the whole djvu.xml instead."""
+
+
+def outage(e):
+    """Whether a fetch error shows archive.org down rather than this edition
+    failing: no connection, a timeout, or a 5xx."""
+    if isinstance(e, urllib.error.HTTPError):
+        return e.code >= 500
+    return isinstance(e, (urllib.error.URLError, TimeoutError, ConnectionError))
+
+
+def object_leaf(el):
+    """The scan leaf a djvu.xml OBJECT holds, from its PAGE param, or None."""
+    for p in el.iter("PARAM"):
+        if p.get("name") == "PAGE":
+            m = re.search(r"_(\d+)\.djvu$", p.get("value") or "")
+            return int(m.group(1)) if m else None
+    return None
 
 
 class Fetcher:
@@ -282,11 +316,15 @@ def slug_of(item, name):
 
 
 def page_texts(xml_bytes):
-    """[(width, height, text)] per leaf, from a djvu.xml."""
+    """[(width, height, text)] per scan leaf, from a djvu.xml; a leaf it has
+    no OBJECT for (a colour card) is (0, 0, "")."""
     pages = []
     for _, el in ET.iterparse(io.BytesIO(xml_bytes), events=("end",)):
         if el.tag != "OBJECT":
             continue
+        leaf = object_leaf(el)
+        while leaf is not None and len(pages) < leaf:
+            pages.append((0, 0, ""))
         lines = []
         for line in el.iter("LINE"):
             lines.append(" ".join((w.text or "") for w in line.iter("WORD")))
@@ -370,9 +408,13 @@ def sparse_djvu_xml(fx, meta, item, name, leaves, count):
             {"path": f"{meta['dir']}/{name}_djvu.xml", "mode": "djvu_xml", "page": leaf})
         data = fx.get(url, f"{name} page {leaf} words")
         start = data.find(b"<OBJECT")
+        if not data.strip():
+            raise PageNumbering(f"page {leaf} words: empty reply, past the djvu.xml's last page")
         if start < 0 or b"</OBJECT>" not in data:
             raise RuntimeError(f"page {leaf} words: no OBJECT in the reply ({data[:60]!r})")
         el = ET.fromstring(data[start:data.rindex(b"</OBJECT>") + len(b"</OBJECT>")])
+        if object_leaf(el) not in (None, leaf):
+            raise PageNumbering(f"page {leaf} words: the reply holds leaf {object_leaf(el)}")
         dims[leaf] = (int(el.get("width") or 0), int(el.get("height") or 0))
         parts.append(data[start:data.rindex(b"</OBJECT>") + len(b"</OBJECT>")] + b"\n")
     parts.append(b"</BODY></DjVuXML>\n")
@@ -467,6 +509,9 @@ def fetch_edition(fx, item, meta, name):
                 raise
             log(f"  {name}: per-page words refused (HTTP {e.code}); using the djvu.xml")
             cached = None
+        except PageNumbering as e:
+            log(f"  {name}: {e}; using the djvu.xml")
+            cached = None
     if cached is None:
         for suffix, local in (("_djvu.txt", "djvu.txt.gz"), ("_djvu.xml", "djvu.xml.gz")):
             path = os.path.join(d, local)
@@ -517,6 +562,11 @@ def items_of(fx, group):
     return sorted(keep)
 
 
+def interleave(lists):
+    """The lists' items taken in turn, one from each: [[a, b, c], [x]] -> [a, x, b, c]."""
+    return [x for row in itertools.zip_longest(*lists) for x in row if x is not None]
+
+
 class Run:
     """The editions in flight and the tallies; the done/failure logs are appended under a lock."""
 
@@ -540,7 +590,7 @@ class Run:
                 log(f"  FAIL {name} after {time.monotonic() - t:.0f}s, left for the next run: "
                     f"{type(e).__name__}: {e}")
                 append(self.out, "failures.tsv", [time.strftime("%F %T"), item, name, f"{type(e).__name__}: {e}"])
-                self.in_a_row += 1
+                self.in_a_row = self.in_a_row + 1 if outage(e) else 0
                 if self.in_a_row >= FAILURES_IN_A_ROW and not self.stop:
                     self.stop = True
                     log(f"stopping: {self.in_a_row} editions in a row failed; archive.org looks down")
@@ -577,7 +627,7 @@ def main():
     if args.item:
         plan = [("item", it) for it in args.item]
     else:
-        plan = [(g, it) for g in (args.group or [g[0] for g in GROUPS]) for it in items_of(fx, g)]
+        plan = interleave([[(g, it) for it in items_of(fx, g)] for g in (args.group or [g[0] for g in GROUPS])])
 
     # Every one-item-a-year listing first: archive_coverage reads them, and an
     # edition run can stop long before it reaches a group's last item.
