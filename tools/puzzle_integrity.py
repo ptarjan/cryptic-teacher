@@ -1202,9 +1202,11 @@ def check_rewrite(old, new, flags):
     fetch_puzzle.carry_recovered_clues."""
     # A clue on two lights of an OCR reading was lost on all but one, and one
     # holding another clue's or the page's text (ocr_clues.bled) is not its
-    # own: blanking either loses nothing.
+    # own, and one with a doubled word or a stray letter (ocr_clues.stray)
+    # is not the print's: blanking any of them loses nothing.
     lost = {i for ids in duplicated_clues(old.get("entries") or []) for i in ids} \
-        | {entry_id(e) for e in clued(old.get("entries") or []) if ocr_clues.bled(e["clue"]["text"])} \
+        | {entry_id(e) for e in clued(old.get("entries") or [])
+           if ocr_clues.bled(e["clue"]["text"]) or ocr_clues.stray(e["clue"]["text"])} \
         if (old.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS else set()
     was = {entry_id(e): e["clue"]["text"] for e in clued(old.get("entries") or []) if entry_id(e) not in lost}
     for e in new.get("entries") or []:

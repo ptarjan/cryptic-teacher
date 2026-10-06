@@ -1593,6 +1593,120 @@ def doubled(text):
             if len(a) >= 2 and len(b) - len(a) >= 3 and b.lower().startswith(a.lower())]
 
 
+#: How often the corpus's clues must print a word twice in a row for the
+#: pair to be English ("in in", "very very", "old old"), not a reading's
+#: word voted in beside another's ("composer composer").
+DOUBLE_FLOOR = 5
+#: A token ending in one of these marks the next word as a sentence's start,
+#: a quotation's or an aside's, where a capital is the print's.
+OPENS_NEXT = tuple(".?!:;\"'()\u2014\u2013-\u201c\u201d\u2018\u2019\u2026&")
+#: The lone small letters a clue prints: the article, and "v" for versus.
+LONE_LETTER_OK = {"a", "v"}
+#: Two lone small letters that are e.g. or i.e. with their stops lost.
+LETTER_PAIRS = {("e", "g"), ("i", "e")}
+#: The words before a lone small letter that make it a letter the clue
+#: names ("with a c", "the letter n").
+NAMES_LETTER = {"a", "an", "the", "letter", "letters"}
+
+
+def strays(text):
+    """[(k, why)] for each whitespace token `text.split()[k]` of a voted clue
+    that no print has there:
+      - a word printed again straight after itself with nothing between
+        ("composer composer"; k is the second), unless the corpus's clues
+        print that pair DOUBLE_FLOOR times ("in in", "very very");
+      - a capitalised word inside a sentence repeating an earlier word of
+        the clue, where it breaks the phrase: the corpus's clues never print
+        it before the next word and do print the words either side of it
+        together ("Plan is to Plan destroy", a reading's line start voted
+        in again; not "Doctor and Doctor", "the art of The Times");
+      - a lone small letter, not LONE_LETTER_OK, an apostrophe's ("'e",
+        "'s"), a quoted or dashed one ("--s"), e.g. / i.e. or a letter the
+        clue names ("with a c"): "round t the heart", "new t". A capital
+        letter alone is the setter's ("S Africa", "Brand X").
+    Clues print none of these: each is one reading's speck or doubled line
+    the vote left in."""
+    raw = (text or "").split()
+    _, pair, _ = clue_lm()
+    bare = [r.strip(EDGE) for r in raw]
+    out = []
+    for k in range(1, len(raw)):
+        a, b = bare[k - 1], bare[k]
+        if a.isalpha() and len(a) > 1 and a.lower() == b.lower() and raw[k - 1] == a and raw[k].startswith(b) \
+                and pair.get(f"{a.lower()} {a.lower()}", 0) < DOUBLE_FLOOR:
+            out.append((k, "a word doubled"))
+    seen = set()
+    for k, w in enumerate(bare):
+        heads = tokens(raw[k + 1]) if k + 1 < len(raw) else []
+        if k and w.isalpha() and len(w) > 1 and w[0].isupper() and w[1:].islower() and w.lower() in seen \
+                and raw[k] == w and not raw[k - 1].endswith(OPENS_NEXT) and bare[k - 1].isalpha() \
+                and heads and raw[k + 1][0].islower():
+            before, after = bare[k - 1].lower(), heads[0].lower()
+            if not pair.get(f"{w.lower()} {after}") and pair.get(f"{before} {after}"):
+                out.append((k, "an earlier word repeated inside the clue"))
+        seen.update(t.lower() for t in tokens(raw[k]))
+    for k, s in enumerate(bare):
+        if len(s) != 1 or not s.islower() or s in LONE_LETTER_OK \
+                or re.search("['\u2019\u2018\"\u201c\u201d\\-\u2014\u2013]", raw[k]):
+            continue
+        prev = bare[k - 1].lower() if k else ""
+        nxt = bare[k + 1].lower() if k + 1 < len(raw) else ""
+        if (s, nxt) in LETTER_PAIRS or (prev, s) in LETTER_PAIRS or prev in NAMES_LETTER:
+            continue
+        out.append((k, "a stray letter"))
+    return sorted(out)
+
+
+def stray(text):
+    """[(token, why)] for each token strays() flags."""
+    raw = (text or "").split()
+    return [(raw[k], why) for k, why in strays(text)]
+
+
+def unstrayed(text, theirs):
+    """`text` with each token strays() flags mended from the readings
+    `theirs` (each one's text for the clue): taken out where a reading
+    prints the words either side of it together, or set in capitals where
+    one prints it so ("Brand X"); a flag no reading mends stands, for the
+    caller to file the clue blank."""
+    seqs = [[w.lower() for w in tokens(t)] for t in theirs]
+    caps = [tokens(t) for t in theirs]
+
+    def printed(left, mid, right, case=False):
+        want = [w for w in (left, *mid, right) if w is not None]
+        for ws, cs in zip(seqs, caps):
+            for i in range(len(ws) - len(want) + 1):
+                if ws[i:i + len(want)] == [w.lower() for w in want] and (left is not None or i == 0) and (
+                        right is not None or i + len(want) == len(ws)) and (
+                        not case or all(c in cs[i:i + len(want)] for c in mid)):
+                    return True
+        return False
+    for _ in range(len((text or "").split())):
+        flags = strays(text)
+        if not flags:
+            break
+        raw = text.split()
+        mended = None
+        for k, why in flags:
+            left = (tokens(" ".join(raw[:k])) or [None])[-1]
+            right = (tokens(" ".join(raw[k + 1:])) or [None])[0]
+            word = raw[k].strip(EDGE)
+            if printed(left, [], right):
+                mended = raw[:k] + raw[k + 1:]
+                # A stop after the dropped letter ends the word before it: "new t." is "new.".
+                tail = raw[k][raw[k].index(word) + len(word):]
+                if k and re.fullmatch(r"[.,;:?!]+", tail) and not raw[k - 1].endswith(tuple(tail)):
+                    mended[k - 1] += tail
+                break
+            if why == "a stray letter" and printed(left, [word.upper()], right, case=True):
+                mended = raw[:k] + [raw[k].replace(word, word.upper(), 1)] + raw[k + 1:]
+                break
+        if mended is None:
+            break
+        text = " ".join(mended)
+    return text
+
+
 def suspect(text, vouched=()):
     """[(token, why)] for each word of a clue's text that OCR, not the setter,
     wrote. `vouched` holds lower-case words every reading spelt alike, which
@@ -1640,7 +1754,7 @@ def suspect(text, vouched=()):
     k = unpaired(text)
     if k is not None:
         out.append((next(r for r in text.split() if text[k] in r), "a bracket never closed or opened"))
-    return out
+    return out + stray(text)
 
 
 # ------------------------------------------------------------ the VLM's pick
@@ -1863,7 +1977,8 @@ def as_printed(texts, laid, blank, parse, lengths):
         if why:
             laid[lid], blank[lid] = ("", None, group), why
             continue
-        laid[lid] = (printed_words(text, [t for t, _ in theirs], broken), enum, group)
+        text = printed_words(text, [t for t, _ in theirs], broken)
+        laid[lid] = (unstrayed(text, [t for t, _ in theirs]), enum, group)
     return laid, blank
 
 
