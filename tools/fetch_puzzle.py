@@ -1029,8 +1029,7 @@ def write_puzzle_file(path, puzzle, generator=None):
     # A new id is refused when its clues are another held puzzle's, whichever
     # filer wrote it, and every corpus write enters the index, so a second
     # copy filed by the same run is refused too.
-    if corpus and held is None:
-        check_not_copy(puzzle)
+    superseded = check_not_copy(puzzle) if corpus and held is None else []
     dest = puzzle_paths.file_for(puzzle) if corpus else path
     dest.parent.mkdir(parents=True, exist_ok=True)
     # Whole or not at all: a long job's checkpoint (tools/durable.sh) commits
@@ -1048,8 +1047,11 @@ def write_puzzle_file(path, puzzle, generator=None):
         import clues_only  # noqa: PLC0415 — it imports this module
         if (waiting := clues_only.find(puzzle["id"])) is not None:
             waiting.unlink()
-        if held is None or _CLUE_INDEX is not None:
+        if held is None or (_CLUE_INDEX is not None
+                            and _CLUE_INDEX_DIR == puzzle_paths.PUZZLE_DIR):
             clue_index().add(puzzle["id"], puzzle)
+        for book_id in superseded:
+            supersede_book(book_id, puzzle["id"])
     # The browser cannot fetch() off file:// (README: the site runs from disk),
     # so it is fed a generated script instead. Written here as well as by
     # --build-shims because a fetcher that has just rewritten a puzzle must not
@@ -2872,28 +2874,69 @@ def check_served(num, data, series="cryptic"):
 
 
 _CLUE_INDEX = None
+_CLUE_INDEX_DIR = None
 
 
 def clue_index():
-    """The corpus's clue index, built once per process (a few seconds)."""
-    global _CLUE_INDEX
-    if _CLUE_INDEX is None:
-        _CLUE_INDEX = ClueIndex.build()
+    """The clue index of puzzle_paths.PUZZLE_DIR, built once per process (a
+    few seconds) and again whenever PUZZLE_DIR names another tree, so a test
+    that points it at a scratch corpus is checked against that corpus alone."""
+    global _CLUE_INDEX, _CLUE_INDEX_DIR
+    if _CLUE_INDEX is None or _CLUE_INDEX_DIR != puzzle_paths.PUZZLE_DIR:
+        _CLUE_INDEX, _CLUE_INDEX_DIR = ClueIndex.build(), puzzle_paths.PUZZLE_DIR
     return _CLUE_INDEX
+
+
+def is_book(pid):
+    return pid.rsplit("-", 1)[0] == series_meta.BOOK_SERIES
 
 
 def check_not_copy(puzzle):
     """Refuse a page whose clues are another held puzzle's, of any series or
     number. /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with
     Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either made
-    two files hold one puzzle."""
+    two files hold one puzzle.
+
+    A newspaper's own puzzle outranks a book's reprint of it, whichever was
+    filed first: when every match is a held book-N file and `puzzle` is no
+    book, those ids are returned, for write_puzzle_file to turn into readings
+    of `puzzle` once it is filed (supersede_book). Otherwise [] or refused."""
     import puzzle_integrity  # noqa: PLC0415 — it imports this module
-    for other, shared, m, _ in clue_index().matches(puzzle["id"], clue_keys(puzzle)):
+    hits = clue_index().matches(puzzle["id"], clue_keys(puzzle))
+    if hits and not is_book(puzzle["id"]) and all(is_book(h[0]) for h in hits):
+        return [h[0] for h in hits]
+    for other, shared, m, _ in hits:
         why = f"{shared} of {m} clues are {other}'s"
         raise puzzle_integrity.RefusedWrite(
             f"requested {puzzle['id']} but the page served the clues of "
             f"{other} ({shared} of {m} clues are the same) — refusing to file a copy",
             [("NEARDUP", puzzle["id"], why)])
+    return []
+
+
+def supersede_book(book_id, original_id):
+    """Turn held book file `book_id` into a reading of `original_id`, the
+    newspaper puzzle it reprints, as tools/acquire_book.py keeps a leaf that
+    reprints a held puzzle: its clues go to book_queue.REPRINT_DIR/<original>/,
+    and its file, shim and clue-index entry go."""
+    import book_queue  # only a superseding write needs it
+    path = puzzle_paths.find(book_id)
+    book = read_puzzle_file(path)
+    lights = {"across": [], "down": []}
+    for e in book.get("entries") or []:
+        c = e.get("clue") if isinstance(e.get("clue"), dict) else {"text": e.get("clue")}
+        lights[e["direction"]].append(
+            [e["number"], e.get("length"), None,
+             {"clue": c.get("text"), "enumeration": c.get("enumeration")}])
+    leaf = (book.get("source") or {}).get("book") or {}
+    saved = book_queue.save_reprint(original_id, leaf.get("identifier", book_id),
+                                    leaf.get("numberInBook", book.get("number")),
+                                    lights["across"], lights["down"])
+    path.unlink()
+    puzzle_paths.shim_path(path).unlink(missing_ok=True)
+    clue_index().discard(book_id)
+    print(f"{book_id} reprints {original_id}: removed, its clues kept as a "
+          f"reading at {saved}", file=sys.stderr)
 
 
 def fetch_number(num, series="cryptic"):
