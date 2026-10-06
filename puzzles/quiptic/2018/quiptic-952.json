@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,43 @@
     "text": "Last year’s eye problem",
     "enumeration": "4"
    },
-   "solution": "STYE"
+   "solution": "STYE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STYE",
+    "definitions": [
+     {
+      "text": "eye problem",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "’s",
+      "for": "hidden_word",
+      "note": "the possessive says the answer belongs to, and so sits inside, the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last year",
+      "gives": "STYE",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone recalls an eye infection they suffered twelve months ago.",
+     "walkthrough": "The answer sits across 'laST YEar'; the possessive is the only hint that the opening words hold it.",
+     "definitionFit": "A stye is a small painful swelling on the edge of an eyelid, a common minor eye complaint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Last"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +86,50 @@
     "text": "Not starting amusements is mean",
     "enumeration": "6"
    },
-   "solution": "UNFAIR"
+   "solution": "UNFAIR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "UNFAIR",
+    "definitions": [
+     {
+      "text": "mean",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not starting",
+      "for": "deletion",
+      "note": "something not starting has lost its opening, so the first letter goes"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "amusements",
+      "gives": "FUNFAIR",
+      "note": "a funfair is a travelling show of rides and amusements"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNFAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a fairground's rides not opening is a rotten trick.",
+     "definitionFit": "Unfair and mean are synonyms when describing treatment that is unkind or not just."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "amusements"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +149,47 @@
      }
     ]
    },
-   "solution": "FELTROLLER"
+   "solution": "FELTROLLER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FELT ROLLER",
+    "definitions": [
+     {
+      "text": "Painter’s tool",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "touched",
+      "gives": "FELT",
+      "note": "felt is the past tense of feel, to touch"
+     },
+     {
+      "clueFragment": "fancy car",
+      "gives": "ROLLER",
+      "note": "a Roller is slang for a Rolls-Royce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FELT",
+      "ROLLER"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist runs a hand over a luxury motor.",
+     "walkthrough": "Roller is British slang for a Rolls-Royce, the classic posh car.",
+     "definitionFit": "A felt roller is a cylinder covered in fabric that decorators use to spread paint over walls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "touched"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +203,49 @@
     "text": "Cloud visible initially in Northern Ireland may bring us snow",
     "enumeration": "6"
    },
-   "solution": "NIMBUS"
+   "solution": "NIMBUS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NIMBUS",
+    "definitions": [
+     {
+      "text": "Cloud",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "visible initially in",
+      "for": "letter_selection",
+      "note": "what shows at the start of each word is its opening letter, so only the first letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Northern Ireland may bring us snow",
+      "gives": "NIMBUS",
+      "select": "first",
+      "note": "the first letter of each of the six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIMBUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecast warns that a cloud seen over Northern Ireland might bring snow.",
+     "walkthrough": "Each of the last six words supplies its first letter, and the surface's forecast fits the cloud nicely.",
+     "definitionFit": "Nimbus is the meteorological term for a rain-bearing cloud, as in cumulonimbus and nimbostratus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visible"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +259,51 @@
     "text": "Repeats a stupid part",
     "enumeration": "8"
    },
-   "solution": "SEPARATE"
+   "solution": "SEPARATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEPARATE",
+    "definitions": [
+     {
+      "text": "part",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stupid",
+      "for": "anagram",
+      "note": "something stupid is muddled, so these letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Repeats a",
+      "gives": "REPEATSA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPEATSA",
+       "gives": "SEPARATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who keeps saying the same thing gets cast as the fool of a play.",
+     "walkthrough": "'Part' looks like a noun, a role; here it is the verb meaning to split.",
+     "definitionFit": "To part and to separate are synonymous verbs for dividing things or people from each other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "part"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +317,43 @@
     "text": "Serves cards",
     "enumeration": "4"
    },
-   "solution": "ACES"
+   "solution": "ACES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACES",
+    "definitions": [
+     {
+      "text": "Serves",
+      "at": 0
+     },
+     {
+      "text": "cards",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serves",
+      "note": "first meaning: tennis serves the receiver cannot touch"
+     },
+     {
+      "clueFragment": "cards",
+      "note": "second meaning: the one-spot cards in each suit"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it suggests dealing a hand; the two words are separate meanings.",
+     "definitionFit": "In tennis an unreturnable serve is called an ace, and an ace is also the highest-ranking card in many games."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Serves"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +367,56 @@
     "text": "Not noticing jockey – genuine (and small)",
     "enumeration": "8"
    },
-   "solution": "UNSEEING"
+   "solution": "UNSEEING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNSEEING",
+    "definitions": [
+     {
+      "text": "Not noticing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jockey",
+      "for": "anagram",
+      "note": "to jockey is to manoeuvre and shift about, so the letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "genuine",
+      "gives": "GENUINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GENUINES",
+       "gives": "UNSEEING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short, honest rider fails to spot something during a race.",
+     "walkthrough": "'Jockey' looks like the rider in the scene but is the verb signalling a rearrangement.",
+     "definitionFit": "Unseeing describes someone whose eyes are open yet who fails to take in what is in front of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jockey"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +430,42 @@
     "text": "Only water",
     "enumeration": "4"
    },
-   "solution": "MERE"
+   "solution": "MERE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MERE",
+    "definitions": [
+     {
+      "text": "Only",
+      "at": 0
+     },
+     {
+      "text": "water",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only",
+      "note": "first meaning: nothing more than"
+     },
+     {
+      "clueFragment": "water",
+      "note": "second meaning: a lake or pond, a poetic and dialect word"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a request for nothing but water; a mere is also a lake, a word that survives in English place names such as Windermere.",
+     "definitionFit": "Mere as an adjective means just or simply, and as a noun it names a small lake or pool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +479,51 @@
     "text": "Fly entering a fruit",
     "enumeration": "9"
    },
-   "solution": "TANGERINE"
+   "solution": "TANGERINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TANGERINE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fly",
+      "for": "anagram",
+      "note": "to fly is to move off wildly, so the letters scatter into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entering a",
+      "gives": "ENTERINGA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENTERINGA",
+       "gives": "TANGERINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insect crawls into a piece of fruit.",
+     "walkthrough": "'Fly' wants to be the insect; it is the signal to rearrange the next two words.",
+     "definitionFit": "A tangerine is a small sweet orange-coloured citrus fruit, close kin to the mandarin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +537,55 @@
     "text": "Sporty Sebastian takes an Inuit boat",
     "enumeration": "5"
    },
-   "solution": "CANOE"
+   "solution": "CANOE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CANOE",
+    "definitions": [
+     {
+      "text": "Inuit boat",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "taking something in means holding it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sporty Sebastian",
+      "gives": "COE",
+      "note": "Sebastian Coe, the British Olympic middle-distance runner"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AN",
+      "OE"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete takes to the water in an Arctic boat.",
+     "walkthrough": "Sebastian Coe won Olympic gold at 1500 metres for Britain and later ran the London 2012 Games.",
+     "definitionFit": "Canoe is a broad name for a light narrow paddled craft, which covers the kayaks built by Inuit hunters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sporty"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +599,46 @@
     "text": "Worship at some sex altar",
     "enumeration": "5"
    },
-   "solution": "EXALT"
+   "solution": "EXALT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EXALT",
+    "definitions": [
+     {
+      "text": "Worship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "only some of the following letters are wanted, a run lying within them"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sex altar",
+      "gives": "EXALT",
+      "note": "the run straddles the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A racy picture of devotion at an altar dedicated to sex.",
+     "definitionFit": "To exalt someone is to praise them highly or glorify them, close to worshipping them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sex"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +652,57 @@
     "text": "Money, ie note, provides support",
     "enumeration": "9"
    },
-   "solution": "BRASSIERE"
+   "solution": "BRASSIERE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRASSIERE",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "BRASS",
+      "note": "brass is northern English slang for cash"
+     },
+     {
+      "clueFragment": "ie",
+      "gives": "IE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "RE",
+      "note": "re is the second note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRASS",
+      "IE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash, that is a banknote, gives financial backing.",
+     "walkthrough": "'Support' sounds financial after 'money', but it is the undergarment that gives support.",
+     "definitionFit": "A brassiere is a bra, an undergarment whose job is to hold up and support the breasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +716,66 @@
     "text": "You French inhaling polluted air of different kinds",
     "enumeration": "7"
    },
-   "solution": "VARIOUS"
+   "solution": "VARIOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "VARIOUS",
+    "definitions": [
+     {
+      "text": "of different kinds",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "polluted",
+      "for": "anagram",
+      "note": "polluted means spoilt and disordered, so these letters are jumbled"
+     },
+     {
+      "text": "inhaling",
+      "for": "container",
+      "note": "breathing something in takes it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You French",
+      "gives": "VOUS",
+      "note": "vous is French for you"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "AIR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "ARI",
+      "OUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIR",
+       "gives": "ARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "French people breathe in dirty air of several sorts.",
+     "definitionFit": "Various means assorted or diverse, describing a set of things that differ from one another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "polluted"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +789,57 @@
     "text": "Did reviewer turn up to cover musician?",
     "enumeration": "5"
    },
-   "solution": "VERDI"
+   "solution": "VERDI",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "VERDI",
+    "definitions": [
+     {
+      "text": "musician",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cover",
+      "for": "hidden_word",
+      "note": "the words cover the answer, holding it concealed within them"
+     },
+     {
+      "text": "turn up",
+      "for": "reversal",
+      "note": "in a down entry, turning up means reading from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Did reviewer",
+      "gives": "IDREV",
+      "note": "a run of letters across the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "IDREV",
+       "to": "VERDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a critic showed up to report on a performer.",
+     "walkthrough": "Read 'dID REViewer' backwards to find VERDI; the question mark admits the surface is a tease.",
+     "definitionFit": "Giuseppe Verdi was the Italian composer of operas such as Aida, La Traviata and Rigoletto."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +853,48 @@
     "text": "Weaponise collieries – they can be hairy!",
     "enumeration": "7"
    },
-   "solution": "ARMPITS"
+   "solution": "ARMPITS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMPITS",
+    "definitions": [
+     {
+      "text": "they can be hairy",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Weaponise",
+      "gives": "ARM",
+      "note": "to arm is to equip with weapons"
+     },
+     {
+      "clueFragment": "collieries",
+      "gives": "PITS",
+      "note": "a pit is a coal mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "PITS"
+     ]
+    },
+    "explanation": {
+     "surface": "A call to turn coal mines into weapons, followed by a cheeky aside.",
+     "walkthrough": "The exclamation mark flags the playful definition: hairy here is literal rather than meaning scary.",
+     "definitionFit": "Armpits are the hollows under the shoulders where body hair commonly grows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hairy"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +908,83 @@
     "text": "Man admits love rejection not heartless but evil",
     "enumeration": "10"
    },
-   "solution": "MALEVOLENT"
+   "solution": "MALEVOLENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "MALEVOLENT",
+    "definitions": [
+     {
+      "text": "evil",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejection",
+      "for": "reversal",
+      "note": "rejecting something sends it back, so the word is turned round"
+     },
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "admitting lets something in, so one piece sits within the other"
+     },
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letter is removed"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "MALE",
+      "note": "a man is a male"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "LOVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAL",
+      "EVOL",
+      "E",
+      "NT"
+     ],
+     "reversals": [
+      {
+       "from": "LOVE",
+       "to": "EVOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jilted man, though hurt, isn't cold-hearted, merely wicked.",
+     "walkthrough": "The turned-round love sits inside the man's word just before its final letter, not at either end, which is easy to miss.",
+     "definitionFit": "Malevolent means wishing harm on others, a spiteful ill will that is close to evil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heartless"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +998,55 @@
     "text": "More painful therefore doctor gave painkiller at last",
     "enumeration": "5"
    },
-   "solution": "SORER"
+   "solution": "SORER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SORER",
+    "definitions": [
+     {
+      "text": "More painful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the end of each word, so only final letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "therefore",
+      "gives": "SO",
+      "note": "so and therefore both introduce a consequence"
+     },
+     {
+      "clueFragment": "doctor gave painkiller",
+      "gives": "RER",
+      "select": "last",
+      "note": "the final letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "RER"
+     ]
+    },
+    "explanation": {
+     "surface": "Things hurt more, so the doctor finally handed over pain relief.",
+     "definitionFit": "Sorer is the comparative of sore, meaning aching or hurting to a greater degree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "painkiller"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1060,52 @@
     "text": "Majestic Elgar composition",
     "enumeration": "5"
    },
-   "solution": "REGAL"
+   "solution": "REGAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REGAL",
+    "definitions": [
+     {
+      "text": "Majestic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "composition",
+      "for": "anagram",
+      "note": "a composition is something put together, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elgar",
+      "gives": "ELGAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELGAR",
+       "gives": "REGAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Praise for a stately piece by the English composer Edward Elgar.",
+     "walkthrough": "'Composition' seems to be a piece of music by the composer, but signals a rearrangement of his name.",
+     "definitionFit": "Regal means kingly or royal, so a regal bearing has the grandeur of majesty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1125,42 @@
      }
     ]
    },
-   "solution": "GOPLACES"
+   "solution": "GOPLACES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GO PLACES",
+    "definitions": [
+     {
+      "text": "Be successful",
+      "at": 0
+     },
+     {
+      "text": "travel",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be successful",
+      "note": "first meaning: an idiom for thriving in life"
+     },
+     {
+      "clueFragment": "travel",
+      "note": "second meaning: literally visiting destinations"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom for success and its literal sense of journeying are the two meanings.",
+     "definitionFit": "Someone who will go places is destined to get on in life, while to go places literally is to visit somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1174,60 @@
     "text": "Cut back endless test",
     "enumeration": "3"
    },
-   "solution": "AXE"
+   "solution": "AXE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "AXE",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "having no end means the final letter is dropped"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "test",
+      "gives": "EXAM",
+      "note": "an exam is a test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AXE"
+     ],
+     "reversals": [
+      {
+       "from": "EXA",
+       "to": "AXE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unfinished examination is cancelled after all.",
+     "walkthrough": "'Cut back' looks like one phrase meaning reduce, but 'back' belongs to the wordplay.",
+     "definitionFit": "To axe something is to cut it, as when a budget or a job is scrapped."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1241,56 @@
     "text": "Al abandoned girl down under for a European",
     "enumeration": "8"
    },
-   "solution": "AUSTRIAN"
+   "solution": "AUSTRIAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AUSTRIAN",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "when something is abandoned it is left out, so those letters go"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Al",
+      "gives": "AL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "girl down under",
+      "gives": "AUSTRALIAN",
+      "note": "a girl from Down Under is an Australian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTRIAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Al dumped his Australian girlfriend in favour of someone from Europe.",
+     "walkthrough": "Down Under is the nickname for Australia; remove AL from AUSTRALIAN to leave the answer.",
+     "definitionFit": "An Austrian is a native of Austria, a country in central Europe, so is a European."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abandoned"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1304,50 @@
     "text": "Mix large drink",
     "enumeration": "5"
    },
-   "solution": "LAGER"
+   "solution": "LAGER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAGER",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 10
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mix",
+      "for": "anagram",
+      "note": "mixing stirs things up, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "LARGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LARGE",
+       "gives": "LAGER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order at the bar for a big mixed drink.",
+     "definitionFit": "Lager is a pale, light beer, one of the commonest alcoholic drinks served in pubs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mix"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1361,47 @@
     "text": "Passes on compiler’s bits",
     "enumeration": "7"
    },
-   "solution": "IMPARTS"
+   "solution": "IMPARTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPARTS",
+    "definitions": [
+     {
+      "text": "Passes on",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compiler’s",
+      "gives": "IM",
+      "note": "the setter refers to themself, so the compiler is 'I am', shortened"
+     },
+     {
+      "clueFragment": "bits",
+      "gives": "PARTS",
+      "note": "bits and parts are pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "PARTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hands over bits belonging to the puzzle setter.",
+     "walkthrough": "The compiler is the crossword setter, who speaks as I; 'compiler's' is read as 'I'm'.",
+     "definitionFit": "To impart knowledge or news is to pass it on or communicate it to someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "compiler’s"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1415,54 @@
     "text": "Relish hugging one rescuer",
     "enumeration": "7"
    },
-   "solution": "SAVIOUR"
+   "solution": "SAVIOUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAVIOUR",
+    "definitions": [
+     {
+      "text": "rescuer",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "to hug is to wrap around, so one piece is held inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relish",
+      "gives": "SAVOUR",
+      "note": "to relish something is to savour it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAV",
+      "I",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoys embracing the person who saved them.",
+     "definitionFit": "A saviour is a person who saves others from danger, which is exactly what a rescuer does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Relish"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1476,42 @@
     "text": "Hammer vehicle",
     "enumeration": "6"
    },
-   "solution": "SLEDGE"
+   "solution": "SLEDGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SLEDGE",
+    "definitions": [
+     {
+      "text": "Hammer",
+      "at": 0
+     },
+     {
+      "text": "vehicle",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hammer",
+      "note": "first meaning: a heavy two-handed hammer, a sledgehammer"
+     },
+     {
+      "clueFragment": "vehicle",
+      "note": "second meaning: a sled pulled over snow"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an instruction to smash a car; the two words are separate meanings.",
+     "definitionFit": "A sledge is short for a sledgehammer, and also a runnered conveyance dragged across snow or ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hammer"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1525,48 @@
     "text": "Where you may get beef to follow soup",
     "enumeration": "6"
    },
-   "solution": "OXTAIL"
+   "solution": "OXTAIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OXTAIL",
+    "definitions": [
+     {
+      "text": "soup",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where you may get beef",
+      "gives": "OX",
+      "note": "beef comes from cattle such as the ox"
+     },
+     {
+      "clueFragment": "to follow",
+      "gives": "TAIL",
+      "note": "to tail someone is to follow them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OX",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Restaurant advice on where to order a beef course after the starter.",
+     "walkthrough": "'To follow soup' sounds like the next course on a menu, but soup is the definition itself.",
+     "definitionFit": "Oxtail is a rich brown soup made from the tail of cattle, a traditional British favourite."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "follow"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1580,49 @@
     "text": "A place to eat for senior officers by a lake",
     "enumeration": "9"
    },
-   "solution": "BRASSERIE"
+   "solution": "BRASSERIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRASSERIE",
+    "definitions": [
+     {
+      "text": "A place to eat",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senior officers",
+      "gives": "BRASS",
+      "note": "top brass are the highest-ranking officers"
+     },
+     {
+      "clueFragment": "a lake",
+      "gives": "ERIE",
+      "note": "Lake Erie, one of the North American Great Lakes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRASS",
+      "ERIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lakeside restaurant for high-ranking military officers.",
+     "definitionFit": "A brasserie is an informal restaurant, originally French, serving simple meals and drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1636,61 @@
     "text": "Bravo, you upset cardinal as an example",
     "enumeration": "4"
    },
-   "solution": "BUOY"
+   "solution": "BUOY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "BUOY",
+    "definitions": [
+     {
+      "text": "cardinal as an example",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset means turned upside down, so the letters run bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bravo",
+      "gives": "B",
+      "note": "Bravo is B in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "YOU",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "UOY"
+     ],
+     "reversals": [
+      {
+       "from": "YOU",
+       "to": "UOY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Applause for someone who offended a churchman, presented as a model case.",
+     "walkthrough": "'Cardinal' suggests a churchman, but a cardinal mark is a type of navigation float showing safe water by compass point.",
+     "definitionFit": "Cardinal buoys are sea markers placed north, south, east or west of a hazard to guide shipping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "cardinal"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1704,47 @@
     "text": "They say perfume is in the post",
     "enumeration": "4"
    },
-   "solution": "SENT"
+   "solution": "SENT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SENT",
+    "definitions": [
+     {
+      "text": "in the post",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "They say",
+      "for": "homophone",
+      "note": "what people say is heard, so the sound of the word matters, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perfume",
+      "gives": "SENT",
+      "soundsLike": "SCENT",
+      "note": "a scent is a perfume"
+     }
+    ],
+    "explanation": {
+     "surface": "Rumour has it a bottle of fragrance has been mailed.",
+     "definitionFit": "A letter that has been sent has been dispatched, so it is already on its way by mail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "perfume"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1758,61 @@
     "text": "Extremely twee in soft rubber",
     "enumeration": "5"
    },
-   "solution": "LATEX"
+   "solution": "LATEX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LATEX",
+    "definitions": [
+     {
+      "text": "rubber",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only outer letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soft",
+      "gives": "LAX",
+      "note": "lax means slack or soft"
+     },
+     {
+      "clueFragment": "twee",
+      "gives": "TE",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "TE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "Something terribly cute is set in a soft rubber material.",
+     "definitionFit": "Latex is the milky sap of the rubber tree, also the name for the rubber made from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extremely"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1832,49 @@
      }
     ]
    },
-   "solution": "XMEN"
+   "solution": "XMEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "X-MEN",
+    "definitions": [
+     {
+      "text": "superheroes",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ten",
+      "gives": "X",
+      "note": "X is the Roman numeral ten"
+     },
+     {
+      "clueFragment": "guys",
+      "gives": "MEN",
+      "note": "guys are men"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "MEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Ten blokes turn out to be crime-fighting heroes.",
+     "definitionFit": "The X-Men are the team of mutant heroes in Marvel comics and films."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ten"
+    }
+   }
   },
   {
    "number": 28,
@@ -485,7 +1888,50 @@
     "text": "Once a stormy body of water",
     "enumeration": "5"
    },
-   "solution": "OCEAN"
+   "solution": "OCEAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OCEAN",
+    "definitions": [
+     {
+      "text": "body of water",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stormy",
+      "for": "anagram",
+      "note": "a storm churns things up, so the letters are tossed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once a",
+      "gives": "ONCEA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCEA",
+       "gives": "OCEAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sea that used to be rough, like a fairy-tale opening.",
+     "definitionFit": "An ocean is one of the vast expanses of salt water covering most of the Earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Once"
+    }
+   }
   },
   {
    "number": 29,
@@ -499,7 +1945,61 @@
     "text": "Barges into mines stripped of silver",
     "enumeration": "9"
    },
-   "solution": "ARGENTINE"
+   "solution": "ARGENTINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ARGENTINE",
+    "definitions": [
+     {
+      "text": "of silver",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "deletion",
+      "note": "stripping takes off the outer layer, so each word loses its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Barges",
+      "gives": "BARGES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mines",
+      "gives": "MINES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGE",
+      "NT",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "Boats crash into mine workings that have been emptied of their precious metal.",
+     "walkthrough": "'Barges into' looks like a verb phrase; all three words are shells whose insides are kept.",
+     "definitionFit": "Argentine is an old adjective meaning silvery or made of silver, from Latin argentum."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Barges"
+    }
+   }
   }
  ]
 }
