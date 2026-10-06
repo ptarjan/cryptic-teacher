@@ -194,8 +194,8 @@ for a in ("100", "200", "300"):
 tledger = Path(os.environ["TMP"]) / "t.jsonl"
 tpuzzles = Path(os.environ["TMP"]) / "tpuzzles"  # not the corpus: reading it outlasts a 0.1s slice
 tpuzzles.mkdir()
-tledger.write_text(json.dumps({"article": "100", "hash": "old", "skip": "x", "readAt": "2026-10-01"}) + "\n"
-                   + json.dumps({"article": "200", "hash": "old", "skip": "x", "readAt": "2026-09-01"}) + "\n")
+tledger.write_text(json.dumps({"article": "100", "inputs": F.inputs_of(tcache / "100"), "skip": "x", "readAt": "2026-10-01"}) + "\n"
+                   + json.dumps({"article": "200", "inputs": F.inputs_of(tcache / "200"), "skip": "x", "readAt": "2026-09-01"}) + "\n")
 read = []
 def slow(d, taken):
     read.append(d.name)
@@ -206,7 +206,7 @@ def tread(**kw):
     read.clear()
     F.run(tcache, ledger=tledger, out=io.StringIO(), puzzles=tpuzzles, **kw)
     return list(read)
-check("Trove: after the key change only the never-read article is read", ["300"], tread())
+check("Trove: a read article stands, only the never-read one is read", ["300"], tread())
 check("Trove: --reread BEFORE reads the oldest-read first, one a slice, the ledger saved after each, then stops",
       [["200"], ["100"], []], [tread(seconds=0.1, reread=stamp) for _ in range(3)])
 F.vlm.reachable, F.vlm.version = (lambda: True), (lambda: "v1")
