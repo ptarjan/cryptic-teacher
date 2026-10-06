@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Monster herb is leek in the end",
     "enumeration": "8"
    },
-   "solution": "BASILISK"
+   "solution": "BASILISK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BASILISK",
+    "definitions": [
+     {
+      "text": "Monster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept from the vegetable"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "herb",
+      "gives": "BASIL",
+      "note": "a common kitchen herb"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leek",
+      "gives": "K",
+      "select": "last",
+      "note": "final letter of leek"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASIL",
+      "IS",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's oddity: a herb that is somehow a leek at the bottom.",
+     "definitionFit": "A basilisk is a mythical reptile whose gaze could kill, a legendary beast of medieval bestiaries."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Monster"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,49 @@
     "text": "Top fellow to chill with",
     "enumeration": "6"
    },
-   "solution": "BODICE"
+   "solution": "BODICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BODICE",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "BOD",
+      "note": "bod is British slang for a person or chap"
+     },
+     {
+      "clueFragment": "chill",
+      "gives": "ICE",
+      "note": "to ice is to chill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOD",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "The top bloke to relax and hang out with.",
+     "definitionFit": "A bodice is the upper part of a dress or a close-fitting garment worn on the upper body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,43 @@
     "text": "Problem solver when things heat up",
     "enumeration": "6"
    },
-   "solution": "SUMMER"
+   "solution": "SUMMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUMMER",
+    "definitions": [
+     {
+      "text": "Problem solver",
+      "at": 0
+     },
+     {
+      "text": "when things heat up",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem solver",
+      "note": "first meaning: one who sums, doing arithmetic problems"
+     },
+     {
+      "clueFragment": "when things heat up",
+      "note": "second meaning: the hot season of the year"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a troubleshooter brought in when tensions rise; the first sense is a jokey word for someone doing sums.",
+     "definitionFit": "Summer is the warmest season, and read as sum-mer it names a person who adds figures to solve problems."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "heat"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +216,61 @@
      }
     ]
    },
-   "solution": "LONDONEYE"
+   "solution": "LONDONEYE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LONDON EYE",
+    "definitions": [
+     {
+      "text": "Ferris wheel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite complete, so the word for a marathon is cut short at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "marathon",
+      "gives": "LONG",
+      "note": "a marathon session is a long one"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "DONE",
+      "note": "done means finished"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "YE",
+      "note": "ye is the old form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LON",
+      "DONE",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired runner is told the marathon is nearly over at the big wheel.",
+     "walkthrough": "'Marathon' tempts towards the London Marathon, but it only means long here.",
+     "definitionFit": "The London Eye is the giant observation wheel on the Thames South Bank, a large Ferris wheel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "marathon"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +284,63 @@
     "text": "Geordie singer claims accent hurt work in rock",
     "enumeration": "12"
    },
-   "solution": "STONECUTTING"
+   "solution": "STONECUTTING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "STONECUTTING",
+    "definitions": [
+     {
+      "text": "work in rock",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claims",
+      "for": "container",
+      "note": "to claim is to take hold of, so the singer's name wraps round the other words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Geordie singer",
+      "gives": "STING",
+      "note": "Sting, the singer, comes from Newcastle; a Geordie is a native of Tyneside"
+     },
+     {
+      "clueFragment": "accent",
+      "gives": "TONE",
+      "note": "tone of voice, an accent"
+     },
+     {
+      "clueFragment": "hurt",
+      "gives": "CUT",
+      "note": "a cut is a hurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TONE",
+      "CUT",
+      "TING"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock star from Newcastle hurt his accent working in rock music.",
+     "walkthrough": "The insert goes in after the first letter of the singer's name.",
+     "definitionFit": "Stonecutting is the craft of shaping stone, literal work in rock, while the surface suggests rock music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rock"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +354,43 @@
     "text": "Pensioner, possibly one banging on?",
     "enumeration": "6"
    },
-   "solution": "BOOMER"
+   "solution": "BOOMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BOOMER",
+    "definitions": [
+     {
+      "text": "Pensioner, possibly",
+      "at": 0
+     },
+     {
+      "text": "one banging on",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pensioner, possibly",
+      "note": "first meaning: a baby ..., born after the war and now often retired"
+     },
+     {
+      "clueFragment": "one banging on",
+      "note": "second meaning: something that booms, making a loud noise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface jibes at older people who bang on about things; the second reading is literal, one who booms.",
+     "definitionFit": "Boomer is slang for the post-war generation, many now drawing pensions, and also literally a thing that makes a deep resounding noise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banging"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +404,56 @@
     "text": "Stars lit up drinking port",
     "enumeration": "5"
    },
-   "solution": "ORION"
+   "solution": "ORION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORION",
+    "definitions": [
+     {
+      "text": "Stars",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking means taking in, so the lit-up word takes the port inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lit up",
+      "gives": "ON",
+      "note": "a light that is lit is on"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, a Brazilian port"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RIO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Celebrities get drunk on port.",
+     "walkthrough": "'Lit up' and 'drinking' suggest getting drunk; port is the city, not the wine.",
+     "definitionFit": "Orion is a prominent constellation, a group of stars named for the hunter of Greek myth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +467,54 @@
     "text": "Police force completely in charge of copper?",
     "enumeration": "8"
    },
-   "solution": "METALLIC"
+   "solution": "METALLIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METALLIC",
+    "definitions": [
+     {
+      "text": "of copper?",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Police force",
+      "gives": "MET",
+      "note": "the Met, London's Metropolitan Police"
+     },
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "all means completely"
+     },
+     {
+      "clueFragment": "in charge",
+      "gives": "IC",
+      "note": "i/c is the abbreviation for in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "ALL",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of whether the whole police force is under one officer.",
+     "walkthrough": "Copper is slang for a police officer, but here it is the metal; the question mark flags copper as one example.",
+     "definitionFit": "Copper is a metal, so something made of copper is metallic in nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +528,53 @@
     "text": "Local piano exported from Cleveland?",
     "enumeration": "8"
    },
-   "solution": "RESIDENT"
+   "solution": "RESIDENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RESIDENT",
+    "definitions": [
+     {
+      "text": "Local",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exported from",
+      "for": "deletion",
+      "note": "something exported is sent out, so the letter leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical abbreviation for piano, softly"
+     },
+     {
+      "clueFragment": "Cleveland",
+      "gives": "PRESIDENT",
+      "note": "Grover Cleveland was twice a US president"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RESIDENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A local piano being shipped out of the Cleveland area.",
+     "walkthrough": "Cleveland looks like the place; it is the person, Grover Cleveland, so the question mark marks an example.",
+     "definitionFit": "A local is someone who lives in the area, so a resident of the place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cleveland"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +588,50 @@
     "text": "Power to impersonate cartoon henchman",
     "enumeration": "8"
    },
-   "solution": "DOMINION"
+   "solution": "DOMINION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOMINION",
+    "definitions": [
+     {
+      "text": "Power",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impersonate",
+      "gives": "DO",
+      "note": "to do someone is to mimic them"
+     },
+     {
+      "clueFragment": "cartoon henchman",
+      "gives": "MINION",
+      "note": "the yellow henchmen of the Despicable Me films"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "MINION"
+     ]
+    },
+    "explanation": {
+     "surface": "An impressionist hopes to gain power by doing a cartoon sidekick.",
+     "definitionFit": "Dominion means sovereign authority or control over territory and people, so it is a synonym for rule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Power"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +645,69 @@
     "text": "Knock about answer with puzzlers on break",
     "enumeration": "6"
    },
-   "solution": "HIATUS"
+   "solution": "HIATUS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HIATUS",
+    "definitions": [
+     {
+      "text": "break",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the striking word goes round the single letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down-free across reading, on means attached after, so the pronoun follows"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knock",
+      "gives": "HIT",
+      "note": "to knock is to strike"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the usual abbreviation for answer"
+     },
+     {
+      "clueFragment": "puzzlers",
+      "gives": "US",
+      "note": "the setter and solvers, the people puzzling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "A",
+      "T",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Puzzle-solvers knock an answer about while on their tea break.",
+     "definitionFit": "A hiatus is a pause or gap in a sequence, a synonym for an interruption or rest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Knock"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +727,61 @@
      }
     ]
    },
-   "solution": "STARGAZEYPIE"
+   "solution": "STARGAZEYPIE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STARGAZEY PIE",
+    "definitions": [
+     {
+      "text": "Cornish fare",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shocked",
+      "for": "anagram",
+      "note": "something shocked is jolted out of its normal state, so these letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graze pasty",
+      "gives": "GRAZEPASTY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for 'that is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STARGAZEYP",
+      "IE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GRAZEPASTY",
+       "gives": "STARGAZEYP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nibbling a pasty is shocked to hear it counts as Cornish food.",
+     "walkthrough": "The pasty is itself Cornish fare, which tempts you to take it as the answer.",
+     "definitionFit": "Stargazey pie is a traditional dish from Cornwall, baked with pilchard heads poking up through the pastry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pasty"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +795,54 @@
     "text": "I believe workers mostly party",
     "enumeration": "5"
    },
-   "solution": "CREDO"
+   "solution": "CREDO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CREDO",
+    "definitions": [
+     {
+      "text": "I believe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the word for workers loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "workers",
+      "gives": "CREW",
+      "note": "a crew is a team of workers"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A statement of faith that most workers like a party.",
+     "definitionFit": "Credo is Latin for 'I believe', the opening word of the Creed, and so names a statement of belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +856,58 @@
     "text": "Caught folk rockers hiding leader and daughter",
     "enumeration": "9"
    },
-   "solution": "ENTANGLED"
+   "solution": "ENTANGLED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENTANGLED",
+    "definitions": [
+     {
+      "text": "Caught",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding leader",
+      "for": "deletion",
+      "note": "hiding the leader means the band's first letter is concealed, so it is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "folk rockers",
+      "gives": "PENTANGLE",
+      "note": "Pentangle was a British folk-rock band of the late 1960s"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTANGLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Members of a folk band are caught hiding their frontman and his daughter.",
+     "walkthrough": "You need to know the band Pentangle; 'folk rockers' is not a general word for musicians here.",
+     "definitionFit": "Entangled means trapped or snared in something like a net, so it works as a synonym for caught."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rockers"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +921,63 @@
     "text": "Wild intercourse keeps Romeo coming back",
     "enumeration": "12"
    },
-   "solution": "RESURRECTION"
+   "solution": "RESURRECTION",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "RESURRECTION",
+    "definitions": [
+     {
+      "text": "coming back",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "container",
+      "note": "to keep something is to hold it inside, so the act takes in the letter"
+     },
+     {
+      "text": "Wild",
+      "for": "anagram",
+      "note": "wild suggests something out of control, so the letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intercourse",
+      "gives": "INTERCOURSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTERCOURSER",
+       "gives": "RESURRECTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A racy note: passionate sex keeps the lover Romeo coming back for more.",
+     "walkthrough": "The R can go anywhere inside, since the whole lot is then mixed.",
+     "definitionFit": "Resurrection is rising from the dead, a return to life, which is a coming back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +991,63 @@
     "text": "Drink money docked to pay for university",
     "enumeration": "9"
    },
-   "solution": "COINTREAU"
+   "solution": "COINTREAU",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "COINTREAU",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docked",
+      "for": "deletion",
+      "note": "docked means cut short, as a tail is, so the following phrase loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "money",
+      "gives": "COIN",
+      "note": "coin is money"
+     },
+     {
+      "clueFragment": "to pay",
+      "gives": "TREAT",
+      "note": "to treat someone is to pay for them"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COIN",
+      "TREA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A student's money is docked to pay university fees.",
+     "definitionFit": "Cointreau is a French orange liqueur, a branded alcoholic drink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "docked"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1061,62 @@
     "text": "Fit social worker bored by old hairdo",
     "enumeration": "8"
    },
-   "solution": "BOUFFANT"
+   "solution": "BOUFFANT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BOUFFANT",
+    "definitions": [
+     {
+      "text": "hairdo",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bored by",
+      "for": "container",
+      "note": "a thing bored by another is drilled into, so the next letter goes inside the word for fit"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fit",
+      "gives": "BUFF",
+      "note": "buff means physically fit and muscular"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "social worker",
+      "gives": "ANT",
+      "note": "ants are social insects and workers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "UFF",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An attractive social worker is bored by an old-fashioned hairstyle.",
+     "walkthrough": "The grammar suggests 'fit social worker' is one person; fit is separate and the old letter bores into it.",
+     "definitionFit": "A bouffant is a puffed-out, backcombed hairstyle, so a type of hairdo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1130,65 @@
     "text": "Avoid getting up, following school calendar",
     "enumeration": "8"
    },
-   "solution": "SCHEDULE"
+   "solution": "SCHEDULE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SCHEDULE",
+    "definitions": [
+     {
+      "text": "calendar",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting up",
+      "for": "reversal",
+      "note": "in a down clue, getting up means the word is read from bottom to top"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means placed after, so the school abbreviation comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "SCH is an abbreviation for school"
+     },
+     {
+      "clueFragment": "Avoid",
+      "gives": "ELUDE",
+      "note": "to elude is to avoid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCH",
+      "EDULE"
+     ],
+     "reversals": [
+      {
+       "from": "ELUDE",
+       "to": "EDULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Skipping the early morning start to keep pace with the school timetable.",
+     "definitionFit": "A schedule is a timetable or list of planned events, as a calendar is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "getting"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1208,79 @@
      }
     ]
    },
-   "solution": "ORCHESTRAPIT"
+   "solution": "ORCHESTRAPIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ORCHESTRA PIT",
+    "definitions": [
+     {
+      "text": "here",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, which alone is kept from conduct"
+     },
+     {
+      "text": "snarling",
+      "for": "anagram",
+      "note": "snarling suggests tangled up, so the letters are knotted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conduct",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of conduct"
+     },
+     {
+      "clueFragment": "others",
+      "gives": "OTHERS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "RAP",
+      "note": "to rap is to strike"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORCHEST",
+      "RAP",
+      "IT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COTHERS",
+       "gives": "ORCHEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conductor starts the band by growling 'hit it' at the players.",
+     "walkthrough": "'Here?' points at the place the scene happens: the sunken area where musicians play for a show.",
+     "definitionFit": "The orchestra pit is the area below the stage where the band plays, the very place a conductor would cue them in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "snarling"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1294,48 @@
     "text": "Small insect bit",
     "enumeration": "6"
    },
-   "solution": "SMIDGE"
+   "solution": "SMIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMIDGE",
+    "definitions": [
+     {
+      "text": "bit",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "MIDGE",
+      "note": "a midge is a tiny biting fly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny insect has bitten someone.",
+     "walkthrough": "'Bit' reads as the past of bite; it is the noun meaning a small amount.",
+     "definitionFit": "A smidge is a tiny amount, informal for a smidgen, meaning a little bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1349,54 @@
     "text": "Sorry fellow, below standard",
     "enumeration": "6"
    },
-   "solution": "PARDON"
+   "solution": "PARDON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARDON",
+    "definitions": [
+     {
+      "text": "Sorry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "below means underneath in a down entry, so the fellow sits after the standard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "standard",
+      "gives": "PAR",
+      "note": "par is the standard or norm"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "DON",
+      "note": "a don is a university fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A pitiful man whose work falls below the expected standard.",
+     "walkthrough": "'Sorry fellow' looks like one phrase; the definition is only the interjection asking someone to repeat.",
+     "definitionFit": "Both are interjections used to ask someone to repeat what they said, or to apologise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sorry"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1410,55 @@
     "text": "Independent swimmer cracks far side of the Channel",
     "enumeration": "9"
    },
-   "solution": "FREELANCE"
+   "solution": "FREELANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREELANCE",
+    "definitions": [
+     {
+      "text": "Independent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracks",
+      "for": "container",
+      "note": "to crack something is to break into it, so the fish goes inside the country"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "far side of the Channel",
+      "gives": "FRANCE",
+      "note": "the country across the English Channel from Britain"
+     },
+     {
+      "clueFragment": "swimmer",
+      "gives": "EEL",
+      "note": "an eel is a swimming fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FR",
+      "EEL",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone swimmer attempts to make it across the English Channel to France.",
+     "walkthrough": "'Independent' looks like a nod to the newspaper, but it is the definition.",
+     "definitionFit": "A freelance is self-employed, working for various clients rather than one employer, so is independent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Independent"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1472,62 @@
     "text": "Passed on eating last of duck pancake",
     "enumeration": "5"
    },
-   "solution": "LATKE"
+   "solution": "LATKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LATKE",
+    "definitions": [
+     {
+      "text": "pancake",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter, the only one kept from duck"
+     },
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means taking in, so the word for passed on swallows the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passed on",
+      "gives": "LATE",
+      "note": "the late someone has died, passed on"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "K",
+      "select": "last",
+      "note": "final letter of duck"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAT",
+      "K",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declined a pancake while eating duck.",
+     "walkthrough": "'Passed on' looks like declining food; it means died.",
+     "definitionFit": "A latke is a Jewish potato pancake, traditionally fried and eaten at Hanukkah."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Passed"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1541,55 @@
     "text": "You shouldn't have elected politician with a Florida resort",
     "enumeration": "5"
    },
-   "solution": "TAMPA"
+   "solution": "TAMPA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TAMPA",
+    "definitions": [
+     {
+      "text": "Florida resort",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You shouldn't have",
+      "gives": "TA",
+      "note": "said when thanking for a gift, and ta is British slang for thanks"
+     },
+     {
+      "clueFragment": "elected politician",
+      "gives": "MP",
+      "note": "a Member of Parliament is elected"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "MP",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests at a gift of a Florida holiday from their MP.",
+     "definitionFit": "Tampa is a city on the Gulf coast of Florida, popular with holidaymakers, so fits as a resort there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shouldn't"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1603,61 @@
     "text": "A place like Cambridge maintains universal sharpness",
     "enumeration": "6"
    },
-   "solution": "ACUITY"
+   "solution": "ACUITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ACUITY",
+    "definitions": [
+     {
+      "text": "sharpness",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintains",
+      "for": "container",
+      "note": "to maintain is to hold, so the place holds the letter within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "place like Cambridge",
+      "gives": "CITY",
+      "note": "Cambridge has city status, one example of such a place"
+     },
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film-rating letter for universal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "C",
+      "U",
+      "ITY"
+     ]
+    },
+    "explanation": {
+     "surface": "A university town boasts of keeping its universal intellectual edge.",
+     "definitionFit": "Acuity means keenness of thought or vision, a synonym for mental sharpness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cambridge"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1671,71 @@
     "text": "Brilliant child loses head after second place finish",
     "enumeration": "8"
    },
-   "solution": "SPLENDID"
+   "solution": "SPLENDID",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SPLENDID",
+    "definitions": [
+     {
+      "text": "Brilliant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses head",
+      "for": "deletion",
+      "note": "losing its head means the word for child gives up its first letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the beheaded child behind the preceding pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PL",
+      "note": "Pl. is the street-name abbreviation for place"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "an end is a finish"
+     },
+     {
+      "clueFragment": "child",
+      "gives": "KID",
+      "note": "a kid is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PL",
+      "END",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A gifted child sulks after only finishing in second place.",
+     "definitionFit": "Splendid means magnificent or excellent, a close synonym for brilliant as praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "place"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1749,50 @@
     "text": "Match official's card shown in rows",
     "enumeration": "6"
    },
-   "solution": "TIERED"
+   "solution": "TIERED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIERED",
+    "definitions": [
+     {
+      "text": "in rows",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "shown"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Match",
+      "gives": "TIE",
+      "note": "a tie is a match, as in a cup tie"
+     },
+     {
+      "clueFragment": "official's card",
+      "gives": "RED",
+      "note": "the red card a referee shows to send a player off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee's card is held up in front of rows of spectators.",
+     "walkthrough": "'Match official' reads as one unit, the referee, but it splits: Match is one piece and official's card another.",
+     "definitionFit": "Tiered describes things set in rising layers or banks, as seating arranged one row above another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Match"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1806,61 @@
     "text": "Ecru? Dreadfully thin colour",
     "enumeration": "8"
    },
-   "solution": "CERULEAN"
+   "solution": "CERULEAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CERULEAN",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dreadfully",
+      "for": "anagram",
+      "note": "something done dreadfully is done badly, so these letters are messed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ecru",
+      "gives": "ECRU",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "thin",
+      "gives": "LEAN",
+      "note": "lean means thin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CERU",
+      "LEAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ECRU",
+       "gives": "CERU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decorator dismisses a pale beige shade as dreadfully thin.",
+     "walkthrough": "Ecru is itself a colour, so it looks like the definition, but it is the fodder.",
+     "definitionFit": "Cerulean is a deep sky blue, a named shade like ecru."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ecru"
+    }
+   }
   }
  ]
 }
