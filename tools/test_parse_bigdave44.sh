@@ -50,6 +50,16 @@ braced = post(2, "DT 26869", """
 <p>1d  Firm has obligation (7)<br />
 { <span style="color: #ffffff;">COTERIE</span> } &#8211; string together</p>""", date="2012-01-05T11:00:00")
 print("BRACED", show(B.read_post(braced, CATS)["entries"]))
+slipped = post(21, "DT 27243", """
+<p><strong>Across</strong></p>
+<p>9a  Fragrance brought about by glamor (5)<br />
+{<span style="color: #ffffff;">AROMA</span>] &#8211; hidden backwards</p>
+<p>1d  Firm has obligation (7)<br />
+[<span style="color:white;">COTERIE</span>} string together</p>
+<p>2d  Large bird raising smaller ones (4)<br />
+(<span style="color:#fff;">SKUA</span>} &#8211; a reversal</p>
+<p>3d  Not an answer (4)<br />(Not WHITE} at all</p>""", date="2012-01-05T11:00:00")
+print("SLIPPED", show(B.read_post(slipped, CATS)["entries"]))
 
 # The Toughie's heading names the setter; the blogger's line never does.
 tough = post(3, "Toughie 2717", """<p>Toughie No 2717 by Robyn</p><p>Hints and tips by Miffypops</p>
@@ -147,6 +157,8 @@ check "the clue keeps its text and enumeration" \
   "First lick of paint on great building (6) | 5,7" "$(got CLUE)"
 check "a braced white-on-white answer is read; the suffix gives the direction" \
   "9a=AROMA 1d=COTERIE" "$(got BRACED)"
+check "a white answer is read whatever bracket was typed for one of its braces" \
+  "9a=AROMA 1d=COTERIE 2d=SKUA" "$(got SLIPPED)"
 check "the Toughie heading's byline is the setter" "Robyn" "$(got BYLINE)"
 check "a setter category names the setter" "Dada Zandio" "$(got CATEGORY)"
 check "the blogger is never the setter" "None" "$(got BLOGGER)"
