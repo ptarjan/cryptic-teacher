@@ -130,6 +130,49 @@ check("a jigsaw page is a puzzle of its own",
 check("an Across page is a puzzle of its own",
       P.is_continuation_leaf("ACROSS\n1 A clue (5)"), False)
 
+print("case 4e: a Down heading the OCR mangled or never printed still splits")
+# Real excerpts. timescrypticcros0000time #52 (Times book 21): every Down
+# heading in the book OCRs as "DOwNn". heraldcrosswordb0000unse #69: "DOWN i".
+# guardiancrosswor0000perk #12: no Down heading on the leaf at all.
+for line, want in (("DOwNn", "DOWN"), ("DOWN i", "DOWN"), ("ACROSS", "ACROSS"),
+                   ("Down a pint (4)", None)):
+    check(f"header {line!r}", P._header_kind(line), want)
+times = """ACROSS
+1 Agree to redraft of letters (6,3)
+6 Note rolls filled with uncooked meat (5)
+26 Finally detain suspect making a stink (5)
+27 Nothing to do when visiting islands, of course (4-5)
+
+DOwNn
+1 Rubbish loaded up into metal skip (5)
+2 Objects to a few kids at movie getting fidgety (5,1,3,4,2)
+23 It takes twenty-four hours — that’s right — to make spicy food (5)"""
+guardian = """ACROSS
+1 Consider cocaine, say? (5, 2, 1, 8
+8, 9 Left directly across the way (5, 8
+11 How ranks may be disposed to
+the sound of weeping (2, 5)
+12 Carry out to kill (7)
+25 Stupendous deficit in fuel (8)
+26 Put the question like Kidder-
+minster’s first journalist (5)
+1 Facing the opposite way ercaee 3
+out sailor’s ejection (7, 5
+2 During rain, go to the bar (5)
+3 Trinket, for example, made in 4
+Northants (9)
+5 Little boys used to pinch (7)"""
+for name, text, want in (("Times 'DOwNn'", times, (4, 3)),
+                         ("Guardian, no heading", guardian, (4, 3))):
+    p = P.build_puzzle(1, 0, [], [text])
+    check(f"{name}: across/down counts", (len(p["across"]), len(p["down"])), want)
+    check(f"{name}: Down opens at 1", p["down"][0]["number"], "1")
+check("a misread number mid-Across ('9 1 11') is not the cut",
+      P.down_restart([{"number": n} for n in
+                      ("1", "9", "1", "11", "12", "25", "4", "5", "7")]), 6)
+check("numbers that never fall: no Down list invented",
+      P.down_restart([{"number": n} for n in ("1", "5", "9", "10", "12", "14")]), None)
+
 print("case 4d: two clues OCR'd onto one line are cut at the enumeration")
 chunks = P.segment_clues(["11 Historical example of violence run forth (4, 5). 12 Lower the flag (5)",
                           "13 Not (2) a number cut (3)"])
