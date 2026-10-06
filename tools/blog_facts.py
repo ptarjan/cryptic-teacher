@@ -42,7 +42,6 @@ network.
 import argparse
 import ast
 import collections
-import fcntl
 import hashlib
 import html
 import html.parser
@@ -2310,6 +2309,8 @@ def main():
     if args.score:
         print("\n".join(score(args.score)))
         return
+    import fcntl  # not at the top: letter_facts imports this module on the desktop, and Windows has no fcntl
+
     # A full parse at nice 0 in every copy of this repo at once starved the bridge
     # sharing this machine until its container restarted. So it runs niced, and one
     # at a time machine-wide: the lock lives in $HOME, not in the checkout, so a

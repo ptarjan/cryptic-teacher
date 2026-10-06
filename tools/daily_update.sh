@@ -320,8 +320,10 @@ phase blog-facts 30
 # writes tools/data/blog_facts/, which the site's hints and the validator's
 # definition check read. A full parse is ~5 minutes, so --if-changed skips it
 # when no cached post, clue or the parser itself has moved since the files were
-# written. Before the annotation queue, so tonight's new puzzles are validated
-# against their blog. The commit's `git add -A` below picks the files up.
+# written. Its letter_facts pass builds the corpus-wide lexicons here and
+# reads the clues on the desktop (a local pool when it is busy or off).
+# Before the annotation queue, so tonight's new puzzles are validated against
+# their blog. The commit's `git add -A` below picks the files up.
 facts_out="$(mktemp "${TMPDIR:-/tmp}/cryptic-facts.XXXXXX")"
 step_start=$SECONDS
 python3 tools/blog_facts.py --if-changed >"$facts_out" 2>&1
