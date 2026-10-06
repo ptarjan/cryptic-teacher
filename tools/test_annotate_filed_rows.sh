@@ -148,6 +148,14 @@ try:
     pending.write_text(json.dumps({"1-down": {"answerTypo": ["FUMBLES", "test"]}}))
     filed, err = AC.file_rows(path, pending, data)
     check("an answerTypo on a model's fill is refused", not filed and "never printed" in err)
+
+    # A row that gives a blank OCR'd clue its words takes its missing mark off.
+    blank = {"id": "times-18749", "entries": [
+        {"number": 1, "direction": "down", "clue": {"text": "", "missing": True, "missingNote": "n"}}]}
+    F.SOURCE_CLUE_WRONG[("times-18749", "1-down")] = ("", "Restored words", "test")
+    A.mend_clues(blank)
+    check("a restored blank clue is no longer missing",
+          blank["entries"][0]["clue"] == {"text": "Restored words"})
 finally:
     shutil.rmtree(tmp, ignore_errors=True)
 sys.exit(1 if fails else 0)

@@ -338,6 +338,20 @@ def refusal(path, puzzle, err):
             f"the _ann file:\n" + "\n".join(lines))
 
 
+def mend_clues(puzzle):
+    """Write each source_clue_wrong.json row into `puzzle`'s clues. A row that
+    gives a blank clue its printed words makes it a clue with words, so it
+    stops being marked missing."""
+    for entry in puzzle["entries"]:
+        text = entry["clue"].get("text")
+        printed = source_clue(puzzle["id"], entry_id(entry), text)
+        if printed != text:
+            entry["clue"]["text"] = printed
+            if printed.strip():
+                entry["clue"].pop("missing", None)
+                entry["clue"].pop("missingNote", None)
+
+
 def apply(path, annotations, by=None):
     puzzle = read_puzzle_file(path)
     continuations = groups.leader_of(puzzle["entries"])
@@ -401,11 +415,7 @@ def apply(path, annotations, by=None):
     # An OCR'd clue the annotator found misread lands as SOURCE_CLUE_WRONG
     # prints it, the way a re-fetch reads every served clue.
     if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
-        for entry in puzzle["entries"]:
-            text = entry["clue"].get("text")
-            printed = source_clue(puzzle["id"], entry_id(entry), text)
-            if printed != text:
-                entry["clue"]["text"] = printed
+        mend_clues(puzzle)
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue
