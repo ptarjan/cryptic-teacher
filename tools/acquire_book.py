@@ -489,11 +489,19 @@ def main(argv=None):
     # A filed puzzle is also known by its clues, so a reader that splits the
     # book differently cannot file it a second time under another position.
     held_clues = {c: n for n, c in held.items() if c}
+    seen_as = {p["book_number"]: held_clues.get(
+        first_clue([c.get("clue") for c in p.get("across") or []])) for p in puzzles}
+    # A position whose filed puzzle this split puts somewhere else.
+    moved_off = {s for n, s in seen_as.items() if s is not None and s != n}
     fresh = []
     for p in puzzles:
-        seen = held_clues.get(first_clue([c.get("clue") for c in p.get("across") or []]))
+        seen = seen_as[p["book_number"]]
         if seen is not None and seen != p["book_number"]:
             print(f"  #{p['book_number']} is filed as #{seen}: the split moved",
+                  file=sys.stderr)
+        elif seen is None and p["book_number"] in moved_off:
+            print(f"  #{p['book_number']} is not filed: #{p['book_number']}'s id "
+                  f"holds another puzzle of this book (the split moved)",
                   file=sys.stderr)
         if p["book_number"] not in held and seen is None:
             fresh.append(p)
