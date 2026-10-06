@@ -651,7 +651,7 @@ def wanted(today=None):
     """[(date, class)] of every 1974-99 Times edition archive.org holds no
     scan of and no puzzle file holds."""
     today = today or datetime.datetime.now().astimezone().date()
-    return [(datetime.date.fromisoformat(d), cls) for d, cls, _, _ in archive_coverage.unfiled(fa.TIMES, today)
+    return [(datetime.date.fromisoformat(d), cls) for d, cls, _ in archive_coverage.unfiled(fa.TIMES, today)
             if cls in WANTED and int(d[:4]) in YEARS]
 
 
