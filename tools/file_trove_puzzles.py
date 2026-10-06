@@ -59,7 +59,14 @@ changed, the never-read first and
 then the stale by when they were read (tools/scan_queue.py), the ledger saved
 after each. --seconds N stops starting new reads once N seconds have passed
 (a page-image read is 15-100 s); what is left keeps its old ledger row, so it
-stays pending for the next run. --workers N reads N articles at once. A puzzle file on disk is never rewritten.
+stays pending for the next run. --workers N reads N articles at once.
+
+A held file is rewritten only as the archive.org filer rewrites one
+(file_archive_org_puzzles.mend_held, improves): a clue it shares with
+another light, or one with a doubled word or a stray letter
+(ocr_clues.stray), takes the clue the read votes for its light, or goes
+blank (one ocr_clues.fault refuses takes it, or stands); a filing read that adds clues or answers and loses none replaces it.
+A file holding a stray clue makes its article due by itself (inputs_of).
 
 A change to this code or the VLM model makes nothing due: whoever makes it
 runs the re-read once, `--reread [BEFORE]` (every article last read before
@@ -711,11 +718,13 @@ def parse_reading(text):
 
 
 def vote(d, laid, grid, zones=None):
-    """(laid, None) with every clue's words put to our own readings of the
-    page (ocr_clues.reconcile, Trove's text one voter among them), or (None,
-    why) when a light has no clue, a clue no spelling wins, or a word
-    ocr_clues.suspect() refuses: only a puzzle whose every clue reads true
-    is filed."""
+    """(laid, why) with every clue's words put to our own readings of the
+    page (ocr_clues.reconcile, Trove's text one voter among them). `why` is
+    None, or names each light with no clue, a clue no spelling wins, or a
+    word ocr_clues.suspect() refuses: only a puzzle whose every clue reads
+    true is filed. Those lights are blank in `laid` (None when no reading
+    or a lost light leaves nothing voted), which mends a held file's clue
+    (_run) even while the puzzle waits."""
     from PIL import Image
     texts = page_readings(d, zones)
     if not texts:
@@ -751,18 +760,19 @@ def vote(d, laid, grid, zones=None):
     laid, blank = ocr_clues.as_printed({**texts, "trove": ocr}, laid, blank, parse_reading, lengths)
     laid, blank = ocr_clues.one_light_each(laid, blank, {
         lid for lid, (_, enum, group) in before.items() if enum and not group and count(enum) == lengths.get(lid)})
-    if blank:
-        return None, "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items()))
     shared = None
     for t in texts.values():
         got = {w.lower() for w in ocr_clues.marked(ocr_clues.clean(t))}
         shared = got if shared is None else shared & got
     bad = {k: ocr_clues.suspect(t, shared) + [
         d for d in ocr_clues.doubled(t) if d not in ocr_clues.doubled(before[k][0])]
-        for k, (t, _, _) in laid.items()}
+        for k, (t, _, _) in laid.items() if k not in blank}
     bad = {k: v for k, v in bad.items() if v}
+    laid = {k: ("", e, g) if k in blank or k in bad else (t, e, g) for k, (t, e, g) in laid.items()}
+    if blank:
+        return laid, "clues unread: " + "; ".join(f"{k} {v}" for k, v in sorted(blank.items()))
     if bad:
-        return None, "suspect words: " + "; ".join(
+        return laid, "suspect words: " + "; ".join(
             f"{k} " + ", ".join(f"{w!r} ({why})" for w, why in v) for k, v in sorted(bad.items()))
     return laid, None
 
@@ -891,6 +901,31 @@ def input_hash(d):
     return h.hexdigest()[:16]
 
 
+def held_files(puzzles=None):
+    """{article id: path} of each file this tool filed, by its source url:
+    a ledger row whose read now waits names no puzzle."""
+    paths = Path(puzzles).glob("*.json") if puzzles else (ROOT / "puzzles" / SERIES).glob("*/*.json")
+    out = {}
+    for path in paths:
+        src = json.loads(path.read_text()).get("source") or {}
+        if src.get("acquiredBy") == TOOL and src.get("url"):
+            out[src["url"].rsplit("/", 1)[1]] = path
+    return out
+
+
+def inputs_of(d, held=None):
+    """An article's inputs: its input_hash, and whether `held`, the file it
+    filed, holds a clue ocr_clues.stray flags (a doubled word, a stray
+    letter), which a read mends or blanks (file_archive_org_puzzles.mend_held).
+    _run keys the ledger by the inputs after its write, so an article is
+    read once for it."""
+    import file_archive_org_puzzles as fa  # it imports this module
+    h = input_hash(d)
+    if held and held.exists() and fa.strayed(json.loads(held.read_text())):
+        h += "+strayed"
+    return h
+
+
 def due_reason(row, inputs, vlm_up, reread=None):
     """Why an article's ledger `row` is read again, or None: never read, its
     `inputs` (input_hash) moved, read without the VLM that now answers, or
@@ -907,23 +942,25 @@ def due_reason(row, inputs, vlm_up, reread=None):
 
 
 def consider(d, taken):
-    """(verdict, puzzle or None) for one article directory."""
+    """(verdict, puzzle or None, voted or None) for one article directory:
+    the puzzle when it files, and the puzzle as voted, every light the vote
+    left unread blank, which mends this article's held file (_run)."""
     meta = json.loads((d / "meta.json").read_text())
     ocr = (d / "ocr.txt").read_text(encoding="utf-8", errors="replace")
     what = kind(ocr, meta.get("title", ""))
     if what != "cryptic":
-        return {"skip": what}, None
+        return {"skip": what}, None, None
     day, _ = header(ocr)
     if day is None:
-        return {"refused": "no print date in the OCR's first line"}, None
+        return {"refused": "no print date in the OCR's first line"}, None, None
     secs = sections(ocr)
     if secs is None:
-        return {"refused": "no ACROSS and DOWN lists in the OCR"}, None
+        return {"refused": "no ACROSS and DOWN lists in the OCR"}, None, None
     parsed = {}
     for direction, text in secs.items():
         parsed[direction], why = clues(text)
         if why:
-            return {"refused": f"{direction} clues do not parse: {why}"}, None
+            return {"refused": f"{direction} clues do not parse: {why}"}, None, None
     parsed, repairs = trove_clue_ocr.repaired(d, parsed, clue_zones(d))
     parsed, moved = renumber(parsed)
     verdict = {"clues": sum(len(v) for v in parsed.values())}
@@ -949,32 +986,32 @@ def consider(d, taken):
         g, why = rebuild(parsed, image)
         if g is None:
             verdict["pending"] = f"no grid: {why}"
-            return verdict, None
+            return verdict, None, None
         laid, why = match(parsed, g)
         if laid is None:
             verdict["pending"] = f"rebuilt grid disagrees: {why}"
-            return verdict, None
+            return verdict, None, None
         grid, how = g, "rebuilt"
     verdict["grid"] = how
     verdict["laid"] = len(laid)
     verdict["lights"] = len(rg.light_cells(grid))
     laid, why = vote(d, laid, grid)
-    if laid is None:
+    if why:
         verdict["pending"] = why
-        return verdict, None
+        return verdict, None, laid and build(meta["id"], meta, ocr, grid, how, laid, day)
     held = already_held(laid)
     if held:
         verdict["skip"] = f"already held as {held}"
-        return verdict, None
+        return verdict, None, None
     puzzle = build(meta["id"], meta, ocr, grid, how, laid, day)
     answers, info = trove_solution_ocr.answers_for(d, grid, day, d.parent)
     verdict["answersRead"] = trove_solution_ocr.fill(puzzle, answers)
     verdict["answersFrom"] = info.get("ocr")
     if puzzle["id"] in taken and taken[puzzle["id"]] != meta["id"]:
         verdict["refused"] = f"{puzzle['id']} is article {taken[puzzle['id']]}'s"
-        return verdict, None
+        return verdict, None, None
     verdict["id"] = puzzle["id"]
-    return verdict, puzzle
+    return verdict, puzzle, puzzle
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, seconds=None, workers=1,
@@ -1001,15 +1038,16 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
         for line in ledger.read_text().splitlines():
             row = json.loads(line)
             known[row["article"]] = row
-    taken = {row["id"]: a for a, row in known.items() if row.get("id")}
+    files = held_files(puzzles)
+    taken = {row["id"]: a for a, row in known.items() if row.get("id")} | {p.stem: a for a, p in files.items()}
     # The VLM's readings are an input: an article read without it is read
     # again once it answers, and one read with it stands while it is down.
     seen_by = vlm.version() if vlm.reachable() else None
     dirs = sorted(p for p in cache.iterdir() if (p / "meta.json").exists()) if cache.exists() else []
     due = {}
     for d in dirs:
-        h = input_hash(d)
         row = known.get(d.name)
+        h = inputs_of(d, files.get(d.name))
         if row and "inputs" not in row and "hash" in row:
             # A row keyed by code and inputs together: its read stands for
             # the inputs there now, unless it waited on clue zones now there.
@@ -1022,10 +1060,11 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
                              lambda row: row is None or "inputs" not in row)
     # A line every few minutes, so a watcher sees a long slice move.
     reported = time.monotonic()
-    for done, ((d,), (verdict, puzzle, vlm_ok)) in enumerate(scan_queue.parallel(
+    for done, ((d,), got) in enumerate(scan_queue.parallel(
             [(d,) for d in queue], consider_article, workers, deadline, init=set_taken, initargs=(taken,),
-            failed=lambda item, error: ({"refused": f"crashed: {error}"}, None, False)), 1):
-        aid, h = d.name, due[d]
+            failed=lambda item, error: ({"refused": f"crashed: {error}"}, None, None, False)), 1):
+        aid = d.name
+        verdict, puzzle, voted, vlm_ok = got
         if time.monotonic() - reported >= 300:
             reported = time.monotonic()
             print(f"  {done} of {len(queue)} read", file=out, flush=True)
@@ -1033,12 +1072,18 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
             # Another worker filed this id while this one read.
             verdict, puzzle = {**verdict, "refused": f"{puzzle['id']} is article {taken[puzzle['id']]}'s"}, None
             verdict.pop("id", None)
-        if puzzle is not None and write:
+        held = files.get(aid)
+        if voted is not None and held and held.stem == voted["id"] and taken.get(voted["id"]) == aid:
+            puzzle = held_read(voted, puzzle, held, verdict, write)
+        elif puzzle is not None and write:
             path = (Path(puzzles) / f"{puzzle['id']}.json" if puzzles
                     else puzzle_path(SERIES, puzzle["number"]))
             if not path.exists() and not scan_queue.file_puzzle(write_puzzle_file, TOOL, path,
                                                                  puzzle, verdict):
                 puzzle = None
+        # Keyed by the inputs after this read's writes: a stray clue it
+        # mended no longer makes the article due.
+        h = inputs_of(d, held)
         row = {"article": aid, "inputs": h, **verdict, "readAt": scan_queue.now()}
         if seen_by and vlm_ok:
             row["vlm"] = seen_by
@@ -1077,6 +1122,26 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
     return tally
 
 
+def held_read(voted, puzzle, path, verdict, write):
+    """A read of the article whose file is at `path`, as the archive.org
+    filer treats a held edition: a clue the file shares with another light,
+    one ocr_clues.fault refuses or one with a doubled word or a stray letter
+    takes the clue this read voted for its light, or goes blank
+    (file_archive_org_puzzles.mend_held); else a filing `puzzle` that adds
+    clues or answers and loses none replaces it (improves). The file stays
+    this article's while its read waits. Returns the puzzle written, or
+    None."""
+    import file_archive_org_puzzles as fa  # it imports this module
+    verdict["id"] = voted["id"]
+    mended = fa.mend_held(voted, path, TOOL)
+    if mended is not None:
+        verdict["mended"] = mended[1]
+        puzzle = mended[0]
+    elif puzzle is None or not fa.improves(puzzle, path, TOOL):
+        return None
+    return puzzle if write and scan_queue.file_puzzle(write_puzzle_file, TOOL, path, puzzle, verdict) else None
+
+
 def save(ledger, known):
     ledger.parent.mkdir(parents=True, exist_ok=True)
     tmp = ledger.with_suffix(".tmp")
@@ -1094,12 +1159,13 @@ def set_taken(taken):
 
 
 def consider_article(d):
-    """(verdict, puzzle or None, whether the VLM still answers after it)."""
+    """(consider()'s verdict, puzzle and voted, whether the VLM still answers
+    after it)."""
     try:
-        verdict, puzzle = consider(d, _TAKEN)
+        verdict, puzzle, voted = consider(d, _TAKEN)
     except Exception as e:  # noqa: BLE001 -- one bad article is a verdict, not a crash
-        verdict, puzzle = {"refused": f"crashed: {type(e).__name__}: {e}"}, None
-    return verdict, puzzle, vlm.reachable()
+        verdict, puzzle, voted = {"refused": f"crashed: {type(e).__name__}: {e}"}, None, None
+    return verdict, puzzle, voted, vlm.reachable()
 
 
 def main(argv=None):
@@ -1124,7 +1190,7 @@ def main(argv=None):
     global LONDON_CACHE
     LONDON_CACHE = args.cache
     if args.show:
-        verdict, puzzle = consider(args.cache / args.show, {})
+        verdict, puzzle, _ = consider(args.cache / args.show, {})
         print(json.dumps(verdict, indent=1))
         if puzzle:
             print(json.dumps(puzzle, indent=1)[:4000])

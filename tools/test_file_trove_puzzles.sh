@@ -79,6 +79,70 @@ json.dump(d, open(p, 'w'))"
 check "a reread keeps source.reprintOf" "times-12345" \
   "$(python3 -c "import json; print(json.load(open('$tmp/out/canberra-720601.json'))['source'].get('reprintOf'))")"
 
+# A held file whose clue has a doubled word or a stray letter
+# (ocr_clues.stray: canberra-730208's "What's Indian about r tomato?") makes
+# its article due by itself; the read gives the clue the vote's words, or
+# blanks it (file_archive_org_puzzles.mend_held), and is not repeated. A
+# clean clue the vote does not print stands.
+set_clue() {  # set_clue <light> <text>
+  python3 -c "
+import json
+p = '$tmp/out/canberra-720601.json'
+d = json.load(open(p))
+for e in d['entries']:
+    if f\"{e['number']}-{e['direction']}\" == '$1':
+        e['clue']['text'] = '$2'
+json.dump(d, open(p, 'w'))"
+}
+clue_of() { python3 -c "
+import json
+d = json.load(open('$tmp/out/canberra-720601.json'))
+print(next(e['clue']['text'] for e in d['entries'] if f\"{e['number']}-{e['direction']}\" == '$1'))"; }
+reads() { (cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/cache" --out "$tmp/out" 2>&1 >/dev/null) | grep -c "read 102024288"; }
+set_clue 12-across "Gallery of church t architecture"
+check "a held stray clue makes its article due" "1" "$(reads)"
+check "and takes the clue the vote files" "Gallery of church architecture" "$(clue_of 12-across)"
+check "a mended article is read once" "0" "$(reads)"
+set_clue 12-across "Gallery of church buildings"
+check "a held clean clue the vote does not print makes nothing due (mirror)" "0" "$(reads)"
+check "and stands (mirror)" "Gallery of church buildings" "$(clue_of 12-across)"
+# The file is found by its article, not the ledger: a re-read that waits
+# leaves its row naming no puzzle.
+python3 -c "
+import json
+p = '$tmp/cache/filed.jsonl'
+rows = [json.loads(l) for l in open(p)]
+for r in rows:
+    if r['article'] == '102024288':
+        r.pop('id'); r['pending'] = 'clues unread'
+open(p, 'w').write(''.join(json.dumps(r) + '\\n' for r in rows))"
+set_clue 12-across "Gallery of church t architecture"
+check "a held stray clue whose row names no puzzle is still read" "1" "$(reads)"
+check "and mended" "Gallery of church architecture" "$(clue_of 12-across)"
+set_clue 12-across "Gallery of church buildings"
+got=$(cd "$REPO/tools" && python3 -c "
+import copy, json, pathlib, enumeration, file_trove_puzzles as F
+path = pathlib.Path('$tmp/out/canberra-720601.json')
+held = json.loads(path.read_text())
+voted = copy.deepcopy(held)
+for e in voted['entries']:
+    if (e['number'], e['direction']) == (12, 'across'):
+        e['clue'] = enumeration.clue('', missing=True)
+text = lambda: next(e['clue'].get('text', '') for e in json.loads(path.read_text())['entries']
+                    if (e['number'], e['direction']) == (12, 'across'))
+v = {}
+F.held_read(voted, None, path, v, True)
+print(repr(text()), v.get('wrote'))
+for e in held['entries']:
+    if (e['number'], e['direction']) == (12, 'across'):
+        e['clue']['text'] = 'Gallery of church t architecture'
+path.write_text(json.dumps(held))
+v = {}
+F.held_read(voted, None, path, v, True)
+print(repr(text()), v.get('wrote'), v.get('mended', {}).get('12-across'))")
+check "a held stray clue the vote leaves unread goes blank; a clean one stands (mirror)" "'Gallery of church buildings' None
+'' True " "$got"
+
 # No picture at all: the clues alone still file it, the grid rebuilt from
 # them and marked so; the rebuild is the grid the picture shows.
 mkdir -p "$tmp/nogrid/102024288" "$tmp/out2"
@@ -371,7 +435,7 @@ d = pathlib.Path(tempfile.mkdtemp())
 shutil.copytree('$FIX', d / 'cache')
 read = []
 def slow(a, taken):
-    read.append(a.name); time.sleep(0.2); return {'skip': 'test'}, None
+    read.append(a.name); time.sleep(0.2); return {'skip': 'test'}, None, None
 F.consider = slow
 t = F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 'out', seconds=0.1)
 rows = [json.loads(l)['article'] for l in (d / 'filed.jsonl').read_text().splitlines()]

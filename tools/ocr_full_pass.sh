@@ -20,7 +20,8 @@
 # edition makes that edition due by itself: the reprint's cached texts are
 # among the edition's inputs (file_archive_org_puzzles.inputs_of). So does a
 # puzzle filed off an edition holding a clue ocr_clues.stray flags (a
-# doubled word, a stray letter): the read mends or blanks it (mend_held).
+# doubled word, a stray letter): the read mends or blanks it (mend_held),
+# and the same for a Trove article (file_trove_puzzles.inputs_of).
 #
 # The scans are cached by hand-run fetchers (tools/fetch_trove.py fetch,
 # then fetch_trove.py zones for the clue columns of articles left pending;
