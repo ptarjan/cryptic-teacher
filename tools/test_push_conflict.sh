@@ -63,7 +63,7 @@ skip_builds="" only_build=""
 python3() {
   case "$1" in
     tools/build_seo_pages.py) return 0 ;;
-    tools/build_*.py|tools/fetch_puzzle.py|tools/stamp_assets.py)
+    tools/build_*.py|tools/fetch_puzzle.py)
       [ -n "$skip_builds" ] && return 0
       [ -n "$only_build" ] && [ "$1" != "$only_build" ] && return 0 ;;
   esac
@@ -113,12 +113,10 @@ check "no markers left in the README" "$(grep -c '^<<<<<<< ' README.md)" "0"
 check "the corpus line was rebuilt, not picked" \
   "$(grep -c '^\*\*Corpus\*\* — [0-9,]* puzzles across' README.md)" "1"
 check "nothing left uncommitted" "$(git status --porcelain)" ""
-# index.html is not one of the conflicted files, but it carries the content
-# hash of an index.js the rebuild just rewrote. Nothing else here would
-# notice it going stale: the page loads, and only a cache serves the wrong
-# bytes.
-check "the asset stamps match what was rebuilt" \
-  "$(python3 tools/stamp_assets.py --check 2>&1)" "asset stamps up to date"
+# index.html is stored unstamped and stamped only by the deploy workflow, so
+# the rebuild that resolves a conflict must not write a stamp into the commit.
+check "index.html is not in the rebuilt pick" \
+  "$(git diff --name-only HEAD~1 HEAD -- index.html)" ""
 
 echo "a file master deleted while the night wrote to it stays deleted:"
 # 2026-10-02: master retired tools/data/abbreviations.json and its layout row

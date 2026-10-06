@@ -50,10 +50,9 @@ def _build_abbreviations():
 
 
 # The gitignored assets a pure function of tracked files builds, so stamping a
-# checkout that has never built one builds it instead of stopping:
-# fetch_puzzle.py --reindex stamps, and a fresh worktree has no
-# abbreviations.js. puzzles/index.js is not here: reindex writes it before it
-# stamps.
+# checkout that has never built one builds it instead of stopping: a fresh
+# worktree has no abbreviations.js. puzzles/index.js is not here: it needs
+# fetch_puzzle.py --reindex, which pages.yml runs before it stamps.
 BUILDERS = {"abbreviations.js": _build_abbreviations}
 
 

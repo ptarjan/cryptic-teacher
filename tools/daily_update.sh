@@ -1321,11 +1321,6 @@ done
 # replaced were gitignored too, and they piled up one per puzzle for months.
 rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
 
-# --reindex stamps index.html with content hashes, and a stamp committed into
-# that tracked file is churn the rebase collides in. The stamps come off before
-# staging; the deploy workflow stamps its own checkout.
-python3 tools/stamp_assets.py --unstamp
-
 if [ -n "$(git status --porcelain)" ] || [ -n "$sources_committed" ]; then
   # Everything, because this tree contains nothing else: the run started at
   # origin/master in a worktree of its own, so whatever is modified or new here
@@ -1358,8 +1353,8 @@ if [ -n "$(git status --porcelain)" ] || [ -n "$sources_committed" ]; then
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the daily update committed, and left these behind in its own worktree: $left"
   # A rebase that stops here is rarely a disagreement. Every file this job writes
-  # that an interactive session writes too is GENERATED — README.md, the asset
-  # stamps, and what is still tracked of the built pages — so a
+  # that an interactive session writes too is GENERATED — README.md and what is
+  # still tracked of the built pages — so a
   # conflict in one is two rebuilds of the same inputs, not two opinions, and
   # resolving it by hand is what stranded the 2026-09-06 and 09-07 runs. Rebuild
   # from the merged sources instead.
@@ -1391,17 +1386,11 @@ if [ -n "$(git status --porcelain)" ] || [ -n "$sources_committed" ]; then
     done <<GONE
 $gone
 GONE
-    # stamp_assets.py last, and not optional: index.html's ?v= is the content
-    # hash of the very files this rebuild rewrites, so skipping it pushes a page
-    # that points every cache at bytes that no longer exist.
-    # The glossary leads, because --reindex restamps index.html on its way
-    # past and a stamp is a hash of the file it names. It is gitignored
-    # generated output, so a checkout that has never built it has the page
-    # before it has the file.
+    # No stamp_assets.py: index.html is committed unstamped and the deploy
+    # workflow stamps its own checkout, so a stamp here would be committed.
     python3 tools/build_abbreviations.py >/dev/null &&
       python3 tools/fetch_puzzle.py --reindex >/dev/null &&
-      python3 tools/build_readme.py >/dev/null &&
-      python3 tools/stamp_assets.py >/dev/null || return 1
+      python3 tools/build_readme.py >/dev/null || return 1
     # Collect the list before staging any of it. Fed in through a process
     # substitution, `git diff` is still running while the loop stages, and it
     # takes .git/index.lock to refresh the index — every add after the first
@@ -1415,8 +1404,8 @@ GONE
     done <<CONFLICTED
 $conflicted
 CONFLICTED
-    # The builders also rewrite files the rebase never conflicted in — index.html
-    # carries the ?v= hash of an index.js that just changed. A rebase refuses to
+    # The builders also rewrite files the rebase never conflicted in — the
+    # README's corpus counts move with every puzzle. A rebase refuses to
     # continue with those left unstaged, so stage them under the same rule: a
     # path only qualifies once a builder has rewritten it, and a rewrite is
     # exactly what leaves no conflict markers behind.

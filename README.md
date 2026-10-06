@@ -79,10 +79,9 @@ python3 tools/fetch_puzzle.py --reindex
 ```
 
 This writes `puzzles/index.json`, `puzzles/index.js`, and one
-`puzzles/<series>-<n>.js` per puzzle. It also restamps the `?v=` hashes in
-`index.html`, so `git status` will show `index.html` as modified. Do not commit
-that change. `python3 tools/stamp_assets.py --unstamp` puts the file back (see
-"Cache busting" in `APP.md`).
+`puzzles/<series>-<n>.js` per puzzle. It leaves `index.html` alone: the
+`?v=` hashes are stamped by the deploy workflow (see "Cache busting" in
+`APP.md`).
 
 Then do one of these:
 

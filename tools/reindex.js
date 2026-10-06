@@ -110,17 +110,7 @@ function current() {
 function reindex() {
   if (built) return;
   built = true;
-  if (current()) {
-    // The one thing a skipped rebuild would otherwise drop. reindex() ends by
-    // stamping index.html with the content hashes of the assets it names, and
-    // tools/smoke_test.js fails on a stale stamp — so a run that skips the
-    // manifest still has to restamp, or editing app.js and running the suite
-    // reports a stale ?v= that the suite itself used to fix. Cheap: it hashes
-    // twelve files rather than reading sixteen thousand.
-    execFileSync("python3", [path.join(ROOT, "tools", "stamp_assets.py")],
-      { cwd: ROOT, stdio: ["ignore", "ignore", "inherit"] });
-    return;
-  }
+  if (current()) return;
   // stdout swallowed (one "indexed N puzzle(s)" line nobody reads), stderr kept:
   // a python that is missing or a rebuild that fails must say so where the test
   // output is, not silently leave a stale index behind.
