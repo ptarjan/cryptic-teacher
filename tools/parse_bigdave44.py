@@ -106,6 +106,12 @@ PRINTED_HEADING = re.compile(r"^\s*(across|down)(?:\s+clues)?[\s:.]*$", re.I)
 #: Until about 2015 the answer is printed white on white inside braces,
 #: "{ SAPLINGS } An anagram ...", and the shared reader drops braced text.
 HIDDEN = re.compile(r"\{\s*((?:<[^>]+>\s*)*[^<{}]*?(?:\s*</[^>]+>)*)\s*\}")
+#: The same white-on-white answer with one brace typed as another bracket,
+#: "{CHARITABLE]", "[CONFOUND}", "(SKUA}": the white span is the answer
+#: whatever brackets it.
+WHITE_ANSWER = re.compile(
+    r"[{\[(]\s*(<span[^>]*color:\s*(?:#f{3}(?:f{3})?|white)\b[^>]*>[^<{}]*</span>)\s*[}\])]",
+    re.IGNORECASE)
 
 #: "&npsp;" is the blog's typo for "&nbsp;", which no HTML decoder knows;
 #: the editor escaped its ampersand, so the post holds "&amp;npsp;".
@@ -224,6 +230,7 @@ def headed(rendered):
 def rendered_lines(post):
     """The post body's non-empty text lines."""
     body = TYPOED_NBSP.sub(" ", post["content"]["rendered"])
+    body = WHITE_ANSWER.sub(r"\1 – ", body)
     return [ln for ln in tftt.lines(HIDDEN.sub(r"\1 – ", body)) if ln]
 
 
