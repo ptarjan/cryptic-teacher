@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Duck swimming at the bottom in lake by reserve",
     "enumeration": "8"
    },
-   "solution": "SUBMERGE"
+   "solution": "SUBMERGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SUBMERGE",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the bottom",
+      "for": "letter_selection",
+      "note": "in a down clue the bottom of a word is its final letter, so only that one is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the middle of the lake word, wrapped by its letters"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reserve",
+      "gives": "SUB",
+      "note": "a sub is a reserve player in a team"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "MERE",
+      "note": "a mere is a small lake"
+     },
+     {
+      "clueFragment": "swimming",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "MERGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck paddles around on the bottom of a lake beside a nature reserve.",
+     "walkthrough": "'Duck' looks like the bird, but it is the verb meaning to push under water; 'by' just places the reserve alongside.",
+     "definitionFit": "To duck someone or something is to push it under water, plunge it below the surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Duck"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +113,50 @@
     "text": "Join American next to bar",
     "enumeration": "4"
    },
-   "solution": "ABUT"
+   "solution": "ABUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABUT",
+    "definitions": [
+     {
+      "text": "Join",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BUT",
+      "note": "bar and but both mean except, as in 'all bar one'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BUT"
+     ]
+    },
+    "explanation": {
+     "surface": "An American takes a seat beside the bar to join the drinkers.",
+     "walkthrough": "'Bar' looks like a pub counter but is the preposition meaning except.",
+     "definitionFit": "Two things that abut share a border, meeting or touching along an edge, so the verb means join."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +170,44 @@
     "text": "Chart single?",
     "enumeration": "6"
    },
-   "solution": "RECORD"
+   "solution": "RECORD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECORD",
+    "definitions": [
+     {
+      "text": "Chart",
+      "at": 0
+     },
+     {
+      "text": "single",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chart",
+      "note": "first meaning: to log or document something in writing"
+     },
+     {
+      "clueFragment": "single",
+      "note": "second meaning: a disc with one song on it, sold in shops"
+     }
+    ],
+    "explanation": {
+     "surface": "It reads like asking whether a song released alone has made the pop charts.",
+     "walkthrough": "Both words suggest the hit parade, but one is a verb for documenting and the other a disc.",
+     "definitionFit": "To chart progress is to document it in writing; a single is a vinyl disc carrying one song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chart"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +227,61 @@
      }
     ]
    },
-   "solution": "ALLSTAR"
+   "solution": "ALLSTAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ALL-STAR",
+    "definitions": [
+     {
+      "text": "Famous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "deletion",
+      "note": "something stripped has lost its outer covering, so both end letters go"
+     },
+     {
+      "text": "snorting",
+      "for": "container",
+      "note": "a person snorting something takes it inside, so the other piece goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horrible person",
+      "gives": "ASTAR",
+      "note": "a bastard, a nasty person, without its first and last letters"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is the abbreviation for line, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LL",
+      "STAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty celebrity is caught naked snorting lines of cocaine.",
+     "walkthrough": "The horrible person is a common swear word for a nasty man; 'lines' suggests cocaine, but it is just the abbreviation L twice.",
+     "definitionFit": "An all-star cast is one made up entirely of celebrated, well-known performers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +295,67 @@
     "text": "Overplays clear hits across both sides of album",
     "enumeration": "4"
    },
-   "solution": "HAMS"
+   "solution": "HAMS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HAMS",
+    "definitions": [
+     {
+      "text": "Overplays",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clear",
+      "for": "letter_selection",
+      "note": "to clear something out empties its middle, leaving only the shell"
+     },
+     {
+      "text": "both sides of",
+      "for": "letter_selection",
+      "note": "the two sides of a word are its first and last letters"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "one piece stretches across the other, with a letter either side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hits",
+      "gives": "HS",
+      "select": "outer",
+      "note": "this word with its middle cleared out"
+     },
+     {
+      "clueFragment": "album",
+      "gives": "AM",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AM",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A band's obvious hit singles are spread across both sides of the LP.",
+     "definitionFit": "A ham actor exaggerates; as a verb, to ham is to act in an overdone, theatrical way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +375,65 @@
      }
     ]
    },
-   "solution": "STRIKESOUT"
+   "solution": "STRIKESOUT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRIKES OUT",
+    "definitions": [
+     {
+      "text": "hits",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Come to",
+      "gives": "STRIKE",
+      "note": "an idea that comes to you strikes you"
+     },
+     {
+      "clueFragment": "show’s",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of this word"
+     },
+     {
+      "clueFragment": "known",
+      "gives": "OUT",
+      "note": "a secret that is out is generally known"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRIKE",
+      "S",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arrives at a show's opening night along with its well-known songs.",
+     "walkthrough": "'Hits' looks like songs but is the verb defined; 'Come to' means occur to, as a thought does.",
+     "definitionFit": "To strike out is to lash out, swinging a blow at somebody, so it means hits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hits"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +447,62 @@
     "text": "Celebrated: eat out with no starter when entertaining over",
     "enumeration": "6"
    },
-   "solution": "ICONIC"
+   "solution": "ICONIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ICONIC",
+    "definitions": [
+     {
+      "text": "Celebrated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no starter",
+      "for": "deletion",
+      "note": "a dish with no starter has lost its first course, so the opening letter goes"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining a guest holds them inside the house"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eat out",
+      "gives": "ICNIC",
+      "note": "a picnic is a meal eaten outdoors, minus its first letter"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorecard abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "O",
+      "NIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity dines out, skipping the first course while hosting cricket's end of an over.",
+     "walkthrough": "'Eat out' is not a restaurant meal but PICNIC; an over is a set of six balls in cricket.",
+     "definitionFit": "Something iconic is so widely recognised and admired that it has become a famous symbol."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "starter"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +516,48 @@
     "text": "Silent call that might get picked up",
     "enumeration": "8"
    },
-   "solution": "DUMBBELL"
+   "solution": "DUMBBELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUMBBELL",
+    "definitions": [
+     {
+      "text": "that might get picked up",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silent",
+      "gives": "DUMB",
+      "note": "dumb means unable or unwilling to speak"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "BELL",
+      "note": "to give someone a bell is British slang for a phone call"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUMB",
+      "BELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A silent phone call that someone might pick up and answer.",
+     "walkthrough": "'Picked up' suggests answering the phone, but the gym weight is lifted. 'Give me a bell' is British for 'ring me'.",
+     "definitionFit": "A short bar with weights on each end is lifted repeatedly in the gym for exercise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +571,68 @@
     "text": "Dry air essentially in air-conditioned room",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "ATTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATTIC",
+    "definitions": [
+     {
+      "text": "room",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its centre, the middle letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the other pieces go inside the abbreviation for cooled air"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air-conditioned",
+      "gives": "AC",
+      "note": "AC is short for air-conditioning, wrapped round the rest"
+     },
+     {
+      "clueFragment": "Dry",
+      "gives": "TT",
+      "note": "TT means teetotal, someone who stays dry"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "I",
+      "select": "middle",
+      "note": "the middle letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TT",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "The air feels dry inside an air-conditioned room.",
+     "walkthrough": "'Dry' means not drinking alcohol, abbreviated as TT for teetotal; TT and I go between the A and C.",
+     "definitionFit": "An attic is a room built into the space just beneath the roof of a house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dry"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +646,57 @@
     "text": "Issue of magazine looking back",
     "enumeration": "4"
    },
-   "solution": "EMIT"
+   "solution": "EMIT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "EMIT",
+    "definitions": [
+     {
+      "text": "Issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "looking back",
+      "for": "reversal",
+      "note": "something looking back faces the opposite way, so read the word from its end"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "magazine",
+      "gives": "TIME",
+      "note": "Time is a well-known American news magazine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMIT"
+     ],
+     "reversals": [
+      {
+       "from": "TIME",
+       "to": "EMIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retrospective issue of a magazine, looking back over past events.",
+     "walkthrough": "'Issue' seems to be a noun for an edition, but it is the verb to send out.",
+     "definitionFit": "To emit light or a sound is to issue it, giving it out or sending it forth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Issue"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +710,64 @@
     "text": "Fixed ideas round band’s leader with periods in studio",
     "enumeration": "10"
    },
-   "solution": "OBSESSIONS"
+   "solution": "OBSESSIONS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OBSESSIONS",
+    "definitions": [
+     {
+      "text": "Fixed ideas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     },
+     {
+      "clueFragment": "band’s",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter of this word"
+     },
+     {
+      "clueFragment": "periods in studio",
+      "gives": "SESSIONS",
+      "note": "recording sessions are periods spent in a studio"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "SESSIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "A band's frontman has a fixed idea about how many hours to spend recording.",
+     "definitionFit": "Obsessions are thoughts that grip the mind and will not let go, ideas that stay fixed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +781,58 @@
     "text": "One holding camera to mostly hear music player",
     "enumeration": "6"
    },
-   "solution": "TRIPOD"
+   "solution": "TRIPOD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRIPOD",
+    "definitions": [
+     {
+      "text": "One holding camera",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hear",
+      "gives": "TR",
+      "note": "to try a case is to hear it in court, minus its last letter"
+     },
+     {
+      "clueFragment": "music player",
+      "gives": "IPOD",
+      "note": "the iPod was Apple's portable music player"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "IPOD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets up a camera while listening to music on a portable player.",
+     "walkthrough": "'Hear' is the legal sense: a judge tries or hears a case.",
+     "definitionFit": "A three-legged stand is what a photographer mounts a camera on to keep it steady."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "hear"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +852,68 @@
      }
     ]
    },
-   "solution": "PINACOLADA"
+   "solution": "PINACOLADA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PINA COLADA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "in a down clue, over means flipped upward, so the letters read bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "NIP",
+      "note": "a nip is a small shot of spirits"
+     },
+     {
+      "clueFragment": "two forms of pop",
+      "gives": "COLADA",
+      "note": "cola is fizzy pop and da is a word for dad, also called pop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "A",
+      "COLADA"
+     ],
+     "reversals": [
+      {
+       "from": "ANIP",
+       "to": "PINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ordering a drink: a shot of spirits plus a couple of fizzy sodas.",
+     "walkthrough": "'Pop' does double duty: soft drink and father, giving COLA and DA.",
+     "definitionFit": "A pina colada is a cocktail of rum, pineapple juice and coconut cream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +927,59 @@
     "text": "Became excited after joining in for feeling",
     "enumeration": "8"
    },
-   "solution": "AMBIENCE"
+   "solution": "AMBIENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMBIENCE",
+    "definitions": [
+     {
+      "text": "feeling",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited letters jump about and settle in a different arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Became",
+      "gives": "BECAME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "joining in",
+      "gives": "IN",
+      "note": "the little word in, joined on to the end"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BECAMEIN",
+       "gives": "AMBIENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone got thrilled after signing up for a feeling of belonging.",
+     "walkthrough": "'After joining in' tells you to add the word in to the end of the fodder.",
+     "definitionFit": "The ambience of a place is its atmosphere or mood, the feeling it gives visitors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joining"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +993,50 @@
     "text": "Finally succumb, call dentist: one’s called initially after the filling?",
     "enumeration": "3"
    },
-   "solution": "BLT"
+   "solution": "BLT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "BLT",
+    "definitions": [
+     {
+      "text": "one’s called initially after the filling?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of each word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "succumb, call dentist",
+      "gives": "BLT",
+      "select": "last",
+      "note": "last letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLT"
+     ]
+    },
+    "explanation": {
+     "surface": "Giving in and phoning the dentist about a filling.",
+     "walkthrough": "'Filling' suggests a tooth, but it is the contents of a sandwich: bacon, lettuce and tomato, named by their initials.",
+     "definitionFit": "This sandwich is named by the initial letters of its three ingredients, bacon, lettuce and tomato."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1050,55 @@
     "text": "Rest on this: take pulse first",
     "enumeration": "7"
    },
-   "solution": "BEANBAG"
+   "solution": "BEANBAG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEANBAG",
+    "definitions": [
+     {
+      "text": "Rest on this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first says that the pulse piece is placed at the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pulse",
+      "gives": "BEAN",
+      "note": "a bean is a pulse, an edible seed"
+     },
+     {
+      "clueFragment": "take",
+      "gives": "BAG",
+      "note": "to bag something is to take or seize it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEAN",
+      "BAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor's instruction: rest here, but take the patient's pulse first.",
+     "walkthrough": "'Pulse' is not a heartbeat but an edible seed such as a lentil or bean.",
+     "definitionFit": "A beanbag is a soft floppy seat filled with beads, something you sit or lounge on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pulse"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1112,47 @@
     "text": "Musical instrument’s part for greatest hit-maker?",
     "enumeration": "3"
    },
-   "solution": "ALI"
+   "solution": "ALI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALI",
+    "definitions": [
+     {
+      "text": "greatest hit-maker?",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part",
+      "for": "hidden_word",
+      "note": "part says only a portion of the nearby words is taken, sitting inside them"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Musical instrument’s",
+      "gives": "ALI",
+      "note": "taken from inside these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A part played on a musical instrument for a great hit record.",
+     "walkthrough": "'Greatest hit' suggests a chart song, but Muhammad Ali called himself The Greatest and hit people for a living.",
+     "definitionFit": "The boxer Muhammad Ali billed himself as The Greatest, and boxers land punches on opponents."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hit-maker"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1166,59 @@
     "text": "Flash with these skirts in sexiest costumes",
     "enumeration": "7"
    },
-   "solution": "STROBES"
+   "solution": "STROBES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STROBES",
+    "definitions": [
+     {
+      "text": "Flash with these",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skirts",
+      "for": "letter_selection",
+      "note": "the skirts of a word are its edges, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sexiest",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the outer letters of this word"
+     },
+     {
+      "clueFragment": "costumes",
+      "gives": "ROBES",
+      "note": "robes are costumes or ceremonial garments"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ROBES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flashes the skirts in a show of the sexiest outfits.",
+     "walkthrough": "'Skirts' looks like clothing among costumes, but it means edges.",
+     "definitionFit": "Strobe lights produce rapid bursts of bright light, flashing on and off at a nightclub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "skirts"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1232,77 @@
     "text": "Broadening the mind with tablet: I find heartless guy when drunk",
     "enumeration": "8"
    },
-   "solution": "EDIFYING"
+   "solution": "EDIFYING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EDIFYING",
+    "definitions": [
+     {
+      "text": "Broadening the mind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "letter_selection",
+      "note": "with its heart gone a word keeps only its outer letters"
+     },
+     {
+      "text": "when drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tablet",
+      "gives": "E",
+      "note": "E is slang for an ecstasy tablet"
+     },
+     {
+      "clueFragment": "I find",
+      "gives": "IFIND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "guy",
+      "gives": "GY",
+      "select": "outer",
+      "note": "the outer letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DIFYING"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IFINDGY",
+       "gives": "DIFYING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a pill, gets drunk and claims the experience is mind-expanding.",
+     "walkthrough": "E is the drug ecstasy, a common crossword shorthand.",
+     "definitionFit": "Something edifying improves you morally or intellectually, an instructive experience that enlarges your thinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "tablet"
+    }
+   }
   },
   {
    "number": 20,
@@ -323,7 +1322,72 @@
      }
     ]
    },
-   "solution": "ONBOARD"
+   "solution": "ONBOARD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ON BOARD",
+    "definitions": [
+     {
+      "text": "Travelling in",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Hit",
+      "for": "anagram",
+      "note": "something that is hit gets knocked about into a new arrangement"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the remaining pieces behind the word for performing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "playing",
+      "gives": "ON",
+      "note": "a show that is on is being performed or playing"
+     },
+     {
+      "clueFragment": "Britain",
+      "gives": "B",
+      "note": "B is the abbreviation for Britain, as on car stickers"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "ROAD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "B",
+      "OARD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROAD",
+       "gives": "OARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band playing in Britain decides to hit the road on tour.",
+     "walkthrough": "'Hit road' reads as setting off on a journey, but hit stirs the road letters.",
+     "definitionFit": "Passengers on board a ship, train or plane are travelling in it, carried as part of its load."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hit"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1401,54 @@
     "text": "Learning without advanced development",
     "enumeration": "8"
    },
-   "solution": "EDUCTION"
+   "solution": "EDUCTION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDUCTION",
+    "definitions": [
+     {
+      "text": "development",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so that letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learning",
+      "gives": "EDUCATION",
+      "note": "education is the process of learning"
+     },
+     {
+      "clueFragment": "advanced",
+      "gives": "A",
+      "note": "A is the abbreviation for advanced, as in A level"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDUC",
+      "TION"
+     ]
+    },
+    "explanation": {
+     "surface": "Learning that comes with no advanced development or progress.",
+     "walkthrough": "A rare word: eduction is the act of drawing out or bringing forth.",
+     "definitionFit": "Eduction means drawing out or eliciting something latent, a bringing forth that resembles development."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advanced"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1462,63 @@
     "text": "Make love on date: I like that thing",
     "enumeration": "6"
    },
-   "solution": "DOODAH"
+   "solution": "DOODAH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOODAH",
+    "definitions": [
+     {
+      "text": "thing",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Make",
+      "gives": "DO",
+      "note": "to do something is to make it"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is a score of nothing in tennis, which looks like O"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D is the abbreviation for date"
+     },
+     {
+      "clueFragment": "I like",
+      "gives": "AH",
+      "note": "ah is an exclamation of pleasure, saying I like it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "O",
+      "D",
+      "AH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone proposes making love on a date and says they'd like that thing.",
+     "walkthrough": "'Make love' splits into two words: make and love, which is zero in tennis.",
+     "definitionFit": "Doodah is a casual word for a thing whose name you can't remember, like thingummy or whatsit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1532,56 @@
     "text": "Early lousy form? Briefly possessing dope",
     "enumeration": "6"
    },
-   "solution": "NITWIT"
+   "solution": "NITWIT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NITWIT",
+    "definitions": [
+     {
+      "text": "dope",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Early lousy form?",
+      "gives": "NIT",
+      "note": "a nit is the egg of a louse, its earliest form"
+     },
+     {
+      "clueFragment": "possessing",
+      "gives": "WIT",
+      "note": "with means possessing, minus its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT",
+      "WIT"
+     ]
+    },
+    "explanation": {
+     "surface": "An early draft was lousy, apparently written by someone who was on drugs.",
+     "walkthrough": "'Lousy' is literal here: belonging to a louse. 'Dope' is not drugs but a fool.",
+     "definitionFit": "A nitwit is a silly or stupid person, a fool or idiot, just as a dope is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lousy"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1595,65 @@
     "text": "Horny being in Girls Aloud: idol primarily after love",
     "enumeration": "6"
    },
-   "solution": "NILGAI"
+   "solution": "NILGAI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NILGAI",
+    "definitions": [
+     {
+      "text": "Horny being",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the first letter of each of these words"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the initials behind the score word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "NIL",
+      "note": "love is a zero score, nil"
+     },
+     {
+      "clueFragment": "Girls Aloud: idol",
+      "gives": "GAI",
+      "select": "first",
+      "note": "first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIL",
+      "GAI"
+     ]
+    },
+    "explanation": {
+     "surface": "A randy fan of the pop group Girls Aloud idolises them out of love.",
+     "walkthrough": "'Horny' means having horns, not lustful; Girls Aloud were a British girl band.",
+     "definitionFit": "The nilgai is a large Indian antelope; the males carry short horns, so it is a horned creature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Horny"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1673,73 @@
      }
     ]
    },
-   "solution": "TOILETROLL"
+   "solution": "TOILETROLL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "TOILET ROLL",
+    "definitions": [
+     {
+      "text": "It might remove business",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at work",
+      "for": "anagram",
+      "note": "letters at work are busy moving about, so they are rearranged"
+     },
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "retaining means holding on to, keeping the other letter inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "title",
+      "gives": "TITLE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "list",
+      "gives": "ROLL",
+      "note": "a roll is a list of names, as in roll call"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOILET",
+      "ROLL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TITLEO",
+       "gives": "TOILET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An office tool might strip a business of its title while keeping an old list.",
+     "walkthrough": "'Business' is a euphemism for what one does in the lavatory.",
+     "definitionFit": "Lavatory paper wipes away what one leaves after doing one's business, a jokey euphemism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "business"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1753,61 @@
     "text": "Stage rotating on it",
     "enumeration": "4"
    },
-   "solution": "TIER"
+   "solution": "TIER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TIER",
+    "definitions": [
+     {
+      "text": "Stage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rotating",
+      "for": "reversal",
+      "note": "rotating turns the words round so the letters run the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about, as in a letter heading"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "REIT",
+       "to": "TIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolving stage with a performer standing on it.",
+     "walkthrough": "'Stage' is a level or step, not a theatre platform.",
+     "definitionFit": "A tier is a level or rank in a series, one step or stage in a graded system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stage"
+    }
+   }
   },
   {
    "number": 26,
@@ -427,7 +1821,47 @@
     "text": "Fish in light streams",
     "enumeration": "4"
    },
-   "solution": "RAYS"
+   "solution": "RAYS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAYS",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "light streams",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: flat sea creatures related to sharks"
+     },
+     {
+      "clueFragment": "light streams",
+      "note": "second meaning: narrow beams of light shining out"
+     }
+    ],
+    "explanation": {
+     "surface": "Fish swimming in sunlit streams of water.",
+     "walkthrough": "'Light streams' looks like gentle brooks but means beams of sunlight.",
+     "definitionFit": "Skates and mantas are flat cartilaginous fish; sunbeams are narrow lines of light."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "streams"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1875,48 @@
     "text": "28 occasionally come down",
     "enumeration": "4"
    },
-   "solution": "RAIN"
+   "solution": "RAIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RAIN",
+    "definitions": [
+     {
+      "text": "come down",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means every so often, so only every other letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "28",
+      "gives": "RAIN",
+      "select": "alternate",
+      "note": "the odd letters of the answer to 28 across, REALIGNS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notes that the stuff will come down every now and then.",
+     "walkthrough": "The cross-reference points to the answer at 28 across; its first, third, fifth and seventh letters give this.",
+     "definitionFit": "When it rains, water drops come down from the clouds, falling from the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1930,55 @@
     "text": "Go off drink over two days",
     "enumeration": "5"
    },
-   "solution": "ADDLE"
+   "solution": "ADDLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADDLE",
+    "definitions": [
+     {
+      "text": "Go off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "one piece spreads over the other, covering it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     },
+     {
+      "clueFragment": "two days",
+      "gives": "DD",
+      "note": "D is the abbreviation for day, doubled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DD",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes off drinking for a two-day bender.",
+     "walkthrough": "'Go off' is not leaving but turning bad, as an egg does.",
+     "definitionFit": "Eggs that addle become rotten, so the verb means to spoil, turn bad or rot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1992,72 @@
     "text": "Once more lines up a single for release after end of tour",
     "enumeration": "8"
    },
-   "solution": "REALIGNS"
+   "solution": "REALIGNS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "REALIGNS",
+    "definitions": [
+     {
+      "text": "Once more lines up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for release",
+      "for": "anagram",
+      "note": "letters released are set loose to fall into a new arrangement"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the shuffled words behind the final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tour",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "a single",
+      "gives": "ASINGLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EALIGNS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASINGLE",
+       "gives": "EALIGNS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A band lines up another single for release once their tour ends.",
+     "definitionFit": "To realign something is to arrange it into a straight line again, putting it back in order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "single"
+    }
+   }
   }
  ]
 }
