@@ -1501,6 +1501,20 @@ tools/gale_inbox.py                          the 1974-99 Times editions archive.
                                              GaleTimes<year>UKEnglish editions for
                                              file_archive_org_puzzles.py; never requests
                                              anything from Gale
+tools/gale_listener.py                       the Listener crosswords of 1930-91, read from the
+                                             pages Paul saves by hand from Gale's Listener
+                                             Historical Archive: a checklist of every puzzle
+                                             (the Listener Team's year index, numbers and dates
+                                             only), earliest first, and each saved page's clue
+                                             lists read once (a ledger keyed by file hash) with
+                                             ocr_clues' readers and archive_org_listener's vote
+                                             into a clues-only reading; never requests anything
+                                             from Gale
+tools/test_gale_listener.sh                  is a saved Listener page matched by its name,
+                                             citation or title, are its lists read in column
+                                             order and a clue a line when uncounted, is each
+                                             file read once, and does the checklist mark what
+                                             is saved or filed?
 tools/test_gale_inbox.sh                     is a page saved into the Gale inbox matched to its
                                              date by its name or puzzle number, staged as that
                                              date's Times edition with its Gale link, due again

@@ -196,14 +196,43 @@ def clues(text):
 
 
 def parse(text):
-    """fa.parse, with each list read past a stretch that does not parse."""
+    """fa.parse, with each list read past a stretch that does not parse; a
+    list printed with no counts (the 1930s magazine's) is read a clue a line
+    (by_lines), since only a count ends a clue for the daily's parser."""
     secs = ftp.sections(fa.tidy(text))
+    parsed = secs and {k: clues(t) for k, t in secs.items()}
+    if not parsed or not any(c["enums"] for cs in parsed.values() for c in cs):
+        lined = by_lines(text)
+        if lined:
+            return lined, None
     if secs is None:
         return None, "no ACROSS and DOWN lists"
-    parsed = {k: clues(t) for k, t in secs.items()}
     if not all(parsed.values()):
         return None, "a list has no clue that parses"
     return parsed, None
+
+
+#: A line that starts a clue: its number, then its words.
+LINE_CLUE = re.compile(r"^\W{0,2}(\d{1,2})\W{0,2}\s+(\S.*)$")
+
+
+def by_lines(text):
+    """{"across": [clue], "down": [clue]} of lists without counts: a line
+    starting with a number starts a clue, any other line continues it."""
+    out, side = {"across": [], "down": []}, None
+    for line in text.splitlines():
+        head = fa.heading_of(line.strip())
+        if head:
+            side = head.lower()
+            continue
+        m = LINE_CLUE.match(line)
+        if side and m:
+            see = ocr_clues.SEE_RE.match(m.group(2))
+            out[side].append({"tokens": [{int(m.group(1))}], "text": m.group(2).strip(), "enums": set(),
+                              "see": int(see.group(1)) if see else None})
+        elif side and out[side] and line.strip():
+            out[side][-1]["text"] += " " + line.strip()
+    return out if all(out.values()) else None
 
 
 def tidy(text):
@@ -359,10 +388,12 @@ def vote(words, verdict, cols=None):
     laid = pick([lay(t[3]) for t in tried])
     lengths = {lid: ftp.count(e) for lid, (_, e, _) in laid.items() if e}
     stream = [t for k, t in texts.items() if k != best and t.strip()]
-    laid, blank = ocr_clues.reconcile(laid, stream, lengths)
+    # The 1930s lists print no counts: a clue is then read without one.
+    uncounted = not any(c["enums"] for cs in tried[0][3].values() for c in cs)
+    laid, blank = ocr_clues.reconcile(laid, stream, lengths, uncounted=uncounted)
     # Each filed clue as the readings print it: its count's shape, each
     # word's capital, hyphen and spelling.
-    laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
+    laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths, uncounted=uncounted)
     for lid, (t, e, g) in laid.items():
         if t and not sound(t):
             # The vote put back words that run on into the next clue.

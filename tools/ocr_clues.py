@@ -1339,13 +1339,14 @@ def opening_printed(text, own, streams):
 OPENING_SIMILAR = 0.75
 
 
-def reconcile(laid, streams, lengths=None, keep_known=False):
+def reconcile(laid, streams, lengths=None, keep_known=False, uncounted=False):
     """The laid clues with each clue's text put to every reading; returns
     (laid, {light: why}) naming each clue filed blank. `streams` holds each
     other reading's text, or {light: that reading's text} where the lights
     were laid from different readings; one text or dict alone is one reading.
     `lengths` ({light: cells}, from the grid) gives a clue whose count was
-    lost its light's length as the count."""
+    lost its light's length as the count. `uncounted`: the lists print no
+    counts (the 1930s Listener's), so a clue without one is read whole."""
     if isinstance(streams, (str, dict)):
         streams = [streams]
     # A list's heading bounds the clues either side like a number: "DOWN"
@@ -1411,7 +1412,7 @@ def reconcile(laid, streams, lengths=None, keep_known=False):
         if enum is None and (lengths or {}).get(lid):
             # The other readings vote on the words, so a cut-short end shows.
             enum = str(lengths[lid])
-        if enum is None:
+        if enum is None and not uncounted:
             # The count lost with the clue's end: the words may be cut short.
             blank[lid] = "no count read"
             out[lid] = ("", enum, group)
@@ -1954,13 +1955,14 @@ def printed_words(text, theirs, broken=()):
     return out
 
 
-def as_printed(texts, laid, blank, parse, lengths):
+def as_printed(texts, laid, blank, parse, lengths, uncounted=False):
     """(laid, blank) with every filed clue held to what the readings `texts`
     print for its light: its count takes the shape most of them print
     (printed_count; "(5-4)", not the "(9)" a lost count left), and its
     words their capitals, hyphens and known spellings (printed_words). A
     count no reading settles files the clue blank. The last check before
-    filing, after the vote and the VLM's pick alike."""
+    filing, after the vote and the VLM's pick alike. `uncounted`: the lists
+    print no counts, so a clue none of the readings counts keeps none."""
     laid, blank = dict(laid), dict(blank)
     # A hyphen the columns print only at a line end says nothing of the word.
     ends = {(m.group(1) + m.group(2)).lower() for t in texts.values()
@@ -1973,7 +1975,8 @@ def as_printed(texts, laid, blank, parse, lengths):
             continue
         theirs = readings_for(texts, lid, parse)
         cells = sum(lengths.get(k, 0) for k in (group or [lid]))
-        enum, why = printed_count(enum, [es for _, es in theirs], cells)
+        enum, why = (None, None) if uncounted and enum is None and not any(es for _, es in theirs) \
+            else printed_count(enum, [es for _, es in theirs], cells)
         if why:
             laid[lid], blank[lid] = ("", None, group), why
             continue
