@@ -572,6 +572,20 @@ const APP_BLOCKS = (() => {
   assert(from > 0 && end > from, "blockLetters, senseBlock and buildingBlocks are still in app.js to be read");
   return new Function(src.slice(from, to) + "\n  return { blockLetters, senseBlock, buildingBlocks };")();
 })();
+// A count in words stays in the clue's text as printed ("(11, two words)",
+// tools/enumeration.py WORDED), and it is still the enumeration, so it is never
+// a word to tap: a wrong-definition tap on "words)" graded a count as a clue word.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const from = src.indexOf("function clueTokens");
+  const to = src.indexOf("\n  }\n", from) + 4;
+  const clueTokens = new Function(src.slice(from, to) + "\nreturn clueTokens;")();
+  const words = (t) => clueTokens(t).map((x) => x.text).join("|");
+  assert(words("Scotch to bear including permit (11, two words)") === "Scotch|to|bear|including|permit",
+    "a trailing count in words is not a pickable word: " + words("Scotch to bear including permit (11, two words)"));
+  assert(words("Bar (two words) at sea") === "Bar|(two|words)|at|sea",
+    "and words in brackets mid-clue still are: " + words("Bar (two words) at sea"));
+}
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore
@@ -5394,9 +5408,16 @@ global.realSetTimeout(() => {
   const after = registry["hint-body"].innerHTML;
   assert(after.includes("guess-verdict"),
     "asking for a new hint does not delete the verdict you were reading: " + after);
-  assert(after.length >= before.length,
+  // One thing does go: the verdict's graded copy of the clue (verdictHTML's
+  // `quiet`), because the clue line above is now the tapping surface for the new
+  // question and two copies of the same words is the duplicate that was removed
+  // on purpose. A long clue's copy is longer than the question that replaces it,
+  // so the growth is measured without it.
+  const kept = (h) => h.replace(/<p class="guess-clue mk[^"]*">[\s\S]*?<\/p>/g, "");
+  assert(kept(after).length >= kept(before).length,
     `the panel only ever grows (${walked.id} ${entryId(walked.e)}): `
-      + before.length + " -> " + after.length + "\nbefore: " + before + "\nafter: " + after);
+      + kept(before).length + " -> " + kept(after).length
+      + "\nbefore: " + before + "\nafter: " + after);
   // The ladder stays reachable while a question stands. It used to go all-
   // disabled, so that a guess could not be walked around by buying a different
   // hint — and that cornered a solver who had simply picked the wrong rung

@@ -4167,9 +4167,12 @@
 
   // The clue's words split into things you can put a finger on.
   // Whitespace-delimited, so the punctuation welded to a word rides along with
-  // it. The enumeration is not in the text, so it is never a pickable word.
+  // it. The enumeration is never a pickable word: it is not in the text, except
+  // for a count in words ("(11, two words)", tools/enumeration.py WORDED), which
+  // stays in the text as printed and is cut off here.
   function clueTokens(clue) {
-    const body = String(clue || "");
+    const body = String(clue || "")
+      .replace(/\(\s*\d{1,2}\s*,\s*(two|three|four|five|six|seven|eight)\s+words\s*\)\s*$/i, "");
     const out = [];
     const re = /\S+/g;
     let m;
