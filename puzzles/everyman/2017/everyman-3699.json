@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Fraudster, initially careless, forgetting small limp",
     "enumeration": "6"
    },
-   "solution": "FLOPPY"
+   "solution": "FLOPPY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "FLOPPY",
+    "definitions": [
+     {
+      "text": "limp",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word it follows, and nothing more"
+     },
+     {
+      "text": "forgetting",
+      "for": "deletion",
+      "note": "forgetting something means leaving it out, so the abbreviation that follows is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fraudster",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "careless",
+      "gives": "SLOPPY",
+      "note": "careless work is sloppy"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the standard abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOPPY"
+     ]
+    },
+    "explanation": {
+     "surface": "A con artist who has got careless and lets small details slip.",
+     "walkthrough": "The commas make 'Fraudster' look like the subject, but only its first letter is used; 'careless' supplies the main body once the small one is dropped.",
+     "definitionFit": "Something limp hangs loose without stiffness, which is exactly what a floppy hat or ear does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,58 @@
     "text": "Predicted luggage emptied in part of ship",
     "enumeration": "10"
    },
-   "solution": "FORECASTLE"
+   "solution": "FORECASTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FORECASTLE",
+    "definitions": [
+     {
+      "text": "part of ship",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "emptied means the inside is cleared out, leaving just the outer letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Predicted",
+      "gives": "FORECAST",
+      "note": "forecast as a past tense means foretold"
+     },
+     {
+      "clueFragment": "luggage",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the first and last letters of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORECAST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Baggage that was expected to go missing in some part of a vessel.",
+     "definitionFit": "The forecastle, often written fo'c'sle, is the forward section of a ship below the bow deck."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Predicted"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +175,41 @@
     "text": "Newspaper belonging to senior gangster",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "Newspaper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "belonging to",
+      "for": "hidden_word",
+      "note": "belonging to means contained within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "senior gangster",
+      "gives": "ORGAN",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A paper owned by a top mobster.",
+     "definitionFit": "An organ is a publication that speaks for a party or group, as in a party's official mouthpiece."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +223,54 @@
     "text": "Illustrations about one system of exercises",
     "enumeration": "7"
    },
-   "solution": "PILATES"
+   "solution": "PILATES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PILATES",
+    "definitions": [
+     {
+      "text": "system of exercises",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so these pictures wrap around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illustrations",
+      "gives": "PLATES",
+      "note": "plates are full-page pictures in a book"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "LATES"
+     ]
+    },
+    "explanation": {
+     "surface": "Diagrams showing a single workout routine.",
+     "definitionFit": "Pilates is a regime of controlled body-conditioning movements devised by Joseph Pilates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Illustrations"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +284,43 @@
     "text": "Had a fight cancelled",
     "enumeration": "8"
    },
-   "solution": "SCRAPPED"
+   "solution": "SCRAPPED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRAPPED",
+    "definitions": [
+     {
+      "text": "Had a fight",
+      "at": 0
+     },
+     {
+      "text": "cancelled",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Had a fight",
+      "note": "first meaning: brawled or tussled"
+     },
+     {
+      "clueFragment": "cancelled",
+      "note": "second meaning: abandoned or thrown out as useless"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a fight that got called off, but the two halves are separate senses of one word.",
+     "definitionFit": "To scrap is informally to brawl, and also to discard a plan, so the past tense covers both senses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cancelled"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +334,52 @@
     "text": "Crusty representation of Saturn on cake",
     "enumeration": "12"
    },
-   "solution": "CANTANKEROUS"
+   "solution": "CANTANKEROUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CANTANKEROUS",
+    "definitions": [
+     {
+      "text": "Crusty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "representation of",
+      "for": "anagram",
+      "note": "a representation is a rendering or depiction, so the letters are made into a fresh form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saturn on cake",
+      "gives": "SATURNONCAKE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SATURNONCAKE",
+       "gives": "CANTANKEROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A planet piped in icing on a cake with a crust.",
+     "walkthrough": "'Crusty' suggests pastry and cake, but it is the definition in its sense of grumpy.",
+     "definitionFit": "A crusty person is irritable and gruff, the same bad-tempered sense as quarrelsome and grouchy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Crusty"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +393,62 @@
     "text": "A fool, admitting offence, causing laughter",
     "enumeration": "7"
    },
-   "solution": "AMUSING"
+   "solution": "AMUSING",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "AMUSING",
+    "definitions": [
+     {
+      "text": "causing laughter",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the wrong is taken inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fool",
+      "gives": "MUG",
+      "note": "a mug is a gullible person"
+     },
+     {
+      "clueFragment": "offence",
+      "gives": "SIN",
+      "note": "a sin is a wrongdoing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MU",
+      "SIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A clown confessing to a misdeed gets everyone giggling.",
+     "walkthrough": "Mug for a dupe is British informal usage.",
+     "definitionFit": "Something amusing is funny and entertaining, provoking smiles and laughs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "admitting"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +462,65 @@
     "text": "Write slight, unfinished article, making point?",
     "enumeration": "9"
    },
-   "solution": "PENINSULA"
+   "solution": "PENINSULA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PENINSULA",
+    "definitions": [
+     {
+      "text": "point?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the ending is missing, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write",
+      "gives": "PEN",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "slight",
+      "gives": "INSULT",
+      "note": "a slight is an insult or snub"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "INSUL",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Penning a short, half-done article to make an argument.",
+     "walkthrough": "'Point' looks like making a point in an essay; the question mark flags that it is a geographical point.",
+     "definitionFit": "A point of land jutting into the sea is a headland, and a peninsula is a larger version of one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point?"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +534,65 @@
     "text": "Give up work to follow northward road",
     "enumeration": "4"
    },
-   "solution": "DROP"
+   "solution": "DROP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DROP",
+    "definitions": [
+     {
+      "text": "Give up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "northward",
+      "for": "reversal",
+      "note": "in a down clue going north means reading upwards, so the letters come backwards"
+     },
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow places the work after the road"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the abbreviation for road"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. is short for opus, a musical work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "OP"
+     ],
+     "reversals": [
+      {
+       "from": "RD",
+       "to": "DR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Quitting one's job to head up the road north.",
+     "definitionFit": "To drop a habit or class is to abandon it, the same as giving it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +606,48 @@
     "text": "Entertain like a monarch with energy",
     "enumeration": "6"
    },
-   "solution": "REGALE"
+   "solution": "REGALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REGALE",
+    "definitions": [
+     {
+      "text": "Entertain",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like a monarch",
+      "gives": "REGAL",
+      "note": "regal means kingly or queenly"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGAL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Laying on lavish hospitality as a king would, with plenty of vigour.",
+     "definitionFit": "To regale guests is to entertain them, with stories or a lavish meal, a fairly close synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +661,70 @@
     "text": "Suggestion from union newly filled with purpose",
     "enumeration": "8"
    },
-   "solution": "INNUENDO"
+   "solution": "INNUENDO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INNUENDO",
+    "definitions": [
+     {
+      "text": "Suggestion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "newly",
+      "for": "anagram",
+      "note": "newly suggests the letters are made over afresh into a different order"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "filled with means another piece is packed inside this one"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "union",
+      "gives": "UNION",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "purpose",
+      "gives": "END",
+      "note": "an end is an aim or purpose, as in 'to that end'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNU",
+      "END",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNION",
+       "gives": "INNUO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A proposal emerging from a freshly formed trade union with a clear purpose.",
+     "walkthrough": "'Union' reads as a trade union, but it is just letters to be rearranged; 'end' for purpose is a common crossword equivalence.",
+     "definitionFit": "An innuendo is an indirect hint or insinuation, a kind of suggestion rather than a plain statement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +744,73 @@
      }
     ]
    },
-   "solution": "IRVINGBERLIN"
+   "solution": "IRVINGBERLIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IRVING BERLIN",
+    "definitions": [
+     {
+      "text": "songwriter",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the number inside the following word"
+     },
+     {
+      "text": "joined by",
+      "for": "charade",
+      "note": "joined by means the next piece is attached alongside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "RING",
+      "note": "a ring is a group or gang, as in a spy ring"
+     },
+     {
+      "clueFragment": "Five",
+      "gives": "V",
+      "note": "V is the Roman numeral five"
+     },
+     {
+      "clueFragment": "capital",
+      "gives": "BERLIN",
+      "note": "Berlin is the capital of Germany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "R",
+      "V",
+      "ING",
+      "BERLIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Five musicians in one band team up with a top-notch composer.",
+     "walkthrough": "V sits inside RING after its first letter, preceded by I. Irving Berlin wrote White Christmas and many other standards.",
+     "definitionFit": "Irving Berlin was a prolific American popular composer and lyricist, one of the great writers of songs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +824,65 @@
     "text": "Business with land involving severe anxiety",
     "enumeration": "13"
    },
-   "solution": "CONSTERNATION"
+   "solution": "CONSTERNATION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CONSTERNATION",
+    "definitions": [
+     {
+      "text": "anxiety",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking something in, so one piece is wrapped around the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Business",
+      "gives": "CO",
+      "note": "Co. is the abbreviation for company"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "NATION",
+      "note": "a land or country"
+     },
+     {
+      "clueFragment": "severe",
+      "gives": "STERN",
+      "note": "severe, strict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "N",
+      "STERN",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A company dealing in property causes a great deal of worry.",
+     "walkthrough": "'Business with land' reads as a property firm; in fact the business is just its abbreviation, and the land is a country.",
+     "definitionFit": "Consternation is alarm or dismay, a sudden anxious confusion, so it stands for the noun anxiety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "land"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +896,66 @@
     "text": "Anger after referring to saucy old range",
     "enumeration": "10"
    },
-   "solution": "REPERTOIRE"
+   "solution": "REPERTOIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPERTOIRE",
+    "definitions": [
+     {
+      "text": "range",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the anger at the end, following the other pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "referring to",
+      "gives": "RE",
+      "note": "re means concerning or referring to"
+     },
+     {
+      "clueFragment": "saucy",
+      "gives": "PERT",
+      "note": "pert means cheeky or saucy"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Anger",
+      "gives": "IRE",
+      "note": "ire is anger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PERT",
+      "O",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fury aroused by a collection of risqué old material.",
+     "walkthrough": "The clue lists the anger first, but 'after' sends IRE to the end.",
+     "definitionFit": "A performer's repertoire is the full range of pieces they are ready to perform, their stock of material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +969,64 @@
     "text": "Friends, coming round, put up with knockabout comedy",
     "enumeration": "9"
    },
-   "solution": "SLAPSTICK"
+   "solution": "SLAPSTICK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SLAPSTICK",
+    "definitions": [
+     {
+      "text": "knockabout comedy",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming round",
+      "for": "reversal",
+      "note": "coming round suggests turning about, so the word is read from the other end"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Friends",
+      "gives": "PALS",
+      "note": "pals are friends"
+     },
+     {
+      "clueFragment": "put up with",
+      "gives": "STICK",
+      "note": "to stick something is to tolerate it, as in 'I can't stick him'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAP",
+      "STICK"
+     ],
+     "reversals": [
+      {
+       "from": "PALS",
+       "to": "SLAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mates drop in, and you endure their boisterous clowning.",
+     "walkthrough": "'Stick' meaning tolerate is mainly British informal usage.",
+     "definitionFit": "Slapstick is broad physical comedy of pratfalls and pies in the face, the same thing as knockabout humour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Friends"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1040,53 @@
     "text": "Brass, a lot, playing Fleetwood Mac tune",
     "enumeration": "9"
    },
-   "solution": "ALBATROSS"
+   "solution": "ALBATROSS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALBATROSS",
+    "definitions": [
+     {
+      "text": "Fleetwood Mac tune",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests performing with the letters, rearranging them freely"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brass, a lot",
+      "gives": "BRASSALOT",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRASSALOT",
+       "gives": "ALBATROSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A large brass section performing a hit by a rock band.",
+     "walkthrough": "Albatross is Fleetwood Mac's 1968 instrumental, a UK number one.",
+     "definitionFit": "Albatross is the title of a famous instrumental recording by the band Fleetwood Mac."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1100,62 @@
     "text": "Measure uniform in good time",
     "enumeration": "5"
    },
-   "solution": "GAUGE"
+   "solution": "GAUGE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GAUGE",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece within the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is a common abbreviation for good"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is the NATO phonetic alphabet word for U"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "A",
+      "U",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Sizing a uniform in good time, before it is needed.",
+     "walkthrough": "U goes inside AGE, which follows G; 'in good time' looks like a stock phrase but splits up.",
+     "definitionFit": "To gauge is to measure or estimate an amount, so the verb matches measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1169,53 @@
     "text": "Projecting parts, large, mostly overweight",
     "enumeration": "5"
    },
-   "solution": "LOBES"
+   "solution": "LOBES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LOBES",
+    "definitions": [
+     {
+      "text": "Projecting parts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the final letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     },
+     {
+      "clueFragment": "overweight",
+      "gives": "OBESE",
+      "note": "obese means seriously overweight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OBES"
+     ]
+    },
+    "explanation": {
+     "surface": "Body parts that stick out on someone large and heavy.",
+     "definitionFit": "Lobes are rounded projecting parts, like an earlobe or the lobes of a leaf or lung."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1229,45 @@
     "text": "Branch of study for citizen",
     "enumeration": "7"
    },
-   "solution": "SUBJECT"
+   "solution": "SUBJECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUBJECT",
+    "definitions": [
+     {
+      "text": "Branch of study",
+      "at": 0
+     },
+     {
+      "text": "citizen",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Branch of study",
+      "note": "first meaning: a school or university discipline"
+     },
+     {
+      "clueFragment": "citizen",
+      "note": "second meaning: a person owing allegiance to a monarch or state"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like a civics course; the two halves are separate meanings.",
+     "definitionFit": "Maths or history is a school discipline, and a British national is called one of the Crown's subjects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "citizen"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1281,61 @@
     "text": "Pests, not very restricted by barrier, start to grow",
     "enumeration": "9"
    },
-   "solution": "GERMINATE"
+   "solution": "GERMINATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GERMINATE",
+    "definitions": [
+     {
+      "text": "start to grow",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not very",
+      "for": "deletion",
+      "note": "not very tells you to remove the abbreviation for very from the word before"
+     },
+     {
+      "text": "restricted by",
+      "for": "container",
+      "note": "restricted by means hemmed in by the next word, so it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barrier",
+      "gives": "GATE",
+      "note": "a gate is a barrier across an opening"
+     },
+     {
+      "clueFragment": "Pests",
+      "gives": "VERMIN",
+      "note": "vermin are pests such as rats and mice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ERMIN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pests held back by a fence before they can breed and spread.",
+     "walkthrough": "V is the abbreviation for very, so VERMIN loses it to leave ERMIN, which goes inside GATE.",
+     "definitionFit": "To germinate is for a seed to sprout, which is beginning to develop into a plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Pests"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1349,41 @@
     "text": "Copy? Some acclaim it at exhibition",
     "enumeration": "7"
    },
-   "solution": "IMITATE"
+   "solution": "IMITATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IMITATE",
+    "definitions": [
+     {
+      "text": "Copy?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the following words is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acclaim it at exhibition",
+      "gives": "IMITATE",
+      "note": "spans the end of the first word through to the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "Asking whether a work praised at a gallery show is merely a forgery.",
+     "definitionFit": "To imitate is to mimic or reproduce something, which is what copying does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1403,80 @@
      }
     ]
    },
-   "solution": "TABLEAUVIVANT"
+   "solution": "TABLEAUVIVANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "TABLEAU VIVANT",
+    "definitions": [
+     {
+      "text": "Recreation of scene",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sad",
+      "for": "anagram",
+      "note": "sad in the sense of sorry or poor quality suggests the letters are in a bad state and need reordering"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places the rearranged letters ahead of what follows"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "by means next to, so the last piece sits alongside"
+     }
+    ],
+    "linkWords": [
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "value a bit",
+      "gives": "VALUEABIT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "verse",
+      "gives": "V",
+      "note": "V is the abbreviation for verse"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "ANT",
+      "note": "a soldier ant, as in the insect caste"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLEAUVI",
+      "V",
+      "ANT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VALUEABIT",
+       "gives": "TABLEAUVI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poor attempt by a soldier to re-stage a scene, with a little bit of verse.",
+     "walkthrough": "The question mark flags that a soldier here is the insect. A tableau vivant is a scene posed silently by costumed people, like a living painting.",
+     "definitionFit": "The French phrase means living picture: actors hold still to reproduce a famous painting or historical moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soldier"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1490,54 @@
     "text": "Cool under cooker once more",
     "enumeration": "5"
    },
-   "solution": "AGAIN"
+   "solution": "AGAIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGAIN",
+    "definitions": [
+     {
+      "text": "once more",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down clue, under places this piece below the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cooker",
+      "gives": "AGA",
+      "note": "an Aga is a brand of heavy cast-iron range cooker"
+     },
+     {
+      "clueFragment": "Cool",
+      "gives": "IN",
+      "note": "in means fashionable, cool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGA",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "Chilling something beneath the stove a second time.",
+     "walkthrough": "An Aga is a British range cooker found in many country kitchens.",
+     "definitionFit": "Again means one more time, so it is a straight synonym of once more."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cool"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1551,49 @@
     "text": "Frustrate lawyer with silence",
     "enumeration": "4"
    },
-   "solution": "DASH"
+   "solution": "DASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DASH",
+    "definitions": [
+     {
+      "text": "Frustrate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lawyer",
+      "gives": "DA",
+      "note": "a DA is a district attorney, an American prosecutor"
+     },
+     {
+      "clueFragment": "silence",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Thwarting an attorney by refusing to speak.",
+     "definitionFit": "To dash hopes is to ruin or thwart them, which frustrates them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "silence"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1613,77 @@
      }
     ]
    },
-   "solution": "ABOVEALL"
+   "solution": "ABOVEALL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ABOVE ALL",
+    "definitions": [
+     {
+      "text": "most importantly",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before"
+     },
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying means holding something within, so the meat goes inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailor",
+      "gives": "AB",
+      "note": "AB, able seaman, is the usual sailor"
+     },
+     {
+      "clueFragment": "cargo",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "VEAL",
+      "note": "veal is calf meat"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "O",
+      "VEAL",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaman whose ship's freight has finally gone, but who still has his meat on board.",
+     "walkthrough": "'Left' looks like a verb meaning departed, but it is the abbreviation; together with the cargo's last letter it wraps around the meat.",
+     "definitionFit": "The idiom means first and foremost, the thing that matters before everything else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1697,76 @@
     "text": "Much occupying one when about to make expedition",
     "enumeration": "6"
    },
-   "solution": "SAFARI"
+   "solution": "SAFARI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "SAFARI",
+    "definitions": [
+     {
+      "text": "expedition",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the pair before it is read backwards"
+     },
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "occupying means taking up space inside another piece"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as in 'as he arrived', meaning when"
+     },
+     {
+      "clueFragment": "Much",
+      "gives": "FAR",
+      "note": "far as in 'far better', meaning much"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "FAR",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "IAS",
+       "to": "SAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of people taking part in something when it is about to become a journey.",
+     "walkthrough": "'About' turns round the pair of one and when together, and 'much' goes inside the result.",
+     "definitionFit": "A safari is an overland expedition, traditionally in East Africa, to hunt or watch wild animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Much"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1780,77 @@
     "text": "Man with cheers interrupting broadcast isn't lacking confidence",
     "enumeration": "8"
    },
-   "solution": "HESITANT"
+   "solution": "HESITANT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "HESITANT",
+    "definitions": [
+     {
+      "text": "lacking confidence",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so the letters are strewn into a new order"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "interrupting means breaking into the middle of something"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "HE",
+      "note": "a man is a he"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is British slang for thanks, like cheers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "SI",
+      "TA",
+      "NT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNT",
+       "gives": "SINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man heckled by cheering during a broadcast is not short of self-belief.",
+     "walkthrough": "The surface says the man isn't lacking confidence, but the definition is just 'lacking confidence'; 'isn't' is fodder, not a negation.",
+     "definitionFit": "Someone hesitant falters and holds back from uncertainty, which is lacking confidence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "isn't"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1864,49 @@
     "text": "Plan that is for small-minded person",
     "enumeration": "6"
    },
-   "solution": "MEANIE"
+   "solution": "MEANIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MEANIE",
+    "definitions": [
+     {
+      "text": "small-minded person",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plan",
+      "gives": "MEAN",
+      "note": "to mean to do something is to plan or intend it"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin abbreviation id est, that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEAN",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "Scheming something for a petty individual.",
+     "definitionFit": "A meanie is an informal word for a petty, ungenerous or spiteful person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plan"
+    }
+   }
   }
  ]
 }
