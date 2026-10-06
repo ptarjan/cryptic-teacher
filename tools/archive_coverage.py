@@ -80,7 +80,11 @@ CLASSES = [
     ("number-date-mismatch", "the item's date and the puzzle number disagree", "none: archive.org's date is wrong", False, "tools/file_archive_org_puzzles.py"),
     ("no-filer", "archive.org has the scan, in a one-issue-per-item collection the filer does not read",
      "teach fetch_archive_org_editions.py and the filer the collection (ONE_ISSUE_GROUPS)", True, "tools/fetch_archive_org_editions.py"),
-    ("no-listing", "the year's archive.org item listing is not cached", "fetch_archive_org_editions.py --group <paper>", True, "tools/fetch_archive_org_editions.py"),
+    ("no-listing", "the year's archive.org item listing is not cached",
+     "fetch_archive_org_editions.py --group <paper> --list (one metadata call an item)", True, "tools/fetch_archive_org_editions.py"),
+    ("no-ocr", "archive.org holds the edition's PDF but never OCR'd it, so the page finder has no text",
+     "OCR the PDF ourselves to find the crossword page (fetch_archive_org_editions.py cannot yet)", True,
+     "tools/fetch_archive_org_editions.py"),
     ("canberra-reprint", "archive.org holds no scan; a cached Canberra Times article reprints it (tools/canberra_london_numbers.py)",
      "fetch_trove.py zones $(canberra_london_numbers.py --ids scanless), then file_trove_puzzles.py", True, "tools/fetch_trove.py"),
     ("no-scan", "archive.org holds no scan of this edition", "another source (Trove, a book, a blog)", False, "tools/first_issue.py"),
@@ -102,7 +106,7 @@ def printed_dates(series, until):
         d += datetime.timedelta(days=1)
 
 
-@functools.lru_cache(maxsize=None)
+@functools.cache
 def corpus(series):
     """{date: puzzle number} and {number: date} of the series' filed puzzles.
     Each file's (date, number) is kept in STATE/corpus-<series>.json against
@@ -159,8 +163,9 @@ def unread_collections(paper):
 
 def scans(paper):
     """({date: "<item>/<slug>"} of every edition archive.org lists for
-    `paper`, {year: listing cached}) from the cached item metadata."""
-    out, listed = {}, {}
+    `paper`, {year: listing cached}, {date: "<item>/<slug>"} of the editions
+    it holds as a PDF only, with no OCR) from the cached item metadata."""
+    out, listed, unread = {}, {}, {}
     group = {"times": "times", "ft": "ft", "guardian": "guardian", "telegraph": "telegraph"}[paper.key]
     try:
         items = [i["identifier"] for i in json.loads((CACHE / "items" / f"_group_{group}.json").read_text())]
@@ -174,11 +179,13 @@ def scans(paper):
         listed[int(m.group(1))] = path.exists()
         if not path.exists():
             continue
-        for name in fetcher.editions_of(json.loads(path.read_text())):
-            date = fetcher.edition_date(name)
-            if date:
-                out.setdefault(date, f"{item}/{fetcher.slug_of(item, name)}")
-    return out, listed
+        meta = json.loads(path.read_text())
+        for names, into in ((fetcher.editions_of(meta), out), (fetcher.unread_scans(meta), unread)):
+            for name in names:
+                date = fetcher.edition_date(name)
+                if date:
+                    into.setdefault(date, f"{item}/{fetcher.slug_of(item, name)}")
+    return out, listed, unread
 
 
 def failed_fetches():
@@ -234,7 +241,7 @@ def unfiled(paper, today):
     whether a one-issue collection holds it."""
     series = paper.series
     by_date, by_number = corpus(series)
-    listing, listed = scans(paper)
+    listing, listed, unread = scans(paper)
     rows, failed = ledger(), failed_fetches()
     elsewhere = unread_collections(paper)
     reprinted = {r["londonDate"] for r in canberra_london_numbers.load().values()
@@ -246,6 +253,8 @@ def unfiled(paper, today):
             cls = None
         elif not ed and date in elsewhere:
             cls = "no-filer"
+        elif not ed and date in unread:
+            cls, ed = "no-ocr", unread[date]
         elif not ed:
             cls = ("canberra-reprint" if date in reprinted else "no-scan") if listed.get(y, True) else "no-listing"
         elif ed in rows:

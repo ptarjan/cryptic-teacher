@@ -126,6 +126,10 @@ GROUPS = [
     ("pub_sunday-times", "collection:pub_sunday-times", r"^Sunday Times ", None),
 ]
 
+#: The groups holding one item a year of ~300 editions, whose listings are
+#: cheap to fetch whole (one metadata call an item).
+YEARLY_GROUPS = {g[0] for g in GROUPS if g[1].startswith(SAMAAN)}
+
 #: A crossword title with its number ("Times Crossword Puzzle No 14,011",
 #: "CROSSWORD No. 8,650", "Crossword Puzzle No"). A front-page index line
 #: ("CROSSWORD - 28") has a two-digit page number, so a title needs three.
@@ -241,6 +245,16 @@ def editions_of(meta):
     """Edition base names in an item: one per _djvu.txt, in date order."""
     names = [f["name"][: -len("_djvu.txt")] for f in meta["files"] if f["name"].endswith("_djvu.txt")]
     return sorted(names, key=lambda n: (edition_date(n) or "", n))
+
+
+def unread_scans(meta):
+    """Edition base names whose PDF archive.org holds but never OCR'd (no
+    _djvu.txt): editions_of() cannot list them, and the page finder has no
+    text to search (FinancialTimes1981UKEnglish: 285 PDFs, no OCR at all)."""
+    texts = set(editions_of(meta))
+    names = [f["name"][: -len(".pdf")] for f in meta["files"]
+             if f["name"].endswith(".pdf") and not f["name"].endswith("_text.pdf")]
+    return sorted((n for n in names if n not in texts), key=lambda n: (edition_date(n) or "", n))
 
 
 def edition_date(name):
@@ -559,6 +573,15 @@ def main():
         plan = [("item", it) for it in args.item]
     else:
         plan = [(g, it) for g in (args.group or [g[0] for g in GROUPS]) for it in items_of(fx, g)]
+
+    # Every one-item-a-year listing first: archive_coverage reads them, and an
+    # edition run can stop long before it reaches a group's last item.
+    for group, item in plan:
+        if group in YEARLY_GROUPS:
+            try:
+                fx.metadata(item)
+            except (urllib.error.URLError, RuntimeError, OSError, ValueError) as e:
+                log(f"{item}: metadata failed, left for the next run: {e}")
 
     submitted = 0
     pending = set()
