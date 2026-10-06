@@ -70,6 +70,13 @@ EMPTY_OCR_CHARS) is fetched instead, marked ocr_empty: ABBYY returns nothing
 for a page of dense share tables, and the 1980s FT prints its crossword on
 one (FT 3 Apr 1985, leaf 41). The filer finds the grid in those by image.
 
+An edition archive.org holds only as an image PDF, never OCR'd (FT 1981:
+~12 MB, one 1-bit scan a page, no _djvu.txt and mostly no _jp2.zip), is
+read by image (fetch_pdf_edition): each page is searched for a grid-shaped
+patch that trove_grid reads as a grid, and those pages are saved greyed and
+scaled to the scans' width, marked pdf, beside a djvu.xml.gz of empty
+OBJECTs, so the filer reads the title over the grid as on a blank-OCR leaf.
+
 When no page's text holds a daily crossword's numbered title (titled()),
 the OCR has garbled it or the page has no text, so the leaves the paper
 usually prints it on are fetched too, marked prior: the edition's last leaf
@@ -341,19 +348,13 @@ def write_atomic(path, data):
 
 
 def editions_of(meta):
-    """Edition base names in an item: one per _djvu.txt, in date order."""
-    names = [f["name"][: -len("_djvu.txt")] for f in meta["files"] if f["name"].endswith("_djvu.txt")]
+    """Edition base names in an item, in date order: one per _djvu.txt, and
+    one per image PDF archive.org never OCR'd (FinancialTimes1981UKEnglish:
+    285 PDFs, no _djvu.txt), which fetch_edition reads by image."""
+    names = {f["name"][: -len("_djvu.txt")] for f in meta["files"] if f["name"].endswith("_djvu.txt")}
+    names |= {f["name"][: -len(".pdf")] for f in meta["files"]
+              if f["name"].endswith(".pdf") and not f["name"].endswith("_text.pdf")}
     return sorted(names, key=lambda n: (edition_date(n) or "", n))
-
-
-def unread_scans(meta):
-    """Edition base names whose PDF archive.org holds but never OCR'd (no
-    _djvu.txt): editions_of() cannot list them, and the page finder has no
-    text to search (FinancialTimes1981UKEnglish: 285 PDFs, no OCR at all)."""
-    texts = set(editions_of(meta))
-    names = [f["name"][: -len(".pdf")] for f in meta["files"]
-             if f["name"].endswith(".pdf") and not f["name"].endswith("_text.pdf")]
-    return sorted((n for n in names if n not in texts), key=lambda n: (edition_date(n) or "", n))
 
 
 def edition_date(name):
@@ -546,6 +547,8 @@ def fetch_edition(fx, item, meta, name):
     bases = [f"https://{meta[k]}{meta['dir']}/{q(name)}" for k in ("d1", "d2") if meta.get(k) and meta.get("dir")]
     bases.append(f"https://archive.org/download/{q(item)}/{q(name)}")
     files = {f["name"] for f in meta["files"]}
+    if name + "_djvu.txt" not in files:
+        return fetch_pdf_edition(fx, item, name, d, bases)
     text_path = os.path.join(d, "pagetext.json.gz")
     xml_path = os.path.join(d, "djvu.xml.gz")
     cached = None  # {"texts": [...], "words": {leaf: [width, height]}}: the hOCR route
@@ -615,6 +618,75 @@ def fetch_edition(fx, item, meta, name):
     write_atomic(os.path.join(d, "pages.json"), json.dumps({
         "item": item, "edition": name, "date": edition_date(name), "leaves": len(pages),
         "detector_version": DETECTOR_VERSION, "crossword_pages": hits}, indent=1).encode())
+    return hits
+
+
+def scan_page(img):
+    """A PDF page image greyed and scaled to the jp2 scans' width (the filer's
+    SCAN_WIDTH, which its sizes assume). A 1-bit page at full size joins a
+    grid's frame to the ink round it, so grids_on finds no grid on it; the
+    antialiased grey page parts them."""
+    import file_archive_org_puzzles as filer
+    from PIL import Image
+    gray = img.convert("L")
+    return gray.resize((filer.SCAN_WIDTH, round(gray.height * filer.SCAN_WIDTH / gray.width)), Image.LANCZOS)
+
+
+def grid_boxes(img):
+    """[box] of the grid-shaped patches of ink on a PDF page (the filer's
+    grids_on), looked for on the page halved (~2 s a page), in the
+    coordinates of scan_page(img)."""
+    import file_archive_org_puzzles as filer
+    half = img.convert("L").reduce(2)
+    k = filer.SCAN_WIDTH / half.width
+    return [tuple(round(v * k) for v in box) for box in filer.grids_on(half, step=1, shaped=lambda b: filer.shaped_on(half, b))]
+
+
+def reads_as_grid(page, box):
+    """Whether trove_grid reads the box's ink as a grid: photos and adverts
+    are grid-shaped too (6 such pages in FT 1981-04-01, one of them the grid)."""
+    import trove_grid
+    buf = io.BytesIO()
+    page.crop((box[0] - 6, box[1] - 6, box[2] + 6, box[3] + 6)).save(buf, "PNG")
+    buf.seek(0)
+    return trove_grid.read_grid(buf)[0] is not None
+
+
+def fetch_pdf_edition(fx, item, name, d, bases):
+    """An edition archive.org holds as an image PDF only (one scanned image a
+    page, no OCR): each page with a grid on it is a crossword page, saved as
+    its leaf JPEG at SCAN_WIDTH and marked pdf. The djvu.xml.gz holds an empty
+    OBJECT a page, so the filer reads the titles by image (ocr_titles) as it
+    does a blank-OCR leaf."""
+    import pypdf
+    from PIL import Image
+    Image.MAX_IMAGE_PIXELS = None
+    pdf = pypdf.PdfReader(io.BytesIO(fetch_first(fx, bases, ".pdf", name + ".pdf")))
+    shaped = []  # (leaf, page, read as a grid) of each page with grid-shaped ink
+    for leaf, p in enumerate(pdf.pages):
+        images = p.images
+        if len(images) != 1:
+            raise RuntimeError(f"page {leaf} holds {len(images)} images, not one scan")
+        boxes = grid_boxes(images[0].image)
+        if boxes:
+            page = scan_page(images[0].image)
+            shaped.append((leaf, page, any(reads_as_grid(page, box) for box in boxes)))
+    # The pages whose grid reads; when none does (a faint grid), every
+    # grid-shaped page, so the filer still looks for a title on each.
+    keep = [x for x in shaped if x[2]] or shaped
+    hits = []
+    for leaf, page, _ in keep:
+        buf = io.BytesIO()
+        page.save(buf, "JPEG", quality=90)
+        write_atomic(os.path.join(d, f"leaf_{leaf:04d}.jpg"), buf.getvalue())
+        hits.append({"leaf": leaf, "pdf": True, "width": page.width, "height": page.height})
+    count = len(pdf.pages)
+    write_atomic(os.path.join(d, "djvu.xml.gz"), gzip.compress(
+        b'<?xml version="1.0" encoding="UTF-8"?>\n<DjVuXML><BODY>\n'
+        + b'<OBJECT width="0" height="0"></OBJECT>\n' * count + b"</BODY></DjVuXML>\n", 6))
+    write_atomic(os.path.join(d, "pages.json"), json.dumps({
+        "item": item, "edition": name, "date": edition_date(name),
+        "leaves": count, "detector_version": DETECTOR_VERSION, "crossword_pages": hits}, indent=1).encode())
     return hits
 
 
