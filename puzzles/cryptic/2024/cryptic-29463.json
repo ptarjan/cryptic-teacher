@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Received caller’s first question mid-broadcast",
     "enumeration": "8"
    },
-   "solution": "ACQUIRED"
+   "solution": "ACQUIRED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ACQUIRED",
+    "definitions": [
+     {
+      "text": "Received",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of something is its opening letter, so only the initial is kept"
+     },
+     {
+      "text": "mid-",
+      "for": "container",
+      "note": "placed in the middle of the following word, so the other letters sit inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caller’s",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of caller"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "QU is a standard abbreviation for question"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIRED",
+      "note": "a programme that is broadcast has been aired"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CQU",
+      "IRED"
+     ]
+    },
+    "explanation": {
+     "surface": "A radio phone-in where the first caller's question arrives halfway through the broadcast.",
+     "definitionFit": "To acquire something is to get or obtain it, so acquired is a past-tense synonym of received."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caller’s"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +110,44 @@
     "text": "Try to find person with faith in hearing",
     "enumeration": "4"
    },
-   "solution": "SEEK"
+   "solution": "SEEK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEEK",
+    "definitions": [
+     {
+      "text": "Try to find",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in hearing",
+      "for": "homophone",
+      "note": "something taken in by hearing is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person with faith",
+      "gives": "SEEK",
+      "soundsLike": "SIKH",
+      "note": "a Sikh is a follower of the Sikh religion, a person of faith"
+     }
+    ],
+    "explanation": {
+     "surface": "Looking for someone who holds a religious belief, as if by listening out for them.",
+     "definitionFit": "Seek is a plain verb meaning look for or search out, matching try to find."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +167,48 @@
      }
     ]
    },
-   "solution": "LOWCAL"
+   "solution": "LOWCAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOW-CAL",
+    "definitions": [
+     {
+      "text": "good for corporation?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Depressed",
+      "gives": "LOW",
+      "note": "low means depressed, sunk down or downcast"
+     },
+     {
+      "clueFragment": "US state",
+      "gives": "CAL",
+      "note": "Cal is an abbreviation for California"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOW",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy American state that would suit a business company.",
+     "walkthrough": "Corporation is old British slang for a pot belly, so food that is low-cal is kind to the waistline, not to a company.",
+     "definitionFit": "Low-calorie food keeps a paunch from growing, and corporation is a jocular term for a large stomach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "corporation"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +222,48 @@
     "text": "Greatly respected guide meets explorer returning from the interior",
     "enumeration": "8"
    },
-   "solution": "ESTEEMED"
+   "solution": "ESTEEMED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ESTEEMED",
+    "definitions": [
+     {
+      "text": "Greatly respected",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the interior",
+      "for": "hidden_word",
+      "note": "the letters come from inside the run of words, not from their meanings"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "going back means the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guide meets explorer",
+      "gives": "DEMEETSE",
+      "note": "the letters spanning the end of guide, all of meets and the start of explorer"
+     }
+    ],
+    "explanation": {
+     "surface": "A tour guide welcomes an explorer coming home from a trip into the hinterland.",
+     "definitionFit": "Someone held in high regard is esteemed, so the words are adjectival synonyms of great admiration."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "interior"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +277,76 @@
     "text": "Stewed rat eaten by mad English people like us",
     "enumeration": "10"
    },
-   "solution": "EARTHLINGS"
+   "solution": "EARTHLINGS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "EARTHLINGS",
+    "definitions": [
+     {
+      "text": "people like us",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Stewed",
+      "for": "anagram",
+      "note": "stewed food is cooked into a jumble, so the following letters are mixed"
+     },
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "something mad is deranged, so the next word's letters are thrown out of order"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten goes inside the eater, so one group is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "ENGLISH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rat",
+      "gives": "RAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ART",
+      "HLINGS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAT",
+       "gives": "ART"
+      },
+      {
+       "fodder": "ENGLISH",
+       "gives": "EHLINGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooked rodent being devoured by crazy English diners.",
+     "definitionFit": "Earthlings are inhabitants of planet Earth, which is how humans would be described by aliens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Stewed"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +360,57 @@
     "text": "Games lesson introducing breathing apparatus for diving activity",
     "enumeration": "6"
    },
-   "solution": "PLUNGE"
+   "solution": "PLUNGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLUNGE",
+    "definitions": [
+     {
+      "text": "diving activity",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "one thing introducing another lets it in, so the second part goes inside the first"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Games lesson",
+      "gives": "PE",
+      "note": "PE, physical education, is the school games lesson"
+     },
+     {
+      "clueFragment": "breathing apparatus",
+      "gives": "LUNG",
+      "note": "the lung is the body's organ for breathing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LUNG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A school sports lesson that brings in scuba kit for swimming practice.",
+     "definitionFit": "A plunge is a dive or headlong jump into water, the activity of diving in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "apparatus"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +424,64 @@
     "text": "Parts of hierarchical structure close when wanting week off",
     "enumeration": "8"
    },
-   "solution": "ECHELONS"
+   "solution": "ECHELONS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ECHELONS",
+    "definitions": [
+     {
+      "text": "Parts of hierarchical structure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting",
+      "for": "deletion",
+      "note": "wanting means lacking, so the stated letter is removed"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "something off has gone wrong, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close when",
+      "gives": "CLOSEWHEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "week",
+      "gives": "W",
+      "note": "W is the standard abbreviation for week"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECHELONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLOSEHEN",
+       "gives": "ECHELONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telling a business to shut down when staff want a week's holiday.",
+     "definitionFit": "Echelons are levels or ranks within an organisation, the tiers that make up a pecking order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +495,50 @@
     "text": "Ordered to go with railway guard",
     "enumeration": "6"
    },
-   "solution": "SENTRY"
+   "solution": "SENTRY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SENTRY",
+    "definitions": [
+     {
+      "text": "guard",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ordered to go",
+      "gives": "SENT",
+      "note": "someone ordered to go has been sent"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENT",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway guard told to leave along with the train.",
+     "walkthrough": "The railway guard of the surface is a train official; the definition is a soldier on watch.",
+     "definitionFit": "A sentry is a soldier posted to keep watch at a gate or post, a synonym of guard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guard"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +552,55 @@
     "text": "Text written about everyone’s underwear",
     "enumeration": "6"
    },
-   "solution": "SMALLS"
+   "solution": "SMALLS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMALLS",
+    "definitions": [
+     {
+      "text": "underwear",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "written around something means it is surrounded, so one part encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Text",
+      "gives": "SMS",
+      "note": "SMS is the text-message service"
+     },
+     {
+      "clueFragment": "everyone’s",
+      "gives": "ALL",
+      "note": "everyone is all; the 's is read as is and drops out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SM",
+      "ALL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A message describing what everybody has on beneath their clothes.",
+     "walkthrough": "Smalls is British informal for underclothes, especially items put out in the wash.",
+     "definitionFit": "In British slang smalls are knickers, pants and similar items of intimate clothing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Text"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +614,65 @@
     "text": "Chance meeting of Liberal and Conservative in country",
     "enumeration": "4"
    },
-   "solution": "LUCK"
+   "solution": "LUCK",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LUCK",
+    "definitions": [
+     {
+      "text": "Chance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in a place means sitting within it, so one letter goes inside the other part"
+     }
+    ],
+    "linkWords": [
+     "meeting of",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "UK",
+      "note": "the United Kingdom"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "U",
+      "C",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Two rival British party politicians running into each other by accident at home.",
+     "definitionFit": "Luck is fortune or chance, what happens by accident rather than design."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "meeting"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +686,61 @@
     "text": "Derestricted final agreement leads to collapse",
     "enumeration": "10"
    },
-   "solution": "CONCERTINA"
+   "solution": "CONCERTINA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CONCERTINA",
+    "definitions": [
+     {
+      "text": "collapse",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Derestricted",
+      "for": "letter_selection",
+      "note": "with its limits taken off, a word loses its outer letters and keeps its middle"
+     },
+     {
+      "text": "leads to",
+      "for": "charade",
+      "note": "one part leading another goes in front of it, so the pieces are joined in that order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "gives": "CONCERT",
+      "note": "acting in concert is acting in agreement"
+     },
+     {
+      "clueFragment": "final",
+      "gives": "INA",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONCERT",
+      "INA"
+     ]
+    },
+    "explanation": {
+     "surface": "A deal that has had its last restrictions lifted brings about a breakdown.",
+     "walkthrough": "Concertina is a verb here: to fold up or crush like the bellows of the small accordion.",
+     "definitionFit": "To concertina is to fold or crumple up in sections, as a crashed car does when it collapses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "final"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +754,43 @@
     "text": "Ingenious description of gallery?",
     "enumeration": "6"
    },
-   "solution": "ARTFUL"
+   "solution": "ARTFUL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARTFUL",
+    "definitions": [
+     {
+      "text": "Ingenious",
+      "at": 0
+     },
+     {
+      "text": "description of gallery?",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ingenious",
+      "note": "first meaning: clever and crafty"
+     },
+     {
+      "clueFragment": "description of gallery?",
+      "note": "second meaning, split in two: a gallery is packed with paintings and sculpture"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half reads as ART FUL, a whimsical spelling of full of art, which is what a gallery is; the question mark flags the pun.",
+     "definitionFit": "Artful means cunning and skilful in getting results, a close synonym of clever or inventive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gallery"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +804,39 @@
     "text": "Digital protection that’s reduced by using certain files?",
     "enumeration": "10"
    },
-   "solution": "FINGERNAIL"
+   "solution": "FINGERNAIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FINGERNAIL",
+    "definitions": [
+     {
+      "text": "Digital protection that’s reduced by using certain files?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Digital protection",
+      "note": "surface reading: computer security, defending digital data from attack"
+     },
+     {
+      "clueFragment": "reduced by using certain files",
+      "note": "setter's reading: a digit is a finger, and the tough covering at its tip is shortened with an emery board"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Digital, files and protection all suggest computing; read literally, the digit is a finger and the files are manicure tools.",
+     "definitionFit": "The hard plate at the end of each finger shields its tip and is trimmed with a nail file."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Digital"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +856,52 @@
      }
     ]
    },
-   "solution": "REMSLEEP"
+   "solution": "REMSLEEP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REM SLEEP",
+    "definitions": [
+     {
+      "text": "What makes dreams come true",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a way",
+      "for": "anagram",
+      "note": "put together in some manner or other, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repels me",
+      "gives": "REPELSME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REPELSME",
+       "gives": "REMSLEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds the idea of their wishes being fulfilled somehow off-putting.",
+     "walkthrough": "Come true sounds like wishes fulfilled, but it means dreams actually happening during sleep; the question mark marks the pun.",
+     "definitionFit": "Rapid eye movement sleep is the stage of sleep in which most vivid dreaming takes place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "true"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +915,54 @@
     "text": "Study tense journalist suffering from depression?",
     "enumeration": "6"
    },
-   "solution": "DENTED"
+   "solution": "DENTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DENTED",
+    "definitions": [
+     {
+      "text": "suffering from depression?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Study",
+      "gives": "DEN",
+      "note": "a den is a private study or work room"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED, editor, is the usual crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEN",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A stressed reporter studying hard and feeling low.",
+     "walkthrough": "Depression suggests low mood, but here it is a hollow pressed into a surface; the question mark flags the shift.",
+     "definitionFit": "A dented car wing has a dip pressed into it, a physical depression rather than a mental one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +976,46 @@
     "text": "Separate established area where animal is found",
     "enumeration": "8"
    },
-   "solution": "ESTRANGE"
+   "solution": "ESTRANGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESTRANGE",
+    "definitions": [
+     {
+      "text": "Separate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "established",
+      "gives": "EST",
+      "note": "EST is the usual abbreviation for established"
+     },
+     {
+      "clueFragment": "area where animal is found",
+      "gives": "RANGE",
+      "note": "a species' range is the region it lives in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EST",
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Marking off a recognised zone as the habitat of a creature.",
+     "definitionFit": "To estrange people is to alienate them and drive them apart, so it works as the verb divide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Separate"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1029,55 @@
     "text": "Striking man lives next door to a crime boss",
     "enumeration": "6"
    },
-   "solution": "ADONIS"
+   "solution": "ADONIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADONIS",
+    "definitions": [
+     {
+      "text": "Striking man",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "next door to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crime boss",
+      "gives": "DON",
+      "note": "a Mafia boss is a don"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "to live is to be, so lives is is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DON",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A handsome fellow turns out to be the Mafia godfather's neighbour.",
+     "definitionFit": "Adonis was the beautiful youth of Greek myth, so his name stands for any very good-looking male."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1091,54 @@
     "text": "County welcomes measure of current growth in coastal regions",
     "enumeration": "8"
    },
-   "solution": "SAMPHIRE"
+   "solution": "SAMPHIRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SAMPHIRE",
+    "definitions": [
+     {
+      "text": "growth in coastal regions",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomes",
+      "for": "container",
+      "note": "a host welcoming a guest takes them inside, so one piece is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "County",
+      "gives": "SHIRE",
+      "note": "a shire is an English county"
+     },
+     {
+      "clueFragment": "measure of current",
+      "gives": "AMP",
+      "note": "the ampere measures electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AMP",
+      "HIRE"
+     ]
+    },
+    "explanation": {
+     "surface": "An English county taking in a gauge of electricity's spread along its shores.",
+     "definitionFit": "Samphire is a fleshy edible plant that grows on sea cliffs and salt marshes by the shore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1152,56 @@
     "text": "Almost every tree is growing at high altitudes",
     "enumeration": "6"
    },
-   "solution": "ALPINE"
+   "solution": "ALPINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALPINE",
+    "definitions": [
+     {
+      "text": "growing at high altitudes",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "every",
+      "gives": "ALL",
+      "note": "every one is all"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "PINE",
+      "note": "the pine is a conifer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "PINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly every tree up in the mountains is thriving.",
+     "definitionFit": "Alpine plants are mountain species, flourishing above the tree line in high country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1215,42 @@
     "text": "Supporter impedes talkshow hosts",
     "enumeration": "8"
    },
-   "solution": "PEDESTAL"
+   "solution": "PEDESTAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PEDESTAL",
+    "definitions": [
+     {
+      "text": "Supporter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hosts",
+      "for": "hidden_word",
+      "note": "a host holds a guest inside, so the letters are found within the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impedes talkshow",
+      "gives": "PEDESTAL",
+      "note": "the letters run from inside the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A fan gets in the way of the presenters of a chat show.",
+     "definitionFit": "A pedestal is a base or column that holds up a statue or vase, literally bearing it up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Supporter"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1264,59 @@
     "text": "Intrusion prevention mechanism in key address resolution protocols originally",
     "enumeration": "6"
    },
-   "solution": "ESCARP"
+   "solution": "ESCARP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ESCARP",
+    "definitions": [
+     {
+      "text": "Intrusion prevention mechanism",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "the original letters are the opening ones, so each word gives its initial"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "ESC",
+      "note": "the Escape key on a computer keyboard"
+     },
+     {
+      "clueFragment": "address resolution protocols",
+      "gives": "ARP",
+      "select": "first",
+      "note": "the initials of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESC",
+      "ARP"
+     ]
+    },
+    "explanation": {
+     "surface": "Computing jargon: a network intrusion-prevention system working inside networking protocols.",
+     "walkthrough": "The surface is all network security, but the defence meant is earthworks.",
+     "definitionFit": "An escarp is a steep bank or wall below a rampart in fortification, built to stop attackers getting in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Intrusion"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1330,61 @@
     "text": "Seed mainly spread by South American plant",
     "enumeration": "6"
    },
-   "solution": "SESAME"
+   "solution": "SESAME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SESAME",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means for the most part, so the word loses its last letter"
+     },
+     {
+      "text": "spread by",
+      "for": "container",
+      "note": "spread open by something, a word is parted to let it in"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seed",
+      "gives": "SEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "South American",
+      "gives": "SAM",
+      "note": "S for South and AM for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "SAM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Seeds dispersed chiefly by some plant from South America.",
+     "walkthrough": "Seed looks like the definition, but it is the fodder; the answer is the plant at the end.",
+     "definitionFit": "Sesame is an annual herb grown in warm regions for its oily edible seeds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Seed"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1398,39 @@
     "text": "Member of high society who’s no social climber",
     "enumeration": "6"
    },
-   "solution": "SHERPA"
+   "solution": "SHERPA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SHERPA",
+    "definitions": [
+     {
+      "text": "Member of high society who’s no social climber",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member of high society who’s no social climber",
+      "note": "surface reading: an aristocrat who does not need to push their way up the social ladder"
+     },
+     {
+      "clueFragment": "high society",
+      "note": "setter's reading: a people living high in the Himalayas, whose members climb mountains for a living, not for status"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "High society and social climber suggest snobbery; read literally, the society lives at altitude and the climbing is real mountaineering.",
+     "definitionFit": "Sherpas are a Nepalese people of the high Himalayas, famous as mountain guides and porters on expeditions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "society"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1444,48 @@
     "text": "Quickly read ‘Joins in matrimony’ aloud in shock",
     "enumeration": "10"
    },
-   "solution": "SCANDALISE"
+   "solution": "SCANDALISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SCANDALISE",
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aloud",
+      "for": "homophone",
+      "note": "spoken out loud, the words are judged by their sound not their spelling"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quickly read ‘Joins in matrimony’",
+      "gives": "SCANDALISE",
+      "soundsLike": "SCANNED ALLIES",
+      "note": "skimmed is scanned, and to ally families is to join them by marriage"
+     }
+    ],
+    "explanation": {
+     "surface": "Skimming a wedding notice aloud and being appalled by it.",
+     "walkthrough": "Ally, as a verb, means to unite by marriage, so allies stands for joins in matrimony.",
+     "definitionFit": "To scandalise people is to outrage or appal them by offending their sense of propriety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "matrimony"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1499,68 @@
     "text": "Knockout left Henry lying about cause of black eyes",
     "enumeration": "4"
    },
-   "solution": "KOHL"
+   "solution": "KOHL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KOHL",
+    "definitions": [
+     {
+      "text": "cause of black eyes",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the pair is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knockout",
+      "gives": "KO",
+      "note": "KO is the boxing abbreviation for knockout"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KO",
+      "H",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "LH",
+       "to": "HL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer knocked out and left lying on the canvas, the cause of a pair of shiners.",
+     "walkthrough": "Black eyes suggests a fight; the answer is make-up that darkens the eyes.",
+     "definitionFit": "Kohl is a black powder cosmetic used to line and darken the eyelids."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1574,42 @@
     "text": "Briefly meet notorious band",
     "enumeration": "4"
    },
-   "solution": "KISS"
+   "solution": "KISS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KISS",
+    "definitions": [
+     {
+      "text": "Briefly meet",
+      "at": 0
+     },
+     {
+      "text": "notorious band",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Briefly meet",
+      "note": "first meaning: to touch lightly in passing, as balls do in snooker"
+     },
+     {
+      "clueFragment": "notorious band",
+      "note": "second meaning: the face-painted American rock group"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Briefly suggests an abbreviation, but here it describes a fleeting contact.",
+     "definitionFit": "Two billiard balls kiss when they just touch, and the rock band was known for outrageous makeup and stage shows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Briefly"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1623,51 @@
     "text": "Member of school ignoring head and going wrong",
     "enumeration": "6"
    },
-   "solution": "ERRING"
+   "solution": "ERRING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERRING",
+    "definitions": [
+     {
+      "text": "going wrong",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring head",
+      "for": "deletion",
+      "note": "ignoring the head means leaving out the first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member of school",
+      "gives": "HERRING",
+      "note": "a school is a shoal of fish, and the herring swims in shoals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERRING"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil who disregards the headteacher and goes off the rails.",
+     "walkthrough": "School suggests a classroom, but it is a group of fish.",
+     "definitionFit": "To err is to make a mistake or stray from what is right, so erring is the present participle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "school"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1681,45 @@
     "text": "Chilling effect on being in vulnerable position financially",
     "enumeration": "8"
    },
-   "solution": "EXPOSURE"
+   "solution": "EXPOSURE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXPOSURE",
+    "definitions": [
+     {
+      "text": "Chilling effect",
+      "at": 0
+     },
+     {
+      "text": "being in vulnerable position financially",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chilling effect",
+      "note": "first meaning: the harm done by being left out in the cold"
+     },
+     {
+      "clueFragment": "being in vulnerable position financially",
+      "note": "second meaning: the amount a lender or investor stands to lose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Chilling effect sounds like the idiom for discouraging something, but it is literal cold.",
+     "definitionFit": "Hypothermia from being outdoors is called exposure, and a bank's risk to a debtor is its exposure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chilling"
+    }
+   }
   }
  ]
 }
