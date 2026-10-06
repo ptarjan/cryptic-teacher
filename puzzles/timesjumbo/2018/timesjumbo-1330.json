@@ -23,6 +23,9 @@
   "date": "2018-07-07",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -36,7 +39,61 @@
     "text": "Garments made initially out of loose dresses",
     "enumeration": "5"
    },
-   "solution": "SOCKS"
+   "solution": "SOCKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "SOCKS",
+    "definitions": [
+     {
+      "text": "Garments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "something taken out of a word leaves the rest behind, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made",
+      "gives": "M",
+      "select": "first",
+      "note": "initially picks the opening letter of made"
+     },
+     {
+      "clueFragment": "loose dresses",
+      "gives": "SMOCKS",
+      "note": "smocks are loose, baggy dresses or overalls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OCKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some clothing is fashioned from baggy frocks.",
+     "walkthrough": "Removing the M from SMOCKS leaves SOCKS.",
+     "definitionFit": "Socks are items of clothing worn on the feet, so they count as garments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +113,52 @@
      }
     ]
    },
-   "solution": "SWAGGERCANE"
+   "solution": "SWAGGERCANE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SWAGGER CANE",
+    "definitions": [
+     {
+      "text": "Stick with military",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "the letters are knocked about, scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gangs we care",
+      "gives": "GANGSWECARE",
+      "note": "eleven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GANGSWECARE",
+       "gives": "SWAGGERCANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vows loyalty to army gangs they are fond of.",
+     "walkthrough": "'Stick with' reads as a verb meaning stay loyal; it is the noun stick, a short cane.",
+     "definitionFit": "A swagger cane is the short stick carried by army officers, especially on parade, so it is a stick associated with soldiers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +172,58 @@
     "text": "Canton invested in company to produce strange item",
     "enumeration": "5"
    },
-   "solution": "CURIO"
+   "solution": "CURIO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CURIO",
+    "definitions": [
+     {
+      "text": "strange item",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "standard abbreviation for company"
+     },
+     {
+      "clueFragment": "Canton",
+      "gives": "URI",
+      "note": "Uri is one of the cantons of Switzerland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "URI",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A region puts money into a firm and comes out with something odd.",
+     "walkthrough": "Swiss cantons such as Uri, Vaud and Bern are handy crossword fillers; 'invested' suggests finance but means put inside.",
+     "definitionFit": "A curio is an unusual or rare object valued as a curiosity, a strange piece collected for interest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +243,56 @@
      }
     ]
    },
-   "solution": "SECONDLIEUTENANT"
+   "solution": "SECONDLIEUTENANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECOND LIEUTENANT",
+    "definitions": [
+     {
+      "text": "soldier",
+      "at": 51
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temporarily transfer",
+      "gives": "SECOND",
+      "note": "to second someone is to move them to another post for a while"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "LIEU",
+      "note": "lieu means place, as in 'in lieu of'"
+     },
+     {
+      "clueFragment": "renter",
+      "gives": "TENANT",
+      "note": "a tenant rents a property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SECOND",
+      "LIEU",
+      "TENANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer is moved temporarily to a spot a lodger wants.",
+     "walkthrough": "'that renter's after' is a positional instruction: the renter comes after the place.",
+     "definitionFit": "A second lieutenant is the most junior commissioned army officer, so a soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +306,55 @@
     "text": "What comes next when learner enters game",
     "enumeration": "7"
    },
-   "solution": "CURLING"
+   "solution": "CURLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CURLING",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "whatever enters goes inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What comes next",
+      "gives": "CURING",
+      "note": "points to the following clue, 8 across, whose answer means applying treatment, the same as curing"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner, as on L-plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what happens next once a beginner joins a match.",
+     "walkthrough": "'What comes next' refers to the next clue, 8 across, whose answer REMEDYING is a synonym of CURING; L goes inside it.",
+     "definitionFit": "Curling is the Scottish sport of sliding stones across ice toward a target, so it is a game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "next"
+    }
+   }
   },
   {
    "number": 4,
@@ -118,7 +368,58 @@
     "text": "Failure of policeman protecting queen",
     "enumeration": "7"
    },
-   "solution": "CROPPER"
+   "solution": "CROPPER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CROPPER",
+    "definitions": [
+     {
+      "text": "Failure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protecting",
+      "for": "container",
+      "note": "a guard protecting someone surrounds them, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "policeman",
+      "gives": "COPPER",
+      "note": "copper is slang for a police officer"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R for Regina, queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "R",
+      "OPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bodyguard officer fails to keep the monarch safe.",
+     "walkthrough": "R goes inside COPPER. 'Come a cropper' is British for fall heavily or fail.",
+     "definitionFit": "A cropper is a heavy fall, and figuratively a disastrous failure, as in the idiom 'come a cropper'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "protecting"
+    }
+   }
   },
   {
    "number": 5,
@@ -132,7 +433,57 @@
     "text": "Rising again after short break, demanding attention",
     "enumeration": "9"
    },
-   "solution": "RESURGENT"
+   "solution": "RESURGENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RESURGENT",
+    "definitions": [
+     {
+      "text": "Rising again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "a rest is a break"
+     },
+     {
+      "clueFragment": "demanding attention",
+      "gives": "URGENT",
+      "note": "something urgent demands attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "URGENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Something revives after a brief pause, clamouring to be noticed.",
+     "walkthrough": "'short' trims the word for break, and 'after' only joins the definition to the wordplay.",
+     "definitionFit": "Resurgent describes something increasing or reviving after a period of decline, which is rising once more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +497,59 @@
     "text": "Opening in a month: upper-class allotment",
     "enumeration": "12"
    },
-   "solution": "INAUGURATION"
+   "solution": "INAUGURATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INAUGURATION",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a month",
+      "gives": "AUG",
+      "note": "August, one month, abbreviated"
+     },
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the old label for upper-class usage"
+     },
+     {
+      "clueFragment": "allotment",
+      "gives": "RATION",
+      "note": "a ration is an allotted share"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "AUG",
+      "U",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A posh garden plot is opened during some month.",
+     "walkthrough": "'allotment' suggests a British vegetable plot; here it is a share or ration.",
+     "definitionFit": "An inauguration is the formal start or opening of something, such as a building or a term of office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "allotment"
+    }
+   }
   },
   {
    "number": 7,
@@ -166,7 +569,50 @@
      }
     ]
    },
-   "solution": "GOLDENHIND"
+   "solution": "GOLDENHIND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOLDEN HIND",
+    "definitions": [
+     {
+      "text": "Elizabethan ship",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is broken up",
+      "for": "anagram",
+      "note": "a thing broken up is smashed into pieces and reassembled differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "long hidden",
+      "gives": "LONGHIDDEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LONGHIDDEN",
+       "gives": "GOLDENHIND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Tudor vessel, concealed for ages, is being dismantled.",
+     "walkthrough": "The Golden Hind was Francis Drake's ship on his round-the-world voyage.",
+     "definitionFit": "Drake sailed the Golden Hind around the globe between 1577 and 1580, in Queen Elizabeth I's reign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +626,51 @@
     "text": "Applying treatment, concerned with evidence of my own mortality",
     "enumeration": "9"
    },
-   "solution": "REMEDYING"
+   "solution": "REMEDYING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMEDYING",
+    "definitions": [
+     {
+      "text": "Applying treatment",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerned with",
+      "gives": "RE",
+      "note": "re means regarding, about"
+     },
+     {
+      "clueFragment": "evidence of my own mortality",
+      "gives": "MEDYING",
+      "note": "the speaker being on the way out: 'me dying'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MEDYING"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient being treated reflects on proof that they are going to die.",
+     "walkthrough": "RE + ME DYING; the second part is a whimsical phrase rather than a single synonym.",
+     "definitionFit": "Remedying means putting right or curing, which is what applying treatment to an illness does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mortality"
+    }
+   }
   },
   {
    "number": 8,
@@ -194,7 +684,65 @@
     "text": "Manage money regularly after losing capital like water",
     "enumeration": "5"
    },
-   "solution": "RUNNY"
+   "solution": "RUNNY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "RUNNY",
+    "definitions": [
+     {
+      "text": "like water",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing capital",
+      "for": "deletion",
+      "note": "the capital is the head letter, so losing it drops the first letter"
+     },
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking every other letter of what remains"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Manage",
+      "gives": "RUN",
+      "note": "to run a business is to manage it"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "NY",
+      "select": "regular",
+      "note": "without its first letter, the second and fourth letters of the rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "Handling cash in a regular way after the leading funds have gone.",
+     "walkthrough": "Drop the M of money, leaving ONEY, then take every other letter starting with the second: N and Y.",
+     "definitionFit": "Something runny flows freely and thinly, with the liquid consistency of water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 9,
@@ -208,7 +756,51 @@
     "text": "Apollo mission perhaps uncovers seat, radioactive",
     "enumeration": "8"
    },
-   "solution": "MOONSHOT"
+   "solution": "MOONSHOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOONSHOT",
+    "definitions": [
+     {
+      "text": "Apollo mission perhaps",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncovers seat",
+      "gives": "MOONS",
+      "note": "to moon is to bare one's backside"
+     },
+     {
+      "clueFragment": "radioactive",
+      "gives": "HOT",
+      "note": "hot is slang for radioactive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOONS",
+      "HOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A space mission shows an exposed bottom and something dangerous.",
+     "walkthrough": "To moon is to bare the buttocks as a prank; seat means bottom here.",
+     "definitionFit": "A moonshot is a launch to the Moon, and the Apollo missions are the best-known example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 10,
@@ -222,7 +814,49 @@
     "text": "Chap failing to work on field",
     "enumeration": "6"
    },
-   "solution": "DUDLEY"
+   "solution": "DUDLEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUDLEY",
+    "definitions": [
+     {
+      "text": "Chap",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "failing to work",
+      "gives": "DUD",
+      "note": "a dud is something that does not work"
+     },
+     {
+      "clueFragment": "field",
+      "gives": "LEY",
+      "note": "a ley is grassland, a field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUD",
+      "LEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A man not doing his job in a meadow.",
+     "walkthrough": "'Chap' in crosswords often clues a man's name; Dudley is one.",
+     "definitionFit": "Dudley is a male first name, and a name serves as a crossword example of a chap."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -236,7 +870,47 @@
     "text": "For beginners, how to read Faust, usually not for fun?",
     "enumeration": "9"
    },
-   "solution": "INITIALLY"
+   "solution": "INITIALLY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INITIALLY",
+    "definitions": [
+     {
+      "text": "For beginners",
+      "at": 0
+     },
+     {
+      "text": "how to read Faust, usually not for fun",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For beginners",
+      "note": "first meaning: at the start, to begin with"
+     },
+     {
+      "clueFragment": "how to read Faust, usually not for fun",
+      "note": "second meaning: read the opening letters of Faust, usually and not and you get fun"
+     }
+    ],
+    "explanation": {
+     "surface": "Goethe's drama is usually studied as work, not pleasure.",
+     "walkthrough": "The clue turns on itself: the first letters of 'Faust, usually not' spell FUN, so reading that way gives fun.",
+     "definitionFit": "Initially means at the beginning, so for beginners; and taking first letters is reading a phrase by its initials."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Faust"
+    }
+   }
   },
   {
    "number": 12,
@@ -250,7 +924,52 @@
     "text": "What actors put on gains repeat in a new version",
     "enumeration": "11"
    },
-   "solution": "GREASEPAINT"
+   "solution": "GREASEPAINT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREASEPAINT",
+    "definitions": [
+     {
+      "text": "What actors put on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a new version",
+      "for": "anagram",
+      "note": "a new version is a reworking, so the letters come out rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gains repeat",
+      "gives": "GAINSREPEAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GAINSREPEAT",
+       "gives": "GREASEPAINT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revival production earns a second run.",
+     "walkthrough": "'put on' suggests staging a show; here it is what performers apply to their faces.",
+     "definitionFit": "Greasepaint is the theatrical make-up that stage performers apply before going on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "put"
+    }
+   }
   },
   {
    "number": 13,
@@ -264,7 +983,61 @@
     "text": "Really bad actor messed up what Shylock required?",
     "enumeration": "9"
    },
-   "solution": "ATROCIOUS"
+   "solution": "ATROCIOUS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ATROCIOUS",
+    "definitions": [
+     {
+      "text": "Really bad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "messed up",
+      "for": "anagram",
+      "note": "messed up means jumbled, so these letters are put out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor",
+      "gives": "ACTOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "what Shylock required",
+      "gives": "IOUS",
+      "note": "Shylock, the moneylender in The Merchant of Venice, wanted his debts acknowledged in writing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATROC",
+      "IOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTOR",
+       "gives": "ATROC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A terrible performer fumbles the lines of Shakespeare's moneylender.",
+     "walkthrough": "An IOU is a written promise to repay a debt; Shylock lent money to Antonio.",
+     "definitionFit": "Atrocious means extremely bad or shockingly poor, the same as really bad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shylock"
+    }
+   }
   },
   {
    "number": 14,
@@ -292,7 +1065,46 @@
      }
     ]
    },
-   "solution": "ALLINGOODTIME"
+   "solution": "ALLINGOODTIME",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALL IN GOOD TIME",
+    "definitions": [
+     {
+      "text": "In due course",
+      "at": 0
+     },
+     {
+      "text": "how one might clue galleon, perhaps",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In due course",
+      "note": "first meaning: eventually, when the moment is right"
+     },
+     {
+      "clueFragment": "how one might clue galleon, perhaps",
+      "note": "second meaning: galleon split as G, ALL, EON — all inside good and time"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read literally, the phrase is a wordplay recipe: ALL put inside G (good) + EON (time) builds GALLEON.",
+     "definitionFit": "The idiom means at the appropriate moment, eventually, which is what in due course says."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "galleon"
+    }
+   }
   },
   {
    "number": 15,
@@ -312,7 +1124,64 @@
      }
     ]
    },
-   "solution": "GROWNUP"
+   "solution": "GROWNUP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GROWN-UP",
+    "definitions": [
+     {
+      "text": "No child",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing inside the other"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dress",
+      "gives": "GOWN",
+      "note": "a gown is a dress"
+     },
+     {
+      "clueFragment": "finished",
+      "gives": "UP",
+      "note": "time is up when it is finished"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R for runs, the cricket abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "R",
+      "OWN",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl who is no longer little wants a frock with a hemline finished off.",
+     "walkthrough": "'with runs in' could suggest laddered tights; R is the cricket abbreviation for runs.",
+     "definitionFit": "A grown-up is an adult, someone who is no longer a child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 16,
@@ -326,7 +1195,64 @@
     "text": "Unprincipled behaviour of fellow with years around university",
     "enumeration": "7"
    },
-   "solution": "ROGUERY"
+   "solution": "ROGUERY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ROGUERY",
+    "definitions": [
+     {
+      "text": "Unprincipled behaviour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "ROGER",
+      "note": "Roger is a man's name"
+     },
+     {
+      "clueFragment": "years",
+      "gives": "Y",
+      "note": "Y for years"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROG",
+      "U",
+      "ER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's dishonest conduct over years at college.",
+     "walkthrough": "U goes inside ROGER, then Y follows.",
+     "definitionFit": "Roguery is the conduct of a rogue: dishonest, unprincipled or mischievous behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -340,7 +1266,57 @@
     "text": "Group of agents around the City",
     "enumeration": "7"
    },
-   "solution": "SPECIES"
+   "solution": "SPECIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPECIES",
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agents",
+      "gives": "SPIES",
+      "note": "spies are secret agents"
+     },
+     {
+      "clueFragment": "the City",
+      "gives": "EC",
+      "note": "EC is the postcode of the City of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "EC",
+      "IES"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy ring operates in London's financial district.",
+     "walkthrough": "The City is London's financial district, postcode EC.",
+     "definitionFit": "A species is a biological group of organisms that can interbreed, a classification grouping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -360,7 +1336,62 @@
      }
     ]
    },
-   "solution": "REGULARTETRAHEDRON"
+   "solution": "REGULARTETRAHEDRON",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "REGULAR TETRAHEDRON",
+    "definitions": [
+     {
+      "text": "figure",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "developed",
+      "for": "anagram",
+      "note": "developed means grown into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long-term soldier",
+      "gives": "REGULAR",
+      "note": "a regular is a professional soldier in the permanent army"
+     },
+     {
+      "clueFragment": "rather toned",
+      "gives": "RATHERTONED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGULAR",
+      "TETRAHEDRON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATHERTONED",
+       "gives": "TETRAHEDRON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A career soldier has built up a pretty muscular physique.",
+     "walkthrough": "'figure' and 'toned' suggest a body; it is a geometric figure.",
+     "definitionFit": "A regular tetrahedron is a solid with four equal triangular faces, a geometric figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 19,
@@ -380,7 +1411,51 @@
      }
     ]
    },
-   "solution": "GAPYEAR"
+   "solution": "GAPYEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAP YEAR",
+    "definitions": [
+     {
+      "text": "when student’s not around",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rent",
+      "gives": "GAP",
+      "note": "a rent is a tear, a gap"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "YEAR",
+      "note": "a year is a period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAP",
+      "YEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Landlords wonder when it's time for rent if the student tenant is away.",
+     "walkthrough": "'Rent' looks like housing payment; it is a split or tear. A gap year is a break before or during university.",
+     "definitionFit": "A gap year is a year out taken by a student, typically travelling, away from studies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 20,
@@ -394,7 +1469,60 @@
     "text": "Lentil dish? Answer’s found in Bangladeshi capital mostly",
     "enumeration": "7"
    },
-   "solution": "DHANSAK"
+   "solution": "DHANSAK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DHANSAK",
+    "definitions": [
+     {
+      "text": "Lentil dish?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letter goes"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bangladeshi capital",
+      "gives": "DHAKA",
+      "note": "Dhaka is the capital of Bangladesh"
+     },
+     {
+      "clueFragment": "Answer’s",
+      "gives": "ANS",
+      "note": "ANS is the abbreviation for answer, plus the S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DH",
+      "ANS",
+      "AK"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about a lentil dish answered by reference to Bangladesh's capital.",
+     "walkthrough": "'capital' here is a city name, not a first letter, and 'mostly' trims its end.",
+     "definitionFit": "Dhansak is a Parsi curry of meat cooked with lentils, hence a lentil dish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -408,7 +1536,55 @@
     "text": "Returning friends’ buffet",
     "enumeration": "4"
    },
-   "solution": "SLAP"
+   "solution": "SLAP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SLAP",
+    "definitions": [
+     {
+      "text": "buffet",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friends’",
+      "gives": "PALS",
+      "note": "pals are friends"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLAP"
+     ],
+     "reversals": [
+      {
+       "from": "PALS",
+       "to": "SLAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mates come back for the food spread.",
+     "walkthrough": "'buffet' looks like a meal; here it is a verb meaning hit.",
+     "definitionFit": "To buffet is to strike repeatedly, and a slap is a blow with the open hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "buffet"
+    }
+   }
   },
   {
    "number": 22,
@@ -422,7 +1598,51 @@
     "text": "Altering stations with redesign of some insides",
     "enumeration": "16"
    },
-   "solution": "GASTROINTESTINAL"
+   "solution": "GASTROINTESTINAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GASTROINTESTINAL",
+    "definitions": [
+     {
+      "text": "of some insides",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with redesign",
+      "for": "anagram",
+      "note": "a redesign changes the layout, so the letters are set out differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Altering stations",
+      "gives": "ALTERINGSTATIONS",
+      "note": "both words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALTERINGSTATIONS",
+       "gives": "GASTROINTESTINAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A railway is changing its stations through a remodelling project.",
+     "walkthrough": "'Altering' looks like the anagram signal but is itself fodder; the signal is 'with redesign'.",
+     "definitionFit": "Gastrointestinal describes the stomach and intestines, which are internal organs, so relating to some insides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Altering"
+    }
+   }
   },
   {
    "number": 23,
@@ -442,7 +1662,56 @@
      }
     ]
    },
-   "solution": "ATPRESENT"
+   "solution": "ATPRESENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT PRESENT",
+    "definitions": [
+     {
+      "text": "Now",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T for time"
+     },
+     {
+      "clueFragment": "to give",
+      "gives": "PRESENT",
+      "note": "to present is to give formally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "T",
+      "PRESENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Right now is the moment for handing over gifts.",
+     "walkthrough": "The surface suggests present-giving season; PRESENT is the verb meaning hand over.",
+     "definitionFit": "At present means currently, at this moment, which is what now means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -456,7 +1725,56 @@
     "text": "Energy went up before days gradually grew shorter?",
     "enumeration": "6"
    },
-   "solution": "ERODED"
+   "solution": "ERODED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERODED",
+    "definitions": [
+     {
+      "text": "gradually grew shorter?",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Energy",
+      "gives": "E",
+      "note": "E for energy"
+     },
+     {
+      "clueFragment": "went up",
+      "gives": "RODE",
+      "note": "rode up, as a hem or a lift does"
+     },
+     {
+      "clueFragment": "days",
+      "gives": "D",
+      "note": "D for days"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RODE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Power rose before the days shortened in autumn.",
+     "walkthrough": "The surface evokes autumn days shortening; the question mark flags that wearing away is a looser kind of shrinking.",
+     "definitionFit": "Something eroded has been worn away bit by bit, so it has diminished gradually in size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "days"
+    }
+   }
   },
   {
    "number": 25,
@@ -470,7 +1788,77 @@
     "text": "Never to turn back on meeting an islander",
     "enumeration": "6"
    },
-   "solution": "TONGAN"
+   "solution": "TONGAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TONGAN",
+    "definitions": [
+     {
+      "text": "islander",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to turn",
+      "for": "reversal",
+      "note": "to turn round is to face the other way, so the word is read backwards"
+     },
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Never",
+      "gives": "NOT",
+      "note": "not, never in a phrase like 'not at all'"
+     },
+     {
+      "clueFragment": "meeting",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of meeting"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TON",
+      "G",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolves never to turn their back on a meeting with an island native.",
+     "walkthrough": "'turn back' looks like one phrase; 'turn' reverses NOT and 'back on meeting' takes its last letter.",
+     "definitionFit": "A Tongan is a native or inhabitant of Tonga, a Pacific island kingdom, so an islander."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 26,
@@ -484,7 +1872,62 @@
     "text": "Old papers are of benefit with school subject, including piano",
     "enumeration": "6"
    },
-   "solution": "PAPYRI"
+   "solution": "PAPYRI",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PAPYRI",
+    "definitions": [
+     {
+      "text": "Old papers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "are of benefit",
+      "gives": "PAY",
+      "note": "it pays, meaning it is worthwhile"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, soft"
+     },
+     {
+      "clueFragment": "school subject",
+      "gives": "RI",
+      "note": "RI is religious instruction, a British school subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "P",
+      "Y",
+      "RI"
+     ]
+    },
+    "explanation": {
+     "surface": "Historic documents help with a school course that features the piano.",
+     "walkthrough": "Religious instruction is a British school subject; p is the musical marking for soft.",
+     "definitionFit": "Papyri are ancient documents written on papyrus, the reed paper used in old Egypt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 27,
@@ -498,7 +1941,54 @@
     "text": "Bird breast taken by cat",
     "enumeration": "6"
    },
-   "solution": "TOMTIT"
+   "solution": "TOMTIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOMTIT",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken by",
+      "for": "container",
+      "note": "something taken by another is held inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cat",
+      "gives": "TOM",
+      "note": "a tom is a male cat"
+     },
+     {
+      "clueFragment": "breast",
+      "gives": "TIT",
+      "note": "slang for a breast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "TIT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cat catches a bird by its breast.",
+     "walkthrough": "The breast piece sits within the cat's grasp; here that simply means it follows TOM.",
+     "definitionFit": "Tomtit is a British name for small tits, especially the blue tit, a common garden bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breast"
+    }
+   }
   },
   {
    "number": 28,
@@ -518,7 +2008,70 @@
      }
     ]
    },
-   "solution": "EVENTHORIZON"
+   "solution": "EVENTHORIZON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EVENT HORIZON",
+    "definitions": [
+     {
+      "text": "energy barrier",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut down, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smooth",
+      "gives": "EVEN",
+      "note": "even means smooth, level"
+     },
+     {
+      "clueFragment": "superhero",
+      "gives": "THOR",
+      "note": "Thor, the Marvel superhero"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "ZONE",
+      "note": "a zone is an area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "THOR",
+      "I",
+      "ZON"
+     ]
+    },
+    "explanation": {
+     "surface": "A slick superhero cuts back a zone to block energy.",
+     "walkthrough": "ZONE loses its final E.",
+     "definitionFit": "The event horizon of a black hole is the boundary beyond which no light or energy can escape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "superhero"
+    }
+   }
   },
   {
    "number": 29,
@@ -538,7 +2091,55 @@
      }
     ]
    },
-   "solution": "INCHIEF"
+   "solution": "INCHIEF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN CHIEF",
+    "definitions": [
+     {
+      "text": "Most important",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "move slowly",
+      "gives": "INCH",
+      "note": "to inch is to creep along"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e., that is"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F for fine, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCH",
+      "IE",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "Edging forward gradually is the key thing, and that's okay.",
+     "walkthrough": "IE stands for id est, Latin for 'that is'.",
+     "definitionFit": "In chief means principal or foremost, as in commander-in-chief, so most important."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -552,7 +2153,71 @@
     "text": "Mix with kind soldiers in a street",
     "enumeration": "10"
    },
-   "solution": "ASSORTMENT"
+   "solution": "ASSORTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASSORTMENT",
+    "definitions": [
+     {
+      "text": "Mix",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST for street"
+     },
+     {
+      "clueFragment": "kind",
+      "gives": "SORT",
+      "note": "a sort is a kind"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "men, soldiers in the ranks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "SORT",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Mingling with kindly troops in the road.",
+     "walkthrough": "'kind' looks like an adjective for the soldiers; it is a noun meaning type.",
+     "definitionFit": "An assortment is a miscellaneous collection of different kinds, a mix of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 31,
@@ -566,7 +2231,52 @@
     "text": "Look at former area to excavate",
     "enumeration": "7"
    },
-   "solution": "EXAMINE"
+   "solution": "EXAMINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMINE",
+    "definitions": [
+     {
+      "text": "Look at",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A for area"
+     },
+     {
+      "clueFragment": "to excavate",
+      "gives": "MINE",
+      "note": "to mine is to dig out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Inspect an old site before digging it up.",
+     "walkthrough": "EX, A and MINE simply join in order.",
+     "definitionFit": "To examine is to inspect carefully, which means looking at something closely."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 32,
@@ -586,7 +2296,66 @@
      }
     ]
    },
-   "solution": "BALLETDANCER"
+   "solution": "BALLETDANCER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BALLET DANCER",
+    "definitions": [
+     {
+      "text": "Prancer?",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece encloses another"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wager",
+      "gives": "BET",
+      "note": "a bet is a wager"
+     },
+     {
+      "clueFragment": "every",
+      "gives": "ALL",
+      "note": "every one, all"
+     },
+     {
+      "clueFragment": "one of Santa’s reindeer",
+      "gives": "DANCER",
+      "note": "Dancer pulls Santa's sleigh along with Prancer, Dasher and the rest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ALL",
+      "ET",
+      "DANCER"
+     ]
+    },
+    "explanation": {
+     "surface": "A bet on whether each of Santa's reindeer could be Prancer.",
+     "walkthrough": "'Prancer' looks like another reindeer; with the question mark it means one who prances on stage.",
+     "definitionFit": "A ballet dancer moves with high-stepping, graceful leaps, so jokingly someone who prances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Prancer"
+    }
+   }
   },
   {
    "number": 33,
@@ -600,7 +2369,49 @@
     "text": "Sent crying when suffering tough treatment",
     "enumeration": "10"
    },
-   "solution": "STRINGENCY"
+   "solution": "STRINGENCY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRINGENCY",
+    "definitions": [
+     {
+      "text": "tough treatment",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when suffering",
+      "for": "anagram",
+      "note": "suffering means being put through harm, so the letters are knocked out of shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sent crying",
+      "gives": "SENTCRYING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SENTCRYING",
+       "gives": "STRINGENCY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is sent away in tears under harsh handling.",
+     "definitionFit": "Stringency is strictness or severity, as in rigorous rules, so harsh or tough handling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 33,
@@ -614,7 +2425,39 @@
     "text": "Man about town?",
     "enumeration": "11"
    },
-   "solution": "SUBURBANITE"
+   "solution": "SUBURBANITE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SUBURBANITE",
+    "definitions": [
+     {
+      "text": "Man about town?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man about town?",
+      "note": "surface reading: a sophisticated socialite who frequents fashionable places"
+     },
+     {
+      "clueFragment": "Man about town?",
+      "note": "setter's reading: a person living around the edges of a town, in its outskirts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'About' is taken literally as surrounding: someone who lives around a town, in its outer residential districts.",
+     "definitionFit": "A resident of the outskirts lives in the districts encircling a city, literally around it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 34,
@@ -634,7 +2477,62 @@
      }
     ]
    },
-   "solution": "JACKETPOTATO"
+   "solution": "JACKETPOTATO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "JACKET POTATO",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrapper",
+      "gives": "JACKET",
+      "note": "a jacket is an outer cover"
+     },
+     {
+      "clueFragment": "that’s smelling bad",
+      "gives": "POO",
+      "note": "the exclamation someone makes at a bad smell"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "TAT",
+      "note": "tat is junk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JACKET",
+      "PO",
+      "TAT",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Packaging around food that stinks of garbage.",
+     "walkthrough": "'that's smelling bad' stands for the exclamation 'pooh!' you make at a stink. A jacket potato is a British baked potato in its skin.",
+     "definitionFit": "A jacket potato is a whole potato baked in its skin, a common British dish, so a food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrapper"
+    }
+   }
   },
   {
    "number": 35,
@@ -648,7 +2546,53 @@
     "text": "What might show hooting lory in a particular order?",
     "enumeration": "11"
    },
-   "solution": "ORNITHOLOGY"
+   "solution": "ORNITHOLOGY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ORNITHOLOGY",
+    "definitions": [
+     {
+      "text": "What might show hooting lory in a particular order?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in a particular order",
+      "for": "anagram",
+      "note": "putting letters in a particular order means rearranging them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hooting lory",
+      "gives": "HOOTINGLORY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOOTINGLORY",
+       "gives": "ORNITHOLOGY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A birdwatcher wonders what would reveal a screeching parrot sorted into its proper place.",
+     "walkthrough": "The whole clue is the definition: the study of birds would classify a lory (a parrot) in its proper taxonomic order, and 'order' is also the rearranging signal.",
+     "definitionFit": "Ornithology is the scientific study of birds, which places a parrot like the lory within its taxonomic order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 36,
@@ -662,7 +2606,54 @@
     "text": "Metamorphic mica schist is tending to break up",
     "enumeration": "10"
    },
-   "solution": "SCHISMATIC"
+   "solution": "SCHISMATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCHISMATIC",
+    "definitions": [
+     {
+      "text": "tending to break up",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Metamorphic",
+      "for": "anagram",
+      "note": "metamorphic means transformed, so the letters change their form"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mica schist",
+      "gives": "MICASCHIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MICASCHIST",
+       "gives": "SCHISMATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geology note: mica schist, a metamorphic rock, tends to split.",
+     "walkthrough": "'Metamorphic' sounds purely geological here, since mica schist really is a metamorphic rock.",
+     "definitionFit": "Schismatic describes causing or favouring a split within a group, a tendency toward division."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Metamorphic"
+    }
+   }
   },
   {
    "number": 37,
@@ -676,7 +2667,59 @@
     "text": "Bright and breezy, only initially showery",
     "enumeration": "6"
    },
-   "solution": "BRAINY"
+   "solution": "BRAINY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRAINY",
+    "definitions": [
+     {
+      "text": "Bright",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only initially",
+      "for": "letter_selection",
+      "note": "only initially means take only the first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "breezy",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of breezy"
+     },
+     {
+      "clueFragment": "showery",
+      "gives": "RAINY",
+      "note": "showery weather is rainy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAINY"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather forecast: sunny and windy, with showers just at first.",
+     "walkthrough": "'Bright and breezy' reads as a weather phrase; 'Bright' alone is the definition.",
+     "definitionFit": "Brainy means clever or intelligent, and bright is a common synonym for clever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bright"
+    }
+   }
   },
   {
    "number": 38,
@@ -690,7 +2733,66 @@
     "text": "One seeking to destroy a bridge support is beginning on TNT",
     "enumeration": "9"
    },
-   "solution": "ANARCHIST"
+   "solution": "ANARCHIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ANARCHIST",
+    "definitions": [
+     {
+      "text": "One seeking to destroy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning on",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "AN",
+      "note": "an, the indefinite article"
+     },
+     {
+      "clueFragment": "bridge support",
+      "gives": "ARCH",
+      "note": "an arch supports a bridge"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "TNT",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of TNT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "ARCH",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A saboteur plans to blow up a bridge pier with explosives.",
+     "definitionFit": "An anarchist rejects all government and, in the stereotype, aims to overthrow or destroy the established order."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 39,
@@ -704,7 +2806,43 @@
     "text": "Relating to capital of Salafis’ caliphate",
     "enumeration": "6"
    },
-   "solution": "FISCAL"
+   "solution": "FISCAL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "FISCAL",
+    "definitions": [
+     {
+      "text": "Relating to capital",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means made up of part of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salafis’ caliphate",
+      "gives": "FISCAL",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Something concerning the capital city of a Salafist caliphate.",
+     "walkthrough": "'capital' looks like a city; it means money.",
+     "definitionFit": "Fiscal means relating to public revenue and finance, so to money or capital."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 40,
@@ -718,7 +2856,63 @@
     "text": "Keeping daughter out of school punishment after resistance",
     "enumeration": "9"
    },
-   "solution": "RETENTION"
+   "solution": "RETENTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RETENTION",
+    "definitions": [
+     {
+      "text": "Keeping",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of means removed from, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D for daughter"
+     },
+     {
+      "clueFragment": "school punishment",
+      "gives": "DETENTION",
+      "note": "being kept in after school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ETENTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter is kept out of detention after defying the school.",
+     "walkthrough": "DETENTION loses its D and R goes in front.",
+     "definitionFit": "Retention is the act of keeping or holding on to something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 40,
@@ -732,7 +2926,63 @@
     "text": "Remaining liquid fuel consumed when father’s not present",
     "enumeration": "9"
    },
-   "solution": "RAFFINATE"
+   "solution": "RAFFINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "RAFFINATE",
+    "definitions": [
+     {
+      "text": "Remaining liquid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not present",
+      "for": "deletion",
+      "note": "someone not present is absent, so those letters are left out"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuel",
+      "gives": "PARAFFIN",
+      "note": "paraffin is a fuel, kerosene"
+     },
+     {
+      "clueFragment": "consumed",
+      "gives": "ATE",
+      "note": "ate means consumed"
+     },
+     {
+      "clueFragment": "father’s",
+      "gives": "PA",
+      "note": "pa is father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAFFIN",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fuel is used up while Dad is away, and some liquid is left.",
+     "walkthrough": "PARAFFIN + ATE, with the PA at the front removed. Paraffin is British for kerosene.",
+     "definitionFit": "Raffinate is the liquid left behind after a solvent extraction, the residual stream in refining."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "father’s"
+    }
+   }
   },
   {
    "number": 41,
@@ -746,7 +2996,52 @@
     "text": "Instrumental line running on without us",
     "enumeration": "8"
    },
-   "solution": "CONTINUO"
+   "solution": "CONTINUO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CONTINUO",
+    "definitions": [
+     {
+      "text": "Instrumental line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "running on",
+      "gives": "CONTINUOUS",
+      "note": "continuous means running on without stopping"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONTINUO"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical line that keeps going without the rest of us.",
+     "walkthrough": "CONTINUOUS loses US at the end.",
+     "definitionFit": "In baroque music the continuo is the continuous bass accompaniment played by keyboard and bass instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 42,
@@ -760,7 +3055,57 @@
     "text": "Big laugh from Bard uncovered",
     "enumeration": "4"
    },
-   "solution": "ROAR"
+   "solution": "ROAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROAR",
+    "definitions": [
+     {
+      "text": "Big laugh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "uncovered means stripped of the outer letters, keeping only the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from",
+      "gives": "RO",
+      "select": "middle",
+      "note": "the inner letters of from"
+     },
+     {
+      "clueFragment": "Bard",
+      "gives": "AR",
+      "select": "middle",
+      "note": "the inner letters of Bard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A huge laugh drawn from a Shakespeare play.",
+     "walkthrough": "'from' looks like a link word but is part of the wordplay.",
+     "definitionFit": "A roar of laughter is a loud burst of it, so a big laugh."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "from"
+    }
+   }
   },
   {
    "number": 43,
@@ -784,7 +3129,46 @@
      }
     ]
    },
-   "solution": "CONFLICTOFINTEREST"
+   "solution": "CONFLICTOFINTEREST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONFLICT OF INTEREST",
+    "definitions": [
+     {
+      "text": "Engaging war perhaps",
+      "at": 0
+     },
+     {
+      "text": "a threat to neutrality",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Engaging war perhaps",
+      "note": "first meaning: a fight that is interesting, read literally"
+     },
+     {
+      "clueFragment": "a threat to neutrality",
+      "note": "second meaning: a clash between duty and personal gain that undermines impartiality"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Engaging' reads as joining battle; it means interesting, so an interesting conflict.",
+     "definitionFit": "A conflict of interest arises when personal stakes compromise someone's impartiality, threatening their neutral judgment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Engaging"
+    }
+   }
   },
   {
    "number": 44,
@@ -798,7 +3182,62 @@
     "text": "Twelve in number working diamonds, certainly",
     "enumeration": "7"
    },
-   "solution": "NOONDAY"
+   "solution": "NOONDAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOONDAY",
+    "definitions": [
+     {
+      "text": "Twelve",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "NO, abbreviation for number"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on, as a machine that is working"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D for diamonds, the card suit"
+     },
+     {
+      "clueFragment": "certainly",
+      "gives": "AY",
+      "note": "ay, an archaic yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "ON",
+      "D",
+      "AY"
+     ]
+    },
+    "explanation": {
+     "surface": "Twelve diamonds counted in a card game, definitely.",
+     "walkthrough": "AY is an old or dialect yes, so certainly.",
+     "definitionFit": "Noonday is midday, twelve o'clock in the daytime."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Twelve"
+    }
+   }
   },
   {
    "number": 45,
@@ -812,7 +3251,49 @@
     "text": "Things thrown out from planes over America",
     "enumeration": "6"
    },
-   "solution": "JETSAM"
+   "solution": "JETSAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JETSAM",
+    "definitions": [
+     {
+      "text": "Things thrown out",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "planes",
+      "gives": "JETS",
+      "note": "jets are aircraft"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "AM",
+      "note": "AM for America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JETS",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "Debris dropped from aircraft flying above the United States.",
+     "walkthrough": "In a down clue 'over' means placed above, so the planes come first.",
+     "definitionFit": "Jetsam is cargo thrown overboard from a ship to lighten it, so things cast out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 46,
@@ -826,7 +3307,41 @@
     "text": "Elder sometimes seen in front of monument",
     "enumeration": "7"
    },
-   "solution": "ANCIENT"
+   "solution": "ANCIENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ANCIENT",
+    "definitions": [
+     {
+      "text": "Elder",
+      "at": 0
+     },
+     {
+      "text": "sometimes seen in front of monument",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elder",
+      "note": "first meaning: an old person, a senior"
+     },
+     {
+      "clueFragment": "sometimes seen in front of monument",
+      "note": "second meaning: the word in the phrase for a protected historic site"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In Britain an ancient monument is a legally protected historic site.",
+     "definitionFit": "An ancient is an old man or a forebear, an archaic sense matching elder; and the phrase ancient monument is common."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 47,
@@ -840,7 +3355,61 @@
     "text": "Endlessly fearful about slate percussion instrument",
     "enumeration": "7"
    },
-   "solution": "TIMPANI"
+   "solution": "TIMPANI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TIMPANI",
+    "definitions": [
+     {
+      "text": "percussion instrument",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "endlessly means without an end, so the last letter goes"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece encloses another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fearful",
+      "gives": "TIMID",
+      "note": "timid means fearful"
+     },
+     {
+      "clueFragment": "slate",
+      "gives": "PAN",
+      "note": "to slate and to pan both mean to criticise harshly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIM",
+      "PAN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous critic attacks a drum.",
+     "walkthrough": "'slate' looks like roofing; it means criticise severely, like pan.",
+     "definitionFit": "Timpani are kettledrums, the tuned drums of the orchestra, and so percussion instruments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slate"
+    }
+   }
   },
   {
    "number": 47,
@@ -854,7 +3423,57 @@
     "text": "Rich cake — raced to eat tons",
     "enumeration": "5"
    },
-   "solution": "TORTE"
+   "solution": "TORTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TORTE",
+    "definitions": [
+     {
+      "text": "Rich cake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "something eaten goes inside, so one piece is swallowed by another"
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raced",
+      "gives": "TORE",
+      "note": "tore means rushed, raced"
+     },
+     {
+      "clueFragment": "tons",
+      "gives": "T",
+      "note": "T for tons"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOR",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushed to scoff huge amounts of gâteau.",
+     "definitionFit": "A torte is a rich layered cake of central European origin, often made with nuts or chocolate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tons"
+    }
+   }
   },
   {
    "number": 48,
@@ -868,7 +3487,49 @@
     "text": "Region of note air pilot regularly visited",
     "enumeration": "7"
    },
-   "solution": "ONTARIO"
+   "solution": "ONTARIO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ONTARIO",
+    "definitions": [
+     {
+      "text": "Region",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly visited",
+      "for": "letter_selection",
+      "note": "visiting at regular intervals means calling at every other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of note air pilot",
+      "gives": "ONTARIO",
+      "select": "alternate",
+      "note": "first, third, fifth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONTARIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A notable airline pilot regularly flies to some area.",
+     "walkthrough": "'of' looks like a link word but its O begins the run of alternate letters.",
+     "definitionFit": "Ontario is a province of Canada, which is a region of the country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 49,
@@ -882,7 +3543,57 @@
     "text": "Make more concrete to repair when court is not used",
     "enumeration": "5"
    },
-   "solution": "REIFY"
+   "solution": "REIFY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REIFY",
+    "definitions": [
+     {
+      "text": "Make more concrete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is not used",
+      "for": "deletion",
+      "note": "something not used is left out, so those letters go"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to repair",
+      "gives": "RECTIFY",
+      "note": "to rectify is to put right"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT, abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "IFY"
+     ]
+    },
+    "explanation": {
+     "surface": "Fixing something concrete without going to court.",
+     "walkthrough": "RECTIFY loses CT.",
+     "definitionFit": "To reify is to treat an abstract idea as a real, tangible thing, so to make it more concrete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "concrete"
+    }
+   }
   },
   {
    "number": 50,
@@ -896,7 +3607,59 @@
     "text": "Peculiar arrangement of dictionary is by chapter",
     "enumeration": "13"
    },
-   "solution": "IDIOSYNCRATIC"
+   "solution": "IDIOSYNCRATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDIOSYNCRATIC",
+    "definitions": [
+     {
+      "text": "Peculiar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrangement of",
+      "for": "anagram",
+      "note": "an arrangement puts the letters into a new order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dictionary is",
+      "gives": "DICTIONARYIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "C for chapter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DICTIONARYISC",
+       "gives": "IDIOSYNCRATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd order in a dictionary, sorted by chapter.",
+     "walkthrough": "The anagram takes the C for chapter as well as dictionary and is.",
+     "definitionFit": "Idiosyncratic means distinctive to one person, quirky or eccentric, so peculiar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Peculiar"
+    }
+   }
   },
   {
    "number": 51,
@@ -910,7 +3673,68 @@
     "text": "Noted piece in article chap can ring",
     "enumeration": "9"
    },
-   "solution": "ANDANTINO"
+   "solution": "ANDANTINO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANDANTINO",
+    "definitions": [
+     {
+      "text": "Noted piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "an indefinite article"
+     },
+     {
+      "clueFragment": "chap",
+      "gives": "DAN",
+      "note": "Dan, a man's name"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "ring",
+      "gives": "O",
+      "note": "O is ring-shaped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "DAN",
+      "TIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A man inside an article can phone about a well-known artwork.",
+     "walkthrough": "'Noted' means famous on the surface; here it means written in notes. Andantino is a musical tempo.",
+     "definitionFit": "An andantino is a piece of music marked to be played slightly faster than andante, a piece written in notes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Noted"
+    }
+   }
   },
   {
    "number": 52,
@@ -924,7 +3748,65 @@
     "text": "Irregular worker finding gold in river unplanned",
     "enumeration": "9"
    },
-   "solution": "EXTEMPORE"
+   "solution": "EXTEMPORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXTEMPORE",
+    "definitions": [
+     {
+      "text": "unplanned",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places those pieces inside another"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon"
+     },
+     {
+      "clueFragment": "Irregular worker",
+      "gives": "TEMP",
+      "note": "a temp works irregular stints"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TEMP",
+      "OR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A casual labourer strikes gold in a river by chance.",
+     "walkthrough": "The Exe is a river in Devon; or is heraldic gold.",
+     "definitionFit": "Extempore describes speech or performance done without preparation, so spontaneous and unplanned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gold"
+    }
+   }
   },
   {
    "number": 53,
@@ -938,7 +3820,62 @@
     "text": "Carriage, see, with English railway buffet",
     "enumeration": "7"
    },
-   "solution": "CARVERY"
+   "solution": "CARVERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARVERY",
+    "definitions": [
+     {
+      "text": "buffet",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carriage",
+      "gives": "CAR",
+      "note": "a railway car is a carriage"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "V",
+      "note": "v for vide, Latin for see"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E for English"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY, abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "V",
+      "E",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A train carriage with a buffet car on an English line.",
+     "walkthrough": "'buffet' suggests a railway buffet car; here it is a self-service restaurant.",
+     "definitionFit": "A carvery is a restaurant where roast meat is carved for diners who serve themselves, a kind of buffet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Carriage"
+    }
+   }
   },
   {
    "number": 54,
@@ -958,7 +3895,46 @@
      }
     ]
    },
-   "solution": "LAYBY"
+   "solution": "LAYBY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAY-BY",
+    "definitions": [
+     {
+      "text": "place driver can stop",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set down",
+      "gives": "LAY",
+      "note": "to lay is to set down"
+     },
+     {
+      "clueFragment": "near",
+      "gives": "BY",
+      "note": "by means near"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAY",
+      "BY"
+     ]
+    },
+    "explanation": {
+     "surface": "Putting something down close to where a motorist can pull over.",
+     "walkthrough": "A lay-by is the British term for a roadside pull-in.",
+     "definitionFit": "A lay-by is a stretch beside a road where a driver can pull off and stop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
