@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "Good time follows single and double",
     "enumeration": "4"
    },
-   "solution": "SPIT"
+   "solution": "SPIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPIT",
+    "definitions": [
+     {
+      "text": "double",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "follows tells the solver that the piece for good comes after the piece for single"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "single",
+      "gives": "S",
+      "note": "S is the abbreviation for single"
+     },
+     {
+      "clueFragment": "Good",
+      "gives": "PI",
+      "note": "PI, short for pious, is crossword shorthand for good"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player's good spell follows winning a singles match and a doubles one.",
+     "walkthrough": "S + PI + T gives SPIT; 'Good time' reads as a phrase but splits into two pieces placed after S.",
+     "definitionFit": "Someone's spit, as in 'the spit and image', is their exact likeness or lookalike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "double"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +106,44 @@
     "text": "Failure of power gives rise to censorship",
     "enumeration": "8"
    },
-   "solution": "BLACKOUT"
+   "solution": "BLACKOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLACKOUT",
+    "definitions": [
+     {
+      "text": "Failure of power",
+      "at": 0
+     },
+     {
+      "text": "censorship",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "gives rise to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Failure of power",
+      "note": "first meaning: an electricity cut leaving everything dark"
+     },
+     {
+      "clueFragment": "censorship",
+      "note": "second meaning: a suppression of news or information"
+     }
+    ],
+    "explanation": {
+     "surface": "A power cut leads the authorities to suppress the news.",
+     "definitionFit": "The word means both a loss of electrical supply and an official ban on reporting, as in a media blackout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +157,54 @@
     "text": "Weapons and gifts exchanging hands",
     "enumeration": "4"
    },
-   "solution": "ARMS"
+   "solution": "ARMS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ARMS",
+    "definitions": [
+     {
+      "text": "Weapons",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exchanging hands",
+      "for": "substitution",
+      "note": "left and right are the two hands, so one hand's letter is traded for the other's"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gifts",
+      "gives": "ALMS",
+      "note": "alms are charitable gifts to the poor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "MS"
+     ]
+    },
+    "explanation": {
+     "surface": "Weapons and presents being handed from one person to another.",
+     "walkthrough": "In ALMS the L (left) is swapped for R (right), giving ARMS.",
+     "definitionFit": "Arms is the standard collective word for guns and other weapons of war."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +218,72 @@
     "text": "Enthusiasts choose to enter river and start to swim",
     "enumeration": "8"
    },
-   "solution": "DEVOTEES"
+   "solution": "DEVOTEES",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEVOTEES",
+    "definitions": [
+     {
+      "text": "Enthusiasts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enter",
+      "for": "container",
+      "note": "to enter is to go inside, so the word for choose sits within the river"
+     },
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Wales, England and Scotland"
+     },
+     {
+      "clueFragment": "choose",
+      "gives": "VOTE",
+      "note": "to vote is to choose at the ballot box"
+     },
+     {
+      "clueFragment": "swim",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of swim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "VOTE",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Keen swimmers pick a river to plunge into and begin swimming.",
+     "walkthrough": "The Dee is a common crossword river; there are rivers of that name in Wales, England and Scotland.",
+     "definitionFit": "Devotees are ardent followers or fans of something, the same as enthusiasts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "enter"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +297,50 @@
     "text": "1,000,000 donkeys – that’s loads …",
     "enumeration": "6"
    },
-   "solution": "MASSES"
+   "solution": "MASSES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASSES",
+    "definitions": [
+     {
+      "text": "loads",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1,000,000",
+      "gives": "M",
+      "note": "M is the abbreviation for a million"
+     },
+     {
+      "clueFragment": "donkeys",
+      "gives": "ASSES",
+      "note": "asses are donkeys"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASSES"
+     ]
+    },
+    "explanation": {
+     "surface": "A million donkeys would certainly be a lot of animals.",
+     "walkthrough": "The ellipsis runs on into the next clue, which also builds its answer from numbers.",
+     "definitionFit": "Masses, like loads, is an informal plural meaning a great quantity of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +354,50 @@
     "text": "… 10001000 story is similar?",
     "enumeration": "10"
    },
-   "solution": "COMPARABLE"
+   "solution": "COMPARABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMPARABLE",
+    "definitions": [
+     {
+      "text": "similar",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10001000",
+      "gives": "COM",
+      "note": "split as 100, 0 and 1000: Roman C, the letter O, and Roman M"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "PARABLE",
+      "note": "a parable is a moral story"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PARABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzling string of digits, then a question whether some tale resembles another.",
+     "walkthrough": "The digit string looks like binary but splits into 100, 0 and 1000, read as Roman numerals and a letter O.",
+     "definitionFit": "Things that are comparable can be likened to each other, being alike in kind or degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "10001000"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +411,55 @@
     "text": "Promote book: ‘Egypt on Vacation’",
     "enumeration": "6"
    },
-   "solution": "MARKET"
+   "solution": "MARKET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MARKET",
+    "definitions": [
+     {
+      "text": "Promote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on Vacation",
+      "for": "letter_selection",
+      "note": "a place on vacation has been vacated, emptied of everything but its edges"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "MARK",
+      "note": "Mark is a book of the New Testament"
+     },
+     {
+      "clueFragment": "Egypt",
+      "gives": "ET",
+      "select": "outer",
+      "note": "the word emptied, leaving its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARK",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "Publicising a travel book titled Egypt on Vacation.",
+     "definitionFit": "To market a product is to advertise and sell it, which is to promote it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vacation"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +473,58 @@
     "text": "Support or prohibit defending base",
     "enumeration": "4"
    },
-   "solution": "BEAR"
+   "solution": "BEAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEAR",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defenders surround what they protect, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prohibit",
+      "gives": "BAR",
+      "note": "to bar is to prohibit"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "E",
+      "note": "e is the base of natural logarithms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between backing or banning the defence of a military base.",
+     "walkthrough": "E, the mathematical constant used as the base of natural logs, sits inside BAR.",
+     "definitionFit": "To bear a weight is to hold it up, so it means to support."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +538,65 @@
     "text": "Extract money from tooth after Penny’s opposed",
     "enumeration": "5"
    },
-   "solution": "POLAR"
+   "solution": "POLAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "POLAR",
+    "definitions": [
+     {
+      "text": "opposed",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extract",
+      "for": "deletion",
+      "note": "to extract is to pull something out, so a letter is removed"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the shortened tooth is placed behind the coin"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for penny"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is short for money"
+     },
+     {
+      "clueFragment": "tooth",
+      "gives": "MOLAR",
+      "note": "a molar is a back tooth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OLAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist pulls a tooth for money, against the wishes of someone called Penny.",
+     "walkthrough": "'Extract' and 'tooth' suggest dentistry, but extract is the instruction to remove a letter.",
+     "definitionFit": "Polar describes things at opposite extremes, such as polar views that are directly contrary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Extract"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +610,56 @@
     "text": "English party talk is complicated",
     "enumeration": "9"
    },
-   "solution": "ELABORATE"
+   "solution": "ELABORATE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ELABORATE",
+    "definitions": [
+     {
+      "text": "complicated",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "LAB",
+      "note": "Lab is short for the Labour Party"
+     },
+     {
+      "clueFragment": "talk",
+      "gives": "ORATE",
+      "note": "to orate is to talk formally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LAB",
+      "ORATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Political speeches by an English party are hard to follow.",
+     "walkthrough": "Labour, a major British political party, is abbreviated Lab.",
+     "definitionFit": "Something elaborate has many intricate parts, so it is involved and complicated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +679,76 @@
      }
     ]
    },
-   "solution": "TUCKSHOPS"
+   "solution": "TUCKSHOPS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TUCK SHOPS",
+    "definitions": [
+     {
+      "text": "selling shoelaces here?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "odd means strange or out of order, so those letters are rearranged"
+     },
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "someone wearing clothes is inside them, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socks",
+      "gives": "SOCKS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "put",
+      "gives": "PUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the symbol for the henry, the unit of inductance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUCKS",
+      "H",
+      "OPS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOCKSPUT",
+       "gives": "TUCKSOPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Henry has mismatched socks on and is set to work selling laces for shoes.",
+     "walkthrough": "Shoelaces here are liquorice laces, a sweet sold in British school tuck shops, which are snack shops for pupils.",
+     "definitionFit": "A tuck shop is a school snack kiosk that sells sweets such as liquorice shoelaces."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shoelaces"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +762,46 @@
     "text": "Game played beside the fire?",
     "enumeration": "5"
    },
-   "solution": "POKER"
+   "solution": "POKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POKER",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     },
+     {
+      "text": "beside the fire?",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "played"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "note": "first meaning: a card game with betting"
+     },
+     {
+      "clueFragment": "beside the fire?",
+      "note": "second meaning: the metal rod kept by the hearth to stir coals"
+     }
+    ],
+    "explanation": {
+     "surface": "A cosy card game by the fireside.",
+     "definitionFit": "The word names both a gambling card game and the iron rod kept next to a fireplace for stirring embers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "played"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +815,44 @@
     "text": "Stock market activity performed under the table",
     "enumeration": "7"
    },
-   "solution": "FOOTSIE"
+   "solution": "FOOTSIE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FOOTSIE",
+    "definitions": [
+     {
+      "text": "Stock market",
+      "at": 0
+     },
+     {
+      "text": "activity performed under the table",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stock market",
+      "note": "first meaning: the colloquial name for the FTSE 100 share index"
+     },
+     {
+      "clueFragment": "activity performed under the table",
+      "note": "second meaning: flirtatious touching of feet out of sight"
+     }
+    ],
+    "explanation": {
+     "surface": "Shady share dealing done in secret, under the table.",
+     "walkthrough": "The FTSE 100, the main London share index, is nicknamed the Footsie.",
+     "definitionFit": "The word is both the nickname of London's leading share index and a flirtatious game of touching feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "table"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +866,64 @@
     "text": "Able to eat trout regularly with food",
     "enumeration": "5"
    },
-   "solution": "FRUIT"
+   "solution": "FRUIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FRUIT",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "eat",
+      "for": "container",
+      "note": "what is eaten goes inside, so the kept letters go into the word for able"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Able",
+      "gives": "FIT",
+      "note": "fit means able or capable"
+     },
+     {
+      "clueFragment": "trout",
+      "gives": "RU",
+      "select": "alternate",
+      "note": "second and fourth letters of the fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RU",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone well enough to eat trout as a regular part of their diet.",
+     "definitionFit": "Fruit is a category of food, so the general word stands for a particular kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eat"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +937,70 @@
     "text": "Russia repelled, firmly established without capital being hemmed in",
     "enumeration": "10"
    },
-   "solution": "SURROUNDED"
+   "solution": "SURROUNDED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "SURROUNDED",
+    "definitions": [
+     {
+      "text": "hemmed in",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "something repelled is driven back, so the abbreviation is read backwards"
+     },
+     {
+      "text": "without capital",
+      "for": "deletion",
+      "note": "the capital is the opening letter, and without says it is dropped"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russia",
+      "gives": "RUS",
+      "note": "RUS is the international code for Russia"
+     },
+     {
+      "clueFragment": "firmly established",
+      "gives": "GROUNDED",
+      "note": "a grounded belief is firmly established"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "ROUNDED"
+     ],
+     "reversals": [
+      {
+       "from": "RUS",
+       "to": "SUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Russia is pushed back and its entrenched forces end up encircled.",
+     "walkthrough": "'Capital' looks like a city such as Moscow; here it means the first letter.",
+     "definitionFit": "To be surrounded is to be enclosed on every side, which is what hemmed in means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1014,47 @@
     "text": "Mark’s a player with no handicap",
     "enumeration": "7"
    },
-   "solution": "SCRATCH"
+   "solution": "SCRATCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCRATCH",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     },
+     {
+      "text": "a player with no handicap",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "note": "first meaning: a thin line scored on a surface"
+     },
+     {
+      "clueFragment": "a player with no handicap",
+      "note": "second meaning: a golfer who plays off zero"
+     }
+    ],
+    "explanation": {
+     "surface": "A golfer called Mark plays off zero.",
+     "walkthrough": "'Mark's' reads as a man's name; it is the first definition, with 's standing for is.",
+     "definitionFit": "The word means both a shallow score on a surface and, in golf, a player whose handicap is zero."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1068,43 @@
     "text": "Dear Mel …",
     "enumeration": "5"
    },
-   "solution": "HONEY"
+   "solution": "HONEY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HONEY",
+    "definitions": [
+     {
+      "text": "Dear",
+      "at": 0
+     },
+     {
+      "text": "Mel",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dear",
+      "note": "first meaning: a term of endearment for a loved one"
+     },
+     {
+      "clueFragment": "Mel",
+      "note": "second meaning: the Latin and pharmacy word for the sweet stuff bees make"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mel looks like a person's name being addressed; it is Latin for the bees' product, still used in pharmacy.",
+     "definitionFit": "The word is both an affectionate address like darling and the sweet food bees make, called mel in Latin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mel"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1118,55 @@
     "text": "Chief of Police thrown out of club, say",
     "enumeration": "5"
    },
-   "solution": "UTTER"
+   "solution": "UTTER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "UTTER",
+    "definitions": [
+     {
+      "text": "say",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown out of",
+      "for": "deletion",
+      "note": "someone thrown out is expelled, so that letter is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chief of Police",
+      "gives": "P",
+      "select": "first",
+      "note": "the leading letter of police"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "PUTTER",
+      "note": "a putter is a golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior police officer is expelled from a members' club.",
+     "walkthrough": "The club is a golf club, not a society; dropping its first P leaves the answer.",
+     "definitionFit": "To utter something is to speak it aloud, so the verb means to say."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1180,61 @@
     "text": "Deep 23 evenly flowing west",
     "enumeration": "3"
    },
-   "solution": "SEA"
+   "solution": "SEA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SEA",
+    "definitions": [
+     {
+      "text": "Deep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evenly",
+      "for": "letter_selection",
+      "note": "evenly picks out the letters in the even-numbered places"
+     },
+     {
+      "text": "flowing west",
+      "for": "reversal",
+      "note": "in an across answer west is leftward, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "23",
+      "gives": "AES",
+      "select": "alternate",
+      "note": "the answer to 23 down, its second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA"
+     ],
+     "reversals": [
+      {
+       "from": "AES",
+       "to": "SEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Deep water flowing calmly westward.",
+     "walkthrough": "23 down is WATERS, so its even letters are A, E and S. 'The deep' is a poetic name for the ocean.",
+     "definitionFit": "The deep is a literary term for the open ocean, so it stands for the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "evenly"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1248,72 @@
     "text": "… most annoyed doctor rang – it’s about tablet",
     "enumeration": "8"
    },
-   "solution": "ANGRIEST"
+   "solution": "ANGRIEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANGRIEST",
+    "definitions": [
+     {
+      "text": "most annoyed",
+      "at": 2
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so those letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters go round the drug"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rang",
+      "gives": "RANG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "it’s",
+      "gives": "ITS",
+      "note": "taken as written, the apostrophe dropped"
+     },
+     {
+      "clueFragment": "tablet",
+      "gives": "E",
+      "note": "E is slang for an ecstasy tablet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGRI",
+      "E",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RANGITS",
+       "gives": "ANGRIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious patient phoned the doctor complaining about some pill.",
+     "walkthrough": "'Doctor' looks like the person who rang; it is the instruction to rearrange.",
+     "definitionFit": "Angriest is the superlative of angry, so it means the most annoyed or cross."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1327,42 @@
     "text": "Toast bread",
     "enumeration": "5"
    },
-   "solution": "BROWN"
+   "solution": "BROWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BROWN",
+    "definitions": [
+     {
+      "text": "Toast",
+      "at": 0
+     },
+     {
+      "text": "bread",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Toast",
+      "note": "first meaning: to colour food under heat"
+     },
+     {
+      "clueFragment": "bread",
+      "note": "second meaning: a wholemeal loaf"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Toast bread' reads as an instruction to the cook; the words are two separate meanings.",
+     "definitionFit": "To brown food is to toast it under heat, and brown is also the name for wholemeal bread."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Toast"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1376,54 @@
     "text": "Cryptically, draws in a direction away from port",
     "enumeration": "8"
    },
-   "solution": "OUTWARDS"
+   "solution": "OUTWARDS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "OUTWARDS",
+    "definitions": [
+     {
+      "text": "in a direction away from port",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cryptically",
+      "gives": "OUT",
+      "note": "this word says the answer is itself a clue, whose first part is a jumbling instruction"
+     },
+     {
+      "clueFragment": "draws",
+      "gives": "DRAWS",
+      "note": "the word the answer's own reading produces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "WARDS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DRAWS",
+       "gives": "WARDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship heading out of harbour, described in a puzzling way.",
+     "walkthrough": "This is a reverse clue: read the answer as a clue, and OUT is an anagram signal applied to WARDS, which yields draws.",
+     "definitionFit": "Outwards means moving away from a centre, so a ship going outwards is leaving port."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "draws"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1443,58 @@
      }
     ]
    },
-   "solution": "TOWBOAT"
+   "solution": "TOWBOAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TOW BOAT",
+    "definitions": [
+     {
+      "text": "tug",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means having it inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perfectly",
+      "gives": "TOAT",
+      "note": "to a T means perfectly"
+     },
+     {
+      "clueFragment": "body of fighters",
+      "gives": "WBO",
+      "note": "the World Boxing Organization, a governing body for boxers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "WBO",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "Boxers perfectly holding their bodies while in a tug of war.",
+     "walkthrough": "'Body of fighters' suggests a physique; it is a boxing governing body, the World Boxing Organization.",
+     "definitionFit": "A towboat is a vessel that pulls or pushes other craft, which is what a tug does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1508,60 @@
     "text": "Wife rates sexy member of Pink Floyd",
     "enumeration": "6"
    },
-   "solution": "WATERS"
+   "solution": "WATERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WATERS",
+    "definitions": [
+     {
+      "text": "member of Pink Floyd",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sexy",
+      "for": "anagram",
+      "note": "sexy suggests something hot and stirred up, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "rates",
+      "gives": "RATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RATES",
+       "gives": "ATERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wife judges one of the rock band's members attractive.",
+     "definitionFit": "Roger Waters was the bassist and a principal songwriter of the band Pink Floyd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rates"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1575,60 @@
     "text": "One sampling bit of salsa covered in potato",
     "enumeration": "6"
    },
-   "solution": "TASTER"
+   "solution": "TASTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TASTER",
+    "definitions": [
+     {
+      "text": "One sampling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a bit of a word is a small piece, here its opening letter"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "covered in means wrapped by, so that letter goes inside the potato word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "potato",
+      "gives": "TATER",
+      "note": "tater is informal for potato"
+     },
+     {
+      "clueFragment": "salsa",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of salsa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "S",
+      "TER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trying a dab of salsa smeared on a potato.",
+     "definitionFit": "A taster is a person who tries food or drink to judge it, so someone sampling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1642,61 @@
     "text": "Striped pastel covered in shade to a large extent",
     "enumeration": "7"
    },
-   "solution": "GREATLY"
+   "solution": "GREATLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GREATLY",
+    "definitions": [
+     {
+      "text": "to a large extent",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Striped",
+      "for": "letter_selection",
+      "note": "stripes alternate, so every other letter is kept"
+     },
+     {
+      "text": "covered in",
+      "for": "container",
+      "note": "covered in means wrapped by, so the kept letters go inside the colour word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shade",
+      "gives": "GREY",
+      "note": "grey is a shade of colour"
+     },
+     {
+      "clueFragment": "pastel",
+      "gives": "ATL",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRE",
+      "ATL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A striped pastel fabric mostly hidden under a darker shade.",
+     "definitionFit": "Greatly is an adverb meaning very much, which is the same as to a large extent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Striped"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1716,74 @@
      }
     ]
    },
-   "solution": "HOTON"
+   "solution": "HOTON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "HOT ON",
+    "definitions": [
+     {
+      "text": "Very fond of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top",
+      "for": "letter_selection",
+      "note": "the top of a word is its first letter"
+     },
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so these letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "orange",
+      "gives": "O",
+      "select": "first",
+      "note": "the opening letter of orange"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "O",
+      "TON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOT",
+       "gives": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone adores their husband's orange shirt but not his trousers.",
+     "walkthrough": "'Pants' looks like trousers or underwear; it is British slang for rubbish, used to signal the jumble.",
+     "definitionFit": "To be hot on something is an informal idiom for being keen on or enthusiastic about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1797,72 @@
     "text": "Mercury eclipsing face of Uranus and Earth? That’s immense",
     "enumeration": "4"
    },
-   "solution": "HUGE"
+   "solution": "HUGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "HUGE",
+    "definitions": [
+     {
+      "text": "immense",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "face of",
+      "for": "letter_selection",
+      "note": "the face of a word is its front, its opening letter"
+     },
+     {
+      "text": "eclipsing",
+      "for": "container",
+      "note": "an eclipsing body passes in front and covers another, so one piece encloses the letter"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mercury",
+      "gives": "HG",
+      "note": "Hg is the chemical symbol for mercury"
+     },
+     {
+      "clueFragment": "Uranus",
+      "gives": "U",
+      "select": "first",
+      "note": "the opening letter of the planet"
+     },
+     {
+      "clueFragment": "Earth",
+      "gives": "E",
+      "note": "E is the abbreviation for earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "U",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Planets lining up in an eclipse, with Earth asked if it is enormous.",
+     "walkthrough": "Mercury looks like the planet; it is the metal, whose symbol Hg goes round U before E is added.",
+     "definitionFit": "Huge describes something extremely large, so it is a direct synonym of immense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mercury"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1876,68 @@
     "text": "I’m stopping horrible racists with swords",
     "enumeration": "9"
    },
-   "solution": "SCIMITARS"
+   "solution": "SCIMITARS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCIMITARS",
+    "definitions": [
+     {
+      "text": "swords",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "horrible",
+      "for": "anagram",
+      "note": "horrible suggests something ugly and mangled, so those letters are rearranged"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping a gap means plugging it, so the short word goes inside"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written, the apostrophe dropped"
+     },
+     {
+      "clueFragment": "racists",
+      "gives": "RACISTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SC",
+      "IM",
+      "ITARS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RACISTS",
+       "gives": "SCITARS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vigilante vows to halt armed bigots.",
+     "definitionFit": "A scimitar is a curved oriental sword, so the plural names a kind of swords."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1951,60 @@
     "text": "10 across taking time – hint?",
     "enumeration": "4"
    },
-   "solution": "IOTA"
+   "solution": "IOTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "IOTA",
+    "definitions": [
+     {
+      "text": "hint",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it inside, so the short piece goes into the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "10",
+      "gives": "IO",
+      "note": "the digits 1 and 0 read as the letters I and O"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "across",
+      "gives": "A",
+      "note": "A is the abbreviation for across"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IO",
+      "T",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver asks whether 10 across gives a clue to what time it is.",
+     "walkthrough": "'10 across' looks like a cross-reference to another clue; it is read literally as IO and A, with T placed between them.",
+     "definitionFit": "An iota is a tiny amount, like a hint or trace of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "across"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +2018,43 @@
     "text": "Island broadcaster on air",
     "enumeration": "4"
    },
-   "solution": "SKYE"
+   "solution": "SKYE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SKYE",
+    "definitions": [
+     {
+      "text": "Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on air",
+      "for": "homophone",
+      "note": "on air means being broadcast, heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcaster",
+      "gives": "SKYE",
+      "soundsLike": "SKY",
+      "note": "Sky is a British satellite television broadcaster"
+     }
+    ],
+    "explanation": {
+     "surface": "A TV company broadcasting live from an island.",
+     "walkthrough": "Skye is an island of the Inner Hebrides off western Scotland; Sky is a British pay-TV company.",
+     "definitionFit": "Skye is the largest island of the Inner Hebrides in Scotland, so it is an example of an island."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +2068,67 @@
     "text": "They tend flowers Ivan oddly swapped with queen",
     "enumeration": "9"
    },
-   "solution": "GARDENERS"
+   "solution": "GARDENERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "GARDENERS",
+    "definitions": [
+     {
+      "text": "They tend",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly picks out the letters in the odd-numbered places"
+     },
+     {
+      "text": "swapped with",
+      "for": "substitution",
+      "note": "swapped with says one set of letters is taken out and another put in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flowers",
+      "gives": "GARDENIAS",
+      "note": "gardenias are fragrant white flowers"
+     },
+     {
+      "clueFragment": "Ivan",
+      "gives": "IA",
+      "select": "alternate",
+      "note": "first and third letters of the name"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER is the royal cipher of Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GARDEN",
+      "ER",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Florists named Ivan oddly traded places with a queen.",
+     "walkthrough": "'They tend flowers' looks like the whole definition, but flowers is the wordplay; IA in GARDENIAS becomes ER.",
+     "definitionFit": "Gardeners are people who look after plants and plots, so they are those who tend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flowers"
+    }
+   }
   },
   {
    "number": 31,
@@ -499,7 +2142,67 @@
     "text": "Still taking days returning toy",
     "enumeration": "5"
    },
-   "solution": "TEDDY"
+   "solution": "TEDDY",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "TEDDY",
+    "definitions": [
+     {
+      "text": "toy",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking means holding inside, so the days go within the first word"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the whole is read in reverse"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still",
+      "gives": "YET",
+      "note": "still and yet both mean even so"
+     },
+     {
+      "clueFragment": "days",
+      "gives": "DD",
+      "note": "D is the abbreviation for day, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "E",
+      "DD",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YDDET",
+       "to": "TEDDY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child keeps the same toy for days on end, always coming back to it.",
+     "definitionFit": "A teddy is a stuffed toy bear, so it is a particular kind of toy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Still"
+    }
+   }
   }
  ]
 }
