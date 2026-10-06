@@ -172,7 +172,14 @@ ORPHAN_NUMBER_DOT_RE = re.compile(r"^\.\s+(?=[A-Za-z(\"'‘])")
 # one page. A tolerant match (up to 3 non-letters on either side) recovers
 # these as real headers instead of falling through to the jigsaw-detection
 # path and losing the Across/Down split entirely.
-HEADER_RE = re.compile(r"^[^A-Za-z0-9]{0,3}(ACROSS|DOWN)[^A-Za-z0-9]{0,3}$", re.IGNORECASE)
+# The scans also double a letter of the word ("DOwNn" on every Down heading
+# the Times book 21 OCR lost) and leave one stray letter beside it ("DOWN i",
+# the Herald book), so the word allows repeated letters and the line one
+# trailing single-letter token. A clue cannot match that: it has words and an
+# enumeration.
+DIRECTION = r"(A+C+R+O+S+|D+O+W+N+)"
+STRAY = r"[^A-Za-z0-9]{0,3}(?:\s+[A-Za-z][^A-Za-z0-9]{0,2})?"
+HEADER_RE = re.compile(r"^[^A-Za-z0-9]{0,3}" + DIRECTION + STRAY + "$", re.IGNORECASE)
 
 # The DOTTED-NUMBER LAYOUT prints its running head on the header line itself
 # ("Cryptic Across", and where the OCR mangled the head, "CryBHE Across"), so
@@ -184,19 +191,20 @@ HEADER_RE = re.compile(r"^[^A-Za-z0-9]{0,3}(ACROSS|DOWN)[^A-Za-z0-9]{0,3}$", re.
 # for the same reason, since OCR does lose the leading number.
 GLUED_HEAD_RE = re.compile(
     r"^(?P<head>(?:[A-Za-z]{2,12}[^A-Za-z0-9\s]{0,2}\s+){1,2})"
-    r"(ACROSS|DOWN)[^A-Za-z0-9]{0,3}$",
+    + DIRECTION + r"[^A-Za-z0-9]{0,3}$",
     re.IGNORECASE)
 
 
 def _header_kind(line: str) -> str | None:
     line = line.strip()
     m = HEADER_RE.match(line)
-    if m:
-        return m.group(1).upper()
-    m = GLUED_HEAD_RE.match(line)
+    word = m.group(1) if m else None
+    m = None if m else GLUED_HEAD_RE.match(line)
     if m and "see" not in m.group("head").lower():
-        return m.group(2).upper()
-    return None
+        word = m.group(2)
+    if word is None:
+        return None
+    return "ACROSS" if word[0] in "Aa" else "DOWN"
 
 
 def load_leaves(path: Path) -> list[str]:
@@ -494,6 +502,33 @@ def split_across_down(lines: list[str]) -> tuple[list[str], list[str]]:
     return lines[:down_idx], lines[down_idx + 1:]
 
 
+def _first_number(clue: dict) -> int | None:
+    m = re.match(r"\d+", clue.get("number") or "")
+    return int(m.group()) if m else None
+
+
+def down_restart(clues: list[dict]) -> int | None:
+    """Where the Down list starts in a clue list whose Down heading is gone.
+
+    Some leaves print no Down heading at all (guardiancrosswor0000perk), or
+    one OCR lost entirely. The numbering still says where it was: Across runs
+    up into the twenties, then Down starts again from the top. The cut is the
+    deepest fall in the clue numbers, onto a number a Down list can open with
+    (1-9, since OCR can lose the first few), with numbered clues on both sides
+    so one misread number in mid-list ("9, 1, 11") is never the cut. None
+    when the numbers never fall that far: then there is no Down list here.
+    """
+    numbered = [(i, n) for i, c in enumerate(clues)
+                if (n := _first_number(c)) is not None]
+    best = None
+    for k in range(1, len(numbered)):
+        (_, before), (i, n) = numbered[k - 1], numbered[k]
+        if (n <= 9 and before - n >= 8 and k >= 3 and len(numbered) - k >= 3
+                and (best is None or before - n > best[0])):
+            best = (before - n, i)
+    return best[1] if best else None
+
+
 def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
                   leaves: list[str], section: str | None = None) -> dict:
     raw_lines = leaves[clue_leaf_idx].split("\n")
@@ -513,10 +548,14 @@ def build_puzzle(seq_number: int, clue_leaf_idx: int, trailing_idxs: list[int],
 
     if mode == "across_down":
         across_lines, down_lines = split_across_down(content_lines)
-        record["across"] = [parse_clue_chunk(c) for c in segment_clues(across_lines)]
-        record["down"] = [parse_clue_chunk(c) for c in segment_clues(down_lines)]
-        if down_lines:
-            record["down"] += continued_down(record["down"], trailing_idxs, leaves)
+        across = [parse_clue_chunk(c) for c in segment_clues(across_lines)]
+        down = [parse_clue_chunk(c) for c in segment_clues(down_lines)]
+        cut = None if down else down_restart(across)
+        if cut is not None:
+            across, down = across[:cut], across[cut:]
+        if down:
+            down += continued_down(down, trailing_idxs, leaves)
+        record["across"], record["down"] = across, down
     elif mode == "jigsaw":
         record["clues"] = [parse_clue_chunk(c) for c in segment_clues(content_lines)]
         record["across"] = []
