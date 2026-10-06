@@ -30,7 +30,8 @@ colour card (the Listener's) has its djvu page k on leaf k+1; each OBJECT's
 PAGE param ("<edition>_0001.djvu") names its scan leaf, and page_texts places
 it there. The per-page endpoint cannot be asked by scan leaf, so when its
 reply is empty or names another leaf the edition takes the whole-_djvu.xml
-path.
+path, and the stored djvu.xml.gz gets an empty OBJECT for each leaf the
+djvu.xml skips (scan_aligned), so its n-th OBJECT is leaf n for the filer too.
 
 Layout under --out:
   items/<item>.json           cached /metadata/<item> response
@@ -78,7 +79,12 @@ from the front and from the back (prior_leaves). The filer reads their titles
 by image (ocr_titles). An edition none of whose fetched leaves holds a title
 is one whose scan lacks the crossword page.
 
-A rerun skips every edition in done.tsv at the current DETECTOR_VERSION.
+A rerun skips every edition in done.tsv at the current DETECTOR_VERSION,
+except one whose per-page words (pagetext.json.gz beside a djvu.xml.gz) hold
+an OBJECT on a leaf other than the one its PAGE names (misplaced): the
+per-page endpoint gave another leaf's words before the fetcher checked them,
+so the edition is fetched again by the whole-djvu.xml path, and its changed
+files make the filer read it again.
 Bumping DETECTOR_VERSION re-runs detection from the cached djvu.xml and
 fetches only the page images it newly finds; no text is downloaded again.
 
@@ -172,13 +178,63 @@ def outage(e):
     return isinstance(e, (urllib.error.URLError, TimeoutError, ConnectionError))
 
 
+def page_leaf(value):
+    """The scan leaf a PAGE param's value ("<edition>_0036.djvu") names, or None."""
+    m = re.search(r"_(\d+)\.djvu$", value or "")
+    return int(m.group(1)) if m else None
+
+
 def object_leaf(el):
     """The scan leaf a djvu.xml OBJECT holds, from its PAGE param, or None."""
     for p in el.iter("PARAM"):
         if p.get("name") == "PAGE":
-            m = re.search(r"_(\d+)\.djvu$", p.get("value") or "")
-            return int(m.group(1)) if m else None
+            return page_leaf(p.get("value"))
     return None
+
+
+#: An OBJECT's start, or its PAGE param's value: the tokens object_leaves
+#: reads without parsing a 13 MB djvu.xml's words.
+OBJECT_OR_PAGE = re.compile(rb'<OBJECT\b|<PARAM name="PAGE" value="([^"]*)"')
+
+
+def object_leaves(xml):
+    """[(byte offset, PAGE leaf or None)] of each OBJECT in a djvu.xml, in order."""
+    out = []
+    for m in OBJECT_OR_PAGE.finditer(xml):
+        if m.group(1) is None:
+            out.append((m.start(), None))
+        elif out and out[-1][1] is None:
+            out[-1] = (out[-1][0], page_leaf(m.group(1).decode("utf-8", "replace")))
+    return out
+
+
+def misplaced(xml):
+    """Whether a djvu.xml holds an OBJECT at a position other than the scan
+    leaf its PAGE names."""
+    return any(leaf is not None and leaf != n for n, (_, leaf) in enumerate(object_leaves(xml)))
+
+
+def scan_aligned(xml):
+    """The djvu.xml with an empty OBJECT before each one whose PAGE names a
+    later leaf than its position (a skipped colour card), so the n-th OBJECT
+    is scan leaf n."""
+    parts, at, n = [], 0, 0
+    for start, leaf in object_leaves(xml):
+        if leaf is not None and leaf > n:
+            parts += [xml[at:start], b'<OBJECT width="0" height="0"></OBJECT>\n' * (leaf - n)]
+            at, n = start, leaf
+        n += 1
+    return xml if not parts else b"".join(parts) + xml[at:]
+
+
+def words_misplaced(d):
+    """Whether an edition dir's per-page words were stored on another leaf
+    than the one they belong to (misplaced)."""
+    xml_path = os.path.join(d, "djvu.xml.gz")
+    if not (os.path.exists(os.path.join(d, "pagetext.json.gz")) and os.path.exists(xml_path)):
+        return False
+    with gzip.open(xml_path) as f:
+        return misplaced(f.read())
 
 
 class Fetcher:
@@ -364,7 +420,8 @@ def load_done(out):
         with open(path) as f:
             for line in f:
                 parts = line.rstrip("\n").split("\t")
-                if len(parts) == 3 and parts[2] == str(DETECTOR_VERSION):
+                if len(parts) == 3 and parts[2] == str(DETECTOR_VERSION) \
+                        and not words_misplaced(os.path.join(out, parts[0], slug_of(parts[0], parts[1]))):
                     done.add((parts[0], parts[1]))
     return done
 
@@ -480,6 +537,10 @@ def fetch_edition(fx, item, meta, name):
     text_path = os.path.join(d, "pagetext.json.gz")
     xml_path = os.path.join(d, "djvu.xml.gz")
     cached = None  # {"texts": [...], "words": {leaf: [width, height]}}: the hOCR route
+    if words_misplaced(d):
+        log(f"  {name}: cached words lie on other leaves; fetching the djvu.xml")
+        os.remove(text_path)
+        os.remove(xml_path)
     if os.path.exists(text_path):
         with gzip.open(text_path) as f:
             cached = json.load(f)
@@ -518,7 +579,11 @@ def fetch_edition(fx, item, meta, name):
             if not os.path.exists(path):
                 write_atomic(path, gzip.compress(fetch_first(fx, bases, suffix, name + suffix), 6))
         with gzip.open(xml_path) as f:
-            pages = page_texts(f.read())
+            xml = f.read()
+        aligned = scan_aligned(xml)
+        if aligned != xml:
+            write_atomic(xml_path, gzip.compress(aligned, 6))
+        pages = page_texts(aligned)
         hits = crossword_hits(pages, prior_leaves(d, len(pages)))
     jp2 = {f for f in files if f.endswith("_jp2.zip")}
     zipname = name + "_jp2.zip"
