@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "Order toast and get no end of it",
     "enumeration": "6"
    },
-   "solution": "CHARGE"
+   "solution": "CHARGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHARGE",
+    "definitions": [
+     {
+      "text": "Order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no end of",
+      "for": "deletion",
+      "note": "having no end means the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toast",
+      "gives": "CHAR",
+      "note": "to char is to scorch or toast"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "GET",
+      "note": "taken as written before trimming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks for toast and is told they will not get any of it.",
+     "walkthrough": "'it' simply refers back to the word get, which loses its last letter.",
+     "definitionFit": "To charge someone with a task is to command or instruct them to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "toast"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +107,64 @@
      }
     ]
    },
-   "solution": "COLDSNAP"
+   "solution": "COLDSNAP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "COLD SNAP",
+    "definitions": [
+     {
+      "text": "bitter spell",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heads of",
+      "for": "letter_selection",
+      "note": "heads are the first letters of the words that follow"
+     },
+     {
+      "text": "evil",
+      "for": "anagram",
+      "note": "evil suggests something corrupted and twisted out of shape, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coven secretly",
+      "gives": "CS",
+      "select": "first",
+      "note": "the opening letters of two words"
+     },
+     {
+      "clueFragment": "do plan",
+      "gives": "DOPLAN",
+      "note": "taken as written for mixing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CSDOPLAN",
+       "gives": "COLDSNAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Witches secretly plotting a wicked, bitter spell.",
+     "walkthrough": "Spell suggests witchcraft after the coven; here it is a period of weather.",
+     "definitionFit": "A brief spell of sudden very cold weather, bitter in the sense of freezing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spell"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +178,58 @@
     "text": "Animal's inclination to toss head and run away",
     "enumeration": "8"
    },
-   "solution": "ANTELOPE"
+   "solution": "ANTELOPE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ANTELOPE",
+    "definitions": [
+     {
+      "text": "Animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toss head",
+      "for": "deletion",
+      "note": "tossing away the head means losing the first letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclination",
+      "gives": "CANT",
+      "note": "a cant is a slope or tilt"
+     },
+     {
+      "clueFragment": "run away",
+      "gives": "ELOPE",
+      "note": "to elope is to run off secretly to marry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "ELOPE"
+     ]
+    },
+    "explanation": {
+     "surface": "An animal tends to toss its head and bolt.",
+     "walkthrough": "Inclination reads as a tendency, but here it is a physical slant.",
+     "definitionFit": "The antelope is a swift, horned grazing mammal of Africa and Asia."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "inclination"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +243,72 @@
     "text": "Good assortment of art (mostly) I'll see here?",
     "enumeration": "9"
    },
-   "solution": "GALLERIES"
+   "solution": "GALLERIES",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "GALLERIES",
+    "definitions": [
+     {
+      "text": "Good assortment of art (mostly) I'll see here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all, so the last letter goes"
+     },
+     {
+      "text": "assortment of",
+      "for": "anagram",
+      "note": "an assortment is a mixed selection, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written before trimming"
+     },
+     {
+      "clueFragment": "I'll see",
+      "gives": "ILLSEE",
+      "note": "taken as written for mixing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ALLERIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARILLSEE",
+       "gives": "ALLERIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A visitor expects to see a fine range of art here.",
+     "walkthrough": "The whole clue doubles as the definition: a place where one sees a good assortment of art.",
+     "definitionFit": "Galleries are rooms or buildings where collections of paintings and sculpture are displayed to the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +322,51 @@
     "text": "Famous ostrich I trained",
     "enumeration": "8"
    },
-   "solution": "HISTORIC"
+   "solution": "HISTORIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HISTORIC",
+    "definitions": [
+     {
+      "text": "Famous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trained",
+      "for": "anagram",
+      "note": "something trained has been shaped and drilled into a new form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ostrich I",
+      "gives": "OSTRICHI",
+      "note": "the letters of the bird plus the pronoun"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OSTRICHI",
+       "gives": "HISTORIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity ostrich that I personally trained.",
+     "definitionFit": "A historic event or place is notable and celebrated, significant enough to be remembered by later generations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "trained"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +380,51 @@
     "text": "Mind telling niece off?",
     "enumeration": "12"
    },
-   "solution": "INTELLIGENCE"
+   "solution": "INTELLIGENCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTELLIGENCE",
+    "definitions": [
+     {
+      "text": "Mind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or wrong, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "telling niece",
+      "gives": "TELLINGNIECE",
+      "note": "taken as written for mixing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TELLINGNIECE",
+       "gives": "INTELLIGENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Would you mind telling your niece off?",
+     "walkthrough": "Mind looks like the verb in a polite request; it is the noun.",
+     "definitionFit": "Intelligence is the capacity to think and reason, the faculty of the brain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mind"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +438,60 @@
     "text": "Truths half-hidden by politician? This could create a stink",
     "enumeration": "5"
    },
-   "solution": "TRUMP"
+   "solution": "TRUMP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TRUMP",
+    "definitions": [
+     {
+      "text": "This could create a stink",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-hidden",
+      "for": "letter_selection",
+      "note": "with half hidden only the first half of the word shows"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Truths",
+      "gives": "TRU",
+      "select": "first",
+      "note": "the first three of six letters"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "MP is a Member of Parliament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician hiding half the truth could cause a scandal.",
+     "walkthrough": "In British slang to trump is to break wind; the surface also nods at a certain American politician.",
+     "definitionFit": "British slang uses this word for breaking wind, which does indeed create a smell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stink"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +505,69 @@
     "text": "African country's uprising checking over district",
     "enumeration": "6"
    },
-   "solution": "REGION"
+   "solution": "REGION",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "REGION",
+    "definitions": [
+     {
+      "text": "district",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "rising up in a down entry means the word reads from bottom to top"
+     },
+     {
+      "text": "checking",
+      "for": "container",
+      "note": "checking means holding back or restraining, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "African country",
+      "gives": "NIGER",
+      "note": "Niger is a country in West Africa"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REGI",
+      "O",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "NIGER",
+       "to": "REGIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An uprising in an African country being put down across a district.",
+     "definitionFit": "A region is an area or zone, a territorial division like a district."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +581,50 @@
     "text": "Unite after revolutionary gives ground",
     "enumeration": "6"
    },
-   "solution": "CHEWED"
+   "solution": "CHEWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHEWED",
+    "definitions": [
+     {
+      "text": "ground",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine revolutionary"
+     },
+     {
+      "clueFragment": "Unite",
+      "gives": "WED",
+      "note": "to wed is to unite in marriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "WED"
+     ]
+    },
+    "explanation": {
+     "surface": "A trade union leader backs down after a revolutionary takes over.",
+     "walkthrough": "'after' places the uniting word second. Gives ground looks like a phrase meaning retreats; ground is the definition alone.",
+     "definitionFit": "Food ground between the teeth has been masticated, the past tense of grinding with the jaws."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +638,66 @@
     "text": "Recently allowed back in bed",
     "enumeration": "6"
    },
-   "solution": "LATELY"
+   "solution": "LATELY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LATELY",
+    "definitions": [
+     {
+      "text": "Recently",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the word is read from right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "placed in means set inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "to let is to allow"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "LAY",
+      "note": "to lay someone is a slang way to bed them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "TEL",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "LET",
+       "to": "TEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has lately been permitted back into bed, perhaps after a row.",
+     "definitionFit": "Both words describe something happening in the recent past, not long ago."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +711,66 @@
     "text": "Rugs get woven - around 50 fray",
     "enumeration": "8"
    },
-   "solution": "STRUGGLE"
+   "solution": "STRUGGLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STRUGGLE",
+    "definitions": [
+     {
+      "text": "fray",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "woven",
+      "for": "anagram",
+      "note": "threads that are woven are interlaced in a new pattern, so the letters are mixed"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the mixed letters go around the Roman numeral, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rugs get",
+      "gives": "RUGSGET",
+      "note": "taken as written for mixing"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRUGG",
+      "L",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RUGSGET",
+       "gives": "STRUGGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Woven rugs tend to fray at the edges, perhaps around fifty of them.",
+     "definitionFit": "A fray is a fight or brawl, and a struggle is a physical contest or tussle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fray"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +784,45 @@
     "text": "Stood up distressed when caught",
     "enumeration": "12"
    },
-   "solution": "STRAIGHTENED"
+   "solution": "STRAIGHTENED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STRAIGHTENED",
+    "definitions": [
+     {
+      "text": "Stood up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when caught",
+      "for": "homophone",
+      "note": "caught here means picked up by the ear, as in catching what someone says"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "distressed",
+      "gives": "STRAIGHTENED",
+      "soundsLike": "STRAITENED",
+      "note": "straitened means in distressed or difficult circumstances"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone was jilted on a date and upset when found out.",
+     "walkthrough": "Stood up suggests jilted; it means made upright.",
+     "definitionFit": "Something stood up has been set upright or vertical, made straight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +836,50 @@
     "text": "Clear up wine after a change of heart",
     "enumeration": "5"
    },
-   "solution": "SOLVE"
+   "solution": "SOLVE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SOLVE",
+    "definitions": [
+     {
+      "text": "Clear up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after a change of heart",
+      "for": "substitution",
+      "note": "a change of heart means the central letter of the word is swapped for another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wine",
+      "gives": "SOAVE",
+      "note": "Soave is a dry white Italian wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "L",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hangover cured by wine after someone changes their mind.",
+     "walkthrough": "The middle letter A of the wine is replaced by L; the clue does not say which letter comes in, so the definition settles it.",
+     "definitionFit": "To clear up a mystery or puzzle is to work out its answer, find the explanation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +893,55 @@
     "text": "Call box almost unreal!",
     "enumeration": "9"
    },
-   "solution": "TELEPHONE"
+   "solution": "TELEPHONE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TELEPHONE",
+    "definitions": [
+     {
+      "text": "Call",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "box",
+      "gives": "TELE",
+      "note": "the box is British slang for television, shortened to tele"
+     },
+     {
+      "clueFragment": "unreal",
+      "gives": "PHONEY",
+      "note": "phoney means fake or unreal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TELE",
+      "PHONE"
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation at a telephone box that seems too unlikely to be real.",
+     "walkthrough": "'Call box' looks like one phrase, a phone booth, but call is the definition and box the television.",
+     "definitionFit": "To call someone is to ring or phone them, so the verb matches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +955,39 @@
     "text": "Post letter?",
     "enumeration": "11"
    },
-   "solution": "APPLICATION"
+   "solution": "APPLICATION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "APPLICATION",
+    "definitions": [
+     {
+      "text": "Post letter?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Post letter?",
+      "note": "surface reading: a letter to be sent in the mail"
+     },
+     {
+      "clueFragment": "Post letter?",
+      "note": "setter's reading: a letter written to apply for a job, a post"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Post looks like the mail service; here it is a position of employment, and the letter asks for it.",
+     "definitionFit": "A job application is a formal written request for a position, often sent as a letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Post"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1001,59 @@
     "text": "Nudist removing bottom half in front of gathering, as might be expected",
     "enumeration": "9"
    },
-   "solution": "NATURALLY"
+   "solution": "NATURALLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NATURALLY",
+    "definitions": [
+     {
+      "text": "as might be expected",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing bottom half",
+      "for": "deletion",
+      "note": "in a down entry the bottom half is the second half of the word, which is dropped"
+     }
+    ],
+    "linkWords": [
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nudist",
+      "gives": "NATURIST",
+      "note": "a naturist is a nudist"
+     },
+     {
+      "clueFragment": "gathering",
+      "gives": "RALLY",
+      "note": "a rally is a mass gathering"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NATU",
+      "RALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A nudist showing their bottom half at a rally, as you would expect.",
+     "walkthrough": "'in front of' puts the trimmed word first.",
+     "definitionFit": "Naturally means of course, in the way one would predict."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1067,39 @@
     "text": "One's pressed for a face-to-face meeting",
     "enumeration": "8"
    },
-   "solution": "DOORBELL"
+   "solution": "DOORBELL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DOORBELL",
+    "definitions": [
+     {
+      "text": "One's pressed for a face-to-face meeting",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One's pressed for a face-to-face meeting",
+      "note": "surface reading: a busy person urged to meet someone in person"
+     },
+     {
+      "clueFragment": "One's pressed for a face-to-face meeting",
+      "note": "setter's reading: a button pushed at the front door so the resident comes out to meet you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pressed looks like rushed or urged; here it is physically pushed with a finger.",
+     "definitionFit": "A visitor pushes this button at a house entrance to summon someone and meet them in person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pressed"
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1113,62 @@
     "text": "Individual one harshly criticised, without love",
     "enumeration": "8"
    },
-   "solution": "ISOLATED"
+   "solution": "ISOLATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ISOLATED",
+    "definitions": [
+     {
+      "text": "Individual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without in its old sense of outside, so one word goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "harshly criticised",
+      "gives": "SLATED",
+      "note": "to slate is to criticise harshly"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is nil in tennis, the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "O",
+      "LATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A lone person, harshly criticised and without love.",
+     "walkthrough": "'without' looks like lacking but means outside, so the criticism surrounds love.",
+     "definitionFit": "An isolated case stands alone, single and separate, an individual instance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1182,55 @@
     "text": "Gussets go in pants, creating whiffs",
     "enumeration": "11"
    },
-   "solution": "SUGGESTIONS"
+   "solution": "SUGGESTIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUGGESTIONS",
+    "definitions": [
+     {
+      "text": "whiffs",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish or poor, signalling the letters are a mess to be rearranged"
+     }
+    ],
+    "linkWords": [
+     "creating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gussets go in",
+      "gives": "GUSSETSGOIN",
+      "note": "taken as written for mixing"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GUSSETSGOIN",
+       "gives": "SUGGESTIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Underwear gussets are sewn into trousers, causing bad smells.",
+     "walkthrough": "Pants looks like underwear and whiffs like smells, both lavatorial misdirection; a whiff here is a faint hint.",
+     "definitionFit": "A whiff of something is a slight trace or hint, just as a suggestion is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whiffs"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1244,61 @@
     "text": "Effective American fuel raising energy",
     "enumeration": "6"
    },
-   "solution": "USEFUL"
+   "solution": "USEFUL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "USEFUL",
+    "definitions": [
+     {
+      "text": "Effective",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raising energy",
+      "for": "anagram",
+      "note": "in a down entry raising moves the energy letter higher, earlier in the word, rearranging it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     },
+     {
+      "clueFragment": "fuel",
+      "gives": "FUEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "EFUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FUEL",
+       "gives": "EFUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "American fuel that is efficient at boosting energy.",
+     "walkthrough": "E for energy moves up from third to first place in the fuel word.",
+     "definitionFit": "Something effective does its job well, which is to say serviceable and practical."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1312,43 @@
     "text": "Where camper might be fixed",
     "enumeration": "6"
    },
-   "solution": "INTENT"
+   "solution": "INTENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "INTENT",
+    "definitions": [
+     {
+      "text": "Where camper might be",
+      "at": 0
+     },
+     {
+      "text": "fixed",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where camper might be",
+      "note": "first meaning, read as two words: inside canvas shelter"
+     },
+     {
+      "clueFragment": "fixed",
+      "note": "second meaning: firmly set on a purpose"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split as two words the answer says where a camper sleeps; as one word it means determined.",
+     "definitionFit": "A fixed stare or a mind set on something is concentrated and determined."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fixed"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1362,73 @@
     "text": "Fake article possessed by Nitsy upset Conservative",
     "enumeration": "9"
    },
-   "solution": "SYNTHETIC"
+   "solution": "SYNTHETIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "SYNTHETIC",
+    "definitions": [
+     {
+      "text": "Fake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the setter's name is rearranged"
+     },
+     {
+      "text": "possessed by",
+      "for": "container",
+      "note": "possessed by means held within, so the article sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nitsy",
+      "gives": "NITSY",
+      "note": "the setter's own pseudonym, taken as written"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYN",
+      "THE",
+      "TI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NITSY",
+       "gives": "SYNTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fake article in a newspaper upsets the setter, a Conservative.",
+     "definitionFit": "Synthetic materials are artificial, man-made imitations rather than genuine natural ones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1442,49 @@
     "text": "Regularly visit hospital with relative",
     "enumeration": "5"
    },
-   "solution": "HAUNT"
+   "solution": "HAUNT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAUNT",
+    "definitions": [
+     {
+      "text": "Regularly visit",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital"
+     },
+     {
+      "clueFragment": "relative",
+      "gives": "AUNT",
+      "note": "an aunt is a relative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AUNT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who often visits a relative in hospital.",
+     "definitionFit": "To haunt a place is to frequent it habitually, like a ghost that keeps returning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hospital"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1498,50 @@
     "text": "Country's two rivers",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RURAL",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two rivers",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "two rivers",
+      "gives": "URAL",
+      "note": "the Ural is a river in Russia and Kazakhstan"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "URAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation that boasts two rivers.",
+     "walkthrough": "'Country' looks like a nation, but it is the adjective, as in country life.",
+     "definitionFit": "Country as an adjective describes the countryside, away from towns, which is the meaning of rural."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country's"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1555,60 @@
     "text": "Worry about heartless queen's visit",
     "enumeration": "8"
    },
-   "solution": "FREQUENT"
+   "solution": "FREQUENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "FREQUENT",
+    "definitions": [
+     {
+      "text": "visit",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one word wraps the other"
+     },
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the middle letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worry",
+      "gives": "FRET",
+      "note": "to fret is to worry"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "QUEEN",
+      "note": "taken as written, before losing its middle letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRE",
+      "QUEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Anxiety over a cold-hearted monarch's state visit.",
+     "definitionFit": "To frequent a place is to go there often, to visit it habitually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "visit"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1622,51 @@
     "text": "Easy to get hospital department to follow infection",
     "enumeration": "6"
    },
-   "solution": "FLUENT"
+   "solution": "FLUENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLUENT",
+    "definitions": [
+     {
+      "text": "Easy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "to follow"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infection",
+      "gives": "FLU",
+      "note": "flu, influenza, is a common infection"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "ENT",
+      "note": "ENT is the ear, nose and throat department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLU",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Being admitted to a hospital department is simple once you have caught an infection.",
+     "walkthrough": "'to follow' tells you the department goes after the infection.",
+     "definitionFit": "Fluent speech or movement flows smoothly and effortlessly, which is to say easy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Easy"
+    }
+   }
   },
   {
    "number": 26,
@@ -403,7 +1680,73 @@
     "text": "Freedom to celebrate catching birdie by its tail",
     "enumeration": "8"
    },
-   "solution": "LATITUDE"
+   "solution": "LATITUDE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LATITUDE",
+    "definitions": [
+     {
+      "text": "Freedom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means holding something inside, like a net"
+     },
+     {
+      "text": "tail",
+      "for": "letter_selection",
+      "note": "the tail of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "by",
+     "its"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "celebrate",
+      "gives": "LAUD",
+      "note": "to laud is to praise or celebrate"
+     },
+     {
+      "clueFragment": "birdie",
+      "gives": "TIT",
+      "note": "a tit is a small bird"
+     },
+     {
+      "clueFragment": "birdie",
+      "gives": "E",
+      "select": "last",
+      "note": "its tail: the same small word read again, keeping only its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "TIT",
+      "UD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Free to celebrate after grabbing a small bird by the tail.",
+     "definitionFit": "Latitude is scope or leeway to act as one chooses, a kind of freedom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "birdie"
+    }
+   }
   },
   {
    "number": 27,
@@ -417,7 +1760,39 @@
     "text": "Shutter that's closed at night?",
     "enumeration": "6"
    },
-   "solution": "EYELID"
+   "solution": "EYELID",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EYELID",
+    "definitions": [
+     {
+      "text": "Shutter that's closed at night?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shutter that's closed at night?",
+      "note": "surface reading: a window shutter closed when it gets dark"
+     },
+     {
+      "clueFragment": "Shutter that's closed at night?",
+      "note": "setter's reading: the fold of skin that shuts over the eye when we sleep"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Shutter suggests a window, but the thing shut at night is part of the face.",
+     "definitionFit": "The fold of skin covering the eye shuts like a blind when sleeping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Shutter"
+    }
+   }
   }
  ]
 }
