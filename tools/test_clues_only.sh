@@ -9,8 +9,9 @@
 # clues_only/. tools/apply_solution.py is then given its answers in clue order:
 # the grid it derives must be the published one, numbered the same, filed in
 # the scratch puzzles/, and the clues-only copy gone. The refusals: a light
-# carrying a number, position or answer; an unknown filer; an id already held
-# with its grid; a fill that no grid holds.
+# carrying a number, position or answer; an unknown filer; a grid kind with no
+# builder (a Listener book's barred grid), which no solve queue takes either;
+# an id already held with its grid; a fill that no grid holds.
 set -u
 cd "$(dirname "$0")/.." || exit 1
 
@@ -96,6 +97,16 @@ with tempfile.TemporaryDirectory() as scratch:
     refused({**record, "entries": [{"number": 1}]}, "an entries list")
     refused({**record, "source": {**record["source"], "acquiredBy": "tools/fetch_puzzle.py"}},
             "a filer with no builder")
+    # A Listener book's grid is barred, and no builder places bars: refused
+    # when filed, and no solve queue takes one already held.
+    barred = {**record, "id": "book-31039", "number": 31039}
+    refused(barred, "a barred grid kind")
+    held = clues_only.path_for("book-31039")
+    held.write_text(json.dumps(barred))
+    if [r["id"] for r in clues_only.solvable()] != ["book-8001"]:
+        fails.append(f"solvable() = {[r['id'] for r in clues_only.solvable()]}, "
+                     f"want only book-8001: a barred record would be queued")
+    held.unlink()
 
     # A wrong answer: no grid holds it, nothing is written.
     wrong = answers(source)
@@ -131,5 +142,5 @@ if fails:
     print("FAIL test_clues_only:\n  " + "\n  ".join(fails))
     sys.exit(1)
 print("ok test_clues_only: clues-only book-8001 promoted to its published grid; "
-      "half states refused")
+      "half states and a barred grid refused")
 EOF

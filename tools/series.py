@@ -364,6 +364,10 @@ SERIES = {
 # filename, sync/worker.js's [a-z]{4,12}-\d{1,6} over every vote id.
 POSITIONS_PER_BOOK = 1000
 
+# How a book's grids end their lights, a row's `grid`: black squares, or bars
+# between letter cells (the Listener's).
+GRIDS = ("blocked", "barred")
+
 BOOKS_FILE = pathlib.Path(__file__).resolve().parent / "data" / "books.json"
 
 
@@ -413,6 +417,10 @@ def _load_books():
             raise ValueError(f"{where}: published {row.get('published')!r} has "
                              f"to be the imprint page's year as an integer — "
                              f"it becomes every puzzle's `year`")
+        if row.get("grid") not in GRIDS:
+            raise ValueError(f"{where}: grid {row.get('grid')!r} has to be one of "
+                             f"{', '.join(GRIDS)} — it decides which builder can "
+                             f"place the book's puzzles from their answers")
         by_index[index] = row
         by_identifier[identifier] = row
     return by_index
@@ -639,6 +647,11 @@ def book_row(series, number):
     """
     index, _ = split_number(series, _require_number(series, number, "book_row"))
     return BOOKS[index]
+
+
+def grid(series, number):
+    """GRIDS' word for the book puzzle's grid: its book's `grid`."""
+    return book_row(series, number)["grid"]
 
 
 def _require_number(series, number, what):

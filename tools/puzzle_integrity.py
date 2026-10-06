@@ -1256,7 +1256,7 @@ def refuse_bad_write(puzzle, old=None):
 def refuse_bad_clues_only(record):
     """Raise RefusedWrite unless `record` is a whole clues-only puzzle
     (tools/clues_only.py): its schema ($defs/cluesOnly has no number, position
-    or answer to half-fill), a filer that can build its grid puzzle, and an id
+    or answer to half-fill), a builder for its filer and grid kind, and an id
     not already filed with a grid. A puzzle is held in one state at a time: in
     puzzles/ with its grid, or in clues_only/ with its clues and nothing else."""
     import clues_only
@@ -1264,8 +1264,9 @@ def refuse_bad_clues_only(record):
     pid = record.get("id")
     flags = [("SCHEMA", pid, p) for p in puzzle_schema.validate_clues_only(record)]
     by = (record.get("source") or {}).get("acquiredBy")
-    if by not in clues_only.BUILDERS:
-        flags.append(("STATE", pid, (f"{by} has no builder in clues_only.BUILDERS, "
+    if clues_only.builder(record) is None:
+        flags.append(("STATE", pid, (f"no builder in clues_only.BUILDERS for a "
+                                     f"{clues_only.grid_kind(record)} grid filed by {by}, "
                                      f"so its answers could never become a grid puzzle")))
     if pid and puzzle_paths.find(pid):
         flags.append(("STATE", pid, "already filed with its grid in puzzles/"))
