@@ -56,6 +56,19 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     ~/cryptic-setter-data/archiveorg-source/, where tools/cross_validate.py's
     `archiveorg` adapter votes with it. Every reading goes there, filed or not.
 
+A Times run also reads the 1930 Times (TIMES_1930: archive.org's pub_times,
+one item an issue, "THE TIMES CROSSWORD PUZZLE No. 27"). Its pages are
+scanned 13663px wide, so page() and leaf_lines() shrink them 4x to the
+1974-99 scale. A 1-3 digit title number must lie within 3 of the one its
+date implies (six a week from No 1 on 1 Feb 1930), else the page's
+"SOLUTION OF PUZZLE No. N" gives N+1. The clues are four columns under the
+grid (columns_of_four): ACROSS down the first two over the DOWN heading,
+DOWN under it and on down the third and fourth. They print no counts, so
+each reading gets the scanned grid's (counted()) and is filed without
+them; a grid that does not read refuses the title. Only RapidOCR's two
+recognisers and the VLM (each virtual column read on its own) read them:
+archive.org's words and the tuned Tesseract read these pages as junk.
+
 --paper ft does the same for the Financial Times (items
 FinancialTimes19xxUKEnglish, the same uploader): "CROSSWORD" over "No. 8,650
 Set by DANTE", the grid under it and two clue columns under the grid, the
@@ -218,6 +231,7 @@ def leaf_lines(xml_path, leaves):
     with gzip.open(xml_path) as f:
         data = f.read()
     out = {}
+    shrink = paper_of(Path(xml_path).parent).shrink
     for n, m in enumerate(OBJECT_TAG.finditer(data)):
         if n not in leaves:
             continue
@@ -227,7 +241,7 @@ def leaf_lines(xml_path, leaves):
         for line in el.iter("LINE"):
             ws = []
             for w in line.iter("WORD"):
-                x0, y1, x1, y0 = (int(v) for v in w.get("coords").split(",")[:4])
+                x0, y1, x1, y0 = (int(v) // shrink for v in w.get("coords").split(",")[:4])
                 t = (w.text or "").strip()
                 if t:
                     ws.append((x0, y0, x1, y1, t))
@@ -606,6 +620,229 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
         out.append(kept)
     return out
 
+
+
+#: How far either side of each quarter of the grid's width, as a share of
+#: it, a gutter between the 1930 Times' four clue columns may lie.
+FOUR_SPAN = 0.06
+#: How far under the grid, as a share of its height, the 1930 clues run.
+FOUR_DEPTH = 1.2
+#: The note under the 1930 clues: "The twenty-eighth crossword puzzle in
+#: this series, together with the solution of puzzle No. 27, will appear".
+FOUR_STOP = re.compile(r"in\s*this\s*series|will\s*appear|crossword\s*puzzle\s*in\b|solution\s*(?:of|to)\b|puzzle\s*n[o0]\b",
+                       re.IGNORECASE)
+
+
+#: The readers of the 1930 clues: archive.org's words and Tesseract's (tuned
+#: on the 1974-99 print) read these columns as junk that outvotes the rest.
+FOUR_READERS = ("ch", "en5")
+
+
+def four_gutters(lines, grid):
+    """The three x's between the four clue columns under a 1930 grid: where
+    the fewest words (`lines`, every reading's) cross near each quarter."""
+    gx0, _, gx1, gy1 = grid
+    w = gx1 - gx0
+    bottom = gy1 + FOUR_DEPTH * (grid[3] - grid[1])
+    return [gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 + q * w / 4 - FOUR_SPAN * w,
+                   gx0 + q * w / 4 + FOUR_SPAN * w) for q in (1, 2, 3)]
+
+
+def down_at(lines, grid, gutters):
+    """The y of the DOWN heading over the 1930 Times' first two columns,
+    the median of every reading's, or None when none read it."""
+    gx0, _, _, gy1 = grid
+    ys = sorted(w[1] for ws in lines for w in ws
+                if gx0 - 40 <= w[0] < gutters[1] and w[1] > gy1 and heading_of(w[4]) == "DOWN")
+    return ys[len(ys) // 2] if ys else None
+
+
+def columns_of_four(lines, grid, gutters, down):
+    """The 1930 Times' clues under its grid, as columns() returns them but
+    in reading order: ACROSS runs down the first column and on down the
+    second over the DOWN heading (printed across both), then DOWN under it
+    in the same two columns and on down the third and fourth, which end at
+    the previous solution's heading."""
+    gx0, gy0, gx1, gy1 = grid
+    edges = [gx0 - 40] + list(gutters) + [gx1 + RIGHT_REACH]
+    bottom = gy1 + FOUR_DEPTH * (gy1 - gy0)
+    heights = sorted(w[3] - w[1] for ws in lines for w in ws)
+    height = heights[len(heights) // 2] if heights else None
+    cols = [[] for _ in range(4)]
+    # Each column ends at the first line over it that FOUR_STOP matches,
+    # read whole before any cut at a gutter.
+    stops = [bottom] * 4
+    for ws in lines:
+        if FOUR_STOP.search(" ".join(w[4] for w in ws)):
+            x0, x1, y0 = min(w[0] for w in ws), max(w[2] for w in ws), min(w[1] for w in ws)
+            for side in range(4):
+                if x0 < edges[side + 1] and x1 > edges[side] and y0 > gy1 + 20:
+                    stops[side] = min(stops[side], y0 - 2)
+    for ws in lines:
+        ws = cut_at_gutters(split_across(ruled_apart(ws), gutters, height), gutters)
+        for side in range(4):
+            part = [w for w in ws if edges[side] <= w[0] < edges[side + 1] and gy1 - 5 <= w[1] <= stops[side]]
+            if part:
+                cols[side].append((min(w[1] for w in part), max(w[3] for w in part),
+                                   min(w[0] for w in part), max(w[2] for w in part), " ".join(w[4] for w in part)))
+    kept = []
+    for col in cols:
+        out, last = [], None
+        for line in merge_rows(col):
+            if FOUR_STOP.search(line[4]) or (out and line[0] - last > GAP):
+                if out:
+                    break
+                continue
+            if heading_of(line[4]) or not re.search(r"[A-Za-z0-9]", line[4]):
+                continue
+            out.append(line)
+            last = line[1]
+        kept.append(out)
+    def headed(heading, col):
+        # The heading on the column's first line's box, so a box drawn
+        # round the column's lines (vlm_reader.boxes) is the column's.
+        return [col[0][:4] + (heading,)] + col if col else [(gx0, gy1, gx0, gy1, heading)]
+    if down is None:
+        return [headed("ACROSS", kept[0]), kept[1]]
+    over = [[ln for ln in c if ln[0] + ln[1] < 2 * down] for c in kept[:2]]
+    under = [[ln for ln in c if ln[0] + ln[1] > 2 * down] for c in kept[:2]]
+    return [headed("ACROSS", over[0]), over[1], headed("DOWN", under[0]), under[1], kept[2], kept[3]]
+
+
+def vlm_four(img, cols):
+    """The VLM's reading of the 1930 clues: each of columns_of_four()'s
+    columns (`cols`, every reading's) read on its own, in that order, the
+    list headings put back where they open the first and third."""
+    wins = [None] * max(len(c) for c in cols)
+    parts = []
+    for k, box in enumerate(vlm.boxes(img, wins, cols)):
+        if k in (0, 2) and k < len(wins):
+            parts.append(("ACROSS", "DOWN")[k // 2])
+        if box:
+            parts.append(vlm.read(vlm.crop(img, box)))
+    return "\n".join(p for p in parts if p)
+
+
+def cut_at_gutters(ws, gutters):
+    """`ws` with each word still read across a gutter (two columns' rows
+    run into one, "1WinneroftheoGanymedetothe") cut there, at the space
+    nearest its share of the characters, or at that share: no notice is
+    printed across the 1930 columns but the one under them (FOUR_STOP)."""
+    out = []
+    for w in ws:
+        for x in gutters:
+            if not (w[0] < x - ACROSS_GUTTER and w[2] > x + ACROSS_GUTTER) or heading_of(w[4]):
+                continue
+            at = round(len(w[4]) * (x - w[0]) / (w[2] - w[0]))
+            spaces = [m.start() for m in re.finditer(r"\s", w[4]) if abs(m.start() - at) <= 3]
+            at = min(spaces, key=lambda k: abs(k - at)) if spaces else at
+            out.append((w[0], w[1], x - 1, w[3], w[4][:at].strip()))
+            w = (x, w[1], w[2], w[3], w[4][at:].strip())
+        out.append(w)
+    return out
+
+
+def ruled_apart(ws):
+    """`ws` with each word read across a column rule ("22Thedesert'sone|32
+    Split thisaim and") cut at the "|" the rule reads as, each piece's
+    x placed by its share of the characters."""
+    out = []
+    for w in ws:
+        parts = re.split(r"\s*\|\s*", w[4])
+        if len(parts) < 2:
+            out.append(w)
+            continue
+        width = w[2] - w[0]
+        for m in re.finditer(r"[^|]+", w[4]):
+            if m[0].strip():
+                x0 = w[0] + width * (m.start() + len(m[0]) - len(m[0].lstrip())) / len(w[4])
+                out.append((round(x0), w[1], round(w[0] + width * m.end() / len(w[4])), w[3], m[0].strip()))
+    return out
+
+
+#: The rarest two-letter word word_split() cuts out: "me" and "no", never
+#: "ut" ("entertainmeut" is a misread, not "entertain me ut").
+SHORT_RANK = 1000
+
+
+def word_split(word):
+    """The fewest lexicon words, commonest first on a tie, that `word` is
+    run together from ("hadelevenofthese" is "had eleven of these"), or
+    None. A lone letter is a word only as "a" or "I", two letters only
+    within SHORT_RANK."""
+    low, best = word.lower(), [None] * (len(word) + 1)
+    best[0] = (0, 0.0, [])
+    for i in range(1, len(word) + 1):
+        for j in range(max(0, i - 20), i):
+            piece = low[j:i]
+            if best[j] is None or (len(piece) == 1 and piece not in "ai") or not is_word(piece) \
+                    or (len(piece) == 2 and (rank(piece) or SHORT_RANK + 1) > SHORT_RANK):
+                continue
+            c = (best[j][0] + 1, best[j][1] + math.log(rank(piece) or 10 ** 6), best[j][2] + [word[j:i]])
+            if best[i] is None or c[:2] < best[i][:2]:
+                best[i] = c
+    return best[-1][2] if best[-1] else None
+
+
+def spaced(text):
+    """A reading with the words RapidOCR ran together on the small 1930
+    print ("Thesepeopleare", "isno") put apart: a run of letters the
+    lexicon lacks that splits whole into its words."""
+    def one(m):
+        word = m[0]
+        if len(word) < 4 or ocr_clues.known(word):
+            return word
+        parts = word_split(word)
+        return " ".join(parts) if parts else word
+    # A clue's number run into its first word ("25Holdsan") parts first.
+    text = re.sub(r"(?m)^(\W{0,2}\d{1,2}[.,]?)(?=[A-Za-z])", r"\1 ", text)
+    # A speck between two words ("flat.and", "for.misdeed"), and a quote or
+    # bracket run onto the word before it ("in“The", "sire?(anag.)").
+    text = re.sub(r"(?<=[a-z]{2})[.,·](?=[a-z]{2})", " ", text)
+    text = re.sub(r"(?<=[A-Za-z?!])(?=[“‘(])", " ", text)
+    # Half a word broken over a line end ("esta-", "blished") is no run.
+    return re.sub(r"(?<![\w\-])[A-Za-z]+(?:'[a-z]+)?(?![\w\-])", lambda m: m[0] if text[:m.start()].endswith(("-\n", "- ")) else one(m), text)
+
+
+def counted(text, grid):
+    """A 1930 column text with each clue's count put after it from the
+    scanned grid, as later papers print it, for the parse that ends a clue
+    at its count: a clue starts at a line opening on a number that names a
+    light of its list above the last clue's; other lines carry it on."""
+    lights = {(n, d): len(cells) for (n, d), cells in rg.light_cells(grid).items()}
+    out, section, last, open_ = [], None, 0, False
+    for line in text.splitlines():
+        heading = heading_of(line)
+        if heading:
+            if open_:
+                out[-1] += f" ({lights[(last, section)]})"
+            out.append(heading)
+            section, last, open_ = heading.lower(), 0, False
+            continue
+        # The number, maybe run into its first word: "25Recipient", "21.Measures".
+        m = re.match(r"^\W{0,2}([\dIl|]{1,2}?)(?:[.,:;\-]\s*|\s+|(?=[A-Z\"'\u2018\u201c]))(?=\S)", line)
+        m = m if m and re.search(r"\d", m[1]) else None
+        nums = sorted(n for n in (ftp.readings(m[1]) if m else ()) if n > last and (n, section) in lights)
+        if section and nums:
+            if open_:
+                out[-1] += f" ({lights[(last, section)]})"
+            last, open_ = nums[0], True
+            out.append(f"{last} {line[m.end():]}")
+        elif section and re.match(r"\W{0,2}[A-Z]", line) and (
+                re.search(r"[.!?][\"'\u2019\u201d)]?$", out[-1]) if open_ else not last) \
+                and (nxt := min((n for n, d in lights if d == section and n > last), default=None)):
+            # A capital after a clue's full stop, or opening the list,
+            # starts the next clue, its number lost ("light.. /
+            # Slender-waisted."): the next light's.
+            if open_:
+                out[-1] += f" ({lights[(last, section)]})"
+            last, open_ = nxt, True
+            out.append(f"{last} {line.strip()}")
+        elif open_:
+            out.append(line)
+    if open_:
+        out[-1] += f" ({lights[(last, section)]})"
+    return "\n".join(out)
 
 
 #: How far either side of the grid's middle, as a share of its width, the
@@ -1041,7 +1278,8 @@ def edition_dirs(cache=CACHE, paper=None):
     if not cache.exists():
         return []
     years = [sorted(d for d in item.iterdir() if (d / "pages.json").exists())
-             for item in sorted(cache.iterdir()) if (paper or TIMES).item.match(item.name)]
+             for item in sorted(cache.iterdir())
+             if any(p.item.match(item.name) for p in (paper or TIMES, *(paper or TIMES).also))]
     out = []
     for k in range(max(map(len, years), default=0)):
         out += [y[k] for y in years if k < len(y)]
@@ -1198,9 +1436,16 @@ def ocr_headings(img, paper, key):
 
 
 def page(d, leaf):
+    """Leaf `leaf`'s scan, shrunk by its paper's `shrink` (the JPEG decoded
+    at that scale, so a 13663px 1930 page costs what a 3296px one does)."""
     from PIL import Image
     Image.MAX_IMAGE_PIXELS = None
-    return Image.open(d / f"leaf_{leaf:04d}.jpg")
+    img = Image.open(d / f"leaf_{leaf:04d}.jpg")
+    shrink = paper_of(d).shrink
+    if shrink > 1:
+        img.draft(img.mode, (img.width // shrink, img.height // shrink))
+        img = img.convert("L")
+    return img
 
 
 #: A dated Times cryptic either side of the 1978-79 shutdown, and the run
@@ -1408,13 +1653,62 @@ def telegraph_headings(lines):
     return puzzles, solutions
 
 
+#: The Times crossword's first day, No 1 (a Saturday); it ran six days a
+#: week, none on a day the paper was not printed.
+TIMES_1930_FIRST = datetime.date(1930, 2, 1)
+TIMES_1930_CLOSED = {datetime.date(1930, 4, 18)}  # Good Friday
+#: How far a 1930 title's 1-3 digit number may stray from its date's: a
+#: misread digit ("200" for 209) lands further off.
+TIMES_1930_SLACK = 3
+
+
+def times1930_expected_number(day):
+    n, d = 1, TIMES_1930_FIRST
+    while d < day:
+        d += datetime.timedelta(days=1)
+        n += d.weekday() != 6 and d not in TIMES_1930_CLOSED and (d.month, d.day) != (12, 25)
+    return n
+
+
+#: "THE TIMES CROSSWORD PUZZLE No. 27"; the OCR often reads the number apart
+#: from the words, or not at all.
+TITLE_1930 = re.compile(r"^\W*(?:\S{1,8}\s+){0,3}?crossword\W{0,3}\s*puzzle\W{0,3}\s*n[o0]\W{0,3}\s*(\d{1,3})(?!\d)",
+                        re.IGNORECASE)
+TITLE_1930_BARE = re.compile(r"^\W*(?:\S{1,8}\s+){0,3}?crossword\W{0,3}\s*puzzle\W{0,3}\s*(?:n[o0]\W{0,3})?\s*\S{0,4}$",
+                             re.IGNORECASE)
+#: "SOLUTION OF PUZZLE No. 26", under the clues.
+SOLUTION_1930 = re.compile(r"^\W*(?:\S{1,2}\s+)?solution\s+(?:of|to)\s+puzzle\s+n[o0]\W{0,3}\s*(\d{1,3})(?!\d)", re.IGNORECASE)
+
+
+def times1930_headings(lines):
+    """([(number, box, None)], [(number, box)]) of the 1930 titles and
+    solution headings in `lines`. A title whose number was not read takes
+    the number after the page's solution heading's; with none, the page
+    has no title read here (ocr_titles() reads it)."""
+    titles, sols, bare = [], [], []
+    for ws in lines:
+        text = " ".join(w[4] for w in ws)
+        m = SOLUTION_1930.match(text)
+        if m:
+            sols.append((int(m[1]), box_of(ws)))
+            continue
+        m = TITLE_1930.match(text)
+        if m:
+            titles.append((int(m[1]), box_of(ws), None))
+        elif TITLE_1930_BARE.match(text):
+            bare.append(box_of(ws))
+    if not titles and bare and len(sols) == 1:
+        titles = [(sols[0][0] + 1, bare[0], None)]
+    return titles, sols
+
+
 class Paper:
     """One newspaper's run of archive.org items: where its editions are, how
     its titles and solution headings read, the number its date implies, and
     the series its puzzles file as."""
 
     def __init__(self, key, series, item, name, expected, third=0, solution_above=False, margin=40,
-                 clues_above=False):
+                 clues_above=False, shrink=1, slack=None, four=False, also=()):
         self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
         #: The width of a clue column right of the grid (0: none), whether
         #: the solution grid is printed above its heading, how far left
@@ -1422,8 +1716,20 @@ class Paper:
         #: printed over the grid, the title heading the left column.
         self.third, self.solution_above, self.margin = third, solution_above, margin
         self.clues_above = clues_above
+        #: How many times the scans' SCAN_WIDTH its pages are scanned at
+        #: (page() and leaf_lines() shrink them to it), and how far a
+        #: title's number may stray from the one its date implies.
+        self.shrink, self.slack = shrink, NUMBER_SLACK if slack is None else slack
+        #: Four clue columns under the grid and no counts printed (the 1930
+        #: Times): columns_of_four() reads them, the grid gives the counts.
+        self.four = four
+        #: Papers of the same series in other items, whose editions a run of
+        #: this one reads too.
+        self.also = also
 
     def headings(self, lines):
+        if self.key == "times1930":
+            return times1930_headings(lines)
         if self.key == "ft":
             return ft_headings(lines)
         if self.key == "guardian":
@@ -1433,7 +1739,12 @@ class Paper:
         return ([(n, box, None) for n, box in headings(lines, TITLE)], headings(lines, SOLUTION))
 
 
-TIMES = Paper("times", SERIES, ITEM, "Times cryptic crossword No {:,}", expected_number)
+#: The 1930 Times: archive.org's pub_times, one item an issue
+#: ("per_times_the-times_1930-03-04_45452"), each page scanned 13663px wide.
+TIMES_1930 = Paper("times1930", SERIES, re.compile(r"per_times_the-times_(19\d\d)-\d\d-\d\d_\d+$"),
+                   "Times crossword puzzle No {:,}", times1930_expected_number, margin=15, shrink=4,
+                   slack=TIMES_1930_SLACK, four=True)
+TIMES = Paper("times", SERIES, ITEM, "Times cryptic crossword No {:,}", expected_number, also=(TIMES_1930,))
 FT = Paper("ft", "ftcryptic", re.compile(r"FinancialTimes(19\d\d)UKEnglish$"),
            "Financial Times cryptic crossword No {:,}", ft_expected_number)
 GUARDIAN = Paper("guardian", "cryptic", re.compile(r"TheGuardian(19\d\d)UKEnglish$"),
@@ -1446,7 +1757,7 @@ PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 
 def paper_of(d):
     """The Paper an edition directory's item belongs to."""
-    return next((p for p in PAPERS.values() if p.item.match(Path(d).parent.name)), TIMES)
+    return next((p for p in (*PAPERS.values(), TIMES_1930) if p.item.match(Path(d).parent.name)), TIMES)
 
 
 def issues_between(a, b):
@@ -1625,7 +1936,12 @@ def filed_number(d, found, hit):
     day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
     if paper is TIMES and day.weekday() == 6:
         return None, day, f"{day} is a Sunday and the Times prints no daily cryptic on it: a Sunday paper's puzzle"
-    if abs(n - paper.expected(day)) > NUMBER_SLACK:
+    if abs(n - paper.expected(day)) > paper.slack:
+        # A short number misread ("200" for 209): the page's solution
+        # heading names the day before's.
+        sols = [s["number"] + 1 for s in found["solutions"] if s["leaf"] == hit["leaf"]]
+        n = next((m for m in sols if abs(m - paper.expected(day)) <= paper.slack), n)
+    if abs(n - paper.expected(day)) > paper.slack:
         return None, day, (f"No {n} is not near the {paper.expected(day)} the date "
                            f"{day} implies: the item's date is wrong")
     number, why = placed(n, day, held_dates(paper.series))
@@ -1675,31 +1991,8 @@ def read_puzzle(d, found, hit, solutions):
     beside = side == "left"
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top,
                                 beside) for which in READERS}
-    above = left = None
-    every = lines + [ws for r in rapid.values() for ws in r]
-    if top is not None:
-        above = (top, gutter(every, gbox, top), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG))
-    if beside:
-        left = left_columns(every, gbox)
-    split = under_gutter(every, gbox) if above is None and left is None else None
-    cols = {"djvu": columns(lines, gbox, third, m, above, left, split)}
-    for which in READERS:
-        cols[which] = columns(rapid[which], gbox, third, m, above, left, split)
-    texts = {k: column_text(c) for k, c in cols.items()}
-    wins = windows(gbox, third, m, above, left, split)
-    # The desktop's VLM, when it answers, is one more reading.
-    if vlm.reachable():
-        try:
-            texts["vlm"] = "\n".join(numbered_heading(t) or t for t in
-                                     vlm.column_text(img, wins, list(cols.values())).splitlines())
-        except RuntimeError:
-            pass  # gone mid-run: read as without it; run() files it to be read again
-    # The Canberra Times reprint of the same puzzle is another copy of the
-    # print, its readings voters like the scan's own.
-    texts.update(reprint_readings(n, paper.series))
-    # archive.org's words and RapidOCR's are the two readings; where
-    # archive.org's OCR has no words for the columns, RapidOCR's two
-    # recognisers are.
+    # The scan's grid, read before the clues: the 1930 Times prints no
+    # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
     gpath.parent.mkdir(parents=True, exist_ok=True)
     # Cut afresh on every read, so the crop is always of this grid box.
@@ -1708,6 +2001,44 @@ def read_puzzle(d, found, hit, solutions):
     g = image
     if not g:
         verdict["imageUnread"] = why
+    above = left = None
+    every = lines + [ws for r in rapid.values() for ws in r]
+    if paper.four:
+        if not g:
+            return refuse(verdict, "not-a-grid", f"the grid gives the clues' counts, and it is unread: {why}"), None
+        gutters = four_gutters(every, gbox)
+        down = down_at(every, gbox, gutters)
+        cols = {which: columns_of_four(rapid[which], gbox, gutters, down) for which in FOUR_READERS}
+        texts = {k: column_text(c) for k, c in cols.items()}
+        wins = [None] * max(len(c) for c in cols.values())
+        if vlm.reachable():
+            try:
+                texts["vlm"] = vlm_four(img, list(cols.values()))
+            except RuntimeError:
+                pass
+        texts = {k: counted(spaced(t), g) for k, t in texts.items()}
+    elif top is not None:
+        above = (top, gutter(every, gbox, top), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG))
+    if beside:
+        left = left_columns(every, gbox)
+    if not paper.four:
+        split = under_gutter(every, gbox) if above is None and left is None else None
+        cols = {"djvu": columns(lines, gbox, third, m, above, left, split)}
+        for which in READERS:
+            cols[which] = columns(rapid[which], gbox, third, m, above, left, split)
+        texts = {k: column_text(c) for k, c in cols.items()}
+        wins = windows(gbox, third, m, above, left, split)
+    # The desktop's VLM, when it answers, is one more reading (the 1930
+    # page's, vlm_four's above).
+    if vlm.reachable() and not paper.four:
+        try:
+            texts["vlm"] = "\n".join(numbered_heading(t) or t for t in
+                                     vlm.column_text(img, wins, list(cols.values())).splitlines())
+        except RuntimeError:
+            pass  # gone mid-run: read as without it; run() files it to be read again
+    # The Canberra Times reprint of the same puzzle is another copy of the
+    # print, its readings voters like the scan's own.
+    texts.update(reprint_readings(n, paper.series))
     texts, dropped = screened(texts, g)
     if dropped:
         verdict["dropped"] = dropped
@@ -1818,6 +2149,9 @@ def read_puzzle(d, found, hit, solutions):
     laid, blank = ocr_clues.as_printed(texts, laid, blank, parse, lengths)
     laid, blank = one_light_each(laid, blank, fits)
     laid, blank = unfit_blanked(laid, blank, lengths)
+    if paper.four:
+        # The counts were the grid's, not the paper's: filed without.
+        laid = {lid: (t, None, None) for lid, (t, _, _) in laid.items()}
     verdict["lights"] = len(rg.light_cells(grid))
     verdict["agreed"] = sum(1 for t, _, _ in laid.values() if t)
     if blank:

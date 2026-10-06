@@ -80,10 +80,6 @@ CLASSES = [
       "(only a crosswordless issue leaves the count), then DETECTOR_VERSION"), True, "tools/fetch_archive_org_editions.py"),
     ("filed-other-date", "its puzzle number is filed, under another date", "date the file right", True, "tools/file_archive_org_puzzles.py"),
     ("number-date-mismatch", "the item's date and the puzzle number disagree", "none: archive.org's date is wrong", False, "tools/file_archive_org_puzzles.py"),
-    ("no-filer", "archive.org has the scan, in a one-issue-per-item collection the filer does not read",
-     ("the fetcher already fetches pub_times; teach the filer its 1930 page (Paper for per_times_the-times_* items): "
-      "1-3 digit numbers, a 13663px scan (4x NewsUK's), FOUR clue columns under the grid, the previous solution "
-      "printed in letters"), True, "tools/file_archive_org_puzzles.py"),
     ("no-listing", "the year's archive.org item listing is not cached",
      "fetch_archive_org_editions.py --group <paper> --list (one metadata call an item)", True, "tools/fetch_archive_org_editions.py"),
     ("canberra-reprint", "archive.org holds no scan; a cached Canberra Times article reprints it (tools/canberra_london_numbers.py)",
@@ -93,7 +89,8 @@ CLASSES = [
 CLASS = {c[0]: c for c in CLASSES}
 
 #: fetch_archive_org_editions.py groups holding a paper's issues one item
-#: each, which file_archive_org_puzzles.py does not read yet.
+#: each (the 1930 Times, file_archive_org_puzzles.TIMES_1930): an issue's
+#: edition is "<item>/<item>".
 ONE_ISSUE_GROUPS = {"times": ["pub_times"]}
 
 
@@ -148,20 +145,6 @@ def corpus(series):
     return by_date, by_number
 
 
-def unread_collections(paper):
-    """{date: item} of `paper`'s issues in its ONE_ISSUE_GROUPS."""
-    out = {}
-    for group in ONE_ISSUE_GROUPS.get(paper.key, ()):
-        try:
-            items = json.loads((CACHE / "items" / f"_group_{group}.json").read_text())
-        except (OSError, ValueError):
-            continue
-        for i in items:
-            if i.get("date"):
-                out.setdefault(i["date"][:10], i["identifier"])
-    return out
-
-
 def scans(paper):
     """({date: "<item>/<slug>"} of every edition archive.org lists for
     `paper`, {year: listing cached}) from the cached item metadata."""
@@ -184,6 +167,14 @@ def scans(paper):
             date = fetcher.edition_date(name)
             if date:
                 out.setdefault(date, f"{item}/{fetcher.slug_of(item, name)}")
+    for group in ONE_ISSUE_GROUPS.get(paper.key, ()):
+        try:
+            issues = json.loads((CACHE / "items" / f"_group_{group}.json").read_text())
+        except (OSError, ValueError):
+            continue
+        for i in issues:
+            if any(p.item.match(i["identifier"]) for p in paper.also) and i.get("date"):
+                out.setdefault(i["date"][:10], f"{i['identifier']}/{i['identifier']}")
     return out, listed
 
 
@@ -234,15 +225,13 @@ def verdict_class(row, by_number):
 
 
 def unfiled(paper, today):
-    """(date, class, edition, elsewhere) of each printed date of `paper`
-    through `today`, in date order: class None for a filed date, else its
-    CLASSES key; edition the archive.org "<item>/<slug>" or None; elsewhere
-    whether a one-issue collection holds it."""
+    """(date, class, edition) of each printed date of `paper` through
+    `today`, in date order: class None for a filed date, else its CLASSES
+    key; edition the archive.org "<item>/<slug>" or None."""
     series = paper.series
     by_date, by_number = corpus(series)
     listing, listed = scans(paper)
     rows, failed = ledger(), failed_fetches()
-    elsewhere = unread_collections(paper)
     reprinted = {r["londonDate"] for r in canberra_london_numbers.load().values()
                  if r.get("londonDate")} if series == "times" else set()
     for date in printed_dates(series, today):
@@ -250,8 +239,6 @@ def unfiled(paper, today):
         ed = listing.get(date)
         if date in by_date:
             cls = None
-        elif not ed and date in elsewhere:
-            cls = "no-filer"
         elif not ed:
             cls = ("canberra-reprint" if date in reprinted else "no-scan") if listed.get(y, True) else "no-listing"
         elif ed in rows:
@@ -262,7 +249,7 @@ def unfiled(paper, today):
             cls = "not-read"
         else:
             cls = "not-fetched"
-        yield date, cls, ed, date in elsewhere
+        yield date, cls, ed
 
 
 def cover(paper, today):
@@ -270,11 +257,11 @@ def cover(paper, today):
     years = collections.defaultdict(lambda: collections.Counter())
     classes = collections.defaultdict(lambda: {"editions": 0, "years": collections.Counter(),
                                                "sample": []})
-    for date, cls, ed, elsewhere in unfiled(paper, today):
+    for date, cls, ed in unfiled(paper, today):
         y = int(date[:4])
         ys = years[y]
         ys["printed"] += 1
-        if ed or elsewhere:
+        if ed:
             ys["scanned"] += 1
         if cls is None:
             ys["filed"] += 1
