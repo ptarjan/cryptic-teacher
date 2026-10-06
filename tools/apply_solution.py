@@ -55,7 +55,9 @@ from fetch_puzzle import (read_puzzle_file, reindex,  # noqa: E402
                           resolve_puzzle, write_puzzle_file)
 from grid_fill import MIN_CHECKED_RATIO  # noqa: E402 — the authoring rulebook's floor
 from series import official_key  # noqa: E402
+import clues_only  # noqa: E402
 import corroborate  # noqa: E402
+import puzzle_paths  # noqa: E402
 from definitions import QUOTES  # noqa: E402
 import provenance  # noqa: E402
 from groups import entry_id  # noqa: E402
@@ -326,6 +328,28 @@ def split_fill(fill):
     return answers, defs
 
 
+def promote_clues_only(record, fill):
+    """(puzzle, fill by entry id, problems) for a clues-only puzzle's fill,
+    {"across": [...], "down": [...]} with one answer per light in clue order,
+    each an answer or {"answer", "definition"} as elsewhere."""
+    if set(fill) != set(clues_only.DIRECTIONS) or not all(
+            isinstance(v, list) for v in fill.values()):
+        return None, None, [(f"{record['id']} is held clues-only: the fill is "
+                             '{"across": [...], "down": [...]}, one answer per clue '
+                             "in the order the file lists them")]
+    answers = {d: [normalise(v.get("answer") if isinstance(v, dict) else v)
+                   for v in fill[d]] for d in clues_only.DIRECTIONS}
+    puzzle, problems = clues_only.promote(record, answers)
+    if problems:
+        return None, None, problems
+    by_id = {}
+    for direction in clues_only.DIRECTIONS:
+        lights = sorted((e for e in puzzle["entries"] if e["direction"] == direction),
+                        key=lambda e: e["number"])
+        by_id.update({entry_id(e): v for e, v in zip(lights, fill[direction])})
+    return puzzle, by_id, []
+
+
 def render_grid(puzzle, cells):
     w, h = puzzle["dimensions"]["cols"], puzzle["dimensions"]["rows"]
     rows = []
@@ -357,13 +381,26 @@ def main():
                     help="leave puzzles/index.json for the caller to rebuild")
     args = ap.parse_args()
 
-    path = resolve_puzzle(args.number)
-    puzzle = read_puzzle_file(path)
-
     fill = json.loads(Path(args.fill).read_text(encoding="utf-8"))
     if not isinstance(fill, dict):
         raise SystemExit('--fill must be a JSON object of entry id -> '
                          '{"answer": ..., "definition": ...}')
+    waiting = clues_only.read(args.number) if "-" in args.number else None
+    generator = None
+    if waiting is not None:
+        # Held as its clues alone: the answers, in clue order, give the grid,
+        # and from here on it is checked and written like any other puzzle.
+        puzzle, fill, problems = promote_clues_only(waiting, fill)
+        if problems:
+            print(f"{args.number}: REJECTED, held clues-only, nothing written:")
+            for p in problems:
+                print(f"  {p}")
+            raise SystemExit(1)
+        path = puzzle_paths.file_for(puzzle)
+        generator = waiting["source"]["acquiredBy"]
+    else:
+        path = resolve_puzzle(args.number)
+        puzzle = read_puzzle_file(path)
     fill, defs = split_fill(fill)
 
     cells, crossings, problems = check_fill(puzzle, fill)
@@ -423,7 +460,7 @@ def main():
     # stamping its own name would erase which fetcher that was. What this tool
     # did is recorded in the solutions detail, above.
     puzzle = provenance.with_solution_detail(puzzle, detail)
-    path = write_puzzle_file(path, puzzle)
+    path = write_puzzle_file(path, puzzle, generator=generator)
     print(f"wrote {len(puzzle['entries'])} solutions into {path} (marked unofficial)")
     if not args.no_reindex:
         reindex()

@@ -51,7 +51,9 @@ one costs now.
      before any search happens, tools/reconstruct_grid.py derives the grid,
      and grid_verdict judges the fills that come back.
   4. FILE. tools/file_penguin_puzzle.py --unsolved, called in process, writes
-     the puzzle. DEFAULT IS A SCRATCH DIRECTORY, not the corpus: filing is
+     the puzzle. One whose search did not settle on one grid (none, several,
+     out of budget: often a scan that lost the clue numbers) is filed as its
+     clues alone through tools/clues_only.py; its answers derive the grid. DEFAULT IS A SCRATCH DIRECTORY, not the corpus: filing is
      the one irreversible stage, so it takes --file and an explicit
      --puzzle-dir to touch puzzles/.
   5. REPORT. One JSON row per puzzle: lights recovered, status, the
@@ -98,6 +100,8 @@ import grid_verdict  # noqa: E402
 from light_spec import build_spec, coverage  # noqa: E402
 from parse_penguin_book import build_quality_report, parse_book  # noqa: E402
 from reconstruct_grid import conventions_broken, reconstruct  # noqa: E402
+import clues_only  # noqa: E402
+from clues_only import entries_from_grid  # noqa: E402
 
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 PUBLIC_TEXT_URL = "https://archive.org/download/{id}/{id}_djvu.txt"
@@ -323,69 +327,6 @@ def _reconstruct_one(job):
 
 # ------------------------------------------------------------------ stage 4
 
-def entries_from_grid(grid, across, down):
-    """The puzzle's entry list: grid geometry married to the printed clues.
-
-    THE NUMBERS COME FROM THE GRID, never from the OCR. tools/puzzle_integrity
-    .py checks that a puzzle's clue numbers are a function of its grid, so the
-    derived numbering is the only one that can be right -- and the OCR'd digit,
-    which is among the worst-read tokens on the page, is corroboration only.
-    Both lists are in printed (row-major) order, which is the order
-    tools/light_spec.py emits and the order this walk produces, so they zip.
-    """
-    rows, cols = len(grid), len(grid[0])
-    white = [[c == "." for c in row] for row in grid]
-    slots = {"across": [], "down": []}
-    number = 0
-    for y in range(rows):
-        for x in range(cols):
-            if not white[y][x]:
-                continue
-            a = (x == 0 or not white[y][x - 1]) and x + 1 < cols and white[y][x + 1]
-            d = (y == 0 or not white[y - 1][x]) and y + 1 < rows and white[y + 1][x]
-            if not (a or d):
-                continue
-            number += 1
-            if a:
-                run = 1
-                while x + run < cols and white[y][x + run]:
-                    run += 1
-                slots["across"].append((number, x, y, run))
-            if d:
-                run = 1
-                while y + run < rows and white[y + run][x]:
-                    run += 1
-                slots["down"].append((number, x, y, run))
-
-    entries, problems = [], []
-    for direction, spec in (("across", across), ("down", down)):
-        got = slots[direction]
-        if len(got) != len(spec):
-            problems.append(
-                f"the grid prints {len(got)} {direction} lights but the clue "
-                f"list holds {len(spec)}; they cannot be matched up")
-            continue
-        for (num, x, y, run), light in zip(got, spec):
-            printed = light[3] if len(light) > 3 else None
-            clue = (printed or {}).get("clue")
-            if not clue:
-                problems.append(
-                    f"{num}-{direction} has no clue text: it is a linked light "
-                    f"whose partner printed no 'See' entry, so the book's own "
-                    f"words for it were never on the page this was read from")
-                continue
-            if run != light[1] and light[1] is not None:
-                problems.append(
-                    f"{num}-{direction} is {run} cells in the grid but its "
-                    f"enumeration reads {light[1]}")
-            entries.append({"number": num,
-                            "direction": direction, "position": {"x": x, "y": y},
-                            "length": run, "clue": clue,
-                            "enumeration": (printed or {}).get("enumeration")})
-    entries.sort(key=lambda e: (e["number"], e["direction"] != "across"))
-    return entries, problems
-
-
 def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
     """(path, problems). Reuses tools/file_penguin_puzzle.py's own guard, in
     process, so everything it knows about these books -- the id, the
@@ -429,6 +370,30 @@ def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
     except puzzle_integrity.RefusedWrite as err:
         return None, [str(err)]
     return path, []
+
+
+def file_clues_only(puzzle_meta, across, down, identifier, clues_dir):
+    """(path, problems): the puzzle held as its clues alone (tools/clues_only
+    .py), for one whose grid the search did not settle. The nightly solve
+    answers it and the answers derive the grid. The id, title and year come
+    from tools/file_penguin_puzzle.py, as for a grid puzzle."""
+    import puzzle_integrity
+    from file_penguin_puzzle import build as build_penguin
+    try:
+        meta = build_penguin({"book_number": puzzle_meta["book_number"],
+                              "setter": puzzle_meta.get("setter"),
+                              "puzzle": {"dimensions": {"cols": 15, "rows": 15},
+                                         "entries": []}},
+                             identifier, "unsolved", unsolved=True)
+    except SystemExit as err:
+        return None, [f"tools/file_penguin_puzzle.py refused it: {err}"]
+    record, problems = clues_only.from_book(meta, across, down, "tools/acquire_book.py")
+    if problems:
+        return None, problems
+    try:
+        return clues_only.write(record, clues_dir), []
+    except puzzle_integrity.RefusedWrite as err:
+        return None, [str(err)]
 
 
 # ------------------------------------------------------------------- driver
@@ -565,16 +530,37 @@ def main(argv=None):
             jobs.append({"book_number": bn, "across": across, "down": down})
     print(f"screen: {len(jobs)} to search, {len(puzzles) - len(jobs)} rejected first")
 
+    import puzzle_paths
+    # Clues-only puzzles go beside the puzzles: the corpus's clues_only/ when
+    # filing for real, the scratch tree's otherwise.
+    clues_dir = (None if puzzle_paths.in_corpus(puzzle_dir / "x.json")
+                 else work / "clues_only")
+    clues_filed = 0
+
     def file_row(bn, row):
-        """Stage 4 for one searched puzzle; 1 when it was filed."""
+        """Stage 4 for one searched puzzle; 1 when it was filed with a grid."""
+        nonlocal clues_filed
         row["filed"] = None
-        if row["status"] != "exact-unique":
-            return 0
         if not args.file:
             row["filing"] = "not attempted (--file not given)"
             return 0
         meta = {"book_number": bn, "setter": row["setter"]}
         spec = next(j for j in jobs if j["book_number"] == bn)
+        if row["status"] != "exact-unique":
+            # Only the clues are mandatory: a search that did not settle on
+            # one grid leaves the answers to settle it.
+            if row["status"] == "unparseable":
+                return 0
+            path, problems = file_clues_only(meta, spec["across"], spec["down"],
+                                             args.identifier, clues_dir)
+            if path is None:
+                row["filing"] = "refused clues-only"
+                row["filing_problems"] = problems
+            else:
+                row["filed"] = str(path)
+                row["filing"] = "filed clues-only"
+                clues_filed += 1
+            return 0
         path, problems = file_unsolved(meta, tuple(row["grids"][0]),
                                         spec["across"], spec["down"],
                                         args.identifier, puzzle_dir)
@@ -616,7 +602,7 @@ def main(argv=None):
     ordered = [rows[k] for k in sorted(rows)]
     report = {"identifier": args.identifier,
               "text_source": how, "puzzles_found": len(puzzles),
-              "searched": len(jobs), "filed": filed,
+              "searched": len(jobs), "filed": filed, "filed_clues_only": clues_filed,
               "elapsed_sec": round(time.time() - started, 1),
               "thresholds": grid_verdict.THRESHOLDS,
               "discarded_rules": grid_verdict.DISCARDED,
@@ -625,7 +611,8 @@ def main(argv=None):
 
     from collections import Counter
     tally = Counter(r["status"] for r in ordered)
-    print(f"\n{args.identifier}: {len(puzzles)} puzzles, {filed} filed")
+    print(f"\n{args.identifier}: {len(puzzles)} puzzles, {filed} filed with a grid, "
+          f"{clues_filed} clues-only")
     for status, n in tally.most_common():
         print(f"  {n:>3}  {status}")
     unique = [r for r in ordered if r["status"] == "exact-unique"]

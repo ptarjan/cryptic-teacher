@@ -1031,6 +1031,12 @@ def write_puzzle_file(path, puzzle, generator=None):
                     encoding="utf-8")
     if held and held.resolve() != dest.resolve():
         held.unlink()
+    # A puzzle filed with its grid leaves the clues-only state: one id, one
+    # state (tools/clues_only.py).
+    if corpus:
+        import clues_only  # noqa: PLC0415 — it imports this module
+        if (waiting := clues_only.find(puzzle["id"])) is not None:
+            waiting.unlink()
     # The browser cannot fetch() off file:// (README: the site runs from disk),
     # so it is fed a generated script instead. Written here as well as by
     # --build-shims because a fetcher that has just rewritten a puzzle must not

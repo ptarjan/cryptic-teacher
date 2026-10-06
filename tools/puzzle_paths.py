@@ -131,6 +131,9 @@ def shim_path(path):
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         raise SystemExit(__doc__)
+    import clues_only
     for a in sys.argv[1:]:
-        hit = resolve_puzzle(a)
+        # A puzzle held as its clues alone is held too: the solve loops ask
+        # here for the file to hand the solver.
+        hit = ("-" in a and not find(a) and clues_only.find(a)) or resolve_puzzle(a)
         print(hit.relative_to(ROOT) if hit.is_relative_to(ROOT) else hit)
