@@ -565,8 +565,30 @@ def main(argv=None):
             jobs.append({"book_number": bn, "across": across, "down": down})
     print(f"screen: {len(jobs)} to search, {len(puzzles) - len(jobs)} rejected first")
 
+    def file_row(bn, row):
+        """Stage 4 for one searched puzzle; 1 when it was filed."""
+        row["filed"] = None
+        if row["status"] != "exact-unique":
+            return 0
+        if not args.file:
+            row["filing"] = "not attempted (--file not given)"
+            return 0
+        meta = {"book_number": bn, "setter": row["setter"]}
+        spec = next(j for j in jobs if j["book_number"] == bn)
+        path, problems = file_unsolved(meta, tuple(row["grids"][0]),
+                                        spec["across"], spec["down"],
+                                        args.identifier, puzzle_dir)
+        if path is None:
+            row["filing"] = "refused"
+            row["filing_problems"] = problems
+            return 0
+        row["filed"] = str(path)
+        row["filing"] = "filed unsolved"
+        return 1
+
     # ---- stage 3b, the search
     started = time.time()
+    filed = 0
     if jobs:
         with ProcessPoolExecutor(max_workers=args.jobs) as pool:
             for done, r in enumerate(pool.map(_reconstruct_one, jobs), 1):
@@ -579,29 +601,13 @@ def main(argv=None):
                 print(f"  [{done}/{len(jobs)}] #{r['book_number']} "
                       f"lights={row['lights_recovered']} -> {r['status']} "
                       f"nodes={r['nodes']} t={r['elapsed_sec']}s", flush=True)
+                # ---- stage 4, as each search lands: a run killed by its
+                # timeout keeps every puzzle it had already derived.
+                filed += file_row(r["book_number"], row)
 
-    # ---- stage 4
-    filed = 0
-    for bn, row in rows.items():
+    for row in rows.values():
         row.setdefault("grids", [])
-        row["filed"] = None
-        if row["status"] != "exact-unique":
-            continue
-        if not args.file:
-            row["filing"] = "not attempted (--file not given)"
-            continue
-        meta = {"book_number": bn, "setter": row["setter"]}
-        spec = next(j for j in jobs if j["book_number"] == bn)
-        path, problems = file_unsolved(meta, tuple(row["grids"][0]),
-                                        spec["across"], spec["down"],
-                                        args.identifier, puzzle_dir)
-        if path is None:
-            row["filing"] = "refused"
-            row["filing_problems"] = problems
-        else:
-            row["filed"] = str(path)
-            row["filing"] = "filed unsolved"
-            filed += 1
+        row.setdefault("filed", None)
 
     # ---- stage 5
     if args.file and args.max_pages is None and not (args.only or args.limit):
