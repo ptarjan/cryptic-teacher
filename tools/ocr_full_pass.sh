@@ -91,6 +91,12 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
 }
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
+# The Times pages Paul saves by hand from Gale's Times Digital Archive into
+# his Mac's inbox become Times editions for the Times slices to read, each
+# due when its file lands (tools/gale_inbox.py asks the Mac, never Gale);
+# the checklist of editions still wanted is written back beside them.
+python3 tools/gale_inbox.py sync ||
+  echo "gale_inbox sync failed (rc=$?); the Gale pages staged before stand, the checklist is not refreshed"
 for paper in telegraph guardian ft times; do
   slices "$paper off archive.org" python3 tools/file_archive_org_puzzles.py --paper "$paper" \
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1

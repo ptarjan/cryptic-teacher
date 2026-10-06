@@ -134,7 +134,9 @@ CACHE = Path(os.path.expanduser("~/.cache/archive_org_editions"))
 CROPS = Path(os.path.expanduser("~/.cache/archive_org_crops"))
 SOURCE = Path.home() / "cryptic-setter-data" / "archiveorg-source"
 TOOL = "tools/file_archive_org_puzzles.py"
-ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
+#: archive.org's Times items, and the Gale page images tools/gale_inbox.py
+#: lays out as editions of the same shape (GaleTimes<year>UKEnglish/<date>).
+ITEM = re.compile(r"(?:NewsUK|GaleTimes)(19\d\d)UKEnglish$")
 #: {edition} is "<item>/<file base name>", quoted: an item holds a whole year
 #: of editions, and archive.org opens one's scan only at the path naming its
 #: file ("May 28 1974, The Times, #59100, UK (en)"); the item alone opens
@@ -148,6 +150,14 @@ def edition_of(d, found):
     name = json.loads((Path(d) / "pages.json").read_text()).get("edition")
     item = found["item"]
     return item if not name or name == item else f"{item}/{urllib.parse.quote(name, safe='')}"
+
+
+def page_url(d, found, leaf):
+    """Where a reader opens leaf `leaf` of edition directory `d`: the
+    pages.json "url" of a page that is not archive.org's (a Gale page), else
+    archive.org's PAGE_URL."""
+    url = json.loads((Path(d) / "pages.json").read_text()).get("url")
+    return url or PAGE_URL.format(edition=edition_of(d, found), leaf=leaf)
 
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
@@ -183,7 +193,10 @@ def number_of(text):
 def leaf_lines(xml_path, leaves):
     """{leaf: [[(x0, y0, x1, y1, text), ...] per printed line]} for the leaves
     asked for. Only those leaves' OBJECT elements are parsed: the n-th
-    "<OBJECT" in the file is leaf n."""
+    "<OBJECT" in the file is leaf n. {} when there is no such file (a
+    Gale page has no archive.org text)."""
+    if not Path(xml_path).exists():
+        return {}
     with gzip.open(xml_path) as f:
         data = f.read()
     out = {}
@@ -952,7 +965,7 @@ def lay_loose(parsed, grid, taken=None):
 
 # ------------------------------------------------------------ the puzzle
 
-def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None):
+def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None, url=None):
     lights = rg.light_cells(grid)
     by_id, entries = {}, []
     for (n, d), cells in lights.items():
@@ -995,7 +1008,7 @@ def build(number, day, grid, how, laid, edition, leaf, series=SERIES, name=None)
         "name": name or f"Times cryptic crossword No {number:,}",
         "date": day.isoformat(),
         "dimensions": {"cols": len(grid[0]), "rows": len(grid)},
-        "source": {"url": PAGE_URL.format(edition=edition, leaf=leaf),
+        "source": {"url": url or PAGE_URL.format(edition=edition, leaf=leaf),
                    "gridOrigin": "published" if how == "image" else "reconstructed"},
         "entries": entries,
     }
@@ -1024,14 +1037,17 @@ def scan(d):
     leaves = {p["leaf"] for p in pages.get("crossword_pages", ())
               if (d / f"leaf_{p['leaf']:04d}.jpg").exists()}
     found = {"date": pages["date"], "item": pages["item"], "puzzles": [], "solutions": []}
-    if not leaves or not (d / "djvu.xml.gz").exists():
+    if not leaves:
         return found
     paper = paper_of(d)
     text = leaf_lines(d / "djvu.xml.gz", leaves)
     for leaf in sorted(leaves):
-        titles, sols = paper.headings(text.get(leaf, []))
-        titles = [(n, box, setter, None) for n, box, setter in titles] or \
-            ocr_titles(page(d, leaf), paper, datetime.date.fromisoformat(pages["date"]), f"{d.name}_{leaf}")
+        if leaf not in text:
+            titles, sols = ocr_headings(page(d, leaf), paper, f"{d.parent.name}_{d.name}_{leaf}")
+        else:
+            titles, sols = paper.headings(text[leaf])
+            titles = [(n, box, setter, None) for n, box, setter in titles] or \
+                ocr_titles(page(d, leaf), paper, datetime.date.fromisoformat(pages["date"]), f"{d.name}_{leaf}")
         for n, box, setter, readers in titles:
             found["puzzles"].append({"number": n, "leaf": leaf, "box": box,
                                      **({"setterRead": setter} if setter else {}),
@@ -1049,9 +1065,9 @@ GRID_FILL = 0.2
 TITLE_REACH = 300
 
 
-def grids_on(img, step=2):
-    """[box] of each grid-shaped patch of ink on a page (grid_shaped, at
-    least GRID_FILL of its box inked), found on a 1/step subsample."""
+def grids_on(img, step=2, shaped=grid_shaped):
+    """[box] of each grid-shaped patch of ink on a page (`shaped`, at least
+    GRID_FILL of its box inked), found on a 1/step subsample."""
     import cv2
     import numpy as np
     gray = np.asarray(img.convert("L"), dtype=np.uint8)
@@ -1060,7 +1076,7 @@ def grids_on(img, step=2):
     out = []
     for x, y, w, h, area in stats[1:].tolist():
         box = (x * step, y * step, (x + w) * step, (y + h) * step)
-        if grid_shaped(box) and area >= GRID_FILL * w * h:
+        if shaped(box) and area >= GRID_FILL * w * h:
             out.append(box)
     return out
 
@@ -1139,6 +1155,27 @@ def ocr_titles(img, paper, day, key):
                 found.append((n, box, setter, votes[n]))
                 break
     return found
+
+
+def ocr_headings(img, paper, key):
+    """([(number, box, setter, readers)], [(number, box)]) of the titles and
+    solution headings on a page archive.org has no text for (a Gale page:
+    one article, so its whole ink is read): each heading's number at least
+    half our readers read, with the box and setter of the first."""
+    box = img.convert("L").point(lambda v: 255 if v < 128 else 0).getbbox()
+    if box is None:
+        return [], []
+    titles, sols = {}, {}
+    for which in READERS:
+        path = CROPS / "titles" / f"{key}_page.{reader_key(which)}.json"
+        ts, ss = paper.headings(printed_lines(band_words(img, box, which, path)))
+        for n, b, setter in ts:
+            titles.setdefault(n, []).append((which, b, setter))
+        for n, b in ss:
+            sols.setdefault(n, []).append(b)
+    least = len(READERS) / 2
+    return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items() if len(reads) >= least],
+            [(n, boxes[0]) for n, boxes in sols.items() if len(boxes) >= least])
 
 
 def page(d, leaf):
@@ -1574,7 +1611,7 @@ def filed_number(d, found, hit):
                            f"{day} implies: the item's date is wrong")
     number, why = placed(n, day, held_dates(paper.series))
     if number is not None:
-        why = same_scan(number, PAGE_URL.format(edition=edition_of(d, found), leaf=hit["leaf"]), day, paper.series)
+        why = same_scan(number, page_url(d, found, hit["leaf"]), day, paper.series)
     return number, day, why
 
 
@@ -1591,7 +1628,7 @@ def read_puzzle(d, found, hit, solutions):
         verdict["read_as"], n = n, number
         verdict["number"] = n
     img = page(d, leaf)
-    lines = leaf_lines(d / "djvu.xml.gz", {leaf})[leaf]
+    lines = leaf_lines(d / "djvu.xml.gz", {leaf}).get(leaf, [])
     gbox, side = (grid_under_clues(img, hit["box"]), "below") if paper.clues_above else locate_grid(img, hit["box"])
     if gbox is None:
         verdict["refused"] = "no ink under the title"
@@ -1752,7 +1789,7 @@ def read_puzzle(d, found, hit, solutions):
     if blank:
         verdict["blank"] = blank
     puzzle = build(n, day, grid, how, laid, edition_of(d, found), leaf, series=paper.series,
-                   name=paper.name.format(n))
+                   name=paper.name.format(n), url=page_url(d, found, leaf))
     setter = byline(img, hit, paper.series)
     if setter:
         puzzle["setter"] = setter
