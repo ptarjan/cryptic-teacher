@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Touring west of England, composer makes Land's End",
     "enumeration": "5"
    },
-   "solution": "BEACH"
+   "solution": "BEACH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEACH",
+    "definitions": [
+     {
+      "text": "Land's End",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "west of",
+      "for": "letter_selection",
+      "note": "in an across entry west is the left-hand end, so only the opening letter of the word is wanted"
+     },
+     {
+      "text": "Touring",
+      "for": "container",
+      "note": "a composer touring a place goes all around it, so his name wraps the letter"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "composer",
+      "gives": "BACH",
+      "note": "Johann Sebastian Bach, the German composer"
+     },
+     {
+      "clueFragment": "England",
+      "gives": "E",
+      "select": "first",
+      "note": "the westernmost (first) letter of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "ACH"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer touring the West Country ends up at Land's End in Cornwall.",
+     "walkthrough": "Land's End looks like the Cornish headland, but it is the definition read literally: where the land stops.",
+     "definitionFit": "A beach is the strip of shore where dry ground finishes and the sea begins, literally the end of the land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Land's"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,58 @@
     "text": "Promotional material from Republican - weep digesting it",
     "enumeration": "5"
    },
-   "solution": "BLURB"
+   "solution": "BLURB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLURB",
+    "definitions": [
+     {
+      "text": "Promotional material",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "digesting",
+      "for": "container",
+      "note": "to digest something is to take it inside, so the weeping word swallows the party letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weep",
+      "gives": "BLUB",
+      "note": "to blub is to cry, an informal British word"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLU",
+      "R",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A political ad campaign prompts a Republican to shed tears.",
+     "walkthrough": "'it' points back to Republican, the letter the weeping word takes in.",
+     "definitionFit": "A blurb is the short puffing description printed on a book jacket or advertising leaflet to sell the product."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "digesting"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +180,76 @@
      }
     ]
    },
-   "solution": "ANDREGIDE"
+   "solution": "ANDREGIDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "ANDRE GIDE",
+    "definitions": [
+     {
+      "text": "French creative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without its end, the mountain range loses its final letter"
+     },
+     {
+      "text": "wretched",
+      "for": "anagram",
+      "note": "a wretched song is in a sorry state, so its letters are knocked into a new order"
+     },
+     {
+      "text": "included",
+      "for": "container",
+      "note": "the mangled song is included within the shortened range, sitting inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "range",
+      "gives": "ANDES",
+      "note": "the Andes, the South American mountain range"
+     },
+     {
+      "clueFragment": "dirge",
+      "gives": "DIRGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AND",
+      "REGID",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DIRGE",
+       "gives": "REGID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French artist's limited repertoire includes a miserable funeral song.",
+     "walkthrough": "Andes loses its S to leave ANDE, which then wraps the reshuffled dirge.",
+     "definitionFit": "Andre Gide was a French novelist and Nobel laureate, so a writer, a creative figure from France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "range"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +263,42 @@
     "text": "Where Tony's sheltered until now",
     "enumeration": "6"
    },
-   "solution": "HERETO"
+   "solution": "HERETO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HERETO",
+    "definitions": [
+     {
+      "text": "until now",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sheltered",
+      "for": "hidden_word",
+      "note": "something sheltered is tucked away inside, so the letters sit concealed within the neighbouring words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where Tony's",
+      "gives": "HERETO",
+      "note": "the letters run across the boundary between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks where Tony has been hiding all this time.",
+     "definitionFit": "Hereto is a formal word meaning up to this point, so it stands in for 'until now' as in 'hitherto'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sheltered"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +312,66 @@
     "text": "What doctor knows about development of endemic across India?",
     "enumeration": "8"
    },
-   "solution": "MEDICINE"
+   "solution": "MEDICINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MEDICINE",
+    "definitions": [
+     {
+      "text": "What doctor knows about",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "development of",
+      "for": "anagram",
+      "note": "a development is a change of form, so the letters of the disease word are reworked"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "the reworked letters lie across the single letter, spanning it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "endemic",
+      "gives": "ENDEMIC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MED",
+      "I",
+      "CINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENDEMIC",
+       "gives": "MEDCINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what a physician understands of a disease spreading throughout India.",
+     "definitionFit": "Medicine is the science and practice of treating illness, the body of knowledge a physician has studied and practises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "endemic"
+    }
+   }
   },
   {
    "number": 4,
@@ -115,7 +391,62 @@
      }
     ]
    },
-   "solution": "MARKETGARDENING"
+   "solution": "MARKETGARDENING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MARKET GARDENING",
+    "definitions": [
+     {
+      "text": "growing profitably?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cultivated",
+      "for": "anagram",
+      "note": "cultivated soil is worked over and turned, so these letters are dug into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "arrangement",
+      "gives": "ARRANGEMENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "kid",
+      "gives": "KID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GARRANGEMENTKID",
+       "gives": "MARKETGARDENING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child has been brought up well in a sensible setting, thriving nicely.",
+     "walkthrough": "'arrangement' looks like the anagram signal but is fodder; 'cultivated' does that job and also suits the definition.",
+     "definitionFit": "Market gardening means raising vegetables and fruit commercially for sale, so cultivating crops to make money; the question mark flags the playful phrasing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "arrangement"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +460,61 @@
     "text": "Untidy plate of food left out - rank!",
     "enumeration": "8"
    },
-   "solution": "DISHEVEL"
+   "solution": "DISHEVEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DISHEVEL",
+    "definitions": [
+     {
+      "text": "Untidy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "with the abbreviation for left omitted, the rank word drops that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plate of food",
+      "gives": "DISH",
+      "note": "a dish is a plate of prepared food"
+     },
+     {
+      "clueFragment": "rank",
+      "gives": "LEVEL",
+      "note": "a level is a grade or rank"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISH",
+      "EVEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A messy plate of food has been left out and now smells foul.",
+     "walkthrough": "'rank' looks like a word for the smell, but it is a grade or level.",
+     "definitionFit": "To dishevel is to make hair or clothing messy, a verb matching 'untidy' used as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rank"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +528,47 @@
     "text": "Delivered Middle Eastern folk's items from dairy",
     "enumeration": "5"
    },
-   "solution": "CURDS"
+   "solution": "CURDS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CURDS",
+    "definitions": [
+     {
+      "text": "items from dairy",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Delivered",
+      "for": "homophone",
+      "note": "a speech is delivered out loud, so the word is judged by how it sounds"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Middle Eastern folk",
+      "gives": "CURDS",
+      "soundsLike": "KURDS",
+      "note": "the Kurds are a people of the Middle East"
+     }
+    ],
+    "explanation": {
+     "surface": "Produce from a dairy delivered to a Middle Eastern community.",
+     "definitionFit": "Curds are the solid lumps formed when milk coagulates, a dairy product used to make cheese."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Delivered"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +582,66 @@
     "text": "Fluid penetrates recently acquired belt, breaking item",
     "enumeration": "9"
    },
-   "solution": "NEWSFLASH"
+   "solution": "NEWSFLASH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NEWSFLASH",
+    "definitions": [
+     {
+      "text": "breaking item",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penetrates",
+      "for": "container",
+      "note": "to penetrate is to get inside, so the fluid abbreviation enters the belt word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recently acquired",
+      "gives": "NEW",
+      "note": "something recently acquired is new"
+     },
+     {
+      "clueFragment": "belt",
+      "gives": "SASH",
+      "note": "a sash is a band worn round the waist"
+     },
+     {
+      "clueFragment": "Fluid",
+      "gives": "FL",
+      "note": "fl is the abbreviation for fluid, as in fl oz"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEW",
+      "S",
+      "FL",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "Liquid seeps into a brand-new belt and it breaks.",
+     "walkthrough": "'breaking' seems to be what the belt does, but it is part of the definition: breaking news.",
+     "definitionFit": "A newsflash is a brief urgent bulletin interrupting broadcasts, an item of breaking news."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "breaking"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +655,62 @@
     "text": "Violent criminal crows about making a comeback",
     "enumeration": "8"
    },
-   "solution": "MURDERER"
+   "solution": "MURDERER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MURDERER",
+    "definitions": [
+     {
+      "text": "Violent criminal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "a word making a comeback returns the way it came, so it is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crows",
+      "gives": "MURDER",
+      "note": "a murder is the collective noun for a group of crows"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MURDER",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A thug squawks about returning to the scene of the crime.",
+     "walkthrough": "'crows' reads as a verb for boasting, but it is the birds, whose collective noun is a murder.",
+     "definitionFit": "A murderer is a person who unlawfully kills another, as violent a criminal as there is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crows"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +724,62 @@
     "text": "Back from class wanting swim, dash off",
     "enumeration": "6"
    },
-   "solution": "SCRAWL"
+   "solution": "SCRAWL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCRAWL",
+    "definitions": [
+     {
+      "text": "dash off",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Back from",
+      "for": "letter_selection",
+      "note": "the back of the word is its tail end, so only its final letter is taken"
+     },
+     {
+      "text": "wanting",
+      "for": "charade",
+      "note": "the lone letter is in want of a swim, so the stroke follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "class",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of class"
+     },
+     {
+      "clueFragment": "swim",
+      "gives": "CRAWL",
+      "note": "the crawl is a swimming stroke, front crawl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRAWL"
+     ]
+    },
+    "explanation": {
+     "surface": "Back from school and longing for a swim, a pupil hurries off.",
+     "walkthrough": "'dash off' sounds like leaving in a hurry, but here it means writing something quickly.",
+     "definitionFit": "To scrawl is to write hastily and messily, just as dashing off a note means writing it quickly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dash"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +793,47 @@
     "text": "Thingamabob's in goal",
     "enumeration": "6"
    },
-   "solution": "OBJECT"
+   "solution": "OBJECT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OBJECT",
+    "definitions": [
+     {
+      "text": "Thingamabob",
+      "at": 0
+     },
+     {
+      "text": "goal",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "'s in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thingamabob",
+      "note": "first meaning: a thing whose name escapes you"
+     },
+     {
+      "clueFragment": "goal",
+      "note": "second meaning: an aim or purpose"
+     }
+    ],
+    "explanation": {
+     "surface": "Some unnamed whatsit has ended up in the net.",
+     "walkthrough": "'in goal' suggests a football net or goalkeeper; goal is simply an aim.",
+     "definitionFit": "An object is a physical thing of any kind, and also the purpose of an action, as in the object of the exercise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +847,43 @@
     "text": "Observe person voting in debate",
     "enumeration": "3"
    },
-   "solution": "EYE"
+   "solution": "EYE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EYE",
+    "definitions": [
+     {
+      "text": "Observe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in debate",
+      "for": "homophone",
+      "note": "a debate is conducted in speech, so the word is taken by its spoken sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person voting",
+      "gives": "EYE",
+      "soundsLike": "AYE",
+      "note": "in Parliament those voting yes are the ayes"
+     }
+    ],
+    "explanation": {
+     "surface": "Watch a member casting their vote during a parliamentary debate.",
+     "definitionFit": "To eye something is to look at it closely, so it matches watching or observing as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +897,41 @@
     "text": "Clarinet's often somewhat quiet",
     "enumeration": "4"
    },
-   "solution": "SOFT"
+   "solution": "SOFT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SOFT",
+    "definitions": [
+     {
+      "text": "quiet",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means to some extent, so only part of the run of letters is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clarinet's often",
+      "gives": "SOFT",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A remark that the clarinet tends to sound rather subdued.",
+     "definitionFit": "Soft and quiet both describe a low volume of sound, so they are near synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +945,48 @@
     "text": "Unwanted yogurt oddly flushed away",
     "enumeration": "3"
    },
-   "solution": "OUT"
+   "solution": "OUT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OUT",
+    "definitions": [
+     {
+      "text": "Unwanted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly flushed away",
+      "for": "letter_selection",
+      "note": "the odd-numbered positions are flushed away, leaving only the even ones behind"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yogurt",
+      "gives": "OUT",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of yogurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Some unwanted yogurt has been strangely poured down the drain.",
+     "definitionFit": "Out can mean rejected or no longer in favour, as in 'flares are out', so no longer wanted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flushed"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1000,70 @@
     "text": "Slowcoach in middle of Tesco initially no trouble",
     "enumeration": "5"
    },
-   "solution": "SNAIL"
+   "solution": "SNAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SNAIL",
+    "definitions": [
+     {
+      "text": "Slowcoach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "only the central letter of the supermarket name is taken"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so just the first letter of the next word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tesco",
+      "gives": "S",
+      "select": "middle",
+      "note": "the middle letter of Tesco, a British supermarket chain"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of no"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "N",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sluggish shopper in the middle of a supermarket is causing no bother at first.",
+     "definitionFit": "A snail moves famously slowly, so the word is used of any dawdler or slow person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tesco"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1077,62 @@
     "text": "Reside by the banks of Uncompahgre, bighorn roaming",
     "enumeration": "9"
    },
-   "solution": "NEIGHBOUR"
+   "solution": "NEIGHBOUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NEIGHBOUR",
+    "definitions": [
+     {
+      "text": "Reside by",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the banks of",
+      "for": "letter_selection",
+      "note": "a river's banks are its two edges, so only the outer letters of its name are kept"
+     },
+     {
+      "text": "roaming",
+      "for": "anagram",
+      "note": "an animal roaming wanders freely, so the letters wander out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncompahgre",
+      "gives": "UE",
+      "select": "outer",
+      "note": "the first and last letters of Uncompahgre, a river in Colorado"
+     },
+     {
+      "clueFragment": "bighorn",
+      "gives": "BIGHORN",
+      "note": "taken as written; a bighorn is a wild mountain sheep"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UEBIGHORN",
+       "gives": "NEIGHBOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bighorn sheep wanders along a Colorado riverbank where it lives.",
+     "definitionFit": "To neighbour a place is to live next to or border it, so the verb means dwelling beside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "banks"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1146,67 @@
     "text": "Argentine lying about wild party filling one-third of summer",
     "enumeration": "7"
    },
-   "solution": "GUEVARA"
+   "solution": "GUEVARA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "GUEVARA",
+    "definitions": [
+     {
+      "text": "Argentine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filling",
+      "for": "container",
+      "note": "the party fills the gap inside the month abbreviation, going within it"
+     },
+     {
+      "text": "lying about",
+      "for": "reversal",
+      "note": "lying about suggests lying turned around, so the whole combination is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one-third of summer",
+      "gives": "AUG",
+      "note": "August is one of the three summer months, abbreviated AUG"
+     },
+     {
+      "clueFragment": "wild party",
+      "gives": "RAVE",
+      "note": "a rave is a wild dance party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "EVAR",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "ARAVEUG",
+       "to": "GUEVARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Argentinian lounges around a wild party in midsummer.",
+     "walkthrough": "The party goes after the A of AUG, and that whole string is then turned round.",
+     "definitionFit": "Che Guevara, the revolutionary, was born in Argentina, so the surname identifies a famous Argentine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lying"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1226,61 @@
      }
     ]
    },
-   "solution": "ALICEBAND"
+   "solution": "ALICEBAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALICE BAND",
+    "definitions": [
+     {
+      "text": "a favourite of Claire's?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "charade",
+      "note": "a group covering a song plays its own version, so the band takes its name after the song title"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "'Parasites'",
+      "gives": "LICE",
+      "note": "lice are parasitic insects"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a band is a musical group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LICE",
+      "BAND"
+     ]
+    },
+    "explanation": {
+     "surface": "A band does a cover of a song called 'Parasites', a hit with a fan named Claire.",
+     "walkthrough": "Claire's is a British high-street chain of accessory shops. 'covering' is the music sense, a band playing another's song, not putting one thing round another.",
+     "definitionFit": "An Alice band is a wide hair band of the kind sold by Claire's accessory shops, so plausibly a bestseller there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Claire's"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1294,56 @@
     "text": "Refurbished crib cool green",
     "enumeration": "8"
    },
-   "solution": "BROCCOLI"
+   "solution": "BROCCOLI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BROCCOLI",
+    "definitions": [
+     {
+      "text": "green",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Refurbished",
+      "for": "anagram",
+      "note": "something refurbished is done up and rebuilt, so these letters are put together in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crib",
+      "gives": "CRIB",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "COOL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRIBCOOL",
+       "gives": "BROCCOLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A renovated baby's cot looks stylishly green.",
+     "walkthrough": "'green' reads as a colour or eco label, but it is a noun: a green vegetable.",
+     "definitionFit": "Greens are leafy vegetables, and broccoli is a typical example of such a vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1363,61 @@
      }
     ]
    },
-   "solution": "INERROR"
+   "solution": "INERROR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IN ERROR",
+    "definitions": [
+     {
+      "text": "\"accidentally\"",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratches",
+      "for": "deletion",
+      "note": "to scratch something is to cancel or strike it out, so the unit letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "mischievous child",
+      "gives": "TERROR",
+      "note": "a little terror is a naughty child"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "ERROR"
+     ]
+    },
+    "explanation": {
+     "surface": "A naughty kid at home keys the family's Tesla car and claims it was an accident.",
+     "walkthrough": "Tesla looks like the car brand, but it is the physics unit whose symbol is T.",
+     "definitionFit": "Doing something in error means doing it by mistake, without meaning to, which is what accidentally means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1431,57 @@
     "text": "Cardinal and Father exiting carriage",
     "enumeration": "5"
    },
-   "solution": "EIGHT"
+   "solution": "EIGHT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EIGHT",
+    "definitions": [
+     {
+      "text": "Cardinal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exiting",
+      "for": "deletion",
+      "note": "a priest exiting leaves the word, so his abbreviation is taken out"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carriage",
+      "gives": "FREIGHT",
+      "note": "freight is goods carried, or the carriage of goods"
+     },
+     {
+      "clueFragment": "Father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A cardinal and a priest step out of a railway carriage.",
+     "walkthrough": "Cardinal looks like the churchman, but it means a cardinal number.",
+     "definitionFit": "Cardinal numbers are the counting numbers such as one, two and three, and eight is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cardinal"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1505,55 @@
      }
     ]
    },
-   "solution": "DNA"
+   "solution": "DNA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "D.N.A.",
+    "definitions": [
+     {
+      "text": "vital information?",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DNA"
+     ],
+     "reversals": [
+      {
+       "from": "AND",
+       "to": "DNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone heading back home armed with life-or-death intelligence.",
+     "walkthrough": "'vital' here means of life: the question mark flags that the information is genetic.",
+     "definitionFit": "DNA carries the genetic code for every living thing, so it is literally information essential to life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vital"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1567,67 @@
     "text": "Provide very strong soldiers before the day's over",
     "enumeration": "6"
    },
-   "solution": "AFFORD"
+   "solution": "AFFORD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AFFORD",
+    "definitions": [
+     {
+      "text": "Provide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before means coming first, so the loudness marking leads and the soldiers follow"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means spread round, so the two letters for the day enclose the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the day",
+      "gives": "AD",
+      "note": "the day as in 'twice the day', meaning per day, which is A (a) plus D (day)"
+     },
+     {
+      "clueFragment": "very strong",
+      "gives": "FF",
+      "note": "ff, fortissimo, is the musical marking for very loud"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR means other ranks, ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FF",
+      "OR",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Supply powerful troops before nightfall.",
+     "walkthrough": "'the day' works like 'a day' in 'twice the day', so it gives A and D, which are split to hold the rest.",
+     "definitionFit": "To afford something is to give or supply it, as in 'the view affords a glimpse of the sea'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strong"
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1641,43 @@
     "text": "Crack injection",
     "enumeration": "4"
    },
-   "solution": "SHOT"
+   "solution": "SHOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHOT",
+    "definitions": [
+     {
+      "text": "Crack",
+      "at": 0
+     },
+     {
+      "text": "injection",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Crack",
+      "note": "first meaning: an attempt, as in 'have a go'"
+     },
+     {
+      "clueFragment": "injection",
+      "note": "second meaning: a jab from a needle"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Together the words suggest drugs, but crack is an attempt and injection a jab.",
+     "definitionFit": "A shot is both an attempt at something, like having a crack at it, and an informal word for a hypodermic jab."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Crack"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1691,63 @@
     "text": "Unknown figure made pawn in poisonous matter",
     "enumeration": "5"
    },
-   "solution": "TOPIC"
+   "solution": "TOPIC",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TOPIC",
+    "definitions": [
+     {
+      "text": "matter",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made",
+      "for": "substitution",
+      "note": "one thing made into another is swapped for it, so a letter is replaced by a different one"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poisonous",
+      "gives": "TOXIC",
+      "note": "toxic means poisonous"
+     },
+     {
+      "clueFragment": "Unknown figure",
+      "gives": "X",
+      "note": "x is the classic unknown quantity in algebra"
+     },
+     {
+      "clueFragment": "pawn",
+      "gives": "P",
+      "note": "P is the chess notation for a pawn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "P",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious person is used as a pawn in a toxic affair.",
+     "walkthrough": "'matter' is the definition in the sense of a subject; 'poisonous matter' looks like one phrase but splits.",
+     "definitionFit": "A topic is a subject under discussion, the matter in hand, as in 'a matter for debate'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1761,59 @@
     "text": "Sorry leaders of underperforming club expect stick",
     "enumeration": "3"
    },
-   "solution": "CUE"
+   "solution": "CUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "CUE",
+    "definitions": [
+     {
+      "text": "stick",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders of",
+      "for": "letter_selection",
+      "note": "the leaders are the front runners, so only the first letter of each following word"
+     },
+     {
+      "text": "Sorry",
+      "for": "anagram",
+      "note": "something in a sorry state is a mess, so the chosen letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underperforming club expect",
+      "gives": "UCE",
+      "select": "first",
+      "note": "the initial letters of the three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UCE",
+       "gives": "CUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The bosses of a failing football club are braced for criticism.",
+     "walkthrough": "'expect stick' reads as 'expect criticism'; stick here is the long rod used in snooker.",
+     "definitionFit": "A cue is the tapered stick used to strike the ball in billiards, snooker and pool."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stick"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1827,48 @@
     "text": "In a hurry, leave church do",
     "enumeration": "6"
    },
-   "solution": "FLEECE"
+   "solution": "FLEECE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLEECE",
+    "definitions": [
+     {
+      "text": "do",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In a hurry, leave",
+      "gives": "FLEE",
+      "note": "to flee is to leave in haste"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLEE",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushes out of a church function in a hurry.",
+     "walkthrough": "'church do' looks like a parish social; 'do' is a verb meaning cheat.",
+     "definitionFit": "To fleece and to do someone both mean to swindle or overcharge them, an informal British sense of do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1882,66 @@
     "text": "Drop of vino - cracking remedy for wind",
     "enumeration": "5"
    },
-   "solution": "CURVE"
+   "solution": "CURVE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CURVE",
+    "definitions": [
+     {
+      "text": "wind",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drop of",
+      "for": "letter_selection",
+      "note": "just a drop means a tiny amount, so only the first letter of the wine is taken"
+     },
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "to crack something is to break into it, so the letter goes inside the remedy"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "remedy",
+      "gives": "CURE",
+      "note": "a cure is a remedy"
+     },
+     {
+      "clueFragment": "vino",
+      "gives": "V",
+      "select": "first",
+      "note": "the first letter of vino"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "V",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A splash of wine is suggested as a great cure for flatulence.",
+     "walkthrough": "'wind' looks like a digestive complaint, but it is the verb, rhyming with find.",
+     "definitionFit": "To wind, as a road or river does, is to bend and turn, which is what curving means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1961,62 @@
      }
     ]
    },
-   "solution": "POOPOO"
+   "solution": "POOPOO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "POO-POO",
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "the opening of the word is its first letter, which alone is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pro's",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of pro"
+     },
+     {
+      "clueFragment": "two rounds",
+      "gives": "OO",
+      "note": "two round letters, O and O"
+     },
+     {
+      "clueFragment": "once again",
+      "gives": "POO",
+      "note": "the three letters built so far, written out a second time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OO",
+      "POO"
+     ]
+    },
+    "explanation": {
+     "surface": "A professional's opening two rounds of golf are poor again.",
+     "walkthrough": "'rubbish' is a verb here, to dismiss scornfully.",
+     "definitionFit": "To pooh-pooh an idea is to dismiss it contemptuously, which is what rubbishing it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rounds"
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +2030,49 @@
     "text": "Great admiration for icon dancing adroitly",
     "enumeration": "8"
    },
-   "solution": "IDOLATRY"
+   "solution": "IDOLATRY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDOLATRY",
+    "definitions": [
+     {
+      "text": "Great admiration for icon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and change places, so they land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adroitly",
+      "gives": "ADROITLY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ADROITLY",
+       "gives": "IDOLATRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan worships a pop star who dances with skill.",
+     "definitionFit": "Idolatry is worship of an image or extreme devotion to a person, and an idol is an icon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 30,
@@ -507,7 +2086,75 @@
     "text": "Smashing park visits with family east of Tring",
     "enumeration": "8"
    },
-   "solution": "WRECKING"
+   "solution": "WRECKING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "WRECKING",
+    "definitions": [
+     {
+      "text": "Smashing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "east of",
+      "for": "letter_selection",
+      "note": "in an across entry east is the right-hand end, so the place name's last letter"
+     },
+     {
+      "text": "visits",
+      "for": "container",
+      "note": "a visitor goes into a home, so the park word goes inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "park",
+      "gives": "REC",
+      "note": "a rec is a recreation ground, a public park"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     },
+     {
+      "clueFragment": "Tring",
+      "gives": "G",
+      "select": "last",
+      "note": "the final letter of Tring, a town in Hertfordshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "REC",
+      "KIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A family day out to a park just east of the Hertfordshire town of Tring.",
+     "walkthrough": "'Smashing' sounds like British praise, meaning great, but here it is literal destruction.",
+     "definitionFit": "Wrecking something means destroying it, breaking it to pieces, which is what smashing it does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Smashing"
+    }
+   }
   },
   {
    "number": 31,
@@ -521,7 +2168,71 @@
     "text": "Duck, say, knocked over by eccentric cycling",
     "enumeration": "5"
    },
-   "solution": "DODGE"
+   "solution": "DODGE",
+   "annotation": {
+    "type": [
+     "cycling",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DODGE",
+    "definitions": [
+     {
+      "text": "Duck",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling moves a letter round from one end to the other, so the word's first letter goes to the back"
+     },
+     {
+      "text": "knocked over",
+      "for": "reversal",
+      "note": "something knocked over ends upside down, so the short word is turned round"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eccentric",
+      "gives": "ODD",
+      "note": "an eccentric person is odd"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as does say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOD",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EG",
+       "to": "GE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A duck, for instance, is bowled over by a weird cyclist.",
+     "walkthrough": "'Duck, say' looks like a bird given as an example, but the comma splits it: Duck is the definition and say gives the abbreviation.",
+     "definitionFit": "To duck is to dodge, lowering or moving to avoid a blow or an awkward question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "say"
+    }
+   }
   }
  ]
 }
