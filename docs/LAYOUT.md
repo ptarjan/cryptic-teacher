@@ -382,8 +382,12 @@ tools/letter_facts.py                        adds a clue type the blog left out 
                                              spells it (98.4% our annotations' own); and the
                                              indicator a homophone's or spoonerism's heard
                                              blocks want; blog_facts.py runs it after each
-                                             write; --coverage says what the written facts
-                                             cover and why the rest fall short
+                                             write, the lexicons built here and the clues read
+                                             on the desktop (20 processes over ssh, the code
+                                             shipped as tools/ocr_remote.py ships it) unless it
+                                             is busy or off, else in a local pool; --coverage
+                                             says what the written facts cover and why the rest
+                                             fall short
 tools/indicator_keys.py                      the one spelling of an indicator phrase
                                              indicators.json is keyed by, and the one type each
                                              indicator is credited to, its own `for`; the

@@ -55,11 +55,14 @@ import functools
 import hashlib
 import itertools
 import json
+import multiprocessing
 import os
 import pickle
 import random
 import re
 import sys
+import tempfile
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -1773,42 +1776,185 @@ def with_all_blocks(clue, answer, facts, lex, dlex, fuzzy=True):
     return with_blocks(facts, new) if new else facts
 
 
-def write(corpus, votes, said=None):
+def write(corpus, votes, said=None, jobs=None):
     """Rewrite tools/data/blog_facts/ with the inferred fields in, as
     blog_facts.write lays it out, one file at a time. `corpus` is rows() in
     their order, iterable more than once (Packed); `said`, read_leads, joined
-    in here where the rows lack their leads. {field: clues it was inferred in}."""
+    in here where the rows lack their leads; `jobs`, the processes reading the
+    clues once the lexicons are built (default one a CPU). {field: clues it was inferred in}."""
+    start = time.monotonic()
     ours = list(annotation_rows())
     ilex = Indicators(corpus, extra=ours)
     n = collections.Counter(export_lexicons(Lexicon(corpus, extra=ours), ilex))
     del ours
     lex, dlex = Lexicon(corpus), Definitions(corpus)
-    puzzles = itertools.groupby(corpus, key=lambda r: r[0])
-    head = next(puzzles, None)
+    _WORKER.update(votes=votes, lex=lex, ilex=ilex, dlex=dlex)
+    built = time.monotonic()
+    done = _read_clues(corpus, said or {}, jobs)
+    head = next(done, None)
 
     def filled(f):
         nonlocal head
         for pid, rec in file_rows(f):
             if head is not None and head[0] == pid:
-                got, new = (said or {}).get(pid, {}), {}
-                for _, eid, clue, answer, facts in head[1]:
-                    facts = {**facts, "leads": got[eid]} if eid in got else facts
-                    # Definitions are placed in the clue's words, as the puzzle stores them.
-                    found = fact_json(inferred(clue, answer, facts, votes, lex, ilex, dlex),
-                                      enumeration.split(clue)[0])
-                    if found:
-                        new[eid] = found
-                head = next(puzzles, None)
+                new = head[1]
+                head = next(done, None)
                 if new:
                     n.update(k for v in new.values() for k in v.get("inferred", ()))
-                    rec["entries"] = dict(sorted(new.items()))
+                    rec["entries"] = new
             yield pid, rec
 
     for f in sorted(OUT.glob("*.json")):
         rewrite_rows(f, filled(f))
+    done.close()
+    _WORKER.clear()
+    print(f"letter_facts.write: lexicons built in {built - start:.0f}s, clues read in {time.monotonic() - built:.0f}s",
+          file=sys.stderr)
     if head is not None:
         sys.exit(f"letter_facts.write: {head[0]} is out of step with {OUT.relative_to(ROOT)}: corpus must be rows() in order")
     return n
+
+
+#: What _puzzle_facts reads besides its puzzle: write()'s votes and
+#: lexicons, set before a local pool forks so each worker shares them.
+_WORKER = {}
+#: The desktops write() reads the clues on, the first that answers, unless
+#: OCR_REMOTE (as tools/ocr_remote.py reads it) names others or is empty.
+DESKTOPS = "micro@100.68.145.15,micro@192.168.1.198"
+#: Processes reading the clues on the desktop (it has 28 threads), and the
+#: seconds after which a desktop still reading is given up on.
+DESKTOP_JOBS = 20
+DESKTOP_TIMEOUT = 1200
+
+
+def _puzzle_facts(item):
+    """(puzzle id, {entry id: the clue's facts with the inferred fields in, as
+    the file holds them}) for one puzzle's rows, leads joined in, (puzzle id, rows)."""
+    pid, rows_ = item
+    w, new = _WORKER, {}
+    for _, eid, clue, answer, facts in rows_:
+        # Definitions are placed in the clue's words, as the puzzle stores them.
+        found = fact_json(inferred(clue, answer, facts, w["votes"], w["lex"], w["ilex"], w["dlex"]),
+                          enumeration.split(clue)[0])
+        if found:
+            new[eid] = found
+    return pid, dict(sorted(new.items()))
+
+
+def _read_clues(corpus, said, jobs):
+    """_puzzle_facts for each of `corpus`'s puzzles, in its order: with `jobs`
+    unset, on the desktop while one answers and is not busy, then the rest
+    here in a pool of `jobs` processes (default one a CPU)."""
+    def puzzles(skip=0):
+        for pid, rs in itertools.islice(itertools.groupby(corpus, key=lambda r: r[0]), skip, None):
+            got = said.get(pid, {})
+            yield pid, [(*r[:4], {**r[4], "leads": got[r[1]]} if r[1] in got else r[4]) for r in rs]
+
+    done = 0
+    if jobs is None:
+        try:
+            for got in _desktop_clues(puzzles()):
+                yield got
+                done += 1
+            return
+        except _Unavailable as e:
+            print(f"letter_facts.write: {e}; reading {'the rest of ' if done else ''}the clues here"
+                  f" after {done} puzzles on the desktop", file=sys.stderr)
+    jobs = jobs or os.cpu_count() or 1
+    if jobs == 1:
+        yield from map(_puzzle_facts, puzzles(done))
+        return
+    with multiprocessing.get_context("fork").Pool(jobs) as pool:
+        yield from pool.imap(_puzzle_facts, puzzles(done), chunksize=16)
+
+
+class _Unavailable(Exception):
+    """Why the desktop read none or not all of the clues."""
+
+
+def _desktop_clues(puzzles):
+    """_puzzle_facts for each of `puzzles` read on the first desktop that
+    takes them (tools/ocr_remote.py ships the code), DESKTOP_JOBS at a time
+    there at idle priority, by serve_clues; _Unavailable when none answers,
+    it is busy (tools/desktop_busy.py), or it stops partway."""
+    import subprocess
+    import threading
+
+    import desktop_busy
+    import ocr_remote
+    hosts = [h for h in os.environ.get("OCR_REMOTE", DESKTOPS).split(",") if h]
+    if not hosts:
+        raise _Unavailable("OCR_REMOTE names no desktop")
+    why = desktop_busy.busy(hosts)
+    if why:
+        raise _Unavailable(f"the desktop is busy ({why})")
+    reasons = []
+    for host in hosts:
+        try:
+            ocr_remote.ship(host)
+            break
+        except (ocr_remote.Unavailable, OSError, subprocess.TimeoutExpired) as e:
+            reasons.append(f"{host}: {e}")
+    else:
+        raise _Unavailable("no desktop answers (" + "; ".join(reasons) + ")")
+    with tempfile.TemporaryFile() as sent, tempfile.TemporaryFile() as err:
+        pickle.dump(tuple(sys.version_info[:2]), sent)
+        pickle.dump(pickle.dumps({k: _WORKER[k] for k in ("votes", "lex", "ilex", "dlex")}, pickle.HIGHEST_PROTOCOL),
+                    sent, pickle.HIGHEST_PROTOCOL)
+        for p in puzzles:
+            pickle.dump(p, sent, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(None, sent)
+        sent.seek(0)
+        cmd = rf"{ocr_remote.HOME}\venv\Scripts\python.exe {ocr_remote.code_dir()}\tools\letter_facts.py --serve-clues"
+        proc = subprocess.Popen([*desktop_busy.SSH, host, cmd], stdin=sent, stdout=subprocess.PIPE, stderr=err)
+        watchdog = threading.Timer(DESKTOP_TIMEOUT, proc.kill)
+        watchdog.start()
+        try:
+            while (got := pickle.load(proc.stdout)) is not None:
+                yield got
+        except (EOFError, pickle.UnpicklingError, OSError) as e:
+            proc.kill()
+            proc.wait()
+            err.seek(0)
+            tail = err.read().decode(errors="replace").strip()[-300:]
+            raise _Unavailable(f"{host} stopped ({type(e).__name__}, ssh exit {proc.returncode}): {tail}") from None
+        finally:
+            watchdog.cancel()
+            if proc.poll() is None:
+                proc.kill()
+            proc.wait()
+
+
+def serve_clues():
+    """--serve-clues, on the desktop: _desktop_clues' request off stdin (this
+    Python's minor version, the pickled lexicons, then each puzzle), each
+    _puzzle_facts pickled to stdout in order, then None."""
+    import ocr_remote
+    ocr_remote.full_speed()
+    inp, out = sys.stdin.buffer, sys.stdout.buffer
+    version = pickle.load(inp)
+    if version != tuple(sys.version_info[:2]):
+        sys.exit(f"this is Python {sys.version_info[0]}.{sys.version_info[1]}, the request's {version}")
+    with tempfile.TemporaryDirectory() as d:
+        state = Path(d) / "lexicons.pkl"
+        state.write_bytes(pickle.load(inp))
+
+        def puzzles():
+            while (p := pickle.load(inp)) is not None:
+                yield p
+
+        with multiprocessing.get_context("spawn").Pool(DESKTOP_JOBS, _serve_worker, (str(state),)) as pool:
+            for got in pool.imap(_puzzle_facts, puzzles(), chunksize=16):
+                pickle.dump(got, out, pickle.HIGHEST_PROTOCOL)
+        pickle.dump(None, out)
+        out.flush()
+
+
+def _serve_worker(state):
+    """A serve_clues worker: at full speed and idle priority, the lexicons loaded."""
+    import ocr_remote
+    ocr_remote.full_speed()
+    _WORKER.update(pickle.loads(Path(state).read_bytes()))
 
 
 class Packed:
@@ -2399,6 +2545,7 @@ def main():
     ap.add_argument("--measure-blockless", type=int, nargs="?", const=4, metavar="SLICE",
                     help="precision of hidden words' carriers, homophones' and spoonerisms' heard blocks,"
                          " and their indicators (default slice %(const)s)")
+    ap.add_argument("--jobs", type=int, help="processes reading the clues for --write (default one a CPU)")
     ap.add_argument("--lexicons", action="store_true",
                     help="write only the combined lexicons, as --write does, to tools/data/lexicons/")
     ap.add_argument("--coverage", action="store_true",
@@ -2406,7 +2553,11 @@ def main():
     ap.add_argument("--clue", nargs=2, metavar=("CLUE", "ANSWER"))
     ap.add_argument("--definition", action="append", default=[])
     ap.add_argument("--block", action="append", default=[], help="LETTERS=clue words")
+    ap.add_argument("--serve-clues", action="store_true", help=argparse.SUPPRESS)
     args = ap.parse_args()
+    if args.serve_clues:
+        serve_clues()
+        return
     if args.clue:
         known = {"definition": args.definition, "blocks": [b.split("=", 1) for b in args.block]}
         print(json.dumps(infer(*args.clue, known), ensure_ascii=False))
@@ -2444,11 +2595,13 @@ def main():
         ours = list(annotation_rows())
         print(export_lexicons(Lexicon(corpus, extra=ours), Indicators(corpus, extra=ours)))
     if args.write:
-        n = write(corpus, votes, said if alone else None)
+        n = write(corpus, votes, said if alone else None, args.jobs)
         print(f"inferred a type for {n['type']} clues, blocks for {n['blocks']}, a definition for "
               f"{n['definition']} and indicators for {n['indicators']} in {OUT.relative_to(ROOT)}; "
               f"{n['blocks.json']} block and {n['indicators.json']} indicator readings in {LEXICON_OUT.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
-    main()
+    # Run as the module, so what it pickles for the desktop names letter_facts, not __main__.
+    import letter_facts
+    letter_facts.main()
