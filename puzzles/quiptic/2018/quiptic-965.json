@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Reproduce without professional cut",
     "enumeration": "6"
    },
-   "solution": "REDUCE"
+   "solution": "REDUCE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "REDUCE",
+    "definitions": [
+     {
+      "text": "cut",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "'without' tells us the next word's letters are taken away from the longer word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reproduce",
+      "gives": "REPRODUCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "professional",
+      "gives": "PRO",
+      "note": "PRO is the usual short form of professional"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone copying a piece of work without a professional's edits or trims.",
+     "walkthrough": "Take PRO out of REPRODUCE and REDUCE is left.",
+     "definitionFit": "To reduce something is to make it smaller, just as a cut lowers an amount or size."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reproduce"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,53 @@
     "text": "Happy to become ever idle",
     "enumeration": "8"
    },
-   "solution": "RELIEVED"
+   "solution": "RELIEVED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELIEVED",
+    "definitions": [
+     {
+      "text": "Happy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "become",
+      "for": "anagram",
+      "note": "to become is to change into something else, so the following letters change their order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ever idle",
+      "gives": "EVERIDLE",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVERIDLE",
+       "gives": "RELIEVED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone glad at the prospect of turning permanently lazy.",
+     "definitionFit": "Feeling relieved means being glad and comforted that a worry has passed, a kind of happiness."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "become"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +157,56 @@
     "text": "Consider following art movement and paint",
     "enumeration": "8"
    },
-   "solution": "DECORATE"
+   "solution": "DECORATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DECORATE",
+    "definitions": [
+     {
+      "text": "paint",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "'following' places the word for consider after the art movement in the answer"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "art movement",
+      "gives": "DECO",
+      "note": "Art Deco, the 1920s design style"
+     },
+     {
+      "clueFragment": "Consider",
+      "gives": "RATE",
+      "note": "to rate is to consider or regard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECO",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist weighing up which school of art to follow before picking up a brush.",
+     "definitionFit": "Painting a room or object is a common way of adorning it, so to paint is to decorate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "movement"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +226,45 @@
      }
     ]
    },
-   "solution": "CHEWEDUP"
+   "solution": "CHEWEDUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHEWED UP",
+    "definitions": [
+     {
+      "text": "Nervous",
+      "at": 0
+     },
+     {
+      "text": "bitten",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nervous",
+      "note": "first meaning: informal for anxious and upset"
+     },
+     {
+      "clueFragment": "bitten",
+      "note": "second meaning: literally gnawed by teeth"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone getting jittery after being nipped by an animal.",
+     "definitionFit": "The phrase is slang for being anxious or upset, and literally describes food or objects mangled by teeth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +278,50 @@
     "text": "Starting crossword on my morning uptown train, everyday routine for me",
     "enumeration": "8"
    },
-   "solution": "COMMUTER"
+   "solution": "COMMUTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "COMMUTER",
+    "definitions": [
+     {
+      "text": "Starting crossword on my morning uptown train, everyday routine for me",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starting",
+      "for": "letter_selection",
+      "note": "'Starting' asks for the opening letter of each of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crossword on my morning uptown train, everyday routine",
+      "gives": "COMMUTER",
+      "select": "first",
+      "note": "first letter of each of these eight words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMUTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A daily rail passenger who starts the crossword on the morning train to work.",
+     "walkthrough": "The whole clue also describes the answer: someone whose daily routine is a train ride with the crossword.",
+     "definitionFit": "A person who travels daily by train to work, doing the puzzle on the way, is a commuter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Starting"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +335,55 @@
     "text": "Arranging or singing a composition",
     "enumeration": "10"
    },
-   "solution": "ORGANISING"
+   "solution": "ORGANISING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGANISING",
+    "definitions": [
+     {
+      "text": "Arranging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a composition",
+      "for": "anagram",
+      "note": "a composition is something put together anew, so these letters are assembled in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or singing",
+      "gives": "ORSINGING",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORSINGINGA",
+       "gives": "ORGANISING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician choosing between arranging a piece and singing it.",
+     "definitionFit": "Organising and arranging both mean putting things into a planned order or structure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "composition"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +397,45 @@
     "text": "Sounds like a big house in a way",
     "enumeration": "6"
    },
-   "solution": "MANNER"
+   "solution": "MANNER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MANNER",
+    "definitions": [
+     {
+      "text": "way",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "'Sounds like' says the answer is heard as another word, not spelt like it"
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a big house",
+      "gives": "MANNER",
+      "soundsLike": "MANOR",
+      "note": "a manor is a large country house"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone describing a property as somewhat like a mansion.",
+     "definitionFit": "A manner is the way something is done, as in 'in a polite manner'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +449,64 @@
     "text": "Morality stripped and thrown in sewer",
     "enumeration": "6"
    },
-   "solution": "TAILOR"
+   "solution": "TAILOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "TAILOR",
+    "definitions": [
+     {
+      "text": "sewer",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "deletion",
+      "note": "something stripped has its outer layer removed, so the first and last letters go"
+     },
+     {
+      "text": "thrown",
+      "for": "anagram",
+      "note": "thrown suggests things tossed about and landing in a new order"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Morality",
+      "gives": "ORALIT",
+      "select": "middle",
+      "note": "the word with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ORALIT",
+       "gives": "TAILOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ethics being stripped away and tossed into a drain.",
+     "walkthrough": "'Sewer' reads as a drain, but here it is one who sews, rhyming with 'grower'.",
+     "definitionFit": "A tailor makes and alters clothes with needle and thread, so is literally someone who sews."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sewer"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +520,41 @@
     "text": "In here, St Edward slept",
     "enumeration": "6"
    },
-   "solution": "RESTED"
+   "solution": "RESTED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RESTED",
+    "definitions": [
+     {
+      "text": "slept",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "'In' tells us the answer sits inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "here, St Edward",
+      "gives": "RESTED",
+      "note": "letters spanning the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tour guide pointing out where a saintly king once spent the night.",
+     "definitionFit": "To have rested is to have lain down for sleep or repose."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +568,42 @@
     "text": "Tasted some garlic kedgeree",
     "enumeration": "6"
    },
-   "solution": "LICKED"
+   "solution": "LICKED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LICKED",
+    "definitions": [
+     {
+      "text": "Tasted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "'some' points to just part of the following words being used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "garlic kedgeree",
+      "gives": "LICKED",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone sampling a garlicky version of a rice and fish dish.",
+     "walkthrough": "Kedgeree is a British dish of rice, smoked fish and eggs.",
+     "definitionFit": "Running the tongue over food is a way of tasting it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +617,60 @@
     "text": "A number of years since breakdown of businesses",
     "enumeration": "8"
    },
-   "solution": "AGENCIES"
+   "solution": "AGENCIES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AGENCIES",
+    "definitions": [
+     {
+      "text": "businesses",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breakdown of",
+      "for": "anagram",
+      "note": "a breakdown splits something apart, so the following word's letters are scattered and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A number of years",
+      "gives": "AGE",
+      "note": "an age is a long period of years"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "SINCE",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGE",
+      "NCIES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SINCE",
+       "gives": "NCIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Firms have been collapsing for years now.",
+     "definitionFit": "Agencies are firms providing a service, such as advertising or travel, so they are businesses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breakdown"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +684,55 @@
     "text": "Educated, dropped, left and got paid",
     "enumeration": "6"
    },
-   "solution": "EARNED"
+   "solution": "EARNED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARNED",
+    "definitions": [
+     {
+      "text": "got paid",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropped",
+      "for": "deletion",
+      "note": "'dropped' means the letter for left is let fall out of the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Educated",
+      "gives": "LEARNED",
+      "note": "learned means educated, well read"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the standard abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARNED"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate who left a course and found paid work.",
+     "definitionFit": "To have earned is to have received wages in return for work done."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dropped"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +752,66 @@
      }
     ]
    },
-   "solution": "ONCEMORE"
+   "solution": "ONCEMORE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ONCE MORE",
+    "definitions": [
+     {
+      "text": "Encore!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pieces",
+      "for": "anagram",
+      "note": "broken into pieces, the quoted word is reassembled in another order"
+     },
+     {
+      "text": "take",
+      "for": "container",
+      "note": "'take' means the rearranged letters hold the short time inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "\"encore\"",
+      "gives": "ENCORE",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "a little time",
+      "gives": "MO",
+      "note": "a mo is a moment, informal for a short time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONCE",
+      "MO",
+      "RE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENCORE",
+       "gives": "ONCERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cry for a repeat performance, with a note that encores take a while.",
+     "definitionFit": "The French cry encore is what an audience shouts to ask for something to be done again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pieces"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +825,46 @@
     "text": "Shaking is repeatedly good for the Beach Boys!",
     "enumeration": "10"
    },
-   "solution": "VIBRATIONS"
+   "solution": "VIBRATIONS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VIBRATIONS",
+    "definitions": [
+     {
+      "text": "Shaking",
+      "at": 0
+     },
+     {
+      "text": "good for the Beach Boys",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is repeatedly"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shaking",
+      "note": "first meaning: rapid trembling movements"
+     },
+     {
+      "clueFragment": "good for the Beach Boys",
+      "note": "second meaning: the word that follows 'good' in the band's 1966 hit, repeated in its chorus"
+     }
+    ],
+    "explanation": {
+     "surface": "A fan claiming that a shaking motion is what the Beach Boys keep singing about.",
+     "walkthrough": "The Beach Boys' song is 'Good Vibrations', whose chorus repeats the phrase.",
+     "definitionFit": "Vibrations are rapid shaking movements, and the word completes the Beach Boys title after 'Good'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +878,50 @@
     "text": "Passion unexpectedly unseats him",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIASM"
+   "solution": "ENTHUSIASM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ENTHUSIASM",
+    "definitions": [
+     {
+      "text": "Passion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "something happening unexpectedly comes out in a surprising form, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unseats him",
+      "gives": "UNSEATSHIM",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNSEATSHIM",
+       "gives": "ENTHUSIASM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is toppled from his seat by a sudden surge of feeling.",
+     "definitionFit": "Enthusiasm is intense eager interest, close in sense to passion for something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unexpectedly"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +935,50 @@
     "text": "Perversely mutilate the greatest",
     "enumeration": "8"
    },
-   "solution": "ULTIMATE"
+   "solution": "ULTIMATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ULTIMATE",
+    "definitions": [
+     {
+      "text": "the greatest",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Perversely",
+      "for": "anagram",
+      "note": "acting perversely means going the wrong way, so the letters are put out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mutilate",
+      "gives": "MUTILATE",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUTILATE",
+       "gives": "ULTIMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A twisted instruction to deface the champion.",
+     "definitionFit": "As a noun, 'the ultimate' is the best or most extreme example of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mutilate"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +992,40 @@
     "text": "Measure flag",
     "enumeration": "8"
    },
-   "solution": "STANDARD"
+   "solution": "STANDARD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STANDARD",
+    "definitions": [
+     {
+      "text": "Measure",
+      "at": 0
+     },
+     {
+      "text": "flag",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Measure",
+      "note": "first meaning: a benchmark used for comparison"
+     },
+     {
+      "clueFragment": "flag",
+      "note": "second meaning: a banner, as carried in battle"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "A standard is both a yardstick for judging quality and a banner or ensign carried on a pole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1039,65 @@
     "text": "Teacher finding old coin in excavation outside Rome originally",
     "enumeration": "8"
    },
-   "solution": "EDUCATOR"
+   "solution": "EDUCATOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "EDUCATOR",
+    "definitions": [
+     {
+      "text": "Teacher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "'originally' asks for the opening letter of each of the preceding words"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the coin inside the initials"
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excavation outside Rome",
+      "gives": "EOR",
+      "select": "first",
+      "note": "first letters of the three words"
+     },
+     {
+      "clueFragment": "old coin",
+      "gives": "DUCAT",
+      "note": "a ducat was a gold coin used across medieval Europe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "DUCAT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "An archaeology lecturer turning up an ancient coin at a dig near Rome.",
+     "walkthrough": "'Outside' looks like the container signal, but it is just one of the words whose first letter is taken.",
+     "definitionFit": "An educator is a formal word for a teacher, someone whose job is instructing others."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outside"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1111,60 @@
     "text": "Put another way, I left train hammered",
     "enumeration": "10"
    },
-   "solution": "TRANSLATED"
+   "solution": "TRANSLATED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TRANSLATED",
+    "definitions": [
+     {
+      "text": "Put another way",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left",
+      "for": "deletion",
+      "note": "'I left' means that letter departs from the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "train",
+      "gives": "TRAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "the letter to remove"
+     },
+     {
+      "clueFragment": "hammered",
+      "gives": "SLATED",
+      "note": "slated means harshly criticised, hammered by reviewers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAN",
+      "SLATED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confessing they got off the train drunk.",
+     "walkthrough": "'Hammered' suggests drunk, but here it means criticised; to slate is British for to criticise severely.",
+     "definitionFit": "Something translated has been put into another language, literally expressed another way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hammered"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1178,48 @@
     "text": "Jumped after small crash",
     "enumeration": "6"
    },
-   "solution": "SPRANG"
+   "solution": "SPRANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPRANG",
+    "definitions": [
+     {
+      "text": "Jumped",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     },
+     {
+      "clueFragment": "crash",
+      "gives": "PRANG",
+      "note": "a prang is British slang for a minor car crash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PRANG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaping out of a car after a minor collision.",
+     "definitionFit": "Sprang is the past tense of spring, meaning leapt or jumped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1233,70 @@
     "text": "Type of grass that makes boob wobble about in the morning",
     "enumeration": "6"
    },
-   "solution": "BAMBOO"
+   "solution": "BAMBOO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BAMBOO",
+    "definitions": [
+     {
+      "text": "Type of grass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wobble",
+      "for": "anagram",
+      "note": "a wobble shakes things loose, so the letters before it get shuffled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means the reworked letters go around the morning abbreviation"
+     }
+    ],
+    "linkWords": [
+     "that makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boob",
+      "gives": "BOOB",
+      "note": "letters to rearrange"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "a.m. marks hours before noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "AM",
+      "BOO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOOB",
+       "gives": "BBOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky picture of someone jiggling first thing in the day.",
+     "definitionFit": "Bamboo is a tall woody plant that botanically belongs to the grass family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "wobble"
+    }
+   }
   },
   {
    "number": 21,
@@ -339,7 +1310,52 @@
     "text": "Box of revolutionary Fats Domino tracks",
     "enumeration": "6"
    },
-   "solution": "CARTON"
+   "solution": "CARTON",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "CARTON",
+    "definitions": [
+     {
+      "text": "Box",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "'of' signals the answer is drawn from within the words that follow"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "something revolutionary turns round, so the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fats",
+      "note": "surface padding: completes the singer's name but gives no letters"
+     },
+     {
+      "clueFragment": "Domino tracks",
+      "gives": "NOTRAC",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A boxed set of songs by the rock and roll pianist Fats Domino.",
+     "definitionFit": "A carton is a cardboard container, a light box for goods such as milk or eggs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1369,55 @@
     "text": "Game not hot for country folk",
     "enumeration": "8"
    },
-   "solution": "PEASANTS"
+   "solution": "PEASANTS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PEASANTS",
+    "definitions": [
+     {
+      "text": "country folk",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' says the letter for hot is left out of the game birds"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "PHEASANTS",
+      "note": "pheasants are game birds shot for sport"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEASANTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cold game being served to rural workers.",
+     "definitionFit": "Peasants are poor farm labourers and smallholders, the traditional rural population."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1431,47 @@
     "text": "Eating out is an easy thing to do",
     "enumeration": "6"
    },
-   "solution": "PICNIC"
+   "solution": "PICNIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICNIC",
+    "definitions": [
+     {
+      "text": "Eating out",
+      "at": 0
+     },
+     {
+      "text": "an easy thing to do",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eating out",
+      "note": "first meaning: a meal taken outdoors"
+     },
+     {
+      "clueFragment": "an easy thing to do",
+      "note": "second meaning: as in 'it's no ...', a simple task"
+     }
+    ],
+    "explanation": {
+     "surface": "A claim that dining at a restaurant takes no effort.",
+     "walkthrough": "'Eating out' suggests going to a restaurant, but here it is a meal in the open air.",
+     "definitionFit": "A picnic is an outdoor meal, and informally anything simple, as in 'it was no picnic'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1485,61 @@
     "text": "Without opening gambit leading in one's new goal",
     "enumeration": "8"
    },
-   "solution": "AMBITION"
+   "solution": "AMBITION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AMBITION",
+    "definitions": [
+     {
+      "text": "goal",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Without opening",
+      "for": "deletion",
+      "note": "'Without opening' removes the first letter of the following word"
+     },
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "'leading' asks for the front letter of each of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gambit",
+      "gives": "GAMBIT",
+      "note": "taken as written, before its opening letter goes"
+     },
+     {
+      "clueFragment": "in one's new",
+      "gives": "ION",
+      "select": "first",
+      "note": "first letters of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMBIT",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player's new aim is to play without the usual opening gambit.",
+     "definitionFit": "An ambition is a goal or aim someone strongly hopes to achieve."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gambit"
+    }
+   }
   },
   {
    "number": 25,
@@ -395,7 +1553,55 @@
     "text": "Empty small container into larger one",
     "enumeration": "6"
    },
-   "solution": "VACANT"
+   "solution": "VACANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VACANT",
+    "definitions": [
+     {
+      "text": "Empty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "'into' tells us the small container goes inside the larger one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "larger one",
+      "gives": "VAT",
+      "note": "a vat is a large tank or tub"
+     },
+     {
+      "clueFragment": "small container",
+      "gives": "CAN",
+      "note": "a can is a small tin container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "CAN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to tip a little tin's contents into a bigger vessel.",
+     "walkthrough": "'Empty' looks like a verb telling you to pour, but it is the adjective defining the answer.",
+     "definitionFit": "Vacant describes a space or seat with nothing or no one in it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Empty"
+    }
+   }
   },
   {
    "number": 26,
@@ -409,7 +1615,51 @@
     "text": "My dog's nose twitched",
     "enumeration": "8"
    },
-   "solution": "GOODNESS"
+   "solution": "GOODNESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GOODNESS",
+    "definitions": [
+     {
+      "text": "My",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "twitched",
+      "for": "anagram",
+      "note": "something twitched jerks out of place, so the letters move into new positions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog's nose",
+      "gives": "DOGSNOSE",
+      "note": "letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGSNOSE",
+       "gives": "GOODNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An owner noticing their pet sniffing something.",
+     "walkthrough": "'My' looks like a possessive, but it is the exclamation of surprise.",
+     "definitionFit": "Both 'My!' and 'Goodness!' are mild exclamations of surprise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "My"
+    }
+   }
   },
   {
    "number": 27,
@@ -423,7 +1673,46 @@
     "text": "Shot to the top of the page",
     "enumeration": "6"
    },
-   "solution": "HEADER"
+   "solution": "HEADER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HEADER",
+    "definitions": [
+     {
+      "text": "Shot",
+      "at": 0
+     },
+     {
+      "text": "the top of the page",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shot",
+      "note": "first meaning: in football, a strike at goal using the head"
+     },
+     {
+      "clueFragment": "the top of the page",
+      "note": "second meaning: text printed in the top margin of a document"
+     }
+    ],
+    "explanation": {
+     "surface": "Something rising rapidly to the top of a page.",
+     "walkthrough": "'Shot to' reads as a verb meaning rose fast, but 'Shot' is a noun here.",
+     "definitionFit": "A header is a football strike made with the head, and a line printed at the top of each page."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shot"
+    }
+   }
   }
  ]
 }
