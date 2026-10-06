@@ -82,5 +82,25 @@ with contextlib.redirect_stdout(io.StringIO()) as buf:
     nfail, stopped = ft.each_article(tv, [str(i) for i in range(50)], down, "article")
 check("FAILURES_IN_A_ROW failures stop the run",
       (nfail, stopped) == (ft.FAILURES_IN_A_ROW, True) and "Trove looks down" in buf.getvalue())
+# `fetch` with no ids reads every cached listing, skips cached articles before
+# any request, and --seconds starts none past its end.
+import subprocess
+tout = pathlib.Path(tempfile.mkdtemp())
+(tout / "index").mkdir()
+(tout / "index" / "1980.jsonl").write_text('{"id": "7"}\n{"id": "8"}\n')
+(tout / "index" / "1981.jsonl").write_text('{"id": "9"}\n{"id": "8"}\n')
+(tout / "7").mkdir(); (tout / "7" / "meta.json").write_text("{}")
+def trove(*args):
+    r = subprocess.run([sys.executable, str(pathlib.Path(sys.argv[1]) / "fetch_trove.py"), *args, "--out", str(tout)],
+                       capture_output=True, text=True, timeout=60)
+    return r.returncode, r.stdout + r.stderr
+rc, log = trove("fetch", "--seconds", "1e-9")
+check("fetch: every listing, cached skipped, --seconds leaves the rest",
+      rc == 0 and "2 article(s) to fetch" in log and "2 article(s) left for the next run" in log
+      and "0 requests" in log)
+for a in ("8", "9"):
+    (tout / a).mkdir(); (tout / a / "meta.json").write_text("{}")
+rc, log = trove("fetch")
+check("fetch: nothing new costs no request", rc == 0 and "0 article(s) to fetch" in log and "0 requests" in log)
 sys.exit(1 if fails else 0)
 PY

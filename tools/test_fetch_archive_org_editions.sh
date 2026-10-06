@@ -98,5 +98,31 @@ with contextlib.redirect_stdout(io.StringIO()):
 check("a run lists every yearly item before its first edition",
       all(os.path.exists(f"{out}/items/FinancialTimes{y}UKEnglish.json") for y in (1980, 1981))
       and len(calls) == 2)
+
+# A run is idempotent and bounded: done.tsv at the current DETECTOR_VERSION
+# is skipped, an older version is due again, and --seconds starts nothing past
+# its end. Offline: the group search and the item's metadata are cached.
+import json, os, subprocess, tempfile
+out = tempfile.mkdtemp()
+os.makedirs(os.path.join(out, "items"))
+item = "NewsUK1980UKEnglish"
+with open(os.path.join(out, "items", "_group_times.json"), "w") as f:
+    json.dump([{"identifier": item, "title": "The Times , 1980, UK, English"}], f)
+eds = [f"Jan 0{d} 1980, The Times, #6000{d}, UK (en)" for d in (2, 3, 4)]
+with open(os.path.join(out, "items", item + ".json"), "w") as f:
+    json.dump({"files": [{"name": e + "_djvu.txt"} for e in eds]}, f)
+with open(os.path.join(out, "done.tsv"), "w") as f:
+    f.write(f"{item}\t{eds[0]}\t{fa.DETECTOR_VERSION}\n{item}\t{eds[1]}\t{fa.DETECTOR_VERSION - 1}\n")
+def run(*extra):
+    r = subprocess.run([sys.executable, fa.__file__, "--out", out,
+                        "--group", "times", *extra], capture_output=True, text=True, timeout=60)
+    return r.returncode, r.stdout + r.stderr
+rc, log = run("--seconds", "1e-9")
+check("--seconds past: nothing fetched, an old-version and an undone edition left for the next run",
+      rc == 0 and "2 left for the next run" in log and "FAIL" not in log)
+with open(os.path.join(out, "done.tsv"), "a") as f:
+    f.write(f"{item}\t{eds[1]}\t{fa.DETECTOR_VERSION}\n{item}\t{eds[2]}\t{fa.DETECTOR_VERSION}\n")
+rc, log = run("--seconds", "1e-9")
+check("nothing due: finishes with no request", rc == 0 and "finished: 0 editions" in log, )
 sys.exit(1 if fails else 0)
 PY

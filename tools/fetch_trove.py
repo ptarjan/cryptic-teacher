@@ -6,12 +6,16 @@ Usage:
   python3 tools/fetch_trove.py search 1988 --query '"english cryptic"'
   python3 tools/fetch_trove.py fetch 102010719 [ID ...]     # OCR + grid for articles
   python3 tools/fetch_trove.py fetch --year 1975 [--limit N]  # every hit in a listing
+  python3 tools/fetch_trove.py fetch [--seconds N]          # every hit in every cached listing
   python3 tools/fetch_trove.py zones [ID ...] [--limit N]    # clue columns (below)
   --out DIR     where everything lands (default ~/.cache/trove)
   --delay S     minimum seconds between requests (default 1.0)
   --title N     Trove newspaper title id (default 11, The Canberra Times)
   --grid-width PX  fetch the grid from the smallest pyramid level that is at
                 least this wide (default 600, ~40px a cell on a 15x15)
+  --seconds N   fetch/zones start no article after N seconds; the ones not
+                started are counted "left for the next run" (tools/ocr_full_pass.sh
+                runs both this way, so the corpus queue fetches in bounded slices)
 
 Layout under --out:
   jar.txt                 cookies (the Anubis pass lasts ~7 days)
@@ -295,15 +299,19 @@ def pending_zones(out, zones):
                   and os.path.exists(os.path.join(out, r["article"], "meta.json")))
 
 
-def each_article(tv, ids, one, what):
+def each_article(tv, ids, one, what, stop_at=float("inf")):
     """Call one(aid) for each id and print the line it returns (None: nothing
-    to do). Returns (failed, stopped). An article gets ITEM_SECONDS of
+    to do), starting none at or after time.time() `stop_at`. Returns (failed,
+    stopped). An article gets ITEM_SECONDS of
     retries; one that still fails is named with its error and left for the
     next run, and the rest go on, unless FAILURES_IN_A_ROW fail back to back
     (stopped)."""
     failed = in_a_row = 0
-    for aid in ids:
+    for i, aid in enumerate(ids):
         t = time.time()
+        if t >= stop_at:
+            print(f"--seconds reached: {len(ids) - i} {what}(s) left for the next run", flush=True)
+            break
         tv.deadline = t + ITEM_SECONDS
         try:
             said = one(aid)
@@ -322,12 +330,12 @@ def each_article(tv, ids, one, what):
     return failed, False
 
 
-def fetch_all_zones(tv, out, zones, ids, limit=None):
+def fetch_all_zones(tv, out, zones, ids, limit=None, stop_at=float("inf")):
     """fetch_zones() for up to `limit` of `ids`, through each_article()."""
     def one(aid):
         fetch_zones(tv, out, zones, aid)
         return f"{aid}: {len(zone_images(zones, aid))} zones"
-    return each_article(tv, ids[:limit], one, "zones")
+    return each_article(tv, ids[:limit], one, "zones", stop_at)
 
 
 def main():
@@ -342,14 +350,16 @@ def main():
     ap.add_argument("--grid-width", type=int, default=600)
     ap.add_argument("--out", default=os.path.expanduser("~/.cache/trove"))
     ap.add_argument("--zones-out", default=ZONES_DIR, help="where `zones` writes")
+    ap.add_argument("--seconds", type=float)
     a = ap.parse_args()
+    stop_at = time.time() + a.seconds if a.seconds else float("inf")
     tv = Trove(a.out, a.delay, ZONE_WIDTH if a.cmd == "zones" else a.grid_width)
     t0 = time.time()
     failed, stopped = 0, False
     if a.cmd == "zones":
         ids = a.args or pending_zones(a.out, a.zones_out)
         print(f"{len(ids)} article(s) need clue zones", flush=True)
-        failed, stopped = fetch_all_zones(tv, a.out, a.zones_out, ids, a.limit)
+        failed, stopped = fetch_all_zones(tv, a.out, a.zones_out, ids, a.limit, stop_at)
     elif a.cmd == "search":
         year = a.year or int(a.args[0])
         total, hits = tv.search(a.query, a.title, year)
@@ -369,9 +379,15 @@ def main():
         print(f"{year} {a.query}: {total} hits, {len(new)} new, {len(known)} in {path}")
     else:
         ids = list(a.args)
-        if a.year:
-            with open(os.path.join(a.out, "index", f"{a.year}.jsonl")) as f:
+        years = [a.year] if a.year else [] if ids else sorted(
+            int(os.path.basename(p)[:-6]) for p in glob.glob(os.path.join(a.out, "index", "*.jsonl")))
+        for year in years:
+            with open(os.path.join(a.out, "index", f"{year}.jsonl")) as f:
                 ids += [json.loads(line)["id"] for line in f]
+        # Cached articles are skipped before any request, so a run with
+        # nothing new costs a stat per indexed article.
+        ids = [aid for aid in dict.fromkeys(ids) if not os.path.exists(os.path.join(a.out, str(aid), "meta.json"))]
+        print(f"{len(ids)} article(s) to fetch", flush=True)
 
         def one(aid):
             if os.path.exists(os.path.join(a.out, str(aid), "meta.json")):
@@ -380,7 +396,7 @@ def main():
             m = tv.fetch_article(aid)
             g = f"grid {m['grid_px'][0]}x{m['grid_px'][1]}" if m.get("grid") else "NO GRID ZONE"
             return f"{aid} {m['title']}: {len(m['zones'])} zones, {g}, {time.time() - t:.1f}s"
-        failed, stopped = each_article(tv, ids[:a.limit], one, "article")
+        failed, stopped = each_article(tv, ids[:a.limit], one, "article", stop_at)
     tv.jar.save(ignore_discard=True, ignore_expires=True)
     if failed:
         print(f"{failed} article(s) failed; rerun to retry them", file=sys.stderr)
