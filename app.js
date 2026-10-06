@@ -1004,6 +1004,31 @@
   // The key a save's `letters` and `letterAt` hold square i of an entry under.
   const squareOf = (e, i) => (e.position.x + (e.direction === "across" ? i : 0)) + ","
     + (e.position.y + (e.direction === "across" ? 0 : i));
+  // Every square a solver can fill, as save keys: the lights, clued or not.
+  function lightSquares(puz) {
+    const sq = {};
+    (puz.entries || []).forEach((e) => { for (let i = 0; i < e.length; i++) sq[squareOf(e, i)] = 1; });
+    (puz.unclued || []).forEach((u) => u.cells.forEach(({ x, y }) => { sq[x + "," + y] = 1; }));
+    return sq;
+  }
+  // A save is keyed by puzzle id, and an id can come to name a different grid
+  // (a book renumbered, a grid rebuilt). Each save carries the fingerprint of
+  // the grid it was typed into, and loads only into that grid.
+  function gridPrint(puz) {
+    const d = puz.dimensions || {};
+    const s = d.cols + "x" + d.rows + "|" + Object.keys(lightSquares(puz)).sort().join(";");
+    let h = 0x811c9dc5;
+    for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 0x01000193);
+    return (h >>> 0).toString(36);
+  }
+  // A save from before fingerprints has only its squares to go on: every one
+  // of them must be a light of this grid.
+  function fitsGrid(save, puz) {
+    if (!save || typeof save !== "object") return true;
+    if (save.grid) return save.grid === gridPrint(puz);
+    const sq = lightSquares(puz);
+    return Object.keys(Object.assign({}, save.letters, save.letterAt)).every((k) => sq[k]);
+  }
   const hasSolutions = () => entries.every((e) => e.solution);
 
   /* ---------- paper mode ----------
@@ -1123,7 +1148,7 @@
       timing.solvedAt = now;
       timing.solvedMs = timing.activeMs || 0;
     }
-    store.set(stateKey(), { letters, letterAt, hintsShown, hintsEarned, revealsUsed,
+    store.set(stateKey(), { grid: gridPrint(P), letters, letterAt, hintsShown, hintsEarned, revealsUsed,
                             blocksAt, solvedWith, timing,
                             clearedAt: prev.clearedAt || 0, updated: now });
     syncPushSoon();
@@ -1152,7 +1177,15 @@
     timing = s.timing;
   }
   function restoreState() {
-    const s = store.get(stateKey(), null);
+    let s = store.get(stateKey(), null);
+    // A save typed into another grid is reset, not just skipped: the reset's
+    // clearedAt is what stops a sync merge handing its letters back.
+    if (!fitsGrid(s, P)) {
+      const now = Date.now();
+      s = { grid: gridPrint(P), letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {}, blocksAt: {},
+            revealsUsed: {}, solvedWith: {}, timing: {}, clearedAt: now, updated: now };
+      store.set(stateKey(), s);
+    }
     hintsShown = (s && s.hintsShown) || {};
     hintsEarned = (s && s.hintsEarned) || {};
     hintLevels = (s && s.hintLevels) || {};
@@ -5765,7 +5798,7 @@
     Object.keys(window.CRYPTIC_PUZZLES).forEach((id) => {
       const puz = window.CRYPTIC_PUZZLES[id];
       if (!puz || !puz.entries) return;
-      const s = saves[id] || {}, letters = s.letters || {}, stamps = s.letterAt || {};
+      const s = (fitsGrid(saves[id], puz) && saves[id]) || {}, letters = s.letters || {}, stamps = s.letterAt || {};
       const lead = buildLeaderOf(puz.entries);
       const legs = {};
       puz.entries.forEach((e) => {
@@ -6354,10 +6387,6 @@
   // rather than sitting in it forever: it is the one puzzle you have no reason
   // to open next, and "solved" is a search term for the days you do.
   const RECENT_ROWS = 12;
-  function pickerProgress(p) {
-    const prog = savedProgress()[p.id];
-    return prog ? Object.keys(prog.letters).length : 0;
-  }
   // "Have I finished this one?" — the question a list of 78 puzzles has to
   // answer before it can answer anything else. It is computed here rather than
   // stored: the saved letters are simply held against the solutions. A stored
@@ -6374,9 +6403,9 @@
   // tell someone their grid is broken.
   function pickerStatus(p) {
     const prog = savedProgress()[p.id];
-    const letters = (prog && prog.letters) || {};
-    const filled = Object.keys(letters).length;
     const puz = window.CRYPTIC_PUZZLES[p.id];
+    const letters = (prog && (!puz || fitsGrid(prog, puz)) && prog.letters) || {};
+    const filled = Object.keys(letters).length;
     if (!filled || !puz) return { filled, total: 0, done: false };
     const want = {};   // "x,y" -> the letter that belongs there
     puz.entries.forEach((e) => {
@@ -7467,8 +7496,8 @@
       // The clock goes with it. "Clear the grid and all hint history" means a
       // fresh attempt, and an attempt that starts on a grid you have already
       // solved once is not a time anything should be averaging.
-      store.set(stateKey(), { letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {}, blocksAt: {},
-                              revealsUsed: {}, solvedWith: {}, timing: {},
+      store.set(stateKey(), { grid: gridPrint(P), letters: {}, letterAt: {}, hintsShown: {}, hintsEarned: {},
+                              blocksAt: {}, revealsUsed: {}, solvedWith: {}, timing: {},
                               clearedAt: now, updated: now });
       forEachCell((c) => { c.letter = ""; c.wrong = false; c.revealed = false; });
       applyPrinted();

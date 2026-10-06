@@ -741,6 +741,8 @@ tools/test_notify_race.js                    ticks two papers over a slow networ
 tools/test_solve_clock.js                    walks away from a puzzle and comes back, so the
                                              time spent elsewhere is proved never to be counted
                                              as solving
+tools/test_save_grid.js                      a save loads only into the grid it was typed into,
+                                             and a sync merge never unions two grids
 tools/test_paper_mode.js                     paper mode hides every right/wrong signal until
                                              "I'm done", then hands it all back
 tools/test_share_url.js                      picking a puzzle points the address bar at it,

@@ -255,6 +255,7 @@ LAYOUT = [
     ("building and checking the site", "tools/test_push_hold.js", "runs the cron fan-out over a fake night, so a puzzle held until morning is proved to arrive exactly once"),
     ("building and checking the site", "tools/test_notify_race.js", "ticks two papers over a slow network, where a tick that landed during a save used to be thrown away"),
     ("building and checking the site", "tools/test_solve_clock.js", "walks away from a puzzle and comes back, so the time spent elsewhere is proved never to be counted as solving"),
+    ("building and checking the site", "tools/test_save_grid.js", "a save loads only into the grid it was typed into, and a sync merge never unions two grids"),
     ("building and checking the site", "tools/test_paper_mode.js", "paper mode hides every right/wrong signal until \"I'm done\", then hands it all back"),
     ("building and checking the site", "tools/test_share_url.js", "picking a puzzle points the address bar at it, from whatever the bar said before; the picker's menus are still set when you come back to it; and ?p=<bare number> navigates to its puzzle's own address"),
     ("building and checking the site", "tools/test_unclued_squares.js", "a square only an unclued light covers can be revealed, and the picker asks for it"),

@@ -122,6 +122,14 @@
     // output is canonical no matter what came in.
     a = isObj(a) ? a : {};
     b = isObj(b) ? b : {};
+    // Two different grids under one id: only the newer side's letters belong
+    // to the grid the id names now (app.js fitsGrid). A save with no grid is
+    // from before fingerprints, or came through an older merge, and is merged.
+    if (a.grid && b.grid && a.grid !== b.grid) {
+      const ta = num(a.updated), tb = num(b.updated);
+      if (ta > tb || (ta === tb && a.grid > b.grid)) b = {}; else a = {};
+    }
+    const grid = a.grid || b.grid;
     const at = num(a.updated), bt = num(b.updated);
 
     // "Reset puzzle" is the one thing a solver does that is not an edit to some
@@ -205,8 +213,10 @@
 
     const timing = mergeTiming(liveA ? a.timing : {}, liveB ? b.timing : {});
 
-    return { letters, letterAt, hintsShown, hintsEarned, revealsUsed, blocksAt, solvedWith,
+    const out = { letters, letterAt, hintsShown, hintsEarned, revealsUsed, blocksAt, solvedWith,
              timing, clearedAt, updated: Math.max(at, bt) };
+    if (grid) out.grid = String(grid);
+    return out;
   }
 
   /* Envelope: { v: 1, puzzles: { "<id>": <save> }, last: { id, updated } }.
