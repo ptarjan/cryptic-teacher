@@ -17,7 +17,8 @@ Denominators:
   numbered series   first_number() (series.py) to the highest number held or listed
   canberra          Trove articles the filer read and did not skip as no cryptic
   book              each book's estimated_puzzle_count (tools/data/book_candidates.json,
-                    an upper bound), or the puzzles its last read split, if more
+                    an upper bound), its printed_count (tools/data/books.json, where the
+                    book states one), or the puzzles its last read split, if more
 
 Each missing puzzle is claimed by the sources that know about it, and every
 claim is a (source, cause) pair from CAUSES, read off the pipeline's own
@@ -403,7 +404,8 @@ def books():
         rows = {r.get("book_number"): r for r in report.get("puzzles", [])}
         split = (reads.get(ident) or {}).get("found") or 0
         # The positions an estimate, a read or a filed puzzle proves exist, at least.
-        count = max([est.get(ident) or 0, split] + [n for n in rows if isinstance(n, int)] + list(got))
+        count = max([b.get("printed_count") or 0, est.get(ident) or 0, split]
+                    + [n for n in rows if isinstance(n, int)] + list(got))
         if not count:
             unmeasured.append(ident)
         due = book_queue.due(ident)
@@ -433,7 +435,7 @@ def books():
                          f"puzzle onto their id (report.json id-taken; tools/acquire_book.py): {', '.join(no_id[:5])}")
     if unmeasured:
         led.notes.append(f"{len(unmeasured)} of {len(registry)} books have no puzzle count until their first "
-                         f"read (never sampled for book_candidates.json): {', '.join(unmeasured[:5])}"
+                         f"read (never sampled for book_candidates.json, no printed_count): {', '.join(unmeasured[:5])}"
                          + (" ..." if len(unmeasured) > 5 else ""))
     return led
 
