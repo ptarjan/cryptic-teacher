@@ -89,15 +89,15 @@ class Fake:
     closed = 0
     def close(self):
         Fake.closed += 1
-ocr_remote._STATE.update(pid=os.getpid(), session=Fake(), retry=0.0)
+ocr_remote._state().update(pid=os.getpid(), session=Fake(), retry=0.0)
 check("idle: the open session is kept", True, isinstance(ocr_remote.session(), Fake))
 why[0] = "playing Wow"
 check("busy: no session, the open one closed", (None, 1, None),
-      (ocr_remote.session(), Fake.closed, ocr_remote._STATE["session"]))
-ocr_remote._STATE["session"] = Fake()
+      (ocr_remote.session(), Fake.closed, ocr_remote._state()["session"]))
+ocr_remote._state()["session"] = Fake()
 ocr_remote.lost(ocr_remote.Unavailable("ended"))
 check("a session ended for a game is tried again when idle, not after RETRY", True,
-      ocr_remote._STATE["retry"] <= time.monotonic())
+      ocr_remote._state()["retry"] <= time.monotonic())
 
 s = ocr_remote.Session.__new__(ocr_remote.Session)
 s.host, s.buf = DESK, b""
