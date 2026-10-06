@@ -71,6 +71,8 @@ BOOK_PUZZLE_STATUSES = [
     ("cut-short", "tools/acquire_books.sh", "the re-read's 90-minute bound ended the run before this search landed"),
     ("split-moved", "tools/acquire_book.py", "this read split the book differently: the leaf is filed under another position (report.json filed_as)"),
     ("id-taken", "tools/acquire_book.py", "this read split the book differently and another puzzle holds this leaf's id"),
+    ("reprint", "tools/acquire_book.py", "the leaf is a held puzzle reprinted: kept as a reading of it (report.json reprint_of)"),
+    ("duplicate-in-read", "tools/acquire_book.py", "the scan holds this leaf's page twice: filed once, under the first position (report.json same_as)"),
     ("unknown-status", "tools/acquire_book.py", "a status coverage.BOOK_PUZZLE_STATUSES does not list: add it"),
 ]
 
@@ -172,7 +174,7 @@ def _causes():
     # A read book's per-puzzle status (tools/grid_verdict.py verdict(), and
     # acquire_book.py's own two), for each position not filed.
     for status, owner, fix in BOOK_PUZZLE_STATUSES:
-        out[("book", status)] = Cause(owner, fix, status not in ("split-moved", "id-taken"),
+        out[("book", status)] = Cause(owner, fix, status not in ("split-moved", "id-taken", "reprint", "duplicate-in-read"),
                                       status in ("unique-not-filed", "unknown-status"))
     return out
 

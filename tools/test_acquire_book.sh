@@ -370,3 +370,57 @@ if not fao.reprint_key([99999], "times"):
     raise SystemExit("FAIL a book reprint does not make its Times edition due")
 print("ok   a leaf reprinting a held puzzle is kept as its reading, not filed as book-N")
 PYEOF
+
+# A scan holding one page twice yields one puzzle at two positions; the
+# second (its OCR a little different) is not searched or filed again.
+python3 - "$tmp" <<'PYEOF'
+import json, sys
+from pathlib import Path
+sys.path.insert(0, "tools")
+import acquire_book as ab
+import fetch_puzzle
+from clue_index import ClueIndex
+
+tmp = Path(sys.argv[1]) / "twice"
+tmp.mkdir()
+(tmp / "text.txt").write_text("x")
+fetch_puzzle.clue_index = lambda: ClueIndex()
+page = [f"Old city clue number {i} about something" for i in range(8)]
+again = [t.replace("Old city", "Oldcity") for t in page]
+again[7] = "OCR noise ate this clue"
+other = [f"Another puzzle's clue {i} entirely" for i in range(8)]
+
+
+def spec(texts):
+    return ([[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[:4])],
+            [[i + 1, 5, "plain", {"clue": t, "enumeration": "5"}] for i, t in enumerate(texts[4:])], [], [])
+
+
+ab.parse_book = lambda _path: [{"book_number": n, "across": [{"clue": t[0]}], "texts": t}
+                               for n, t in ((1, page), (2, again), (3, other))]
+ab.build_quality_report = lambda _p: {"puzzles": []}
+ab.build_spec = lambda p: spec(p["texts"])
+ab.grid_verdict.screen_spec = lambda _a, _d: []
+searched = []
+
+
+def fake_search(jobs, _n):
+    for job in jobs:
+        searched.append(job["book_number"])
+        yield {"book_number": job["book_number"], "status": "unparseable", "nodes": 0,
+               "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
+               "conventions_broken": [], "detail": {}, "grids": []}
+
+
+ab._searched = fake_search
+ab.main(["telegraphallnewc0000unse_a7j2", "--text", str(tmp / "text.txt"), "--out", str(tmp),
+         "--file", "--only", "1", "2", "3"])
+rows = {r["book_number"]: r for r in json.loads(
+    (tmp / "telegraphallnewc0000unse_a7j2" / "report.json").read_text())["puzzles"]}
+first = ab.puzzle_id(ab.BOOK_SERIES, ab.book_number("telegraphallnewc0000unse_a7j2", 1))
+if rows[2].get("status") != "duplicate-in-read" or rows[2].get("same_as") != first:
+    raise SystemExit(f"FAIL the page read twice was reported {rows[2]}, want same_as {first}")
+if searched != [1, 3]:
+    raise SystemExit(f"FAIL searched {searched}, want [1, 3]")
+print("ok   a page the scan holds twice is filed once")
+PYEOF

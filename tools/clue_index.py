@@ -89,6 +89,8 @@ class ClueIndex:
         self.add_keys(pid, clue_keys(puzzle))
 
     def add_keys(self, pid, keys):
+        for k in self.keys.get(pid, ()):
+            self.by_clue[k].discard(pid)
         self.size[pid] = len(keys)
         self.keys[pid] = keys
         for k in keys:

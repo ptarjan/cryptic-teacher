@@ -1026,6 +1026,11 @@ def write_puzzle_file(path, puzzle, generator=None):
     # fetcher can write what tools/puzzle_integrity.py would report.
     import puzzle_integrity  # noqa: PLC0415 — it imports this module
     puzzle_integrity.refuse_bad_write(puzzle, old)
+    # A new id is refused when its clues are another held puzzle's, whichever
+    # filer wrote it, and every corpus write enters the index, so a second
+    # copy filed by the same run is refused too.
+    if corpus and held is None:
+        check_not_copy(puzzle)
     dest = puzzle_paths.file_for(puzzle) if corpus else path
     dest.parent.mkdir(parents=True, exist_ok=True)
     # Whole or not at all: a long job's checkpoint (tools/durable.sh) commits
@@ -1043,6 +1048,8 @@ def write_puzzle_file(path, puzzle, generator=None):
         import clues_only  # noqa: PLC0415 — it imports this module
         if (waiting := clues_only.find(puzzle["id"])) is not None:
             waiting.unlink()
+        if held is None or _CLUE_INDEX is not None:
+            clue_index().add(puzzle["id"], puzzle)
     # The browser cannot fetch() off file:// (README: the site runs from disk),
     # so it is fed a generated script instead. Written here as well as by
     # --build-shims because a fetcher that has just rewritten a puzzle must not
@@ -2880,10 +2887,13 @@ def check_not_copy(puzzle):
     number. /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with
     Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either made
     two files hold one puzzle."""
+    import puzzle_integrity  # noqa: PLC0415 — it imports this module
     for other, shared, m, _ in clue_index().matches(puzzle["id"], clue_keys(puzzle)):
-        raise ValueError(
+        why = f"{shared} of {m} clues are {other}'s"
+        raise puzzle_integrity.RefusedWrite(
             f"requested {puzzle['id']} but the page served the clues of "
-            f"{other} ({shared} of {m} clues are the same) — refusing to file a copy")
+            f"{other} ({shared} of {m} clues are the same) — refusing to file a copy",
+            [("NEARDUP", puzzle["id"], why)])
 
 
 def fetch_number(num, series="cryptic"):
@@ -2909,7 +2919,6 @@ def fetch_number(num, series="cryptic"):
     # Named explicitly: this IS the acquiring fetcher, so it overwrites any
     # banner a recovery tool left, rather than inheriting it.
     write_puzzle_file(path, puzzle, generator="tools/fetch_puzzle.py")
-    clue_index().add(puzzle["id"], puzzle)
     reindex()
     print(("fetched " if is_new else "refreshed ") + puzzle["id"])
     if graded is not None:
