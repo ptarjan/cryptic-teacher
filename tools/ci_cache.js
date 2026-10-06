@@ -63,7 +63,7 @@ const SMOKE_DEPS = [
     "tools/build_lexicon.js", "tools/build_readme.py", "tools/build_seo_pages.py", "tools/canberra_london_numbers.py",
     "tools/check_shapes.js", "tools/ci_cache.js", "tools/clue_index.py", "tools/clue_types.py",
     "tools/clueability.py", "tools/corroborate.py", "tools/ctc_transcripts.py",
-    "tools/daily_update.sh", "tools/data/", "tools/definitions.py", "tools/difficulty.py",
+    "tools/daily_update.sh", "tools/data/", "tools/definitions.py", "tools/desktop_busy.py", "tools/difficulty.py",
     "tools/difficulty_check.py", "tools/difficulty_page.html", "tools/enumeration.py",
     "tools/errata.py", "tools/fake_dom.js", "tools/fetch_lexicon.sh",
     "tools/fetch_archive_org_editions.py", "tools/fetch_privateeye.py", "tools/fetch_puzzle.py", "tools/fetch_times_listing.py",
