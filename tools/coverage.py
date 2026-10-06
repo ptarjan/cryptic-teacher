@@ -42,6 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 import archive_coverage
+import file_trove_puzzles
 import series as series_meta
 
 HOME = Path.home()
@@ -106,11 +107,13 @@ def _causes():
     out[("ft-pdf", "refused-no-cause")] = Cause(
         "tools/ft_pdf_puzzles.py", "attempts.jsonl says filed false with prose only: record a cause enum", True, True)
     out[("trove", "not-read")] = Cause("tools/file_trove_puzzles.py", "fetched, never read: run the filer", True, False)
-    out[("trove", "no-grid")] = Cause("tools/file_trove_puzzles.py", "pending with no grid: the grid search", True, False)
-    out[("trove", "pending-no-cause")] = Cause(
-        "tools/file_trove_puzzles.py", "pending with prose only: record a cause enum on `pending`", True, True)
-    out[("trove", "refused-no-cause")] = Cause(
-        "tools/file_trove_puzzles.py", "refused with prose only: record a cause enum on `refused`", True, True)
+    for key, _outcome, _means, fix, recoverable, owner in file_trove_puzzles.CAUSES:
+        out[("trove", key)] = Cause(owner, fix, recoverable, False)
+    for outcome in ("pending", "refused"):
+        out[("trove", f"{outcome}-no-cause")] = Cause(
+            "tools/file_trove_puzzles.py",
+            f"{outcome} with no `cause`: file_trove_puzzles.stamp_cause makes it due, the next read records one",
+            True, True)
     out[("trove", "written-not-filed")] = Cause(
         "tools/file_trove_puzzles.py", "the ledger has an id and no file holds it", True, False)
     for status in ("no-credentials", "borrow-refused", "lending-limit", "text-not-public"):
@@ -331,6 +334,7 @@ def trove():
     led = Ledger("canberra", "Trove articles read as a cryptic")
     led.filed = {p.stem for p in (ROOT / "puzzles" / "canberra").glob("*/canberra-*.json")}
     read = set()
+    zones = file_trove_puzzles.zones_of(TROVE)
     for r in jsonl(TROVE / "filed.jsonl"):
         art = str(r.get("article"))
         read.add(art)
@@ -342,10 +346,9 @@ def trove():
             continue
         key = f"article-{art}"
         led.exists.add(key)
-        if r.get("refused"):
-            led.claim(key, "trove", "refused-no-cause")
-        elif r.get("pending"):
-            led.claim(key, "trove", "pending-no-cause" if "grid" in r else "no-grid")
+        file_trove_puzzles.stamp_cause(r, zones)
+        if r.get("refused") or r.get("pending"):
+            led.claim(key, "trove", r.get("cause") or ("refused-no-cause" if r.get("refused") else "pending-no-cause"))
     unread = [p.parent.name for p in TROVE.glob("*/meta.json") if p.parent.name not in read]
     for art in unread:
         led.exists.add(f"article-{art}")

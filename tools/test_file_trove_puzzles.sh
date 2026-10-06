@@ -39,7 +39,7 @@ mkdir "$tmp/out"
 first=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/cache" --out "$tmp/out")
 check "first run: one filed" "1" "$(grep -c '  1  filed' <<<"$first")"
 check "first run: the solution grid skipped" "1" "$(grep -c 'skipped: a solution grid' <<<"$first")"
-check "first run: the disagreeing count held back" "1" "$(grep -c 'pending: no grid' <<<"$first")"
+check "first run: the disagreeing count held back" "1" "$(grep -c 'pending: no-grid' <<<"$first")"
 
 got=$(python3 -c "
 import json
@@ -114,7 +114,7 @@ p = '$tmp/cache/filed.jsonl'
 rows = [json.loads(l) for l in open(p)]
 for r in rows:
     if r['article'] == '102024288':
-        r.pop('id'); r['pending'] = 'clues unread'
+        r.pop('id'); r['pending'], r['cause'] = 'clues unread', 'clues-unread'
 open(p, 'w').write(''.join(json.dumps(r) + '\\n' for r in rows))"
 set_clue 12-across "Gallery of church t architecture"
 check "a held stray clue whose row names no puzzle is still read" "1" "$(reads)"
@@ -176,7 +176,7 @@ print(p['source']['gridOrigin'], e[(5, 'down')]['text'], '|', e[(5, 'down')].get
       '|', e[(6, 'down')]['text'], e[(6, 'down')]['enumeration'])")
 check "a lost clue repaired from the clue columns, its words voted" "published Under which possibly neither Irving Berlin nor Edward German ever sat | 6,4 | Rumour that's hardly about the bishop. 11" "$got"
 rm -r "$tmp/repair/cache-clues" "$tmp/repair/cache/filed.jsonl"
-got=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" | grep -c "pending: no reading of the page's clues")
+got=$(cd "$REPO" && python3 tools/file_trove_puzzles.py --cache "$tmp/repair/cache" --out "$tmp/out3" | grep -c "pending: zones-not-fetched")
 check "without the clue columns it waits" "1" "$got"
 
 # Slips are repaired only where the light decides: "(S)" over a five is 5,
@@ -361,7 +361,8 @@ z = d / 'trove-clues' / '1'; z.mkdir(parents=True)
 grid = ['...', '.#.', '...']
 laid = {'1-across': ('Start trom Hint', '3', None), '3-across': ('Top', '3', None),
         '1-down': ('Bun', '3', None), '2-down': ('Arc', '3', None)}
-print(F.vote(d / 'trove' / '1', dict(laid), grid)[1][:30])
+cause, why = F.vote(d / 'trove' / '1', dict(laid), grid)[1]
+print(cause, why[:30])
 for k in F.ocr_clues.READERS:
     (z / f'read.{F.ocr_clues.reader_key(k)}.txt').write_text('ACROSS\n1 Start from Hint (3).\n3 Top (3).\nDOWN\n1 Bun (3).\n2 Arc (3).')
 print(F.vote(d / 'trove' / '1', dict(laid), grid)[0]['1-across'][0])
@@ -370,11 +371,11 @@ z2.write_text(z2.read_text().replace('Start from Hint', 'Start trom Hint'))
 laid['1-across'] = ('Start trom Hint', '3', None)
 print(F.vote(d / 'trove' / '1', dict(laid), grid)[0]['1-across'][0])
 del laid['2-down']
-print(F.vote(d / 'trove' / '1', dict(laid), grid)[1])")
-check "the vote mends a clue, and a lost clue keeps the puzzle back" "no reading of the page's clues
+print(*F.vote(d / 'trove' / '1', dict(laid), grid)[1])")
+check "the vote mends a clue, and a lost clue keeps the puzzle back" "zones-not-fetched no reading of the page's clues
 Start from Hint
 Start from Hint
-no clue for 2-down" "$got"
+lights-without-clue no clue for 2-down" "$got"
 
 # The Trove vote files each clue as the readings print it, Trove's own
 # text among them (ocr_clues.as_printed): a count every reading prints in

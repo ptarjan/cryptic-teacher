@@ -33,6 +33,43 @@ try:
     raise AssertionError("refuse took a cause REFUSALS lacks")
 except ValueError:
     pass
+# Every Trove cause is a bucket; a pending or refused row lands in its
+# cause's; one read before causes lands in a no-cause bucket and is made due,
+# except a read that reached the vote with no clue columns cached; a row
+# without a cause is unwritable.
+import file_trove_puzzles as trove
+assert {("trove", k) for k, *_ in trove.CAUSES} <= set(cov.CAUSES)
+(tmp / "trove" / "1").mkdir(parents=True)
+(tmp / "trove" / "1" / "meta.json").write_text("{}")
+(tmp / "trove-clues" / "5").mkdir(parents=True)
+(tmp / "trove-clues" / "5" / "zone0.png").write_bytes(b"")
+rows = [trove.ledger_row("1", "h", trove.wait({"grid": "image"}, "clues-unread", "clues unread: 5-across")),
+        trove.ledger_row("2", "h", trove.refuse({}, "clues-dont-parse", "across clues do not parse")),
+        {"article": "3", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues"},
+        {"article": "4", "inputs": "h", "pending": "no grid: x"},
+        {"article": "5", "inputs": "h", "grid": "image", "pending": "no reading of the page's clues"},
+        {"article": "6", "inputs": "h", "refused": "no print date in the OCR's first line"}]
+(tmp / "trove" / "filed.jsonl").write_text("".join(json.dumps(r) + "\n" for r in rows))
+cov.TROVE = tmp / "trove"
+got = {b["cause"]: b["sample"] for b in cov.trove().result()["buckets"]}
+assert got == {"clues-unread": ["article-1"], "clues-dont-parse": ["article-2"], "zones-not-fetched": ["article-3"],
+               "pending-no-cause": ["article-4", "article-5"], "refused-no-cause": ["article-6"]}, got
+due = [r["article"] for r in rows if trove.stamp_cause(r, tmp / "trove-clues")]
+assert due == ["4", "5", "6"] and all(r["inputs"] == "" for r in rows[3:]), rows
+for bad in ({"pending": "no grid: x"}, {"refused": "crashed"}, {"pending": "x", "cause": "crashed"},
+            {"pending": "x", "cause": "made-up"}):
+    try:
+        trove.ledger_row("7", "h", bad)
+        raise AssertionError(f"ledger_row wrote {bad}")
+    except ValueError:
+        pass
+for stamp, cause in ((trove.wait, "crashed"), (trove.refuse, "no-grid"), (trove.wait, "made-up")):
+    try:
+        stamp({}, cause, "x")
+        raise AssertionError(f"{stamp.__name__} took {cause}")
+    except ValueError:
+        pass
+
 # Every book status the ledger names is a book bucket.
 for s, _, _ in cov.BOOK_PUZZLE_STATUSES:
     assert ("book", s) in cov.CAUSES, s
