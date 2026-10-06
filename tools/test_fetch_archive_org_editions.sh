@@ -84,11 +84,14 @@ check("a titled page found: no dense page",
 
 # Listings: a PDF archive.org never OCR'd is an edition, read by image;
 # a run caches every yearly item's listing before it fetches any edition.
-meta = {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf"},
-                  {"name": "Apr 02 1981, Financial Times, #28436, UK (en).pdf"},
+scan = "Image Container PDF"
+meta = {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf", "format": scan},
+                  {"name": "Apr 02 1981, Financial Times, #28436, UK (en).pdf", "format": scan},
                   {"name": "Apr 02 1981, Financial Times, #28436, UK (en)_djvu.txt"},
-                  {"name": "Apr 02 1981, Financial Times, #28436, UK (en)_text.pdf"}]}
-check("a PDF with no _djvu.txt is an edition, listed once beside one with text",
+                  {"name": "Apr 02 1981, Financial Times, #28436, UK (en)_text.pdf", "format": "Additional Text PDF"},
+                  {"name": "listener_1933-11-01_10_251_encrypted.pdf", "format": "ACS Encrypted PDF"}]}
+check("a scan PDF with no _djvu.txt is an edition, listed once beside one with text; "
+      "an encrypted or text PDF is none",
       fa.editions_of(meta) == ["Apr 01 1981, Financial Times, #28435, UK (en)",
                                "Apr 02 1981, Financial Times, #28436, UK (en)"])
 check("the yearly groups are the one-uploader ones",
@@ -248,7 +251,7 @@ buf = io.BytesIO()
 page_scan(False).save(buf, "PDF", save_all=True, append_images=[page_scan(True), page_scan(False)])
 out = tempfile.mkdtemp()
 name = "Apr 01 1981, Financial Times, #28435, UK (en)"
-meta = {"server": "s", "dir": "/d", "files": [{"name": name + ".pdf"}]}
+meta = {"server": "s", "dir": "/d", "files": [{"name": name + ".pdf", "format": "Image Container PDF"}]}
 script(buf.getvalue())
 fx.out = out
 with contextlib.redirect_stdout(io.StringIO()):

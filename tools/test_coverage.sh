@@ -147,7 +147,7 @@ cache = tmp / "cache"
 (cache / "items" / "_group_ft.json").write_text(json.dumps(
     [{"identifier": f"FinancialTimes{y}UKEnglish"} for y in (1980, 1981)]))
 (cache / "items" / "FinancialTimes1981UKEnglish.json").write_text(json.dumps(
-    {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf"}]}))
+    {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf", "format": "Image Container PDF"}]}))
 saved = ac.CACHE, ac.LEDGER, ac.corpus
 ac.CACHE, ac.LEDGER, ac.corpus = cache, cache / "filed.jsonl", lambda s: ({}, {})
 got = {d: c for d, c, _, _ in ac.unfiled(filer.PAPERS["ft"], datetime.date(1981, 4, 2))}

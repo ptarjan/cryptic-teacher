@@ -349,11 +349,13 @@ def write_atomic(path, data):
 
 def editions_of(meta):
     """Edition base names in an item, in date order: one per _djvu.txt, and
-    one per image PDF archive.org never OCR'd (FinancialTimes1981UKEnglish:
-    285 PDFs, no _djvu.txt), which fetch_edition reads by image."""
+    one per scan PDF ("Image Container PDF", not the lending library's
+    encrypted copy or the text PDF) archive.org never OCR'd
+    (FinancialTimes1981UKEnglish: 285, no _djvu.txt), which fetch_edition
+    reads by image."""
     names = {f["name"][: -len("_djvu.txt")] for f in meta["files"] if f["name"].endswith("_djvu.txt")}
     names |= {f["name"][: -len(".pdf")] for f in meta["files"]
-              if f["name"].endswith(".pdf") and not f["name"].endswith("_text.pdf")}
+              if f.get("format") == "Image Container PDF" and f["name"].endswith(".pdf")}
     return sorted(names, key=lambda n: (edition_date(n) or "", n))
 
 

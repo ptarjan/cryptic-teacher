@@ -44,8 +44,12 @@ the next step):
   no grid rebuilt from those clues. The scan's grid now stands there and
   the unlaid lights go blank, so they move to **blank clues**. The 8 left
   are crops `trove_grid.read_grid` cannot measure (stippled or faint).
-- **no OCR** (FT 1981): archive.org holds only image PDFs. Their page JPEGs
-  come out with pypdf; the grid page is found by image, not by OCR.
+- **FT 1981** (285 editions) is held only as image PDFs with no OCR. The
+  fetcher lists them as editions and reads each PDF by image
+  (`fetch_pdf_edition`): the page whose grid-shaped ink `trove_grid` reads
+  is saved greyed at the scans' width, and the filer reads the "F.T.
+  CROSSWORD PUZZLE No. 4,534" title over it by OCR. The crossword is on the
+  TV page. They count as not fetched until the hourly pass reaches them.
 
 Blank clues are mostly the VLM being down, not faint print. On 2026-10-06,
 4,283 of the 4,425 Times editions had been read while llama-swap on the
