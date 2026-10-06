@@ -531,7 +531,7 @@ LAYOUT = [
     ("fetching", "tools/ninas.py", "unannounced messages in finished grids that blogs point out, each checked against our grid"),
     ("fetching", "tools/ci_cache.js", "the per-puzzle result cache that lets every push check the whole corpus"),
     ("fetching", "tools/desktop_busy.py", "whether Paul is playing a game on his desktop, so the work we send there yields"),
-    ("fetching", "tools/desktop_probe.ps1", "the desktop's game processes, 3D load and OCR sessions, as JSON, for tools/desktop_busy.py"),
+    ("fetching", "tools/desktop_probe.ps1", "the desktop's game processes, 3D load (the VLM's own left out) and OCR sessions, as JSON, for tools/desktop_busy.py"),
     ("fetching", "tools/test_desktop_busy.sh", "does desktop OCR and VLM work yield while Paul games, and resume after?"),
     ("fetching", "tools/vlm_health.py", "wake the room when the desktop VLM has been down for DOWN_FOR with no game"),
     ("fetching", "tools/vlm_health.sh", "the scheduled entry point for tools/vlm_health.py (the cryptic-vlm-health plugin), run from a worktree at origin/master (tools/nightly_worktree.sh)."),
