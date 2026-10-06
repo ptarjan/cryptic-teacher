@@ -78,8 +78,14 @@ runs each scan filer over its whole cache. The filers decide what is due
 - read without the VLM, and the VLM answers now;
 - read before `REREAD_BEFORE` in `ocr_full_pass.sh`.
 
-The pass then reads the sources annotation asked to have read again
-(`tools/scan_queue.py requested`), and ends. Running it again is always safe:
+The desktop VLM reads only in a filer's reads, never in a fetch or a scan,
+so the pass puts that work first. It reads every paper's due editions whose
+scans stand (`file_archive_org_puzzles.py --no-scan`: an edition whose own
+scan, or a scan in the week after it where its solution prints, is stale
+waits), then the due Trove articles (that filer scans nothing). Only then does
+it scan each paper and read what the scans made due. It then reads the
+sources annotation asked to have read again (`tools/scan_queue.py
+requested`), fetches, and ends. Running it again is always safe:
 a pass with nothing due ends in minutes.
 
 So nothing is ever queued by hand:
@@ -108,10 +114,10 @@ are committed and pushed. Each filer's ledger is saved after every source, so
 a killed pass resumes where it stopped. It logs to
 `~/.cache/corpus_queue/full_pass.log`.
 
-The pass fetches from archive.org and Trove at the same time, each for at most
-an hour, and starts filing once both have ended. A pass that finishes having
-fetched something starts the next one at once (`corpus_queue.py chain`, a
-`tick --chained`), so a fetch backlog runs back to back. The first pass that
+The pass's last step fetches from archive.org and Trove at the same time,
+each for at most an hour, for the next pass to read. A pass that finishes
+having fetched something starts the next one at once (`corpus_queue.py chain`,
+a `tick --chained`), so a fetch backlog runs back to back. The first pass that
 fetches nothing leaves the next start to the hourly tick.
 
 The hourly tick also checks that the pass is making progress:

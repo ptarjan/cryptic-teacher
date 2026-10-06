@@ -495,7 +495,7 @@ LAYOUT = [
     ("fetching", "tools/ocr_clues.py", "the clue-text OCR every scan filer shares: the readers, the vote, the check"),
     ("fetching", "tools/test_clue_record_shift.sh", "does every Guardian clue record land on the light its number names?"),
     ("fetching", "tools/test_shared_continuation.sh", "does a light whose clue names two leaders end both answers?"),
-    ("fetching", "tools/ocr_full_pass.sh", "the one standing corpus job: read every Trove article and archive.org edition the scan filers find due (never read, inputs changed, read without the VLM that now answers, read before REREAD_BEFORE) and the re-reads annotation asked for, to the end, then stop"),
+    ("fetching", "tools/ocr_full_pass.sh", "the one standing corpus job: read every Trove article and archive.org edition the scan filers find due (never read, inputs changed, read without the VLM that now answers, read before REREAD_BEFORE), those whose scans stand first, and the re-reads annotation asked for, to the end, then fetch for the next pass and stop"),
     ("fetching", "tools/scan_queue.py", "the read queue the scan filers share, and the re-reads annotation asks of them"),
     ("fetching", "tools/archive_coverage.py", "per series and year: editions printed, scanned on archive.org and filed, and every unfiled edition's reason off the filer's ledger, recoverable classes first (docs/ARCHIVE_COVERAGE.md)"),
     ("fetching", "tools/canberra_london_numbers.py", "the London Times number of each cached Canberra Times reprint (to Jan 1982): matched by clue words, or bracketed between two matched days with as many days as numbers; file_trove_puzzles.py stamps reprintOf from it"),

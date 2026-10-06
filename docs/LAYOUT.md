@@ -1491,8 +1491,9 @@ tools/ocr_full_pass.sh                       the one standing corpus job: read e
                                              article and archive.org edition the scan filers
                                              find due (never read, inputs changed, read without
                                              the VLM that now answers, read before
-                                             REREAD_BEFORE) and the re-reads annotation asked
-                                             for, to the end, then stop
+                                             REREAD_BEFORE), those whose scans stand first, and
+                                             the re-reads annotation asked for, to the end,
+                                             then fetch for the next pass and stop
 tools/scan_queue.py                          the read queue the scan filers share, and the
                                              re-reads annotation asks of them
 tools/archive_coverage.py                    per series and year: editions printed, scanned on
