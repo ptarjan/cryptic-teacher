@@ -2937,6 +2937,8 @@
     setTimeout(() => cs.forEach((c) => {
       if (c.el) c.el.classList.remove("solved-flash", "clean");
     }), 450);
+    // A clue solved cold earns a pop of its own, over its middle square.
+    if (clean) { const mid = cs[Math.floor(cs.length / 2)]; if (mid) fireworksAt(mid.el, 1, 28); }
   }
 
   // True once an entry is solved for the price of nothing: no rung was charged
@@ -4454,9 +4456,9 @@
   // #hint-focus and handed to scrollToHintPanel as the thing to place.
   let hintFocus = null;
   function focusHint(key) { hintFocus = key; scrollToHintPanel("hint-focus"); }
-  // A single clue coming out gets no announcement of its own: the grid fills a
-  // square at a time and 28 celebrations is 28 interruptions. The whole grid is
-  // the finish, and that one does celebrate — see celebrate().
+  // A single clue coming out gets no announcement of its own beyond the tint
+  // (and a small burst when it was solved cold, celebrateSolve): 28 messages
+  // would be 28 interruptions. The whole grid is the finish — see celebrate().
 
   // The clue's words, wearing whatever is known about them. Buttons while the
   // question is open, the identical markup as plain spans once it has been
@@ -5894,11 +5896,12 @@
   const dayBefore = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1);
   // Consecutive local days with a puzzle finished on them (timing.solvedAt).
   // Today not finished yet still leaves yesterday's run alive.
-  function puzzleStreak(now) {
+  // `skip` leaves one puzzle out: the streak as it stood before that finish.
+  function puzzleStreak(now, skip) {
     const days = {};
     const saves = savedProgress();
     Object.keys(saves).forEach((id) => {
-      const t = saves[id].timing && saves[id].timing.solvedAt;
+      const t = id !== skip && saves[id].timing && saves[id].timing.solvedAt;
       if (t) days[dayNum(new Date(t))] = new Date(t);
     });
     let d = new Date(now), current = 0;
@@ -5912,6 +5915,16 @@
       best = Math.max(best, run);
     });
     return { current, best };
+  }
+
+  // The rank a list of solved clues earns, oldest first.
+  function rankOf(clues) {
+    const clean = clues.filter((c) => c.clean).length;
+    const recent = clues.slice(-RANK_WINDOW);
+    const low = recent.length ? recent.filter((c) => c.cost <= 1).length / recent.length : 0;
+    let rank = 0;
+    while (rank + 1 < RANKS.length && clean >= RANKS[rank + 1].clean && low >= RANKS[rank + 1].low) rank++;
+    return { rank, low };
   }
 
   const perClue = (list) => list.reduce((n, c) => n + c.cost, 0) / list.length;
@@ -5937,10 +5950,7 @@
     });
     const hist = [0, 0, 0, 0];
     clues.forEach((c) => { hist[Math.min(c.cost, 3)]++; });
-    const recent = clues.slice(-RANK_WINDOW);
-    const low = recent.length ? recent.filter((c) => c.cost <= 1).length / recent.length : 0;
-    let rank = 0;
-    while (rank + 1 < RANKS.length && n.clean >= RANKS[rank + 1].clean && low >= RANKS[rank + 1].low) rank++;
+    const { rank, low } = rankOf(clues);
     // Hints per clue for each of the last twelve weeks, oldest first; null for
     // a week with nothing solved, which the sparkline leaves as a gap.
     const weeks = [];
@@ -6131,32 +6141,154 @@
     return true;
   }
 
-  // A milestone reached by the letter just typed gets one line under the
-  // scorebar, until the next solve replaces it. Nothing pops up. The save is
-  // written first so the solve is in it, and the milestone is the one this
-  // solve reached when its stamp is the save's own.
-  let milestoneNote = { id: null, text: "" };
-  // A paper end-check passes `any`: the ledger left the whole puzzle out until
-  // then, so every milestone it now holds was reached by this check, whatever
-  // its letters' stamps say.
+  // What the letter just typed earned, each announced by a toast linking to
+  // the stats. Nothing records what was announced: an achievement is this
+  // solve's when the clue that reached it carries this save's own stamp, so
+  // everything earned before (on this device, another one, or before toasts
+  // existed) stays quiet, and a sync merge, which types nothing, never toasts.
+  // The save is written first so the solve is in it. A paper end-check passes
+  // `any`: the ledger left the whole puzzle out until then, so all of it is
+  // this check's, whatever its letters' stamps say.
+  const STREAK_STEPS = [3, 7, 14, 30, 50, 100, 200, 365, 500, 1000];
   function noteMilestone(any) {
     clearTimeout(saveTimer);
     writeState();
     const id = P.id, stamp = (store.get(stateKey(), null) || {}).updated;
-    milestoneNote = { id, text: "" };
     whenStartedLoaded(() => {
-      if (!P || P.id !== id || milestoneNote.id !== id) return;
-      const hit = solverStats(Date.now()).milestones.filter((m) => m.id === id && (any || m.at === stamp));
-      milestoneNote.text = hit.map((m) => m.label).join(LIST_SEP);
-      drawScoreExtras();
+      if (!P || P.id !== id) return;
+      achievementsReached(Date.now(), id, (at) => any || at === stamp).forEach(toastAchievement);
     });
+  }
+  function achievementsReached(now, id, mine) {
+    const st = solverStats(now);
+    const got = st.milestones.filter((m) => m.id === id && mine(m.at)).map((m) => m.label);
+    if (st.rank > rankOf(st.clues.filter((c) => !(c.id === id && mine(c.at)))).rank) got.push(`Rank: ${RANKS[st.rank].name}`);
+    const k = st.streak.current;
+    if (st.finished[id] && mine(st.finished[id].at) && STREAK_STEPS.includes(k) && puzzleStreak(now, id).current < k) {
+      got.push(`${k}-day streak`);
+    }
+    return got;
   }
   function drawScoreExtras() {
     const k = puzzleStreak(Date.now()).current;
     setHTML($("streak"), k ? `<strong>${k}</strong>-day streak` : "");
-    const note = P && milestoneNote.id === P.id ? milestoneNote.text : "";
-    setHTML($("milestone-note"), note ? "Milestone: " + esc(note) : "");
-    $("milestone-note").classList.toggle("hidden", !note);
+  }
+
+  // A toast per achievement, stacked in #toasts: the whole toast opens the
+  // stats panel, the ✕ only closes it, and either way it goes by itself after
+  // TOAST_MS. Each one sets off a small burst where it lands.
+  const TOAST_MS = 6000;
+  function toastAchievement(label) {
+    const box = $("toasts");
+    if (!box) return;
+    const el = document.createElement("div");
+    el.className = "toast";
+    el.setAttribute("role", "status");
+    el.innerHTML = `<a class="toast-link" href="#stats"><span aria-hidden="true">🏆</span> `
+      + `<strong>${esc(label)}</strong> <span class="toast-go">— see your stats</span></a>`
+      + `<button class="toast-x ghost small" aria-label="Dismiss">✕</button>`;
+    const drop = () => { clearTimeout(timer); if (el.remove) el.remove(); };
+    el.onclick = (ev) => {
+      if (ev && ev.preventDefault) ev.preventDefault();
+      const close = ev && ev.target && ev.target.classList && ev.target.classList.contains("toast-x");
+      if (!close && toggleStats(true)) beacon("stats");
+      drop();
+    };
+    const timer = setTimeout(drop, TOAST_MS);
+    box.appendChild(el);
+    fireworksAt(el, 2, 36);
+  }
+
+  // ---------- fireworks ----------
+  // One canvas over the whole page, made on the first burst and drawn only
+  // while something is in the air. A spark's position is a closed form of its
+  // age (launch, drag, gravity), so a frame is a loop over an array and a
+  // dropped frame costs nothing but a frame. Nothing at all under
+  // prefers-reduced-motion.
+  const FW_GRAVITY = 90, FW_DRAG = 1.6;
+  let fw = null;
+  function fireworks(shells) {
+    if (reduceMotion() || !document.body || typeof requestAnimationFrame !== "function") return;
+    if (!fw) {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext && canvas.getContext("2d");
+      if (!ctx) return;
+      canvas.className = "fw-canvas";
+      canvas.setAttribute("aria-hidden", "true");
+      document.body.appendChild(canvas);
+      fw = { canvas, ctx, parts: [], running: false };
+    }
+    const css = getComputedStyle(document.documentElement);
+    const colors = ["--burst-1", "--burst-2", "--burst-3"].map((v) => css.getPropertyValue(v).trim())
+      .filter(Boolean).concat(["#f5b82e", "#ff7a59"]);
+    const t0 = performance.now();
+    shells.forEach((sh, n) => {
+      const color = colors[n % colors.length], alt = colors[(n + 2) % colors.length];
+      const born = t0 + (sh.delay || 0) * 1000;
+      if (sh.rocket) {
+        fw.parts.push({ rocket: true, x: sh.x, y0: innerHeight, y: sh.y, born: born - 550, life: 550, color });
+      }
+      const sparks = sh.sparks || 40, speed = sh.speed || 220;
+      for (let i = 0; i < sparks; i++) {
+        const a = (i / sparks) * Math.PI * 2 + Math.random() * 0.2;
+        const v = speed * (0.55 + Math.random() * 0.45);
+        fw.parts.push({ x: sh.x, y: sh.y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, born,
+                        life: 900 + Math.random() * 700, color: i % 4 ? color : alt, size: 1.8 + Math.random() * 1.6 });
+      }
+    });
+    if (!fw.running) { fw.running = true; requestAnimationFrame(fwFrame); }
+  }
+  function fwAt(p, s) {
+    const k = (1 - Math.exp(-FW_DRAG * s)) / FW_DRAG;
+    return [p.x + p.vx * k, p.y + p.vy * k + 0.5 * FW_GRAVITY * s * s];
+  }
+  function fwFrame(t) {
+    const { canvas, ctx } = fw;
+    const dpr = window.devicePixelRatio || 1, w = innerWidth, h = innerHeight;
+    if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+    }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    fw.parts = fw.parts.filter((p) => t < p.born + p.life);
+    fw.parts.forEach((p) => {
+      if (t < p.born) return;
+      const f = (t - p.born) / p.life;
+      ctx.globalAlpha = p.rocket ? 1 : Math.min(1, 2.2 * (1 - f));
+      ctx.fillStyle = ctx.strokeStyle = p.color;
+      if (p.rocket) {
+        const e = 1 - (1 - f) * (1 - f), y = p.y0 + (p.y - p.y0) * e;
+        ctx.beginPath(); ctx.arc(p.x, y, 2.2, 0, Math.PI * 2); ctx.fill();
+        ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(p.x, y); ctx.lineTo(p.x, y + 26); ctx.stroke();
+        return;
+      }
+      const s = (t - p.born) / 1000;
+      const [x, y] = fwAt(p, s), [px, py] = fwAt(p, Math.max(0, s - 0.08));
+      ctx.lineWidth = p.size; ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x, y); ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, p.size, 0, Math.PI * 2); ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+    if (fw.parts.length) requestAnimationFrame(fwFrame);
+    else { ctx.clearRect(0, 0, w, h); fw.running = false; }
+  }
+  // `shells` small bursts centred on an element, staggered by a beat.
+  function fireworksAt(el, shells, sparks) {
+    if (!el || !el.getBoundingClientRect || reduceMotion()) return;
+    const r = el.getBoundingClientRect();
+    fireworks(Array.from({ length: shells }, (_, i) => ({
+      x: r.left + r.width * (shells > 1 ? (i + 0.5) / shells : 0.5), y: r.top + r.height / 2,
+      sparks, speed: shells > 1 ? 280 : 200, delay: i * 0.18,
+    })));
+  }
+  // The finish: rockets up the screen and bursts across it. A grid finished
+  // without a single hint gets twice the show.
+  function finishFireworks(clean) {
+    const shells = clean ? 16 : 8, w = innerWidth, h = innerHeight;
+    fireworks(Array.from({ length: shells }, (_, i) => ({
+      x: w * (0.12 + 0.76 * ((i * 0.618) % 1)), y: h * (0.15 + 0.3 * ((i * 0.382) % 1)),
+      sparks: clean ? 70 : 50, speed: clean ? 300 : 250, delay: i * (clean ? 0.28 : 0.35), rocket: true,
+    })));
   }
 
   // ---------- picker ----------
@@ -7175,7 +7307,7 @@
     // seen rather than for a scroll that may never happen.
     // Only on the transition. Reopening a finished puzzle must not yank the page
     // around, for the same reason it does not throw fireworks.
-    if (earned) { fireBurst(parts.burst); scrollToHintPanel("celebrate", "celebrate"); }
+    if (earned) { fireBurst(parts.burst, noHints === Object.keys(counted).length); scrollToHintPanel("celebrate", "celebrate"); }
   }
 
   // Where the burst is, in one word, on the element itself. Four outcomes used to
@@ -7253,7 +7385,7 @@
   // otherwise land on this one and mark a burst that is happily in the air as
   // one nobody ever saw.
   let burstRun = 0;
-  function fireBurst(burst) {
+  function fireBurst(burst, clean) {
     const run = ++burstRun;
     const mine = () => run === burstRun;
     // The last burst's watcher, if it is somehow still waiting: a burst that is
@@ -7264,6 +7396,7 @@
     const go = () => {
       if (!mine() || !burst.classList.contains("hold")) return;
       burstState(burst, "lit");
+      finishFireworks(clean);
       setTimeout(() => {
         if (mine() && burst.classList.contains("lit")) burstState(burst, "spent");
       }, BURST_MS);
@@ -7371,6 +7504,8 @@
     bindFeedback();
     $("btn-stats").onclick = () => { if (toggleStats()) beacon("stats"); };
     $("btn-stats-close").onclick = () => toggleStats(false);
+    // #stats is the stats page as a link, which is what a toast points at.
+    if (location.hash === "#stats") toggleStats(true);
     bindWelcome();
     // The lesson is /learn/ — a page, reached by a plain link in the header.
     // It is a document you read end to end, and it outgrew the collapsible

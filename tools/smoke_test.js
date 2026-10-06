@@ -7201,23 +7201,37 @@ global.realSetTimeout(() => {
     "two days since the last finish ends the streak, and apart they are runs of one");
   assert(d2.registry["streak"].innerHTML === "", "no streak, nothing beside the scorebar");
 
-  // A solve that reaches a milestone says so in one line, and the next solve
-  // that reaches none takes the line away.
+  // A solve that reaches a milestone pops a toast per achievement, each a link
+  // to the stats, and the next solve that reaches none pops nothing.
   const d3 = require("./fake_dom.js").boot({ query: "?p=quiptic-1396",
     storage: { "ct:seen": JSON.stringify({ last: "2000-01-01", days: 5 }) } });
-  const kd = d3.docListeners["keydown"][0];
-  const type = (e) => {
-    d3.registry["clue-" + entryId(e)].listeners.click[0]();
-    e.solution.split("").forEach((c) => kd({ key: c, preventDefault() {}, shiftKey: false, target: d3.registry["kbd"] }));
+  const typeIn = (dom, e) => {
+    dom.registry["clue-" + entryId(e)].listeners.click[0]();
+    e.solution.split("").forEach((c) => dom.docListeners["keydown"][0](
+      { key: c, preventDefault() {}, shiftKey: false, target: dom.registry["kbd"] }));
   };
   const Q = global.window.CRYPTIC_PUZZLES["quiptic-1396"];
   const [q1, q2] = Q.entries.filter((e) => !e.group && e.direction === "across");
-  type(q1);
-  const note = d3.registry["milestone-note"];
-  assert(!note.classList.contains("hidden") && /First clue solved · First clue with no hints/.test(note.innerHTML),
-    "the first clean solve is noted on the solve: " + note.innerHTML);
-  type(q2);
-  assert(note.classList.contains("hidden"), "and the next solve, reaching none, clears it: " + note.innerHTML);
+  const toasts = d3.registry["toasts"].children;
+  assert(toasts.length === 0, "a fresh page has no toasts");
+  typeIn(d3, q1);
+  const said = toasts.map((t) => t.innerHTML);
+  assert(said.length === 2 && /First clue solved/.test(said[0]) && /First clue with no hints/.test(said[1])
+    && said.every((h) => /href="#stats"/.test(h)),
+    "the first clean solve pops a toast per milestone, each linking to the stats: " + said.join(" | "));
+  typeIn(d3, q2);
+  assert(toasts.length === 2, "and the next solve, reaching none, pops nothing: " + toasts.length);
+  assert(d3.registry["stats-panel"].classList.contains("hidden"), "the stats are closed until asked for");
+  toasts[0].onclick({ preventDefault() {}, target: toasts[0] });
+  assert(!d3.registry["stats-panel"].classList.contains("hidden"), "clicking a toast opens the stats");
+
+  // Achievements earned before this page loaded, or on another device, never
+  // toast: the planted saves already hold every early milestone and a rank, and
+  // one more clean clue reaches none of them again.
+  const d4 = require("./fake_dom.js").boot({ query: "?p=quiptic-1396", storage: planted });
+  typeIn(d4, q1);
+  const again = d4.registry["toasts"].children.map((t) => t.innerHTML).join(" | ");
+  assert(!/First clue|Rank:/.test(again), "nothing already earned is announced again: " + again);
 }
 
 // --- a jigsaw's clue list and clue picks say nothing about where answers go ---
