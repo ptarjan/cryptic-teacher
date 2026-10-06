@@ -180,6 +180,9 @@ from pathlib import Path
 
 import requests
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import book_queue  # noqa: E402
+
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 CSRF_URL = "https://archive.org/services/csrf-token"
 LOGIN_URL = "https://archive.org/services/account/login/"
@@ -187,7 +190,7 @@ LOAN_URL = "https://archive.org/services/loans/loan/"
 METADATA_URL = "https://archive.org/metadata/{id}"
 PAGE_TEXT_URL = "https://{server}/BookReader/BookReaderGetTextWrapper.php"
 DEFAULT_CREDS = "~/.config/ia/creds"
-DEFAULT_OUT = Path("/tmp/cryptic-teacher-ia-books")
+DEFAULT_OUT = book_queue.TEXT_DIR
 # The one refusal string archive.org sends for two unrelated conditions; on
 # its own it means only "no loan for you right now", never "no loan needed".
 AMBIGUOUS_BORROW_ERROR = "not available to borrow"

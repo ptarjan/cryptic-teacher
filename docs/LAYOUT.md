@@ -1105,6 +1105,10 @@ tools/data/book_acquisition_plan.json        the crossword books still to acquir
 tools/data/book_pins.json                    books to acquire before the ranking's order, which
                                              tools/book_queue.py reads and the ranking tool
                                              never rewrites
+tools/data/book_reads.json                   each archive.org book's last read by
+                                             tools/acquire_book.py (date, puzzles found and
+                                             filed); tools/book_queue.py re-reads a book whose
+                                             read predates its REREAD_BEFORE
 tools/data/penguin5_control.json             the ten-puzzle Penguin volume 5 control
                                              tools/test_acquire_book.sh gates on: light specs,
                                              black-square patterns and a digest of the parser's

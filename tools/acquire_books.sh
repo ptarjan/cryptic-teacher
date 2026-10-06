@@ -45,37 +45,47 @@ trap 'python3 "$REPO/tools/fetch_ia_book.py" --loans 2>&1 | sed "s/^/loans: /"' 
 
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') acquire_books"
 
+# Commit what a read filed, plus the read ledger, and push. Prints the count.
+# One retry: the daily job and the pre-reset burn push to the same branch, so
+# losing a race is ordinary and being unable to push twice is not.
+publish() {  # publish <subject>
+  local n
+  n="$(git status --porcelain -uall -- puzzles/ | wc -l | tr -d ' ')"
+  echo "filed $n puzzles"
+  git add -A -- puzzles/ tools/data/book_reads.json
+  git diff --cached --quiet && return 0
+  git commit -q -m "$1: $n puzzles" \
+    -m "Filed unsolved by tools/acquire_book.py; the nightly solve queue takes them from here." ||
+    return 1
+  git fetch -q origin master && git rebase -q --autostash origin/master &&
+    git push -q origin HEAD:master || {
+    git fetch -q origin master && git rebase -q --autostash origin/master &&
+      git push -q origin HEAD:master; } || return 1
+  echo "pushed"
+}
+
+# RE-READ FIRST, from text on disk: no loan, so nothing archive.org says can
+# stop it. A book is due when the reader in force has not read it — see RE-READS
+# in tools/book_queue.py — and acquire_book.py skips every leaf already filed.
+# One book per run keeps a run inside the plugin's timeout.
+reread="$(python3 tools/book_queue.py --reread | head -1)"
+if [ -n "$reread" ]; then
+  echo "re-reading $reread from its cached text (no loan)"
+  nice -n 19 python3 tools/acquire_book.py "$reread" --file --puzzle-dir puzzles --jobs 2 --no-borrow
+  publish "Re-read $reread with the current reader" ||
+    alert "re-read $reread but could not commit or push its puzzles — they are in $PWD. See .books.log."
+fi
+
 id="$(python3 tools/book_queue.py --next)"
 if [ -z "$id" ]; then
   echo "every registered book has been read — nothing queued"
   exit 0
 fi
-echo "next unread book: $id ($(python3 tools/book_queue.py --count) still unread)"
+echo "next book to borrow: $id ($(python3 tools/book_queue.py --count) queued)"
 
 # Two jobs at lowest priority: the box also runs the burn and CI-style test runs.
 nice -n 19 python3 tools/acquire_book.py "$id" --file --puzzle-dir puzzles --jobs 2
 rc=$?
-
-# 3 is EXIT_LENDING_LIMIT: the account is over its allowance, which says
-# nothing about this book and nothing this run can act on. One refusal is not
-# worth an alert — a poll that shouts on every refusal is a channel nobody
-# reads by Tuesday. A refusal that never stops is a different thing: it is not
-# "not yet", it is an account archive.org will not unblock on its own, and the
-# message it returns names the address to write to. So: silent for the first
-# couple of refusals, once at roughly a week of them, then roughly monthly
-# while it lasts, and once more when it clears. The thresholds count RUNS, so
-# they move whenever the schedule in the plugin manifest does — RUN_HOURS below
-# is what turns a run count back into days, and it must agree with it.
-STREAK_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/cryptic-teacher/lending-refusals"
-streak="$(cat "$STREAK_FILE" 2>/dev/null || echo 0)"
-case "$streak" in ''|*[!0-9]*) streak=0 ;; esac
-streak_write() {
-  mkdir -p "$(dirname "$STREAK_FILE")" 2>/dev/null || true
-  printf '%s\n' "$1" > "$STREAK_FILE" 2>/dev/null || true
-}
-RUN_HOURS=1            # the plugin manifest asks hourly
-STREAK_ALERT_AT=240    # so: about ten days of refusals
-STREAK_ALERT_EVERY=720 # and about a month between reminders after that
 
 if [ "$rc" = 3 ]; then
   streak=$((streak + 1))
@@ -99,26 +109,9 @@ if [ "$streak" -ge "$STREAK_ALERT_AT" ]; then
 fi
 streak_write 0
 
-# -uall: a new year folder is one line per file, not one for the folder.
 filed="$(git status --porcelain -uall -- puzzles/ | wc -l | tr -d ' ')"
 if [ "$filed" = 0 ]; then
-  alert "reading $id off archive.org succeeded but filed no puzzle, so the queue will offer the same book every hour forever. Its report says why it rejected every leaf. See .books.log."
-  exit 1
+  alert "reading $id off archive.org succeeded but filed no puzzle. Its report says why it rejected every leaf. See .books.log."
 fi
-echo "filed $filed puzzles from $id"
-
-git add -A -- puzzles/
-git commit -q -m "Read $id off archive.org: $filed puzzles" \
-  -m "Filed unsolved by tools/acquire_book.py; the nightly solve queue takes them from here." || {
-  alert "could not commit the $filed puzzles read from $id — they are in $PWD and nothing else will pick them up. See .books.log."
-  exit 1
-}
-# One retry, then say so: the daily job and the pre-reset burn push to the same
-# branch, so losing a race is ordinary and being unable to push twice is not.
-git fetch -q origin master && git rebase -q --autostash origin/master &&
-  git push -q origin HEAD:master || {
-  git fetch -q origin master && git rebase -q --autostash origin/master &&
-    git push -q origin HEAD:master ||
-    alert "read $filed puzzles from $id and committed them, but could not push — they will not reach the site until someone pushes $PWD. See .books.log."
-}
-echo "pushed"
+publish "Read $id off archive.org" ||
+  alert "read $id but could not commit or push its puzzles — they are in $PWD. See .books.log."
