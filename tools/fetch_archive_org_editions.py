@@ -746,7 +746,7 @@ class Run:
                     self.stop = True
                     log(f"stopping: {self.in_a_row} editions in a row failed; archive.org looks down")
             return False
-        heads = "; ".join(h for hit in hits for h in hit.get("headings", ["(blank OCR)"])[:2])
+        heads = "; ".join(h for hit in hits for h in hit.get("headings", ["(PDF page with a grid)" if hit.get("pdf") else "(blank OCR)"])[:2])
         with self.lock:
             self.in_a_row = 0
             self.n += 1
