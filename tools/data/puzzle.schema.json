@@ -430,7 +430,7 @@
      "$ref": "#/$defs/clue"
     },
     "solution": {
-     "description": "The answer, A-Z. Absent when the puzzle has no answers yet.",
+     "description": "The letters the grid holds, A-Z: the answer, or what its `alteration` makes of it. Absent when the puzzle has no answers yet.",
      "type": "string",
      "minLength": 1
     },
@@ -439,7 +439,7 @@
      "const": "LIKELY"
     },
     "alteration": {
-     "description": "The extra solving step of a puzzle whose preamble alters answers before entry (reversed, jumbled, a letter moved or dropped, a misprint corrected). `solution` is what goes in the grid; the clue's wordplay and definition give `from`, and `steps` turn `from` into `solution` in order, each op checked letter for letter on write. Every step but the last names its result in `gives`; the last one's result is `solution`. An annotation's wordplay builds `from`.",
+     "description": "The extra solving step of a puzzle whose preamble or clue alters the answer before entry (reversed, jumbled, a letter moved or dropped, a misprint corrected). `solution` is what goes in the grid; the clue's wordplay and definition give `from`, and `steps` turn `from` into `solution` in order, each op checked letter for letter on write. Every step but the last names its result in `gives`; the last one's result is `solution`. An annotation's wordplay builds `from`; an enumeration may count either word. Letters map one to a cell, so multi-letter cells, numerical entries and a grid changed after the fill are out of scope.",
      "type": "object",
      "required": [
       "from",

@@ -439,8 +439,10 @@
   // answer goes and that typing it costs nothing, not whether a newcomer can
   // assemble their first clue unaided.
   function typeItLine(e) {
-    const answer = String((annOf(e) || {}).answer || "").trim();
-    return (answer ? "You have every piece now, and they make " + answer + ". Type it"
+    const ann = annOf(e) || {};
+    const answer = String(ann.answer || "").trim();
+    return (answer ? "You have every piece now, and they make " + answer
+                     + (ann.entered ? ", entered as " + ann.entered : "") + ". Type it"
                    : "You have every piece now. Put them together and type the answer")
       + " into the highlighted squares — typing it in yourself finishes a clue without using a hint.";
   }
@@ -933,10 +935,17 @@
   };
   const holderOf = (e) => byId[leaderOf[entryId(e)]] || e;
   const entryKey = (e) => entryId(holderOf(e));
+  // An annotation explains the clue's own word; an entry the preamble or clue
+  // alters before entry (`alteration`) holds other letters in the grid, so the
+  // annotation carries the alteration and those letters for the last rung.
   const annOf = (e) => {
     const h = holderOf(e);
-    return h.annotation || blogAnn(h);
+    const ann = h.annotation || blogAnn(h);
+    return ann && h.alteration ? { ...ann, alteration: h.alteration, entered: h.solution } : ann;
   };
+  // What the clue itself solves to: `alteration.from` where the grid holds
+  // something else, else the solution.
+  const clueAnswer = (e) => (e.alteration && e.alteration.from) || e.solution || "";
   // A clue we have not annotated may still carry what a blog's write-up marks
   // about it (tools/blog_facts.py, merged into the shim by fetch_puzzle): the
   // underlined definition, a clue type the blogger named outright or spelled
@@ -961,7 +970,7 @@
     const b = e.blog;
     if (!b) return null;
     const defs = b.definitions || [];
-    const answer = e.solution || "";
+    const answer = clueAnswer(e);
     const ann = { fromBlog: true, answer, type: b.type || [], indicators: b.indicators || [],
                   blocks: (b.blocks || []).map((block) => {
                     if (block.soundsLike) return block;
@@ -3491,7 +3500,8 @@
   function ringPins(letters, key) {
     const pins = {};
     const e = currentEntry();
-    if (!e || !e.solution || jigsaw) return pins;
+    // An altered entry's letter i is not its answer's letter i.
+    if (!e || !e.solution || jigsaw || e.alteration) return pins;
     const ann = annOf(e);
     if (!ann || ringKey(ann) !== key) return pins;
     const sol = String(e.solution).toUpperCase().replace(/[^A-Z]/g, "");
@@ -3736,6 +3746,16 @@
     renderHintPanel();
     playRingFlip(prevRects);
     ghostRingTile(removedRect, removedText);
+  }
+
+  // "Entered as SAPIR: RIPAS → reversal → SAPIR": each step's op by its own
+  // name (puzzle.schema.json alterationOp), so no table here can drift from it.
+  function enteredHTML(ann) {
+    const alt = ann.alteration;
+    if (!alt || !ann.entered) return "";
+    const chain = [`<span class="gives">${esc(alt.from)}</span>`];
+    for (const step of alt.steps || []) chain.push(esc(step.op), `<span class="gives">${esc(step.gives || ann.entered)}</span>`);
+    return `<p>Entered as <span class="gives">${esc(ann.entered)}</span>: ${chain.join(" → ")}</p>`;
   }
 
   function ladderSteps(ann, clue) {
@@ -4048,7 +4068,7 @@
       label: LABELS.walkthrough,
       html: (steps.some((s) => s.key === "blocks") ? "" : mechanics) +
         joke + (prose.walkthrough ? `<p><b class="wt-part">The trick</b>${esc(prose.walkthrough)}</p>` : "") + fit + note +
-        `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>`
+        `<p>Answer: <span class="gives">${esc(ann.answer)}</span></p>` + enteredHTML(ann)
     });
     // Ordered by how much each rung gives away, cheapest first — not by the
     // order the rungs are built in, and not by the order people solve in.
