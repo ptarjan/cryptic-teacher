@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,79 @@
     "text": "Group of around 50 states regret over wish to leave here, initially?",
     "enumeration": "6"
    },
-   "solution": "EUROPE"
+   "solution": "EUROPE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EUROPE",
+    "definitions": [
+     {
+      "text": "Group of around 50 states",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "something turned over ends up facing the other way, so the word for regret is flipped"
+     },
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "the first letter of the word here is told to depart from the word for wish"
+     },
+     {
+      "text": "initially",
+      "for": "deletion",
+      "note": "points at only the opening letter of here as the one that goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "wish",
+      "gives": "HOPE",
+      "note": "a hope is a wish"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of here"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUR",
+      "OPE"
+     ],
+     "reversals": [
+      {
+       "from": "RUE",
+       "to": "EUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A post-referendum musing: regretting the wish to leave a fifty-member bloc, with Brexit in the background.",
+     "walkthrough": "The surface suggests the European Union, but the definition is the whole continent with its roughly fifty sovereign countries.",
+     "definitionFit": "The continent contains around fifty sovereign countries, so a group of about fifty nations describes it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "leave"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +122,79 @@
     "text": "Stress as he is worried about rise of Theresa May",
     "enumeration": "8"
    },
-   "solution": "EMPHASIS"
+   "solution": "EMPHASIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "EMPHASIS",
+    "definitions": [
+     {
+      "text": "Stress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise of",
+      "for": "reversal",
+      "note": "in a down answer a rise reads from the bottom upwards, so the title is turned round"
+     },
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried means agitated and disturbed, so those three words are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the jumbled letters go round the turned title"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as he is",
+      "gives": "ASHEIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Theresa May",
+      "gives": "PM",
+      "note": "Theresa May was the UK Prime Minister, the PM"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MP",
+      "HASIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASHEIS",
+       "gives": "EHASIS"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PM",
+       "to": "MP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man is anxious about Theresa May's rise to power, and feeling the strain.",
+     "walkthrough": "Theresa May became Britain's Prime Minister in 2016. 'Stress' is a noun here, as in placing stress on a word.",
+     "definitionFit": "Emphasis is special importance or weight placed on something, which is what stress means in speech or argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +208,50 @@
     "text": "Religious Education likely to be well grounded",
     "enumeration": "8"
    },
-   "solution": "RELIABLE"
+   "solution": "RELIABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RELIABLE",
+    "definitions": [
+     {
+      "text": "well grounded",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Religious Education",
+      "gives": "RE",
+      "note": "RE is the British school subject Religious Education"
+     },
+     {
+      "clueFragment": "likely",
+      "gives": "LIABLE",
+      "note": "liable to do something means likely to do it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "LIABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A comment that a school's religious education lessons will probably have solid foundations.",
+     "walkthrough": "RE is the school subject name in Britain, written out in full here.",
+     "definitionFit": "Something reliable is dependable and trustworthy, resting on a sound basis, which is what well grounded suggests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grounded"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +265,86 @@
     "text": "One's given a chair for female - terribly sore, clutching bottom in distress",
     "enumeration": "9"
    },
-   "solution": "PROFESSOR"
+   "solution": "PROFESSOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "PROFESSOR",
+    "definitions": [
+     {
+      "text": "One's given a chair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom in",
+      "for": "letter_selection",
+      "note": "the bottom of a down word is its final letter, so only the last of distress is used"
+     },
+     {
+      "text": "terribly",
+      "for": "anagram",
+      "note": "terribly means badly, so the letters of sore are scrambled"
+     },
+     {
+      "text": "clutching",
+      "for": "container",
+      "note": "clutching means holding inside, so the scrambled letters grip the single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "PRO",
+      "note": "pro means in favour of, for"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "sore",
+      "gives": "SORE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "distress",
+      "gives": "S",
+      "select": "last",
+      "note": "the last letter of distress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "F",
+      "ESSOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORE",
+       "gives": "ESOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman, painfully sore and in distress, is offered a seat to sit on.",
+     "walkthrough": "The chair is not furniture but an academic post: a university chair is a professorship.",
+     "definitionFit": "A university chair is a senior academic post, and the person appointed to it holds the title of professor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chair"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +358,71 @@
     "text": "About to return money? Editor's stressed",
     "enumeration": "8"
    },
-   "solution": "ACCENTED"
+   "solution": "ACCENTED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ACCENTED",
+    "definitions": [
+     {
+      "text": "stressed",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the short word for about is read backwards"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "CA",
+      "note": "ca. is circa, about"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "CENT",
+      "note": "a cent is a coin of money"
+     },
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "the usual abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "CENT",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "CA",
+       "to": "AC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is about to get their money back, and an editor is under pressure.",
+     "walkthrough": "'Editor's stressed' reads as a stressed-out editor, but 's here is just 'is', joining wordplay to definition.",
+     "definitionFit": "An accented syllable is one given emphasis in speech, the same as a stressed syllable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stressed"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +436,65 @@
     "text": "Caught dace on Trent when spinning intensified",
     "enumeration": "12"
    },
-   "solution": "CONCENTRATED"
+   "solution": "CONCENTRATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CONCENTRATED",
+    "definitions": [
+     {
+      "text": "intensified",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spinning",
+      "for": "anagram",
+      "note": "spinning means whirling round, so the fish and river letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is caught in cricket scoring"
+     },
+     {
+      "clueFragment": "dace on Trent",
+      "gives": "DACEONTRENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONCENTRATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DACEONTRENT",
+       "gives": "ONCENTRATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An angler on the River Trent lands a dace using a spinning lure.",
+     "walkthrough": "The Trent is a major English river and a dace a small freshwater fish; 'spinning' is an angling method and also the anagram signal.",
+     "definitionFit": "Concentrated means made stronger or more focused, which is what intensified describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "spinning"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +508,61 @@
     "text": "Former lover capsizing craft, unusually",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "unusually",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capsizing",
+      "for": "reversal",
+      "note": "a capsizing boat turns upside down, so in a down answer the word for craft is read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former lover",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "craft",
+      "gives": "ART",
+      "note": "craft means skill or art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TRA"
+     ],
+     "reversals": [
+      {
+       "from": "ART",
+       "to": "TRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-partner unexpectedly overturns a boat.",
+     "walkthrough": "'Craft' suggests a boat to go with capsizing; it means skill. Extra as an adverb means more than usually, as in extra careful.",
+     "definitionFit": "Used before an adjective, extra means to an exceptional degree, so an extra large one is unusually large."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +576,52 @@
     "text": "Sport journalists in Netherlands locked up?",
     "enumeration": "6"
    },
-   "solution": "TENNIS"
+   "solution": "TENNIS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TENNIS",
+    "definitions": [
+     {
+      "text": "Sport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "locked",
+      "for": "hidden_word",
+      "note": "something locked is shut inside, so the letters are concealed within these words"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down answer up means the concealed letters are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "journalists in Netherlands",
+      "gives": "SINNET",
+      "note": "the letters run across the end of journalists, the whole of in, and the start of Netherlands"
+     }
+    ],
+    "explanation": {
+     "surface": "A question whether reporters in the Netherlands have been imprisoned.",
+     "walkthrough": "The answer sits backwards inside 'journalists in Netherlands'; 'in' looks like a link but is part of the hiding place.",
+     "definitionFit": "Tennis is a racket game played over a net, a well-known sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "locked"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +635,48 @@
     "text": "Colouring's fading, it's reported",
     "enumeration": "6"
    },
-   "solution": "DYEING"
+   "solution": "DYEING",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DYEING",
+    "definitions": [
+     {
+      "text": "Colouring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "it's reported",
+      "for": "homophone",
+      "note": "reported means passed on by word of mouth, so what is wanted is a word that sounds like the one for fading"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fading",
+      "gives": "DYEING",
+      "soundsLike": "DYING",
+      "note": "a fading thing is dying away"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour that some dyed fabric is losing its colour.",
+     "walkthrough": "'Colouring's' looks like a possessive noun; it is the verb form plus 'is'.",
+     "definitionFit": "Dyeing is the act of changing the colour of fabric or hair with a stain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fading"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +690,57 @@
     "text": "Paleness from friend left in front of soldiers",
     "enumeration": "6"
    },
-   "solution": "PALLOR"
+   "solution": "PALLOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALLOR",
+    "definitions": [
+     {
+      "text": "Paleness",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "in front of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "OR",
+      "note": "OR stands for Other Ranks, ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "L",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend left ahead of the troops, and somebody has gone pale.",
+     "walkthrough": "OR, Other Ranks, is the crossword stand-by for soldiers who are not officers.",
+     "definitionFit": "Pallor is an unhealthy whiteness of the face, which is exactly what paleness describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +754,50 @@
     "text": "Batting posture, for example",
     "enumeration": "8"
    },
-   "solution": "INSTANCE"
+   "solution": "INSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSTANCE",
+    "definitions": [
+     {
+      "text": "example",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Batting",
+      "gives": "IN",
+      "note": "a batter in cricket who is batting is said to be in"
+     },
+     {
+      "clueFragment": "posture",
+      "gives": "STANCE",
+      "note": "a stance is a way of standing, a posture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket coach describes the way a batsman stands at the crease.",
+     "walkthrough": "In cricket the side batting is 'in'. The surface makes 'for example' look like a throwaway, but 'example' is the definition.",
+     "definitionFit": "An instance is a single case or illustration, which is what an example is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Batting"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +811,47 @@
     "text": "Salesman feeling bitter about exhibiting",
     "enumeration": "12"
    },
-   "solution": "REPRESENTING"
+   "solution": "REPRESENTING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPRESENTING",
+    "definitions": [
+     {
+      "text": "exhibiting",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "feeling bitter about",
+      "gives": "RESENTING",
+      "note": "to resent something is to feel bitter about it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "RESENTING"
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling salesman is aggrieved about having to display his goods.",
+     "walkthrough": "'About' belongs to the wordplay phrase rather than signalling a container.",
+     "definitionFit": "To represent can mean to depict or display, so representing a scene is exhibiting it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +865,60 @@
     "text": "Come to a king in terror",
     "enumeration": "5"
    },
-   "solution": "AWAKE"
+   "solution": "AWAKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWAKE",
+    "definitions": [
+     {
+      "text": "Come to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the article and the monarch inside the word for terror"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is king in chess notation"
+     },
+     {
+      "clueFragment": "terror",
+      "gives": "AWE",
+      "note": "awe is fearful dread"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AW",
+      "AK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A king in a state of terror comes round, as if waking from a nightmare.",
+     "walkthrough": "'Come to' is a phrasal verb, to regain consciousness, and awake works as a verb too.",
+     "definitionFit": "To come to is to recover consciousness, and to awake is to rouse from sleep: both mean surfacing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Come"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +932,56 @@
     "text": "Promotion? No - leave it out!",
     "enumeration": "9"
    },
-   "solution": "ELEVATION"
+   "solution": "ELEVATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ELEVATION",
+    "definitions": [
+     {
+      "text": "Promotion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests the letters are knocked out of their order and set down afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "leave it",
+      "gives": "LEAVEIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOLEAVEIT",
+       "gives": "ELEVATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told they won't get a promotion and should drop the subject.",
+     "walkthrough": "'Leave it out!' is London slang for 'stop it' or 'come off it', which hides the anagram signal.",
+     "definitionFit": "An elevation is a raising in rank or position, so a step up the ladder is a promotion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +995,73 @@
     "text": "Shows poorly American costs after start of treatment",
     "enumeration": "11"
    },
-   "solution": "ILLUSTRATES"
+   "solution": "ILLUSTRATES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ILLUSTRATES",
+    "definitions": [
+     {
+      "text": "Shows",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "start of takes only the opening letter of the word treatment"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the word for costs following the opening letter of treatment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poorly",
+      "gives": "ILL",
+      "note": "poorly means unwell"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is an abbreviation for American"
+     },
+     {
+      "clueFragment": "treatment",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of treatment"
+     },
+     {
+      "clueFragment": "costs",
+      "gives": "RATES",
+      "note": "rates are charges or costs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "US",
+      "T",
+      "RATES"
+     ]
+    },
+    "explanation": {
+     "surface": "An American patient falls ill and is hit by medical bills after starting treatment.",
+     "walkthrough": "'Shows poorly' reads as 'performs badly', but 'poorly' is wordplay, an adjective meaning sick.",
+     "definitionFit": "To illustrate something is to demonstrate or make it clear, much as one shows it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "poorly"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1075,48 @@
     "text": "Reach hospital department on this?",
     "enumeration": "9"
    },
-   "solution": "STRETCHER"
+   "solution": "STRETCHER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "STRETCHER",
+    "definitions": [
+     {
+      "text": "Reach hospital department on this?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reach",
+      "gives": "STRETCH",
+      "note": "to stretch is to reach out"
+     },
+     {
+      "clueFragment": "hospital department",
+      "gives": "ER",
+      "note": "ER is the Emergency Room, a hospital department"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRETCH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A question of how a casualty gets to the emergency department.",
+     "walkthrough": "The whole clue is the definition: patients reach casualty lying on one. ER is the American emergency room.",
+     "definitionFit": "A stretcher is a frame for carrying a sick or injured person lying down, often to emergency care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Reach"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1130,58 @@
     "text": "Fully entitled to leave 50% with bank",
     "enumeration": "8"
    },
-   "solution": "ENTIRELY"
+   "solution": "ENTIRELY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENTIRELY",
+    "definitions": [
+     {
+      "text": "Fully",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to leave 50%",
+      "for": "deletion",
+      "note": "half of the word departs, so only its first four letters stay"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entitled",
+      "gives": "ENTITLED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "RELY",
+      "note": "to bank on someone is to rely on them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTI",
+      "RELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone completely within their rights to walk out with half the bank's money.",
+     "walkthrough": "'Bank' looks like the place that holds money; here it is the verb, as in bank on.",
+     "definitionFit": "Entirely means wholly or completely, which is the sense of fully."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1195,65 @@
     "text": "Remote island - nothing to get criticised about",
     "enumeration": "8"
    },
-   "solution": "ISOLATED"
+   "solution": "ISOLATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ISOLATED",
+    "definitions": [
+     {
+      "text": "Remote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the word for criticised wraps round the round letter"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     },
+     {
+      "clueFragment": "criticised",
+      "gives": "SLATED",
+      "note": "to slate is to criticise harshly"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "S",
+      "O",
+      "LATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A faraway island where there is nothing to complain about.",
+     "walkthrough": "Slate is a British word for criticising severely, as in a play slated by reviewers.",
+     "definitionFit": "Something isolated stands far apart from others, which is what remote means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 18,
@@ -285,7 +1267,55 @@
     "text": "Unrest as art's circulated, where you'll find plenty of scoffing",
     "enumeration": "11"
    },
-   "solution": "RESTAURANTS"
+   "solution": "RESTAURANTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESTAURANTS",
+    "definitions": [
+     {
+      "text": "where you'll find plenty of scoffing",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulated",
+      "for": "anagram",
+      "note": "circulated means passed round and round, so the letters are moved about into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unrest as art",
+      "gives": "UNRESTASART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNRESTASART",
+       "gives": "RESTAURANTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Controversial art goes on tour and is met with widespread mockery and jeering.",
+     "walkthrough": "'Scoffing' looks like mockery of the art; it is the British slang for eating greedily. The 's of art's is 'is', not fodder.",
+     "definitionFit": "Restaurants are places where people eat, and to scoff in British slang is to gobble food greedily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scoffing"
+    }
+   }
   },
   {
    "number": 19,
@@ -299,7 +1329,65 @@
     "text": "Frank regularly warned when caught by detectives",
     "enumeration": "6"
    },
-   "solution": "CANDID"
+   "solution": "CANDID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CANDID",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter of warned is kept"
+     },
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "caught by means held by, so the kept letters sit inside the police department"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warned",
+      "gives": "AND",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of warned"
+     },
+     {
+      "clueFragment": "detectives",
+      "gives": "CID",
+      "note": "CID is the Criminal Investigation Department, British police detectives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AND",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Frank keeps being warned and is finally arrested by the police.",
+     "walkthrough": "Frank looks like a man's name; it is the adjective meaning honest and open.",
+     "definitionFit": "Candid means honest and straightforward in speech, just as frank does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 20,
@@ -313,7 +1401,62 @@
     "text": "Might heads of security come to be taken in by drug smuggler?",
     "enumeration": "6"
    },
-   "solution": "MUSCLE"
+   "solution": "MUSCLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MUSCLE",
+    "definitions": [
+     {
+      "text": "Might",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heads of",
+      "for": "letter_selection",
+      "note": "heads are the first letters of the two words that follow"
+     },
+     {
+      "text": "to be taken in by",
+      "for": "container",
+      "note": "taken in by means swallowed inside, so the smuggler word goes around the two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "security come",
+      "gives": "SC",
+      "select": "first",
+      "note": "the first letters of security and come"
+     },
+     {
+      "clueFragment": "drug smuggler",
+      "gives": "MULE",
+      "note": "a mule is someone who carries drugs across a border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MU",
+      "SC",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether airport security might be fooled by a drug courier.",
+     "walkthrough": "'Might' opens the clue as if it were the verb of a question; it is the noun meaning strength.",
+     "definitionFit": "Muscle means physical power or strength, which is the noun sense of might."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Might"
+    }
+   }
   },
   {
    "number": 21,
@@ -327,7 +1470,60 @@
     "text": "Host a ball after food",
     "enumeration": "9"
    },
-   "solution": "ABUNDANCE"
+   "solution": "ABUNDANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABUNDANCE",
+    "definitions": [
+     {
+      "text": "Host",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the word for a ball comes following the word for food"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "food",
+      "gives": "BUN",
+      "note": "a bun is a piece of food"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "DANCE",
+      "note": "a ball is a formal dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BUN",
+      "DANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to throw a ball once the dinner has been served.",
+     "walkthrough": "'Host' looks like a verb, to entertain guests, but it is a noun meaning a great number.",
+     "definitionFit": "A host can mean a large crowd or multitude, and abundance likewise is a great quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Host"
+    }
+   }
   },
   {
    "number": 22,
@@ -341,7 +1537,58 @@
     "text": "What's at the bottom of the bottle, for example, doctor's swallowed",
     "enumeration": "5"
    },
-   "solution": "DREGS"
+   "solution": "DREGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREGS",
+    "definitions": [
+     {
+      "text": "What's at the bottom of the bottle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallowed",
+      "for": "container",
+      "note": "swallowed means taken inside, so the abbreviation for for example goes into the doctor's word"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor's",
+      "gives": "DRS",
+      "note": "DR is doctor, and 's adds the S"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "EG",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor downs the sediment at the bottom of a medicine bottle.",
+     "walkthrough": "The 's of doctor's supplies the final S rather than a possessive.",
+     "definitionFit": "Dregs are the sediment left at the bottom of a wine bottle or glass after pouring."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallowed"
+    }
+   }
   },
   {
    "number": 23,
@@ -355,7 +1602,54 @@
     "text": "Pilot's path - one moving west",
     "enumeration": "5"
    },
-   "solution": "TRIAL"
+   "solution": "TRIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIAL",
+    "definitions": [
+     {
+      "text": "Pilot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one moving west",
+      "for": "anagram",
+      "note": "one is the letter I, and moving west shifts it a step to the left within the word for path"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "path",
+      "gives": "TRAIL",
+      "note": "a trail is a path"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRAIL",
+       "gives": "TRIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An airline pilot describes a flight path heading westward.",
+     "walkthrough": "One is I. In an across answer west is leftwards, so the I in TRAIL moves one place left to give TRIAL. 'Pilot' is a noun: a test run.",
+     "definitionFit": "A pilot scheme is an experimental run before the real thing, which is what a trial is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pilot"
+    }
+   }
   },
   {
    "number": 24,
@@ -369,7 +1663,59 @@
     "text": "Harry cried - pet's old and feeble",
     "enumeration": "8"
    },
-   "solution": "DECREPIT"
+   "solution": "DECREPIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECREPIT",
+    "definitions": [
+     {
+      "text": "old and feeble",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Harry",
+      "for": "anagram",
+      "note": "to harry is to harass and disturb, so the letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cried",
+      "gives": "CRIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pet",
+      "gives": "PET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRIEDPET",
+       "gives": "DECREPIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy called Harry weeps because his beloved pet has grown old and frail.",
+     "walkthrough": "Harry looks like a boy's name crying over his pet; it is a verb, to harass.",
+     "definitionFit": "Decrepit describes someone or something worn out and weakened by age."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
+   }
   },
   {
    "number": 25,
@@ -383,7 +1729,58 @@
     "text": "Warning from nurse outside hospital",
     "enumeration": "6"
    },
-   "solution": "THREAT"
+   "solution": "THREAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THREAT",
+    "definitions": [
+     {
+      "text": "Warning",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means the word for nurse wraps around the hospital abbreviation"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nurse",
+      "gives": "TREAT",
+      "note": "to nurse a patient is to treat them"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "REAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse standing outside the hospital issues a caution.",
+     "walkthrough": "'Nurse' looks like a noun, a person, but it is used as a verb, to treat.",
+     "definitionFit": "A threat is a menacing warning that harm may follow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurse"
+    }
+   }
   },
   {
    "number": 26,
@@ -397,7 +1794,54 @@
     "text": "Time to follow groom? Horse is prepared for it",
     "enumeration": "8"
    },
-   "solution": "DRESSAGE"
+   "solution": "DRESSAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRESSAGE",
+    "definitions": [
+     {
+      "text": "Horse is prepared for it",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "to follow places the word for time after the word for groom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groom",
+      "gives": "DRESS",
+      "note": "to dress hair or a horse is to groom it"
+     },
+     {
+      "clueFragment": "Time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRESS",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stable groom gets a horse ready for a show, and it's time.",
+     "walkthrough": "'Groom' is a verb here. The definition is cryptic: a horse is trained, prepared, for this equestrian discipline.",
+     "definitionFit": "Dressage is the competitive equestrian discipline of precise schooled movements, which a horse must be specially trained to perform."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "groom"
+    }
+   }
   },
   {
    "number": 27,
@@ -411,7 +1855,63 @@
     "text": "Look after piano, Edward's implored",
     "enumeration": "6"
    },
-   "solution": "PRAYED"
+   "solution": "PRAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRAYED",
+    "definitions": [
+     {
+      "text": "implored",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word for look following the musical abbreviation"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "p is the musical marking for piano, softly"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "RAY",
+      "note": "in older English a ray is a glance or line of sight from the eye"
+     },
+     {
+      "clueFragment": "Edward",
+      "gives": "ED",
+      "note": "Ed is the short form of Edward"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RAY",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Edward begs someone to look after his piano.",
+     "walkthrough": "'Look after' reads as 'take care of', but the two words split: 'Look' is the wordplay and 'after' places it behind P. Ray for look is an old sense, a glance of the eye.",
+     "definitionFit": "To pray in the older sense is to beg or entreat someone earnestly, so prayed means implored."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   }
  ]
 }
