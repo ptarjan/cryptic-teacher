@@ -97,6 +97,10 @@ mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # the checklist of editions still wanted is written back beside them.
 python3 tools/gale_inbox.py sync ||
   echo "gale_inbox sync failed (rc=$?); the Gale pages staged before stand, the checklist is not refreshed"
+# The Listener pages he saves from Gale's Listener Historical Archive: each
+# new file's clues read once (ledger by file hash), the checklist published.
+python3 tools/gale_listener.py sync ||
+  echo "gale_listener sync failed (rc=$?); the readings before stand, the checklist is not refreshed"
 for paper in telegraph guardian ft times; do
   slices "$paper off archive.org" python3 tools/file_archive_org_puzzles.py --paper "$paper" \
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || exit 1

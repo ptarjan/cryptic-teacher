@@ -1,0 +1,103 @@
+#!/bin/bash
+# Does a Listener page saved into the Gale inbox (tools/gale_listener.py)
+# match its puzzle by the date or number in its name, the Gale citation or
+# its title; are its clue lists read in column order wherever DOWN falls,
+# a clue a line when the lists print no counts; is each file read once (the
+# ledger is keyed by its hash); and does the checklist list every puzzle of
+# the index, earliest first, marking what is filed or saved?
+#
+#     bash tools/test_gale_listener.sh
+#
+# Synthetic rows and words in a temp dir: no OCR, nothing asked of the Mac,
+# Gale or listenercrossword.com, nothing written outside it.
+set -euo pipefail
+cd "$(dirname "$0")"
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+python3 - "$tmp" <<'PY'
+import datetime, json, sys
+from pathlib import Path
+from PIL import Image
+import archive_org_listener as al
+import gale_listener as g
+
+fails = 0
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        fails += 1
+        print(f"FAIL {what}: expected {want!r}, got {got!r}")
+
+D = datetime.date
+page = """<tr><td class="num">	1	</td><td class="title">	A Musical Crossword	</td>
+<td class="setter">	&mdash;	</td><td class="date">	2 Apr	</td><td class="count">1</td></tr>
+<tr><td class="num">	2	</td><td class="title">	A &lsquo;Scientific Crossword&rsquo;	</td>
+<td class="setter">	<a href="x">Doggerel</a>	</td><td class="date">	9 Apr	</td></tr>"""
+rows = g.parse_year(page, 1930)
+check("an index row", {"number": 1, "title": "A Musical Crossword", "setter": None, "date": D(1930, 4, 2)}, rows[0])
+check("a setter's link and an entity", ("‘Scientific Crossword’", "Doggerel"),
+      (rows[1]["title"][2:], rows[1]["setter"]))
+check("an issue's puzzle within its week", 2, g.by_date(rows, D(1930, 4, 10))["number"])
+check("no puzzle a fortnight off", None, g.by_date(rows, D(1930, 4, 25)))
+
+for name, want in [("Listener 1950.pdf", 1950), ("No. 2,345.jpg", 2345), ("1234.png", 1234),
+                   ("Listener Historical Archive 1950.pdf", None), ("GALE|CR1234567890.pdf", None)]:
+    check(f"the number in {name!r}", want, g.name_number(name))
+check("a 1930 date in a name", D(1930, 4, 9), g.gi.name_date("The Listener 9 Apr 1930.jpg", g.DATES))
+m = g.CITED.search("The Listener, vol. 3, no. 64, 9 Apr. 1930, p. 612")
+check("the Gale citation's date", ("9", "Apr", "1930"), m.groups()[:3])
+check("the title's number", "1,234", g.TITLE.search("THE LISTENER CROSSWORD No. 1,234").group(1))
+
+def line(text, x, y):
+    out = []
+    for w in text.split():
+        out.append((x, y, x + 10 * len(w), y + 16, w))
+        x += 10 * len(w) + 8
+    return out
+
+# DOWN under the across clues in the first column, running on into the second.
+words = (line("Other article text", 100, 40) + line("ACROSS", 100, 100)
+         + line("1 Spanish for aubade", 100, 130) + line("9 A river", 100, 160) + line("in France", 100, 190)
+         + line("DOWN", 100, 230) + line("1 Animal in a zoo", 100, 260)
+         + line("2 Composer of the Messiah", 600, 100) + line("12", 1100, 400))
+cols = g.page_columns(words)
+check("across clues, column order", ["1 Spanish for aubade", "9 A river", "in France"], [l[4] for l in cols[0]])
+check("down runs on into the next column", ["1 Animal in a zoo", "2 Composer of the Messiah"],
+      [l[4] for l in cols[1]])
+parsed, _ = al.parse(al.tidy(al.text_of(cols)))
+check("a clue a line without counts", ["Spanish for aubade", "A river in France"],
+      [c["text"] for c in parsed["across"]])
+
+# The ledger: each file read once, again when it changes.
+inbox, store = Path(sys.argv[1]) / "inbox", Path(sys.argv[1]) / "store"
+inbox.mkdir()
+Image.new("RGB", (300, 200), "white").save(inbox / "1930-04-02.png")
+Image.new("RGB", (300, 200), "white").save(inbox / "holiday snap.jpg")
+reads = []
+def reader(m):
+    reads.append(m["file"])
+    return {"clues": 1, "agreed": 1}, {"1-across": ("Spanish for aubade", None, None)}
+out = open("/dev/null", "w")
+g.run(inbox, store, rows, out=out, reader=reader)
+check("a dated page read, the unnamed one not", ["1930-04-02.png"], reads)
+check("its reading", "Spanish for aubade",
+      json.loads((store / "listener-1.json").read_text())["clues"]["1-across"]["text"])
+g.run(inbox, store, rows, out=out, reader=reader)
+check("nothing read twice", 1, len(reads))
+Image.new("RGB", (300, 201), "white").save(inbox / "1930-04-02.png")
+g.run(inbox, store, rows, out=out, reader=reader)
+check("a changed file read again", 2, len(reads))
+
+root = Path(sys.argv[1]) / "repo"
+(root / "puzzles" / "listener" / "1930").mkdir(parents=True)
+(root / "puzzles" / "listener" / "1930" / "listener-2.json").write_text("{}")
+page = g.checklist(rows, store, root)
+check("the saved puzzle is marked", True, "saved: 1 of 1 clues read" in page)
+check("the filed puzzle is marked", True, ">filed<" in page)
+check("the unmatched file is listed", True, "holiday snap.jpg" in page)
+check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))
+print(f"FAILS {fails}")
+sys.exit(1 if fails else 0)
+PY
