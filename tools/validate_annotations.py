@@ -3238,6 +3238,9 @@ def backlog_errors(stem, warnings, allowed=None):
 
 def main(argv):
     global FORCE_AUTHORED_CHECKS
+    if "-h" in argv or "--help" in argv:
+        print(__doc__)
+        return 0
     if "--explain" in argv:
         rest = argv[argv.index("--explain") + 1:]
         return explain(rest[0] if rest else None)

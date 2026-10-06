@@ -36,8 +36,9 @@ clues your search found.
 
 ## Finishing
 
-1. Leave `python3 tools/validate_annotations.py` and `node tools/smoke_test.js`
-   both passing.
+1. Leave `python3 tools/validate_annotations.py <puzzle-id>` passing for every
+   puzzle you touched, and `node tools/smoke_test.js` passing if you changed
+   `app.js` or `tools/data/`. CI checks the rest of the corpus.
 2. For each report you settled, run `python3 tools/reports.py --done <key>`
    with the `r:` key printed under it. A report you checked and rejected counts
    as settled. Leave only the ones you could not decide.
