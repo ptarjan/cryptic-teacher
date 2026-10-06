@@ -71,7 +71,14 @@ publish() {  # publish <subject>
 reread="$(python3 tools/book_queue.py --reread | head -1)"
 if [ -n "$reread" ]; then
   echo "re-reading $reread from its cached text (no loan)"
-  nice -n 19 python3 tools/acquire_book.py "$reread" --file --puzzle-dir puzzles --jobs 2 --no-borrow
+  # Bounded so the borrow below still runs. Puzzles are filed as each search
+  # lands, so a cut-short re-read keeps what it derived; it is recorded as
+  # read all the same, or the same book would hold every run's slot forever.
+  timeout 5400 nice -n 19 python3 tools/acquire_book.py "$reread" --file --puzzle-dir puzzles --jobs 2 --no-borrow
+  if [ $? = 124 ]; then
+    echo "re-read of $reread cut short at 90 minutes; recorded as read"
+    python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; q.record_read(sys.argv[1], None, None)' "$reread"
+  fi
   publish "Re-read $reread with the current reader" ||
     alert "re-read $reread but could not commit or push its puzzles — they are in $PWD. See .books.log."
 fi
