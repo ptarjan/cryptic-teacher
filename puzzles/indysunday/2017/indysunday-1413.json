@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Animal feed made by ma if she chopped a bit of lettuce",
     "enumeration": "8"
    },
-   "solution": "FISHMEAL"
+   "solution": "FISHMEAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "FISHMEAL",
+    "definitions": [
+     {
+      "text": "Animal feed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chopped",
+      "for": "anagram",
+      "note": "chopped food is cut up and tossed, so the letters are mixed into a new order"
+     },
+     {
+      "text": "a bit of",
+      "for": "letter_selection",
+      "note": "a small bit of the following word means only its opening letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ma if she",
+      "gives": "MAIFSHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lettuce",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lettuce"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAIFSHEL",
+       "gives": "FISHMEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother chopping up some lettuce produces something fit only for the livestock.",
+     "definitionFit": "Fishmeal is ground dried fish sold as a protein supplement for livestock and pets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chopped"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,56 @@
     "text": "Romeo’s got into a fight. Did he say it’s all about your mum?",
     "enumeration": "5"
    },
-   "solution": "FREUD"
+   "solution": "FREUD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREUD",
+    "definitions": [
+     {
+      "text": "Did he say it’s all about your mum?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "got into",
+      "for": "container",
+      "note": "getting into something means going inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fight",
+      "gives": "FEUD",
+      "note": "a feud is a long-running quarrel"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "EUD"
+     ]
+    },
+    "explanation": {
+     "surface": "A brawl breaks out, and someone wonders whether the trouble all comes down to a man's mother.",
+     "walkthrough": "The definition is a playful question: the psychoanalyst famously traced many troubles back to a child's feelings about its mother.",
+     "definitionFit": "Sigmund Freud's theory of the Oedipus complex placed a son's desire for his mother at the centre of development."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +177,82 @@
      }
     ]
    },
-   "solution": "SOLARYEAR"
+   "solution": "SOLARYEAR",
+   "annotation": {
+    "type": [
+     "substitution",
+     "deletion",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SOLAR YEAR",
+    "definitions": [
+     {
+      "text": "time for a revolution",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing given for another is swapped in to take its place"
+     },
+     {
+      "text": "has no hint of",
+      "for": "deletion",
+      "note": "having no hint of something means its opening letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pay",
+      "gives": "SALARY",
+      "note": "a salary is regular pay"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "a round shape, the letter O"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "the letter that is swapped out"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "BEAR",
+      "note": "to bear a child is what a mother does"
+     },
+     {
+      "clueFragment": "bonus",
+      "gives": "B",
+      "select": "first",
+      "note": "the hint of bonus is its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLARY",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother's pay packet comes without its bonus, so she declares it is time for a revolution.",
+     "walkthrough": "O replaces the first A of SALARY to give SOLARY; BEAR loses its B to give EAR. 'Revolution' looks political but means a circuit of the sun.",
+     "definitionFit": "A solar year is the period the earth takes to complete one orbit round the sun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +266,71 @@
     "text": "I have beastly struggles with mom’s old model of car on winding road",
     "enumeration": "7"
    },
-   "solution": "MATADOR"
+   "solution": "MATADOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MATADOR",
+    "definitions": [
+     {
+      "text": "I have beastly struggles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "winding",
+      "for": "anagram",
+      "note": "a winding course twists about, so these letters are bent into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mom’s",
+      "gives": "MA",
+      "note": "mom, or ma, is mother"
+     },
+     {
+      "clueFragment": "old model of car",
+      "gives": "T",
+      "note": "the Model T was Ford's early motor car"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "ADOR",
+      "note": "these letters are rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "T",
+      "ADOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROAD",
+       "gives": "ADOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone frets about driving mother's vintage Ford along a twisty road.",
+     "walkthrough": "The definition speaks as the answer: a bullfighter's struggles are literally with a beast.",
+     "definitionFit": "A matador is the bullfighter who fights and kills the bull in the ring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beastly"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +344,56 @@
     "text": "Yup, mum’s inside looking pale",
     "enumeration": "4"
    },
-   "solution": "ASHY"
+   "solution": "ASHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASHY",
+    "definitions": [
+     {
+      "text": "looking pale",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside says one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yup",
+      "gives": "AY",
+      "note": "ay is an old or dialect yes"
+     },
+     {
+      "clueFragment": "mum’s",
+      "gives": "SH",
+      "note": "mum as in keeping quiet, so the call for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees that mother is unwell and looking pale.",
+     "walkthrough": "Mum here is the British word for silent, as in 'keep mum', not mother.",
+     "definitionFit": "Ashy means grey and colourless like ashes, the complexion of someone pallid and unwell."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "mum’s"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +407,58 @@
     "text": "Mother who rhymes ‘sticky sludge’ with ‘empty smudge’",
     "enumeration": "5"
    },
-   "solution": "GOOSE"
+   "solution": "GOOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GOOSE",
+    "definitions": [
+     {
+      "text": "Mother who rhymes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has had its inside removed, leaving just its two ends"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sticky sludge",
+      "gives": "GOO",
+      "note": "goo is sticky muck"
+     },
+     {
+      "clueFragment": "smudge",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the outside letters of smudge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOO",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of verse pairs two messy phrases in a rhyme.",
+     "definitionFit": "Mother Goose is the legendary teller of English nursery rhymes, whose name titles many collections."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rhymes"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +472,56 @@
     "text": "Choose Daedalus's mother as the best!",
     "enumeration": "7"
    },
-   "solution": "OPTIMUM"
+   "solution": "OPTIMUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPTIMUM",
+    "definitions": [
+     {
+      "text": "the best",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Choose",
+      "gives": "OPT",
+      "note": "to opt is to choose"
+     },
+     {
+      "clueFragment": "Daedalus's",
+      "gives": "I",
+      "note": "the setter Daedalus refers to himself as I"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "MUM",
+      "note": "the British informal word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPT",
+      "I",
+      "MUM"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter urges solvers to vote his own mother the finest of all.",
+     "walkthrough": "A setter's pseudonym in a clue usually stands for I or ME.",
+     "definitionFit": "Optimum means the most favourable or ideal condition, so it is equivalent to the very best."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Choose"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +535,64 @@
     "text": "Essentially mum’s surrounded by stuff to cook",
     "enumeration": "5"
    },
-   "solution": "SAUTE"
+   "solution": "SAUTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SAUTE",
+    "definitions": [
+     {
+      "text": "cook",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its middle letter is wanted"
+     },
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "being surrounded means another piece is wrapped around it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stuff",
+      "gives": "SATE",
+      "note": "to stuff someone is to fill them up, sate"
+     },
+     {
+      "clueFragment": "mum’s",
+      "gives": "U",
+      "select": "middle",
+      "note": "the central letter of mum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "U",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother is buried under a pile of ingredients waiting to be cooked.",
+     "definitionFit": "To sauté is to fry food quickly in a little hot fat, a common method of cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stuff"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +612,49 @@
      }
     ]
    },
-   "solution": "OHREALLY"
+   "solution": "OHREALLY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "OH REALLY",
+    "definitions": [
+     {
+      "text": "Is it true",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unread periodically",
+      "for": "letter_selection",
+      "note": "letters skipped at regular intervals leave every second one to be read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother’s e-mails lay",
+      "gives": "OHREALLY",
+      "select": "alternate",
+      "note": "the even-placed letters of these words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OHREALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A doubtful question about whether mother really leaves her inbox ignored from time to time.",
+     "walkthrough": "The odd letters are the ones left unread; read the second, fourth and so on.",
+     "definitionFit": "The exclamation is an expression of surprise or doubt, asking whether something said is actually so."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "periodically"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +668,53 @@
     "text": "Last seen in the public pool, mamma went for a splash",
     "enumeration": "5"
    },
-   "solution": "ECLAT"
+   "solution": "ECLAT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ECLAT",
+    "definitions": [
+     {
+      "text": "splash",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Last seen in",
+      "for": "letter_selection",
+      "note": "last says only the final letter of each following word is taken"
+     }
+    ],
+    "linkWords": [
+     "for a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the public pool, mamma went",
+      "gives": "ECLAT",
+      "select": "last",
+      "note": "the final letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECLAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother was last spotted at the local swimming baths, going for a dip.",
+     "walkthrough": "'Splash' looks like part of the swim but means a showy success.",
+     "definitionFit": "Éclat is brilliant effect or acclaim, the sort of impression meant by making a splash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "splash"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +734,83 @@
      }
     ]
    },
-   "solution": "HOMETRUTH"
+   "solution": "HOMETRUTH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "HOME TRUTH",
+    "definitions": [
+     {
+      "text": "It’s not nice to hear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going",
+      "for": "anagram",
+      "note": "going here means going mad, losing order, so the letters are rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says the letters go about another piece"
+     },
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means the following letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother’s",
+      "gives": "MOTHER",
+      "note": "taken as written, its letters then mixed"
+     },
+     {
+      "clueFragment": "bend",
+      "gives": "U",
+      "note": "a U-bend is a U-shaped pipe bend"
+     },
+     {
+      "clueFragment": "like this",
+      "gives": "THUS",
+      "note": "thus means in this way"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written, then removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOMETRU",
+      "TH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOTHERU",
+       "gives": "HOMETRU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mother driven round the bend by her family hears something unpleasant.",
+     "walkthrough": "Going round the bend is British slang for going mad, which is why 'going' signals the mix; the bend itself is a U-bend.",
+     "definitionFit": "A home truth is an unwelcome fact about oneself, usually painful for the listener to accept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bend"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +824,87 @@
     "text": "Ma gets you to replace mobile at last: it’s beginning to yellow with age",
     "enumeration": "8"
    },
-   "solution": "MATURITY"
+   "solution": "MATURITY",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MATURITY",
+    "definitions": [
+     {
+      "text": "age",
+      "at": 69
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "one item is put in place of another, swapping it out"
+     },
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the preceding word"
+     },
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of the following word is its first letter only"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ma",
+      "gives": "MATER",
+      "note": "mater is Latin, and old British school slang, for mother"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "texting shorthand for you"
+     },
+     {
+      "clueFragment": "mobile",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of mobile, the one swapped out"
+     },
+     {
+      "clueFragment": "it’s",
+      "gives": "IT",
+      "note": "it, with the 's read as has"
+     },
+     {
+      "clueFragment": "yellow",
+      "gives": "Y",
+      "select": "first",
+      "note": "the first letter of yellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATUR",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother finally gets her child to swap her ageing phone, which is yellowing with the years.",
+     "walkthrough": "The swap happens inside the Latin word for mother; 'mobile' only supplies the letter that leaves.",
+     "definitionFit": "Age can mean the state of being grown up, as in coming of age, which is adulthood or full development."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +918,62 @@
     "text": "Jeer, did ’e, about ‘moth-eaten’ ma?",
     "enumeration": "6"
    },
-   "solution": "DERIDE"
+   "solution": "DERIDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DERIDE",
+    "definitions": [
+     {
+      "text": "Jeer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moth-eaten",
+      "for": "deletion",
+      "note": "something eaten by a moth has had a moth removed from it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about says these letters go around another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "did ’e",
+      "gives": "DIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ma",
+      "gives": "MOTHER",
+      "note": "ma is short for mother, which then loses moth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ER",
+      "IDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a man mocked a scruffy old mother in a tatty coat.",
+     "walkthrough": "'Moth-eaten' looks like a description of a shabby mother, but it literally removes a moth from the word mother.",
+     "definitionFit": "To deride is to mock or ridicule, much the same as to jeer at someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "moth-eaten"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +987,64 @@
     "text": "Mater almost sped off in panic",
     "enumeration": "8"
    },
-   "solution": "STAMPEDE"
+   "solution": "STAMPEDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "STAMPEDE",
+    "definitions": [
+     {
+      "text": "panic",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of the word means its final letter is dropped"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone wrong or out of order, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mater",
+      "gives": "MATER",
+      "note": "taken as written, losing its last letter"
+     },
+     {
+      "clueFragment": "sped",
+      "gives": "SPED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MATESPED",
+       "gives": "STAMPEDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mother nearly drove away at speed because she was panicking.",
+     "definitionFit": "A stampede is a sudden headlong rush of frightened animals or people, a mass panic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1058,57 @@
     "text": "A bit of unexpected waiting? It makes no difference to mum",
     "enumeration": "8"
    },
-   "solution": "UPENDING"
+   "solution": "UPENDING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UPENDING",
+    "definitions": [
+     {
+      "text": "It makes no difference to mum",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A bit of",
+      "for": "letter_selection",
+      "note": "a small bit of the following word is just its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unexpected",
+      "gives": "U",
+      "select": "first",
+      "note": "the opening letter of unexpected"
+     },
+     {
+      "clueFragment": "waiting",
+      "gives": "PENDING",
+      "note": "pending means awaiting decision"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother does not mind being kept waiting a little unexpectedly.",
+     "walkthrough": "The definition is cryptic: turning the word mum upside down leaves it reading the same.",
+     "definitionFit": "Upending means turning something upside down, and the palindrome mum is unchanged when inverted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1122,50 @@
     "text": "Boring day with mother",
     "enumeration": "5"
    },
-   "solution": "DREAR"
+   "solution": "DREAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DREAR",
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "REAR",
+      "note": "to mother a child is to rear it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "REAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull day spent at home with mother.",
+     "walkthrough": "Mother is a verb here: to bring up a child.",
+     "definitionFit": "Drear is a literary form of dreary, meaning dull, gloomy and tedious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1179,67 @@
     "text": "In which mother might give Tom, her son, instruction after day one",
     "enumeration": "8"
    },
-   "solution": "DISORDER"
+   "solution": "DISORDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISORDER",
+    "definitions": [
+     {
+      "text": "In which mother might give Tom, her",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the later pieces behind the opening pair, fixing their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "instruction",
+      "gives": "ORDER",
+      "note": "an order is a command"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "S",
+      "ORDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother gives her son Tom his orders first thing in the morning.",
+     "walkthrough": "The definition is cryptic: the letters of mother put into a jumble can spell TOM HER. After places son and instruction behind day and one.",
+     "definitionFit": "Disorder means a state of confusion, and jumbled letters are in exactly that muddled condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1253,84 @@
     "text": "As mummy’s home, party empties out and boy I spoil returns",
     "enumeration": "9"
    },
-   "solution": "PYRAMIDAL"
+   "solution": "PYRAMIDAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "PYRAMIDAL",
+    "definitions": [
+     {
+      "text": "As mummy’s home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empties out",
+      "for": "letter_selection",
+      "note": "emptying a word removes its contents, leaving only its outside letters"
+     },
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means coming back the way it went, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "PY",
+      "select": "outer",
+      "note": "the outer letters of party"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "LAD",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "spoil",
+      "gives": "MAR",
+      "note": "to mar is to spoil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PY",
+      "RAM",
+      "I",
+      "DAL"
+     ],
+     "reversals": [
+      {
+       "from": "LADIMAR",
+       "to": "RAMIDAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "With mother back home, the guests clear off and a son confesses he has ruined things.",
+     "walkthrough": "The mummy is an embalmed Egyptian body, whose home is a pyramid, not mother.",
+     "definitionFit": "Pyramidal means shaped like a pyramid, the tomb in which an Egyptian mummy was laid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mummy’s"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1344,59 @@
     "text": "Intrepid mother’s sister perhaps in a spot of difficulty? Not so!",
     "enumeration": "9"
    },
-   "solution": "DAUNTLESS"
+   "solution": "DAUNTLESS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DAUNTLESS",
+    "definitions": [
+     {
+      "text": "Intrepid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a spot of difficulty",
+      "gives": "D",
+      "note": "a spot, the first letter, of difficulty"
+     },
+     {
+      "clueFragment": "mother’s sister perhaps",
+      "gives": "AUNT",
+      "note": "an aunt can be a mother's sister"
+     },
+     {
+      "clueFragment": "Not so",
+      "gives": "LESS",
+      "note": "less means not so much"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AUNT",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fearless aunt is asked whether she is in trouble and says no.",
+     "definitionFit": "Dauntless means unable to be daunted or intimidated, synonymous with fearless and brave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1416,63 @@
      }
     ]
    },
-   "solution": "SHRIMPNET"
+   "solution": "SHRIMPNET",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SHRIMP NET",
+    "definitions": [
+     {
+      "text": "fish with me",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out means disordered, so the letters are shaken into a new order"
+     },
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving here means departing, so the following letter goes away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother nips",
+      "gives": "MOTHERNIPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MTHERNIPS",
+       "gives": "SHRIMPNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mother pops out, leaving yesterday's fish with the speaker to look after.",
+     "walkthrough": "The definition speaks as the answer: it is a tool to fish with.",
+     "definitionFit": "A shrimp net is a small long-handled net used for catching shrimps in rock pools and shallows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1486,59 @@
     "text": "Mater’s left inside, being bats?",
     "enumeration": "7"
    },
-   "solution": "MAMMALS"
+   "solution": "MAMMALS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAMMALS",
+    "definitions": [
+     {
+      "text": "bats",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside says one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mater’s",
+      "gives": "MAMMAS",
+      "note": "mamma is mother, with its 's"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAMMA",
+      "L",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother has been left behind indoors and is going crazy.",
+     "walkthrough": "Bats looks like slang for mad; here it means the flying animals, an example of the class.",
+     "definitionFit": "Bats are the only flying mammals, so they are an example of the group of warm-blooded animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bats"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1552,48 @@
     "text": "Timid at first, mom's opened up since yesterday",
     "enumeration": "5"
    },
-   "solution": "MOUSY"
+   "solution": "MOUSY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MOUSY",
+    "definitions": [
+     {
+      "text": "Timid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means just the opening letter of each following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mom's opened up since yesterday",
+      "gives": "MOUSY",
+      "select": "first",
+      "note": "the initial letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOUSY"
+     ]
+    },
+    "explanation": {
+     "surface": "A shy mother has finally started talking freely since yesterday.",
+     "definitionFit": "Mousy describes a person who is quiet, shy and unassertive, like a nervous little rodent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opened"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1607,58 @@
     "text": "Ma almost gets free copper from Canada",
     "enumeration": "7"
    },
-   "solution": "MOUNTIE"
+   "solution": "MOUNTIE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MOUNTIE",
+    "definitions": [
+     {
+      "text": "copper from Canada",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost all of the word means its last letter is cut"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ma",
+      "gives": "MOM",
+      "note": "mom is the American word for ma"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "UNTIE",
+      "note": "to untie is to set loose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "UNTIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother is nearly released by a Canadian police officer.",
+     "walkthrough": "Copper is slang for a police officer, not the metal.",
+     "definitionFit": "A Mountie is a member of the Royal Canadian Mounted Police, so a Canadian police officer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 21,
@@ -385,7 +1678,43 @@
      }
     ]
    },
-   "solution": "RINGMAIN"
+   "solution": "RINGMAIN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RING MAIN",
+    "definitions": [
+     {
+      "text": "wiring",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing",
+      "for": "hidden_word",
+      "note": "showing means the letters are on display within the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bring ma instructions",
+      "gives": "RINGMAIN",
+      "note": "the letters run across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks for mother's manual for a household job.",
+     "walkthrough": "A ring main is the loop circuit that supplies power sockets in British homes.",
+     "definitionFit": "A ring main is a domestic electrical circuit, a kind of house wiring linking the sockets in a loop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "instructions"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1728,63 @@
     "text": "Needless to say, enter zero for mama’s final score",
     "enumeration": "5"
    },
-   "solution": "NOTCH"
+   "solution": "NOTCH",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NOTCH",
+    "definitions": [
+     {
+      "text": "score",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enter",
+      "for": "substitution",
+      "note": "one thing entered for another takes its place"
+     },
+     {
+      "text": "final",
+      "for": "substitution",
+      "note": "final picks out the last letter of the preceding word as the one to swap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Needless to say",
+      "gives": "NATCH",
+      "note": "natch is slang for naturally"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "zero looks like the letter O"
+     },
+     {
+      "clueFragment": "mama’s",
+      "gives": "A",
+      "note": "the last letter of mama, the one swapped out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOTCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Obviously, mother's last result on the scoresheet comes out as nothing.",
+     "walkthrough": "O replaces the A of NATCH, the A being the final letter of mama.",
+     "definitionFit": "A notch is a nick cut to keep a tally, so to score or record points is to notch them up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "zero"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1798,47 @@
     "text": "Hamburger mum made from beef",
     "enumeration": "6"
    },
-   "solution": "MUTTER"
+   "solution": "MUTTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MUTTER",
+    "definitions": [
+     {
+      "text": "Hamburger mum",
+      "at": 0
+     },
+     {
+      "text": "beef",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "made from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hamburger mum",
+      "note": "first meaning: the German word for mother, used by someone from Hamburg"
+     },
+     {
+      "clueFragment": "beef",
+      "note": "second meaning: to grumble or complain under one's breath"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe for a burger that the cook's mother makes from minced beef.",
+     "walkthrough": "A Hamburger here is a person from Hamburg, and beef is a verb meaning grouse.",
+     "definitionFit": "Mutter is German for mother, and in English to mutter is to grumble, which is what beefing means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hamburger"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1852,46 @@
     "text": "Sample bistro’s espresso and get some for mum today perhaps",
     "enumeration": "5"
    },
-   "solution": "ROSES"
+   "solution": "ROSES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ROSES",
+    "definitions": [
+     {
+      "text": "some for mum today perhaps",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sample",
+      "for": "hidden_word",
+      "note": "a sample is a small portion taken from within a larger whole"
+     }
+    ],
+    "linkWords": [
+     "and get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bistro’s espresso",
+      "gives": "ROSES",
+      "note": "the letters run across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "Try the café's coffee, then pick up a gift for mother on her special day.",
+     "walkthrough": "Today is Mothering Sunday, when flowers are a traditional present.",
+     "definitionFit": "Roses are flowers commonly bought as a gift for a mother on Mother's Day."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sample"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1905,50 @@
     "text": "A mother and father to us all?",
     "enumeration": "4"
    },
-   "solution": "ADAM"
+   "solution": "ADAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAM",
+    "definitions": [
+     {
+      "text": "father to us all",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mother",
+      "gives": "DAM",
+      "note": "a dam is an animal's mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the first parents of the human race.",
+     "walkthrough": "Dam is the mother of an animal, as in horse breeding.",
+     "definitionFit": "In Genesis Adam is the first man, and so the ancestor of all humanity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "mother"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1962,50 @@
     "text": "As a mother one doesn’t see and greet son crankily",
     "enumeration": "9"
    },
-   "solution": "ESTRANGED"
+   "solution": "ESTRANGED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTRANGED",
+    "definitions": [
+     {
+      "text": "As a mother one doesn’t see",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crankily",
+      "for": "anagram",
+      "note": "crankily means in an awkward, out-of-sorts way, so the letters are put out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and greet son",
+      "gives": "ANDGREETS",
+      "note": "son gives S, the other words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDGREETS",
+       "gives": "ESTRANGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A son grudgingly welcomes a mother he hardly ever visits.",
+     "definitionFit": "Estranged describes relatives who are no longer in contact, so a parent one never visits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "greet"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +2019,48 @@
     "text": "Mummy might wipe these, you say, after upsets and rows",
     "enumeration": "5"
    },
-   "solution": "TIERS"
+   "solution": "TIERS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIERS",
+    "definitions": [
+     {
+      "text": "rows",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "you say",
+      "for": "homophone",
+      "note": "you say points to how the word is spoken rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "after upsets and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mummy might wipe these",
+      "gives": "TIERS",
+      "soundsLike": "TEARS",
+      "note": "a mother dries a child's crying"
+     }
+    ],
+    "explanation": {
+     "surface": "After rows and upsets, mother may need to dry a few eyes.",
+     "walkthrough": "Rows looks like quarrels; here it means layers or ranks.",
+     "definitionFit": "Tiers are rows or levels arranged one above another, as in stadium seating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rows"
+    }
+   }
   },
   {
    "number": 28,
@@ -483,7 +2074,72 @@
     "text": "Mater plays it cool to start with, then she’s off!",
     "enumeration": "5"
    },
-   "solution": "CHESS"
+   "solution": "CHESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "CHESS",
+    "definitions": [
+     {
+      "text": "Mater plays it",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start with",
+      "for": "letter_selection",
+      "note": "to start with means just the opening letter is used"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means out of place, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cool",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of cool"
+     },
+     {
+      "clueFragment": "she’s",
+      "gives": "HESS",
+      "note": "the letters of she's, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHES",
+       "gives": "HESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mother stays calm at first, then storms out of the room.",
+     "walkthrough": "A mater here is one who mates, delivering checkmate, not a mother.",
+     "definitionFit": "Chess is the board game won by checkmating the opponent's king, so a mater is a player of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mater"
+    }
+   }
   },
   {
    "number": 29,
@@ -497,7 +2153,72 @@
     "text": "Is riveting bit of story penned by writer’s foreign mother and son?",
     "enumeration": "8"
    },
-   "solution": "IMMERSES"
+   "solution": "IMMERSES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "IMMERSES",
+    "definitions": [
+     {
+      "text": "Is riveting",
+      "at": 0,
+      "note": "a verb phrase standing for the verb form, as in 'it immerses / is riveting'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "penned means shut in a pen, so one piece is enclosed by another"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer’s",
+      "gives": "IM",
+      "note": "the writer says I'm"
+     },
+     {
+      "clueFragment": "foreign mother",
+      "gives": "MERE",
+      "note": "mère is French for mother"
+     },
+     {
+      "clueFragment": "bit of story",
+      "gives": "S",
+      "note": "the first letter of story"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MER",
+      "S",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader asks whether a tale written by an author about his French mother and son is gripping.",
+     "walkthrough": "A setter or writer in a clue speaks as I, so writer's is I'M.",
+     "definitionFit": "Something that immerses absorbs the attention completely, which is what a riveting book does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "penned"
+    }
+   }
   }
  ]
 }
