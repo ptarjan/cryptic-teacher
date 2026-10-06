@@ -92,6 +92,35 @@ class Source:
     tidy: Callable = None
 
 
+#: Why a rebuilt grid is not filed, by the key the filer's ledger records
+#: (FILINGS, beside grids.jsonl) and the words its run prints. build() returns
+#: the words; CAUSE_OF reads them back to the key, so a reason missing here
+#: fails the run instead of reaching the ledger as prose.
+CAUSES = {
+    "unsplit-link": "a linked clue the blog does not split",
+    "answers-disagree": "answers disagree with the grid",
+    "lights-mismatch": "entries do not match the grid's lights",
+    "no-clue": "a light has no clue",
+    "link-no-light": "a linked clue names no single light",
+    "no-enumeration": "a clue has no enumeration",
+    "enumeration-disagrees": "an enumeration disagrees with its light",
+    "enumeration-uncountable": ("an enumeration disagrees with its light, and the "
+                                "answer holds too few words to take the count from"),
+    "word-breaks-misfit": "the printed answer's word breaks do not fit its lights",
+    "no-number": "no puzzle number",
+    "out-of-sequence": "number out of sequence",
+    "claimed-twice": "number claimed twice",
+    "reprinted": "a reprinting series holds or will hold it",
+    "paper-feed": "the paper's own feed files it",
+    "write-refused": "refused by the write path",
+}
+CAUSE_OF = {words: key for key, words in CAUSES.items()}
+#: The filer's ledger, one row per grids.jsonl row it reached:
+#: {"post_id", "series", "number", "cause"}, cause a CAUSES key or "filed".
+#: Rewritten whole by every writing run, so it is always the last run's word.
+FILINGS = "filings.jsonl"
+
+
 DAY = datetime.timedelta(days=1)
 
 
@@ -347,20 +376,20 @@ def build(rec, row, series, date, setter, typed=None):
     # MOUSTACHE gave a grid with no 1-across at all.
     rec = tg.numbered_by(tg.headed_by(tg.split_by(rec, row["grid"]), row["grid"]), row["grid"])
     if rec.get("unsplit"):
-        return None, "a linked clue the blog does not split"
+        return None, CAUSES["unsplit-link"]
     entries = [dict(e, clue=worded(clean(e.get("clue")), e.get("enumeration")))
                for e in tg.answers(rec, row)]
     # Only the clues are mandatory: a record with no answers at all files
     # unsolved, and the nightly backfill solves it.
     unsolved = not any(e.get("answer") for e in entries)
     if not unsolved and not tg.answers_fit(row["grid"], {"entries": entries}):
-        return None, "answers disagree with the grid"
+        return None, CAUSES["answers-disagree"]
     lights = rg.light_cells(row["grid"])
     by_key = {(e["number"], e["direction"]): e for e in entries}
     if set(by_key) != set(lights) or len(by_key) != len(entries):
-        return None, "entries do not match the grid's lights"
+        return None, CAUSES["lights-mismatch"]
     if not all(has_words(enumeration.split(e.get("clue"))[0]) for e in entries):
-        return None, "a light has no clue"
+        return None, CAUSES["no-clue"]
 
     out = []
     for e in tg.printed({"entries": entries}):
@@ -378,7 +407,7 @@ def build(rec, row, series, date, setter, typed=None):
     try:
         groups = resolve_groups(out)
     except SystemExit:
-        return None, "a linked clue names no single light"
+        return None, CAUSES["link-no-light"]
     # "See 17 Across (6)" under a light whose clue is written into 17-across's
     # -- RICHES and FAME in "Path to 6 and 23..." (6,5,4) -- is a pointer to
     # where the clue is, not a linked answer: every light counts only its own
@@ -399,7 +428,7 @@ def build(rec, row, series, date, setter, typed=None):
         group = groups.get(entry_id(e), [entry_id(e)])
         if not enum:
             if group[0] == entry_id(e):
-                return None, "a clue has no enumeration"
+                return None, CAUSES["no-enumeration"]
             continue
         count = sum(n for n, _ in enumeration_parts(enum))
         spaced = by_key[(e["number"], e["direction"])].get("answer_spaced")
@@ -415,20 +444,19 @@ def build(rec, row, series, date, setter, typed=None):
         elif count == e["length"]:
             group = [entry_id(e)]
         elif group[0] != entry_id(e):
-            return None, "an enumeration disagrees with its light"
+            return None, CAUSES["enumeration-disagrees"]
         try:
             seps_by_light = separators(group, by_id, enum)
         except SystemExit:
             enum = from_answer(group, by_id, enum, spaced, typed)
             if not enum:
-                return None, ("an enumeration disagrees with its light, and the "
-                              "answer holds too few words to take the count from")
+                return None, CAUSES["enumeration-uncountable"]
             e["clue"] = with_enumeration(e["clue"], enum)
             recounted.append(f"{e['number']} {e['direction']}")
             try:
                 seps_by_light = separators(group, by_id, enum)
             except SystemExit:
-                return None, "the printed answer's word breaks do not fit its lights"
+                return None, CAUSES["word-breaks-misfit"]
         seps_of.update(seps_by_light)
     for e in out:
         seps = seps_of.get(entry_id(e))
@@ -582,10 +610,17 @@ def run(source, grids, parsed, write=True, newest=None):
     rows = [json.loads(line) for line in grids.read_text(encoding="utf-8").splitlines()]
 
     skipped = collections.Counter()
+    ledger = {}
+
+    def outcome(row, cause, number=None):
+        ledger[row["post_id"]] = {"post_id": row["post_id"], "series": row.get("series"),
+                                  "number": number or row.get("number"), "cause": cause}
+
     sources = collections.defaultdict(list)
     for row in rows:
         if not row.get("number"):
-            skipped["no puzzle number"] += 1
+            skipped[CAUSES["no-number"]] += 1
+            outcome(row, "no-number")
             continue
         sources[(row["series"], *source.target(row), source.run(row))].append(row)
     claims = collections.defaultdict(list)
@@ -603,7 +638,8 @@ def run(source, grids, parsed, write=True, newest=None):
     for series, dated, fits, row in strays:
         number = retyped(row, fits, taken[series])
         if number is None:
-            skipped["number out of sequence"] += 1
+            skipped[CAUSES["out-of-sequence"]] += 1
+            outcome(row, "out-of-sequence")
             continue
         claims[(series, number)].append((dict(row, number=number, titled=row["number"]), dated))
         taken[series].add(number)
@@ -622,14 +658,18 @@ def run(source, grids, parsed, write=True, newest=None):
         if newest and filed[series] >= newest:
             continue
         if len(claim) > 1:
-            skipped["number claimed twice"] += len(claim)
+            skipped[CAUSES["claimed-twice"]] += len(claim)
+            for row, _ in claim:
+                outcome(row, "claimed-twice", number)
             continue
         by = reprinted_by(reprints, series, number)
         if by:
             skipped[f"{by} reprints it"] += 1
+            outcome(claim[0][0], "reprinted", number)
             continue
         if source.published(series, number):
-            skipped["the paper's own feed files it"] += 1
+            skipped[CAUSES["paper-feed"]] += 1
+            outcome(claim[0][0], "paper-feed", number)
             continue
         row, dated = claim[0]
         rec = recs[row["post_id"]]
@@ -637,7 +677,9 @@ def run(source, grids, parsed, write=True, newest=None):
         puzzle, why = build(rec, row, series, date, source.setter(rec, series), typed)
         if why:
             skipped[why] += 1
+            outcome(row, CAUSE_OF[why], number)
             continue
+        outcome(row, "filed", number)
         path = puzzle_path(series, number)
         if path.exists():
             kept += 1
@@ -675,10 +717,15 @@ def run(source, grids, parsed, write=True, newest=None):
                 write_puzzle_file(path, puzzle, generator=source.tool)
         except ValueError as e:
             refused.append(str(e))
-            skipped["refused by the write path"] += 1
+            skipped[CAUSES["write-refused"]] += 1
+            outcome(row, "write-refused", number)
             continue
         filed[series] += 1
 
+    if write and newest is None:
+        tmp = grids.with_name(FILINGS + ".tmp")
+        tmp.write_text("".join(json.dumps(r) + "\n" for r in ledger.values()), encoding="utf-8")
+        tmp.replace(grids.with_name(FILINGS))
     verb = "would file" if not write else "filed"
     print(f"{verb} {sum(filed.values())}: "
           + (", ".join(f"{s} {n}" for s, n in sorted(filed.items())) or "nothing new"))

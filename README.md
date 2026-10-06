@@ -435,6 +435,12 @@ spot a gap by hand. It reads caches and puzzle files only and takes seconds.
   work. When two sources claim one puzzle, a source that can still deliver
   wins. A puzzle no source claims is `none / no-source`: finding a source is
   research, not a module fix.
+- **Blog and FT PDF causes**: a Times or Telegraph blog post with no clues
+  (`times_grids.has_clues`) is `answers-only`, exhausted on the blog. A
+  rebuilt grid's filer writes `filings.jsonl` beside `grids.jsonl`, one row
+  per grid with a `file_blog_puzzles.CAUSES` key or `filed`.
+  `ft_pdf_puzzles.py fetch` records a `FETCH_CAUSES` key per failure in
+  `fetch_failed.json`; only `transient` is fetched again.
 - **Reading it**: `python3 tools/coverage.py` lists the recoverable buckets
   first, largest first. Then come the unrecoverable ones, then each series'
   exist/filed/missing. `--json` writes the same data.

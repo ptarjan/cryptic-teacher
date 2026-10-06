@@ -240,33 +240,53 @@ def pdf_path(number):
     return PDFS / f"{number}.pdf"
 
 
+#: Why a PDF could not be fetched: fetch_failed.json's {number: {"cause", "how"}}.
+#: Only "transient" is tried again; the rest are Wayback's or the FT's answer,
+#: checked by hand on 2026-10-06 (every snapshot of a paywalled page is the
+#: paywall; CDX lists no copy of the 404s).
+FETCH_CAUSES = {
+    "page-not-archived": "Wayback holds no copy of the article page that linked the PDF",
+    "page-paywalled": "Wayback's copies of the article page are the FT's subscriber paywall, no PDF link",
+    "pdf-not-archived": "media.ft.com refuses the PDF (403) and Wayback holds no copy of it",
+    "transient": "a connection error or a 429/5xx: tried again by the next fetch",
+}
+
+
+def failure(e):
+    """The FETCH_CAUSES key an exception from get() is, given it was not a 403/404."""
+    return "transient" if not isinstance(e, urllib.error.HTTPError) or e.code in (429, 500, 502, 503, 504) else None
+
+
 def pdf_of_page(page):
-    """(media.ft.com PDF url, None) linked from an article page, or (None, why)."""
+    """(media.ft.com PDF url, None, None) linked from an article page, or
+    (None, FETCH_CAUSES key, why)."""
     try:
         text = get(f"https://web.archive.org/web/2012id_/{page}", timeout=60, tries=2).decode("utf-8", "replace")
     except Exception as e:
-        return None, f"article page: {getattr(e, 'code', type(e).__name__)}"
+        return None, failure(e) or "page-not-archived", f"article page: {getattr(e, 'code', type(e).__name__)}"
     m = PDF_IN_PAGE.search(text)
     if not m:
-        return None, "article page links no PDF"
+        return None, "page-paywalled", "article page links no PDF"
     u = m.group(0)
-    return (u if u.startswith("http") else "http://media.ft.com" + u), None
+    return (u if u.startswith("http") else "http://media.ft.com" + u), None, None
 
 
 def fetch_one(number, url):
-    """(path or None, how): media.ft.com first, then Wayback's copy."""
+    """(path, how) fetched, or (None, {"cause": FETCH_CAUSES key, "how": why}):
+    media.ft.com first, then Wayback's copy."""
     PDFS.mkdir(parents=True, exist_ok=True)
     if url.endswith(".html"):
-        url, why = pdf_of_page(url)
+        url, cause, why = pdf_of_page(url)
         if url is None:
-            return None, why
+            return None, {"cause": cause, "how": why}
     tries = [("live", url), ("wayback", f"https://web.archive.org/web/2012id_/{url}")]
-    why = []
+    why, cause = [], "pdf-not-archived"
     for how, u in tries:
         try:
             data = get(u, timeout=60, tries=2)
         except Exception as e:
             why.append(f"{how}: {getattr(e, 'code', type(e).__name__)}")
+            cause = failure(e) or cause
             continue
         if data[:5] != b"%PDF-":
             why.append(f"{how}: not a PDF")
@@ -274,7 +294,7 @@ def fetch_one(number, url):
         pdf_path(number).write_bytes(data)
         (PDFS / f"{number}.how").write_text(how)
         return pdf_path(number), how
-    return None, "; ".join(why)
+    return None, {"cause": cause, "how": "; ".join(why)}
 
 
 def fetch(limit=None, numbers=None, log=print):
@@ -286,13 +306,15 @@ def fetch(limit=None, numbers=None, log=print):
         if (CACHE / "fetch_failed.json").exists() else {}
     got = 0
     for n in todo:
-        if pdf_path(n).exists() or str(n) in failed:
+        if pdf_path(n).exists() or failed.get(str(n), {}).get("cause") not in (None, "transient"):
             continue
         if limit is not None and got >= limit:
             break
         path, how = fetch_one(n, idx[str(n)]["url"])
         if path:
             got += 1
+            if failed.pop(str(n), None):
+                (CACHE / "fetch_failed.json").write_text(json.dumps(failed, indent=0))
         else:
             failed[str(n)] = how
             (CACHE / "fetch_failed.json").write_text(json.dumps(failed, indent=0))
