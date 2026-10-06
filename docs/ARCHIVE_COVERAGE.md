@@ -39,6 +39,11 @@ the next step):
 - **a collection the filer does not read** (`pub_times`, the Times of 1930):
   the fetcher fetches it already; the filer lacks its layout: four clue
   columns under the grid, 1-3 digit numbers, scans at 4x NewsUK's size.
+- **no grid** (Times): of 163, 155 were a scanned grid that reads true
+  under clue OCR too poor (1970s-80s scans) to lay 80% of its lights, with
+  no grid rebuilt from those clues. The scan's grid now stands there and
+  the unlaid lights go blank, so they move to **blank clues**. The 8 left
+  are crops `trove_grid.read_grid` cannot measure (stippled or faint).
 - **no OCR** (FT 1981): archive.org holds only image PDFs. Their page JPEGs
   come out with pypdf; the grid page is found by image, not by OCR.
 

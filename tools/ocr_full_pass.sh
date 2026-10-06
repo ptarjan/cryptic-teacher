@@ -65,8 +65,9 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # Scan filer: the clue vote files counts, capitals, hyphens and words as
 # the readings print them and settles misread words on the lexicon (5b97ed5,
 # 0188ade), after the skewed-page clue line fix (fc9ff99) and the grid
-# lattice fit (e9b8d39)
-REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-05T23:13:40+00:00}"
+# lattice fit (e9b8d39), and the scan's grid standing when no grid fits the
+# clues (f11b6c5)
+REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-06T13:28:43+00:00}"
 SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
 
 attempt_push() {
