@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Piece of meat adheres to kitchen utensils",
     "enumeration": "10"
    },
-   "solution": "CHOPSTICKS"
+   "solution": "CHOPSTICKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOPSTICKS",
+    "definitions": [
+     {
+      "text": "kitchen utensils",
+      "at": 25
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece of meat",
+      "gives": "CHOP",
+      "note": "a chop is a cut of meat on the bone"
+     },
+     {
+      "clueFragment": "adheres",
+      "gives": "STICKS",
+      "note": "something that adheres sticks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOP",
+      "STICKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cut of meat clings to the pots and pans in the kitchen.",
+     "definitionFit": "Chopsticks are the pair of slender eating and cooking implements used in East Asian kitchens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "adheres"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +89,62 @@
     "text": "Quack is briefly married to Bill",
     "enumeration": "8"
    },
-   "solution": "IMPOSTER"
+   "solution": "IMPOSTER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "IMPOSTER",
+    "definitions": [
+     {
+      "text": "Quack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "letter_selection",
+      "note": "said briefly, the little word is cut down to its opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the standard abbreviation for married"
+     },
+     {
+      "clueFragment": "Bill",
+      "gives": "POSTER",
+      "note": "a bill is a printed notice stuck up on a wall"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "POSTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A charlatan doctor has just wed a man called Bill.",
+     "walkthrough": "Bill looks like a man's name, but it is the noun for a posted notice.",
+     "definitionFit": "A quack is a fraud pretending to medical skill, so a person falsely claiming an identity or qualification."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Bill"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,57 @@
     "text": "Dress made by name-dropping European ...",
     "enumeration": "6"
    },
-   "solution": "FINISH"
+   "solution": "FINISH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FINISH",
+    "definitions": [
+     {
+      "text": "Dress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "name-dropping",
+      "for": "deletion",
+      "note": "dropping a name means letting go of the abbreviation for name from the nationality"
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "FINNISH",
+      "note": "a person or thing from Finland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINISH"
+     ]
+    },
+    "explanation": {
+     "surface": "An outfit worn by a social climber who keeps mentioning famous people, from somewhere in Europe.",
+     "walkthrough": "Name-dropping is a social habit in the surface; here it means removing one N from FINNISH.",
+     "definitionFit": "To dress a surface such as timber or stone is to give it a final finish or treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "name-dropping"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +222,59 @@
     "text": "... on tenterhooks since meeting head of Givenchy",
     "enumeration": "4"
    },
-   "solution": "AGOG"
+   "solution": "AGOG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AGOG",
+    "definitions": [
+     {
+      "text": "on tenterhooks",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "meeting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "since",
+      "gives": "AGO",
+      "note": "since, as in 'long since', means in the past"
+     },
+     {
+      "clueFragment": "Givenchy",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the fashion house's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGO",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from the dress clue: someone has been in suspense since meeting the boss of a Paris fashion house.",
+     "walkthrough": "The leading dots tie this to the previous clue's dress for the surface only.",
+     "definitionFit": "Being agog is being eagerly excited and in suspense, the same state as waiting anxiously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "since"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +294,53 @@
      }
     ]
    },
-   "solution": "TRADEWINDS"
+   "solution": "TRADEWINDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRADE WINDS",
+    "definitions": [
+     {
+      "text": "tropical airflow",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rough",
+      "for": "anagram",
+      "note": "something rough is crude and disordered, so the letters lose their neat order"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tides drawn",
+      "gives": "TIDESDRAWN",
+      "note": "the two words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIDESDRAWN",
+       "gives": "TRADEWINDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choppy seas are being pulled along by the steady breezes of the tropics.",
+     "definitionFit": "Trade winds are the steady easterly winds blowing towards the equator across tropical oceans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rough"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +354,78 @@
     "text": "Holy woman taking a new risk translated ancient language",
     "enumeration": "8"
    },
-   "solution": "SANSKRIT"
+   "solution": "SANSKRIT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "SANSKRIT",
+    "definitions": [
+     {
+      "text": "ancient language",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "the holy woman takes the rest in, enclosing it inside her own letters"
+     },
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translating changes a word's form, so these letters come out rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holy woman",
+      "gives": "ST",
+      "note": "ST is the abbreviation for a saint"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "risk",
+      "gives": "SKRI",
+      "note": "the word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "N",
+      "SKRI",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RISK",
+       "gives": "SKRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nun takes a fresh gamble by translating an old tongue.",
+     "definitionFit": "Sanskrit is the classical language of ancient India, used in Hindu scripture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +439,71 @@
     "text": "Write to government about uninhabited Aegean island",
     "enumeration": "6"
    },
-   "solution": "PENANG"
+   "solution": "PENANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "PENANG",
+    "definitions": [
+     {
+      "text": "island",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the first pair of pieces sits around the next, wrapping it on both sides"
+     },
+     {
+      "text": "uninhabited",
+      "for": "letter_selection",
+      "note": "with no inhabitants the inside is emptied, leaving only the outside letters"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Write",
+      "gives": "PEN",
+      "note": "to pen is to write"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     },
+     {
+      "clueFragment": "Aegean",
+      "gives": "AN",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "AN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A letter to the authorities about a deserted Greek island.",
+     "walkthrough": "The surface wants an Aegean island, but Penang is Malaysian; Aegean only supplies its two outer letters.",
+     "definitionFit": "Penang is an island off the west coast of peninsular Malaysia."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Aegean"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +517,43 @@
     "text": "Muscle complaint",
     "enumeration": "4"
    },
-   "solution": "BEEF"
+   "solution": "BEEF",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEEF",
+    "definitions": [
+     {
+      "text": "Muscle",
+      "at": 0
+     },
+     {
+      "text": "complaint",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Muscle",
+      "note": "first meaning: brawn, physical strength"
+     },
+     {
+      "clueFragment": "complaint",
+      "note": "second meaning: a grievance or grumble"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it sounds like a muscle injury; the words are two separate meanings.",
+     "definitionFit": "Beef is slang both for brawny strength and for a grudge or grievance someone airs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "complaint"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +567,52 @@
     "text": "Fine example of smell associated with campanologist?",
     "enumeration": "9"
    },
-   "solution": "HUMDINGER"
+   "solution": "HUMDINGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HUMDINGER",
+    "definitions": [
+     {
+      "text": "Fine example",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smell",
+      "gives": "HUM",
+      "note": "hum is British slang for a bad smell"
+     },
+     {
+      "clueFragment": "campanologist?",
+      "gives": "DINGER",
+      "note": "a bell-ringer might whimsically be called one who makes bells ding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "DINGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A prime specimen of the odour that hangs around bell-ringers.",
+     "walkthrough": "A campanologist is a bell-ringer; the question mark flags the jokey invented word for one.",
+     "definitionFit": "A humdinger is informal for an outstanding person or thing, a remarkable example of its kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "smell"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +626,65 @@
     "text": "American insect seen round large tree ...",
     "enumeration": "5"
    },
-   "solution": "ABELE"
+   "solution": "ABELE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABELE",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the insect goes round, enclosing the following piece within itself"
+     }
+    ],
+    "linkWords": [
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "BEE",
+      "note": "a familiar insect"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BE",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A bug from the States is spotted circling a big tree.",
+     "walkthrough": "Large looks like it describes the tree, but it is just L.",
+     "definitionFit": "The abele is the white poplar, a tree with leaves silvery beneath."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "large"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +698,64 @@
     "text": "... searching for quiet bird close to clearing",
     "enumeration": "7"
    },
-   "solution": "PROBING"
+   "solution": "PROBING",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PROBING",
+    "definitions": [
+     {
+      "text": "searching",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "P",
+      "note": "P is piano, the musical direction for quiet"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "ROBIN",
+      "note": "a common garden bird"
+     },
+     {
+      "clueFragment": "clearing",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROBIN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing from the tree: someone looks for a quiet bird near a woodland glade.",
+     "definitionFit": "Probing is investigating closely, an exploratory hunt for something hidden or unknown."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +769,51 @@
     "text": "Stick found by officers next to river",
     "enumeration": "7"
    },
-   "solution": "DISTAFF"
+   "solution": "DISTAFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISTAFF",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found by",
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "officers",
+      "gives": "DIS",
+      "note": "DIs are Detective Inspectors, police officers"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "TAFF",
+      "note": "the Taff is the river that flows through Cardiff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "TAFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Police discover a stick lying beside a river.",
+     "walkthrough": "The Taff is a Welsh river; DI is the British abbreviation for a Detective Inspector.",
+     "definitionFit": "A distaff is the cleft stick on which wool or flax is held for spinning by hand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "officers"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +827,61 @@
     "text": "Tour leader getting skin problem from shrimp",
     "enumeration": "5"
    },
-   "solution": "TITCH"
+   "solution": "TITCH",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TITCH",
+    "definitions": [
+     {
+      "text": "shrimp",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader comes at the front, so just the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "getting",
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tour",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "skin problem",
+      "gives": "ITCH",
+      "note": "an itch is an irritation of the skin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "A tour guide catches a rash from eating seafood.",
+     "walkthrough": "Shrimp looks like seafood, but it is slang for a small person; titch is British informal for one.",
+     "definitionFit": "Both words are informal names for a very small or undersized person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "shrimp"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +895,51 @@
     "text": "Entitlement to drink is absolute!",
     "enumeration": "9"
    },
-   "solution": "DOWNRIGHT"
+   "solution": "DOWNRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNRIGHT",
+    "definitions": [
+     {
+      "text": "absolute",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "DOWN",
+      "note": "to down a drink is to swallow it in one"
+     },
+     {
+      "clueFragment": "Entitlement",
+      "gives": "RIGHT",
+      "note": "a right is something one is entitled to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "The right to a drink is beyond question!",
+     "walkthrough": "'Entitlement to drink' puts the right after the drink.",
+     "definitionFit": "Downright and absolute both mean complete or utter, as in a downright lie."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Entitlement"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +953,57 @@
     "text": "Cast down to hell? Try to get close to Styx!",
     "enumeration": "10"
    },
-   "solution": "DISHEARTEN"
+   "solution": "DISHEARTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISHEARTEN",
+    "definitions": [
+     {
+      "text": "Cast down",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to",
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hell",
+      "gives": "DIS",
+      "note": "Dis is the classical underworld, and Dante's city of hell"
+     },
+     {
+      "clueFragment": "Try",
+      "gives": "HEAR",
+      "note": "a judge tries, or hears, a case"
+     },
+     {
+      "clueFragment": "close to Styx",
+      "gives": "TEN",
+      "note": "the last letter of the river's name is the Roman numeral for this number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "HEAR",
+      "TEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Sent down into hell, a soul struggles to reach the river of the underworld.",
+     "walkthrough": "The close of Styx is X, read as the Roman numeral and written out as a word.",
+     "definitionFit": "To dishearten someone is to make them dejected, the same as casting their spirits down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Try"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1027,83 @@
      }
     ]
    },
-   "solution": "THEREDARMY"
+   "solution": "THEREDARMY",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "THE RED ARMY",
+    "definitions": [
+     {
+      "text": "Soviet soldiers",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "the other people hold what follows inside their own word"
+     },
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple, the word bends freely into a new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Other people",
+      "gives": "THEY",
+      "note": "they means other people in general"
+     },
+     {
+      "clueFragment": "roubles",
+      "gives": "R",
+      "note": "R is the abbreviation for the Russian currency"
+     },
+     {
+      "clueFragment": "dare",
+      "gives": "EDAR",
+      "note": "the word rearranged"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is a standard abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "R",
+      "EDAR",
+      "M",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DARE",
+       "gives": "EDAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Outsiders with roubles dare to fund the Soviet troops.",
+     "walkthrough": "'Supply' looks like a verb about providing funds, but it is the adverb from supple.",
+     "definitionFit": "The Red Army was the name of the USSR's land forces from the revolution until 1946, so its men are Soviet troops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1123,51 @@
      }
     ]
    },
-   "solution": "CORDONSANITAIRE"
+   "solution": "CORDONSANITAIRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CORDON SANITAIRE",
+    "definitions": [
+     {
+      "text": "protective environment",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are falsified into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carried son into a",
+      "gives": "CARRIEDSONINTOA",
+      "note": "the four words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARRIEDSONINTOA",
+       "gives": "CORDONSANITAIRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A physician carries a boy into a safe, sheltered place.",
+     "walkthrough": "Doctor looks like the person doing the carrying, but it is a verb signalling the rearrangement.",
+     "definitionFit": "A cordon sanitaire is a guarded barrier or buffer zone that keeps disease or danger out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1187,67 @@
      }
     ]
    },
-   "solution": "OWNBRAND"
+   "solution": "OWNBRAND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OWN BRAND",
+    "definitions": [
+     {
+      "text": "range of supermarket goods",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "the cereal is included, set inside the other letters"
+     },
+     {
+      "text": "beat",
+      "for": "anagram",
+      "note": "something beaten is battered out of shape, so those letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cereal product",
+      "gives": "BRAN",
+      "note": "bran is the husk of cereal grain"
+     },
+     {
+      "clueFragment": "downbeat",
+      "gives": "OWND",
+      "note": "the first four letters, down, rearranged as signalled by the rest of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OWN",
+      "BRAN",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DOWN",
+       "gives": "OWND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A breakfast cereal sits among a gloomy selection of shop products.",
+     "walkthrough": "Downbeat reads as one word meaning gloomy; split it, and beat works on down.",
+     "definitionFit": "Own-brand goods are products sold under the supermarket's own label rather than a maker's name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "downbeat"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1261,59 @@
     "text": "Conclude with penalty - essentially outrageous",
     "enumeration": "8"
    },
-   "solution": "INFERNAL"
+   "solution": "INFERNAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "INFERNAL",
+    "definitions": [
+     {
+      "text": "outrageous",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only its middle letters are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conclude",
+      "gives": "INFER",
+      "note": "to infer is to conclude from evidence"
+     },
+     {
+      "clueFragment": "penalty",
+      "gives": "NAL",
+      "select": "middle",
+      "note": "the central three letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER",
+      "NAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Finishing with a penalty is, at heart, a scandal.",
+     "walkthrough": "Conclude looks like 'finish', but it means to deduce.",
+     "definitionFit": "Infernal is used informally for something annoying or outrageous, literally hellish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conclude"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1327,70 @@
     "text": "Little pieces of fibre blocking malfunctioning press",
     "enumeration": "9"
    },
-   "solution": "SPLINTERS"
+   "solution": "SPLINTERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SPLINTERS",
+    "definitions": [
+     {
+      "text": "Little pieces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking a passage sits inside it, obstructing it"
+     },
+     {
+      "text": "malfunctioning",
+      "for": "anagram",
+      "note": "a machine that is malfunctioning has gone wrong, so the letters are out of order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fibre",
+      "gives": "LINT",
+      "note": "lint is fluff made of tiny fibres"
+     },
+     {
+      "clueFragment": "press",
+      "gives": "SPERS",
+      "note": "the word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "LINT",
+      "ERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRESS",
+       "gives": "SPERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bits of fluff are jamming a broken printing press.",
+     "walkthrough": "'Little pieces of fibre' looks like the whole definition; 'of fibre' belongs to the wordplay.",
+     "definitionFit": "Splinters are small sharp fragments broken off something, so little pieces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "press"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1404,83 @@
     "text": "Doctored mail about cocked-up surgery for tumour",
     "enumeration": "6"
    },
-   "solution": "LIPOMA"
+   "solution": "LIPOMA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "LIPOMA",
+    "definitions": [
+     {
+      "text": "tumour",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctored",
+      "for": "anagram",
+      "note": "doctored means tampered with, so these letters have been falsified into a new order"
+     },
+     {
+      "text": "cocked-up",
+      "for": "reversal",
+      "note": "in a down clue, something cocked up is tipped upwards, so it reads from bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the mail goes about, surrounding the operation on both sides"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mail",
+      "gives": "LIMA",
+      "note": "the word rearranged"
+     },
+     {
+      "clueFragment": "surgery",
+      "gives": "OP",
+      "note": "an op is an operation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "PO",
+      "MA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAIL",
+       "gives": "LIMA"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "OP",
+       "to": "PO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Falsified post concerning a botched operation to remove a growth.",
+     "walkthrough": "Cocked-up suggests botched, but in a down answer it turns the letters upwards.",
+     "definitionFit": "A lipoma is a benign tumour made of fatty tissue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cocked-up"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1494,59 @@
     "text": "Mistake involving hook at end of line",
     "enumeration": "5"
    },
-   "solution": "GAFFE"
+   "solution": "GAFFE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "GAFFE",
+    "definitions": [
+     {
+      "text": "Mistake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is the only one kept"
+     }
+    ],
+    "linkWords": [
+     "involving",
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hook",
+      "gives": "GAFF",
+      "note": "a gaff is a hooked pole for landing fish"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAFF",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's error with the hook at the end of the fishing line.",
+     "definitionFit": "A gaffe is a social blunder or embarrassing slip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1560,66 @@
     "text": "Dwarf's bottom stuck between edges of gateway",
     "enumeration": "6"
    },
-   "solution": "GRUMPY"
+   "solution": "GRUMPY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "GRUMPY",
+    "definitions": [
+     {
+      "text": "Dwarf",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck between",
+      "for": "container",
+      "note": "stuck between two things means sitting inside them, enclosed on each side"
+     },
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, first and last"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gateway",
+      "gives": "GY",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "bottom",
+      "gives": "RUMP",
+      "note": "the rump is the hindquarters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RUMP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A little man's backside is wedged in a gate.",
+     "walkthrough": "Grumpy is one of the seven dwarfs in Disney's Snow White; the 's stands for is.",
+     "definitionFit": "Grumpy is the name of one of the seven dwarfs in the Snow White story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1633,65 @@
     "text": "Space used by South American president restricted by Republican ruler",
     "enumeration": "7"
    },
-   "solution": "EMPEROR"
+   "solution": "EMPEROR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EMPEROR",
+    "definitions": [
+     {
+      "text": "ruler",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restricted",
+      "for": "deletion",
+      "note": "restricted means cut short, so the president's name loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "used by",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Space",
+      "gives": "EM",
+      "note": "an em is a printer's unit of space"
+     },
+     {
+      "clueFragment": "South American president",
+      "gives": "PERON",
+      "note": "Juan Peron was president of Argentina"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PERO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Room is taken up by a Latin American leader hemmed in by a republican monarch.",
+     "walkthrough": "Restricted by Republican looks like a container, but restricted only trims the name.",
+     "definitionFit": "A plain synonym: the head of an empire is a sovereign who governs it, like Napoleon or Hirohito."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Space"
+    }
+   }
   },
   {
    "number": 22,
@@ -397,7 +1705,56 @@
     "text": "Start to embroider vintage fabric",
     "enumeration": "4"
    },
-   "solution": "ECRU"
+   "solution": "ECRU",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ECRU",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which alone is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embroider",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of the word"
+     },
+     {
+      "clueFragment": "vintage",
+      "gives": "CRU",
+      "note": "a cru is a wine vineyard or growth of a given vintage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CRU"
+     ]
+    },
+    "explanation": {
+     "surface": "Begin stitching decoration onto old cloth.",
+     "walkthrough": "Vintage looks like it describes the fabric, but it is wine terminology.",
+     "definitionFit": "Ecru is unbleached linen or similar cloth, and the pale beige colour named after it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vintage"
+    }
+   }
   },
   {
    "number": 23,
@@ -411,7 +1768,72 @@
     "text": "Song about Queen attending animal's debut in part of zoo",
     "enumeration": "7"
    },
-   "solution": "AQUARIA"
+   "solution": "AQUARIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AQUARIA",
+    "definitions": [
+     {
+      "text": "part of zoo",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the song goes about the next pieces, wrapping round them"
+     },
+     {
+      "text": "debut",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so only the opening letter appears"
+     }
+    ],
+    "linkWords": [
+     "attending",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "gives": "ARIA",
+      "note": "an aria is a solo song in opera"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "QU",
+      "note": "QU is an abbreviation for queen"
+     },
+     {
+      "clueFragment": "animal's",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QU",
+      "A",
+      "RIA"
+     ]
+    },
+    "explanation": {
+     "surface": "A tune about the Queen opening a new animal enclosure at the zoo.",
+     "definitionFit": "Aquaria are tanks or buildings where fish and water creatures are kept, as in a zoo's aquarium house."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "debut"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1847,57 @@
     "text": "Book of information having missing folio",
     "enumeration": "4"
    },
-   "solution": "ACTS"
+   "solution": "ACTS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACTS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "having a thing missing means it is gone, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "FACTS",
+      "note": "facts are pieces of information"
+     },
+     {
+      "clueFragment": "folio",
+      "gives": "F",
+      "note": "F is the abbreviation for folio"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A reference book with a page torn out.",
+     "walkthrough": "Book here is a book of the Bible, the Acts of the Apostles.",
+     "definitionFit": "Acts is the New Testament book recounting the deeds of the apostles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1911,63 @@
     "text": "Old person following recipe in Italian",
     "enumeration": "5"
    },
-   "solution": "ROMAN"
+   "solution": "ROMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROMAN",
+    "definitions": [
+     {
+      "text": "Italian",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following puts the old person after the recipe, so that pair is placed second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, from the Latin on prescriptions"
+     },
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "person",
+      "gives": "MAN",
+      "note": "a man is a person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly cook follows a recipe written in Italian.",
+     "walkthrough": "Old person is read as two pieces, after the recipe abbreviation.",
+     "definitionFit": "A Roman is a native of Rome, the Italian capital, so an Italian by birth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1981,54 @@
     "text": "Mysterious substance emanating from a cop smelt terrible",
     "enumeration": "9"
    },
-   "solution": "ECTOPLASM"
+   "solution": "ECTOPLASM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ECTOPLASM",
+    "definitions": [
+     {
+      "text": "Mysterious substance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in an awful state, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "emanating from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a cop smelt",
+      "gives": "ACOPSMELT",
+      "note": "the three words taken letter by letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACOPSMELT",
+       "gives": "ECTOPLASM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange goo is oozing from a policeman who smelled awful.",
+     "definitionFit": "Ectoplasm is the eerie substance spiritualists claimed oozed from a medium during a seance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "smelt"
+    }
+   }
   }
  ]
 }
