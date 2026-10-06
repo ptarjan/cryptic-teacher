@@ -13,8 +13,11 @@ lights in printed order, each with its clue and, when the enumeration says, its
 length. No numbers, no positions, no answers, so there is no half-placed grid
 to write.
 
-THE BACKFILL FINISHES IT. tools/daily_update.sh queues these with the unsolved
-puzzles. The solver answers each clue in order; tools/apply_solution.py then
+THE BACKFILL FINISHES IT, for a record BUILDERS can promote: its filer and its
+grid kind (its book's `grid` in tools/data/books.json). The rest cannot be
+written, and those already held are never queued (solvable): the Listener
+book's barred grids wait on a barred builder. tools/daily_update.sh and
+tools/prereset_plan.py queue the promotable ones with the unsolved puzzles. The solver answers each clue in order; tools/apply_solution.py then
 derives the one grid those answers cross in (tools/reconstruct_grid.py with
 `words`, no clue numbers), numbers it, files the puzzle in puzzles/ through the
 filer's own builder with every check a solved grid gets, and this file goes:
@@ -210,11 +213,15 @@ def entries_from_grid(grid, across, down):
     return entries, problems
 
 
-def _book_build(record, grid):
-    """The grid puzzle, unsolved, through file_penguin_puzzle.build: the same
-    builder a book puzzle whose grid was found at read time goes through."""
+def _book_build(record, answers):
+    """(puzzle, problems): the blocked grid `answers` cross in, as the grid
+    puzzle, unsolved, through file_penguin_puzzle.build: the same builder a
+    book puzzle whose grid was found at read time goes through."""
     import series
     from file_penguin_puzzle import build
+    grid, why = derive_grid(record, answers)
+    if grid is None:
+        return None, [f"no single grid holds these answers: {why}"]
     index, position = divmod(record["number"], series.POSITIONS_PER_BOOK)
     identifier = next(b["identifier"] for b in series.BOOKS.values()
                       if b["book_index"] == index)
@@ -232,19 +239,47 @@ def _book_build(record, grid):
     return puzzle, []
 
 
-# Each filer that writes clues-only puzzles, and how its grid puzzle is built.
-# A filer missing here cannot write one: refuse_bad_clues_only checks.
-BUILDERS = {"tools/acquire_book.py": _book_build}
+# (filer, grid kind) -> how its answers become the grid puzzle. A record whose
+# pair is missing here cannot be written (refuse_bad_clues_only) or queued for
+# a solve (solvable): its answers could never become a grid. A Listener book is
+# "barred", and derive_grid places black squares, so it waits on a barred
+# builder.
+BUILDERS = {("tools/acquire_book.py", "blocked"): _book_build}
+
+
+def grid_kind(record):
+    """series.GRIDS' word for the grid `record` needs: its book's `grid`. None
+    for a series that does not say, which no builder takes."""
+    import series
+    if not series.is_book(record.get("series")) or not isinstance(record.get("number"), int):
+        return None
+    try:
+        return series.grid(record["series"], record["number"])
+    except (KeyError, ValueError):
+        return None
+
+
+def builder(record):
+    """The BUILDERS entry that promotes `record`, or None."""
+    return BUILDERS.get(((record.get("source") or {}).get("acquiredBy"), grid_kind(record)))
+
+
+def solvable():
+    """[record] of every held puzzle a builder can promote: the only ones a
+    solve queue may take. The rest stay held as data."""
+    records = (json.loads(path.read_text(encoding="utf-8")) for path in files())
+    return [r for r in records if builder(r)]
 
 
 def promote(record, answers):
     """(puzzle, problems): the grid puzzle `record` becomes, unsolved, from
     `answers` ({"across": [...], "down": [...]}, letters, in clue order).
     tools/apply_solution.py checks the answers against it and writes both."""
-    grid, why = derive_grid(record, answers)
-    if grid is None:
-        return None, [f"no single grid holds these answers: {why}"]
-    puzzle, problems = BUILDERS[record["source"]["acquiredBy"]](record, grid)
+    build = builder(record)
+    if build is None:
+        return None, [f"no builder for a {grid_kind(record)} grid filed by "
+                      f"{record['source']['acquiredBy']} (clues_only.BUILDERS)"]
+    puzzle, problems = build(record, answers)
     if problems:
         return None, problems
     puzzle["source"] = {**puzzle["source"], "acquiredOn": record["source"]["acquiredOn"]}

@@ -787,7 +787,7 @@ def _row(pid, day, solved=True, annotated=False, **extra):
             "annotated": annotated, "hasSolutions": solved, **extra}
 
 
-_HELD = {"id": "book-31039", "series": "book", "year": 2002,
+_HELD = {"id": "book-6039", "series": "book", "year": 2004,
          "annotated": False, "hasSolutions": False}
 _SCAN = [_row("times-21042", "1999-03-01", solved=False),       # an OCR scan, no answers
          _row("canberra-500", "2001-01-01", solved=False),      # a whole series filed bare
@@ -809,8 +809,8 @@ BACKLOG_CASES = [
     # a clues-only puzzle (clues_only_rows) is queued in its series' lane, here
     # book's ahead of times' (neither is in BY_DEMAND); a failed solve holds it
     # out like any other
-    (_SCAN[2:4] + [_HELD], (), (), (), ["book-31039", "times-29600"]),
-    (_SCAN[2:4] + [_HELD], (), ("book-31039",), (), ["times-29600"]),
+    (_SCAN[2:4] + [_HELD], (), (), (), ["book-6039", "times-29600"]),
+    (_SCAN[2:4] + [_HELD], (), ("book-6039",), (), ["times-29600"]),
 ]
 
 
@@ -826,8 +826,10 @@ def backlog_self_test():
 
 
 def clues_only_self_test():
-    """A file in clues_only/ is a queue row, unsolved, and sorts by its year
-    among its series' indexed puzzles rather than at the back."""
+    """A file in clues_only/ a builder can promote is a queue row, unsolved,
+    and sorts by its year among its series' indexed puzzles rather than at the
+    back. One whose grid kind has no builder (a Listener book's barred grid) is
+    no row at all: its solve could never be promoted."""
     import tempfile
 
     import clues_only
@@ -837,20 +839,23 @@ def clues_only_self_test():
         clues_only.DIR = Path(tmp)
         try:
             (Path(tmp) / "book").mkdir()
-            (Path(tmp) / "book" / "book-31039.json").write_text(json.dumps(
-                {"id": "book-31039", "number": 31039, "series": "book", "year": 2002,
-                 "clues": {"across": [], "down": []}}))
+            for pid, year in (("book-6039", 2004), ("book-31039", 2002)):
+                (Path(tmp) / "book" / f"{pid}.json").write_text(json.dumps(
+                    {"id": pid, "number": int(pid.split("-")[1]), "series": "book",
+                     "year": year, "source": {"acquiredBy": "tools/acquire_book.py"},
+                     "clues": {"across": [], "down": []}}))
             if clues_only_rows() != [_HELD]:
-                print(f"FAIL clues_only_rows = {clues_only_rows()} (want [{_HELD}])",
+                print(f"FAIL clues_only_rows = {clues_only_rows()} (want [{_HELD}]: "
+                      f"the barred book-31039 has no builder and stays out)",
                       file=sys.stderr)
                 bad += 1
-            if not unsolved("book-31039"):
+            if not unsolved("book-6039"):
                 print("FAIL unsolved(a clues-only id) is False: the burn would annotate "
                       "a puzzle with no grid", file=sys.stderr)
                 bad += 1
             rows = [_row("book-1001", None, year=1990)] + clues_only_rows()
-            got = newest_first(["book-1001", "book-31039"], rows)
-            if got != ["book-31039", "book-1001"]:
+            got = newest_first(["book-1001", "book-6039"], rows)
+            if got != ["book-6039", "book-1001"]:
                 print(f"FAIL newest_first with a clues-only row = {got}", file=sys.stderr)
                 bad += 1
         finally:
@@ -1084,13 +1089,13 @@ def round_robin(rows):
 
 
 def clues_only_rows():
-    """An index-shaped row for each puzzle held as its clues alone: unannotated,
-    no answers, every clue readable, dated by its `year` or `date`. The index
-    lists puzzles/ alone, so without these the queue never sees them."""
+    """An index-shaped row for each puzzle held as its clues alone that a
+    builder can promote (clues_only.solvable): unannotated, no answers, every
+    clue readable, dated by its `year` or `date`. The index lists puzzles/
+    alone, so without these the queue never sees them."""
     import clues_only
     rows = []
-    for path in clues_only.files():
-        record = json.loads(path.read_text(encoding="utf-8"))
+    for record in clues_only.solvable():
         row = {"id": record["id"], "series": record["series"],
                "annotated": False, "hasSolutions": False}
         row.update({k: record[k] for k in ("year", "date") if k in record})

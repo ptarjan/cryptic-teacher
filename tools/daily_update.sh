@@ -588,11 +588,12 @@ todo = sorted(((is_first_issue(p["id"]), puzzle_day(p) or datetime.date.min, p["
                for p in idx["puzzles"]
                if p["id"] in unsolved_ids and p["id"] not in unreadable
                and p["id"] not in tried), reverse=True)
-# Puzzles held as their clues alone (tools/clues_only.py) are solved here too;
-# the solve derives their grid. Dateless book reprints, so they go last.
+# Puzzles held as their clues alone (tools/clues_only.py) are solved here too,
+# those a builder can promote; the solve derives their grid. Dateless book
+# reprints, so they go last.
 import clues_only
-todo += [(False, datetime.date.min, i) for i in
-         (path.stem for path in clues_only.files()) if i not in tried]
+todo += [(False, datetime.date.min, r["id"]) for r in clues_only.solvable()
+         if r["id"] not in tried]
 print(" ".join(i for *_, i in todo[:limit]))
 EOF
 )
