@@ -22,6 +22,10 @@ that was not shipped, or crashes, is read here instead, the reason logged.
 When no host answers, or one stops answering mid-read, the reason is logged
 and this process reads locally, trying the desktop again after RETRY
 seconds: a desktop that is off slows a run down and never stops or hangs it.
+While Paul games on it (tools/desktop_busy.py) no session is opened, an open
+one is closed before its next read and one waiting on a read is abandoned
+(the probe ends the desktop's side): this process reads locally until the
+desktop is idle again.
 
 Desktop layout (C:\\Users\\micro\\ocrw): venv/ (the pinned Python packages),
 tess/ (conda-forge tesseract, micromamba), v-<code hash>/tools/ (shipped here);
@@ -42,6 +46,9 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 
+import desktop_busy
+from desktop_busy import SSH
+
 #: The desktop's directory.
 HOME = r"C:\Users\micro\ocrw"
 #: Seconds to wait for a session to say it is ready, for one crop and for
@@ -55,11 +62,6 @@ UNSHIPPED = ("tools/data/blog_facts/", "tools/data/yt_solvers/")
 MANIFEST = "tools/shipped.txt"
 #: Seconds before a process that lost the desktop tries it again.
 RETRY = 600
-#: Every OCR_REMOTE host is the desktop, its host key known by its tailnet
-#: address (this host's known_hosts is read-only), so its LAN address
-#: checks against that.
-SSH = ["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=5", "-o", "ServerAliveInterval=15",
-       "-o", "ServerAliveCountMax=4", "-o", "HostKeyAlias=100.68.145.15"]
 
 
 def shipped():
@@ -307,7 +309,10 @@ class Session:
             left = end - time.monotonic()
             if left <= 0:
                 raise Unavailable(f"no answer in {timeout}s")
-            if not select.select([fd], [], [], left)[0]:
+            if not select.select([fd], [], [], min(left, desktop_busy.PROBE_EVERY))[0]:
+                why = desktop_busy.busy([self.host])
+                if why:
+                    raise Unavailable(f"desktop busy: {why}")
                 continue
             chunk = os.read(fd, 1 << 16)
             if not chunk:
@@ -469,13 +474,23 @@ def connect():
     return None
 
 
+def hosts():
+    return [h for h in os.environ.get("OCR_REMOTE", "").split(",") if h]
+
+
 def session():
-    """This process's ready session, or None when OCR_REMOTE is not set or
-    no host answers (then not tried again for RETRY seconds)."""
-    if not os.environ.get("OCR_REMOTE"):
+    """This process's ready session, or None when OCR_REMOTE is not set, the
+    desktop is busy (closing the session) or no host answers (then not tried
+    again for RETRY seconds)."""
+    if not hosts():
         return None
     if _STATE["pid"] != os.getpid():  # a forked worker: the parent's session is not its own
         _STATE.update(pid=os.getpid(), session=None, retry=0.0)
+    if desktop_busy.busy(hosts()):
+        if _STATE["session"] is not None:
+            _STATE["session"].close()
+            _STATE["session"] = None
+        return None
     if _STATE["session"] is None:
         if time.monotonic() < _STATE["retry"]:
             return None
@@ -488,9 +503,13 @@ def session():
 
 
 def lost(e):
-    log(f"lost {_STATE['session'].host} ({e}), reading here; trying again in {RETRY}s")
+    """Close a session that stopped answering: tried again after RETRY
+    seconds, or once the desktop is idle when it was ended for a game."""
+    wait = 0 if desktop_busy.busy(hosts()) else RETRY
+    log(f"lost {_STATE['session'].host} ({e}), reading here; trying again "
+        + (f"in {RETRY}s" if wait else "when the desktop is idle"))
     _STATE["session"].close()
-    _STATE.update(session=None, retry=time.monotonic() + RETRY)
+    _STATE.update(session=None, retry=time.monotonic() + wait)
 
 
 def edition_request(d, found, solutions):
