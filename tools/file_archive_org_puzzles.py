@@ -171,7 +171,7 @@ NUMBER = r"(\d{2}[,.\s]?\d{3})"
 #: "No" on ("PuzzleNo"), drops "No", splits the number ("1 8,862", "17,1 11"),
 #: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543");
 #: read_puzzle checks the number against the date.
-TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|listener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
+TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|\w*stener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
                    r"\W{0,3}crossword\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
                    r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues.
