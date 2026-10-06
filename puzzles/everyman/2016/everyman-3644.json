@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "Move is last of several in trick",
     "enumeration": "8"
    },
-   "solution": "DISLODGE"
+   "solution": "DISLODGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DISLODGE",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the final letter of the following word is the only one kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the preceding pieces sit inside the word that follows, so it wraps round them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trick",
+      "gives": "D",
+      "note": "first letter of a word meaning to evade or swindle"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "several",
+      "gives": "L",
+      "select": "last",
+      "note": "the closing letter of several"
+     },
+     {
+      "clueFragment": "trick",
+      "gives": "ODGE",
+      "note": "rest of the word for a trick or evasion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "L",
+      "ODGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player's move: one card among several, played last, takes the trick.",
+     "walkthrough": "The surface reads like card play, but 'trick' is a dodge, and the selected letter plus 'is' sit inside it.",
+     "definitionFit": "To dislodge something is to shift or knock it out of its position, a transitive verb sense of move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trick"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +116,54 @@
     "text": "I cope without an idol",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IMAGE",
+    "definitions": [
+     {
+      "text": "idol",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the short word that follows is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I cope",
+      "gives": "IMANAGE",
+      "note": "to cope is to manage, with the I kept"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written; these letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confessing they get by without a hero to worship.",
+     "walkthrough": "Take AN out of I MANAGE to leave IMAGE.",
+     "definitionFit": "An image is a statue or picture worshipped as a god, the biblical sense of graven idol."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cope"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +183,51 @@
      }
     ]
    },
-   "solution": "LOUISARMSTRONG"
+   "solution": "LOUISARMSTRONG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOUIS ARMSTRONG",
+    "definitions": [
+     {
+      "text": "Trumpeter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirring",
+      "for": "anagram",
+      "note": "stirring mixes things up, so the letters of the next two words are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mortals, rousing",
+      "gives": "MORTALSROUSING",
+      "note": "the fourteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MORTALSROUSING",
+       "gives": "LOUISARMSTRONG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trumpet player whose rousing playing stirs ordinary mortals.",
+     "walkthrough": "'Stirring' and 'rousing' both look like praise for the trumpeter; only the first is the signal, and 'rousing' is part of the fodder.",
+     "definitionFit": "Louis Armstrong, known as Satchmo, was the celebrated American jazz trumpet player and singer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stirring"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +241,57 @@
     "text": "Record supported by Republican correct? Shame",
     "enumeration": "9"
    },
-   "solution": "DISCREDIT"
+   "solution": "DISCREDIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISCREDIT",
+    "definitions": [
+     {
+      "text": "Shame",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "supported by",
+     "?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Record",
+      "gives": "DISC",
+      "note": "a gramophone record"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "correct",
+      "gives": "EDIT",
+      "note": "to edit is to correct text"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC",
+      "R",
+      "EDIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a record backed by a Republican is accurate, then crying shame.",
+     "walkthrough": "In a down clue 'supported by' means the first piece sits on top of what follows.",
+     "definitionFit": "To discredit someone is to damage their reputation, which is what shaming them does; both are verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "correct"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +305,66 @@
     "text": "Raised quote about hard set of principles",
     "enumeration": "5"
    },
-   "solution": "ETHIC"
+   "solution": "ETHIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ETHIC",
+    "definitions": [
+     {
+      "text": "set of principles",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Raised",
+      "for": "reversal",
+      "note": "in a down clue raised means lifted upwards, so the word reads bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the turned word goes round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quote",
+      "gives": "CITE",
+      "note": "to quote is to cite"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "H",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "CITE",
+       "to": "ETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone raised a quotation about a firm code of conduct.",
+     "definitionFit": "An ethic is a body of moral principles guiding conduct, as in the work ethic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Raised"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +378,55 @@
     "text": "At a distance from Niagara Falls, looking back",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AFAR",
+    "definitions": [
+     {
+      "text": "At a distance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken out of the words that follow"
+     },
+     {
+      "text": "looking back",
+      "for": "reversal",
+      "note": "looking back means reading the found letters right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Niagara Falls",
+      "gives": "RAFA",
+      "note": "letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "RAFA",
+       "to": "AFAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist looking back at the falls from a distance.",
+     "definitionFit": "Afar means far away or from a long way off, matching the adverbial phrase about distance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +440,70 @@
     "text": "Tell of unusually absorbing time producing bean",
     "enumeration": "9"
    },
-   "solution": "FLAGEOLET"
+   "solution": "FLAGEOLET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FLAGEOLET",
+    "definitions": [
+     {
+      "text": "bean",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the normal way, so the letters are put in a new order"
+     },
+     {
+      "text": "absorbing",
+      "for": "container",
+      "note": "absorbing means taking something in, so the rearranged letters wrap the next piece"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tell of",
+      "gives": "TELLOF",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "AGE",
+      "OLET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TELLOF",
+       "gives": "FLOLET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone describing an unusually absorbing time that resulted in a bean.",
+     "walkthrough": "'Tell of' looks like a verb phrase about storytelling; it is just the six letters to rearrange.",
+     "definitionFit": "A flageolet is a small pale green French kidney bean; the word also names a flute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tell"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +517,55 @@
     "text": "Run English class in holiday location",
     "enumeration": "6"
    },
-   "solution": "RESORT"
+   "solution": "RESORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RESORT",
+    "definitions": [
+     {
+      "text": "holiday location",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "cricket abbreviation for a run"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "class",
+      "gives": "SORT",
+      "note": "a class or kind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "SORT"
+     ]
+    },
+    "explanation": {
+     "surface": "An English class running at a seaside holiday spot.",
+     "definitionFit": "A resort is a place people visit for holidays and recreation, like a seaside town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Run"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +585,54 @@
      }
     ]
    },
-   "solution": "FRINGEBENEFITS"
+   "solution": "FRINGEBENEFITS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRINGE BENEFITS",
+    "definitions": [
+     {
+      "text": "Perks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploited",
+      "for": "anagram",
+      "note": "exploited means worked or manipulated, so the letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief, fine gents",
+      "gives": "BRIEFFINEGENTS",
+      "note": "the fourteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRIEFFINEGENTS",
+       "gives": "FRINGEBENEFITS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In short, well-dressed gentlemen took advantage of their perks.",
+     "walkthrough": "'In brief' reads as 'in short'; only 'in' is the link, and 'brief' is fodder.",
+     "definitionFit": "Fringe benefits are extras an employer gives beyond wages, such as a company car, commonly called perks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +646,45 @@
     "text": "Trifling sum made from comic strip",
     "enumeration": "7"
    },
-   "solution": "PEANUTS"
+   "solution": "PEANUTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEANUTS",
+    "definitions": [
+     {
+      "text": "Trifling sum",
+      "at": 0
+     },
+     {
+      "text": "comic strip",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "made from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trifling sum",
+      "note": "first meaning: a very small amount of money"
+     },
+     {
+      "clueFragment": "comic strip",
+      "note": "second meaning: Charles Schulz's strip featuring Charlie Brown and Snoopy"
+     }
+    ],
+    "explanation": {
+     "surface": "A cartoonist earning very little from a newspaper strip.",
+     "definitionFit": "Working for a tiny wage is working for this, and it is also the title of the famous Snoopy cartoon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +698,48 @@
     "text": "Comrade with great mansion",
     "enumeration": "6"
    },
-   "solution": "PALACE"
+   "solution": "PALACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALACE",
+    "definitions": [
+     {
+      "text": "mansion",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comrade",
+      "gives": "PAL",
+      "note": "a friend or mate"
+     },
+     {
+      "clueFragment": "great",
+      "gives": "ACE",
+      "note": "ace as an adjective means excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A friend who owns a grand mansion.",
+     "definitionFit": "A palace is a very large, splendid residence, the grandest kind of mansion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +753,73 @@
     "text": "King first to believe in cures in medicinal plant books",
     "enumeration": "7"
    },
-   "solution": "HERBALS"
+   "solution": "HERBALS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HERBALS",
+    "definitions": [
+     {
+      "text": "medicinal plant books",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first to",
+      "for": "letter_selection",
+      "note": "first to means only the opening letter of the next word is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cures",
+      "gives": "HE",
+      "note": "start of a verb meaning cures"
+     },
+     {
+      "clueFragment": "King",
+      "gives": "R",
+      "note": "R for Rex, Latin for king"
+     },
+     {
+      "clueFragment": "believe",
+      "gives": "B",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "cures",
+      "gives": "ALS",
+      "note": "rest of a verb meaning cures"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "R",
+      "B",
+      "ALS"
+     ]
+    },
+    "explanation": {
+     "surface": "A king who believes first in plant-based remedies.",
+     "walkthrough": "R and B go inside HEALS.",
+     "definitionFit": "A herbal is an old treatise describing plants and their healing uses; the plural matches the clue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "believe"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +833,44 @@
     "text": "City guides on audio",
     "enumeration": "5"
    },
-   "solution": "LEEDS"
+   "solution": "LEEDS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LEEDS",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on audio",
+      "for": "homophone",
+      "note": "on audio means as heard rather than as written, so the word is identified by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guides",
+      "gives": "LEEDS",
+      "soundsLike": "LEADS",
+      "note": "to guide is to lead"
+     }
+    ],
+    "explanation": {
+     "surface": "Tour guides for a city on an audio recording.",
+     "walkthrough": "Leeds is a large city in Yorkshire, northern England.",
+     "definitionFit": "Leeds is a major city in West Yorkshire, England, so it is an example of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audio"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +884,76 @@
     "text": "Informer admitting fraud with regret about being storyteller",
     "enumeration": "9"
    },
-   "solution": "RACONTEUR"
+   "solution": "RACONTEUR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal",
+     "charade"
+    ],
+    "answer": "RACONTEUR",
+    "definitions": [
+     {
+      "text": "storyteller",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the informer word takes the next piece inside"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the regret word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Informer",
+      "gives": "RAT",
+      "note": "slang for someone who informs"
+     },
+     {
+      "clueFragment": "fraud",
+      "gives": "CON",
+      "note": "a swindle"
+     },
+     {
+      "clueFragment": "regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "CON",
+      "T",
+      "EUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUE",
+       "to": "EUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grass confessing to fraud and regret, telling the story of it.",
+     "definitionFit": "A raconteur is someone who tells anecdotes skilfully and entertainingly, a teller of stories."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Informer"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +973,50 @@
      }
     ]
    },
-   "solution": "COLORADOBEETLE"
+   "solution": "COLORADOBEETLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COLORADO BEETLE",
+    "definitions": [
+     {
+      "text": "Pest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfit",
+      "for": "anagram",
+      "note": "unfit means not in proper shape, so the letters are rearranged into better shape"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to be cool leader",
+      "gives": "TOBECOOLLEADER",
+      "note": "the fourteen letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOBECOOLLEADER",
+       "gives": "COLORADOBEETLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An irritating person deemed unsuitable to be a calm leader.",
+     "definitionFit": "The Colorado beetle is a striped insect that devastates potato crops, a notorious agricultural pest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pest"
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1036,64 @@
      }
     ]
    },
-   "solution": "LARKABOUT"
+   "solution": "LARKABOUT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LARK ABOUT",
+    "definitions": [
+     {
+      "text": "Play",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the vessel word inside the laboratory word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laboratory",
+      "gives": "LAB",
+      "note": "short form of laboratory"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "ARK",
+      "note": "Noah's ship"
+     },
+     {
+      "clueFragment": "not allowed",
+      "gives": "OUT",
+      "note": "out as in ruled out, not permitted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ARK",
+      "AB",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Playing with a beaker in the lab is forbidden.",
+     "definitionFit": "To lark about is to fool around and behave playfully, a phrasal verb matching play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1107,69 @@
     "text": "Warder beginning to exaggerate achievement during drink",
     "enumeration": "9"
    },
-   "solution": "BEEFEATER"
+   "solution": "BEEFEATER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "BEEFEATER",
+    "definitions": [
+     {
+      "text": "Warder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "beginning to means only the opening letter of the next word is taken"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means within, so the preceding pieces go inside the drink word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exaggerate",
+      "gives": "E",
+      "select": "first",
+      "note": "opening letter"
+     },
+     {
+      "clueFragment": "achievement",
+      "gives": "FEAT",
+      "note": "a notable accomplishment"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "BEER",
+      "note": "an alcoholic drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "E",
+      "FEAT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A prison guard overstating what he achieved while drinking.",
+     "walkthrough": "A Beefeater is a Yeoman Warder, one of the ceremonial guards at the Tower of London.",
+     "definitionFit": "Beefeater is the popular name for the Yeoman Warders who guard the Tower of London."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1183,57 @@
     "text": "Quest to get attention in school",
     "enumeration": "6"
    },
-   "solution": "SEARCH"
+   "solution": "SEARCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEARCH",
+    "definitions": [
+     {
+      "text": "Quest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the attention word inside the school abbreviation"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school",
+      "gives": "SCH",
+      "note": "abbreviation for school"
+     },
+     {
+      "clueFragment": "attention",
+      "gives": "EAR",
+      "note": "to give someone your ear is to pay attention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EAR",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil seeking attention at school.",
+     "definitionFit": "A search is a hunt or effort to find something, which is what a quest is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attention"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1257,77 @@
      }
     ]
    },
-   "solution": "GRASPTHENETTLE"
+   "solution": "GRASPTHENETTLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRASP THE NETTLE",
+    "definitions": [
+     {
+      "text": "set about difficult task",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the power and time pieces inside the land word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RA",
+      "note": "Royal Artillery"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "SETTLE",
+      "note": "to land, as a bird does, is to settle"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "physics symbol for power"
+     },
+     {
+      "clueFragment": "at that time",
+      "gives": "THEN",
+      "note": "then means at that time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RA",
+      "S",
+      "P",
+      "THEN",
+      "ETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops with power taking over a country at that time and getting to work.",
+     "walkthrough": "'Set about' looks like an anagram or container signal; it belongs to the definition. 'Land' is the verb, as a bird lands.",
+     "definitionFit": "To grasp the nettle is an idiom for tackling a hard problem boldly, starting a difficult job head-on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "land"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1341,55 @@
     "text": "Concern caused by a very loud tune",
     "enumeration": "6"
    },
-   "solution": "AFFAIR"
+   "solution": "AFFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFFAIR",
+    "definitions": [
+     {
+      "text": "Concern",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "very loud",
+      "gives": "FF",
+      "note": "fortissimo in music notation"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "AIR",
+      "note": "a melody"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FF",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Complaints about a tune being played far too loudly.",
+     "definitionFit": "An affair is a matter or business that concerns someone, as in 'that is my affair'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Concern"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1403,54 @@
     "text": "Smell piece of old cloth in country",
     "enumeration": "9"
    },
-   "solution": "FRAGRANCE"
+   "solution": "FRAGRANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRAGRANCE",
+    "definitions": [
+     {
+      "text": "Smell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the cloth word inside the country"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "FRANCE",
+      "note": "a European country"
+     },
+     {
+      "clueFragment": "piece of old cloth",
+      "gives": "RAG",
+      "note": "a scrap of worn fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RAG",
+      "RANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Noticing the smell of an old rag somewhere abroad.",
+     "definitionFit": "A fragrance is a pleasant smell, a scent, so a specific kind of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Smell"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1464,61 @@
     "text": "Reminder uncovered around end of meeting",
     "enumeration": "5"
    },
-   "solution": "NUDGE"
+   "solution": "NUDGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NUDGE",
+    "definitions": [
+     {
+      "text": "Reminder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of means only the final letter of the next word is used"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the uncovered word wraps round the selected letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncovered",
+      "gives": "NUDE",
+      "note": "naked, without cover"
+     },
+     {
+      "clueFragment": "meeting",
+      "gives": "G",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A note left after a meeting where someone was exposed.",
+     "definitionFit": "A nudge is a gentle prompt, a small push that reminds someone to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1532,53 @@
     "text": "Anxious gamble, starting east instead of west",
     "enumeration": "5"
    },
-   "solution": "EAGER"
+   "solution": "EAGER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "EAGER",
+    "definitions": [
+     {
+      "text": "Anxious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting east instead of west",
+      "for": "substitution",
+      "note": "the opening letter standing for one compass point is swapped for the other named point"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gamble",
+      "gives": "WAGER",
+      "note": "a bet"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "AGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous gambler deciding to head east rather than west.",
+     "definitionFit": "Anxious can mean keen or desperate to do something, as in anxious to please, which is eager."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Anxious"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1592,56 @@
     "text": "Letter from team magistrate turned over",
     "enumeration": "5"
    },
-   "solution": "GAMMA"
+   "solution": "GAMMA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GAMMA",
+    "definitions": [
+     {
+      "text": "Letter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from says the letters are taken out of the following words"
+     },
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "turned over means flipped, so the found letters read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team magistrate",
+      "gives": "AMMAG",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "AMMAG",
+       "to": "GAMMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter from a sports team to a magistrate, overturned.",
+     "definitionFit": "Gamma is the third letter of the Greek alphabet, so one example of a letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Letter"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1655,68 @@
     "text": "Fuss, blushing about information finally embellished",
     "enumeration": "7"
    },
-   "solution": "ADORNED"
+   "solution": "ADORNED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ADORNED",
+    "definitions": [
+     {
+      "text": "embellished",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally means only the last letter of the preceding word is used"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means the blushing word goes round the selected letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fuss",
+      "gives": "ADO",
+      "note": "a commotion"
+     },
+     {
+      "clueFragment": "blushing",
+      "gives": "RED",
+      "note": "red-faced"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "N",
+      "select": "last",
+      "note": "last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADO",
+      "R",
+      "N",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone red-faced over a fuss about information that was dressed up.",
+     "definitionFit": "Adorned means decorated or ornamented, so embellished is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blushing"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1730,51 @@
     "text": "Success whipped up mirth",
     "enumeration": "7"
    },
-   "solution": "TRIUMPH"
+   "solution": "TRIUMPH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIUMPH",
+    "definitions": [
+     {
+      "text": "Success",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "whipped",
+      "for": "anagram",
+      "note": "whipped means beaten or stirred up, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up mirth",
+      "gives": "UPMIRTH",
+      "note": "the seven letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPMIRTH",
+       "gives": "TRIUMPH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A winning performance that stirred up laughter.",
+     "walkthrough": "'Whipped up' reads as one phrase; only 'whipped' is the signal and 'up' is fodder.",
+     "definitionFit": "A triumph is a great victory or achievement, a resounding success."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1788,40 @@
     "text": "Admire pace",
     "enumeration": "4"
    },
-   "solution": "RATE"
+   "solution": "RATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RATE",
+    "definitions": [
+     {
+      "text": "Admire",
+      "at": 0
+     },
+     {
+      "text": "pace",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Admire",
+      "note": "first meaning: to think highly of"
+     },
+     {
+      "clueFragment": "pace",
+      "note": "second meaning: speed"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "To rate someone is to esteem them, and a rate is a speed or tempo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1835,50 @@
     "text": "Rail service tours are all over the place",
     "enumeration": "8"
    },
-   "solution": "EUROSTAR"
+   "solution": "EUROSTAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EUROSTAR",
+    "definitions": [
+     {
+      "text": "Rail service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "all over the place means scattered in disorder, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tours are",
+      "gives": "TOURSARE",
+      "note": "the eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOURSARE",
+       "gives": "EUROSTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A train company whose tours go everywhere.",
+     "walkthrough": "Eurostar runs high-speed trains through the Channel Tunnel between London and the Continent.",
+     "definitionFit": "Eurostar is the cross-Channel high-speed passenger train linking London with Paris and Brussels."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
