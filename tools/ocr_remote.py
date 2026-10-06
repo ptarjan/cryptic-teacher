@@ -126,9 +126,9 @@ def versions():
 
 
 def full_speed():
-    """Opt this process out of Windows power throttling (EcoQoS), at below
-    normal priority: a
-    windowless process started by sshd counts as background, and Windows
+    """Opt this process out of Windows power throttling (EcoQoS), at
+    idle priority: a windowless process started by sshd counts as
+    background, and Windows
     keeps those on the efficiency cores, so 20 sessions shared 12 of the
     28 threads and took six times as long a crop."""
     import ctypes
@@ -144,10 +144,11 @@ def full_speed():
     k32.SetProcessInformation.argtypes = [ctypes.c_void_p, ctypes.c_int, ctypes.c_void_p, ctypes.c_ulong]
     if not k32.SetProcessInformation(k32.GetCurrentProcess(), 4, ctypes.byref(state), ctypes.sizeof(state)):
         print(f"SetProcessInformation failed: {ctypes.GetLastError()}", file=sys.stderr, flush=True)
-    # Below normal (and tesseract with it): the box is Paul's, and whatever
-    # he runs comes first.
+    # Idle priority, which tesseract inherits: the box is Paul's, and a game
+    # on it must keep its frames.
     k32.SetPriorityClass.argtypes = [ctypes.c_void_p, ctypes.c_ulong]
-    k32.SetPriorityClass(k32.GetCurrentProcess(), 0x4000)
+    if not k32.SetPriorityClass(k32.GetCurrentProcess(), 0x40):
+        print(f"SetPriorityClass failed: {ctypes.GetLastError()}", file=sys.stderr, flush=True)
 
 
 #: While an edition is read: (the roots whose files it must have been
