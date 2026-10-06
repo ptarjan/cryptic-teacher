@@ -515,6 +515,9 @@ LAYOUT = [
     ("fetching", "tools/check_shapes.js", "the corpus-wide half of tools/smoke_test.js's shape() checks"),
     ("fetching", "tools/ninas.py", "unannounced messages in finished grids that blogs point out, each checked against our grid"),
     ("fetching", "tools/ci_cache.js", "the per-puzzle result cache that lets every push check the whole corpus"),
+    ("fetching", "tools/desktop_busy.py", "whether Paul is playing a game on his desktop, so the work we send there yields"),
+    ("fetching", "tools/desktop_probe.ps1", "the desktop's game processes, 3D load and OCR sessions, as JSON, for tools/desktop_busy.py"),
+    ("fetching", "tools/test_desktop_busy.sh", "does desktop OCR and VLM work yield while Paul games, and resume after?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

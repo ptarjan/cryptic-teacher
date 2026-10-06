@@ -7,7 +7,9 @@ model is Qwen3-VL-8B behind llama-swap on Paul's desktop 3090
 (VLM_READER_URL / VLM_READER_MODEL; an empty URL turns it off). When the
 server does not answer (desktop off, model missing) reachable() is False and
 a caller reads exactly as without it; version() names what its readings
-depend on, for a caller's input hash.
+depend on, for a caller's input hash. While Paul games on the desktop
+(tools/desktop_busy.py) it is not reachable either, and ask() raises as
+when the server is down: it is asked again once the desktop is idle.
 
 Prompts: vlm_column_prompt.md and vlm_pick_prompt.md. Replies are cached by
 a hash of the model, prompt and image under ~/.cache/vlm_reader, so a re-run
@@ -18,9 +20,12 @@ import hashlib
 import io
 import json
 import os
+import time
+import urllib.parse
 import urllib.request
 from pathlib import Path
 
+import desktop_busy
 from ocr_clues import unhyphen
 
 TOOLS = Path(__file__).resolve().parent
@@ -35,11 +40,23 @@ UPSCALE = 2
 PAD = 10
 
 _UP = {}
+#: When ask() last yielded to a game: reachable() stays False a while after,
+#: so a caller does not take a read that lost its VLM half-way for a full one.
+_YIELDED = [float("-inf")]
+
+
+def busy():
+    """Why the desktop the server is on is busy, or None."""
+    host = urllib.parse.urlparse(URL).hostname
+    return desktop_busy.busy([f"{desktop_busy.USER}@{host}"]) if host else None
 
 
 def reachable():
-    """Whether the server answers and lists MODEL; asked once a process."""
+    """Whether the server answers and lists MODEL, asked once a process, and
+    the desktop it is on is not busy."""
     if not URL:
+        return False
+    if time.monotonic() - _YIELDED[0] < desktop_busy.PROBE_EVERY or busy():
         return False
     if MODEL not in _UP:
         try:
@@ -72,6 +89,10 @@ def ask(img, prompt, max_tokens=1500):
     path = CACHE / f"{key}.txt"
     if path.exists():
         return path.read_text()
+    why = busy()
+    if why:
+        _YIELDED[0] = time.monotonic()
+        raise RuntimeError(f"VLM {MODEL} at {URL} yields: desktop busy ({why})")
     body = {"model": MODEL, "temperature": 0, "max_tokens": max_tokens,
             "messages": [{"role": "user", "content": [
                 {"type": "image_url",
