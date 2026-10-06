@@ -148,7 +148,7 @@ LAYOUT = [
     ("fetching", "tools/test_parse_timesforthetimes.sh", "holds that parser to one fixture per era of the blog's markup, because a misread answer becomes a wrong light length"),
     ("fetching", "tools/parse_bigdave44.py", "reads the bigdave44.com cache into one Telegraph clue, answer and light-length record per puzzle, with its series, setter and print date, through the Times parser's clue-list reader"),
     ("fetching", "tools/test_parse_bigdave44.sh", "holds that parser to hand-built posts: each era's answer markup, the setter never the blogger, and a print date only from what the posts or the cadence prove"),
-    ("fetching", "tools/times_grids.py", "runs the numbering backwards on either blog's records to rebuild the grids the Times and the Telegraph withhold, narrowing a shortlist by where the answers cross"),
+    ("fetching", "tools/times_grids.py", "runs the numbering backwards on either blog's records to rebuild the grids the Times and the Telegraph withhold, narrowing a shortlist by where the answers cross; each attempt keeps its light list's digest, so a parser fix re-tries the posts it changes"),
     ("fetching", "tools/test_times_grids.sh", "holds that rebuilder to a hand-built grid, because a wrong grid looks exactly like a right one"),
     ("fetching", "tools/barred_grid.py", "rebuilds a barred grid's bars (the Mephisto) from the blog's numbered answers, where every cell holds a letter"),
     ("fetching", "tools/test_barred_grid.sh", "holds that rebuilder to a hand-built barred grid: the bars that come back are the bars it was numbered from"),
