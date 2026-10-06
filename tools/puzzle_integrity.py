@@ -69,7 +69,8 @@ The flags, in the order they matter:
   ALTERED   an entry's `alteration` that does not turn the clue's word into
             what the grid holds: each step's op (ALTERATION_OPS) is applied to
             the letters before it, and the last step must end on `solution`.
-            Only a puzzle with a preamble can alter its entries.
+            The instruction to alter must be printed: in the preamble, or in
+            the entry's own clue (the 1930s Listeners say "(reversed)" there).
   SETTER    a byline that is a placeholder ("Unknown"), carries whitespace or a
             copyright notice, or is null in a series whose source prints one
             on every puzzle (series.py `bylined`).
@@ -791,6 +792,10 @@ def check_length(puzzle, checkable, flags):
         if sum(counts) == held or (len(group) > 1 and per_light
                                    and sum(counts) == len(solution)):
             continue
+        # An altered entry's count may be the clue's own word's, not the grid's.
+        if len(group) == 1 and e.get("alteration") and sum(counts) == len(
+                _alpha(e["alteration"].get("from"))):
+            continue
         where = eid if len(group) == 1 else " + ".join(group)
         holds = f"{held}" if len(group) == 1 else f"{len(solution)} alone or {held} linked"
         finding = (f"{where}: clue says ({e['clue']['enumeration']}) = "
@@ -1066,6 +1071,11 @@ def _subsequence(short, long):
 
 
 #: Each op of an entry's alteration: does it turn `before` into `after`? Both A-Z.
+#: The one list of ops: the schema's alterationOp enum is checked against it
+#: (puzzle_schema.py). An alteration maps letters to letters, one per cell, so a
+#: puzzle with multi-letter cells, numerical entries, or a grid altered after
+#: the fill (Listener 3975's moved answers, 4554's final change) files its fill
+#: before that change, or is not filed.
 ALTERATION_OPS = {
     "reversal": lambda before, after: before[::-1] == after != before,
     "anagram": lambda before, after: sorted(before) == sorted(after) and before != after,
@@ -1084,9 +1094,9 @@ def check_alterations(puzzle, flags):
         if not isinstance(alt, dict):
             continue
         where = f"{e.get('number')}-{e.get('direction')}"
-        if not puzzle.get("preamble"):
-            flags.append(("ALTERED", pid, (f"{where}: an alteration, but the puzzle has no "
-                          f"preamble to say how answers are altered")))
+        if not (puzzle.get("preamble") or e.get("clue", {}).get("text")):
+            flags.append(("ALTERED", pid, (f"{where}: an alteration, but neither a preamble "
+                          f"nor the clue is printed to say how the answer is altered")))
         if not e.get("solution"):
             flags.append(("ALTERED", pid, f"{where}: an alteration with no solution to end on"))
             continue

@@ -21,7 +21,10 @@ rebuilt from the numbered answers by tools/barred_grid.py's search (file_times).
 A Listener whose answers go into the grid altered (reversed, jumbled, a letter
 moved, dropped or swapped) files what is entered as each `solution`, and the
 clue's own word with the steps that turn it into the entry as `alteration`:
-the alteration is one more step of the solve. A run the clue list does not
+the alteration is one more step of the solve. The archive PDFs' clues say it
+themselves ("(rev.)"); ARCHIVE_ALTERED holds those words. Multi-letter cells,
+numerical entries and a grid changed after the fill are out of scope: 3975 files
+its fill before the final moves, and 111 is skipped. A run the clue list does not
 clue is barred shut (close_unclued), a numbered one it leaves out filed with a
 missing clue, and letters the blank grid already shows are `printed`. For the
 Times' pages each puzzle's TIMES row says how its preamble alters an answer, as
@@ -60,6 +63,36 @@ SKIP = {
        "no 47, so no grid numbers as it does",
     111: "numerical: every light is a number",
 }
+
+#: Archive-PDF entries whose own clue alters the answer before entry ("(rev.)",
+#: "(anag.)"; these puzzles print no preamble): light -> (the clue's word, op).
+#: The PDFs print only the filled grid, so the clue's word comes from the
+#: annotation's whole-answer reversal or anagram. Entries cut short ("first
+#: three letters only") or altered two ways are not here: no structured field
+#: holds their clue's word, so they file as entered with no alteration.
+ARCHIVE_ALTERED = {
+    29: {(10, "across"): ("RIPAS", "reversal"), (16, "across"): ("CICADIS", "anagram"),
+         (27, "across"): ("GELOI", "reversal"), (36, "across"): ("BES", "anagram"),
+         (37, "across"): ("THURINA", "anagram"), (13, "down"): ("EGESTIO", "reversal"),
+         (39, "down"): ("ITHACUS", "reversal"), (49, "down"): ("LENTO", "anagram")},
+    93: {(17, "across"): ("MAYS", "anagram"), (18, "across"): ("ALE", "reversal"),
+         (20, "across"): ("TIRL", "reversal"), (35, "across"): ("AGO", "anagram"),
+         (39, "across"): ("FROU", "reversal"), (2, "down"): ("HANSEL", "reversal"),
+         (10, "down"): ("CLUE", "reversal"), (14, "down"): ("MITRE", "anagram"),
+         (16, "down"): ("RIOT", "anagram"), (27, "down"): ("ABOVE", "anagram"),
+         (33, "down"): ("SOUP", "anagram"), (37, "down"): ("URK", "reversal")},
+}
+
+
+def with_alterations(number, entries):
+    """`entries` with ARCHIVE_ALTERED's alterations on them."""
+    altered = ARCHIVE_ALTERED.get(number, {})
+    for e in entries:
+        if (e["number"], e["direction"]) in altered:
+            word, op = altered[(e["number"], e["direction"])]
+            e["alteration"] = {"from": word, "steps": [{"op": op}]}
+    return entries
+
 
 #: A cell side at least this many times the commonest side's thickness is a
 #: bar: borders run 0.5-1.0pt by PDF, bars 1.2-2.6pt.
@@ -550,7 +583,7 @@ def assemble(number, puzzle_pdf, solution_pdf, date):
     # provenance.stamp() derives the rest of both on write.
     puzzle["source"] = {"url": url}
     puzzle["solutions"] = {"origin": "published"}
-    puzzle["entries"] = entries
+    puzzle["entries"] = with_alterations(number, entries)
     return puzzle, None
 
 

@@ -3,12 +3,14 @@
 #
 #     bash tools/test_alteration.sh
 #
-# A Listener whose preamble alters answers before entry files the grid's
-# letters as `solution` and the clue's own word as `alteration.from`; each
-# step's op has to turn the word before it into the word after. Every op is
-# held to one mapping it must accept and one it must refuse, then a real
+# A Listener whose preamble or clue alters answers before entry files the
+# grid's letters as `solution` and the clue's own word as `alteration.from`;
+# each step's op has to turn the word before it into the word after. Every op
+# is held to one mapping it must accept and one it must refuse, then a real
 # puzzle carrying an alteration is written through refuse_bad_write and broken
-# one way at a time, and an annotation is held to building `from`, not the entry.
+# one way at a time (an enumeration may count either word, never a third), an
+# annotation is held to building `from`, not the entry, and every light in
+# listener_puzzles.ARCHIVE_ALTERED is held to being filed that way.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 fails=0
@@ -61,7 +63,44 @@ def alt(p):
 
 print("GOOD", verdict(good))
 broken("WRONGOP", lambda p: alt(p)["steps"].__setitem__(0, {"op": "deletion"}))
-broken("NOPREAMBLE", lambda p: p.pop("preamble"))
+broken("CLUESAYSIT", lambda p: p.pop("preamble"))
+
+
+def unprinted(p):
+    p.pop("preamble")
+    t = next(x for x in p["entries"] if "alteration" in x)
+    t["clue"] = {"missing": True}
+    t.pop("annotation", None)
+
+
+broken("NOPREAMBLE", unprinted)
+
+
+def counted(n):
+    def change(p):
+        t = next(x for x in p["entries"] if "alteration" in x)
+        t["alteration"] = {"from": t["solution"][::-1] + "S", "steps": [
+            {"op": "deletion", "gives": t["solution"][::-1]}, {"op": "reversal"}]}
+        t["clue"] = {**t["clue"], "enumeration": str(len(t["solution"]) + n)}
+    return change
+
+
+broken("COUNTSENTRY", counted(0))
+broken("COUNTSFROM", counted(1))
+broken("COUNTSNEITHER", counted(2))
+
+# Every archive entry ARCHIVE_ALTERED names is filed with that alteration.
+import listener_puzzles as lp
+for n, lights in lp.ARCHIVE_ALTERED.items():
+    held = fetcher.read_puzzle_file(fetcher.resolve_puzzle(f"listener-{n}"))
+    by = {(x["number"], x["direction"]): x for x in held["entries"]}
+    for k, (word, op) in lights.items():
+        x = by.get(k, {})
+        ok = (x.get("alteration") == {"from": word, "steps": [{"op": op}]}
+              and OPS[op](word, x.get("solution", "")) and "annotation" not in x)
+        if not ok:
+            print("ARCHIVE", n, k, x.get("solution"), x.get("alteration"))
+print("ARCHIVE done")
 broken("LASTGIVES", lambda p: alt(p)["steps"][0].__setitem__("gives", e["solution"]))
 broken("CHAINOK", lambda p: alt(p).__setitem__("steps", [
     {"op": "insertion", "gives": e["solution"][::-1] + "S"},
@@ -88,7 +127,12 @@ for op in reversal anagram move deletion insertion substitution; do
 done
 same "a correct alteration is written" "$(grep '^GOOD' <<<"$out")" "GOOD accepted"
 same "an op that does not map the word is refused" "$(grep '^WRONGOP' <<<"$out")" "WRONGOP ALTERED"
-same "no preamble, no alteration" "$(grep '^NOPREAMBLE' <<<"$out")" "NOPREAMBLE ALTERED"
+same "a clue printed without a preamble may say how" "$(grep '^CLUESAYSIT' <<<"$out")" "CLUESAYSIT accepted"
+same "neither preamble nor clue printed, no alteration" "$(grep '^NOPREAMBLE' <<<"$out")" "NOPREAMBLE ALTERED"
+same "an enumeration may count the entry" "$(grep '^COUNTSENTRY' <<<"$out")" "COUNTSENTRY accepted"
+same "an enumeration may count the clue's word" "$(grep '^COUNTSFROM' <<<"$out")" "COUNTSFROM accepted"
+same "an enumeration counting neither is refused" "$(grep '^COUNTSNEITHER' <<<"$out")" "COUNTSNEITHER LENGTH"
+same "every ARCHIVE_ALTERED light is filed altered, unannotated" "$(grep '^ARCHIVE' <<<"$out")" "ARCHIVE done"
 same "the last step's result is the solution, not a gives" "$(grep '^LASTGIVES' <<<"$out")" "LASTGIVES ALTERED"
 same "a chain of steps through gives is accepted" "$(grep '^CHAINOK' <<<"$out")" "CHAINOK accepted"
 same "a middle step without gives is refused" "$(grep '^CHAINNOGIVES' <<<"$out")" "CHAINNOGIVES ALTERED"
