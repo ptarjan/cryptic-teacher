@@ -175,19 +175,21 @@ def text_of(cols):
 
 def clues(text):
     """ftp.clues, going on past a stretch it cannot read: the clues before it
-    are kept, and reading starts again at the next clue number."""
+    are kept, and reading starts again at the next clue number. A clue with no
+    number (ftp.clues leads a wordy start with one, for the Trove grid to place)
+    is dropped: the Listener has no grid to place it by."""
     out = []
     while text.strip():
         got, why = ftp.clues(text)
         if got is not None:
-            return out + got
+            return out + [c for c in got if c["tokens"][0]]
         m = re.search(r"at: '(.{1,20})", why or "")
         at = text.find(m.group(1)) if m else -1
         if at < 0:
             break
         if at:
             head, _ = ftp.clues(text[:at])
-            out += head or []
+            out += [c for c in head or [] if c["tokens"][0]]
         nxt = re.compile(r"\s(?=\d{1,2}\s+[A-Z\"'.])").search(text, at + 1)
         if not nxt:
             break

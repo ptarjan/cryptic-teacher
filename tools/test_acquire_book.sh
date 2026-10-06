@@ -278,11 +278,20 @@ class Pool:
     def __exit__(self, *_exc):
         return False
 
-    def map(self, _fn, jobs):
-        yield {"book_number": jobs[0]["book_number"], "status": "no-solution", "nodes": 1,
-               "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
-               "conventions_broken": [], "detail": {}, "grids": []}
-        raise Killed
+    def submit(self, _fn, job):
+        # The first search lands; every later one dies a moment after, as a
+        # killed run's would (as_completed yields the landed one first).
+        import threading
+        from concurrent.futures import Future
+        f = Future()
+        if not getattr(self, "landed", False):
+            self.landed = True
+            f.set_result({"book_number": job["book_number"], "status": "no-solution", "nodes": 1,
+                          "truncated": False, "wall_clock_exhausted": False, "elapsed_sec": 0.0,
+                          "conventions_broken": [], "detail": {}, "grids": []})
+        else:
+            threading.Timer(0.5, f.set_exception, [Killed()]).start()
+        return f
 
 
 ab.ProcessPoolExecutor = Pool
