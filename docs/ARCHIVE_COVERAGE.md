@@ -26,7 +26,11 @@ Every unfiled edition gets exactly one class, read off the filer's ledger
 not read, blank clues held back, no grid, clues don't fit, no reading parses,
 not a grid, no crossword found, archive.org's date wrong, and no scan at
 all. The 1930 Times (`pub_times`, one item per issue) is listed with the
-Times, as `<item>/<item>`. Classes this pipeline can still
+Times, as `<item>/<item>`. Its clues print no counts, so a clue whose
+number was lost would run into the one before under the grid's count; the
+filer drops any clue next to a break in the grid's light order instead, and
+such an issue files only when another reading has those clues whole.
+Classes this pipeline can still
 recover are listed first, largest first.
 
 Two classes need code, not time (each class's fix text in `CLASSES` names

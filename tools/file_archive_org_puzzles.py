@@ -65,7 +65,11 @@ date implies (six a week from No 1 on 1 Feb 1930), else the page's
 grid (columns_of_four): ACROSS down the first two over the DOWN heading,
 DOWN under it and on down the third and fourth. They print no counts, so
 each reading gets the scanned grid's (counted()) and is filed without
-them; a grid that does not read refuses the title. Only RapidOCR's two
+them; a grid that does not read refuses the title. A count that fits any
+text cannot show a clue whose lost number ran it into the one before, so
+each reading's clues must name the grid's lights in order: a clue next to
+a break (a light skipped, a number repeated, a list ending short) is
+dropped from that reading, its lights left to the others or blank. Only RapidOCR's two
 recognisers and the VLM (each virtual column read on its own) read them:
 archive.org's words and the tuned Tesseract read these pages as junk.
 
@@ -367,6 +371,8 @@ FRAME_SHARE = 0.8
 FOOT_INSET = 0.1
 #: How far, in pixels, a grid's top frame may reach up into its title's box.
 TITLE_OVERLAP = 12
+#: The most of a pixel row's width a fold or speck crossing a clear row inks.
+CLEAR_SHARE = 0.05
 #: The share of a strip's pixel rows a column of ink must fill to be a
 #: rule running down through it.
 RULE_SHARE = 0.7
@@ -428,11 +434,21 @@ def footed(img, box):
 def starts_under(img, box, top):
     """Whether the ink of `box`, cut at `top` (its title's foot), starts
     within TITLE_OVERLAP over it: the grid's top frame reaching into the
-    title's box, not ink running down through the title."""
+    title's box, not ink running down through the title. A row there that
+    only a fold or a speck crosses (CLEAR_SHARE of it inked), with a row
+    as wide as a frame (FRAME_SHARE) under it, parts the title from the
+    grid whatever runs down through both (a fold in the paper, No 54 of
+    1930-04-04)."""
+    import numpy as np
     if box[1] > top + 2:
         return True
-    above = ink_box(img.crop((box[0], max(0, top - TITLE_OVERLAP), box[2], top + 1)))
-    return above is None or above[1] > 0
+    band = (box[0], max(0, top - TITLE_OVERLAP), box[2], top + 1)
+    above = ink_box(img.crop(band))
+    if above is None or above[1] > 0:
+        return True
+    gray = np.asarray(img.crop((band[0], band[1], box[2], box[3])).convert("L"), dtype=np.uint8)
+    rows = (gray < trove_grid.otsu(gray))[: band[3] - band[1]].mean(axis=1)
+    return any(rows[k] <= CLEAR_SHARE and rows[k + 1:].max() >= FRAME_SHARE / 2 for k in range(len(rows) - 1))
 
 
 def grid_box(img, title):
@@ -808,40 +824,75 @@ def counted(text, grid):
     """A 1930 column text with each clue's count put after it from the
     scanned grid, as later papers print it, for the parse that ends a clue
     at its count: a clue starts at a line opening on a number that names a
-    light of its list above the last clue's; other lines carry it on."""
+    light of its list above the last clue's; other lines carry it on.
+
+    A clue whose number was lost runs into the clue before it, and the
+    count, being the grid's, cannot show it. So the list must name the
+    grid's lights in order: a clue followed by one of a later light than
+    the next (a light skipped), or by one of its own or an earlier light,
+    or ending its list before the list's last light, may hold another's
+    text and is dropped, its light and the skipped ones left to the other
+    readings or blank. The grid's light list says where a lost number
+    was: a line opening on a capital after a clue's full stop, or on a
+    misread number holding the next light's ("151 Meta-" for 15), starts
+    the next light's clue."""
     lights = {(n, d): len(cells) for (n, d), cells in rg.light_cells(grid).items()}
-    out, section, last, open_ = [], None, 0, False
+    sections = []  # [heading, [[number, lines, guessed, dropped]]]
     for line in text.splitlines():
         heading = heading_of(line)
         if heading:
-            if open_:
-                out[-1] += f" ({lights[(last, section)]})"
-            out.append(heading)
-            section, last, open_ = heading.lower(), 0, False
+            sections.append([heading, []])
             continue
+        if not sections:
+            continue
+        section, clues = sections[-1][0].lower(), sections[-1][1]
+        last = clues[-1][0] if clues else 0
+        nxt = min((n for n, d in lights if d == section and n > last), default=None)
         # The number, maybe run into its first word: "25Recipient", "21.Measures".
         m = re.match(r"^\W{0,2}([\dIl|]{1,2}?)(?:[.,:;\-]\s*|\s+|(?=[A-Z\"'\u2018\u201c]))(?=\S)", line)
         m = m if m and re.search(r"\d", m[1]) else None
-        nums = sorted(n for n in (ftp.readings(m[1]) if m else ()) if n > last and (n, section) in lights)
-        if section and nums:
-            if open_:
-                out[-1] += f" ({lights[(last, section)]})"
-            last, open_ = nums[0], True
-            out.append(f"{last} {line[m.end():]}")
-        elif section and re.match(r"\W{0,2}[A-Z]", line) and (
-                re.search(r"[.!?][\"'\u2019\u201d)]?$", out[-1]) if open_ else not last) \
-                and (nxt := min((n for n, d in lights if d == section and n > last), default=None)):
+        read = [n for n in (ftp.readings(m[1]) if m else ()) if (n, section) in lights]
+        nums = sorted(n for n in read if n > last)
+        # A number read with a speck ("151", "128") holding the next light's.
+        speck = re.match(r"^\W{0,2}(\d{3})\W{0,2}\s*(?=[A-Z\"'\u2018\u201c])", line)
+        if nums:
+            clues.append([nums[0], [line[m.end():]], False, False])
+        elif read and clues:
+            # A number at or before the last clue's: this list is out of
+            # step with the grid here. When it is the last clue's guessed
+            # number, the guess split one clue in two and this is its own.
+            clues[-1][3] = True
+            if clues[-1][2] and last in read:
+                clues.append([last, [line[m.end():]], False, False])
+            else:
+                clues[-1][1].append(line)
+        elif speck and nxt and str(nxt) in speck[1]:
+            clues.append([nxt, [line[speck.end():]], False, False])
+        elif re.match(r"\W{0,2}[A-Z]", line) and nxt and (
+                re.search(r"[.!?][\"'\u2019\u201d)]?$", clues[-1][1][-1]) if clues else True):
             # A capital after a clue's full stop, or opening the list,
             # starts the next clue, its number lost ("light.. /
             # Slender-waisted."): the next light's.
-            if open_:
-                out[-1] += f" ({lights[(last, section)]})"
-            last, open_ = nxt, True
-            out.append(f"{last} {line.strip()}")
-        elif open_:
-            out.append(line)
-    if open_:
-        out[-1] += f" ({lights[(last, section)]})"
+            clues.append([nxt, [line.strip()], True, False])
+        elif clues:
+            clues[-1][1].append(line)
+    out = []
+    for heading, clues in sections:
+        out.append(heading)
+        order = sorted(n for n, d in lights if d == heading.lower())
+        for k, (n, _, _, _) in enumerate(clues):
+            after = [x for x in order if x > n]
+            follows = clues[k + 1][0] if k + 1 < len(clues) else None
+            if after[:1] != [follows] if follows else after:
+                clues[k][3] = True
+        # A guessed number counts on from the clue before, so a break after
+        # it may lie anywhere back to the last number read: the clues
+        # between are dropped with it.
+        for k in range(len(clues) - 1, 0, -1):
+            if clues[k][3] and clues[k][2]:
+                clues[k - 1][3] = True
+        out += [f"{n} " + "\n".join(lines) + f" ({lights[(n, heading.lower())]})"
+                for n, lines, _, bad in clues if not bad]
     return "\n".join(out)
 
 
