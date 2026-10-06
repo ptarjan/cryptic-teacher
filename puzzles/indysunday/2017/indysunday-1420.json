@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "A panel of judges trying to eat a cake",
     "enumeration": "8"
    },
-   "solution": "TRIBUNAL"
+   "solution": "TRIBUNAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRIBUNAL",
+    "definitions": [
+     {
+      "text": "A panel of judges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to eat",
+      "for": "container",
+      "note": "whatever eats something takes it inside, so one word swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trying",
+      "gives": "TRIAL",
+      "note": "a trial is the trying of a case in court"
+     },
+     {
+      "clueFragment": "a cake",
+      "gives": "BUN",
+      "note": "a bun is a small cake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "BUN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A bench of judges hearing a case over a cake, as if the cake were in the dock.",
+     "walkthrough": "'A panel of judges' looks like the subject of the sentence; 'trying' is a noun in disguise, a court trial.",
+     "definitionFit": "A tribunal is a body appointed to adjudicate disputes, typically sitting as a group of legal officials."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "eat"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,64 @@
     "text": "Office worker is endlessly kind - and is on time",
     "enumeration": "6"
    },
-   "solution": "TYPIST"
+   "solution": "TYPIST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TYPIST",
+    "definitions": [
+     {
+      "text": "Office worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without its end, the word for kind loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind",
+      "gives": "TYP",
+      "note": "a type is a kind; its last letter goes"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYP",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly office worker who is always punctual.",
+     "walkthrough": "TYPE loses its E, then IS sits on T; 'on' in a down clue means placed above.",
+     "definitionFit": "A typist is a clerical employee whose job is keying letters and documents, a classic office role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kind"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +170,50 @@
     "text": "The top parts of it could easily conceal Arctic permafrost",
     "enumeration": "6"
    },
-   "solution": "ICECAP"
+   "solution": "ICECAP",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "ICECAP",
+    "definitions": [
+     {
+      "text": "The top parts of it could easily conceal Arctic permafrost",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The top parts of",
+      "for": "letter_selection",
+      "note": "the top of each word in a down clue is its first letter, so only the leading letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it could easily conceal Arctic permafrost",
+      "gives": "ICECAP",
+      "select": "first",
+      "note": "the initial letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICECAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A remark about frozen ground lying hidden beneath a polar covering.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: the first letters spell ICECAP, and an ice cap is the frozen top that would hide the ground beneath.",
+     "definitionFit": "An ice cap is a permanent sheet of ice covering polar land, sitting on top of the frozen ground below."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +227,51 @@
     "text": "Peacekeepers' help is not delivered",
     "enumeration": "6"
    },
-   "solution": "UNSAID"
+   "solution": "UNSAID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNSAID",
+    "definitions": [
+     {
+      "text": "not delivered",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Peacekeepers'",
+      "gives": "UNS",
+      "note": "the UN supplies peacekeeping forces; the apostrophe adds the possessive S"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNS",
+      "AID"
+     ]
+    },
+    "explanation": {
+     "surface": "Aid promised by UN peacekeepers fails to arrive.",
+     "walkthrough": "Peacekeepers' help reads as UN'S AID, run together.",
+     "definitionFit": "Words left unsaid were never spoken, just as a speech not delivered is never voiced aloud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +285,71 @@
     "text": "A firm on St Lucia working without electricity?",
     "enumeration": "10"
    },
-   "solution": "ACOUSTICAL"
+   "solution": "ACOUSTICAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ACOUSTICAL",
+    "definitions": [
+     {
+      "text": "without electricity?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "the place name is put to work and its letters rearranged into fresh order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company, a firm"
+     },
+     {
+      "clueFragment": "St Lucia",
+      "gives": "STLUCIA",
+      "note": "letters of the Caribbean island's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CO",
+      "USTICAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STLUCIA",
+       "gives": "USTICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business based on the Caribbean island coping with a power cut.",
+     "walkthrough": "The question mark flags a definition by example: an acoustic guitar is played unplugged.",
+     "definitionFit": "Acoustical instruments make sound naturally rather than through amplification, so they need no mains power or amplifier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +363,51 @@
     "text": "Bits of green veg and small green fruit",
     "enumeration": "6"
    },
-   "solution": "SPEARS"
+   "solution": "SPEARS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPEARS",
+    "definitions": [
+     {
+      "text": "Bits of green veg",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "green"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "PEARS",
+      "note": "pears are a common orchard fruit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEARS"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of green produce: vegetables and some unripe fruit.",
+     "walkthrough": "'green' appears twice; the second one is only colour for the pears and does no work.",
+     "definitionFit": "Asparagus and broccoli are sold as spears, the long edible shoots of these green vegetables."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +421,61 @@
     "text": "Picture of Dad (and not a Mum)",
     "enumeration": "8"
    },
-   "solution": "PANORAMA"
+   "solution": "PANORAMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANORAMA",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dad",
+      "gives": "PA",
+      "note": "pa is a word for father"
+     },
+     {
+      "clueFragment": "and not",
+      "gives": "NOR",
+      "note": "nor means and not"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "ma is a word for mother"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "NOR",
+      "A",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A photograph showing father alone, with mother left out.",
+     "definitionFit": "A panorama is a wide view or picture of a broad scene, such as a sweeping landscape photograph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +489,61 @@
     "text": "Turn away foreigner at entrance to embassy",
     "enumeration": "8"
    },
-   "solution": "ALIENATE"
+   "solution": "ALIENATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ALIENATE",
+    "definitions": [
+     {
+      "text": "Turn away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrance to",
+      "for": "letter_selection",
+      "note": "the entrance is the way in, so only the opening letter of the next word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreigner",
+      "gives": "ALIEN",
+      "note": "an alien is a foreigner"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "embassy",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of embassy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALIEN",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A foreign visitor being refused admission at an embassy door.",
+     "definitionFit": "To alienate someone is to estrange them, pushing them away so they become hostile or unfriendly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "foreigner"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +557,57 @@
     "text": "Beach ‘shoes’ are flip-flops!",
     "enumeration": "8"
    },
-   "solution": "SEASHORE"
+   "solution": "SEASHORE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEASHORE",
+    "definitions": [
+     {
+      "text": "Beach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flip-flops",
+      "for": "anagram",
+      "note": "to flip-flop is to keep changing about, so the letters before it turn over into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘shoes’",
+      "gives": "SHOES",
+      "note": "letters of the word in quotes"
+     },
+     {
+      "clueFragment": "are",
+      "gives": "ARE",
+      "note": "taken as written, part of the fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHOESARE",
+       "gives": "SEASHORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wry note that the only footwear people wear at the beach is flip-flops.",
+     "walkthrough": "'are' is part of the fodder as well as the verb: SHOES plus ARE, rearranged.",
+     "definitionFit": "A seashore is the strip of land beside the sea, which is just what a beach is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flip-flops"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +627,46 @@
      }
     ]
    },
-   "solution": "PRESSBOX"
+   "solution": "PRESSBOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRESS BOX",
+    "definitions": [
+     {
+      "text": "The place from which sports reporters watch",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crowd",
+      "gives": "PRESS",
+      "note": "to press is to crowd, and a press is a crowd"
+     },
+     {
+      "clueFragment": "fight",
+      "gives": "BOX",
+      "note": "to box is to fight with fists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRESS",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "Journalists at a match look on as spectators start brawling.",
+     "definitionFit": "A press box is the reserved enclosure at a stadium where journalists sit to cover the game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crowd"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +680,66 @@
     "text": "Chest complaint treated again with nitrates, primarily",
     "enumeration": "6"
    },
-   "solution": "ANGINA"
+   "solution": "ANGINA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "ANGINA",
+    "definitions": [
+     {
+      "text": "Chest complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "treated",
+      "for": "anagram",
+      "note": "something treated is processed and changed, so these letters are worked into a new order"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again",
+      "gives": "AGAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nitrates",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of nitrates"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGAINN",
+       "gives": "ANGINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heart patient's pain being treated once more with nitrate drugs.",
+     "walkthrough": "Nitrates such as nitroglycerin really are the standard treatment, which makes the surface accurate medicine.",
+     "definitionFit": "Angina is chest pain caused by reduced blood flow to the heart muscle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treated"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +753,66 @@
     "text": "Most terrifying racists struggling to grasp English",
     "enumeration": "8"
    },
-   "solution": "SCARIEST"
+   "solution": "SCARIEST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SCARIEST",
+    "definitions": [
+     {
+      "text": "Most terrifying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "people struggling are thrown about, so the letters here are scrambled"
+     },
+     {
+      "text": "to grasp",
+      "for": "container",
+      "note": "to grasp something is to hold it inside, so one piece is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "racists",
+      "gives": "RACISTS",
+      "note": "letters taken as written"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCARI",
+      "E",
+      "ST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RACISTS",
+       "gives": "SCARIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bigots having trouble with the English language are the most frightening sort.",
+     "definitionFit": "Scariest is the superlative of scary, meaning causing the greatest fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grasp"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +826,55 @@
     "text": "Cut right into fish",
     "enumeration": "6"
    },
-   "solution": "TRENCH"
+   "solution": "TRENCH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRENCH",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one thing put into another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "TENCH",
+      "note": "a tench is a freshwater fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "ENCH"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to slice straight into a fish.",
+     "walkthrough": "'Cut' is a noun here: a trench is a cut dug in the ground.",
+     "definitionFit": "A trench is a long narrow excavation, a cut made into the earth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +898,55 @@
      }
     ]
    },
-   "solution": "FREEFORALL"
+   "solution": "FREEFORALL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FREE-FOR-ALL",
+    "definitions": [
+     {
+      "text": "Fight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for cover",
+      "for": "container",
+      "note": "the long phrase acts as cover, wrapping round the small word placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quickly drop to the ground",
+      "gives": "FREEFALL",
+      "note": "free fall is a fast unchecked drop earthwards"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FREEF",
+      "OR",
+      "ALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice when a brawl breaks out: hit the deck and take cover.",
+     "walkthrough": "'or' looks like a link between definition and wordplay, but it is the fodder that goes inside.",
+     "definitionFit": "A free-for-all is a disorderly brawl or contest in which anyone may join in."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "or"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +960,65 @@
     "text": "It accurately measures organised computer crime without using CPU",
     "enumeration": "10"
    },
-   "solution": "MICROMETER"
+   "solution": "MICROMETER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MICROMETER",
+    "definitions": [
+     {
+      "text": "It accurately measures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organised means arranged anew, so these letters are put into a different order"
+     },
+     {
+      "text": "without using",
+      "for": "deletion",
+      "note": "doing without some letters means they are dropped from the fodder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "computer crime",
+      "gives": "COMPUTERCRIME",
+      "note": "letters taken as written"
+     },
+     {
+      "clueFragment": "CPU",
+      "gives": "CPU",
+      "note": "these three letters are removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MICROMETER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OMTERCRIME",
+       "gives": "MICROMETER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Organised cybercrime that avoids using a central processing unit.",
+     "walkthrough": "Remove one C, the P and the U from COMPUTER CRIME, then rearrange the rest.",
+     "definitionFit": "A micrometer is a precision gauge used to measure tiny thicknesses and diameters very exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1032,66 @@
     "text": "Out of sight of the house, kill an animal with butt of rifle",
     "enumeration": "8"
    },
-   "solution": "OFFSTAGE"
+   "solution": "OFFSTAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OFFSTAGE",
+    "definitions": [
+     {
+      "text": "Out of sight of the house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "butt of",
+      "for": "letter_selection",
+      "note": "the butt is the end of a rifle, so only the final letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kill",
+      "gives": "OFF",
+      "note": "to off someone is slang for to kill"
+     },
+     {
+      "clueFragment": "an animal",
+      "gives": "STAG",
+      "note": "a stag is a male deer"
+     },
+     {
+      "clueFragment": "rifle",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of rifle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "STAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A hunter on an estate, out of view of the manor, shooting game with a rifle.",
+     "walkthrough": "The house is the theatre audience, not a country home.",
+     "definitionFit": "Offstage means behind the scenes, where the theatre audience in the auditorium cannot see."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1105,55 @@
     "text": "Various addicts extremely well equipped with drugs",
     "enumeration": "8"
    },
-   "solution": "ASSORTED"
+   "solution": "ASSORTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASSORTED",
+    "definitions": [
+     {
+      "text": "Various",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its outer letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "addicts",
+      "gives": "AS",
+      "select": "outer",
+      "note": "the first and last letters of addicts"
+     },
+     {
+      "clueFragment": "well equipped with drugs",
+      "gives": "SORTED",
+      "note": "sorted is British slang for supplied with what you need, especially drugs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SORTED"
+     ]
+    },
+    "explanation": {
+     "surface": "Drug users with a plentiful stash of narcotics.",
+     "definitionFit": "Assorted means of mixed kinds, a selection of different sorts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1167,69 @@
     "text": "Criminal tried taking in soldiers, resulting in tragedy",
     "enumeration": "8"
    },
-   "solution": "DISASTER"
+   "solution": "DISASTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DISASTER",
+    "definitions": [
+     {
+      "text": "tragedy",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "something criminal is bent or crooked, so the next word's letters are twisted"
+     },
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking something in means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tried",
+      "gives": "TRIED",
+      "note": "letters taken as written"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "SAS",
+      "note": "the SAS is the British special forces regiment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SAS",
+      "TER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIED",
+       "gives": "DITER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook put on trial after taking soldiers captive, ending in catastrophe.",
+     "definitionFit": "A disaster is a calamity, a sudden event causing great loss or suffering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Criminal"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1243,67 @@
     "text": "Drunken teens principally dance as if spellbound",
     "enumeration": "10"
    },
-   "solution": "FASCINATED"
+   "solution": "FASCINATED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "FASCINATED",
+    "definitions": [
+     {
+      "text": "spellbound",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunken",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the letters reel into a new order"
+     },
+     {
+      "text": "principally",
+      "for": "letter_selection",
+      "note": "principally means first and foremost, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teens",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of teens"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "DANCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "as if",
+      "gives": "ASIF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TDANCEASIF",
+       "gives": "FASCINATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Tipsy teenagers on the dance floor, moving as though in a trance.",
+     "definitionFit": "Fascinated means utterly captivated, held as if under a spell, unable to look away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunken"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1317,52 @@
     "text": "Lucky charm bringing millions to Andy Murray?",
     "enumeration": "6"
    },
-   "solution": "MASCOT"
+   "solution": "MASCOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MASCOT",
+    "definitions": [
+     {
+      "text": "Lucky charm",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "bringing",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "Andy Murray",
+      "gives": "ASCOT",
+      "note": "the tennis player is a Scot, so he is A SCOT"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASCOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A talisman that earns the tennis star a fortune.",
+     "walkthrough": "Andy Murray is a Scottish tennis champion; the clue wants a description of him, not his sport.",
+     "definitionFit": "A mascot is a person, animal or object believed to bring good luck to a team or person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Murray"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1376,60 @@
     "text": "It’s fairly rude, and I go red outwardly",
     "enumeration": "6"
    },
-   "solution": "BLUISH"
+   "solution": "BLUISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLUISH",
+    "definitions": [
+     {
+      "text": "fairly rude",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outwardly",
+      "for": "container",
+      "note": "acting outwardly means being on the outside, wrapping around the letter"
+     }
+    ],
+    "linkWords": [
+     "It’s",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go red",
+      "gives": "BLUSH",
+      "note": "to blush is to go red in the face"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLU",
+      "I",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone admits a joke is a bit risqué and they are embarrassed by it.",
+     "walkthrough": "Blue means smutty or risqué, so somewhat blue is fairly rude.",
+     "definitionFit": "Blue jokes are indecent ones, so a bluish remark is mildly off-colour or somewhat risqué."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rude"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1443,48 @@
     "text": "Angry scientist portrayed by Aussie actor in audition",
     "enumeration": "6"
    },
-   "solution": "BANNER"
+   "solution": "BANNER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BANNER",
+    "definitions": [
+     {
+      "text": "Angry scientist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in audition",
+      "for": "homophone",
+      "note": "an audition is a hearing, so the word is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "portrayed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aussie actor",
+      "gives": "BANNER",
+      "soundsLike": "BANA",
+      "note": "Eric Bana is the Australian actor who played the role in the 2003 film Hulk"
+     }
+    ],
+    "explanation": {
+     "surface": "An Australian actor trying out for the part of a furious scientist.",
+     "walkthrough": "Bruce Banner is the scientist who turns into the Hulk when angry; in a non-rhotic accent BANNER and Bana sound alike.",
+     "definitionFit": "Bruce Banner is the Marvel physicist whose rage transforms him into the Incredible Hulk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "audition"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1498,54 @@
     "text": "Work hard to introduce a new catchphrase",
     "enumeration": "6"
    },
-   "solution": "SLOGAN"
+   "solution": "SLOGAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLOGAN",
+    "definitions": [
+     {
+      "text": "catchphrase",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to introduce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work hard",
+      "gives": "SLOG",
+      "note": "to slog is to work hard"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLOG",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An advertising team toiling to launch a fresh tagline.",
+     "definitionFit": "A slogan is a short memorable motto or phrase used in advertising or politics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1569,77 @@
      }
     ]
    },
-   "solution": "COPAPLEA"
+   "solution": "COPAPLEA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "COP A PLEA",
+    "definitions": [
+     {
+      "text": "take a lesser charge",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "possibly signals one of several arrangements of the letters"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is used"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "Apple",
+      "gives": "APPLE",
+      "note": "letters taken as written"
+     },
+     {
+      "clueFragment": "agrees",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of agrees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "PAPLE",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "APPLE",
+       "gives": "PAPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tech giant settling a legal case by accepting a reduced charge.",
+     "walkthrough": "To cop a plea is a mainly American idiom for pleading guilty to a lesser offence.",
+     "definitionFit": "Copping a plea means pleading guilty to a lesser offence to avoid trial on a more serious one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Apple"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1653,54 @@
     "text": "Canny, like someone learning to finish early",
     "enumeration": "6"
    },
-   "solution": "ASTUTE"
+   "solution": "ASTUTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASTUTE",
+    "definitions": [
+     {
+      "text": "Canny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to finish early",
+      "for": "deletion",
+      "note": "finishing early means stopping before the last letter, which is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "AS",
+      "note": "as means like"
+     },
+     {
+      "clueFragment": "someone learning",
+      "gives": "TUTE",
+      "note": "a tutee is someone being taught; its last letter goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "TUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A shrewd student who wraps up lessons ahead of time.",
+     "definitionFit": "Astute means sharp and shrewd, quick to judge situations to one's advantage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learning"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1714,46 @@
     "text": "A penalty is OK",
     "enumeration": "8"
    },
-   "solution": "SANCTION"
+   "solution": "SANCTION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SANCTION",
+    "definitions": [
+     {
+      "text": "A penalty",
+      "at": 0,
+      "note": "the article goes with the noun: a penalty is a sanction"
+     },
+     {
+      "text": "OK",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A penalty",
+      "note": "first meaning: a punishment imposed for breaking a rule"
+     },
+     {
+      "clueFragment": "OK",
+      "note": "second meaning: as a verb, to approve or authorise"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word is its own opposite: it can mean both a punishment and a permission.",
+     "definitionFit": "Sanction can mean a punitive measure such as trade restrictions, and also to give official approval."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "penalty"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1767,50 @@
     "text": "Bear dying alongside a river",
     "enumeration": "6"
    },
-   "solution": "ENDURE"
+   "solution": "ENDURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDURE",
+    "definitions": [
+     {
+      "text": "Bear",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dying",
+      "gives": "END",
+      "note": "death is one's end"
+     },
+     {
+      "clueFragment": "a river",
+      "gives": "URE",
+      "note": "the Ure is a river in Yorkshire, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "URE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bear perishing on a riverbank.",
+     "walkthrough": "'Bear' is a verb, not the animal.",
+     "definitionFit": "To bear something is to tolerate or put up with it, exactly as enduring does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bear"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1824,55 @@
     "text": "One getting infiltrated by large weapons manufacturer",
     "enumeration": "8"
    },
-   "solution": "FLETCHER"
+   "solution": "FLETCHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLETCHER",
+    "definitions": [
+     {
+      "text": "weapons manufacturer",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infiltrated by",
+      "for": "container",
+      "note": "something infiltrated has an intruder slipped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One getting",
+      "gives": "FETCHER",
+      "note": "a fetcher is one who goes to get things"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "ETCHER"
+     ]
+    },
+    "explanation": {
+     "surface": "An arms maker whose firm has been penetrated by a big spy operation.",
+     "walkthrough": "'One getting' together means someone who gets things, a fetcher.",
+     "definitionFit": "A fletcher is a maker of arrows, a craftsman who manufactures weapons for archers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "infiltrated"
+    }
+   }
   }
  ]
 }
