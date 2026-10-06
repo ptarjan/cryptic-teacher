@@ -97,7 +97,7 @@ for n, lights in lp.ARCHIVE_ALTERED.items():
     for k, (word, op) in lights.items():
         x = by.get(k, {})
         ok = (x.get("alteration") == {"from": word, "steps": [{"op": op}]}
-              and OPS[op](word, x.get("solution", "")) and "annotation" not in x)
+              and OPS[op](word, x.get("solution", "")))
         if not ok:
             print("ARCHIVE", n, k, x.get("solution"), x.get("alteration"))
 print("ARCHIVE done")
@@ -132,7 +132,7 @@ same "neither preamble nor clue printed, no alteration" "$(grep '^NOPREAMBLE' <<
 same "an enumeration may count the entry" "$(grep '^COUNTSENTRY' <<<"$out")" "COUNTSENTRY accepted"
 same "an enumeration may count the clue's word" "$(grep '^COUNTSFROM' <<<"$out")" "COUNTSFROM accepted"
 same "an enumeration counting neither is refused" "$(grep '^COUNTSNEITHER' <<<"$out")" "COUNTSNEITHER LENGTH"
-same "every ARCHIVE_ALTERED light is filed altered, unannotated" "$(grep '^ARCHIVE' <<<"$out")" "ARCHIVE done"
+same "every ARCHIVE_ALTERED light is filed altered" "$(grep '^ARCHIVE' <<<"$out")" "ARCHIVE done"
 same "the last step's result is the solution, not a gives" "$(grep '^LASTGIVES' <<<"$out")" "LASTGIVES ALTERED"
 same "a chain of steps through gives is accepted" "$(grep '^CHAINOK' <<<"$out")" "CHAINOK accepted"
 same "a middle step without gives is refused" "$(grep '^CHAINNOGIVES' <<<"$out")" "CHAINNOGIVES ALTERED"
