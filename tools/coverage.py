@@ -148,11 +148,11 @@ def _causes():
         out[("book", status)] = Cause(
             "tools/acquire_book.py", f"archive.org said {status}: the loan, not the reader (report.json status)", True, False)
     out[("book", "reread-due")] = Cause(
-        "tools/acquire_books.sh", "read by an older reader, its text on disk: the hourly job re-reads one due "
-        "book a run (book_queue.py --reread)", True, False)
+        "tools/acquire_books.sh", "read by an older reader, its text on disk: the hourly job reads every due "
+        "book with text on disk (book_queue.py --reread), its grid searches on the desktop", True, False)
     out[("book", "borrow-queued")] = Cause(
-        "tools/acquire_books.sh", "unread, or its text lost: only a loan reads it, one a run in "
-        "book_queue.py --next order, while archive.org lends", True, False)
+        "tools/acquire_books.sh", "unread, or its text lost: only a loan reads it, up to 3 loans a run "
+        "(BORROWS_PER_RUN) in book_queue.py --next order, while archive.org lends", True, False)
     out[("book", "not-split")] = Cause(
         "tools/parse_penguin_book.py", "past the last puzzle the reader split: the estimate runs high, "
         "or the splitter missed leaves", True, False)

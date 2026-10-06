@@ -121,6 +121,9 @@ EXIT_LENDING_LIMIT = 3
 NODE_BUDGET = 8_000_000   # the budget the vol-5 control was measured under
 WALL_SECONDS = 240        # per puzzle, enforced inside the worker
 SOLUTION_LIMIT = 40
+# Searches in flight on the desktop at once (tools/ocr_remote.py): it has 28
+# threads, and the OCR full pass holds 20 sessions of two.
+REMOTE_SLOTS = 8
 
 
 # ------------------------------------------------------------------ stage 1
@@ -296,8 +299,12 @@ def _reconstruct_one(job):
     def _alarm(signum, frame):
         raise _Timeout()
 
-    signal.signal(signal.SIGALRM, _alarm)
-    signal.alarm(WALL_SECONDS)
+    # Windows (the desktop, tools/ocr_remote.py) has no SIGALRM: there the
+    # node budget is the bound.
+    alarm = getattr(signal, "SIGALRM", None)
+    if alarm is not None:
+        signal.signal(alarm, _alarm)
+        signal.alarm(WALL_SECONDS)
     try:
         found, info = reconstruct(triples, cols=15, rows=15, limit=SOLUTION_LIMIT,
                                   symmetry=True, max_nodes=NODE_BUDGET,
@@ -309,7 +316,8 @@ def _reconstruct_one(job):
         # repair, say) is a parse failure, not a crash of the run.
         error = f"{type(err).__name__}: {err}"
     finally:
-        signal.alarm(0)
+        if alarm is not None:
+            signal.alarm(0)
 
     grids = [tuple(g) for g in found]
     if error is not None:
@@ -324,6 +332,53 @@ def _reconstruct_one(job):
             "wall_clock_exhausted": timed_out, "error": error,
             "elapsed_sec": round(time.time() - started, 2),
             "conventions_broken": [conventions_broken(g) for g in grids]}
+
+
+def _searched(jobs, local_jobs):
+    """Each job's _reconstruct_one result, as each lands. With OCR_REMOTE
+    set (tools/ocr_remote.py) up to REMOTE_SLOTS searches run on the desktop,
+    each slot over its own ssh session; a slot with no desktop (unset, off,
+    unreachable, or Paul gaming on it) hands its search to the local pool of
+    local_jobs processes and tries the desktop again RETRY seconds later."""
+    import threading
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+
+    import ocr_remote
+    with ProcessPoolExecutor(max_workers=local_jobs) as pool:
+        if not ocr_remote.hosts():
+            yield from (f.result() for f in as_completed(
+                [pool.submit(_reconstruct_one, j) for j in jobs]))
+            return
+        slot, opened = threading.local(), []
+
+        def one(job):
+            s = getattr(slot, "s", None)
+            if s is None and time.monotonic() >= getattr(slot, "retry", 0.0) \
+                    and not ocr_remote.desktop_busy.busy(ocr_remote.hosts()):
+                s = slot.s = ocr_remote.connect()
+                opened.append(s)
+                if s is None:
+                    slot.retry = time.monotonic() + ocr_remote.RETRY
+            if s is not None:
+                try:
+                    got = s.reconstruct(job)
+                    if "status" in got:
+                        return got
+                    print(f"  #{job['book_number']}: desktop search failed "
+                          f"({got['error']}), searching here", file=sys.stderr)
+                except ocr_remote.Unavailable as e:
+                    print(f"  desktop lost ({e}), searching here", file=sys.stderr)
+                    s.close()
+                    slot.s, slot.retry = None, time.monotonic() + ocr_remote.RETRY
+            return pool.submit(_reconstruct_one, job).result()
+
+        with ThreadPoolExecutor(max_workers=REMOTE_SLOTS) as threads:
+            try:
+                yield from (f.result() for f in as_completed(
+                    [threads.submit(one, j) for j in jobs]))
+            finally:
+                for s in filter(None, opened):
+                    s.close()
 
 
 # ------------------------------------------------------------------ stage 4
@@ -448,7 +503,10 @@ def main(argv=None):
                     help="when borrowing, read only the first N pages. A "
                          "SAMPLE for checking the route end to end; it is not "
                          "the whole book and is not cached as one")
-    ap.add_argument("--jobs", type=int, default=4, help="parallel reconstructions")
+    ap.add_argument("--jobs", type=int, default=4, help="parallel reconstructions here")
+    ap.add_argument("--text-only", action="store_true",
+                    help="stop after stage 1: get the text onto disk (borrowing "
+                         "if need be, the loan returned) and read nothing")
     ap.add_argument("--limit", type=int, help="only the first N puzzles, for a smoke run")
     ap.add_argument("--only", type=int, nargs="*",
                     help="only these book numbers, for checking a known result")
@@ -474,6 +532,8 @@ def main(argv=None):
         print(f"report -> {report_path}")
         return EXIT_LENDING_LIMIT if status == "lending-limit" else 1
     print(f"text: {how}")
+    if args.text_only:
+        return 0
 
     # ---- stage 2
     puzzles = parse_book(text_path)
@@ -617,21 +677,20 @@ def main(argv=None):
 
     save_report()
     if jobs:
-        with ProcessPoolExecutor(max_workers=args.jobs) as pool:
-            for done, r in enumerate(pool.map(_reconstruct_one, jobs), 1):
-                row = rows[r["book_number"]]
-                row.update({k: r[k] for k in
-                            ("status", "nodes", "truncated", "wall_clock_exhausted",
-                             "elapsed_sec", "conventions_broken")})
-                row["verdict_detail"] = r["detail"]
-                row["grids"] = r["grids"]
-                print(f"  [{done}/{len(jobs)}] #{r['book_number']} "
-                      f"lights={row['lights_recovered']} -> {r['status']} "
-                      f"nodes={r['nodes']} t={r['elapsed_sec']}s", flush=True)
-                # ---- stage 4, as each search lands: a run killed by its
-                # timeout keeps every puzzle it had already derived.
-                filed += file_row(r["book_number"], row)
-                save_report()
+        for done, r in enumerate(_searched(jobs, args.jobs), 1):
+            row = rows[r["book_number"]]
+            row.update({k: r[k] for k in
+                        ("status", "nodes", "truncated", "wall_clock_exhausted",
+                         "elapsed_sec", "conventions_broken")})
+            row["verdict_detail"] = r["detail"]
+            row["grids"] = r["grids"]
+            print(f"  [{done}/{len(jobs)}] #{r['book_number']} "
+                  f"lights={row['lights_recovered']} -> {r['status']} "
+                  f"nodes={r['nodes']} t={r['elapsed_sec']}s", flush=True)
+            # ---- stage 4, as each search lands: a run killed by its
+            # timeout keeps every puzzle it had already derived.
+            filed += file_row(r["book_number"], row)
+            save_report()
 
     for row in rows.values():
         row.setdefault("grids", [])
