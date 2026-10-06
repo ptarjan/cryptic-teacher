@@ -247,11 +247,12 @@
     <p id="puzzle-preamble" class="preamble hidden"></p>
     <div id="scorebar" title="Your score for this puzzle: the fewer hints you use, the better"></div>
     <span id="streak" title="Days in a row on which you finished a puzzle"></span>
-    <p id="milestone-note" class="hidden" role="status"></p>
   </div>
   <!-- Shown once, in the session that earns it, when the last square goes in.
        app.js fills it; empty and hidden otherwise. -->
   <div id="celebrate" class="hidden" role="status" aria-live="polite"></div>
+  <!-- Achievement toasts, stacked; app.js adds and removes them. -->
+  <div id="toasts" aria-live="polite"></div>
   <div class="layout">
     <div class="left-col">
       <div id="grid-wrap">
