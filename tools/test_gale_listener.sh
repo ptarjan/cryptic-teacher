@@ -72,6 +72,8 @@ check("a clue a line without counts", ["Spanish for aubade", "A river in France"
       [c["text"] for c in parsed["across"]])
 
 # The ledger: each file read once, again when it changes.
+# A blank page has no title to read, and the test asks nothing of Tesseract.
+g.page_words = lambda img, key: []
 inbox, store = Path(sys.argv[1]) / "inbox", Path(sys.argv[1]) / "store"
 inbox.mkdir()
 Image.new("RGB", (300, 200), "white").save(inbox / "1930-04-02.png")
