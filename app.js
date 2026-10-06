@@ -6229,7 +6229,7 @@
       const color = colors[n % colors.length], alt = colors[(n + 2) % colors.length];
       const born = t0 + (sh.delay || 0) * 1000;
       if (sh.rocket) {
-        fw.parts.push({ rocket: true, x: sh.x, y0: innerHeight, y: sh.y, born: born - 550, life: 550, color });
+        fw.parts.push({ rocket: true, x: sh.x, y0: window.innerHeight, y: sh.y, born: born - 550, life: 550, color });
       }
       const sparks = sh.sparks || 40, speed = sh.speed || 220;
       for (let i = 0; i < sparks; i++) {
@@ -6247,7 +6247,7 @@
   }
   function fwFrame(t) {
     const { canvas, ctx } = fw;
-    const dpr = window.devicePixelRatio || 1, w = innerWidth, h = innerHeight;
+    const dpr = window.devicePixelRatio || 1, w = window.innerWidth, h = window.innerHeight;
     if (canvas.width !== Math.round(w * dpr) || canvas.height !== Math.round(h * dpr)) {
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
     }
@@ -6287,7 +6287,7 @@
   // The finish: rockets up the screen and bursts across it. A grid finished
   // without a single hint gets twice the show.
   function finishFireworks(clean) {
-    const shells = clean ? 16 : 8, w = innerWidth, h = innerHeight;
+    const shells = clean ? 16 : 8, w = window.innerWidth || 0, h = window.innerHeight || 0;
     fireworks(Array.from({ length: shells }, (_, i) => ({
       x: w * (0.12 + 0.76 * ((i * 0.618) % 1)), y: h * (0.15 + 0.3 * ((i * 0.382) % 1)),
       sparks: clean ? 70 : 50, speed: clean ? 300 : 250, delay: i * (clean ? 0.28 : 0.35), rocket: true,
