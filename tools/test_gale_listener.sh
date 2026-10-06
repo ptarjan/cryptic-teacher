@@ -4,7 +4,8 @@
 # its title; are its clue lists read in column order wherever DOWN falls,
 # a clue a line when the lists print no counts; is each file read once (the
 # ledger is keyed by its hash); and does the checklist list every puzzle of
-# the index, earliest first, marking what is filed or saved?
+# the index, earliest first, marking what is filed or saved, and what the
+# 3-minute tick saw arrive (matched by name or citation, each file once)?
 #
 #     bash tools/test_gale_listener.sh
 #
@@ -98,6 +99,25 @@ check("the saved puzzle is marked", True, "saved: 1 of 1 clues read" in page)
 check("the filed puzzle is marked", True, ">filed<" in page)
 check("the unmatched file is listed", True, "holiday snap.jpg" in page)
 check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))
+
+# The 3-minute tick: a page matched by its name alone is ticked off as
+# arrived before the full pass reads it; one naming no puzzle waits for it.
+Image.new("RGB", (300, 200), "white").save(inbox / "Listener 9 Apr 1930.png")
+Image.new("RGB", (300, 200), "white").save(inbox / "download.png")
+came = g.arrived(inbox, rows, Path(sys.argv[1]) / "arrived.json")
+check("arrivals matched by name, no OCR", {"1930-04-02.png": 1, "Listener 9 Apr 1930.png": 2, "download.png": None,
+                                           "holiday snap.jpg": None},
+      {a["file"]: a["number"] for a in came})
+g.match = lambda *a, **k: (_ for _ in ()).throw(AssertionError("opened again"))
+check("a file already matched is not opened again", 4, len(g.arrived(inbox, rows, Path(sys.argv[1]) / "arrived.json")))
+(root / "puzzles" / "listener" / "1930" / "listener-2.json").unlink()
+page = g.checklist(rows, store, root, arrivals=came)
+check("an arrived page is ticked off", True, "arrived: the next full pass reads it" in page)
+check("and counted", True, "<b>2 of 2</b> saved or filed" in page)
+check("a page naming no puzzle waits for the pass", True,
+      "<li>download.png</li>" in page[page.index("puzzle not yet known"):])
+check("one the pass already read is not waiting", False,
+      "<li>holiday snap.jpg</li>" in page[page.index("puzzle not yet known"):])
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
 PY

@@ -56,6 +56,9 @@ CHECKLIST_NAME = "Listener checklist.html"
 HOME = Path(os.path.expanduser("~/.cache/gale_listener"))
 MIRROR = HOME / "files"
 CHECKLIST = HOME / CHECKLIST_NAME
+#: Each mirrored file's cheap match (name, citation; no OCR), by name, size
+#: and mtime: what the 3-minute tick ticks off before the full pass reads it.
+ARRIVED = HOME / "arrived.json"
 OCR_CACHE = HOME / "ocr"
 #: The readings and the ledger: derived from Paul's pages, kept beside the
 #: series' other source data.
@@ -386,14 +389,61 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
 
 # ------------------------------------------------------------ the checklist
 
+def arrived(inbox=MIRROR, idx=None, path=ARRIVED):
+    """[{"file", "number", "why"}] of every page file in `inbox`, matched by
+    its name or citation only (no OCR: the full pass reads titles); a file
+    already matched at its name, size and mtime is not opened again."""
+    idx = index() if idx is None else idx
+    known = gi.load(path, {})
+    kept = {}
+    files = sorted(p for p in Path(inbox).iterdir() if p.is_file() and p.suffix.lower() in gi.PAGES) \
+        if Path(inbox).exists() else []
+    for p in files:
+        st = p.stat()
+        k = f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
+        if k not in known:
+            try:
+                m = match(p, idx, read_title=False)
+            except (OSError, ValueError) as e:  # shown on the checklist
+                m = {"number": None, "why": f"unreadable: {type(e).__name__}: {e}"}
+            known[k] = {"file": p.name, "number": m["number"], "why": m.get("why")}
+        kept[k] = known[k]
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(kept, indent=0))
+    return list(kept.values())
+
+
+def render(idx=None, out=sys.stdout):
+    """Match what arrived and publish the checklist to the Mac."""
+    idx = index() if idx is None else idx
+    CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
+    CHECKLIST.write_text(checklist(idx, arrivals=arrived(MIRROR, idx)))
+    gi.publish(CHECKLIST, host_inbox=gi.GALE_ROOT)
+    print(f"checklist published to {gi.GALE_ROOT}/{CHECKLIST.name}", file=out)
+
+
+def tick(out=sys.stdout, force=False):
+    """The 3-minute part (gale_inbox.sync calls it): mirror the Listener
+    inbox and, when it moved (or gi.RENDER_EVERY passed), re-render the
+    checklist. The clue reading stays in the full pass."""
+    changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
+    last = CHECKLIST.stat().st_mtime if CHECKLIST.exists() else 0
+    if force or changed or time.time() - last > gi.RENDER_EVERY:
+        render(out=out)
+
+
 def filed_numbers(root=ROOT):
     return {int(p.stem.split("-")[1]) for p in (root / "puzzles" / lp.SERIES).glob("*/listener-*.json")}
 
 
-def checklist(idx=None, store=STORE, root=ROOT):
+def checklist(idx=None, store=STORE, root=ROOT, arrivals=None):
     """The checklist page: every Listener the magazine printed, earliest
-    first, with what the inbox and the corpus hold of each."""
+    first, with what the inbox (`arrivals`, else ARRIVED's last) and the
+    corpus hold of each."""
     idx = index() if idx is None else idx
+    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
+    came = {a["number"] for a in arrivals if a.get("number") is not None}
+    unnamed = [a for a in arrivals if a.get("number") is None]
     filed = filed_numbers(root)
     ledger = load_ledger(store)
     tried = {}
@@ -405,13 +455,16 @@ def checklist(idx=None, store=STORE, root=ROOT):
     for p in store.glob("listener-*.json"):
         r = json.loads(p.read_text())
         got[r["number"]] = r["verdict"]
-    todo = [r for r in idx if r["number"] not in filed and r["number"] not in got]
+    todo = [r for r in idx if r["number"] not in filed and r["number"] not in got and r["number"] not in came]
     first = todo[0] if todo else None
     e = html.escape
-    out = [f"""<!doctype html><meta charset="utf-8"><title>Listener crosswords to save from Gale</title>
+    out = [f"""<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="180">
+<title>Listener crosswords to save from Gale</title>
 <style>body{{font:14px -apple-system,sans-serif;margin:2em;max-width:60em}}td,th{{padding:2px 8px;text-align:left}}
 tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.5em}}.got{{color:#070}}.bad{{color:#a00}}</style>
 <h1>Listener crosswords to save from Gale: {len(todo):,} of {len(idx):,} to go</h1>
+<p><progress value="{len(idx) - len(todo)}" max="{max(len(idx), 1)}"></progress>
+<b>{len(idx) - len(todo):,} of {len(idx):,}</b> saved or filed. This page refreshes itself every 3 minutes.</p>
 <p>Generated {datetime.datetime.now().astimezone():%Y-%m-%d %H:%M %Z} by <code>tools/gale_listener.py</code> from the
 Listener Team's index (numbers and dates only) and what this folder holds. Earliest first: start at the top.</p>
 <h2>How to save one</h2>
@@ -423,7 +476,8 @@ A Gale link opened outside the portal asks for a password, so always start here.
 to the crossword (a grid with ACROSS and DOWN clue lists); or search for its title in quotes.</li>
 <li>On the crossword's page press <i>Download</i> and save it (PDF or image, either works) into this folder,
 {e(FOLDER)}. Any file name works; a name with the date (e.g. <code>1930-04-09</code>) is the surest match.</li>
-<li>That's all. Each full pass reads new files once; the row below then says how many clues read.</li>
+<li>That's all. A Gale download in Downloads is moved into the folder for you; within 3 minutes its row
+says "arrived", and once the full pass has read it, how many clues read.</li>
 </ol>
 <p>Gale's terms allow up to 50 downloads a session, by hand only: no scripts or download tools.</p>
 {f'<p><b>Next to save:</b> No {first["number"]}, {first["date"]:%a %d %b %Y}, &ldquo;{e(first["title"])}&rdquo;.</p>' if first else ''}"""]
@@ -431,7 +485,7 @@ to the crossword (a grid with ACROSS and DOWN clue lists); or search for its tit
     for r in idx:
         years.setdefault(r["date"].year, []).append(r)
     for y, rs in sorted(years.items()):
-        left = sum(1 for r in rs if r["number"] not in filed and r["number"] not in got)
+        left = sum(1 for r in rs if r["number"] not in filed and r["number"] not in got and r["number"] not in came)
         out.append(f"<h2>{y}: {left} of {len(rs)} to save</h2><table><tr><th>Issue date</th><th>No</th>"
                    "<th>Title</th><th>Setter</th><th>Status</th></tr>")
         for r in rs:
@@ -443,11 +497,20 @@ to the crossword (a grid with ACROSS and DOWN clue lists); or search for its tit
                 status = f'<span class="got">saved: {v.get("agreed", 0)} of {v.get("clues", 0)} clues read</span>'
             elif n in tried:
                 status = f'<span class="bad">saved, not read: {e(tried[n][-1].get("why") or "")}</span>'
+            elif n in came:
+                status = '<span class="got">arrived: the next full pass reads it</span>'
             else:
                 status = ""
             out.append(f"<tr><td>{r['date']:%a %d %b %Y}</td><td>{n}</td><td>{e(r['title'])}</td>"
                        f"<td>{e(r.get('setter') or '')}</td><td>{status}</td></tr>")
         out.append("</table>")
+    read = {e_["file"] for e_ in ledger.values()}
+    waiting = [a for a in unnamed if a["file"] not in read]
+    if waiting:
+        out.append("<h2>Arrived, puzzle not yet known</h2><p>The name and citation name no puzzle; the next full pass "
+                   "reads the title. To be sure now, rename the file with the issue date (e.g. 1930-04-09).</p><ul>")
+        out += [f"<li>{e(a['file'])}</li>" for a in waiting]
+        out.append("</ul>")
     if lost:
         out.append("<h2>Files that matched no puzzle</h2><p>Rename each with its issue date (e.g. 1930-04-09).</p><ul>")
         out += [f"<li>{e(m['file'])}: {e(m.get('why') or '')}</li>" for m in lost]
@@ -481,13 +544,11 @@ def main(argv=None):
         print(f"wrote {a.out}")
         return 0
     if a.cmd == "sync":
-        gi.mirror(host_inbox=gi.LISTENER_INBOX, into=MIRROR)
+        with gi.locked():
+            gi.mirror(host_inbox=gi.LISTENER_INBOX, into=MIRROR)
     run(a.inbox if a.cmd == "read" else MIRROR, a.store if a.cmd == "read" else STORE)
     if a.cmd == "sync":
-        CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
-        CHECKLIST.write_text(checklist())
-        gi.publish(CHECKLIST, host_inbox=gi.GALE_ROOT)
-        print(f"checklist published to {gi.GALE_ROOT}/{CHECKLIST.name}")
+        render()
     return 0
 
 
