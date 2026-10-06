@@ -28,6 +28,20 @@ not a grid, no crossword found, archive.org's date wrong, a collection the
 filer does not read yet, and no scan at all. Classes this pipeline can still
 recover are listed first, largest first.
 
+Three classes need code, not time (each class's fix text in `CLASSES` names
+the next step):
+
+- **no crossword found** (Times): the filer reads garbled titles ("Tfee Th:es
+  Crossword PuzzleNo 16,587") and the fetcher also fetches the page densest
+  with clue counts when no title is in the text (`DENSE_ENUMS`,
+  `DETECTOR_VERSION` 5). What is left needs a grid search by image over
+  every leaf.
+- **a collection the filer does not read** (`pub_times`, the Times of 1930):
+  the fetcher fetches it already; the filer lacks its layout: four clue
+  columns under the grid, 1-3 digit numbers, scans at 4x NewsUK's size.
+- **no OCR** (FT 1981): archive.org holds only image PDFs. Their page JPEGs
+  come out with pypdf; the grid page is found by image, not by OCR.
+
 `--json FILE` writes the same data as JSON. `--save` keeps it in
 `~/.cache/archive_coverage/latest.json`, and the next run prints each year's
 change against it.

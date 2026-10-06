@@ -75,15 +75,21 @@ CLASSES = [
     ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True, "tools/file_archive_org_puzzles.py"),
     ("read-not-filed", "read whole, but no file for that date", "look at the ledger row", True, "tools/file_archive_org_puzzles.py"),
     ("no-crossword-found", "fetched; no crossword heading found on any page we hold",
-     "the fetcher holds the wrong pages: find the crossword page in the whole issue (only a crosswordless issue leaves the count), then DETECTOR_VERSION", True, "tools/fetch_archive_org_editions.py"),
+     ("the fetcher holds the wrong pages: titles the OCR garbled and the page densest with clue counts are read "
+      "(DETECTOR_VERSION 5); for the rest, look for the grid by image on every leaf of the issue "
+      "(only a crosswordless issue leaves the count), then DETECTOR_VERSION"), True, "tools/fetch_archive_org_editions.py"),
     ("filed-other-date", "its puzzle number is filed, under another date", "date the file right", True, "tools/file_archive_org_puzzles.py"),
     ("number-date-mismatch", "the item's date and the puzzle number disagree", "none: archive.org's date is wrong", False, "tools/file_archive_org_puzzles.py"),
     ("no-filer", "archive.org has the scan, in a one-issue-per-item collection the filer does not read",
-     "teach fetch_archive_org_editions.py and the filer the collection (ONE_ISSUE_GROUPS)", True, "tools/fetch_archive_org_editions.py"),
+     ("the fetcher already fetches pub_times; teach the filer its 1930 page (Paper for per_times_the-times_* items): "
+      "1-3 digit numbers, a 13663px scan (4x NewsUK's), FOUR clue columns under the grid, the previous solution "
+      "printed in letters"), True, "tools/file_archive_org_puzzles.py"),
     ("no-listing", "the year's archive.org item listing is not cached",
      "fetch_archive_org_editions.py --group <paper> --list (one metadata call an item)", True, "tools/fetch_archive_org_editions.py"),
     ("no-ocr", "archive.org holds the edition's PDF but never OCR'd it, so the page finder has no text",
-     "OCR the PDF ourselves to find the crossword page (fetch_archive_org_editions.py cannot yet)", True,
+     ("fetch the ~13 MB image-container PDF, take its page JPEGs (pypdf; no jp2 for most), find the grid page "
+      "by image (grids_on, no OCR), then read it as a page with no text (ocr_headings); bulk OCR only on the "
+      "desktop (tools/ocr_remote.py)"), True,
      "tools/fetch_archive_org_editions.py"),
     ("canberra-reprint", "archive.org holds no scan; a cached Canberra Times article reprints it (tools/canberra_london_numbers.py)",
      "fetch_trove.py zones $(canberra_london_numbers.py --ids scanless), then file_trove_puzzles.py", True, "tools/fetch_trove.py"),

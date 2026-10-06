@@ -72,6 +72,15 @@ check("the daily title detected: no prior leaves",
       [h["leaf"] for h in fa.crossword_hits(cryptic, prior)] == [13])
 ad = list(blank); ad[27] = page("CROSSWORD ENTHUSIASTS: Times Crossword Book 12,000 copies ACROSS")
 check("a crossword book advert is no title", [h["leaf"] for h in fa.crossword_hits(ad, prior)] == [21, 27])
+dense = list(blank); dense[11] = page("1 Garbled clue (5)\n" * 12); dense[3] = page("news " * 60 + "a film (5) " * 4)
+hits = fa.crossword_hits(dense, prior)
+check("no title and no headings: the page densest with clue counts is fetched too, marked dense",
+      [(h["leaf"], h.get("dense")) for h in hits] == [(11, True), (21, None), (27, None)])
+sparse = list(blank); sparse[11] = page("news " * 60 + "1 Garbled clue (5)\n" * (fa.DENSE_ENUMS - 1))
+check("a page with fewer counts than DENSE_ENUMS is not",
+      [h["leaf"] for h in fa.crossword_hits(sparse, prior)] == [21, 27])
+check("a titled page found: no dense page",
+      [h["leaf"] for h in fa.crossword_hits([*cryptic[:11], dense[11], *cryptic[12:]], prior)] == [13])
 
 # Listings: a PDF archive.org never OCR'd is an unread scan, not an edition;
 # a run caches every yearly item's listing before it fetches any edition.

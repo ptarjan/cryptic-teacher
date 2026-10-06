@@ -78,6 +78,21 @@ f.SCAN_CODE = code; f._SCAN_KEY.clear()
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
+# Real titles the pass found no title on (no-crossword-found, 2026-10-06):
+# "Times" garbled past one word, a mark after Crossword, "No" run on or
+# dropped, a space in the number, its 1 read as i.
+check("garbled titles read",
+      [13831, 14887, 15548, 16404, 16587, 16268, 17111, 15543, 19102, 19350],
+      [n for t in ("TThe Times Crossword Puzzle No 13,831", "Tfee Th:es Crossword Puzzle No 14,887",
+                   "The Times Crossword . No. 15,548", "I he l imes Crossword Puzzle No 16,404",
+                   "The Tiroes Crossword PuzzleNo 16,587", "The Times Crossword Puzzle 16,268",
+                   "The Times Crossword Puzzle No 17,1 11", "The Times Crossword Puzzle No i.5,543",
+                   "THE TIMES CROSSWORDNO 19,102", "THE TI MES CROSSWORD NO 19,350")
+       for n, _ in f.headings([line(t)], f.TITLE)])
+check("a garbled Concise, solution, Listener or index line is no title", [],
+      [n for t in ("CONCfSE CROSSWORD NO 20,991", "SOLUTION TO CROSSWORD NO 19,055", "USTENER CROSSWORD No 13,430",
+                   "Crossword 32.", "Times Two Crossword No 10,747")
+       for n, _ in f.headings([line(t)], f.TITLE)])
 check("a title run together with its \"The\" is read (1995-04-12)", [19827],
       [n for n, _ in f.headings([line("THETIMES CROSSWORD NO 19,827")], f.TITLE)])
 f.SCAN_CODE = code - {"ocr_titles"}; f._SCAN_KEY.clear()

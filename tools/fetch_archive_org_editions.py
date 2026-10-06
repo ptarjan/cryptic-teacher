@@ -77,7 +77,10 @@ usually prints it on are fetched too, marked prior: the edition's last leaf
 commonest crossword leaves of the item's other cached editions, counted both
 from the front and from the back (prior_leaves). The filer reads their titles
 by image (ocr_titles). An edition none of whose fetched leaves holds a title
-is one whose scan lacks the crossword page.
+is one whose scan lacks the crossword page. So is the page densest with
+clue enumerations, DENSE_ENUMS or more, marked dense: the 1970s-80s OCR
+loses the title and the ACROSS/DOWN headings of a page whose counts it
+keeps (1977-07-22, leaf 21: 64 counts, no heading).
 
 A rerun skips every edition in done.tsv at the current DETECTOR_VERSION,
 except one whose per-page words (pagetext.json.gz beside a djvu.xml.gz) hold
@@ -125,11 +128,14 @@ from pathlib import Path
 
 UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"
 SAMAAN = 'uploader:"samaan.alshayef@gmail.com"'
-DETECTOR_VERSION = 4
+DETECTOR_VERSION = 5
 #: How many of the leaves its item's other editions print their crossword on
 #: an edition with no crossword title in its text also fetches (prior_leaves).
 PRIOR_LEAVES = 2
 EMPTY_OCR_CHARS = 200
+#: The fewest clue enumerations ("(5)", "(3,4)") on the page an edition
+#: with no crossword title in its text fetches as its densest (crossword_hits).
+DENSE_ENUMS = 10
 RETRY_WAITS = (5, 15, 45, 120)
 ITEM_SECONDS = 300
 FAILURES_IN_A_ROW = 10
@@ -522,6 +528,12 @@ def crossword_hits(pages, prior=()):
         have = {h["leaf"] for h in hits}
         hits += [{"leaf": leaf, "prior": True, "width": pages[leaf][0], "height": pages[leaf][1]}
                  for leaf in prior if leaf not in have]
+        # The OCR can lose the title and the ACROSS/DOWN headings but keep
+        # the clues' counts: the page densest with them is the clue list.
+        enums, leaf = max(((len(ENUM.findall(t)), leaf) for leaf, (_, _, t) in enumerate(pages)), default=(0, 0))
+        if enums >= DENSE_ENUMS and leaf not in have | set(prior):
+            hits.append({"leaf": leaf, "enums": enums, "dense": True,
+                         "width": pages[leaf][0], "height": pages[leaf][1]})
         hits.sort(key=lambda h: h["leaf"])
     return hits
 

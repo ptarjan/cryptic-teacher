@@ -161,12 +161,16 @@ def page_url(d, found, leaf):
 
 
 NUMBER = r"(\d{2}[,.\s]?\d{3})"
-#: The daily cryptic's title: not the Concise, the Jumbo or Times Two. The
-#: OCR misreads its first word ("Hie"), puts a mark before "Crossword",
-#: splits the number ("1 8,862") and reads its comma as any mark ("21*065");
+#: The daily cryptic's title: not the Concise, the Jumbo, Times Two, the
+#: Listener or a solution heading (none of those words before "Crossword").
+#: The OCR garbles the words before "Crossword" ("Tfee Th:es", "THETIMES",
+#: "I he l imes"), puts a mark before or after it ("Crossword . No."), runs
+#: "No" on ("PuzzleNo"), drops "No", splits the number ("1 8,862", "17,1 11"),
+#: reads its comma as any mark ("21*065") and its 1 as i ("i.5,543");
 #: read_puzzle checks the number against the date.
-TITLE = re.compile(r"^\W*(?:\w{1,3}\s*)?times\W{1,3}crossword\s+(?:puzzle\s+)?n[o0]\W{0,2}\s*"
-                   r"(\d\s?\d[^\w\s]?\s?\d{3})", re.I)
+TITLE = re.compile(r"^\W*(?:(?!(?:sunday|conc\w*|jumbo|two|quick|listener|solutions?|to|of)\b)\S{1,8}\s+){0,4}?"
+                   r"\W{0,3}crossword\W{0,3}(?:puzzle\W{0,3})?(?:n[o0]\W{0,3})?\s*"
+                   r"([\dTIil][.,]?\s?\d[^\w\s]{0,2}\s?\d\s?\d\s?\d)(?!\d)", re.IGNORECASE)
 #: The previous puzzle's solution, printed under the clues.
 SOLUTION = re.compile(r"^\W*solution\s+(?:to|of)\s+puzzle\s+no\.?\s*" + NUMBER, re.I)
 #: A column line that ends the clues.
@@ -233,10 +237,10 @@ def headings(lines, pattern):
         for k, w in enumerate(ws):
             text = (text + " " + w[4]).strip()
             m = pattern.match(text)
-            if m and re.search(r"\d{3}\W*$", text):
+            if m and not re.search(r"\w", text[m.end():]):
                 box = (min(v[0] for v in ws[:k + 1]), min(v[1] for v in ws[:k + 1]),
                        max(v[2] for v in ws[:k + 1]), max(v[3] for v in ws[:k + 1]))
-                found.append((number_of(m.group(1)), box))
+                found.append((digits(m.group(1)), box))
                 break
     return found
 
@@ -1368,8 +1372,8 @@ TELEGRAPH_SOLUTION_SPAN = 380
 
 
 def digits(text):
-    """A number as OCR reads it, its leading 1 read as T, I or l mended."""
-    return number_of(re.sub(r"^[TIl]", "1", text.strip()))
+    """A number as OCR reads it, its leading 1 read as T, I, i or l mended."""
+    return number_of(re.sub(r"^[TIil]", "1", text.strip()))
 
 
 def telegraph_headings(lines):
