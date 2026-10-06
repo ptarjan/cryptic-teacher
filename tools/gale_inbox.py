@@ -34,6 +34,7 @@ that edition, and no other, due for the full pass.
 import argparse
 import bisect
 import collections
+import contextlib
 import datetime
 import hashlib
 import html
@@ -785,23 +786,32 @@ def last_render(path=CHECKLIST):
     return path.stat().st_mtime if path.exists() else 0
 
 
-def sync(out=sys.stdout, force=False):
-    """One tick: sweep Gale files into their inboxes, mirror the Times inbox
-    and, when it moved (or RENDER_EVERY passed), stage it and publish the
-    checklist. One at a time: a tick that finds another running waits."""
+@contextlib.contextmanager
+def locked():
+    """Held while a mirror is written: the tick and the full pass's syncs
+    take turns."""
     import fcntl
     LOCK.parent.mkdir(parents=True, exist_ok=True)
     with open(LOCK, "w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX)
+        yield
+
+
+def sync(out=sys.stdout, force=False):
+    """One tick: sweep Gale files into their inboxes; mirror the Times inbox
+    and, when it moved (or RENDER_EVERY passed), stage it and publish the
+    checklist; then the Listener's (gale_listener.tick)."""
+    import gale_listener  # imports this module, so not at the top
+    with locked():
         moved = collect(out)
         changed = mirror(out)
-        if not (force or moved or changed or time.time() - last_render() > RENDER_EVERY):
-            return
-        stage(MIRROR, out=out)
-        CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
-        CHECKLIST.write_text(checklist())
-        publish()
-        print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
+        if force or moved or changed or time.time() - last_render() > RENDER_EVERY:
+            stage(MIRROR, out=out)
+            CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
+            CHECKLIST.write_text(checklist())
+            publish()
+            print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
+        gale_listener.tick(out, force)
 
 
 def main(argv=None):
