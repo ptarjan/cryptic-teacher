@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "The financial ombudsman limits this material",
     "enumeration": "6"
    },
-   "solution": "TEFLON"
+   "solution": "TEFLON",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TEFLON",
+    "definitions": [
+     {
+      "text": "this material",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits",
+      "for": "letter_selection",
+      "note": "the limits of something are its boundaries, so only the end letters of each word count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "TE",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "financial",
+      "gives": "FL",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "ombudsman",
+      "gives": "ON",
+      "select": "outer",
+      "note": "first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "FL",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A financial watchdog sets boundaries on some substance under review.",
+     "walkthrough": "'Limits' looks like a verb about regulation, but it asks for the edge letters of the three words before it; 'this material' points back at the clue's own letters.",
+     "definitionFit": "Teflon is the trademarked non-stick coating used on pans, a synthetic polymer substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +112,51 @@
      }
     ]
    },
-   "solution": "TAKEOUT"
+   "solution": "TAKEOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TAKE OUT",
+    "definitions": [
+     {
+      "text": "Date",
+      "at": 0
+     },
+     {
+      "text": "Chinese, for example",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "top"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Date",
+      "note": "first meaning: to escort someone out on a date"
+     },
+     {
+      "clueFragment": "top",
+      "note": "a further meaning: to kill, slang for eliminating someone"
+     },
+     {
+      "clueFragment": "Chinese, for example",
+      "note": "last meaning: a meal bought from a restaurant to eat at home"
+     }
+    ],
+    "explanation": {
+     "surface": "Planning an evening with a romantic partner over the best Chinese food in town.",
+     "walkthrough": "This is really three meanings: escort on a date, kill (to top someone), and a meal ordered from a restaurant; a Chinese is British for a Chinese meal.",
+     "definitionFit": "A Chinese meal is a classic example of food ordered from a restaurant to eat elsewhere, called takeout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +170,44 @@
     "text": "Classic location for the mill recommended by dentists",
     "enumeration": "5"
    },
-   "solution": "FLOSS"
+   "solution": "FLOSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLOSS",
+    "definitions": [
+     {
+      "text": "Classic location for the mill",
+      "at": 0
+     },
+     {
+      "text": "recommended by dentists",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Classic location for the mill",
+      "note": "first meaning: the river in George Eliot's novel The Mill on the ..."
+     },
+     {
+      "clueFragment": "recommended by dentists",
+      "note": "second meaning: thread for cleaning between teeth"
+     }
+    ],
+    "explanation": {
+     "surface": "A literary landmark that dentists happen to endorse.",
+     "walkthrough": "The classic is George Eliot's novel The Mill on the Floss, named after a fictional river.",
+     "definitionFit": "The Floss is the river beside the mill in Eliot's novel, and dental floss is thread dentists advise patients to use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mill"
+    }
+   }
   },
   {
    "number": 3,
@@ -87,7 +227,53 @@
      }
     ]
    },
-   "solution": "OILSTRIKE"
+   "solution": "OILSTRIKE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OIL STRIKE",
+    "definitions": [
+     {
+      "text": "a source of energy",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "musicians playing improvise freely, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "it's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trio likes",
+      "gives": "TRIOLIKES",
+      "note": "the letters of the two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TRIOLIKES",
+       "gives": "OILSTRIKE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musical trio enjoys performing, and their music powers them.",
+     "definitionFit": "Striking oil means discovering a petroleum deposit, which supplies fuel and therefore power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 4,
@@ -111,7 +297,39 @@
    "group": [
     "4-across",
     "9-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GENERAL KNOWLEDGE",
+    "definitions": [
+     {
+      "text": "Information provided by Chesterton, initially?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Information provided by Chesterton",
+      "note": "surface reading: facts supplied by the writer G. K. Chesterton"
+     },
+     {
+      "clueFragment": "initially?",
+      "note": "setter's reading: the writer's initials, G. K., are a common abbreviation for a broad body of facts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "G. K. Chesterton was the English author of the Father Brown stories; GK is a standard abbreviation for wide-ranging facts, as in a GK quiz.",
+     "definitionFit": "The phrase means broad factual awareness across many subjects, abbreviated GK, matching the writer's initials."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chesterton"
+    }
+   }
   },
   {
    "number": 4,
@@ -125,7 +343,58 @@
     "text": "Officer overwhelmed by joy in Highland valley",
     "enumeration": "7"
    },
-   "solution": "GLENCOE"
+   "solution": "GLENCOE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GLENCOE",
+    "definitions": [
+     {
+      "text": "Highland valley",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "something overwhelmed is engulfed, so one piece sits wholly inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joy",
+      "gives": "GLEE",
+      "note": "a synonym for delight"
+     },
+     {
+      "clueFragment": "Officer",
+      "gives": "NCO",
+      "note": "non-commissioned officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLE",
+      "NCO",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is delighted to find himself in a Scottish glen.",
+     "walkthrough": "'Overwhelmed by' reads as the officer's emotion, but it places one piece wholly inside the other. Glencoe is a valley in the Scottish Highlands.",
+     "definitionFit": "Glencoe is a famous glen in the Scottish Highlands, site of the 1692 massacre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Officer"
+    }
+   }
   },
   {
    "number": 5,
@@ -139,7 +408,53 @@
     "text": "Rover is leading name of most Alsatian dogs",
     "enumeration": "5"
    },
-   "solution": "NOMAD"
+   "solution": "NOMAD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NOMAD",
+    "definitions": [
+     {
+      "text": "Rover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leading",
+      "for": "letter_selection",
+      "note": "the leading part of a word is its front, so the opening letter of each word is taken"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name of most Alsatian dogs",
+      "gives": "NOMAD",
+      "select": "first",
+      "note": "first letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOMAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Rover is said to be the most common name given to German shepherd dogs.",
+     "walkthrough": "Rover looks like a dog's name, fitting the Alsatians, but it means a wanderer.",
+     "definitionFit": "A rover is someone who wanders from place to place, which is what a nomad does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rover"
+    }
+   }
   },
   {
    "number": 6,
@@ -159,7 +474,49 @@
      }
     ]
    },
-   "solution": "RIGHTWING"
+   "solution": "RIGHTWING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RIGHT-WING",
+    "definitions": [
+     {
+      "text": "conservative types?",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Acceptable",
+      "gives": "RIGHT",
+      "note": "correct, proper"
+     },
+     {
+      "clueFragment": "building extension",
+      "gives": "WING",
+      "note": "an extension added to a building"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT",
+      "WING"
+     ]
+    },
+    "explanation": {
+     "surface": "An approved annexe planned for a building used by traditionalists.",
+     "definitionFit": "Conservatives sit on the political right, so right-wing describes people of that persuasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 7,
@@ -173,7 +530,59 @@
     "text": "Elvis plied regularly with special kind of fats",
     "enumeration": "6"
    },
-   "solution": "LIPIDS"
+   "solution": "LIPIDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIPIDS",
+    "definitions": [
+     {
+      "text": "kind of fats",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elvis plied",
+      "gives": "LIPID",
+      "select": "alternate",
+      "note": "second, fourth, sixth, eighth and tenth letters"
+     },
+     {
+      "clueFragment": "special",
+      "gives": "S",
+      "note": "S is the abbreviation for special"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIPID",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Elvis kept himself supplied with a particular type of greasy food.",
+     "definitionFit": "Lipids are the class of organic compounds that includes fats, oils and waxes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Elvis"
+    }
+   }
   },
   {
    "number": 8,
@@ -187,7 +596,57 @@
     "text": "Editor bleeps second half out, making it suitable for consumption",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EDIBLE",
+    "definitions": [
+     {
+      "text": "suitable for consumption",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "second half out",
+      "for": "deletion",
+      "note": "putting half a word out removes those letters, here its back three"
+     }
+    ],
+    "linkWords": [
+     "making it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "the usual abbreviation"
+     },
+     {
+      "clueFragment": "bleeps",
+      "gives": "BLEEPS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "IBLE"
+     ]
+    },
+    "explanation": {
+     "surface": "An editor censors offensive material to make a broadcast fit for the public.",
+     "definitionFit": "Edible describes food fit to be eaten, safe and palatable to consume."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "consumption"
+    }
+   }
   },
   {
    "number": 9,
@@ -220,7 +679,46 @@
      }
     ]
    },
-   "solution": "MUGUP"
+   "solution": "MUGUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUG UP",
+    "definitions": [
+     {
+      "text": "study",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attack",
+      "gives": "MUG",
+      "note": "to rob someone with violence"
+     },
+     {
+      "clueFragment": "leading",
+      "gives": "UP",
+      "note": "ahead, as a team is up by a goal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUG",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "The ellipses chain this into one sentence about an assault and a fixed charge.",
+     "definitionFit": "To mug up is informal British for revising or cramming a subject intensively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 11,
@@ -234,7 +732,47 @@
     "text": "…  concerning fixed charge  …",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "charge",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "concerning",
+      "gives": "ON",
+      "note": "about, regarding"
+     },
+     {
+      "clueFragment": "fixed",
+      "gives": "SET",
+      "note": "settled, established"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a chained sentence that seems to be about a set fee.",
+     "walkthrough": "'Charge' looks like a price but is the military sense, a rush at an enemy.",
+     "definitionFit": "An onset is an assault or attack, the same as a charge at an enemy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 12,
@@ -248,7 +786,57 @@
     "text": "…  that's obsolete after support is revised retrospectively",
     "enumeration": "9"
    },
-   "solution": "BACKDATED"
+   "solution": "BACKDATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKDATED",
+    "definitions": [
+     {
+      "text": "revised retrospectively",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means placed behind, fixing which piece is written second"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "support",
+      "gives": "BACK",
+      "note": "to back is to support"
+     },
+     {
+      "clueFragment": "obsolete",
+      "gives": "DATED",
+      "note": "out of date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "DATED"
+     ]
+    },
+    "explanation": {
+     "surface": "An outdated fee is changed to apply from an earlier date once financial support arrives.",
+     "definitionFit": "Backdated describes something made effective from an earlier time, like a pay rise applied to past months."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 13,
@@ -262,7 +850,48 @@
     "text": "Talk about when to drive off in the late afternoon",
     "enumeration": "7"
    },
-   "solution": "TEATIME"
+   "solution": "TEATIME",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEATIME",
+    "definitions": [
+     {
+      "text": "the late afternoon",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Talk about",
+      "for": "homophone",
+      "note": "talk means speech, so the phrase is identified by how it is said"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when to drive off",
+      "gives": "TEATIME",
+      "soundsLike": "TEE TIME",
+      "note": "the booked slot for starting a round of golf"
+     }
+    ],
+    "explanation": {
+     "surface": "Discussing the right moment to leave by car later in the day.",
+     "walkthrough": "'Drive off' sounds like leaving in a car, but it is golf: the first stroke is driven off a tee at an allotted time.",
+     "definitionFit": "Teatime is the part of the day, around four to six, when afternoon tea or an early meal is taken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 14,
@@ -276,7 +905,65 @@
     "text": "Showing interest initially in distribution of cheap tat? Quite the opposite",
     "enumeration": "9"
    },
-   "solution": "APATHETIC"
+   "solution": "APATHETIC",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "APATHETIC",
+    "definitions": [
+     {
+      "text": "Showing interest initially in distribution of cheap tat? Quite the opposite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so only the first letter is used"
+     },
+     {
+      "text": "distribution",
+      "for": "anagram",
+      "note": "distribution spreads things around, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "interest",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "cheap tat",
+      "gives": "CHEAPTAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ICHEAPTAT",
+       "gives": "APATHETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shows keen interest as cheap junk is handed out, or rather does not.",
+     "walkthrough": "I goes into the mixed letters of CHEAP TAT; the whole clue, with 'Quite the opposite' flipping 'Showing interest', is also the definition.",
+     "definitionFit": "Apathetic means lacking enthusiasm or concern, the reverse of being keen or engaged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "distribution"
+    }
+   }
   },
   {
    "number": 15,
@@ -290,7 +977,63 @@
     "text": "Sign reversed by top Greek mathematician  …",
     "enumeration": "6"
    },
-   "solution": "EUCLID"
+   "solution": "EUCLID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EUCLID",
+    "definitions": [
+     {
+      "text": "Greek mathematician",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means turned back to front, so the word is read right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sign",
+      "gives": "CUE",
+      "note": "a signal to act"
+     },
+     {
+      "clueFragment": "top",
+      "gives": "LID",
+      "note": "a cover or cap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EUC",
+      "LID"
+     ],
+     "reversals": [
+      {
+       "from": "CUE",
+       "to": "EUC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A top Greek mathematician turns a sign around, part of a chained sentence.",
+     "definitionFit": "Euclid was the ancient Alexandrian scholar whose Elements founded classical geometry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "top"
+    }
+   }
   },
   {
    "number": 16,
@@ -304,7 +1047,62 @@
     "text": "Encourage secretive group that is hiding tax",
     "enumeration": "9"
    },
-   "solution": "CULTIVATE"
+   "solution": "CULTIVATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CULTIVATE",
+    "definitions": [
+     {
+      "text": "Encourage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to conceal it within, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secretive group",
+      "gives": "CULT",
+      "note": "a closed sect"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "id est, the abbreviation for that is"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "VAT",
+      "note": "value added tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CULT",
+      "I",
+      "VAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Urging on a shadowy sect that dodges its tax bill.",
+     "walkthrough": "VAT is value added tax, the British sales tax; 'that is' gives the Latin abbreviation i.e.",
+     "definitionFit": "To cultivate a quality or relationship is to foster and nurture it, which is to encourage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hiding"
+    }
+   }
   },
   {
    "number": 17,
@@ -318,7 +1116,45 @@
     "text": "…  providing clear evidence of invention",
     "enumeration": "6"
    },
-   "solution": "PATENT"
+   "solution": "PATENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PATENT",
+    "definitions": [
+     {
+      "text": "clear",
+      "at": 13
+     },
+     {
+      "text": "evidence of invention",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "providing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clear",
+      "note": "first meaning: obvious, plain to see"
+     },
+     {
+      "clueFragment": "evidence of invention",
+      "note": "second meaning: the official document granting rights to an inventor"
+     }
+    ],
+    "explanation": {
+     "surface": "The end of a chained sentence in which someone supplies solid proof of a new device.",
+     "definitionFit": "As an adjective the word means obvious; as a noun it is the licence protecting a new invention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "clear"
+    }
+   }
   },
   {
    "number": 18,
@@ -332,7 +1168,65 @@
     "text": "Papers have problems supporting this leader",
     "enumeration": "7"
    },
-   "solution": "TISSUES"
+   "solution": "TISSUES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TISSUES",
+    "definitions": [
+     {
+      "text": "Papers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader is the one in front, so only the first letter is taken"
+     },
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down entry, supporting means sitting underneath, setting the order of the pieces"
+     }
+    ],
+    "linkWords": [
+     "have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "problems",
+      "gives": "ISSUES",
+      "note": "difficulties, troubles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ISSUES"
+     ]
+    },
+    "explanation": {
+     "surface": "Newspapers have trouble backing the current party leader.",
+     "walkthrough": "'Papers' looks like newspapers but means soft paper hankies.",
+     "definitionFit": "Tissues are thin, soft sheets of paper used as handkerchiefs or for wrapping."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Papers"
+    }
+   }
   },
   {
    "number": 19,
@@ -352,7 +1246,49 @@
      }
     ]
    },
-   "solution": "FALLGUY"
+   "solution": "FALLGUY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FALL GUY",
+    "definitions": [
+     {
+      "text": "scapegoat",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "gives": "FALL",
+      "note": "a descent"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "GUY",
+      "note": "a rope that braces a tent or mast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FALL",
+      "GUY"
+     ]
+    },
+    "explanation": {
+     "surface": "Abandoning one's backing for someone who has been blamed.",
+     "definitionFit": "A fall guy is a person made to take the blame for others, exactly a scapegoat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 19,
@@ -366,7 +1302,49 @@
     "text": "Chapel is so fortunate to hold returned relic",
     "enumeration": "6"
    },
-   "solution": "FOSSIL"
+   "solution": "FOSSIL",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "FOSSIL",
+    "definitions": [
+     {
+      "text": "relic",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to hold",
+      "for": "hidden_word",
+      "note": "the words hold the answer inside them, running across their boundaries"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the letters run right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chapel is so fortunate",
+      "gives": "LISSOF",
+      "note": "letters spanning chapel, is, so and fortunate"
+     }
+    ],
+    "explanation": {
+     "surface": "A chapel feels lucky to keep an old sacred object brought back to it.",
+     "walkthrough": "A relic sounds like a saint's bones in the chapel, but here it is an ancient remain in rock.",
+     "definitionFit": "A fossil is the preserved remains of an ancient organism, a relic of the distant past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relic"
+    }
+   }
   },
   {
    "number": 20,
@@ -386,7 +1364,68 @@
      }
     ]
    },
-   "solution": "YFRONTS"
+   "solution": "YFRONTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "Y-FRONTS",
+    "definitions": [
+     {
+      "text": "They keep nuts warm",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Terribly",
+      "for": "anagram",
+      "note": "terribly suggests something done badly, so the letters are jumbled"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frosty",
+      "gives": "FROSTY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YFRO",
+      "N",
+      "TS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FROSTY",
+       "gives": "YFROTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bitterly cold late-autumn month calls for something to keep the squirrels' food stores warm.",
+     "walkthrough": "Y-fronts are a style of men's briefs; 'nuts' is slang for testicles.",
+     "definitionFit": "Y-fronts are men's underpants, which cover and warm the testicles, jokingly called nuts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 21,
@@ -400,7 +1439,56 @@
     "text": "Without borders, fancy short stop at sea",
     "enumeration": "6"
    },
-   "solution": "ANCHOR"
+   "solution": "ANCHOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ANCHOR",
+    "definitions": [
+     {
+      "text": "stop at sea",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Without borders",
+      "for": "letter_selection",
+      "note": "without borders means the edges are stripped away, leaving the inner letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fancy",
+      "gives": "ANC",
+      "select": "middle",
+      "note": "inner letters"
+     },
+     {
+      "clueFragment": "short",
+      "gives": "HOR",
+      "select": "middle",
+      "note": "inner letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANC",
+      "HOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A daydream about briefly halting a voyage on the ocean.",
+     "definitionFit": "To anchor is to moor a vessel by dropping a heavy hook, halting it on the water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 22,
@@ -414,7 +1502,39 @@
     "text": "Is nothing sacred to them?",
     "enumeration": "9"
    },
-   "solution": "NIHILISTS"
+   "solution": "NIHILISTS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NIHILISTS",
+    "definitions": [
+     {
+      "text": "Is nothing sacred to them?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is nothing sacred",
+      "note": "surface reading: the indignant cry of someone shocked by irreverence"
+     },
+     {
+      "clueFragment": "to them?",
+      "note": "setter's reading: people for whom literally nothing is sacred, rejecting all values"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The stock outraged phrase is taken literally: these people really do hold nothing sacred. Latin nihil means nothing.",
+     "definitionFit": "Nihilists reject all moral and religious principles, believing life is without meaning or value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 23,
@@ -428,7 +1548,60 @@
     "text": "Old school punishment excited silent majority",
     "enumeration": "5"
    },
-   "solution": "LINES"
+   "solution": "LINES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "LINES",
+    "definitions": [
+     {
+      "text": "Old school punishment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "majority",
+      "for": "deletion",
+      "note": "the majority is most but not all, so the final letter is dropped"
+     },
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited means stirred up, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "silent",
+      "gives": "SILENT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SILEN",
+       "gives": "LINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traditional classroom penalty stirred the usually quiet majority into protest.",
+     "walkthrough": "Lines were a punishment in British schools: writing the same sentence out many times.",
+     "definitionFit": "Pupils given lines had to copy a sentence repeatedly, a classic old-fashioned school penalty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "majority"
+    }
+   }
   },
   {
    "number": 24,
@@ -442,7 +1615,55 @@
     "text": "Conclude there's no escaping hell",
     "enumeration": "5"
    },
-   "solution": "INFER"
+   "solution": "INFER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INFER",
+    "definitions": [
+     {
+      "text": "Conclude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "escaping",
+      "for": "deletion",
+      "note": "something escaping gets out and leaves, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "there's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hell",
+      "gives": "INFERNO",
+      "note": "a synonym for hell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER"
+     ]
+    },
+    "explanation": {
+     "surface": "Deciding that once you are damned there is no way out.",
+     "definitionFit": "To infer is to reach a conclusion by reasoning from evidence, so it means to conclude."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "escaping"
+    }
+   }
   },
   {
    "number": 25,
@@ -456,7 +1677,57 @@
     "text": "Chance taken by father holding position",
     "enumeration": "5"
    },
-   "solution": "FLIER"
+   "solution": "FLIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLIER",
+    "definitions": [
+     {
+      "text": "Chance taken",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means grasping inside, so one piece contains the other"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "father",
+      "gives": "FR",
+      "note": "Fr is the abbreviation for Father, a priest's title"
+     },
+     {
+      "clueFragment": "position",
+      "gives": "LIE",
+      "note": "the way something lies, as in the lie of the land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest takes a gamble while keeping his post.",
+     "definitionFit": "To take a flier is an idiom for making a speculative bet or risky attempt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 26,
@@ -476,7 +1747,61 @@
      }
     ]
    },
-   "solution": "HITON"
+   "solution": "HITON",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "deletion"
+    ],
+    "answer": "HIT ON",
+    "definitions": [
+     {
+      "text": "Proposition",
+      "at": 0
+     },
+     {
+      "text": "discovered",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "left out",
+      "for": "deletion",
+      "note": "something left out is omitted, so one letter disappears from the chain's name"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "the usual abbreviation"
+     },
+     {
+      "clueFragment": "hotel chain",
+      "gives": "HILTON",
+      "note": "the international hotel group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HITON"
+     ]
+    },
+    "explanation": {
+     "surface": "A proposal is found to have been missed at a well-known hotel.",
+     "walkthrough": "Two meanings, make advances to and stumbled upon, sit alongside the wordplay: the hotel group's name without L.",
+     "definitionFit": "To hit on someone is to make a sexual advance, a proposition; to hit on an idea is to discover it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Proposition"
+    }
+   }
   },
   {
    "number": 27,
@@ -490,7 +1815,54 @@
     "text": "Dumping of waste into a ruin is wrong",
     "enumeration": "9"
    },
-   "solution": "URINATION"
+   "solution": "URINATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "URINATION",
+    "definitions": [
+     {
+      "text": "Dumping of waste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "wrong means not as it should be, so the letters are set in a different order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "into a ruin",
+      "gives": "INTOARUIN",
+      "note": "the letters of the three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTOARUIN",
+       "gives": "URINATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fly-tipping rubbish into an old ruined building is an offence.",
+     "definitionFit": "Urination is the discharge of liquid bodily waste, a cheeky reading of dumping waste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Dumping"
+    }
+   }
   },
   {
    "number": 28,
@@ -504,7 +1876,72 @@
     "text": "Their colour discrimination makes rodents hold back like this",
     "enumeration": "7"
    },
-   "solution": "RACISTS"
+   "solution": "RACISTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "RACISTS",
+    "definitions": [
+     {
+      "text": "Their colour discrimination",
+      "at": 0,
+      "note": "describes the people by what they practise"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means turned in the opposite direction, so the short phrase runs right to left"
+     },
+     {
+      "text": "hold",
+      "for": "container",
+      "note": "to hold is to keep inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rodents",
+      "gives": "RATS",
+      "note": "rodents"
+     },
+     {
+      "clueFragment": "like this",
+      "gives": "SIC",
+      "note": "Latin for thus, used to mark a quotation as printed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "CIS",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "SIC",
+       "to": "CIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telling colours apart is what lets rodents keep restrained in this manner.",
+     "walkthrough": "Sic is the Latin word printed after a quoted error to mean 'thus, as written'.",
+     "definitionFit": "Racists are people who discriminate against others because of their skin colour or race."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "colour"
+    }
+   }
   },
   {
    "number": 29,
@@ -518,7 +1955,54 @@
     "text": "Bride's gone berserk, making bits and pieces",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEBRIS",
+    "definitions": [
+     {
+      "text": "bits and pieces",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gone berserk",
+      "for": "anagram",
+      "note": "going berserk means running wild, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bride's",
+      "gives": "BRIDES",
+      "note": "the letters of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BRIDES",
+       "gives": "DEBRIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A furious bride smashes things up at her wedding.",
+     "definitionFit": "Debris means scattered fragments and remains, the odds and ends left after destruction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "berserk"
+    }
+   }
   }
  ]
 }
