@@ -408,13 +408,20 @@ tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.5em}}.got{{color:#070}}
 <h1>Times crosswords to fetch from Gale: {len(rows):,} editions</h1>
 <p>Generated {datetime.datetime.now().astimezone():%Y-%m-%d %H:%M %Z} by <code>tools/gale_inbox.py</code> from the corpus and the scan
 ledger. An edition leaves this list once its puzzle is filed.</p>
-<p><b>How:</b> open <a href="{PORTAL}">the Alberta Research Portal</a> and choose <i>The Times Digital Archive</i>
-(Gale opens no date link of its own; a link outside the portal asks for a password). Then <i>Browse &rarr;
-Browse By Date</i>, enter the date, open the issue and the page, or search for the title, e.g.
-<code>"Crossword Puzzle No 17,563"</code>. Open <i>The Times Crossword Puzzle No N</i> and <i>Download</i> it
-into this folder (<code>~/{e(HOST_INBOX)}</code>). Any name works: a date or the puzzle number in the name
-is used, else the PDF's citation, else the number read off the title. Gale's terms allow 50 downloads a
-session, by hand only.</p>
+<h2>How to download one</h2>
+<ol>
+<li>Be on an Alberta internet connection (home Wi-Fi works): the portal lets Albertans in by location, with no card or login.</li>
+<li>Open <a href="{PORTAL}">the Alberta Research Portal</a> and choose <i>The Times Digital Archive</i>.
+A Gale link opened outside the portal asks for a password, so always start here.</li>
+<li>Find the puzzle: <i>Browse &rarr; Browse By Date</i>, enter the date from the list below, open the issue
+and go to the page given; or search for its title, e.g. <code>"Crossword Puzzle No 17,563"</code>.</li>
+<li>Open the article <i>The Times Crossword Puzzle No N</i> and press <i>Download</i> (image or PDF, either works).</li>
+<li>Save it into this folder, <code>~/{e(HOST_INBOX)}</code>. Any filename works; putting the date
+(e.g. <code>1988-01-12</code>) in the name is the surest match.</li>
+<li>That's all. Each full pass picks the file up, reads it and files the puzzle when every clue reads.
+Its row below then shows "in inbox", and drops off the list once filed.</li>
+</ol>
+<p>Gale's terms allow up to 50 downloads a session, by hand only: no scripts or download tools.</p>
 <p>Numbers marked ~ are estimates (the filed puzzles either side do not run unbroken); the page is the one
 archive.org's scans of that year usually have it on.</p>"""]
     for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0])):
