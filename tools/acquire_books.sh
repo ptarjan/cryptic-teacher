@@ -99,6 +99,22 @@ echo "next book to borrow: $id ($(python3 tools/book_queue.py --count) queued)"
 nice -n 19 python3 tools/acquire_book.py "$id" --file --puzzle-dir puzzles --jobs 2
 rc=$?
 
+# 3 is EXIT_LENDING_LIMIT: the account is over its allowance, which says
+# nothing about this book. Silent for the first refusals, once at about ten
+# days of them, then about monthly while it lasts, and once when it clears.
+# The thresholds count runs; RUN_HOURS turns runs into days and must match the
+# plugin manifest's schedule.
+STREAK_FILE="${XDG_STATE_HOME:-$HOME/.local/state}/cryptic-teacher/lending-refusals"
+streak="$(cat "$STREAK_FILE" 2>/dev/null || echo 0)"
+case "$streak" in ''|*[!0-9]*) streak=0 ;; esac
+streak_write() {
+  mkdir -p "$(dirname "$STREAK_FILE")" 2>/dev/null || true
+  printf '%s\n' "$1" > "$STREAK_FILE" 2>/dev/null || true
+}
+RUN_HOURS=1            # the plugin manifest asks hourly
+STREAK_ALERT_AT=240    # so: about ten days of refusals
+STREAK_ALERT_EVERY=720 # and about a month between reminders after that
+
 if [ "$rc" = 3 ]; then
   streak=$((streak + 1))
   streak_write "$streak"
