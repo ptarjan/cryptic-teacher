@@ -911,6 +911,10 @@ tools/own_rows.py                            a burn puzzle's commit stages its o
                                              sibling's; its discard puts them back
 tools/test_own_rows.sh                       two puzzles in flight: one commits only its own
                                              rows, the other's discard leaves the tree clean
+tools/test_sources_baseline.sh               runs daily_update.sh's commit_sources in a scratch
+                                             repo: a refile that rewords a clue is HEAD before
+                                             annotation, so its fresh annotation validates and
+                                             a rejected one reverts to the refile
 tools/test_alert_claimed.sh                  runs a real failing run past alert.sh, so the
                                              catch-all cannot report a failure somebody already
                                              alerted on a second time

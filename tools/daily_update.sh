@@ -422,6 +422,20 @@ else
        "today's clue is only offered today and will not be recoverable"
 fi
 
+# The puzzle files the phases above wrote are the sources' clues, so they are
+# committed before anything annotates over them. HEAD is the baseline the
+# validator holds every annotated clue to (check_clue_unchanged), and a refile
+# that rewords a clue is the source's change, not the annotator's. A rejected
+# annotation is reverted to this commit, so the refile it sat on stands.
+sources_committed=""
+commit_sources() {
+  git add -A -- puzzles || return 1
+  git diff --cached --quiet -- puzzles && return 0
+  git commit -q -m "$(printf 'Daily update: file the fetched puzzles\n\n%s' "$(python3 tools/provenance.py trailer)")" -- puzzles &&
+    sources_committed=1
+}
+commit_sources || alert "the daily update could not commit tonight's fetched puzzles before annotating; a refiled clue will read as the annotator's rewrite"
+
 phase annotate
 # --- 3. annotate the newest un-annotated puzzles, if any and if claude exists ---
 # Newest-first, deliberately. Oldest-first looks tidier — the backlog drains in
@@ -1240,7 +1254,7 @@ for num in $annotated_nums; do
   fi
 done
 if [ -n "$ann_failed" ]; then
-  echo "VALIDATION FAILED on$ann_failed — reverting those puzzle files"
+  echo_alerted "VALIDATION FAILED on$ann_failed — reverting those puzzle files"
   for num in $ann_failed; do
     # Every folder: a write that changed the puzzle's year moved its file.
     git checkout -- "puzzles/*/*/$num.json" 2>/dev/null
@@ -1296,7 +1310,7 @@ rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
 # staging; the deploy workflow stamps its own checkout.
 python3 tools/stamp_assets.py --unstamp
 
-if [ -n "$(git status --porcelain)" ]; then
+if [ -n "$(git status --porcelain)" ] || [ -n "$sources_committed" ]; then
   # Everything, because this tree contains nothing else: the run started at
   # origin/master in a worktree of its own, so whatever is modified or new here
   # was made by this run.
@@ -1318,7 +1332,8 @@ if [ -n "$(git status --porcelain)" ]; then
     printf '%s\n' "$symlinks" | while IFS= read -r link; do git rm -q --cached "$link"; done
     alert "the daily update tried to commit machine-local symlink(s): $(printf '%s ' $symlinks)- unstaged, because committed they break the Pages build for everyone. Add them to .gitignore, spelled without a trailing slash."
   fi
-  git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$(python3 tools/provenance.py trailer)")"
+  git diff --cached --quiet ||
+    git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$(python3 tools/provenance.py trailer)")"
   # Nothing may be left behind. With one writer this is no longer a judgement
   # call about whose file it was: anything still showing here after `add -A` and
   # a commit is a bug, and it is work that will never reach the site. Read with
