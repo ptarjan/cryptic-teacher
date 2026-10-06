@@ -7,7 +7,7 @@ busy while
 
 - a game runs there (GAMES, by process name), or
 - its 3D engines are more than GPU_3D percent busy, summed over every
-  process (llama-swap's CUDA work is compute, not 3D, so the VLM is not).
+  process but VLM_SERVERS (llama-server's CUDA work shows there as 3D).
 
 desktop_probe.ps1 reads both over ssh at low priority, at most once every
 PROBE_EVERY seconds: the reading is shared by every process on this host
@@ -34,6 +34,8 @@ USER = "micro"
 GAMES = ("Wow", "WowClassic", "WowT", "WowB", "WowClassicT", "WowClassicB")
 #: Summed 3D utilisation, in percent, above which some other game is running.
 GPU_3D = 20
+#: The VLM's processes (tools/vlm_reader.py), whose 3D load is our own work.
+VLM_SERVERS = ("llama-server", "llama-swap")
 PROBE_EVERY = 60
 STATE = Path(tempfile.gettempdir())
 #: Every DESKTOPS address is the one desktop, its host key known by its
@@ -51,7 +53,8 @@ def _list(v):
 def probe(host):
     """The desktop's reading {"games", "gpu3d", "serving"} over ssh to
     `host`, or None when it does not answer one."""
-    script = "$Names = " + ", ".join(f"'{g}'" for g in GAMES) + "\n" + PROBE.read_text()
+    script = ("$Names = " + ", ".join(f"'{g}'" for g in GAMES) + "\n"
+              + "$Vlm = " + ", ".join(f"'{v}'" for v in VLM_SERVERS) + "\n" + PROBE.read_text())
     enc = base64.b64encode(script.encode("utf-16-le")).decode()
     try:
         cmd = f'start "" /low /b /wait powershell -NoProfile -NonInteractive -EncodedCommand {enc}'
@@ -119,6 +122,11 @@ def busy(hosts):
             if reading is not None:
                 break
         why = verdict(reading)
+        # Saved before the sessions are ended: a process whose session ends
+        # reads this verdict, so it waits for idle, not ocr_remote.RETRY.
+        tmp = state.with_suffix(f".{os.getpid()}.part")
+        tmp.write_text(json.dumps({"t": clock(), "why": why, "reading": reading}))
+        tmp.replace(state)
         if why and reading["serving"]:
             stop_sessions(host, reading["serving"])
         was = old["why"] if old else None
@@ -126,7 +134,4 @@ def busy(hosts):
             log(f"yielding: {why}; desktop OCR and VLM wait until it is idle")
         elif was and not why:
             log("resuming: " + (f"idle (3D {reading['gpu3d']:.0f}%, no game)" if reading else "not answering"))
-        tmp = state.with_suffix(f".{os.getpid()}.part")
-        tmp.write_text(json.dumps({"t": clock(), "why": why, "reading": reading}))
-        tmp.replace(state)
     return why

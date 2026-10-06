@@ -36,6 +36,17 @@ check("a game running makes it busy", True, bool(db.verdict(reading(games=["Wow"
 check("3D at the threshold is not busy", None, db.verdict(reading(gpu3d=db.GPU_3D)))
 check("3D over the threshold is busy", True, bool(db.verdict(reading(gpu3d=db.GPU_3D + 1))))
 
+# The probe leaves the VLM's own 3D load out: it names VLM_SERVERS to the script.
+import base64, types
+sent = []
+real_run = db.subprocess.run
+db.subprocess.run = lambda cmd, **kw: (sent.append(cmd), types.SimpleNamespace(stdout=b'{"gpu3d": 0}'))[1]
+db.probe("micro@100.68.145.15")
+db.subprocess.run = real_run
+script = base64.b64decode(sent[0][-1].rsplit(" ", 1)[1]).decode("utf-16-le")
+check("the probe script is told the VLM's process names", True,
+      "$Vlm = 'llama-server', 'llama-swap'" in script and "-Name $Vlm" in script)
+
 T = Path(os.environ["TMP"])
 db.STATE = T
 now = [1000.0]
@@ -46,7 +57,10 @@ def probe(host):
     probes.append(host)
     return answer[0]
 db.probe = probe
-db.stop_sessions = lambda host, pids: stopped.append(list(pids))
+# Each session ended, with the verdict its process reads when it finds it
+# ended: busy, so it waits for idle rather than ocr_remote.RETRY.
+db.stop_sessions = lambda host, pids: stopped.append(
+    (list(pids), bool(json.loads((T / "desktop_busy.json").read_text())["why"])))
 db.log = logs.append
 DESK = "micro@100.68.145.15"
 
@@ -57,7 +71,8 @@ now[0] += db.PROBE_EVERY - 1
 check("within a minute the last probe's verdict stands", (None, 1), (db.busy([DESK]), len(probes)))
 now[0] += 2
 check("a minute on, a game makes it busy", (True, 2), (bool(db.busy([DESK])), len(probes)))
-check("yielding logs one line and ends the desktop's OCR sessions", (1, [[7, 8]]), (len(logs), stopped))
+check("yielding logs one line and ends the desktop's OCR sessions, the busy verdict saved first",
+      (1, [([7, 8], True)]), (len(logs), stopped))
 check("the verdict is shared through the state file", True, bool(json.loads((T / "desktop_busy.json").read_text())["why"]))
 now[0] += db.PROBE_EVERY + 1
 answer[0] = reading(games=["Wow"])
