@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Strong resistance with nothing broken",
     "enumeration": "6"
    },
-   "solution": "ROBUST"
+   "solution": "ROBUST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROBUST",
+    "definitions": [
+     {
+      "text": "Strong",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the physics symbol for electrical resistance"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like a zero, nothing"
+     },
+     {
+      "clueFragment": "broken",
+      "gives": "BUST",
+      "note": "bust is informal for broken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "BUST"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that resists hard and survives without a single breakage.",
+     "definitionFit": "A robust thing is sturdy and tough, a close synonym of strong."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,63 @@
     "text": "Payment, in brief hypnotic state, not right",
     "enumeration": "10"
    },
-   "solution": "REMITTANCE"
+   "solution": "REMITTANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REMITTANCE",
+    "definitions": [
+     {
+      "text": "Payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not right",
+      "for": "deletion",
+      "note": "'not right' asks for the abbreviation for right to be dropped from the state word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brief",
+      "gives": "REMIT",
+      "note": "a remit is a brief, a set of instructions for a job"
+     },
+     {
+      "clueFragment": "hypnotic state",
+      "gives": "TRANCE",
+      "note": "a hypnotised person is in a trance"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REMIT",
+      "TANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A payment made while someone sits in a short hypnotic spell, which seems a shady arrangement.",
+     "walkthrough": "'In brief' reads like 'briefly', but brief is a noun here; R comes out of TRANCE to leave TANCE.",
+     "definitionFit": "A remittance is money sent to someone, typically as settlement of a bill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "brief"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,42 @@
     "text": "Herb with some lamb as illustrated",
     "enumeration": "5"
    },
-   "solution": "BASIL"
+   "solution": "BASIL",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BASIL",
+    "definitions": [
+     {
+      "text": "Herb",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with some",
+      "for": "hidden_word",
+      "note": "'some' of the following words means only a part of their run of letters is needed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamb as illustrated",
+      "gives": "BASIL",
+      "note": "found spanning the end of the first word, the second word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A recipe note: lamb served with a herb, as the picture shows.",
+     "definitionFit": "Basil is a common culinary herb, often paired with tomatoes and lamb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "illustrated"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +217,55 @@
     "text": "Guide about a medium item of cookware",
     "enumeration": "7"
    },
-   "solution": "STEAMER"
+   "solution": "STEAMER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEAMER",
+    "definitions": [
+     {
+      "text": "item of cookware",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "'about' means the guiding word goes around the other piece, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Guide",
+      "gives": "STEER",
+      "note": "to steer is to guide"
+     },
+     {
+      "clueFragment": "a medium",
+      "gives": "AM",
+      "note": "AM is a radio broadcasting medium (amplitude modulation)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "AM",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction about a medium-sized pan in a kitchen guide.",
+     "walkthrough": "'Medium' suggests a size of pan, but it is a radio broadcasting band (amplitude modulation).",
+     "definitionFit": "A steamer is a pan with a perforated tray used to cook food by steam."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "medium"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +279,60 @@
     "text": "Inspector's crony securing very large sale",
     "enumeration": "8"
    },
-   "solution": "DISPOSAL"
+   "solution": "DISPOSAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DISPOSAL",
+    "definitions": [
+     {
+      "text": "sale",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding something inside, so the crony word wraps the size marking"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inspector's",
+      "gives": "DIS",
+      "note": "DI is a Detective Inspector, with the possessive s"
+     },
+     {
+      "clueFragment": "crony",
+      "gives": "PAL",
+      "note": "a crony is a pal"
+     },
+     {
+      "clueFragment": "very large",
+      "gives": "OS",
+      "note": "OS is the clothing label for outsize"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "POSAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A police inspector's friend pulls off a huge sale, which sounds like corruption.",
+     "walkthrough": "A DI is a Detective Inspector in British police; 'very large' is the outsize label on clothing.",
+     "definitionFit": "A disposal is a getting rid of something, including by selling it off."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "securing"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +356,52 @@
      }
     ]
    },
-   "solution": "ISLEOFPURBECK"
+   "solution": "ISLEOFPURBECK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISLE OF PURBECK",
+    "definitions": [
+     {
+      "text": "Dorset area",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "ground means crushed or milled, so the three words are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seek for public",
+      "gives": "SEEKFORPUBLIC",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEEKFORPUBLIC",
+       "gives": "ISLEOFPURBECK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Looking for land open to the public in Dorset, a county in southern England.",
+     "walkthrough": "'Ground' looks like land to be sought, but it is the anagram signal. The Isle of Purbeck is a peninsula on the Dorset coast in south-west England.",
+     "definitionFit": "The Isle of Purbeck is a well-known peninsula region within the English county of Dorset."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +415,54 @@
     "text": "Fake photograph? Continue to go into it",
     "enumeration": "7"
    },
-   "solution": "PLASTIC"
+   "solution": "PLASTIC",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLASTIC",
+    "definitions": [
+     {
+      "text": "Fake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go into it",
+      "for": "container",
+      "note": "'go into it' tells us the continuing word is placed inside the photograph word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "photograph",
+      "gives": "PIC",
+      "note": "pic is short for picture"
+     },
+     {
+      "clueFragment": "Continue",
+      "gives": "LAST",
+      "note": "to last is to continue or endure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LAST",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Doubting a photograph's authenticity, then urging someone to press on with it.",
+     "definitionFit": "Plastic as an adjective means artificial or false, as in a plastic smile."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Continue"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +476,56 @@
     "text": "Flings involving debatable charmers",
     "enumeration": "9"
    },
-   "solution": "SMOOTHIES"
+   "solution": "SMOOTHIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SMOOTHIES",
+    "definitions": [
+     {
+      "text": "charmers",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means taking in, so the flinging word surrounds the debatable word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flings",
+      "gives": "SHIES",
+      "note": "to shy is to throw or fling"
+     },
+     {
+      "clueFragment": "debatable",
+      "gives": "MOOT",
+      "note": "a moot point is one open to debate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "MOOT",
+      "HIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Romantic flings with smooth talkers whose charm is open to question.",
+     "walkthrough": "'Flings' reads as brief affairs, but it is a verb meaning throws.",
+     "definitionFit": "A smoothie is a suave, ingratiating person who wins people over with charm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Flings"
+    }
+   }
   },
   {
    "number": 8,
@@ -155,7 +539,43 @@
     "text": "Solitary advance reported",
     "enumeration": "4"
    },
-   "solution": "LONE"
+   "solution": "LONE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LONE",
+    "definitions": [
+     {
+      "text": "Solitary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means spoken out, so we want a word that sounds like the advance word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advance",
+      "gives": "LONE",
+      "soundsLike": "LOAN",
+      "note": "an advance of money is a loan"
+     }
+    ],
+    "explanation": {
+     "surface": "A news item about a single step forward being reported.",
+     "definitionFit": "Lone and solitary both mean being alone or single, without company."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "advance"
+    }
+   }
   },
   {
    "number": 9,
@@ -169,7 +589,67 @@
     "text": "Controlling worries, going back into loose scrum",
     "enumeration": "9"
    },
-   "solution": "MASTERFUL"
+   "solution": "MASTERFUL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MASTERFUL",
+    "definitions": [
+     {
+      "text": "Controlling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going back",
+      "for": "reversal",
+      "note": "going back means the worrying word is read from its end to its start"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "'into' places the turned word inside the scrum word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "worries",
+      "gives": "FRETS",
+      "note": "frets means worries"
+     },
+     {
+      "clueFragment": "loose scrum",
+      "gives": "MAUL",
+      "note": "in rugby a maul is a loose scrum formed around the ball carrier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "STERF",
+      "UL"
+     ],
+     "reversals": [
+      {
+       "from": "FRETS",
+       "to": "STERF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby forward anxiously retreats into a maul and takes charge of it.",
+     "walkthrough": "A maul is a rugby term for a loose scrum around a player holding the ball.",
+     "definitionFit": "Masterful describes someone dominating and commanding, in control of others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worries"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +669,83 @@
      }
     ]
    },
-   "solution": "FEATHERDUSTER"
+   "solution": "FEATHERDUSTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "FEATHER DUSTER",
+    "definitions": [
+     {
+      "text": "Brush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning",
+      "for": "letter_selection",
+      "note": "beginning picks out just the opening letter of the word fame"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' puts the run of time, crowd and united inside the festival word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fame's",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "festival",
+      "gives": "EASTER",
+      "note": "Easter is a Christian festival"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "crowd",
+      "gives": "HERD",
+      "note": "a herd is a crowd"
+     },
+     {
+      "clueFragment": "united",
+      "gives": "U",
+      "note": "U is the abbreviation for united, as in football club names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "EA",
+      "THERDU",
+      "STER"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity's brush with fame at a festival crowd.",
+     "walkthrough": "'Brush with fame' reads as one idiom, but brush alone is the definition; the festival word is split open to take three pieces.",
+     "definitionFit": "A feather duster is a brush made of feathers on a handle for cleaning dust."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Brush"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +759,55 @@
     "text": "Love nearly new dress",
     "enumeration": "5"
    },
-   "solution": "ADORN"
+   "solution": "ADORN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ADORN",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all of the love word, so its last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "ADORE",
+      "note": "to adore is to love"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADOR",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone almost in love with a brand-new dress.",
+     "walkthrough": "'Dress' looks like a noun, but here it is the verb, to decorate.",
+     "definitionFit": "To adorn something is to decorate it, as one dresses a shop window."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dress"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +835,52 @@
      }
     ]
    },
-   "solution": "TELLMEABOUTIT"
+   "solution": "TELLMEABOUTIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TELL ME ABOUT IT",
+    "definitions": [
+     {
+      "text": "You're not wrong",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fashion",
+      "for": "anagram",
+      "note": "to fashion is to shape or make, so the following letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outlet, bit lame",
+      "gives": "OUTLETBITLAME",
+      "note": "the letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OUTLETBITLAME",
+       "gives": "TELLMEABOUTIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopper agrees that a clothes outlet is rather disappointing.",
+     "walkthrough": "'Fashion outlet' reads as a clothes shop, but fashion is the anagram signal and outlet is fodder.",
+     "definitionFit": "The idiom is an exasperated agreement, conceding the speaker is right, often from shared experience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fashion"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +894,77 @@
     "text": "Perfection about penalty shoot-out finally getting people involved",
     "enumeration": "10"
    },
-   "solution": "REFINEMENT"
+   "solution": "REFINEMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REFINEMENT",
+    "definitions": [
+     {
+      "text": "Perfection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally keeps only the closing letter of the word shoot-out"
+     },
+     {
+      "text": "involved",
+      "for": "container",
+      "note": "involved means drawn in, so the people word goes inside the rest"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "penalty",
+      "gives": "FINE",
+      "note": "a fine is a monetary penalty"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     },
+     {
+      "clueFragment": "shoot-out",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "FINE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A football penalty shoot-out executed flawlessly, with the crowd joining in.",
+     "walkthrough": "'Getting people involved' sounds like crowd participation; it tells you the people word is slipped in just before the last letter.",
+     "definitionFit": "Refinement is the quality of being polished and perfected, free of flaws."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "penalty"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +978,48 @@
     "text": "Modify early theory at regular intervals",
     "enumeration": "5"
    },
-   "solution": "ALTER"
+   "solution": "ALTER",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ALTER",
+    "definitions": [
+     {
+      "text": "Modify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "regular intervals means every other letter is taken from the two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "early theory",
+      "gives": "ALTER",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist revisits an early theory from time to time to adjust it.",
+     "definitionFit": "A plain synonym: both verbs mean making something different without replacing it wholesale."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1033,55 @@
     "text": "Markings on court order for men's trial",
     "enumeration": "9"
    },
-   "solution": "TRAMLINES"
+   "solution": "TRAMLINES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRAMLINES",
+    "definitions": [
+     {
+      "text": "Markings on court",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "order",
+      "for": "anagram",
+      "note": "to order is to arrange, so the letters that follow are put into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men's trial",
+      "gives": "MENSTRIAL",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MENSTRIAL",
+       "gives": "TRAMLINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A judge's court order sending several men to trial.",
+     "walkthrough": "'Court' and 'order' look legal; the court is a tennis court, and tramlines are the parallel side lines marking the doubles alleys.",
+     "definitionFit": "Tramlines are the pair of parallel lines at each side of a tennis court."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1095,69 @@
     "text": "Phoney reproduction hard to return with ceremony",
     "enumeration": "9"
    },
-   "solution": "HYPOCRITE"
+   "solution": "HYPOCRITE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "HYPOCRITE",
+    "definitions": [
+     {
+      "text": "Phoney",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "to return means to go back, so the reproduction and hard pieces are read backwards"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reproduction",
+      "gives": "COPY",
+      "note": "a copy is a reproduction"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil marking for hard"
+     },
+     {
+      "clueFragment": "ceremony",
+      "gives": "RITE",
+      "note": "a rite is a ceremony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HYPOC",
+      "RITE"
+     ],
+     "reversals": [
+      {
+       "from": "COPYH",
+       "to": "HYPOC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fake copy of something proves hard to send back after a ceremony.",
+     "walkthrough": "'Phoney reproduction' looks like one phrase about a fake; phoney alone is the definition, used as a noun.",
+     "definitionFit": "A hypocrite is a fraud who pretends to virtues they lack, a phoney in the noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reproduction"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1171,60 @@
     "text": "Church retreat changed talkative type",
     "enumeration": "9"
    },
-   "solution": "CHATTERER"
+   "solution": "CHATTERER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHATTERER",
+    "definitions": [
+     {
+      "text": "talkative type",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means altered in form, so the retreat letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CH",
+      "note": "CH is the abbreviation for church"
+     },
+     {
+      "clueFragment": "retreat",
+      "gives": "RETREAT",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ATTERER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RETREAT",
+       "gives": "ATTERER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church retreat transformed a chatty person, perhaps by a vow of silence.",
+     "definitionFit": "A chatterer is someone who talks a lot, a talkative person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1238,66 @@
     "text": "Prickly plant in varied list in article",
     "enumeration": "7"
    },
-   "solution": "THISTLE"
+   "solution": "THISTLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THISTLE",
+    "definitions": [
+     {
+      "text": "Prickly plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "varied means changed, so the letters of list are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the reworked letters inside the article word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "list",
+      "gives": "LIST",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the is the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "ISTL",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIST",
+       "gives": "ISTL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prickly plant appears in a mixed list within a gardening article.",
+     "definitionFit": "The thistle is a plant with spiny leaves and purple flowers, Scotland's emblem."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1311,69 @@
     "text": "Quiet, absorbed by case, lacking time to make Japanese dish",
     "enumeration": "5"
    },
-   "solution": "SUSHI"
+   "solution": "SUSHI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SUSHI",
+    "definitions": [
+     {
+      "text": "Japanese dish",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed by",
+      "for": "container",
+      "note": "absorbed by means taken inside, so the quiet word goes into the case word"
+     },
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means without, so the abbreviation for time is removed"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "case",
+      "gives": "SUIT",
+      "note": "a suit is a legal case"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "sh is a call for quiet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "SH",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone quietly packs a lunchbox with a Japanese meal but has no time.",
+     "walkthrough": "'Case' looks like a container, which suits 'absorbed by', but it is a lawsuit in court.",
+     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish or other toppings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1387,59 @@
     "text": "Saint manages without grand hat",
     "enumeration": "7"
    },
-   "solution": "STETSON"
+   "solution": "STETSON",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STETSON",
+    "definitions": [
+     {
+      "text": "hat",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so the abbreviation for grand is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "manages",
+      "gives": "GETSON",
+      "note": "gets on means manages or copes"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is slang shorthand for a grand, a thousand pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ETSON"
+     ]
+    },
+    "explanation": {
+     "surface": "A saint copes without anything grand, wearing only a hat.",
+     "definitionFit": "A Stetson is a wide-brimmed cowboy hat, named after its American maker."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grand"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1459,81 @@
      }
     ]
    },
-   "solution": "LEISURECENTRE"
+   "solution": "LEISURECENTRE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LEISURE CENTRE",
+    "definitions": [
+     {
+      "text": "Recreational facility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought about",
+      "for": "reversal",
+      "note": "brought about means turned around, so America, that is and large are read backwards"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "US is the United States"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation for that is"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing label for large"
+     },
+     {
+      "clueFragment": "modern",
+      "gives": "RECENT",
+      "note": "recent means modern"
+     },
+     {
+      "clueFragment": "engineers",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEISU",
+      "RECENT",
+      "RE"
+     ],
+     "reversals": [
+      {
+       "from": "USIEL",
+       "to": "LEISU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American recreation complex built by modern-day engineers.",
+     "walkthrough": "The Royal Engineers (RE) are a corps of the British Army.",
+     "definitionFit": "A leisure centre is a public building with sports and recreation facilities such as pools and gyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brought"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1547,43 @@
     "text": "Switch craft",
     "enumeration": "5"
    },
-   "solution": "TRADE"
+   "solution": "TRADE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRADE",
+    "definitions": [
+     {
+      "text": "Switch",
+      "at": 0
+     },
+     {
+      "text": "craft",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Switch",
+      "note": "first meaning: to swap or exchange"
+     },
+     {
+      "clueFragment": "craft",
+      "note": "second meaning: a skilled occupation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as an instruction to change boats or careers; both words are separate meanings.",
+     "definitionFit": "To trade is to exchange one thing for another, and a trade is a skilled manual occupation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "craft"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1597,61 @@
     "text": "State a breaking point? Not so",
     "enumeration": "4"
    },
-   "solution": "UTAH"
+   "solution": "UTAH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "UTAH",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking means splitting apart, so the letter a is inserted into the shortened point"
+     },
+     {
+      "text": "Not so",
+      "for": "deletion",
+      "note": "'not so' asks for the letters S and O to be taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "point",
+      "gives": "SOUTH",
+      "note": "south is a compass point"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UT",
+      "A",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether a situation has hit its breaking point, answered with a denial.",
+     "walkthrough": "'Breaking point' looks like a single phrase; point is a compass direction, SOUTH, which loses SO to leave UTH, and A breaks into it.",
+     "definitionFit": "Utah is one of the fifty states of the USA."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1665,63 @@
     "text": "Belief in alien reflected by trap",
     "enumeration": "5"
    },
-   "solution": "TENET"
+   "solution": "TENET",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TENET",
+    "definitions": [
+     {
+      "text": "Belief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "reflected means shown as in a mirror, so the alien word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the film alien, the extra-terrestrial"
+     },
+     {
+      "clueFragment": "trap",
+      "gives": "NET",
+      "note": "a net is a trap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "NET"
+     ],
+     "reversals": [
+      {
+       "from": "ET",
+       "to": "TE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Belief in aliens is mirrored by a trap set to catch one.",
+     "definitionFit": "A tenet is a principle or doctrine held as true, a belief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reflected"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1741,65 @@
      }
     ]
    },
-   "solution": "TAKESHAPE"
+   "solution": "TAKESHAPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TAKE SHAPE",
+    "definitions": [
+     {
+      "text": "Gel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "prepared means made ready or worked up, so the phase letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appropriate",
+      "gives": "TAKE",
+      "note": "to appropriate is to take"
+     },
+     {
+      "clueFragment": "phase",
+      "gives": "PHASE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAKE",
+      "SHAPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PHASE",
+       "gives": "SHAPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hair gel applied at the right stage of a styling routine.",
+     "walkthrough": "'Gel' looks like the hair product; it is the verb meaning to come together. 'Appropriate' is a verb, not the adjective.",
+     "definitionFit": "To gel is to come together and become definite, which is what plans do when they take shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Gel"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1813,69 @@
     "text": "Large number before year's end in city inn",
     "enumeration": "8"
    },
-   "solution": "HOSTELRY"
+   "solution": "HOSTELRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HOSTELRY",
+    "definitions": [
+     {
+      "text": "inn",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "end keeps only the closing letter of the word year"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places that letter inside the city name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Large number",
+      "gives": "HOST",
+      "note": "a host is a large number, as in a host of people"
+     },
+     {
+      "clueFragment": "year's",
+      "gives": "R",
+      "select": "last",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "ELY",
+      "note": "Ely is a cathedral city in Cambridgeshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOST",
+      "EL",
+      "R",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Crowds gather before New Year at an inn in the city.",
+     "walkthrough": "Ely is a small English cathedral city, a crossword favourite; R goes inside it, after HOST.",
+     "definitionFit": "A hostelry is an old-fashioned or humorous word for an inn or pub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1889,42 @@
     "text": "Section of paint entirely absorbed",
     "enumeration": "6"
    },
-   "solution": "INTENT"
+   "solution": "INTENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTENT",
+    "definitions": [
+     {
+      "text": "absorbed",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Section of",
+      "for": "hidden_word",
+      "note": "a section is a part cut out, so the answer is a portion of the following letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paint entirely",
+      "gives": "INTENT",
+      "note": "found across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A section of wall needing a full coat of paint, soaked up completely.",
+     "definitionFit": "Intent as an adjective means engrossed or fully focused, as in intent on the task."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Section"
+    }
+   }
   }
  ]
 }
