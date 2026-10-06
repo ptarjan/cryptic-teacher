@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Belittle fine hair, reportedly grizzled",
     "enumeration": "9"
    },
-   "solution": "DOWNGRADE"
+   "solution": "DOWNGRADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "DOWNGRADE",
+    "definitions": [
+     {
+      "text": "Belittle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the following word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine hair",
+      "gives": "DOWN",
+      "note": "down is soft fine hair or feathers"
+     },
+     {
+      "clueFragment": "grizzled",
+      "gives": "GRADE",
+      "soundsLike": "GREYED",
+      "note": "grizzled hair has greyed"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone mocks a person whose fine hair has gone grey.",
+     "definitionFit": "To downgrade someone is to lower their status or standing, which is a way of belittling them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "grizzled"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +92,59 @@
     "text": "Slowly speak of attraction, and pull at last",
     "enumeration": "5"
    },
-   "solution": "DRAWL"
+   "solution": "DRAWL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DRAWL",
+    "definitions": [
+     {
+      "text": "Slowly speak",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attraction",
+      "gives": "DRAW",
+      "note": "a draw is something that attracts crowds"
+     },
+     {
+      "clueFragment": "pull",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of pull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRAW",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a slow speaker's magnetic charm and pull.",
+     "definitionFit": "To drawl is to talk in a slow, lazy manner with drawn-out vowels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attraction"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +158,53 @@
     "text": "Computer model of firearm we designed",
     "enumeration": "9"
    },
-   "solution": "WIREFRAME"
+   "solution": "WIREFRAME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WIREFRAME",
+    "definitions": [
+     {
+      "text": "Computer model",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed has been planned and put together, so these letters are assembled anew"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "firearm we",
+      "gives": "FIREARMWE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FIREARMWE",
+       "gives": "WIREFRAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A digital mock-up of a gun we came up with ourselves.",
+     "definitionFit": "A wireframe is a skeletal three-dimensional computer representation made only of lines and edges."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "designed"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,52 @@
     "text": "Scot sawing a leg off",
     "enumeration": "10"
    },
-   "solution": "GLASWEGIAN"
+   "solution": "GLASWEGIAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLASWEGIAN",
+    "definitions": [
+     {
+      "text": "Scot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means gone bad or wrong, so these letters are spoiled into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sawing a leg",
+      "gives": "SAWINGALEG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAWINGALEG",
+       "gives": "GLASWEGIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scotsman is cutting through a limb, in gruesome fashion.",
+     "walkthrough": "'Sawing a leg off' reads naturally as one action; 'off' is the signal.",
+     "definitionFit": "A Glaswegian is a native of Glasgow, the largest city in Scotland, so is a Scot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +277,70 @@
     "text": "Start to adjust ball bearing very early",
     "enumeration": "7"
    },
-   "solution": "ADVANCE"
+   "solution": "ADVANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ADVANCE",
+    "definitions": [
+     {
+      "text": "early",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, which is all that is kept"
+     },
+     {
+      "text": "bearing",
+      "for": "container",
+      "note": "bearing means carrying, so the word for the ball holds the next piece inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "adjust",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of adjust"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "DANCE",
+      "note": "a ball is a formal dance"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "V",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Setting up the ball bearings well ahead of time.",
+     "walkthrough": "'Ball bearing' is a machine part in the surface, but the words are split: a ball, then bearing as carrying.",
+     "definitionFit": "Advance used as an adjective, as in advance notice, means done or arriving early, ahead of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +354,51 @@
     "text": "Completely timeless vamp is supremely powerful woman",
     "enumeration": "7"
    },
-   "solution": "EMPRESS"
+   "solution": "EMPRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EMPRESS",
+    "definitions": [
+     {
+      "text": "supremely powerful woman",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Completely timeless",
+      "for": "deletion",
+      "note": "without any time at all, so every T, the time symbol, is taken out"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vamp",
+      "gives": "TEMPTRESS",
+      "note": "a vamp is a seductive woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMPRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An ageless femme fatale is a woman of great power.",
+     "walkthrough": "T stands for time; both of the Ts in TEMPTRESS are removed.",
+     "definitionFit": "An empress rules an empire, so she holds the highest rank of power among women."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "timeless"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +412,58 @@
     "text": "Liberal dons prosper and flourish",
     "enumeration": "5"
    },
-   "solution": "BLOOM"
+   "solution": "BLOOM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLOOM",
+    "definitions": [
+     {
+      "text": "flourish",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "to don is to put on clothing, so the second word wears the first like a garment"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "prosper",
+      "gives": "BOOM",
+      "note": "a business that booms prospers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "OOM"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician dresses up, thrives and does well.",
+     "walkthrough": "'Dons' looks like university teachers, but here it is the verb meaning puts on.",
+     "definitionFit": "A plant in bloom is flowering, and to bloom also means to thrive or prosper generally."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +477,60 @@
     "text": "Asked criminal to cover me, heading off",
     "enumeration": "4"
    },
-   "solution": "BADE"
+   "solution": "BADE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BADE",
+    "definitions": [
+     {
+      "text": "Asked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cover",
+      "for": "charade",
+      "note": "in a down clue, covering means sitting on top, so this word goes above the next one"
+     },
+     {
+      "text": "heading off",
+      "for": "letter_selection",
+      "note": "with its head removed, a word loses its opening letter and keeps the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "criminal",
+      "gives": "BAD",
+      "note": "bad as in wicked or unlawful"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "E",
+      "select": 2,
+      "note": "me without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAD",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone requested that a crook give them an alibi.",
+     "definitionFit": "Bade is a past tense of bid, which can mean to ask or command someone to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +544,56 @@
     "text": "Complies with order, knocking stuffing out of yobs",
     "enumeration": "5"
    },
-   "solution": "OBEYS"
+   "solution": "OBEYS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OBEYS",
+    "definitions": [
+     {
+      "text": "Complies with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocking stuffing out of",
+      "for": "letter_selection",
+      "note": "the stuffing is the filling, so the inside is removed and only the outside letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "order",
+      "gives": "OBE",
+      "note": "OBE is the Order of the British Empire"
+     },
+     {
+      "clueFragment": "yobs",
+      "gives": "YS",
+      "select": "outer",
+      "note": "the outside letters of yobs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OBE",
+      "YS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone follows instructions to give thugs a beating.",
+     "walkthrough": "Yobs is British slang for loutish young men.",
+     "definitionFit": "To obey is to do as instructed, which is what complying with a rule or order involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +607,42 @@
     "text": "Badly manage squeamish and lethargic nurses",
     "enumeration": "9"
    },
-   "solution": "MISHANDLE"
+   "solution": "MISHANDLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MISHANDLE",
+    "definitions": [
+     {
+      "text": "Badly manage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nurses",
+      "for": "hidden_word",
+      "note": "to nurse is to hold something close, so these words cradle the answer within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "squeamish and lethargic",
+      "gives": "MISHANDLE",
+      "note": "the run of letters spanning these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A queasy and sluggish carer makes a poor job of the ward.",
+     "definitionFit": "To mishandle a situation is to deal with it incompetently or clumsily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +656,53 @@
     "text": "Vessel of canoers that oddly disappeared",
     "enumeration": "5"
    },
-   "solution": "AORTA"
+   "solution": "AORTA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AORTA",
+    "definitions": [
+     {
+      "text": "Vessel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly disappeared",
+      "for": "letter_selection",
+      "note": "the letters in odd positions vanish, leaving only the second, fourth and so on"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canoers that",
+      "gives": "AORTA",
+      "select": "alternate",
+      "note": "the even-placed letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AORTA"
+     ]
+    },
+    "explanation": {
+     "surface": "A boat used by canoeists has strangely vanished.",
+     "walkthrough": "'Vessel' suggests a canoe, which the surface encourages, but it is a blood vessel.",
+     "definitionFit": "The aorta is the main artery leaving the heart, and arteries are blood vessels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Vessel"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +716,64 @@
     "text": "Vacuity of Victor, annoying in spades",
     "enumeration": "9"
    },
-   "solution": "VAPIDNESS"
+   "solution": "VAPIDNESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "VAPIDNESS",
+    "definitions": [
+     {
+      "text": "Vacuity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "annoying",
+      "for": "anagram",
+      "note": "annoying means disturbing, so the following letters are stirred up into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "Victor is V in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "in spades",
+      "gives": "INSPADES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "APIDNESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INSPADES",
+       "gives": "APIDNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Victor is irritating in large measure, and empty-headed with it.",
+     "walkthrough": "'In spades' reads as an idiom meaning abundantly, but it is just the letters to rearrange.",
+     "definitionFit": "Vapidness is dullness and lack of substance or ideas, the same emptiness as vacuity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spades"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +787,61 @@
     "text": "Radical female sib enthralled by French painter",
     "enumeration": "10"
    },
-   "solution": "LEFTWINGER"
+   "solution": "LEFTWINGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LEFTWINGER",
+    "definitions": [
+     {
+      "text": "Radical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enthralled by",
+      "for": "container",
+      "note": "someone enthralled is held captive, so these words sit inside the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "sib",
+      "gives": "TWIN",
+      "note": "a twin is a sibling"
+     },
+     {
+      "clueFragment": "French painter",
+      "gives": "LEGER",
+      "note": "Fernand Léger, the French cubist painter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "F",
+      "TWIN",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "An extremist sister falls under the spell of a French artist.",
+     "definitionFit": "A left-winger holds strongly socialist or progressive views, and a radical is someone with extreme political opinions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sib"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +855,62 @@
     "text": "Bones huge as boomerangs",
     "enumeration": "4"
    },
-   "solution": "OSSA"
+   "solution": "OSSA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OSSA",
+    "definitions": [
+     {
+      "text": "Bones",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boomerangs",
+      "for": "reversal",
+      "note": "a boomerang flies back the way it came, so the word before it returns in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huge",
+      "gives": "OS",
+      "note": "OS stands for outsize"
+     },
+     {
+      "clueFragment": "as",
+      "gives": "AS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "SA"
+     ],
+     "reversals": [
+      {
+       "from": "AS",
+       "to": "SA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bones as big as boomerangs, perhaps from some prehistoric creature.",
+     "walkthrough": "OS is the clothing-size abbreviation for outsize.",
+     "definitionFit": "Ossa is the Latin plural of os, used in anatomy for bones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "boomerangs"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +930,51 @@
      }
     ]
    },
-   "solution": "FULLNELSON"
+   "solution": "FULLNELSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FULL NELSON",
+    "definitions": [
+     {
+      "text": "hold",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stuffed",
+      "gives": "FULL",
+      "note": "someone stuffed after a meal is full"
+     },
+     {
+      "clueFragment": "admiral",
+      "gives": "NELSON",
+      "note": "Horatio Nelson, the British naval hero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FULL",
+      "NELSON"
+     ]
+    },
+    "explanation": {
+     "surface": "A taxidermy figure of a naval commander is kept in a ship's store.",
+     "walkthrough": "'Stuffed admiral' suggests a museum exhibit and 'hold' a ship's cargo space; hold is the wrestling sense.",
+     "definitionFit": "A full nelson is a wrestling grip in which both arms are locked behind the opponent's neck."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +988,52 @@
     "text": "Argue with Republican point of view",
     "enumeration": "7"
    },
-   "solution": "WRANGLE"
+   "solution": "WRANGLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WRANGLE",
+    "definitions": [
+     {
+      "text": "Argue",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "point of view",
+      "gives": "ANGLE",
+      "note": "an angle is a viewpoint or perspective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "R",
+      "ANGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Disagreeing with a Republican's political perspective.",
+     "definitionFit": "To wrangle is to have a long, noisy dispute, which means to argue or quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +1053,67 @@
      }
     ]
    },
-   "solution": "WEAKKNEED"
+   "solution": "WEAKKNEED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WEAK-KNEED",
+    "definitions": [
+     {
+      "text": "Timid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to entertain",
+      "for": "container",
+      "note": "entertaining is holding guests inside, so the phrase takes the next pieces into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setters",
+      "gives": "WE",
+      "note": "setters referring to themselves"
+     },
+     {
+      "clueFragment": "have",
+      "gives": "NEED",
+      "note": "have to means need to"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "couple of kings",
+      "gives": "KK",
+      "note": "K is the chess abbreviation for king, twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "A",
+      "KK",
+      "NEED"
+     ]
+    },
+    "explanation": {
+     "surface": "Crossword compilers must host two monarchs, a nerve-racking prospect.",
+     "walkthrough": "'Setters' read as a single entertainer misleads: it is the setters' own 'we', and the pair of words 'have to' together form the host that opens up.",
+     "definitionFit": "Being weak-kneed means lacking courage or resolve, so timid and easily scared."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "entertain"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1127,49 @@
     "text": "Virile chap, explosive and well practised",
     "enumeration": "7"
    },
-   "solution": "STUDIED"
+   "solution": "STUDIED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STUDIED",
+    "definitions": [
+     {
+      "text": "well practised",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virile chap",
+      "gives": "STUD",
+      "note": "a stud is a sexually virile man"
+     },
+     {
+      "clueFragment": "explosive",
+      "gives": "IED",
+      "note": "IED is an improvised explosive device"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD",
+      "IED"
+     ]
+    },
+    "explanation": {
+     "surface": "A macho man with a bomb who has rehearsed his act carefully.",
+     "definitionFit": "A studied manner or performance is deliberately rehearsed and polished rather than spontaneous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "explosive"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1183,75 @@
     "text": "Lover wearing scent picked up at counter",
     "enumeration": "9"
    },
-   "solution": "INAMORATA"
+   "solution": "INAMORATA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "INAMORATA",
+    "definitions": [
+     {
+      "text": "Lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, lifting something up turns it to read from the bottom upwards"
+     },
+     {
+      "text": "counter",
+      "for": "reversal",
+      "note": "counter means contrary, so these two letters run the opposite way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wearing",
+      "gives": "IN",
+      "note": "someone wearing a coat is in it"
+     },
+     {
+      "clueFragment": "scent",
+      "gives": "AROMA",
+      "note": "an aroma is a scent"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "AMORA",
+      "TA"
+     ],
+     "reversals": [
+      {
+       "from": "AROMA",
+       "to": "AMORA"
+      },
+      {
+       "from": "AT",
+       "to": "TA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sweetheart in perfume is noticed at the shop counter.",
+     "definitionFit": "An inamorata is a female lover or sweetheart, from the Italian for one who is in love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "counter"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1265,53 @@
     "text": "President pursued by fat lover",
     "enumeration": "7"
    },
-   "solution": "ABELARD"
+   "solution": "ABELARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABELARD",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursued by",
+      "for": "charade",
+      "note": "something pursued has another thing coming after it, so the next piece follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "ABE",
+      "note": "Abe is Abraham Lincoln, US president"
+     },
+     {
+      "clueFragment": "fat",
+      "gives": "LARD",
+      "note": "lard is pig fat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABE",
+      "LARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A head of state is chased by a heavyweight romantic.",
+     "definitionFit": "Peter Abelard, the medieval French philosopher, is famous for his tragic love affair with Héloïse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fat"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1325,56 @@
     "text": "Sweetie left in bottle",
     "enumeration": "7"
    },
-   "solution": "DARLING"
+   "solution": "DARLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DARLING",
+    "definitions": [
+     {
+      "text": "Sweetie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one thing within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "bottle",
+      "gives": "DARING",
+      "note": "bottle is British slang for courage or nerve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAR",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sweet was left behind inside a jar.",
+     "walkthrough": "'Bottle' looks like a container, but it is the British slang sense of nerve.",
+     "definitionFit": "Darling and sweetie are both affectionate terms of address for a loved one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bottle"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1388,78 @@
     "text": "United relegated from league after midfielder’s first international benefit",
     "enumeration": "7"
    },
-   "solution": "MILEAGE"
+   "solution": "MILEAGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "MILEAGE",
+    "definitions": [
+     {
+      "text": "benefit",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the word it belongs to"
+     },
+     {
+      "text": "relegated from",
+      "for": "deletion",
+      "note": "a team relegated is sent out of its division, so that letter is removed from the word"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the shortened word behind the pieces that come before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "midfielder’s",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of midfielder"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United, as in football team names"
+     },
+     {
+      "clueFragment": "league",
+      "gives": "LEAGUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "LEAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A football team sent down from its league after its star midfielder made an international appearance.",
+     "walkthrough": "The U is taken out of LEAGUE to leave LEAGE.",
+     "definitionFit": "Mileage is figurative advantage or use got out of something, as in getting political mileage from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1473,64 @@
     "text": "Recalling one’s bet is bad move",
     "enumeration": "7"
    },
-   "solution": "MISTAKE"
+   "solution": "MISTAKE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MISTAKE",
+    "definitions": [
+     {
+      "text": "bad move",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Recalling",
+      "for": "reversal",
+      "note": "recalling calls something back, so the contraction runs in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one’s",
+      "gives": "IM",
+      "note": "one's read as one is, for the speaker I am, shortened"
+     },
+     {
+      "clueFragment": "bet",
+      "gives": "STAKE",
+      "note": "a stake is a wager"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "STAKE"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking back a wager is an unwise choice.",
+     "walkthrough": "From the setter's viewpoint, one's means I'm.",
+     "definitionFit": "A mistake is an error or wrong decision, which is what a bad move in a game or life amounts to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Recalling"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1544,59 @@
     "text": "Heartily necking beer and cabbage",
     "enumeration": "4"
    },
-   "solution": "KALE"
+   "solution": "KALE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KALE",
+    "definitions": [
+     {
+      "text": "cabbage",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heartily",
+      "for": "letter_selection",
+      "note": "taken from the heart, meaning the central letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "necking",
+      "gives": "K",
+      "select": "middle",
+      "note": "the middle letter of necking"
+     },
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a kind of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Enthusiastically downing a pint, followed by a plate of greens.",
+     "walkthrough": "'Necking' is British slang for drinking quickly, which makes the surface convincing.",
+     "definitionFit": "Kale is a leafy green vegetable belonging to the cabbage family."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Heartily"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1610,57 @@
     "text": "Can probably empty potty",
     "enumeration": "5"
    },
-   "solution": "LOOPY"
+   "solution": "LOOPY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOOPY",
+    "definitions": [
+     {
+      "text": "potty",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its contents, leaving only the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Can",
+      "gives": "LOO",
+      "note": "can is slang for a toilet, as is loo"
+     },
+     {
+      "clueFragment": "probably",
+      "gives": "PY",
+      "select": "outer",
+      "note": "the outer letters of probably"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A toilet probably needs emptying, potty training in mind.",
+     "walkthrough": "Every word is misleading: 'Can' and 'potty' look like toilets, but potty is the definition, meaning crazy.",
+     "definitionFit": "Potty is British informal for mad or slightly crazy, and loopy is a similar casual term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "potty"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1680,51 @@
      }
     ]
    },
-   "solution": "BRASSEDOFF"
+   "solution": "BRASSEDOFF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRASSED OFF",
+    "definitions": [
+     {
+      "text": "Fed up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running amok",
+      "for": "anagram",
+      "note": "running amok means rampaging wildly, so these letters are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of bad serfs",
+      "gives": "OFBADSERFS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OFBADSERFS",
+       "gives": "BRASSEDOFF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lord who is tired of his unruly peasants rioting.",
+     "walkthrough": "Brassed off is British slang for annoyed or fed up.",
+     "definitionFit": "Being brassed off is the informal British way of saying you are thoroughly annoyed and weary of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1738,49 @@
     "text": "Thick journalist is doomed",
     "enumeration": "5"
    },
-   "solution": "FATED"
+   "solution": "FATED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FATED",
+    "definitions": [
+     {
+      "text": "doomed",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thick",
+      "gives": "FAT",
+      "note": "thick in the sense of wide or bulky"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A dim reporter has no future.",
+     "definitionFit": "Something fated has its outcome determined by destiny, usually an unhappy one, so it is doomed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Thick"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1794,44 @@
     "text": "Observed articulate contretemps",
     "enumeration": "4"
    },
-   "solution": "SEEN"
+   "solution": "SEEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEEN",
+    "definitions": [
+     {
+      "text": "Observed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "articulate",
+      "for": "homophone",
+      "note": "to articulate is to utter clearly, so the word is judged by its spoken form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contretemps",
+      "gives": "SEEN",
+      "soundsLike": "SCENE",
+      "note": "making a scene is having a public row"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone noticed an eloquent disagreement.",
+     "walkthrough": "'Articulate' looks like an adjective describing the dispute, but it is the verb meaning to speak.",
+     "definitionFit": "Seen is the past participle of see, meaning watched or noticed, just as observed is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "articulate"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1845,64 @@
     "text": "Secrets of earl and girl behind boozer",
     "enumeration": "9"
    },
-   "solution": "ESOTERICA"
+   "solution": "ESOTERICA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ESOTERICA",
+    "definitions": [
+     {
+      "text": "Secrets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind puts the word before it after the word that comes next"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earl",
+      "gives": "E",
+      "note": "E is the abbreviation for earl"
+     },
+     {
+      "clueFragment": "boozer",
+      "gives": "SOT",
+      "note": "a sot is a drunkard"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ERICA",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "SOT",
+      "ERICA"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman and a young woman share secrets at the back of a pub.",
+     "walkthrough": "'Boozer' is British slang both for a pub and a heavy drinker; here it is the drinker.",
+     "definitionFit": "Esoterica are obscure matters understood only by a few insiders, so they are like closely kept secrets."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boozer"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1916,56 @@
     "text": "Limited name-dropping is entertaining",
     "enumeration": "5"
    },
-   "solution": "SCANT"
+   "solution": "SCANT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCANT",
+    "definitions": [
+     {
+      "text": "Limited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is entertaining",
+      "for": "container",
+      "note": "entertaining guests means having them inside, so the first piece is held within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "dropping",
+      "gives": "SCAT",
+      "note": "scat is an animal's dropping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCA",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Showing off famous acquaintances is a bit of fun, but only to a point.",
+     "walkthrough": "Ignore the hyphen: 'name-dropping' is not boasting but two pieces, the name and the dropping.",
+     "definitionFit": "Scant means barely sufficient or meagre in amount, hence limited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1979,49 @@
     "text": "Fulfil desire to be master",
     "enumeration": "5"
    },
-   "solution": "DOYEN"
+   "solution": "DOYEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOYEN",
+    "definitions": [
+     {
+      "text": "master",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fulfil",
+      "gives": "DO",
+      "note": "to do a task is to carry it out"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "YEN",
+      "note": "a yen is a longing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "YEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An ambition to become the boss and have it granted.",
+     "definitionFit": "A doyen is the most senior or respected person in a field, an acknowledged master of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desire"
+    }
+   }
   },
   {
    "number": 28,
@@ -485,7 +2035,54 @@
     "text": "New Englander in Danish territory",
     "enumeration": "9"
    },
-   "solution": "GREENLAND"
+   "solution": "GREENLAND",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GREENLAND",
+    "definitions": [
+     {
+      "text": "Danish territory",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "new means freshly made, so the following letters are formed into something different"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Englander",
+      "gives": "ENGLANDER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENGLANDER",
+       "gives": "GREENLAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone from New England finds themselves in a Danish possession.",
+     "walkthrough": "'New Englander' looks like a single phrase for an American from New England; 'New' is split off as the signal.",
+     "definitionFit": "Greenland is a vast Arctic island that is an autonomous territory within the Kingdom of Denmark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   }
  ]
 }
