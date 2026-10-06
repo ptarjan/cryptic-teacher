@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "It makes progress difficult for a worker taking one seal off",
     "enumeration": "8"
    },
-   "solution": "HANDICAP"
+   "solution": "HANDICAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HANDICAP",
+    "definitions": [
+     {
+      "text": "It makes progress difficult",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a worker",
+      "gives": "HAND",
+      "note": "a hand is a manual worker, as in farmhand"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "seal off",
+      "gives": "CAP",
+      "note": "to cap a well or pipe is to seal it off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "I",
+      "CAP"
+     ]
+    },
+    "explanation": {
+     "surface": "A labourer slows down by removing a seal, perhaps from a jar or document.",
+     "walkthrough": "'taking' just strings the pieces together: the worker takes one, then the cap.",
+     "definitionFit": "A handicap is any burden or disadvantage that hinders someone's advance, literally so in golf or horse racing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "seal"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,75 @@
     "text": "Time to enclose earliest of graves in large piece of granite perhaps",
     "enumeration": "9"
    },
-   "solution": "AGGREGATE"
+   "solution": "AGGREGATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AGGREGATE",
+    "definitions": [
+     {
+      "text": "piece of granite perhaps",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "earliest of",
+      "for": "letter_selection",
+      "note": "the earliest part of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "to enclose",
+      "for": "container",
+      "note": "to enclose something is to put it inside, so the first word wraps round what follows"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the single letter goes within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     },
+     {
+      "clueFragment": "graves",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of graves"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "GREAT",
+      "note": "great means large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "G",
+      "RE",
+      "G",
+      "AT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A sculptor is told to take time setting a tombstone letter into a big granite block.",
+     "walkthrough": "Two insertions nest: the grave's letter goes into the word for large first, and the time word then wraps round the result.",
+     "definitionFit": "Aggregate is the crushed stone or gravel used in building, and granite is one common example of such material."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "graves"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +182,75 @@
     "text": "Put off by film featuring bloody revolutionary? Just the opposite",
     "enumeration": "5"
    },
-   "solution": "DETER"
+   "solution": "DETER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DETER",
+    "definitions": [
+     {
+      "text": "Put off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the colour word is read backwards"
+     },
+     {
+      "text": "featuring",
+      "for": "container",
+      "note": "a film featuring something holds it within; the twist that follows swaps which part holds which"
+     },
+     {
+      "text": "Just the opposite",
+      "for": "container",
+      "note": "this phrase swaps the roles just described, so the outer and inner parts trade places"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloody",
+      "gives": "RED",
+      "note": "bloody things are red; read backwards it becomes DER"
+     },
+     {
+      "clueFragment": "film",
+      "gives": "ET",
+      "note": "E.T., Spielberg's film"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ET",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is discouraged by a movie starring a gory rebel.",
+     "walkthrough": "The surface instruction is undone by its last phrase: the film does not hold the revolutionary, the revolutionary holds the film.",
+     "definitionFit": "To deter someone is to discourage or dissuade them, which is what putting them off means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +264,62 @@
     "text": "Decide against keeping individual eastern dish",
     "enumeration": "9"
    },
-   "solution": "CASSOULET"
+   "solution": "CASSOULET",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CASSOULET",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside, so the first word wraps round the next two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decide against",
+      "gives": "CAST",
+      "note": "to cast aside or out is to reject, which is deciding against something"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "SOUL",
+      "note": "a soul is a person, as in 'not a soul'"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "standard abbreviation for eastern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "SOUL",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rejects the idea of holding on to a single oriental meal.",
+     "walkthrough": "'eastern' looks like part of the definition but only supplies E; the dish is French, not Asian.",
+     "definitionFit": "Cassoulet is a slow-cooked French stew of beans with sausage and duck or pork, a classic regional dish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eastern"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +333,52 @@
     "text": "Defend positive method of learning at court",
     "enumeration": "7"
    },
-   "solution": "PROTECT"
+   "solution": "PROTECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROTECT",
+    "definitions": [
+     {
+      "text": "Defend",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "positive",
+      "gives": "P",
+      "note": "P is the abbreviation for positive"
+     },
+     {
+      "clueFragment": "method of learning",
+      "gives": "ROTE",
+      "note": "learning by rote is memorising through repetition"
+     },
+     {
+      "clueFragment": "at court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROTE",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lawyer defends their client with a confident, well-rehearsed approach in the courtroom.",
+     "definitionFit": "To protect is to guard or shield from harm, the same as defending against attack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +392,75 @@
     "text": "Consternation shown by Tory leader after party, falling short, goes west",
     "enumeration": "6"
    },
-   "solution": "DISMAY"
+   "solution": "DISMAY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "DISMAY",
+    "definitions": [
+     {
+      "text": "Consternation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "falling short",
+      "for": "deletion",
+      "note": "falling short means not reaching the end, so the word loses its final letter"
+     },
+     {
+      "text": "goes west",
+      "for": "reversal",
+      "note": "in an across clue, going west means travelling right to left, so the letters run backwards"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece placed after another simply follows it in the answer"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "SIDE",
+      "note": "a side is a party in a dispute or contest; cut short and turned round it gives DIS"
+     },
+     {
+      "clueFragment": "Tory leader",
+      "gives": "MAY",
+      "note": "Theresa May, Conservative leader and Prime Minister 2016-19"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "MAY"
+     ],
+     "reversals": [
+      {
+       "from": "SID",
+       "to": "DIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Alarm spreads as a Conservative leader follows a faltering party that collapses.",
+     "walkthrough": "'Tory leader' tempts you to take T, its first letter; it is the whole name of a Tory leader. 'goes west' also suggests dying, but here it reverses.",
+     "definitionFit": "Dismay is the sudden distress and alarm felt at something unexpected, a close synonym of consternation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "west"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +474,49 @@
     "text": "Doctor having trouble with training exercise",
     "enumeration": "5"
    },
-   "solution": "DRILL"
+   "solution": "DRILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRILL",
+    "definitions": [
+     {
+      "text": "training exercise",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "DR",
+      "note": "standard abbreviation for doctor"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "ILL",
+      "note": "ill as a noun is trouble or misfortune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A physician struggles during a workout routine.",
+     "definitionFit": "A drill is a repeated routine used to train soldiers or teams, so it is a kind of practice exercise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +530,81 @@
     "text": "Second trial involves girl stabbed by head of French firm",
     "enumeration": "9"
    },
-   "solution": "STEADFAST"
+   "solution": "STEADFAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "STEADFAST",
+    "definitions": [
+     {
+      "text": "firm",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its opening letter, so only that is taken"
+     },
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "to involve is to wrap up within, so the trial surrounds what follows"
+     },
+     {
+      "text": "stabbed by",
+      "for": "container",
+      "note": "something stabbed has a blade pushed into it, so the letter goes inside the girl's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "trial",
+      "gives": "TEST",
+      "note": "a test is a trial"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "ADA",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "F",
+      "select": "first",
+      "note": "first letter of French"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TE",
+      "AD",
+      "F",
+      "A",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A second court hearing involves a young woman knifed by a French company boss.",
+     "walkthrough": "'firm' is not a company but the adjective meaning unwavering. The French letter goes into the girl first, and that pair then sits inside the trial.",
+     "definitionFit": "Steadfast means resolutely unwavering, and firm is used in exactly that sense of someone who will not budge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +618,42 @@
     "text": "Tolerate an element of Pan-Arab ideology",
     "enumeration": "5"
    },
-   "solution": "ABIDE"
+   "solution": "ABIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ABIDE",
+    "definitions": [
+     {
+      "text": "Tolerate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "an element of",
+      "for": "hidden_word",
+      "note": "an element is a component part, so the answer is a part of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pan-Arab ideology",
+      "gives": "ABIDE",
+      "note": "found running across the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone is asked to put up with one strand of a political creed uniting the Arab world.",
+     "definitionFit": "To abide something, usually in the negative 'can't abide', is to bear or put up with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "element"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +667,51 @@
     "text": "Playing sage at marbles",
     "enumeration": "6"
    },
-   "solution": "AGATES"
+   "solution": "AGATES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AGATES",
+    "definitions": [
+     {
+      "text": "marbles",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Playing",
+      "for": "anagram",
+      "note": "playing about with letters moves them freely into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sage at",
+      "gives": "SAGEAT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAGEAT",
+       "gives": "AGATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wise old man is enjoying a game of marbles.",
+     "walkthrough": "'marbles' reads as the game being played but is the definition: agates are a type of glass or stone marble.",
+     "definitionFit": "Agates were the prized banded-stone marbles of children's games, and the name stuck for glass shooters too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Playing"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +731,64 @@
      }
     ]
    },
-   "solution": "OLIVEOIL"
+   "solution": "OLIVEOIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OLIVE OIL",
+    "definitions": [
+     {
+      "text": "dressing maybe",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally overlooked",
+      "for": "deletion",
+      "note": "the original letter is left out, so the word loses its first letter"
+     },
+     {
+      "text": "by",
+      "for": "charade",
+      "note": "one thing by another sits next to it, so the pieces join side by side"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "OLIVE",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "Inflamed swelling",
+      "gives": "BOIL",
+      "note": "a boil is an inflamed swelling on the skin; minus its first letter it leaves OIL"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLIVE",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl ignores a sore lump when bandaging a wound.",
+     "walkthrough": "The surface steers 'dressing' towards bandages and wounds; it is salad dressing.",
+     "definitionFit": "Olive oil is a common salad dressing on its own or the base of a vinaigrette, hence 'maybe' for an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +812,60 @@
      }
     ]
    },
-   "solution": "NEERDOWELL"
+   "solution": "NEERDOWELL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEER-DO-WELL",
+    "definitions": [
+     {
+      "text": "Useless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by mistake",
+      "for": "anagram",
+      "note": "letters set down by mistake end up in the wrong order and need rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "welder",
+      "gives": "WELDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WELDERLONE",
+       "gives": "NEERDOWELL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hopeless welder abandoned a piece through an error.",
+     "definitionFit": "A ne'er-do-well is a feckless good-for-nothing, and the term is also used adjectivally for someone idle and worthless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +879,57 @@
     "text": "Went running back when late",
     "enumeration": "4"
    },
-   "solution": "DEEP"
+   "solution": "DEEP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "DEEP",
+    "definitions": [
+     {
+      "text": "late",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "running back",
+      "for": "reversal",
+      "note": "running back means heading the opposite way, so the word is read right to left"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went",
+      "gives": "PEED",
+      "note": "'went' is a euphemism for urinated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEEP"
+     ],
+     "reversals": [
+      {
+       "from": "PEED",
+       "to": "DEEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sprinted back once they realised they were behind time.",
+     "walkthrough": "'Went running' looks like one phrase; 'Went' is the word that gets turned round, and 'running back' is the instruction.",
+     "definitionFit": "Deep can mean far advanced in time, as in 'deep into the night', which is how late is meant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Went"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +943,76 @@
     "text": "Discontinue with article on church in the middle of Vaucluse",
     "enumeration": "6"
    },
-   "solution": "CANCEL"
+   "solution": "CANCEL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "CANCEL",
+    "definitions": [
+     {
+      "text": "Discontinue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central part, here the two centre letters"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one word on another sits right after it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits within it, so the joined words go inside the selected letters"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vaucluse",
+      "gives": "CL",
+      "select": "middle",
+      "note": "the central two letters of this eight-letter French department"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AN",
+      "CE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A grammar point about churches in Provence: one region's services are called off.",
+     "definitionFit": "To cancel something is to call it off or stop it, the same as to discontinue it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +1026,88 @@
     "text": "Temporary alliance getting into trouble after Conservative leader starts to oppose all liberal initiatives",
     "enumeration": "9"
    },
-   "solution": "COALITION"
+   "solution": "COALITION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "COALITION",
+    "definitions": [
+     {
+      "text": "Temporary alliance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the following words are their first letters"
+     },
+     {
+      "text": "trouble",
+      "for": "anagram",
+      "note": "a word in trouble is in a mess, so its letters are disordered"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece after another simply follows it"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Conservative"
+     },
+     {
+      "clueFragment": "oppose all liberal initiatives",
+      "gives": "OALI",
+      "select": "first",
+      "note": "first letters of these four words"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "the letters to rearrange, giving TION"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OALI",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political pact runs into difficulties as the Tory chief resists every Liberal policy.",
+     "walkthrough": "'getting into trouble' reads as a phrase, but 'into' is the anagram fodder, and 'initiatives' is not a signal but the fourth word whose first letter is taken.",
+     "definitionFit": "A coalition is a pact between parties to govern together, typically lasting only until an election or crisis ends it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 15,
@@ -265,7 +1127,67 @@
      }
     ]
    },
-   "solution": "TEAPARTY"
+   "solution": "TEAPARTY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TEA PARTY",
+    "definitions": [
+     {
+      "text": "political movement",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken aback",
+      "for": "reversal",
+      "note": "taken aback, read literally, is taken backwards, so the word runs right to left"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "one thing over another covers it, so the first word goes around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Still",
+      "gives": "YET",
+      "note": "still in the sense of 'even now'"
+     },
+     {
+      "clueFragment": "separate",
+      "gives": "APART",
+      "note": "apart means separate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "APART",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "YET",
+       "to": "TEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is still shocked by a breakaway faction in politics.",
+     "walkthrough": "'taken aback' sounds like surprise but is a reversal instruction, and 'Still' is not an adjective but means yet.",
+     "definitionFit": "The Tea Party was the US right-wing populist movement that rose around 2009, named after the Boston protest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aback"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1201,75 @@
     "text": "Old actress hiding drugs after first of arrests in Nice",
     "enumeration": "9"
    },
-   "solution": "AGREEABLE"
+   "solution": "AGREEABLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "AGREEABLE",
+    "definitions": [
+     {
+      "text": "Nice",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first of",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter alone"
+     },
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to hold it inside, so the actress's name goes around the drugs"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "in a down clue, after means placed below, so the single letter comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrests",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of arrests"
+     },
+     {
+      "clueFragment": "Old actress",
+      "gives": "GRABLE",
+      "note": "Betty Grable, Hollywood star of the 1940s"
+     },
+     {
+      "clueFragment": "drugs",
+      "gives": "EE",
+      "note": "E is ecstasy, so drugs in the plural is two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GR",
+      "EE",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A veteran film star is caught concealing narcotics after police arrests on the Riviera.",
+     "walkthrough": "'Nice' looks like the French city, matching the arrests scene; it is the adjective meaning pleasant.",
+     "definitionFit": "Agreeable describes something pleasant or likeable, which is what nice means as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1283,67 @@
     "text": "It provides protection for exotic air plant seen around Utah primarily",
     "enumeration": "9"
    },
-   "solution": "TARPAULIN"
+   "solution": "TARPAULIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TARPAULIN",
+    "definitions": [
+     {
+      "text": "It provides protection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so the state name gives only its first letter"
+     },
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "something exotic is strange and outlandish, so the letters take an unfamiliar arrangement"
+     }
+    ],
+    "linkWords": [
+     "for",
+     "seen around"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "air plant",
+      "gives": "AIRPLANT",
+      "note": "the letters to rearrange"
+     },
+     {
+      "clueFragment": "Utah",
+      "gives": "U",
+      "select": "first",
+      "note": "first letter of Utah"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AIRPLANTU",
+       "gives": "TARPAULIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tropical air plant growing in the American West shelters some creature.",
+     "walkthrough": "The rearranged letters of 'air plant' are placed around U, which joins the mix.",
+     "definitionFit": "A tarpaulin is a heavy waterproof sheet stretched over goods or equipment to shield them from the weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exotic"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1357,65 @@
     "text": "Bottle shown by philosopher reportedly trapped by wild animal",
     "enumeration": "8"
    },
-   "solution": "DECANTER"
+   "solution": "DECANTER",
+   "annotation": {
+    "type": [
+     "homophone",
+     "container"
+    ],
+    "answer": "DECANTER",
+    "definitions": [
+     {
+      "text": "Bottle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as spoken, so the name is replaced by a word that sounds the same"
+     },
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "something trapped is held inside, so the animal's word wraps round the sound-alike"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wild animal",
+      "gives": "DEER",
+      "note": "deer roam wild"
+     },
+     {
+      "clueFragment": "philosopher",
+      "gives": "CANT",
+      "soundsLike": "KANT",
+      "note": "Immanuel Kant, the German philosopher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "CANT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine bottle is said to show a thinker caught by a beast.",
+     "walkthrough": "'Bottle' could be the verb or slang for courage; here it is simply a glass vessel for wine.",
+     "definitionFit": "A decanter is a stoppered glass vessel into which wine or spirits are poured for serving, a type of bottle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bottle"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1429,81 @@
     "text": "Russia's principal author coming around to accept island's mysterious quality",
     "enumeration": "7"
    },
-   "solution": "ROMANCE"
+   "solution": "ROMANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ROMANCE",
+    "definitions": [
+     {
+      "text": "mysterious quality",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "principal",
+      "for": "letter_selection",
+      "note": "the principal letter is the chief, first one"
+     },
+     {
+      "text": "coming around",
+      "for": "reversal",
+      "note": "coming around means turning about, so the author's name runs backwards"
+     },
+     {
+      "text": "to accept",
+      "for": "container",
+      "note": "to accept something is to take it in, so the name holds the island"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russia's",
+      "gives": "R",
+      "select": "first",
+      "note": "first letter of Russia"
+     },
+     {
+      "clueFragment": "author",
+      "gives": "ECO",
+      "note": "Umberto Eco, Italian novelist"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "MAN",
+      "note": "the Isle of Man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "O",
+      "MAN",
+      "CE"
+     ],
+     "reversals": [
+      {
+       "from": "ECO",
+       "to": "OCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A leading Russian writer comes round to embracing an island's enigmatic charm.",
+     "walkthrough": "'Russia's principal author' suggests Tolstoy or Pushkin, but 'principal' takes only Russia's first letter and the author is Eco.",
+     "definitionFit": "Romance can mean an aura of glamour, mystery and remoteness, as in 'the romance of the desert'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "author"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1517,82 @@
     "text": "Delay caused by extremely efficient soldiers returning to block road",
     "enumeration": "6"
    },
-   "solution": "RETARD"
+   "solution": "RETARD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "RETARD",
+    "definitions": [
+     {
+      "text": "Delay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way they came, so the letters run backwards"
+     },
+     {
+      "text": "to block",
+      "for": "container",
+      "note": "something that blocks a road sits within it, so these letters go inside the abbreviation"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "standard abbreviation for road"
+     },
+     {
+      "clueFragment": "efficient",
+      "gives": "ET",
+      "select": "outer",
+      "note": "the end letters of efficient"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "RA",
+      "note": "Royal Artillery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ET",
+      "AR",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "RA",
+       "to": "AR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Hold-ups caused by a crack military unit that turns back and closes a road.",
+     "definitionFit": "To retard something is to slow or hold up its progress, the verb sense of delay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soldiers"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1606,54 @@
     "text": "Tasteless stuff on independent film-maker",
     "enumeration": "4"
    },
-   "solution": "TATI"
+   "solution": "TATI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TATI",
+    "definitions": [
+     {
+      "text": "film-maker",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue one piece on another is simply joined to it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tasteless stuff",
+      "gives": "TAT",
+      "note": "tat is British slang for cheap, tasteless goods"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "I is the abbreviation for independent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "Cheap junk appears in an indie director's film.",
+     "walkthrough": "Jacques Tati was the French director and star of Monsieur Hulot's Holiday.",
+     "definitionFit": "Jacques Tati wrote, directed and starred in French comedies such as Playtime and Mon Oncle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "independent"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1667,59 @@
     "text": "Modify point in support of Australian lawyer",
     "enumeration": "5"
    },
-   "solution": "ADAPT"
+   "solution": "ADAPT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADAPT",
+    "definitions": [
+     {
+      "text": "Modify",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in support of",
+      "for": "charade",
+      "note": "in a down clue a support goes underneath, so this piece comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the abbreviation for Australian"
+     },
+     {
+      "clueFragment": "lawyer",
+      "gives": "DA",
+      "note": "a district attorney, the US public prosecutor"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "PT",
+      "note": "PT is the abbreviation for point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DA",
+      "PT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone changes a legal argument to back up an Aussie barrister.",
+     "definitionFit": "To adapt something is to alter or adjust it for a new purpose, which is a kind of modification."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1733,94 @@
     "text": "Intended to make a profit from organised crime after a short time back in California",
     "enumeration": "10"
    },
-   "solution": "COMMERCIAL"
+   "solution": "COMMERCIAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "COMMERCIAL",
+    "definitions": [
+     {
+      "text": "Intended to make a profit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back reverses direction, so the short word is read right to left"
+     },
+     {
+      "text": "organised",
+      "for": "anagram",
+      "note": "organised means put in order, so the letters are arranged afresh"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one piece after another follows it in the answer"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the state's abbreviation surrounds the rest"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "California",
+      "gives": "CAL",
+      "note": "abbreviation for California"
+     },
+     {
+      "clueFragment": "a short time",
+      "gives": "MO",
+      "note": "a mo is a moment"
+     },
+     {
+      "clueFragment": "crime",
+      "gives": "CRIME",
+      "note": "the letters to rearrange, giving MERCI"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OM",
+      "MERCI",
+      "AL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRIME",
+       "gives": "MERCI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "MO",
+       "to": "OM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A West Coast racket built for money: gangsters set up after a brief return to California.",
+     "walkthrough": "'organised crime' reads as the Mafia, but 'organised' is the anagram signal and 'crime' the letters.",
+     "definitionFit": "Commercial describes a venture run for financial gain rather than as a hobby or charity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "organised"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1834,51 @@
     "text": "Communist academic revealing its use may be divisive",
     "enumeration": "5"
    },
-   "solution": "COMMA"
+   "solution": "COMMA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMMA",
+    "definitions": [
+     {
+      "text": "its use may be divisive",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Communist",
+      "gives": "COM",
+      "note": "abbreviation for Communist"
+     },
+     {
+      "clueFragment": "academic",
+      "gives": "MA",
+      "note": "a Master of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "A Marxist professor shows that their influence splits opinion.",
+     "walkthrough": "'divisive' in the surface is political; in the definition it means literally dividing parts of a sentence.",
+     "definitionFit": "A comma separates clauses and items in a list, so its job is literally to divide a sentence up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "divisive"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1892,48 @@
     "text": "Competes fiercely after commencement of game",
     "enumeration": "5"
    },
-   "solution": "CRAPS"
+   "solution": "CRAPS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CRAPS",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after commencement of",
+      "for": "deletion",
+      "note": "taking only what comes after the start drops the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Competes fiercely",
+      "gives": "SCRAPS",
+      "note": "to scrap is to fight; the opening S is the letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRAPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Players battle hard once a match begins.",
+     "walkthrough": "'commencement of game' looks like taking G; instead 'after commencement of' says start after the first letter of SCRAPS, leaving CRAPS, and 'game' is the definition.",
+     "definitionFit": "Craps is a dice game for gambling, popular in American casinos and street play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "commencement"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1947,67 @@
     "text": "The initial piece captures old boxer's charm",
     "enumeration": "8"
    },
-   "solution": "TALISMAN"
+   "solution": "TALISMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TALISMAN",
+    "definitions": [
+     {
+      "text": "charm",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initial",
+      "for": "letter_selection",
+      "note": "the initial of a word is its first letter"
+     },
+     {
+      "text": "captures",
+      "for": "container",
+      "note": "a piece that captures something takes it in, so the boxer's name goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the"
+     },
+     {
+      "clueFragment": "old boxer's",
+      "gives": "ALIS",
+      "note": "Muhammad Ali, the boxer, with the possessive S"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "MAN",
+      "note": "a man is a piece in chess or draughts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ALIS",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess opening sees one piece take a former boxer's lucky amulet.",
+     "walkthrough": "'The initial piece' is read as one unit, the T plus the chess piece, so the boxer lands between those two parts rather than inside the piece alone.",
+     "definitionFit": "A talisman is an object believed to bring luck or ward off harm, the same as a lucky charm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +2021,77 @@
     "text": "Dog licence finally found in suitcase with a couple of letters",
     "enumeration": "6"
    },
-   "solution": "BEAGLE"
+   "solution": "BEAGLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "BEAGLE",
+    "definitions": [
+     {
+      "text": "Dog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very last letter of the word before it"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a case is inside it, so the letter goes within"
+     },
+     {
+      "text": "a couple of",
+      "for": "letter_selection",
+      "note": "a couple is two, so only the first two letters of the next word are taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suitcase",
+      "gives": "BAG",
+      "note": "a bag is a suitcase"
+     },
+     {
+      "clueFragment": "licence",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of licence"
+     },
+     {
+      "clueFragment": "letters",
+      "gives": "LE",
+      "select": "first",
+      "note": "the first two letters of letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "AG",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pet's licence turns up in luggage along with some correspondence.",
+     "definitionFit": "A beagle is a small hound with floppy ears, bred for hunting hares, so it is a breed of dog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +2105,63 @@
     "text": "Verse from South Africa on resistance mostly",
     "enumeration": "6"
    },
-   "solution": "STANZA"
+   "solution": "STANZA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STANZA",
+    "definitions": [
+     {
+      "text": "Verse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the word loses its last letter"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "one piece on another is joined to it in sequence"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resistance",
+      "gives": "STAND",
+      "note": "to make a stand is to resist; trimmed it gives STAN"
+     },
+     {
+      "clueFragment": "South Africa",
+      "gives": "ZA",
+      "note": "ZA is South Africa's international code"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAN",
+      "ZA"
+     ]
+    },
+    "explanation": {
+     "surface": "A poem from South Africa that is largely about the struggle against apartheid.",
+     "walkthrough": "'South' tempts you to take S; the whole of 'South Africa' is ZA, from the Afrikaans Zuid-Afrika.",
+     "definitionFit": "A stanza is a group of lines forming a unit of a poem, and verse can mean exactly such a unit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +2175,65 @@
     "text": "A service flat that will do on the outskirts of Nuremberg",
     "enumeration": "8"
    },
-   "solution": "EVENSONG"
+   "solution": "EVENSONG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EVENSONG",
+    "definitions": [
+     {
+      "text": "A service",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a town are its edges, so only the outer letters are used"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flat",
+      "gives": "EVEN",
+      "note": "flat ground is even"
+     },
+     {
+      "clueFragment": "that will do",
+      "gives": "SO",
+      "note": "'so' as in 'so be it', accepting enough"
+     },
+     {
+      "clueFragment": "Nuremberg",
+      "gives": "NG",
+      "select": "outer",
+      "note": "first and last letters of Nuremberg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVEN",
+      "SO",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "An apartment that will suffice on the edge of a German city.",
+     "walkthrough": "'flat' is a home in the surface but an adjective in the wordplay.",
+     "definitionFit": "Evensong is the Anglican evening prayer service, sung in cathedrals and churches around sunset."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   }
  ]
 }
