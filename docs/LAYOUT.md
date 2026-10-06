@@ -1311,7 +1311,10 @@ tools/fetch_archive_org_editions.py          fetch archive.org newspaper edition
 tools/test_fetch_archive_org_editions.sh     fetch_archive_org_editions.py with urlopen
                                              stubbed: 500s retried within an edition's
                                              ITEM_SECONDS, none past it, so one bad edition
-                                             cannot hold the queue
+                                             cannot hold the queue; an edition whose text shows
+                                             no daily crossword title also fetches its last
+                                             leaf and the leaves its item's other editions
+                                             print it on
 
 fetching
 tools/file_archive_org_puzzles.py            files the daily Times, FT, Guardian and Telegraph
