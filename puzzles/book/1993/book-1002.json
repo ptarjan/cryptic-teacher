@@ -30,6 +30,9 @@
   "check": "28 entries, 56 crossings, 0 conflicts",
   "officialKey": "never"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -43,7 +46,48 @@
     "text": "Current fee for what a solicitor does?",
     "enumeration": "6"
    },
-   "solution": "ACCOST"
+   "solution": "ACCOST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACCOST",
+    "definitions": [
+     {
+      "text": "what a solicitor does",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Current",
+      "gives": "AC",
+      "note": "AC is alternating current"
+     },
+     {
+      "clueFragment": "fee",
+      "gives": "COST",
+      "note": "a fee is the cost of a service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "COST"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about the charge a lawyer makes for their services.",
+     "walkthrough": "The solicitor is not a lawyer but someone soliciting in the street, who approaches passers-by.",
+     "definitionFit": "Approaching strangers boldly with an offer is exactly what a street prostitute does when soliciting custom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solicitor"
+    }
+   }
   },
   {
    "number": 1,
@@ -57,7 +101,54 @@
     "text": "Disease said to be upsetting",
     "enumeration": "4"
    },
-   "solution": "AIDS"
+   "solution": "AIDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIDS",
+    "definitions": [
+     {
+      "text": "Disease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upsetting",
+      "for": "anagram",
+      "note": "upsetting knocks over, so the letters fall into a new order"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "said",
+      "gives": "SAID",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SAID",
+       "gives": "AIDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A distressing illness, or so people report.",
+     "walkthrough": "'Said' looks like a sound signal, but it is simply the letters to be rearranged.",
+     "definitionFit": "AIDS is the syndrome caused by HIV, an illness that attacks the immune system."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "said"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +162,66 @@
     "text": "Dubious act featuring nude entertainment",
     "enumeration": "7"
    },
-   "solution": "CABARET"
+   "solution": "CABARET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CABARET",
+    "definitions": [
+     {
+      "text": "entertainment",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dubious",
+      "for": "anagram",
+      "note": "something dubious is not quite right, so the letters are put out of order"
+     },
+     {
+      "text": "featuring",
+      "for": "container",
+      "note": "featuring means holding inside, so the second word is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "ACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nude",
+      "gives": "BARE",
+      "note": "nude means bare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BARE",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACT",
+       "gives": "CAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A questionable strip show passed off as a night's amusement.",
+     "definitionFit": "Cabaret is the entertainment of songs, comedy and dance staged in a nightclub or restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dubious"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +235,63 @@
     "text": "Row not unusual in Irish political arena",
     "enumeration": "8"
    },
-   "solution": "STORMONT"
+   "solution": "STORMONT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STORMONT",
+    "definitions": [
+     {
+      "text": "Irish political arena",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the ordinary, so the letters are out of order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "STORM",
+      "note": "a row, an uproar"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STORM",
+      "ONT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOT",
+       "gives": "ONT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Quarrels are routine in Northern Ireland's parliament.",
+     "definitionFit": "Stormont is the Belfast estate housing Northern Ireland's parliament, so it stands for that region's politics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +305,66 @@
     "text": "Endless old king and queen could raise a strain",
     "enumeration": "8"
    },
-   "solution": "COLANDER"
+   "solution": "COLANDER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "COLANDER",
+    "definitions": [
+     {
+      "text": "strain",
+      "at": 41,
+      "note": "the clue's verb points to the kitchen strainer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "without its end, the name loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "could raise a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old king",
+      "gives": "COLE",
+      "note": "Old King Cole of the nursery rhyme"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COL",
+      "AND",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of royalty whose music might strike up a tune.",
+     "walkthrough": "Old King Cole is the 'merry old soul' of the nursery rhyme; a strain is also a snatch of music, which the surface plays on.",
+     "definitionFit": "A colander is the perforated kitchen bowl used to strain vegetables or pasta, draining off water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strain"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +384,66 @@
      }
     ]
    },
-   "solution": "OPENSCANDAL"
+   "solution": "OPENSCANDAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OPEN SCANDAL",
+    "definitions": [
+     {
+      "text": "public misconduct",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "first says which phrase leads, so the lid-lifting phrase goes before the boy"
+     },
+     {
+      "text": "Upright",
+      "for": "reversal",
+      "note": "in a down clue, standing upright means the word is written from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "takes lid off",
+      "gives": "OPENSCAN",
+      "note": "one who takes the lid off opens a can"
+     },
+     {
+      "clueFragment": "youth",
+      "gives": "LAD",
+      "note": "a youth is a lad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPENSCAN",
+      "DAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAD",
+       "to": "DAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A decent young man lifting the lid on a public outrage.",
+     "walkthrough": "'Upright' looks like praise for the youth's honesty, but it reverses LAD in this down entry. The phrase for taking a lid off is read as OPENS CAN.",
+     "definitionFit": "An open scandal is a disgraceful affair that everyone knows about, wrongdoing out in public view."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upright"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +457,43 @@
     "text": "Come down in flames",
     "enumeration": "6"
    },
-   "solution": "ALIGHT"
+   "solution": "ALIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALIGHT",
+    "definitions": [
+     {
+      "text": "Come down",
+      "at": 0
+     },
+     {
+      "text": "in flames",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Come down",
+      "note": "first meaning: to descend, as from a vehicle"
+     },
+     {
+      "clueFragment": "in flames",
+      "note": "second meaning: burning, on fire"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a crashing aircraft; the two halves are separate senses of one word.",
+     "definitionFit": "The verb means to step off a bus or land, while the adjective means on fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flames"
+    }
+   }
   },
   {
    "number": 7,
@@ -153,7 +513,47 @@
      }
     ]
    },
-   "solution": "DROPOUT"
+   "solution": "DROPOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DROP-OUT",
+    "definitions": [
+     {
+      "text": "Nonconformist",
+      "at": 0
+     },
+     {
+      "text": "a kick",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nonconformist",
+      "note": "first meaning: someone who rejects conventional society"
+     },
+     {
+      "clueFragment": "a kick",
+      "note": "second meaning: in rugby, a restart kick from the 22-metre line"
+     }
+    ],
+    "explanation": {
+     "surface": "A rebel finding a thrill, with the ellipsis leading on to the next clue.",
+     "walkthrough": "In rugby union a drop-out is the drop kick that restarts play from the defending side's 22.",
+     "definitionFit": "A dropout abandons conventional life or study, and the rugby restart is likewise named."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "kick"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +567,52 @@
     "text": "... from church teaching and activity linked with good conduct",
     "enumeration": "9"
    },
-   "solution": "REMISSION"
+   "solution": "REMISSION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMISSION",
+    "definitions": [
+     {
+      "text": "linked with good conduct",
+      "at": 38,
+      "note": "describes the answer rather than naming it: the cut in sentence earned by good conduct"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church teaching",
+      "gives": "RE",
+      "note": "RE, religious education"
+     },
+     {
+      "clueFragment": "activity",
+      "gives": "MISSION",
+      "note": "a church's mission, its evangelising work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing 7: a thrill gained from religious instruction and good works.",
+     "walkthrough": "RE is the British school subject Religious Education.",
+     "definitionFit": "Prisoners may earn time off their sentence for behaving well in jail, which is that kind of early release."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "activity"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +626,38 @@
     "text": "Borrower begins to be in the red — just about",
     "enumeration": "6"
    },
-   "solution": "DEBTOR"
+   "solution": "DEBTOR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DEBTOR",
+    "definitions": [
+     {
+      "text": "Borrower",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "begins to be in the red",
+      "note": "surface: someone whose bank account is starting to slip into overdraft"
+     },
+     {
+      "clueFragment": "just about",
+      "note": "setter's reading: a borrower is pretty much by definition one who owes money"
+     }
+    ],
+    "explanation": {
+     "surface": "A borrower whose account is starting to dip below zero.",
+     "walkthrough": "Being 'in the red' means owing money, which is what a person who has borrowed does.",
+     "definitionFit": "Anyone who has taken a loan owes money to the lender, making them a party owing a sum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +671,74 @@
     "text": "Nothing barred in bedroom drama in Spain",
     "enumeration": "8"
    },
-   "solution": "BENIDORM"
+   "solution": "BENIDORM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "BENIDORM",
+    "definitions": [
+     {
+      "text": "Spain",
+      "at": 35,
+      "note": "the answer is a resort in Spain, not the country"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "barred",
+      "for": "deletion",
+      "note": "something barred is shut out, so the nought is kept out of the room word"
+     },
+     {
+      "text": "drama",
+      "for": "anagram",
+      "note": "a drama is a commotion, so the letters are thrown about"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     },
+     {
+      "clueFragment": "bedroom",
+      "gives": "BEDROOM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the first in, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BENIDORM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BEDROMIN",
+       "gives": "BENIDORM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Anything goes in a steamy bedroom scene set on the Spanish coast.",
+     "walkthrough": "Remove one O from BEDROOM, add IN, and rearrange to get BENIDORM, the package-holiday resort on Spain's Costa Blanca.",
+     "definitionFit": "Benidorm is a famous seaside holiday resort on the Costa Blanca, so it is a place found in that country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drama"
+    }
+   }
   },
   {
    "number": 11,
@@ -215,7 +758,73 @@
      }
     ]
    },
-   "solution": "GRAMMARSCHOOLS"
+   "solution": "GRAMMARSCHOOLS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "GRAMMAR SCHOOLS",
+    "definitions": [
+     {
+      "text": "Where girls start stirring up classroom, harm can result",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of the word girls means only its opening letter is used"
+     },
+     {
+      "text": "stirring up",
+      "for": "anagram",
+      "note": "stirring things up mixes them, so the letters are jumbled together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girls",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of girls"
+     },
+     {
+      "clueFragment": "classroom",
+      "gives": "CLASSROOM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "harm",
+      "gives": "HARM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAMMAR",
+      "SCHOOLS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GCLASSROOMHARM",
+       "gives": "GRAMMARSCHOOLS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Trouble breaking out when girls start causing a commotion in class.",
+     "walkthrough": "The whole clue is both wordplay and a wry description of selective schools; the ellipsis carries on into 13 across.",
+     "definitionFit": "Grammar schools are the selective secondary schools where pupils, girls included, start and where classroom mischief may occur."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stirring"
+    }
+   }
   },
   {
    "number": 12,
@@ -235,7 +844,51 @@
      }
     ]
    },
-   "solution": "ABSTRACTART"
+   "solution": "ABSTRACTART",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "ABSTRACT ART",
+    "definitions": [
+     {
+      "text": "Steal the picture?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Steal",
+      "gives": "ABSTRACT",
+      "note": "to abstract is to take away, a formal word for stealing"
+     },
+     {
+      "clueFragment": "picture",
+      "gives": "ART",
+      "note": "a picture is a work of art"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABSTRACT",
+      "ART"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "'Abstract' as a verb means to remove or pinch, so the whole clue is both the instruction and a playful definition of a style of painting.",
+     "definitionFit": "Abstract art is non-representational painting of shapes and colours, and the clue reads it as an order to pinch some."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Steal"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +912,76 @@
      }
     ]
    },
-   "solution": "EATONESHAT"
+   "solution": "EATONESHAT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EAT ONES HAT",
+    "definitions": [
+     {
+      "text": "one does when jiggered",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "to enter is to go inside, so one is placed within the school name"
+     },
+     {
+      "text": "indecent",
+      "for": "anagram",
+      "note": "indecent suggests something improper, out of its right order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "college",
+      "gives": "ETON",
+      "note": "Eton College, the English public school"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one is the article a"
+     },
+     {
+      "clueFragment": "haste",
+      "gives": "HASTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EATON",
+      "ESHAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HASTE",
+       "gives": "ESHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rushing into college unseemly fast, carrying on from the schools clue.",
+     "walkthrough": "The lowercase opening continues the ellipsis from 11 across. 'I'll be jiggered!' and 'I'll eat my hat!' are both British exclamations of astonishment.",
+     "definitionFit": "Someone utterly astonished might exclaim they will consume their headgear, the same surprise as being jiggered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "jiggered"
+    }
+   }
   },
   {
    "number": 13,
@@ -273,7 +995,48 @@
     "text": "Admit it’s a matter of gut reaction",
     "enumeration": "9"
    },
-   "solution": "ENTERITIS"
+   "solution": "ENTERITIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENTERITIS",
+    "definitions": [
+     {
+      "text": "a matter of gut reaction",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Admit",
+      "gives": "ENTER",
+      "note": "to admit is to let enter"
+     },
+     {
+      "clueFragment": "it’s",
+      "gives": "ITIS",
+      "note": "it's expanded to it is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTER",
+      "ITIS"
+     ]
+    },
+    "explanation": {
+     "surface": "Confessing that a decision was purely instinctive.",
+     "walkthrough": "A gut reaction is normally an instinct; here it is a literal reaction in the intestines.",
+     "definitionFit": "Enteritis is inflammation of the intestine, so the bowel is literally reacting badly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Admit"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +1050,45 @@
     "text": "Small case with free tuition thrown in",
     "enumeration": "4"
    },
-   "solution": "ETUI"
+   "solution": "ETUI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ETUI",
+    "definitions": [
+     {
+      "text": "Small case",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown in",
+      "for": "hidden_word",
+      "note": "what is thrown in is included inside the phrase, so the letters sit within it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free tuition",
+      "gives": "ETUI",
+      "note": "spanning the end of one word and start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A little bag that comes with lessons included at no charge.",
+     "definitionFit": "An etui is a small ornamental case for needles, scissors or cosmetics, a crossword favourite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 15,
@@ -301,7 +1102,46 @@
     "text": "Flatter and rather mild?",
     "enumeration": "8"
    },
-   "solution": "BLANDISH"
+   "solution": "BLANDISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BLANDISH",
+    "definitions": [
+     {
+      "text": "Flatter",
+      "at": 0
+     },
+     {
+      "text": "rather mild",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flatter",
+      "note": "first meaning: to coax with compliments"
+     },
+     {
+      "clueFragment": "rather mild",
+      "note": "second meaning: read as bland plus the suffix -ish"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Flatter' looks like a comparative of flat, joined to mildness as if describing a landscape or a taste.",
+     "definitionFit": "To blandish is to cajole with sweet talk, and split as bland-ish it means somewhat insipid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flatter"
+    }
+   }
   },
   {
    "number": 16,
@@ -315,7 +1155,50 @@
     "text": "Difficulty of model question",
     "enumeration": "4"
    },
-   "solution": "TASK"
+   "solution": "TASK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TASK",
+    "definitions": [
+     {
+      "text": "Difficulty",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "T",
+      "note": "the Model T Ford"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "ASK",
+      "note": "to question is to ask"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "A problem with a sample exam paper.",
+     "walkthrough": "The Model T was Ford's famous early car, so model gives T.",
+     "definitionFit": "A task can mean an onerous piece of work, a burdensome job, close to a difficulty or challenge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 17,
@@ -329,7 +1212,51 @@
     "text": "Cruel as humanism may be?",
     "enumeration": "7"
    },
-   "solution": "SECULAR"
+   "solution": "SECULAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SECULAR",
+    "definitions": [
+     {
+      "text": "humanism may be",
+      "at": 9,
+      "note": "adjective phrase describing what humanism is"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "may be",
+      "for": "anagram",
+      "note": "may be hints the letters could take another form if rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruel as",
+      "gives": "CRUELAS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRUELAS",
+       "gives": "SECULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jibe that a godless worldview is heartless.",
+     "definitionFit": "Humanism rests on human reason rather than religion, so it is non-religious in outlook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Cruel"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1276,73 @@
      }
     ]
    },
-   "solution": "BRIDALGOWN"
+   "solution": "BRIDALGOWN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "BRIDAL GOWN",
+    "definitions": [
+     {
+      "text": "dress",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go about",
+      "for": "anagram",
+      "note": "going about means turning around, so the letters are rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the combined letters inside the colour word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "glad",
+      "gives": "GLAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "brown",
+      "gives": "BROWN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "IDALG",
+      "OWN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLAD",
+       "gives": "DALG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy person walking about in a brown frock.",
+     "walkthrough": "The one and the jumbled word are combined first, and that group is then placed inside the colour after its second letter.",
+     "definitionFit": "A bridal gown is the dress a bride wears at her wedding, a specific kind of dress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "glad"
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1356,50 @@
     "text": "Nothing to share but words",
     "enumeration": "7"
    },
-   "solution": "ORATION"
+   "solution": "ORATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORATION",
+    "definitions": [
+     {
+      "text": "words",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     },
+     {
+      "clueFragment": "share",
+      "gives": "RATION",
+      "note": "a share, an allotted portion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that someone offers only talk, nothing tangible.",
+     "definitionFit": "An oration is a formal speech, so it is made of spoken words delivered at length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "share"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1413,43 @@
     "text": "Altogether lacking in harmony?",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "UNISON",
+    "definitions": [
+     {
+      "text": "Altogether",
+      "at": 0
+     },
+     {
+      "text": "lacking in harmony",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Altogether",
+      "note": "first meaning: as in 'in ...', all at once"
+     },
+     {
+      "clueFragment": "lacking in harmony",
+      "note": "second meaning: singing the same note, with no chordal parts"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface implies discord, but voices in unison share a single line, so there is no harmony at all.",
+     "definitionFit": "Acting together all at once is doing so in concert, and musically a single shared pitch carries no chords."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "harmony"
+    }
+   }
   },
   {
    "number": 21,
@@ -397,7 +1469,39 @@
      }
     ]
    },
-   "solution": "RACINGCALENDAR"
+   "solution": "RACINGCALENDAR",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RACING CALENDAR",
+    "definitions": [
+     {
+      "text": "Evidence that time flies, of course",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evidence that time flies",
+      "note": "surface: proof of how fast time passes, like a calendar on the wall"
+     },
+     {
+      "clueFragment": "of course",
+      "note": "setter's reading: a calendar for the racecourse, listing when horses fly round the track"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Of course' seems to mean 'naturally' but points to the racecourse; a fixture list tells you when the horses will fly.",
+     "definitionFit": "A racing calendar is the published schedule of race meetings, a record of dates on the turf."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1515,46 @@
     "text": "Disposition of men and women vying with one another?",
     "enumeration": "4"
    },
-   "solution": "ENVY"
+   "solution": "ENVY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENVY",
+    "definitions": [
+     {
+      "text": "Disposition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with one another",
+      "for": "hidden_word",
+      "note": "the letters come from two words held with one another, straddling the gap"
+     }
+    ],
+    "linkWords": [
+     "of men and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "women vying",
+      "gives": "ENVY",
+      "note": "across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "The temperament of the sexes competing against each other.",
+     "walkthrough": "Rivals vying with one another are often driven by this very feeling.",
+     "definitionFit": "Envy is a resentful frame of mind toward another's luck, a state of feeling or temperament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vying"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1568,67 @@
     "text": "Latin mass curtailed and turned into pagan symbol",
     "enumeration": "8"
    },
-   "solution": "TALISMAN"
+   "solution": "TALISMAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TALISMAN",
+    "definitions": [
+     {
+      "text": "pagan symbol",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed means its tail is cut, losing the last letter"
+     },
+     {
+      "text": "turned into",
+      "for": "anagram",
+      "note": "turned into implies a transformation, a change of letter order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latin",
+      "gives": "LATIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mass",
+      "gives": "MASS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALISMAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATINMAS",
+       "gives": "TALISMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church service shortened and converted into heathen ritual.",
+     "definitionFit": "A talisman is an object believed to have magic powers, a charm of the kind found in pre-Christian belief."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mass"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1642,54 @@
     "text": "Car takes on pet",
     "enumeration": "6"
    },
-   "solution": "MINION"
+   "solution": "MINION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINION",
+    "definitions": [
+     {
+      "text": "pet",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes",
+      "for": "charade",
+      "note": "the car takes the next word along with it, placed after"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Car",
+      "gives": "MINI",
+      "note": "the Mini, a small British car"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MINI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A vehicle giving a lift to an animal.",
+     "walkthrough": "The Mini is the classic small British car.",
+     "definitionFit": "A minion was originally a favourite or darling, a person treated like a pet by a patron."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1703,53 @@
     "text": "Romantic music for an Easter service",
     "enumeration": "8"
    },
-   "solution": "SERENATA"
+   "solution": "SERENATA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERENATA",
+    "definitions": [
+     {
+      "text": "Romantic music",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "service",
+      "for": "anagram",
+      "note": "a service puts things to work, rearranging them for new use"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an Easter",
+      "gives": "ANEASTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANEASTER",
+       "gives": "SERENATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Love songs to be played at a church celebration in spring.",
+     "definitionFit": "A serenata is an evening serenade or cantata, a piece of music suited to wooing a beloved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "service"
+    }
+   }
   },
   {
    "number": 26,
@@ -467,7 +1763,59 @@
     "text": "Pooh starts on his little something false",
     "enumeration": "6"
    },
-   "solution": "PHONEY"
+   "solution": "PHONEY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PHONEY",
+    "definitions": [
+     {
+      "text": "false",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts",
+      "for": "letter_selection",
+      "note": "how the bear's name starts, that is, only its opening letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pooh",
+      "gives": "P",
+      "select": "first",
+      "note": "the initial of the bear's name"
+     },
+     {
+      "clueFragment": "his little something",
+      "gives": "HONEY",
+      "note": "Winnie-the-Pooh's 'little something' is always a pot of honey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HONEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Winnie-the-Pooh setting off on his snack, with something fishy about it.",
+     "walkthrough": "In A. A. Milne's stories Pooh is forever wanting 'a little something', meaning honey.",
+     "definitionFit": "Phoney describes something fake, counterfeit or insincere, a synonym for not genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "false"
+    }
+   }
   }
  ]
 }
