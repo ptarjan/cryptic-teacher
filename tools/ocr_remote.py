@@ -234,7 +234,9 @@ def serve():
     "bytes"} and that many bytes of PNG, answered by a JSON line {"words"},
     or a line {"edition", ..., "bytes"} and that many bytes of tar
     (Session.edition), answered by a line {"results", "vlm", "bytes"} and
-    that many bytes of tar; either can be answered by {"error"}."""
+    that many bytes of tar, or a line {"reconstruct": job, "bytes": 0}
+    answered by tools/acquire_book.py's _reconstruct_one(job) as a line; any
+    can be answered by {"error"}."""
     os.environ["PATH"] = str(Path(HOME) / "tess" / "Library" / "bin") + os.pathsep + os.environ["PATH"]
     full_speed()
     # The full pass's 20 sessions share the 28-thread box: two threads each.
@@ -261,6 +263,13 @@ def serve():
             return
         req = json.loads(line)
         data = inp.read(req["bytes"])
+        if "reconstruct" in req:
+            try:
+                import acquire_book
+                say(acquire_book._reconstruct_one(req["reconstruct"]))
+            except Exception as e:  # noqa: BLE001 -- the Mac searches this one itself and says why
+                say({"error": f"{type(e).__name__}: {e}"})
+            continue
         if "edition" in req:
             try:
                 head, back = read_edition_here(req, data, ask_mac)
@@ -351,6 +360,11 @@ class Session:
 
     def read(self, png, which):
         self.send({"which": which}, png)
+        return self.answer(READ_TIMEOUT)
+
+    def reconstruct(self, job):
+        """tools/acquire_book.py's _reconstruct_one(job), run there."""
+        self.send({"reconstruct": job}, b"")
         return self.answer(READ_TIMEOUT)
 
     def edition(self, head, tar):
