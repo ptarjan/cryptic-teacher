@@ -82,6 +82,13 @@ alert_run_failures() {
   alert "the run printed $(printf '%s\n' "$hits" | wc -l | tr -d ' ') failure line(s) nobody had written an alert for:"$'\n'"\`\`\`"$'\n'"$hits"$'\n'"\`\`\`"
 }
 
+# A line a path prints on its way to its own alert: printed, and claimed as
+# that alert's, so alert_run_failures does not report it a second time.
+echo_alerted() {
+  printf '%s\n' "$*"
+  ALERT_CLAIMED="${ALERT_CLAIMED:-}$*"$'\n'
+}
+
 alert() {
   echo "ALERT: $*"
   ALERT_CLAIMED="${ALERT_CLAIMED:-}$*"$'\n'

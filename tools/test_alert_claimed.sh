@@ -56,6 +56,30 @@ check "a claimed traceback does not silence an unrelated failure" \
 
 $traceback" "VALIDATION FAILED")" "1"
 
+# A path that prints its own failure line before alerting claims it by
+# printing it with echo_alerted, so the catch-all does not report it again
+# (VALIDATION FAILED on telegraph-31315, 2026-10-06).
+claimed_line() {  # claimed_line <line> -> catch-all reports for that run
+  rm -rf "$tmp/state"; mkdir -p "$tmp/state"
+  local log="$tmp/run.log"; : > "$log"
+  ALERT_ENV_FILE="$tmp/household/.env" ALERT_STATE_DIR="$tmp/state" \
+  bash -c '
+    . "$1"
+    exec > >(tee -a "$2") 2>&1
+    echo_alerted "$3"
+    alert "annotation validation failed"
+    sleep 1
+    alert_run_failures "$2"
+    sleep 1
+  ' _ "$ROOT/tools/alert.sh" "$log" "$1" >/dev/null 2>&1
+  grep -c "nobody had written an alert for" "$log" | tr -d ' '
+}
+
+check "a failure line printed with echo_alerted is not reported again" \
+  "$(claimed_line "VALIDATION FAILED on telegraph-31315 — reverting those puzzle files")" "0"
+check "the same line printed with echo is still reported" \
+  "$(run "annotation validation failed" "VALIDATION FAILED on telegraph-31315 — reverting those puzzle files")" "1"
+
 # --- the icon says which kind of message this is ---
 # Everything alert.sh sends used to wear a ⚠️, so a blind solve that graded 28/28
 # arrived as a warning (Paul's channel, 2026-09-12). A caller may say otherwise
