@@ -57,6 +57,11 @@ cd "$REPO" || exit 1
 # here was modified by this run. There used to be a DIRTY_BEFORE snapshot
 # subtracted from the final status to guess that instead, and guessing it is
 # what let this job swallow a half-written feature on 2026-08-10.
+# A dropped run's commits (the fetched sources, committed before annotating)
+# are pushed by the next start; its uncommitted annotations are not, since
+# each is validated against that run's HEAD and may be one it was rejecting.
+# shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
+CT_SALVAGE_PATHS=""
 . "$(dirname "$0")/nightly_worktree.sh"
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1

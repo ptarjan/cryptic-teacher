@@ -40,14 +40,24 @@
 # Resumable: each filer's ledger (~/.cache/trove/filed.jsonl,
 # ~/.cache/archive_org_editions/filed.jsonl) is saved after every source,
 # the never-read go first, and a rerun picks up where a killed one stopped.
-# Each filer runs in OCR_FULL_PASS_CHUNK-second slices, each under a hard
-# `timeout`; after each, the puzzles it filed are committed and pushed, so a
-# kill loses at most one slice's files (their readings stay in
-# archiveorg-source). --wait queues behind any other filer holding a ledger.
+# A ledger row marks its source read, so the puzzles it filed must reach git
+# or they are never filed again: each filer runs under tools/durable.sh,
+# which commits and pushes them every DURABLE_EVERY seconds while it reads,
+# and on a stop (SIGTERM: corpus_queue.py stop) ends the filer and commits
+# before exiting; what a SIGKILL or reboot leaves in the tree the next start
+# salvages (CT_SALVAGE_PATHS). Each filer runs in OCR_FULL_PASS_CHUNK-second
+# slices, each under a hard `timeout`. --wait queues behind any other filer
+# holding a ledger.
 #
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
+SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
+# shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
+CT_SALVAGE_PATHS="${SERIES[*]}"
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
+# shellcheck disable=SC2034  # read by the sourced durable.sh
+DURABLE_PATHS=("${SERIES[@]}")
+. tools/durable.sh
 
 # Every line reaches the log as it is printed, never at a slice's end.
 export PYTHONUNBUFFERED=1
@@ -73,18 +83,10 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # clues (f11b6c5), and a clue's run-on line opening on a STOP word
 # ("championship, possibly (4).") no longer ending its column
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-06T13:45:00+00:00}"
-SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
-
-attempt_push() {
-  git fetch -q origin master && { git rebase -q origin/master || { git rebase --abort; false; }; } &&
-    git push -q origin HEAD:master
-}
 
 publish() {  # publish <what>: commit and push the puzzles filed so far
-  git add -- "${SERIES[@]}" || return 1
-  git diff --cached --quiet && return 0
-  git commit -q -m "$(printf 'Full OCR pass: %s\n\n%s' "$1" "$(python3 tools/provenance.py trailer)")" || return 1
-  push_race_retry attempt_push || echo "push failed; the commit stays here and goes with the next slice"
+  durable_checkpoint "Full OCR pass: $1" || return 1
+  durable_resync
 }
 
 slices() {  # slices <what> <filer command...>: run the filer until nothing is left
@@ -95,9 +97,10 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
     echo "=== $what: slice from $(date '+%F %T') ==="
     # Streamed as it goes (a line per source read), so the log shows what it
     # is doing now; the copy in $out is read for the slice's tally.
-    timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait 2>&1 | tee "$out"
-    rc=${PIPESTATUS[0]}
-    publish "$what" || echo "commit failed for $what"
+    DURABLE_TEE="$out" durable_run "Full OCR pass: $what" \
+      timeout "$((CHUNK + GRACE))" nice -n 19 "$@" --seconds "$CHUNK" --workers "$WORKERS" --wait
+    rc=$?
+    durable_resync
     [ "$rc" -eq 0 ] || { echo "$what failed (rc=$rc); stopping"; rm -f "$out"; return 1; }
     grep -q "left for the next run" "$out" || { rm -f "$out"; return 0; }
   done

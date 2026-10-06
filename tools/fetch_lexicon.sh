@@ -24,10 +24,12 @@ fetch() { # fetch <url> <basename> <local-subdir>
     echo "have $name"
   elif [ -s "$LOCAL/$sub/$name" ]; then
     echo "copying $name from $LOCAL/$sub"
-    cp "$LOCAL/$sub/$name" "$DATA/$name"
+    cp "$LOCAL/$sub/$name" "$DATA/$name.part" && mv "$DATA/$name.part" "$DATA/$name"
   else
     echo "downloading $name"
-    curl -sSfL -o "$DATA/$name" "$url/$name"
+    # Through a .part file: a cut-off download would pass the -s test above
+    # and be kept forever.
+    curl -sSfL -o "$DATA/$name.part" "$url/$name" && mv "$DATA/$name.part" "$DATA/$name"
   fi
 }
 
