@@ -127,6 +127,15 @@ def pdf_bytes(name):
 COLUMN_GAP_EM = 1.0
 
 
+#: Glyph names an encoding's /Differences may give a code, as the text they print.
+GLYPHS = {"space": " ", "endash": "–", "emdash": "—", "figuredash": "–",
+          "quoteright": "’", "quoteleft": "‘", "quotedblleft": "“", "quotedblright": "”",
+          "hyphen": "-", "zero": "0", "one": "1", "two": "2", "three": "3", "four": "4",
+          "five": "5", "six": "6", "seven": "7", "eight": "8", "nine": "9"}
+#: Ligature glyphs, read as their letters (the Azed PDFs set "fi" as one glyph).
+LIGATURES = {"fi", "fl", "ff", "ffi", "ffl", "T_h"}
+
+
 def _font_table(font):
     """(code -> char, code -> width in em) for a simple font: WinAnsi bytes,
     with the encoding's /Differences naming the glyph of any code it moves.
@@ -145,11 +154,13 @@ def _font_table(font):
             if isinstance(v, (int, float)) or hasattr(v, "as_numeric"):
                 code = int(v)
                 continue
-            glyph = str(v).lstrip("/")
+            glyph = GLYPHS.get(str(v).lstrip("/"), str(v).lstrip("/"))
+            base = glyph.split(".")[0]
             if len(glyph) == 1:
                 chars[code] = glyph
-            elif glyph == "space":
-                chars[code] = " "
+            elif base in LIGATURES or (len(base) == 1 and base.isalpha()):
+                # "fi", "ffl"; "f.short" is an f; "T_h" is the Th ligature.
+                chars[code] = base.replace("_", "")
             code += 1
     first = int(font.get("/FirstChar", 0))
     for i, w in enumerate(font.get("/Widths") or []):

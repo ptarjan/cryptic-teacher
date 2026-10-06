@@ -498,6 +498,19 @@ tools/azed_puzzles.py                        files the Observer's barred Azed fr
                                              and numbered answers with the FT's reader and
                                              rebuilds the bars from them, so a special whose
                                              answers go in altered is not filed
+tools/andlit_azed.py                         files the Azed from the Guardian's own printable
+                                             copies, found through andlit.org.uk's index: reads
+                                             the clues and the barred grid off the HTML print
+                                             page's bordered table or the PDF's ruled lines,
+                                             checks the numbering against the numbers printed
+                                             in the grid and the clue list, and takes
+                                             fifteensquared's answers where a post has them;
+                                             the nightly fetches a bounded slice
+tools/test_andlit_azed.sh                    holds that reader to hand-drawn lattices, stroked
+                                             and filled, beside a smaller solution grid, a
+                                             bordered HTML table, cell numbers run together,
+                                             and a clue list with notes and form lines between
+                                             clues
 tools/genius_puzzles.py                      files the Guardian's monthly Genius from its
                                              printable PDFs on uploads.guim.co.uk (clues and
                                              preamble read as text, the grid from its image)

@@ -124,6 +124,16 @@ def _causes():
                 filer, f"the filer refused it: {words} ({file_blog_puzzles.FILINGS} `cause`)"
                 + ("; a grid rebuilt from an answers-only post, exhausted on the blog" if key == "no-clue" else ""),
                 key != "no-clue", False)
+    import andlit_azed
+    out[("andlit", "not-fetched")] = Cause(
+        "tools/andlit_azed.py", "the nightly fetches its Guardian copy through andlit.org.uk's "
+        "index (AZED_PER_NIGHT a night), then files it", True, False)
+    out[("andlit", "not-read")] = Cause(
+        "tools/andlit_azed.py", "its copy is cached and no filing run has tried it: andlit_azed.py file", True, False)
+    for key, means in andlit_azed.CAUSES.items():
+        out[("andlit", key)] = Cause(
+            "tools/andlit_azed.py", f"held.json: {means}",
+            key not in ("not-text", "other-puzzle", "special", "post-misses"), False)
     out[("ft-pdf", "not-fetched")] = Cause("tools/ft_pdf_puzzles.py", "fetch its PDF", True, False)
     import ft_pdf_puzzles
     for key, means in ft_pdf_puzzles.FETCH_CAUSES.items():
@@ -287,6 +297,18 @@ def ft_pdf_rows():
             yield int(n), meta.get("date"), cause
 
 
+def andlit_rows():
+    """(number, cause) of every Azed andlit.org.uk's index lists, unfiled or not."""
+    import andlit_azed
+    try:
+        held = {int(k): v for k, v in json.loads(andlit_azed.HELD.read_text()).items()}
+    except (OSError, ValueError):
+        held = {}
+    for n in andlit_azed.index():
+        cause = held.get(n) or ("not-read" if andlit_azed.cached(n) else "not-fetched")
+        yield n, cause
+
+
 def gale_rows(by_number):
     """(series, date, cause) of every Gale page the scan filer has read and not filed."""
     for row in archive_coverage.ledger().values():
@@ -354,6 +376,9 @@ def build(today=None):
             claim_dated(ledgers[s], blog, dates, cause)
         elif s in numbered:
             numbered[s][2].add((n, blog, cause))
+    if "azed" in numbered:
+        for n, cause in andlit_rows():
+            numbered["azed"][2].add((n, "andlit", cause))
     for s, (first, held, listed) in numbered.items():
         led = Ledger(s, "numbers")
         # Up to the highest number held: a blog's stray number (a typo, another
