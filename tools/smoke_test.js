@@ -5915,6 +5915,33 @@ global.realSetTimeout(() => {
       + `${found.e.annotation.type}: ` + JSON.stringify(v));
   }
 
+  // An anagram that makes only part of the answer is not told to "add up to the
+  // number in brackets": on CHOMPED, MP inside an anagram of COD HE, that line
+  // sent a solver looking to shuffle MP in too (9740 27a).
+  {
+    const letters = (s) => String(s || "").replace(/[^A-Za-z]/g, "").length;
+    // Anagram leads the type rung unless a definition or &lit family outranks it.
+    const part = (a) => (a.type || []).includes("anagram")
+      && !(a.type || []).some((k) => ["definition", "and_lit"].includes(TYPE_FAMILY[k]))
+      && (a.assembly || {}).anagrams
+      && a.assembly.anagrams.length
+      && Math.max(...a.assembly.anagrams.map((x) => letters(x.gives))) < letters(a.answer);
+    found = null;
+    for (const id of Object.keys(puzzles).sort()) {
+      for (const e of puzzles[id].entries || []) {
+        if (e.annotation && part(e.annotation)) { found = { id, e }; break; }
+      }
+      if (found) break;
+    }
+    assert(found, "some clue's anagram makes only part of its answer");
+    open();
+    registry["guess-tell"].onclick();
+    const rung = rungOf(registry["hint-body"].innerHTML);
+    assert(/Anagram/.test(named(registry["hint-body"].innerHTML)[0] || "") && /come up short/.test(rung)
+      && !/add up to the number in brackets/.test(rung),
+      `${found.id} ${entryId(found.e)}: a partial anagram's type rung says its letters come up short — ` + rung);
+  }
+
   // How the ladder works is said once and then stops. It is a line about the
   // whole ladder, so once a rung has been worked out it has been demonstrated,
   // and a solver who has done it does not need telling again on every clue they

@@ -3109,6 +3109,16 @@
   function typeLabels(types) {
     return (types || []).map((t) => TYPES[t].label).join(" + ");
   }
+  // The anagram family's blurb for a clue whose anagram is only part of the
+  // answer (see the type rung in ladderSteps). It says the letters fall short
+  // and nothing about how the rest is made: that is the blocks rung's to tell.
+  const ANAGRAM_PART = "Letters handed to you in the clue get shuffled, but here they make only part of the answer: " +
+    "they come up short of the number in brackets, and the rest arrives another way.";
+  const letterCount = (s) => String(s || "").replace(/[^A-Za-z]/g, "").length;
+  function partAnagram(ann) {
+    const made = ((ann.assembly || {}).anagrams || []).map((a) => letterCount(a.gives));
+    return made.length > 0 && Math.max(...made) < letterCount(ann.answer);
+  }
 
   // Fixed prose with the clue's answer blanked out. The family and type
   // sentences are written once for every clue of their kind, so each word in
@@ -3834,11 +3844,18 @@
     // Only the dominant family: a headline names one mechanism. The others a
     // compound type is made of still grade right on this rung's quiz
     // (familyAsk), so a solver who names any of them is not marked wrong.
+    //
+    // The anagram blurb says to check the shuffled letters "add up to the number
+    // in brackets", which is false whenever the anagram is only a piece of the
+    // answer, and a solver who believes it goes hunting for the missing letters
+    // to throw in: on CHOMPED, MP inside an anagram of COD HE, "Shouldn't the
+    // anagram include mp" (9740 27a). So when no anagram the annotation builds
+    // is as long as the answer, the rung says the count comes up short instead.
     if (t.length) steps.push({
       key: "type",
       label: LABELS.type,
       html: [familyOf(t)].map((f) => `<p><strong>${esc(maskAnswer(f.label, ann.answer))}</strong>. ` +
-        `${esc(maskAnswer(f.blurb, ann.answer))}</p>`).join("")
+        `${esc(maskAnswer(f.name === "anagram" && partAnagram(ann) ? ANAGRAM_PART : f.blurb, ann.answer))}</p>`).join("")
     });
 
     // The exact mechanism, held back until every spotting rung is behind the
