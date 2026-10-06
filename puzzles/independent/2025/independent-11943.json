@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Cruel and pointless to confiscate drone",
     "enumeration": "8"
    },
-   "solution": "INHUMANE"
+   "solution": "INHUMANE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INHUMANE",
+    "definitions": [
+     {
+      "text": "Cruel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to confiscate",
+      "for": "container",
+      "note": "to confiscate is to take something and hold it, so one word swallows the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pointless",
+      "gives": "INANE",
+      "note": "pointless means silly and empty of sense"
+     },
+     {
+      "clueFragment": "drone",
+      "gives": "HUM",
+      "note": "a drone is a low continuous hum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "HUM",
+      "ANE"
+     ]
+    },
+    "explanation": {
+     "surface": "Seizing someone's drone and destroying it is a cruel, petty act.",
+     "definitionFit": "Someone lacking compassion and treating others harshly is acting in an inhumane, cruel way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drone"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,58 @@
     "text": "Bank of Scotland steadier once cocaine's banned",
     "enumeration": "4"
    },
-   "solution": "BRAE"
+   "solution": "BRAE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BRAE",
+    "definitions": [
+     {
+      "text": "Bank of Scotland",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "banned",
+      "for": "deletion",
+      "note": "what is banned is kept out, so that letter is removed from the word"
+     }
+    ],
+    "linkWords": [
+     "once"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "steadier",
+      "gives": "BRACE",
+      "note": "a brace is a support that holds something steady"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is slang shorthand for cocaine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Reads like a joke about a jittery Bank of Scotland employee being calmer since giving up drugs.",
+     "walkthrough": "'Bank of Scotland' looks like the financial institution, but it means a Scottish hillside.",
+     "definitionFit": "A brae is the Scots word for a hillside or steep slope, the kind of bank found along a river valley."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +165,57 @@
     "text": "Gets up around noon and has a wash",
     "enumeration": "6"
    },
-   "solution": "RINSES"
+   "solution": "RINSES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RINSES",
+    "definitions": [
+     {
+      "text": "has a wash",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around places one word's letters on either side of the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gets up",
+      "gives": "RISES",
+      "note": "to get up in the morning is to rise"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "N",
+      "SES"
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy morning: someone rolls out of bed at midday and takes a shower.",
+     "definitionFit": "To rinse is to clean with water, so someone who rinses gives themselves or something a quick clean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "noon"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +229,51 @@
     "text": "Rue posh, distressed musician mourning his wife",
     "enumeration": "7"
    },
-   "solution": "ORPHEUS"
+   "solution": "ORPHEUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORPHEUS",
+    "definitions": [
+     {
+      "text": "musician mourning his wife",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distressed",
+      "for": "anagram",
+      "note": "distressed means battered or upset, so the letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rue posh",
+      "gives": "RUEPOSH",
+      "note": "the seven letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RUEPOSH",
+       "gives": "ORPHEUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grieving musician regretting his snobbishness in his distress.",
+     "walkthrough": "In Greek myth Orpheus, the great lyre player, lost his wife Eurydice and went down to the underworld to bring her back.",
+     "definitionFit": "The mythical lyre player famously grieved for his dead wife Eurydice and sang laments for her."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "distressed"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +287,92 @@
     "text": "Is mineral up in Orkney essentially close to miracle fuel?",
     "enumeration": "8"
    },
-   "solution": "KEROSINE"
+   "solution": "KEROSINE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "KEROSINE",
+    "definitions": [
+     {
+      "text": "fuel",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading the words from bottom to top"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only the middle letters are taken"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the following ones"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its ending, so only the final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Orkney",
+      "gives": "KN",
+      "select": "middle",
+      "note": "the central two letters of the island name"
+     },
+     {
+      "clueFragment": "Is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mineral",
+      "gives": "ORE",
+      "note": "ore is mineral rock that is mined"
+     },
+     {
+      "clueFragment": "miracle",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "EROSI",
+      "N",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ISORE",
+       "to": "EROSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a mineral found in the Orkney Islands might be a wonder fuel.",
+     "walkthrough": "'up' applies to both 'Is' and 'mineral' read together, and the reversed pair sits between the island's two central letters.",
+     "definitionFit": "Kerosine, also spelt kerosene, is paraffin oil, burned in lamps, heaters and jet engines."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Orkney"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +386,62 @@
     "text": "Got rid of the best diamonds, receiving old money",
     "enumeration": "10"
    },
-   "solution": "ELIMINATED"
+   "solution": "ELIMINATED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ELIMINATED",
+    "definitions": [
+     {
+      "text": "Got rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "receiving means taking something in, so one word holds the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the best",
+      "gives": "ELITE",
+      "note": "the elite are the best of a group"
+     },
+     {
+      "clueFragment": "old money",
+      "gives": "MINA",
+      "note": "a mina was an ancient Greek and Near Eastern unit of currency"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D is the abbreviation for diamonds in card games"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELI",
+      "MINA",
+      "TE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A jeweller's top stones are sold off in exchange for old-fashioned cash.",
+     "walkthrough": "The money goes inside the word for the best, and the diamonds letter is added at the end.",
+     "definitionFit": "To eliminate something is to remove it entirely, which is getting rid of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +455,55 @@
     "text": "Equal parts stiff and hot after exercising",
     "enumeration": "6"
    },
-   "solution": "FIFTHS"
+   "solution": "FIFTHS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FIFTHS",
+    "definitions": [
+     {
+      "text": "Equal parts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after exercising",
+      "for": "anagram",
+      "note": "exercising works something hard, and the letters are worked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stiff",
+      "gives": "STIFF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on a tap"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STIFFH",
+       "gives": "FIFTHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describes muscles feeling stiff and overheated once a workout is over.",
+     "definitionFit": "Dividing something into five equal portions gives fifths, each the same size as the others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercising"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +517,79 @@
     "text": "Called back, cross, but not initially getting more ill-tempered",
     "enumeration": "8"
    },
-   "solution": "GNARLIER"
+   "solution": "GNARLIER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "GNARLIER",
+    "definitions": [
+     {
+      "text": "more ill-tempered",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells us to read the word for called from right to left"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word that follows it"
+     },
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means without, so that letter is dropped from the cross"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Called",
+      "gives": "RANG",
+      "note": "rang means telephoned, or called"
+     },
+     {
+      "clueFragment": "cross",
+      "gives": "LIGER",
+      "note": "a liger is the cross between a lion and a tigress"
+     },
+     {
+      "clueFragment": "getting",
+      "gives": "G",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GNAR",
+      "LIER"
+     ],
+     "reversals": [
+      {
+       "from": "RANG",
+       "to": "GNAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone phoned back, angry, and is growing grumpier by the minute.",
+     "walkthrough": "'cross' wants to mean angry and so join the definition, but here it is a hybrid animal; 'initially getting' is the letter removed from it.",
+     "definitionFit": "Gnarly can mean bad-tempered or cantankerous, so gnarlier is the comparative, more grumpy or irritable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cross"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +603,67 @@
     "text": "Lackey occasionally returns bearing cake",
     "enumeration": "6"
    },
-   "solution": "ECLAIR"
+   "solution": "ECLAIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ECLAIR",
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is kept"
+     },
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returns means comes back, so the kept letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lackey",
+      "gives": "LCE",
+      "select": "alternate",
+      "note": "the first, third and fifth letters"
+     },
+     {
+      "clueFragment": "bearing",
+      "gives": "AIR",
+      "note": "an air is a person's manner or bearing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECL",
+      "AIR"
+     ],
+     "reversals": [
+      {
+       "from": "LCE",
+       "to": "ECL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant periodically comes back carrying a cake.",
+     "definitionFit": "An eclair is a long choux pastry cake filled with cream and topped with chocolate icing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bearing"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +677,50 @@
     "text": "With nothing on television, you played Solitaire in the end",
     "enumeration": "4"
    },
-   "solution": "NUDE"
+   "solution": "NUDE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NUDE",
+    "definitions": [
+     {
+      "text": "With nothing on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the end",
+      "for": "letter_selection",
+      "note": "in the end points to the closing letter of each of the four words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "television, you played Solitaire",
+      "gives": "NUDE",
+      "select": "last",
+      "note": "the final letter of each word in turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing worth watching on TV, so you ended up playing a card game alone.",
+     "walkthrough": "'With nothing on' seems to describe the television schedule, but it is the definition for being unclothed.",
+     "definitionFit": "Someone wearing no clothes at all is naked, or has nothing on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +734,39 @@
     "text": "Classy fellow?",
     "enumeration": "10"
    },
-   "solution": "SCHOOLMATE"
+   "solution": "SCHOOLMATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SCHOOLMATE",
+    "definitions": [
+     {
+      "text": "Classy fellow?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Classy fellow?",
+      "note": "surface reading: a stylish, refined gentleman"
+     },
+     {
+      "clueFragment": "Classy fellow?",
+      "note": "setter's reading: a fellow belonging to the same school class as you"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Classy' is read not as elegant but as 'of the class', and 'fellow' as a companion or peer.",
+     "definitionFit": "A pupil who shares your class at school is a fellow member of that class, a classmate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Classy"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +780,56 @@
     "text": "Setter's almost broken foot",
     "enumeration": "6"
    },
-   "solution": "IAMBUS"
+   "solution": "IAMBUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "IAMBUS",
+    "definitions": [
+     {
+      "text": "foot",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Setter's",
+      "gives": "IAM",
+      "note": "the setter speaking of themself: 'I am'"
+     },
+     {
+      "clueFragment": "broken",
+      "gives": "BUST",
+      "note": "bust means broken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IAM",
+      "BUS"
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword compiler nearly fractured a foot.",
+     "walkthrough": "'foot' looks anatomical, but here it is a unit of verse rhythm.",
+     "definitionFit": "An iambus, or iamb, is a metrical foot in poetry of one unstressed syllable then one stressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foot"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +849,69 @@
      }
     ]
    },
-   "solution": "BLACKMARIA"
+   "solution": "BLACKMARIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BLACK MARIA",
+    "definitions": [
+     {
+      "text": "police vehicle",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters are made into a new arrangement"
+     },
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping around, so the rearranged letters enclose the distance"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "IRA cabal",
+      "gives": "IRACABAL",
+      "note": "the eight letters taken as written"
+     },
+     {
+      "clueFragment": "distance",
+      "gives": "KM",
+      "note": "km, the kilometre, is a unit of distance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLAC",
+      "KM",
+      "ARIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRACABAL",
+       "gives": "BLACARIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh terrorist clique travels some way inside a police van.",
+     "definitionFit": "A Black Maria is an old slang name for a police van used to carry prisoners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "distance"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +925,60 @@
     "text": "Get workers together in country club and celebrate after leader's departure",
     "enumeration": "8"
    },
-   "solution": "UNIONISE"
+   "solution": "UNIONISE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNIONISE",
+    "definitions": [
+     {
+      "text": "Get workers together",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after leader's departure",
+      "for": "deletion",
+      "note": "once the leader has departed, the front letter is gone"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country club",
+      "gives": "UN",
+      "note": "the United Nations is a club whose members are countries"
+     },
+     {
+      "clueFragment": "celebrate",
+      "gives": "LIONISE",
+      "note": "to lionise is to celebrate someone as a star"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "IONISE"
+     ]
+    },
+    "explanation": {
+     "surface": "Staff gather at a country club to party.",
+     "walkthrough": "'country club' suggests golf and tennis, but it is the organisation of nations.",
+     "definitionFit": "To unionise is to organise employees into a trade union, bringing staff together collectively."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +992,54 @@
     "text": "Contradicted requirement to conceal firearm",
     "enumeration": "7"
    },
-   "solution": "NEGATED"
+   "solution": "NEGATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEGATED",
+    "definitions": [
+     {
+      "text": "Contradicted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to conceal",
+      "for": "container",
+      "note": "to conceal is to hide inside, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requirement",
+      "gives": "NEED",
+      "note": "a need is a requirement"
+     },
+     {
+      "clueFragment": "firearm",
+      "gives": "GAT",
+      "note": "gat is old US slang for a gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "GAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Refuting a rule that guns be kept hidden.",
+     "definitionFit": "To negate a statement is to deny or nullify it, which is to contradict it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firearm"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1053,67 @@
     "text": "Spoke movingly of English city briefly invaded by foreign soldiers",
     "enumeration": "8"
    },
-   "solution": "ELEGISED"
+   "solution": "ELEGISED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "ELEGISED",
+    "definitions": [
+     {
+      "text": "Spoke movingly of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter of the city is dropped"
+     },
+     {
+      "text": "invaded by",
+      "for": "container",
+      "note": "invaded by means having others come inside, so the soldiers go in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "LEEDS",
+      "note": "Leeds is a city in Yorkshire, northern England"
+     },
+     {
+      "clueFragment": "foreign soldiers",
+      "gives": "GIS",
+      "note": "GIs are American soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LE",
+      "GIS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker describes, with feeling, a northern city overrun by overseas troops.",
+     "definitionFit": "To elegise someone is to write or speak an elegy, a mournful lament, about them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "soldiers"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1127,50 @@
     "text": "Fascist force gets OAP shot",
     "enumeration": "7"
    },
-   "solution": "GESTAPO"
+   "solution": "GESTAPO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GESTAPO",
+    "definitions": [
+     {
+      "text": "Fascist force",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "shot means wrecked or ruined, so the letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gets OAP",
+      "gives": "GETSOAP",
+      "note": "the seven letters taken as written; an OAP is an old-age pensioner"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETSOAP",
+       "gives": "GESTAPO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sinister paramilitary unit guns down a pensioner.",
+     "definitionFit": "The Gestapo was the secret state police of Nazi Germany, the fascist regime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1184,66 @@
     "text": "Put books on top of Allen organ",
     "enumeration": "8"
    },
-   "solution": "PLACENTA"
+   "solution": "PLACENTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PLACENTA",
+    "definitions": [
+     {
+      "text": "organ",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "in a down entry the top of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Put",
+      "gives": "PLACE",
+      "note": "to put something down is to place it"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a collection of books of the Bible"
+     },
+     {
+      "clueFragment": "Allen",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLACE",
+      "NT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A musician stacks some volumes on an organ built by Allen, a maker of church organs.",
+     "walkthrough": "'organ' looks like the musical instrument but is a body organ.",
+     "definitionFit": "The placenta is the organ in the womb that nourishes a foetus during pregnancy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "organ"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1257,63 @@
     "text": "Top copper sees support for uniform going up more sharply",
     "enumeration": "7"
    },
-   "solution": "STEEPER"
+   "solution": "STEEPER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "STEEPER",
+    "definitions": [
+     {
+      "text": "going up more sharply",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for means in place of, so one piece is swapped in where the other was"
+     }
+    ],
+    "linkWords": [
+     "sees"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top copper",
+      "gives": "SUPER",
+      "note": "a super is a police superintendent, a senior officer"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "TEE",
+      "note": "a tee supports a golf ball"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "U is uniform in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEE",
+      "PER"
+     ]
+    },
+    "explanation": {
+     "surface": "A senior police officer notices that the cost of uniforms is rising faster.",
+     "walkthrough": "'going up' looks like a reversal signal in a down clue, but it belongs to the definition.",
+     "definitionFit": "A slope that rises more abruptly is steeper, climbing at a sharper angle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1333,64 @@
      }
     ]
    },
-   "solution": "RACKRENT"
+   "solution": "RACKRENT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RACK-RENT",
+    "definitions": [
+     {
+      "text": "Exorbitant demand for payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cross",
+      "for": "container",
+      "note": "to cross is to lie across something, so one word straddles the river letter"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drivers",
+      "gives": "RAC",
+      "note": "the RAC, Royal Automobile Club, is a British motoring organisation for drivers"
+     },
+     {
+      "clueFragment": "in Scotland known",
+      "gives": "KENT",
+      "note": "kent is the Scots past participle of ken, to know"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAC",
+      "K",
+      "R",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Scottish motorists receive a famously excessive bill for crossing a river.",
+     "definitionFit": "A rack-rent is an extortionate rent, as high as or higher than the property's annual value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drivers"
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1404,50 @@
     "text": "Passage in part of course missing introduction",
     "enumeration": "6"
    },
-   "solution": "AIRWAY"
+   "solution": "AIRWAY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AIRWAY",
+    "definitions": [
+     {
+      "text": "Passage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing introduction",
+      "for": "deletion",
+      "note": "without its introduction the word lacks its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "part of course",
+      "gives": "FAIRWAY",
+      "note": "on a golf course, the fairway is the mown strip between tee and green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIRWAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A section of a lesson plan has lost its opening.",
+     "definitionFit": "An airway is a passage through which air passes, such as the windpipe or a mine ventilation shaft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1461,67 @@
     "text": "Home help recalled New Delhi resident, perhaps",
     "enumeration": "6"
    },
-   "solution": "INDIAN"
+   "solution": "INDIAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "INDIAN",
+    "definitions": [
+     {
+      "text": "Delhi resident, perhaps",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the word is read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     },
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid means help"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DIA",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "AID",
+       "to": "DIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A domestic servant was summoned back by someone living in India's capital.",
+     "walkthrough": "'New Delhi' reads as one place name, but 'New' is split off for the wordplay; 'perhaps' shows the definition is an example.",
+     "definitionFit": "Someone living in Delhi is an example of a person from India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "New"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1541,53 @@
      }
     ]
    },
-   "solution": "INSITU"
+   "solution": "INSITU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN SITU",
+    "definitions": [
+     {
+      "text": "Where it should be",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "what is in is fashionable or popular"
+     },
+     {
+      "clueFragment": "pose",
+      "gives": "SIT",
+      "note": "to sit for a portrait is to pose"
+     },
+     {
+      "clueFragment": "for all to see",
+      "gives": "U",
+      "note": "U is the British film certificate for universal viewing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SIT",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular model poses openly for the public.",
+     "walkthrough": "U is the British film classification suitable for all audiences.",
+     "definitionFit": "In situ is Latin for in its original or proper place, exactly where something belongs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pose"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1601,64 @@
     "text": "Some revolutionary odourless resin agronomist gives runners?",
     "enumeration": "10"
    },
-   "solution": "ORGANISERS"
+   "solution": "ORGANISERS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "ORGANISERS",
+    "definitions": [
+     {
+      "text": "runners?",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means a portion, so the letters are a part of the words that follow"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "revolutionary means turning round, so the portion is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odourless resin agronomist",
+      "gives": "SRESINAGRO",
+      "note": "a run of letters straddling the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORGANISERS"
+     ],
+     "reversals": [
+      {
+       "from": "SRESINAGRO",
+       "to": "ORGANISERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wonders whether a radical agricultural scientist's scentless resin produces athletes.",
+     "walkthrough": "'runners' suggests athletes or plant shoots, but the question mark signals people who run events.",
+     "definitionFit": "People who run an event or business are the ones who arrange and manage it, its organisers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runners"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1672,50 @@
     "text": "Portion of ground dark meat with no sides at all",
     "enumeration": "4"
    },
-   "solution": "AREA"
+   "solution": "AREA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AREA",
+    "definitions": [
+     {
+      "text": "Portion of ground",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no sides at all",
+      "for": "letter_selection",
+      "note": "removing every side means each word loses both its outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dark meat",
+      "gives": "AREA",
+      "select": "middle",
+      "note": "the inside letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AREA"
+     ]
+    },
+    "explanation": {
+     "surface": "A cut of dark meat served with no side dishes at all.",
+     "walkthrough": "'sides' suggests vegetables accompanying a meal, but it means each word's first and last letters.",
+     "definitionFit": "An area is a region or tract of land, a section of ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sides"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1729,51 @@
     "text": "Sit next to monkey that's animated and tense",
     "enumeration": "4"
    },
-   "solution": "ABUT"
+   "solution": "ABUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABUT",
+    "definitions": [
+     {
+      "text": "Sit next to",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monkey that's animated",
+      "gives": "ABU",
+      "note": "Abu is Aladdin's pet monkey in the Disney cartoon"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "T",
+      "note": "T is the grammatical abbreviation for tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABU",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Sitting beside a lively, nervous monkey.",
+     "walkthrough": "'animated' seems to mean lively, but it marks a cartoon character.",
+     "definitionFit": "Things that abut share a border, lying directly beside one another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "animated"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1787,49 @@
     "text": "Somewhere in Africa, Anglican causes ill-will",
     "enumeration": "6"
    },
-   "solution": "MALICE"
+   "solution": "MALICE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MALICE",
+    "definitions": [
+     {
+      "text": "ill-will",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somewhere in Africa",
+      "gives": "MALI",
+      "note": "Mali is a country in West Africa"
+     },
+     {
+      "clueFragment": "Anglican",
+      "gives": "CE",
+      "note": "CE stands for the Church of England, the Anglican church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALI",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "An Anglican presence somewhere in Africa provokes hostility.",
+     "definitionFit": "Malice is the wish to harm others, a spiteful feeling of hostility."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Anglican"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1843,66 @@
     "text": "Terrible heartless sins nutter commits",
     "enumeration": "8"
    },
-   "solution": "ENTRUSTS"
+   "solution": "ENTRUSTS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ENTRUSTS",
+    "definitions": [
+     {
+      "text": "commits",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "heartless means losing the heart, so the central letters of the first word go"
+     },
+     {
+      "text": "Terrible",
+      "for": "anagram",
+      "note": "terrible means awful or wrecked, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sins",
+      "gives": "SINS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nutter",
+      "gives": "NUTTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTRUSTS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SSNUTTER",
+       "gives": "ENTRUSTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A madman perpetrates awful, cruel sins.",
+     "walkthrough": "'commits' looks like the verb for doing sins, but it means hands over for safekeeping.",
+     "definitionFit": "To commit something to someone's care is to hand it over trustingly, to entrust it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "commits"
+    }
+   }
   }
  ]
 }
