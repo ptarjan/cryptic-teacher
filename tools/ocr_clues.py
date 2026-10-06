@@ -174,7 +174,8 @@ def read_words(img, which):
     crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
     words = ocr_remote.words(crop, which)
     if words is None:
-        words = raw_words(crop, which)
+        with ocr_remote.local_slot():
+            words = raw_words(crop, which)
     return [(int(x0 / UPSCALE), int(y0 / UPSCALE), int(x1 / UPSCALE), int(y1 / UPSCALE), t)
             for x0, y0, x1, y1, t in words]
 

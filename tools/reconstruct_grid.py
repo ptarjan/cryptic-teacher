@@ -893,14 +893,15 @@ def reconstruct(spec, cols=15, rows=15, limit=DEFAULT_LIMIT, symmetry=True,
 
 
 def unique_grid(spec, cols=15, rows=15, words=None, max_nodes=DEFAULT_MAX_NODES,
-                max_black_run=None, pick=None, limit=DEFAULT_LIMIT):
+                max_black_run=None, pick=None, limit=DEFAULT_LIMIT, search=None):
     """(grid, None) when exactly one grid prints these lights and the search
     finished, else (None, why not): a filer backsolving a grid from its clue
     list files it only then. `pick`, given every grid of a finished search
     that found several, returns the one other evidence (a scan of the grid)
-    settles on, or None."""
+    settles on, or None. `search` runs reconstruct() (another host's,
+    tools/ocr_remote.py's)."""
     try:
-        found, info = reconstruct(spec, cols=cols, rows=rows,
+        found, info = (search or reconstruct)(spec, cols=cols, rows=rows,
                                   limit=limit if pick else 2,
                                   max_nodes=max_nodes, words=words,
                                   max_black_run=max_black_run)
