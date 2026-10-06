@@ -198,7 +198,7 @@ read = []
 def slow(d, taken):
     read.append(d.name)
     time.sleep(0.2)
-    return {"skip": "test"}, None
+    return {"skip": "test"}, None, None
 F.consider = slow
 def tread(**kw):
     read.clear()
@@ -212,7 +212,7 @@ check("Trove: an article read without the VLM is read again once it answers", 3,
 F.vlm.version = lambda: "v2"
 check("Trove: a new VLM model alone makes nothing due", [], tread())
 real_consider = F.consider_article
-F.consider_article = lambda d: (read.append(d.name) or ({"skip": "test"}, None, d.name < "200"))
+F.consider_article = lambda d: (read.append(d.name) or ({"skip": "test"}, None, None, d.name < "200"))
 check("Trove: every article is read through a mid-run outage", ["100", "200", "300"], tread(reread=q.when("2100-01-01T00:00:00+00:00")))
 F.vlm.reachable = lambda: False
 check("Trove: while the VLM is down, the articles read without it wait", [], tread())
