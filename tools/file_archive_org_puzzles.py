@@ -32,7 +32,10 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     clue by that clue's own number and count (lay_loose); the rest are
     misreads, filed blank. Else it is rebuilt from the clue list
     (tools/reconstruct_grid.py), nearest the scan when several fit, and the
-    puzzle is filed only when the clues lie on the rebuilt grid.
+    puzzle is filed only when the clues lie on the rebuilt grid. When no
+    grid fits the clues the scan's grid stands, the lights no clue lies on
+    blank: on the 1970s-80s scans the grid reads true and the clue OCR is
+    what fails.
   - Every clue's words and marks are then put to the other readings
     (agree): each word takes the lexicon spelling most readings share, a
     tie going to the one most like every reading's word; a non-word stands
@@ -1772,14 +1775,20 @@ def read_puzzle(d, found, hit, solutions):
                       for k, t in texts.items() if t.strip()]
     if grid is None:
         g, why = ftp.rebuild(parsed, image)
-        if g is None:
+        if g is None and image:
+            # No grid fits the clues, so the misreads are the clues': the
+            # scan's grid stands, its unlaid lights blank for the clue
+            # re-read.
+            grid, how, laid = image, "image", loose
+        elif g is None:
             verdict["pending"] = f"no grid: {why}"
             return verdict, None
-        laid, why = ftp.match(parsed, g)
-        if laid is None:
-            verdict["pending"] = f"rebuilt grid disagrees: {why}"
-            return verdict, None
-        grid, how = g, "rebuilt"
+        else:
+            laid, why = ftp.match(parsed, g)
+            if laid is None:
+                verdict["pending"] = f"rebuilt grid disagrees: {why}"
+                return verdict, None
+            grid, how = g, "rebuilt"
     verdict["grid"] = how
     lengths = {f"{n_}-{d_}": len(cells) for (n_, d_), cells in rg.light_cells(grid).items()}
     fits = {lid for lid, (_, enum, group) in laid.items()
