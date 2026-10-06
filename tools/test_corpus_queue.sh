@@ -2,7 +2,7 @@
 # Does tools/corpus_queue.py take a recycled pid for a dead job, see a
 # filer's ledger lock, kill all of a dead job's session, start the full pass
 # with no edition list, count a pass that finished or read a source as
-# progress and hold it after two dead launches, and refuse any edition-list
+# progress (or fetched one) and hold it after two dead launches, and refuse any edition-list
 # job; and does tools/archive_coverage.py count the editions the Times
 # printed (no Sundays, no Christmas, none in the 1979 lock-out) and give an
 # unfiled edition the class its ledger row says?
@@ -72,7 +72,9 @@ st = run_pass("exit 0")
 assert args.read_text().strip() == "", "the pass takes no arguments: no edition list"
 assert st["lastExit"]["rc"] == 0 and st["deadLaunches"] == 0, st
 assert run_pass(f"echo row >> {ledger}; exit 1")["deadLaunches"] == 0, "an unfinished pass that read a source made progress"
-assert run_pass("exit 1")["deadLaunches"] == 1, "one that read nothing is a dead launch"
+q.FETCHED[0].parent.mkdir(parents=True, exist_ok=True)
+assert run_pass(f"echo edition >> {q.FETCHED[0]}; exit 1")["deadLaunches"] == 0, "one that fetched made progress"
+assert run_pass("exit 1")["deadLaunches"] == 1, "one that read and fetched nothing is a dead launch"
 assert run_pass("exit 1")["held"], "two in a row hold the pass"
 assert q.tick(False) == "held" and "held" in woken[-1], woken
 q.main(["release"])

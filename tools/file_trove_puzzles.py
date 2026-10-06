@@ -1104,6 +1104,9 @@ def _run(cache, write, ledger, out, puzzles, deadline, workers, reread, articles
         if d in due:
             tally["left for the next run"] = tally.get("left for the next run", 0) + 1
             continue
+        if row is None:  # cached, never read, and not asked for in this run (--article)
+            tally["not read"] = tally.get("not read", 0) + 1
+            continue
         key = ("filed" if row.get("id") else
                f"skipped: {row['skip']}" if row.get("skip") else
                f"pending: {row['pending'].split(':')[0]}" if row.get("pending") else

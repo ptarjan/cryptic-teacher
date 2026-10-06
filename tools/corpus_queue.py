@@ -7,7 +7,10 @@
     python3 tools/corpus_queue.py stop               # kill the pass's whole session and hold it
     python3 tools/corpus_queue.py release            # let a held pass start again
 
-There is one job and it takes no edition list. The scan filers decide what
+There is one job and it takes no edition list. It first runs the scan
+fetchers (archive.org editions, Trove articles and clue zones), each for a
+bounded slice that resumes where the last stopped, so a fetcher change such as
+a DETECTOR_VERSION bump is fetched by the next pass. The scan filers decide what
 is due (each one's due_reason: never read, inputs changed, read without the
 VLM that now answers, read before ocr_full_pass.sh's REREAD_BEFORE) and the
 pass reads all of it, plus the open annotation re-read requests, then ends.
@@ -21,7 +24,7 @@ recycled pid is not mistaken for it), or when a scan filer holds a ledger
 lock (tools/scan_queue.py lock(): any filer run by hand). A tick that finds
 either does nothing but check the pass's log: no new line for STALL_MINUTES
 wakes the room once per stall. A pass that ends, not finished, without a
-ledger row read is a dead launch; DEAD_LAUNCHES in a row hold the pass and
+ledger row read or a scan fetched (FETCHED) is a dead launch; DEAD_LAUNCHES in a row hold the pass and
 tell the room. The pass is its own session; when its leader is gone the
 tick kills whatever of the session is left before it starts anything.
 """
@@ -46,6 +49,11 @@ STATE = STATE_DIR / "state.json"
 EXIT = STATE_DIR / "full_pass.exit"
 LOG = STATE_DIR / "full_pass.log"
 LEDGERS = [HOME / ".cache" / "archive_org_editions" / "filed.jsonl", HOME / ".cache" / "trove" / "filed.jsonl"]
+#: What the pass's fetchers move when they fetch: the archive.org fetcher's
+#: done.tsv, and the Trove caches' directories (an article fetched, or its
+#: clue zones, is a new directory in them).
+FETCHED = [HOME / ".cache" / "archive_org_editions" / "done.tsv", HOME / ".cache" / "trove",
+           HOME / ".cache" / "trove-clues"]
 WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
 ROOM = "cryptic-crosswords"
 NAME = "full_pass"
@@ -145,10 +153,11 @@ def ledger_held():
 
 
 def ledger_marks():
-    """Each ledger's (size, mtime_ns): a filer saves its ledger after every
-    source it reads, so a mark that moved means the pass read something."""
+    """Each ledger's and FETCHED path's (size, mtime_ns): a filer saves its
+    ledger after every source it reads and a fetcher moves its FETCHED path,
+    so a mark that moved means the pass read or fetched something."""
     out = {}
-    for ledger in LEDGERS:
+    for ledger in LEDGERS + FETCHED:
         try:
             st = ledger.stat()
             out[str(ledger)] = [st.st_size, st.st_mtime_ns]
@@ -248,7 +257,7 @@ def account(r, state, dry):
     if state["deadLaunches"] >= DEAD_LAUNCHES:
         state["held"] = True
         wake(f"the full pass ended {state['deadLaunches']} times in a row unfinished (last exit "
-             f"{'killed' if rc is None else rc}) without reading a source; held. Log: {LOG}. "
+             f"{'killed' if rc is None else rc}) without reading or fetching a source; held. Log: {LOG}. "
              "Clear with: corpus_queue.py release", dry)
     save_state(state)
 

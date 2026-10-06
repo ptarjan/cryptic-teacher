@@ -11,6 +11,9 @@ Usage:
   --delay S     minimum seconds between one connection's requests (default 1.0)
   --jobs N      editions fetched at once (default 4)
   --min-free-gb N  stop cleanly when the cache disk has less free (default 30)
+  --seconds N   start no edition after N seconds; the ones not started are
+                counted "left for the next run" (tools/ocr_full_pass.sh runs
+                it this way, so the corpus queue fetches in bounded slices)
 
 Sources, in fetch order (GROUPS below): the Times 1965/1974-99 full editions
 (NewsUK<year>UKEnglish, one item per year holding ~200 editions); the BBC
@@ -562,7 +565,9 @@ def main():
     ap.add_argument("--limit", type=int)
     ap.add_argument("--min-free-gb", type=float, default=30)
     ap.add_argument("--list", action="store_true")
+    ap.add_argument("--seconds", type=float)
     args = ap.parse_args()
+    stop_at = time.monotonic() + args.seconds if args.seconds else float("inf")
     os.makedirs(args.out, exist_ok=True)
     jobs = max(1, args.jobs)
     fx = Fetcher(args.out, max(args.delay, 1.0), jobs)
@@ -584,6 +589,7 @@ def main():
                 log(f"{item}: metadata failed, left for the next run: {e}")
 
     submitted = 0
+    left = 0
     pending = set()
     with concurrent.futures.ThreadPoolExecutor(jobs) as pool:
         def room(limit):
@@ -609,11 +615,17 @@ def main():
             if args.list:
                 print(f"{group}\t{item}\t{len(names)} editions\t{len(todo)} to do")
                 continue
+            if todo and time.monotonic() >= stop_at:
+                left += len(todo)
+                continue
             if todo:
                 log(f"{group} {item}: {len(todo)}/{len(names)} editions to do")
-            for name in todo:
+            for i, name in enumerate(todo):
                 room(jobs)
                 if run.stop:
+                    break
+                if time.monotonic() >= stop_at:
+                    left += len(todo) - i
                     break
                 if args.limit is not None and submitted >= args.limit:
                     log(f"stopped at --limit {args.limit}")
@@ -626,12 +638,14 @@ def main():
                     break
                 submitted += 1
                 pending.add(pool.submit(run.edition, fx, item, meta, name))
-            else:
-                continue
-            break
+            if run.stop or (args.limit is not None and submitted >= args.limit):
+                break
     if run.stop:
         return run.exit_code
     if args.limit is not None and submitted >= args.limit:
+        return 0
+    if left:
+        log(f"--seconds {args.seconds:.0f} reached: {run.n} editions this run, {left} left for the next run")
         return 0
     log(f"finished: {run.n} editions this run")
     return 0

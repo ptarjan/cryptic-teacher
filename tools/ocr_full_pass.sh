@@ -1,6 +1,7 @@
 #!/bin/bash
-# Read every archive.org edition and Trove article the scan filers find due,
-# to the end, then stop: never read, inputs changed, read without the VLM
+# Fetch what the scan fetchers find missing, for up to FETCH_SECONDS each,
+# then read every archive.org edition and Trove article the scan filers find
+# due, to the end, then stop: never read, inputs changed, read without the VLM
 # that now answers, or read before REREAD_BEFORE (each filer's due_reason),
 # then the sources annotation asked to be read again.
 #
@@ -23,11 +24,16 @@
 # doubled word, a stray letter): the read mends or blanks it (mend_held),
 # and the same for a Trove article (file_trove_puzzles.inputs_of).
 #
-# The scans are cached by hand-run fetchers (tools/fetch_trove.py fetch,
-# then fetch_trove.py zones for the clue columns of articles left pending;
-# tools/fetch_archive_org_editions.py). This pass only reads caches and never
-# downloads: an article whose clue columns are not cached stays pending ("no
-# reading of the page's clues") until fetch_trove.py zones caches them.
+# The scans are cached by the fetchers this pass runs first, each for at most
+# FETCH_SECONDS and resumable, so a run with nothing missing costs seconds and
+# a long backlog is fetched a slice per pass: tools/fetch_archive_org_editions.py
+# (every group; an edition not in done.tsv at the current DETECTOR_VERSION is
+# due, so bumping it makes the editions due by itself), tools/fetch_trove.py
+# fetch (every listed article not yet cached) and fetch_trove.py zones (the
+# clue columns of the articles the Trove filer left pending; a pending
+# article is read again once its zones land, so the next pass files it).
+# A fetcher already running (a hand run) is skipped, not doubled. The filers
+# only read caches.
 # Resumable: each filer's ledger (~/.cache/trove/filed.jsonl,
 # ~/.cache/archive_org_editions/filed.jsonl) is saved after every source,
 # the never-read go first, and a rerun picks up where a killed one stopped.
@@ -89,6 +95,25 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
     grep -q "left for the next run" "$out" || { rm -f "$out"; return 0; }
   done
 }
+
+FETCH_SECONDS="${OCR_FULL_PASS_FETCH_SECONDS:-3600}"
+fetch() {  # fetch <what> <process regex> <fetcher command...>: one bounded fetch slice
+  local what="$1" running="$2" rc
+  shift 2
+  if pgrep -f "$running" >/dev/null; then
+    echo "=== $what: skipped, a fetch is already running: $(pgrep -af "$running" | head -1 | cut -c1-200)"
+    return 0
+  fi
+  echo "=== $what: from $(date '+%F %T'), at most ${FETCH_SECONDS}s ==="
+  timeout "$((FETCH_SECONDS + GRACE))" nice -n 19 "$@" --seconds "$FETCH_SECONDS" 2>&1
+  rc=$?
+  [ "$rc" -eq 0 ] || echo "$what failed (rc=$rc); the pass reads what is cached, the next pass fetches again"
+}
+
+fetch "archive.org fetch" '^python3 (-u )?\S*fetch_archive_org_editions\.py' \
+  python3 tools/fetch_archive_org_editions.py --jobs 4
+fetch "Trove fetch" '^python3 (-u )?\S*fetch_trove\.py' python3 tools/fetch_trove.py fetch
+fetch "Trove clue zones" '^python3 (-u )?\S*fetch_trove\.py' python3 tools/fetch_trove.py zones
 
 mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # The Times pages Paul downloads by hand from Gale's Times Digital Archive

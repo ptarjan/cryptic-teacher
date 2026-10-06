@@ -445,4 +445,16 @@ print(len(read), len(set(read)))")
 check "the time budget stops new reads and leaves the rest pending" "1 2 True
 3 3" "$got"
 
+# A re-read asked for (--article) beside cached articles never read (a fetch
+# landed them mid-pass): those are counted, not a crash, and stay unread.
+got=$(cd "$REPO/tools" && python3 -c "
+import file_trove_puzzles as F, io, pathlib, shutil, tempfile
+d = pathlib.Path(tempfile.mkdtemp())
+shutil.copytree('$FIX', d / 'cache')
+F.consider = lambda a, taken: ({'skip': 'test'}, None, None)
+first = sorted(p.name for p in (d / 'cache').iterdir() if (p / 'meta.json').exists())[0]
+t = F.run(d / 'cache', ledger=d / 'filed.jsonl', out=io.StringIO(), puzzles=d / 'out', articles=[first])
+print(t.get('not read'), len((d / 'filed.jsonl').read_text().splitlines()))")
+check "an --article run counts the never-read articles beside it" "2 1" "$got"
+
 [ "$fails" -eq 0 ] && echo "all passed" || { echo "$fails failed"; exit 1; }
