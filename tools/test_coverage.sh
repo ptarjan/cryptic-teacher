@@ -34,6 +34,11 @@ try:
     raise AssertionError("refuse took a cause REFUSALS lacks")
 except ValueError:
     pass
+# Every reason a blog filer or the FT PDF fetch records is a bucket.
+import file_blog_puzzles, ft_pdf_puzzles
+for blog in ("timesforthetimes", "bigdave44"):
+    assert {(blog, k) for k in [*file_blog_puzzles.CAUSES, "filed", "answers-only"]} <= set(cov.CAUSES), blog
+assert {("ft-pdf", k) for k in ft_pdf_puzzles.FETCH_CAUSES} <= set(cov.CAUSES)
 # Every Trove cause is a bucket; a pending or refused row lands in its
 # cause's; one read before causes lands in a no-cause bucket and is made due,
 # except a read that reached the vote with no clue columns cached; a row

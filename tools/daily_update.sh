@@ -243,7 +243,10 @@ blog_chain() {
 blog_filed=0
 # Both rebuilds are bounded, newest untried first: tonight's posts, then a
 # slice of the archive behind them. Unbounded, a parser change that lets
-# hundreds of old posts parse is ground through in one night.
+# hundreds of old posts parse is ground through in one night. Neither cap
+# holds a backlog back: every post with clues has been tried, so a night
+# tries only its own few. The untried rest are answers-only posts, which
+# times_grids skips.
 TIMES_PER_NIGHT="${TIMES_PER_NIGHT:-40}"
 TELEGRAPH_PER_NIGHT="${TELEGRAPH_PER_NIGHT:-40}"
 blog_chain Times "fetch_wp_blog.py timesforthetimes" fetch_times_listing.py \

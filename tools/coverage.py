@@ -101,17 +101,34 @@ def _causes():
         "tools/gale_inbox.py files what lands", False, False)
     out[("none", "no-source")] = Cause(
         "tools/first_issue.py", "no source we know prints it: find one (tools/first_issue.py SOURCES)", False, False)
+    import file_blog_puzzles
     for blog, filer in (("timesforthetimes", "tools/file_times_puzzles.py"),
                         ("bigdave44", "tools/file_telegraph_puzzles.py")):
         out[(blog, "grid-not-tried")] = Cause(
-            "tools/times_grids.py", f"rebuild its grid: times_grids.py --blog {blog}", True, False)
+            "tools/times_grids.py", f"rebuild its grid: times_grids.py --blog {blog} (the nightly "
+            "tries every new post with clues; this bucket only fills when a run was skipped)", True, False)
+        out[(blog, "answers-only")] = Cause(
+            "tools/times_grids.py", "the post gives answers and wordplay, no clues (times_grids.has_clues), "
+            "mostly 2007-2016: exhausted on the blog; only another source's clues can file it", False, False)
         out[(blog, "no-grid")] = Cause(
             "tools/times_grids.py", "the grid search found none (attempts.jsonl `how`)", True, False)
         out[(blog, "grid-not-filed")] = Cause(
-            filer, "a grid is rebuilt and not filed, and the filer records no reason: give it a ledger with a cause enum",
-            True, True)
+            filer, f"a grid is rebuilt and the filer's {file_blog_puzzles.FILINGS} has no row for it: "
+            "run the filer, which writes one per grid", True, True)
+        out[(blog, "filed")] = Cause(
+            filer, "the filer filed it and puzzles/ lacks it: the nightly's commit or push lost it", True, False)
+        for key, words in file_blog_puzzles.CAUSES.items():
+            out[(blog, key)] = Cause(
+                filer, f"the filer refused it: {words} ({file_blog_puzzles.FILINGS} `cause`)"
+                + ("; a grid rebuilt from an answers-only post, exhausted on the blog" if key == "no-clue" else ""),
+                key != "no-clue", False)
     out[("ft-pdf", "not-fetched")] = Cause("tools/ft_pdf_puzzles.py", "fetch its PDF", True, False)
-    out[("ft-pdf", "fetch-failed")] = Cause("tools/ft_pdf_puzzles.py", "fetch_failed.json: retry the fetch", True, False)
+    import ft_pdf_puzzles
+    for key, means in ft_pdf_puzzles.FETCH_CAUSES.items():
+        out[("ft-pdf", key)] = Cause(
+            "tools/ft_pdf_puzzles.py", f"fetch_failed.json `cause`: {means}"
+            + ("; `ft_pdf_puzzles.py fetch` tries it again" if key == "transient" else "; exhausted"),
+            key == "transient", False)
     out[("ft-pdf", "not-read")] = Cause("tools/ft_pdf_puzzles.py", "the PDF is fetched and never filed: run the filer", True, False)
     out[("ft-pdf", "refused-no-cause")] = Cause(
         "tools/ft_pdf_puzzles.py", "attempts.jsonl says filed false with prose only: record a cause enum", True, True)
@@ -215,11 +232,14 @@ def day_after(date):
 def blog_rows():
     """(blog, series, number, print-date candidates, cause) of every blog post
     our series key claims. A post's date is its print date or the day before."""
+    import file_blog_puzzles
     import file_times_puzzles
+    import times_grids
     for blog in ("timesforthetimes", "bigdave44"):
         d = BLOGS / blog
         grids = {r["post_id"] for r in jsonl(d / "grids.jsonl")}
         tried = {r["post_id"] for r in jsonl(d / "attempts.jsonl")}
+        filings = {r["post_id"]: r["cause"] for r in jsonl(d / file_blog_puzzles.FILINGS)}
         for r in jsonl(d / "parsed.jsonl"):
             if not isinstance(r.get("number"), int):
                 continue
@@ -229,8 +249,12 @@ def blog_rows():
                 key, dated = file_times_puzzles.target(r)
             else:
                 key, dated = r.get("series"), True
-            cause = ("grid-not-filed" if r["post_id"] in grids else
-                     "no-grid" if r["post_id"] in tried else "grid-not-tried")
+            pid = r["post_id"]
+            if pid in grids:
+                cause = filings.get(pid, "grid-not-filed")
+            else:
+                cause = ("no-grid" if pid in tried else
+                         "grid-not-tried" if times_grids.has_clues(r) else "answers-only")
             day = r.get("printed") or (r.get("date") or "")[:10]
             dates = ([day] if r.get("printed") else [day, day_after(day)]) if dated and day else []
             yield blog, key, r["number"], dates, cause
@@ -243,9 +267,9 @@ def ft_pdf_rows():
     except (OSError, ValueError, KeyError):
         return
     try:
-        failed = set(json.loads((FT_PDF / "fetch_failed.json").read_text()))
+        failed = json.loads((FT_PDF / "fetch_failed.json").read_text())
     except (OSError, ValueError):
-        failed = set()
+        failed = {}
     last = {}
     for r in jsonl(FT_PDF / "attempts.jsonl"):
         last[str(r.get("number"))] = r
@@ -256,7 +280,7 @@ def ft_pdf_rows():
         elif (FT_PDF / "pdf" / f"{n}.pdf").exists():
             cause = "not-read"
         else:
-            cause = "fetch-failed" if n in failed else "not-fetched"
+            cause = failed[n]["cause"] if n in failed else "not-fetched"
         if cause:
             yield int(n), meta.get("date"), cause
 

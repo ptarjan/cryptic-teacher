@@ -101,6 +101,10 @@ print("FILED", ",".join(f"{s}:{n}" for s, n in sorted(filed.items())))
 print("NO_CLUE", skipped["a light has no clue"])
 print("OUT_OF_SEQUENCE", skipped["number out of sequence"])
 print("REPRINTED", skipped["globeandmail reprints it"])
+# Every row reached has its cause in the filer's ledger, a CAUSES key or "filed".
+led = {r["post_id"]: r["cause"] for r in map(json.loads, (tmp / F.file_blog_puzzles.FILINGS).read_text().splitlines())}
+print("LEDGER", ",".join(f"{k}:{v}" for k, v in sorted(led.items())))
+assert set(led.values()) <= set(F.file_blog_puzzles.CAUSES) | {"filed"}, led
 
 p = json.loads(puzzle_paths.find("times-100").read_text())
 by_id = {entry_id(e): e for e in p["entries"]}
@@ -236,6 +240,7 @@ check "files the complete, in-sequence rows" "sundaytimes:1,times:4" "$(got FILE
 check "a light with no clue, or only its count, refuses the puzzle" "2" "$(got NO_CLUE)"
 check "a misread number is refused" "1" "$(got OUT_OF_SEQUENCE)"
 check "a number the Globe and Mail reprints is left to it" "1" "$(got REPRINTED)"
+check "the filer's ledger records each row's cause as a key" "1:filed,2:filed,3:out-of-sequence,4:filed,5:no-clue,6:no-clue,7:filed,8:filed,9:reprinted" "$(got LEDGER)"
 check "a number the Globe skipped inside its run is filed as the Quick" \
   "globeandmail,None,globeandmail" "$(got REPRINT_GAP)"
 check "a mistyped title is renumbered only onto one free slot that fits" \
