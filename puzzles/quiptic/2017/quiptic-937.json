@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,41 @@
     "text": "Drug memorial",
     "enumeration": "6"
    },
-   "solution": "TABLET"
+   "solution": "TABLET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TABLET",
+    "definitions": [
+     {
+      "text": "Drug",
+      "at": 0
+     },
+     {
+      "text": "memorial",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "note": "first meaning: a pill"
+     },
+     {
+      "clueFragment": "memorial",
+      "note": "second meaning: a commemorative plaque fixed to a wall"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two unrelated nouns side by side; each is a separate meaning of one word.",
+     "definitionFit": "A pill of medicine and an inscribed stone slab commemorating someone share the same name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +84,51 @@
     "text": "Culture makes it legal",
     "enumeration": "7"
    },
-   "solution": "TILLAGE"
+   "solution": "TILLAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TILLAGE",
+    "definitions": [
+     {
+      "text": "Culture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "makes",
+      "for": "anagram",
+      "note": "to make something is to form or construct it, so the following letters are built into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it legal",
+      "gives": "ITLEGAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITLEGAL",
+       "gives": "TILLAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claiming that cultural acceptance is what makes a practice lawful.",
+     "walkthrough": "Culture here is the farming sense, as in agriculture, not the arts.",
+     "definitionFit": "Tillage is the cultivation of land by ploughing, which is one older sense of culture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Culture"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +142,55 @@
     "text": "Boring student bores group",
     "enumeration": "5"
    },
-   "solution": "BLAND"
+   "solution": "BLAND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLAND",
+    "definitions": [
+     {
+      "text": "Boring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bores",
+      "for": "container",
+      "note": "to bore is to drill into something, so the student goes inside the group"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "gives": "BAND",
+      "note": "a musical group"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L for learner, a student driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A tedious student wearing out the rest of the group.",
+     "definitionFit": "Something bland is dull and unexciting, the same as something tedious and boring."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bores"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +210,46 @@
      }
     ]
    },
-   "solution": "EGOTRIP"
+   "solution": "EGOTRIP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EGO TRIP",
+    "definitions": [
+     {
+      "text": "it made him feel important",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only part of the phrase is used, so the letters sit inside the words before"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloke got ripped",
+      "gives": "EGOTRIP",
+      "note": "the run of letters spanning the three words, ignoring the first and last letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A man getting cheated, yet the experience oddly boosted his self-esteem.",
+     "walkthrough": "'Ripped off' looks like being cheated; 'off' just runs into the containment signal.",
+     "definitionFit": "An ego trip is an activity pursued mainly to boost one's sense of self-importance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "ripped"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +263,49 @@
     "text": "Stop sign, change sides",
     "enumeration": "6"
    },
-   "solution": "CANCEL"
+   "solution": "CANCEL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CANCEL",
+    "definitions": [
+     {
+      "text": "Stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change sides",
+      "for": "substitution",
+      "note": "the two sides are right and left, so one is swapped for the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign",
+      "gives": "CANCER",
+      "note": "a sign of the zodiac, the crab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANCE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Road-sign instructions: a stop sign, then switch lanes.",
+     "walkthrough": "The R (right) at the end of the zodiac sign becomes L (left).",
+     "definitionFit": "To cancel something is to call it off, bringing a planned event to a halt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +319,50 @@
     "text": "Thrash the late competitor",
     "enumeration": "7"
    },
-   "solution": "ATHLETE"
+   "solution": "ATHLETE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATHLETE",
+    "definitions": [
+     {
+      "text": "competitor",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Thrash",
+      "for": "anagram",
+      "note": "to thrash is to beat violently, so the letters are knocked about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the late",
+      "gives": "THELATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THELATE",
+       "gives": "ATHLETE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to beat a rival who turned up late.",
+     "definitionFit": "An athlete is a sportsperson who takes part in races and other contests."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Thrash"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +376,50 @@
     "text": "Someone to get mad with priest",
     "enumeration": "9"
    },
-   "solution": "CELEBRANT"
+   "solution": "CELEBRANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELEBRANT",
+    "definitions": [
+     {
+      "text": "priest",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Someone",
+      "gives": "CELEB",
+      "note": "a someone is a person of note, a celebrity"
+     },
+     {
+      "clueFragment": "to get mad",
+      "gives": "RANT",
+      "note": "to shout angrily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CELEB",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A person who is likely to lose their temper with the clergyman.",
+     "walkthrough": "'Someone' is the noun sense of a notable person, not just anybody.",
+     "definitionFit": "A celebrant is the officiating priest who conducts a religious service such as Mass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Someone"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +433,48 @@
     "text": "Family wrinkle and what causes it",
     "enumeration": "7"
    },
-   "solution": "LINEAGE"
+   "solution": "LINEAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LINEAGE",
+    "definitions": [
+     {
+      "text": "Family",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrinkle",
+      "gives": "LINE",
+      "note": "a crease in the skin"
+     },
+     {
+      "clueFragment": "what causes it",
+      "gives": "AGE",
+      "note": "growing old causes wrinkles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LINE",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A family trait of wrinkles, and a guess at their cause.",
+     "definitionFit": "Lineage means ancestry or line of descent, so it stands for one's family."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +488,63 @@
     "text": "Disregard crazy Ringo — Beatle's number two",
     "enumeration": "6"
    },
-   "solution": "IGNORE"
+   "solution": "IGNORE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "IGNORE",
+    "definitions": [
+     {
+      "text": "Disregard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "something crazy is wild and disordered, so these letters are jumbled"
+     },
+     {
+      "text": "number two",
+      "for": "letter_selection",
+      "note": "the second item in line, so only the second letter of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ringo",
+      "gives": "RINGO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Beatle's",
+      "gives": "E",
+      "select": 2,
+      "note": "the second letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RINGOE",
+       "gives": "IGNORE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to ignore a crazy Ringo, the Beatles' drummer, as merely their number two.",
+     "walkthrough": "Ringo Starr really was a Beatle, which makes the surface convincing.",
+     "definitionFit": "To ignore is to pay no attention to something, the same as to disregard it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ringo"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +572,42 @@
      }
     ]
    },
-   "solution": "ALLALONGTHELINE"
+   "solution": "ALLALONGTHELINE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ALL ALONG THE LINE",
+    "definitions": [
+     {
+      "text": "Where stations are",
+      "at": 0
+     },
+     {
+      "text": "throughout",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where stations are",
+      "note": "first meaning: railway stations sit at points along a track"
+     },
+     {
+      "clueFragment": "throughout",
+      "note": "second meaning: at every stage, completely"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first part is a literal description of a railway, the second the idiom.",
+     "definitionFit": "The idiom means at every point or stage, and railway stations are literally spread along the track."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +621,45 @@
     "text": "More ferocious male reptile",
     "enumeration": "6"
    },
-   "solution": "MADDER"
+   "solution": "MADDER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADDER",
+    "definitions": [
+     {
+      "text": "More ferocious",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "reptile",
+      "gives": "ADDER",
+      "note": "a snake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ADDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Comparing a fierce male reptile with others.",
+     "definitionFit": "Madder is the comparative of mad, here in the sense of wild, furious and frenzied."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +673,52 @@
     "text": "Bats, beaver or badger",
     "enumeration": "8"
    },
-   "solution": "OVERBEAR"
+   "solution": "OVERBEAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERBEAR",
+    "definitions": [
+     {
+      "text": "badger",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Bats",
+      "for": "anagram",
+      "note": "bats is slang for crazy, so the letters go wild and are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beaver or",
+      "gives": "BEAVEROR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEAVEROR",
+       "gives": "OVERBEAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of three woodland animals.",
+     "walkthrough": "'badger' is the verb, to pester, not the animal.",
+     "definitionFit": "To overbear is to domineer or overwhelm someone, close to bullying or harassing them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "badger"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +732,52 @@
     "text": "Please Mr Turner, try again",
     "enumeration": "8"
    },
-   "solution": "RESAMPLE"
+   "solution": "RESAMPLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RESAMPLE",
+    "definitions": [
+     {
+      "text": "try again",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turner",
+      "for": "anagram",
+      "note": "a turner is something that turns things round, so the letters are rotated into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Please Mr",
+      "gives": "PLEASEMR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLEASEMR",
+       "gives": "RESAMPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plea to the painter Mr Turner to have another go.",
+     "walkthrough": "J M W Turner is the famous painter, but here the name signals turning letters.",
+     "definitionFit": "To resample is to take a fresh sample and test again, so it means to try again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Turner"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +791,65 @@
     "text": "Backed bill, left with nothing to replace the first article",
     "enumeration": "9"
    },
-   "solution": "ADVOCATED"
+   "solution": "ADVOCATED",
+   "annotation": {
+    "type": [
+     "substitution",
+     "charade"
+    ],
+    "answer": "ADVOCATED",
+    "definitions": [
+     {
+      "text": "Backed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to replace",
+      "for": "substitution",
+      "note": "one thing stands in place of another, so a letter is swapped out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bill",
+      "gives": "AD",
+      "note": "an advertisement, a poster"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "VACATED",
+      "note": "left a place empty"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, shaped like the letter O"
+     },
+     {
+      "clueFragment": "the first article",
+      "gives": "A",
+      "note": "the indefinite article; the first one in the word is swapped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "VOCATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician backing a bill, then leaving with nothing.",
+     "walkthrough": "'Left' reads as the political direction, but it is the verb meaning departed from; O is the usual crossword stand-in for nothing.",
+     "definitionFit": "To advocate a cause is to support it publicly, so advocated means backed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bill"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +863,54 @@
     "text": "Call in the Spanish to do some painting",
     "enumeration": "6"
    },
-   "solution": "ENAMEL"
+   "solution": "ENAMEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ENAMEL",
+    "definitions": [
+     {
+      "text": "to do some painting",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "the Spanish word for 'the'"
+     },
+     {
+      "clueFragment": "Call",
+      "gives": "NAME",
+      "note": "to call is to name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NAME",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Bringing in the Spaniards to help with decorating.",
+     "definitionFit": "To enamel is to coat a surface with glossy paint or vitreous glaze, a kind of painting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +924,47 @@
     "text": "The British nasty bug",
     "enumeration": "6"
    },
-   "solution": "WEEVIL"
+   "solution": "WEEVIL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEEVIL",
+    "definitions": [
+     {
+      "text": "bug",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The British",
+      "gives": "WE",
+      "note": "spoken by the British themselves: we"
+     },
+     {
+      "clueFragment": "nasty",
+      "gives": "EVIL",
+      "note": "wicked"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "EVIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty British strain of insect or illness.",
+     "walkthrough": "'The British' refers to the people collectively, as they would say 'we'.",
+     "definitionFit": "A weevil is a small beetle that damages grain and crops, and bug loosely means an insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bug"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +978,50 @@
     "text": "Hang by river — delightful!",
     "enumeration": "7"
    },
-   "solution": "EXECUTE"
+   "solution": "EXECUTE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXECUTE",
+    "definitions": [
+     {
+      "text": "Hang",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "EXE",
+      "note": "the Exe is a river in Devon, in south-west England"
+     },
+     {
+      "clueFragment": "delightful",
+      "gives": "CUTE",
+      "note": "charming, sweet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXE",
+      "CUTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Loitering by a river and finding it delightful.",
+     "walkthrough": "'Hang' looks like 'hang out'; it is to put to death by hanging.",
+     "definitionFit": "To execute is to put to death, and hanging is one method of capital punishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Hang"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1035,64 @@
     "text": "Climb with hero uncovered part of a circuit",
     "enumeration": "7"
    },
-   "solution": "LIMITER"
+   "solution": "LIMITER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LIMITER",
+    "definitions": [
+     {
+      "text": "part of a circuit",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "removing the cover strips away the outside, so each word loses its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Climb",
+      "gives": "LIM",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "IT",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     },
+     {
+      "clueFragment": "hero",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the word without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIM",
+      "IT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A daring climb with a hero, perhaps up a racing circuit.",
+     "walkthrough": "All three words are stripped, including 'with', which looks like a link.",
+     "definitionFit": "A limiter is an electronic component that caps signal levels, forming part of an electrical circuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1106,63 @@
     "text": "Height of skill, if learner shifts quietly",
     "enumeration": "8"
    },
-   "solution": "ALTITUDE"
+   "solution": "ALTITUDE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ALTITUDE",
+    "definitions": [
+     {
+      "text": "Height",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifts",
+      "for": "substitution",
+      "note": "to shift is to move into another's place, so one letter takes over from another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skill",
+      "gives": "APTITUDE",
+      "note": "a natural talent"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L for learner"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quietly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "TITUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "Peak skill, attained if a learner moves quietly.",
+     "walkthrough": "'Height of skill' reads as the pinnacle of ability; 'of' merely links.",
+     "definitionFit": "Altitude is the vertical height of something above sea level or the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Height"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1176,54 @@
     "text": "Settled on a good pipe",
     "enumeration": "6"
    },
-   "solution": "AGREED"
+   "solution": "AGREED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGREED",
+    "definitions": [
+     {
+      "text": "Settled",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "pipe",
+      "gives": "REED",
+      "note": "a reed pipe, or the reed of a wind instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "G",
+      "REED"
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing a good pipe after some deliberation.",
+     "definitionFit": "When terms are agreed they have been decided upon, so the matter is settled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1237,57 @@
     "text": "Picture 1 across trimmed with gold",
     "enumeration": "7"
    },
-   "solution": "TABLEAU"
+   "solution": "TABLEAU",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TABLEAU",
+    "definitions": [
+     {
+      "text": "Picture",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "trimming cuts off the end, so the last letter of that answer is lost"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1 across",
+      "gives": "TABLET",
+      "note": "the answer to 1 across"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLE",
+      "AU"
+     ]
+    },
+    "explanation": {
+     "surface": "A picture in a gilt frame, cut to size.",
+     "definitionFit": "A tableau is a picturesque scene or a striking group of figures, like a painted picture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trimmed"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1301,49 @@
     "text": "Hates being put back into slowest set educationally",
     "enumeration": "7"
    },
-   "solution": "DETESTS"
+   "solution": "DETESTS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DETESTS",
+    "definitions": [
+     {
+      "text": "Hates",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "hidden_word",
+      "note": "the letters are found within the words that follow"
+     },
+     {
+      "text": "being put back",
+      "for": "reversal",
+      "note": "put back means set in the opposite direction, so the letters are read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slowest set educationally",
+      "gives": "STSETED",
+      "note": "a run of letters across the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A pupil hates being moved down into the bottom stream at school.",
+     "walkthrough": "The surface is about school sets; read the letters backwards from 'educationally' into 'slowest'.",
+     "definitionFit": "To detest is to loathe intensely, so detests means hates very strongly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1357,67 @@
     "text": "Arrival of servicewoman with no visa, curiously",
     "enumeration": "8"
    },
-   "solution": "NEWCOMER"
+   "solution": "NEWCOMER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NEWCOMER",
+    "definitions": [
+     {
+      "text": "Arrival",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no",
+      "for": "deletion",
+      "note": "having none of something means those letters are taken away"
+     },
+     {
+      "text": "curiously",
+      "for": "anagram",
+      "note": "done in a curious, odd way, so what remains is jumbled"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "servicewoman",
+      "gives": "SERVICEWOMAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "visa",
+      "gives": "VISA",
+      "note": "taken as written, letters to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEWCOMER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ERCEWOMN",
+       "gives": "NEWCOMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servicewoman who oddly turns up without a visa.",
+     "definitionFit": "A newcomer is a person who has recently arrived, and arrival can mean such a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "visa"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1431,45 @@
     "text": "Strength of one pursued by the beast",
     "enumeration": "6"
    },
-   "solution": "BEAUTY"
+   "solution": "BEAUTY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BEAUTY",
+    "definitions": [
+     {
+      "text": "Strength",
+      "at": 0
+     },
+     {
+      "text": "one pursued by the beast",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strength",
+      "note": "first meaning: an advantage, as in 'that's the plus of it'"
+     },
+     {
+      "clueFragment": "one pursued by the beast",
+      "note": "second meaning: the heroine of the fairy tale with the Beast"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The fairy tale is Beauty and the Beast; 'strength' is the sense of an attractive advantage.",
+     "definitionFit": "The heroine courted by the Beast is called that, and the word also means a particular advantage or merit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Strength"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1483,43 @@
     "text": "Not a female spy",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AGENT",
+    "definitions": [
+     {
+      "text": "Not a female",
+      "at": 0
+     },
+     {
+      "text": "spy",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not a female",
+      "note": "first meaning, split in two: a gentleman, a man rather than a woman"
+     },
+     {
+      "clueFragment": "spy",
+      "note": "second meaning: a secret operative"
+     }
+    ],
+    "explanation": {
+     "surface": "Insisting that the spy was a man.",
+     "walkthrough": "Split the answer as A GENT, a man, which is not a female.",
+     "definitionFit": "An agent is a secret operative working for an intelligence service, the same as a spy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1543,59 @@
      }
     ]
    },
-   "solution": "QUITETHEREVERSE"
+   "solution": "QUITETHEREVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUITE THE REVERSE",
+    "definitions": [
+     {
+      "text": "On the contrary",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leave",
+      "gives": "QUIT",
+      "note": "to depart"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "a musical note"
+     },
+     {
+      "clueFragment": "yonder",
+      "gives": "THERE",
+      "note": "over there"
+     },
+     {
+      "clueFragment": "Poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUIT",
+      "E",
+      "THERE",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A quoted poetic line, followed by the question of whether it counts as poetry.",
+     "walkthrough": "The ellipsis and quotation look like literary criticism; the pieces simply run on in order.",
+     "definitionFit": "The phrase is an idiom used to contradict emphatically, meaning exactly the opposite is true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Poetry"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1609,60 @@
     "text": "Stay affected under drug",
     "enumeration": "6"
    },
-   "solution": "ENDURE"
+   "solution": "ENDURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENDURE",
+    "definitions": [
+     {
+      "text": "Stay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected is altered or put on, so these letters are changed in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under",
+      "gives": "UNDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drug",
+      "gives": "E",
+      "note": "E is ecstasy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDUR",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UNDER",
+       "gives": "ENDUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Remaining under the influence of drugs.",
+     "definitionFit": "To endure is to last or persist, and stay can mean continue to remain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "affected"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1676,45 @@
     "text": "Candy listened to music by Bach and Handel?",
     "enumeration": "6"
    },
-   "solution": "SUITES"
+   "solution": "SUITES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SUITES",
+    "definitions": [
+     {
+      "text": "music by Bach and Handel?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listened to",
+      "for": "homophone",
+      "note": "heard rather than read, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Candy",
+      "gives": "SUITES",
+      "soundsLike": "SWEETS",
+      "note": "sweets is the British word for candy"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone eating sweets while listening to Baroque music.",
+     "walkthrough": "The question mark flags the definition by example: both composers wrote suites.",
+     "definitionFit": "Bach and Handel composed suites, sets of instrumental dance movements, so these are examples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Candy"
+    }
+   }
   }
  ]
 }
