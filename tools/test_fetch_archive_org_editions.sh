@@ -82,15 +82,15 @@ check("a page with fewer counts than DENSE_ENUMS is not",
 check("a titled page found: no dense page",
       [h["leaf"] for h in fa.crossword_hits([*cryptic[:11], dense[11], *cryptic[12:]], prior)] == [13])
 
-# Listings: a PDF archive.org never OCR'd is an unread scan, not an edition;
+# Listings: a PDF archive.org never OCR'd is an edition, read by image;
 # a run caches every yearly item's listing before it fetches any edition.
 meta = {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf"},
                   {"name": "Apr 02 1981, Financial Times, #28436, UK (en).pdf"},
                   {"name": "Apr 02 1981, Financial Times, #28436, UK (en)_djvu.txt"},
                   {"name": "Apr 02 1981, Financial Times, #28436, UK (en)_text.pdf"}]}
-check("a PDF with no _djvu.txt is an unread scan",
-      fa.unread_scans(meta) == ["Apr 01 1981, Financial Times, #28435, UK (en)"]
-      and fa.editions_of(meta) == ["Apr 02 1981, Financial Times, #28436, UK (en)"])
+check("a PDF with no _djvu.txt is an edition, listed once beside one with text",
+      fa.editions_of(meta) == ["Apr 01 1981, Financial Times, #28435, UK (en)",
+                               "Apr 02 1981, Financial Times, #28436, UK (en)"])
 check("the yearly groups are the one-uploader ones",
       {"ft", "times", "guardian", "telegraph"} <= fa.YEARLY_GROUPS
       and not {"pub_times", "listener"} & fa.YEARLY_GROUPS)
@@ -225,5 +225,42 @@ check("its re-fetch takes the whole djvu.xml and places the crossword on its sca
       [h["leaf"] for h in hits] == [2] and calls[-1].endswith("_djvu.xml")
       and not os.path.exists(os.path.join(d, "pagetext.json.gz"))
       and not fa.misplaced(stored) and not fa.words_misplaced(d))
+
+# An edition held only as an image PDF of 1-bit page scans (FT 1981): the
+# page with a grid on it is its crossword page, saved grey at SCAN_WIDTH,
+# and the djvu.xml.gz holds an empty OBJECT a page so the filer reads its
+# title by image.
+from PIL import Image, ImageDraw
+def page_scan(grid):
+    im = Image.new("1", (1678, 2357), 1)
+    dr = ImageDraw.Draw(im)
+    dr.rectangle((100, 100, 1500, 120), fill=0)  # a column rule, no grid
+    if grid:
+        x0, y0, c = 200, 1200, 22  # 15 cells of 22px: ~650px at SCAN_WIDTH
+        for k in range(16):
+            dr.line((x0, y0 + k * c, x0 + 15 * c, y0 + k * c), fill=0, width=2)
+            dr.line((x0 + k * c, y0, x0 + k * c, y0 + 15 * c), fill=0, width=2)
+        for r in range(1, 15, 2):
+            for col in range(1, 15, 2):
+                dr.rectangle((x0 + col * c, y0 + r * c, x0 + (col + 1) * c, y0 + (r + 1) * c), fill=0)
+    return im
+buf = io.BytesIO()
+page_scan(False).save(buf, "PDF", save_all=True, append_images=[page_scan(True), page_scan(False)])
+out = tempfile.mkdtemp()
+name = "Apr 01 1981, Financial Times, #28435, UK (en)"
+meta = {"server": "s", "dir": "/d", "files": [{"name": name + ".pdf"}]}
+script(buf.getvalue())
+fx.out = out
+with contextlib.redirect_stdout(io.StringIO()):
+    hits = fa.fetch_edition(fx, "FinancialTimes1981UKEnglish", meta, name)
+d = os.path.join(out, "FinancialTimes1981UKEnglish", "1981-04-01_28435")
+with gzip.open(os.path.join(d, "djvu.xml.gz")) as f:
+    stored = f.read()
+leaf = Image.open(os.path.join(d, "leaf_0001.jpg"))
+check("an image PDF's grid page is its crossword page, saved grey at SCAN_WIDTH",
+      [(h["leaf"], h["pdf"]) for h in hits] == [(1, True)] and calls[-1].endswith(".pdf")
+      and leaf.mode == "L" and leaf.width == 3296
+      and json.load(open(os.path.join(d, "pages.json")))["leaves"] == 3
+      and stored.count(b"<OBJECT") == 3 and b"<WORD" not in stored)
 sys.exit(1 if fails else 0)
 PY
