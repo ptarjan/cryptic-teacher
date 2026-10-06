@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Primarily grand, imposing, regal — a fine, furry East African native",
     "enumeration": "7"
    },
-   "solution": "GIRAFFE"
+   "solution": "GIRAFFE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GIRAFFE",
+    "definitions": [
+     {
+      "text": "African native",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of each following word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grand, imposing, regal — a fine, furry East",
+      "gives": "GIRAFFE",
+      "select": "first",
+      "note": "the initial letters of these seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GIRAFFE"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of some grand, regal, furry beast native to East Africa.",
+     "walkthrough": "The surface itself describes the animal, so the opening letters spell the very creature being pictured.",
+     "definitionFit": "The tallest land mammal is found wild only on that continent, a creature that lives there by birth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Primarily"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +92,55 @@
     "text": "Loud fish, not loud fish",
     "enumeration": "6"
    },
-   "solution": "GARISH"
+   "solution": "GARISH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GARISH",
+    "definitions": [
+     {
+      "text": "Loud",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not tells the solver to leave out the following letter from the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "GARFISH",
+      "note": "a long slender sea fish with a beak-like snout"
+     },
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f is forte, the musical marking for loud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAR",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A nonsense riddle about a fish that is somehow both loud and quiet.",
+     "walkthrough": "GARFISH without its F leaves GARISH; the repeated words make the clue look like a tongue-twister.",
+     "definitionFit": "Garish colours or clothes are showy and glaring, which in fashion talk is called loud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Loud"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +154,46 @@
     "text": "Edit socialist legislation",
     "enumeration": "6"
    },
-   "solution": "REDACT"
+   "solution": "REDACT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDACT",
+    "definitions": [
+     {
+      "text": "Edit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "red is the colour of left-wing politics"
+     },
+     {
+      "clueFragment": "legislation",
+      "gives": "ACT",
+      "note": "an act of parliament is a piece of legislation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to amend a left-wing government's laws.",
+     "definitionFit": "To redact a document is to prepare it for publication by cutting or censoring parts of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "socialist"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +207,57 @@
     "text": "Profits, not false impressions",
     "enumeration": "10"
    },
-   "solution": "FOOTPRINTS"
+   "solution": "FOOTPRINTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOOTPRINTS",
+    "definitions": [
+     {
+      "text": "impressions",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "something false is not genuine, so these letters are not in their true order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Profits",
+      "gives": "PROFITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PROFITSNOT",
+       "gives": "FOOTPRINTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A business statement that the gains reported are genuine, not misleading.",
+     "walkthrough": "'Not false' reads as 'true', but 'not' is part of the fodder and 'false' alone mixes it.",
+     "definitionFit": "Marks left by feet pressed into mud or sand are impressions in the literal physical sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "impressions"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +271,42 @@
     "text": "Another actor",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "Another",
+      "at": 0
+     },
+     {
+      "text": "actor",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Another",
+      "note": "first meaning: an additional one"
+     },
+     {
+      "clueFragment": "actor",
+      "note": "second meaning: a performer hired to appear in the background of a film"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Two words that look like 'one more performer' are separate meanings of one word.",
+     "definitionFit": "An additional item is an extra, and a non-speaking crowd performer in films is also called that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Another"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +320,41 @@
     "text": "Conflict-free ocean",
     "enumeration": "7"
    },
-   "solution": "PACIFIC"
+   "solution": "PACIFIC",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PACIFIC",
+    "definitions": [
+     {
+      "text": "Conflict-free",
+      "at": 0
+     },
+     {
+      "text": "ocean",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conflict-free",
+      "note": "first meaning: peaceful, wanting no war"
+     },
+     {
+      "clueFragment": "ocean",
+      "note": "second meaning: the largest body of water on Earth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The ocean was named by Magellan for its calm waters, so both senses share one root.",
+     "definitionFit": "Pacific means peaceable or calm, and it is also the name of the world's biggest sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +368,44 @@
     "text": "Head teacher announced rule",
     "enumeration": "9"
    },
-   "solution": "PRINCIPAL"
+   "solution": "PRINCIPAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PRINCIPAL",
+    "definitions": [
+     {
+      "text": "Head teacher",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "announced",
+      "for": "homophone",
+      "note": "something announced is spoken out, so we want a word that sounds like the next one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rule",
+      "gives": "PRINCIPAL",
+      "soundsLike": "PRINCIPLE",
+      "note": "a principle is a fundamental rule"
+     }
+    ],
+    "explanation": {
+     "surface": "A headmaster publicly declares a new school regulation.",
+     "walkthrough": "The two spellings sound the same: a rule is a principle, a school head is a principal.",
+     "definitionFit": "In American and some British colleges the person in charge of the institution has that title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rule"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +419,45 @@
     "text": "Hasn't the ability for hypocrisy",
     "enumeration": "4"
    },
-   "solution": "CANT"
+   "solution": "CANT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CANT",
+    "definitions": [
+     {
+      "text": "Hasn't the ability",
+      "at": 0
+     },
+     {
+      "text": "hypocrisy",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hasn't the ability",
+      "note": "first meaning: is unable, written with an apostrophe"
+     },
+     {
+      "clueFragment": "hypocrisy",
+      "note": "second meaning: insincere pious talk"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Crosswords ignore apostrophes, so the contraction for 'cannot' counts as the same letters.",
+     "definitionFit": "Cant is sanctimonious, insincere talk about morals, which is a form of hypocrisy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ability"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +471,55 @@
     "text": "Went after food well cooked",
     "enumeration": "8"
    },
-   "solution": "FOLLOWED"
+   "solution": "FOLLOWED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FOLLOWED",
+    "definitions": [
+     {
+      "text": "Went after",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are worked into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food",
+      "gives": "FOOD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "WELL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FOODWELL",
+       "gives": "FOLLOWED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone went in search of properly prepared meals.",
+     "definitionFit": "To follow someone is to go behind them, so both phrases describe pursuing in the past tense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cooked"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +533,54 @@
     "text": "Class about television tape",
     "enumeration": "8"
    },
-   "solution": "CASSETTE"
+   "solution": "CASSETTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASSETTE",
+    "definitions": [
+     {
+      "text": "tape",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first word wraps round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Class",
+      "gives": "CASTE",
+      "note": "a caste is a hereditary social class"
+     },
+     {
+      "clueFragment": "television",
+      "gives": "SET",
+      "note": "a television set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "SET",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A class discusses a recording made from the TV.",
+     "definitionFit": "A cassette is a small plastic case holding magnetic recording tape for audio or video."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Class"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +594,55 @@
     "text": "Wireless plug in port",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RADIO",
+    "definitions": [
+     {
+      "text": "Wireless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding word inside the one that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, the Brazilian port"
+     },
+     {
+      "clueFragment": "plug",
+      "gives": "AD",
+      "note": "to plug a product is to advertise it, and an ad is the result"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AD",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to connect a wireless gadget by plugging it into a socket.",
+     "walkthrough": "'Plug' and 'port' look like computer hardware, but one is advertising and the other a city.",
+     "definitionFit": "Wireless is the old-fashioned British term for a broadcast receiver set."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "port"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +656,39 @@
     "text": "Love and Bermuda?",
     "enumeration": "9"
    },
-   "solution": "TRIANGLES"
+   "solution": "TRIANGLES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRIANGLES",
+    "definitions": [
+     {
+      "text": "Love and Bermuda?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love and Bermuda?",
+      "note": "surface reading: romance and a holiday island"
+     },
+     {
+      "clueFragment": "Love and Bermuda?",
+      "note": "setter's reading: two words that each come before the same three-sided shape in a familiar phrase"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A love triangle involves three people; the Bermuda Triangle is the stretch of sea where ships are said to vanish.",
+     "definitionFit": "Each word is the first half of a well-known phrase ending in the plural geometric figure being asked for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bermuda"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +702,64 @@
     "text": "Weirdly a NYC psycho is licking boots",
     "enumeration": "10"
    },
-   "solution": "SYCOPHANCY"
+   "solution": "SYCOPHANCY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SYCOPHANCY",
+    "definitions": [
+     {
+      "text": "licking boots",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Weirdly",
+      "for": "anagram",
+      "note": "weirdly means in a strange way, so the letters come out in an odd order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "NYC",
+      "gives": "NYC",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "psycho",
+      "gives": "PSYCHO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANYCPSYCHO",
+       "gives": "SYCOPHANCY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A New York madman is strangely fawning over someone.",
+     "definitionFit": "Bootlicking is the idiom for grovelling flattery of the powerful, which is what toadying servility means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "psycho"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +773,43 @@
     "text": "Cable car opens a bit",
     "enumeration": "4"
    },
-   "solution": "ROPE"
+   "solution": "ROPE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ROPE",
+    "definitions": [
+     {
+      "text": "Cable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "hidden_word",
+      "note": "a bit means only a portion, here a run of letters lying across two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car opens",
+      "gives": "ROPE",
+      "note": "the letters straddling the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A cable car's doors open slightly.",
+     "walkthrough": "'Cable car' reads as one thing, but the clue splits after 'Cable', which is the definition.",
+     "definitionFit": "A thick strong cord made of twisted strands is a cable, a synonym for heavy cord."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cable"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +823,56 @@
     "text": "In credit briefly and relaxing on the way up",
     "enumeration": "10"
    },
-   "solution": "INCREASING"
+   "solution": "INCREASING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INCREASING",
+    "definitions": [
+     {
+      "text": "on the way up",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "credit briefly",
+      "gives": "CR",
+      "note": "CR is the standard abbreviation for credit on a bank statement"
+     },
+     {
+      "clueFragment": "relaxing",
+      "gives": "EASING",
+      "note": "easing off means relaxing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CR",
+      "EASING"
+     ]
+    },
+    "explanation": {
+     "surface": "A person in the black and taking it easy as things improve.",
+     "walkthrough": "'On the way up' could be a reversal signal in a down clue; here it is the definition.",
+     "definitionFit": "Something growing or rising in amount is climbing, the idiom being a way of saying it mounts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +886,75 @@
     "text": "Dine out, sitting next to writer with depression — that's unconnected",
     "enumeration": "11"
    },
-   "solution": "INDEPENDENT"
+   "solution": "INDEPENDENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INDEPENDENT",
+    "definitions": [
+     {
+      "text": "unconnected",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out suggests being put out of order, so the preceding letters are rearranged"
+     },
+     {
+      "text": "sitting next to",
+      "for": "charade",
+      "note": "sitting next to means placed alongside, so the pieces join end to end"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dine",
+      "gives": "DINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen writes"
+     },
+     {
+      "clueFragment": "with depression",
+      "gives": "DENT",
+      "note": "a dent is a hollow or depression; with joins it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDE",
+      "PEN",
+      "DENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DINE",
+       "gives": "INDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eating out beside a gloomy author leaves you feeling cut off.",
+     "walkthrough": "'Depression' suggests low mood, but it is a physical hollow.",
+     "definitionFit": "Something independent is free-standing and not attached or linked to anything else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "depression"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +968,56 @@
     "text": "Noises interfering with CID verdicts",
     "enumeration": "9"
    },
-   "solution": "DECISIONS"
+   "solution": "DECISIONS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECISIONS",
+    "definitions": [
+     {
+      "text": "verdicts",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interfering with",
+      "for": "anagram",
+      "note": "interfering means meddling and disrupting, so the letters get thoroughly mixed together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noises",
+      "gives": "NOISES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "CID",
+      "gives": "CID",
+      "note": "taken as written; the Criminal Investigation Department of British police"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOISESCID",
+       "gives": "DECISIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Disturbances disrupting detectives as they reach their conclusions in a case.",
+     "walkthrough": "CID is the plain-clothes detective branch of British police forces.",
+     "definitionFit": "A verdict is a conclusion reached by a jury or judge, so each one is a ruling made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Noises"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1031,66 @@
     "text": "Friend chasing building site quotation",
     "enumeration": "8"
    },
-   "solution": "ESTIMATE"
+   "solution": "ESTIMATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ESTIMATE",
+    "definitions": [
+     {
+      "text": "quotation",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "building",
+      "for": "anagram",
+      "note": "building means constructing, so the next word's letters are put together anew"
+     },
+     {
+      "text": "chasing",
+      "for": "charade",
+      "note": "chasing means following behind, so the first piece goes after the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "site",
+      "gives": "SITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Friend",
+      "gives": "MATE",
+      "note": "a mate is a friend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESTI",
+      "MATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SITE",
+       "gives": "ESTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pal pursuing a construction company for a price for the work.",
+     "walkthrough": "'Building site' reads as one phrase, but 'building' is the anagram signal for the word after it.",
+     "definitionFit": "A tradesman's quotation is a stated rough price for a job, given before the work begins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "building"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1104,57 @@
     "text": "Beaten by achievement in contract",
     "enumeration": "8"
    },
-   "solution": "DEFEATED"
+   "solution": "DEFEATED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEFEATED",
+    "definitions": [
+     {
+      "text": "Beaten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding word inside the one that follows"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contract",
+      "gives": "DEED",
+      "note": "a deed is a signed legal contract"
+     },
+     {
+      "clueFragment": "achievement",
+      "gives": "FEAT",
+      "note": "a feat is a notable achievement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "FEAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone was outdone by a clause in a legal agreement.",
+     "definitionFit": "To be defeated is to have lost a contest, the same as being overcome or vanquished."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1168,61 @@
     "text": "Breathtaking act clears up mess",
     "enumeration": "11"
    },
-   "solution": "SPECTACULAR"
+   "solution": "SPECTACULAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPECTACULAR",
+    "definitions": [
+     {
+      "text": "Breathtaking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mess",
+      "for": "anagram",
+      "note": "a mess is a jumble, so the preceding letters are in disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act",
+      "gives": "ACT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clears",
+      "gives": "CLEARS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTCLEARSUP",
+       "gives": "SPECTACULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An amazing performer tidies up after the show.",
+     "walkthrough": "'Clears up mess' reads as tidying, but 'mess' is the signal and 'clears up' is fodder.",
+     "definitionFit": "Something spectacular is so impressive or striking that it takes your breath away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clears"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1236,50 @@
     "text": "See Ms Blanchett's spot",
     "enumeration": "6"
    },
-   "solution": "LOCATE"
+   "solution": "LOCATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOCATE",
+    "definitions": [
+     {
+      "text": "spot",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "LO",
+      "note": "lo is an old word meaning look or see"
+     },
+     {
+      "clueFragment": "Ms Blanchett",
+      "gives": "CATE",
+      "note": "Cate Blanchett, the Australian actress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "CATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Look at the place where the actress Cate Blanchett is.",
+     "walkthrough": "The 's stands for 'is', joining wordplay to definition.",
+     "definitionFit": "To spot something is to find or pinpoint it, which is what it means to locate it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1293,45 @@
     "text": "Look what you may get, if you bend down in an American  henhouse, say!",
     "enumeration": "6"
    },
-   "solution": "ASPECT"
+   "solution": "ASPECT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ASPECT",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to speak the phrase, using its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what you may get, if you bend down in an American  henhouse",
+      "gives": "ASPECT",
+      "soundsLike": "ASS PECKED",
+      "note": "bending over among hens, your American rear would be pecked"
+     }
+    ],
+    "explanation": {
+     "surface": "A comic warning about what happens if you stoop in a chicken coop.",
+     "walkthrough": "Ass is the American word for backside; spoken, the phrase for having it pecked matches the answer.",
+     "definitionFit": "An aspect is the look or appearance of something, as in a building's sunny outlook."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "henhouse"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1345,61 @@
     "text": "Compiler satisfied about detail",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "detail",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the preceding word is read from its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compiler",
+      "gives": "I",
+      "note": "the compiler of the crossword speaks of themself as I"
+     },
+     {
+      "clueFragment": "satisfied",
+      "gives": "MET",
+      "note": "to meet a need is to satisfy it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TEM"
+     ],
+     "reversals": [
+      {
+       "from": "MET",
+       "to": "TEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter is happy with some fine point.",
+     "walkthrough": "Setters often refer to themselves as 'compiler', 'setter' or 'this writer', all giving I or ME.",
+     "definitionFit": "A detail is a single particular, one item in a list or account."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "satisfied"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1413,56 @@
     "text": "Moving crates, also moving steps",
     "enumeration": "10"
    },
-   "solution": "ESCALATORS"
+   "solution": "ESCALATORS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESCALATORS",
+    "definitions": [
+     {
+      "text": "moving steps",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Moving",
+      "for": "anagram",
+      "note": "moving means shifting position, so these letters are relocated into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crates",
+      "gives": "CRATES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "ALSO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRATESALSO",
+       "gives": "ESCALATORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Boxes being shifted along with the stairs during a house move.",
+     "walkthrough": "'Moving' appears twice: first as the anagram signal, then inside the definition.",
+     "definitionFit": "Escalators are staircases whose treads travel up or down powered by a motor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Moving"
+    }
+   }
   },
   {
    "number": 23,
@@ -369,7 +1476,48 @@
     "text": "Relatives value notes being regularly sent off",
     "enumeration": "5"
    },
-   "solution": "AUNTS"
+   "solution": "AUNTS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AUNTS",
+    "definitions": [
+     {
+      "text": "Relatives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being regularly sent off",
+      "for": "letter_selection",
+      "note": "regularly sent off means every other letter is dismissed, keeping the remainder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "value notes",
+      "gives": "AUNTS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUNTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Family members' banknotes are being posted off at intervals.",
+     "definitionFit": "Your parents' sisters are family members, so they count among your kin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 24,
@@ -383,7 +1531,44 @@
     "text": "Architect's bird",
     "enumeration": "4"
    },
-   "solution": "WREN"
+   "solution": "WREN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WREN",
+    "definitions": [
+     {
+      "text": "Architect",
+      "at": 0
+     },
+     {
+      "text": "bird",
+      "at": 12
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Architect",
+      "note": "first meaning: Sir Christopher, designer of St Paul's Cathedral in London"
+     },
+     {
+      "clueFragment": "bird",
+      "note": "second meaning: a tiny brown songbird"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The possessive suggests a bird belonging to an architect; the 's is just 'is' joining two meanings.",
+     "definitionFit": "Christopher of that surname was the great English architect, and the same word names a small songbird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -397,7 +1582,62 @@
     "text": "A paper (or none) misrepresented PM",
     "enumeration": "9"
    },
-   "solution": "AFTERNOON"
+   "solution": "AFTERNOON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFTERNOON",
+    "definitions": [
+     {
+      "text": "PM",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misrepresented",
+      "for": "anagram",
+      "note": "misrepresented means presented wrongly, so the letters are given in a false order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the FT is the Financial Times newspaper"
+     },
+     {
+      "clueFragment": "or none",
+      "gives": "ORNONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AFTORNONE",
+       "gives": "AFTERNOON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper, or perhaps none at all, gave a false picture of the Prime Minister.",
+     "walkthrough": "PM looks like the Prime Minister, but it is the abbreviation for post meridiem.",
+     "definitionFit": "PM, post meridiem, labels the hours after midday, the part of the day after noon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 26,
@@ -411,7 +1651,41 @@
     "text": "Portrait of him ageing",
     "enumeration": "5"
    },
-   "solution": "IMAGE"
+   "solution": "IMAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IMAGE",
+    "definitions": [
+     {
+      "text": "Portrait",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means made out of, so the answer is formed from letters within the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "him ageing",
+      "gives": "IMAGE",
+      "note": "the letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A painting showing a man growing old, like Dorian Gray's.",
+     "definitionFit": "A portrait is a picture or likeness of a person, so it is a representation of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -425,7 +1699,49 @@
     "text": "The musician honoured Rossini in playing his finales",
     "enumeration": "7"
    },
-   "solution": "ENDINGS"
+   "solution": "ENDINGS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ENDINGS",
+    "definitions": [
+     {
+      "text": "finales",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finales",
+      "for": "letter_selection",
+      "note": "finales are the closing parts, so the last letter of each word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The musician honoured Rossini in playing his",
+      "gives": "ENDINGS",
+      "select": "last",
+      "note": "the final letters of these seven words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer paid tribute to the composer by playing the closing sections of his operas.",
+     "walkthrough": "'Finales' does double duty, telling you to take last letters and defining the result.",
+     "definitionFit": "A finale is the closing part of a piece or show, so finales are its concluding sections."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finales"
+    }
+   }
   },
   {
    "number": 28,
@@ -439,7 +1755,58 @@
     "text": "Part of pants (eg gusset) turns intimate",
     "enumeration": "7"
    },
-   "solution": "SUGGEST"
+   "solution": "SUGGEST",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SUGGEST",
+    "definitions": [
+     {
+      "text": "intimate",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of means only a portion of the following words is used"
+     },
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "turns means flips around, so the run of letters is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pants (eg gusset)",
+      "gives": "TSEGGUS",
+      "note": "the run of letters from the end of the first word into the last, before it is flipped"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TSEGGUS",
+       "to": "SUGGEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some saucy talk about underwear, its gusset becoming something private.",
+     "walkthrough": "'Intimate' looks like an adjective about underwear, but here it is the verb meaning to hint.",
+     "definitionFit": "To intimate something is to hint at it indirectly, which is to propose it without saying outright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "intimate"
+    }
+   }
   }
  ]
 }
