@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Poor work disrupting railway",
     "enumeration": "4"
    },
-   "solution": "ROPY"
+   "solution": "ROPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROPY",
+    "definitions": [
+     {
+      "text": "Poor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupting",
+      "for": "container",
+      "note": "to disrupt a line is to break into it, so one piece is pushed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is the standard abbreviation for railway"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP, short for opus, is a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Shoddy engineering works are causing delays on the railway line.",
+     "walkthrough": "ROPY is informal British for poor or shoddy.",
+     "definitionFit": "Informally in Britain, something ropy is of inferior quality, shabby or in bad condition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,60 @@
     "text": "Wine picked up in can is terrible",
     "enumeration": "7"
    },
-   "solution": "RETSINA"
+   "solution": "RETSINA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RETSINA",
+    "definitions": [
+     {
+      "text": "Wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of letters of the words that follow"
+     },
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down clue, picking something up lifts it so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can is terrible",
+      "gives": "ANISTER",
+      "note": "the letters straddling can, is and the start of terrible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RETSINA"
+     ],
+     "reversals": [
+      {
+       "from": "ANISTER",
+       "to": "RETSINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tasting wine from a can declares it awful.",
+     "walkthrough": "Read 'can is terrible' backwards and RETSINA appears across can, is and terrible.",
+     "definitionFit": "Retsina is a Greek white wine flavoured with pine resin, so it is an example of the general term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "picked"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +165,75 @@
     "text": "Wandering from pier, awfully sad, missing hotel",
     "enumeration": "11"
    },
-   "solution": "PERIPATETIC"
+   "solution": "PERIPATETIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "deletion"
+    ],
+    "answer": "PERIPATETIC",
+    "definitions": [
+     {
+      "text": "Wandering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "done awfully, the word is botched and its letters come out in a poor order"
+     },
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so a letter must be dropped"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pier",
+      "gives": "PERI",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "sad",
+      "gives": "PATHETIC",
+      "note": "pathetic means pitiful or sad"
+     },
+     {
+      "clueFragment": "hotel",
+      "gives": "H",
+      "note": "H is Hotel in the radio alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERI",
+      "PATETIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PIER",
+       "gives": "PERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drifts sadly away from the seaside pier and away from the hotel.",
+     "walkthrough": "'awfully' scrambles only pier; sad is a straight synonym, and hotel is the letter it must lose.",
+     "definitionFit": "Peripatetic describes someone travelling from place to place, roaming about rather than staying settled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sad"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +247,67 @@
     "text": "Insult hero's unusually soft style of singing",
     "enumeration": "10"
    },
-   "solution": "BARBERSHOP"
+   "solution": "BARBERSHOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BARBERSHOP",
+    "definitions": [
+     {
+      "text": "style of singing",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "arranged unusually, the letters appear out of their normal order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Insult",
+      "gives": "BARB",
+      "note": "a barb is a cutting remark"
+     },
+     {
+      "clueFragment": "hero's",
+      "gives": "ERSHO",
+      "note": "the five letters rearranged"
+     },
+     {
+      "clueFragment": "soft",
+      "gives": "P",
+      "note": "P is piano, the musical direction for soft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BARB",
+      "ERSHO",
+      "P"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEROS",
+       "gives": "ERSHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An insult directed at a hero comes across as oddly gentle.",
+     "walkthrough": "The apostrophe in hero's is ignored, leaving five letters to rearrange.",
+     "definitionFit": "Barbershop is close-harmony unaccompanied singing, typically by a male quartet, so it names a vocal genre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soft"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +321,57 @@
     "text": "Assistance guarding against becoming zealous",
     "enumeration": "4"
    },
-   "solution": "AVID"
+   "solution": "AVID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AVID",
+    "definitions": [
+     {
+      "text": "zealous",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "to guard something is to keep it surrounded and protected"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Assistance",
+      "gives": "AID",
+      "note": "aid is help"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "V",
+      "note": "V is versus, meaning against"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "V",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Helping to protect against something makes a person passionate about it.",
+     "definitionFit": "Avid and zealous are synonyms, both meaning keenly enthusiastic and eager about a pursuit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "guarding"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +385,64 @@
     "text": "Recoil in anger, struggling after prosperous period",
     "enumeration": "9"
    },
-   "solution": "BOOMERANG"
+   "solution": "BOOMERANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BOOMERANG",
+    "definitions": [
+     {
+      "text": "Recoil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggling",
+      "for": "anagram",
+      "note": "a word that is struggling is in disarray, so its letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prosperous period",
+      "gives": "BOOM",
+      "note": "a boom is a time of economic growth"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "ERANG",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOOM",
+      "ERANG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGER",
+       "gives": "ERANG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "After a period of prosperity, people react with angry recoil as things fall apart.",
+     "walkthrough": "'after' puts the period first in the answer even though it comes last in the clue.",
+     "definitionFit": "As a verb, boomerang means to rebound or backfire on the originator, like the curved throwing stick coming back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "struggling"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +456,70 @@
     "text": "Remembrance mostly about one with dream showing obstinacy",
     "enumeration": "13"
    },
-   "solution": "RECALCITRANCE"
+   "solution": "RECALCITRANCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RECALCITRANCE",
+    "definitions": [
+     {
+      "text": "obstinacy",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most but not all of the word is used, so its final letter goes"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Remembrance",
+      "gives": "RECALL",
+      "note": "recall is the act of remembering"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "C is circa, Latin for about"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "dream",
+      "gives": "TRANCE",
+      "note": "a trance is a dreamlike state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECAL",
+      "C",
+      "I",
+      "TRANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Remembering a dream proves stubbornly difficult.",
+     "walkthrough": "'about' here is not a reversal or container signal but the abbreviation C, circa.",
+     "definitionFit": "Recalcitrance is a stubborn refusal to obey or cooperate, the same quality as obstinacy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +533,53 @@
     "text": "Fish not caught in centre of activity",
     "enumeration": "3"
    },
-   "solution": "HUB"
+   "solution": "HUB",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HUB",
+    "definitions": [
+     {
+      "text": "centre of activity",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having a letter means it is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "CHUB",
+      "note": "the chub is a freshwater fish"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUB"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler's fish escapes, right in the middle of the action.",
+     "walkthrough": "On a cricket scorecard 'c' records a batter out caught.",
+     "definitionFit": "A hub is the central point of a network or operation where most of the activity happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +593,47 @@
     "text": "Refinement in language",
     "enumeration": "6"
    },
-   "solution": "POLISH"
+   "solution": "POLISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POLISH",
+    "definitions": [
+     {
+      "text": "Refinement",
+      "at": 0
+     },
+     {
+      "text": "language",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refinement",
+      "note": "first meaning: elegance or finesse"
+     },
+     {
+      "clueFragment": "language",
+      "note": "second meaning: the tongue spoken in Poland"
+     }
+    ],
+    "explanation": {
+     "surface": "Elegance shown in the way someone speaks.",
+     "walkthrough": "The capital letter is hidden at the start of the clue: refinement is lower-case polish, the language upper-case Polish.",
+     "definitionFit": "Polish means sophistication and finish, and also names the Slavic tongue spoken by people of Poland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "language"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +647,64 @@
     "text": "Director getting Oscar, after cheers, blustering endlessly",
     "enumeration": "9"
    },
-   "solution": "TARANTINO"
+   "solution": "TARANTINO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TARANTINO",
+    "definitions": [
+     {
+      "text": "Director",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end, the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TA",
+      "note": "ta is informal British for thanks"
+     },
+     {
+      "clueFragment": "blustering",
+      "gives": "RANTING",
+      "note": "ranting is loud, blustering speech"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "O is Oscar in the radio alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "RANTIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A film director wins an Oscar, then gives a rambling acceptance speech after the applause.",
+     "walkthrough": "'after cheers' places the piece for cheers first; in Britain 'cheers' and 'ta' both mean thanks.",
+     "definitionFit": "Quentin Tarantino is an American film-maker known for Pulp Fiction, an example of a director."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +724,56 @@
      }
     ]
    },
-   "solution": "NELSONMANDELA"
+   "solution": "NELSONMANDELA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NELSON MANDELA",
+    "definitions": [
+     {
+      "text": "leader of South Africa",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrangling",
+      "for": "anagram",
+      "note": "wrangling is quarrelling and tangling, so the preceding letters get mixed up"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One man ends all",
+      "gives": "ONEMANENDSALL",
+      "note": "every letter of these four words is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NELSONMANDELA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONEMANENDSALL",
+       "gives": "NELSONMANDELA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A single man brings an end to all the arguing and becomes the nation's leader.",
+     "walkthrough": "The surface is close to an and-lit: Mandela was indeed one man who ended a long struggle.",
+     "definitionFit": "Nelson Mandela became South Africa's first black president in 1994, after ending apartheid through negotiation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +787,61 @@
     "text": "Labour account about conspiratorial group",
     "enumeration": "5"
    },
-   "solution": "CABAL"
+   "solution": "CABAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CABAL",
+    "definitions": [
+     {
+      "text": "conspiratorial group",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "brought about, the pair turns round and reads the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour",
+      "gives": "LAB",
+      "note": "Lab is the short form of the UK Labour Party"
+     },
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "BAL"
+     ],
+     "reversals": [
+      {
+       "from": "LABAC",
+       "to": "CABAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of a plotting faction inside the Labour Party.",
+     "walkthrough": "'about' applies to both abbreviations together, not just to account.",
+     "definitionFit": "A cabal is a secret faction of plotters working together, especially in politics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +855,49 @@
     "text": "Stick with demon drink",
     "enumeration": "6"
    },
-   "solution": "IMPALE"
+   "solution": "IMPALE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPALE",
+    "definitions": [
+     {
+      "text": "Stick",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "demon",
+      "gives": "IMP",
+      "note": "an imp is a small demon"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "ALE",
+      "note": "ale is beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "ALE"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping company with a devilish drink.",
+     "definitionFit": "To impale is to pierce or skewer something with a pointed object, a verb sense of stick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Stick"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +911,52 @@
     "text": "Pragmatic people referring to ace catalogues",
     "enumeration": "8"
    },
-   "solution": "REALISTS"
+   "solution": "REALISTS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REALISTS",
+    "definitions": [
+     {
+      "text": "Pragmatic people",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "referring to",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is ace on playing cards"
+     },
+     {
+      "clueFragment": "catalogues",
+      "gives": "LISTS",
+      "note": "a catalogue is a list"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "LISTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Practical types like to point to their excellent inventories.",
+     "definitionFit": "Realists accept situations as they actually are and deal with them practically, which is what pragmatists do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ace"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +970,64 @@
     "text": "Oddity in wrong version of a liturgy",
     "enumeration": "11"
    },
-   "solution": "SINGULARITY"
+   "solution": "SINGULARITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SINGULARITY",
+    "definitions": [
+     {
+      "text": "Oddity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "version of",
+      "for": "anagram",
+      "note": "a different version presents the same letters in another form"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wrong",
+      "gives": "SIN",
+      "note": "a sin is a wrong"
+     },
+     {
+      "clueFragment": "a liturgy",
+      "gives": "GULARITY",
+      "note": "these eight letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIN",
+      "GULARITY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALITURGY",
+       "gives": "GULARITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something odd crops up in a corrupted form of church service.",
+     "walkthrough": "'wrong' looks like part of the anagram signal, but it is a noun giving its own piece.",
+     "definitionFit": "A singularity is a peculiarity or strange trait, something odd that marks a thing out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1047,64 @@
      }
     ]
    },
-   "solution": "ACTIONSTATIONS"
+   "solution": "ACTIONSTATIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ACTION STATIONS",
+    "definitions": [
+     {
+      "text": "prepare for battle",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfamiliar",
+      "for": "anagram",
+      "note": "made unfamiliar, the words appear in a strange, unrecognisable order"
+     }
+    ],
+    "linkWords": [
+     "in order to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Deeds",
+      "gives": "ACTIONS",
+      "note": "actions are deeds"
+     },
+     {
+      "clueFragment": "to saint",
+      "gives": "TATIONS",
+      "note": "these seven letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACTIONS",
+      "TATIONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOSAINT",
+       "gives": "TATIONS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actions a saint would not recognise, done to get ready for war.",
+     "walkthrough": "'in order' looks like an anagram signal, but it belongs to the link 'in order to'.",
+     "definitionFit": "Action stations is the military order for crew to take up positions ready for combat, a call to get set for fighting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "saint"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1124,63 @@
      }
     ]
    },
-   "solution": "SKINTIGHT"
+   "solution": "SKINTIGHT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SKIN-TIGHT",
+    "definitions": [
+     {
+      "text": "clinging",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "what is lost is no longer there, so a letter is removed"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruined",
+      "gives": "SKINT",
+      "note": "skint is British slang for penniless"
+     },
+     {
+      "clueFragment": "contest",
+      "gives": "FIGHT",
+      "note": "a fight is a contest"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "F",
+      "note": "F is the physics symbol for force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKINT",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A bankrupt boxer drops out of a bout, still hanging on.",
+     "walkthrough": "Skint is everyday British slang for broke, so 'ruined' in its financial sense.",
+     "definitionFit": "Skintight clothing fits closely against the body, hugging it the way something clinging does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ruined"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1200,77 @@
      }
     ]
    },
-   "solution": "STAMPINGGROUND"
+   "solution": "STAMPINGGROUND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "STAMPING GROUND",
+    "definitions": [
+     {
+      "text": "Territory",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "done sadly, the word is spoiled and its letters fall out of order"
+     },
+     {
+      "text": "secured by",
+      "for": "container",
+      "note": "something secured by another is held fast inside it"
+     }
+    ],
+    "linkWords": [
+     "shown by",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fraud",
+      "gives": "STING",
+      "note": "a sting is a confidence trick"
+     },
+     {
+      "clueFragment": "map",
+      "gives": "AMP",
+      "note": "the three letters rearranged"
+     },
+     {
+      "clueFragment": "crushed",
+      "gives": "GROUND",
+      "note": "ground is crushed into powder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AMP",
+      "ING",
+      "GROUND"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAP",
+       "gives": "AMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Land on a map, sadly taken by deception and flattened.",
+     "definitionFit": "A stamping ground is a place a person habitually frequents, their familiar patch or haunt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crushed"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1284,65 @@
     "text": "Teacher keeping record on Hawaii identifying marine mammal",
     "enumeration": "7"
    },
-   "solution": "DOLPHIN"
+   "solution": "DOLPHIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DOLPHIN",
+    "definitions": [
+     {
+      "text": "marine mammal",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "to keep something is to hold it within"
+     }
+    ],
+    "linkWords": [
+     "identifying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Teacher",
+      "gives": "DON",
+      "note": "a don is a university teacher"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LP",
+      "note": "an LP is a long-playing record"
+     },
+     {
+      "clueFragment": "Hawaii",
+      "gives": "HI",
+      "note": "HI is the postal abbreviation for Hawaii"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "LP",
+      "HI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher with a record of time in Hawaii can recognise sea creatures.",
+     "walkthrough": "'on' sets the record before Hawaii, and the pair sits inside the teacher.",
+     "definitionFit": "Dolphins are aquatic, air-breathing cetaceans living in the sea, so they fit as an ocean mammal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1356,61 @@
     "text": "Investigator with eggs upset bird",
     "enumeration": "6"
    },
-   "solution": "AVOCET"
+   "solution": "AVOCET",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AVOCET",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Investigator",
+      "gives": "TEC",
+      "note": "tec is slang for detective"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "OVA",
+      "note": "ova is Latin for eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVO",
+      "CET"
+     ],
+     "reversals": [
+      {
+       "from": "TECOVA",
+       "to": "AVOCET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A detective knocks over a nest of eggs, upsetting the bird.",
+     "walkthrough": "'upset' looks like an anagram signal, but in a down clue it flips the whole thing.",
+     "definitionFit": "The avocet is a black-and-white wading bird with an upturned bill, emblem of the RSPB."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Investigator"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1424,68 @@
     "text": "Neighbourhood very hostile about fashionable appeal",
     "enumeration": "8"
    },
-   "solution": "VICINITY"
+   "solution": "VICINITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "VICINITY",
+    "definitions": [
+     {
+      "text": "Neighbourhood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one part goes round the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "note": "V is the abbreviation for very"
+     },
+     {
+      "clueFragment": "hostile",
+      "gives": "ICY",
+      "note": "an icy welcome is hostile"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "IN",
+      "note": "in means trendy"
+     },
+     {
+      "clueFragment": "appeal",
+      "gives": "IT",
+      "note": "it is sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "IC",
+      "IN",
+      "IT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A local area strongly hostile to anything trendy.",
+     "walkthrough": "'it' meaning sex appeal comes from 1920s slang, as in the It girl.",
+     "definitionFit": "The vicinity is the area near or surrounding a place, its neighbourhood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appeal"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1499,58 @@
     "text": "Call for extremes of exertion before end",
     "enumeration": "6"
    },
-   "solution": "ENTAIL"
+   "solution": "ENTAIL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ENTAIL",
+    "definitions": [
+     {
+      "text": "Call for",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exertion",
+      "gives": "EN",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "TAIL",
+      "note": "the tail is the end of something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TAIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A demand for maximum effort right up to the finish.",
+     "definitionFit": "To entail something is to require or necessitate it, so a plan may demand that consequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exertion"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1564,67 @@
     "text": "Bishop during meal raised support",
     "enumeration": "4"
    },
-   "solution": "ABET"
+   "solution": "ABET",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "ABET",
+    "definitions": [
+     {
+      "text": "support",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during an event is inside its span"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising the letters makes them read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "TEA",
+      "note": "tea is an evening meal in Britain"
+     },
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "ET"
+     ],
+     "reversals": [
+      {
+       "from": "TEBA",
+       "to": "ABET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bishop raises support during a church supper.",
+     "walkthrough": "In much of Britain tea is the evening meal, not just a drink.",
+     "definitionFit": "To abet is to help or encourage, usually in wrongdoing, which is a form of support."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1638,54 @@
     "text": "Heart broken by hard task",
     "enumeration": "5"
    },
-   "solution": "CHORE"
+   "solution": "CHORE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHORE",
+    "definitions": [
+     {
+      "text": "task",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "a thing broken into has something forced inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heart",
+      "gives": "CORE",
+      "note": "the core is the heart of something"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "H",
+      "ORE"
+     ]
+    },
+    "explanation": {
+     "surface": "A demanding job leaves someone heartbroken.",
+     "definitionFit": "A chore is a routine, often tedious job, especially domestic work around the house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heart"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1699,43 @@
     "text": "Sash used by slob incorrectly",
     "enumeration": "3"
    },
-   "solution": "OBI"
+   "solution": "OBI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OBI",
+    "definitions": [
+     {
+      "text": "Sash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used by",
+      "for": "hidden_word",
+      "note": "the letters are borrowed from within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slob incorrectly",
+      "gives": "OBI",
+      "note": "runs across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A lazy person wears a sash the wrong way.",
+     "walkthrough": "'incorrectly' tempts as an anagram signal, but the answer sits in plain sight.",
+     "definitionFit": "An obi is the broad sash worn around the waist with a Japanese kimono."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "incorrectly"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1749,76 @@
     "text": "Sigh woefully about bribe, confounded nonsense",
     "enumeration": "9"
    },
-   "solution": "GIBBERISH"
+   "solution": "GIBBERISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GIBBERISH",
+    "definitions": [
+     {
+      "text": "nonsense",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "woefully",
+      "for": "anagram",
+      "note": "done woefully, the word is badly made and its letters disordered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one set of letters surrounds the other"
+     },
+     {
+      "text": "confounded",
+      "for": "anagram",
+      "note": "confounded means thrown into confusion, so these letters are mixed too"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sigh",
+      "gives": "GISH",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "bribe",
+      "gives": "BBERI",
+      "note": "the five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "BBERI",
+      "SH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SIGH",
+       "gives": "GISH"
+      },
+      {
+       "fodder": "BRIBE",
+       "gives": "BBERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sighs miserably over a bribe, muttering confused nonsense.",
+     "walkthrough": "Both words are scrambled, so treating all nine letters as one anagram also works.",
+     "definitionFit": "Gibberish is unintelligible talk or meaningless language, the same thing as nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "confounded"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1832,58 @@
     "text": "Dance with skill, I note, having three elements",
     "enumeration": "10"
    },
-   "solution": "TRIPARTITE"
+   "solution": "TRIPARTITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIPARTITE",
+    "definitions": [
+     {
+      "text": "having three elements",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dance",
+      "gives": "TRIP",
+      "note": "to trip is to dance lightly, as in trip the light fantastic"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "art is skill"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "te is a note of the sol-fa scale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIP",
+      "ART",
+      "I",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer remarks that the routine combines three components.",
+     "definitionFit": "Tripartite means consisting of or divided into three parts, as in a three-party agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dance"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1897,58 @@
     "text": "Contents of rhyme and new song",
     "enumeration": "4"
    },
-   "solution": "HYMN"
+   "solution": "HYMN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HYMN",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Contents of",
+      "for": "letter_selection",
+      "note": "the contents of a word are what lies inside, without its outer letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rhyme",
+      "gives": "HYM",
+      "select": "middle",
+      "note": "the inner letters"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HYM",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "The words of a fresh rhyme set to music.",
+     "definitionFit": "A hymn is a religious song of praise sung in church, so it is a kind of song."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Contents"
+    }
+   }
   }
  ]
 }
