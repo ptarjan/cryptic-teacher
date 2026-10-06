@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Indeed — right time",
     "enumeration": "4"
    },
-   "solution": "YEAR"
+   "solution": "YEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YEAR",
+    "definitions": [
+     {
+      "text": "time",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indeed",
+      "gives": "YEA",
+      "note": "yea is an old word for yes, indeed"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YEA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees that the moment has come: yes, it is the right time.",
+     "definitionFit": "A year is a fixed period on the calendar, so it is a unit or span of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Indeed"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +89,63 @@
     "text": "Interpreted thus, accountants voided capital",
     "enumeration": "6"
    },
-   "solution": "ATHENS"
+   "solution": "ATHENS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ATHENS",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "voided",
+      "for": "letter_selection",
+      "note": "something voided has been emptied, so only the first and last letters of that word survive"
+     },
+     {
+      "text": "Interpreted",
+      "for": "container",
+      "note": "read as inter-preted, the word suggests being placed between, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "accountants",
+      "gives": "AS",
+      "select": "outer",
+      "note": "the word with its middle emptied out leaves only its two end letters"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "THEN",
+      "note": "then can mean thus or therefore, as in 'then it must be true'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "THEN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Bookkeepers are said to have emptied the capital's coffers, once the figures are interpreted that way.",
+     "walkthrough": "The surface reads like a financial story; the capital is a city, and the small word thus is buried between the ends of accountants.",
+     "definitionFit": "A capital is the seat of a nation's government, and the Greek government sits in this city."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +165,79 @@
      }
     ]
    },
-   "solution": "MAKEMERRY"
+   "solution": "MAKEMERRY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MAKE MERRY",
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word for smell runs backwards"
+     },
+     {
+      "text": "to grab",
+      "for": "container",
+      "note": "to grab is to hold something within, so the male goes inside"
+     },
+     {
+      "text": "stifling",
+      "for": "container",
+      "note": "stifling smothers what it holds, so the girl's name wraps around everything else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "MARY",
+      "note": "a common girl's name"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "REEK",
+      "note": "reek is a strong unpleasant smell"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "KE",
+      "M",
+      "ER",
+      "RY"
+     ],
+     "reversals": [
+      {
+       "from": "REEK",
+       "to": "KEER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A party girl puts up with a nasty smell while grabbing a man.",
+     "walkthrough": "KEER (reek turned round) takes M inside to make KEMER, which then sits inside MA-RY.",
+     "definitionFit": "To make merry is a phrasal verb for celebrating, which is what partying means as a verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +251,58 @@
     "text": "Ripped off official, having looked around",
     "enumeration": "8"
    },
-   "solution": "GAZUMPED"
+   "solution": "GAZUMPED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GAZUMPED",
+    "definitions": [
+     {
+      "text": "Ripped off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means the second word encircles the first"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "official",
+      "gives": "UMP",
+      "note": "an ump is an umpire, an official in sport"
+     },
+     {
+      "clueFragment": "looked",
+      "gives": "GAZED",
+      "note": "gazed means looked steadily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAZ",
+      "UMP",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee feels cheated after having had a good look about.",
+     "walkthrough": "Gazumping is British slang from house buying: a seller accepts a higher offer after agreeing a price with you.",
+     "definitionFit": "Being gazumped means being cheated out of a purchase by a late higher bid, a form of being swindled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "official"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +316,60 @@
     "text": "Threw away black stone I'd damaged",
     "enumeration": "10"
    },
-   "solution": "JETTISONED"
+   "solution": "JETTISONED",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "JETTISONED",
+    "definitions": [
+     {
+      "text": "Threw away",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "damaged letters are knocked out of shape, so they must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "JET",
+      "note": "jet is a deep black colour, as in jet-black"
+     },
+     {
+      "clueFragment": "stone I'd",
+      "gives": "STONEID",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JET",
+      "TISONED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STONEID",
+       "gives": "TISONED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone discarded a dark gem because it had been chipped.",
+     "definitionFit": "To jettison is to throw cargo or anything unwanted overboard, so jettisoned is the past tense for discarded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "black"
+    }
+   }
   },
   {
    "number": 6,
@@ -115,7 +389,50 @@
      }
     ]
    },
-   "solution": "SWEETFA"
+   "solution": "SWEETFA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEET FA",
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possibly fool",
+      "gives": "SWEET",
+      "note": "a fool is a fruit-and-cream pudding, so possibly one example of a sweet"
+     },
+     {
+      "clueFragment": "sporting body",
+      "gives": "FA",
+      "note": "the FA is the Football Association"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEET",
+      "FA"
+     ]
+    },
+    "explanation": {
+     "surface": "An idiot plays for a sports team and is paid zilch.",
+     "walkthrough": "Sweet FA is British slang for nothing at all; a fool here is the dessert, and in Britain a sweet is a pudding.",
+     "definitionFit": "Sweet FA is a coarse British idiom meaning absolutely nothing, a euphemism for a ruder phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fool"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +446,50 @@
     "text": "Moderate son getting a great deal",
     "enumeration": "6"
    },
-   "solution": "SOFTEN"
+   "solution": "SOFTEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOFTEN",
+    "definitions": [
+     {
+      "text": "Moderate",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "a great deal",
+      "gives": "OFTEN",
+      "note": "often means a great deal, frequently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OFTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A restrained son lands a terrific bargain.",
+     "walkthrough": "Moderate is the verb here, to tone down, not the adjective.",
+     "definitionFit": "To soften something is to make it less harsh, which is what moderating it means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Moderate"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +509,71 @@
      }
     ]
    },
-   "solution": "GOAHEAD"
+   "solution": "GOAHEAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GO-AHEAD",
+    "definitions": [
+     {
+      "text": "clearance",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intermittently",
+      "for": "letter_selection",
+      "note": "intermittently means on and off, so every other letter of the phrase is taken"
+     },
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "emptied means the inside is removed, so only the two end letters remain"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so the first group of letters goes into the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local hyenas",
+      "gives": "OAHEA",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on across both words"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "GD",
+      "select": "outer",
+      "note": "just the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OAHEA",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Neighbourhood hyenas keep wandering onto cleared land.",
+     "walkthrough": "The alternate letters run across both words, Local and hyenas, which the surface keeps apart.",
+     "definitionFit": "The go-ahead is permission to proceed, and clearance is official approval to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +587,59 @@
     "text": "Facile drivel mostly rejected",
     "enumeration": "4"
    },
-   "solution": "GLIB"
+   "solution": "GLIB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "GLIB",
+    "definitions": [
+     {
+      "text": "Facile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all of it, so the last letter is cut off"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected suggests thrown back, so the letters are read in the other direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drivel",
+      "gives": "BILGE",
+      "note": "bilge is slang for nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLIB"
+     ],
+     "reversals": [
+      {
+       "from": "BILG",
+       "to": "GLIB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Superficial nonsense is largely dismissed.",
+     "definitionFit": "Glib and facile both describe speech that is fluent but shallow and lacking thought."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +653,62 @@
     "text": "Fancy — disheartened squirrels trapped in their nest",
     "enumeration": "6"
    },
-   "solution": "DRESSY"
+   "solution": "DRESSY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRESSY",
+    "definitions": [
+     {
+      "text": "Fancy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "letter_selection",
+      "note": "losing its heart means everything but the two outside letters goes"
+     },
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "trapped in means held inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "their nest",
+      "gives": "DREY",
+      "note": "a drey is the nest of a squirrel"
+     },
+     {
+      "clueFragment": "squirrels",
+      "gives": "SS",
+      "select": "outer",
+      "note": "only the two end letters of the word are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRE",
+      "SS",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An elaborate scene: dejected squirrels stuck in their home.",
+     "walkthrough": "DREY is a word few solvers know outside crosswords: it is a squirrel's nest of twigs and leaves.",
+     "definitionFit": "Dressy clothes are smart and elaborate, and fancy as an adjective means ornate or elegant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fancy"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +722,49 @@
     "text": "Wanting to have church police",
     "enumeration": "5"
    },
-   "solution": "FORCE"
+   "solution": "FORCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORCE",
+    "definitions": [
+     {
+      "text": "police",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "to have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wanting",
+      "gives": "FOR",
+      "note": "if you are for something you want it, as in all for it"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longs for the church to have its own police.",
+     "definitionFit": "The police are often called the force, as in a regional police force."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wanting"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +778,80 @@
     "text": "Form one question in English exam, dropping second half of another",
     "enumeration": "9"
    },
-   "solution": "ETIQUETTE"
+   "solution": "ETIQUETTE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "deletion"
+    ],
+    "answer": "ETIQUETTE",
+    "definitions": [
+     {
+      "text": "Form",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one group of letters inside another word"
+     },
+     {
+      "text": "dropping second half",
+      "for": "deletion",
+      "note": "dropping the second half means only the first part of the word is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "exam",
+      "gives": "TEST",
+      "note": "a test is an exam"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "QU",
+      "note": "QU is a standard abbreviation for question"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "TEST",
+      "note": "another exam, a second test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "T",
+      "IQU",
+      "E",
+      "T",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for a candidate in an English exam: answer one question and drop half of another.",
+     "walkthrough": "The parse is imperfect: the first exam must also lose its S, which nothing in the clue signals. Form here means correct social behaviour, not a document.",
+     "definitionFit": "Good form means proper behaviour by convention, which is exactly what etiquette describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Form"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +871,55 @@
      }
     ]
    },
-   "solution": "ENMASSE"
+   "solution": "ENMASSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EN MASSE",
+    "definitions": [
+     {
+      "text": "in a group",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lacking cover",
+      "for": "deletion",
+      "note": "with no cover the outside edges are gone, so the first and last letters of the phrase are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "MEN",
+      "note": "men is a common word for soldiers, as opposed to officers"
+     },
+     {
+      "clueFragment": "gathered",
+      "gives": "MASSED",
+      "note": "massed means gathered together"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "MASSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops with no protection huddle together.",
+     "walkthrough": "The covering letters come off the whole phrase men massed, not each word separately.",
+     "definitionFit": "En masse is French borrowed into English meaning all together, as one body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +939,51 @@
      }
     ]
    },
-   "solution": "MAIDENOVER"
+   "solution": "MAIDENOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAIDEN OVER",
+    "definitions": [
+     {
+      "text": "example of no-one getting the runs",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "MAIDEN",
+      "note": "maiden means first or new, as in a maiden voyage"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "OVER",
+      "note": "over can mean about or concerning, as in a row over money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAIDEN",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh, worrying case of nobody suffering from diarrhoea.",
+     "walkthrough": "In cricket an over is six balls; a maiden over is one in which the batsmen score no runs. The runs is also slang for diarrhoea.",
+     "definitionFit": "A maiden over is a cricket over from which no runs are scored, so nobody gets any runs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +997,62 @@
     "text": "Jerks back sadomasochistic idiots",
     "enumeration": "6"
    },
-   "solution": "SPASMS"
+   "solution": "SPASMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPASMS",
+    "definitions": [
+     {
+      "text": "Jerks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the whole string of letters is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sadomasochistic",
+      "gives": "SM",
+      "note": "S and M is a short form of sadomasochism"
+     },
+     {
+      "clueFragment": "idiots",
+      "gives": "SAPS",
+      "note": "saps are gullible fools"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAS",
+      "MS"
+     ],
+     "reversals": [
+      {
+       "from": "SMSAPS",
+       "to": "SPASMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stupid people into S&M are a bunch of jerks.",
+     "walkthrough": "Jerks looks like an insult for people, but here it is twitches, a plural noun.",
+     "definitionFit": "Spasms are sudden involuntary muscle contractions, or jerks of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Jerks"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +1066,50 @@
     "text": "Stopping reckless canoeists",
     "enumeration": "9"
    },
-   "solution": "CESSATION"
+   "solution": "CESSATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CESSATION",
+    "definitions": [
+     {
+      "text": "Stopping",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reckless",
+      "for": "anagram",
+      "note": "reckless suggests wild and uncontrolled, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canoeists",
+      "gives": "CANOEISTS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANOEISTS",
+       "gives": "CESSATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Paddlers taking risks are told to pull up.",
+     "definitionFit": "A cessation is a halt or ending, the act of stopping something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reckless"
+    }
+   }
   },
   {
    "number": 15,
@@ -293,7 +1129,50 @@
      }
     ]
    },
-   "solution": "SILVERWEDDING"
+   "solution": "SILVERWEDDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SILVER WEDDING",
+    "definitions": [
+     {
+      "text": "Big occasion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "letters that are dancing move about and change places"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deserving wild",
+      "gives": "DESERVINGWILD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DESERVINGWILD",
+       "gives": "SILVERWEDDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grand event that merits some energetic dancing.",
+     "definitionFit": "A silver wedding is the twenty-fifth anniversary of a marriage, a major celebration for a couple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1186,68 @@
     "text": "Sketch given unusual title, oddly enough",
     "enumeration": "8"
    },
-   "solution": "VIGNETTE"
+   "solution": "VIGNETTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "VIGNETTE",
+    "definitions": [
+     {
+      "text": "Sketch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "unusual means out of the ordinary, so these letters come in an odd order"
+     },
+     {
+      "text": "oddly enough",
+      "for": "letter_selection",
+      "note": "oddly here means taking the first, third and fifth letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given",
+      "gives": "GIVEN",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "title",
+      "gives": "TTE",
+      "select": "alternate",
+      "note": "the odd-numbered letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIGNE",
+      "TTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIVEN",
+       "gives": "VIGNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drawing is given a strange name, which is odd.",
+     "walkthrough": "Given looks like a link word joining the sketch to its title; it is the anagram fodder.",
+     "definitionFit": "A vignette is a brief descriptive scene or small illustration, a kind of short sketch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "given"
+    }
+   }
   },
   {
    "number": 17,
@@ -321,7 +1261,56 @@
     "text": "Wife calm, having left slyboots",
     "enumeration": "6"
    },
-   "solution": "WEASEL"
+   "solution": "WEASEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WEASEL",
+    "definitions": [
+     {
+      "text": "slyboots",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "calm",
+      "gives": "EASE",
+      "note": "ease is a state of calm"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "EASE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife stays serene after a crafty person walks out.",
+     "walkthrough": "Left looks like a verb, someone departing, but it just gives L.",
+     "definitionFit": "A weasel is a sly, untrustworthy person, and a slyboots is someone cunning."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 18,
@@ -335,7 +1324,56 @@
     "text": "Send out Henry to cut a flower",
     "enumeration": "6"
    },
-   "solution": "EXHALE"
+   "solution": "EXHALE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXHALE",
+    "definitions": [
+     {
+      "text": "Send out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to cut",
+      "for": "container",
+      "note": "to cut into something is to go inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a flower",
+      "gives": "EXE",
+      "note": "a flower is something that flows, a river; the Exe is a river in Devon"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "HAL",
+      "note": "Hal is a pet form of Henry, as with Shakespeare's Prince Hal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "HAL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Henry is sent to snip a bloom.",
+     "walkthrough": "Flower is crossword code for river; the Exe is a river in south-west England.",
+     "definitionFit": "To exhale is to breathe out, sending air out of the lungs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flower"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1387,65 @@
     "text": "Generally good for all not to open zip",
     "enumeration": "6"
    },
-   "solution": "ENERGY"
+   "solution": "ENERGY",
+   "annotation": {
+    "type": [
+     "substitution",
+     "deletion"
+    ],
+    "answer": "ENERGY",
+    "definitions": [
+     {
+      "text": "zip",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "for means in place of, so one piece swaps in where the other stood"
+     },
+     {
+      "text": "not to open",
+      "for": "deletion",
+      "note": "with no opening, the first letter of the result is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Generally",
+      "gives": "GENERALLY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "all",
+      "gives": "ALL",
+      "note": "taken as written, the letters being replaced"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENERGY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that is usually beneficial for everyone is kept closed, like a zip.",
+     "walkthrough": "G replaces ALL in GENERALLY to give GENERGY, then the first letter goes. Zip is the noun meaning vigour, not the fastener.",
+     "definitionFit": "Zip is informal for liveliness or vigour, which is a sense of energy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "zip"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1459,45 @@
     "text": "To cover floors, picked up fabric",
     "enumeration": "7"
    },
-   "solution": "SPANDEX"
+   "solution": "SPANDEX",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SPANDEX",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up as in heard, so the words are judged by their sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To cover floors",
+      "gives": "SPANDEX",
+      "soundsLike": "SPANNED DECKS",
+      "note": "to span is to cover a distance, and decks are the floors of a ship"
+     }
+    ],
+    "explanation": {
+     "surface": "A material is chosen for carpeting the floors.",
+     "walkthrough": "To cover floors becomes spanned decks, read in the past tense.",
+     "definitionFit": "Spandex is a stretchy synthetic fibre and the cloth made from it, also called Lycra or elastane."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "floors"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1511,72 @@
     "text": "Dignified, posh adult returned unfinished relish",
     "enumeration": "6"
    },
-   "solution": "AUGUST"
+   "solution": "AUGUST",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "AUGUST",
+    "definitions": [
+     {
+      "text": "Dignified",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the pair is read in the other direction"
+     },
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means without its end, so the last letter is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper class, as in U and non-U"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the abbreviation for adult, as in film ratings"
+     },
+     {
+      "clueFragment": "relish",
+      "gives": "GUSTO",
+      "note": "gusto is hearty enjoyment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AU",
+      "GUST"
+     ],
+     "reversals": [
+      {
+       "from": "UA",
+       "to": "AU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dignified, upper-class grown-up sends back a half-eaten condiment.",
+     "walkthrough": "Relish looks like a pickle or sauce, but it means enjoyment here.",
+     "definitionFit": "August as an adjective, stressed on the second syllable, means venerable and inspiring respect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "relish"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1590,54 @@
     "text": "It's not that things will turn out no good",
     "enumeration": "4"
    },
-   "solution": "THIS"
+   "solution": "THIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "THIS",
+    "definitions": [
+     {
+      "text": "It's not that",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will turn out",
+      "for": "deletion",
+      "note": "to turn out is to expel, so the letters named are thrown out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "things",
+      "gives": "THINGS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THI",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim prediction: matters will end up badly.",
+     "walkthrough": "It's not that is a playful definition: this is the opposite of that.",
+     "definitionFit": "This and that are paired pointing words, so this is the one that is not that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1651,64 @@
     "text": "She sings to 2 clubs when touring",
     "enumeration": "9"
    },
-   "solution": "STONECHAT"
+   "solution": "STONECHAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STONECHAT",
+    "definitions": [
+     {
+      "text": "She sings",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "anagram",
+      "note": "touring means travelling round, so the letters move about"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "2",
+      "gives": "ATHENS",
+      "note": "the answer to 2 down"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the abbreviation for clubs in card games"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOATHENSC",
+       "gives": "STONECHAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A singer performs in Greece and in nightclubs while on tour.",
+     "walkthrough": "She sings suggests a female vocalist; it is a songbird.",
+     "definitionFit": "The stonechat is a small European songbird, so it is a creature that sings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "She"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1722,59 @@
     "text": "Section of programme guide about this girl",
     "enumeration": "5"
    },
-   "solution": "GEMMA"
+   "solution": "GEMMA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GEMMA",
+    "definitions": [
+     {
+      "text": "this girl",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Section of",
+      "for": "hidden_word",
+      "note": "a section is a part of the words that follow, so the letters lie inside them"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the concealed letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "programme guide",
+      "gives": "AMMEG",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEMMA"
+     ],
+     "reversals": [
+      {
+       "from": "AMMEG",
+       "to": "GEMMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Part of a TV listings magazine is about a particular girl.",
+     "definitionFit": "Gemma is a girl's first name, so this answer is a particular girl."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1788,50 @@
     "text": "Regard standard record brand",
     "enumeration": "4"
    },
-   "solution": "MARK"
+   "solution": "MARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARK",
+    "definitions": [
+     {
+      "text": "Regard",
+      "at": 0
+     },
+     {
+      "text": "brand",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regard",
+      "note": "to take note of"
+     },
+     {
+      "clueFragment": "standard",
+      "note": "a level, as in up to the ..."
+     },
+     {
+      "clueFragment": "record",
+      "note": "to note down, as in ... a register"
+     },
+     {
+      "clueFragment": "brand",
+      "note": "a trade name, as in a car marque or a branded ..."
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Four separate meanings of the one short word are strung together, with no wordplay.",
+     "definitionFit": "Mark works as a verb for heeding and recording and as a noun for a level and a sign of identity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 26,
@@ -447,7 +1845,52 @@
     "text": "Classical father leers at bum",
     "enumeration": "7"
    },
-   "solution": "LAERTES"
+   "solution": "LAERTES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAERTES",
+    "definitions": [
+     {
+      "text": "Classical father",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bum",
+      "for": "anagram",
+      "note": "bum as an adjective means poor or faulty, so the letters come out wrong"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leers at",
+      "gives": "LEERSAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEERSAT",
+       "gives": "LAERTES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old-fashioned dad ogles someone's behind.",
+     "walkthrough": "Bum looks like a noun for bottom, but it is an adjective meaning bad.",
+     "definitionFit": "In Greek myth Laertes is the father of Odysseus, a figure from classical literature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bum"
+    }
+   }
   },
   {
    "number": 27,
@@ -461,7 +1904,55 @@
     "text": "Watch start of court proceedings on outside broadcast",
     "enumeration": "7"
    },
-   "solution": "OBSERVE"
+   "solution": "OBSERVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSERVE",
+    "definitions": [
+     {
+      "text": "Watch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "on means placed after, so the court piece follows the broadcast abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "outside broadcast",
+      "gives": "OB",
+      "note": "OB is the abbreviation for an outside broadcast"
+     },
+     {
+      "clueFragment": "start of court proceedings",
+      "gives": "SERVE",
+      "note": "in tennis each point on court begins with a serve"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SERVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A viewer follows the opening of a trial on a live outside broadcast.",
+     "walkthrough": "Court proceedings suggests a trial, but the court is a tennis court.",
+     "definitionFit": "To observe is to watch carefully or keep an eye on something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "court"
+    }
+   }
   }
  ]
 }
