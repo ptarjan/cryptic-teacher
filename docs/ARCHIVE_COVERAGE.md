@@ -24,11 +24,12 @@ each year, it counts:
 Every unfiled edition gets exactly one class, read off the filer's ledger
 (`~/.cache/archive_org_editions/filed.jsonl`). The classes include not fetched,
 not read, blank clues held back, no grid, clues don't fit, no reading parses,
-not a grid, no crossword found, archive.org's date wrong, a collection the
-filer does not read yet, and no scan at all. Classes this pipeline can still
+not a grid, no crossword found, archive.org's date wrong, and no scan at
+all. The 1930 Times (`pub_times`, one item per issue) is listed with the
+Times, as `<item>/<item>`. Classes this pipeline can still
 recover are listed first, largest first.
 
-Three classes need code, not time (each class's fix text in `CLASSES` names
+Two classes need code, not time (each class's fix text in `CLASSES` names
 the next step):
 
 - **no crossword found** (Times): the filer reads garbled titles ("Tfee Th:es
@@ -36,9 +37,6 @@ the next step):
   with clue counts when no title is in the text (`DENSE_ENUMS`,
   `DETECTOR_VERSION` 5). What is left needs a grid search by image over
   every leaf.
-- **a collection the filer does not read** (`pub_times`, the Times of 1930):
-  the fetcher fetches it already; the filer lacks its layout: four clue
-  columns under the grid, 1-3 digit numbers, scans at 4x NewsUK's size.
 - **no grid** (Times): of 163, 155 were a scanned grid that reads true
   under clue OCR too poor (1970s-80s scans) to lay 80% of its lights, with
   no grid rebuilt from those clues. The scan's grid now stands there and

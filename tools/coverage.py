@@ -336,7 +336,7 @@ def printed(series, paper, today):
     """A daily counted by print date: archive_coverage's classes, then the
     blogs, the FT PDFs and Gale where they can deliver what the scans cannot."""
     led = Ledger(series, "print dates")
-    for date, cls, _ed, _elsewhere in archive_coverage.unfiled(paper, today):
+    for date, cls, _ed in archive_coverage.unfiled(paper, today):
         led.exists.add(date)
         if cls is None:
             led.filed.add(date)

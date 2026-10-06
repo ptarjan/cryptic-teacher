@@ -1395,6 +1395,58 @@ sunday = {"date": "1994-08-14", "puzzles": [{"number": 19620}]}
 n, day, why = f.filed_number(Path("x/NewsUK1994UKEnglish/ed"), sunday, {"number": 19620, "leaf": 1})
 check("a Sunday Times-item puzzle is refused, not filed on a Sunday", (None, True), (n, bool(why and "Sunday" in why)))
 
+# The 1930 Times (pub_times, one item an issue): its paper, its 1-3 digit
+# numbers held to the date, four clue columns, and counts from the grid.
+d1930 = Path("x/per_times_the-times_1930-03-04_45452/per_times_the-times_1930-03-04_45452")
+check("a pub_times issue is the 1930 Times, read 4x smaller, filed as times",
+      ("times1930", 4, "times"), (f.paper_of(d1930).key, f.paper_of(d1930).shrink, f.paper_of(d1930).series))
+check("a run of the Times reads the 1930 issues too", True, f.TIMES_1930 in f.TIMES.also)
+import datetime as _dt
+check("1930 numbers run six a week from No 1 on 1 Feb, none on Good Friday",
+      [1, 27, 54, 94, 129, 209],
+      [f.times1930_expected_number(_dt.date.fromisoformat(x)) for x in
+       ("1930-02-01", "1930-03-04", "1930-04-04", "1930-05-22", "1930-07-02", "1930-10-03")])
+t30, s30 = f.times1930_headings([line("LT THE TIMES CROSSWORD PUZZLE No. 129"), line("SOLUTION OF PUZZLE No. 126.", y=900)])
+check("1930 title and solution heading read", ([129], [126]), ([n for n, _, _ in t30], [n for n, _ in s30]))
+t30, _ = f.times1930_headings([line("THE TIMES CROSSWORD PUZZLE No."), line("SOLUTION OF PUZZLE No. 53", y=900)])
+check("a 1930 title whose number was not read is the one after the page's solution", [54], [n for n, _, _ in t30])
+check("the note under the clues is no title", ([], []),
+      f.times1930_headings([line("The fifty-fifth crossword puzzle in this series, together with the solution of puzzle No. 54,")]))
+found30 = {"date": "1930-10-03", "puzzles": [{"number": 200, "leaf": 4}], "solutions": [{"number": 208, "leaf": 4}]}
+f.held_dates, f.same_scan, f.page_url = (lambda series: {}), (lambda *a: None), (lambda *a: "")
+check("a misread 1930 number (200 for 209) is the page's solution's next",
+      (209, None), f.filed_number(d1930, found30, {"number": 200, "leaf": 4})[::2])
+found30["solutions"] = []
+check("with no solution heading to say so it is refused",
+      (None, True), (lambda r: (r[0], bool(r[2])))(f.filed_number(d1930, found30, {"number": 200, "leaf": 4})))
+# Four columns under the grid: ACROSS down the first two over the DOWN
+# heading, DOWN under it and on down the third and fourth, which stop at the
+# previous solution's heading.
+g30 = (100, 100, 900, 900)
+rows = [line("ACROSS", 250, 920), line("1 Cornstalks, or in-", 100, 950), line("versely blemishes.", 120, 970),
+        line("28 Louder.", 300, 950), line("29 Broaden.", 300, 970),
+        line("DOWN", 260, 1000), line("2 Have a shot", 100, 1030), line("9 This yawns", 300, 1030),
+        line("22 The desert's", 500, 950), line("32 Split this aim", 700, 950),
+        line("SOLUTION OF PUZZLE NO. 26", 520, 1100), line("STEPPES COUNSEL", 520, 1130)]
+gut = [300 - 5, 500 - 5, 700 - 5]
+check("1930 columns read in the lists' order",
+      "ACROSS\n1 Cornstalks, or in-\nversely blemishes.\n28 Louder.\n29 Broaden.\nDOWN\n2 Have a shot\n"
+      "9 This yawns\n22 The desert's\n32 Split this aim",
+      f.column_text(f.columns_of_four(rows, g30, gut, f.down_at(rows, g30, gut))))
+grid30 = ["...#", "....", "#...", "...."]
+check("1930 clues take their counts from the grid; a line that is no clue's number carries on",
+      "ACROSS\n1 Toe (3)\n4 Dose of a\nlong cure (4)\n6 Ask (3)\nDOWN\n1 Lone\nis far (2)",
+      f.counted("ACROSS\n1 Toe\n4 Dose of a\nlong cure\n6 Ask\nDOWN\n1 Lone\nis far", grid30))
+check("a capital after a clue's full stop is the next light's clue, its number lost; the number run into its word",
+      "ACROSS\n1 Toe. (3)\n4 Dose of a\nLondon cure. (4)\n6 Ask (3)\n7 Hop (4)",
+      f.counted("ACROSS\n1 Toe.\nDose of a\nLondon cure.\n6.Ask\n7Hop", grid30))
+check("1930 words RapidOCR ran together put apart, specks between words dropped",
+      "These people are flat and in \u201cThe Tempest\u201d Hornblower",
+      f.spaced("Thesepeopleare flat.and in\u201cThe Tempest\u201d Hornblower"))
+check("1930 spacing leaves a known word, a word broken over a line end, and splits a run after its clue number",
+      "41 Neat gem (anag.)\n25 Holds an esta-\nblished ap-\npearance",
+      f.spaced("41 Neat gem (anag.)\n25Holdsan esta-\nblished ap-\npearance"))
+
 print(f"FAILS {fails}")
 EOF
 )
