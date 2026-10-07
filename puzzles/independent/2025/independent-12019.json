@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Solver's finally happy, hour after hour",
     "enumeration": "4"
    },
-   "solution": "YOUR"
+   "solution": "YOUR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "YOUR",
+    "definitions": [
+     {
+      "text": "Solver's",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word happy, the one letter kept from it"
+     },
+     {
+      "text": "after",
+      "for": "deletion",
+      "note": "read as 'with an hour gone after it', so the abbreviation for hour is taken away from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "happy",
+      "gives": "Y",
+      "select": "last",
+      "note": "last letter of happy"
+     },
+     {
+      "clueFragment": "hour after hour",
+      "gives": "OUR",
+      "note": "the word hour with H, the abbreviation for hour, taken away"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword solver is finally content after toiling hour after hour over the grid.",
+     "walkthrough": "'Hour after hour' looks like a phrase for a long time; it is the word hour losing H, its own abbreviation, leaving OUR after the Y.",
+     "definitionFit": "Addressing the solver as 'you', the possessive form belonging to that person is your."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,46 @@
     "text": "Three oxygen atoms linked circle and sphere",
     "enumeration": "5"
    },
-   "solution": "OZONE"
+   "solution": "OZONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OZONE",
+    "definitions": [
+     {
+      "text": "Three oxygen atoms linked",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "circle",
+      "gives": "O",
+      "note": "the letter O is circle-shaped"
+     },
+     {
+      "clueFragment": "sphere",
+      "gives": "ZONE",
+      "note": "a sphere of activity is a zone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "ZONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chemistry lesson: three oxygen atoms joined in a ring and a ball.",
+     "definitionFit": "Ozone is the molecule O3, formed when three atoms of oxygen bond together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sphere"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +158,61 @@
     "text": "Berated after exchange of bishop and rook discounted",
     "enumeration": "7"
    },
-   "solution": "REBATED"
+   "solution": "REBATED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "REBATED",
+    "definitions": [
+     {
+      "text": "discounted",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after exchange of",
+      "for": "substitution",
+      "note": "an exchange swaps two things over, so each takes the other's place in the word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Berated",
+      "gives": "BERATED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for rook"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REBATED"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player told off after trading a bishop for a rook, the move written off.",
+     "walkthrough": "Swap the B and R at the start of berated.",
+     "definitionFit": "A rebate is a partial refund or reduction, so something rebated has been reduced in price."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +226,48 @@
     "text": "Cold water pitcher occasionally emptied",
     "enumeration": "3"
    },
-   "solution": "ICE"
+   "solution": "ICE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ICE",
+    "definitions": [
+     {
+      "text": "Cold water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally emptied",
+      "for": "letter_selection",
+      "note": "emptied only now and then, so every other letter of the word survives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitcher",
+      "gives": "ICE",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters of pitcher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A jug of chilled water left standing and only now and then poured out.",
+     "definitionFit": "Ice is the frozen, solid state of water, reached only once its temperature drops to freezing point."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pitcher"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +281,63 @@
     "text": "Indescribably top-to-toe fine, fine and well",
     "enumeration": "9"
    },
-   "solution": "INEFFABLY"
+   "solution": "INEFFABLY",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "INEFFABLY",
+    "definitions": [
+     {
+      "text": "Indescribably",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top-to-toe",
+      "for": "cycling",
+      "note": "moving from the top to the toe sends the word's first letter round to its end"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "INEF",
+      "note": "the word fine with its F moved to the bottom"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "F",
+      "note": "F is the abbreviation for fine, as on a pencil"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "ABLY",
+      "note": "to do something ably is to do it well"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INEF",
+      "F",
+      "ABLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dressed impossibly finely from head to foot and looking well.",
+     "definitionFit": "Ineffable means too great to be expressed in words, so the adverb means beyond description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "top-to-toe"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +351,45 @@
     "text": "How you might address a man in picturesque parts",
     "enumeration": "3"
    },
-   "solution": "ESQ"
+   "solution": "ESQ",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESQ",
+    "definitions": [
+     {
+      "text": "How you might address a man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells the solver the letters sit inside the next word"
+     }
+    ],
+    "linkWords": [
+     "parts"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "picturesque",
+      "gives": "ESQ",
+      "note": "inside picturESQue"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice on polite forms of address in scenic areas of the country.",
+     "definitionFit": "Esq, short for esquire, is a courtesy title written after a man's name on a letter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +403,49 @@
     "text": "One who plays recordings of river bird",
     "enumeration": "6"
    },
-   "solution": "DEEJAY"
+   "solution": "DEEJAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEEJAY",
+    "definitions": [
+     {
+      "text": "One who plays recordings",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "DEE",
+      "note": "the Dee is a river in Scotland and another in Wales and England"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "JAY",
+      "note": "the jay is a bird of the crow family"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEE",
+      "JAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone playing field recordings of a river bird's song.",
+     "definitionFit": "A deejay, the spelt-out form of DJ, is the person who plays records on radio or in a club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recordings"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +459,56 @@
     "text": "Shudder at the thought of defunct dressing recipe",
     "enumeration": "5"
    },
-   "solution": "DREAD"
+   "solution": "DREAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREAD",
+    "definitions": [
+     {
+      "text": "Shudder at the thought of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressing",
+      "for": "container",
+      "note": "a dressing is wrapped around a wound, so one word is wrapped around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defunct",
+      "gives": "DEAD",
+      "note": "defunct means dead"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, as on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "Recoiling at a long-abandoned recipe for salad dressing.",
+     "walkthrough": "'Dressing recipe' looks like a salad dressing; the dead word is dressing, or wrapping round, the letter for recipe.",
+     "definitionFit": "To dread something is to anticipate it with fear, to shudder at the thought of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +522,67 @@
     "text": "Maybe 18 chosen troops to oust leader of Cuba",
     "enumeration": "7"
    },
-   "solution": "ELEMENT"
+   "solution": "ELEMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "ELEMENT",
+    "definitions": [
+     {
+      "text": "Maybe 18",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a word is its opening letter"
+     },
+     {
+      "text": "to oust",
+      "for": "substitution",
+      "note": "ousting pushes one occupant out and puts another in its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chosen",
+      "gives": "ELECT",
+      "note": "the elect are the chosen ones"
+     },
+     {
+      "clueFragment": "troops",
+      "gives": "MEN",
+      "note": "troops are soldiers, men"
+     },
+     {
+      "clueFragment": "Cuba",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of Cuba"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELE",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Selected soldiers sent to depose Cuba's leader.",
+     "walkthrough": "The 18 is BASE METAL; lead or iron is an example of a chemical element. MEN takes the place of the C in elect.",
+     "definitionFit": "Base metals such as lead or iron are chemical elements, so the answer is a broader class the cross-reference may belong to."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cuba"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +596,64 @@
     "text": "Article's disheartening dispute over the French painting technique",
     "enumeration": "9"
    },
-   "solution": "AQUARELLE"
+   "solution": "AQUARELLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AQUARELLE",
+    "definitions": [
+     {
+      "text": "painting technique",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartening",
+      "for": "deletion",
+      "note": "disheartening takes out the heart, the middle letter of the word"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Article's",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     },
+     {
+      "clueFragment": "dispute",
+      "gives": "QUAREL",
+      "note": "quarrel is a dispute; one of its middle Rs is removed"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QUAREL",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper article's depressing account of a row over a French painting.",
+     "walkthrough": "In a down clue, 'over' means the first part sits above the French word.",
+     "definitionFit": "Aquarelle is the technique of painting with transparent watercolours, from the French for watercolour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disheartening"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +667,66 @@
     "text": "After endless uncertainty, final couple leaves less aggressive bid",
     "enumeration": "6"
    },
-   "solution": "DOUBLE"
+   "solution": "DOUBLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOUBLE",
+    "definitions": [
+     {
+      "text": "less aggressive bid",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "endless means the word loses its last letter"
+     },
+     {
+      "text": "final",
+      "for": "letter_selection",
+      "note": "final points to the closing letters of the word that follows it"
+     }
+    ],
+    "linkWords": [
+     "After",
+     "leaves"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "uncertainty",
+      "gives": "DOUB",
+      "note": "doubt is uncertainty; endless, it drops its T"
+     },
+     {
+      "clueFragment": "couple",
+      "gives": "LE",
+      "select": "last",
+      "note": "the final couple of letters of the word couple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOUB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "After a long hesitation, the last pair at the bridge table settle on a milder bid.",
+     "walkthrough": "'Final couple' means the last two letters of 'couple' itself. 'After' sets the order: the shortened doubt comes first.",
+     "definitionFit": "In bridge, a double is a call made against opponents' contract; it is meant here as tamer than an overcall or redouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +746,51 @@
      }
     ]
    },
-   "solution": "QUEUEDUP"
+   "solution": "QUEUEDUP",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "QUEUED UP",
+    "definitions": [
+     {
+      "text": "waited in line",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "reportedly means the words are to be judged by their spoken sound, not their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prompt",
+      "gives": "QUEUE",
+      "soundsLike": "CUE",
+      "note": "a cue is a prompt to an actor"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DUP",
+      "note": "the DUP is the Democratic Unionist Party of Northern Ireland"
+     }
+    ],
+    "explanation": {
+     "surface": "A political party, reportedly prompt for once, stood patiently in a queue.",
+     "walkthrough": "Spoken together, cue plus DUP sounds like the two words of the answer.",
+     "definitionFit": "To queue up is to stand in a line awaiting a turn, so the past tense means stood waiting in line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +804,64 @@
     "text": "The other side of fat in beef or vegetable",
     "enumeration": "4"
    },
-   "solution": "BEET"
+   "solution": "BEET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "BEET",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "The other side of",
+      "for": "letter_selection",
+      "note": "the other side of a word is its far end, the letter opposite its start"
+     },
+     {
+      "text": "in",
+      "for": "substitution",
+      "note": "put in the word, standing where the start of fat already sits in it"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fat",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of fat, the other side from its F"
+     },
+     {
+      "clueFragment": "beef",
+      "gives": "BEEF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A dietary choice between fatty beef and something from the vegetable patch.",
+     "walkthrough": "Fat begins with F and ends in T; swap the F at the end of beef for the T at the other side of fat.",
+     "definitionFit": "The beet is a root crop, such as beetroot or sugar beet, so it is a kind of vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "side"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +875,54 @@
     "text": "Flustered fellow unhinged when credit denied",
     "enumeration": "5"
    },
-   "solution": "FAZED"
+   "solution": "FAZED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FAZED",
+    "definitions": [
+     {
+      "text": "Flustered",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when credit denied",
+      "for": "deletion",
+      "note": "denied means refused, so the abbreviation for credit is not allowed to stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "unhinged",
+      "gives": "AZED",
+      "note": "crazed, minus CR for credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AZED"
+     ]
+    },
+    "explanation": {
+     "surface": "A man goes to pieces when the bank refuses him credit.",
+     "definitionFit": "To be fazed is to be disconcerted or thrown off balance, the same as flustered."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +936,57 @@
     "text": "Temperature in Azores damaged seagrass",
     "enumeration": "7"
    },
-   "solution": "ZOSTERA"
+   "solution": "ZOSTERA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ZOSTERA",
+    "definitions": [
+     {
+      "text": "seagrass",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "damaged",
+      "for": "anagram",
+      "note": "something damaged is broken and reshaped, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Temperature",
+      "gives": "T",
+      "note": "T is the abbreviation for temperature"
+     },
+     {
+      "clueFragment": "Azores",
+      "gives": "AZORES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TAZORES",
+       "gives": "ZOSTERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rising sea temperature around the Azores has harmed the seagrass meadows.",
+     "definitionFit": "Zostera is the botanical genus of eelgrass, the commonest seagrass of shallow coastal waters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1000,48 @@
     "text": "Win ultimately - make America greater again",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Win",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the last, so each following word contributes its closing letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make America greater again",
+      "gives": "EARN",
+      "select": "last",
+      "note": "the last letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARN"
+     ]
+    },
+    "explanation": {
+     "surface": "A political slogan promising victory in the end.",
+     "definitionFit": "To win money or praise is to earn it; both verbs mean to gain something through effort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "America"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1055,54 @@
     "text": "A backward period",
     "enumeration": "3"
    },
-   "solution": "ERA"
+   "solution": "ERA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ERA",
+    "definitions": [
+     {
+      "text": "period",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backward",
+      "for": "reversal",
+      "note": "backward means the letters are written from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "ARE",
+      "note": "a is the symbol for the are, a metric unit of area of 100 square metres"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERA"
+     ],
+     "reversals": [
+      {
+       "from": "ARE",
+       "to": "ERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A period of history that seems behind the times.",
+     "walkthrough": "The single letter A stands for the are, a rare metric unit; written back to front it gives the answer.",
+     "definitionFit": "An era is a long span of history with a distinct character, so it is a period."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "A"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1116,53 @@
     "text": "Provide with sustenance feel seed lacks otherwise",
     "enumeration": "4"
    },
-   "solution": "FEED"
+   "solution": "FEED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FEED",
+    "definitions": [
+     {
+      "text": "Provide with sustenance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacks",
+      "for": "deletion",
+      "note": "lacks means goes without, so certain letters are missing from the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feel seed",
+      "gives": "FEELSEED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "otherwise",
+      "gives": "ELSE",
+      "note": "otherwise and else are synonyms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FEED"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeding something whose sense of seed is lacking in some way.",
+     "walkthrough": "Strike the letters of else (E, L, S, E) from feel seed; F, E, E, D remain in order.",
+     "definitionFit": "To feed a person or animal is to give them food, the plain meaning of providing sustenance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "otherwise"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1176,59 @@
     "text": "Once, quietly, permit setter's padding word",
     "enumeration": "9"
    },
-   "solution": "EXPLETIVE"
+   "solution": "EXPLETIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXPLETIVE",
+    "definitions": [
+     {
+      "text": "padding word",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once",
+      "gives": "EX",
+      "note": "ex means former, once"
+     },
+     {
+      "clueFragment": "quietly",
+      "gives": "P",
+      "note": "p, piano, is the musical direction for quietly"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to permit is to let"
+     },
+     {
+      "clueFragment": "setter's",
+      "gives": "IVE",
+      "note": "the setter is I, and setter's stands for I've, I have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "P",
+      "LET",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A crossword setter once quietly allowing a filler word into a clue.",
+     "walkthrough": "'Setter's' reads as possessive; in crosswords it can mean 'the setter has', so I'VE.",
+     "definitionFit": "In grammar an expletive is a word that fills a slot without adding meaning, like 'it' in 'it is raining'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "padding"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1248,52 @@
      }
     ]
    },
-   "solution": "BASEMETAL"
+   "solution": "BASEMETAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BASE METAL",
+    "definitions": [
+     {
+      "text": "lead?",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrestling",
+      "for": "anagram",
+      "note": "wrestling twists and throws bodies about, so the following letters are tossed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team's able",
+      "gives": "TEAMSABLE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TEAMSABLE",
+       "gives": "BASEMETAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Is the wrestling team capable of taking the lead?",
+     "walkthrough": "'Lead' wants to be the verb or a position in front; the question mark warns it is the metal, an example of the answer.",
+     "definitionFit": "Lead is a common non-precious metal, so it is an example of a base metal, as opposed to gold or silver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1313,59 @@
      }
     ]
    },
-   "solution": "MODERNDAY"
+   "solution": "MODERNDAY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MODERN-DAY",
+    "definitions": [
+     {
+      "text": "contemporary",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plays",
+      "for": "anagram",
+      "note": "plays suggests the letters frolic about and change places"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Odder",
+      "gives": "ODDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "MANY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ODDERMANY",
+       "gives": "MODERNDAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Stranger plays, with many of them recent works, at the theatre.",
+     "walkthrough": "'Plays' looks like a noun for theatre pieces; it is the verb.",
+     "definitionFit": "Something modern-day belongs to the present time, which is what contemporary means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1385,50 @@
      }
     ]
    },
-   "solution": "POPPYSEED"
+   "solution": "POPPYSEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POPPY SEED",
+    "definitions": [
+     {
+      "text": "eat this, fail drug test",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bloomer",
+      "gives": "POPPY",
+      "note": "a bloomer is something that blooms, a flower"
+     },
+     {
+      "clueFragment": "leading player",
+      "gives": "SEED",
+      "note": "a seed is a top-ranked player in a tournament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POPPY",
+      "SEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A star tennis player warned that eating the wrong thing could mean failing a drug test.",
+     "walkthrough": "'Bloomer' looks like a blunder or a loaf; it is a flowering plant. Poppy seeds contain traces of opiates that can show up in drug screening.",
+     "definitionFit": "Eating poppy seed bagels or cakes can trigger a positive opiate result, so the definition describes the food by its notorious effect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bloomer"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1442,53 @@
     "text": "Cut below average veg",
     "enumeration": "7"
    },
-   "solution": "PARSNIP"
+   "solution": "PARSNIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARSNIP",
+    "definitions": [
+     {
+      "text": "veg",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down entry below places one piece underneath the other in the column"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "average",
+      "gives": "PAR",
+      "note": "par is the normal or average level"
+     },
+     {
+      "clueFragment": "Cut",
+      "gives": "SNIP",
+      "note": "a snip is a small cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "SNIP"
+     ]
+    },
+    "explanation": {
+     "surface": "Vegetables that have been cut are below average quality.",
+     "definitionFit": "The parsnip is a pale root vegetable related to the carrot, so it is veg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1502,50 @@
     "text": "Arch American exclaiming \"Oh, goodness me!\"",
     "enumeration": "4"
    },
-   "solution": "OGEE"
+   "solution": "OGEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OGEE",
+    "definitions": [
+     {
+      "text": "Arch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "American exclaiming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oh",
+      "gives": "O",
+      "note": "the exclamation oh is also written O"
+     },
+     {
+      "clueFragment": "goodness me",
+      "gives": "GEE",
+      "note": "gee is an American exclamation of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "GEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A wry American exclaiming in mock surprise.",
+     "walkthrough": "'Arch' looks like an adjective for the knowing American; it is the noun, an architectural shape.",
+     "definitionFit": "An ogee is a pointed arch formed of two S-shaped curves, common in Gothic architecture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Arch"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1559,65 @@
     "text": "Stinking? Almost strange, funny smell having been eliminated",
     "enumeration": "7"
    },
-   "solution": "ODOROUS"
+   "solution": "ODOROUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ODOROUS",
+    "definitions": [
+     {
+      "text": "Stinking?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its last letter"
+     },
+     {
+      "text": "having been eliminated",
+      "for": "deletion",
+      "note": "eliminated means taken out, so that word is removed from the one before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strange",
+      "gives": "OD",
+      "note": "odd is strange; almost, it loses a D"
+     },
+     {
+      "clueFragment": "funny",
+      "gives": "HUMOROUS",
+      "note": "humorous means funny"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "HUM",
+      "note": "a hum is a bad smell in British slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OD",
+      "OROUS"
+     ]
+    },
+    "explanation": {
+     "surface": "Is the odd, funny smell gone, or does it still stink?",
+     "walkthrough": "Hum is British slang for a pong, so taking it from humorous leaves OROUS.",
+     "definitionFit": "Odorous means giving off a smell; the question mark admits that smelling is not necessarily stinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "funny"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1631,51 @@
     "text": "Relay without start or finish",
     "enumeration": "3"
    },
-   "solution": "END"
+   "solution": "END",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "END",
+    "definitions": [
+     {
+      "text": "finish",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without start",
+      "for": "deletion",
+      "note": "without its start means the first letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relay",
+      "gives": "END",
+      "note": "to relay is to send on; send loses its S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A relay race run without a starting line or finishing line.",
+     "walkthrough": "'Start or finish' looks like one phrase; 'without start' is the instruction, and 'finish' alone is the definition.",
+     "definitionFit": "The end of something is its finish or conclusion, the two words being straightforward synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Relay"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1689,56 @@
     "text": "Change after stripping over here",
     "enumeration": "4"
    },
-   "solution": "VEER"
+   "solution": "VEER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "VEER",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after stripping",
+      "for": "letter_selection",
+      "note": "stripping peels away the outside, so only the inner letters of each word remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "VE",
+      "select": "middle",
+      "note": "over without its first and last letters"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "ER",
+      "select": "middle",
+      "note": "here without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VE",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone getting changed over here after undressing.",
+     "definitionFit": "To veer is to change direction suddenly, so it is a specific kind of change."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stripping"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1758,48 @@
      }
     ]
    },
-   "solution": "ONAIR"
+   "solution": "ONAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ON AIR",
+    "definitions": [
+     {
+      "text": "Live",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "operating",
+      "gives": "ON",
+      "note": "a machine that is operating is on"
+     },
+     {
+      "clueFragment": "locks in Limehouse",
+      "gives": "AIR",
+      "note": "locks are hair; Limehouse is in the East End of London, where a Cockney drops the H"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone working live with the locks on a canal in Limehouse.",
+     "walkthrough": "Limehouse has a basin of canal locks, which is the false scent; the locks are locks of hair, said Cockney-style.",
+     "definitionFit": "A broadcast that is on air is going out live to listeners or viewers as it happens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "locks"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1813,70 @@
     "text": "Nothing wrong with the old Earl atop beautiful thing in bed",
     "enumeration": "5"
    },
-   "solution": "OXEYE"
+   "solution": "OXEYE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OXEYE",
+    "definitions": [
+     {
+      "text": "beautiful thing in bed",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "atop",
+      "for": "charade",
+      "note": "in a down entry atop puts one piece directly above the next"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "O",
+      "note": "O is zero, nothing"
+     },
+     {
+      "clueFragment": "wrong",
+      "gives": "X",
+      "note": "a cross marks something wrong"
+     },
+     {
+      "clueFragment": "Earl",
+      "gives": "E",
+      "note": "E is the abbreviation for Earl"
+     },
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is an old form of the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "X",
+      "E",
+      "YE"
+     ]
+    },
+    "explanation": {
+     "surface": "An old aristocrat with a pretty companion in bed, and nothing wrong with that.",
+     "walkthrough": "The bed is a flower bed, not a bedroom.",
+     "definitionFit": "The oxeye daisy is an attractive wild flower grown in garden beds, so a lovely thing in a bed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +1890,43 @@
     "text": "Took a year to collect fine",
     "enumeration": "4"
    },
-   "solution": "OKAY"
+   "solution": "OKAY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OKAY",
+    "definitions": [
+     {
+      "text": "fine",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to collect",
+      "for": "hidden_word",
+      "note": "the phrase gathers up a run of letters lying inside the words before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Took a year",
+      "gives": "OKAY",
+      "note": "inside tOOK A Year"
+     }
+    ],
+    "explanation": {
+     "surface": "It took a whole year for someone to collect a fine that was owed.",
+     "walkthrough": "'Fine' looks like a penalty to be collected; it is the adjective meaning all right.",
+     "definitionFit": "Saying something is okay means it is acceptable or all right, the same sense as fine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collect"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +1940,62 @@
     "text": "A bit much, initially losing increasing numbers of letters that 'Arry's dropped",
     "enumeration": "5"
    },
-   "solution": "AITCH"
+   "solution": "AITCH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AITCH",
+    "definitions": [
+     {
+      "text": "letters that 'Arry's dropped",
+      "at": 51,
+      "note": "plural definition for a singular answer: each of the letters is an aitch"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially losing increasing numbers of",
+      "for": "deletion",
+      "note": "each word in turn loses more of its opening letters than the one before: none, then one, then two"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written, losing nothing"
+     },
+     {
+      "clueFragment": "bit",
+      "gives": "IT",
+      "note": "bit, losing its first letter"
+     },
+     {
+      "clueFragment": "much",
+      "gives": "CH",
+      "note": "much, losing its first two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "IT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone finds it a bit much that a Cockney keeps leaving out letters.",
+     "walkthrough": "'Arry is a stock Cockney who drops his aitches, saying 'Arry for Harry.",
+     "definitionFit": "An aitch is the name of the letter H, which a Cockney speaker drops from the start of words."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "much"
+    }
+   }
   },
   {
    "number": 28,
@@ -497,7 +2009,50 @@
     "text": "Large woman massaged in stages",
     "enumeration": "8"
    },
-   "solution": "GIANTESS"
+   "solution": "GIANTESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GIANTESS",
+    "definitions": [
+     {
+      "text": "Large woman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "massaged",
+      "for": "anagram",
+      "note": "massaged means kneaded and worked over, so the following letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in stages",
+      "gives": "INSTAGES",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSTAGES",
+       "gives": "GIANTESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big woman getting a massage bit by bit.",
+     "definitionFit": "A giantess is a female giant, so a woman of enormous size."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stages"
+    }
+   }
   },
   {
    "number": 29,
@@ -511,7 +2066,53 @@
     "text": "Tool used to be set up",
     "enumeration": "3"
    },
-   "solution": "SAW"
+   "solution": "SAW",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SAW",
+    "definitions": [
+     {
+      "text": "Tool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "set up in a down entry means raised, so the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "used to be",
+      "gives": "WAS",
+      "note": "was is the past tense of be"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAW"
+     ],
+     "reversals": [
+      {
+       "from": "WAS",
+       "to": "SAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tool that has been used to set something up.",
+     "definitionFit": "A saw is a toothed blade for cutting wood, one of the basic hand tools."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 30,
@@ -525,7 +2126,63 @@
     "text": "To start with Elon and Trump together abandoning Detroit's legal rights",
     "enumeration": "6"
    },
-   "solution": "DROITS"
+   "solution": "DROITS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "DROITS",
+    "definitions": [
+     {
+      "text": "legal rights",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To start with",
+      "for": "letter_selection",
+      "note": "to start with points to the opening letter of each of the two names"
+     },
+     {
+      "text": "abandoning",
+      "for": "deletion",
+      "note": "abandoning means walking out of, so those letters leave the word"
+     }
+    ],
+    "linkWords": [
+     "together"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elon and Trump",
+      "gives": "ET",
+      "select": "first",
+      "note": "first letters of Elon and Trump"
+     },
+     {
+      "clueFragment": "Detroit's",
+      "gives": "DETROITS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DROITS"
+     ]
+    },
+    "explanation": {
+     "surface": "Musk and Trump together turning their backs on Detroit and its car workers' rights.",
+     "walkthrough": "Remove an E and a T from Detroit's; the remaining letters stay in order.",
+     "definitionFit": "Droit is a French-derived legal term for a right or due, so its plural means legal rights."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Elon"
+    }
+   }
   },
   {
    "number": 31,
@@ -539,7 +2196,51 @@
     "text": "Tent peg with cupped top leads to leak",
     "enumeration": "6"
    },
-   "solution": "TEEPEE"
+   "solution": "TEEPEE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEEPEE",
+    "definitions": [
+     {
+      "text": "Tent",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peg with cupped top",
+      "gives": "TEE",
+      "note": "a golf tee is a little peg with a cup-shaped top for the ball"
+     },
+     {
+      "clueFragment": "leak",
+      "gives": "PEE",
+      "note": "taking a leak is slang for urinating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "PEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tent peg pushed in the wrong way leads to the tent leaking.",
+     "walkthrough": "'Tent peg' reads as one thing; 'Tent' is the definition and 'peg' begins the wordplay.",
+     "definitionFit": "A teepee is a conical tent of skins or canvas used by Native Americans of the Plains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leak"
+    }
+   }
   },
   {
    "number": 32,
@@ -553,7 +2254,55 @@
     "text": "Question of motive with case of heresy",
     "enumeration": "3"
    },
-   "solution": "WHY"
+   "solution": "WHY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WHY",
+    "definitions": [
+     {
+      "text": "Question of motive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "the case of a word is its outer shell, so only its first and last letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "heresy",
+      "gives": "HY",
+      "select": "outer",
+      "note": "first and last letters of heresy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "HY"
+     ]
+    },
+    "explanation": {
+     "surface": "An inquisitor asking about the motive behind a heresy case.",
+     "definitionFit": "Asking 'why?' is asking for a reason or motive, so it is the question that seeks a motive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 33,
@@ -567,7 +2316,56 @@
     "text": "Part of London somehow losing seabird in two separated areas",
     "enumeration": "4"
    },
-   "solution": "SOHO"
+   "solution": "SOHO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SOHO",
+    "definitions": [
+     {
+      "text": "Part of London",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing means letting go of, so the bird's letters are taken out"
+     }
+    ],
+    "linkWords": [
+     "in two separated areas"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "somehow",
+      "gives": "SOMEHOW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seabird",
+      "gives": "MEW",
+      "note": "the mew is a gull"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOHO"
+     ]
+    },
+    "explanation": {
+     "surface": "A district of London that has somehow lost its seagulls in two separate areas.",
+     "walkthrough": "The gull's letters come out of the second word in two places: ME from its middle and W from its end.",
+     "definitionFit": "Soho is a district of central London in the West End, known for its nightlife and restaurants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seabird"
+    }
+   }
   }
  ]
 }
