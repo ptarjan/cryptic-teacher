@@ -6,12 +6,9 @@ phone can keep showing a four-hour-old stylesheet even after a reload. Rewriting
 the references as `style.css?v=<hash>` makes every deploy a new URL, so changes
 show up on the next load with no hard refresh.
 
-The social card is an asset like any other, and forgetting that cost a week: the
-og.png grid was a hand-drawn lattice that no crossword could have (two-letter
-lights), it was replaced with a real puzzle's geometry, and the picture stayed
-wrong anyway — because Discord, Slack, iMessage and Twitter cache an unfurl
-against the image URL, and the URL had not changed. A cache you cannot purge is
-a cache you have to out-name. So every static file whose URL is written into a
+The social card is an asset like any other: Discord, Slack, iMessage and
+Twitter cache an unfurl against the image URL, so a new picture at an unchanged
+URL is never seen. A cache you cannot purge is a cache you have to out-name. So every static file whose URL is written into a
 page is stamped, and `--check` sweeps the generated pages too: an unstamped
 reference is a fix that will not reach anyone who has already seen the old one.
 

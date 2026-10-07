@@ -6,9 +6,8 @@
 // WHY A SOLVER AND NOT A RUBRIC
 //
 // The validators check ~30 mechanical properties and every one of them can pass on
-// an annotation that teaches nothing — 36 walkthroughs that merely redrew the
-// building blocks sat in validator-green puzzles for weeks (2026-08-09). The gap is
-// judgement, and the temptation is to bolt on a grader that scores hints 1-5 for
+// an annotation that teaches nothing, such as a walkthrough that merely redraws the
+// building blocks. The gap is judgement, and the temptation is to bolt on a grader that scores hints 1-5 for
 // "clarity". That is a fitted number standing in for a fact we can just query:
 // does the hint get a solver from stuck to solved? So the grader is a SOLVER. Hand a
 // model the clue with no answer, feed it rungs one at a time, and record the rung it
@@ -23,12 +22,12 @@
 //
 // THE CONTROL IS NOT OPTIONAL. rungs[0] is the clue alone. A grader weaker than the
 // annotator will fail clues that are fine, so the hint's value is the DELTA between
-// cold and rung k, never the raw solve rate. (Benchmark, 2026-08-08: Sonnet
-// under-solves and Haiku fabricates answers that fit the enumeration. Neither is
-// disqualified as a judge — but both need their cold baseline subtracted.)
+// cold and rung k, never the raw solve rate. (Sonnet under-solves and Haiku
+// fabricates answers that fit the enumeration. Neither is disqualified as a
+// judge — but both need their cold baseline subtracted.)
 //
-// The judge must not be the model that wrote the hints. Opus grading Opus shares the
-// blind spot: it passed all 36 re-narrated walkthroughs while writing them.
+// The judge must not be the model that wrote the hints: a model grading its own
+// hints shares their blind spot.
 //
 // The rungs come from booting the real app.js over tools/fake_dom.js and clicking
 // the real buttons, not from re-deriving the ladder here. ladderSteps() builds a
@@ -65,8 +64,7 @@ const text = (html) => String(html)
 // annotation. A hidden word is one block, so "drunk now nobody" -> UNKNOWN IS the
 // building-blocks rung. Redacting keeps the judge honest — a solve at that rung has to be a solve,
 // not a copy — but the rung is also marked givesAnswer, because a clue solved there
-// measures nothing and scoring must drop it rather than bank it as a win. On 30078
-// that is 3 clues of 25, all of them correct annotations.
+// measures nothing and scoring must drop it rather than bank it as a win.
 const redact = (s, answer) => {
   const bare = String(answer || "").replace(/[^A-Za-z]/g, "");
   if (bare.length < 3) return s;
