@@ -316,8 +316,25 @@ fi
 #
 # $1 names a function that performs one whole attempt (fetch, rebase, any
 # conflict handling, push) and returns its exit status; everything it writes
-# to stdout/stderr is preserved either way. A failure that is NOT this lock
-# message returns immediately — retrying a real conflict would only spin.
+# to stdout/stderr is preserved either way. The attempt returns
+# PUSH_RACED (75) when its push was refused because origin moved after its
+# fetch (push_or_raced below): another worktree published in between, so the
+# attempt is redone against the new tip too. Any other failure returns
+# immediately — retrying a real conflict would only spin.
+PUSH_RACED=75
+# git push origin HEAD:master, returning PUSH_RACED when the only refusal is
+# that origin is no longer an ancestor of HEAD (another push landed since this
+# attempt's fetch). Read from --porcelain, git's machine-readable push report.
+push_or_raced() {
+  local out rc
+  out=$(git push --porcelain -q origin HEAD:master 2>&1)
+  rc=$?
+  [ "$rc" -eq 0 ] && return 0
+  printf '%s\n' "$out" >&2
+  printf '%s\n' "$out" | grep -qE '^!	[^	]*	\[rejected\] \((fetch first|non-fast-forward)\)$' && return "$PUSH_RACED"
+  return "$rc"
+}
+
 push_race_retry() {
   local fn="$1" attempt out rc
   for attempt in 1 2 3 4 5; do
@@ -325,8 +342,8 @@ push_race_retry() {
     rc=$?
     [ -n "$out" ] && printf '%s\n' "$out" >&2
     [ "$rc" -eq 0 ] && return 0
-    printf '%s' "$out" | grep -q "cannot lock ref" || return "$rc"
-    echo "push race: refs/remotes/origin/master moved under us (attempt $attempt) — retrying" >&2
+    [ "$rc" -eq "$PUSH_RACED" ] || printf '%s' "$out" | grep -q "cannot lock ref" || return "$rc"
+    echo "push race: origin/master moved under us (attempt $attempt) — retrying" >&2
     sleep "$attempt"
   done
   return "$rc"

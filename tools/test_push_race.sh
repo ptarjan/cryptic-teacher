@@ -86,5 +86,23 @@ check "returns failure, not success" "$rc" "1"
 check "stops retrying rather than looping forever" \
   "$([ "$(cat "$counter" | wc -l | tr -d ' ')" -le 5 ] && echo yes || echo no)" "yes"
 
+echo "a push refused because origin moved after the fetch is redone:"
+git init -q --bare "$tmp/origin.git"
+git init -q "$tmp/a" && git -C "$tmp/a" remote add origin "$tmp/origin.git"
+git -C "$tmp/a" -c user.name=t -c user.email=t@t commit -q --allow-empty -m base
+git -C "$tmp/a" push -q origin HEAD:master
+git clone -q "$tmp/origin.git" "$tmp/b"
+git -C "$tmp/b" -c user.name=t -c user.email=t@t commit -q --allow-empty -m sibling
+git -C "$tmp/b" push -q origin HEAD:master
+git -C "$tmp/a" -c user.name=t -c user.email=t@t commit -q --allow-empty -m mine
+(cd "$tmp/a" && push_or_raced 2>/dev/null); rc=$?
+check "a stale push reports PUSH_RACED" "$rc" "$PUSH_RACED"
+attempt_sync() {
+  git fetch -q origin master && git -c user.name=t -c user.email=t@t rebase -q origin/master && push_or_raced
+}
+(cd "$tmp/a" && push_race_retry attempt_sync >/dev/null 2>&1); rc=$?
+check "the retried attempt lands" "$rc" "0"
+check "origin holds both commits" "$(git -C "$tmp/origin.git" log --format=%s master | tr '\n' ' ')" "mine sibling base "
+
 if [ "$fails" -eq 0 ]; then echo "push race: all checks passed"; else
   echo "push race: $fails check(s) failed"; exit 1; fi

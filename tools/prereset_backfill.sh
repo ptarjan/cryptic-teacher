@@ -711,8 +711,8 @@ run_pool() {
 # this worktree, so master is named on both sides of the push.
 sync_attempt() {
   git fetch -q origin master || return
-  git rebase -q --autostash origin/master || skip_published_conflicts || return
-  if [ -n "$(git rev-list origin/master..HEAD)" ]; then git push -q origin HEAD:master; fi
+  git rebase -q --no-keep-empty --autostash origin/master || skip_published_conflicts || return
+  if [ -n "$(git rev-list origin/master..HEAD)" ]; then push_or_raced; fi
 }
 
 # A rebase stopped on a conflict. A commit whose puzzle files origin/master
