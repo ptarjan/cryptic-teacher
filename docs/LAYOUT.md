@@ -569,7 +569,8 @@ annotating
 tools/annotate_prompt.md                      the prompt the daily Claude Code job follows to
                                               annotate
 tools/build_annotate_prompt.py                regenerates that prompt’s type vocabulary from
-                                              the code’s own tables
+                                              tools/data/clue_types.json, and its two worked
+                                              examples from the corpus
 STYLE.md                                      the standing style rules, read whole by every
                                               annotating run
 APP.md                                        how the app presents an annotation and how it
@@ -780,9 +781,8 @@ tools/test_webpush.js                         runs the RFC 8291 test vector thro
 tools/test_push_hold.js                       runs the cron fan-out over a fake night, so a
                                               puzzle held until morning is proved to arrive
                                               exactly once
-tools/test_notify_race.js                     ticks two papers over a slow network, where a
-                                              tick that landed during a save used to be thrown
-                                              away
+tools/test_notify_race.js                     ticks two papers over a slow network, so a tick
+                                              that lands during a save is proved to be kept
 tools/test_solve_clock.js                     walks away from a puzzle and comes back, so the
                                               time spent elsewhere is proved never to be
                                               counted as solving
@@ -1318,6 +1318,7 @@ scratch/snitch_weights.py                     held-out refit of difficulty.WEIGH
                                               SNITCH, split by date
 tools/fetch_snitch.py                         fetch the SNITCH's ratings of The Times and
                                               Sunday Times cryptics into
+                                              tools/data/snitch.json, keyed by our puzzle id
 tools/test_fetch_snitch.sh                    does tools/fetch_snitch.py read the SNITCH's week
                                               table into the right puzzle ids, and drop the
                                               cells that are not a rating of that puzzle?
@@ -1359,9 +1360,8 @@ tools/test_link_words.sh                      does tools/validate_annotations.py
                                               word that app.js would place on top of an
                                               indicator, wholly or in part, and pass one with a
                                               free copy? The placement is app.js
-                                              placedFragments(), so these are the clues that
-                                              reached the screen with a bought indicator
-                                              half-erased
+                                              placedFragments(), which would otherwise show a
+                                              bought indicator half-erased
 tools/test_abbreviations_rank.sh              /abbreviations/ ranks every list by clue count
                                               and shows the count: the most common list, the
                                               families and the members of each, and each A-to-Z
@@ -1401,9 +1401,9 @@ tools/file_archive_org_puzzles.py             files the daily Times, FT, Guardia
                                               times-<No>, ftcryptic-<No>, cryptic-<No> and
                                               telegraph-<No> (--paper): clues voted on by
                                               archive.org's OCR, RapidOCR's two recognisers,
-                                              Tesseract and the Canberra Times reprint's
-                                              readings (the Times pages saved by hand from
-                                              Gale, staged by gale_inbox.py, read the same
+                                              Tesseract, the desktop VLM and the Canberra Times
+                                              reprint's readings (the Times pages saved by hand
+                                              from Gale, staged by gale_inbox.py, read the same
                                               way), the grid read off the scan or rebuilt,
                                               answers off the next edition's solution grid;
                                               every reading kept for cross_validate.py's
@@ -1461,14 +1461,13 @@ tools/test_archive_org_jumbo.sh               does tools/archive_org_jumbo.py ta
 tools/test_difficulty_barred.sh               is a barred grid's checking rated against barred
                                               grids, not blocked ones?
 tools/test_no_doubled_paper.sh                does any series' page say the same word twice
-                                              running ("Listener Listener")? The Listener is
-                                              its own publisher and kind, so joining the two
-                                              doubled it. Renders a crawlable page for every
-                                              series in tools/series.py and refuses a repeated
-                                              adjacent word in the title, heading, description
-                                              or series name; and each title leads with the
-                                              paper and the number as searched ("Guardian
-                                              Cryptic 30111 answers"), no thousands comma
+                                              running ("Listener Listener")? Renders a
+                                              crawlable page for every series in
+                                              tools/series.py and refuses a repeated adjacent
+                                              word in the title, heading, description or series
+                                              name; and each title leads with the paper and the
+                                              number as searched ("Guardian Cryptic 30111
+                                              answers"), no thousands comma
 tools/test_vlm_reader.sh                      does tools/vlm_reader.py stay out of the way when
                                               the desktop's VLM does not answer, cache what it
                                               asks, crop each clue column alone, and does
@@ -1536,10 +1535,11 @@ tools/test_canberra_london_numbers.sh         does canberra_london_numbers.py nu
                                               days agree?
 tools/corpus_queue.py                         keeps the full pass running: one corpus job at a
                                               time (pid file, ledger locks), starts
-                                              ocr_full_pass.sh whenever none runs, holds it
-                                              after two launches that read nothing, wakes the
-                                              room on a stall or when two launches in a row
-                                              read nothing
+                                              ocr_full_pass.sh whenever none runs and straight
+                                              after a pass that fetched, wakes the room on a
+                                              stall, holds it and tells the room after
+                                              DEAD_LAUNCHES (2) in a row end unfinished having
+                                              read and fetched nothing
 tools/corpus_queue.sh                         the scheduled entry point for corpus_queue.py
                                               tick, from a worktree
 tools/coverage.py                             the coverage ledger: every series' puzzles that
@@ -1559,12 +1559,14 @@ tools/test_coverage.sh                        does every ledger bucket name a mo
                                               the daily run queue a note only when it carries
                                               work?
 tools/test_corpus_queue.sh                    does corpus_queue.py take a recycled pid for a
-                                              dead job, see a filer's ledger lock, start the
-                                              full pass with no edition list, hold it after two
-                                              launches that read nothing, and refuse any
-                                              edition-list job; does archive_coverage.py count
-                                              the Times' printed days and class an unfiled
-                                              edition by its ledger row?
+                                              dead job, see a filer's ledger lock, kill all of
+                                              a dead job's session, start the full pass with no
+                                              edition list, hold it after two dead launches
+                                              (unfinished, nothing read or fetched), chain the
+                                              next pass on after one that fetched, and refuse
+                                              any edition-list job; does archive_coverage.py
+                                              count the Times' printed days and class an
+                                              unfiled edition by its ledger row?
 tools/test_scan_reread.sh                     does an annotation that meets a misread clue on
                                               an OCR'd puzzle queue its scan for a re-read,
                                               once per reading of its clues, does the burn
