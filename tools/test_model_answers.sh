@@ -17,8 +17,10 @@ def check(name, ok):
     print(("  ok: " if ok else "  FAIL: ") + name)
     fails += not ok
 
-# times-17379: a model filled around 13 answers the paper printed.
-path = fetch_puzzle.resolve_puzzle("times-17379")
+# A frozen copy of times-17379 as the model first solved it (13 printed answers, one
+# reopened): the live file moves with every annotation, correction and re-OCR pass.
+from pathlib import Path
+path = Path("tools/fixtures/times-17379-model-solved.json")
 base = fetch_puzzle.read_puzzle_file(path)
 printed = provenance.printed_answers(base)
 check("printed answers read off solutions.printed", printed.get("9-across") == "MISQUOTES")
