@@ -7,7 +7,6 @@
 # rubric and every packet in the round, and nothing else: no key, no repo. The
 # scores land in <round-dir>/scores/judgeN.json, next to the key they belong
 # to, with the model and effort recorded in <round-dir>/scores/judges.txt.
-# Rounds before September 2026 recorded neither, so their judge model is lost.
 # Skips a judge whose score file already parses, so a killed run resumes.
 set -u
 cd "$(dirname "$0")/.." || exit 1

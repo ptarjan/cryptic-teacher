@@ -6,8 +6,8 @@
 #
 # Every blog writes the number and its direction before the clue, "1a" or
 # "1ac." or "1 a.", and a parser that takes the number but not the suffix files
-# "a Bizarre eponym ...". The opposite slip ate the clue's own "A" off "1 A
-# moral purge ...", which is why the message asks for that to be checked too.
+# "a Bizarre eponym ...". The opposite slip eats the clue's own "A" off "1 A
+# moral purge ...", so the message asks for that to be checked too.
 # Real clues open lowercase as well ("e.g.", "iPads are epic!", "see 24dn.",
 # "eBay"), and those must pass.
 set -uo pipefail

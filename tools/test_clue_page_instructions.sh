@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # A 2005-08 Guardian prize's special instructions are on the old-site clue page
 # its note links to; the fetcher reads them from there and files them with the
-# note (cryptic-23646 was filed with only "the numbers on this grid should be
-# ignored", and its asterisked clues had nothing to define them).
+# note (cryptic-23646's note says only "the numbers on this grid should be
+# ignored"; what defines its asterisked clues is on the clue page).
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'

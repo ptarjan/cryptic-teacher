@@ -7,10 +7,7 @@ too, often dozens of times. That makes a controlled comparison possible: same
 answer, same enumeration, different setter. The only variable left is the
 writing.
 
-The rivals used to come from a blog scrape (georgeho), and the scrape showed:
-A001's field held an anagram with no indicator, a hidden word with no
-indicator and a clue with no derivation. Now they are drawn from tracked
-puzzles, annotated ones first because the validator has proved them sound,
+The rivals are drawn from tracked puzzles, annotated ones first because the validator has proved them sound,
 and at most one per series until the pool runs out, so no one paper's house
 style is the whole field. key.json records each rival's puzzle and entry.
 
@@ -27,14 +24,11 @@ Writes grading/packets/<ANSWER>.json (what the judge sees) and grading/key.json
 (which label was ours). Never show the judge the key.
 
 Every round is also archived under grading/runs/<runid>/, and that is not
-housekeeping. We once ran a round, scored it, edited a few clues, re-ran this
-script, and lost the first round entirely: the re-run overwrote key.json, and
-because the A/B/C/D shuffle had moved, the surviving scores could no longer be
-joined to any key. The numbers were fine. Nobody could ever again say which
-clue they belonged to. That killed the untouched-clue control and with it the
-only reason the second round's comparison meant anything.
+housekeeping. A re-run overwrites key.json, and once the A/B/C/D shuffle has
+moved, an earlier round's scores can no longer be joined to any key: the
+numbers survive, but nobody can say which clue they belong to.
 
-Note the shuffle moved even though the seed did not. The rng is consumed as the
+The shuffle moves even when the seed does not. The rng is consumed as the
 packets are built, so changing which rivals one answer draws shifts every draw
 after it. "Same seed, same packets" is only true if the inputs are byte-identical,
 which is exactly the assumption an edit breaks.
@@ -48,7 +42,7 @@ that key names, looked up by puzzle and entry, and only the shuffle is redrawn.
 So the run id is a hash of the packet contents. Identical inputs land in the
 same run directory; any change at all gets a new one. grading/packets and
 grading/key.json stay as the convenience copy of the newest run, but they are
-now derived - copies of an archive that keeps every round re-scorable. A result
+derived - copies of an archive that keeps every round re-scorable. A result
 nobody can re-derive is not a result.
 """
 
