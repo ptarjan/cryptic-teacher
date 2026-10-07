@@ -51,7 +51,7 @@ attempt_lock_then_ok() {
   echo x >>"$counter"
   n=$(wc -l <"$counter")
   if [ "$n" -lt 3 ]; then
-    echo "error: cannot lock ref 'refs/remotes/origin/master': is at ad49c99 but expected 7a24e5a" >&2
+    echo "error: cannot lock ref 'refs/remotes/origin/master': is at 3271e96 but expected 9902626" >&2
     return 1
   fi
   return 0

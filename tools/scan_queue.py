@@ -244,7 +244,7 @@ def open_requests():
     return [r for r in requests() if is_open(r, known)]
 
 
-#: Reads before this moment predate the re-read requests (0c3f15f); a puzzle
+#: Reads before this moment predate the re-read requests (a2c59bc); a puzzle
 #: they left with a printedClue row has not been re-read since.
 FLAGGED_BEFORE = "2026-10-05T07:26:02-06:00"
 CLUE_ROWS = Path(__file__).resolve().parent / "data" / "source_clue_wrong.json"

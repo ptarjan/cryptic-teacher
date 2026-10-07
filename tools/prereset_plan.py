@@ -943,8 +943,8 @@ def cover_self_test(covers):
 
 # Tags too common to jump the queue on. A plain pangram is about one puzzle in
 # thirty and "barred" is every Mephisto: promoting either would have the burn do
-# little else, which is what queue-jumping the SNITCH-rated Times did (be5b581,
-# reverted 4d49a1b). Every other tag is rare, and its puzzles are the ones a
+# little else, which is what queue-jumping the SNITCH-rated Times did (10fbd70,
+# reverted d9e4925). Every other tag is rare, and its puzzles are the ones a
 # solver goes looking for.
 COMMON_TAGS = {"pangram", "barred"}
 INDEX = REPO / "puzzles" / "index.json"

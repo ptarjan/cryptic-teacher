@@ -234,7 +234,7 @@ EARLIEST_YEAR = 1930
 #
 # A third entry lived here for cryptic-27173 until 2026-09-17: 29-down and
 # 23-down were never a real link (LINCOLN and OXFORD are cathedral cities in
-# the puzzle's theme, not a linked answer), and d4ea38b's prune_one_sided_members
+# the puzzle's theme, not a linked answer), and fc706c1's prune_one_sided_members
 # later dropped that false group on its own account, for its own reason. The
 # finding this forgave stopped occurring and nobody came back to remove the
 # now-unreachable exception — caught by test_puzzle_integrity.sh proving every

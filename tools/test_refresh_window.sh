@@ -1,7 +1,7 @@
 #!/bin/bash
 # Does refresh_unsolved ever stop asking for an answer that is never coming?
 #
-# 367bc80 stopped the nightly annotate/solve queues retrying deterministic
+# 706c490 stopped the nightly annotate/solve queues retrying deterministic
 # failures (tools/failed_inputs.py); refresh_unsolved was the other half —
 # five Guardian prize puzzles from 2000-2006 and 78 Cyclops puzzles from
 # 2006-2009 had no failure to record, just a source that will never publish
