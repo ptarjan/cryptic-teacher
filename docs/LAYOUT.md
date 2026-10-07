@@ -629,10 +629,6 @@ tools/find_renarration.py                     flags a walkthrough that only rest
                                               instead of teaching past them
 tools/clue_quality.py                         warns about the clue shapes that lost to human
                                               setters in blind grading
-tools/blind_annotate.py                       hides a published key from the annotator, then
-                                              grades what it derived — an explanation that
-                                              lands on the wrong answer is the only proof the
-                                              wordplay wasn’t reverse-engineered
 tools/clue_types.py                           the closed list of clue types an annotation's
                                               `type` array names, with their labels and
                                               families, for the Python tools
@@ -902,11 +898,13 @@ tools/weekly_usage.py                         how much of a Claude quota window 
                                               when it resets
 tools/prereset_backfill.sh                    burns the tail of the weekly quota on backfills,
                                               ungated
-tools/puzzle_worker.sh                        sourced by the nightly and the burn: one puzzle's
-                                              model work, solving cold only on the way to
-                                              annotating, in the conversation the annotation
-                                              resumes
-tools/test_puzzle_worker.sh                   holds the solve and annotate prompts to that one
+tools/puzzle_worker.sh                        sourced by the nightly and the burn: everything
+                                              done to one puzzle — a cold solve only on the way
+                                              to annotating, the annotation in the solve's
+                                              conversation, the validation-fix rerun, the
+                                              per-puzzle commit and push
+tools/test_puzzle_worker.sh                   holds the solve and annotate prompts, the
+                                              validate-commit-push of a puzzle, to that one
                                               file, and every cold solve to the annotation
                                               right after it
 household-plugins/<name>/plugin.toml          when and where the household bridge runs each

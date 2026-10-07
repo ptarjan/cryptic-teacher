@@ -2503,8 +2503,8 @@ def grade_model_fill(puzzle, guessed):
 
     `puzzle` already holds the official solutions; `guessed` maps entry id to
     what we filled it with before they were out. Returns the misses as
-    (entry id, ours, theirs), which is the ONLY automatic grading a blind solve
-    ever gets — see ANNOTATE_BLIND in tools/daily_update.sh.
+    (entry id, ours, theirs), which is the ONLY automatic grading a cold solve
+    ever gets.
 
     Shared with the Observer's refresh (tools/fetch_observer.py), which reaches
     the same moment by a different road: the Guardian re-fetches a whole page

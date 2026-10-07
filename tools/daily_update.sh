@@ -32,7 +32,10 @@
 #      reports to the same headless model to fix, and alerts a person only
 #      about the ones it could not close. Before the commit, so a fix reaches
 #      the site the same night the report arrived.
-#   4. Validates tonight's annotations, reindexes, commits and pushes. The
+#      Each puzzle is validated, committed and pushed on its own as it
+#      finishes, by tools/puzzle_worker.sh, the same code the burn
+#      (tools/prereset_backfill.sh) runs; the two differ only in scheduling.
+#   4. Reindexes, commits whatever else the run wrote, and pushes. The
 #      site is built, tested and deployed by .github/workflows/ on that push.
 #
 # Only work driven by new inputs runs here: tonight's puzzles, posts, keys,
@@ -175,12 +178,6 @@ phase_report() {
 }
 
 echo "=== cryptic-teacher update $(date '+%Y-%m-%d %H:%M') ==="
-
-# A published key that last night's blind annotation hid and never put back.
-# First thing, before the fetchers: they rewrite puzzle files, and one that
-# merged into a blanked grid would make the loss permanent. No-op on any normal
-# night — see tools/blind_annotate.py.
-python3 tools/blind_annotate.py restore
 
 phase fetch 30
 # --- 1. fetch the latest puzzle of every series (exit 3 = nothing new, fine) ---
@@ -395,7 +392,7 @@ phase solutions 30
 #     A puzzle we solved ourselves is refreshed too, and the night the paper's
 #     key lands our fill is marked against it: wrong answers lose the
 #     annotations written off them, and the score is alerted rather than left in
-#     .update.log. That grade is the whole measurement behind ANNOTATE_BLIND —
+#     .update.log. That grade is the only measurement of how often a derived answer is right —
 #     it happens once per puzzle, on a night nobody knows in advance, so it has
 #     to come and find us.
 # A Cyclops its cover page misdates gets the fortnightly cadence's date.
@@ -405,7 +402,7 @@ refreshed=$( { python3 tools/fetch_puzzle.py --refresh-unsolved
                python3 tools/fetch_privateeye.py --refresh-unsolved; } 2>&1 | tee /dev/stderr)
 graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
 # A clean sweep and a bad night are not the same message. Both are worth
-# sending — the grade is the whole measurement behind ANNOTATE_BLIND and it
+# sending — the grade is the only measurement of derived answers and it
 # happens on a night nobody knows in advance — but the miss trailer is a lie
 # when there are no misses.
 if [ -n "$graded" ]; then
@@ -661,16 +658,6 @@ ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 # Explicit, because the CLI default differs per model (medium on Opus 5.5,
 # high elsewhere) and would change silently when the alias moves.
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"
-# Annotate without being shown the published answers, and grade what the model
-# derives against them afterwards. See tools/blind_annotate.py for what this
-# measures that the sighted path cannot.
-#
-# Off by default. Set ANNOTATE_BLIND=1 to run a blind night; the machinery,
-# the grading and blind_misses.json all work. The default
-# lives here rather than in a scheduler's environment because the repo is the
-# only thing that survives the machine, and a night whose mode was set
-# somewhere else cannot be read back out of the log.
-ANNOTATE_BLIND="${ANNOTATE_BLIND:-}"
 if [ -n "$fresh$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-test; then
   # The gate's own four cases, run offline before its verdict is believed. A
   # gate whose logic is broken says "spend" as confidently as a working one, so
@@ -880,7 +867,7 @@ if [ -n "$pending" ]; then
     # on 30078 (see APP.md), it matched — 23/25 types, 22/25 definitions,
     # zero cryptic definitions, both hard clues solved — in the same wall time
     # for a third of the cost, because the bill is nearly all output tokens.
-    WORKER_MODEL="$ANNOTATE_MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT"
+    WORKER_MODEL="$ANNOTATE_MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_JOB="the nightly update"
     # Empty means no cap. `timeout` is GNU and the nightly runs in the Linux
     # container; a by-hand run on the Mac says so rather than silently going
     # uncapped.
@@ -919,23 +906,8 @@ if [ -n "$pending" ]; then
         fi ;;
       esac
       echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
-      # Web lookup belongs to the annotation and to nothing else: a clue nobody
-      # can parse ships with no teaching ladder, so a solvers' blog is worth a
-      # fetch as a last resort (disclosed by tools/annotate_check.py only once
-      # every clue but the last few is done, never up front).
-      # Blind mode hides the published key for the duration of this one call,
-      # then restores it and grades what the model derived. Same puzzle, same
-      # single pass, same bill — the comparison is against the sighted runs
-      # already in the corpus, so nothing is ever annotated twice. Web tools
-      # come off for the same reason the cold solve never has them: a solvers'
-      # blog carries the answers, and a blind run that reads one measures
-      # nothing. A puzzle with no key to hide (a prize grid we solved
-      # ourselves) is annotated sighted as usual.
-      ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch"
-      ann_turns=80
       # The run reads a copy of the puzzle without its solutions detail, which
-      # names the blog the key came from (see annotate_check.py VIEW_KEYS). Blind runs
-      # have no web and write their answers into the puzzle itself.
+      # names the blog the key came from (see annotate_check.py VIEW_KEYS).
       # A crashed view leaves the run nothing to read, and the crash is in the
       # tool, so every later puzzle would crash the same way: stop annotating
       # and alert with the traceback rather than pay for sessions that work
@@ -950,12 +922,6 @@ if [ -n "$pending" ]; then
       cat "$view_err" >&2
       rm -f "$view_err"
       ann_task="Annotate the cryptic crossword $num in this repo, whose clues and answers are in $ann_file."
-      if [ -n "$ANNOTATE_BLIND" ] && python3 tools/blind_annotate.py hide "$num"; then
-        ann_file=$(python3 tools/puzzle_paths.py "$num")
-        ann_tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
-        ann_turns=120
-        ann_task="Solve AND annotate the cryptic crossword in $ann_file in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
-      fi
       ann_prompt="$ann_task Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
       # The conversation is fixed before the first attempt and named in
       # $sidfile (the cold solve's, when there was one), because a run that
@@ -965,7 +931,7 @@ if [ -n "$pending" ]; then
       ann_retried=0
       ann_timeout=""
       while :; do
-        worker_annotate "$num" "$run_log" "$sidfile" "$ann_tools" "$ann_turns" "$ann_prompt" "$ann_note"
+        worker_annotate "$num" "$run_log" "$sidfile" "$ann_prompt" "$ann_note"
         ann_rc=$?
         cat "$run_log"
         ann_sid=$(worker_sid "$sidfile")
@@ -1003,8 +969,12 @@ if [ -n "$pending" ]; then
         echo "  $num overran the output ceiling — resuming that same session, told to write in smaller edits, rather than paying for it twice"
       done
       if [ -n "$ann_ok" ]; then
-        annotated_ok=$((annotated_ok + 1))
-        annotated_nums="$annotated_nums $num"
+        # Validated, committed and pushed on its own, as the burn does: a
+        # puzzle that is good is good whatever the next one does.
+        if worker_finish "$num" Annotate "$sidfile" "$run_log"; then
+          annotated_ok=$((annotated_ok + 1))
+          annotated_nums="$annotated_nums $num"
+        fi
       elif [ -n "$ann_timeout" ]; then
         # Already said and already written down. Go on to the next puzzle
         # rather than reading a reason off a log the killed CLI never wrote to.
@@ -1025,6 +995,9 @@ if [ -n "$pending" ]; then
         # still the newest, so it comes back to the head of the list and is
         # bought again from an empty context.
         record_annotate_failure "$num" "$stop_reason"
+        # What it finished stays if it validates, for the closing commit and
+        # tomorrow's run to build on; a half-written file is put back.
+        worker_failed "$num" Annotate "$work_dir/$num.resume" "$sidfile" || true
         # Every dead puzzle is reported, not only a night that annotated none.
         # A run that got two and lost one is otherwise silent, and the first
         # anyone knows is the site being a day short.
@@ -1032,23 +1005,15 @@ if [ -n "$pending" ]; then
         break
       fi
     done
-    # After the loop, not inside it: the failure branch above breaks out, and a
-    # key left stashed is a key only git still has. Runs before the validator
-    # and the commit, both of which would otherwise see the blanked grid.
-    python3 tools/blind_annotate.py restore
     rm -rf "$run_log" "$work_dir"
   else
     stop_reason="claude CLI not on PATH ($PATH)"
   fi
 fi
 
-# A run that could not solve some of the clues still exits 0, still commits, and
-# still looks like a good night — see tools/check_annotation_loss.py. Ask.
+# A run that could not solve some of the clues was already said, per puzzle, by
+# tools/puzzle_worker.sh (check_annotation_loss.py).
 if [ -n "$annotated_nums" ]; then
-  loss=$(python3 tools/check_annotation_loss.py $annotated_nums 2>&1) || \
-    alert "tonight's annotation came back short — $loss. Those clues ship with \"auto hints\" and no teaching ladder."
-  echo "$loss"
-
   # How many turns a session is taking, logged every night it annotates. A
   # number that only exists when somebody goes looking is a number that gets
   # quoted long after it stopped being true, so it is computed here from the
@@ -1151,73 +1116,11 @@ $bad_hints"
 fi
 
 phase commit 30
-# --- 4. validate, reindex, commit ---
+# --- 4. reindex, commit the rest ---
 python3 tools/fetch_puzzle.py --reindex
-# Tonight's work is judged on tonight's work. Validating the whole corpus and
-# reverting on any failure anywhere would let a type part in a puzzle from
-# months ago discard tonight's clean puzzles. A puzzle that is already live
-# cannot be made good by throwing away a puzzle that isn't.
-# And one puzzle at a time, because the night is not the unit either. Validated
-# as a lump, one blank clue in one puzzle throws away another that passed every
-# check. A puzzle that is good is good on its own, and nothing about the bad one
-# makes it less so.
-ann_passed=""
-ann_failed=""
-for num in $annotated_nums; do
-  if python3 tools/validate_annotations.py "$num" >"/tmp/ct-validate-$num.txt" 2>&1; then
-    ann_passed="$ann_passed $num"
-  else
-    cat "/tmp/ct-validate-$num.txt"
-    ann_failed="$ann_failed $num"
-  fi
-done
-if [ -n "$ann_failed" ]; then
-  echo_alerted "VALIDATION FAILED on$ann_failed — reverting those puzzle files"
-  for num in $ann_failed; do
-    # Every folder: a write that changed the puzzle's year moved its file.
-    git checkout -- "puzzles/*/*/$num.json" 2>/dev/null
-    git clean -qf -- "puzzles/*/*/$num.json"
-    # That puzzle is un-annotated again and back at the head of tomorrow's
-    # queue. Recorded against its inputs, because it IS the puzzle: the
-    # validator read tonight's annotation of it and refused it.
-    record_annotate_failure "$num" \
-      "validation rejected tonight's annotation: $(grep -m1 ERROR "/tmp/ct-validate-$num.txt" | cut -c1-160)" \
-      --judged
-  done
-  # The index above was built over the files as they stood before that revert.
-  python3 tools/fetch_puzzle.py --reindex
-  # Tonight's annotation of those is gone and the inference that produced it is
-  # spent. Exiting in silence here would be this repo's signature failure: the
-  # log knows, and nobody does.
-  alert "annotation validation failed on$ann_failed, so those hints were thrown away and those puzzles are skipped until their clues, answers, tools/annotate_prompt.md or tools/validate_annotations.py change: $(for n in $ann_failed; do grep -m1 ERROR "/tmp/ct-validate-$n.txt"; done | head -3 | tr '\n' ' ')${ann_passed:+ — the rest of the night ($ann_passed ) validated and still publishes}"
-fi
-rm -f /tmp/ct-validate-*.txt
-# Only what survived is tonight's work from here on: it is what gets committed,
-# and what the loop below clears from the failure ledger.
-annotated_nums="$ann_passed"
-if [ -n "$ann_failed" ] && [ -z "$annotated_nums" ]; then
-  exit 1
-fi
-# Tonight's puzzles passed, so their failure records are cleared — except for
-# one case that looks exactly like success from here. The `claude`
-# call exiting 0 is not evidence the puzzle got hints: a run can finish its turns
-# having written nothing, and the validator is happy with a file that has no
-# annotations in it to be wrong. So the index, rebuilt above, is what decides,
-# and a clean exit that annotated nothing is recorded like any other lost night.
-for num in $annotated_nums; do
-  if python3 - "$num" <<'EOF'
-import json, sys
-idx = json.load(open("puzzles/index.json"))
-sys.exit(0 if any(p["id"] == sys.argv[1] and p["annotated"]
-                  for p in idx["puzzles"]) else 1)
-EOF
-  then
-    python3 tools/failed_inputs.py clear annotate "$num"
-  else
-    echo "$num came back from a clean run still un-annotated"
-    record_annotate_failure "$num" "the run exited cleanly but wrote no annotation" --judged
-  fi
-done
+# Tonight's puzzles were validated, committed and pushed one at a time by
+# tools/puzzle_worker.sh as each finished; this commit sweeps up everything
+# else the run wrote.
 # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
 # so this is housekeeping rather than safety — but nothing else clears them, and
 # they pile up one per puzzle.

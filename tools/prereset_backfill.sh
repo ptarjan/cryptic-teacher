@@ -92,6 +92,7 @@ MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 # Niced, with everything it runs: the pool shares this machine with the bridge.
 WORKER_MODEL="$MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_WRAP="nice -n 19"
+WORKER_JOB="pre-reset backfill"
 # Runs to keep in flight, asked at every pool checkpoint with the width now:
 # what spends the weekly window to EXHAUSTED by its reset, capped by free memory
 # and CPU (tools/prereset_plan.py, which logs its inputs). If it prints no
@@ -286,14 +287,7 @@ run_claude() {
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
   python3 tools/annotate_check.py --view "$tag" >/dev/null
-  # WebSearch/WebFetch are here for the last rung only: when a clue will not come
-  # apart, a solvers' blog is the difference between an annotation and a `null`,
-  # and a `null` ships a clue with no teaching ladder. tools/annotate_check.py
-  # names the blog only once every clue but the last few is done, and says to
-  # write the explanation from scratch, because the blog's prose teaches nobody
-  # in rungs.
-  worker_annotate "$tag" "$log" "/tmp/ct-prereset-$tag.sid" \
-    "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" 80 "$prompt" "$note"
+  worker_annotate "$tag" "$log" "/tmp/ct-prereset-$tag.sid" "$prompt" "$note"
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
   # stays quiet. A broken login is a different animal: it fails identically, at
@@ -333,36 +327,15 @@ needs_solve() {
   python3 tools/prereset_plan.py --unsolved "$1"
 }
 
-# A finished solve run: write its fill if tools/apply_solution.py passes it,
-# commit and push that, and queue the puzzle to be annotated next. A rejected
-# fill writes nothing and goes in the solve ledger (tools/failed_inputs.py),
-# which keeps it out of the queue until its inputs change. A puzzle held as its
-# clues alone (tools/clues_only.py) is promoted by the same apply, which files
-# the grid it derives and deletes the clues-only file: both go in the commit.
+# A finished solve run: tools/puzzle_worker.sh applies, commits and pushes the
+# fill, and the puzzle is queued to be annotated next. A rejected one is
+# recorded in the solve ledger, which keeps it out of the queue until its
+# inputs change.
 solve_applied() {
   local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
-  local out sha
-  local -a spec=("$(puzzle_spec "$id")")
-  [ -n "$(git ls-files -- "$(clues_spec "$id")")" ] && spec+=("$(clues_spec "$id")")
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
-  elif worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" --no-reindex; then
-    index_lock
-    if ! out=$(git add -A -- "${spec[@]}" 2>&1 &&
-               git commit -q -m "$(printf 'Solve %s\n\n%s' "$id" "$(python3 tools/provenance.py trailer)")" 2>&1); then
-      git reset -q -- "${spec[@]}"
-      index_unlock
-      alert "pre-reset backfill could not commit its solve of $id, so it is not annotated either: $(printf '%s' "$out" | tail -5)"
-      discard_puzzle "$id"
-      [ "${#spec[@]}" -gt 1 ] && git checkout -- "${spec[1]}"
-      rm -f "$fill" "$verdict"
-      return 1
-    fi
-    sha=$(git rev-parse HEAD)
-    index_unlock
-    tools/push_puzzle_commit.sh "$sha" ||
-      alert "pre-reset backfill committed its solve of $id but could not push it — the pool's next sync retries. See .prereset.log."
-  else
+  elif ! worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict"; then
     echo "  [$id] solve rejected, nothing written: $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-200)"
     discard_puzzle "$id"
     rm -f "$fill" "$verdict" "/tmp/ct-prereset-$id.sid"
@@ -374,66 +347,8 @@ solve_applied() {
   echo "  [$id] solved, annotating it next"
 }
 
-# Blank the model answers an annotate run left null ($2...), commit and push
-# that, and queue the puzzle to be solved again next. Non-zero, with the file
-# put back, when any step fails; the caller then parks the puzzle as before.
-reopen_answers() {
-  local id="$1" out sha
-  shift
-  if ! out=$(python3 tools/reopen_answers.py "$id" "$@" 2>&1); then
-    alert "pre-reset backfill could not reopen $id's unparsed model answers ($*), so it is parked instead: $(printf '%s' "$out" | tail -3)"
-    discard_puzzle "$id"
-    return 1
-  fi
-  index_lock
-  if ! out=$(git add -A -- "$(puzzle_spec "$id")" 2>&1 &&
-             git commit -q -m "$(printf 'Reopen %s %s\n\nNo parse was found for these model answers, so they go back to be solved again, once.\n\n%s' "$id" "$*" "$(python3 tools/provenance.py trailer)")" 2>&1); then
-    alert "pre-reset backfill could not commit reopening $id ($*), so it is parked instead: $(printf '%s' "$out" | tail -5)"
-    git reset -q -- "$(puzzle_spec "$id")"
-    index_unlock
-    discard_puzzle "$id"
-    return 1
-  fi
-  sha=$(git rev-parse HEAD)
-  index_unlock
-  tools/push_puzzle_commit.sh "$sha" ||
-    alert "pre-reset backfill committed reopening $id but could not push it — the pool's next sync retries. See .prereset.log."
-  SOLVED_HERE="${SOLVED_HERE/ $id / }"
-  queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
-  echo "  [$id] $out; solving it again next"
-}
-
-# One puzzle's file as a git pathspec: puzzles/<series>/<year>/<id>.json in
-# whichever year folder, so a write that moved it to another year is staged or
-# undone as both halves of the rename.
-puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
-# A puzzle held as its clues alone, as a git pathspec (tools/clues_only.py).
-clues_spec() { printf 'clues_only/*/%s.json' "$1"; }
-# The pool's runs share one index. Unlocked, one run's `git add` dies on
-# index.lock while a sibling commits, and a commit takes whatever its siblings
-# have staged. So each stages, commits and names its commit under this lock,
-# and pushes that commit by name rather than HEAD.
-index_lock() { exec 9>"$(git rev-parse --git-path ct-index.lock)"; flock 9; }
-index_unlock() { flock -u 9; exec 9>&-; }
-# Undo a run's edits to one puzzle, including a copy written to a new folder,
-# and its rows of the source-correction tables (tools/data/source_*_wrong.json, fetch_puzzle.py): back as HEAD has them, then
-# any SOURCE_CLUE_WRONG row left for a clue the reverted file does not show.
-discard_puzzle() {
-  git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
-  git clean -qf -- "$(puzzle_spec "$1")"
-  { python3 tools/own_rows.py revert "$1" && python3 tools/discard_clue_rows.py "$1"; } ||
-    alert "pre-reset backfill could not put back $1's rows of tools/fetch_puzzle.py after discarding it; the sweep at the end of the run may carry rows its file does not show. See .prereset.log."
-}
-
-# Stage one puzzle for its commit: its file, and its rows of fetch_puzzle.py
-# with no sibling's (tools/own_rows.py). On failure nothing is left staged, so
-# the next puzzle's commit cannot carry this one.
-stage_puzzle() {
-  git add -A -- "$(puzzle_spec "$1")" && python3 tools/own_rows.py stage "$1" && return 0
-  # shellcheck disable=SC2046  # one path per line, none with a space
-  git reset -q -- "$(puzzle_spec "$1")" $(python3 tools/own_rows.py paths)
-  return 1
-}
+# The pool's validation-fix run holds a slot while it runs (pool_mark).
+on_fix_run() { pool_mark; POOL_FIXING="$1"; }
 
 # A run that failed. One cut off by a lockout usually leaves real work behind:
 # some clues annotated, the rest untouched, and that file still validates.
@@ -446,21 +361,8 @@ stage_puzzle() {
 # are no longer on disk.
 #   $1 the puzzle id  $2 the commit message prefix
 handle_failed_run() {
-  local id="$1" what="$2" seen
-  tail -5 "/tmp/ct-prereset-$id.txt" 2>/dev/null | sed "s/^/  [$id] failed: /"
-  # What the retry is told to look at: the annotate run's copy, never the
-  # puzzle itself, which names the blog (see run_claude).
-  seen=$(python3 tools/puzzle_paths.py "$id")
-  [ "$what" = Annotate ] && seen="tools/_puzzle_$id.json"
-  if [ -n "$(git status --porcelain -- "$(puzzle_spec "$id")")" ] &&
-     python3 tools/validate_annotations.py "$id" >/dev/null 2>&1; then
-    echo "  [$id] run failed — keeping what it finished, the file still validates"
-    printf '%s\n' "You were cut off by a usage limit. The limit has since cleared and your edits to $seen are exactly as you left them. Pick up where you stopped, finish the task you were given, and run python3 tools/annotate_check.py $id until it reports clean. Do not commit." >"/tmp/ct-prereset-$id.resume"
-  else
-    echo "  [$id] run failed — discarding its changes"
-    discard_puzzle "$id"
-    rm -f "/tmp/ct-prereset-$id.sid"
-  fi
+  tail -5 "/tmp/ct-prereset-$1.txt" 2>/dev/null | sed "s/^/  [$1] failed: /"
+  worker_failed "$1" "$2" "/tmp/ct-prereset-$1.resume" "/tmp/ct-prereset-$1.sid" || true
 }
 
 # --- the rolling pool ----------------------------------------------------------
@@ -729,17 +631,16 @@ skip_published_conflicts() {
 # a run still in flight has filed rows its puzzle file does not hold yet.
 publish_shared_data() {
   [ "$DRY_RUN" = 1 ] && return 0
-  local sha
   # shellcheck disable=SC2046  # one path per line, none with a space
   set -- tools/data/ $(python3 tools/own_rows.py paths | sed 's/^/:(exclude)/')
   [ -n "$(git status --porcelain -- "$@")" ] || return 0
   index_lock
-  git add -A -- "$@" &&
-    git commit -q -m "$(printf 'Shared data from the pre-reset backfill\n\n%s' "$(python3 tools/provenance.py trailer)")"
-  sha=$(git rev-parse HEAD)
-  index_unlock
-  tools/push_puzzle_commit.sh "$sha" ||
-    alert "pre-reset backfill committed shared data ($(git show --name-only --format= HEAD | tr '\n' ' ')) but could not push it — the next sync retries. See .prereset.log."
+  if ! git add -A -- "$@"; then
+    git reset -q -- "$@"
+    index_unlock
+    return 0
+  fi
+  worker_commit "Shared data from the pre-reset backfill" "$@" || true
 }
 
 # Bring this tree up to origin/master, and publish anything the per-puzzle
@@ -862,113 +763,20 @@ drop_failed() {
   done
 }
 
-# Commit whatever a task produced, but only if the tree still validates. A run
-# that ran out of room mid-file leaves a half-written annotation behind, and
-# committing that would publish a broken puzzle page.
+# Validate, commit and push what a finished run produced (tools/puzzle_worker.sh).
+# A puzzle whose unparsed model answers were reopened is solved again next.
 commit_puzzle() {
-  local num="$1" what="$2" attempt="${3:-first}"   # num is a puzzle ID, e.g. cryptic-30089
-  local sha
-  if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $num"; return 0; fi
-  # This puzzle only. A whole-tree run would fail for a sibling in the pool
-  # that is still mid-write, and discard a good annotation to punish it.
-  if ! python3 tools/validate_annotations.py "$num" >/tmp/ct-prereset-validate.txt 2>&1; then
-    # A puzzle is twenty-odd clues of solving and a validation failure is
-    # usually one of them, so the errors go back to the conversation that wrote
-    # them before anything is thrown away. run_claude resumes that same session,
-    # which still holds the solve — a fresh run would buy all of it again to fix
-    # one clue. One attempt only: a second failure means the run cannot see what
-    # is wrong with it, and repeating that is the waste this avoids.
-    if [ "$attempt" = first ]; then
-      local file
-      file=$(python3 tools/puzzle_paths.py "$num")
-      printf '%s\n\n%s\n\n%s\n' \
-        "$file does not validate:" \
-        "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt)" \
-        "Fix those clues in $file and nothing else, following tools/annotate_prompt.md, then run python3 tools/annotate_check.py $num until it reports clean. Do not commit." \
-        >"/tmp/ct-prereset-$num.resume"
-      echo "  [$num] did not validate — handing the errors back rather than discarding the puzzle"
-      # Even a fix run the limit cuts off may have landed its edit, so the
-      # second pass runs either way and decides on what is on disk.
-      pool_mark; POOL_FIXING=1
-      run_claude "$num" "$(cat "/tmp/ct-prereset-$num.resume")" || true
-      pool_mark; POOL_FIXING=0
-      commit_puzzle "$num" "$what" retry
-      return $?
-    fi
-    tail -5 /tmp/ct-prereset-validate.txt
-    # A model's answer the run could not parse may be the wrong word, and a
-    # failure record would hold it until its inputs change, which is never. So
-    # those answers are blanked and the puzzle solved again instead, once per
-    # entry (tools/reopen_answers.py); read before the discard, off the run's file.
-    local reopen
-    reopen=$(python3 tools/reopen_answers.py "$num" --which) || reopen=""
-    if [ -n "$reopen" ]; then
-      discard_puzzle "$num"
-      # shellcheck disable=SC2086 # $reopen is a list of entry ids
-      reopen_answers "$num" $reopen && return 1
-    fi
-    # Parked: the work is thrown away and the puzzle stays unannotated until
-    # its inputs change, which only a person mending the clue or answer does,
-    # so this is the case that is said out loud. A reopened puzzle above is
-    # solved again by this run and says nothing. Sent through alert so the
-    # line goes out explained rather than as one more failure alert.sh found
-    # nobody had written an alert for; quoting it verbatim marks it claimed.
-    alert "$what $num was discarded — it did not validate, so that puzzle stays unannotated:"$'\n'"VALIDATION FAILED after $what $num — discarding that puzzle's changes"$'\n'"\`\`\`"$'\n'"$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -5)"$'\n'"\`\`\`"
-    # Recorded against the puzzle's inputs, not the window: this run finished
-    # and was rejected, which is the one failure that says something about the
-    # grid. It stays out of the queue until those inputs change. A misread
-    # clue on an OCR'd puzzle is the scan's to read again instead: the re-read
-    # decides, and the queue leaves the puzzle out until it lands
-    # (annotate_check.py --reread; once per reading of its clues).
-    python3 tools/annotate_check.py --reread "$num" ||
-      python3 tools/failed_inputs.py record annotate "$num" --judged \
-        --reason "$(grep -E '^  ERROR' /tmp/ct-prereset-validate.txt | head -1)" || true
-    discard_puzzle "$num"
-    return 1
-  fi
-  # Solved-but-short is not a failure anywhere else in this pipeline: the nulled
-  # clues just ship as "answers only". Say so, once, per puzzle.
-  loss=$(python3 tools/check_annotation_loss.py "$num" 2>&1) || \
-    alert "pre-reset backfill left clues blank — $loss. They ship with no teaching ladder, and validate_annotations.py fails the puzzle for it."
-  echo "$loss"
-  # A printedClue this run filed on an OCR'd puzzle asks its scan to be read
-  # again, so the OCR learns what the annotator mended.
-  python3 tools/annotate_check.py --reread "$num" || true
-  if [ -n "$(git status --porcelain -- "$(puzzle_spec "$num")")" ]; then
-    # One puzzle, on purpose: this job runs for hours and publishes as it goes,
-    # so each finished puzzle reaches the site without waiting for the rest.
-    # Named because it was just written, not as an allow-list — the sweep at the
-    # end takes everything. -A, so a file that changed year folders goes in as
-    # a rename rather than as a new copy beside the old one. Its rows of
-    # fetch_puzzle.py go with it, and only its own: a corrected clue is valid
-    # only beside its SOURCE_CLUE_WRONG row, and the siblings still in flight
-    # file theirs into the same file (tools/own_rows.py).
-    index_lock
-    if ! out=$(stage_puzzle "$num" 2>&1); then
-      index_unlock
-      alert "pre-reset backfill could not stage $num's rows of tools/fetch_puzzle.py, so $what $num is not committed: $(printf '%s' "$out" | tail -5)"
-      return 1
-    fi
-    if ! out=$(git commit -q -m "$(printf '%s %s\n\n%s' "$what" "$num" "$(python3 tools/provenance.py trailer)")" 2>&1); then
-      # push_puzzle_commit.sh would find HEAD already on origin and exit 0, so
-      # a refused commit has to stop here or the log says "committed".
-      # shellcheck disable=SC2046  # one path per line, none with a space
-      git reset -q -- "$(puzzle_spec "$num")" $(python3 tools/own_rows.py paths)
-      index_unlock
-      alert "pre-reset backfill could not commit $what $num, so nothing it annotates reaches the site until this is fixed: $(printf '%s' "$out" | tail -5)"
-      return 1
-    fi
-    # Straight to origin/master without touching the tree: siblings in the
-    # pool are still writing here. The tree catches up in sync_wave.
-    sha=$(git rev-parse HEAD)
-    index_unlock
-    tools/push_puzzle_commit.sh "$sha" ||
-      alert "pre-reset backfill committed $what $num but could not push it — the site will not show it until the pool's next sync retries. See .prereset.log."
-    echo "committed $what $num"
-  else
-    echo "$what $num produced no change"
-  fi
-  return 0
+  local id="$1" what="$2"
+  if [ "$DRY_RUN" = 1 ]; then echo "  would commit $what $id"; return 0; fi
+  worker_finish "$id" "$what" "/tmp/ct-prereset-$id.sid" "/tmp/ct-prereset-$id.txt"
+  case $? in
+    0) return 0 ;;
+    2) SOLVED_HERE="${SOLVED_HERE/ $id / }"
+       queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
+       echo "  [$id] solving it again next"
+       return 1 ;;
+    *) return 1 ;;
+  esac
 }
 
 if ! command -v claude >/dev/null 2>&1; then

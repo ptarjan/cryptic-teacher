@@ -40,8 +40,7 @@ at the back — but as page IMAGES: their OCR text is noise, and archive.org
 serves a loan's page images encrypted for its in-browser reader only. With no
 Guardian number or date there is no other key to look up. So `solutions`
 carries `officialKey: "never"` on top of the usual `model` key. `model`
-keeps every existing model-fill rule working — blind_annotate.py refuses to
-grade the fill against itself, index.json's solutionsUnofficial goes true, the
+keeps every existing model-fill rule working — index.json's solutionsUnofficial goes true, the
 crawlable page qualifies the answers it prints — and `officialKey` says no
 scheduled job should wait for a key. The printed grids stay readable by a
 person holding the loan; answers read from them replace the model's and drop

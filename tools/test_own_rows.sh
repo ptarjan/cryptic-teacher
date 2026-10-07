@@ -3,7 +3,7 @@
 #
 #     bash tools/test_own_rows.sh
 #
-# stage_puzzle and discard_puzzle are read out of tools/prereset_backfill.sh and
+# stage_puzzle and discard_puzzle are read out of tools/puzzle_worker.sh and
 # run in a scratch git tree holding this repo's tools and two puzzles, both in
 # flight at once as the pool runs them: each prints a corrected clue into its
 # file and files rows into the one shared fetch_puzzle.py. A commits, B is
@@ -45,9 +45,10 @@ cd "$tree" || exit 1
 git init -q && git add -A && git -c user.name=t -c user.email=t@t commit -qm base
 commit() { git -c user.name=t -c user.email=t@t commit -qm "$1"; }
 
-eval "$(sed -n '/^puzzle_spec() {/p' "$REPO/tools/prereset_backfill.sh")"
-eval "$(sed -n '/^discard_puzzle() {/,/^}/p' "$REPO/tools/prereset_backfill.sh")"
-eval "$(sed -n '/^stage_puzzle() {/,/^}/p' "$REPO/tools/prereset_backfill.sh")"
+eval "$(sed -n '/^puzzle_spec() {/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^discard_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^stage_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^worker_commit() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^publish_shared_data() {/,/^}/p' "$REPO/tools/prereset_backfill.sh")"
 export DRY_RUN=0
 # shellcheck disable=SC2329  # called by the eval'd publish_shared_data
