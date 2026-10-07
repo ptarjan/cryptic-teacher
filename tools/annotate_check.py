@@ -23,8 +23,8 @@ a file written a few clues at a time applies as it stands, an `answer`
 typed with the enumeration's commas is respelt with spaces, and
 `assembly.pieces` a slip away from the answer are recut from its letters.
 
-Applies tools/_ann_<ID>.json, validates, runs both audit tools, syntax-checks
-the file and refreshes the index — and prints one report with a count at the
+Applies tools/_ann_<ID>.json, validates, runs both audit tools and
+syntax-checks the file — and prints one report with a count at the
 top and one instruction at the bottom.
 
 It exists because of what the annotation runs actually cost. Cost tracks the
@@ -853,7 +853,7 @@ def main(argv):
             print(f"  {cid} {answer} names {', '.join(hits)}\n      {walk}")
         issues.append(f"{len(rows)} re-narrated walkthrough(s)")
 
-    # The puzzle is JSON now; the .js shim is build output, so the file that has
+    # The puzzle is JSON; the .js shim is build output, so the file that has
     # to parse is this one, and json does it without shelling out to node.
     try:
         json.loads(path.read_text(encoding="utf-8"))
@@ -873,8 +873,8 @@ def main(argv):
     print(f"\nannotate_check {stem}: " + (", ".join(counts) if counts else
                                           "clean, index refreshed — done"))
     if not counts:
-        # The last turn of a clean run was spent trying to `rm` the patch file,
-        # which needs an approval the run cannot give.
+        # Otherwise a clean run spends its last turn trying to `rm` the patch
+        # file, which needs an approval the run cannot give.
         print("Nothing to tidy up: --patch files are deleted when merged and "
               "tools/_* is ignored by git. The run is finished.")
     if counts:

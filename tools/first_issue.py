@@ -5,8 +5,8 @@
     python3 tools/first_issue.py --dry-run  # say what it would try, fetch nothing
     python3 tools/first_issue.py --self-test
 
-Paul, 2026-10-02: "Puzzle 1 is a special puzzle that is good to solve ... our
-backfill should always try to get the first puzzles". A walk backwards stops
+A series' No 1 is a special puzzle worth solving, so the backfill always tries
+to get it. A walk backwards stops
 where its source runs out, and a first issue is often not where the run ends:
 the Guardian serves Everyman No 1 (1946) thousands of numbers below the oldest
 Everyman it serves in sequence. So every run asks each series' source for its

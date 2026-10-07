@@ -44,7 +44,7 @@ TOOL = "tools/fetch_times_feed.py"
 #: Quick Cryptic No 1: the walk's first puzzle.
 FIRST = (datetime.date(2014, 3, 10), 100)
 #: How far either side of the last id the search for the next reaches, in
-#: widening rounds, and over how many printing days.
+#: widening rounds, over the next DAYS_AHEAD printing days.
 RADII = (2, 300, 1500, 6000)
 #: How many days after the last Quick a blog link's id is taken as a centre.
 HINT_DAYS = 14

@@ -105,9 +105,7 @@ MARKER = 'data-crossword-data="'
 def maybe_gunzip(raw):
     """A Wayback response is sometimes gzip on the wire regardless of what we
     asked for; urllib never decompresses it for us. Checked by magic bytes,
-    not by trusting a Content-Encoding header we don't even have here —
-    http_bytes returns only the body, and the previous attempt that trusted
-    the header silently mis-parsed a capture as garbage."""
+    not by a Content-Encoding header: http_bytes returns only the body."""
     if raw[:2] == b"\x1f\x8b":
         return gzip.decompress(raw)
     return raw
@@ -132,8 +130,8 @@ def extract_crossword_data(page_html):
 
 def fetch_capture(series, num, year):
     """One Wayback capture's crossword JSON, plus the archive URL it came
-    from (for logging only — see the module docstring on why that URL has
-    nowhere to live in the puzzle schema)."""
+    from (for logging only — source.url keeps the Guardian URL; see the
+    module docstring)."""
     url = WAYBACK_URL.format(year=year, series=series, num=num)
     page = maybe_gunzip(http_bytes(url)).decode("utf-8", errors="replace")
     return extract_crossword_data(page), url

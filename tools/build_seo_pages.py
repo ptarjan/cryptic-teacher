@@ -5,12 +5,12 @@ The app is one URL of JavaScript. That is fine for solving and useless for
 being found: a crawler arriving at the homepage sees a headline, a tagline and
 three buttons, and leaves, because the puzzle list, the clues and every word of
 the annotations are built by app.js from data it never executes deeply enough
-to index. Thirty-five puzzles' worth of original explanation — the only thing
-here nobody else has written — was invisible.
+to index. Every word of original explanation — the only thing here nobody
+else has written — would be invisible.
 
 So this writes real HTML files alongside the app:
 
-  puzzles/<n>/index.html   one page per puzzle: every clue, its answer, its
+  puzzles/<id>/index.html  one page per puzzle: every clue, its answer, its
                            definition, its wordplay breakdown and its
                            walkthrough, as text in the document.
   puzzles/index.html       the archive hub: each series, its count, its years.
@@ -47,11 +47,11 @@ So this writes real HTML files alongside the app:
 
 These pages are not doorways: each carries the annotation work for one specific
 puzzle and exists to be read. They also cross-link back into the app with
-?p=<n>, so someone who lands on an explanation can go and solve it with hints
+?p=<id>, so someone who lands on an explanation can go and solve it with hints
 instead — which is the point of the site.
 
-What is deliberately NOT generated: a page per clue. Thirty clues x thirty-five
-puzzles of near-identical shell around two sentences of content is the exact
+What is deliberately NOT generated: a page per clue. Thirty clues a puzzle of
+near-identical shell around two sentences of content is the exact
 thin-content pattern that gets a site's whole crawl budget written off, and it
 would bury the puzzle pages that are actually worth ranking.
 
@@ -113,10 +113,10 @@ def esc(s):
 def asset(rel):
     """An absolute, content-stamped URL for one of our own static files.
 
-    Never write these out by hand. og.png was linked bare for a month; when the
-    card's grid was redrawn the URL stayed identical, so every service that had
-    already unfurled the site kept showing the old picture. The hash in the URL
-    is what makes a corrected image reach someone who saw the wrong one.
+    Never write these out by hand. A bare URL stays identical when the image
+    is redrawn, so every service that already unfurled the site keeps showing
+    the old picture. The hash in the URL is what makes a corrected image reach
+    someone who saw the wrong one.
     """
     return esc(asset_url(rel, BASE + "/"))
 
@@ -162,10 +162,9 @@ def puzzles():
     is read in full again when its own page is rendered, one at a time.
     """
     out = [t for t in parallel.pmap(solved_stub, puzzle_files()) if t]
-    # Chronological, matching fetch_puzzle.reindex(). Sorting on the number was
-    # the same thing while every puzzle was a cryptic; now that quiptics (~1,400)
-    # sit alongside cryptics (~30,000) it would file every quiptic at the end of
-    # time.
+    # Chronological, matching fetch_puzzle.reindex(). Sorting on the number
+    # would not be: quiptics (~1,400) sit alongside cryptics (~30,000), and
+    # every quiptic would file at the end of time.
     out.sort(key=lambda t: (series_meta.puzzle_day(t[1]) or date.min,
                             t[1].get("series", "cryptic") == "cryptic",
                             t[1]["number"]), reverse=True)
@@ -225,12 +224,9 @@ def publisher(p):
 def papers(idx):
     """The papers this collection actually holds, commonest first.
 
-    Site-wide copy said "Guardian" for a year because that was all there was;
-    it kept saying it after the Independent and the Observer's Everyman
-    arrived (2026-08-05), so the archive page's title, description and heading
-    all named one paper above a list of three. Derived rather than written out:
-    a sentence naming the collection cannot be true for long if a human has to
-    remember to update it whenever a series is added.
+    Derived rather than written out: a sentence naming the collection cannot
+    be true for long if a human has to remember to update it whenever a series
+    is added.
     """
     counts = {}
     for p in idx["puzzles"]:
@@ -272,7 +268,7 @@ def row_date(puzzle):
 def datestr(puzzle, fmt="%A %-d %B %Y"):
     # The weekday is in the DEFAULT because a Guardian week has a shape — Monday
     # gentle, Friday and the Saturday prize hard — so it is a difficulty cue, not
-    # trim (Paul, 2026-08-16). Callers that want a machine date (datePublished,
+    # trim. Callers that want a machine date (datePublished,
     # sitemap lastmod) pass an explicit fmt and are unaffected.
     #
     # A book puzzle holds a `year`, and the year is all any format prints:
@@ -287,10 +283,9 @@ def app_name():
     """What an installed icon is called, from the one place that says so.
 
     iOS labels a Home Screen icon with apple-mobile-web-app-title if the page has
-    one, then the manifest's short_name, then <title>. Only the last of those was
-    on a generated page, and a title here is a sentence — "Cryptic crossword
-    answers and explanations — Independent, Observer and Guardian" under an icon.
-    So every page states it, and states it from site.webmanifest so the two
+    one, then the manifest's short_name, then <title>, and a title here is a
+    sentence — "Cryptic crossword answers and explanations — Independent,
+    Observer and Guardian" under an icon. So every page states it, and states it from site.webmanifest so the two
     cannot answer the question differently.
     """
     return json.loads((ROOT / "site.webmanifest").read_text(encoding="utf-8"))["short_name"]
@@ -307,8 +302,7 @@ def head(title, description, canonical, extra="", image=None, image_alt=None):
     `image` is the social card. Puzzle pages pass their own — a clue out of that
     very puzzle — or the site card; every other page gets a card of its own
     title and description (tools/page_card.py), so a page nobody made a card for
-    still unfurls as itself. One site card on every page meant /difficulty/
-    shared as a picture of somebody else's crossword clue.
+    still unfurls as itself, not as a picture of somebody else's crossword clue.
     """
     if image:
         card = asset(image)
@@ -368,11 +362,9 @@ FOOTER = f"""<footer>
 def site_url(path):
     """A crumb path made absolute. Both renderings of a crumb go through here.
 
-    Every crumb href is absolute or page-relative, never root-relative. The crumb tuples used
-    to be joined to BASE by breadcrumb_ld and emitted raw by masthead, so the
-    structured data was correct while the link a crawler could actually follow
-    was `/puzzles/` — a 404 on every one of the 70-odd puzzle pages, reported by
-    Search Console on 2026-08-07. One joiner, both callers, no room to disagree.
+    Every crumb href is absolute or page-relative, never root-relative. The
+    structured data (breadcrumb_ld) and the link a crawler follows (masthead)
+    both join here: one joiner, both callers, no room to disagree.
     """
     return BASE + path
 
@@ -451,8 +443,7 @@ def clue_html(e, blog_note=True):
                     + "</p>")
     # One sentence on why the ANSWER means the DEFINITION — app.js's "Why
     # that's the answer" rung, minus the answer/definition repeated back at
-    # the reader (both are already on the page a line up). Written work sat
-    # unindexed for ~500 puzzles until this rendered it here too.
+    # the reader (both are already on the page a line up).
     prose = ann.get("explanation") or {}
     if prose.get("definitionFit"):
         bits.append(f'<p><em>Why it fits:</em> {esc(prose["definitionFit"])}</p>')
@@ -565,7 +556,7 @@ def puzzle_page(puz, meta, prev_p, next_p):
     annotated = (meta or {}).get("annotated")
     # The page lives at its ID, not its number: two papers can reach the same
     # number and would then want the same directory. The bare-number URL still
-    # works — legacy_redirect() keeps one at every number we have ever used.
+    # works — legacy_redirects() keeps one at every number we have ever used.
     canonical = f"{BASE}/puzzles/{puz['id']}/"
 
     # "Everyman Crossword No 4,096 by Everyman" is the setter's pseudonym said
@@ -786,7 +777,7 @@ def hub_row(p, note=None):
     d = p.get("difficulty") or {}
     when = row_date(p)
     # A date-keyed number is the date, so the row's title is the dated form
-    # and the date column is left empty: one date per row (rowTitle in app.js).
+    # and the date column is left empty: one date per row (pickerRow in app.js).
     title, when = (when, "") if number_day(p) else (display_number(p), when)
     badge = diff_badge(d["band"]) if d.get("band") else ""
     # The app's hintsBadge() in the same words: ours, a blog's (the index's
@@ -814,8 +805,8 @@ def hub_row(p, note=None):
 
 
 # The archive is one page per series per year, under /puzzles/series/, and the
-# hub only links to those. As a single list of every puzzle it was 22,000 rows
-# and 7 MB. A year of the busiest series is ~315 rows, about 100 KB.
+# hub only links to those: a single list of every puzzle would run to megabytes.
+# A year of the busiest series is ~315 rows, about 100 KB.
 # "series" is not a puzzle id, bare number or legacy id, so it cannot collide.
 UNDATED = "undated"
 
@@ -1147,15 +1138,14 @@ def listing_pages(idx):
 def learn_page():
     """Render tools/tutorial.html as the lesson, at /learn/.
 
-    That fragment is the whole lesson and this is its only home — it outgrew the
-    collapsible section it used to live in on the app page (Paul, 2026-08-27).
+    That fragment is the whole lesson and this is its only home.
     """
     inner = (ROOT / "tools" / "tutorial.html").read_text(encoding="utf-8")
     # The page leads with its own h1, so every heading in the fragment moves up
     # one: sections become h2, subsections h3. One pass, because two would run
     # the headings it had just rewritten through the next rule.
     inner = re.sub(r"<(/?)h([234])\b", lambda m: f"<{m.group(1)}h{int(m.group(2)) - 1}", inner)
-    # The glossary is 400 rows and has its own URL. Repeating it here would put
+    # The glossary has its own URL. Repeating it here would put
     # the same table on two indexable pages competing for the same query, so the
     # lesson points at it instead.
     inner = re.sub(
@@ -1519,11 +1509,11 @@ def clue_links(senses, blocks):
     A word matches a block when the block's letters are one of that word's
     senses and the block's clue fragment contains the word. Words no clue can be
     shown to use stay plain text; the glossary lists more conventions than the
-    archive has yet demonstrated, and a link nobody can check is the thing this
-    page was already claiming falsely.
+    archive has yet demonstrated, and a link nobody can check is a false
+    claim.
 
     Where several clues qualify: the one in the puzzle carrying the fewest
-    glossary links so far, so four hundred rows lead into the whole archive
+    glossary links so far, so the glossary's rows lead into the whole archive
     rather than all into one puzzle; then the fullest annotation; then the
     newest puzzle. Nothing is broken by chance — an unstable choice would make
     the nightly rebuild commit churn.
@@ -1910,7 +1900,7 @@ def moved_page(slug, target, title, body):
 
     Nothing else: a reader is on it for the instant the refresh takes, and
     there are tens of thousands of them, so the site's full template on each
-    was a large share of the whole site's weight.
+    would be a large share of the whole site's weight.
     """
     return puzzle_paths.PUZZLE_DIR / slug / "index.html", relative_links(
         bare_head(title, target,
@@ -1961,21 +1951,19 @@ def legacy_ids(solved):
 def legacy_redirects(solved):
     """A page at /puzzles/<bare number>/ for every puzzle, pointing at its id.
 
-    Puzzle pages moved from /puzzles/30089/ to /puzzles/cryptic-30089/ on
-    2026-08-19, when ids grew their series so two papers could not claim one
-    directory. Those old URLs are indexed and shared, and GitHub Pages cannot
-    answer with a 301, so each becomes a page that says where its puzzle is in
-    the two ways that count: rel=canonical for a crawler, a meta refresh for a
+    Puzzle pages live at /puzzles/cryptic-30089/, not /puzzles/30089/, so two
+    papers cannot claim one directory. The bare-number URLs are indexed and
+    shared, and GitHub Pages cannot answer with a 301, so each becomes a page
+    that says where its puzzle is in the two ways that count: rel=canonical for a crawler, a meta refresh for a
     reader. Kept forever, not for a grace period — a link somebody sent a friend
     has no expiry, and readers do still arrive on them. Nothing in this repo
-    links here, so "nothing links to them" is the wrong test and deleted these
-    once; the right one is the top-pages table in tools/ga_report.py.
+    links here, so "nothing links to them" is the wrong test; the right one is
+    the top-pages table in tools/ga_report.py.
 
-    Built for every puzzle, not only the ones that predate the move, and the copy
-    says "is at" rather than "has moved" for exactly that reason: a series added
-    afterwards was never published under its bare number, and the first one
-    (indysunday, 2026-08-19) got 52 pages announcing a move that never happened.
-    A number is a number — the page's job is to say which puzzle it names.
+    Built for every puzzle, and the copy says "is at" rather than "has moved"
+    for that reason: a series added later was never published under its bare
+    number. A number is a number — the page's job is to say which puzzle it
+    names.
 
     A number claimed by more than one paper offers the choice rather than
     guessing, which is the same rule resolve_puzzle() applies on the command
@@ -2078,10 +2066,9 @@ def outputs(check=False):
     meta = {p["id"]: p for p in idx["puzzles"]}
     # The whole-site copy checks go first, so a refusal writes nothing.
     home = patch_homepage(idx)
-    # The manifest is hand-written and generates nothing, so it sat outside the
-    # naming rule and went on describing a one-paper collection. It is copy
-    # about the whole site — an installed icon's description — so it is held to
-    # the same rule as the pages that are generated.
+    # The manifest is hand-written and generates nothing, but it is copy about
+    # the whole site — an installed icon's description — so it is held to the
+    # same rule as the pages that are generated.
     assert_names_all_papers("site.webmanifest",
                             (ROOT / "site.webmanifest").read_text(encoding="utf-8"), idx)
     solved = puzzles()
@@ -2119,7 +2106,7 @@ def outputs(check=False):
         yield from listing_pages(idx)
         yield ROOT / "learn" / "index.html", learn_page()
         yield ROOT / "abbreviations" / "index.html", abbreviations_page(blocks)
-        # Relative, like the puzzle pages: nearly four thousand example links.
+        # Relative, like the puzzle pages: thousands of example links.
         yield ROOT / "indicators" / "index.html", relative_links(indicators_page(found), "../")
         yield ROOT / "difficulty" / "index.html", difficulty_page(idx)
         secs = showcase.sections(f for f in facts if f["id"] in meta)
@@ -2143,7 +2130,7 @@ def relative_links(page, root):
     rel=canonical.
 
     BASE is thirty bytes, and a puzzle page links home a dozen times; across the
-    puzzle pages that was tens of megabytes of one repeated string. The
+    puzzle pages that would be tens of megabytes of one repeated string. The
     canonical keeps it, as do og:url, og:image and the JSON-LD, which are
     content= and JSON rather than href/src: all of them are read by machines
     that want an absolute URL.
@@ -2155,12 +2142,9 @@ def relative_links(page, root):
 def assert_no_root_relative(path, text):
     """No generated link may start at /.
 
-    This was load-bearing when the site was served out of paultarjan.com/cryptic-teacher/,
-    where `/puzzles/` resolved to the personal site and 404'd on every one of the
-    70-odd puzzle pages. Since the move to its own host a leading slash would in
-    fact resolve, so the check now guards a weaker thing: relative hrefs are what
-    let the generated pages be opened straight off disk, and what made that move
-    a one-line change to BASE instead of a rewrite. Keep it for the next move.
+    Relative hrefs are what let the generated pages be opened straight off
+    disk, and what make a move to another host or path a one-line change to
+    BASE instead of a rewrite.
 
     Nothing in a browser catches a wrong link — the page renders fine and only a
     crawler notices — so it is checked here, where every generated href passes
@@ -2178,7 +2162,7 @@ def assert_no_root_relative(path, text):
 # app (solve_url); the answer pages are for search engines.
 READER_PAGES = ("learn", "abbreviations", "indicators", "difficulty", "showcase")
 ANSWER_LINK = re.compile(r'href="[^"]*\bpuzzles/(?!series/)[^/"?#]+/[^"]*"')
-# A puzzle row in a list (hub_row). The chooser legacy_ids() writes for an old
+# A puzzle row in a list (hub_row). The chooser legacy_redirects() writes for an old
 # /puzzles/<number>/ is not one: it was an answer page's URL, and its links
 # are where that page went.
 ROW_LIST = re.compile(r'<ul class="s-index">(.*?)</ul>', re.S)
@@ -2208,9 +2192,9 @@ def orphans(files):
 
     Output is decided by the index, so the set of directories that should exist
     is known exactly on every run; a directory outside that set is one no future
-    run will ever rewrite. The generator only ever wrote, so those accumulated
-    silently — a renamed puzzle left its old page behind serving stale content
-    at a live URL, with nothing on disk to say it was dead.
+    run will ever rewrite. Left alone they accumulate silently — a renamed
+    puzzle leaves its old page behind serving stale content at a live URL,
+    with nothing on disk to say it is dead.
 
     The rule is narrow on purpose, because this walks the directory that also
     holds the site's real data:

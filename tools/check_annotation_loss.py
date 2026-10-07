@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Shout when an annotation run leaves clues it could not solve.
 
-A run that meets a clue it cannot parse does not fail. Validation nulls the
-wrong annotation (fetch_puzzle.merge_annotations) and everything downstream
+A run that meets a clue it cannot parse does not fail. It writes that clue's
+annotation as null (tools/apply_annotations.py) and everything downstream
 carries on: the puzzle commits, the index marks it `annotated: false`, the site
 badges those clues "answers only", and the only evidence is a ratio buried in a
 log nobody opens. That is indistinguishable from a run that solved everything —
@@ -71,9 +71,9 @@ def main(argv):
         # up short, and that is the case worth waking someone for.
         if not missing or len(missing) == total:
             continue
-        # Two very different failures land in the same gap, and treating them
-        # alike sent someone to grade a model that had been handed a clue with
-        # no words in it. Only the solvable one is a loss.
+        # Two very different failures land in the same gap: a clue the model
+        # could not solve, and one with no words in it to solve. Only the
+        # solvable one is a loss.
         unsolved = [entry_id(e) for e in missing if has_words(e["clue"].get("text", ""))]
         wordless = [entry_id(e) for e in missing if not has_words(e["clue"].get("text", ""))]
         if unsolved:

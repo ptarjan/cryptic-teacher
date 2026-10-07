@@ -2,7 +2,7 @@
 """Fetch Telegraph puzzles from the paper's own puzzle data bucket.
 
     python3 tools/fetch_telegraph.py --holes 200     # up to 200 the bucket has and puzzles/ lacks
-    python3 tools/fetch_telegraph.py --holes 0       # list them, fetch nothing
+    python3 tools/fetch_telegraph.py --holes 0       # count them, fetch nothing
     python3 tools/fetch_telegraph.py --holes 20 --reindex   # and rebuild the index after
     python3 tools/fetch_telegraph.py SLUG...         # one puzzle, e.g. toughie-crossword-93439
 

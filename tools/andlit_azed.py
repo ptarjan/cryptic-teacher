@@ -27,8 +27,9 @@ unanswered, a plain puzzle files unsolved for the backfill to solve. A special
 (andlit's index names it, or its preamble says more than which Chambers to
 use) files only from an HTML page, whose preamble is read, with a post's
 answers: a solver reading its clues cold would fill the grid wrongly. Numbers
-already filed are left alone. Each filing run writes held.json, the cause each
-cached copy is not filed, which tools/coverage.py reads.
+already filed are left alone. A filing run over every number (no --dry-run or
+--numbers) writes held.json, the cause each cached copy is not filed, which
+tools/coverage.py reads.
 """
 import argparse
 import collections
