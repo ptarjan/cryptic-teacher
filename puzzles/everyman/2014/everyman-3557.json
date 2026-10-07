@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Passionate tale about leader of Mohicans",
     "enumeration": "6"
    },
-   "solution": "STORMY"
+   "solution": "STORMY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STORMY",
+    "definitions": [
+     {
+      "text": "Passionate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader of a group stands at its front, so only the opening letter of the next word is wanted"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the word for a tale wraps around the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale",
+      "gives": "STORY",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "Mohicans",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter of Mohicans"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOR",
+      "M",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A stirring romantic yarn about the chief of the Mohicans, in the manner of Fenimore Cooper.",
+     "definitionFit": "A stormy relationship or temperament is one full of violent, intense feeling, so the adjective is a synonym for passionate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Passionate"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,50 @@
     "text": "Supernatural being priest exorcised",
     "enumeration": "6"
    },
-   "solution": "SPRITE"
+   "solution": "SPRITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPRITE",
+    "definitions": [
+     {
+      "text": "Supernatural being",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exorcised",
+      "for": "anagram",
+      "note": "exorcising drives out and disrupts, so the letters of the cleric are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "PRIEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRIEST",
+       "gives": "SPRITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ghostly presence driven out of a house by a clergyman.",
+     "definitionFit": "A sprite is a fairy or elf, a small spirit from folklore, which is a kind of supernatural creature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exorcised"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,47 @@
     "text": "Come up with chest missing lid",
     "enumeration": "5"
    },
-   "solution": "OFFER"
+   "solution": "OFFER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OFFER",
+    "definitions": [
+     {
+      "text": "Come up with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing lid",
+      "for": "deletion",
+      "note": "the lid is the top of a down entry, so the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chest",
+      "gives": "COFFER",
+      "note": "a coffer is a strongbox or chest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFFER"
+     ]
+    },
+    "explanation": {
+     "surface": "Finding a treasure chest that has lost its lid.",
+     "definitionFit": "To come up with something, such as a suggestion or a sum, is to put it forward, which is to offer it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +215,59 @@
     "text": "Mother ringing rep bringing colour",
     "enumeration": "7"
    },
-   "solution": "MAGENTA"
+   "solution": "MAGENTA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAGENTA",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ringing",
+      "for": "container",
+      "note": "to ring something is to encircle it, so the word for mother goes around the other"
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mother",
+      "gives": "MA",
+      "note": "Ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "rep",
+      "gives": "AGENT",
+      "note": "a sales rep acts as an agent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AGENT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum phones a sales representative who arrives bringing some cheer.",
+     "walkthrough": "'Ringing' suggests a phone call, but it means placing one word around another.",
+     "definitionFit": "Magenta is a purplish-red hue, so it is an example of a colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ringing"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +281,66 @@
     "text": "Sheepdog the lads let loose around noon",
     "enumeration": "8"
    },
-   "solution": "SHETLAND"
+   "solution": "SHETLAND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SHETLAND",
+    "definitions": [
+     {
+      "text": "Sheepdog",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "let loose",
+      "for": "anagram",
+      "note": "letting something loose sets it free to wander, so the letters scatter into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the rearranged letters surround the short abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the lads",
+      "gives": "THELADS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is short for noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHETLA",
+      "N",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THELADS",
+       "gives": "SHETLAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lads letting their sheepdog run free at midday.",
+     "definitionFit": "The Shetland sheepdog, or sheltie, is a breed from the Scottish islands, so the name is a type of sheepdog."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "noon"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +360,56 @@
      }
     ]
    },
-   "solution": "HOORAYHENRYS"
+   "solution": "HOORAYHENRYS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOORAY HENRYS",
+    "definitions": [
+     {
+      "text": "Brash types",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer",
+      "gives": "HOORAY",
+      "note": "a cheer of celebration"
+     },
+     {
+      "clueFragment": "Plantagenet king",
+      "gives": "HENRY",
+      "note": "Henry II, III, IV, V and VI were Plantagenet kings"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOORAY",
+      "HENRY",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Loud people applauding a medieval monarch and his heir.",
+     "walkthrough": "A Hooray Henry is British slang for a loud, braying upper-class young man.",
+     "definitionFit": "The phrase describes boisterous, ostentatious young toffs, which matches brash people well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheer"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +423,50 @@
     "text": "At that point, theatre collapsed",
     "enumeration": "7"
    },
-   "solution": "THEREAT"
+   "solution": "THEREAT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THEREAT",
+    "definitions": [
+     {
+      "text": "At that point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collapsed",
+      "for": "anagram",
+      "note": "a building that has collapsed is in ruins, so its letters fall into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theatre",
+      "gives": "THEATRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THEATRE",
+       "gives": "THEREAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report that the playhouse fell down at that very moment.",
+     "definitionFit": "Thereat is an old-fashioned adverb meaning there or at that time, so it fits a phrase about a particular point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "collapsed"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +480,70 @@
     "text": "To mollify everyone, I've turned up and dined",
     "enumeration": "9"
    },
-   "solution": "ALLEVIATE"
+   "solution": "ALLEVIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALLEVIATE",
+    "definitions": [
+     {
+      "text": "mollify",
+      "at": 3
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue, turning something upward means reading it from the bottom, so it runs backwards"
+     }
+    ],
+    "linkWords": [
+     "To",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "everyone is all"
+     },
+     {
+      "clueFragment": "I've",
+      "gives": "IVE",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "dined",
+      "gives": "ATE",
+      "note": "dined means ate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "EVI",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "IVE",
+       "to": "EVI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arriving to dine in order to keep the whole party happy.",
+     "definitionFit": "To alleviate is to ease or lessen distress, which is close to soothing or pacifying, the sense of mollify."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +557,50 @@
     "text": "Move to a smaller property in depressed area",
     "enumeration": "8"
    },
-   "solution": "DOWNSIZE"
+   "solution": "DOWNSIZE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DOWNSIZE",
+    "definitions": [
+     {
+      "text": "Move to a smaller property",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "depressed",
+      "gives": "DOWN",
+      "note": "feeling depressed is feeling down"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "SIZE",
+      "note": "an area is a measure of size"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "SIZE"
+     ]
+    },
+    "explanation": {
+     "surface": "Moving to a smaller home in a run-down neighbourhood.",
+     "walkthrough": "'Depressed area' looks like a single poor district, but it splits into two separate pieces.",
+     "definitionFit": "To downsize is to reduce scale, and in housing it means selling up for a smaller home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +614,63 @@
     "text": "Good for son inside to decline asylum",
     "enumeration": "6"
    },
-   "solution": "REFUGE"
+   "solution": "REFUGE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "REFUGE",
+    "definitions": [
+     {
+      "text": "asylum",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means swapping it in its place, and inside says the swap happens within the word"
+     }
+    ],
+    "linkWords": [
+     "inside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son, the letter removed"
+     },
+     {
+      "clueFragment": "to decline",
+      "gives": "REFUSE",
+      "note": "to decline an offer is to refuse it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REFU",
+      "G",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A good son reluctantly turning down the offer of sanctuary.",
+     "walkthrough": "The S in the middle of the verb is replaced by G.",
+     "definitionFit": "Asylum is protection or shelter given to someone in danger, which is what a refuge offers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Good"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +684,52 @@
     "text": "Salad we locals ordered",
     "enumeration": "8"
    },
-   "solution": "COLESLAW"
+   "solution": "COLESLAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COLESLAW",
+    "definitions": [
+     {
+      "text": "Salad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered here means put into order, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "we locals",
+      "gives": "WELOCALS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WELOCALS",
+       "gives": "COLESLAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Regulars at the pub telling you what they asked for with their meal.",
+     "walkthrough": "'Ordered' looks like requesting food, which suits the salad, but it signals rearranging.",
+     "definitionFit": "Coleslaw is a dish of shredded raw cabbage in dressing, a kind of salad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +757,63 @@
      }
     ]
    },
-   "solution": "PULLAFASTONE"
+   "solution": "PULLAFASTONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PULL A FAST ONE",
+    "definitions": [
+     {
+      "text": "Play a sly trick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the word for individual behind the phrase for a hunger strike"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "attract",
+      "gives": "PULL",
+      "note": "to pull is to attract"
+     },
+     {
+      "clueFragment": "a hunger strike",
+      "gives": "AFAST",
+      "note": "a hunger strike is a fast, a refusal to eat"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "ONE",
+      "note": "one individual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PULL",
+      "AFAST",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Seeking sympathy and attention by refusing food.",
+     "walkthrough": "The question mark admits that a hunger strike is only a fast in a loose sense.",
+     "definitionFit": "To pull a fast one is an idiom for deceiving someone with a crafty trick."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +827,58 @@
     "text": "Spider coming from altar - aunt going berserk",
     "enumeration": "9"
    },
-   "solution": "TARANTULA"
+   "solution": "TARANTULA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TARANTULA",
+    "definitions": [
+     {
+      "text": "Spider",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going berserk",
+      "for": "anagram",
+      "note": "going berserk means running wild, so the letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "altar",
+      "gives": "ALTAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "aunt",
+      "gives": "AUNT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALTARAUNT",
+       "gives": "TARANTULA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spider crawls out from behind the church altar and an aunt panics.",
+     "definitionFit": "The tarantula is a large hairy species of spider, so it is an example of one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +892,44 @@
     "text": "Brownies in chapel vestry",
     "enumeration": "5"
    },
-   "solution": "ELVES"
+   "solution": "ELVES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ELVES",
+    "definitions": [
+     {
+      "text": "Brownies",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the solution lies inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chapel vestry",
+      "gives": "ELVES",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Junior Girl Guides meeting in the church vestry.",
+     "walkthrough": "Brownies are the youngest Girl Guides, but here they are the helpful household goblins of folklore.",
+     "definitionFit": "A brownie in folklore is a small helpful sprite, a member of the same family of little people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brownies"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +957,38 @@
      }
     ]
    },
-   "solution": "ANDALLTHATJAZZ"
+   "solution": "ANDALLTHATJAZZ",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AND ALL THAT JAZZ",
+    "definitions": [
+     {
+      "text": "Everything connected with the subject",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Everything connected with the subject",
+      "note": "surface reading: a catch-all phrase for related matters"
+     },
+     {
+      "clueFragment": "mentioned in New Orleans?",
+      "note": "setter's reading: the birthplace of jazz would name that music among the matters"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The stock phrase for 'and everything else of that kind' ends with the name of the music New Orleans is famous for, hence the question mark.",
+     "definitionFit": "The idiom tacks on all the related stuff without listing it, which is everything connected with the topic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1002,59 @@
     "text": "Happy hour binge for one next door",
     "enumeration": "9"
    },
-   "solution": "NEIGHBOUR"
+   "solution": "NEIGHBOUR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEIGHBOUR",
+    "definitions": [
+     {
+      "text": "one next door",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Happy",
+      "for": "anagram",
+      "note": "happy here suggests tipsy and merry, so the letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hour",
+      "gives": "HOUR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "binge",
+      "gives": "BINGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOURBINGE",
+       "gives": "NEIGHBOUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A happy-hour drinking session for the person who lives next door.",
+     "walkthrough": "'Happy hour' reads as one bar term, but the first word works alone on the following two.",
+     "definitionFit": "A neighbour is a person living in the adjacent house, the one next door."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Happy"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1068,55 @@
     "text": "Is serial broadcast for Middle-Easterners?",
     "enumeration": "8"
    },
-   "solution": "ISRAELIS"
+   "solution": "ISRAELIS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ISRAELIS",
+    "definitions": [
+     {
+      "text": "Middle-Easterners",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast also means scattered widely, like seed, so the letters are strewn into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Is serial",
+      "gives": "ISSERIAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISSERIAL",
+       "gives": "ISRAELIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a TV drama series is being aired for a Middle Eastern audience.",
+     "walkthrough": "'Broadcast' looks like television, which suits 'serial', but it means scattered.",
+     "definitionFit": "Israelis are citizens of Israel, a country in the Middle East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 17,
@@ -311,7 +1136,42 @@
      }
     ]
    },
-   "solution": "STICKYFINGERED"
+   "solution": "STICKYFINGERED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STICKY-FINGERED",
+    "definitions": [
+     {
+      "text": "Prone to pilfering",
+      "at": 0
+     },
+     {
+      "text": "as Bunter often was",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prone to pilfering",
+      "note": "first meaning: inclined to steal"
+     },
+     {
+      "clueFragment": "as Bunter often was",
+      "note": "second meaning: literally having fingers smeared with food"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Billy Bunter is the greedy, cake-guzzling schoolboy of the Greyfriars stories, so his hands were often messy with jam and toffee.",
+     "definitionFit": "Someone with light, grasping hands that things stick to is a habitual petty thief, a light-fingered type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1185,73 @@
     "text": "Shelters for animals, well-groomed, reared round outskirts of Nuneaton",
     "enumeration": "7"
    },
-   "solution": "KENNELS"
+   "solution": "KENNELS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "KENNELS",
+    "definitions": [
+     {
+      "text": "Shelters for animals",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reared",
+      "for": "reversal",
+      "note": "to rear up is to rise, and in a down clue going upward reads a word backwards"
+     },
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a town are its edges, so only the first and last letters count"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says the backwards word is placed around the edge letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "well-groomed",
+      "gives": "SLEEK",
+      "note": "sleek means smooth and well-groomed"
+     },
+     {
+      "clueFragment": "Nuneaton",
+      "gives": "NN",
+      "select": "outer",
+      "note": "the outer letters of Nuneaton, a town in Warwickshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KE",
+      "NN",
+      "ELS"
+     ],
+     "reversals": [
+      {
+       "from": "SLEEK",
+       "to": "KEELS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Animal shelters on the edge of a Midlands town raising smart-looking dogs.",
+     "definitionFit": "Kennels are houses or establishments where dogs are kept, so they are shelters for animals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reared"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1265,59 @@
     "text": "Inspect former pit, going after answer",
     "enumeration": "7"
    },
-   "solution": "EXAMINE"
+   "solution": "EXAMINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXAMINE",
+    "definitions": [
+     {
+      "text": "Inspect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going after",
+      "for": "charade",
+      "note": "going after places the word for a pit behind the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "pit",
+      "gives": "MINE",
+      "note": "a pit is a coal mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Checking a disused coal pit once the answer has been found.",
+     "definitionFit": "To examine something is to look at it closely, a synonym for inspect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "former"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1331,49 @@
     "text": "Man from ancient city calling for immediate attention?",
     "enumeration": "6"
    },
-   "solution": "URGENT"
+   "solution": "URGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "URGENT",
+    "definitions": [
+     {
+      "text": "calling for immediate attention",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ancient city",
+      "gives": "UR",
+      "note": "Ur was a city of ancient Mesopotamia, a crossword favourite"
+     },
+     {
+      "clueFragment": "Man",
+      "gives": "GENT",
+      "note": "a gent is a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UR",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man from an ancient city shouting for help.",
+     "definitionFit": "Something urgent is pressing and demands to be dealt with straight away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "calling"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1387,63 @@
     "text": "A female, initially nervous, is pale-faced",
     "enumeration": "5"
    },
-   "solution": "ASHEN"
+   "solution": "ASHEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "ASHEN",
+    "definitions": [
+     {
+      "text": "pale-faced",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the opening letter of the word before is used"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "SHE",
+      "note": "she is the female pronoun"
+     },
+     {
+      "clueFragment": "nervous",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter of nervous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SHE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A nervous woman has gone white in the face.",
+     "definitionFit": "Ashen means grey or white like ash, which describes a pale face drained of colour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1457,56 @@
     "text": "Messy part upset M, say",
     "enumeration": "9"
    },
-   "solution": "SPYMASTER"
+   "solution": "SPYMASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPYMASTER",
+    "definitions": [
+     {
+      "text": "M, say",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and disordered, so the letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Messy",
+      "gives": "MESSY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "part",
+      "gives": "PART",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MESSYPART",
+       "gives": "SPYMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss annoyed about an untidy bit of work.",
+     "walkthrough": "M is the head of the secret service in the James Bond stories; 'say' marks him as one example.",
+     "definitionFit": "M runs the spies of MI6 in Ian Fleming's novels, making him an example of a spy chief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "M"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1520,41 @@
     "text": "Feel spot",
     "enumeration": "5"
    },
-   "solution": "TOUCH"
+   "solution": "TOUCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TOUCH",
+    "definitions": [
+     {
+      "text": "Feel",
+      "at": 0
+     },
+     {
+      "text": "spot",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Feel",
+      "note": "first meaning: to handle with the fingers"
+     },
+     {
+      "clueFragment": "spot",
+      "note": "second meaning: a small amount, as in a spot of milk"
+     }
+    ],
+    "explanation": {
+     "definitionFit": "The word is both the verb for making contact by hand and a noun for a trace or small quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spot"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1574,62 @@
      }
     ]
    },
-   "solution": "LOOKEDON"
+   "solution": "LOOKEDON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "LOOKED ON",
+    "definitions": [
+     {
+      "text": "Watched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought in by",
+      "for": "container",
+      "note": "being brought in by something means being taken inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornish town",
+      "gives": "LOOE",
+      "note": "Looe is a fishing town in Cornwall"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "DON",
+      "note": "a don is a university lecturer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOO",
+      "K",
+      "E",
+      "DON"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch escorted into a Cornish town by an academic while onlookers watch.",
+     "walkthrough": "Looe is a small seaside town in Cornwall, in south-west England.",
+     "definitionFit": "To look on is to be a spectator without taking part, so looked on means watched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lecturer"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1643,43 @@
     "text": "Very small amount of time",
     "enumeration": "6"
    },
-   "solution": "MINUTE"
+   "solution": "MINUTE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINUTE",
+    "definitions": [
+     {
+      "text": "Very small",
+      "at": 0
+     },
+     {
+      "text": "amount of time",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very small",
+      "note": "first meaning: tiny, pronounced my-NEWT"
+     },
+     {
+      "clueFragment": "amount of time",
+      "note": "second meaning: sixty seconds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase about a brief moment, but splits into an adjective and a noun spelt alike and said differently.",
+     "definitionFit": "The adjective means tiny and the noun is the unit of sixty seconds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 26,
@@ -443,7 +1693,56 @@
     "text": "Emphasised sweet dishes must be returned",
     "enumeration": "8"
    },
-   "solution": "STRESSED"
+   "solution": "STRESSED",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STRESSED",
+    "definitions": [
+     {
+      "text": "Emphasised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "something returned is sent back, so the word is read back to front"
+     }
+    ],
+    "linkWords": [
+     "must be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sweet dishes",
+      "gives": "DESSERTS",
+      "note": "sweet dishes are desserts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRESSED"
+     ],
+     "reversals": [
+      {
+       "from": "DESSERTS",
+       "to": "STRESSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner insisting the puddings be sent back to the kitchen.",
+     "definitionFit": "A stressed word or syllable is one given extra weight or emphasis in speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Emphasised"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1762,66 @@
      }
     ]
    },
-   "solution": "REDHOT"
+   "solution": "REDHOT",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "RED-HOT",
+    "definitions": [
+     {
+      "text": "Very busy with calls",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the abbreviation inside the following word"
+     },
+     {
+      "text": "resort",
+      "for": "anagram",
+      "note": "to re-sort is to sort again, so the letters are put into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other",
+      "gives": "OTHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDHOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OTHDER",
+       "gives": "REDHOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday resort switchboard swamped with calls, a daughter stuck in another one.",
+     "walkthrough": "'Resort' looks like a holiday spot, but read as re-sort it means rearranging.",
+     "definitionFit": "Phone lines described as red-hot are ringing constantly, which is being extremely busy with calls."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resort"
+    }
+   }
   }
  ]
 }
