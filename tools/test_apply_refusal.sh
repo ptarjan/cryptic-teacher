@@ -64,6 +64,18 @@ check("a missing answer to a printed entry is refused",
       len(apply_solution.check_printed(part, {})) == 1)
 model = {**part, "solutions": {"origin": "model", "model": "opus", "date": "2026-10-01", "check": "x"}}
 check("a model fill may be replaced", not apply_solution.check_printed(model, {"15-across": "GALLWAY"}))
+# A clue printed with no words (genius-190's unclued 12-across) takes null:
+# it is not owed an annotation, and an explanation for it is refused.
+g190 = fetch_puzzle.resolve_puzzle("genius-190")
+def refused(anns):
+    try:
+        A.apply(Path(g190), anns)
+    except SystemExit as err:
+        return str(err)
+    return ""
+check("a wordless clue is not owed an annotation", "12-across" not in refused({}))
+check("an annotation on a wordless clue is refused",
+      "printed no words for 12-across" in refused({"12-across": {"answer": "GIN"}}))
 sys.exit(fails)
 PY
 rc=$?

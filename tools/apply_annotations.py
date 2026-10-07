@@ -369,12 +369,20 @@ def apply(path, annotations, by=None):
                 f"annotated, and those annotations stay as they are — this run "
                 f"writes only {', '.join(only)} ({view_path(path).name} "
                 f"annotateOnly). Drop the other keys.")
-    required = ids if only is None else [i for i in ids if i in only]
+    # An OCR'd clue the annotator found misread lands as SOURCE_CLUE_WRONG
+    # prints it, the way a re-fetch reads every served clue.
+    if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
+        mend_clues(puzzle)
+    # A clue printed with no words has nothing to explain: it takes null.
+    blank = {entry_id(e) for e in puzzle["entries"] if e["clue"].get("missing")}
+    required = [i for i in (ids if only is None else [i for i in ids if i in only])
+                if i not in blank]
     missing = [i for i in required if i not in annotations]
+    wordless = [k for k in annotations if k in blank and annotations[k] is not None]
     extra = [k for k in annotations if k not in ids and k not in continuations]
     covered = [f"{k} (annotate it on {continuations[k]})" for k in annotations
                if k in continuations and annotations[k] is not None]
-    if missing or extra or covered:
+    if missing or extra or covered or wordless:
         why = []
         if missing:
             why.append("no annotation for " + ", ".join(missing) +
@@ -387,6 +395,9 @@ def apply(path, annotations, by=None):
             why.append("continues a linked answer, so it takes null and its "
                        "leader's annotation covers the whole answer: "
                        + ", ".join(covered))
+        if wordless:
+            why.append("the paper printed no words for " + ", ".join(wordless) +
+                       ", so there is no wordplay to explain — give them null")
         raise SystemExit(f"apply_annotations: {path.name}: " + "; ".join(why))
     by_id_all = {entry_id(e): e for e in puzzle["entries"]}
     fixes, problems = model_corrections(puzzle, {
@@ -412,10 +423,6 @@ def apply(path, annotations, by=None):
             puzzle, {**provenance.solution_detail(puzzle), "corrected": log})
     had_hints = provenance.has_hints(puzzle)
     before = [e.get("annotation") for e in puzzle["entries"]]
-    # An OCR'd clue the annotator found misread lands as SOURCE_CLUE_WRONG
-    # prints it, the way a re-fetch reads every served clue.
-    if (puzzle.get("source") or {}).get("retrievedFrom") in provenance.OCR_CHANNELS:
-        mend_clues(puzzle)
     for entry in puzzle["entries"]:
         if entry_id(entry) in continuations or entry_id(entry) not in annotations:
             continue
