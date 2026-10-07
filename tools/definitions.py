@@ -46,17 +46,52 @@ def candidates(text, clue):
     return [i for i in found if whole(i)] or found
 
 
-# Typed quotes differ from printed ones; each maps one code point to one, so a
-# folded match sits at the same offsets in the real clue.
-QUOTES = str.maketrans("\u2018\u2019\u201c\u201d", "''\"\"")
+# Characters that print alike and compare unequal: Guardian clues use curly
+# quotes and en dashes, the Independent's straight ones and hyphens, and a model
+# retyping clue words writes whichever it prefers. Each maps one code point to
+# one, so a folded match sits at the same offsets in the real clue.
+LOOKALIKES = str.maketrans({"\u2018": "'", "\u2019": "'", "\u201c": '"',
+                            "\u201d": '"', "\u2013": "-", "\u2014": "-"})
+WORD = re.compile(r"[^\W_]+")
 
 
 def respell(text, clue):
-    """`text` spelt as `clue` prints it, when they differ only in quote marks."""
-    if not text or text in clue:
+    """`text` spelt as `clue` prints it: the clue's own characters for the same
+    run of clue words, when the two differ only in quote marks and dashes, in
+    case, or in the spaces and punctuation between the words ("Type of shirt"
+    for "type of shirt", "that, Parisian" for "that Parisian"). `text` itself
+    when it is in the clue already, or names no single run of clue words."""
+    if not isinstance(text, str) or not text or text in clue:
         return text
-    i = clue.translate(QUOTES).find(text.translate(QUOTES))
-    return clue[i:i + len(text)] if i >= 0 else text
+    i = clue.translate(LOOKALIKES).find(text.translate(LOOKALIKES))
+    if i >= 0:
+        return clue[i:i + len(text)]
+    want = [w.casefold() for w in WORD.findall(text.translate(LOOKALIKES))]
+    words = list(WORD.finditer(clue))
+    n = len(want)
+    found = {_with_edges(text, clue, words[k].start(), words[k + n - 1].end())
+             for k in range(len(words) - n + 1)
+             if [w.group().casefold() for w in words[k:k + n]] == want} if n else set()
+    return found.pop() if len(found) == 1 else text
+
+
+def _with_edges(text, clue, start, end):
+    """clue[start:end], widened over the punctuation `text` has before its
+    first word and after its last where the clue prints the same marks."""
+    folded = clue.translate(LOOKALIKES)
+    lead = re.match(r"\W*", text.translate(LOOKALIKES)).group()
+    trail = re.search(r"\W*$", text.translate(LOOKALIKES)).group()
+    for ch in reversed(lead):
+        if start and folded[start - 1] == ch and not ch.isspace():
+            start -= 1
+        else:
+            break
+    for ch in trail:
+        if end < len(clue) and folded[end] == ch and not ch.isspace():
+            end += 1
+        else:
+            break
+    return clue[start:end]
 
 
 def _at_an_end(clue, i, n):

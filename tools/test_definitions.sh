@@ -69,6 +69,36 @@ check("definitionFit: the definition read back is refused", 1,
       len(fit_errors("LION CUB", "young animal", "A lion cub is the young of a lion, so it is a young animal.")))
 check("definitionFit: the army ant is refused", 1,
       len(fit_errors("CRAWLER", "army ant", "An army ant is a crawler, as it is.")))
+
+# respell: the clue's own characters for the same run of clue words, from the
+# failing first checks of headless annotate runs.
+check("respell: a typed apostrophe", "we’re", D.respell("we're", "about certain we’re not"))
+check("respell: case", "type of shirt", D.respell("Type of shirt", "Hung out type of shirt with"))
+check("respell: a doubled space", "Spanish  port", D.respell("Spanish port", "Spanish  port-sour blend"))
+check("respell: a comma the clue lacks", "that Parisian",
+      D.respell("that, Parisian", "Fashionably petite and fit one, that Parisian"))
+check("respell: a hyphen for a space", "brick-carrier", D.respell("brick carrier", "Strange brick-carrier"))
+check("respell: case and quotes together", "One’s handle in one’s hand?",
+      D.respell("ONE'S HANDLE in one’s hand?", "One’s handle in one’s hand?"))
+check("respell: closing marks the clue prints are kept", "Make.it eight thousand,",
+      D.respell("Make it eight thousand,", "Make.it eight thousand, say"))
+check("respell: verbatim stays", "a cat", D.respell("a cat", "a cat sat"))
+check("respell: other words stay", "a step", D.respell("a step", "Take a revolutionary step"))
+check("respell: inside a word is no match", "Ate", D.respell("Ate", "Caterpillar"))
+check("respell: two different spellings stay", "THE", D.respell("THE", "The cat and the dog"))
+
+# verbatim_hint says what to write for each way a fragment misses its clue.
+check("hint: the clue's spelling", True,
+      "spells it 'Mammal’s'" in v.verbatim_hint("Mammal's", "Mammal’s covering"))
+check("hint: the words skipped", True,
+      "prints 'revolutionary' between them" in v.verbatim_hint("a step", "Take a revolutionary step in"))
+check("hint: an ellipsis is a skip", True,
+      "'out of the wood'" in v.verbatim_hint("Not ... say", "Not out of the wood say"))
+check("hint: a misread word names printedClue", True,
+      "'iumbled' where this has 'jumbled'" in v.verbatim_hint("jumbled crowd", "Very hot iumbled crowd")
+      and "printedClue" in v.verbatim_hint("jumbled crowd", "Very hot iumbled crowd"))
+check("hint: unrelated words get the plain rule", True,
+      "character for character" in v.verbatim_hint("horserace", "Spectators see chap"))
 raise SystemExit(fails)
 PY
 echo "all definition placement checks passed"

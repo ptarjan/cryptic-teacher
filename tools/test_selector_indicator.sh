@@ -46,4 +46,36 @@ check("message names the indicator and the block", True,
 errors = []
 v.check_selectors_are_indicators(fixed, path, errors)
 check("fixed entry passes", [], errors)
+
+# apply_annotations.normalize writes that fix itself: the run's block with its
+# selector inside goes to disk as the block and the indicator.
+import apply_annotations as A
+split = A.normalize(e["annotation"], e, puzzle["entries"])
+sb = next(b for b in split["blocks"] if b["gives"] == "B")
+check("normalize splits the block", ("Bahrain", "first"), (sb["clueFragment"], sb.get("select")))
+check("and adds the selector as an indicator", 1,
+      sum(i.get("text") == "capital of" and i.get("for") == "letter_selection"
+          for i in split["indicators"]))
+check("and letter_selection to type", True, "letter_selection" in split["type"])
+fixed2 = copy.deepcopy(puzzle)
+next(f for f in fixed2["entries"] if v.entry_id(f) == "24-down")["annotation"] = split
+errors = []
+v.check_selectors_are_indicators(fixed2, path, errors)
+check("the split passes the check", [], errors)
+again = A.normalize(split, e, puzzle["entries"])
+check("a second normalize changes nothing", split["indicators"], again["indicators"])
+def one(fragment, gives, inds=()):
+    return A.split_selectors({"type": ["charade"], "blocks": [{"clueFragment": fragment, "gives": gives}],
+                              "indicators": list(inds)})
+check("last letter", ({"clueFragment": "dinner", "gives": "R", "select": "last"}, "end of"),
+      (one("end of dinner", "R")["blocks"][0], one("end of dinner", "R")["indicators"][0]["text"]))
+check("a possessive keeps its word", "Party", one("Party's conclusion", "Y")["blocks"][0]["clueFragment"])
+check("an indicator already listed is not doubled", 1,
+      len(one("Irish leader", "I", [{"text": "leader", "for": "letter_selection", "note": "n"}])["indicators"]))
+check("several source words are left to the run", "last bit of money",
+      one("last bit of money", "Y")["blocks"][0]["clueFragment"])
+check("several letters are left to the run", "a lender's first",
+      one("a lender's first", "AL")["blocks"][0]["clueFragment"])
+check("a note that teaches", True,
+      len(one("Irish leader", "I")["indicators"][0]["note"]) >= 25)
 PY

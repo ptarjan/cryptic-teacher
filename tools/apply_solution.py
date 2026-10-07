@@ -58,7 +58,7 @@ from series import official_key  # noqa: E402
 import clues_only  # noqa: E402
 import corroborate  # noqa: E402
 import puzzle_paths  # noqa: E402
-from definitions import QUOTES  # noqa: E402
+from definitions import LOOKALIKES  # noqa: E402
 import provenance  # noqa: E402
 from groups import entry_id  # noqa: E402
 
@@ -272,7 +272,7 @@ LINKED_PREFIX = re.compile(r"(?i)^\s*\(?&\s*\d+\s*(?:ac|dn|across|down)?\.?\)?\s
 
 
 def _fold(s):
-    return re.sub(r"\s+", " ", str(s).translate(QUOTES).lower()).strip()
+    return re.sub(r"\s+", " ", str(s).translate(LOOKALIKES).lower()).strip()
 
 
 def _only_links(s):
