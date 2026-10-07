@@ -24,6 +24,9 @@
   "date": "2019-05-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,55 @@
     "text": "Supply pot into schools",
     "enumeration": "7"
    },
-   "solution": "FURNISH"
+   "solution": "FURNISH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FURNISH",
+    "definitions": [
+     {
+      "text": "Supply",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one thing put into another sits inside it, so the first word goes within the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "schools",
+      "gives": "FISH",
+      "note": "fish swim in schools, so the word can stand for them"
+     },
+     {
+      "clueFragment": "pot",
+      "gives": "URN",
+      "note": "an urn is a large pot or vase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "URN",
+      "ISH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone supplies cooking pots to schools.",
+     "walkthrough": "The urn sits between F and ISH.",
+     "definitionFit": "To furnish a person with something is to provide or equip them with it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "schools"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +102,43 @@
     "text": "Sat seemingly unreachable and alone",
     "enumeration": "10"
    },
-   "solution": "FRIENDLESS"
+   "solution": "FRIENDLESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FRIENDLESS",
+    "definitions": [
+     {
+      "text": "Sat seemingly unreachable",
+      "at": 0
+     },
+     {
+      "text": "alone",
+      "at": 30
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sat seemingly unreachable",
+      "note": "first meaning, split up: if the day before the weekend never ended, Saturday could never be reached"
+     },
+     {
+      "clueFragment": "alone",
+      "note": "second meaning: having no companions"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sat is Saturday, not a past tense; read the answer as FRI END LESS.",
+     "definitionFit": "Someone without any pals or companions is solitary, on their own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sat"
+    }
+   }
   },
   {
    "number": 2,
@@ -71,7 +158,59 @@
      }
     ]
    },
-   "solution": "RELATIVEPRONOUN"
+   "solution": "RELATIVEPRONOUN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELATIVE PRONOUN",
+    "definitions": [
+     {
+      "text": "Who, say",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved with",
+      "for": "anagram",
+      "note": "letters involved with each other are entangled, so they are jumbled together"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover",
+      "gives": "LOVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "piano tuner",
+      "gives": "PIANOTUNER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOVERPIANOTUNER",
+       "gives": "RELATIVEPRONOUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks who is having an affair with the piano tuner.",
+     "walkthrough": "'Who' looks like the start of a gossipy question, but it is a word being defined by example.",
+     "definitionFit": "Who introduces clauses like 'the man who came', making it an example of this grammatical class."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Who"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +224,51 @@
     "text": "After the first minute becomes restless",
     "enumeration": "5"
    },
-   "solution": "ITCHY"
+   "solution": "ITCHY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITCHY",
+    "definitions": [
+     {
+      "text": "restless",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After the first",
+      "for": "deletion",
+      "note": "only what comes after the opening letter is kept, so the initial is lost"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minute",
+      "gives": "TITCHY",
+      "note": "titchy is British slang for very small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITCHY"
+     ]
+    },
+    "explanation": {
+     "surface": "After the first sixty seconds, someone gets fidgety.",
+     "walkthrough": "'Minute' reads as a unit of time but means tiny.",
+     "definitionFit": "Being itchy can mean being restless or impatient, as with itchy feet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "minute"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +282,72 @@
     "text": "Innkeeper’s spicy pork pie eaten by Edgar on vacation",
     "enumeration": "8"
    },
-   "solution": "HOTELIER"
+   "solution": "HOTELIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "HOTELIER",
+    "definitions": [
+     {
+      "text": "Innkeeper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a place on vacation is vacated, emptied of its middle, leaving only its outer letters"
+     },
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "food eaten by someone ends up inside them"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spicy",
+      "gives": "HOT",
+      "note": "spicy food is hot"
+     },
+     {
+      "clueFragment": "Edgar",
+      "gives": "ER",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "pork pie",
+      "gives": "LIE",
+      "note": "pork pie is Cockney rhyming slang for lie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOT",
+      "E",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A landlord's hot pork pie is gobbled by a man called Edgar while on holiday.",
+     "walkthrough": "The pork pie is not food but rhyming slang; it goes inside the emptied Edgar.",
+     "definitionFit": "A hotelier owns or runs a hotel, a modern equivalent of a keeper of an inn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +361,63 @@
     "text": "Rent for one American in Michigan state",
     "enumeration": "7"
    },
-   "solution": "MUSICAL"
+   "solution": "MUSICAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MUSICAL",
+    "definitions": [
+     {
+      "text": "Rent for one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something said to be in a place is placed within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Michigan",
+      "gives": "MI",
+      "note": "MI is the postal abbreviation for Michigan"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American, as in the US"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "CAL",
+      "note": "Cal is a short form for California"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "US",
+      "I",
+      "CAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pays rent as an American living in Michigan.",
+     "walkthrough": "Rent is not money here but the Broadway show; 'for one' marks it as an example.",
+     "definitionFit": "Rent is a famous rock stage show with songs, an example of the genre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Rent"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +431,50 @@
     "text": "Church members losing heart are fools",
     "enumeration": "6"
    },
-   "solution": "MORONS"
+   "solution": "MORONS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MORONS",
+    "definitions": [
+     {
+      "text": "fools",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "a word losing its heart has its central letter taken out"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church members",
+      "gives": "MORMONS",
+      "note": "Mormons belong to the Church of Jesus Christ of Latter-day Saints"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MORONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Disheartened members of a congregation are called idiots.",
+     "definitionFit": "Morons is an insulting word for stupid people, a synonym of fools."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 6,
@@ -141,7 +488,55 @@
     "text": "Trim fruits covered by mould",
     "enumeration": "9"
    },
-   "solution": "SHIPSHAPE"
+   "solution": "SHIPSHAPE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHIPSHAPE",
+    "definitions": [
+     {
+      "text": "Trim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered by",
+      "for": "container",
+      "note": "something covered by another is enclosed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mould",
+      "gives": "SHAPE",
+      "note": "to mould is to shape"
+     },
+     {
+      "clueFragment": "fruits",
+      "gives": "HIPS",
+      "note": "hips are the fruits of the rose"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HIPS",
+      "HAPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Neatly cut fruit has gone mouldy.",
+     "walkthrough": "The hips sit after the S of the mould word.",
+     "definitionFit": "Trim as an adjective means neat and in good order, which is what this nautical phrase means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mould"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +556,69 @@
      }
     ]
    },
-   "solution": "CHOCOLATEMOUSSE"
+   "solution": "CHOCOLATEMOUSSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHOCOLATE MOUSSE",
+    "definitions": [
+     {
+      "text": "sweet",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is in a dreadful state, so the letters are in disorder"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "see",
+      "gives": "SEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cola’s",
+      "gives": "COLAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "much",
+      "gives": "MUCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "TOO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEECOLASMUCHTOO",
+       "gives": "CHOCOLATEMOUSSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a fizzy drink is horribly over-sugared.",
+     "walkthrough": "'Much too sweet' looks like the definition, but only the last word defines; sweet is the British word for a dessert.",
+     "definitionFit": "This rich whipped cocoa pudding is a dessert, which British English calls a sweet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweet"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +632,45 @@
     "text": "Least likely to survive",
     "enumeration": "4"
    },
-   "solution": "LAST"
+   "solution": "LAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAST",
+    "definitions": [
+     {
+      "text": "Least likely",
+      "at": 0
+     },
+     {
+      "text": "survive",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Least likely",
+      "note": "first meaning: as in the final person you would expect"
+     },
+     {
+      "clueFragment": "survive",
+      "note": "second meaning: to endure or keep going"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as one phrase about poor survival odds; split it after 'likely'.",
+     "definitionFit": "The word describes the most improbable choice, and as a verb means to endure over time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "survive"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +684,52 @@
     "text": "Bad practice to ignore the doctor",
     "enumeration": "3"
    },
-   "solution": "ILL"
+   "solution": "ILL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ILL",
+    "definitions": [
+     {
+      "text": "Bad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to ignore",
+      "for": "deletion",
+      "note": "ignoring something means leaving it out, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "practice",
+      "gives": "DRILL",
+      "note": "a drill is repeated practice"
+     },
+     {
+      "clueFragment": "the doctor",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical practice that ignores the doctor is bad.",
+     "definitionFit": "Ill can mean bad or harmful, as in ill effects or ill will."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "practice"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +743,55 @@
     "text": "Once, tourism involved covering the same area",
     "enumeration": "11"
    },
-   "solution": "COTERMINOUS"
+   "solution": "COTERMINOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COTERMINOUS",
+    "definitions": [
+     {
+      "text": "covering the same area",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "something involved is tangled or complicated, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Once",
+      "gives": "ONCE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tourism",
+      "gives": "TOURISM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCETOURISM",
+       "gives": "COTERMINOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In the past, tourism involved travelling widely across one region.",
+     "definitionFit": "Coterminous describes things having the same boundaries or extent, sharing one territory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Once"
+    }
+   }
   },
   {
    "number": 11,
@@ -235,7 +823,43 @@
      }
     ]
    },
-   "solution": "NOTBYALONGSHOT"
+   "solution": "NOTBYALONGSHOT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOT BY A LONG SHOT",
+    "definitions": [
+     {
+      "text": "By no means",
+      "at": 0
+     },
+     {
+      "text": "how a tap-in is scored?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "By no means",
+      "note": "first meaning: an idiom for not at all"
+     },
+     {
+      "clueFragment": "how a tap-in is scored?",
+      "note": "second meaning, read literally: a tap-in is a goal knocked in from very close range"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the playful literal reading of the idiom: a goal from a yard out is the opposite of a distant strike.",
+     "definitionFit": "The idiom means not in the slightest, and literally a close-range goal is never a distant strike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tap-in"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +873,69 @@
     "text": "Bishops shifted around before making homes for life",
     "enumeration": "10"
    },
-   "solution": "BIOSPHERES"
+   "solution": "BIOSPHERES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BIOSPHERES",
+    "definitions": [
+     {
+      "text": "homes for life",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifted",
+      "for": "anagram",
+      "note": "letters shifted are moved out of place into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word placed around another encloses it"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishops",
+      "gives": "BISHOPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "ERE",
+      "note": "ere is an old word for before"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIOSPH",
+      "ERE",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BISHOPS",
+       "gives": "BIOSPHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clergy were moved about before building houses for their lives.",
+     "definitionFit": "Biospheres are the regions of a planet where living things exist, so habitats for organisms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "life"
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +949,55 @@
     "text": "Heaps of ties? About six",
     "enumeration": "8"
    },
-   "solution": "LAVISHES"
+   "solution": "LAVISHES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAVISHES",
+    "definitions": [
+     {
+      "text": "Heaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "container",
+      "note": "one word placed about another surrounds it on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ties",
+      "gives": "LASHES",
+      "note": "to lash is to tie or bind with rope"
+     },
+     {
+      "clueFragment": "six",
+      "gives": "VI",
+      "note": "VI is six in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "VI",
+      "SHES"
+     ]
+    },
+    "explanation": {
+     "surface": "A wardrobe holds heaps of neckties, roughly six of them.",
+     "walkthrough": "'Heaps' looks like a noun but is a verb, as in heaping praise on someone.",
+     "definitionFit": "To lavish praise or gifts on someone is to pile them on generously."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ties"
+    }
+   }
   },
   {
    "number": 14,
@@ -277,7 +1011,60 @@
     "text": "During short nap, smell most like foam rubber",
     "enumeration": "9"
    },
-   "solution": "SPONGIEST"
+   "solution": "SPONGIEST",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SPONGIEST",
+    "definitions": [
+     {
+      "text": "most like foam rubber",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a short word is cut off before its end"
+     },
+     {
+      "text": "During",
+      "for": "container",
+      "note": "something happening during another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nap",
+      "gives": "SIESTA",
+      "note": "a siesta is an afternoon nap"
+     },
+     {
+      "clueFragment": "smell",
+      "gives": "PONG",
+      "note": "pong is British slang for a bad smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PONG",
+      "IEST"
+     ]
+    },
+    "explanation": {
+     "surface": "During a quick doze, something smells like foam rubber.",
+     "definitionFit": "Foam rubber is soft and springy, so the most sponge-like thing resembles it most."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "smell"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1078,60 @@
     "text": "Regrettably, sent back motorway food",
     "enumeration": "6"
    },
-   "solution": "SALAMI"
+   "solution": "SALAMI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "SALAMI",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "something sent back returns the way it came, so the word is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regrettably",
+      "gives": "ALAS",
+      "note": "alas expresses regret"
+     },
+     {
+      "clueFragment": "motorway",
+      "gives": "MI",
+      "note": "the M1 is Britain's main north-south motorway, written MI in crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SALA",
+      "MI"
+     ],
+     "reversals": [
+      {
+       "from": "ALAS",
+       "to": "SALA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sadly, the motorway café's food had to be sent back.",
+     "definitionFit": "Salami is a cured sausage, an item eaten as food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Regrettably"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1151,62 @@
      }
     ]
    },
-   "solution": "POOHPOOH"
+   "solution": "POOHPOOH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "POOH-POOH",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "going backwards makes the word read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "HOOP",
+      "note": "a hoop is a circular band"
+     },
+     {
+      "clueFragment": "echo of",
+      "gives": "HOOP",
+      "note": "an echo repeats what came before, so the same band appears a second time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POOH",
+      "POOH"
+     ],
+     "reversals": [
+      {
+       "from": "HOOP",
+       "to": "POOH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A faint echo can be heard from the backing band.",
+     "walkthrough": "'Backing band' suggests musicians, but band is a ring of metal or wood.",
+     "definitionFit": "To slight an idea is to dismiss it scornfully, which is what this reduplicated verb means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1220,44 @@
     "text": "Drawing device damages iPhone screens",
     "enumeration": "6"
    },
-   "solution": "SIPHON"
+   "solution": "SIPHON",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SIPHON",
+    "definitions": [
+     {
+      "text": "Drawing device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "screens",
+      "for": "hidden_word",
+      "note": "to screen is to conceal, so the words conceal the answer within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "damages iPhone",
+      "gives": "SIPHON",
+      "note": "the last letter of the first word and most of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Some gadget is harming the displays of mobile phones.",
+     "walkthrough": "'Screens' looks like the phone's displays but is a verb meaning hides.",
+     "definitionFit": "A siphon is a tube used to draw liquid up and over from one container to another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "screens"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1271,55 @@
     "text": "Pain like this maybe, Descartes’s son reveals",
     "enumeration": "8"
    },
-   "solution": "SORENESS"
+   "solution": "SORENESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SORENESS",
+    "definitions": [
+     {
+      "text": "Pain",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "reveals"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like this maybe",
+      "gives": "SO",
+      "note": "so means in this way, like this"
+     },
+     {
+      "clueFragment": "Descartes’s",
+      "gives": "RENES",
+      "note": "René was the philosopher's first name"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "RENES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The French philosopher's son discloses an ache of some kind.",
+     "definitionFit": "Soreness is the state of aching or tenderness, a mild form of hurt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Descartes’s"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1333,47 @@
     "text": "Not just Macron’s a moderate",
     "enumeration": "6"
    },
-   "solution": "UNFAIR"
+   "solution": "UNFAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNFAIR",
+    "definitions": [
+     {
+      "text": "Not just",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Macron’s a",
+      "gives": "UN",
+      "note": "un is French for a; Macron is the French president"
+     },
+     {
+      "clueFragment": "moderate",
+      "gives": "FAIR",
+      "note": "fair means middling, as in a fair amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "FAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that the French president is merely a centrist.",
+     "walkthrough": "'Just' looks like 'merely' but means fair-minded.",
+     "definitionFit": "Something not just lacks justice or equity, which is to say it is unequal in treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "just"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1401,43 @@
      }
     ]
    },
-   "solution": "LONGINTHETOOTH"
+   "solution": "LONGINTHETOOTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LONG IN THE TOOTH",
+    "definitions": [
+     {
+      "text": "Perhaps like a 1970s filling",
+      "at": 0
+     },
+     {
+      "text": "spring chicken? No!",
+      "at": 33
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps like a 1970s filling",
+      "note": "first meaning, read literally: a dental filling from decades ago has sat in the mouth a long time"
+     },
+     {
+      "clueFragment": "spring chicken? No!",
+      "note": "second meaning: no spring chicken means no longer young"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Filling' looks like a sandwich or pie filling beside the chicken, but it is dental.",
+     "definitionFit": "The idiom describes someone old, from horses' gums receding with age; a non-spring-chicken is elderly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "filling"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1451,56 @@
     "text": "Cross river close to Romsey",
     "enumeration": "5"
    },
-   "solution": "TESTY"
+   "solution": "TESTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TESTY",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its final letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "river",
+      "gives": "TEST",
+      "note": "the Test is a Hampshire river that flows through the town of Romsey"
+     },
+     {
+      "clueFragment": "Romsey",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A river is crossed near the Hampshire market town of Romsey.",
+     "walkthrough": "'Cross' looks like a verb about fording the river; it is the adjective meaning angry.",
+     "definitionFit": "Testy means irritable and short-tempered, a synonym for being annoyed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1514,56 @@
     "text": "Pants, no good for snakes",
     "enumeration": "4"
    },
-   "solution": "ASPS"
+   "solution": "ASPS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASPS",
+    "definitions": [
+     {
+      "text": "snakes",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "no here means without, so the letter for good is removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pants",
+      "gives": "GASPS",
+      "note": "to pant is to gasp for breath"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Trousers are useless for keeping snakes in.",
+     "walkthrough": "'Pants' looks like a noun for underwear or British slang for rubbish; it is a verb.",
+     "definitionFit": "Asps are small venomous vipers, a kind of serpent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pants"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1577,65 @@
     "text": "Craftsmen’s mothers working in pits",
     "enumeration": "11"
    },
-   "solution": "STONEMASONS"
+   "solution": "STONEMASONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STONEMASONS",
+    "definitions": [
+     {
+      "text": "Craftsmen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "things placed in a place are put inside its letters"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pits",
+      "gives": "STONES",
+      "note": "fruit stones are also called pits"
+     },
+     {
+      "clueFragment": "mothers",
+      "gives": "MAS",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STONE",
+      "MAS",
+      "ON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Mothers are labouring down in the mines.",
+     "walkthrough": "'Pits' suggests coal mines but means the stones of fruit.",
+     "definitionFit": "Stonemasons are skilled workers who cut and dress stone for building."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pits"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1649,63 @@
     "text": "Title taken from orbits regularly rotating",
     "enumeration": "3"
    },
-   "solution": "SIR"
+   "solution": "SIR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "SIR",
+    "definitions": [
+     {
+      "text": "Title",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "rotating",
+      "for": "reversal",
+      "note": "turning round makes the letters run the other way"
+     }
+    ],
+    "linkWords": [
+     "taken from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orbits",
+      "gives": "RIS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIR"
+     ],
+     "reversals": [
+      {
+       "from": "RIS",
+       "to": "SIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A title is won from planets circling in steady orbits.",
+     "definitionFit": "Sir is the honorific used for a knight or baronet, a form of address."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "orbits"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1719,54 @@
     "text": "Politician hiding at a Spanish address",
     "enumeration": "7"
    },
-   "solution": "SENATOR"
+   "solution": "SENATOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SENATOR",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "a thing hiding is concealed inside something else"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spanish address",
+      "gives": "SENOR",
+      "note": "señor is the Spanish for Mr or sir"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEN",
+      "AT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician is lying low at some address in Spain.",
+     "definitionFit": "A senator is a member of a senate, an elected legislator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 26,
@@ -465,7 +1780,55 @@
     "text": "Tomboys study Olympic cyclist’s circuits",
     "enumeration": "7"
    },
-   "solution": "HOYDENS"
+   "solution": "HOYDENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOYDENS",
+    "definitions": [
+     {
+      "text": "Tomboys",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circuits",
+      "for": "container",
+      "note": "to circuit something is to go all the way round it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Olympic cyclist’s",
+      "gives": "HOYS",
+      "note": "Sir Chris Hoy is a British Olympic track cycling champion"
+     },
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private room for study"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOY",
+      "DEN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Boisterous girls examine the laps ridden by a track cyclist.",
+     "walkthrough": "'Circuits' reads as laps of the velodrome but is a verb: the cyclist's name goes round the room.",
+     "definitionFit": "A hoyden is a boisterous, unladylike girl, an old word for a tomboy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "circuits"
+    }
+   }
   }
  ]
 }
