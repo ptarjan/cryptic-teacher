@@ -38,6 +38,9 @@
   "date": "2025-05-04",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,81 @@
     "text": "One modifying poor sight, not good, with start and finish of treatment?",
     "enumeration": "10"
    },
-   "solution": "ORTHOPTIST"
+   "solution": "ORTHOPTIST",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ORTHOPTIST",
+    "definitions": [
+     {
+      "text": "One modifying poor sight, not good, with start and finish of treatment?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "modifying",
+      "for": "anagram",
+      "note": "to modify is to alter, so the following words are rearranged before use"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not good' tells you to drop the letter standing for good from the fodder"
+     },
+     {
+      "text": "start and finish of",
+      "for": "letter_selection",
+      "note": "only the opening and closing letters of the next word are wanted"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor sight",
+      "gives": "POORSIGHT",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the standard abbreviation for good"
+     },
+     {
+      "clueFragment": "treatment",
+      "gives": "TT",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORTHOPTIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POORSIHTTT",
+       "gives": "ORTHOPTIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A riddle about the specialist who corrects bad eyesight in the course of a course of treatment.",
+     "walkthrough": "Take G out of POOR SIGHT, add the two Ts from treatment, and rearrange to ORTHOPTIST. The whole clue doubles as the definition: an &lit.",
+     "definitionFit": "An orthoptist treats squints and faulty eye movement, so their job is literally improving defective vision through therapy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "modifying"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +142,62 @@
     "text": "Strand, the same after its centre is out of reach",
     "enumeration": "5"
    },
-   "solution": "RHONE"
+   "solution": "RHONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RHONE",
+    "definitions": [
+     {
+      "text": "Strand",
+      "at": 0,
+      "note": "Scots sense: a gutter or channel"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "its centre is out of",
+      "for": "letter_selection",
+      "note": "removing the middle of the following word leaves only its outside letters"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the phrase for sameness is placed following the trimmed word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reach",
+      "gives": "RH",
+      "select": "outer",
+      "note": "the word with its middle three letters taken away"
+     },
+     {
+      "clueFragment": "the same",
+      "gives": "ONE",
+      "note": "as in 'one and the same'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RH",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stranded on a beach finds the same thing still beyond reach.",
+     "walkthrough": "'Strand' looks like a beach or a thread; here it is the Scots word for a gutter, and RHONE (also rone) is a Scots roof gutter or drainpipe.",
+     "definitionFit": "In Scots usage both words denote a channel carrying rainwater, such as a roof gutter or drainpipe."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Strand"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +211,53 @@
     "text": "Giant bivalve shrivelled in acid tarn",
     "enumeration": "8"
    },
-   "solution": "TRIDACNA"
+   "solution": "TRIDACNA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRIDACNA",
+    "definitions": [
+     {
+      "text": "Giant bivalve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shrivelled",
+      "for": "anagram",
+      "note": "something shrivelled is twisted out of its shape, so these letters are reshaped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acid tarn",
+      "gives": "ACIDTARN",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACIDTARN",
+       "gives": "TRIDACNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge clam has dried up and withered in a sour mountain pool.",
+     "definitionFit": "Tridacna is the genus of giant clams, the largest bivalve molluscs living today in tropical reefs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "acid"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +271,55 @@
     "text": "Large fish, not useful, stored in hold",
     "enumeration": "4"
    },
-   "solution": "HUSO"
+   "solution": "HUSO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HUSO",
+    "definitions": [
+     {
+      "text": "Large fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "something stored is kept inside something else, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hold",
+      "gives": "HO",
+      "note": "ho is an old call meaning stop or halt"
+     },
+     {
+      "clueFragment": "not useful",
+      "gives": "US",
+      "note": "U/S is short for unserviceable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "US",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A big fish nobody can use is left in a ship's hold.",
+     "walkthrough": "'Hold' suggests a ship's cargo space, but here it is the old interjection meaning stop, and 'not useful' is the military shorthand for unserviceable.",
+     "definitionFit": "The huso is the great sturgeon, or beluga, a very large fish of the Caspian and Black Sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hold"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +333,52 @@
     "text": "Crash resounded after parking",
     "enumeration": "5"
    },
-   "solution": "PRANG"
+   "solution": "PRANG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRANG",
+    "definitions": [
+     {
+      "text": "Crash",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the word for sounded is placed following the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parking",
+      "gives": "P",
+      "note": "P is the road-sign abbreviation for parking"
+     },
+     {
+      "clueFragment": "resounded",
+      "gives": "RANG",
+      "note": "a bell resounded, or rang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RANG"
+     ]
+    },
+    "explanation": {
+     "surface": "A loud crash echoed out just after someone parked.",
+     "definitionFit": "Prang is British slang for a minor collision of a car or aircraft, so it serves as a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +392,59 @@
     "text": "German/Italian deploying some French in supermarket",
     "enumeration": "7"
    },
-   "solution": "TEDESCO"
+   "solution": "TEDESCO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEDESCO",
+    "definitions": [
+     {
+      "text": "German/Italian",
+      "at": 0,
+      "note": "the Italian word for German"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the French word is placed inside the store name"
+     }
+    ],
+    "linkWords": [
+     "deploying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supermarket",
+      "gives": "TESCO",
+      "note": "Tesco is Britain's largest supermarket chain"
+     },
+     {
+      "clueFragment": "some French",
+      "gives": "DE",
+      "note": "de is French for some, as in du/de la"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "DE",
+      "SCO"
+     ]
+    },
+    "explanation": {
+     "surface": "A German or Italian shopper trots out a bit of French at the supermarket.",
+     "walkthrough": "The slash reads as 'German or Italian', a nationality pair; really it means the Italian word for German.",
+     "definitionFit": "Tedesco is the Italian adjective and noun meaning German, so it is German rendered in Italian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "supermarket"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +458,77 @@
     "text": "Isn’t muddled about cine abroad, ignorant no longer",
     "enumeration": "8"
    },
-   "solution": "INSCIENT"
+   "solution": "INSCIENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INSCIENT",
+    "definitions": [
+     {
+      "text": "ignorant no longer",
+      "at": 33,
+      "note": "'no longer' marks the word as obsolete"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "muddled",
+      "for": "anagram",
+      "note": "something muddled is jumbled, so the contraction's letters are mixed up"
+     },
+     {
+      "text": "abroad",
+      "for": "anagram",
+      "note": "abroad means scattered widely, so the film word is scrambled too"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one jumbled group goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Isn’t",
+      "gives": "ISNT",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "cine",
+      "gives": "CINE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INS",
+      "CIEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISNT",
+       "gives": "INST"
+      },
+      {
+       "fodder": "CINE",
+       "gives": "CIEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confused about foreign films is no longer in the dark.",
+     "walkthrough": "The surface suggests someone ceasing to be ignorant; in fact 'no longer' tells you the word meaning ignorant is obsolete.",
+     "definitionFit": "Inscient is an obsolete adjective meaning lacking knowledge, the opposite of sciens, knowing, from Latin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "longer"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +542,62 @@
     "text": "Sea fish, salty when not left inside",
     "enumeration": "5"
    },
-   "solution": "SAURY"
+   "solution": "SAURY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SAURY",
+    "definitions": [
+     {
+      "text": "Sea fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' says the following abbreviation must be taken away"
+     },
+     {
+      "text": "inside",
+      "for": "deletion",
+      "note": "the letters to remove sit within the word, not at its ends"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salty",
+      "gives": "SAVOURY",
+      "note": "savoury food is salty rather than sweet"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "VO",
+      "note": "VO is verso, the left-hand page of a book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "URY"
+     ]
+    },
+    "explanation": {
+     "surface": "A fish from the ocean tastes of salt unless it is left in.",
+     "walkthrough": "'Left' is not L here but VO, verso, the left-hand page; take it out of SAVOURY to leave SAURY.",
+     "definitionFit": "The saury is a slender, long-beaked marine fish of the Atlantic and Pacific, also called the skipper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +611,56 @@
     "text": "Stage in dividing cells, calamity when section’s removed",
     "enumeration": "7"
    },
-   "solution": "DIASTER"
+   "solution": "DIASTER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DIASTER",
+    "definitions": [
+     {
+      "text": "Stage in dividing cells",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "something removed is taken away, so a letter leaves the word"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "calamity",
+      "gives": "DISASTER",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "section",
+      "gives": "S",
+      "note": "S is an abbreviation for section"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ASTER"
+     ]
+    },
+    "explanation": {
+     "surface": "A biology note: a cell-division phase goes wrong when part is cut out.",
+     "definitionFit": "In mitosis the diaster is the phase when the chromosomes form two star-shaped groups at opposite poles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "section"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +674,64 @@
     "text": "E.g. cat toyed with bit of breakfast, sort of interloper",
     "enumeration": "11"
    },
-   "solution": "GATECRASHER"
+   "solution": "GATECRASHER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "GATECRASHER",
+    "definitions": [
+     {
+      "text": "sort of interloper",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toyed",
+      "for": "anagram",
+      "note": "a cat that toyed with something batted it about, so these letters are shuffled around"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E.g. cat",
+      "gives": "EGCAT",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "bit of breakfast",
+      "gives": "RASHER",
+      "note": "a rasher is a slice of bacon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GATEC",
+      "RASHER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGCAT",
+       "gives": "GATEC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat plays with a scrap of someone's breakfast like an uninvited guest.",
+     "walkthrough": "'Toyed with' seems to join the cat to the breakfast; only 'toyed' works on E.G. CAT, and 'with' adds RASHER.",
+     "definitionFit": "A gatecrasher turns up at a party or event uninvited, which makes them one particular kind of intruder."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toyed"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +745,59 @@
     "text": "Part of flower below earth to penetrate mineral",
     "enumeration": "11"
    },
-   "solution": "EPISTILBITE"
+   "solution": "EPISTILBITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EPISTILBITE",
+    "definitions": [
+     {
+      "text": "mineral",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "below",
+      "for": "charade",
+      "note": "in a down entry, below means the flower part follows the earth letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "earth",
+      "gives": "E",
+      "note": "E is the abbreviation for earth in electrical wiring"
+     },
+     {
+      "clueFragment": "Part of flower",
+      "gives": "PISTIL",
+      "note": "the female organ of a flower"
+     },
+     {
+      "clueFragment": "to penetrate",
+      "gives": "BITE",
+      "note": "to bite is to penetrate, as teeth or acid do"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "PISTIL",
+      "BITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A flower part buried under soil pushes down into rock.",
+     "definitionFit": "Epistilbite is a zeolite, a hydrated aluminosilicate found as crystals in cavities of volcanic rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "earth"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +811,69 @@
     "text": "Rain tumbled inside piece of ground for chickweed relative",
     "enumeration": "8"
    },
-   "solution": "ARENARIA"
+   "solution": "ARENARIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARENARIA",
+    "definitions": [
+     {
+      "text": "chickweed relative",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tumbled",
+      "for": "anagram",
+      "note": "anything tumbled has been tossed about, so the weather word is reordered"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "the jumbled word sits within the word for a patch of land"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece of ground",
+      "gives": "AREA",
+      "note": "an area is a piece of ground"
+     },
+     {
+      "clueFragment": "Rain",
+      "gives": "RAIN",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARE",
+      "NARI",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAIN",
+       "gives": "NARI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rain has fallen on a patch of ground where a chickweed cousin grows.",
+     "definitionFit": "Arenaria is the sandwort genus, belonging to the pink family alongside chickweed, so it is a close botanical cousin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tumbled"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +887,66 @@
     "text": "Small change in Bangladesh I spotted entering expensive area",
     "enumeration": "6"
    },
-   "solution": "POISHA"
+   "solution": "POISHA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "POISHA",
+    "definitions": [
+     {
+      "text": "Small change in Bangladesh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "the letter goes into the word for expensive"
+     }
+    ],
+    "linkWords": [
+     "spotted"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expensive",
+      "gives": "POSH",
+      "note": "posh means smart and costly"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "I",
+      "SH",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller notices a few coins going into a pricey district of Bangladesh.",
+     "walkthrough": "'Small change' reads as a minor alteration; it is a coin.",
+     "definitionFit": "The poisha is a monetary unit of Bangladesh, one hundredth of a taka, so it is small coinage there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "change"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +960,66 @@
     "text": "Coarse cotton universal in sailors making comeback",
     "enumeration": "5"
    },
-   "solution": "SURAT"
+   "solution": "SURAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SURAT",
+    "definitions": [
+     {
+      "text": "Coarse cotton",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making comeback",
+      "for": "reversal",
+      "note": "coming back means running the word the other way"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the single letter goes inside the word for seamen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailors",
+      "gives": "TARS",
+      "note": "tar is a familiar word for a sailor"
+     },
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film-certificate abbreviation for universal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "U",
+      "RAT"
+     ],
+     "reversals": [
+      {
+       "from": "TARS",
+       "to": "SRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Rough cotton cloth is worn universally by sailors who are returning.",
+     "definitionFit": "Surat is a coarse uncoloured cotton cloth, named after the Indian port city from which it was exported."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "universal"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +1033,54 @@
     "text": "What’s in indigo icon? Little new in that",
     "enumeration": "5"
    },
-   "solution": "INDOL"
+   "solution": "INDOL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INDOL",
+    "definitions": [
+     {
+      "text": "What’s in indigo",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in that",
+      "for": "container",
+      "note": "the abbreviation is placed inside the word just given"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "icon",
+      "gives": "IDOL",
+      "note": "an icon is an idol, something revered"
+     },
+     {
+      "clueFragment": "Little new",
+      "gives": "N",
+      "note": "N is the short form of new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "DOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about what an indigo-coloured icon contains, answered by its small novelty.",
+     "definitionFit": "Indol is a crystalline compound obtained from indigo, where it forms the core of the dye molecule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "icon"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1094,59 @@
     "text": "Pink after kiss mostly? Show interruption of blood supply?",
     "enumeration": "7"
    },
-   "solution": "NECROSE"
+   "solution": "NECROSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NECROSE",
+    "definitions": [
+     {
+      "text": "Show interruption of blood supply?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "most of the word means its last letter is lost"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "the colour word follows the shortened kiss"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kiss",
+      "gives": "NEC",
+      "note": "to kiss and cuddle is to neck, here missing its last letter"
+     },
+     {
+      "clueFragment": "Pink",
+      "gives": "ROSE",
+      "note": "rose is a shade of pink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEC",
+      "ROSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone goes pink after a long kiss and wonders whether their circulation has failed.",
+     "definitionFit": "To necrose is to undergo necrosis, the death of tissue, which typically follows a cut-off of blood to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pink"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1160,47 @@
     "text": "What fisherman casts? His medium number",
     "enumeration": "4"
    },
-   "solution": "SEAN"
+   "solution": "SEAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEAN",
+    "definitions": [
+     {
+      "text": "What fisherman casts?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "His medium",
+      "gives": "SEA",
+      "note": "the element a fisherman works in"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is an algebraic symbol for a number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A question and answer about an angler: what he throws out and where.",
+     "walkthrough": "'His' refers back to the fisherman, whose working medium is SEA.",
+     "definitionFit": "Sean is a variant spelling of seine, a large vertical fishing net that is cast or drawn round shoals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "medium"
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1214,61 @@
     "text": "A bird gripped by sickness of parent",
     "enumeration": "8"
    },
-   "solution": "MATERNAL"
+   "solution": "MATERNAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MATERNAL",
+    "definitions": [
+     {
+      "text": "of parent",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripped by",
+      "for": "container",
+      "note": "something gripped is held inside, so the bird goes within the sickness word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sickness",
+      "gives": "MAL",
+      "note": "mal is French for illness, used in English in such words as mal de mer"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TERN",
+      "note": "a seabird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "TERN",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is in the grip of an illness passed down from a parent.",
+     "definitionFit": "Maternal means relating to a mother, so it describes things belonging to that kind of parent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bird"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1282,58 @@
     "text": "Floor grabbing attraction in government as of old",
     "enumeration": "8"
    },
-   "solution": "STEARAGE"
+   "solution": "STEARAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEARAGE",
+    "definitions": [
+     {
+      "text": "government as of old",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "something grabbing holds another thing inside its grasp"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Floor",
+      "gives": "STAGE",
+      "note": "a stage is a floor or storey of a building"
+     },
+     {
+      "clueFragment": "attraction",
+      "gives": "EAR",
+      "note": "ear in the sense of attention, as in having someone's ear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EAR",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Speakers on a floor of parliament fight for attention within government.",
+     "walkthrough": "'As of old' tells you the spelling is an obsolete one, a form of steerage in its sense of guidance.",
+     "definitionFit": "Stearage is an archaic spelling of steerage, which once meant steering or direction, hence governing or management."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Floor"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1347,57 @@
     "text": "Simple game in US? Lacking tact for Central American",
     "enumeration": "4"
    },
-   "solution": "TICO"
+   "solution": "TICO",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TICO",
+    "definitions": [
+     {
+      "text": "Central American",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lacking",
+      "for": "deletion",
+      "note": "lacking something means it is missing, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Simple game in US",
+      "gives": "TICTACTO",
+      "note": "tic-tac-to is a US spelling of noughts and crosses"
+     },
+     {
+      "clueFragment": "tact",
+      "gives": "TACT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIC",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "An American who can't play noughts and crosses tactfully is from Central America.",
+     "walkthrough": "Noughts and crosses is the British name for the grid game Americans call tic-tac-toe, also spelt tic-tac-to; remove TACT from its middle.",
+     "definitionFit": "Tico is an informal name for a Costa Rican, a native of a Central American country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tact"
+    }
+   }
   },
   {
    "number": 21,
@@ -331,7 +1411,71 @@
     "text": "Lizard weapon cut short in India, wild",
     "enumeration": "7"
    },
-   "solution": "IGUANID"
+   "solution": "IGUANID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "anagram"
+    ],
+    "answer": "IGUANID",
+    "definitions": [
+     {
+      "text": "Lizard",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting short removes the end letter of the weapon"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the trimmed weapon is put inside the country name"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "running wild means out of order, so the combined letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weapon",
+      "gives": "GUN",
+      "note": "a firearm, here missing its last letter"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "INDIA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IGUANID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INGUDIA",
+       "gives": "IGUANID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In India a lizard runs wild while a weapon fails to reach it.",
+     "walkthrough": "GU goes into INDIA and the whole is rearranged; the country is fodder, not the definition's setting.",
+     "definitionFit": "An iguanid is any lizard of the iguana family, which includes the iguanas, anoles and basilisks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 22,
@@ -345,7 +1489,54 @@
     "text": "Trained pacer, etc – one that’s sure to run",
     "enumeration": "8"
    },
-   "solution": "ACCEPTER"
+   "solution": "ACCEPTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACCEPTER",
+    "definitions": [
+     {
+      "text": "one that’s sure to run",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Trained",
+      "for": "anagram",
+      "note": "a trained animal has been worked into a new shape, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pacer, etc",
+      "gives": "PACERETC",
+      "note": "taken as written, as anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PACERETC",
+       "gives": "ACCEPTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trained pacer and similar horses will certainly be starting the race.",
+     "walkthrough": "In horse racing an acceptor is a horse whose owner has confirmed it will run.",
+     "definitionFit": "A racehorse confirmed as a starter after the final declaration stage is called an accepter, so it will definitely race."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pacer"
+    }
+   }
   },
   {
    "number": 23,
@@ -359,7 +1550,54 @@
     "text": "Irish stored in packing case, cloudy after a fashion",
     "enumeration": "7"
    },
-   "solution": "CIRRATE"
+   "solution": "CIRRATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CIRRATE",
+    "definitions": [
+     {
+      "text": "cloudy after a fashion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "something stored is kept within the box word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "packing case",
+      "gives": "CRATE",
+      "note": "a crate is a wooden packing case"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "IR",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Irish goods packed in a crate turn out murky in a way.",
+     "definitionFit": "Cirrate means bearing cirri, wispy curls, and cirrus is also the name of a wispy high cloud, so it is loosely cloudy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Irish"
+    }
+   }
   },
   {
    "number": 24,
@@ -373,7 +1611,73 @@
     "text": "Number one bell I turned? It often requires a key",
     "enumeration": "8"
    },
-   "solution": "IGNITION"
+   "solution": "IGNITION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "IGNITION",
+    "definitions": [
+     {
+      "text": "It often requires a key",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "turned round means the whole string is read from the other end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "bell",
+      "gives": "TING",
+      "note": "the sound a small bell makes"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "GNIT",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOITINGI",
+       "to": "IGNITION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bell-ringer turns as number one; a question about what needs a key.",
+     "walkthrough": "The whole string NO I TING I is read backwards. The definition is a cryptic description: a car's ignition is usually worked by a key.",
+     "definitionFit": "The starting system of a motor vehicle is usually switched on by turning a key in its lock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bell"
+    }
+   }
   },
   {
    "number": 25,
@@ -387,7 +1691,59 @@
     "text": "An occupant of the pulpit rerunning tape recorder?",
     "enumeration": "4"
    },
-   "solution": "VERA"
+   "solution": "VERA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "VERA",
+    "definitions": [
+     {
+      "text": "tape recorder",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rerunning",
+      "for": "reversal",
+      "note": "running back over means going the other way, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "occupant of the pulpit",
+      "gives": "REV",
+      "note": "Rev. is short for Reverend, a clergyman who preaches"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VER",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AREV",
+       "to": "VERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A preacher replays his sermon on a tape recorder.",
+     "definitionFit": "VERA, Vision Electronic Recording Apparatus, was an early BBC video tape recording machine of the 1950s."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rerunning"
+    }
+   }
   },
   {
    "number": 26,
@@ -401,7 +1757,56 @@
     "text": "Flowery tree in bed, not mature",
     "enumeration": "5"
    },
-   "solution": "MARRI"
+   "solution": "MARRI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MARRI",
+    "definitions": [
+     {
+      "text": "Flowery tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' says the word for mature is taken out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "MARRIAGE",
+      "note": "bed stands for marriage, as in the marriage bed"
+     },
+     {
+      "clueFragment": "mature",
+      "gives": "AGE",
+      "note": "to age is to mature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARRI"
+     ]
+    },
+    "explanation": {
+     "surface": "A blossoming tree stands in a flower bed that has not yet grown up.",
+     "walkthrough": "'Bed' suggests a flower bed next to 'flowery'; it means marriage here.",
+     "definitionFit": "The marri is a Western Australian eucalyptus that bears big showy clusters of cream blossom."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 27,
@@ -415,7 +1820,48 @@
     "text": "Shrubby plant, name for hard old wood",
     "enumeration": "5"
    },
-   "solution": "HEBEN"
+   "solution": "HEBEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEBEN",
+    "definitions": [
+     {
+      "text": "hard old wood",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shrubby plant",
+      "gives": "HEBE",
+      "note": "hebe is an evergreen shrub from New Zealand"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEBE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener names a bush and asks which hard timber it gives.",
+     "definitionFit": "Heben is an obsolete word for ebony, the very dense black timber, hence 'old' in the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -429,7 +1875,57 @@
     "text": "They’re dim-witted on account of extremes of fatuousness",
     "enumeration": "4"
    },
-   "solution": "OAFS"
+   "solution": "OAFS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OAFS",
+    "definitions": [
+     {
+      "text": "They’re dim-witted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on account",
+      "gives": "OA",
+      "note": "o/a is the commercial abbreviation for on account"
+     },
+     {
+      "clueFragment": "fatuousness",
+      "gives": "FS",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OA",
+      "FS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some people are stupid simply because of how foolish they are.",
+     "definitionFit": "Oafs are clumsy, stupid people, so they can be described as slow-witted or dull of mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -443,7 +1939,52 @@
     "text": "Work hard on American tree family",
     "enumeration": "5"
    },
-   "solution": "FAGUS"
+   "solution": "FAGUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FAGUS",
+    "definitions": [
+     {
+      "text": "tree family",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down entry, on means the first part sits above what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work hard",
+      "gives": "FAG",
+      "note": "to fag is to toil, British slang"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US stands for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAG",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slaves away over an American family of trees.",
+     "definitionFit": "Fagus is the botanical genus of beeches, so it names a group of related trees; 'family' is used loosely for genus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 30,
@@ -457,7 +1998,62 @@
     "text": "Quantity of drugs fit to be nicked, not stable, in Parisian rumpus",
     "enumeration": "7"
    },
-   "solution": "BAGARRE"
+   "solution": "BAGARRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BAGARRE",
+    "definitions": [
+     {
+      "text": "Parisian rumpus",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "'not' tells you a word is to be removed from what precedes it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quantity of drugs",
+      "gives": "BAG",
+      "note": "a bag is a measure of drugs sold"
+     },
+     {
+      "clueFragment": "fit to be nicked",
+      "gives": "ARRESTABLE",
+      "note": "nicked is British slang for arrested"
+     },
+     {
+      "clueFragment": "stable",
+      "gives": "STABLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAG",
+      "ARRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Paris drugs raid: a bag of narcotics, an arrest, and chaos in the stables.",
+     "definitionFit": "Bagarre is French for a brawl or scuffle, so in Paris a rowdy fight would be called that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stable"
+    }
+   }
   },
   {
    "number": 31,
@@ -471,7 +2067,55 @@
     "text": "Bitter banned for Muslims? Send it back",
     "enumeration": "5"
    },
-   "solution": "MARAH"
+   "solution": "MARAH",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MARAH",
+    "definitions": [
+     {
+      "text": "Bitter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Send it back",
+      "for": "reversal",
+      "note": "sending back means returning it in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "banned for Muslims",
+      "gives": "HARAM",
+      "note": "haram means forbidden under Islamic law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARAH"
+     ],
+     "reversals": [
+      {
+       "from": "HARAM",
+       "to": "MARAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pint of bitter served to a Muslim drinker is forbidden, so return it.",
+     "walkthrough": "Bitter is a British beer, which fits the surface, but here it is the adjective.",
+     "definitionFit": "Marah is a Hebrew word for bitterness, taken into English from the bitter waters in Exodus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bitter"
+    }
+   }
   },
   {
    "number": 32,
@@ -485,7 +2129,47 @@
     "text": "Like some woollies, in parts they came undone",
     "enumeration": "4"
    },
-   "solution": "ARAN"
+   "solution": "ARAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARAN",
+    "definitions": [
+     {
+      "text": "Like some woollies",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in parts they",
+      "gives": "A",
+      "note": "a is a dialect pronoun for they, used in some regions"
+     },
+     {
+      "clueFragment": "came undone",
+      "gives": "RAN",
+      "note": "stitches or tights ran when they came undone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Pieces of knitwear coming apart at the seams.",
+     "walkthrough": "'In parts' means in certain districts, flagging the dialect word.",
+     "definitionFit": "Aran describes the thick cabled knitwear from the Aran Islands, so it is a type of jumper pattern."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 33,
@@ -499,7 +2183,60 @@
     "text": "Bury ma you’ll find thus in the forest swamp",
     "enumeration": "5"
    },
-   "solution": "INURN"
+   "solution": "INURN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INURN",
+    "definitions": [
+     {
+      "text": "Bury",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "you’ll find thus",
+      "for": "deletion",
+      "note": "the woodland word is what ma becomes when put away this way, so taking ma back out recovers the vessel"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the forest swamp",
+      "gives": "UMARN",
+      "note": "umarn is a swampy pine forest"
+     },
+     {
+      "clueFragment": "ma",
+      "gives": "MA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "Laying mother to rest in a forest bog.",
+     "walkthrough": "Put MA IN an URN and you get U-MA-RN, the forest swamp; so ma is literally inurned, and INURN means bury.",
+     "definitionFit": "To inurn is to put ashes in an urn, and so to entomb or lay to rest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "thus"
+    }
+   }
   },
   {
    "number": 34,
@@ -513,7 +2250,49 @@
     "text": "Salad veg displaying strong smell inspired frenzy",
     "enumeration": "6"
    },
-   "solution": "BORAGE"
+   "solution": "BORAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BORAGE",
+    "definitions": [
+     {
+      "text": "Salad veg",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "displaying",
+     "inspired"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strong smell",
+      "gives": "BO",
+      "note": "BO is body odour"
+     },
+     {
+      "clueFragment": "frenzy",
+      "gives": "RAGE",
+      "note": "a rage is a frenzy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pungent salad leaf provokes a fit of fury.",
+     "definitionFit": "Borage is a herb whose young leaves and blue flowers are eaten in salads, so it counts as a salad vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 35,
@@ -527,7 +2306,54 @@
     "text": "Measures strength of obligations limiting eaterie",
     "enumeration": "8"
    },
-   "solution": "TITRATES"
+   "solution": "TITRATES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TITRATES",
+    "definitions": [
+     {
+      "text": "Measures strength of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limiting",
+      "for": "container",
+      "note": "to limit is to set bounds around, so one word hems in the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obligations",
+      "gives": "TIES",
+      "note": "ties are bonds or obligations"
+     },
+     {
+      "clueFragment": "eaterie",
+      "gives": "TRAT",
+      "note": "trat is short for trattoria, an Italian restaurant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "TRAT",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gauges how binding the contracts are on a restaurant.",
+     "definitionFit": "To titrate a solution is to find its concentration by adding a reagent of known strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "obligations"
+    }
+   }
   },
   {
    "number": 36,
@@ -541,7 +2367,59 @@
     "text": "Restationed sentinels succeeded in remaining inaudible",
     "enumeration": "10"
    },
-   "solution": "SILENTNESS"
+   "solution": "SILENTNESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SILENTNESS",
+    "definitions": [
+     {
+      "text": "remaining inaudible",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Restationed",
+      "for": "anagram",
+      "note": "restationed means posted afresh in new places, so the guards' letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sentinels",
+      "gives": "SENTINELS",
+      "note": "taken as written, as anagram fodder"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, used in family trees"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SENTINELSS",
+       "gives": "SILENTNESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Guards moved to new posts manage to keep perfectly quiet.",
+     "definitionFit": "Silentness is the condition of making no sound, so it equates to keeping hushed throughout."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Restationed"
+    }
+   }
   }
  ]
 }
