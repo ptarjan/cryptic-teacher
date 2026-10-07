@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Look at what's in popular detergent",
     "enumeration": "6"
    },
-   "solution": "BEHOLD"
+   "solution": "BEHOLD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEHOLD",
+    "definitions": [
+     {
+      "text": "Look",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s in",
+      "for": "container",
+      "note": "'s in reads as 'is in', so the first word sits inside the brand name that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular detergent",
+      "gives": "BOLD",
+      "note": "Bold is a well-known British brand of washing powder"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "'Eh?' is a way of saying 'What?'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EH",
+      "OLD"
+     ]
+    },
+    "explanation": {
+     "surface": "An advert inviting shoppers to see what goes into a favourite washing powder.",
+     "walkthrough": "Bold is a British laundry detergent brand.",
+     "definitionFit": "Behold is an old-fashioned imperative meaning see or observe, used just like the command 'Look!'"
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "what's"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +98,48 @@
     "text": "Wrong head chopped off monster",
     "enumeration": "5"
    },
-   "solution": "ERROR"
+   "solution": "ERROR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ERROR",
+    "definitions": [
+     {
+      "text": "Wrong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head chopped off",
+      "for": "deletion",
+      "note": "losing its head means the first letter of the following word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "monster",
+      "gives": "TERROR",
+      "note": "a terror is a frightening person or creature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERROR"
+     ]
+    },
+    "explanation": {
+     "surface": "A grisly tale of a beast beheaded by mistake.",
+     "walkthrough": "Remove the T from TERROR to leave ERROR.",
+     "definitionFit": "A wrong, as a noun, is a mistake or fault, which is what an error is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "monster"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +153,59 @@
     "text": "Unusually virtuous nurses died, though not at first",
     "enumeration": "5"
    },
-   "solution": "ODDLY"
+   "solution": "ODDLY",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "ODDLY",
+    "definitions": [
+     {
+      "text": "Unusually",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold or cradle, so one word holds the other inside it"
+     },
+     {
+      "text": "though not at first",
+      "for": "deletion",
+      "note": "not at first tells us the opening letter of the combined result is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "virtuous",
+      "gives": "GODLY",
+      "note": "godly means devout and good"
+     },
+     {
+      "clueFragment": "died",
+      "gives": "D",
+      "note": "d is the standard abbreviation for died in records"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODDLY"
+     ]
+    },
+    "explanation": {
+     "surface": "A saintly nurse has lost a patient, though not at the start of the shift.",
+     "walkthrough": "D goes inside GODLY to make GODDLY, then the G is dropped to leave ODDLY.",
+     "definitionFit": "Both adverbs describe something happening in a strange or unexpected manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +219,59 @@
     "text": "Casually draws lots after onset of dispute",
     "enumeration": "7"
    },
-   "solution": "DOODLES"
+   "solution": "DOODLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DOODLES",
+    "definitions": [
+     {
+      "text": "Casually draws",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "onset of",
+      "for": "letter_selection",
+      "note": "the onset of something is its beginning, so take only the first letter"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispute",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dispute"
+     },
+     {
+      "clueFragment": "lots",
+      "gives": "OODLES",
+      "note": "oodles is an informal word for a great quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "OODLES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone settles an argument by drawing lots once it starts.",
+     "walkthrough": "'Draws lots' looks like a single phrase about chance; draws belongs to the definition and lots is the wordplay.",
+     "definitionFit": "To doodle is to sketch idly and absent-mindedly, i.e. to draw casually."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "draws"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +291,46 @@
      }
     ]
    },
-   "solution": "BUMPINTO"
+   "solution": "BUMPINTO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BUMP INTO",
+    "definitions": [
+     {
+      "text": "Come across",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "useless",
+      "gives": "BUM",
+      "note": "bum as an adjective means worthless or of poor quality"
+     },
+     {
+      "clueFragment": "type of horse",
+      "gives": "PINTO",
+      "note": "a pinto is a piebald or skewbald horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUM",
+      "PINTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A disappointed rider encounters a worthless kind of horse.",
+     "definitionFit": "To bump into someone is an idiom for meeting them by chance, i.e. to come across them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "across"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +344,68 @@
     "text": "I throw up going through country",
     "enumeration": "7"
    },
-   "solution": "BOLIVIA"
+   "solution": "BOLIVIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BOLIVIA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "throw",
+      "gives": "LOB",
+      "note": "to lob is to toss something in a high arc"
+     },
+     {
+      "clueFragment": "going through",
+      "gives": "VIA",
+      "note": "via means by way of or passing through"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOL",
+      "I",
+      "VIA"
+     ],
+     "reversals": [
+      {
+       "from": "ILOB",
+       "to": "BOLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller confesses to vomiting while crossing a country.",
+     "walkthrough": "'Throw up' reads as being sick, but throw and up do separate jobs.",
+     "definitionFit": "Bolivia is a landlocked nation in South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "throw"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +419,46 @@
     "text": "Serious about island resort",
     "enumeration": "7"
    },
-   "solution": "MAJORCA"
+   "solution": "MAJORCA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAJORCA",
+    "definitions": [
+     {
+      "text": "island resort",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Serious",
+      "gives": "MAJOR",
+      "note": "major means important or serious, as in a major problem"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is the abbreviation of circa, meaning about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAJOR",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is in earnest about a holiday on an island.",
+     "definitionFit": "Majorca is a Spanish Balearic island famous as a package-holiday destination."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +472,64 @@
     "text": "Generous fellow's after stylish flat? Not quite",
     "enumeration": "9"
    },
-   "solution": "INDULGENT"
+   "solution": "INDULGENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INDULGENT",
+    "definitions": [
+     {
+      "text": "Generous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of the word is used, so its final letter is cut"
+     }
+    ],
+    "linkWords": [
+     "'s after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stylish",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "flat",
+      "gives": "DULL",
+      "note": "flat in the sense of lifeless or uninteresting"
+     },
+     {
+      "clueFragment": "fellow",
+      "gives": "GENT",
+      "note": "gent is short for gentleman, a fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DUL",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A kindly man is living in a fashionable apartment, or almost.",
+     "walkthrough": "'Flat' wants to be an apartment; here it means dull, which loses its last L.",
+     "definitionFit": "Indulgent means lenient and lavish in granting wishes, which is a kind of generosity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +543,52 @@
     "text": "Aristotle redesigned machine for the better",
     "enumeration": "9"
    },
-   "solution": "TOTALISER"
+   "solution": "TOTALISER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOTALISER",
+    "definitions": [
+     {
+      "text": "machine for the better",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redesigned",
+      "for": "anagram",
+      "note": "a redesign changes the layout, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aristotle",
+      "gives": "ARISTOTLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARISTOTLE",
+       "gives": "TOTALISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The Greek philosopher reworked into a device that improves things.",
+     "walkthrough": "'For the better' reads as improvement, but a better here is someone who places bets.",
+     "definitionFit": "A totaliser, or tote, is the machine that pools wagers and calculates payouts for gamblers at racecourses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +608,55 @@
      }
     ]
    },
-   "solution": "CRUDEOIL"
+   "solution": "CRUDEOIL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRUDE OIL",
+    "definitions": [
+     {
+      "text": "petroleum",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means the first item holds the next inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spring",
+      "gives": "COIL",
+      "note": "a coil is a spiral spring"
+     },
+     {
+      "clueFragment": "unrefined",
+      "gives": "RUDE",
+      "note": "rude in the old sense of rough and unpolished"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUDE",
+      "OIL"
+     ]
+    },
+    "explanation": {
+     "surface": "A natural spring yielding untreated oil.",
+     "walkthrough": "'Unrefined petroleum' reads as one phrase, and it also describes the answer.",
+     "definitionFit": "Crude oil is petroleum in its natural state as extracted from the ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spring"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +670,70 @@
     "text": "Book a lot of combat sport, then hit deceptively",
     "enumeration": "6"
    },
-   "solution": "JUDITH"
+   "solution": "JUDITH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "JUDITH",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of, but not all, means the word loses its end"
+     },
+     {
+      "text": "deceptively",
+      "for": "anagram",
+      "note": "acting deceptively disguises things, so these letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "combat sport",
+      "gives": "JUDO",
+      "note": "judo is a Japanese martial art"
+     },
+     {
+      "clueFragment": "hit",
+      "gives": "HIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUD",
+      "ITH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HIT",
+       "gives": "ITH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A martial-arts manual, with tips on landing sneaky blows.",
+     "walkthrough": "JUDO loses its O, then HIT is rearranged.",
+     "definitionFit": "Judith is a book of the Apocrypha, included in Catholic and Orthodox Bibles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Book"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +753,47 @@
      }
     ]
    },
-   "solution": "GREYPLOVER"
+   "solution": "GREYPLOVER",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GREY PLOVER",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so it's said",
+      "for": "homophone",
+      "note": "something said is spoken, so we want a phrase that sounds like the answer when spoken"
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greatly enjoys fruit",
+      "gives": "GREYPLOVER",
+      "soundsLike": "GRAPE LOVER",
+      "note": "someone very fond of a fruit that grows in bunches"
+     }
+    ],
+    "explanation": {
+     "surface": "A bird known for its passion for fruit.",
+     "definitionFit": "The grey plover is a wading shorebird of coasts and estuaries."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fruit"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +807,62 @@
     "text": "Ultimate in retro features in 50s lounge",
     "enumeration": "4"
    },
-   "solution": "LOLL"
+   "solution": "LOLL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LOLL",
+    "definitions": [
+     {
+      "text": "lounge",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimate in",
+      "for": "letter_selection",
+      "note": "the ultimate part of a word is its very end, so take its final letter"
+     },
+     {
+      "text": "features in",
+      "for": "container",
+      "note": "to feature in something is to appear within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retro",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of retro"
+     },
+     {
+      "clueFragment": "50s",
+      "gives": "LLL",
+      "note": "L is the Roman numeral for fifty, so several fifties give a run of Ls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "O",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "Retro styling is a feature of a 1950s lounge.",
+     "walkthrough": "'50s' looks like the decade, but it means Roman fifties: O sits after the first L of LLL.",
+     "definitionFit": "To loll is to lounge or sprawl lazily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "50s"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +876,65 @@
     "text": "Divine food aromas I prepared with a pinch of basil",
     "enumeration": "8"
    },
-   "solution": "AMBROSIA"
+   "solution": "AMBROSIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AMBROSIA",
+    "definitions": [
+     {
+      "text": "Divine food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "food that is prepared is worked on, so these letters are rearranged"
+     },
+     {
+      "text": "a pinch of",
+      "for": "letter_selection",
+      "note": "a pinch is a tiny amount, just the first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aromas I",
+      "gives": "AROMASI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "basil",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of basil"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AROMASIB",
+       "gives": "AMBROSIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook boasts of a heavenly dish seasoned with fragrant herbs.",
+     "definitionFit": "In Greek myth ambrosia was the food of the gods, conferring immortality."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +948,67 @@
     "text": "Soul's crushed, gathered by small 22",
     "enumeration": "9"
    },
-   "solution": "MUSSOLINI"
+   "solution": "MUSSOLINI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MUSSOLINI",
+    "definitions": [
+     {
+      "text": "22",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crushed",
+      "for": "anagram",
+      "note": "something crushed is broken up, so the letters are reshaped"
+     },
+     {
+      "text": "gathered by",
+      "for": "container",
+      "note": "being gathered by something means being held within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soul's",
+      "gives": "SOULS",
+      "note": "the possessive taken as its letters"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "MINI",
+      "note": "mini means small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "USSOL",
+      "INI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOULS",
+       "gives": "USSOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tyrant's spirit is broken by petty followers.",
+     "walkthrough": "The rearranged letters sit inside MINI after its M. 22 refers to the answer at 22-across, a tyrant.",
+     "definitionFit": "Benito Mussolini was Italy's Fascist dictator, an absolute ruler."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "crushed"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1022,56 @@
     "text": "Narrowing I have on pipe overhead",
     "enumeration": "9"
    },
-   "solution": "REDUCTIVE"
+   "solution": "REDUCTIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDUCTIVE",
+    "definitions": [
+     {
+      "text": "Narrowing",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "overhead"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "pipe",
+      "gives": "DUCT",
+      "note": "a duct is a tube or channel"
+     },
+     {
+      "clueFragment": "I have",
+      "gives": "IVE",
+      "note": "the contraction I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "DUCT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber complains of a constriction in the pipework above.",
+     "walkthrough": "In a down entry, 'overhead' puts the first two pieces above the contraction.",
+     "definitionFit": "Reductive means simplifying or limiting something too much, as a narrowing adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "overhead"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1091,48 @@
      }
     ]
    },
-   "solution": "ATEASE"
+   "solution": "ATEASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AT EASE",
+    "definitions": [
+     {
+      "text": "Relaxed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "behaving like 20D?",
+      "gives": "TEASE",
+      "note": "Delilah, the answer at 20-down, beguiled Samson, which is the behaviour of a temptress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "TEASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who lures men on stays perfectly calm about it.",
+     "walkthrough": "The spaces move: 'a tease' becomes 'at ease'.",
+     "definitionFit": "At ease is an idiom for comfortable and free from tension."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Relaxed"
+    }
+   }
   },
   {
    "number": 17,
@@ -295,7 +1146,46 @@
     "text": "Quiet words in leading songs",
     "enumeration": "6"
    },
-   "solution": "ASIDES"
+   "solution": "ASIDES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ASIDES",
+    "definitions": [
+     {
+      "text": "Quiet words",
+      "at": 0
+     },
+     {
+      "text": "leading songs",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet words",
+      "note": "first meaning: remarks muttered so others do not hear"
+     },
+     {
+      "clueFragment": "leading songs",
+      "note": "second meaning: the main tracks on vinyl singles, written A-sides"
+     }
+    ],
+    "explanation": {
+     "surface": "Whispered lyrics in the opening numbers of a show.",
+     "definitionFit": "An aside is a remark made in an undertone; an A-side is the featured track of a record single."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leading"
+    }
+   }
   },
   {
    "number": 18,
@@ -309,7 +1199,50 @@
     "text": "Disease afflicted surfers here?",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEASIDE",
+    "definitions": [
+     {
+      "text": "surfers here?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "afflicted",
+      "for": "anagram",
+      "note": "something afflicted is troubled and disordered, so the letters are disturbed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Disease",
+      "gives": "DISEASE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DISEASE",
+       "gives": "SEASIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An illness struck the surfing crowd at their beach.",
+     "definitionFit": "The coast by the sea is where surfers would naturally be found riding waves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "afflicted"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1256,61 @@
     "text": "Cherry pie stuffed with small bird",
     "enumeration": "8"
    },
-   "solution": "REDSTART"
+   "solution": "REDSTART",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "REDSTART",
+    "definitions": [
+     {
+      "text": "bird",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "something stuffed is filled, so a letter goes inside the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cherry",
+      "gives": "RED",
+      "note": "cherry red is a colour"
+     },
+     {
+      "clueFragment": "pie",
+      "gives": "TART",
+      "note": "a tart is a pastry pie"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small in clothing sizes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "S",
+      "TART"
+     ]
+    },
+    "explanation": {
+     "surface": "A cherry pie with a little bird baked inside.",
+     "walkthrough": "'Small bird' looks like one phrase; small is the letter and bird alone is the definition.",
+     "definitionFit": "The redstart is a small songbird with a reddish tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1324,55 @@
     "text": "\"Carry On Jack\" shown during holiday",
     "enumeration": "7"
    },
-   "solution": "RESTART"
+   "solution": "RESTART",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESTART",
+    "definitions": [
+     {
+      "text": "Carry On",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown during",
+      "for": "container",
+      "note": "something shown during a period sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "holiday",
+      "gives": "REST",
+      "note": "a rest is a break or holiday"
+     },
+     {
+      "clueFragment": "Jack",
+      "gives": "TAR",
+      "note": "jack and tar are both old words for a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "TAR",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An old comedy film is screened on a bank holiday.",
+     "walkthrough": "Carry On Jack is a 1963 film in Britain's Carry On comedy series, which hides the definition in a title.",
+     "definitionFit": "To restart is to resume or begin again after stopping, i.e. to carry on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1386,70 @@
     "text": "Cheered up after capturing large biblical character",
     "enumeration": "7"
    },
-   "solution": "DELILAH"
+   "solution": "DELILAH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DELILAH",
+    "definitions": [
+     {
+      "text": "biblical character",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means reading from bottom to top"
+     },
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "capturing something means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheered",
+      "gives": "HAILED",
+      "note": "hailed means acclaimed or cheered"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DELI",
+      "L",
+      "AH"
+     ],
+     "reversals": [
+      {
+       "from": "HAILED",
+       "to": "DELIAH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crowd cheers up after taking a big prisoner.",
+     "walkthrough": "The reversed word takes L after its fourth letter.",
+     "definitionFit": "Delilah is the woman in the Book of Judges who betrayed Samson."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheered"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1463,61 @@
     "text": "Actor performs, but not with a metal band",
     "enumeration": "4"
    },
-   "solution": "TORC"
+   "solution": "TORC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TORC",
+    "definitions": [
+     {
+      "text": "metal band",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not with a",
+      "for": "deletion",
+      "note": "not with means without, so one letter is taken away"
+     },
+     {
+      "text": "performs",
+      "for": "anagram",
+      "note": "performing involves acting things out in new shapes, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Actor",
+      "gives": "ACTOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CTOR",
+       "gives": "TORC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A performer plays without a heavy metal group backing him.",
+     "walkthrough": "'Metal band' suggests a rock group, but it is a ring of metal. Remove an A from ACTOR and rearrange.",
+     "definitionFit": "A torc is an ancient Celtic neck ring of twisted metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1531,55 @@
     "text": "Tyrant musician going after sailor like this",
     "enumeration": "10"
    },
-   "solution": "ABSOLUTIST"
+   "solution": "ABSOLUTIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABSOLUTIST",
+    "definitions": [
+     {
+      "text": "Tyrant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "going after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB stands for able seaman"
+     },
+     {
+      "clueFragment": "like this",
+      "gives": "SO",
+      "note": "so means in this way"
+     },
+     {
+      "clueFragment": "musician",
+      "gives": "LUTIST",
+      "note": "a lutist plays the lute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "SO",
+      "LUTIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A domineering musician pursues a sailor in this manner.",
+     "definitionFit": "An absolutist favours absolute, unlimited power, as a despot does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "musician"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1593,43 @@
     "text": "It's shaped like a doughnut? Sounds like bull",
     "enumeration": "5"
    },
-   "solution": "TORUS"
+   "solution": "TORUS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TORUS",
+    "definitions": [
+     {
+      "text": "It's shaped like a doughnut?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sounds like",
+      "for": "homophone",
+      "note": "sounds like tells us to match pronunciation rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bull",
+      "gives": "TORUS",
+      "soundsLike": "TAURUS",
+      "note": "Taurus is the bull of the zodiac"
+     }
+    ],
+    "explanation": {
+     "surface": "A guessing game: is it ring-shaped? It sounds like a bull.",
+     "definitionFit": "In geometry a torus is the ring-shaped surface of a ring doughnut or inner tube."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "bull"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1643,65 @@
     "text": "Squeeze inside clothing for severe criticism",
     "enumeration": "5"
    },
-   "solution": "SNIPE"
+   "solution": "SNIPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SNIPE",
+    "definitions": [
+     {
+      "text": "severe criticism",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "letter_selection",
+      "note": "clothing is the outer covering, so only the outermost letters are kept"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside places one item within the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Squeeze",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters of the clue's opening word"
+     },
+     {
+      "clueFragment": "Squeeze",
+      "gives": "NIP",
+      "note": "to nip is to pinch or squeeze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "NIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Tight clothing draws harsh comments.",
+     "walkthrough": "Squeeze does double duty: as NIP, and as its own outer letters S and E around that.",
+     "definitionFit": "A snipe is a sharp, critical remark, a piece of harsh criticism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothing"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1715,65 @@
     "text": "Starts to boost intimate relations with one's skimpy garment",
     "enumeration": "6"
    },
-   "solution": "BIKINI"
+   "solution": "BIKINI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BIKINI",
+    "definitions": [
+     {
+      "text": "skimpy garment",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their first letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boost intimate",
+      "gives": "BI",
+      "select": "first",
+      "note": "first letters of these two words"
+     },
+     {
+      "clueFragment": "relations",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BI",
+      "KIN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A daring swimsuit is meant to spice up a couple's love life.",
+     "walkthrough": "'Intimate relations' looks like a phrase about sex, but the words split between two jobs.",
+     "definitionFit": "A bikini is a two-piece swimsuit that covers very little."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relations"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1787,62 @@
     "text": "Each son of Trump admits government is hypersensitive",
     "enumeration": "8"
    },
-   "solution": "ALLERGIC"
+   "solution": "ALLERGIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALLERGIC",
+    "definitions": [
+     {
+      "text": "hypersensitive",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Each",
+      "gives": "ALL",
+      "note": "all in the sense of every one"
+     },
+     {
+      "clueFragment": "son of Trump",
+      "gives": "ERIC",
+      "note": "Eric Trump is one of Donald Trump's sons"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "G is a common abbreviation for government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "ER",
+      "G",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Every Trump son lets politics in and is oversensitive about it.",
+     "walkthrough": "Eric is one of Donald Trump's sons.",
+     "definitionFit": "Being allergic means reacting badly to a substance, an immune system that overreacts, so hypersensitive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admits"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1862,67 @@
      }
     ]
    },
-   "solution": "LIFEVEST"
+   "solution": "LIFEVEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "LIFE VEST",
+    "definitions": [
+     {
+      "text": "Emergency equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "at sea",
+      "for": "anagram",
+      "note": "at sea means confused and adrift, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of look"
+     },
+     {
+      "clueFragment": "festive",
+      "gives": "FESTIVE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IFEVEST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FESTIVE",
+       "gives": "IFEVEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Safety gear on a cruise ship starts to look like party wear.",
+     "definitionFit": "A life vest is a buoyant jacket worn to keep someone afloat in a disaster on water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "festive"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +1936,50 @@
     "text": "Possesses permit for meat",
     "enumeration": "6"
    },
-   "solution": "HASLET"
+   "solution": "HASLET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HASLET",
+    "definitions": [
+     {
+      "text": "meat",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Possesses",
+      "gives": "HAS",
+      "note": "has means owns"
+     },
+     {
+      "clueFragment": "permit",
+      "gives": "LET",
+      "note": "to let is to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAS",
+      "LET"
+     ]
+    },
+    "explanation": {
+     "surface": "A butcher holds a licence to sell meat.",
+     "walkthrough": "Haslet is a British meatloaf of pork offal and herbs, served cold in slices.",
+     "definitionFit": "Haslet is a kind of cooked pork meatloaf, so it is a type of meat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "permit"
+    }
+   }
   }
  ]
 }
