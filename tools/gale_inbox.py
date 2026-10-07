@@ -30,7 +30,11 @@ CACHE/GaleTimes<year>UKEnglish/<date>, its leaves scaled to an archive.org
 scan's grid size; its sources-<key>.json is named for what the inbox holds
 for that date, so a file added or replaced changes the edition's files
 (input_hash, the first part of file_archive_org_puzzles.inputs_of) and makes
-that edition, and no other, due for the full pass.
+that edition, and no other, due. An edition laid out in the last FRESH
+seconds is read within minutes: sync starts tools/gale_read.sh for it
+(fresh_unread), which files it under the Gale pages' own ledger
+(file_archive_org_puzzles.GALE); the full pass reads the rest, the Gale
+slices first.
 """
 import argparse
 import bisect
@@ -96,6 +100,12 @@ LOCK = MIRROR.parent / "sync.lock"
 #: A tick re-renders the checklist when the inbox moved, else this often,
 #: so a puzzle the full pass filed leaves it.
 RENDER_EVERY = 3600
+#: An edition laid out this recently is read by tools/gale_read.sh (READ_JOB),
+#: started by the tick that sees it unread; one laid out before is the full
+#: pass's. An hour covers a run that ended early or a host that was down.
+FRESH = 3600
+READ_JOB = TOOLS / "gale_read.sh"
+READ_LOG = Path(os.path.expanduser("~/.cache/gale_read.log"))
 CACHE = fa.CACHE
 ITEM = "GaleTimes{}UKEnglish"
 PAGES = (".pdf", ".jpg", ".jpeg", ".png", ".tif", ".tiff", ".gif", ".webp")
@@ -686,6 +696,37 @@ def wanted(today=None):
             if cls in WANTED and int(d[:4]) in YEARS]
 
 
+def fresh_unread(cache=CACHE, rows=None, now=None):
+    """The "<item>/<date>" of each Gale edition laid out in the last FRESH
+    seconds that has no reading of its current files in the ledger."""
+    rows = archive_coverage.ledger() if rows is None else rows
+    now = time.time() if now is None else now
+    out = []
+    for pages in cache.glob(ITEM.format("*") + "/*/pages.json"):
+        d = pages.parent
+        if now - pages.stat().st_mtime > FRESH:
+            continue
+        row = rows.get(f"{d.parent.name}/{d.name}") or {}
+        if "inputs" not in row or row.get("filesHash") != fa.input_hash(d):
+            out.append(f"{d.parent.name}/{d.name}")
+    return sorted(out)
+
+
+def start_reads(out=sys.stdout, job=READ_JOB, log=READ_LOG):
+    """Start `job` detached when a fresh edition waits to be read; a run
+    already reading keeps its tree's lease and the new start exits at once."""
+    waiting = fresh_unread()
+    if not waiting:
+        return None
+    log.parent.mkdir(parents=True, exist_ok=True)
+    with open(log, "a") as f:
+        p = subprocess.Popen(["bash", str(job)], stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                             start_new_session=True, close_fds=True)
+    print(f"started {job.name} (pid {p.pid}) for {len(waiting)} fresh edition(s): {', '.join(waiting[:5])}; "
+          f"log {log}", file=out)
+    return p
+
+
 def staged_files(cache=CACHE):
     """{date: [file name]} of the inbox pages staged as editions."""
     out = {}
@@ -1044,7 +1085,8 @@ def sync(out=sys.stdout, force=False):
     and, when it moved (or RENDER_EVERY passed), stage it and publish the
     checklist; publish its status file either way, so an open page knows
     when the inbox was last looked at; then the Listener's
-    (gale_listener.tick)."""
+    (gale_listener.tick); then start the reads of the editions just laid
+    out (start_reads)."""
     import gale_listener  # imports this module, so not at the top
     with locked():
         moved = collect(out)
@@ -1063,6 +1105,7 @@ def sync(out=sys.stdout, force=False):
             print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
         publish_status(CHECKLIST, status)
         gale_listener.tick(out, force, ask)
+    start_reads(out)
 
 
 def main(argv=None):

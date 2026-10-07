@@ -16,7 +16,7 @@ year this counts:
   filed     printed dates with a puzzle file in puzzles/<series>/
 
 and gives every printed, unfiled edition one reason, read off the filer's
-ledger (downloads.ARCHIVE_ORG/filed.jsonl): no scan, scan not
+ledgers (downloads.ARCHIVE_ORG/filed.jsonl, downloads.GALE_LEDGER): no scan, scan not
 fetched, not yet read, no grid, no reading parses, blank clues held back, ...
 The classes are ranked: recoverable ones (a fetch, a reader fix, a re-read)
 first, by size.
@@ -41,7 +41,9 @@ import downloads
 import fetch_archive_org_editions as fetcher
 
 CACHE = downloads.ARCHIVE_ORG
-LEDGER = CACHE / "filed.jsonl"
+#: The archive.org editions' ledger and the Gale Times pages' (one row an
+#: edition, keyed "<item>/<edition>", no edition in both).
+LEDGERS = [CACHE / "filed.jsonl", downloads.GALE_LEDGER]
 STATE = Path(os.path.expanduser("~/.cache/archive_coverage"))
 
 #: Which days each series printed: the weekdays (0 = Monday), the first day
@@ -192,14 +194,15 @@ def failed_fetches():
 
 def ledger():
     rows = {}
-    try:
-        text = LEDGER.read_text(encoding="utf-8")
-    except OSError:
-        return rows
-    for ln in text.splitlines():
-        if ln.strip():
-            r = json.loads(ln)
-            rows[r["edition"]] = r
+    for path in LEDGERS:
+        try:
+            text = path.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        for ln in text.splitlines():
+            if ln.strip():
+                r = json.loads(ln)
+                rows[r["edition"]] = r
     return rows
 
 

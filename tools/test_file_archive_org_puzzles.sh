@@ -748,6 +748,19 @@ check("the FT's editions are the FT phase's, and their paper is the FT",
       (["1975-01-01_4"], "ftcryptic", "times"),
       ([d.name for d in f.edition_dirs(cache, f.FT)], f.paper_of(cache / "FinancialTimes1975UKEnglish" / "x").series,
        f.paper_of(cache / "NewsUK1990UKEnglish" / "x").series))
+# The Gale Times pages are a paper of their own: the Times runs never read
+# them, the Gale run reads them alone, and a re-read request goes to its run.
+(cache / "GaleTimes1987UKEnglish" / "1987-03-02").mkdir(parents=True)
+(cache / "GaleTimes1987UKEnglish" / "1987-03-02" / "pages.json").write_text("{}")
+check("a Gale page is the Gale run's, never the Times run's, and files as the Times",
+      (["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"], ["1987-03-02"], "gale", "times", "filed-gale.jsonl"),
+      ([d.name for d in f.edition_dirs(cache)], [d.name for d in f.edition_dirs(cache, f.GALE)],
+       f.paper_of(cache / "GaleTimes1987UKEnglish" / "x").key, f.GALE.series, f.GALE.ledger))
+check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",
+      ["gale", "times", "times", "ft", None],
+      [getattr(f.filer_of(r), "key", None) for r in ("GaleTimes1987UKEnglish/1987-03-02", "NewsUK1990UKEnglish/x",
+                                                       "per_times_the-times_1930-03-04_45452/x",
+                                                       "FinancialTimes1975UKEnglish/x", "Elsewhere/x")])
 
 # The FT: "CROSSWORD" over "No. 8,650 Set by DANTE" (1990s), one line in the
 # 1970s; "Solution 8,650", or "SOLUTION TO PUZZLE" over "No. 2,765".
@@ -942,6 +955,28 @@ f.run(cache=ed_dir.parent.parent, write=False, ledger=l5, source=Path(os.environ
       scan_new=False)
 check("--no-scan scans nothing and reads only the editions no unscanned day's solution waits on",
       ([], ["1990-03-01_50"], True), (scanned, read, "3 wait on a scan" in summary.getvalue()))
+# --paper gale --newer-than: only the editions laid out since then are
+# scanned (with the days after them) and read, the latest laid out first,
+# under the Gale ledger, never filed.jsonl.
+gcache = Path(os.environ["TMP"]) / "galecache"
+geds = [gcache / "GaleTimes1987UKEnglish" / n for n in ("1987-03-02", "1987-03-03", "1987-03-04", "1987-06-01")]
+for k, d in enumerate(geds):
+    d.mkdir(parents=True)
+    (d / "pages.json").write_text("{}")
+    os.utime(d / "pages.json", (1000 + k, 1000 + k))
+os.utime(geds[0] / "pages.json", (5000, 5000))
+os.utime(geds[1] / "pages.json", (4000, 4000))
+scanned.clear(); read.clear()
+f.edition_dirs = lambda cache, paper=None: geds if paper is f.GALE else []
+f.run(cache=gcache, paper=f.GALE, source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"), newer=3000)
+check("--newer-than reads only the editions laid out since, latest laid out first, scanning their next days too",
+      (["1987-03-02", "1987-03-03", "1987-03-04"], ["1987-03-02", "1987-03-03"]), (sorted(scanned), read))
+check("the Gale run keeps its own ledger", (True, False),
+      ((gcache / "filed-gale.jsonl").exists(), (gcache / "filed.jsonl").exists()))
+scanned.clear(); read.clear()
+f.run(cache=gcache, paper=f.GALE, source=Path(os.environ["TMP"]) / "src", out=open(os.devnull, "w"))
+check("without it, every due Gale edition is read, the never-read latest laid out first",
+      ["1987-06-01", "1987-03-04"], read)
 (f.edition_dirs, f.scan, f.read_puzzle, f.input_hash, f.held_numbers,
  fetch_puzzle.puzzle_path, fetch_puzzle.write_puzzle_file) = saved
 check("unsettled: an unscanned edition holds back itself and the SOLUTION_DAYS before it, not after",
@@ -1400,6 +1435,9 @@ check("a title band over a grid at the page's top edge has no height", 0, band[3
 check("a band with no height reads as no words, not a crash", [],
       f.band_words(page_img, band, "times", Path(os.environ["TMP"]) / "band.json"))
 check("an image with no width reads as no words", [], ocr_clues.read_words(Image.new("RGB", (0, 40)), "ch"))
+check("a sliver RapidOCR would scale to no pixels reads as no words, not ResizeImgError", [],
+      ocr_clues.read_words(Image.new("RGB", (1800, 12), "black"), "ch"))
+check("a thin band it can still scale is read", False, ocr_clues.too_thin(1800 * 2, 20 * 2, "ch"))
 
 # The desktop not answering: the crop is read here (None from ocr_remote),
 # the reason logged, and no second attempt until RETRY has passed.

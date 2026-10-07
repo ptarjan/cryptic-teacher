@@ -139,6 +139,14 @@ Image.new("RGB", (300, 199), "white").save(inbox / "1930-04-02.png")
 g.run(inbox, store, rows, out=out, reader=slow)
 check("a Tesseract timeout is no reading: the file stays to read", False,
       g.file_hash(inbox / "1930-04-02.png") in g.load_ledger(store))
+def broken(m):
+    raise RuntimeError("the reader fell over")
+Image.new("RGB", (300, 198), "white").save(inbox / "1930-04-02.png")
+g.run(inbox, store, rows, out=out, reader=broken)
+check("a page whose read raises is ledgered with its error, its number kept",
+      (1, "read failed: RuntimeError: the reader fell over"),
+      next((e["number"], e["why"]) for e in g.load_ledger(store).values() if e["file"] == "1930-04-02.png"
+           and e["why"]))
 Image.new("RGB", (300, 201), "white").save(inbox / "1930-04-02.png")
 g.run(inbox, store, rows, out=out, reader=reader)
 check("a changed file read again", 2, len(reads))

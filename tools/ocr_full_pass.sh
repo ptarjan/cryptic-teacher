@@ -187,12 +187,16 @@ finish() {  # finish <rc>: let the fetchers and the Listener sync end, commit wh
 }
 # The reads that wait on no scan first, the VLM's work: every paper's
 # editions whose scans stand; then each paper's scans and the reads they
-# make due (the never-read editions); then the Trove articles.
-for paper in times telegraph guardian ft; do
+# make due (the never-read editions); then the Trove articles. The Times
+# pages Paul saves from Gale (--paper gale, a ledger of their own) go first
+# in each: a page saved by hand is waited for, and a new one has no scan, so
+# behind the other papers' scans it would wait the whole pass. Those laid
+# out in the last hour tools/gale_read.sh reads as they land.
+for paper in gale times telegraph guardian ft; do
   slices "$paper off archive.org, scanned" python3 tools/file_archive_org_puzzles.py --paper "$paper" --no-scan \
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || finish 1
 done
-for paper in telegraph guardian ft times; do
+for paper in gale telegraph guardian ft times; do
   slices "$paper off archive.org" python3 tools/file_archive_org_puzzles.py --paper "$paper" \
     --reread "$REREAD_BEFORE" --out "$HOME/.cache/archive_org_crops/unfiled" || finish 1
 done
@@ -200,7 +204,7 @@ slices "Canberra Times off Trove" python3 tools/file_trove_puzzles.py --reread "
 # The sources an annotation run asked to be read again, having met a misread
 # clue on a puzzle filed from them (tools/scan_queue.py request_reread): each
 # read closes its request, and the burn takes the puzzle again after it.
-for paper in telegraph guardian ft times; do
+for paper in gale telegraph guardian ft times; do
   asked=()
   while read -r src; do asked+=(--edition "$src"); done < <(python3 tools/scan_queue.py requested archive "$paper")
   [ "${#asked[@]}" -gt 0 ] || continue

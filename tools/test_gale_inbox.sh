@@ -78,9 +78,16 @@ check("each file's match is kept, so a tick re-reads only what moved", 2,
       len(json.loads(g.MATCHES.read_text())))
 check("under the matcher's version, so a fix re-reads every file", True,
       all(k.startswith(g.MATCHER + "\t") for k in json.loads(g.MATCHES.read_text())))
-check("the Times filer finds the staged edition", [d], [e for e in fa.edition_dirs(cache, fa.TIMES)])
-check("as a Times edition", fa.TIMES, fa.paper_of(d))
-check("and no other paper's", [], fa.edition_dirs(cache, fa.FT))
+check("the Gale run finds the staged edition", [d], [e for e in fa.edition_dirs(cache, fa.GALE)])
+check("as a Gale page, filed as the Times", (fa.GALE, "times"), (fa.paper_of(d), fa.paper_of(d).series))
+check("and no other run's", ([], []), (fa.edition_dirs(cache, fa.FT), fa.edition_dirs(cache, fa.TIMES)))
+rel = f"{d.parent.name}/{d.name}"
+now = (d / "pages.json").stat().st_mtime
+check("fresh_unread: an edition just laid out and never read is read now", [rel], g.fresh_unread(cache, {}, now))
+check("not once read with its current files", [],
+      g.fresh_unread(cache, {rel: {"inputs": "x", "filesHash": fa.input_hash(d)}}, now))
+check("again once its files change", [rel], g.fresh_unread(cache, {rel: {"inputs": "x", "filesHash": "old"}}, now))
+check("one laid out before FRESH is the full pass's", [], g.fresh_unread(cache, {}, now + g.FRESH + 1))
 first = fa.input_hash(d)
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("an inbox unchanged leaves the edition's inputs alone", first, fa.input_hash(d))

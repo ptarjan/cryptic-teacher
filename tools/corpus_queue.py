@@ -60,7 +60,7 @@ STATE = STATE_DIR / "state.json"
 #: The pass's exit status, written when it ends; a killed pass writes none.
 EXIT = STATE_DIR / "full_pass.exit"
 LOG = STATE_DIR / "full_pass.log"
-LEDGERS = [downloads.ARCHIVE_ORG / "filed.jsonl", downloads.TROVE / "filed.jsonl"]
+LEDGERS = [downloads.ARCHIVE_ORG / "filed.jsonl", downloads.GALE_LEDGER, downloads.TROVE / "filed.jsonl"]
 #: What the pass's fetchers move when they fetch: the archive.org fetcher's
 #: done.tsv, and the Trove caches' directories (an article fetched, or its
 #: clue zones, is a new directory in them).

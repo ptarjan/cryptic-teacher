@@ -6,7 +6,7 @@
 A puzzle tools/file_archive_org_puzzles.py filed is OCR of a newspaper page,
 and a clue its readers cut short or garbled ("Mournful supporter in English
 lac") is still whole on the page. This cuts the box the filer's readers read
-the clues in out of the page: the filer's ledger (<cache>/filed.jsonl) names
+the clues in out of the page: the filer's ledger (<cache>/filed.jsonl, or the Gale pages' filed-gale.jsonl) names
 the edition, leaf and number that filed the id, and the RapidOCR cache under
 <crops>/rapid/ holds the box it read. The crop is cached as
 <crops>/clues/<id>.png and cut again when the reading's cache is newer.
@@ -20,6 +20,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import downloads  # noqa: E402
 import file_archive_org_puzzles as filer  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle  # noqa: E402
 
@@ -30,11 +31,12 @@ class NoCrop(Exception):
 
 def verdict(pid, cache):
     """(edition dir, verdict) of the ledger row that filed `pid`."""
-    ledger = cache / "filed.jsonl"
-    if not ledger.exists():
-        raise NoCrop(f"no ledger at {ledger}")
+    ledgers = [p for p in (cache / "filed.jsonl", cache / downloads.GALE_LEDGER.name) if p.exists()]
+    if not ledgers:
+        raise NoCrop(f"no ledger at {cache / 'filed.jsonl'}")
+    ledger = ", ".join(map(str, ledgers))
     found = None
-    for line in ledger.read_text().splitlines():
+    for line in (ln for p in ledgers for ln in p.read_text().splitlines()):
         row = json.loads(line)
         for v in row.get("verdicts") or []:
             if v.get("id") == pid and (found is None or v.get("wrote") or not found[1].get("wrote")):

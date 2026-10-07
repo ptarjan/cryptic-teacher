@@ -150,10 +150,10 @@ cache = tmp / "cache"
     [{"identifier": f"FinancialTimes{y}UKEnglish"} for y in (1980, 1981)]))
 (cache / "items" / "FinancialTimes1981UKEnglish.json").write_text(json.dumps(
     {"files": [{"name": "Apr 01 1981, Financial Times, #28435, UK (en).pdf", "format": "Image Container PDF"}]}))
-saved = ac.CACHE, ac.LEDGER, ac.corpus
-ac.CACHE, ac.LEDGER, ac.corpus = cache, cache / "filed.jsonl", lambda s: ({}, {})
+saved = ac.CACHE, ac.LEDGERS, ac.corpus
+ac.CACHE, ac.LEDGERS, ac.corpus = cache, [cache / "filed.jsonl"], lambda s: ({}, {})
 got = {d: c for d, c, _ in ac.unfiled(filer.PAPERS["ft"], datetime.date(1981, 4, 2))}
-ac.CACHE, ac.LEDGER, ac.corpus = saved
+ac.CACHE, ac.LEDGERS, ac.corpus = saved
 assert (got["1981-04-01"], got["1981-04-02"], got["1980-04-01"], got["1972-04-04"]) == \
     ("not-fetched", "no-scan", "no-listing", "no-scan"), got
 

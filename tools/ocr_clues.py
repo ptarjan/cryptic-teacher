@@ -148,11 +148,29 @@ def tesseract_words(crop, model=None):
     return words
 
 
+#: RapidOCR scales an image's longer side down to RAPID_MAX_SIDE (its
+#: max_side_len), then each side to the nearest multiple of 32: a side under
+#: RAPID_MIN_SIDE after that rounds to no pixels and raises ResizeImgError.
+#: A crop that thin (a sliver under a page's last band) holds no line.
+RAPID_MAX_SIDE = 2000
+RAPID_MIN_SIDE = 16
+
+
+def too_thin(width, height, which):
+    """Whether RapidOCR reader `which` cannot read a width x height image."""
+    if which in TESS_MODELS:
+        return False
+    return min(width, height) * min(1.0, RAPID_MAX_SIDE / max(width, height)) < RAPID_MIN_SIDE
+
+
 def raw_words(crop, which):
     """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `crop`,
-    in its pixels as the reader gives them (RapidOCR's floats)."""
+    in its pixels as the reader gives them (RapidOCR's floats): none in a
+    crop too thin for it (too_thin)."""
     if which in TESS_MODELS:
         return tesseract_words(crop, TESS_MODELS[which])
+    if too_thin(crop.width, crop.height, which):
+        return []
     import numpy as np
     res, _ = engine(which)(np.asarray(crop), use_cls=False)
     words = []
@@ -165,13 +183,15 @@ def raw_words(crop, which):
 def read_words(img, which):
     """[(x0, y0, x1, y1, word)] reader `which` reads in the PIL image `img`,
     read at UPSCALE times its size, in `img`'s own pixels: none in an image
-    with no pixels. Read on the desktop when tools/ocr_remote.py can, the
+    with no pixels or too thin for the reader (too_thin). Read on the desktop when tools/ocr_remote.py can, the
     same reading as here."""
     import ocr_remote
     crop = img.convert("RGB")
     if not crop.width or not crop.height:
         return []
     crop = crop.resize((crop.width * UPSCALE, crop.height * UPSCALE))
+    if too_thin(crop.width, crop.height, which):
+        return []
     words = ocr_remote.words(crop, which)
     if words is None:
         with ocr_remote.local_slot():
