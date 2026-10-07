@@ -19,6 +19,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -32,7 +35,61 @@
     "text": "Notable female, a computer operator mostly",
     "enumeration": "6"
    },
-   "solution": "FAMOUS"
+   "solution": "FAMOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FAMOUS",
+    "definitions": [
+     {
+      "text": "Notable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all of the word is used, so its final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "standard abbreviation for female"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "computer operator",
+      "gives": "MOUSE",
+      "note": "the hand-held device that operates a computer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "A",
+      "MOUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A well-known woman who works as a computer operator for most of the time.",
+     "walkthrough": "'Computer operator' suggests a person at a keyboard, but it is the mouse, which loses its last letter.",
+     "definitionFit": "Someone notable is well known and widely recognised, which is exactly what famous means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "operator"
+    }
+   }
   },
   {
    "number": 2,
@@ -46,7 +103,50 @@
     "text": "Rampaging so in vain attack",
     "enumeration": "8"
    },
-   "solution": "INVASION"
+   "solution": "INVASION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INVASION",
+    "definitions": [
+     {
+      "text": "attack",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rampaging",
+      "for": "anagram",
+      "note": "rampaging means charging about wildly, so the letters that follow are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "so in vain",
+      "gives": "SOINVAIN",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOINVAIN",
+       "gives": "INVASION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wild assault launched to no purpose.",
+     "definitionFit": "An invasion is a military incursion into enemy territory, a kind of offensive assault on a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rampaging"
+    }
+   }
   },
   {
    "number": 3,
@@ -60,7 +160,66 @@
     "text": "Put the fear of God into criminal ring the FBI man arrests",
     "enumeration": "10"
    },
-   "solution": "FRIGHTENED"
+   "solution": "FRIGHTENED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FRIGHTENED",
+    "definitions": [
+     {
+      "text": "Put the fear of God into",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "criminal",
+      "for": "anagram",
+      "note": "something criminal is crooked, so the following letters are bent out of their order"
+     },
+     {
+      "text": "arrests",
+      "for": "container",
+      "note": "to arrest is to take hold of, so one piece is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "FBI man",
+      "gives": "FED",
+      "note": "a fed is American slang for a federal agent"
+     },
+     {
+      "clueFragment": "ring the",
+      "gives": "RINGTHE",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RIGHTEN",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RINGTHE",
+       "gives": "RIGHTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crooked gang is terrified when a federal agent rounds them up.",
+     "definitionFit": "To put the fear of God into someone is an idiom for scaring them badly, the past-tense verb sense here."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criminal"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +233,54 @@
     "text": "Interpret excuse for delay when one is lost?",
     "enumeration": "9"
    },
-   "solution": "TRANSLATE"
+   "solution": "TRANSLATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRANSLATE",
+    "definitions": [
+     {
+      "text": "Interpret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is lost",
+      "for": "deletion",
+      "note": "something lost goes missing, so that letter disappears from the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excuse for delay",
+      "gives": "TRAINSLATE",
+      "note": "'train's late' is the commuter's classic excuse for turning up late"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANSLATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzled question about how to read a late-arrival excuse.",
+     "walkthrough": "Remove the I from TRAIN'S LATE to leave TRANSLATE.",
+     "definitionFit": "To translate is to render words from one language into another, so to interpret their meaning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Interpret"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +294,57 @@
     "text": "High point as stake raised",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "High point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry, raising a word lifts it from bottom to top, reading it backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stake",
+      "gives": "ANTE",
+      "note": "the ante is the stake put up before a poker hand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANTE",
+       "to": "ETNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A climax reached as the betting stakes go up.",
+     "walkthrough": "Etna is the Sicilian volcano, a lofty summit.",
+     "definitionFit": "Etna is a tall volcanic mountain, so a high point in the landscape of Sicily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raised"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +358,59 @@
     "text": "Finish support heading off to foster care",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "foster care",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "with its heading off, the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finish",
+      "gives": "END",
+      "note": "the end is the finish"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "BEAR",
+      "note": "to bear is to support a weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Ending financial support at the start of a child's time in foster care.",
+     "walkthrough": "'Foster care' looks like the childcare system, but here it is a verb phrase: to encourage fondness.",
+     "definitionFit": "To endear is to make someone liked, which fosters affection and warm feelings in others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "foster"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +424,54 @@
     "text": "Sea creature behaving badly, one hears, left America",
     "enumeration": "8"
    },
-   "solution": "NAUTILUS"
+   "solution": "NAUTILUS",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "NAUTILUS",
+    "definitions": [
+     {
+      "text": "Sea creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one hears",
+      "for": "homophone",
+      "note": "what one hears is the sound of a word, not its written form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "behaving badly",
+      "gives": "NAUTI",
+      "soundsLike": "NAUGHTY",
+      "note": "naughty means behaving badly; its sound is borrowed"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "abbreviation for the United States"
+     }
+    ],
+    "explanation": {
+     "surface": "A sea creature misbehaves and leaves the States.",
+     "definitionFit": "The nautilus is a shelled cephalopod mollusc found in the Pacific and Indian oceans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behaving"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +485,50 @@
     "text": "Where 11 lives beside American racetrack?",
     "enumeration": "7"
    },
-   "solution": "AINTREE"
+   "solution": "AINTREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AINTREE",
+    "definitions": [
+     {
+      "text": "racetrack",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "beside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation for American"
+     },
+     {
+      "clueFragment": "Where 11 lives",
+      "gives": "INTREE",
+      "note": "the answer to 11, an ape, lives in a tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "INTREE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking where a primate's home is, next to an American track.",
+     "walkthrough": "Aintree is the Liverpool racecourse that hosts the Grand National steeplechase.",
+     "definitionFit": "Aintree is a famous English horse-racing course, home of the Grand National."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +542,44 @@
     "text": "Grub found in peat soil",
     "enumeration": "4"
    },
-   "solution": "EATS"
+   "solution": "EATS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EATS",
+    "definitions": [
+     {
+      "text": "Grub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in says the letters are lying inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peat soil",
+      "gives": "EATS",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A larva discovered in peaty earth.",
+     "walkthrough": "'Grub' looks like a larva in the soil, but it is food.",
+     "definitionFit": "Grub and eats are both informal words for food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Grub"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +593,62 @@
     "text": "Barrel kept in bar, a domed building",
     "enumeration": "7"
    },
-   "solution": "ROTUNDA"
+   "solution": "ROTUNDA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ROTUNDA",
+    "definitions": [
+     {
+      "text": "domed building",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "what is kept in something is held within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "ROD",
+      "note": "a rod is a bar"
+     },
+     {
+      "clueFragment": "Barrel",
+      "gives": "TUN",
+      "note": "a tun is a large cask"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "TUN",
+      "D",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A cask stored in a pub inside a building with a dome.",
+     "walkthrough": "'Bar' suggests a pub, which suits the barrel, but it is a rod.",
+     "definitionFit": "A rotunda is a round building, typically topped with a dome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 11,
@@ -178,7 +668,61 @@
      }
     ]
    },
-   "solution": "ORANGUTAN"
+   "solution": "ORANGUTAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ORANG-UTAN",
+    "definitions": [
+     {
+      "text": "Primate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "the outer word is worn around the other, like clothing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfashionable",
+      "gives": "OUT",
+      "note": "out of fashion is out"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "RANG",
+      "note": "called on the phone"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RANG",
+      "UT",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "An ape described as dressed in an outdated garment.",
+     "definitionFit": "The orang-utan is a great ape of Borneo and Sumatra, one of the primates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 12,
@@ -192,7 +736,48 @@
     "text": "Spy‘s a decent chap",
     "enumeration": "5"
    },
-   "solution": "AGENT"
+   "solution": "AGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGENT",
+    "definitions": [
+     {
+      "text": "Spy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "‘s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "decent chap",
+      "gives": "GENT",
+      "note": "a gent is a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy is a nice enough fellow.",
+     "definitionFit": "An agent is an operative working in secret for an intelligence service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -206,7 +791,41 @@
     "text": "Move period of work",
     "enumeration": "5"
    },
-   "solution": "SHIFT"
+   "solution": "SHIFT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SHIFT",
+    "definitions": [
+     {
+      "text": "Move",
+      "at": 0
+     },
+     {
+      "text": "period of work",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Move",
+      "note": "first meaning: to change position"
+     },
+     {
+      "clueFragment": "period of work",
+      "note": "second meaning: a stint such as a night stint at a factory"
+     }
+    ],
+    "explanation": {
+     "surface": "Changing a work schedule.",
+     "definitionFit": "To shift is to move something; a shift is also a scheduled block of hours at work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 14,
@@ -220,7 +839,58 @@
     "text": "Politician and artist in defamation case",
     "enumeration": "7"
    },
-   "solution": "LIBERAL"
+   "solution": "LIBERAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIBERAL",
+    "definitions": [
+     {
+      "text": "Politician",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defamation case",
+      "gives": "LIBEL",
+      "note": "libel is written defamation, here the outer case"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIBE",
+      "RA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "An MP and a painter caught up in a libel suit.",
+     "walkthrough": "'Case' looks like a lawsuit, but it means the outer shell holding the artist.",
+     "definitionFit": "A Liberal is a member of a party such as the Liberal Democrats, so a politician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 15,
@@ -234,7 +904,51 @@
     "text": "Bid slacker to work — one perhaps reluctant to do so?",
     "enumeration": "10"
    },
-   "solution": "BACKSLIDER"
+   "solution": "BACKSLIDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BACKSLIDER",
+    "definitions": [
+     {
+      "text": "one perhaps reluctant to do so",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to work",
+      "for": "anagram",
+      "note": "the letters are put to work, reshaped into something new"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bid slacker",
+      "gives": "BIDSLACKER",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BIDSLACKER",
+       "gives": "BACKSLIDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Telling a lazy person to get working, though they may not want to.",
+     "walkthrough": "The definition leans on the surface: 'do so' points back to working, which a relapser is reluctant to keep up.",
+     "definitionFit": "A backslider lapses into old bad habits, someone unwilling to keep up good conduct or effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bid"
+    }
+   }
   },
   {
    "number": 16,
@@ -248,7 +962,62 @@
     "text": "Old man eating chicken — sign that could portend prodigious events",
     "enumeration": "9"
    },
-   "solution": "PHENOMENA"
+   "solution": "PHENOMENA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PHENOMENA",
+    "definitions": [
+     {
+      "text": "prodigious events",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "the eater takes the rest inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old man",
+      "gives": "PA",
+      "note": "pa is a father"
+     },
+     {
+      "clueFragment": "chicken",
+      "gives": "HEN",
+      "note": "a hen is a chicken"
+     },
+     {
+      "clueFragment": "sign that could portend",
+      "gives": "OMEN",
+      "note": "an omen foretells the future"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "HEN",
+      "OMEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A father eating chicken as a portent of remarkable happenings.",
+     "walkthrough": "PA takes in both HEN and OMEN.",
+     "definitionFit": "Phenomena are remarkable occurrences or marvels, the plural of phenomenon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 17,
@@ -276,7 +1045,55 @@
      }
     ]
    },
-   "solution": "MENINWHITECOATS"
+   "solution": "MENINWHITECOATS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEN IN WHITE COATS",
+    "definitions": [
+     {
+      "text": "Restraining madman is our job",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tangling",
+      "for": "anagram",
+      "note": "tangling knots strands together, so the letters get jumbled"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with menace is not",
+      "gives": "WITHMENACEISNOT",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WITHMENACEISNOT",
+       "gives": "MENINWHITECOATS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asylum staff saying their work is to subdue a lunatic, but not by threatening.",
+     "walkthrough": "The definition is spoken by the answer itself: 'men in white coats' is jokey slang for psychiatric staff come to take someone away.",
+     "definitionFit": "Men in white coats is a humorous idiom for psychiatric workers who take disturbed people into care."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1107,63 @@
     "text": "Causes offence with independent doctor probing lower regions",
     "enumeration": "8"
    },
-   "solution": "MIDRIFFS"
+   "solution": "MIDRIFFS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MIDRIFFS",
+    "definitions": [
+     {
+      "text": "lower regions",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "something probing pushes inside something else"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Causes offence",
+      "gives": "MIFFS",
+      "note": "to miff is to annoy"
+     },
+     {
+      "clueFragment": "independent",
+      "gives": "I",
+      "note": "standard abbreviation for independent"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "standard abbreviation for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "DR",
+      "IFFS"
+     ]
+    },
+    "explanation": {
+     "surface": "A private doctor gives offence by examining a patient's nether parts.",
+     "definitionFit": "The midriff is the middle front of the body, the belly area below the chest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "probing"
+    }
+   }
   },
   {
    "number": 18,
@@ -310,7 +1183,53 @@
      }
     ]
    },
-   "solution": "AIRRIFLE"
+   "solution": "AIRRIFLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AIR RIFLE",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fired",
+      "for": "anagram",
+      "note": "fired suggests letters blasted apart and landing in a new order"
+     }
+    ],
+    "linkWords": [
+     "Being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frailer, I",
+      "gives": "FRAILERI",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FRAILERI",
+       "gives": "AIRRIFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone too weak for anything heavier discharges a gun.",
+     "definitionFit": "An air rifle is a gun firing pellets by compressed air, a kind of light firearm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 19,
@@ -324,7 +1243,54 @@
     "text": "Somewhere in New Zealand daughter listened to radio, missing start",
     "enumeration": "7"
    },
-   "solution": "DUNEDIN"
+   "solution": "DUNEDIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "DUNEDIN",
+    "definitions": [
+     {
+      "text": "Somewhere in New Zealand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing start",
+      "for": "deletion",
+      "note": "missing its start means the phrase drops its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "listened to radio",
+      "gives": "TUNEDIN",
+      "note": "you tune in to a station"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "UNEDIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl in New Zealand listening to a broadcast but missing the opening.",
+     "definitionFit": "Dunedin is a city on the South Island of New Zealand."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 20,
@@ -338,7 +1304,61 @@
     "text": "New question about supermarket exchange",
     "enumeration": "6"
    },
-   "solution": "NASDAQ"
+   "solution": "NASDAQ",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NASDAQ",
+    "definitions": [
+     {
+      "text": "exchange",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the outer letters go around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "standard abbreviation for new"
+     },
+     {
+      "clueFragment": "supermarket",
+      "gives": "ASDA",
+      "note": "Asda is a British supermarket chain"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "Q",
+      "note": "standard abbreviation for question"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ASDA",
+      "Q"
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh query concerning swapping at a supermarket.",
+     "walkthrough": "N and Q go around ASDA, a major UK grocery chain.",
+     "definitionFit": "NASDAQ is the American stock exchange specialising in technology shares."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exchange"
+    }
+   }
   },
   {
    "number": 21,
@@ -352,7 +1372,65 @@
     "text": "Hissy fit as drink’s knocked back",
     "enumeration": "5"
    },
-   "solution": "STROP"
+   "solution": "STROP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STROP",
+    "definitions": [
+     {
+      "text": "Hissy fit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "knocked back",
+      "for": "reversal",
+      "note": "knocked back means sent backwards, so the letters read in reverse"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     },
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the possessive ending"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TROP"
+     ],
+     "reversals": [
+      {
+       "from": "PORTS",
+       "to": "STROP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tantrum thrown when a drink is downed.",
+     "walkthrough": "'Knocked back' looks like drinking it, but it is the reversal signal.",
+     "definitionFit": "A strop is British slang for a bad-tempered sulk, the same as a tantrum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "knocked"
+    }
+   }
   },
   {
    "number": 22,
@@ -366,7 +1444,47 @@
     "text": "Concentrated and played successful snooker shot",
     "enumeration": "6"
    },
-   "solution": "POTTED"
+   "solution": "POTTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POTTED",
+    "definitions": [
+     {
+      "text": "Concentrated",
+      "at": 0
+     },
+     {
+      "text": "played successful snooker shot",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Concentrated",
+      "note": "first meaning: condensed or abridged, as in a short version of a history"
+     },
+     {
+      "clueFragment": "played successful snooker shot",
+      "note": "second meaning: sank a ball into a pocket"
+     }
+    ],
+    "explanation": {
+     "surface": "A focused player pots a ball at snooker.",
+     "walkthrough": "'Concentrated' suggests mental focus, but it means condensed.",
+     "definitionFit": "A potted account is a condensed summary; potting a ball sinks it into a snooker pocket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Concentrated"
+    }
+   }
   },
   {
    "number": 23,
@@ -380,7 +1498,54 @@
     "text": "Boat company in Cornwall etc.",
     "enumeration": "4"
    },
-   "solution": "SCOW"
+   "solution": "SCOW",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCOW",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cornwall etc.",
+      "gives": "SW",
+      "note": "Cornwall and its neighbours make up England's south-west"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "standard abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CO",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A boating business based in the far west of England.",
+     "definitionFit": "A scow is a flat-bottomed barge-like vessel used for carrying cargo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cornwall"
+    }
+   }
   },
   {
    "number": 24,
@@ -394,7 +1559,46 @@
     "text": "Small figure among clique",
     "enumeration": "5"
    },
-   "solution": "INSET"
+   "solution": "INSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INSET",
+    "definitions": [
+     {
+      "text": "Small figure",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "among",
+      "gives": "IN",
+      "note": "among is in"
+     },
+     {
+      "clueFragment": "clique",
+      "gives": "SET",
+      "note": "a set is a social group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "A little person standing within an exclusive group.",
+     "definitionFit": "An inset is a small picture or map placed within a larger illustration on a page."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 25,
@@ -408,7 +1612,50 @@
     "text": "Express disapproval over posh archbishop",
     "enumeration": "4"
    },
-   "solution": "TUTU"
+   "solution": "TUTU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TUTU",
+    "definitions": [
+     {
+      "text": "archbishop",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Express disapproval",
+      "gives": "TUT",
+      "note": "tut is the sound of disapproval"
+     },
+     {
+      "clueFragment": "posh",
+      "gives": "U",
+      "note": "U means upper-class"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUT",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Tutting at a toffee-nosed senior cleric.",
+     "walkthrough": "In a down clue 'over' places the first piece above the second.",
+     "definitionFit": "Desmond Tutu was the South African Anglican Archbishop of Cape Town and Nobel laureate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "posh"
+    }
+   }
   },
   {
    "number": 26,
@@ -422,7 +1669,68 @@
     "text": "Factory worker achieving speed of sound in back street",
     "enumeration": "9"
    },
-   "solution": "MACHINIST"
+   "solution": "MACHINIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MACHINIST",
+    "definitions": [
+     {
+      "text": "Factory worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means turned round, so the word before is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "achieving speed of sound",
+      "gives": "MACHI",
+      "note": "reaching Mach 1, written with a Roman numeral"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written, then read backwards"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "standard abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MACHI",
+      "NI",
+      "ST"
+     ],
+     "reversals": [
+      {
+       "from": "IN",
+       "to": "NI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worker going supersonic down a back alley.",
+     "walkthrough": "'Back street' looks like one phrase, but 'back' turns the word before it.",
+     "definitionFit": "A machinist operates machine tools in a workshop or factory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 27,
@@ -436,7 +1744,66 @@
     "text": "In the outskirts of Franklin take coffee and squash",
     "enumeration": "7"
    },
-   "solution": "FLATTEN"
+   "solution": "FLATTEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "FLATTEN",
+    "definitions": [
+     {
+      "text": "squash",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts are the edges, so only the end letters are kept"
+     },
+     {
+      "text": "take",
+      "for": "container",
+      "note": "to take is to receive, so the outer letters hold the next piece"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Franklin",
+      "gives": "FN",
+      "select": "outer",
+      "note": "first and last letters"
+     },
+     {
+      "clueFragment": "coffee",
+      "gives": "LATTE",
+      "note": "a latte is milky coffee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LATTE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Stopping for coffee and a fruit squash on the edge of town.",
+     "walkthrough": "'Squash' looks like a soft drink to go with the coffee, but it is the verb.",
+     "definitionFit": "To flatten something is to crush or press it flat, which is to squash it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "squash"
+    }
+   }
   },
   {
    "number": 28,
@@ -450,7 +1817,49 @@
     "text": "Cyclist’s trick — excited cry to give false impression",
     "enumeration": "7"
    },
-   "solution": "WHEELIE"
+   "solution": "WHEELIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WHEELIE",
+    "definitions": [
+     {
+      "text": "Cyclist’s trick",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "excited cry",
+      "gives": "WHEE",
+      "note": "the shout of thrill"
+     },
+     {
+      "clueFragment": "give false impression",
+      "gives": "LIE",
+      "note": "to lie is to deceive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHEE",
+      "LIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bike stunt accompanied by an excited shout, though it may deceive.",
+     "definitionFit": "A wheelie is a stunt riding on the back wheel with the front lifted off the ground."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trick"
+    }
+   }
   }
  ]
 }
