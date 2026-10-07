@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Observed habitual reaction by journalist following denial",
     "enumeration": "7"
    },
-   "solution": "NOTICED"
+   "solution": "NOTICED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOTICED",
+    "definitions": [
+     {
+      "text": "Observed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following tells us the earlier pieces come after the denial word in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "denial",
+      "gives": "NO",
+      "note": "the simplest word of denial"
+     },
+     {
+      "clueFragment": "habitual reaction",
+      "gives": "TIC",
+      "note": "a tic is an involuntary habitual twitch"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the crossword's stock journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TIC",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter's tell-tale twitch is spotted after they deny something.",
+     "walkthrough": "'Habitual reaction' sounds like a behaviour, but it is a nervous twitch; 'following' means the denial comes first in the answer.",
+     "definitionFit": "To have noticed something is to have seen or perceived it, a plain synonym of observed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reaction"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +103,81 @@
     "text": "It protects clothing from spilled ink after pan is upset",
     "enumeration": "6"
    },
-   "solution": "NAPKIN"
+   "solution": "NAPKIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "NAPKIN",
+    "definitions": [
+     {
+      "text": "It protects clothing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the word reads bottom to top"
+     },
+     {
+      "text": "spilled",
+      "for": "anagram",
+      "note": "spilled liquid splashes everywhere, so these letters are scattered into a new order"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the spilled piece behind the turned-over piece"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pan",
+      "gives": "PAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ink",
+      "gives": "INK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAP",
+      "KIN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INK",
+       "gives": "KIN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PAN",
+       "to": "NAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cloth on the lap guards your clothes when the ink pan gets knocked over.",
+     "definitionFit": "A napkin is a cloth laid on the lap at table to keep food and drink off one's clothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spilled"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +191,61 @@
     "text": "Dreadful soldier caught by short hunt",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TRAGIC",
+    "definitions": [
+     {
+      "text": "Dreadful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off, so the last letter of the hunt word is dropped"
+     },
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "caught by means trapped inside, so the soldier goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hunt",
+      "gives": "TRACK",
+      "note": "to track is to hunt down"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "GI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim tale of a soldier captured during a cut-short manhunt.",
+     "walkthrough": "TRACK loses its K, then holds GI: TRA(GI)C.",
+     "definitionFit": "Tragic describes something terrible and distressing, a synonym of dreadful."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hunt"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +265,57 @@
      }
     ]
    },
-   "solution": "CREDITCARD"
+   "solution": "CREDITCARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CREDIT CARD",
+    "definitions": [
+     {
+      "text": "payment method",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down clue the supporting piece sits underneath, so it comes second"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recognition",
+      "gives": "CREDIT",
+      "note": "credit is acknowledgement or recognition of merit"
+     },
+     {
+      "clueFragment": "Eccentric person",
+      "gives": "CARD",
+      "note": "a card is an amusing oddball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREDIT",
+      "CARD"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd character backs the idea of acknowledgement as a means of settling up.",
+     "walkthrough": "'Card' as a person is an old-fashioned sense: a character, a wag.",
+     "definitionFit": "A credit card is a plastic card used to buy goods on credit, a common way to pay."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supports"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +329,62 @@
     "text": "Current doctor provided treatment, finally",
     "enumeration": "5"
    },
-   "solution": "DRIFT"
+   "solution": "DRIFT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DRIFT",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "the abbreviation for doctor"
+     },
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided that means if"
+     },
+     {
+      "clueFragment": "treatment",
+      "gives": "T",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "IF",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor is now in charge, provided the treatment eventually works.",
+     "walkthrough": "'Current' looks like an adjective meaning present, but here it is a flow of water.",
+     "definitionFit": "A drift is a slow movement carried along by water or air, a sense of current as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Current"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +404,55 @@
      }
     ]
    },
-   "solution": "FIRMSUP"
+   "solution": "FIRMSUP",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FIRMS UP",
+    "definitions": [
+     {
+      "text": "Makes sure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts points to the opening letter of each of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "company",
+      "gives": "FIRM",
+      "note": "a firm is a business company"
+     },
+     {
+      "clueFragment": "save unexpected profit",
+      "gives": "SUP",
+      "select": "first",
+      "note": "the initial letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIRM",
+      "SUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A business secures an unexpected windfall by saving.",
+     "definitionFit": "To firm up a plan or deal is to make it certain, i.e. to make sure of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 5,
@@ -135,7 +472,64 @@
      }
     ]
    },
-   "solution": "FACEVALUE"
+   "solution": "FACEVALUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FACE VALUE",
+    "definitions": [
+     {
+      "text": "apparently what it's worth",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "opening means the first letter of the word it attaches to"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Franc's",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of the currency's name"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "ACE",
+      "note": "ace means first-rate"
+     },
+     {
+      "clueFragment": "price",
+      "gives": "VALUE",
+      "note": "the value of something is its price"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ACE",
+      "VALUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A first-rate price for a coin seems to reflect its true worth.",
+     "definitionFit": "Face value is the nominal worth printed on a coin or note, and so what something seems to be worth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "excellent"
+    }
+   }
   },
   {
    "number": 6,
@@ -149,7 +543,62 @@
     "text": "Unusual to expose rook rather than bishop",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RARE",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rather than",
+      "for": "substitution",
+      "note": "rather than means instead of, so one letter replaces another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expose",
+      "gives": "BARE",
+      "note": "to bare is to uncover"
+     },
+     {
+      "clueFragment": "rook",
+      "gives": "R",
+      "note": "R is the chess notation for rook"
+     },
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess notation for bishop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A chess player makes the odd choice of leaving the rook open to attack instead of the bishop.",
+     "walkthrough": "BARE swaps its B for R.",
+     "definitionFit": "Rare means seldom found or occurring, a synonym of unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "expose"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +612,47 @@
     "text": "We, for example, are also citizens",
     "enumeration": "8"
    },
-   "solution": "SUBJECTS"
+   "solution": "SUBJECTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUBJECTS",
+    "definitions": [
+     {
+      "text": "We, for example",
+      "at": 0
+     },
+     {
+      "text": "citizens",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "are also"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We, for example",
+      "note": "first meaning: grammatical ..., pronouns like we that perform the verb"
+     },
+     {
+      "clueFragment": "citizens",
+      "note": "second meaning: people owing allegiance to a monarch or state"
+     }
+    ],
+    "explanation": {
+     "surface": "We the people are also citizens of our country.",
+     "walkthrough": "'We' looks like the setter speaking, but it is a grammatical example: a subject pronoun.",
+     "definitionFit": "Words such as we serve as grammatical subjects, and people under a crown are its subjects."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "We"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +666,71 @@
     "text": "Falsely claims corrupt rep finishes behind time",
     "enumeration": "8"
    },
-   "solution": "PRETENDS"
+   "solution": "PRETENDS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PRETENDS",
+    "definitions": [
+     {
+      "text": "Falsely claims",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupt means spoiled or perverted, so the letters are rearranged"
+     },
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind puts the finishes piece after the time piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rep",
+      "gives": "REP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "finishes",
+      "gives": "ENDS",
+      "note": "to finish is to end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRE",
+      "T",
+      "ENDS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REP",
+       "gives": "PRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dishonest sales rep lies about working late.",
+     "definitionFit": "Someone who pretends makes a false show or claim of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +744,51 @@
     "text": "Tree found in Nepal",
     "enumeration": "5"
    },
-   "solution": "PLANE"
+   "solution": "PLANE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PLANE",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "anagram",
+      "note": "to found metal is to melt and recast it, so the letters of the next word are recast into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nepal",
+      "gives": "NEPAL",
+      "note": "the country name, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NEPAL",
+       "gives": "PLANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A botanical note about a tree that grows in the Himalayan kingdom.",
+     "walkthrough": "It reads like a hidden word, but the five letters of the country are rearranged rather than read straight.",
+     "definitionFit": "The plane is a broad-leaved tree, familiar lining London streets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +802,50 @@
     "text": "Cruel ban I ordered can't be put right",
     "enumeration": "9"
    },
-   "solution": "INCURABLE"
+   "solution": "INCURABLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INCURABLE",
+    "definitions": [
+     {
+      "text": "can't be put right",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means arranged afresh, so the preceding letters are set in a new sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruel ban I",
+      "gives": "CRUELBANI",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRUELBANI",
+       "gives": "INCURABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh prohibition, once imposed, is beyond repair.",
+     "definitionFit": "An incurable condition is one that cannot be remedied or healed, matching beyond putting right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +859,73 @@
     "text": "Lead in Italian international musical makes a comeback",
     "enumeration": "10"
    },
-   "solution": "INITIATIVE"
+   "solution": "INITIATIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "INITIATIVE",
+    "definitions": [
+     {
+      "text": "Lead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "makes a comeback",
+      "for": "reversal",
+      "note": "a comeback is a return journey, so the show's title is read from its end back to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "IT is the abbreviation for Italian"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is a standard abbreviation for international"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "EVITA",
+      "note": "the Lloyd Webber musical about Eva Perón"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "IT",
+      "I",
+      "ATIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVITA",
+       "to": "ATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian star leads a revival of an international musical.",
+     "walkthrough": "'Lead in' looks like the starring role, but 'Lead' alone is the definition and 'in' is wordplay: IN + IT + I + ATIVE.",
+     "definitionFit": "To take the initiative is to take the lead, acting first before others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +939,45 @@
     "text": "Celebrate a lot we hear",
     "enumeration": "4"
    },
-   "solution": "FETE"
+   "solution": "FETE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FETE",
+    "definitions": [
+     {
+      "text": "Celebrate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear signals that the word is judged by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lot",
+      "gives": "FETE",
+      "soundsLike": "FATE",
+      "note": "one's lot in life is one's fate"
+     }
+    ],
+    "explanation": {
+     "surface": "We hear people celebrate a great deal.",
+     "walkthrough": "'A lot' suggests 'many', but here it is one's lot, i.e. destiny.",
+     "definitionFit": "To fete someone is to honour them with festivities, to celebrate them publicly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lot"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +991,62 @@
     "text": "Cruise to Mexico's borders could be a way to help preserve nature",
     "enumeration": "10"
    },
-   "solution": "ECOTOURISM"
+   "solution": "ECOTOURISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ECOTOURISM",
+    "definitions": [
+     {
+      "text": "a way to help preserve nature",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "borders",
+      "for": "letter_selection",
+      "note": "borders are the edges, so the first and last letters are kept"
+     },
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "could be suggests a possible rearrangement of the given letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruise to",
+      "gives": "CRUISETO",
+      "note": "the fodder, taken as written"
+     },
+     {
+      "clueFragment": "Mexico's",
+      "gives": "MO",
+      "select": "outer",
+      "note": "the outside letters of the country's name"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CRUISETOMO",
+       "gives": "ECOTOURISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cruise to Mexico might be pitched as a green holiday.",
+     "definitionFit": "Ecotourism is travel to natural areas organised to fund conservation and minimise harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cruise"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1060,71 @@
     "text": "County politician didn't tell the truth about whip becoming involved.",
     "enumeration": "11"
    },
-   "solution": "COMPLICATED"
+   "solution": "COMPLICATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COMPLICATED",
+    "definitions": [
+     {
+      "text": "involved",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the lying word wraps around the whip word"
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "County",
+      "gives": "CO",
+      "note": "CO is the abbreviation for county"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "a Member of Parliament"
+     },
+     {
+      "clueFragment": "didn't tell the truth",
+      "gives": "LIED",
+      "note": "told a falsehood"
+     },
+     {
+      "clueFragment": "whip",
+      "gives": "CAT",
+      "note": "the cat-o'-nine-tails, a whip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MP",
+      "LI",
+      "CAT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A county MP lied about a whip, getting tangled up in parliamentary discipline.",
+     "walkthrough": "'Whip' suggests the party whip, but it is the cat-o'-nine-tails: CO + MP + LI(CAT)ED.",
+     "definitionFit": "Something complicated is intricate and tangled, the same as involved in its sense of complex."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "whip"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1138,80 @@
     "text": "Reported break in to back of house during repair",
     "enumeration": "9"
    },
-   "solution": "MENTIONED"
+   "solution": "MENTIONED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MENTIONED",
+    "definitions": [
+     {
+      "text": "Reported",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "break",
+      "for": "anagram",
+      "note": "to break something is to smash it apart, so the letters are rearranged"
+     },
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "back of means the last letter"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during means in the middle of, so the pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "repair",
+      "gives": "MEND",
+      "note": "to mend is to repair"
+     },
+     {
+      "clueFragment": "in to",
+      "gives": "INTO",
+      "note": "the fodder, taken as written"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "E",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEN",
+      "TION",
+      "E",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news item says burglars broke into a house at the back while repairs were going on.",
+     "walkthrough": "'Break in' reads as burglary, but 'break' alone works on 'in to': MEN(TION+E)D.",
+     "definitionFit": "To have mentioned something is to have reported or referred to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1225,56 @@
     "text": "Problem for leader to meet a revolutionary",
     "enumeration": "8"
    },
-   "solution": "HEADACHE"
+   "solution": "HEADACHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADACHE",
+    "definitions": [
+     {
+      "text": "Problem",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to meet"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leader",
+      "gives": "HEAD",
+      "note": "the head is the leader"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "revolutionary",
+      "gives": "CHE",
+      "note": "Che Guevara, the crossword's stock revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "A",
+      "CHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A national leader faces trouble when meeting a rebel.",
+     "definitionFit": "A headache, figuratively, is a troublesome matter or nuisance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1288,47 @@
     "text": "Gloomy about company",
     "enumeration": "8"
    },
-   "solution": "OVERCAST"
+   "solution": "OVERCAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERCAST",
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "OVER",
+      "note": "over can mean concerning, as in a row over money"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CAST",
+      "note": "the cast is a company of actors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "CAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feels down about the firm they work for.",
+     "walkthrough": "'Company' looks like a business, but it is a theatrical troupe.",
+     "definitionFit": "An overcast sky is dull and grey with cloud, i.e. gloomy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "company"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1342,69 @@
     "text": "Half the population taken in by mad inventor's surroundings",
     "enumeration": "11"
    },
-   "solution": "ENVIRONMENT"
+   "solution": "ENVIRONMENT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ENVIRONMENT",
+    "definitions": [
+     {
+      "text": "surroundings",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mad",
+      "for": "anagram",
+      "note": "mad means crazed and disordered, so the inventor's letters are jumbled"
+     },
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "taken in by means held inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inventor",
+      "gives": "INVENTOR",
+      "note": "the fodder, taken as written"
+     },
+     {
+      "clueFragment": "Half the population",
+      "gives": "MEN",
+      "note": "men make up roughly half of any population"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENVIRON",
+      "MEN",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INVENTOR",
+       "gives": "ENVIRONT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deranged inventor's lab is full of the male half of the population.",
+     "definitionFit": "The environment is the setting or conditions one lives in, i.e. one's surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "population"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1418,60 @@
     "text": "Worked towards getting back specialist food store",
     "enumeration": "6"
    },
-   "solution": "TOILED"
+   "solution": "TOILED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOILED",
+    "definitions": [
+     {
+      "text": "Worked",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting back",
+      "for": "reversal",
+      "note": "getting back suggests returning, so the shop word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "towards",
+      "gives": "TO",
+      "note": "to means in the direction of"
+     },
+     {
+      "clueFragment": "specialist food store",
+      "gives": "DELI",
+      "note": "a delicatessen sells fine foods"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "ILED"
+     ],
+     "reversals": [
+      {
+       "from": "DELI",
+       "to": "ILED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone laboured on their way home from a gourmet shop.",
+     "definitionFit": "To have toiled is to have laboured hard, i.e. worked."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1485,56 @@
     "text": "A street light is not in the right place",
     "enumeration": "6"
    },
-   "solution": "ASTRAY"
+   "solution": "ASTRAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASTRAY",
+    "definitions": [
+     {
+      "text": "not in the right place",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "light",
+      "gives": "RAY",
+      "note": "a ray is a beam of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "ST",
+      "RAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A street lamp has been put in the wrong spot.",
+     "walkthrough": "'A street light' reads as one lamp-post, but it splits into three pieces.",
+     "definitionFit": "Something gone astray has wandered off or been mislaid, away from where it should be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "light"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1548,49 @@
     "text": "Earth turned over in neat ridges",
     "enumeration": "4"
    },
-   "solution": "DIRT"
+   "solution": "DIRT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DIRT",
+    "definitions": [
+     {
+      "text": "Earth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters lie inside the words that follow"
+     },
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "turned over means flipped end to end, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "neat ridges",
+      "gives": "TRID",
+      "note": "the letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A gardener turns soil over into tidy ridges.",
+     "walkthrough": "The ploughing picture hides the device: TRID sits across 'neat ridges' and reads DIRT backwards.",
+     "definitionFit": "Dirt in the sense of soil or loose ground is a synonym of earth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1604,66 @@
     "text": "Absurd for setter to get drawn into ludicrous muddle",
     "enumeration": "10"
    },
-   "solution": "RIDICULOUS"
+   "solution": "RIDICULOUS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "RIDICULOUS",
+    "definitions": [
+     {
+      "text": "Absurd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drawn into",
+      "for": "container",
+      "note": "drawn into means pulled inside, so the setter goes within the other letters"
+     },
+     {
+      "text": "muddle",
+      "for": "anagram",
+      "note": "a muddle is a confused mess, so the combined letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "ludicrous",
+      "gives": "LUDICROUS",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LUDICROUSI",
+       "gives": "RIDICULOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It's absurd for the setter to be dragged into a farcical mess.",
+     "walkthrough": "The definition and fodder are near synonyms, which makes the anagram easy to miss.",
+     "definitionFit": "Ridiculous means laughably unreasonable, a direct synonym of absurd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "drawn"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1677,45 @@
     "text": "Part of airliner threatens to be unresponsive",
     "enumeration": "5"
    },
-   "solution": "INERT"
+   "solution": "INERT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INERT",
+    "definitions": [
+     {
+      "text": "unresponsive",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of says the letters are a piece of the words that follow"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "airliner threatens",
+      "gives": "INERT",
+      "note": "the letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Part of a plane threatens to stop working.",
+     "definitionFit": "Inert means motionless or failing to react, the same as unresponsive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "threatens"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1729,50 @@
     "text": "Noise of eating unendingly is an insult",
     "enumeration": "4"
    },
-   "solution": "SLUR"
+   "solution": "SLUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLUR",
+    "definitions": [
+     {
+      "text": "insult",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unendingly",
+      "for": "deletion",
+      "note": "unendingly means without its end, so the final letter is cut"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noise of eating",
+      "gives": "SLURP",
+      "note": "a slurp is a noisy sucking sound made eating or drinking"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Endless noisy eating is an affront to fellow diners.",
+     "definitionFit": "A slur is a disparaging remark, a slight against someone, i.e. an insult."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1786,62 @@
     "text": "Object to transformation including east end of Marseille",
     "enumeration": "9"
    },
-   "solution": "CHALLENGE"
+   "solution": "CHALLENGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHALLENGE",
+    "definitions": [
+     {
+      "text": "Object to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including means holding within, so the change word wraps the other letters"
+     },
+     {
+      "text": "east end of",
+      "for": "letter_selection",
+      "note": "on a map east is on the right, so the right-hand end of the city name is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transformation",
+      "gives": "CHANGE",
+      "note": "a change is a transformation"
+     },
+     {
+      "clueFragment": "Marseille",
+      "gives": "LLE",
+      "select": "last",
+      "note": "the final letters of the French city's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "LLE",
+      "NGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone objects to a makeover of Marseille's eastern quarter.",
+     "walkthrough": "The East End sounds like a district, but it is the right-hand tail of the word: CHA(LLE)NGE.",
+     "definitionFit": "To challenge a claim or decision is to dispute it, i.e. to object to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "east"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1855,63 @@
     "text": "I led revolt against right layabout",
     "enumeration": "5"
    },
-   "solution": "IDLER"
+   "solution": "IDLER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IDLER",
+    "definitions": [
+     {
+      "text": "layabout",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolt",
+      "for": "anagram",
+      "note": "to revolt is to overturn the established order, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I led",
+      "gives": "ILED",
+      "note": "the fodder, taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDLE",
+      "R"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ILED",
+       "gives": "IDLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel boasts of leading an uprising against the political right, but is really a slacker.",
+     "definitionFit": "An idler is someone who avoids work, the same as a layabout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolt"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1925,62 @@
     "text": "Recorded theories regularly in conclusion",
     "enumeration": "7"
    },
-   "solution": "ENTERED"
+   "solution": "ENTERED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ENTERED",
+    "definitions": [
+     {
+      "text": "Recorded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the kept letters inside the conclusion word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "conclusion",
+      "gives": "END",
+      "note": "the end is the conclusion"
+     },
+     {
+      "clueFragment": "theories",
+      "gives": "TERE",
+      "select": "alternate",
+      "note": "the first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TERE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone noted down their theories at the end of a study.",
+     "walkthrough": "'Regularly' here means taking every other letter, starting with the first.",
+     "definitionFit": "Data entered in a ledger or log has been written down, i.e. recorded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "theories"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1994,53 @@
     "text": "Without purpose, goes after boy shyly",
     "enumeration": "7"
    },
-   "solution": "TIMIDLY"
+   "solution": "TIMIDLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIMIDLY",
+    "definitions": [
+     {
+      "text": "shyly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes after",
+      "for": "charade",
+      "note": "goes after puts the first-named piece behind the second in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boy",
+      "gives": "TIM",
+      "note": "a boy's name"
+     },
+     {
+      "clueFragment": "Without purpose",
+      "gives": "IDLY",
+      "note": "doing something idly is doing it aimlessly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIM",
+      "IDLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Aimlessly trailing after a boy he likes, someone acts bashfully.",
+     "definitionFit": "Acting timidly means acting with nervousness and lack of confidence, which is acting shyly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boy"
+    }
+   }
   }
  ]
 }
