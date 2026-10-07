@@ -103,7 +103,7 @@ row = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan"
                                    docs=docs).split("\n") if 'data-k="1988-01-12"' in r)
 check("Times row has Download", True, ">Download</a>" in row and "callisto/BulkPDF" in row)
 check("its Download is the row's click, and marks it", True,
-      'class="go dl"' in row and "onclick=\"mark('1988-01-12')\">Download" in row)
+      'class="dl"' in row and "onclick=\"mark('1988-01-12')\">Download" in row)
 check("and still Open in Gale", True, "Open in Gale" in row)
 other = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
                                      docs=docs).split("\n") if 'data-k="1988-01-13"' in r)
@@ -113,9 +113,9 @@ check("Open in Gale marks only a row with no Download", (False, True),
 idx = [{"number": 1309, "title": "Crossword No. 1,309", "setter": None, "date": lday}]
 page = gl.checklist(idx, tmp / "store", tmp / "none", arrivals=[],
                     docs={"LSNR/1955-06-02": gd.entry("LSNR", listener, 1309)})
-check("Listener row has Download", True, "<b>Download</b></a>" in page and "p=LSNR" in page)
+check("Listener row has Download", True, ">Download</a>" in page and "p=LSNR" in page)
 check("the Listener's Download marks its row", True,
-      'class="dl"' in page and "onclick=\"mark('p1309')\"><b>Download</b>" in page)
+      'class="dl"' in page and "onclick=\"mark('p1309')\">Download</a>" in page)
 check("to_save lists it", [1309], [r["number"] for r in gl.to_save(idx, tmp / "store", tmp / "none", arrivals=[])])
 
 # Gale's OCR'd titles still find the crossword; a report is found by its number.

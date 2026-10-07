@@ -172,7 +172,7 @@ Image.new("RGB", (300, 203), "white").save(inbox2 / "1930-04-09.png")
 g.run(inbox2, store2, rows, out=out, reader=reader)
 page2 = g.checklist(rows, store2, Path(sys.argv[1]) / "none", arrivals=[])
 check("a read puzzle's missing solution is asked for", True,
-      "save its solution too: &ldquo;Report on Crossword No. 2&rdquo;" in page2)
+      "save its solution too: “Report on Crossword No. 2”" in page2)
 check("and offers its solution as the row's job", True, 'data-k="r2"' in page2)
 check("not while a saved file waits to be read", False, "save its solution too:" in g.checklist(
     rows, store2, Path(sys.argv[1]) / "none", arrivals=[{"file": "new.pdf", "number": 1}]))
@@ -192,10 +192,41 @@ check("a file already matched is not opened again", 4, len(g.arrived(inbox, rows
 page = g.checklist(rows, store, root, arrivals=came)
 check("an arrived page is ticked off", True, "arrived: the full pass reads it at its next slice" in page)
 check("and counted", True, "<b>2 of 2</b> saved or filed" in page)
-check("a page naming no puzzle waits for the pass", True,
-      "<li>download.png</li>" in page[page.index("puzzle not yet known"):])
+check("a page naming no puzzle waits for the pass", True, "<li><b>download.png</b>: arrived, puzzle not yet known" in page)
 check("one the pass already read is not waiting", False,
-      "<li>holiday snap.jpg</li>" in page[page.index("puzzle not yet known"):])
+      "<li><b>holiday snap.jpg</b>: arrived, puzzle not yet known" in page)
+row1 = next(r for r in page.split("\n") if 'data-k="p2"' in r)
+check("an arrived puzzle's row says so and offers no Download", (True, False, False),
+      ('data-in="1"' in row1, "Open in Gale" in row1, 'class="dl"' in row1))
+
+# One page for both papers: gale_inbox.page builds both, and this module
+# holds no page markup of its own.
+import re
+import inspect
+src = inspect.getsource(g.checklist) + inspect.getsource(g.render) + "".join(g.STEPS) + g.UNKNOWN + g.ORDER
+check("the Listener's checklist writes no page structure of its own", [],
+      re.findall(r"</?(?:html|head|meta|title|style|script|h1|h2|div|p|ol|ul|li|table|tr|td|th|details|summary|"
+                 r"progress|span|button)\b", src))
+gi = g.gi
+gi.held, gi.usual_pages, gi.archive_coverage.ledger = (lambda: {}), (lambda: {}), (lambda: {})
+un = Path(sys.argv[1]) / "un.json"
+un.write_text(json.dumps([{"file": "x.pdf", "why": "nothing"}]))
+times = gi.checklist([(D(1988, 1, 13), "no-scan")], Path(sys.argv[1]) / "nocache", un, docs={})
+listener = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none",
+                       arrivals=[{"file": "x.pdf", "number": None, "reports": []}], docs={})
+def skeleton(page):
+    """The page's tags with every text, attribute value, table, list and
+    script body gone: what is left is the shell either paper shares."""
+    s = re.sub(r"<script>.*?</script>", "<script/>", page, flags=re.S)
+    s = re.sub(r"<(table|ol|ul)\b.*?</\1>", r"<\1/>", s, flags=re.S)
+    s = re.sub(r'="[^"]*"', "", re.sub(r">[^<]*<", "><", s))
+    return re.sub(r"^[^<]*|[^>]*$", "", s)
+check("the Times and Listener pages share one skeleton", skeleton(times), skeleton(listener))
+check("and one script, but for the paper's store and status file", True,
+      re.sub(r'const S=.*?,SRC=[^,]*,|PAGE=\d+', "", re.search(r"<script>.*?</script>", times, re.S).group(0))
+      == re.sub(r'const S=.*?,SRC=[^,]*,|PAGE=\d+', "", re.search(r"<script>.*?</script>", listener, re.S).group(0)))
+check("each paper's status file is its own", True,
+      'SRC="Checklist.status.js"' in times and 'SRC="Listener%20checklist.status.js"' in listener)
 print(f"FAILS {fails}")
 sys.exit(1 if fails else 0)
 PY

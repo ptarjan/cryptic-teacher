@@ -1,11 +1,13 @@
 about    = "Sweep the Gale pages Paul downloads by hand into their inboxes on the Media share, stage them and re-render the checklist, so it ticks each one off within minutes"
 room     = "cryptic-crosswords"
-# Every 3 minutes: Paul works through the checklist with it open, and a page
-# that was the wrong one should be flagged while he is still on that issue.
-# A tick that finds nothing new is two ssh listings (Mac, desktop) and a
+# Every minute: Paul works through the checklist with it open, and its rows
+# say "downloading..." until a tick sees the file arrive, so a slow tick is a
+# row he cannot tell from a failed download. A tick that finds nothing new is
+# two ssh listings (Mac, desktop), the two pages' small status files and a
 # worktree reset; it stages and re-renders only when a file moved, or hourly.
-# It never asks anything of Gale.
-schedule = "*/3 * * * *"
+# It asks Gale only for the links not yet looked up. A tick still running
+# when the next is due holds the plugin's flock, so that one is skipped.
+schedule = "* * * * *"
 where    = "container"
 # The job's own worktree, which tools/nightly_worktree.sh resets to
 # origin/master on every tick, so a pushed fix is live within 3 minutes.

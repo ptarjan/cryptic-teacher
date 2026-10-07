@@ -15,7 +15,7 @@ readers' and the VLM's readings voted on, the Canberra reprint's beside them.
     python3 tools/gale_inbox.py checklist [--out FILE]
     python3 tools/gale_inbox.py match FILE...     # which edition each file is, and how that was read
 
-Paul only presses Gale's Download. Every few minutes (the cryptic-gale-inbox
+Paul only presses Gale's Download. Every minute (the cryptic-gale-inbox
 plugin) sync sweeps each Gale file out of the Windows desktop's and the Mac's
 Downloads, and any page saved straight into GALE_ROOT, into its paper's inbox
 (INBOXES), recognised by Gale's document id in its name or Gale's citation in
@@ -702,61 +702,204 @@ POOL = 60
 LOOKAHEAD = 200
 
 
-def script(store):
-    """The checklists' row state, kept in the browser (localStorage `store`)
-    so the 3-minute refresh keeps it: a row clicked through to Gale greys out
-    and says so; "Next batch" hides the clicked rows of #next and shows the
-    next BATCH; the first one not clicked is highlighted. A click anywhere on
-a row not yet clicked is a click on its Download (a.dl); its other links
-and buttons keep their own. A middle click on a link opens a tab without a
-click event, so it runs the link's onclick (the mark) itself."""
-    return """<script>
-const S=STORE,H=S+'Hidden',BATCH=SIZE;
+#: A row clicked this long ago whose file has not arrived turns amber: the
+#: download may have failed.
+LATE_MINUTES = 15
+#: How often an open checklist reads its status file (status_js).
+POLL_SECONDS = 15
+#: A status file older than this is not being written: the page falls back
+#: to reloading itself every RELOAD_SECONDS.
+STALE_SECONDS = 240
+RELOAD_SECONDS = 180
+
+
+def script(store, status_src, stamp):
+    """The checklists' row state. A row is one of: to fetch (its Download
+    button), clicked and waiting for its file ("downloading... clicked
+    HH:MM", an undo, no Download), clicked LATE_MINUTES ago with no file
+    (amber, a retry), or arrived ("in the inbox"). Clicks are kept in the
+    browser (localStorage `store`, key: when) so a reload keeps them; what
+    arrived is the page's own data-in and its status file (status_js),
+    read every POLL_SECONDS by a script tag, which a file:// page may load
+    where it may not fetch. A status naming a newer page reloads it once;
+    a status that stops coming reloads the page every RELOAD_SECONDS. "Next
+    batch" hides the clicked rows of #next and shows the next BATCH; the
+    first one to fetch is highlighted. A click anywhere on a row to fetch is
+    a click on its Download (a.dl). A middle click on a link opens a tab
+    without a click event, so it runs the link's onclick (the mark) itself."""
+    js = """<script>
+const S=STORE,H=S+'Hidden',C=S+'At',BATCH=SIZE,LATE=LATEMIN*60e3,PAGE=STAMP,SRC=SOURCE,LOADED=Date.now();
+let IN=new Set(),AT=PAGE*1000;
 function get(n){return JSON.parse(localStorage.getItem(n)||'[]')}
 function put(n,s){localStorage.setItem(n,JSON.stringify([...new Set(s)].slice(-5000)))}
-function show(){const c=new Set(get(S)),h=new Set(get(H));let n=0,lit=false;
-  document.querySelectorAll('tr[data-k]').forEach(r=>{r.classList.toggle('copied',c.has(r.dataset.k));
-    r.classList.toggle('dlrow',!c.has(r.dataset.k)&&!!r.querySelector('a.dl'))});
-  document.querySelectorAll('#next tr[data-k]').forEach(r=>{const k=r.dataset.k,on=!h.has(k)&&n<BATCH;
-    if(on)n++;r.hidden=!on;const nx=on&&!lit&&!c.has(k);r.classList.toggle('next',nx);if(nx)lit=true});
-  const m=document.getElementById('more');if(m)m.hidden=n>0}
-function mark(k){put(S,[...get(S),k]);show()}
-function unmark(k){put(S,get(S).filter(x=>x!==k));put(H,get(H).filter(x=>x!==k));show()}
-function nextBatch(){const c=new Set(get(S)),h=get(H);
-  document.querySelectorAll('#next tr[data-k]').forEach(r=>{if(!r.hidden&&c.has(r.dataset.k))h.push(r.dataset.k)});
+function clicks(){const v=localStorage.getItem(C);if(v)return JSON.parse(v);const m={};get(S).forEach(k=>m[k]=0);return m}
+function keep(m){localStorage.setItem(C,JSON.stringify(Object.fromEntries(
+  Object.entries(m).sort((a,b)=>a[1]-b[1]).slice(-5000))))}
+function hm(t){return t?new Date(t).toTimeString().slice(0,5):'earlier'}
+function state(r,m,now){const k=r.dataset.k;if(r.dataset.in||IN.has(k))return'in';
+  return k in m?(now-m[k]>LATE?'late':'wait'):''}
+function badge(r,s,t){const b=r.querySelector('.st');if(!b||b.dataset.s===s+t)return;b.dataset.s=s+t;b.className='st '+s;
+  const k=r.dataset.k,u=' <a href="#" onclick="unmark(\\''+k+'\\');return false">undo</a>',
+    a=r.querySelector('a.dl')||r.querySelector('a.go');
+  b.innerHTML=s==='in'?'&#10003; in the inbox':s==='wait'?'downloading&hellip; clicked '+hm(t)+u
+    :s==='late'?'clicked '+hm(t)+', not arrived: <a class="retry" target="gale" onclick="mark(\\''+k+'\\')">retry?</a>'+u:'';
+  const x=b.querySelector('a.retry');if(x&&a)x.href=a.href}
+function show(){const m=clicks(),h=new Set(get(H)),now=Date.now();let n=0,lit=false;
+  document.querySelectorAll('tr[data-k]').forEach(r=>{const s=state(r,m,now);r.dataset.s=s;
+    for(const c of['wait','late','in'])r.classList.toggle('s-'+c,s===c);
+    badge(r,s,m[r.dataset.k]||0);r.classList.toggle('dlrow',!s&&!!r.querySelector('a.dl'))});
+  document.querySelectorAll('#next tr[data-k]').forEach(r=>{const on=!h.has(r.dataset.k)&&n<BATCH;
+    if(on)n++;r.hidden=!on;const nx=on&&!lit&&!r.dataset.s;r.classList.toggle('next',nx);if(nx)lit=true});
+  const mo=document.getElementById('more');if(mo)mo.hidden=n>0;
+  const a=document.getElementById('age'),old=now-AT>STALE*1e3;
+  if(a){a.textContent='Arrivals last checked '+hm(AT)+' ('+Math.round((now-AT)/60e3)+' min ago)'
+    +(old?': the status file is not updating, so this page reloads itself every 3 minutes':'; this page updates itself.');
+    a.classList.toggle('old',old)}}
+function mark(k){const m=clicks();m[k]=Date.now();keep(m);show()}
+function unmark(k){const m=clicks();delete m[k];keep(m);put(H,get(H).filter(x=>x!==k));show()}
+function nextBatch(){const h=get(H);
+  document.querySelectorAll('#next tr[data-k]').forEach(r=>{if(!r.hidden&&r.dataset.s)h.push(r.dataset.k)});
   put(H,h);show()}
+function galeStatus(s){IN=new Set(s.in);AT=s.at*1000;
+  if(s.page>PAGE&&sessionStorage.getItem(S+'Page')!==String(s.page)){
+    sessionStorage.setItem(S+'Page',s.page);location.reload()}else show()}
+function poll(){const x=document.createElement('script');x.src=SRC+'?'+Date.now();
+  x.onload=x.onerror=()=>x.remove();document.head.appendChild(x)}
 function cp(b,t){const done=()=>{b.textContent='Copied'};
   const fb=()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
   document.execCommand('copy');a.remove();done()};
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,fb);else fb()}
-addEventListener('DOMContentLoaded',show)
+addEventListener('DOMContentLoaded',()=>{show();poll()})
+setInterval(()=>{const now=Date.now();
+  if(now-AT>STALE*1e3&&now-LOADED>RELOAD*1e3)location.reload();else{poll();show()}},POLL*1e3)
 addEventListener('click',ev=>{const r=ev.target.closest('tr.dlrow');
   if(r&&!ev.target.closest('a,button,summary'))r.querySelector('a.dl').click()})
-addEventListener('auxclick',ev=>{const a=ev.button===1&&ev.target.closest('a[onclick]');if(a)a.onclick()})
-</script>""".replace("STORE", json.dumps(store)).replace("SIZE", str(BATCH))
+addEventListener('auxclick',ev=>{const a=ev.button===1&&ev.target.closest('a[target=gale][onclick]');if(a)a.onclick()})
+</script>"""
+    for k, v in (("STORE", json.dumps(store)), ("SOURCE", json.dumps(status_src)), ("SIZE", str(BATCH)),
+                 ("LATEMIN", str(LATE_MINUTES)), ("STAMP", str(stamp)), ("STALE", str(STALE_SECONDS)),
+                 ("RELOAD", str(RELOAD_SECONDS)), ("POLL", str(POLL_SECONDS))):
+        js = js.replace(k, v)
+    return js
 
 
-#: The row state's look, both checklists.
-ROW_CSS = """tr.copied td{color:#999;text-decoration:line-through}tr.copied .acts{display:none}
-.done{display:none}tr.copied .done{display:inline-block;color:#070;font-weight:bold}
+#: Both checklists' look.
+CSS = """body{font:15px -apple-system,Segoe UI,sans-serif;margin:1.5em;max-width:72em}
+td,th{padding:4px 8px;text-align:left;vertical-align:middle}tr:nth-child(even){background:#f4f4f4}
+h2{margin-top:1.4em}summary{font-size:16px;margin:.4em 0;cursor:pointer}
+.got{color:#070}.bad{color:#a00}.est{color:#a60;font-size:90%}#age.old{color:#a00;font-weight:bold}
+.redo{background:#fee;border:2px solid #c00;padding:.5em 1em}.how{background:#eef6ff;padding:.5em 1em}
+.start{font-size:17px;font-weight:bold}progress{width:20em;height:1.2em;vertical-align:middle}
+button{font-size:14px;padding:2px 10px;cursor:pointer}.batch button{font-size:15px;margin-right:.6em}
+a.dl{display:inline-block;padding:8px 18px;font-size:17px;font-weight:bold;color:#fff;background:#0a66c2;
+border-radius:6px;text-decoration:none;margin:2px .8em 2px 0}a.dl:hover{background:#084f96}a.go{margin-right:.6em}
+.st{display:inline-block;padding:6px 12px;border-radius:6px;font-weight:bold}.st:empty{display:none}
+.st.wait{background:#dde8f6;color:#123}.st.late{background:#ffc24d;color:#4a2c00}.st.in{background:#17803a;color:#fff}
+.st a{color:inherit}tr.s-wait .acts,tr.s-late .acts,tr.s-in .acts{display:none}tr.s-in td{color:#777}
 tr.next td{background:#fff3b0}tr.next td:first-child{border-left:4px solid #e0a800}
-.batch button{font-size:15px;margin-right:.6em}tr.dlrow{cursor:pointer}tr.dlrow:hover td{background:#dcebff}"""
+tr.dlrow{cursor:pointer}tr.dlrow:hover td{background:#dcebff}"""
 
 
-def done_label(k):
-    """What a clicked row says instead of its links."""
-    return (f'<span class="done">downloaded &#10003; <a href="#" onclick="unmark(\'{k}\');return false">undo'
-            "</a></span>")
+def status_js(path):
+    """The status file beside checklist `path`: when the inbox was last
+    looked at, the page it goes with, and the rows arrived."""
+    return path.with_name(path.stem + ".status.js")
 
 
-def batch_bar(pool, what):
-    """The buttons over a next-up table of `pool` rows."""
-    return (f'<p class="batch"><button onclick="nextBatch()">Next batch</button>'
-            f'<button onclick="location.reload()">Refresh</button> Showing {BATCH} of the next {pool} {what}. '
-            "A row you click greys out; <b>Next batch</b> hides those and shows the next ones. "
-            "The highlighted row is the one to do next.</p>"
-            '<p id="more" hidden>All of these are clicked: <b>Refresh</b> once they arrive for more.</p>')
+def publish_status(path, status=None):
+    """Write and publish checklist `path`'s status file (status_js): the
+    page's stamp and arrived rows from `status` (a render's), else the last
+    render's, and now as when the inbox was looked at."""
+    js = status_js(path)
+    kept = js.with_suffix(".json")
+    js.parent.mkdir(parents=True, exist_ok=True)
+    if status is not None:
+        kept.write_text(json.dumps(status))
+    st = load(kept, {"page": 0, "in": []})
+    js.write_text(f"galeStatus({json.dumps({**st, 'at': int(time.time())})});\n")
+    publish(js)
 
+
+def _parts(cell):
+    """A cell's HTML: plain text, or [(text, class)]."""
+    if isinstance(cell, str):
+        return html.escape(cell)
+    return " ".join(f'<span class="{c}">{html.escape(t)}</span>' if c else html.escape(t) for t, c in cell)
+
+
+def _row(r):
+    """One row: {"date", "cells", "status", and, for one to fetch, "key",
+    "search" (Open in Gale), "dl" (Download, or None), "label", "copy" (a
+    search to copy, or None), "arrived"}."""
+    k = r.get("key")
+    get = ""
+    if k and r.get("arrived"):
+        get = '<span class="st in">&#10003; in the inbox</span>'
+    elif k:
+        e, mk, dl = html.escape, f' onclick="mark(\'{k}\')"', r.get("dl")
+        get = ('<span class="acts">'
+               + (f'<a class="dl" href="{e(dl)}" target="gale"{mk}>{e(r.get("label") or "Download")}</a>' if dl else "")
+               + f'<a class="go" href="{e(r["search"])}" target="gale"{"" if dl else mk}>Open in Gale</a>'
+               + (f' <button onclick="cp(this,{e(json.dumps(r["copy"]))})">Copy</button> <code>{e(r["copy"])}</code>'
+                  if r.get("copy") else "")
+               + '</span><span class="st"></span>')
+    attrs = (f' data-k="{k}"' + (' data-in="1" class="s-in"' if r.get("arrived") else "")) if k else ""
+    return (f'<tr{attrs}><td>{r["date"]:%a %d %b %Y}</td><td>{get}</td>'
+            + "".join(f"<td>{_parts(c)}</td>" for c in r["cells"]) + f"<td>{_parts(r['status'])}</td></tr>")
+
+
+def page(*, paper, prod, name, store, done, total, done_word, folder, steps, redo, order, what, next_rows,
+         years_note, years, columns, status=None):
+    """A checklist page, either paper's: progress, the files to check, how to
+    save one, the next `next_rows` in batches, then `years` [(year, summary,
+    rows)]. Rows are _row's; `columns` the paper's own, between the row's
+    Download and its status; `steps` the paper's own items of the how-to
+    and `order` how next up is ordered (inline HTML). `status`, when given, gets the page's stamp and arrived
+    rows, for publish_status."""
+    e = html.escape
+    stamp = int(time.time())
+    every = [r for r in next_rows] + [r for _, _, rs in years for r in rs]
+    if status is not None:
+        status.update(page=stamp, **{"in": sorted({r["key"] for r in every if r.get("key") and r.get("arrived")})})
+    head = ("<tr><th>Date</th><th>Get it</th>" + "".join(f"<th>{e(c)}</th>" for c in columns)
+            + "<th>Status</th></tr>")
+    title = f"{paper} crosswords from Gale"
+    archive = gale_docs.PRODUCTS[prod][2]
+    out = [f"""<!doctype html><meta charset="utf-8">
+<title>{e(title)}: {done:,} of {total:,}</title>
+<style>{CSS}</style>
+{script(store, urllib.parse.quote(status_js(Path(name)).name), stamp)}
+<h1>{e(title)}</h1>
+<p><progress value="{done}" max="{max(total, 1)}"></progress> <b>{done:,} of {total:,}</b> {e(done_word)}, {total - done:,} to go.
+Updated {datetime.datetime.fromtimestamp(stamp).astimezone():%a %d %b %H:%M}. <span id="age"></span></p>"""]
+    if redo:
+        out.append('<div class="redo"><h2 style="margin-top:0">Check these files</h2><ul>')
+        out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in redo]
+        out.append("</ul></div>")
+    out.append(f"""<div class="how"><p class="start">1. <a href="{SESSION.format(prod)}" target="gale">Start Gale session</a>
+(once per sitting, on an Alberta connection such as home Wi-Fi; no login)</p>
+<ol start="2"><li>Click <b>Download</b> on the highlighted row: Gale saves the page as a PDF, and it is moved from
+Downloads into <code>{e(folder)}</code> for you. The row says <i>downloading&hellip;</i> until the file arrives,
+then <b>&#10003; in the inbox</b>, usually within a minute or two. A row whose file has not come {LATE_MINUTES} minutes
+after its click turns amber: retry it.</li>
+{"".join(f"<li>{s}</li>" for s in steps)}</ol>
+<p>If Gale asks for a password, start from <a href="{PORTAL}">the Alberta Research Portal</a> (choose
+<i>{e(archive)}</i>), then come back here. Gale allows 50 downloads a session.</p></div>""")
+    if next_rows:
+        out.append(f"""<h2>Next up</h2><p>{order}</p>
+<p class="batch"><button onclick="nextBatch()">Next batch</button><button onclick="location.reload()">Refresh</button>
+Showing {min(BATCH, len(next_rows))} of the next {len(next_rows)} {e(what)}. <b>Next batch</b> hides the rows you clicked and shows the next
+ones. The highlighted row is the one to do next.</p>
+<p id="more" hidden>All of these are clicked: <b>Refresh</b> once they arrive for more.</p>
+<table id="next">{head}""")
+        out += [_row(r) for r in next_rows]
+        out.append("</table>")
+    out.append(f"<h2>Everything, by year</h2><p>{e(years_note)}</p>")
+    for y, summary, rs in years:
+        out.append(f"<details><summary><b>{y}</b>: {e(summary)}</summary><table>{head}")
+        out += [_row(r) for r in rs]
+        out.append("</table></details>")
+    return "\n".join(out) + "\n"
 
 def search_for(n):
     """What to type in Gale's search box for Times cryptic No `n`."""
@@ -794,6 +937,14 @@ def problems(rows, by_number, staged, unmatched=UNMATCHED):
     return out
 
 
+#: The Times' own item of the checklist's how-to (page).
+STEPS = (
+    ("A row with no Download button yet: click <b>Open in Gale</b> (Gale's results for that day's crossword),"
+     " open <i>The Times Crossword Puzzle No N</i> (not the Concise) and click <b>Download</b> (PDF). If the"
+     " results are empty, <b>Copy</b> the search and paste it into Gale's search box, or use <i>Browse &rarr;"
+     " Browse By Date</i> and go to the page shown."),
+)
+
 #: How next_up orders, said on the page.
 ORDER = ("Order: the year missing the most editions first, and oldest date first within a year; "
          "an edition leaves the list once its file arrives.")
@@ -808,10 +959,10 @@ def next_up(rows, staged, n=POOL):
     return [(d, c) for d, c in order if d not in staged][:n]
 
 
-def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None):
-    """The checklist page: progress, any page that needs redoing, the next
-    editions to fetch with what to search for, then every wanted edition by
-    year, the worst year first."""
+def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None, status=None):
+    """The Times checklist (page): progress, any page that needs redoing,
+    the next editions to fetch with what to search for, then every wanted
+    edition by year, the worst year first."""
     rows = wanted() if rows is None else rows
     by_number = held()
     pages = usual_pages()
@@ -821,81 +972,56 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None):
     years = collections.defaultdict(list)
     for day, cls in rows:
         years[day.year].append((day, cls))
-    e = html.escape
     filed = set(by_number.values())
     done = len(staged)
     total = done + sum(day not in staged for day, _ in rows)
-    bad = problems(rows, by_number, staged, unmatched)
 
     def page_of(y):
         lo, hi, most = nearest(pages, y) or (None, None, None)
         return f"p. {most} (or {lo}-{hi})" if lo else ""
 
-    def row(day, cls, next_up):
+    def row(day, cls):
         n, sure = number_on(day, by_number)
-        k = day.isoformat()
-        st = ledger.get(f"{ITEM.format(day.year)}/{k}")
+        st = ledger.get(f"{ITEM.format(day.year)}/{day.isoformat()}")
         if day in filed and day in staged:
-            status = '<span class="got">filed</span>'
+            status = [("filed", "got")]
         elif st:
-            status = f'<span class="got">arrived, read: {e(archive_coverage.verdict_class(st, {}))}</span>'
+            status = [(f"arrived, read: {archive_coverage.verdict_class(st, {})}", "got")]
         elif day in staged:
-            status = f'<span class="got">arrived ({e(", ".join(staged[day]))})</span>'
+            status = [(f"arrived ({', '.join(staged[day])})", "got")]
         else:
             status = "Canberra reprint only" if cls == "canberra-reprint" else ""
-        q = search_for(n)
-        dl = gale_docs.link("TTDA", day, docs)
-        # Open in Gale counts as the click only when there is no Download.
-        find = ('<span class="acts">'
-                + (f'<a class="go dl" href="{e(dl)}" target="gale" onclick="mark(\'{k}\')">Download</a> ' if dl else "")
-                + f'<a class="go" href="{e(search_url(day))}" target="gale"'
-                + ("" if dl else f' onclick="mark(\'{k}\')"') + '>Open in Gale</a> '
-                f'<button onclick="cp(this,{e(json.dumps(q))})">Copy</button> <code>{e(q)}</code>'
-                + ("" if sure else ' <span class="est">number estimated: check the date</span>') + "</span>"
-                + done_label(k))
-        return (f'<tr data-k="{k}"><td>{day:%a %d %b %Y}</td><td>{find if next_up or day not in staged else ""}</td>'
-                f"<td>{page_of(day.year)}</td><td>{status}</td></tr>")
+        return {"key": day.isoformat(), "date": day, "arrived": day in staged, "dl": gale_docs.link("TTDA", day, docs),
+                "search": search_url(day), "copy": search_for(n), "status": status,
+                "cells": [[(f"{n:,}", "")] + ([] if sure else [("number estimated: check the date", "est")]),
+                          page_of(day.year)]}
 
-    head = "<tr><th>Date</th><th>Open, or search Gale for</th><th>Page</th><th>Status</th></tr>"
-    out = [f"""<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="180">
-<title>Times crosswords from Gale: {done:,} of {total:,}</title>
-<style>body{{font:15px -apple-system,Segoe UI,sans-serif;margin:1.5em;max-width:64em}}td,th{{padding:3px 8px;text-align:left}}
-tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.4em}}.got{{color:#070}}.est{{color:#a60;font-size:90%}}
-.bad{{background:#fee;border:2px solid #c00;padding:.5em 1em}}.how{{background:#eef6ff;padding:.5em 1em}}
-button{{font-size:14px;padding:2px 10px;cursor:pointer}}a.go{{font-weight:bold;margin-right:.6em}}
-.start{{font-size:17px;font-weight:bold}}progress{{width:20em;height:1.2em;vertical-align:middle}}
-{ROW_CSS}</style>
-{script("galeCopied")}
-<h1>Times crosswords from Gale</h1>
-<p><progress value="{done}" max="{max(total, 1)}"></progress> <b>{done:,} of {total:,}</b> arrived, {total - done:,} to go.
-Updated {datetime.datetime.now().astimezone():%a %d %b %H:%M}; this page refreshes itself every 3 minutes.</p>"""]
-    if bad:
-        out.append('<div class="bad"><h2 style="margin-top:0">Redo these</h2><ul>')
-        out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in bad]
-        out.append("</ul></div>")
-    out.append(f"""<div class="how"><p class="start">1. <a href="{SESSION.format('TTDA')}" target="gale">Start Gale session</a>
-(once per sitting, on an Alberta connection; no login)</p>
-<ol start="2"><li>Click <b>Download</b> on the next puzzle below: Gale saves that day's crossword page as a PDF.</li>
-<li>A row with no Download link yet: click <b>Open in Gale</b> (Gale's results for that day's crossword), open
-<i>The Times Crossword Puzzle No N</i> (not the Concise) and click <b>Download</b> (PDF).</li></ol>
-That's all: it lands in Downloads and is moved here, <code>{e(SHARE)}</code>, within 3 minutes, and ticked off below.
-If Gale asks for a password, start from <a href="{PORTAL}">the Alberta Research Portal</a> (choose
-<i>The Times Digital Archive</i>) instead, then come back here. If a day's results are empty, <b>Copy</b> the search
-and paste it into Gale's search box, or use <i>Browse &rarr; Browse By Date</i> and go to the page shown.
-Gale allows 50 downloads a session.</div>""")
-    nxt = next_up(rows, staged)
-    if nxt:
-        out.append(f"<h2>Next up</h2><p>{ORDER}</p>{batch_bar(len(nxt), 'editions')}<table id=\"next\">{head}")
-        out += [row(d, c, True) for d, c in nxt]
-        out.append("</table>")
-    out.append("<h2>Everything, by year</h2><p>The worst year first. An edition leaves this list once its puzzle is filed."
-               "</p>")
-    for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0])):
-        got = sum(d in staged for d, _ in ds)
-        out.append(f"<details><summary><b>{y}</b>: {len(ds)} missing, {got} arrived</summary><table>{head}")
-        out += [row(d, c, False) for d, c in sorted(ds)]
-        out.append("</table></details>")
-    return "\n".join(out) + "\n"
+    return page(
+        paper="Times", prod="TTDA", name=CHECKLIST_NAME, store="galeCopied", done=done, total=total,
+        done_word="arrived", folder=SHARE + "\\Times", redo=problems(rows, by_number, staged, unmatched),
+        steps=STEPS,
+        order=ORDER, what="editions", next_rows=[row(d, c) for d, c in next_up(rows, staged)],
+        years_note="The worst year first. An edition leaves this list once its puzzle is filed.",
+        years=[(y, f"{len(ds)} missing, {sum(d in staged for d, _ in ds)} arrived", [row(d, c) for d, c in sorted(ds)])
+               for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0]))],
+        columns=["No", "Page"], status=status)
+
+#: Gale is asked for links (gale_docs.resolve) at most this often, whatever
+#: the tick's own schedule: the pace Paul allowed.
+LOOKUP_EVERY = 180
+LOOKED_UP = MIRROR.parent / "looked_up"
+
+
+def gale_due(now=None, path=LOOKED_UP):
+    """Is a Gale lookup due (LOOKUP_EVERY since the last, a few seconds'
+    slack for a tick's start)? Marks it done when it is."""
+    now = now or time.time()
+    if path.exists() and now - path.stat().st_mtime < LOOKUP_EVERY - 10:
+        return False
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.touch()
+    os.utime(path, (now, now))
+    return True
 
 
 def last_render(path=CHECKLIST):
@@ -916,21 +1042,27 @@ def locked():
 def sync(out=sys.stdout, force=False):
     """One tick: sweep Gale files into their inboxes; mirror the Times inbox
     and, when it moved (or RENDER_EVERY passed), stage it and publish the
-    checklist; then the Listener's (gale_listener.tick)."""
+    checklist; publish its status file either way, so an open page knows
+    when the inbox was last looked at; then the Listener's
+    (gale_listener.tick)."""
     import gale_listener  # imports this module, so not at the top
     with locked():
         moved = collect(out)
         changed = mirror(out)
+        ask = gale_due()
         by_number = held()
-        linked = gale_docs.resolve("TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)],
-                                   out)
+        linked = ask and gale_docs.resolve(
+            "TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)], out)
+        status = None
         if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
             stage(MIRROR, out=out)
             CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
-            CHECKLIST.write_text(checklist())
+            status = {}
+            CHECKLIST.write_text(checklist(status=status))
             publish()
             print(f"checklist published to {GALE_ROOT}/{CHECKLIST_NAME}", file=out)
-        gale_listener.tick(out, force)
+        publish_status(CHECKLIST, status)
+        gale_listener.tick(out, force, ask)
 
 
 def main(argv=None):

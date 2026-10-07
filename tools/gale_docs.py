@@ -2,8 +2,9 @@
 """Gale's PDF download link for the crossword of each of the checklists'
 next rows (tools/gale_inbox.py's Times, tools/gale_listener.py's Listener).
 
-Paul allowed this lookup on 2026-10-07: each 3-minute sync looks up at most
-PER_TICK uncached rows per paper, PACE seconds apart, and nothing else. A
+Paul allowed this lookup on 2026-10-07: a sync at most every 3 minutes
+(gale_inbox.LOOKUP_EVERY) looks up at most PER_TICK uncached rows per paper,
+PACE seconds apart, and nothing else. A
 row is a puzzle's issue, or (`reports`) the Listener's "Report on Crossword
 No. N" with its answers, searched in the issues one to REPORT_WEEKS weeks
 after the puzzle's. A row's lookup is the Alberta Research Portal's session (geo-IP, no login),

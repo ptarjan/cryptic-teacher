@@ -1652,7 +1652,7 @@ tools/gale_inbox.py                           the 1974-99 Times editions archive
                                               where gale_docs.py found the page, else Gale's
                                               search) and which pages to redo
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
-                                              every 3 minutes, from a worktree
+                                              every minute, from a worktree
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the
                                               pages Paul saves by hand from Gale's Listener
                                               Historical Archive: a checklist of every puzzle
@@ -1670,11 +1670,11 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               report and links each next puzzle to Gale's
                                               Download (gale_docs.py)
 tools/gale_docs.py                            Gale's PDF Download link for each checklist's
-                                              next rows: each 3-minute sync looks up at most 15
-                                              uncached dates per paper on Gale (portal session,
-                                              the month's issues, the issue's contents), 2 s
-                                              apart, and caches the crossword's document and
-                                              page records, misses too, in
+                                              next rows: a sync at most every 3 minutes looks
+                                              up at most 15 uncached dates per paper on Gale
+                                              (portal session, the month's issues, the issue's
+                                              contents), 2 s apart, and caches the crossword's
+                                              document and page records, misses too, in
                                               ~/.cache/gale_inbox/docs.json; Paul allowed this
                                               on 2026-10-07
 tools/test_gale_docs.sh                       with Gale stood in: is the day's crossword found
