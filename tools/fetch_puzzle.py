@@ -16,6 +16,9 @@ Usage:
                                                  # Where more annotation work comes from.
   python3 tools/fetch_puzzle.py --reindex        # rebuild puzzles/index.json + index.js
                                                  # from the puzzle files already on disk
+  python3 tools/fetch_puzzle.py --supersede-books  # turn each held book file that
+                                                 # reprints a held newspaper puzzle
+                                                 # into a reading of it (supersede_book)
   python3 tools/fetch_puzzle.py --refresh-unsolved  # re-fetch puzzles still missing
                                                  # solutions (Saturday prize puzzles
                                                  # publish theirs about a week late)
@@ -2939,6 +2942,22 @@ def supersede_book(book_id, original_id):
           f"reading at {saved}", file=sys.stderr)
 
 
+def supersede_held_books():
+    """supersede_book every held book file whose clues are a held newspaper
+    puzzle's: the pairs no write saw whole, when the book and the newspaper
+    were filed by two jobs in two worktrees, each before the other's push
+    reached it. A book matching books alone is left to puzzle_integrity.
+    Returns [(book id, original id)]."""
+    done = []
+    for a, b, *_ in clue_index().pairs():
+        if is_book(a) != is_book(b):
+            book, original = (a, b) if is_book(a) else (b, a)
+            if book not in {d[0] for d in done}:
+                supersede_book(book, original)
+                done.append((book, original))
+    return done
+
+
 def fetch_number(num, series="cryptic"):
     data = extract_crossword_data(fetch_page(num, series))
     check_served(num, data, series)
@@ -3185,6 +3204,10 @@ def main(argv):
         return 0
     if argv[0] == "--refresh-unsolved":
         refresh_unsolved()
+        return 0
+    if argv[0] == "--supersede-books":
+        done = supersede_held_books()
+        print(f"{len(done)} book file(s) turned into readings of the newspaper puzzle they reprint")
         return 0
     if argv[0] == "--backfill":
         count = int(argv[1]) if len(argv) > 1 else 30

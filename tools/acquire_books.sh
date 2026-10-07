@@ -101,6 +101,14 @@ publish() {  # publish <subject>
 # which yields it the moment he games); OCR_REMOTE= keeps them here.
 export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 
+# A book leaf filed here and the newspaper puzzle it reprints, filed by another
+# job before either push reached the other, met in no write: each becomes a
+# reading of the newspaper puzzle now that this tree holds both.
+python3 tools/fetch_puzzle.py --supersede-books ||
+  fail "fetch_puzzle.py --supersede-books exited $?; its traceback is above"
+publish "Book reprints of held newspaper puzzles kept as readings" ||
+  fail "could not push the superseded book files"
+
 # BORROW: up to BORROWS_PER_RUN books' text onto disk, each loan returned as
 # soon as its pages are read (minutes). Only the text needs a loan; the read
 # below takes it from disk. The first refusal ends the borrowing.
