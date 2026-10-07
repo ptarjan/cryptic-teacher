@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,59 @@
     "text": "People a priest's about to have sex with",
     "enumeration": "8"
    },
-   "solution": "COPULATE"
+   "solution": "COPULATE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "COPULATE",
+    "definitions": [
+     {
+      "text": "to have sex with",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "'s about",
+      "for": "substitution",
+      "note": "'is about' here means one letter now stands as the abbreviation for circa, so it is swapped for that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People",
+      "gives": "POPULATE",
+      "note": "to people a place is to populate it"
+     },
+     {
+      "clueFragment": "a priest",
+      "gives": "P",
+      "note": "P is an abbreviation for priest; 'a' says just one of the two Ps changes"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. (circa) means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OPULATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric is about to be intimate with members of his flock: a scandal in the making.",
+     "walkthrough": "The verb POPULATE has its first P (priest) replaced by C (about), giving COPULATE.",
+     "definitionFit": "Copulating is the formal word for sexual intercourse, so it replaces the phrase in a sentence such as 'they copulate with'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "People"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +102,63 @@
     "text": "Perhaps 8 ball initially caught by its player's equipment",
     "enumeration": "4"
    },
-   "solution": "CUBE"
+   "solution": "CUBE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "CUBE",
+    "definitions": [
+     {
+      "text": "Perhaps 8",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter is taken"
+     },
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "being caught by something means being held in it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "its player's equipment",
+      "gives": "CUE",
+      "note": "a snooker or pool player uses a cue"
+     },
+     {
+      "clueFragment": "ball",
+      "gives": "B",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "B",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The 8-ball at pool, struck first by a cue.",
+     "walkthrough": "8 is not a cross-reference here: it is the number, the cube of 2. The surface makes it look like the black 8-ball in pool.",
+     "definitionFit": "Eight is two multiplied by itself three times, so it is an example of a cube number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "8"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +172,47 @@
     "text": "Summit talk starts late",
     "enumeration": "4"
    },
-   "solution": "PEAK"
+   "solution": "PEAK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PEAK",
+    "definitions": [
+     {
+      "text": "Summit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts late",
+      "for": "deletion",
+      "note": "starting late means missing the opening, so the first letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "talk",
+      "gives": "SPEAK",
+      "note": "speak means talk"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "Discussions at a summit meeting get under way behind schedule.",
+     "definitionFit": "A peak is the highest point of a mountain, just as a summit is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Summit"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,49 @@
     "text": "Wine producer learnt glut ends once regular characters leave",
     "enumeration": "9"
    },
-   "solution": "LANGUEDOC"
+   "solution": "LANGUEDOC",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "LANGUEDOC",
+    "definitions": [
+     {
+      "text": "Wine producer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "once regular characters leave",
+      "for": "letter_selection",
+      "note": "regular characters leaving means every other letter departs, keeping the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "learnt glut ends",
+      "gives": "LANGUEDOC",
+      "select": "alternate",
+      "note": "the odd-placed letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LANGUEDOC"
+     ]
+    },
+    "explanation": {
+     "surface": "A wine region learnt its glut ended once regular workers left.",
+     "walkthrough": "The Languedoc is a large wine-making region in southern France, so 'producer' is a place, not a person.",
+     "definitionFit": "Languedoc is a region of southern France that produces a large share of the country's wine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "producer"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +282,61 @@
     "text": "Try to correct call in parliament supporting transitive monetary units",
     "enumeration": "12"
    },
-   "solution": "TROUBLESHOOT"
+   "solution": "TROUBLESHOOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TROUBLESHOOT",
+    "definitions": [
+     {
+      "text": "Try to correct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, supporting means standing underneath, so the owl's call is placed below the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "transitive",
+      "gives": "T",
+      "note": "T is a dictionary abbreviation for transitive"
+     },
+     {
+      "clueFragment": "monetary units",
+      "gives": "ROUBLES",
+      "note": "the rouble is the Russian currency"
+     },
+     {
+      "clueFragment": "call in parliament",
+      "gives": "HOOT",
+      "note": "a parliament is the collective noun for owls, whose call is a hoot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLES",
+      "HOOT"
+     ]
+    },
+    "explanation": {
+     "surface": "An MP tries to correct a ruling about money with a shout in the chamber.",
+     "walkthrough": "Parliament is not Westminster but a group of owls. In a down clue 'supporting' puts the owl's call beneath the rest.",
+     "definitionFit": "To troubleshoot is to trace and fix faults, so it means to try to put something right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parliament"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +356,66 @@
      }
     ]
    },
-   "solution": "HOOHAH"
+   "solution": "HOOHAH",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "HOO-HAH",
+    "definitions": [
+     {
+      "text": "excitement",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finding husbands for",
+      "for": "substitution",
+      "note": "finding one thing for another means putting it in the other's place throughout"
+     }
+    ],
+    "linkWords": [
+     "creates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gadget",
+      "gives": "DOODAD",
+      "note": "a doodad is a gadget or gizmo"
+     },
+     {
+      "clueFragment": "husbands",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "daughters",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OO",
+      "H",
+      "A",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A dating gadget that pairs daughters with husbands causes a stir in the family.",
+     "walkthrough": "Every D of DOODAD becomes H, giving HOOHAH.",
+     "definitionFit": "A hoo-hah is a fuss or commotion, a slangy word for a burst of excited agitation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "husbands"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +429,49 @@
     "text": "After goalless draw the man had sounded pleased",
     "enumeration": "5"
    },
-   "solution": "OOHED"
+   "solution": "OOHED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OOHED",
+    "definitions": [
+     {
+      "text": "sounded pleased",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goalless draw",
+      "gives": "OO",
+      "note": "a goalless draw is 0-0"
+     },
+     {
+      "clueFragment": "the man had",
+      "gives": "HED",
+      "note": "he'd is the contraction of 'he had'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OO",
+      "HED"
+     ]
+    },
+    "explanation": {
+     "surface": "After a goalless draw, a fan seemed pleased with the result.",
+     "definitionFit": "To ooh is to make an exclamation of delight or admiration, so oohed means voiced pleasure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +485,71 @@
     "text": "Complicated case of herpes, so I ran it past experts",
     "enumeration": "10"
    },
-   "solution": "HISTORIANS"
+   "solution": "HISTORIANS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HISTORIANS",
+    "definitions": [
+     {
+      "text": "past experts",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Complicated",
+      "for": "anagram",
+      "note": "something complicated is tangled, so the letters are mixed into a new order"
+     },
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is an outer shell, so only the outside letters are kept"
+     }
+    ],
+    "linkWords": [
+     "it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "herpes",
+      "gives": "HS",
+      "select": "outer",
+      "note": "the outer letters"
+     },
+     {
+      "clueFragment": "so I ran",
+      "gives": "SOIRAN",
+      "note": "taken letter for letter"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HSSOIRANIT",
+       "gives": "HISTORIANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tricky case of herpes, so I put it before the experts.",
+     "definitionFit": "Historians are scholars of what has gone before, so they are experts on the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Complicated"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +569,71 @@
      }
     ]
    },
-   "solution": "HALTERNECK"
+   "solution": "HALTERNECK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "HALTER NECK",
+    "definitions": [
+     {
+      "text": "top line",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Seconds away from",
+      "for": "deletion",
+      "note": "the second letters are taken away, leaving the rest of each word"
+     },
+     {
+      "text": "cutting",
+      "for": "container",
+      "note": "something cutting into another goes inside it"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "late run",
+      "gives": "LTERN",
+      "note": "late and run without their second letters"
+     },
+     {
+      "clueFragment": "Echo",
+      "gives": "E",
+      "note": "Echo is E in the NATO alphabet"
+     },
+     {
+      "clueFragment": "journalist's",
+      "gives": "HACK",
+      "note": "a hack is a journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "LTERNE",
+      "CK"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter hurries in late with a headline story for the front page.",
+     "walkthrough": "Seconds means the second letter of each word, not time. The resulting run goes between the A and C of the journalist.",
+     "definitionFit": "A halterneck is a style of women's top with a strap round the neck, so the phrase names a neckline for a top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Seconds"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +647,48 @@
     "text": "One's clever gift of lingerie?",
     "enumeration": "8"
    },
-   "solution": "BRAINBOX"
+   "solution": "BRAINBOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAINBOX",
+    "definitions": [
+     {
+      "text": "One's clever",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lingerie",
+      "gives": "BRA",
+      "note": "a bra is an item of lingerie"
+     },
+     {
+      "clueFragment": "gift of",
+      "gives": "INBOX",
+      "note": "a gift comes wrapped up in a box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRA",
+      "INBOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxed present of underwear for someone bright.",
+     "walkthrough": "The question mark flags the whimsy: a present of lingerie would be a bra in a box, and those words run together name a clever person.",
+     "definitionFit": "A brainbox is informal British slang for an intelligent person, so the noun stands for a person who is clever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lingerie"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +702,68 @@
     "text": "Charlie periodically sleeps with recurrent cheat",
     "enumeration": "6"
    },
-   "solution": "CHISEL"
+   "solution": "CHISEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "CHISEL",
+    "definitions": [
+     {
+      "text": "cheat",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "something done periodically happens at regular intervals, so every other letter is kept"
+     },
+     {
+      "text": "recurrent",
+      "for": "reversal",
+      "note": "recurrent is read as running back, so the kept letters are taken in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Charlie",
+      "gives": "C",
+      "note": "Charlie is C in the NATO alphabet"
+     },
+     {
+      "clueFragment": "sleeps with",
+      "gives": "LESIH",
+      "select": "alternate",
+      "note": "the even-placed letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HISEL"
+     ],
+     "reversals": [
+      {
+       "from": "LESIH",
+       "to": "HISEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Charlie is a serial adulterer, a cheat who keeps sleeping around.",
+     "walkthrough": "The even letters of 'sleeps with' read backwards give HISEL, after C.",
+     "definitionFit": "To chisel is informal for to swindle, so it means to cheat someone out of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recurrent"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +777,38 @@
     "text": "Listing Roger and Stacy exposed to me?",
     "enumeration": "12"
    },
-   "solution": "CATEGORISING"
+   "solution": "CATEGORISING",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CATEGORISING",
+    "definitions": [
+     {
+      "text": "Listing",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roger and Stacy exposed to me?",
+      "note": "surface reading: two named people revealed to the speaker"
+     },
+     {
+      "clueFragment": "Listing",
+      "note": "setter's reading: sorting things into groups, as names are filed under headings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Stripped of outer letters, Stacy and Roger leave TAC and OGE, which read backwards start the answer; the ending may be I (me) plus SING (expose), but the clue gives no clear indicators.",
+     "definitionFit": "Categorising is sorting items into classes, which is what drawing up a list under headings does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exposed"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +828,53 @@
      }
     ]
    },
-   "solution": "CUPBOARDLOVE"
+   "solution": "CUPBOARDLOVE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CUPBOARD-LOVE",
+    "definitions": [
+     {
+      "text": "cynical show of affection",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Deviously",
+      "for": "anagram",
+      "note": "doing something deviously means by a twisted route, so the letters are arranged crookedly"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover up a bold",
+      "gives": "COVERUPABOLD",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COVERUPABOLD",
+       "gives": "CUPBOARDLOVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone slyly hides a brazen act, and a cynical display of affection follows.",
+     "definitionFit": "Cupboard love is affection shown only for what one can get, like a pet fawning on whoever opens the food cupboard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Deviously"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +888,72 @@
     "text": "Assumption American puritan somehow will take over",
     "enumeration": "10"
    },
-   "solution": "USURPATION"
+   "solution": "USURPATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "anagram"
+    ],
+    "answer": "USURPATION",
+    "definitions": [
+     {
+      "text": "Assumption",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will take",
+      "for": "container",
+      "note": "taking something in means holding it among the other letters"
+     },
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow says the letters arrive by some unspecified rearrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is the abbreviation for American"
+     },
+     {
+      "clueFragment": "puritan",
+      "gives": "PURITAN",
+      "note": "the fodder"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorer's abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "URPATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PURITANO",
+       "gives": "URPATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American puritan will somehow assume control.",
+     "walkthrough": "An over is a set of six balls in cricket, written O on scorecards.",
+     "definitionFit": "Usurpation is the seizing of power, which is an assumption of a role in the sense of taking it on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Assumption"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +967,42 @@
     "text": "Prepares terms",
     "enumeration": "10"
    },
-   "solution": "CONDITIONS"
+   "solution": "CONDITIONS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONDITIONS",
+    "definitions": [
+     {
+      "text": "Prepares",
+      "at": 0
+     },
+     {
+      "text": "terms",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prepares",
+      "note": "first meaning: gets ready, as an athlete or hair is conditioned"
+     },
+     {
+      "clueFragment": "terms",
+      "note": "second meaning: stipulations of an agreement"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "One word read as a verb and then as a plural noun.",
+     "definitionFit": "To condition is to train or get ready, and conditions are the provisos laid down in a contract."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Prepares"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1016,49 @@
     "text": "One has a point about key arguments",
     "enumeration": "5"
    },
-   "solution": "SWORD"
+   "solution": "SWORD",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "SWORD",
+    "definitions": [
+     {
+      "text": "One has a point",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "cycling",
+      "note": "about suggests going round, so the last letter is brought round to the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key arguments",
+      "gives": "WORDS",
+      "note": "to have words is to argue; key words are the telling ones in a quarrel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWORD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone making a point about the central arguments in a debate.",
+     "walkthrough": "Moving the final S of WORDS to the front gives SWORD; 'One has a point' is a cryptic description of a sharp blade.",
+     "definitionFit": "A sword is a bladed weapon with a sharp tip, so it is literally a thing that has a point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1072,66 @@
     "text": "Plan currency in European country after leader is deposed",
     "enumeration": "9"
    },
-   "solution": "ELEVATION"
+   "solution": "ELEVATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "container"
+    ],
+    "answer": "ELEVATION",
+    "definitions": [
+     {
+      "text": "Plan",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the currency inside the following words"
+     },
+     {
+      "text": "after leader is deposed",
+      "for": "deletion",
+      "note": "a leader deposed is the head removed, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "currency",
+      "gives": "LEV",
+      "note": "the lev is the Bulgarian currency"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "ATION",
+      "note": "nation without its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEV",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A plan to introduce a currency in a European country once its leader has been toppled.",
+     "definitionFit": "In architecture an elevation is a drawing of one face of a building, a kind of plan."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plan"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1145,74 @@
     "text": "He used to think she serves coffee naked to upset the French",
     "enumeration": "9"
    },
-   "solution": "ARISTOTLE"
+   "solution": "ARISTOTLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARISTOTLE",
+    "definitions": [
+     {
+      "text": "He used to think",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "naked",
+      "for": "deletion",
+      "note": "naked means stripped, so the outer letters are removed"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so read upward"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "she serves coffee",
+      "gives": "BARISTA",
+      "note": "a barista serves coffee"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARIST",
+      "OT",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A coffee-shop worker strips off to annoy French customers.",
+     "walkthrough": "He used to think is a past thinker, the Greek philosopher. Only 'to' is upset; the article follows unchanged.",
+     "definitionFit": "Aristotle was an ancient Greek philosopher, a man whose thinking is long in the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "think"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1226,70 @@
     "text": "Life force essentially supported by awfully acrid vegetable",
     "enumeration": "9"
    },
-   "solution": "RADICCHIO"
+   "solution": "RADICCHIO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RADICCHIO",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "awfully suggests something done badly, so the letters come out in a mangled order"
+     }
+    ],
+    "linkWords": [
+     "supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acrid",
+      "gives": "RADIC",
+      "note": "the fodder for the anagram"
+     },
+     {
+      "clueFragment": "Life force",
+      "gives": "CHI",
+      "note": "chi (or qi) is the vital energy in Chinese philosophy"
+     },
+     {
+      "clueFragment": "essentially",
+      "gives": "O",
+      "note": "apparently a lone circle, as the core of the matter; this reading is uncertain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RADIC",
+      "CHI",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACRID",
+       "gives": "RADIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vital essence needs propping up by a horribly bitter vegetable.",
+     "walkthrough": "The word for life force sits after the rearranged fodder; the clue leaves the final O unclear, and 'essentially' is the likeliest source of it.",
+     "definitionFit": "Radicchio is a red-leaved Italian chicory, eaten as a bitter salad vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "force"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1303,42 @@
     "text": "Mention I construct housing of Greek style",
     "enumeration": "5"
    },
-   "solution": "IONIC"
+   "solution": "IONIC",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IONIC",
+    "definitions": [
+     {
+      "text": "of Greek style",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "hidden_word",
+      "note": "housing means holding inside, so the run of letters is lodged within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mention I construct",
+      "gives": "IONIC",
+      "note": "lettered across the end of the first word, the next word, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone says they'll build a house in the Greek manner.",
+     "definitionFit": "Ionic is one of the classical orders of Greek architecture, marked by scroll-shaped capitals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1352,52 @@
     "text": "Solarists got confused with these?",
     "enumeration": "12"
    },
-   "solution": "ASTROLOGISTS"
+   "solution": "ASTROLOGISTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "ASTROLOGISTS",
+    "definitions": [
+     {
+      "text": "Solarists got confused with these?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused letters are mixed up, so they must be put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solarists got",
+      "gives": "SOLARISTSGOT",
+      "note": "the fodder, every letter used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOLARISTSGOT",
+       "gives": "ASTROLOGISTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sun-worshippers are easily mistaken for those who read the stars.",
+     "walkthrough": "The whole clue is both wordplay and definition: people who believe the sun's position shapes lives might well be mixed up with star-readers.",
+     "definitionFit": "Astrologers study the sun's and planets' positions, so sun-focused believers are easily confused with them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Solarists"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1411,55 @@
     "text": "Perhaps boxer cycles against pianist and composer",
     "enumeration": "5"
    },
-   "solution": "OGDON"
+   "solution": "OGDON",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "OGDON",
+    "definitions": [
+     {
+      "text": "pianist and composer",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycles",
+      "for": "cycling",
+      "note": "cycling means going round, so the first letter moves to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps boxer",
+      "gives": "DOG",
+      "note": "a boxer is a breed of dog"
+     },
+     {
+      "clueFragment": "against",
+      "gives": "ON",
+      "note": "leaning against something is leaning on it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OGD",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer rides a bike in opposition to a musician.",
+     "walkthrough": "Boxer is a dog breed, not a fighter. John Ogdon was a British concert pianist who also composed.",
+     "definitionFit": "John Ogdon won the 1962 Tchaikovsky Competition and wrote music himself, making him both a performer and a composer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boxer"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1473,65 @@
     "text": "Retired judge providing island country",
     "enumeration": "4"
    },
-   "solution": "FIJI"
+   "solution": "FIJI",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "FIJI",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retired",
+      "for": "reversal",
+      "note": "retired means drawn back, so the letters go in reverse order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     },
+     {
+      "clueFragment": "providing",
+      "gives": "IF",
+      "note": "providing means on condition that, which is if"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIJ",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "JIF",
+       "to": "FIJ"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired judge supplies an island nation, perhaps to settle there.",
+     "definitionFit": "Fiji is a sovereign Pacific nation made up of islands, so it is a country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Retired"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1545,49 @@
     "text": "Singular example of game",
     "enumeration": "4"
    },
-   "solution": "STAG"
+   "solution": "STAG",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "STAG",
+    "definitions": [
+     {
+      "text": "Singular example of game",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singular",
+      "gives": "S",
+      "note": "S is the abbreviation for singular"
+     },
+     {
+      "clueFragment": "example of game",
+      "gives": "TAG",
+      "note": "tag is a children's chasing game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TAG"
+     ]
+    },
+    "explanation": {
+     "surface": "A single instance of a game.",
+     "walkthrough": "Read whole, the clue also defines: a male deer is a single beast hunted as game.",
+     "definitionFit": "A stag is a male deer, and deer are hunted as game, so one stag is an instance of game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1601,45 @@
     "text": "Part of opera was created earlier we hear",
     "enumeration": "6"
    },
-   "solution": "ISOLDE"
+   "solution": "ISOLDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ISOLDE",
+    "definitions": [
+     {
+      "text": "Part of opera",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear means the sound of the words matters, not their spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "was created earlier",
+      "gives": "ISOLDE",
+      "soundsLike": "IS OLD",
+      "note": "anything created earlier is old"
+     }
+    ],
+    "explanation": {
+     "surface": "A section of an opera was written before the rest, apparently.",
+     "walkthrough": "Part here means a role: Isolde is the heroine of Wagner's Tristan und Isolde.",
+     "definitionFit": "A part in an opera is a singing role, and Isolde is the soprano role in Wagner's opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Part"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1653,49 @@
     "text": "Precinct detective following rules to the letter",
     "enumeration": "8"
    },
-   "solution": "DISTRICT"
+   "solution": "DISTRICT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISTRICT",
+    "definitions": [
+     {
+      "text": "Precinct",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "following"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "DI",
+      "note": "DI is Detective Inspector"
+     },
+     {
+      "clueFragment": "rules to the letter",
+      "gives": "STRICT",
+      "note": "strict rules are applied exactly as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STRICT"
+     ]
+    },
+    "explanation": {
+     "surface": "A police precinct where a detective goes strictly by the book.",
+     "definitionFit": "A precinct is an administrative area of a city, the same idea as a district."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Precinct"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1709,73 @@
     "text": "Rounded projection numbers reversing national insurance guarantees primarily",
     "enumeration": "6"
    },
-   "solution": "NOSING"
+   "solution": "NOSING",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "NOSING",
+    "definitions": [
+     {
+      "text": "Rounded projection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means running backwards, so the abbreviation is turned round"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "numbers",
+      "gives": "NOS",
+      "note": "nos is the abbreviation for numbers"
+     },
+     {
+      "clueFragment": "national insurance",
+      "gives": "NI",
+      "note": "NI is the standard abbreviation for National Insurance, the UK social-security contribution"
+     },
+     {
+      "clueFragment": "guarantees",
+      "gives": "G",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "IN",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "NI",
+       "to": "IN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report on how statistics for social-security contributions secure guarantees.",
+     "definitionFit": "A nosing is the rounded edge of a stair tread that juts out over the riser."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "projection"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1789,72 @@
     "text": "A diver abandoned by bachelor in Grand at one",
     "enumeration": "8"
    },
-   "solution": "AGREEING"
+   "solution": "AGREEING",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AGREEING",
+    "definitions": [
+     {
+      "text": "at one",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned by",
+      "for": "deletion",
+      "note": "to be abandoned by someone is to lose them, so that letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "diver",
+      "gives": "GREBE",
+      "note": "the grebe is a diving water bird"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "B",
+      "note": "B is the abbreviation for bachelor"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Grand",
+      "gives": "G",
+      "note": "G is short for grand, a thousand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GREE",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A diver left behind by a single man in a grand hotel, at one with the world.",
+     "walkthrough": "In crosswords 'diver' is often a bird, here the grebe; a G is a grand, a thousand pounds.",
+     "definitionFit": "To be at one is to be in harmony, the same as agreeing with someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diver"
+    }
+   }
   }
  ]
 }
