@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,71 @@
     "text": "Due to conflict over the middle of the Red Sea ahead",
     "enumeration": "8"
    },
-   "solution": "FORWARDS"
+   "solution": "FORWARDS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FORWARDS",
+    "definitions": [
+     {
+      "text": "ahead",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of a word is its central letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Due to",
+      "gives": "FOR",
+      "note": "for can mean because of, as in 'for that reason'"
+     },
+     {
+      "clueFragment": "conflict",
+      "gives": "WAR",
+      "note": "a war is an armed conflict"
+     },
+     {
+      "clueFragment": "Red",
+      "gives": "D",
+      "select": "middle",
+      "note": "the central letter of Red"
+     },
+     {
+      "clueFragment": "Sea",
+      "gives": "S",
+      "note": "S is the abbreviation for sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "WAR",
+      "D",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Because of fighting in the Red Sea region, a ship presses on.",
+     "walkthrough": "In a down clue 'over' means placed above, so the conflict goes before the letter from Red.",
+     "definitionFit": "Moving in the direction one faces is going onward, toward the front."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Red"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +114,47 @@
     "text": "Tough end cut off vegetable",
     "enumeration": "4"
    },
-   "solution": "HARD"
+   "solution": "HARD",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HARD",
+    "definitions": [
+     {
+      "text": "Tough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end cut off",
+      "for": "deletion",
+      "note": "cutting off an end removes a letter from one extremity, here the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vegetable",
+      "gives": "CHARD",
+      "note": "chard is a leafy vegetable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook trims the stringy end off a tough vegetable.",
+     "definitionFit": "Firm, resistant to pressure, difficult to chew or break are all senses of the adjective."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tough"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,55 @@
     "text": "Contemptible but delectable, showing no resistance",
     "enumeration": "6"
    },
-   "solution": "SCUMMY"
+   "solution": "SCUMMY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCUMMY",
+    "definitions": [
+     {
+      "text": "Contemptible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "showing no",
+      "for": "deletion",
+      "note": "showing no of something means that thing is absent, so its letter is taken out"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "delectable",
+      "gives": "SCRUMMY",
+      "note": "scrummy is British informal for delicious"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the physics symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCUMMY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something despicable yet delicious, offering no resistance.",
+     "definitionFit": "Being worthless, low and despicable is like being covered in filthy surface froth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +230,52 @@
     "text": "Pursue aliens: ask ‘even this is futile?’",
     "enumeration": "7"
    },
-   "solution": "USELESS"
+   "solution": "USELESS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "USELESS",
+    "definitions": [
+     {
+      "text": "futile",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "even",
+      "for": "letter_selection",
+      "note": "even picks out the letters at even positions, the second, fourth and so on"
+     }
+    ],
+    "linkWords": [
+     "this is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pursue aliens: ask",
+      "gives": "USELESS",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USELESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether chasing extraterrestrials is pointless.",
+     "walkthrough": "'Even' reads like 'even this', a shrug, but it selects letters at even positions.",
+     "definitionFit": "Something futile achieves nothing, serving no purpose at all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +299,52 @@
      }
     ]
    },
-   "solution": "ISTHATSO"
+   "solution": "ISTHATSO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IS THAT SO",
+    "definitions": [
+     {
+      "text": "Really",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "minced",
+      "for": "anagram",
+      "note": "mincing chops something up finely, so these letters are cut up and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "its oaths",
+      "gives": "ITSOATHS",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSOATHS",
+       "gives": "ISTHATSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone truly softened their swearing, using minced oaths.",
+     "walkthrough": "A minced oath is a softened curse such as 'gosh'; here 'minced' is the scrambling signal.",
+     "definitionFit": "Said as an exclamation of surprise or doubt, 'Really?' and this phrase are interchangeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "minced"
+    }
+   }
   },
   {
    "number": 6,
@@ -119,7 +364,64 @@
      }
     ]
    },
-   "solution": "DAMSONWINE"
+   "solution": "DAMSONWINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DAMSON WINE",
+    "definitions": [
+     {
+      "text": "rustic drink",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rings",
+      "for": "container",
+      "note": "to ring something is to encircle it, so one piece wraps round the rest"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman",
+      "gives": "DAME",
+      "note": "a dame is a woman"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a boy"
+     },
+     {
+      "clueFragment": "collect",
+      "gives": "WIN",
+      "note": "to collect a prize is to win it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAM",
+      "SON",
+      "WIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman phones her son to pick up some country drink.",
+     "definitionFit": "A homemade country wine from small dark plums is a traditional rural tipple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 7,
@@ -133,7 +435,51 @@
     "text": "Leaders of hominids, usually making a nuisance somewhere?",
     "enumeration": "6"
    },
-   "solution": "HUMANS"
+   "solution": "HUMANS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "HUMANS",
+    "definitions": [
+     {
+      "text": "Leaders of hominids, usually making a nuisance somewhere?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Leaders of",
+      "for": "letter_selection",
+      "note": "the leaders of a set of words are their opening letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hominids, usually making a nuisance somewhere",
+      "gives": "HUMANS",
+      "select": "first",
+      "note": "the first letter of each of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUMANS"
+     ]
+    },
+    "explanation": {
+     "surface": "The top members of a primate family are always being a pest somewhere.",
+     "walkthrough": "The whole clue doubles as a wry description: we are the hominid line, and a nuisance wherever we go.",
+     "definitionFit": "People are the leading hominids, and the question mark admits the cheeky claim that we are pests everywhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Leaders"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +493,65 @@
     "text": "Leaders of first revolution in crash …",
     "enumeration": "8"
    },
-   "solution": "MONARCHS"
+   "solution": "MONARCHS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MONARCHS",
+    "definitions": [
+     {
+      "text": "Leaders",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolution",
+      "for": "anagram",
+      "note": "a revolution turns things over, so the letters of the next word are spun into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first",
+      "gives": "MON",
+      "note": "Monday, the first day of the week, abbreviated; it starts the chain of days that the across clues' 'next' follows"
+     },
+     {
+      "clueFragment": "crash",
+      "gives": "CRASH",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "ARCHS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRASH",
+       "gives": "ARCHS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The heads of the first uprising are caught up in a collapse.",
+     "walkthrough": "This clue opens a running theme: in the across clues each 'next' is the following day of the week, starting from MON here, then TUE, WED and so on, wrapping round twice.",
+     "definitionFit": "Kings and queens are rulers of their realms, so they are national leaders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 9,
@@ -161,7 +565,53 @@
     "text": "… way before next bust, perhaps …",
     "enumeration": "6"
    },
-   "solution": "STATUE"
+   "solution": "STATUE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STATUE",
+    "definitions": [
+     {
+      "text": "bust, perhaps",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "A",
+      "note": "A is short for ante, Latin for before"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "TUE",
+      "note": "the day after Monday from the previous clue, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "A",
+      "TUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A road comes ahead of the next collapse, continuing the dotted chain of clues.",
+     "walkthrough": "'Before' looks like a positional word but supplies its own letter, A for ante; 'next' is Tuesday, following MON in 8 across.",
+     "definitionFit": "A bust is a sculpted head and shoulders, one kind of carved figure or sculpture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 10,
@@ -175,7 +625,49 @@
     "text": "… fearful of acting next",
     "enumeration": "4"
    },
-   "solution": "AWED"
+   "solution": "AWED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWED",
+    "definitions": [
+     {
+      "text": "fearful",
+      "at": 2
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acting",
+      "gives": "A",
+      "note": "A is a standard abbreviation for acting, as in a job title"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "WED",
+      "note": "the day after Tuesday from the previous clue, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is nervous about going on stage next.",
+     "definitionFit": "To be struck with wonder mixed with dread is to feel reverential fear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 11,
@@ -189,7 +681,67 @@
     "text": "Critical of population growth: wild animals taking over next",
     "enumeration": "10"
    },
-   "solution": "MALTHUSIAN"
+   "solution": "MALTHUSIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MALTHUSIAN",
+    "definitions": [
+     {
+      "text": "Critical of population growth",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild suggests running out of control, so the letters of the following word are scrambled"
+     },
+     {
+      "text": "taking over",
+      "for": "container",
+      "note": "to take something over is to hold it within, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animals",
+      "gives": "ANIMALS",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "THU",
+      "note": "the day after Wednesday from the previous clue, abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAL",
+      "THU",
+      "SIAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANIMALS",
+       "gives": "MALSIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that untamed beasts are overrunning things, as population booms.",
+     "walkthrough": "Thomas Malthus argued that population growth would outrun the food supply; his followers and ideas take his name.",
+     "definitionFit": "The adjective describes the economist Thomas Malthus's gloomy view that unchecked human numbers outstrip resources."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +755,49 @@
     "text": "Next target for the ambitious and spirited",
     "enumeration": "6"
    },
-   "solution": "FRISKY"
+   "solution": "FRISKY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRISKY",
+    "definitions": [
+     {
+      "text": "spirited",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Next",
+      "gives": "FRI",
+      "note": "the day after Thursday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "target for the ambitious",
+      "gives": "SKY",
+      "note": "the ambitious aim for the sky, which is proverbially the limit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRI",
+      "SKY"
+     ]
+    },
+    "explanation": {
+     "surface": "The next goal for go-getters with plenty of drive.",
+     "definitionFit": "Lively, playful and full of energy are all ways of saying high-spirited."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "target"
+    }
+   }
   },
   {
    "number": 13,
@@ -223,7 +817,50 @@
      }
     ]
    },
-   "solution": "SINGINGOUT"
+   "solution": "SINGINGOUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SINGING OUT",
+    "definitions": [
+     {
+      "text": "bawling",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Badly",
+      "for": "anagram",
+      "note": "badly suggests things done wrongly, so the letters are jumbled into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stung, I go in",
+      "gives": "STUNGIGOIN",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STUNGIGOIN",
+       "gives": "SINGINGOUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Painfully stung, someone goes indoors howling.",
+     "definitionFit": "Calling or shouting loudly is a way of crying out at full volume."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stung"
+    }
+   }
   },
   {
    "number": 14,
@@ -237,7 +874,60 @@
     "text": "Next heretical saint, Lucifer’s follower",
     "enumeration": "8"
    },
-   "solution": "SATANIST"
+   "solution": "SATANIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SATANIST",
+    "definitions": [
+     {
+      "text": "Lucifer’s follower",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heretical",
+      "for": "anagram",
+      "note": "a heretical view departs from the accepted order, so the word that follows is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Next",
+      "gives": "SAT",
+      "note": "the day after Friday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "SAINT",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "ANIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAINT",
+       "gives": "ANIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holy figure gone heretical turns into a devotee of the devil.",
+     "definitionFit": "Lucifer is another name for the devil, and one who worships the devil is a devotee of him."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "saint"
+    }
+   }
   },
   {
    "number": 15,
@@ -251,7 +941,77 @@
     "text": "After start of assembly, next socialist moving to Left separately",
     "enumeration": "7"
    },
-   "solution": "ASUNDER"
+   "solution": "ASUNDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ASUNDER",
+    "definitions": [
+     {
+      "text": "separately",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "moving to Left",
+      "for": "reversal",
+      "note": "in an across clue moving leftwards means reading the word from right to left"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "assembly",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of assembly"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "SUN",
+      "note": "the day after Saturday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "socialist",
+      "gives": "RED",
+      "note": "a red is a socialist or communist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SUN",
+      "DER"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "At a meeting, a left-winger drifts further left and the group splits.",
+     "walkthrough": "'After' puts the assembly letter first, ahead of the rest.",
+     "definitionFit": "To be torn apart into pieces means things now stand apart from one another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "assembly"
+    }
+   }
   },
   {
    "number": 16,
@@ -265,7 +1025,79 @@
     "text": "Rejoicing in extravagance, raised by parent, ultimately a six-footer",
     "enumeration": "8"
    },
-   "solution": "EXULTANT"
+   "solution": "EXULTANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EXULTANT",
+    "definitions": [
+     {
+      "text": "Rejoicing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue raising a word lifts it upward, so it reads bottom to top"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extravagance",
+      "gives": "LUXE",
+      "note": "luxe is luxury or lavishness"
+     },
+     {
+      "clueFragment": "parent",
+      "gives": "T",
+      "select": "last",
+      "note": "last letter of parent"
+     },
+     {
+      "clueFragment": "a six-footer",
+      "gives": "ANT",
+      "note": "an insect has six legs, and an ant is one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXUL",
+      "T",
+      "ANT"
+     ],
+     "reversals": [
+      {
+       "from": "LUXE",
+       "to": "EXUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tall child brought up in luxury is delighted.",
+     "walkthrough": "'Six-footer' suggests a tall person, but a footer here is a foot, and six feet means an insect.",
+     "definitionFit": "Being triumphantly joyful and jubilant is the same as rejoicing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 17,
@@ -279,7 +1111,59 @@
     "text": "Maintain surveillance over next terrible riot",
     "enumeration": "7"
    },
-   "solution": "MONITOR"
+   "solution": "MONITOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "MONITOR",
+    "definitions": [
+     {
+      "text": "Maintain surveillance over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "something terrible is a mess, so the letters of the following word are thrown into disorder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "next",
+      "gives": "MON",
+      "note": "the week wraps round: the day after Sunday is Monday, abbreviated"
+     },
+     {
+      "clueFragment": "riot",
+      "gives": "RIOT",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MON",
+      "ITOR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIOT",
+       "gives": "ITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police keep watch over the next dreadful disturbance.",
+     "definitionFit": "As a verb it means to keep watch on something continuously, checking its progress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1183,43 @@
      }
     ]
    },
-   "solution": "ONELINER"
+   "solution": "ONELINER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONE-LINER",
+    "definitions": [
+     {
+      "text": "A joke",
+      "at": 0
+     },
+     {
+      "text": "describing the Titanic, for example",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A joke",
+      "note": "first meaning: a quip delivered in a single sentence"
+     },
+     {
+      "clueFragment": "describing the Titanic, for example",
+      "note": "second meaning: the Titanic was a single ocean liner"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read as two words, the phrase simply describes the ship: it was one passenger liner.",
+     "definitionFit": "A short quip told in one line is a stock comic form, while the ship was a single passenger vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Titanic"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1233,72 @@
     "text": "Station on the Oxted line where one second is painful, time slipping away",
     "enumeration": "7"
    },
-   "solution": "ASHURST"
+   "solution": "ASHURST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ASHURST",
+    "definitions": [
+     {
+      "text": "Station on the Oxted line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "slipping away",
+      "for": "anagram",
+      "note": "a letter slipping away drifts out of its place, so the word's order changes"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "is",
+     "time"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "painful",
+      "gives": "HURTS",
+      "note": "something that hurts is painful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "S",
+      "HURST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HURTS",
+       "gives": "HURST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A commuter's grumble about a station where a moment hurts while time ticks away.",
+     "walkthrough": "The time letter in the painful word slides to the end. Ashurst is a village station in Kent on a branch of the Oxted line south of London.",
+     "definitionFit": "It is a small railway stop served by Southern trains on the route through Oxted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "slipping"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1312,70 @@
     "text": "Patrons of hospital: Boatman (Boatman!) next to join society",
     "enumeration": "8"
    },
-   "solution": "HABITUES"
+   "solution": "HABITUES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HABITUES",
+    "definitions": [
+     {
+      "text": "Patrons",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of",
+     "to join"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map and sign abbreviation for hospital"
+     },
+     {
+      "clueFragment": "Boatman",
+      "gives": "AB",
+      "note": "an AB, able seaman, is a sailor, a boatman"
+     },
+     {
+      "clueFragment": "(Boatman!)",
+      "gives": "I",
+      "note": "Boatman is also the setter, who refers to himself as I"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "TUE",
+      "note": "the day after Monday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is a standard abbreviation for society"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AB",
+      "I",
+      "TUE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter, with comic insistence on his own name, joins the regulars at a hospital society.",
+     "walkthrough": "The name appears twice for two different letter groups: once as an ordinary sailor, once, with the exclamation, as the setter himself.",
+     "definitionFit": "Regular visitors to a place, such as a bar or club, are its habitual customers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Boatman"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1389,64 @@
     "text": "Gay porn stash discovered: they keep the blood flowing",
     "enumeration": "6"
    },
-   "solution": "AORTAS"
+   "solution": "AORTAS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AORTAS",
+    "definitions": [
+     {
+      "text": "they keep the blood flowing",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discovered",
+      "for": "letter_selection",
+      "note": "dis-covered words have lost their covers, the first and last letters of each"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gay",
+      "gives": "A",
+      "select": "middle",
+      "note": "Gay without its outer letters"
+     },
+     {
+      "clueFragment": "porn",
+      "gives": "OR",
+      "select": "middle",
+      "note": "porn without its outer letters"
+     },
+     {
+      "clueFragment": "stash",
+      "gives": "TAS",
+      "select": "middle",
+      "note": "stash without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "OR",
+      "TAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A hidden stash of racy material is found.",
+     "walkthrough": "'Discovered' seems to mean found, but read as dis-covered it strips each word's ends.",
+     "definitionFit": "These main arteries carry oxygenated blood from the heart round the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "discovered"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1460,53 @@
     "text": "Country’s next dash",
     "enumeration": "6"
    },
-   "solution": "SWEDEN"
+   "solution": "SWEDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEDEN",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "’s",
+      "gives": "S",
+      "note": "the possessive ending supplies its own letter"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "WED",
+      "note": "the day after Tuesday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "dash",
+      "gives": "EN",
+      "note": "an en is a short printer's dash, the en dash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WED",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation's next hurried move.",
+     "walkthrough": "The apostrophe-s looks like a possessive or 'is' joining definition to wordplay, but it gives a letter of its own.",
+     "definitionFit": "It is a Scandinavian kingdom, so it names a nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dash"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1520,46 @@
     "text": "People used to call for these to bear them, but some ceased answering",
     "enumeration": "6"
    },
-   "solution": "SEDANS"
+   "solution": "SEDANS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SEDANS",
+    "definitions": [
+     {
+      "text": "People used to call for these to bear them",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the following words is taken, a run of letters within them"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ceased answering",
+      "gives": "SEDANS",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Folk once summoned these to carry them, though some no longer reply.",
+     "walkthrough": "Sedan chairs were enclosed seats carried on poles by two bearers, hired like taxis in the 18th century.",
+     "definitionFit": "Sedan chairs were summoned in the street to carry passengers, so people once called for them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1579,76 @@
      }
     ]
    },
-   "solution": "BRIGHTHUED"
+   "solution": "BRIGHTHUED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BRIGHT-HUED",
+    "definitions": [
+     {
+      "text": "vividly coloured",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word it follows"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "an empty word has lost its contents, leaving only its outside letters"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boatman’s cell",
+      "gives": "BRIG",
+      "note": "a brig is a prison cell on a ship, fitting for a boatman"
+     },
+     {
+      "clueFragment": "harsh",
+      "gives": "H",
+      "select": "first",
+      "note": "first letter of harsh"
+     },
+     {
+      "clueFragment": "next",
+      "gives": "THU",
+      "note": "the day after Wednesday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "emerged",
+      "gives": "ED",
+      "select": "outer",
+      "note": "the outside letters of emerged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIG",
+      "H",
+      "THU",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter tells of leaving a harsh prison cell, coming out into a brightly coloured world.",
+     "definitionFit": "Having a brilliant hue means showing strong, intense colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "emerged"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1662,45 @@
     "text": "Next ton of material for glass",
     "enumeration": "4"
    },
-   "solution": "FRIT"
+   "solution": "FRIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FRIT",
+    "definitions": [
+     {
+      "text": "material for glass",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Next",
+      "gives": "FRI",
+      "note": "the day after Thursday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "ton",
+      "gives": "T",
+      "note": "T is the abbreviation for ton"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FRI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The next tonne of raw stuff for glassmaking.",
+     "definitionFit": "It is the calcined mixture of sand and fluxes fused to make glass or glaze."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1714,44 @@
     "text": "Report of having taken part in battles – here",
     "enumeration": "4"
    },
-   "solution": "FORT"
+   "solution": "FORT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FORT",
+    "definitions": [
+     {
+      "text": "here",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Report of",
+      "for": "homophone",
+      "note": "a report is something heard, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having taken part in battles",
+      "gives": "FORT",
+      "soundsLike": "FOUGHT",
+      "note": "having taken part in battles means having fought"
+     }
+    ],
+    "explanation": {
+     "surface": "An account of battles waged at this very spot.",
+     "walkthrough": "In non-rhotic British speech the two words sound identical. 'Here' points at the place where the battles were fought.",
+     "definitionFit": "A stronghold is a likely place where battles were waged, the location the clue points to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Report"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1765,52 @@
     "text": "A place in the heavens for next to win, say",
     "enumeration": "6"
    },
-   "solution": "SATURN"
+   "solution": "SATURN",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SATURN",
+    "definitions": [
+     {
+      "text": "A place in the heavens",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say signals that the words before it are to be heard, not spelt"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "next",
+      "gives": "SAT",
+      "note": "the day after Friday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "to win",
+      "gives": "URN",
+      "soundsLike": "EARN",
+      "note": "to win is to earn, and earn has the same sound as a vase for ashes"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone hopes to win a place in heaven next.",
+     "definitionFit": "It is a planet, a body occupying its own position in the night sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heavens"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1824,49 @@
     "text": "Odds and ends from next drains",
     "enumeration": "8"
    },
-   "solution": "SUNDRIES"
+   "solution": "SUNDRIES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNDRIES",
+    "definitions": [
+     {
+      "text": "Odds and ends",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "next",
+      "gives": "SUN",
+      "note": "the day after Saturday from the previous clue, abbreviated"
+     },
+     {
+      "clueFragment": "drains",
+      "gives": "DRIES",
+      "note": "to drain something of liquid is to dry it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DRIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Bits and pieces fished out of the next drains.",
+     "definitionFit": "Miscellaneous small items too minor to list separately are assorted bits and pieces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drains"
+    }
+   }
   }
  ]
 }
