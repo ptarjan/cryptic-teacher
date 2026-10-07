@@ -2,7 +2,7 @@
 # Do the keyed JSON data files merge per key in a real rebase?
 #
 # Two writers adding neighbouring rows to tools/data/corroboration_ledger.json
-# conflicted line by line, and the pre-reset burn stopped on it (2a0dbdc). This
+# conflicted line by line, and the pre-reset burn stopped on it (df69d72). This
 # rebases such a pair with the driver registered the way tools/nightly_worktree.sh
 # registers it, through .gitattributes as committed, and through the
 # merge-tree tools/push_puzzle_commit.sh pushes with.

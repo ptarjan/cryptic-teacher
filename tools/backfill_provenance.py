@@ -66,7 +66,7 @@ recording so nobody re-derives it.
 THE TEST THAT DOES NOT WORK: "were the answers in the file's first commit?"
 15,819 of 15,936 files were already full at their first commit, because fetch
 and solve both happen before anything is committed. Worse, of the 443 files we
-KNOW are not publisher keys, 440 pass that same test — one commit, 9dc627f,
+KNOW are not publisher keys, 440 pass that same test — one commit, 780bb7a,
 landed Guardian published-key puzzles and fifteensquared-sourced Cyclops
 answers together. The test has almost no discriminating power and must not be
 cited as evidence. (Per-file archaeology is also 0.86-1.2s a file, ~4 hours for
@@ -85,7 +85,7 @@ because the set of such code is small and its whole history is here:
     capture in which every entry already has one.
   * Only three routes produce an answer the publisher did not give, and all
     three mark it, each from its own first commit: apply_solution.py (model,
-    a858eb5, 2026-08-12), fetch_privateeye.py (fifteensquared, 8d11dfb,
+    a858eb5, 2026-08-12), fetch_privateeye.py (fifteensquared, b05856b,
     2026-09-17) and file_penguin_puzzle.py (model). apply_solution.py has also,
     from that same first commit, refused outright to touch a puzzle that
     already has answers — there was never a version of it that could leave a

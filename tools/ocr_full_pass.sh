@@ -84,10 +84,10 @@ export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 export OCR_THREADS="${OCR_THREADS:-1}"
 WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # Scan filer: the clue vote files counts, capitals, hyphens and words as
-# the readings print them and settles misread words on the lexicon (5b97ed5,
-# 0188ade), after the skewed-page clue line fix (fc9ff99) and the grid
-# lattice fit (e9b8d39), the scan's grid standing when no grid fits the
-# clues (f11b6c5), and a clue's run-on line opening on a STOP word
+# the readings print them and settles misread words on the lexicon (066009c,
+# 462c31d), after the skewed-page clue line fix (f657413) and the grid
+# lattice fit (319abbf), the scan's grid standing when no grid fits the
+# clues (45e3ef4), and a clue's run-on line opening on a STOP word
 # ("championship, possibly (4).") no longer ending its column
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-06T13:45:00+00:00}"
 

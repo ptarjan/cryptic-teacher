@@ -68,7 +68,7 @@ check("stray marks after a count are stray",
       enumeration.stray({"text": "Erotic troupe in seedy void (6)!", "enumeration": "6"}), True)
 check("a bare count is not stray", enumeration.stray({"text": "Erotic troupe (6)", "enumeration": "6"}), False)
 # cryptic-26430 prints "Mother's cross raised (3); (4)" under a preamble giving
-# seven clues two counts; 2259e43 cut the "(3);" as markup.
+# seven clues two counts; ae6dc87 cut the "(3);" as markup.
 dual = {"text": "Mother's cross raised (3);", "enumeration": "4"}
 check("the first of two counts is not stray", enumeration.stray(dual, {4}), False)
 check("the first of two counts is the clue's", enumeration.disagrees(dual, {4}), None)
