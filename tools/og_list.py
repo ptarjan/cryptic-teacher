@@ -3,8 +3,8 @@
 
   python3 tools/og_list.py LIMIT   # make_og_card.py --prune, then --stale --limit LIMIT
 
-One process for what make_og.sh used to ask of make_og_card.py in two, so the
-corpus-wide eligible() list is worked out once instead of twice. It depends
+One process for both steps, so the corpus-wide eligible() list is worked out
+once instead of twice. It depends
 only on the puzzle files and the index, neither of which pruning touches.
 What prune() reports goes to stderr: stdout is the list make_og.sh loops over.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The puzzle file's shape: tools/data/puzzle.schema.json, and the one presence rule.
 
-    python3 tools/puzzle_schema.py              # every puzzles/<series>/<year>/*.json, the enums and the blog facts
+    python3 tools/puzzle_schema.py              # every puzzles/<series>/<year>/*.json, the clues-only files, the enums and the blog facts
     python3 tools/puzzle_schema.py cryptic-30066 times-29001
 
 The same file's $defs/blogFacts is the shape of each row of
@@ -22,7 +22,8 @@ hands over `"setter": None` or `"indicators": []` writes no key at all.
 The schema is JSON Schema 2020-12, checked here by a small validator for the
 keywords the file uses; a keyword it does not know is an error, so the file
 cannot come to say more than this checks. Its enums are copies of the lists in
-series.py, clue_types.json, provenance.py and validate_annotations.py, and
+series.py, clue_types.json, fetch_puzzle.py, provenance.py, puzzle_integrity.py
+and validate_annotations.py, and
 check_enums() fails when a copy and its source disagree.
 """
 

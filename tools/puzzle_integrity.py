@@ -8,12 +8,12 @@ Run it:
     python3 tools/puzzle_integrity.py --quotes FILE...  # QUOTE alone, on those files
 
 Everything else in tools/ checks the work we ADD to a puzzle: validate_annotations.py
-grades the annotation, coverage_report.py counts what each series holds. Nothing
-checked the puzzle underneath, so a puzzle that arrived wrong stayed wrong and the
-cost landed later — a duplicate gets annotated twice at full model price and then
+grades the annotation, coverage_report.py counts what each series holds. This
+checks the puzzle underneath, because a puzzle that arrives wrong stays wrong and
+the cost lands later — a duplicate gets annotated twice at full model price and then
 shows up twice on the site, and a clue whose enumeration contradicts its own answer
 teaches a learner to count wrong. Both are cheap to find mechanically and neither is
-findable by eye at 6,800 puzzles. This is that sweep.
+findable by eye across the corpus. This is that sweep.
 
 The flags, in the order they matter:
 
@@ -77,9 +77,9 @@ The flags, in the order they matter:
   PROV      a puzzle that does not say where it came from, or says something
             tools/provenance.py does not allow. The one that matters is
             solutions.origin: a grid the setter published is ground truth, a grid
-            this repo cold-solved is our guess, and until provenance existed
-            the two were the same 15x15 of capital letters with nothing to tell
-            them apart. So the check refuses an origin outside the enum, an
+            this repo cold-solved is our guess, and without provenance the two
+            are the same 15x15 of capital letters with nothing to tell them
+            apart. So the check refuses an origin outside the enum, an
             origin that contradicts the file it sits on (claiming "published"
             over solutions detail that says "model", or "unsolved" over a grid
             full of answers), a retrieval channel that disagrees with the tool
@@ -139,8 +139,8 @@ puzzles/index.json is neither read nor rebuilt: the nightly reindexes on its own
 Pass puzzle ids or paths to judge just those files — every per-file check, and
 the DUPLICATE, NEARDUP and DATE findings that name one of them, weighed against
 the rest of the corpus through a cache of each file's clue keys, content hash
-and date (~/.cache/cryptic-teacher), re-read for any file whose size or mtime
-changed. That is the check for one edit:
+and date (~/.cache/cryptic-teacher), keyed by git blob sha so any file whose
+content changed is re-read. That is the check for one edit:
 
     python3 tools/puzzle_integrity.py --quiet cryptic-29000
 
@@ -231,14 +231,6 @@ EARLIEST_YEAR = 1930
 # two sentences and nothing else. Any other defect in the same clue — a changed
 # answer, a light regrouped, a second count gone wrong — reads as a different
 # finding and still reports.
-#
-# A third entry lived here for cryptic-27173 until 2026-09-17: 29-down and
-# 23-down were never a real link (LINCOLN and OXFORD are cathedral cities in
-# the puzzle's theme, not a linked answer), and fc706c1's prune_one_sided_members
-# later dropped that false group on its own account, for its own reason. The
-# finding this forgave stopped occurring and nobody came back to remove the
-# now-unreachable exception — caught by test_puzzle_integrity.sh proving every
-# key here still matches a live finding, not just an exact one.
 PUBLISHED_WRONG = {
     ("everyman-3072", "14-across: clue says (4,2,6) = 12, answer holds 13"):
         "ROAD TO NOWHERE fills the thirteen cells the grid gives it, and the "
@@ -644,12 +636,9 @@ def check_shape(puzzle, today, flags):
         # printed nothing here" — the same rule fetch_puzzle.convert() uses to
         # set clue.missing at fetch time — so this reads the words off the same
         # test rather than reimplementing a stripped-enumeration check that can
-        # drift from it. It did drift: cyclops-309's 17-across is "(see 3dn.)",
-        # a bare cross-reference wholly inside one parenthesis and a whole clue
-        # by has_words' own rule ("A bare cross-reference is a whole clue"), but
-        # the old ENUMERATION.sub(...).strip() check here matched the whole
-        # parenthesis as if it were an enumeration and stripped it to nothing,
-        # reporting a real clue as blank.
+        # drift from it: cyclops-309's 17-across is "(see 3dn.)", a bare
+        # cross-reference wholly inside one parenthesis and a whole clue by
+        # has_words' own rule, which stripping the enumeration would empty.
         #
         # Unless the paper printed it blank, which setters do as the trick itself:
         # cryptic-30098's 12-across is wordless so that its own number is the only
@@ -713,10 +702,10 @@ def check_shape(puzzle, today, flags):
         if not solution:
             continue
         # One rule, spelled in the fetcher: a solution is A-Z and nothing else.
-        # convert() now refuses to WRITE anything that fails it — a page serving
-        # a masked answer ("T?S?R", Guardian cryptic 28,691 3-down) is stored
-        # unsolved instead — so anything caught here arrived before that guard
-        # or from a fetcher that does not go through convert().
+        # convert() stores a puzzle unsolved rather than write anything that
+        # fails it — a page serving a masked answer ("T?S?R", Guardian cryptic
+        # 28,691 3-down) — so what this catches came from a fetcher that does
+        # not go through convert().
         if not is_bare_letters(solution):
             flags.append(("SHAPE", pid, f"{eid}: solution {solution!r} is not bare letters"))
             continue
@@ -747,8 +736,8 @@ def check_length(puzzle, checkable, flags):
     own paper's convention, and a check nobody can read is a check nobody reads.
     The grid-length test above is untouched and still holds every light to its own
     cells, which is where a wrong ANSWER shows up; this one catches a wrong COUNT,
-    and it still caught 29,069, whose clue promised 23 letters over a group the
-    Guardian's own data had truncated to 15."""
+    such as a clue promising 23 letters over a group the Guardian's own data
+    truncated to 15."""
     pid = puzzle["id"]
     by_id = {entry_id(e): e for e in puzzle.get("entries") or []}
     group_of = groups.group_of(puzzle.get("entries") or [])
@@ -781,7 +770,7 @@ def check_length(puzzle, checkable, flags):
                      or prints_own_count(e))
         # A counted continuation inside a linked answer is not measured at all.
         # Only the leading clue enumerates the answer; a leg's count describes
-        # lights, and which lights depends on markup this file no longer sees —
+        # lights, and which lights depends on markup this file does not see —
         # the Guardian's pre-2015 pairs put a chain's middle leg in a sub-group
         # of its own, so "See 26 (7,8)" on cryptic-22249's 17-across counts that
         # leg plus 20-across, neither its own seven cells nor the answer's 31.
