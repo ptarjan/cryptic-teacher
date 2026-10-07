@@ -37,6 +37,9 @@
   "date": "2024-07-28",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -49,7 +52,77 @@
    "clue": {
     "text": "Vigorously march with pride to end of avenue – and this? (13, three words)"
    },
-   "solution": "ARCDETRIOMPHE"
+   "solution": "ARCDETRIOMPHE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "ARC DE TRIOMPHE",
+    "definitions": [
+     {
+      "text": "Vigorously march with pride to end of avenue – and this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Vigorously",
+      "for": "anagram",
+      "note": "doing something vigorously throws everything about, so the following words are scrambled"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "march",
+      "gives": "MARCH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pride",
+      "gives": "PRIDE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "avenue",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MARCHPRIDETOE",
+       "gives": "ARCDETRIOMPHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Troops parade proudly to the end of a grand boulevard, and the clue asks what stands there.",
+     "walkthrough": "The whole clue is both wordplay and definition: a victory parade marches down the Champs-Élysées to the Arc de Triomphe at the avenue's end.",
+     "definitionFit": "The Paris monument stands at the top of the Champs-Élysées, the destination of triumphal parades down that avenue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Vigorously"
+    }
+   }
   },
   {
    "number": 2,
@@ -63,7 +136,60 @@
     "text": "Bit of publicity shifting No. 1 in pop revival",
     "enumeration": "4"
    },
-   "solution": "ROMO"
+   "solution": "ROMO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "ROMO",
+    "definitions": [
+     {
+      "text": "revival",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shifting",
+      "for": "deletion",
+      "note": "shifting something means moving it away, so that letter is taken out"
+     },
+     {
+      "text": "No. 1 in",
+      "for": "letter_selection",
+      "note": "number one in a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of publicity",
+      "gives": "PROMO",
+      "note": "a promo is a short promotional item"
+     },
+     {
+      "clueFragment": "pop",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROMO"
+     ]
+    },
+    "explanation": {
+     "surface": "A publicity snippet changes its lead act in a pop music revival.",
+     "walkthrough": "Romo was a short-lived 1990s British revival of New Romantic pop styles.",
+     "definitionFit": "The term names a mid-1990s music and fashion movement that brought back the New Romantic look, so a revival."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shifting"
+    }
+   }
   },
   {
    "number": 3,
@@ -77,7 +203,70 @@
     "text": "What can create diphthong like this turns up when ‘headland’ is inscribed",
     "enumeration": "6"
    },
-   "solution": "CRASIS"
+   "solution": "CRASIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CRASIS",
+    "definitions": [
+     {
+      "text": "What can create diphthong",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns up",
+      "for": "reversal",
+      "note": "in a down entry, turning up reads the letters from bottom to top"
+     },
+     {
+      "text": "is inscribed",
+      "for": "container",
+      "note": "something inscribed is written inside, so this word goes within the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like this",
+      "gives": "SIC",
+      "note": "sic is Latin for thus, so"
+     },
+     {
+      "clueFragment": "headland",
+      "gives": "RAS",
+      "note": "ras is a headland or cape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RAS",
+      "IS"
+     ],
+     "reversals": [
+      {
+       "from": "SIC",
+       "to": "CIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A phonetics note about how a diphthong forms, with a quoted word slotted in.",
+     "walkthrough": "'Like this' is the Latin word editors print after a quoted slip; the headland is the Arabic-derived word seen in place names such as Ras Tanura.",
+     "definitionFit": "Crasis is the fusing of two vowels at a word boundary into one long vowel or diphthong, as in Greek."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "headland"
+    }
+   }
   },
   {
    "number": 4,
@@ -91,7 +280,81 @@
     "text": "Led astray, I dispatched beam inwardly, once void of lights?",
     "enumeration": "11"
    },
-   "solution": "DISENTRAYLE"
+   "solution": "DISENTRAYLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "DISENTRAYLE",
+    "definitions": [
+     {
+      "text": "once void of lights?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "astray",
+      "for": "anagram",
+      "note": "led astray means sent off course, so these letters wander out of order"
+     },
+     {
+      "text": "inwardly",
+      "for": "container",
+      "note": "inwardly says the following pieces sit inside the scrambled word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Led",
+      "gives": "LED",
+      "note": "taken as written, then scrambled"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dispatched",
+      "gives": "SENT",
+      "note": "dispatched means sent"
+     },
+     {
+      "clueFragment": "beam",
+      "gives": "RAY",
+      "note": "a beam of light is a ray"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "I",
+      "SENT",
+      "RAY",
+      "LE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LED",
+       "gives": "DLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A confession: misled, I sent a beam inside something once dark.",
+     "walkthrough": "Lights are lungs, as in offal, so to be emptied of lights is to be disembowelled; 'once' marks the Spenserian spelling.",
+     "definitionFit": "Spenser's verb means to disembowel, and removing the lights, an old word for lungs, is gutting a carcass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lights"
+    }
+   }
   },
   {
    "number": 5,
@@ -104,7 +367,54 @@
    "clue": {
     "text": "Source of cuppas: move round holding running water (6, two words)"
    },
-   "solution": "TEAURN"
+   "solution": "TEAURN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEA URN",
+    "definitions": [
+     {
+      "text": "Source of cuppas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means having it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "move round",
+      "gives": "TURN",
+      "note": "to turn is to move round"
+     },
+     {
+      "clueFragment": "running water",
+      "gives": "EA",
+      "note": "ea is a dialect word for a river or running water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "EA",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice on making tea: swirl the pot around with hot water from the tap.",
+     "definitionFit": "A large heated container dispenses hot water for brewing many cups at once, as at a church fete."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "running"
+    }
+   }
   },
   {
    "number": 6,
@@ -118,7 +428,61 @@
     "text": "Tunic cut short from below, cause to change planes?",
     "enumeration": "5"
    },
-   "solution": "RABAT"
+   "solution": "RABAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RABAT",
+    "definitions": [
+     {
+      "text": "cause to change planes?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut short",
+      "for": "deletion",
+      "note": "cutting something short trims off its last letter"
+     },
+     {
+      "text": "from below",
+      "for": "reversal",
+      "note": "in a down entry, reading from below runs the letters upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tunic",
+      "gives": "TABARD",
+      "note": "a tabard is a sleeveless tunic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RABAT"
+     ],
+     "reversals": [
+      {
+       "from": "TABAR",
+       "to": "RABAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tunic is shortened at the hem, and somehow this makes someone switch aircraft.",
+     "walkthrough": "'Planes' suggests aircraft, but this is geometry: to rabat is to rotate one plane about a line until it lies in another.",
+     "definitionFit": "In geometry the verb means to turn a plane about its line of intersection until it coincides with another plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "planes"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +496,57 @@
     "text": "Parts of shaft getting switched? Opposite of ease resulting",
     "enumeration": "5"
    },
-   "solution": "ILLTH"
+   "solution": "ILLTH",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ILLTH",
+    "definitions": [
+     {
+      "text": "Opposite of ease",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Parts of",
+      "for": "cycling",
+      "note": "naming the parts tells you the word is split in two before they move"
+     },
+     {
+      "text": "getting switched",
+      "for": "cycling",
+      "note": "switching the parts swaps the two halves of the word round"
+     }
+    ],
+    "linkWords": [
+     "resulting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaft",
+      "gives": "THILL",
+      "note": "a thill is the shaft of a cart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "Pieces of a shaft get swapped, and the opposite of comfort follows.",
+     "walkthrough": "The definition is loose: Ruskin's coinage is the counterpart of wealth, meaning ill-being, so 'opposite of ease' points at its misery.",
+     "definitionFit": "Ruskin coined the word as the opposite of wealth: misery and ill-being, the reverse of comfort and wellbeing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shaft"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +559,60 @@
    "clue": {
     "text": "Mum tucked into rather large drink, just as our forebears did (11, two words)"
    },
-   "solution": "MOREMAJORUM"
+   "solution": "MOREMAJORUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MORE MAJORUM",
+    "definitions": [
+     {
+      "text": "just as our forebears did",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "something tucked into another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rather",
+      "gives": "MORE",
+      "note": "more in the sense of rather, sooner"
+     },
+     {
+      "clueFragment": "Mum",
+      "gives": "MA",
+      "note": "ma is an informal word for mother"
+     },
+     {
+      "clueFragment": "large drink",
+      "gives": "JORUM",
+      "note": "a jorum is a large drinking bowl or its contents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MORE",
+      "MA",
+      "JORUM"
+     ]
+    },
+    "explanation": {
+     "surface": "Mother is hidden in a hefty drink, the way the old folk always took it.",
+     "definitionFit": "The Latin phrase means after the manner of our ancestors, doing things the traditional way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mum"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +626,52 @@
     "text": "Scheme noisy gent abandoned",
     "enumeration": "4"
    },
-   "solution": "PLAN"
+   "solution": "PLAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PLAN",
+    "definitions": [
+     {
+      "text": "Scheme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandoned",
+      "for": "deletion",
+      "note": "abandoned means left behind, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "noisy",
+      "gives": "PLANGENT",
+      "note": "plangent means loud and resounding"
+     },
+     {
+      "clueFragment": "gent",
+      "gives": "GENT",
+      "note": "taken as written; these letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A scheme whereby a loud man is left out.",
+     "definitionFit": "Both words mean an arranged programme of action, a synonym pair as nouns."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gent"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +685,55 @@
     "text": "Legatee of female with attractive quality, and gold",
     "enumeration": "7"
    },
-   "solution": "HERITOR"
+   "solution": "HERITOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HERITOR",
+    "definitions": [
+     {
+      "text": "Legatee",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of female",
+      "gives": "HER",
+      "note": "her as the possessive of she"
+     },
+     {
+      "clueFragment": "attractive quality",
+      "gives": "IT",
+      "note": "it is sex appeal"
+     },
+     {
+      "clueFragment": "gold",
+      "gives": "OR",
+      "note": "or is gold in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "IT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "An heir to a charming woman's fortune and her gold.",
+     "definitionFit": "A heritor is one who inherits, the same as someone receiving a legacy under a will."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attractive"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +747,75 @@
     "text": "Folly? I’ll have one to rear of grand house, not Anglo-Norman",
     "enumeration": "5"
    },
-   "solution": "MORIA"
+   "solution": "MORIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MORIA",
+    "definitions": [
+     {
+      "text": "Folly?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having something means those letters are taken out"
+     },
+     {
+      "text": "to rear of",
+      "for": "charade",
+      "note": "placed at the rear means coming after the other piece"
+     }
+    ],
+    "linkWords": [
+     "I’ll have"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grand house",
+      "gives": "MANOR",
+      "note": "a manor is a grand country house"
+     },
+     {
+      "clueFragment": "Anglo-Norman",
+      "gives": "AN",
+      "note": "AN is the abbreviation for Anglo-Norman"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOR",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a folly put up behind a stately home, but not a Norman-style one.",
+     "walkthrough": "'Folly' suggests a garden ornament beside the grand house, but it means foolishness.",
+     "definitionFit": "Moria is a rare word for foolishness or stupidity, taken from the Greek for folly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Folly"
+    }
+   }
   },
   {
    "number": 11,
@@ -200,7 +828,66 @@
    "clue": {
     "text": "Hen harrier, unusually harsh, tucked into maggot (9, two words)"
    },
-   "solution": "MARSHHAWK"
+   "solution": "MARSHHAWK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MARSH HAWK",
+    "definitions": [
+     {
+      "text": "Hen harrier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unusually",
+      "for": "anagram",
+      "note": "unusually means not in the usual way, so these letters are rearranged"
+     },
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "tucked into means placed inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harsh",
+      "gives": "HARSH",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "maggot",
+      "gives": "MAWK",
+      "note": "mawk is a dialect word for maggot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ARSHH",
+      "AWK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HARSH",
+       "gives": "ARSHH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird of prey, unusually fierce, swallowing a grub.",
+     "definitionFit": "The North American name for the hen harrier, a raptor that hunts low over marshland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maggot"
+    }
+   }
   },
   {
    "number": 12,
@@ -214,7 +901,60 @@
     "text": "Landing fish with end of catcher",
     "enumeration": "5"
    },
-   "solution": "SOLER"
+   "solution": "SOLER",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SOLER",
+    "definitions": [
+     {
+      "text": "Landing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "SOLE",
+      "note": "the sole is a flatfish"
+     },
+     {
+      "clueFragment": "catcher",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler lands a fish at the end of the line.",
+     "walkthrough": "'Landing' looks like hauling in a catch; it is a noun for a raised floor.",
+     "definitionFit": "A soler is an old word for an upper room or loft, a raised floor level like a landing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Landing"
+    }
+   }
   },
   {
    "number": 13,
@@ -228,7 +968,46 @@
     "text": "Vagabonds smuggle stones (semi-precious)",
     "enumeration": "9"
    },
-   "solution": "RUNAGATES"
+   "solution": "RUNAGATES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUNAGATES",
+    "definitions": [
+     {
+      "text": "Vagabonds",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smuggle",
+      "gives": "RUN",
+      "note": "to run goods is to smuggle them"
+     },
+     {
+      "clueFragment": "stones (semi-precious)",
+      "gives": "AGATES",
+      "note": "agates are semi-precious stones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "AGATES"
+     ]
+    },
+    "explanation": {
+     "surface": "Wandering rogues sneak gemstones past customs.",
+     "definitionFit": "A runagate is an archaic word for a runaway or wanderer, a vagabond drifting without home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smuggle"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +1021,66 @@
     "text": "With power to gather in piles, albe crookedly, master pocketed",
     "enumeration": "9"
    },
-   "solution": "AMASSABLE"
+   "solution": "AMASSABLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AMASSABLE",
+    "definitions": [
+     {
+      "text": "With power to gather in piles",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crookedly",
+      "for": "anagram",
+      "note": "crookedly means not straight, so these letters are bent out of order"
+     },
+     {
+      "text": "pocketed",
+      "for": "container",
+      "note": "something pocketed is put inside, here within the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "albe",
+      "gives": "ALBE",
+      "note": "an archaic word for although, taken as written"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "MASSA",
+      "note": "massa is a dialect form of master"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MASSA",
+      "BLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALBE",
+       "gives": "ABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something able to heap things up, though a bit lopsidedly, once a boss is enclosed.",
+     "definitionFit": "To amass is to accumulate in heaps, so the adjective means capable of being heaped together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pocketed"
+    }
+   }
   },
   {
    "number": 15,
@@ -256,7 +1094,54 @@
     "text": "Poet’s botch, omitting rain from stanza",
     "enumeration": "4"
    },
-   "solution": "QUAT"
+   "solution": "QUAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "QUAT",
+    "definitions": [
+     {
+      "text": "Poet’s botch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "omitting",
+      "for": "deletion",
+      "note": "omitting means leaving out, so those letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stanza",
+      "gives": "QUATRAIN",
+      "note": "a quatrain is a four-line stanza"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "RAIN",
+      "note": "taken as written; these letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet's clumsy draft drops the weather from a verse.",
+     "walkthrough": "'Poet's' signals Shakespeare's usage; 'botch' here is an old word for a boil or pimple, not a bungled job.",
+     "definitionFit": "Shakespeare used the word for a pimple or boil, which a botch also meant in older English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "botch"
+    }
+   }
   },
   {
    "number": 16,
@@ -270,7 +1155,52 @@
     "text": "Time for vigil, avoiding e.g. poisonous stuff",
     "enumeration": "5"
    },
-   "solution": "VENIN"
+   "solution": "VENIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VENIN",
+    "definitions": [
+     {
+      "text": "poisonous stuff",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding means keeping away from, so those letters are left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time for vigil",
+      "gives": "EVENING",
+      "note": "a vigil is kept through the evening and night"
+     },
+     {
+      "clueFragment": "e.g.",
+      "gives": "EG",
+      "note": "taken as written; these letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VENIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A night watch steers clear of something toxic.",
+     "definitionFit": "Venin is a toxic substance found in snake venom, a technical term for a poison."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vigil"
+    }
+   }
   },
   {
    "number": 17,
@@ -284,7 +1214,44 @@
     "text": "Mouse trapped by mesh in error",
     "enumeration": "6"
    },
-   "solution": "SHINER"
+   "solution": "SHINER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHINER",
+    "definitions": [
+     {
+      "text": "Mouse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped by",
+      "for": "hidden_word",
+      "note": "something trapped by the words is held inside them, spanning their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mesh in error",
+      "gives": "SHINER",
+      "note": "run across the end of mesh, the whole of in and the start of error"
+     }
+    ],
+    "explanation": {
+     "surface": "A mouse is caught in a net by mistake.",
+     "walkthrough": "'Mouse' looks like the rodent in the trap, but it is slang for a black eye.",
+     "definitionFit": "Both are slang for a black eye, the bruise round the eye after a punch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mouse"
+    }
+   }
   },
   {
    "number": 18,
@@ -298,7 +1265,67 @@
     "text": "Having run in eliminating round, almost finish? Buck up!",
     "enumeration": "7"
    },
-   "solution": "HEARTEN"
+   "solution": "HEARTEN",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "HEARTEN",
+    "definitions": [
+     {
+      "text": "Buck up!",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having",
+      "for": "container",
+      "note": "the round has the next piece inside it"
+     },
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eliminating round",
+      "gives": "HEAT",
+      "note": "a heat is a qualifying round of a race"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "finish",
+      "gives": "END",
+      "note": "end means finish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "R",
+      "T",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "An athlete scrapes through a qualifier and is told to cheer up.",
+     "definitionFit": "To buck up someone is to encourage them, the same as to give them heart."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eliminating"
+    }
+   }
   },
   {
    "number": 19,
@@ -312,7 +1339,55 @@
     "text": "Cheers welcoming fringe melodies?",
     "enumeration": "7"
    },
-   "solution": "THEMATA"
+   "solution": "THEMATA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEMATA",
+    "definitions": [
+     {
+      "text": "melodies?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming someone means taking them in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheers",
+      "gives": "TATA",
+      "note": "ta-ta is goodbye, as cheers can be"
+     },
+     {
+      "clueFragment": "fringe",
+      "gives": "HEM",
+      "note": "a hem is an edge or border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HEM",
+      "ATA"
+     ]
+    },
+    "explanation": {
+     "surface": "An audience applauds tunes from the festival fringe.",
+     "walkthrough": "'Cheers' reads as applause, but it is the British farewell, like ta-ta.",
+     "definitionFit": "Themata is the plural of thema, a theme, and musical themes are melodies; the question mark admits the stretch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheers"
+    }
+   }
   },
   {
    "number": 20,
@@ -326,7 +1401,67 @@
     "text": "Like a post, completely ordinary, fastened badly at the edges",
     "enumeration": "9"
    },
-   "solution": "STONEDEAF"
+   "solution": "STONEDEAF",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STONE DEAF",
+    "definitions": [
+     {
+      "text": "Like a post, completely",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "done badly means done wrongly, so these letters come out in a muddled order"
+     },
+     {
+      "text": "at the edges",
+      "for": "container",
+      "note": "letters at the edges sit either side of the other piece, wrapping it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary"
+     },
+     {
+      "clueFragment": "fastened",
+      "gives": "FASTENED",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "O",
+      "NEDEAF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FASTENED",
+       "gives": "STNEDEAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fence post, quite plain and badly fixed along its sides.",
+     "walkthrough": "'As deaf as a post' is the idiom behind 'Like a post'; 'completely' adds the degree.",
+     "definitionFit": "The idiom 'deaf as a post' compares total inability to hear with a post's insensibility, and stone- means utterly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "post"
+    }
+   }
   },
   {
    "number": 21,
@@ -340,7 +1475,61 @@
     "text": "Angler’s has a long handle – gutted pollan goes into food selection",
     "enumeration": "6"
    },
-   "solution": "DIPNET"
+   "solution": "DIPNET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DIPNET",
+    "definitions": [
+     {
+      "text": "Angler’s has a long handle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gutted",
+      "for": "letter_selection",
+      "note": "a gutted fish has its insides removed, leaving only the outer letters"
+     },
+     {
+      "text": "goes into",
+      "for": "container",
+      "note": "goes into means is placed inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food selection",
+      "gives": "DIET",
+      "note": "a diet is a chosen range of food"
+     },
+     {
+      "clueFragment": "pollan",
+      "gives": "PN",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "PN",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "An angler cleans a pollan, an Irish freshwater fish, and adds it to a meal.",
+     "definitionFit": "A dip net is a small net on a long pole, used by anglers for scooping up fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gutted"
+    }
+   }
   },
   {
    "number": 22,
@@ -354,7 +1543,76 @@
     "text": "Fellow, one admitting faulty clue, yielding grounds",
     "enumeration": "6"
    },
-   "solution": "FECULA"
+   "solution": "FECULA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "FECULA",
+    "definitions": [
+     {
+      "text": "grounds",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "faulty",
+      "for": "anagram",
+      "note": "something faulty is not right, so these letters are rearranged"
+     },
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the other piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "yielding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ECUL",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CLUE",
+       "gives": "ECUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man confesses to a bad clue and so gives his reasons.",
+     "walkthrough": "'Grounds' reads as reasons, but it means dregs or sediment.",
+     "definitionFit": "Fecula is sediment or starchy deposit settling from a liquid, which is what coffee grounds are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "grounds"
+    }
+   }
   },
   {
    "number": 23,
@@ -368,7 +1626,64 @@
     "text": "Song before party’s introduced by H. Styles",
     "enumeration": "7"
    },
-   "solution": "HAIRDOS"
+   "solution": "HAIRDOS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HAIRDOS",
+    "definitions": [
+     {
+      "text": "Styles",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduced by",
+      "for": "charade",
+      "note": "introduced by means the other piece comes first"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "H.",
+      "gives": "H",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Song",
+      "gives": "AIR",
+      "note": "an air is a song or tune"
+     },
+     {
+      "clueFragment": "party’s",
+      "gives": "DOS",
+      "note": "a do is a party; the 's makes it DOS"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "AIR",
+      "DOS"
+     ]
+    },
+    "explanation": {
+     "surface": "A track that precedes a party, presented by the pop singer Harry Styles.",
+     "walkthrough": "H. Styles reads as the singer's name, but H is a piece and Styles the definition.",
+     "definitionFit": "Hairdos are hairstyles, so the plural styles in the sense of ways of arranging hair."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Styles"
+    }
+   }
   },
   {
    "number": 24,
@@ -382,7 +1697,57 @@
     "text": "Money needed when centre of routine is moved to the fore",
     "enumeration": "5"
    },
-   "solution": "OCHRE"
+   "solution": "OCHRE",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "OCHRE",
+    "definitions": [
+     {
+      "text": "Money",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre of",
+      "for": "cycling",
+      "note": "the centre of a word is its middle letter, the one that moves"
+     },
+     {
+      "text": "is moved to the fore",
+      "for": "cycling",
+      "note": "moved to the fore means shifted to the front of the word"
+     }
+    ],
+    "linkWords": [
+     "needed when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "routine",
+      "gives": "CHORE",
+      "note": "a chore is a routine task"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "CHRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cash is required when the heart of a daily schedule gets brought forward.",
+     "walkthrough": "'Money' looks like a modern word for cash, but this is old slang, from the gold colour of coins.",
+     "definitionFit": "Ochre is old slang for money, especially gold coin, from its yellow colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "routine"
+    }
+   }
   },
   {
    "number": 25,
@@ -396,7 +1761,58 @@
     "text": "Toadies locally requiring approval in appeal for help",
     "enumeration": "5"
    },
-   "solution": "SOOKS"
+   "solution": "SOOKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOOKS",
+    "definitions": [
+     {
+      "text": "Toadies locally",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appeal for help",
+      "gives": "SOS",
+      "note": "SOS is the distress signal"
+     },
+     {
+      "clueFragment": "approval",
+      "gives": "OK",
+      "note": "OK signals approval"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "OK",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Local yes-men want endorsement when someone calls for help.",
+     "walkthrough": "'Locally' marks a dialect word: sook is Scots and Northern English for a sycophant or crybaby.",
+     "definitionFit": "In dialect a sook is a fawning person, a sycophant, so the plural matches flatterers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "appeal"
+    }
+   }
   },
   {
    "number": 26,
@@ -410,7 +1826,67 @@
     "text": "Foreign bread requiring a long time following order without being warm",
     "enumeration": "6"
    },
-   "solution": "INJERA"
+   "solution": "INJERA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INJERA",
+    "definitions": [
+     {
+      "text": "Foreign bread",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so those letters are removed"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after the other piece"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "order",
+      "gives": "INJUNCTION",
+      "note": "an injunction is a court order"
+     },
+     {
+      "clueFragment": "being warm",
+      "gives": "UNCTION",
+      "note": "unction is warmth or fervour of manner; these letters go"
+     },
+     {
+      "clueFragment": "a long time",
+      "gives": "ERA",
+      "note": "an era is a long period"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INJ",
+      "ERA"
+     ]
+    },
+    "explanation": {
+     "surface": "Baking foreign bread takes ages after an order to leave it unheated.",
+     "definitionFit": "Injera is the spongy sourdough flatbread of Ethiopia and Eritrea, so a bread from abroad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 27,
@@ -424,7 +1900,47 @@
     "text": "Timber tree yielding oil, not quite enough for oil lamp",
     "enumeration": "5"
    },
-   "solution": "ARGAN"
+   "solution": "ARGAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARGAN",
+    "definitions": [
+     {
+      "text": "Timber tree yielding oil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not quite enough for",
+      "for": "deletion",
+      "note": "not quite enough means falling one short, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lamp",
+      "gives": "ARGAND",
+      "note": "an Argand is a kind of oil lamp with a tubular wick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A tree giving oil, but not enough to fill a lamp.",
+     "definitionFit": "The argan is a Moroccan tree with hard timber whose kernels give a prized oil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lamp"
+    }
+   }
   },
   {
    "number": 28,
@@ -438,7 +1954,43 @@
     "text": "Sort tax",
     "enumeration": "4"
    },
-   "solution": "GELD"
+   "solution": "GELD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GELD",
+    "definitions": [
+     {
+      "text": "Sort",
+      "at": 0
+     },
+     {
+      "text": "tax",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort",
+      "note": "first meaning: to sort an animal is to neuter it"
+     },
+     {
+      "clueFragment": "tax",
+      "note": "second meaning: an old English land tax paid to the crown"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks you to organise taxes; the first word is the informal sense of neutering, as in 'get the cat sorted'.",
+     "definitionFit": "As a verb the word means castrate, informally to sort; as a noun it is the Anglo-Saxon tax or tribute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sort"
+    }
+   }
   },
   {
    "number": 29,
@@ -452,7 +2004,45 @@
     "text": "Force brake by the sound of it",
     "enumeration": "4"
    },
-   "solution": "COPS"
+   "solution": "COPS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "COPS",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "by the sound of it means judged by how a word is pronounced, not spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brake",
+      "gives": "COPS",
+      "soundsLike": "COPSE",
+      "note": "a brake is a thicket, as is a copse"
+     }
+    ],
+    "explanation": {
+     "surface": "Applying the brakes forcefully, it seems.",
+     "walkthrough": "'Brake' looks like the car pedal, but it is a clump of bushes.",
+     "definitionFit": "The police force is collectively the cops, slang for police officers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "brake"
+    }
+   }
   },
   {
    "number": 30,
@@ -466,7 +2056,57 @@
     "text": "Bit of old salad? Her leaves showing incipient decay",
     "enumeration": "4"
    },
-   "solution": "BLET"
+   "solution": "BLET",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BLET",
+    "definitions": [
+     {
+      "text": "incipient decay",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "leaves means goes away from, so those letters are removed"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bit of old salad?",
+      "gives": "BLETHER",
+      "note": "a blether is a spell of rambling talk, a jumble of words likened to a salad; the word is Scots"
+     },
+     {
+      "clueFragment": "Her",
+      "gives": "HER",
+      "note": "taken as written; these letters go"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLET"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of stale salad: her lettuce leaves are starting to go off.",
+     "walkthrough": "'Leaves' reads as lettuce leaves in the salad, but it is the verb for departing.",
+     "definitionFit": "Blet is the soft, overripe state of fruit like medlars just before it rots, the beginning of decay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 31,
@@ -480,7 +2120,55 @@
     "text": "Granular item stirring under loch",
     "enumeration": "9"
    },
-   "solution": "CHONDRULE"
+   "solution": "CHONDRULE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHONDRULE",
+    "definitions": [
+     {
+      "text": "Granular item",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stirring",
+      "for": "anagram",
+      "note": "stirring mixes things up, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under",
+      "gives": "UNDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "loch",
+      "gives": "LOCH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNDERLOCH",
+       "gives": "CHONDRULE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something gritty moving beneath a Scottish lake.",
+     "definitionFit": "A chondrule is a small round grain found embedded in stony meteorites, a tiny granule."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stirring"
+    }
+   }
   },
   {
    "number": 32,
@@ -494,7 +2182,58 @@
     "text": "Top pipe requiring something to tune round lines?",
     "enumeration": "5"
    },
-   "solution": "KELLY"
+   "solution": "KELLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KELLY",
+    "definitions": [
+     {
+      "text": "Top pipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "something to tune",
+      "gives": "KEY",
+      "note": "a key tunes a piano or tightens a string peg"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "LL",
+      "note": "L is line, doubled for the plural"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KE",
+      "LL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A first-rate pipe needs a tuning key fitted around its lines.",
+     "walkthrough": "'Top pipe' reads as the finest pipe; in drilling the kelly is the topmost length of pipe, which the rotary table turns.",
+     "definitionFit": "In oil drilling the kelly is the uppermost square section of drill pipe, driven by the rotary table."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Top"
+    }
+   }
   },
   {
    "number": 33,
@@ -508,7 +2247,61 @@
     "text": "Birds leaving Luxembourg for Spain, red of coat",
     "enumeration": "5"
    },
-   "solution": "GULES"
+   "solution": "GULES",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "GULES",
+    "definitions": [
+     {
+      "text": "red of coat",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "substitution",
+      "note": "one letter leaving for another means it is swapped out for the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Birds",
+      "gives": "GULLS",
+      "note": "gulls are seabirds"
+     },
+     {
+      "clueFragment": "Luxembourg",
+      "gives": "L",
+      "note": "L is the international car code for Luxembourg"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international car code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "L",
+      "E",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds fly from Luxembourg to Spain, with a coat of red feathers.",
+     "walkthrough": "One L of GULLS becomes E. 'Coat' is a coat of arms, not plumage.",
+     "definitionFit": "Gules is the heraldic term for the colour red on a coat of arms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 34,
@@ -522,7 +2315,65 @@
     "text": "Marry – after it endures shakily, a miscalculation",
     "enumeration": "13"
    },
-   "solution": "UNDERESTIMATE"
+   "solution": "UNDERESTIMATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNDERESTIMATE",
+    "definitions": [
+     {
+      "text": "a miscalculation",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shakily",
+      "for": "anagram",
+      "note": "something done shakily is unsteady, so these letters are jumbled"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means this piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it endures",
+      "gives": "ITENDURES",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "Marry",
+      "gives": "MATE",
+      "note": "to mate is to pair up or marry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDERESTI",
+      "MATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITENDURES",
+       "gives": "UNDERESTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting married once the relationship has wobbled along is a mistake.",
+     "definitionFit": "An underestimate is a judgement that falls short of the true amount, one kind of error in reckoning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Marry"
+    }
+   }
   }
  ]
 }
