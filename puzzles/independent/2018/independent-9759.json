@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "New record releases with something for the Scottish market",
     "enumeration": "4"
    },
-   "solution": "NEEP"
+   "solution": "NEEP",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NEEP",
+    "definitions": [
+     {
+      "text": "something for the Scottish market",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "releases",
+      "for": "deletion",
+      "note": "to release something is to let it go, so the following word's letter is let out of the build"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "NEW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "EP"
+     ]
+    },
+    "explanation": {
+     "surface": "A record label puts out new singles aimed specially at buyers in Scotland.",
+     "walkthrough": "With is the letter released from the first word. A neep is the Scots word for a turnip or swede, eaten with haggis on Burns Night.",
+     "definitionFit": "The Scots word for a turnip is a vegetable sold in Scottish markets, so it is something for that market."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "releases"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,74 @@
     "text": "Fragmented story going on at length about lives upset party",
     "enumeration": "8"
    },
-   "solution": "EPISODIC"
+   "solution": "EPISODIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "EPISODIC",
+    "definitions": [
+     {
+      "text": "Fragmented",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the long story goes around the middle pieces"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word for party is read from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story going on at length",
+      "gives": "EPIC",
+      "note": "an epic is a long narrative"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "lives in the sense exists, is"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "IS",
+      "OD",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "DO",
+       "to": "OD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A disjointed tale rambles on about the lives of guests at a party that went wrong.",
+     "walkthrough": "Lives is the verb (exists), not the plural noun, and story going on at length is one long block, not three.",
+     "definitionFit": "Something episodic happens in separate, irregular bursts, so it is broken into fragments rather than continuous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +184,42 @@
     "text": "Ban selection of executive toys",
     "enumeration": "4"
    },
-   "solution": "VETO"
+   "solution": "VETO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "VETO",
+    "definitions": [
+     {
+      "text": "Ban",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "selection of",
+      "for": "hidden_word",
+      "note": "a selection is only some of what is there, so the letters are picked out from inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "executive toys",
+      "gives": "VETO",
+      "note": "found running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to prohibit some of the desk gadgets beloved of managers.",
+     "definitionFit": "A veto is an official prohibition or refusal, just as a ban forbids something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "selection"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +233,63 @@
     "text": "Removes bodies from very easy test",
     "enumeration": "6"
    },
-   "solution": "ERASES"
+   "solution": "ERASES",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ERASES",
+    "definitions": [
+     {
+      "text": "Removes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bodies from",
+      "for": "letter_selection",
+      "note": "a body is the trunk without head or limbs, so each word loses its first and last letters and keeps its centre"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very",
+      "gives": "ER",
+      "select": "middle",
+      "note": "the inside of very"
+     },
+     {
+      "clueFragment": "easy",
+      "gives": "AS",
+      "select": "middle",
+      "note": "the inside of easy"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "ES",
+      "select": "middle",
+      "note": "the inside of test"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "AS",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Something that strips away corpses in a very simple examination, a slightly macabre exam.",
+     "walkthrough": "Bodies is also a Sex Pistols song, one of several of their titles worked into this puzzle's clues.",
+     "definitionFit": "To erase is to wipe out or delete, which is the same as taking something away completely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bodies"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +303,64 @@
     "text": "Submission originally reprinted inaccurate condition of stock",
     "enumeration": "10"
    },
-   "solution": "RINDERPEST"
+   "solution": "RINDERPEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "RINDERPEST",
+    "definitions": [
+     {
+      "text": "condition of stock",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to how a word starts, so only its opening letter is kept"
+     },
+     {
+      "text": "inaccurate",
+      "for": "anagram",
+      "note": "something inaccurate is not set out correctly, so these letters are in the wrong order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Submission",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "reprinted",
+      "gives": "REPRINTED",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SREPRINTED",
+       "gives": "RINDERPEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor complains that a submitted piece came back reprinted wrongly, in poor shape.",
+     "walkthrough": "Stock here means livestock, not shares or goods; rinderpest is a cattle plague. Submission is also a Sex Pistols song.",
+     "definitionFit": "Rinderpest is an infectious viral disease of cattle, so it is an illness afflicting farm animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "stock"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +374,71 @@
     "text": "Retro album cover for Travis is high point",
     "enumeration": "7"
    },
-   "solution": "STEEPLE"
+   "solution": "STEEPLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "STEEPLE",
+    "definitions": [
+     {
+      "text": "high point",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Retro",
+      "for": "reversal",
+      "note": "retro means looking backwards, so the whole build is read from right to left"
+     },
+     {
+      "text": "cover for",
+      "for": "letter_selection",
+      "note": "a cover wraps the outside, so only the outermost letters of the band's name are kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "album",
+      "gives": "ELPEE",
+      "note": "an LP, spelt out as a word"
+     },
+     {
+      "clueFragment": "Travis",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EEPLE"
+     ],
+     "reversals": [
+      {
+       "from": "ELPEETS",
+       "to": "STEEPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retro-style sleeve for a Travis album is the band's finest moment; Travis are a Scottish rock group.",
+     "walkthrough": "Album must be spelt out as a word, not left as its two-letter abbreviation, for the reversal to work.",
+     "definitionFit": "A steeple is the tall spire of a church, often the highest point of a town's skyline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +452,58 @@
     "text": "Band material influenced broadcast",
     "enumeration": "5"
    },
-   "solution": "SUEDE"
+   "solution": "SUEDE",
+   "annotation": {
+    "type": [
+     "double_definition",
+     "homophone"
+    ],
+    "answer": "SUEDE",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     },
+     {
+      "text": "material",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "homophone",
+      "note": "broadcast means put out on air, so the word for influenced is to be heard rather than seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Band",
+      "note": "first meaning: the British indie group of the 1990s"
+     },
+     {
+      "clueFragment": "material",
+      "note": "second meaning: soft leather with a napped finish"
+     },
+     {
+      "clueFragment": "influenced",
+      "gives": "SUEDE",
+      "soundsLike": "SWAYED",
+      "note": "influenced is swayed, which is said the same way"
+     }
+    ],
+    "explanation": {
+     "surface": "The fabric a group wears was chosen under the sway of television.",
+     "walkthrough": "Three routes to one word: Suede the Britpop band, suede the leather, and swayed said out loud.",
+     "definitionFit": "Suede is a leather with a brushed surface used for clothing, and also the name of a London rock group."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +517,51 @@
     "text": "Rotten liar's rants",
     "enumeration": "5"
    },
-   "solution": "RAILS"
+   "solution": "RAILS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RAILS",
+    "definitions": [
+     {
+      "text": "rants",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rotten",
+      "for": "anagram",
+      "note": "something rotten has decayed and fallen apart, so the following letters break up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liar's",
+      "gives": "LIARS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIARS",
+       "gives": "RAILS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Johnny Rotten, the Sex Pistols singer, delivers a liar's tirade; Liar is also one of their songs.",
+     "definitionFit": "To rail is to complain bitterly and loudly, so it means the same as rants as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rotten"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +575,43 @@
     "text": "Have problems repeating oneself to begin with",
     "enumeration": "7"
    },
-   "solution": "STAMMER"
+   "solution": "STAMMER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAMMER",
+    "definitions": [
+     {
+      "text": "Have problems",
+      "at": 0
+     },
+     {
+      "text": "repeating oneself to begin with",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have problems",
+      "note": "first meaning: to struggle with speech, falter"
+     },
+     {
+      "clueFragment": "repeating oneself to begin with",
+      "note": "second meaning: saying the opening sounds of words over and over"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone struggles because they keep going over the same ground from the start.",
+     "walkthrough": "Repeating oneself suggests a bore, but it is the involuntary repetition of initial sounds. Problems is also a Sex Pistols song.",
+     "definitionFit": "To stammer is to speak haltingly with involuntary pauses and repeated first sounds, a speech impediment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "repeating"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +631,39 @@
      }
     ]
    },
-   "solution": "SEXPISTOLS"
+   "solution": "SEXPISTOLS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SEX PISTOLS",
+    "definitions": [
+     {
+      "text": "They appeared on boundary-defining album",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boundary-defining album",
+      "note": "surface reading: a book of maps showing frontiers"
+     },
+     {
+      "clueFragment": "They appeared on",
+      "note": "setter's reading: the group whose 1977 album title runs round this grid's perimeter, defining its boundary"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people featured in an atlas of national borders.",
+     "walkthrough": "Reading clockwise round the grid's edge, the unchecked letters spell NEVER MIND THE BOLLOCKS, the album that defines the puzzle's boundary.",
+     "definitionFit": "The British punk group fronted by Johnny Rotten made Never Mind the Bollocks, the record spelt round the border."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "boundary-defining"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +677,49 @@
     "text": "Drink and drive in the morning",
     "enumeration": "4"
    },
-   "solution": "DRAM"
+   "solution": "DRAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DRAM",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drive",
+      "gives": "DR",
+      "note": "Dr is the abbreviation for Drive in street names"
+     },
+     {
+      "clueFragment": "in the morning",
+      "gives": "AM",
+      "note": "am stands for ante meridiem, before noon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AM"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning against having a drink and then getting behind the wheel the next morning.",
+     "definitionFit": "A dram is a small measure of whisky or other spirits, a drink in Scotland especially."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +733,61 @@
     "text": "Moaned about study that scared me",
     "enumeration": "6"
    },
-   "solution": "KEENED"
+   "solution": "KEENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "KEENED",
+    "definitions": [
+     {
+      "text": "Moaned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so everything that follows is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "study",
+      "gives": "DEN",
+      "note": "a den is a private study"
+     },
+     {
+      "clueFragment": "that scared me",
+      "gives": "EEK",
+      "note": "the cry someone gives when frightened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KEE",
+      "NED"
+     ],
+     "reversals": [
+      {
+       "from": "DENEEK",
+       "to": "KEENED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone groaned about a piece of research that frightened them.",
+     "walkthrough": "DEN plus EEK, all reversed.",
+     "definitionFit": "To keen is to wail in grief for the dead, so keened means lamented or moaned aloud."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "study"
+    }
+   }
   },
   {
    "number": 12,
@@ -217,7 +811,65 @@
      }
     ]
    },
-   "solution": "NOSETOTAIL"
+   "solution": "NOSETOTAIL",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NOSE TO TAIL",
+    "definitions": [
+     {
+      "text": "completely blocked",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flush",
+      "for": "anagram",
+      "note": "to flush is to stir up and send scattering, as with game birds, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I refuse",
+      "gives": "NO",
+      "note": "the word you say to refuse"
+     },
+     {
+      "clueFragment": "as toilet's",
+      "gives": "ASTOILET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "SETOTAIL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASTOILET",
+       "gives": "SETOTAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines to pull the chain because the lavatory is totally clogged.",
+     "walkthrough": "The toilet and flush are a plumbing scene, but the definition is about traffic.",
+     "definitionFit": "Traffic that is bumper to bumper, each vehicle's front against the one ahead's rear, is jammed and cannot move."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flush"
+    }
+   }
   },
   {
    "number": 13,
@@ -231,7 +883,71 @@
     "text": "Fresh pitas filled with butter and meat",
     "enumeration": "8"
    },
-   "solution": "PASTRAMI"
+   "solution": "PASTRAMI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PASTRAMI",
+    "definitions": [
+     {
+      "text": "meat",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Fresh",
+      "for": "anagram",
+      "note": "fresh means newly made, so the letters are made into a new arrangement"
+     },
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "something filled has another thing put inside it"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pitas",
+      "gives": "PITAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "butter",
+      "gives": "RAM",
+      "note": "a ram is an animal that butts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "RAM",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PITAS",
+       "gives": "PASTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sandwich order: new flatbreads spread with butter and filled with meat.",
+     "walkthrough": "Butter looks like the dairy spread, but it is one who butts.",
+     "definitionFit": "Pastrami is a seasoned smoked beef, a cured cold meat often served in sandwiches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "butter"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +961,68 @@
     "text": "Press release initially upset EMI chief",
     "enumeration": "5"
    },
-   "solution": "PRIME"
+   "solution": "PRIME",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "PRIME",
+    "definitions": [
+     {
+      "text": "chief",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of each word is kept"
+     },
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the record label's name reads from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Press release",
+      "gives": "PR",
+      "select": "first",
+      "note": "the opening letters of the two words"
+     },
+     {
+      "clueFragment": "EMI",
+      "gives": "EMI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "IME"
+     ],
+     "reversals": [
+      {
+       "from": "EMI",
+       "to": "IME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A statement to journalists annoyed the boss of the record company EMI.",
+     "walkthrough": "EMI famously dropped the Sex Pistols in 1977, and EMI is also one of their songs.",
+     "definitionFit": "Prime as an adjective means first in importance, the same sense as chief in phrases like main concern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1036,51 @@
     "text": "Obstinate person taking courses at regular intervals",
     "enumeration": "4"
    },
-   "solution": "CUSS"
+   "solution": "CUSS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "CUSS",
+    "definitions": [
+     {
+      "text": "Obstinate person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "regular intervals mean evenly spaced picks, so every second letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courses",
+      "gives": "CUSS",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A stubborn student signs up for classes now and then.",
+     "definitionFit": "Cuss is an informal word for a person, typically an awkward or contrary one, as in an obstinate old cuss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "courses"
+    }
+   }
   },
   {
    "number": 15,
@@ -273,7 +1094,70 @@
     "text": "Bringing up Australian native stealing clothing causes offence",
     "enumeration": "7"
    },
-   "solution": "UMBRAGE"
+   "solution": "UMBRAGE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "UMBRAGE",
+    "definitions": [
+     {
+      "text": "offence",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "a thief takes something and holds it, so the bird's name keeps the clothing inside"
+     },
+     {
+      "text": "Bringing up",
+      "for": "reversal",
+      "note": "in a down clue, bringing up means lifting from the bottom, so the result reads upwards"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian native",
+      "gives": "EMU",
+      "note": "the emu is a flightless bird native to Australia"
+     },
+     {
+      "clueFragment": "clothing",
+      "gives": "GARB",
+      "note": "garb is clothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UM",
+      "BRAG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EGARBMU",
+       "to": "UMBRAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raising the matter of an Aboriginal person accused of theft of clothes gives offence.",
+     "walkthrough": "Australian native looks like a person, but crosswords often mean the flightless bird.",
+     "definitionFit": "To take umbrage is to feel resentment or take offence at a slight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "native"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1171,61 @@
     "text": "Reduce speed following double bluff",
     "enumeration": "5"
    },
-   "solution": "CLIFF"
+   "solution": "CLIFF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CLIFF",
+    "definitions": [
+     {
+      "text": "bluff",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reduce",
+      "for": "deletion",
+      "note": "to reduce something is to make it shorter, so the word for speed loses its final letter"
+     },
+     {
+      "text": "double",
+      "for": "charade",
+      "note": "double means two of the same, so the abbreviation is written twice"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speed",
+      "gives": "CLIP",
+      "note": "as in going at a fast clip"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "FF",
+      "note": "f is the abbreviation for following, as in pp. 10f; doubled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLI",
+      "FF"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a card player: slow down after attempting a double bluff.",
+     "walkthrough": "Double bluff reads as a poker ploy; bluff alone is the definition.",
+     "definitionFit": "A bluff is a steep headland or bank, which is a cliff by another name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bluff"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1245,39 @@
      }
     ]
    },
-   "solution": "FREERIDE"
+   "solution": "FREERIDE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FREE RIDE",
+    "definitions": [
+     {
+      "text": "Dire outcome of participation having no consequences?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "participation having no consequences?",
+      "note": "setter's reading: taking part and getting the benefit without paying, a ride with nothing owed"
+     },
+     {
+      "clueFragment": "Dire outcome of",
+      "note": "setter's reading in reverse: the answer read as wordplay, its second word set loose, produces dire"
+     }
+    ],
+    "explanation": {
+     "surface": "A grim warning that joining in without any repercussions ends badly.",
+     "walkthrough": "A reverse clue: treat the first word of the answer as an anagram signal and its second word as letters, and they come out as Dire.",
+     "definitionFit": "Getting something for nothing, enjoying benefits of a group without contributing, means taking part with no cost to oneself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Dire"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1291,48 @@
     "text": "Win is one way to retain The Ashes reportedly",
     "enumeration": "4"
    },
-   "solution": "EARN"
+   "solution": "EARN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EARN",
+    "definitions": [
+     {
+      "text": "Win",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as told by others, so the word is to be heard rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one way to retain The Ashes",
+      "gives": "EARN",
+      "soundsLike": "URN",
+      "note": "the Ashes cricket trophy is a tiny urn, and an urn holds ashes"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports commentator says victory is one way England can keep hold of the Ashes, the England–Australia cricket series.",
+     "walkthrough": "The joke is that a funeral urn literally retains ashes. The match only holds in non-rhotic accents.",
+     "definitionFit": "To earn is to gain something through effort, as in to win a reward or wage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ashes"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1346,51 @@
     "text": "Let drunk close tab",
     "enumeration": "8"
    },
-   "solution": "OBSTACLE"
+   "solution": "OBSTACLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBSTACLE",
+    "definitions": [
+     {
+      "text": "Let",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "a drunk person staggers about, so the following letters lurch out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close tab",
+      "gives": "CLOSETAB",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLOSETAB",
+       "gives": "OBSTACLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bar staff are told to let a tipsy customer settle their bill and finish.",
+     "walkthrough": "Let looks like allow, but here it is the noun in 'without let or hindrance', an obstruction.",
+     "definitionFit": "Let as an old noun means a hindrance or impediment, which is exactly a thing in the way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Let"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1410,55 @@
      }
     ]
    },
-   "solution": "COMETO"
+   "solution": "COMETO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COME TO",
+    "definitions": [
+     {
+      "text": "total",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small business",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     },
+     {
+      "clueFragment": "satisfied",
+      "gives": "MET",
+      "note": "as in met demands"
+     },
+     {
+      "clueFragment": "round figure",
+      "gives": "O",
+      "note": "the circular numeral zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "MET",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A small firm is happy to round its accounts up to a neat sum.",
+     "definitionFit": "To total as a verb is to add up to an amount, and come to is the everyday phrasal verb for that."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1472,59 @@
     "text": "Reach conclusion after reading everything but the introduction",
     "enumeration": "6"
    },
-   "solution": "EXTEND"
+   "solution": "EXTEND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EXTEND",
+    "definitions": [
+     {
+      "text": "Reach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "everything but the introduction",
+      "for": "deletion",
+      "note": "all except the start means the opening letter is dropped"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means placed behind, so the word for conclusion comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reading",
+      "gives": "TEXT",
+      "note": "text is reading matter"
+     },
+     {
+      "clueFragment": "conclusion",
+      "gives": "END",
+      "note": "an end is a conclusion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXT",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader comes to a verdict having skipped the opening chapter of a book.",
+     "definitionFit": "To extend is to stretch out to a point, so it has the sense of to reach as far as."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Reach"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1538,68 @@
     "text": "Vicious American disembowelled sweetheart in New York",
     "enumeration": "5"
    },
-   "solution": "NASTY"
+   "solution": "NASTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "NASTY",
+    "definitions": [
+     {
+      "text": "Vicious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disembowelled",
+      "for": "letter_selection",
+      "note": "with the innards taken out, only the outer letters of the following word remain"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places these pieces inside the abbreviation for the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "sweetheart",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the first and last letters"
+     },
+     {
+      "clueFragment": "New York",
+      "gives": "NY",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "ST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A grisly crime story: a cruel American gutted his girlfriend in Manhattan.",
+     "walkthrough": "Disembowelled applies to sweetheart, not American. New York is also a Sex Pistols song.",
+     "definitionFit": "Nasty and vicious both describe someone spiteful and cruel who wishes to cause harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetheart"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1613,44 @@
     "text": "Most unsuitable model for Oxford's Assembly?",
     "enumeration": "4"
    },
-   "solution": "LAST"
+   "solution": "LAST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LAST",
+    "definitions": [
+     {
+      "text": "Most unsuitable",
+      "at": 0
+     },
+     {
+      "text": "model for Oxford's Assembly?",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Most unsuitable",
+      "note": "first meaning: the least likely or appropriate"
+     },
+     {
+      "clueFragment": "model for Oxford's Assembly?",
+      "note": "second meaning: a cobbler's foot-shaped form on which a shoe such as an Oxford is built"
+     }
+    ],
+    "explanation": {
+     "surface": "A poor choice of role model for the university's parliament.",
+     "walkthrough": "Oxford's Assembly suggests a university body, but an Oxford is a laced leather shoe.",
+     "definitionFit": "A cobbler's form shaped like a foot is the pattern a shoe is assembled on; last also means least suitable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Oxford's"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1664,63 @@
     "text": "Unbridled anarchy disturbs drippy Queen fan perhaps",
     "enumeration": "10"
    },
-   "solution": "MONARCHIST"
+   "solution": "MONARCHIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MONARCHIST",
+    "definitions": [
+     {
+      "text": "Queen fan perhaps",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unbridled",
+      "for": "letter_selection",
+      "note": "without a bridle the horse loses its head harness; here the word loses both ends and keeps the middle"
+     },
+     {
+      "text": "disturbs",
+      "for": "container",
+      "note": "to disturb is to break into, so these letters burst into the middle of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drippy",
+      "gives": "MOIST",
+      "note": "drippy means moist"
+     },
+     {
+      "clueFragment": "anarchy",
+      "gives": "NARCH",
+      "select": "middle",
+      "note": "the inside of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "NARCH",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "Wild chaos upsets a soppy royalist, nodding to the Sex Pistols' Anarchy in the UK and God Save the Queen.",
+     "walkthrough": "NARCH breaks into MOIST. Queen fan looks like a fan of the rock band Queen.",
+     "definitionFit": "A supporter of rule by a king or queen admires the crown, so one example is a devotee of the Queen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Queen"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1734,52 @@
     "text": "No expression of doubt in song having no feelings",
     "enumeration": "4"
    },
-   "solution": "NUMB"
+   "solution": "NUMB",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NUMB",
+    "definitions": [
+     {
+      "text": "having no feelings",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "no means without, so the sound of doubt is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "song",
+      "gives": "NUMBER",
+      "note": "a number is a song in a show or set"
+     },
+     {
+      "clueFragment": "expression of doubt",
+      "gives": "ER",
+      "note": "the hesitant noise someone makes when unsure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUMB"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer plainly sure of a heartfelt ballad that leaves listeners cold; No Feelings is a Sex Pistols song.",
+     "definitionFit": "Being without sensation, whether physically or emotionally, is being deadened to sensation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "song"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1793,56 @@
     "text": "Chop up small offcut from hardwood tree",
     "enumeration": "4"
    },
-   "solution": "HASH"
+   "solution": "HASH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HASH",
+    "definitions": [
+     {
+      "text": "Chop up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "small offcut from",
+      "for": "letter_selection",
+      "note": "a small offcut is just a sliver from the start of the word, its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hardwood",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A carpenter is told to cut a scrap of timber off a hardwood tree.",
+     "walkthrough": "Ash is itself a hardwood, which makes the surface seamless.",
+     "definitionFit": "To hash food is to cut it into small pieces, as in hash browns or corned beef hash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offcut"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1856,68 @@
     "text": "Final three of seventeen return court order",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "charade"
+    ],
+    "answer": "EDICT",
+    "definitions": [
+     {
+      "text": "order",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Final three of",
+      "for": "letter_selection",
+      "note": "the final three are the last three letters of the answer referred to"
+     },
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "to return is to go back, so those letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seventeen",
+      "gives": "IDE",
+      "select": "last",
+      "note": "seventeen means the answer at 17 down, whose last three letters these are"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDI",
+      "CT"
+     ],
+     "reversals": [
+      {
+       "from": "IDE",
+       "to": "EDI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The last three of seventeen defendants come back for a judge's ruling; Seventeen is a Sex Pistols song.",
+     "walkthrough": "Seventeen is a cross-reference to 17 down, FREE RIDE; its last three letters are turned round to give EDI.",
+     "definitionFit": "An edict is an official decree or proclamation issued by an authority, a command or order."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seventeen"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1931,62 @@
     "text": "Decency of every other character in smutty song's lines",
     "enumeration": "7"
    },
-   "solution": "MODESTY"
+   "solution": "MODESTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MODESTY",
+    "definitions": [
+     {
+      "text": "Decency",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "every other character in",
+      "for": "letter_selection",
+      "note": "every other means alternate, so only the second, fourth and sixth letters are kept"
+     },
+     {
+      "text": "lines",
+      "for": "container",
+      "note": "to line something is to cover its inside, so the kept letters form a lining around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smutty",
+      "gives": "MTY",
+      "select": "alternate",
+      "note": "second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "song's",
+      "gives": "ODES",
+      "note": "an ode is a lyric poem meant to be sung, plus the S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ODES",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Propriety is put to the test by a filthy song's lyrics.",
+     "walkthrough": "Lines looks like lyrics, but it is a verb: the kept letters line the songs, wrapping round them.",
+     "definitionFit": "Modesty is propriety in dress and behaviour, avoiding indecency, so it is a synonym of decency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lines"
+    }
+   }
   }
  ]
 }
