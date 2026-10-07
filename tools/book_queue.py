@@ -29,6 +29,10 @@ A due book whose text is in TEXT_DIR is re-read from that text with no loan
 (`--reread`); one whose text is gone is queued to borrow (`--next`).
 Re-reading is idempotent: tools/acquire_book.py skips every leaf the corpus
 already holds, so a solved puzzle is never overwritten by its unsolved self.
+
+NOT LENDABLE. A book archive.org lends to no one and will not let this account
+read (tools/fetch_ia_book.NotLendable) is recorded in book_reads.json with a
+"not_lendable" reason and never queued again, whatever REREAD_BEFORE says.
 """
 import json
 import os
@@ -93,6 +97,24 @@ def record_read(identifier, found, filed):
                      encoding="utf-8")
 
 
+def record_not_lendable(identifier, reason):
+    """Note that archive.org lends identifier to no one and will not let this
+    account read it: no reader change or wait brings its text, so it leaves
+    the queue for good, the reason kept beside it. Delete the row to ask
+    again."""
+    import datetime
+    rows = reads()
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    rows[identifier] = {"on": now, "not_lendable": reason}
+    READS.write_text(json.dumps(dict(sorted(rows.items())), indent=1) + "\n",
+                     encoding="utf-8")
+
+
+def not_lendable(identifier):
+    """archive.org's reason identifier can never be borrowed, or None."""
+    return (reads().get(identifier) or {}).get("not_lendable")
+
+
 def due(identifier):
     """True when the reader in force has not read identifier yet."""
     return (reads().get(identifier) or {}).get("on", "") < REREAD_BEFORE
@@ -110,7 +132,8 @@ def queue():
                 for row in ranking}
     # Unread, or due with its text gone: either way only a loan reads it.
     wanted = [b for b in books
-              if due(b["identifier"]) and not text_of(b["identifier"])]
+              if due(b["identifier"]) and not text_of(b["identifier"])
+              and not not_lendable(b["identifier"])]
     pins_path = ROOT / "tools" / "data" / "book_pins.json"
     pinned = (json.loads(pins_path.read_text(encoding="utf-8"))["pinned"]
               if pins_path.exists() else [])

@@ -159,6 +159,9 @@ def _causes():
     for status in ("no-credentials", "borrow-refused", "lending-limit", "text-not-public"):
         out[("book", status)] = Cause(
             "tools/acquire_book.py", f"archive.org said {status}: the loan, not the reader (report.json status)", True, False)
+    out[("book", "not-lendable")] = Cause(
+        "tools/acquire_book.py", "archive.org lends no copy and will not let this account read it "
+        "(book_reads.json not_lendable): out of the queue for good; only different access reads it", False, False)
     out[("book", "reread-due")] = Cause(
         "tools/acquire_books.sh", "read by an older reader, its text on disk: the hourly job reads every due "
         "book with text on disk (book_queue.py --reread), its grid searches on the desktop", True, False)
@@ -469,7 +472,9 @@ def books():
             if p in got:
                 continue
             led.exists.add(f"{i}:{p}")
-            if stop and ("book", stop) in CAUSES:
+            if book_queue.not_lendable(ident):
+                cause = "not-lendable"
+            elif stop and ("book", stop) in CAUSES:
                 cause = stop  # the read stopped at the text: a loan refused
             elif due:
                 # A report from an older reader numbers its leaves that

@@ -49,8 +49,25 @@ cd "$REPO" || exit 1
 DURABLE_PATHS=(puzzles clues_only)
 . "$REPO/tools/durable.sh"
 
+# Why this run is failing, said on stderr as its LAST line: the bridge
+# (household tools/plugin-run.py) reports a non-zero exit with the last line the
+# job wrote to stderr, and the tools this calls write their success lines there
+# too. fail() sets it; a path out that did not still names its exit status.
+FAIL_REASON=""
+fail() {  # fail <message>: alert with it, and exit 1 with it on stderr
+  alert "$1"
+  FAIL_REASON="$1"
+  exit 1
+}
 # Return anything the run left open, on every path out of this script.
-trap 'python3 "$REPO/tools/fetch_ia_book.py" --loans 2>&1 | sed "s/^/loans: /"' EXIT
+on_exit() {
+  local rc=$?
+  python3 "$REPO/tools/fetch_ia_book.py" --loans 2>&1 | sed "s/^/loans: /"
+  if [ "$rc" != 0 ]; then
+    echo "acquire_books: ${FAIL_REASON:-exited $rc with no reason recorded; the lines above in .books.log say why}" >&2
+  fi
+}
+trap on_exit EXIT
 
 echo "=== $(date '+%Y-%m-%d %H:%M:%S') acquire_books"
 
@@ -68,7 +85,9 @@ publish() {  # publish <subject>
     git add -A -- clues_only/
   fi
   git diff --cached --quiet && return 0
-  git commit -q -m "$1: $n puzzles" \
+  local subject="$1"
+  [ "$n" = 0 ] || subject="$1: $n puzzles"
+  git commit -q -m "$subject" \
     -m "Filed unsolved by tools/acquire_book.py, with a grid or as clues only; the nightly solve queue takes them from here." ||
     return 1
   git fetch -q origin master && git rebase -q --autostash origin/master &&
@@ -86,14 +105,55 @@ export OCR_REMOTE="${OCR_REMOTE-micro@100.68.145.15,micro@192.168.1.198}"
 # soon as its pages are read (minutes). Only the text needs a loan; the read
 # below takes it from disk. The first refusal ends the borrowing.
 BORROWS_PER_RUN=3
+# 4 is EXIT_NOT_LENDABLE: archive.org lends the book to no one, so
+# acquire_book.py wrote it out of the queue (book_queue.record_not_lendable);
+# that is published and the next book asked for. No loan was taken.
+# Any other failure ends the borrowing, and `why` keeps what acquire_book.py
+# said it stopped on for the failure message after the reads: its stage-1
+# report's status and reason, or, when it died before writing one, the last
+# line it printed on stderr.
+borrow_failure() {  # borrow_failure <id> <started epoch> <stderr file>
+  python3 - "$@" <<'PY'
+import json, sys
+sys.path.insert(0, "tools")
+from acquire_book import DEFAULT_OUT
+report = DEFAULT_OUT / sys.argv[1] / "report.json"
+try:
+    r = (json.loads(report.read_text(encoding="utf-8"))
+         if report.stat().st_mtime >= int(sys.argv[2]) else {})
+except (OSError, ValueError):
+    r = {}
+if r.get("status"):
+    print(f"{r['status']}: {r.get('reason', '')}")
+else:
+    with open(sys.argv[3], errors="replace") as f:
+        lines = [line for line in f.read().splitlines() if line.strip()]
+    print("no report written; it said: " + (lines[-1] if lines else "nothing on stderr"))
+PY
+}
 rc=0
+why=""
+borrow_err="$(mktemp "${TMPDIR:-/tmp}/acquire-books-err.XXXXXX")"
 for _ in $(seq "$BORROWS_PER_RUN"); do
   id="$(python3 tools/book_queue.py --next)" || break
   echo "borrowing $id ($(python3 tools/book_queue.py --count) queued)"
-  nice -n 19 python3 tools/acquire_book.py "$id" --text-only
+  started="$(date +%s)"
+  nice -n 19 python3 tools/acquire_book.py "$id" --text-only 2>"$borrow_err"
   rc=$?
-  [ "$rc" = 0 ] || break
+  cat "$borrow_err" >&2
+  if [ "$rc" = 4 ]; then
+    echo "$id: archive.org lends it to no one; out of the queue for good (tools/data/book_reads.json)"
+    publish "Drop $id from the book queue: archive.org lends it to no one" ||
+      alert "dropped $id from the book queue (archive.org lends it to no one) but could not push the ledger — it is in $PWD. See .books.log."
+    rc=0
+    continue
+  fi
+  if [ "$rc" != 0 ]; then
+    [ "$rc" = 3 ] || why="$(borrow_failure "$id" "$started" "$borrow_err")"
+    break
+  fi
 done
+rm -f "$borrow_err"
 
 # READ every due book whose text is on disk: the ones just borrowed and the
 # ones a reader change made due (RE-READS in tools/book_queue.py). A book is
@@ -146,8 +206,7 @@ if [ "$rc" = 3 ]; then
   exit 0
 fi
 if [ "$rc" != 0 ]; then
-  alert "borrowing $id off archive.org failed (exit $rc) and it was NOT a lending refusal, so every retry will hit the same wall on the same book until someone looks. See .books.log."
-  exit 1
+  fail "borrowing $id off archive.org failed (exit $rc), and the same book is asked for again next run: ${why:0:600}"
 fi
 
 if [ "$streak" -ge "$STREAK_ALERT_AT" ]; then
