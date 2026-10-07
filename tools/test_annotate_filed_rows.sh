@@ -149,6 +149,18 @@ try:
     filed, err = AC.file_rows(path, pending, data)
     check("an answerTypo on a model's fill is refused", not filed and "never printed" in err)
 
+    # A filed row its OCR'd file does not hold fails validation, so a write
+    # that never mended the clue (hints that did not land) cannot commit.
+    F.SOURCE_CLUE_WRONG[("times-18749", a)] = (shown, "Printed words", "test")
+    held = F.read_puzzle_file(F.puzzle_paths.find("times-18749"))
+    errs = []
+    V.check_clue_rows_held(held, errs)
+    check("a row the file does not hold is an error", len(errs) == 1 and errs[0].startswith(f"{a}:"))
+    A.mend_clues(held)
+    errs = []
+    V.check_clue_rows_held(held, errs)
+    check("and holding it is clean", errs == [])
+
     # A row that gives a blank OCR'd clue its words takes its missing mark off.
     blank = {"id": "times-18749", "entries": [
         {"number": 1, "direction": "down", "clue": {"text": "", "missing": True, "missingNote": "n"}}]}

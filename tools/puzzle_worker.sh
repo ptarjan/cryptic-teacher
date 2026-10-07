@@ -77,13 +77,15 @@ worker_annotate() {   # id log sidfile task [note] [fill]
 # promoted, go back to HEAD; tools/apply_solution.py writes the fill in only if
 # it passes; and the annotations the run wrote (tools/_ann_<id>.json) are put
 # back on top by tools/annotate_check.py. So what ships is a fill the applier
-# accepted with the hints built on it. The verdict goes to $4. 0 when the fill
-# went in. Otherwise the puzzle, its rows and the run's annotation files are
-# discarded, the solve ledger (tools/failed_inputs.py) records the rejection so
-# the puzzle is not tried again on the same inputs, and the return is 1 — or 2
-# when the ledger refused the entry as transient (a lockout, the network).
-worker_apply() {   # id fill log verdict
-  local id="$1" fill="$2" log="$3" verdict="$4" judged="" said="$3"
+# accepted with the hints built on it. The verdict goes to $4; $5 is the run's
+# sid file. 0 when the fill and its hints went in. Otherwise the puzzle, its
+# rows and the run's annotation files are discarded, and the return is 2 when
+# the hints did not land (alerted); for a refused fill the solve ledger
+# (tools/failed_inputs.py) records the rejection so the puzzle is not tried
+# again on the same inputs, and the return is 1 — or 2 when the ledger refused
+# the entry as transient (a lockout, the network).
+worker_apply() {   # id fill log verdict sidfile
+  local id="$1" fill="$2" log="$3" verdict="$4" sidfile="$5" judged="" said="$3" rc
   restore_puzzle "$id"
   if [ -s "$fill" ]; then
     # --no-reindex: the index is the caller's to rebuild when its run ends.
@@ -91,9 +93,17 @@ worker_apply() {   # id fill log verdict
       # The solver's own account outlives the run, for the miss diagnosis to
       # read when the paper's key grades it.
       python3 tools/solve_misses.py keep-log "$id" "$log"
-      # Its verdict is worker_finish's to act on.
-      python3 tools/annotate_check.py "$id" >>"$verdict" 2>&1 || true
-      return 0
+      # The hints are the run's, so they land as its session's: that is where
+      # apply_annotations reads their author. Their validation is
+      # worker_finish's to act on; hints that did not land at all (2) leave
+      # the fill without them, and the rows they filed without their clues.
+      CLAUDE_CODE_SESSION_ID="$(worker_sid "$sidfile")" python3 tools/annotate_check.py "$id" >>"$verdict" 2>&1
+      rc=$?
+      [ "$rc" -ne 2 ] && return 0
+      discard_puzzle "$id"
+      rm -f "tools/_ann_$id.json" "tools/_puzzle_$id.json"
+      alert "$WORKER_JOB solved $id but could not put its hints back on the fill, so nothing it wrote ships:"$'\n'"\`\`\`"$'\n'"$(grep -v '^[[:space:]]*$' "$verdict" | tail -4 | cut -c1-200)"$'\n'"\`\`\`"
+      return 2
     fi
     judged=--judged said="$verdict"
   else

@@ -315,7 +315,7 @@ solve_applied() {
   local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
-  elif ! worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict"; then
+  elif ! worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" "/tmp/ct-prereset-$id.sid"; then
     echo "  [$id] solve rejected, nothing it wrote ships: $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-200)"
     rm -f "$fill" "$verdict" "/tmp/ct-prereset-$id.sid"
     return 1
