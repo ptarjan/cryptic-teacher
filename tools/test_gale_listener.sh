@@ -50,6 +50,16 @@ check("a 1930 date in a name", D(1930, 4, 9), g.gi.name_date("The Listener 9 Apr
 m = g.CITED.search("The Listener, vol. 3, no. 64, 9 Apr. 1930, p. 612")
 check("the Gale citation's date", ("9", "Apr", "1930"), m.groups()[:3])
 check("the title's number", "1,234", g.TITLE.search("THE LISTENER CROSSWORD No. 1,234").group(1))
+check("a browser's copy suffix is no number", None, g.name_number("GM2500066057 (1).pdf"))
+cite = '\n"No. 36—Wireless Crossword-Clue Competition. " The Listener, vol. \n4, no. 99, 3 Dec. 1930, p. 906.'
+check("the citation title's number", (36, "PDF citation title", set()), g.cited(cite))
+check("the citation's date across a line break", D(1930, 12, 3), g.cited_day(cite))
+check("a report names the solved puzzle, not the page's",
+      (None, None, {38}), g.cited('"Report on Wireless Crossword No. 38. " The Listener, vol. 4, no. 103, 31 Dec. 1930'))
+check("a competition's count is no puzzle number",
+      (None, None, set()), g.cited('"Competition No. 8. " The Listener, vol. 3, no. 59, 26 Feb. 1930'))
+check("a week with no crossword matches no date",
+      None, g.by_date([{"number": 39, "title": "[No crossword]", "date": D(1930, 12, 24)}], D(1930, 12, 24)))
 
 def line(text, x, y):
     out = []
@@ -92,6 +102,14 @@ check("nothing read twice", 1, len(reads))
 Image.new("RGB", (300, 201), "white").save(inbox / "1930-04-02.png")
 g.run(inbox, store, rows, out=out, reader=reader)
 check("a changed file read again", 2, len(reads))
+real_match = g.match
+g.match = lambda p, idx, **k: {"file": p.name, "number": None, "reports": [1], "pages": []}
+Image.new("RGB", (300, 202), "white").save(inbox / "report.png")
+g.run(inbox, store, rows, out=out, reader=reader)
+check("a report-only page is not lost", ([1], None),
+      next((e["reports"], e["why"]) for e in g.load_ledger(store).values() if e["file"] == "report.png"))
+(inbox / "report.png").unlink()
+g.match = real_match
 
 root = Path(sys.argv[1]) / "repo"
 (root / "puzzles" / "listener" / "1930").mkdir(parents=True)
@@ -100,6 +118,7 @@ page = g.checklist(rows, store, root)
 check("the saved puzzle is marked", True, "saved: 1 of 1 clues read" in page)
 check("the filed puzzle is marked", True, ">filed<" in page)
 check("the unmatched file is listed", True, "holiday snap.jpg" in page)
+check("a saved solution is marked", True, "solution saved" in page)
 check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))
 
 # The 3-minute tick: a page matched by its name alone is ticked off as
@@ -114,7 +133,8 @@ g.match = lambda *a, **k: (_ for _ in ()).throw(AssertionError("opened again"))
 check("a file already matched is not opened again", 4, len(g.arrived(inbox, rows, Path(sys.argv[1]) / "arrived.json")))
 (root / "puzzles" / "listener" / "1930" / "listener-2.json").unlink()
 page = g.checklist(rows, store, root, arrivals=came)
-check("an arrived page is ticked off", True, "arrived: the next full pass reads it" in page)
+check("an arrived page is ticked off", True, "arrived: the full pass reads it at its next slice" in page)
+check("its missing solution is asked for", True, "save its solution too: &ldquo;Report on Crossword No. 2&rdquo;" in page)
 check("and counted", True, "<b>2 of 2</b> saved or filed" in page)
 check("a page naming no puzzle waits for the pass", True,
       "<li>download.png</li>" in page[page.index("puzzle not yet known"):])

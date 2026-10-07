@@ -16,11 +16,18 @@ readers, tools/archive_org_listener.py's vote).
 
 The inbox is gi.LISTENER_INBOX on the Mac, mirrored to MIRROR over the ssh hatch
 as tools/gale_inbox.py mirrors the Times'. A file is matched to its puzzle
-by the date in its name, else the puzzle number in its name, else the date a
-Gale PDF's citation prints, else the number our readers read in its title
-("Crossword No. 1,234"); a date gives the puzzle the index puts on that
-issue. Each file is read once: STORE/ledger.json is keyed by the file's
-sha256 (and VERSION), so a re-run reads only files new or changed.
+by the date in its name, else the puzzle number in its name, else the
+number its Gale citation's article title prints ("No. 22—A French
+Crossword"), else the date the citation prints, else the number our
+readers read in its title ("Crossword No. 1,234"); a date gives the puzzle
+the index puts on that issue. A page may also print a past puzzle's
+solution, "Report on Crossword No. 16" with the filled grid, about two
+issues later: the citation or the page's words name it, the ledger keeps it
+as the file's "reports", and the checklist asks for that page while a
+saved puzzle has none. Each file is read once: STORE/ledger.json is keyed
+by the file's sha256 (and VERSION), so a re-run reads only files new or
+changed. tools/ocr_full_pass.sh runs `sync` at its start and before every
+slice, so a page is read within about a slice of landing.
 
 What a page gives is its clues: STORE/listener-N.json, the reading
 tools/archive_org_listener.py writes (clue text and count by light, the
@@ -67,7 +74,7 @@ YEARS = lp.CACHE / "years"
 #: The Listener magazine's last issue; the puzzle moved to The Times after it.
 FIRST_YEAR, LAST_ISSUE = 1930, datetime.date(1991, 1, 3)
 #: Bumped when the reading changes, so every file is read again.
-VERSION = 1
+VERSION = 2
 PORTAL = gi.PORTAL
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=LSNR&userGroupName=alberta_portal"
 
@@ -81,6 +88,18 @@ CITED = re.compile(r"The Listener\b[^\n]{0,80}?([0-3]?\d)\s+" + gi.MON + r"\s*(1
                    re.IGNORECASE)
 #: The title our readers read on the page.
 TITLE = re.compile(r"crossword\W{0,3}(?:puzzle\W{0,3})?n[o0]\.?\s*(\d[,.]?\d{0,3})(?![\d,])", re.IGNORECASE)
+#: The article title a Gale PDF's citation quotes, before "The Listener".
+ARTICLE = re.compile(r'^\W*"(.*?)\W*"\s*The Listener\b', re.DOTALL)
+#: A puzzle's own title: "No. 22—A French Crossword", "Crossword No. 19",
+#: "Our Crossword Puzzle No. 1". A "Competition No." is the magazine's own
+#: competition count, not the puzzle's.
+NUMBERED = re.compile(r"^n[o0]\.?\s*(\d{1,4})\b|crossword\W{0,3}(?:puzzle\W{0,3})?n[o0]\.?\s*(\d{1,4})\b",
+                      re.IGNORECASE)
+#: The report printing a past puzzle's solution grid and solvers:
+#: "Report on Crossword No. 16", "Report on Wireless Crossword No. 38".
+REPORT = re.compile(r"report\s+on\b[^\n]{0,40}?crossword\W{0,3}n[o0]\.?\s*(\d{1,4})\b", re.IGNORECASE)
+#: A browser's copy suffix, "GM2500066057 (1).pdf": no puzzle number.
+COPY = re.compile(r"\s*\(\d+\)(?=\.\w+$)")
 
 
 # ------------------------------------------------------------ the index
@@ -133,9 +152,15 @@ def index(cache=YEARS, fetch=True):
     return [rows[n] for n in sorted(rows)]
 
 
+def printed(row):
+    """Whether the index row is a puzzle the magazine printed: the index
+    keeps a number for a week with "[No crossword]"."""
+    return not row["title"].startswith("[")
+
+
 def by_date(idx, day):
     """The puzzle printed in the issue of `day` (within its week), or None."""
-    near = [r for r in idx if abs((r["date"] - day).days) <= 3]
+    near = [r for r in idx if abs((r["date"] - day).days) <= 3 and printed(r)]
     return min(near, key=lambda r: abs((r["date"] - day).days)) if near else None
 
 
@@ -143,7 +168,7 @@ def by_date(idx, day):
 
 def name_number(name):
     """The Listener number a file name spells, or None."""
-    name = gi.DOC_ID.sub(" ", name)
+    name = COPY.sub("", gi.DOC_ID.sub(" ", name))
     for rx, m in ((LABELLED, None), (BARE, None)):
         for m in rx.finditer(name):
             n = int(re.sub(r"\D", "", m.group(1)))
@@ -168,40 +193,63 @@ def image_key(img):
     return hashlib.sha256(img.tobytes()).hexdigest()[:20]
 
 
+def cited(cite):
+    """(number, how, reports) a Gale PDF's citation gives: the puzzle its
+    article title numbers, else the one the issue's date prints (None for
+    neither), and the past puzzles whose report it is."""
+    cite = re.sub(r"\s+", " ", cite or "")
+    title = (m.group(1) if (m := ARTICLE.search(cite)) else "").strip()
+    reports = {int(n) for n in REPORT.findall(title)}
+    if not reports and (m := NUMBERED.search(title)):
+        return int(m.group(1) or m.group(2)), "PDF citation title", reports
+    return None, None, reports
+
+
+def cited_day(cite):
+    m = CITED.search(re.sub(r"\s+", " ", cite or ""))
+    return m and datetime.date(int(m.group(3)), gi.MONTHS[m.group(2)[:3].lower()], int(m.group(1)))
+
+
 def match(path, idx, read_title=True):
-    """{"number", "date", "how", "docId", "pages": [(image, key)]} for a saved
-    file; "number" None (and "why") when nothing names its puzzle."""
+    """{"number", "date", "how", "reports", "docId", "pages": [(image, key)]}
+    for a saved file: "number" the puzzle whose clues it prints, None (and
+    "why") when nothing names one; "reports" the past puzzles whose solution
+    grid it prints ("Report on Crossword No. 16"), from the citation, and
+    from the page's own words when `read_title`. A page may hold both."""
     name = path.name
-    doc = gi.DOC_ID.search(name)
+    doc = gi.DOC_ID.search(name) or re.match(r"(GM\d{8,12})\b", name)
     out = {"file": name, "docId": doc.group(1).upper() if doc else None, "number": None}
     read = gi.images(path)
     out["pages"] = [(img, image_key(img)) for img, _ in read]
     cite = read[0][1] if read else ""
     by_number = {r["number"]: r for r in idx}
+    number, how, reports = cited(cite)
     day = gi.name_date(name, DATES)
     if day:
         r = by_date(idx, day)
         out.update(number=r and r["number"], how="file name date")
     if out["number"] is None and (n := name_number(name)) is not None:
         out.update(number=n, how="file name number")
-    if out["number"] is None and (m := CITED.search(cite or "")):
-        day = datetime.date(int(m.group(3)), gi.MONTHS[m.group(2)[:3].lower()], int(m.group(1)))
+    if out["number"] is None and number is not None:
+        out.update(number=number, how=how)
+    if out["number"] is None and (day := cited_day(cite)):
         r = by_date(idx, day)
-        out.update(number=r and r["number"], how="PDF citation")
-    if out["number"] is None and read_title:
+        out.update(number=r and r["number"], how="PDF citation date")
+    if read_title:
         for img, key in out["pages"]:
-            m = TITLE.search(ocr_clues.lines_of(page_words(img, key)))
-            if m:
+            text = ocr_clues.lines_of(page_words(img, key))
+            reports |= {int(n) for n in REPORT.findall(text)}
+            if out["number"] is None and (m := TITLE.search(text)):
                 out.update(number=int(re.sub(r"\D", "", m.group(1))), how="title read")
-                break
-    if out["number"] is not None and out["number"] not in by_number:
+    out["reports"] = sorted(n for n in reports if n in by_number and n != out["number"])
+    if out["number"] is not None and (out["number"] not in by_number or not printed(by_number[out["number"]])):
         out.update(why=f"No {out['number']} is not in the index of the magazine's puzzles", number=None)
     if out["number"] is None:
         out.setdefault("why", "no date or number in the name, citation or title")
     else:
         out["date"] = by_number[out["number"]]["date"]
     if not out["pages"]:
-        out.update(number=None, why="no page image in the file")
+        out.update(number=None, reports=[], why="no page image in the file")
     return out
 
 
@@ -366,8 +414,11 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
         try:
             m = match(p, idx)
         except (OSError, ValueError) as e:  # reported in the ledger and the checklist
-            m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": []}
-        entry.update(number=m["number"], how=m.get("how"), why=m.get("why"))
+            m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": [],
+                 "reports": []}
+        entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
+        if m["number"] is None and m["reports"]:
+            entry["why"] = None
         if m["number"] is not None:
             verdict, laid = reader(m)
             if laid is None:
@@ -382,7 +433,8 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
                     entry["reading"] = dest.name
         ledger[h] = entry
         print(f"{p.name}: " + (f"No {m['number']} ({m['how']}), " if m["number"] is not None else "")
-              + (f"{entry['agreed']}/{entry['clues']} clues read" if "agreed" in entry else entry["why"]), file=out)
+              + (f"{entry['agreed']}/{entry['clues']} clues read" if "agreed" in entry else entry["why"] or "")
+              + "".join(f", the solution of No {n}" for n in m["reports"]), file=out)
         (store / "ledger.json").write_text(json.dumps(ledger, indent=1, ensure_ascii=False) + "\n")
     return ledger
 
@@ -390,9 +442,10 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
 # ------------------------------------------------------------ the checklist
 
 def arrived(inbox=MIRROR, idx=None, path=ARRIVED):
-    """[{"file", "number", "why"}] of every page file in `inbox`, matched by
-    its name or citation only (no OCR: the full pass reads titles); a file
-    already matched at its name, size and mtime is not opened again."""
+    """[{"file", "number", "reports", "why"}] of every page file in `inbox`,
+    matched by its name or citation only (no OCR: the full pass reads
+    titles); a file already matched at its name, size and mtime, at this
+    VERSION, is not opened again."""
     idx = index() if idx is None else idx
     known = gi.load(path, {})
     kept = {}
@@ -401,12 +454,13 @@ def arrived(inbox=MIRROR, idx=None, path=ARRIVED):
     for p in files:
         st = p.stat()
         k = f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
-        if k not in known:
+        if known.get(k, {}).get("version") != VERSION:
             try:
                 m = match(p, idx, read_title=False)
             except (OSError, ValueError) as e:  # shown on the checklist
-                m = {"number": None, "why": f"unreadable: {type(e).__name__}: {e}"}
-            known[k] = {"file": p.name, "number": m["number"], "why": m.get("why")}
+                m = {"number": None, "why": f"unreadable: {type(e).__name__}: {e}", "reports": []}
+            known[k] = {"file": p.name, "number": m["number"], "reports": m["reports"], "version": VERSION,
+                        "why": None if m["number"] is None and m["reports"] else m.get("why")}
         kept[k] = known[k]
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(kept, indent=0))
@@ -443,18 +497,20 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None):
     idx = index() if idx is None else idx
     arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
     came = {a["number"] for a in arrivals if a.get("number") is not None}
-    unnamed = [a for a in arrivals if a.get("number") is None]
+    unnamed = [a for a in arrivals if a.get("number") is None and not a.get("reports")]
     filed = filed_numbers(root)
     ledger = load_ledger(store)
     tried = {}
     for e in ledger.values():
         if e.get("number") is not None:
             tried.setdefault(e["number"], []).append(e)
-    lost = [e for e in ledger.values() if e.get("number") is None]
+    lost = [e for e in ledger.values() if e.get("number") is None and not e.get("reports")]
+    solved = {n for e in [*ledger.values(), *arrivals] for n in e.get("reports") or ()}
     got = {}
     for p in store.glob("listener-*.json"):
         r = json.loads(p.read_text())
         got[r["number"]] = r["verdict"]
+    idx = [r for r in idx if printed(r)]
     todo = [r for r in idx if r["number"] not in filed and r["number"] not in got and r["number"] not in came]
     first = todo[0] if todo else None
     e = html.escape
@@ -475,9 +531,12 @@ A Gale link opened outside the portal asks for a password, so always start here.
 <li>Find the issue: <i>Browse &rarr; Browse By Date</i>, pick the date from the list below, and page through it
 to the crossword (a grid with ACROSS and DOWN clue lists); or search for its title in quotes.</li>
 <li>On the crossword's page press <i>Download</i> and save it (PDF or image, either works) into this folder,
-{e(FOLDER)}. Any file name works; a name with the date (e.g. <code>1930-04-09</code>) is the surest match.</li>
+{e(FOLDER)}. Any file name works; a name with the date (e.g. <code>1930-04-09</code>) is the surest match.
+When the grid and the clues are on different pages ("For Clues see page 340"), save both.</li>
+<li>Its answers are printed about two issues later, as &ldquo;Report on Crossword No. N&rdquo; with the filled
+grid: save that page too. A row says "save its solution too" until one has arrived.</li>
 <li>That's all. A Gale download in Downloads is moved into the folder for you; within 3 minutes its row
-says "arrived", and once the full pass has read it, how many clues read.</li>
+says "arrived", and once the full pass has read it (at its next slice, within about an hour), how many clues read.</li>
 </ol>
 <p>Gale's terms allow up to 50 downloads a session, by hand only: no scripts or download tools.</p>
 {f'<p><b>Next to save:</b> No {first["number"]}, {first["date"]:%a %d %b %Y}, &ldquo;{e(first["title"])}&rdquo;.</p>' if first else ''}"""]
@@ -498,17 +557,22 @@ says "arrived", and once the full pass has read it, how many clues read.</li>
             elif n in tried:
                 status = f'<span class="bad">saved, not read: {e(tried[n][-1].get("why") or "")}</span>'
             elif n in came:
-                status = '<span class="got">arrived: the next full pass reads it</span>'
+                status = '<span class="got">arrived: the full pass reads it at its next slice</span>'
             else:
                 status = ""
+            if n in solved:
+                status += ' <span class="got">solution saved</span>'
+            elif status and n not in filed:
+                status += (f' <span class="bad">save its solution too: &ldquo;Report on Crossword No. {n}&rdquo;,'
+                           f' about {r["date"] + datetime.timedelta(days=14):%d %b %Y}</span>')
             out.append(f"<tr><td>{r['date']:%a %d %b %Y}</td><td>{n}</td><td>{e(r['title'])}</td>"
                        f"<td>{e(r.get('setter') or '')}</td><td>{status}</td></tr>")
         out.append("</table>")
     read = {e_["file"] for e_ in ledger.values()}
     waiting = [a for a in unnamed if a["file"] not in read]
     if waiting:
-        out.append("<h2>Arrived, puzzle not yet known</h2><p>The name and citation name no puzzle; the next full pass "
-                   "reads the title. To be sure now, rename the file with the issue date (e.g. 1930-04-09).</p><ul>")
+        out.append("<h2>Arrived, puzzle not yet known</h2><p>The name and citation name no puzzle; the full pass "
+                   "reads the title at its next slice. To be sure now, rename the file with the issue date (e.g. 1930-04-09).</p><ul>")
         out += [f"<li>{e(a['file'])}</li>" for a in waiting]
         out.append("</ul>")
     if lost:
