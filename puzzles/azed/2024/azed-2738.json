@@ -38,6 +38,9 @@
   "date": "2024-12-15",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,66 @@
     "text": "Tidy vehicle like this flipped tiny crustacean",
     "enumeration": "8"
    },
-   "solution": "OSTRACOD"
+   "solution": "OSTRACOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OSTRACOD",
+    "definitions": [
+     {
+      "text": "tiny crustacean",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipped",
+      "for": "reversal",
+      "note": "something flipped is turned over, so the string built from the first three words is read from its far end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tidy",
+      "gives": "DO",
+      "note": "to do a room is to tidy it"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CART",
+      "note": "a cart is a simple vehicle"
+     },
+     {
+      "clueFragment": "like this",
+      "gives": "SO",
+      "note": "so means in this way"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "TRAC",
+      "OD"
+     ],
+     "reversals": [
+      {
+       "from": "DOCARTSO",
+       "to": "OSTRACOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A neat little vehicle of some kind has overturned.",
+     "definitionFit": "An ostracod is a seed shrimp, one of a class of minute bivalved crustaceans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tidy"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +127,70 @@
     "text": "Colourful blanket skymen folded up on centre of bed",
     "enumeration": "6"
    },
-   "solution": "SARAPE"
+   "solution": "SARAPE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SARAPE",
+    "definitions": [
+     {
+      "text": "Colourful blanket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "folded up",
+      "for": "reversal",
+      "note": "in a down entry, folding something up turns it to read from bottom to top"
+     },
+     {
+      "text": "centre of",
+      "for": "letter_selection",
+      "note": "'centre of' keeps only the middle letter of 'bed'"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skymen",
+      "gives": "PARAS",
+      "note": "paras are paratroopers, soldiers who drop from the sky"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of bed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SARAP",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "PARAS",
+       "to": "SARAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Airborne soldiers fold a bright blanket and lay it on a bed.",
+     "definitionFit": "A sarape is a brightly coloured Mexican woollen shawl or blanket, worn over the shoulders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "skymen"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +204,61 @@
     "text": "Rotating tea wagon less than half unloaded, containing its cargo?",
     "enumeration": "7"
    },
-   "solution": "TROCHAL"
+   "solution": "TROCHAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TROCHAL",
+    "definitions": [
+     {
+      "text": "Rotating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "less than half unloaded",
+      "for": "deletion",
+      "note": "fewer than half the letters of the wagon's name are taken off, here its last three"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the shortened wagon holds its load inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea wagon",
+      "gives": "TROLLEY",
+      "note": "a tea trolley is the wagon on which tea is wheeled round"
+     },
+     {
+      "clueFragment": "its cargo",
+      "gives": "CHA",
+      "note": "a tea trolley's cargo is tea, cha in slang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "CHA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A tea trolley being trundled round, partly emptied but still carrying its load.",
+     "walkthrough": "Three of the wagon's seven letters go, which is less than half. The question mark flags 'its cargo' as a cryptic way of naming the drink the trolley carries.",
+     "definitionFit": "Trochal means wheel-shaped or revolving, from the Greek word for a wheel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unloaded"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +272,66 @@
     "text": "Wanderers in orient, lost, turning back",
     "enumeration": "12"
    },
-   "solution": "RETROVERSION"
+   "solution": "RETROVERSION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RETROVERSION",
+    "definitions": [
+     {
+      "text": "turning back",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has gone astray, so these letters wander out of their order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first group of letters is placed inside the reworked second word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wanderers",
+      "gives": "ROVERS",
+      "note": "rovers are people who wander"
+     },
+     {
+      "clueFragment": "orient",
+      "gives": "ORIENT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RET",
+      "ROVERS",
+      "ION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORIENT",
+       "gives": "RETION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers in the Far East have lost their way and are heading home.",
+     "definitionFit": "Retroversion is the act of turning or tilting backwards, as of an organ or a translation back."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "orient"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +345,58 @@
     "text": "Tucked up – that’s me with book replacing No. 2",
     "enumeration": "4"
    },
-   "solution": "ABED"
+   "solution": "ABED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ABED",
+    "definitions": [
+     {
+      "text": "Tucked up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing No. 2",
+      "for": "substitution",
+      "note": "the second letter of the setter's name is swapped out for a new letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that’s me",
+      "gives": "AZED",
+      "note": "the setter is speaking: his pseudonym"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is an abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter announces he is safely in bed.",
+     "walkthrough": "AZED with B in place of its second letter Z.",
+     "definitionFit": "Abed means in bed, so tucked up for the night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 6,
@@ -121,7 +410,59 @@
     "text": "What sounds like a mandolin resounded round after tea",
     "enumeration": "8"
    },
-   "solution": "CHARANGO"
+   "solution": "CHARANGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHARANGO",
+    "definitions": [
+     {
+      "text": "What sounds like a mandolin",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the drink word first, ahead of the words that come earlier in the clue"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tea",
+      "gives": "CHA",
+      "note": "cha is slang for tea"
+     },
+     {
+      "clueFragment": "resounded",
+      "gives": "RANG",
+      "note": "past tense of ring, to resound"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "RANG",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Something with a mandolin-like tone rang out after teatime.",
+     "definitionFit": "A charango is a small Andean lute, often made from an armadillo shell, with a bright mandolin-like tone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "resounded"
+    }
+   }
   },
   {
    "number": 7,
@@ -135,7 +476,61 @@
     "text": "Monotonous speaker finished around middle of address",
     "enumeration": "5"
    },
-   "solution": "DRONE"
+   "solution": "DRONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DRONE",
+    "definitions": [
+     {
+      "text": "Monotonous speaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "only the central letter of the following word is used"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the word for finished goes round the chosen letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finished",
+      "gives": "DONE",
+      "note": "done means finished"
+     },
+     {
+      "clueFragment": "address",
+      "gives": "R",
+      "select": "middle",
+      "note": "the fourth of seven letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "ONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull orator has got halfway through his speech.",
+     "definitionFit": "A drone is someone who speaks in a dull unvarying tone, like the hum of a bee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "address"
+    }
+   }
   },
   {
    "number": 8,
@@ -149,7 +544,81 @@
     "text": "Like a turtle recorded round a herd swimming on edge of lake",
     "enumeration": "12"
    },
-   "solution": "LOGGERHEADED"
+   "solution": "LOGGERHEADED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LOGGERHEADED",
+    "definitions": [
+     {
+      "text": "Like a turtle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "the herd is swimming about, so its letters move around freely"
+     },
+     {
+      "text": "edge of",
+      "for": "letter_selection",
+      "note": "only an end letter of the following word is used, here its last"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the word for recorded goes round the jumbled group"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recorded",
+      "gives": "LOGGED",
+      "note": "to log something is to record it"
+     },
+     {
+      "clueFragment": "a herd",
+      "gives": "AHERD",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOGGE",
+      "RHEADE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AHERDE",
+       "gives": "RHEADE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A herd of animals swims at a lake's edge while someone notes it down.",
+     "definitionFit": "The loggerhead is a sea turtle named for its huge head, so loggerheaded describes it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recorded"
+    }
+   }
   },
   {
    "number": 9,
@@ -163,7 +632,47 @@
     "text": "Gesture of contempt once following, I’m off",
     "enumeration": "4"
    },
-   "solution": "FIGO"
+   "solution": "FIGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIGO",
+    "definitions": [
+     {
+      "text": "Gesture of contempt once",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following"
+     },
+     {
+      "clueFragment": "I’m off",
+      "gives": "IGO",
+      "note": "I go, said on leaving"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "IGO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaves with a rude farewell gesture.",
+     "walkthrough": "'once' marks the definition as archaic.",
+     "definitionFit": "A figo is an old word, from Spanish, for the fig, a contemptuous gesture with the thumb thrust between the fingers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "following"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +686,42 @@
     "text": "Cuts once? They may accompany snicks",
     "enumeration": "5"
    },
-   "solution": "SNEES"
+   "solution": "SNEES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNEES",
+    "definitions": [
+     {
+      "text": "Cuts once",
+      "at": 0
+     },
+     {
+      "text": "They may accompany snicks",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cuts once",
+      "note": "first meaning: an archaic verb, to cut"
+     },
+     {
+      "clueFragment": "They may accompany snicks",
+      "note": "second meaning: the partner word in the old phrase for fighting with knives"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Snick and snee' was an old phrase for fighting with knives, source of snickersnee; the cricket sense of snick is a red herring.",
+     "definitionFit": "To snee was to cut or thrust, and it always came paired with snick in the fighting phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snicks"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +735,62 @@
     "text": "US warblers? See second caged by raddled hussies",
     "enumeration": "9"
    },
-   "solution": "REDSTARTS"
+   "solution": "REDSTARTS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REDSTARTS",
+    "definitions": [
+     {
+      "text": "US warblers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caged by",
+      "for": "container",
+      "note": "something caged is shut inside, so this letter sits within the following words"
+     }
+    ],
+    "linkWords": [
+     "See"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raddled",
+      "gives": "RED",
+      "note": "raddled means coloured with raddle, red ochre"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "hussies",
+      "gives": "TARTS",
+      "note": "tarts and hussies are both brazen women"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "S",
+      "TARTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Look at the songbirds, the second one trapped by some heavily rouged women.",
+     "definitionFit": "The American redstart is a New World warbler, unrelated to the Old World redstart thrush."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "raddled"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +804,53 @@
     "text": "See e.g. Mexican measure his jacket (loose) – no use",
     "enumeration": "4"
    },
-   "solution": "VARE"
+   "solution": "VARE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "VARE",
+    "definitions": [
+     {
+      "text": "See e.g. Mexican measure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no",
+      "for": "deletion",
+      "note": "with no use means the following word is taken away from the garment"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his jacket (loose)",
+      "gives": "VAREUSE",
+      "note": "a vareuse is a loose jacket of the southern US"
+     },
+     {
+      "clueFragment": "use",
+      "gives": "USE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Mexican's loose jacket has worn out and is of no further use.",
+     "walkthrough": "Chambers lists vare under vara with 'see', which is why the definition opens with that word.",
+     "definitionFit": "The vara is a Spanish-American unit of length of about a yard, used in Mexico, and vare is a variant spelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +864,64 @@
     "text": "Female with energy curbing e.g. Louis, star player?",
     "enumeration": "7"
    },
-   "solution": "HEROINE"
+   "solution": "HEROINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HEROINE",
+    "definitions": [
+     {
+      "text": "star player",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curbing",
+      "for": "container",
+      "note": "to curb is to hold in check, so these letters hold the king inside them"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "HEN",
+      "note": "a hen is a female bird"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "e.g. Louis",
+      "gives": "ROI",
+      "note": "Louis was a name of many French kings, roi in French"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ROI",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A lively woman keeps a famous performer called Louis in check.",
+     "walkthrough": "Louis looks like a performer's name, but French kings were called Louis, so it stands for the French word for king.",
+     "definitionFit": "The heroine is the leading female role in a play or film, the star part."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Louis"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +935,54 @@
     "text": "Decay penetrating sort of green shrubs",
     "enumeration": "6"
    },
-   "solution": "PROTEA"
+   "solution": "PROTEA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROTEA",
+    "definitions": [
+     {
+      "text": "shrubs",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penetrating",
+      "for": "container",
+      "note": "something penetrating goes inside, so this word sits within the colour"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decay",
+      "gives": "ROT",
+      "note": "rot is decay"
+     },
+     {
+      "clueFragment": "sort of green",
+      "gives": "PEA",
+      "note": "pea green is a shade of green"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROT",
+      "EA"
+     ]
+    },
+    "explanation": {
+     "surface": "Rot is spreading through some greenery.",
+     "definitionFit": "Proteas are South African evergreen shrubs with large showy flower heads."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "green"
+    }
+   }
   },
   {
    "number": 15,
@@ -247,7 +996,61 @@
     "text": "Stubborn dodge somehow corralling gee",
     "enumeration": "6"
    },
-   "solution": "DOGGED"
+   "solution": "DOGGED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DOGGED",
+    "definitions": [
+     {
+      "text": "Stubborn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "done somehow means in some unspecified way, so the letters can be in any order"
+     },
+     {
+      "text": "corralling",
+      "for": "container",
+      "note": "to corral is to pen livestock, so the horse is enclosed in the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dodge",
+      "gives": "DODGE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "gee",
+      "gives": "G",
+      "note": "gee is the spoken name of the letter G, and also a horse"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DODGEG",
+       "gives": "DOGGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An obstinate horse is herded into a pen by some trick.",
+     "definitionFit": "Dogged means tenaciously persistent, refusing to give up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "gee"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1063,68 @@
    "clue": {
     "text": "Join those departed? See her obits rewritten year later (9, two words)"
    },
-   "solution": "BEHISTORY"
+   "solution": "BEHISTORY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BE HISTORY",
+    "definitions": [
+     {
+      "text": "Join those departed?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rewritten",
+      "for": "anagram",
+      "note": "anything rewritten is set out afresh, so these letters are reordered"
+     },
+     {
+      "text": "later",
+      "for": "charade",
+      "note": "later says the abbreviation comes at the end, after the reworked letters"
+     }
+    ],
+    "linkWords": [
+     "See"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her obits",
+      "gives": "HEROBITS",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "year",
+      "gives": "Y",
+      "note": "Y is the abbreviation for year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEHISTOR",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEROBITS",
+       "gives": "BEHISTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look at the obituaries of a woman, revised a year after her death.",
+     "definitionFit": "To be history is an idiom for being dead or finished, so gone the way of the departed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rewritten"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1138,54 @@
     "text": "Aussie dimwits once proclaimed among cheats",
     "enumeration": "8"
    },
-   "solution": "DRONGOES"
+   "solution": "DRONGOES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRONGOES",
+    "definitions": [
+     {
+      "text": "Aussie dimwits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "container",
+      "note": "being among things means being surrounded by them, so this word goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheats",
+      "gives": "DOES",
+      "note": "to do someone is to cheat them"
+     },
+     {
+      "clueFragment": "once proclaimed",
+      "gives": "RONG",
+      "note": "an obsolete past tense of ring, to proclaim loudly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RONG",
+      "OES"
+     ]
+    },
+    "explanation": {
+     "surface": "Fools once loudly announced who among the swindlers they were.",
+     "definitionFit": "Drongo is Australian slang for a fool, from a racehorse that never won."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "proclaimed"
+    }
+   }
   },
   {
    "number": 18,
@@ -288,7 +1199,66 @@
     "text": "Heroin included in drug folded in surplice",
     "enumeration": "5"
    },
-   "solution": "EPHOD"
+   "solution": "EPHOD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EPHOD",
+    "definitions": [
+     {
+      "text": "surplice",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "folded",
+      "for": "reversal",
+      "note": "folding something doubles it back on itself, so the word reads from the end"
+     },
+     {
+      "text": "included in",
+      "for": "container",
+      "note": "something included in another is placed inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drug",
+      "gives": "DOPE",
+      "note": "dope is slang for a drug"
+     },
+     {
+      "clueFragment": "Heroin",
+      "gives": "H",
+      "note": "H is slang for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "H",
+      "OD"
+     ],
+     "reversals": [
+      {
+       "from": "DOPE",
+       "to": "EPOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drugs smuggled in the folds of a church vestment.",
+     "definitionFit": "An ephod is a Jewish priestly vestment, loosely a surplice, a linen garment worn over other robes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "folded"
+    }
+   }
   },
   {
    "number": 19,
@@ -302,7 +1272,63 @@
     "text": "Dread disturbed heart, being turned to windward",
     "enumeration": "8"
    },
-   "solution": "AWEATHER"
+   "solution": "AWEATHER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AWEATHER",
+    "definitions": [
+     {
+      "text": "turned to windward",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "something disturbed is thrown into disorder, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dread",
+      "gives": "AWE",
+      "note": "awe is reverential dread"
+     },
+     {
+      "clueFragment": "heart",
+      "gives": "HEART",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AWE",
+      "ATHER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HEART",
+       "gives": "ATHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fear unsettles someone's heart as they turn away.",
+     "definitionFit": "Aweather is a nautical term for towards the weather side, the side the wind blows from."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 20,
@@ -316,7 +1342,55 @@
     "text": "Player at table, upset about one of his opponents?",
     "enumeration": "4"
    },
-   "solution": "EAST"
+   "solution": "EAST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EAST",
+    "definitions": [
+     {
+      "text": "Player at table",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the first word goes round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset",
+      "gives": "EAT",
+      "note": "to eat someone is to worry or upset them, as in what's eating you"
+     },
+     {
+      "clueFragment": "one of his opponents",
+      "gives": "S",
+      "note": "at bridge South is one of the two opponents of the player in question"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EA",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A card player is annoyed with one of the people he is playing against.",
+     "walkthrough": "At bridge the four players are named North, South, East and West; East and West partner against North and South.",
+     "definitionFit": "East is one of the four seats at a bridge table, named for compass points."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -330,7 +1404,49 @@
     "text": "We had ravens flying, bound for the empyrean",
     "enumeration": "11"
    },
-   "solution": "HEAVENWARDS"
+   "solution": "HEAVENWARDS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEAVENWARDS",
+    "definitions": [
+     {
+      "text": "bound for the empyrean",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying",
+      "for": "anagram",
+      "note": "birds flying scatter in all directions, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We had ravens",
+      "gives": "WEHADRAVENS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WEHADRAVENS",
+       "gives": "HEAVENWARDS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "We kept ravens, and they flew off into the sky.",
+     "definitionFit": "The empyrean is the highest heaven, so something bound there is going skywards."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 22,
@@ -344,7 +1460,53 @@
     "text": "Not occupied within, pa was pottering",
     "enumeration": "7"
    },
-   "solution": "DAIDLED"
+   "solution": "DAIDLED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DAIDLED",
+    "definitions": [
+     {
+      "text": "was pottering",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "within",
+      "for": "container",
+      "note": "being within means being inside, so the first phrase sits inside the father"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not occupied",
+      "gives": "IDLE",
+      "note": "idle means unoccupied"
+     },
+     {
+      "clueFragment": "pa",
+      "gives": "DAD",
+      "note": "pa and dad both mean father"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "IDLE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad, with nothing to do, was pottering about.",
+     "definitionFit": "Daidle is a Scots and dialect verb meaning to dawdle or potter aimlessly, here in the past tense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -358,7 +1520,56 @@
     "text": "Hammer cold locking spring for ice vehicle",
     "enumeration": "11"
    },
-   "solution": "SLEDGECHAIR"
+   "solution": "SLEDGECHAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SLEDGE-CHAIR",
+    "definitions": [
+     {
+      "text": "ice vehicle",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hammer",
+      "gives": "SLEDGE",
+      "note": "a sledge is a sledgehammer"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the abbreviation for cold on taps"
+     },
+     {
+      "clueFragment": "locking spring",
+      "gives": "HAIR",
+      "note": "in a gunlock the hair is the spring or catch that holds the trigger"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEDGE",
+      "C",
+      "HAIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A hammer on a cold day locking a spring, as if working on machinery.",
+     "walkthrough": "'locking' looks like a container signal, but it belongs to the definition of the gun part.",
+     "definitionFit": "A sledge-chair is a chair on runners, pushed across ice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "locking"
+    }
+   }
   },
   {
    "number": 24,
@@ -372,7 +1583,66 @@
     "text": "Unproductive, not lit up, no longer together",
     "enumeration": "6"
    },
-   "solution": "INFERE"
+   "solution": "INFERE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "INFERE",
+    "definitions": [
+     {
+      "text": "no longer together",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word reads from bottom to top"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means those letters are left out of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unproductive",
+      "gives": "INFERTILE",
+      "note": "infertile means unproductive"
+     },
+     {
+      "clueFragment": "lit",
+      "gives": "LIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INFER",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "LIT",
+       "to": "TIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something barren, unlit, and separated, as of a failed partnership.",
+     "walkthrough": "TIL is removed from the middle of INFERTILE. 'no longer' marks the definition as obsolete.",
+     "definitionFit": "Infere is an obsolete Spenserian adverb meaning in company, side by side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lit"
+    }
+   }
   },
   {
    "number": 25,
@@ -386,7 +1656,52 @@
     "text": "Slight liquid waste railway effused",
     "enumeration": "4"
    },
-   "solution": "SLUR"
+   "solution": "SLUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLUR",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "effused",
+      "for": "deletion",
+      "note": "effused means poured out, so the railway letters flow out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liquid waste",
+      "gives": "SLURRY",
+      "note": "slurry is semi-liquid waste such as farm manure"
+     },
+     {
+      "clueFragment": "railway",
+      "gives": "RY",
+      "note": "RY is an abbreviation for railway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A little liquid effluent has leaked from the railway.",
+     "definitionFit": "To slur is to slight or disparage someone, as in casting a slur."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 26,
@@ -400,7 +1715,52 @@
     "text": "Like leaves maybe left over part of garden",
     "enumeration": "5"
    },
-   "solution": "LOBED"
+   "solution": "LOBED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOBED",
+    "definitions": [
+     {
+      "text": "Like leaves maybe",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for over"
+     },
+     {
+      "clueFragment": "part of garden",
+      "gives": "BED",
+      "note": "a flower bed is part of a garden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "O",
+      "BED"
+     ]
+    },
+    "explanation": {
+     "surface": "Leaves left lying over a garden bed.",
+     "definitionFit": "Many leaves, like those of the oak, are lobed, divided into rounded sections."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 27,
@@ -414,7 +1774,41 @@
     "text": "Choir recess welcomed by chaps, I see",
     "enumeration": "5"
    },
-   "solution": "APSIS"
+   "solution": "APSIS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "APSIS",
+    "definitions": [
+     {
+      "text": "Choir recess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcomed by",
+      "for": "hidden_word",
+      "note": "something welcomed by others is taken in among them, so the letters lie inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chaps, I see",
+      "gives": "APSIS",
+      "note": "the run of letters spanning the comma"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone notices the choir stalls in an alcove being welcomed by the men.",
+     "definitionFit": "An apsis is a variant of apse, the vaulted recess at the east end of a church beyond the choir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -428,7 +1822,58 @@
     "text": "United no longer making huge sum, admitting little energy",
     "enumeration": "5"
    },
-   "solution": "MEINT"
+   "solution": "MEINT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MEINT",
+    "definitions": [
+     {
+      "text": "United no longer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit is to let in, so the small letter goes inside the sum"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "huge sum",
+      "gives": "MINT",
+      "note": "a mint is a vast amount of money"
+     },
+     {
+      "clueFragment": "little energy",
+      "gives": "E",
+      "note": "E is the short form for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "E",
+      "INT"
+     ]
+    },
+    "explanation": {
+     "surface": "A football club called United is no longer earning a fortune with so little vigour.",
+     "walkthrough": "United looks like a football team; it is the definition, marked obsolete by 'no longer'.",
+     "definitionFit": "Meint is an obsolete past participle of ming, to mix or unite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "United"
+    }
+   }
   },
   {
    "number": 29,
@@ -442,7 +1887,64 @@
     "text": "Topers? One of them retires with rash",
     "enumeration": "8"
    },
-   "solution": "TOSSPOTS"
+   "solution": "TOSSPOTS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOSSPOTS",
+    "definitions": [
+     {
+      "text": "Topers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retires",
+      "for": "reversal",
+      "note": "retiring is drawing back, so the word goes into reverse"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One of them",
+      "gives": "SOT",
+      "note": "a sot is a drunkard, one of the topers"
+     },
+     {
+      "clueFragment": "rash",
+      "gives": "SPOTS",
+      "note": "a rash is an outbreak of spots"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOS",
+      "SPOTS"
+     ],
+     "reversals": [
+      {
+       "from": "SOT",
+       "to": "TOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk leaves the party with a skin rash.",
+     "walkthrough": "'One of them' points back to the definition, topers.",
+     "definitionFit": "A tosspot is an old word for a heavy drinker, as is a toper."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retires"
+    }
+   }
   },
   {
    "number": 30,
@@ -456,7 +1958,57 @@
     "text": "Tasty sauce like this tops vessel? Not quite",
     "enumeration": "4"
    },
-   "solution": "SOJA"
+   "solution": "SOJA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SOJA",
+    "definitions": [
+     {
+      "text": "Tasty sauce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of the word is used, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "tops"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like this",
+      "gives": "SO",
+      "note": "so means in this way"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "JAR",
+      "note": "a jar is a vessel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "JA"
+     ]
+    },
+    "explanation": {
+     "surface": "A savoury sauce poured over the top of a pot, but not quite filling it.",
+     "definitionFit": "Soja is an old name for soy, the salty sauce made from fermented soya beans."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tops"
+    }
+   }
   },
   {
    "number": 31,
@@ -470,7 +2022,65 @@
     "text": "One monkey pinching bit of kernel for another",
     "enumeration": "4"
    },
-   "solution": "SAKI"
+   "solution": "SAKI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SAKI",
+    "definitions": [
+     {
+      "text": "another",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "only a small piece of the next word, its first letter, is used"
+     },
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "to pinch is to grip tightly, so the letter is held inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One monkey",
+      "gives": "SAI",
+      "note": "the sai is a South American monkey, a capuchin"
+     },
+     {
+      "clueFragment": "kernel",
+      "gives": "K",
+      "select": "first",
+      "note": "the opening letter of kernel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "K",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "One monkey steals a nut from another.",
+     "walkthrough": "'One monkey' looks like the definition but is the wordplay; 'another' means another monkey and defines the answer.",
+     "definitionFit": "The saki is a different South American monkey with a long bushy tail, so another of the kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pinching"
+    }
+   }
   },
   {
    "number": 32,
@@ -484,7 +2094,55 @@
     "text": "Therapist taking in foreign wood wind player",
     "enumeration": "6"
    },
-   "solution": "OBOIST"
+   "solution": "OBOIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OBOIST",
+    "definitions": [
+     {
+      "text": "wind player",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking something in means enclosing it, so the foreign word sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Therapist",
+      "gives": "OT",
+      "note": "OT is an occupational therapist"
+     },
+     {
+      "clueFragment": "foreign wood",
+      "gives": "BOIS",
+      "note": "bois is French for wood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BOIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A therapist takes on a woodwind player from abroad.",
+     "walkthrough": "'wood wind' is split so 'wood' goes to the wordplay and 'wind player' is the definition.",
+     "definitionFit": "An oboist plays the oboe, a double-reed woodwind instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wood"
+    }
+   }
   },
   {
    "number": 33,
@@ -498,7 +2156,45 @@
     "text": "Meteorologist experienced open country",
     "enumeration": "6"
    },
-   "solution": "HADLEY"
+   "solution": "HADLEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HADLEY",
+    "definitions": [
+     {
+      "text": "Meteorologist",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "experienced",
+      "gives": "HAD",
+      "note": "to have had something is to have experienced it"
+     },
+     {
+      "clueFragment": "open country",
+      "gives": "LEY",
+      "note": "a ley or lea is open grassland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAD",
+      "LEY"
+     ]
+    },
+    "explanation": {
+     "surface": "A weather expert has known wide-open landscapes.",
+     "definitionFit": "George Hadley, an 18th-century English meteorologist, explained the trade winds; the Hadley cell bears his name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 34,
@@ -512,7 +2208,71 @@
     "text": "Paddy has crazy Joe in to make merry",
     "enumeration": "7"
    },
-   "solution": "REJOICE"
+   "solution": "REJOICE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "REJOICE",
+    "definitions": [
+     {
+      "text": "make merry",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "crazy means disordered, so the name's letters are mixed up"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the jumbled name goes inside the grain"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Paddy",
+      "gives": "RICE",
+      "note": "a paddy is a rice field, and paddy is unhusked rice"
+     },
+     {
+      "clueFragment": "Joe",
+      "gives": "JOE",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EJO",
+      "ICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "JOE",
+       "gives": "EJO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Irishman invites his wild friend Joe round for a party.",
+     "walkthrough": "Paddy reads as a nickname for an Irishman; it is the rice field.",
+     "definitionFit": "To rejoice is to celebrate joyfully, to make merry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Paddy"
+    }
+   }
   },
   {
    "number": 35,
@@ -526,7 +2286,56 @@
     "text": "Bass denied, drunk becomes spooky",
     "enumeration": "4"
    },
-   "solution": "EERY"
+   "solution": "EERY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EERY",
+    "definitions": [
+     {
+      "text": "spooky",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied",
+      "for": "deletion",
+      "note": "to be denied something is to go without it, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "becomes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunk",
+      "gives": "BEERY",
+      "note": "beery means affected by beer, tipsy"
+     },
+     {
+      "clueFragment": "Bass",
+      "gives": "B",
+      "note": "B is the abbreviation for bass in music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EERY"
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker refused his Bass beer turns ghostly.",
+     "walkthrough": "Bass is also a well-known British beer brand, which suits the surface.",
+     "definitionFit": "Eery is a variant spelling of eerie, meaning strange and unsettling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bass"
+    }
+   }
   },
   {
    "number": 36,
@@ -540,7 +2349,75 @@
     "text": "After turning soils end frazzled, stumped",
     "enumeration": "8"
    },
-   "solution": "STRIDDEN"
+   "solution": "STRIDDEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "STRIDDEN",
+    "definitions": [
+     {
+      "text": "stumped",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes the following word read the other way"
+     },
+     {
+      "text": "frazzled",
+      "for": "anagram",
+      "note": "frazzled means worn ragged, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soils",
+      "gives": "DIRTS",
+      "note": "to dirt is to soil"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "END",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRID",
+      "DEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "END",
+       "gives": "DEN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DIRTS",
+       "to": "STRID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone baffled after the soil was turned left frayed at the end.",
+     "definitionFit": "Stridden is the past participle of stride, and stumped can mean walked heavily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stumped"
+    }
+   }
   }
  ]
 }
