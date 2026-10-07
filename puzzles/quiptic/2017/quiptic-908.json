@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,72 @@
     "text": "About to attend a function before retrospective show in restaurant",
     "enumeration": "9"
    },
-   "solution": "CAFETERIA"
+   "solution": "CAFETERIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CAFETERIA",
+    "definitions": [
+     {
+      "text": "restaurant",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrospective",
+      "for": "reversal",
+      "note": "something retrospective looks back, so the word for show is read from its end to its start"
+     }
+    ],
+    "linkWords": [
+     "to attend",
+     "before",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "About",
+      "gives": "CA",
+      "note": "CA is short for circa, Latin for about"
+     },
+     {
+      "clueFragment": "a function",
+      "gives": "FETE",
+      "note": "a fete is a social function or celebration"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "AIR",
+      "note": "to air something is to show it publicly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "FETE",
+      "RIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man hurries to a party before a retrospective exhibition held in a restaurant.",
+     "walkthrough": "'Retrospective show' reads like an art exhibition looking back on a career, but it means the word for show turned round.",
+     "definitionFit": "A cafeteria is a self-service eating place, a kind of restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retrospective"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +115,51 @@
     "text": "Contract made by animal visiting church",
     "enumeration": "5"
    },
-   "solution": "CATCH"
+   "solution": "CATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATCH",
+    "definitions": [
+     {
+      "text": "Contract",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made by",
+     "visiting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "animal",
+      "gives": "CAT",
+      "note": "a cat is an animal"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CH",
+      "note": "CH is the standard abbreviation for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAT",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "A business agreement is struck by a creature that has wandered into a church.",
+     "walkthrough": "'Contract' looks like a noun for a deal, but it is the verb, as in contracting an illness.",
+     "definitionFit": "To catch a cold is to contract it, picking up an illness from someone else."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Contract"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +173,70 @@
     "text": "At last, landlubber is free to be let loose in boats",
     "enumeration": "7"
    },
-   "solution": "FERRIES"
+   "solution": "FERRIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "FERRIES",
+    "definitions": [
+     {
+      "text": "boats",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the following word only"
+     },
+     {
+      "text": "to be let loose",
+      "for": "anagram",
+      "note": "letting something loose frees it from its order, so these letters scatter and regroup"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "landlubber",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of landlubber"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "FREE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RISFREE",
+       "gives": "FERRIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who dislikes the sea is finally allowed to go off in boats.",
+     "definitionFit": "Ferries are boats that carry passengers and vehicles across water on regular routes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +250,62 @@
     "text": "Agreement to stop fighting about cute Romeo",
     "enumeration": "5"
    },
-   "solution": "TRUCE"
+   "solution": "TRUCE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TRUCE",
+    "definitions": [
+     {
+      "text": "Agreement to stop fighting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters moved around, so the word cute is rearranged, with Romeo set inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cute",
+      "gives": "TUCE",
+      "note": "the letters of cute rearranged"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "UCE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CUTE",
+       "gives": "TUCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A peace deal is struck over an attractive young lover.",
+     "walkthrough": "The rearranged letters of cute take R after their first letter; Romeo is the phonetic alphabet's word for R.",
+     "definitionFit": "A truce is a pause in hostilities agreed between opposing sides in a war or quarrel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +319,68 @@
     "text": "Flipping degenerate dined out and went back on his word",
     "enumeration": "7"
    },
-   "solution": "RENEGED"
+   "solution": "RENEGED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RENEGED",
+    "definitions": [
+     {
+      "text": "went back on his word",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dined out",
+      "for": "deletion",
+      "note": "out tells us the word for dined is removed from the longer word"
+     },
+     {
+      "text": "Flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "degenerate",
+      "gives": "DEGENERATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dined",
+      "gives": "ATE",
+      "note": "ate is the past tense of eat, to dine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RENEGED"
+     ],
+     "reversals": [
+      {
+       "from": "DEGENER",
+       "to": "RENEGED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dissolute man went out to eat and then broke his promise.",
+     "walkthrough": "The deletion comes before the turnaround. 'Flipping' passes as a mild British swear word in the surface, so it hides its real job.",
+     "definitionFit": "To renege is to break a promise or commitment, so reneged means failed to keep one's word."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flipping"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +400,67 @@
      }
     ]
    },
-   "solution": "ALLBLACKS"
+   "solution": "ALLBLACKS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ALL BLACKS",
+    "definitions": [
+     {
+      "text": "Rugby team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be involved in",
+      "for": "container",
+      "note": "being involved in something places it inside, so one word goes within the other letters"
+     },
+     {
+      "text": "redesign",
+      "for": "anagram",
+      "note": "a redesign reworks the shape of something, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "balls",
+      "gives": "ALLBS",
+      "note": "the letters of balls rearranged"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "LACK",
+      "note": "to want is to lack something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLB",
+      "LACK",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BALLS",
+       "gives": "ALLBS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby team wishes to take part in designing a new ball.",
+     "walkthrough": "'Want' reads as wish, but here it means lack. The All Blacks are New Zealand's national rugby union team.",
+     "definitionFit": "The All Blacks are the New Zealand national rugby union side, named for their black kit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "want"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +474,48 @@
     "text": "Soundly anchored in stream",
     "enumeration": "4"
    },
-   "solution": "TIDE"
+   "solution": "TIDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIDE",
+    "definitions": [
+     {
+      "text": "stream",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Soundly",
+      "for": "homophone",
+      "note": "soundly means by sound, so we take a word that is heard like the one clued"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anchored",
+      "gives": "TIDE",
+      "soundsLike": "TIED",
+      "note": "anchored means tied fast"
+     }
+    ],
+    "explanation": {
+     "surface": "A boat is moored securely in a flowing river.",
+     "walkthrough": "'Soundly' reads as firmly, describing the anchoring, but it signals a sound-alike.",
+     "definitionFit": "A tide is a current or flow of water, and stream can mean a current, as in the Gulf Stream."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Soundly"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +529,68 @@
     "text": "Dine close to actor in the Old Vic, maybe",
     "enumeration": "7"
    },
-   "solution": "THEATRE"
+   "solution": "THEATRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "THEATRE",
+    "definitions": [
+     {
+      "text": "Old Vic, maybe",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written; it holds the other pieces"
+     },
+     {
+      "clueFragment": "Dine",
+      "gives": "EAT",
+      "note": "to dine is to eat"
+     },
+     {
+      "clueFragment": "actor",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "EATR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to eat beside a performer at a famous London venue.",
+     "walkthrough": "'The' looks like part of the venue's name, but it is the outer word. The Old Vic is a well-known London theatre.",
+     "definitionFit": "The Old Vic is a historic playhouse near Waterloo in London, an example of a theatre, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "the"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +604,67 @@
     "text": "Physicians make these medicines to conceal ill-gotten gain",
     "enumeration": "9"
    },
-   "solution": "DIAGNOSES"
+   "solution": "DIAGNOSES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DIAGNOSES",
+    "definitions": [
+     {
+      "text": "Physicians make these",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to conceal",
+      "for": "container",
+      "note": "concealing something hides it within, so one word wraps around the other"
+     },
+     {
+      "text": "ill-gotten",
+      "for": "anagram",
+      "note": "something ill-gotten is obtained crookedly, suggesting the letters are bent into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medicines",
+      "gives": "DOSES",
+      "note": "doses are measured amounts of medicine"
+     },
+     {
+      "clueFragment": "gain",
+      "gives": "IAGN",
+      "note": "the letters of gain rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IAGN",
+      "OSES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GAIN",
+       "gives": "IAGN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doctors hide their stolen profits inside medicine bottles.",
+     "walkthrough": "'Ill-gotten gain' looks like a fixed phrase for loot, but 'ill-gotten' rearranges the word gain.",
+     "definitionFit": "A diagnosis is a doctor's identification of an illness, so diagnoses are what physicians make."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ill-gotten"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +684,50 @@
      }
     ]
    },
-   "solution": "STARTURN"
+   "solution": "STARTURN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAR TURN",
+    "definitions": [
+     {
+      "text": "the main attraction",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lead",
+      "gives": "START",
+      "note": "a lead, as in a head start, is an advantage at the beginning"
+     },
+     {
+      "clueFragment": "vase",
+      "gives": "URN",
+      "note": "an urn is a kind of vase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "START",
+      "URN"
+     ]
+    },
+    "explanation": {
+     "surface": "A vase made of lead is the highlight of the exhibition.",
+     "walkthrough": "'Lead' suggests the metal of the vase, but it means a head start. A star turn is the headline act of a variety show.",
+     "definitionFit": "A star turn is the principal performer or act in a show, the one the audience comes to see."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +741,56 @@
     "text": "Scope for the French to take on English habit",
     "enumeration": "6"
    },
-   "solution": "LEEWAY"
+   "solution": "LEEWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEEWAY",
+    "definitions": [
+     {
+      "text": "Scope",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "to take on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "habit",
+      "gives": "WAY",
+      "note": "a habit is someone's way of doing things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "E",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "There is room for the French to adopt an English custom.",
+     "definitionFit": "Leeway is freedom or room to act, the same idea as having scope to manoeuvre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +804,43 @@
     "text": "Blossom fished out of Bath river",
     "enumeration": "6"
    },
-   "solution": "THRIVE"
+   "solution": "THRIVE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THRIVE",
+    "definitions": [
+     {
+      "text": "Blossom",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fished out of",
+      "for": "hidden_word",
+      "note": "something fished out of water is pulled from within it, so the letters lie inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bath river",
+      "gives": "THRIVE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A flower is pulled out of the river at the city of Bath.",
+     "walkthrough": "'Blossom' looks like a noun for a flower, but it is the verb, to flourish. Bath is a city in the west of England on the River Avon.",
+     "definitionFit": "To blossom is to develop and flourish, which is exactly what it means to thrive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blossom"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +854,53 @@
     "text": "Processed giant eel to make a food additive",
     "enumeration": "8"
    },
-   "solution": "GELATINE"
+   "solution": "GELATINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GELATINE",
+    "definitions": [
+     {
+      "text": "a food additive",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Processed",
+      "for": "anagram",
+      "note": "processed food is broken down and reworked, so the letters are reworked into a new order"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giant eel",
+      "gives": "GIANTEEL",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GIANTEEL",
+       "gives": "GELATINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A huge eel is put through a factory to produce an ingredient.",
+     "definitionFit": "Gelatine is a setting agent added to foods such as jellies and sweets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Processed"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +914,55 @@
     "text": "Emergency credit is given to island",
     "enumeration": "6"
    },
-   "solution": "CRISIS"
+   "solution": "CRISIS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRISIS",
+    "definitions": [
+     {
+      "text": "Emergency",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "IS",
+      "note": "IS is a standard abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "IS",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "An urgent situation arises as a loan is extended to an island nation.",
+     "definitionFit": "A crisis is a time of acute danger or difficulty, a synonym for an emergency."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +982,50 @@
      }
     ]
    },
-   "solution": "READYMEAL"
+   "solution": "READYMEAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "READY MEAL",
+    "definitions": [
+     {
+      "text": "something quick to prepare in the kitchen",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "order",
+      "for": "anagram",
+      "note": "to order things is to arrange them, so these letters are put into a fresh sequence"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leader may",
+      "gives": "LEADERMAY",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEADERMAY",
+       "gives": "READYMEAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss might call for a fast dish to be made in the kitchen.",
+     "definitionFit": "A ready meal is a pre-cooked dish bought from a shop that only needs heating, so it takes little time."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1045,65 @@
      }
     ]
    },
-   "solution": "STORMDOOR"
+   "solution": "STORMDOOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STORM DOOR",
+    "definitions": [
+     {
+      "text": "something for those prone to wind",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "develop",
+      "for": "anagram",
+      "note": "to develop is to change form, so the gathered letters take a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctors briefly",
+      "gives": "DRS",
+      "note": "Drs is the short form of doctors"
+     },
+     {
+      "clueFragment": "room",
+      "gives": "ROOM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DRSROOMTO",
+       "gives": "STORMDOOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Medics make space to treat patients suffering from flatulence.",
+     "walkthrough": "'Prone to wind' suggests a digestive complaint, but it means places exposed to gales. The word to is part of the letters being rearranged.",
+     "definitionFit": "A storm door is an extra outer door fitted to protect a house exposed to strong winds and bad weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1117,44 @@
     "text": "Get smaller press?",
     "enumeration": "8"
    },
-   "solution": "DECREASE"
+   "solution": "DECREASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DECREASE",
+    "definitions": [
+     {
+      "text": "Get smaller",
+      "at": 0
+     },
+     {
+      "text": "press?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get smaller",
+      "note": "first meaning: to shrink or lessen"
+     },
+     {
+      "clueFragment": "press?",
+      "note": "second meaning: ironing removes creases"
+     }
+    ],
+    "explanation": {
+     "surface": "Does the newspaper industry shrink?",
+     "walkthrough": "The second meaning splits the answer as DE-CREASE, to take the creases out, which is what pressing clothes does; the question mark flags the pun.",
+     "definitionFit": "To decrease is to become less; pressing with an iron, punningly, takes creases away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "press"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1174,76 @@
      }
     ]
    },
-   "solution": "FASTFOOD"
+   "solution": "FASTFOOD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "FAST FOOD",
+    "definitions": [
+     {
+      "text": "takeaway",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "something broken is in pieces, so the letters of that word are rearranged"
+     },
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "tucking into something goes inside it, so these letters sit within another word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fancy",
+      "gives": "FAD",
+      "note": "a fancy is a passing whim, a fad"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "foot",
+      "gives": "TFOO",
+      "note": "the letters of foot rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "STFOO",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FOOT",
+       "gives": "TFOO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boy with an injured foot is tucking into an elaborate takeaway meal.",
+     "walkthrough": "'Fancy' looks like an adjective describing the takeaway, but it is a noun meaning a whim.",
+     "definitionFit": "Fast food is quickly prepared meals such as burgers, typically bought as a takeaway."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fancy"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1257,90 @@
     "text": "Writer in Old Testament coming up with dodgy translation of line about king",
     "enumeration": "7"
    },
-   "solution": "TOLKIEN"
+   "solution": "TOLKIEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "TOLKIEN",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming up",
+      "for": "reversal",
+      "note": "in a down answer, coming up means read from bottom to top, so the letters go backwards"
+     },
+     {
+      "text": "dodgy translation",
+      "for": "anagram",
+      "note": "a dodgy translation garbles its original, so the letters are scrambled"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the rearranged letters wrap around the following abbreviation"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Testament",
+      "gives": "OT",
+      "note": "OT is the standard abbreviation"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "LIEN",
+      "note": "the letters of line rearranged"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "L",
+      "K",
+      "IEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LINE",
+       "gives": "LIEN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "OT",
+       "to": "TO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of scripture comes up with a poor rendering of a line about a monarch.",
+     "walkthrough": "TO is followed by the scrambled letters of line, which wrap around K.",
+     "definitionFit": "J.R.R. Tolkien was an English author, best known for The Lord of the Rings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "translation"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1354,65 @@
     "text": "Cavity is treated initially by a health professional",
     "enumeration": "7"
    },
-   "solution": "DENTIST"
+   "solution": "DENTIST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DENTIST",
+    "definitions": [
+     {
+      "text": "a health professional",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word just before it"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cavity",
+      "gives": "DENT",
+      "note": "a dent is a hollow, a cavity in a surface"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "treated",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of treated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENT",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A hole in a tooth gets filled first by the right practitioner.",
+     "walkthrough": "'Cavity' and 'treated' both pull towards tooth decay, which fits the answer, but cavity is just a dent.",
+     "definitionFit": "A dentist is a qualified practitioner who looks after teeth, a kind of health professional."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cavity"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1426,43 @@
     "text": "Fruit and vegetable drink",
     "enumeration": "6"
    },
-   "solution": "SQUASH"
+   "solution": "SQUASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SQUASH",
+    "definitions": [
+     {
+      "text": "Fruit and vegetable",
+      "at": 0
+     },
+     {
+      "text": "drink",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fruit and vegetable",
+      "note": "first meaning: a gourd such as butternut, eaten as a vegetable but botanically a fruit"
+     },
+     {
+      "clueFragment": "drink",
+      "note": "second meaning: a sweet concentrated fruit cordial diluted with water"
+     }
+    ],
+    "explanation": {
+     "surface": "A healthy juice made from mixed produce.",
+     "walkthrough": "The surface reads as one drink made of fruit and vegetables. In Britain squash is a fruit cordial you dilute with water.",
+     "definitionFit": "Squashes are gourds, botanically fruits but cooked as vegetables; squash is also a diluted cordial drink in Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drink"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1476,66 @@
     "text": "You reportedly replaced dart in costume for dancer",
     "enumeration": "7"
    },
-   "solution": "UNITARD"
+   "solution": "UNITARD",
+   "annotation": {
+    "type": [
+     "homophone",
+     "anagram",
+     "charade"
+    ],
+    "answer": "UNITARD",
+    "definitions": [
+     {
+      "text": "costume for dancer",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard spoken, so we take a letter that sounds like the word"
+     },
+     {
+      "text": "replaced",
+      "for": "anagram",
+      "note": "replaced means put back in a different place, so these letters are moved around"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "gives": "U",
+      "soundsLike": "YOU",
+      "note": "the letter U is said like you"
+     },
+     {
+      "clueFragment": "dart in",
+      "gives": "NITARD",
+      "note": "the letters of dart and in rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DARTIN",
+       "gives": "NITARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "You are said to have swapped a dart into a dancer's costume.",
+     "definitionFit": "A unitard is a one-piece, skin-tight garment covering body and legs, worn by dancers and gymnasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "replaced"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1549,54 @@
     "text": "Cancel my order for plant",
     "enumeration": "8"
    },
-   "solution": "CYCLAMEN"
+   "solution": "CYCLAMEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CYCLAMEN",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "order",
+      "for": "anagram",
+      "note": "putting letters in order means arranging them, so these are set into a new sequence"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cancel my",
+      "gives": "CANCELMY",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANCELMY",
+       "gives": "CYCLAMEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A customer asks to cancel their order for a plant.",
+     "walkthrough": "'Order' looks like a purchase being cancelled, but it is the signal to rearrange.",
+     "definitionFit": "Cyclamen is a flowering plant with swept-back petals, popular as a winter houseplant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1610,53 @@
     "text": "Stripe modelled for a clergyman",
     "enumeration": "6"
    },
-   "solution": "PRIEST"
+   "solution": "PRIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PRIEST",
+    "definitions": [
+     {
+      "text": "a clergyman",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "modelled",
+      "for": "anagram",
+      "note": "something modelled is shaped anew, so these letters are formed into a different word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stripe",
+      "gives": "STRIPE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRIPE",
+       "gives": "PRIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A striped garment is shown off on the catwalk for a vicar.",
+     "definitionFit": "A priest is an ordained minister of the church, so a clergyman."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "modelled"
+    }
+   }
   },
   {
    "number": 22,
@@ -399,7 +1670,49 @@
     "text": "Quiet job for a member of the working class?",
     "enumeration": "5"
    },
-   "solution": "PROLE"
+   "solution": "PROLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROLE",
+    "definitions": [
+     {
+      "text": "a member of the working class",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "P",
+      "note": "P is piano, the musical direction for quiet"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "ROLE",
+      "note": "a role is a job or position"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a peaceful post suitable for a manual labourer?",
+     "definitionFit": "Prole, short for proletarian, is an informal word for a working-class person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Quiet"
+    }
+   }
   },
   {
    "number": 23,
@@ -413,7 +1726,50 @@
     "text": "Pent-up anger shown by Second Eleven",
     "enumeration": "5"
    },
-   "solution": "STEAM"
+   "solution": "STEAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEAM",
+    "definitions": [
+     {
+      "text": "Pent-up anger",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "Eleven",
+      "gives": "TEAM",
+      "note": "an eleven is a team in cricket or football"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TEAM"
+     ]
+    },
+    "explanation": {
+     "surface": "The reserve side shows suppressed fury.",
+     "walkthrough": "'Second Eleven' reads as a reserve team, but the two words are clued separately.",
+     "definitionFit": "Steam is used for pent-up energy or anger, as in letting off steam."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 24,
@@ -427,7 +1783,42 @@
     "text": "Farmer in Ontario providing shelter for sheep",
     "enumeration": "6"
    },
-   "solution": "MERINO"
+   "solution": "MERINO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MERINO",
+    "definitions": [
+     {
+      "text": "sheep",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "providing shelter for",
+      "for": "hidden_word",
+      "note": "a shelter holds something inside it, so the letters are housed within the words before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Farmer in Ontario",
+      "gives": "MERINO",
+      "note": "the letters run across three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A Canadian farmer gives his flock a barn.",
+     "definitionFit": "The merino is a breed of sheep famous for its fine, soft wool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shelter"
+    }
+   }
   },
   {
    "number": 25,
@@ -441,7 +1832,50 @@
     "text": "Broke up a riot led by worshipper of false gods",
     "enumeration": "8"
    },
-   "solution": "IDOLATER"
+   "solution": "IDOLATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IDOLATER",
+    "definitions": [
+     {
+      "text": "worshipper of false gods",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broke up",
+      "for": "anagram",
+      "note": "breaking something up splits it into pieces, so these letters are scattered and reassembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a riot led",
+      "gives": "ARIOTLED",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARIOTLED",
+       "gives": "IDOLATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Police dispersed a disturbance started by a heathen.",
+     "definitionFit": "An idolater worships idols, images treated as gods, which monotheists consider false deities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broke"
+    }
+   }
   },
   {
    "number": 26,
@@ -455,7 +1889,70 @@
     "text": "Sources of glacial lava entering a narrow valley",
     "enumeration": "4"
    },
-   "solution": "GLEN"
+   "solution": "GLEN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GLEN",
+    "definitions": [
+     {
+      "text": "valley",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sources of",
+      "for": "letter_selection",
+      "note": "a source is where something starts, so the first letter of each following word is kept"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glacial",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of glacial"
+     },
+     {
+      "clueFragment": "lava",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lava"
+     },
+     {
+      "clueFragment": "entering",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of entering"
+     },
+     {
+      "clueFragment": "narrow",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of narrow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Ice and molten rock spill into a narrow valley.",
+     "walkthrough": "The word a is skipped; the four content words after 'Sources of' supply their first letters.",
+     "definitionFit": "A glen is a narrow valley, especially in Scotland or Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sources"
+    }
+   }
   },
   {
    "number": 27,
@@ -469,7 +1966,61 @@
     "text": "Unpleasant type, crazy about Dutch city",
     "enumeration": "9"
    },
-   "solution": "ROTTERDAM"
+   "solution": "ROTTERDAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ROTTERDAM",
+    "definitions": [
+     {
+      "text": "Dutch city",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the word for crazy is written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Unpleasant type",
+      "gives": "ROTTER",
+      "note": "a rotter is a nasty, unpleasant person"
+     },
+     {
+      "clueFragment": "crazy",
+      "gives": "MAD",
+      "note": "mad means crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROTTER",
+      "DAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAD",
+       "to": "DAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nasty character is wild about a city in the Netherlands.",
+     "walkthrough": "'Crazy about' reads as keen on, but about turns the word for crazy round.",
+     "definitionFit": "Rotterdam is a major port city in the Netherlands, the home of Europe's biggest harbour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   }
  ]
 }
