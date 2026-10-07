@@ -125,9 +125,11 @@ DATES = date_patterns(r"19[789]\d")
 #: A Times cryptic number of 1974-99 (13,676 to ~21,400); Times issue
 #: numbers (59,000-66,000) and Gale document ids never fall in it.
 NUMBER = re.compile(r"(?<![\d,.])(1[3-9]|2[01])[,.]?(\d{3})(?![\d,])")
-#: The citation a Gale PDF prints: "The Times, 12 Jan. 1988, p. 18".
-CITED = re.compile(r"The Times[^,]{0,40},\s*(?:\w+,\s*)?([0-3]?\d)\s+" + MON + r"\s*(19[789]\d)(?:,\s*p\.?\s*(\d+))?",
-                   re.IGNORECASE)
+#: The citation a Gale PDF prints: "The Times, 12 Jan. 1988, p. 18", or
+#: its download's citation page, the article's title quoted first:
+#: '"The Times Crossword Puzzle No 17,244." Times, 3 Jan. 1987, p. 20.'
+CITED = re.compile(r'(?:"[^"]{0,200}"\s*(?:The\s+)?Times|The Times[^,]{0,40}),\s*(?:\w+,\s*)?([0-3]?\d)\s+' + MON
+                   + r"\s*(19[789]\d)(?:,\s*p\.?\s*(\d+))?", re.IGNORECASE)
 
 
 # ------------------------------------------------------------ numbers and dates
@@ -246,9 +248,13 @@ def scaled(img):
     """(`img` as an archive.org page holds a puzzle, whether a grid was found
     on it): scaled so its widest grid is GRID_WIDTH wide (unscaled when none
     is found) and set on a white page SCAN_WIDTH wide, the size the filer's
-    pixel spans are set at."""
+    pixel spans are set at. A whole page (Gale's page download) is read at
+    an archive.org page's width first, where a photo or a table is too big
+    to pass for its grid; a clipping, its widest square patch of ink."""
     from PIL import Image
-    grids = fa.grids_on(img, shaped=square)
+    at = fa.SCAN_WIDTH / img.width
+    grids = [[v / at for v in b] for b in fa.grids_on(img.resize((fa.SCAN_WIDTH, round(img.height * at))))] \
+        or fa.grids_on(img, shaped=square)
     if grids:
         k = GRID_WIDTH / max(b[2] - b[0] for b in grids)
         if abs(k - 1) >= 0.05:
@@ -263,9 +269,19 @@ MID_DAY = datetime.date(1987, 1, 1)
 
 
 def title_number(img, key):
-    """The puzzle number our readers read in a page's title, or None."""
+    """The puzzle number our readers read in a page's title, or None: in the
+    filer's bands by each grid, else anywhere a grid's height over it (the
+    Saturday prize puzzle's entry form sets its title ~500px up)."""
     found = fa.ocr_titles(img, fa.TIMES, MID_DAY, key)
-    return found[0][0] if found else None
+    if found:
+        return found[0][0]
+    for i, (x0, y0, x1, y1) in enumerate(fa.grids_on(img)):
+        w = x1 - x0
+        above = img.crop((max(0, x0 - w // 2), max(0, y0 - (y1 - y0)), min(img.width, x1 + w // 2), y0))
+        titles, _ = fa.ocr_headings(above, fa.TIMES, f"{key}_over{i}")
+        if titles:
+            return titles[0][0]
+    return None
 
 
 def match(path, by_number):
