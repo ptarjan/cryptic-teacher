@@ -1843,8 +1843,8 @@ def blind_misses(pid):
     """The entries a blind run got wrong, whose explanations the grader dropped.
 
     Written by tools/fetch_puzzle.py's record_misses after the run has ended,
-    by comparing what the model derived against the published key — from the
-    blind-annotate grader and the blind-solve one alike. The model never sees this
+    by comparing what the model derived against the published key (the blind
+    solve's grader). The model never sees this
     file and cannot write it, which is what makes it safe to soften the check
     below: it is the one blank the annotator did not choose.
     """

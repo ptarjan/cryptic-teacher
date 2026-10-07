@@ -1231,8 +1231,8 @@ tools/data/penguin_partial_fills/             answers from a Penguin-book solve 
 tools/data/diagnosed_misses.json              every graded miss the nightly diagnosis has
                                               looked at, with its verdict and what it changed,
                                               so none is diagnosed twice
-tools/data/blind_misses.json                  which entries the last blind annotate run got
-                                              wrong, the one blank
+tools/data/blind_misses.json                  which entries a blind solve got wrong once the
+                                              paper’s key arrived, the one blank
                                               check_every_clue_is_annotated will not fail on
 tools/data/favourite_grading/key.json         which packet label is which pair, and which side
                                               of it was voted for: the only thing that

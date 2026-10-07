@@ -405,7 +405,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/fixtures/snitch_archive.html", "a saved copy of the SNITCH's archive page, the fixture tools/test_fetch_snitch.sh reads"),
     ("tables everything else reads", "tools/data/penguin_partial_fills/", "answers from a Penguin-book solve that stopped short; the puzzle itself is filed unsolved for the nightly cold solve to finish"),
     ("tables everything else reads", "tools/data/diagnosed_misses.json", "every graded miss the nightly diagnosis has looked at, with its verdict and what it changed, so none is diagnosed twice"),
-    ("tables everything else reads", "tools/data/blind_misses.json", "which entries the last blind annotate run got wrong, the one blank check_every_clue_is_annotated will not fail on"),
+    ("tables everything else reads", "tools/data/blind_misses.json", "which entries a blind solve got wrong once the paper’s key arrived, the one blank check_every_clue_is_annotated will not fail on"),
     ("tables everything else reads", "tools/data/favourite_grading/key.json", "which packet label is which pair, and which side of it was voted for: the only thing that un-blinds a packet"),
     ("tables everything else reads", "tools/data/favourite_grading/packets/", "one blind batch of clues per file, labels only"),
     ("tables everything else reads", "tools/data/favourite_grading/scores/", "the judge’s five scores per label, same batch numbering as the packets"),
