@@ -572,6 +572,17 @@ const APP_BLOCKS = (() => {
   assert(words("Bar (two words) at sea") === "Bar|(two|words)|at|sea",
     "and words in brackets mid-clue still are: " + words("Bar (two words) at sea"));
 }
+// A definition that ends the clue is at the end even with a "?" after it: the
+// definition rung called "disconnect" in "Can everyone initially disconnect?"
+// mid-clue, with "?" quoted as the wordplay after it.
+{
+  const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
+  const from = src.indexOf("function defPlace");
+  const to = src.indexOf("\n  }\n", from) + 4;
+  const defPlace = new Function("cpToIdx", "esc", src.slice(from, to) + "\nreturn defPlace;")((s, n) => n, (s) => s);
+  const said = defPlace("Can everyone initially disconnect?", { text: "disconnect", at: 23 }, []);
+  assert(/right at the end/.test(said), "a definition before a closing ? ends the clue: " + said);
+}
 // Which puzzle boots is NOT pinned here on purpose: the nightly job adds one
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore
