@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Holiday destination reserved, but no time",
     "enumeration": "7"
    },
-   "solution": "SEASIDE"
+   "solution": "SEASIDE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SEASIDE",
+    "definitions": [
+     {
+      "text": "Holiday destination",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but no time",
+      "for": "deletion",
+      "note": "'no time' asks for the abbreviation for time to be dropped from the phrase before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reserved",
+      "gives": "SETASIDE",
+      "note": "kept back for later use, as a two-word phrase"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ASIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday spot has been booked, but there's no time to go.",
+     "walkthrough": "SET ASIDE loses its T to leave SEASIDE.",
+     "definitionFit": "The coast is the classic British place to spend a summer break, so it is a typical holiday spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reserved"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,46 @@
     "text": "Dry hill zone",
     "enumeration": "6"
    },
-   "solution": "SECTOR"
+   "solution": "SECTOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SECTOR",
+    "definitions": [
+     {
+      "text": "zone",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dry",
+      "gives": "SEC",
+      "note": "sec is the French word used on wine labels for dry"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "TOR",
+      "note": "a tor is a rocky hill, as on Dartmoor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEC",
+      "TOR"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The clue reads like a description of arid upland; dry and hill are separate pieces, and only the last word defines.",
+     "definitionFit": "A sector is a distinct area or district marked off from others, much as a zone is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dry"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,73 @@
     "text": "Fly, one trapped in a barrel, right wing in ale",
     "enumeration": "6"
    },
-   "solution": "AVIATE"
+   "solution": "AVIATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AVIATE",
+    "definitions": [
+     {
+      "text": "Fly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped in",
+      "for": "container",
+      "note": "something trapped in a barrel sits inside it, so one piece goes within the other"
+     },
+     {
+      "text": "right wing in",
+      "for": "letter_selection",
+      "note": "the right wing of a word is its rightmost edge, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "barrel",
+      "gives": "VAT",
+      "note": "a vat is a large barrel or tub for liquids"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "ale",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VIAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fly has fallen into a barrel of beer and is stuck there.",
+     "walkthrough": "I goes inside A VAT to make AVIAT, then the last letter of ale finishes AVIATE.",
+     "definitionFit": "To aviate is to pilot an aircraft, a formal verb for flying."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fly"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,65 @@
     "text": "Without offering protection, bank going after us, nice when bankrupt!",
     "enumeration": "10"
    },
-   "solution": "INSECURELY"
+   "solution": "INSECURELY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "INSECURELY",
+    "definitions": [
+     {
+      "text": "Without offering protection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when bankrupt",
+      "for": "anagram",
+      "note": "a business gone bankrupt is broken up, so these letters are broken and rearranged"
+     }
+    ],
+    "linkWords": [
+     "going after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us, nice",
+      "gives": "USNICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "RELY",
+      "note": "to bank on someone is to rely on them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSECU",
+      "RELY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USNICE",
+       "gives": "INSECU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bank fails its customers, leaving them unprotected, after going under.",
+     "walkthrough": "'going after' places the bank word after the rearranged letters. Bank here is a verb, as in bank on.",
+     "definitionFit": "Something held insecurely is not safely fixed or guarded, so it lacks any protection or security."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +302,59 @@
     "text": "Cashier sees tenpence stolen by slippery customer",
     "enumeration": "5"
    },
-   "solution": "EXPEL"
+   "solution": "EXPEL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EXPEL",
+    "definitions": [
+     {
+      "text": "Cashier",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stolen by",
+      "for": "container",
+      "note": "money stolen by someone ends up held inside them, so the coins go within the eel"
+     }
+    ],
+    "linkWords": [
+     "sees"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "slippery customer",
+      "gives": "EEL",
+      "note": "an eel is the proverbially slippery creature"
+     },
+     {
+      "clueFragment": "tenpence",
+      "gives": "XP",
+      "note": "X is the Roman numeral ten and P stands for pence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "XP",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank cashier watches a shifty customer pocket a ten-pence coin.",
+     "walkthrough": "Cashier is not a bank clerk but the verb meaning to dismiss from service, especially from the armed forces.",
+     "definitionFit": "To cashier someone is to throw them out of their post in disgrace, which is to remove or eject them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cashier"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +368,56 @@
     "text": "Part of central London toured by female engine driver?",
     "enumeration": "7"
    },
-   "solution": "GASOHOL"
+   "solution": "GASOHOL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GASOHOL",
+    "definitions": [
+     {
+      "text": "engine driver?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toured by",
+      "for": "container",
+      "note": "a district toured by someone is surrounded by them as they go round it, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "GAL",
+      "note": "gal is an informal word for a girl or woman"
+     },
+     {
+      "clueFragment": "Part of central London",
+      "gives": "SOHO",
+      "note": "Soho is a district in London's West End"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GA",
+      "SOHO",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman train driver is shown round the West End.",
+     "walkthrough": "'engine driver' suggests a train driver; here it is whatever drives an engine, a fuel.",
+     "definitionFit": "Gasohol is a petrol and alcohol fuel blend, so it is literally what powers or drives a motor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "driver"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +431,55 @@
     "text": "Slimy little thing being prodded by a pet",
     "enumeration": "9"
    },
-   "solution": "GASTROPOD"
+   "solution": "GASTROPOD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GASTROPOD",
+    "definitions": [
+     {
+      "text": "Slimy little thing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prodded by",
+      "for": "container",
+      "note": "something prodded has another thing poked into it, so one piece is pushed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being",
+      "gives": "GOD",
+      "note": "the Supreme Being is God"
+     },
+     {
+      "clueFragment": "a pet",
+      "gives": "ASTROP",
+      "note": "a pet is an old word for a fit of sulks, a strop"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ASTROP",
+      "OD"
+     ]
+    },
+    "explanation": {
+     "surface": "A small slimy creature is poked by someone's pet animal.",
+     "walkthrough": "Pet is not an animal but a sulk, as in 'in a pet'; a strop is British slang for a bad-tempered huff.",
+     "definitionFit": "Gastropods are snails and slugs, small molluscs that leave a trail of slime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pet"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +493,46 @@
     "text": "Draw, or do very badly?",
     "enumeration": "4"
    },
-   "solution": "SUCK"
+   "solution": "SUCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SUCK",
+    "definitions": [
+     {
+      "text": "Draw",
+      "at": 0
+     },
+     {
+      "text": "do very badly",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Draw",
+      "note": "first meaning: to pull in, as liquid through a straw"
+     },
+     {
+      "clueFragment": "do very badly",
+      "note": "second meaning: a slang verb for being terrible at something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Draw suggests a tied match, set against doing badly; it is really the verb to pull in by mouth.",
+     "definitionFit": "The word means both to pull in with the mouth and, in slang, to be dreadful or perform poorly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Draw"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +546,67 @@
     "text": "Wave surfed finally with Charlie on the crest?",
     "enumeration": "8"
    },
-   "solution": "HERALDIC"
+   "solution": "HERALDIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HERALDIC",
+    "definitions": [
+     {
+      "text": "on the crest?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word before it, so only its closing letter is used"
+     },
+     {
+      "text": "Wave",
+      "for": "anagram",
+      "note": "to wave something is to shake it about, so these letters are shaken into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surfed",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "Charlie",
+      "gives": "CHARLIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DCHARLIE",
+       "gives": "HERALDIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surfer called Charlie rides the crest of a wave.",
+     "walkthrough": "Charlie looks like the NATO alphabet's C, but the whole name is used. The crest is not a wave top but a coat-of-arms device.",
+     "definitionFit": "A crest is part of a coat of arms, so anything depicted on it belongs to the art of heraldry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crest"
+    }
+   }
   },
   {
    "number": 8,
@@ -169,7 +630,62 @@
      }
     ]
    },
-   "solution": "LASTTOGO"
+   "solution": "LASTTOGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAST TO GO",
+    "definitions": [
+     {
+      "text": "The one remaining",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "having left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "TOGO",
+      "note": "Togo is a country in West Africa"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "ST",
+      "TOGO"
+     ]
+    },
+    "explanation": {
+     "surface": "The last resident left on a street after everyone else has emigrated.",
+     "walkthrough": "'after' places A ST after L; the country follows to give LAST TO GO.",
+     "definitionFit": "Whoever is the final person to leave is the one still there when all the others have departed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +699,56 @@
     "text": "Those exchanged for chips, one swiped by gulls",
     "enumeration": "5"
    },
-   "solution": "COINS"
+   "solution": "COINS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COINS",
+    "definitions": [
+     {
+      "text": "Those exchanged for chips",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swiped by",
+      "for": "container",
+      "note": "something swiped by thieves ends up held in their grasp, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gulls",
+      "gives": "CONS",
+      "note": "to gull someone is to con them, a verb in the third person"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "I",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "Seagulls snatch someone's chips at the seaside, after the money has been spent on them.",
+     "walkthrough": "Gulls are not birds here but a verb meaning swindles. The chips are casino chips, not fried potatoes.",
+     "definitionFit": "At a casino, money in the form of cash is swapped for gaming tokens, and back again when you leave."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gulls"
+    }
+   }
   },
   {
    "number": 10,
@@ -216,7 +781,62 @@
      }
     ]
    },
-   "solution": "OPTICALART"
+   "solution": "OPTICALART",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OPTICAL ART",
+    "definitions": [
+     {
+      "text": "bewildering image?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backwards",
+      "for": "reversal",
+      "note": "going backwards means reading the word for singing from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local distributor",
+      "gives": "OPTIC",
+      "note": "an optic is the measuring dispenser on an upside-down spirits bottle in a pub, and the local is one's nearby pub"
+     },
+     {
+      "clueFragment": "singing",
+      "gives": "TRALA",
+      "note": "tra-la is a burst of wordless singing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPTIC",
+      "ALART"
+     ],
+     "reversals": [
+      {
+       "from": "TRALA",
+       "to": "ALART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local supplier sings backwards, producing a confusing picture.",
+     "walkthrough": "Local is British for the neighbourhood pub, not a nearby distributor; an optic doles out measures of spirits there.",
+     "definitionFit": "Op art is an abstract style built on illusions that dazzle and confuse the viewer's eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Local"
+    }
+   }
   },
   {
    "number": 12,
@@ -240,7 +860,56 @@
    "group": [
     "12-across",
     "17-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "SLOT MACHINES",
+    "definitions": [
+     {
+      "text": "Slam the 9, foolishly – into those?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foolishly",
+      "for": "anagram",
+      "note": "acting foolishly means behaving in a muddled way, so these letters come out jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slam the",
+      "gives": "SLAMTHE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "9",
+      "gives": "COINS",
+      "note": "the answer to 9 across"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SLAMTHECOINS",
+       "gives": "SLOTMACHINES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler foolishly slams their money into the fruit machines.",
+     "walkthrough": "The whole clue defines too: coins are slammed into slot machines, foolishly, by gamblers at the seaside arcade.",
+     "definitionFit": "Gaming machines operated by inserting money into a narrow opening are exactly what coins get fed into."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -260,7 +929,66 @@
      }
     ]
    },
-   "solution": "GOODNESSME"
+   "solution": "GOODNESSME",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GOODNESS ME",
+    "definitions": [
+     {
+      "text": "Well",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is barking",
+      "for": "anagram",
+      "note": "barking is British slang for mad, so the letters go wild and come out in another order"
+     },
+     {
+      "text": "O no",
+      "for": "deletion",
+      "note": "'no' tells the solver that the round letter named just before it must be removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "someone’s",
+      "gives": "SOMEONES",
+      "note": "taken as written, ignoring the apostrophe"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "DOG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOODNESSME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SMEONESDOG",
+       "gives": "GOODNESSME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone exclaims in dismay that their dog is barking.",
+     "walkthrough": "Remove one O from someone's dog, then rearrange. Barking means mad in British slang, not the dog's noise.",
+     "definitionFit": "Both are mild exclamations of surprise, used at the start of a remark like 'Well, I never'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "barking"
+    }
+   }
   },
   {
    "number": 14,
@@ -274,7 +1002,66 @@
     "text": "1 across activity where couple of fish sought, but something unpleasant netted?",
     "enumeration": "11"
    },
-   "solution": "ROCKPOOLING"
+   "solution": "ROCKPOOLING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ROCKPOOLING",
+    "definitions": [
+     {
+      "text": "1 across activity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "netted",
+      "for": "container",
+      "note": "something netted is caught inside, so it sits between the two fish"
+     }
+    ],
+    "linkWords": [
+     "where",
+     "sought, but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "couple of fish",
+      "gives": "ROCK",
+      "note": "rock (rock salmon) is a fish sold in British chip shops; the first of the pair"
+     },
+     {
+      "clueFragment": "something unpleasant",
+      "gives": "POO",
+      "note": "a childish word for excrement"
+     },
+     {
+      "clueFragment": "couple of fish",
+      "gives": "LING",
+      "note": "ling is a cod-like sea fish; the second of the pair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROCK",
+      "POO",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "A seaside pastime: hunting for fish but catching something nasty in the net.",
+     "walkthrough": "The couple of fish are two separate fish names, with the unpleasant item caught between them.",
+     "definitionFit": "Poking about in the pools among rocks on a beach for crabs and fish is a traditional activity at the coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 15,
@@ -288,7 +1075,62 @@
     "text": "Meat joint guzzled by pop, nice one!",
     "enumeration": "9"
    },
-   "solution": "CHIPOLATA"
+   "solution": "CHIPOLATA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CHIPOLATA",
+    "definitions": [
+     {
+      "text": "Meat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guzzled by",
+      "for": "container",
+      "note": "something guzzled is taken inside the drinker, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pop",
+      "gives": "COLA",
+      "note": "pop is fizzy soft drink, such as cola"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "HIP",
+      "note": "the hip is a joint of the body"
+     },
+     {
+      "clueFragment": "nice one!",
+      "gives": "TA",
+      "note": "ta is British informal thanks, which 'nice one!' expresses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HIP",
+      "OLA",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "Dad scoffs a joint of meat and someone cheers him on.",
+     "walkthrough": "Pop looks like father but is the fizzy drink. A chipolata is a small thin British sausage.",
+     "definitionFit": "A chipolata is a small sausage, so it is a piece of meat in the broad sense used in recipes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pop"
+    }
+   }
   },
   {
    "number": 16,
@@ -302,7 +1144,54 @@
     "text": "Similar-sounding donkey rides tiny animal",
     "enumeration": "8"
    },
-   "solution": "ASSONANT"
+   "solution": "ASSONANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASSONANT",
+    "definitions": [
+     {
+      "text": "Similar-sounding",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "donkey",
+      "gives": "ASS",
+      "note": "an ass is a donkey"
+     },
+     {
+      "clueFragment": "rides",
+      "gives": "ON",
+      "note": "one thing that rides another is on it"
+     },
+     {
+      "clueFragment": "tiny animal",
+      "gives": "ANT",
+      "note": "an ant is a tiny insect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "ON",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A donkey carries a tiny creature on its back.",
+     "walkthrough": "'rides' supplies a little word for being on top, so the donkey sits on top of the insect in the answer.",
+     "definitionFit": "Assonant describes words that echo each other in their vowel sounds, so they resemble one another to the ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rides"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1224,47 @@
      }
     ]
    },
-   "solution": "SMALLMINDED"
+   "solution": "SMALLMINDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SMALL-MINDED",
+    "definitions": [
+     {
+      "text": "Myopic",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lilliputian",
+      "gives": "SMALL",
+      "note": "the Lilliputians in Gulliver's Travels are tiny people"
+     },
+     {
+      "clueFragment": "watched",
+      "gives": "MINDED",
+      "note": "to mind children is to watch over them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SMALL",
+      "MINDED"
+     ]
+    },
+    "explanation": {
+     "surface": "A short-sighted tiny person being looked after.",
+     "walkthrough": "Myopic is used figuratively here, of narrow outlook rather than poor eyesight.",
+     "definitionFit": "Figurative short-sightedness means a narrow, petty outlook that fails to look beyond the immediate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Myopic"
+    }
+   }
   },
   {
    "number": 19,
@@ -349,7 +1278,58 @@
     "text": "Body part in story on dance initially forgotten,",
     "enumeration": "6"
    },
-   "solution": "FIBULA"
+   "solution": "FIBULA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "FIBULA",
+    "definitions": [
+     {
+      "text": "Body part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially forgotten",
+      "for": "deletion",
+      "note": "with its start forgotten, the word for the dance loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "FIB",
+      "note": "a fib is a small lie, a made-up story"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "HULA",
+      "note": "the hula is a Hawaiian dance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIB",
+      "ULA"
+     ]
+    },
+    "explanation": {
+     "surface": "A tale about a dance whose start has slipped someone's mind.",
+     "walkthrough": "'on' places the shortened dance after the story word, as in a down answer. The trailing comma is printed by the source.",
+     "definitionFit": "The fibula is the thinner of the two lower leg bones, an anatomical piece of the human frame."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1343,44 @@
     "text": "Mole genitals discussed?",
     "enumeration": "6"
    },
-   "solution": "GROYNE"
+   "solution": "GROYNE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GROYNE",
+    "definitions": [
+     {
+      "text": "Mole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is talked about, so it is the spoken form of the word that counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "genitals",
+      "gives": "GROYNE",
+      "soundsLike": "GROIN",
+      "note": "the groin is the area of the body around the genitals"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Mole is not the animal or the skin blemish but a sea wall; a groyne is a barrier built out from a beach to stop erosion.",
+     "definitionFit": "A mole is a breakwater or jetty of stone, and a groyne is a similar low wall running into the sea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Mole"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1394,65 @@
     "text": "US island has got it in the essence of tour",
     "enumeration": "4"
    },
-   "solution": "OAHU"
+   "solution": "OAHU",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OAHU",
+    "definitions": [
+     {
+      "text": "US island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     },
+     {
+      "text": "the essence of",
+      "for": "letter_selection",
+      "note": "the essence of a thing is its core, so only the central letters are kept"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tour",
+      "gives": "OU",
+      "select": "middle",
+      "note": "the two middle letters of the word"
+     },
+     {
+      "clueFragment": "got it",
+      "gives": "AH",
+      "note": "'ah!' is what one says on getting it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "AH",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "An American island has been grasped as the heart of a holiday tour.",
+     "walkthrough": "'got it' is an exclamation of understanding, not possession.",
+     "definitionFit": "Oahu is the Hawaiian island that is home to Honolulu, part of the fiftieth US state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "got"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1466,54 @@
     "text": "On pier, melt getting tanned in US state capital",
     "enumeration": "10"
    },
-   "solution": "MONTPELIER"
+   "solution": "MONTPELIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MONTPELIER",
+    "definitions": [
+     {
+      "text": "US state capital",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting tanned",
+      "for": "anagram",
+      "note": "to tan someone is to give them a beating, so these letters are knocked about into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "On pier, melt",
+      "gives": "ONPIERMELT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONPIERMELT",
+       "gives": "MONTPELIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone melts in the sun on a seaside pier, getting a tan.",
+     "walkthrough": "Tanned looks like suntanned, but it means beaten.",
+     "definitionFit": "Montpelier is the capital city of Vermont, one of the United States."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tanned"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1527,50 @@
     "text": "Plant you recognised in France on border",
     "enumeration": "5"
    },
-   "solution": "TULIP"
+   "solution": "TULIP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TULIP",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you recognised in France",
+      "gives": "TU",
+      "note": "tu is French for you"
+     },
+     {
+      "clueFragment": "border",
+      "gives": "LIP",
+      "note": "a lip is an edge or rim"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "LIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A plant spotted growing on a border while travelling in France.",
+     "walkthrough": "Border suggests a flower bed, but it is an edge.",
+     "definitionFit": "The tulip is a spring-flowering bulb grown in gardens, a familiar kind of flowering plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "border"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1584,49 @@
     "text": "Brobdingnagian kingdom, the bewitching peninsula finally found",
     "enumeration": "4"
    },
-   "solution": "MEGA"
+   "solution": "MEGA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "MEGA",
+    "definitions": [
+     {
+      "text": "Brobdingnagian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally found",
+      "for": "letter_selection",
+      "note": "what is found at the finish of each word is its closing letter, so those are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kingdom, the bewitching peninsula",
+      "gives": "MEGA",
+      "select": "last",
+      "note": "the last letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEGA"
+     ]
+    },
+    "explanation": {
+     "surface": "Gulliver's land of giants is an enchanting peninsula, at last discovered.",
+     "walkthrough": "Brobdingnag is the land of giants in Gulliver's Travels, pairing with Lilliputian at 18 across.",
+     "definitionFit": "Anything Brobdingnagian is gigantic, and mega is an informal word for huge or enormous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "kingdom"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1646,49 @@
      }
     ]
    },
-   "solution": "ANNIEHALL"
+   "solution": "ANNIEHALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ANNIE HALL",
+    "definitions": [
+     {
+      "text": "‘70s rom-com",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical",
+      "gives": "ANNIE",
+      "note": "Annie is the musical about a little orphan"
+     },
+     {
+      "clueFragment": "Room",
+      "gives": "HALL",
+      "note": "a hall is a large room"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNIE",
+      "HALL"
+     ]
+    },
+    "explanation": {
+     "surface": "A room comes after a musical, setting up a 1970s romantic comedy.",
+     "walkthrough": "'after' puts the room after the musical in the answer.",
+     "definitionFit": "Annie Hall is Woody Allen's 1977 romantic comedy film starring Diane Keaton."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1712,57 @@
    "group": [
     "26-across",
     "10-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SAUCY POSTCARDS",
+    "definitions": [
+     {
+      "text": "Those sold by the 1 across",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "relished",
+      "gives": "SAUCY",
+      "note": "relish is a sauce, so something relished is sauced"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "POST",
+      "note": "a post is a position or job"
+     },
+     {
+      "clueFragment": "deck",
+      "gives": "CARDS",
+      "note": "a deck is a pack of playing cards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAUCY",
+      "POST",
+      "CARDS"
+     ]
+    },
+    "explanation": {
+     "surface": "A job on a ship's deck is something someone enjoys doing at the seaside.",
+     "walkthrough": "Relished looks like enjoyed but means covered with relish. Saucy postcards are cheeky comic cards sold in British seaside resorts.",
+     "definitionFit": "Cheeky, risqué picture cards are a staple souvenir sold in British coastal resorts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "relished"
+    }
+   }
   },
   {
    "number": 27,
@@ -477,7 +1776,70 @@
     "text": "Sunburnt shoulders nursed by warty chap, a dish from Mexico?",
     "enumeration": "7"
    },
-   "solution": "TOSTADA"
+   "solution": "TOSTADA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TOSTADA",
+    "definitions": [
+     {
+      "text": "a dish from Mexico?",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shoulders",
+      "for": "letter_selection",
+      "note": "shoulders are at the outer edges, so only the outside letters of the word are kept"
+     },
+     {
+      "text": "nursed by",
+      "for": "container",
+      "note": "something nursed is held in the arms, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "warty chap",
+      "gives": "TOAD",
+      "note": "a toad is a warty creature"
+     },
+     {
+      "clueFragment": "Sunburnt",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "ST",
+      "AD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with sunburnt shoulders is cared for by an ugly man.",
+     "walkthrough": "Shoulders is not a body part to treat but the two outer letters. The toad is a familiar warty creature.",
+     "definitionFit": "A tostada is a crisp fried tortilla with toppings, a dish from Mexican cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "shoulders"
+    }
+   }
   },
   {
    "number": 28,
@@ -491,7 +1853,48 @@
     "text": "Gentry, wrath in the gents, say?",
     "enumeration": "7"
    },
-   "solution": "PEERAGE"
+   "solution": "PEERAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PEERAGE",
+    "definitions": [
+     {
+      "text": "Gentry",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the gents, say",
+      "gives": "PEE",
+      "note": "what a man does in the gents, a British word for a men's toilet"
+     },
+     {
+      "clueFragment": "wrath in",
+      "gives": "RAGE",
+      "note": "rage is wrath, here imagined as rage while at the urinal, like road rage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEE",
+      "RAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is furious in the gentlemen's toilet.",
+     "walkthrough": "Read 'wrath in the gents' as a jokey compound like road rage; the gents is British for a men's lavatory.",
+     "definitionFit": "The peerage is the nobility, the titled class, close to the landed gentry in a broad sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "gents"
+    }
+   }
   }
  ]
 }
