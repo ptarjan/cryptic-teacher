@@ -1664,6 +1664,18 @@ tools/test_gale_listener.sh                   is a saved Listener page matched b
                                               each file read once, and does the checklist mark
                                               what is saved or filed and ask for a missing
                                               solution?
+tools/listener_grid.py                        reads a 1930s Listener grid off a scanned Gale
+                                              page: every grid on the page found as a lattice
+                                              of long rules (prose, column rules and boxes are
+                                              not), rows x cols, blocks by ink fill, bars by
+                                              rule width against the thin rule, numbered by
+                                              reconstruct_grid.light_cells; match() checks the
+                                              numbers against gale_listener's clue lists; no
+                                              symmetry assumed
+tools/test_listener_grid.sh                   does listener_grid read a drawn, slightly turned,
+                                              non-square barred grid with a block back exactly,
+                                              among prose, a column rule and a boxed advert,
+                                              and number it as light_cells does?
 tools/test_gale_inbox.sh                      is a page saved into the Gale inbox matched to
                                               its date by its name or puzzle number, staged as
                                               that date's Times edition with its Gale link, due
