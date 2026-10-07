@@ -187,9 +187,9 @@ tools/test_repair_fetched.sh                  builds a puzzle file with each of 
                                               and proves the repair fixes it, leaves a clean
                                               file and a real Cyclops per-light group
                                               byte-identical, and is clean on the second run
-tools/downloads.py                            where every fetcher keeps what it downloads,
-                                              ~/cryptic-setter-data/<source>/: the one place
-                                              each source's folder is named, and `python3
+tools/downloads.py                            where every fetcher keeps what it downloads, one
+                                              folder per source under a single root: the one
+                                              place each source's folder is named, and `python3
                                               tools/downloads.py` prints the root for shell
                                               scripts
 tools/puzzle_paths.py                         where a puzzle's file lives,

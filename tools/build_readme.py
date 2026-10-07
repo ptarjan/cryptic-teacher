@@ -98,7 +98,7 @@ LAYOUT = [
     ("fetching", "tools/fixtures/trove/", "three Canberra Times articles as fetch_trove.py caches them (meta.json, ocr.txt, grid.jpg), the fixtures test_file_trove_puzzles.sh reads"),
     ("fetching", "tools/repair_fetched.py", "applies the fetchers’ current rules to puzzles already on disk — bare-capital solutions, a masked prize answer, a group that is really a cross-reference in the wordplay, a linked answer the paper never grouped — and reports the dates their own neighbours contradict"),
     ("fetching", "tools/test_repair_fetched.sh", "builds a puzzle file with each of those defects and proves the repair fixes it, leaves a clean file and a real Cyclops per-light group byte-identical, and is clean on the second run"),
-    ("fetching", "tools/downloads.py", "where every fetcher keeps what it downloads, ~/cryptic-setter-data/<source>/: the one place each source's folder is named, and `python3 tools/downloads.py` prints the root for shell scripts"),
+    ("fetching", "tools/downloads.py", "where every fetcher keeps what it downloads, one folder per source under a single root: the one place each source's folder is named, and `python3 tools/downloads.py` prints the root for shell scripts"),
     ("fetching", "tools/puzzle_paths.py", "where a puzzle's file lives, puzzles/<series>/<year>/<id>.json: the one place the layout is spelled, and `python3 tools/puzzle_paths.py ID...` prints a held puzzle's path for shell scripts and prompts"),
     ("fetching", "tools/puzzle_paths.js", "the same rule for node, for the harnesses that read the puzzle sources"),
     ("fetching", "tools/puzzle_schema.py", "checks every puzzle file against tools/data/puzzle.schema.json, and prunes null and empty values on every write: an absent key means empty"),

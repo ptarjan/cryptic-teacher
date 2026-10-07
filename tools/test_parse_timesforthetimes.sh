@@ -19,6 +19,7 @@
 # here, and so is every shape that must be refused instead of guessed.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
+export PYTHONPATH="$REPO/tools${PYTHONPATH:+:$PYTHONPATH}"
 fails=0
 check() {  # check <what> <expected> <got>
   if [ "$2" = "$3" ]; then echo "ok   $1"; else
