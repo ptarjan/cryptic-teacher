@@ -4,6 +4,7 @@ squares, its bars, and the clue numbers they give.
 
     python3 tools/listener_grid.py PAGE.png [...]          # print each grid found
     python3 tools/listener_grid.py --check PAGE.png WORDS.json   # numbers against the clue lists
+    python3 tools/listener_grid.py --fit PAGE.png [...]    # bars fitted to the printed cell numbers
 
 The 1930s Listener prints a barred grid (thick bars between cells) or a
 blocked one (No 22), not necessarily square and not necessarily symmetric,
@@ -33,6 +34,13 @@ A grid is (rows, None) with rows in the puzzle format's one string per row
 neither; the outer edge never written), so reconstruct_grid.light_cells, the
 one numbering function, gives its lights; or (None, why) when the patch is
 no grid this can read. No symmetry is assumed.
+
+A bar printed faint reads as a rule, so the grid's own printed cell numbers
+settle the sides whose width is unsure: printed_numbers() reads each cell's
+corner (all corners laid out apart in one image, read by NUMBER_READERS) and
+fit() sets each unsure side so the numbering agrees, reporting "exact" when
+no number both readers read disagrees and they read at least EXACT_COVER of
+the lights.
 
 For the filer: numbers(rows) is {"across": [...], "down": [...]}, to match
 against gale_listener.page_columns' lists (clue_numbers(words)); match(rows,
@@ -218,8 +226,9 @@ def find_grids(gray):
             out.append(found)
             continue
         sub = ink[y0:y1, x0:x1]
-        rows, _, _ = read_box(sub, darkness(gray[y0:y1, x0:x1]), ys, xs)
+        rows, sides, thin = read_box(sub, darkness(gray[y0:y1, x0:x1]), ys, xs)
         found["rows"] = rows
+        found["sides"], found["thin"] = sides, thin
         found["lattice"] = ([y + y0 for y in ys], [x + x0 for x in xs])
         found["filled"] = filled_share(sub, ys, xs, rows)
         if not rg.light_cells(rows):
@@ -277,11 +286,145 @@ def match(rows, words):
     return got == want, diff
 
 
+# ------------------------------------------------------------ printed numbers
+
+#: The readers that read the cells' printed numbers (ocr_clues.READERS names).
+NUMBER_READERS = ("ch", "en5")
+#: A side whose width is this many thin rules either way is one the printed
+#: numbers may settle: below LO it is a rule, above HI a bar, whatever they say.
+UNSURE = (1.0, 2.4)
+#: A disagreement both readers make costs this many of one reader's alone.
+AGREED_WEIGHT = 3
+#: A grid's numbering is exact when no number both readers read disagrees
+#: with it and they agree on at least this share of its lights.
+EXACT_COVER = 0.5
+
+
+def corner(gray, ys, xs, r, c, cut):
+    """Cell (r, c)'s top-left, where its number prints, with the rules
+    (rows or columns of the patch mostly ink) painted out."""
+    h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
+    a = gray[int(ys[r]):int(ys[r] + 0.5 * h), int(xs[c]):int(xs[c] + 0.62 * w)].copy()
+    ink = a < cut
+    a[ink.mean(1) > 0.5, :] = 255
+    a[:, ink.mean(0) > 0.6] = 255
+    return a
+
+
+def mosaic(gray, grid):
+    """(image, slot) of every open cell's corner laid out as the grid is, a
+    corner's width of paper between them so no reader joins two numbers:
+    slot(x, y) is the cell a word centred at (x, y) belongs to."""
+    ys, xs = grid["lattice"]
+    cut = trove_grid.otsu(gray)
+    rows = grid["rows"]
+    tiles = {(r, c): corner(gray, ys, xs, r, c, cut)
+             for r, row in enumerate(rows) for c, ch in enumerate(row) if ch != "#"}
+    th = max(t.shape[0] for t in tiles.values())
+    tw = max(t.shape[1] for t in tiles.values())
+    out = np.full((len(rows) * 2 * th + th, len(rows[0]) * 2 * tw + tw), 255, np.uint8)
+    for (r, c), t in tiles.items():
+        y, x = r * 2 * th + th // 2, c * 2 * tw + tw // 2
+        out[y:y + t.shape[0], x:x + t.shape[1]] = t
+    return Image.fromarray(out), lambda x, y: (int((y - th // 2) // (2 * th)), int((x - tw // 2) // (2 * tw)))
+
+
+def printed_numbers(gray, grid, readers=NUMBER_READERS):
+    """{reader: {(r, c): number}} each reader reads in the grid's cells
+    (ocr_clues.read_words, the shared clue readers)."""
+    import ocr_clues
+    img, slot = mosaic(gray, grid)
+    out = {}
+    for which in readers:
+        got = {}
+        for x0, y0, x1, y1, t in ocr_clues.read_words(img, which):
+            d = re.sub(r"\D", "", t)
+            if d and 0 < int(d) < 100:
+                got[slot((x0 + x1) / 2, (y0 + y1) / 2)] = int(d)
+        out[which] = got
+    return out
+
+
+def starts(rows, shortest=2):
+    """{(r, c): number} of light_cells' numbering when no light is shorter
+    than `shortest` cells: 2 is light_cells' own; a 1930 blocked grid may
+    leave its 2-cell runs unnumbered (3)."""
+    if shortest == 2:
+        return {cells[0]: n for (n, _), cells in rg.light_cells(rows).items()}
+    out = {}
+    for (_, _), cells in sorted(rg.light_cells(rows).items()):
+        if len(cells) >= shortest and cells[0] not in out:
+            out[cells[0]] = len(out) + 1
+    return out
+
+
+def with_bars(rows, bars):
+    return ["".join(ch if ch == "#" else "+" if bars.get((r, c, "r")) and bars.get((r, c, "b"))
+                    else "r" if bars.get((r, c, "r")) else "b" if bars.get((r, c, "b")) else "."
+                    for c, ch in enumerate(row)) for r, row in enumerate(rows)]
+
+
+def fit(grid, printed):
+    """{"rows", "shortest", "exact", "agreed", "disagree"}: the grid with each
+    unsure side (UNSURE) set so its numbering agrees with the printed numbers
+    (`printed` as printed_numbers gives them), flipping the side the width
+    says least, one at a time while that lowers the disagreements. Light
+    starts follow from bars and blocks alone, so a misread bar shows as
+    numbers out of place."""
+    import math
+    reads = {}
+    for got in printed.values():
+        for cell, n in got.items():
+            reads.setdefault(cell, set()).add(n)
+    agreed = {c: next(iter(v)) for c, v in reads.items()
+              if len(v) == 1 and all(c in got for got in printed.values())}
+    thin = max(grid["thin"], 1.0)
+    q = {k: v / thin for k, v in grid["sides"].items()}
+    unsure = [k for k, x in q.items() if UNSURE[0] <= x <= UNSURE[1]]
+    edge = math.log(BAR_RATIO)
+
+    def score(bars, shortest):
+        st = starts(with_bars(grid["rows"], bars), shortest)
+        bad = sum(AGREED_WEIGHT if c in agreed else 1 for c, v in reads.items() if st.get(c) not in v)
+        return bad, sum(abs(math.log(q[k]) - edge) for k in unsure if bars[k] != (q[k] >= BAR_RATIO))
+
+    best = None
+    for shortest in (2, 3):
+        bars = {k: x >= BAR_RATIO for k, x in q.items()}
+        now = score(bars, shortest)
+        while True:
+            tries = [(score(b, shortest), b) for k in unsure for b in [{**bars, k: not bars[k]}]]
+            step = min(tries, key=lambda t: t[0], default=None)
+            if step is None or step[0] >= now:
+                break
+            now, bars = step
+        if best is None or now < best[0]:
+            best = (now, shortest, bars)
+    _, shortest, bars = best
+    rows = with_bars(grid["rows"], bars)
+    st = starts(rows, shortest)
+    disagree = sorted(c for c, n in agreed.items() if st.get(c) != n)
+    return {"rows": rows, "shortest": shortest, "agreed": len(agreed), "disagree": disagree,
+            "exact": not disagree and len(agreed) >= EXACT_COVER * len(st)}
+
+
 def read_page(path):
     return find_grids(np.asarray(Image.open(path).convert("L"), dtype=np.uint8))
 
 
 def main(argv):
+    if argv and argv[0] == "--fit":
+        for p in argv[1:]:
+            gray = np.asarray(Image.open(p).convert("L"), dtype=np.uint8)
+            for g in find_grids(gray):
+                if not g["rows"] or g["filled"] > 0.5:
+                    continue
+                f = fit(g, printed_numbers(gray, g))
+                print(p, g["box"], "EXACT" if f["exact"] else "NOT EXACT", f"shortest {f['shortest']}",
+                      f"agreed {f['agreed']}", "disagree", f["disagree"])
+                for row in f["rows"]:
+                    print(" ", row)
+        return
     check = argv and argv[0] == "--check"
     if check:
         path, words = argv[1], json.loads(Path(argv[2]).read_text())
