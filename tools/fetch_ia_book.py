@@ -198,6 +198,10 @@ AMBIGUOUS_BORROW_ERROR = "not available to borrow"
 # different book is pointless. See THE LENDING LIMIT in the module docstring.
 LENDING_LIMIT_ERROR = "lending limit"
 PAGE_FETCH_DELAY_SECONDS = 0.3
+# A page refused mid-book (secondpenguinboo0000unse_c2w6 got HTTP 403 on
+# page 86 of 230, minutes into its loan) is asked again after each pause
+# before the whole read is given up.
+PAGE_RETRY_PAUSES = (30, 120)
 # Loans taken and not yet confirmed returned. Deliberately not under /tmp:
 # it has to outlive the process that wrote it, which is the whole point.
 LOAN_LEDGER = "~/.local/state/cryptic-teacher/ia-loans.json"
@@ -614,6 +618,28 @@ def _page_text_from_djvu_xml(xml_bytes):
     return "\n\n".join(paragraphs)
 
 
+def _get_page(session, url, book_path, page):
+    """One page's djvu.xml, asked again after each PAGE_RETRY_PAUSES pause
+    while archive.org refuses it or the request drops. Returns the last
+    response; raises only if the last attempt never got one."""
+    for pause in PAGE_RETRY_PAUSES + (None,):
+        try:
+            # book_path must be passed raw, NOT pre-urlencoded: requests'
+            # params= urlencodes values itself, so pre-quoting here would
+            # double-encode the slashes (%2F -> %252F) and archive.org 403s
+            # the mangled path as "Item not available" — indistinguishable
+            # from a real auth failure without diffing the outgoing r.url.
+            r = session.get(url, params={"path": book_path, "mode": "djvu_xml",
+                                         "page": page}, timeout=30)
+        except requests.RequestException:
+            if pause is None:
+                raise
+        else:
+            if r.ok or pause is None:
+                return r
+        time.sleep(pause)
+
+
 def fetch_full_text(session, identifier, max_pages=None):
     """djvu.txt (see module docstring) stays HTTP 401 even with an active
     loan — archive.org doesn't serve the plain-text dump for lending books
@@ -646,17 +672,12 @@ def fetch_full_text(session, identifier, max_pages=None):
 
     pages = []
     for page in range(1, page_count + 1):
-        # book_path must be passed raw, NOT pre-urlencoded: requests'
-        # params= urlencodes values itself, so pre-quoting here would
-        # double-encode the slashes (%2F -> %252F) and archive.org 403s
-        # the mangled path as "Item not available" — indistinguishable
-        # from a real auth failure without diffing the outgoing r.url.
-        r = session.get(url, params={"path": book_path, "mode": "djvu_xml", "page": page},
-                         timeout=30)
+        r = _get_page(session, url, book_path, page)
         if not r.ok:
             raise SystemExit(
-                f"page {page}/{page_count} of {identifier} failed: "
-                f"HTTP {r.status_code} {r.text[:300]} — the loan may have expired "
+                f"page {page}/{page_count} of {identifier} failed "
+                f"{len(PAGE_RETRY_PAUSES) + 1} times, the last HTTP "
+                f"{r.status_code} {r.text[:300]} — the loan may have expired "
                 "mid-fetch, or archive.org is rate-limiting; rerun once the loan "
                 "cools down rather than retrying immediately"
             )

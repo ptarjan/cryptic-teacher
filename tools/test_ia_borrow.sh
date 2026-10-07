@@ -104,6 +104,10 @@ class Response:
     def json(self):
         return json.loads(self.text)
 
+    def raise_for_status(self):
+        if not self.ok:
+            raise AssertionError(f"HTTP {self.status_code}")
+
 
 class StubSession:
     """Answers the loan endpoint from a per-action script and records the
@@ -228,6 +232,45 @@ s = TimeoutOnce(browse=Response(200, "{}"),
 check("no loan behind the timeout: borrows again",
       (F.borrow_through_timeouts(s, "secondpenguinboo0000unse_c2w6", pause=0),
        s.calls.count("browse_book")), (True, 1))
+
+# --------------------------------------------------------------- case 3c
+# One page refused mid-book is asked again, not the end of the read.
+print("case 3c: a page refused once mid-book")
+PAGE_XML = b"<OBJECT><HIDDENTEXT><REGION><PARAGRAPH><LINE><WORD>ok</WORD>" \
+    b"</LINE></PARAGRAPH></REGION></HIDDENTEXT></OBJECT>"
+
+
+class PageSession:
+    def __init__(self, refusals):
+        self.refusals = refusals
+        self.pages = []
+
+    def get(self, url, params=None, timeout=None):
+        if params is None:
+            return Response(200, json.dumps({
+                "server": "ia1.us.archive.org", "dir": "/1/items/x",
+                "metadata": {"imagecount": "3"}}))
+        self.pages.append(params["page"])
+        if params["page"] == 2 and self.refusals:
+            self.refusals -= 1
+            return Response(403, "<title>Item not available</title>")
+        r = Response(200, "")
+        r.content = PAGE_XML
+        return r
+
+
+F.PAGE_RETRY_PAUSES, F.PAGE_FETCH_DELAY_SECONDS = (0, 0), 0
+s = PageSession(refusals=1)
+check("the refused page is asked again and the read finishes",
+      (F.fetch_full_text(s, "x").split("\x0c"), s.pages),
+      (["ok", "ok", "ok"], [1, 2, 2, 3]))
+s = PageSession(refusals=3)
+try:
+    F.fetch_full_text(s, "x")
+    fail("a page refused every time was read as fine")
+except SystemExit as e:
+    check("a page refused every time still fails the read, saying how often",
+          ("failed 3 times" in str(e), s.pages), (True, [1, 2, 2, 2]))
 
 # --------------------------------------------------------------- case 4
 # A normal, granted loan still works and reports itself as held.
