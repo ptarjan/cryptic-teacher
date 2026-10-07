@@ -4910,8 +4910,9 @@ global.realSetTimeout(() => {
       if (defs.length > 1 || !/\s/.test(clueText(e)[def.length] || "")) continue;
       const words = def.trim().split(/\s+/).length;
       // Not the whole clue: guessAsk refuses a question whose answer is
-      // everything, and rightly.
-      if (words >= clueText(e).split(/\s+/).length) continue;
+      // everything, and rightly. The enumeration is not a word on offer.
+      const offered = clueText(e).replace(/\s*\([^()]*\)\s*$/, "");
+      if (words >= offered.split(/\s+/).length) continue;
       found = { id, e, words };
       break;
     }
