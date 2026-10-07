@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Presented complaint caused by union consuming lots of time",
     "enumeration": "6"
    },
-   "solution": "STAGED"
+   "solution": "STAGED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STAGED",
+    "definitions": [
+     {
+      "text": "Presented",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "something that consumes another takes it inside, so one piece swallows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "complaint caused by union",
+      "gives": "STD",
+      "note": "a sexually transmitted disease, an ailment that comes from sexual union"
+     },
+     {
+      "clueFragment": "lots of time",
+      "gives": "AGE",
+      "note": "an age is a very long time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AGE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A grievance arising from a trade union that drags on for ages.",
+     "walkthrough": "The union is sexual, not industrial: the complaint is a disease, not a grievance.",
+     "definitionFit": "A play that is staged has been put on, or presented, in a theatre for an audience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "union"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,54 @@
     "text": "Made sure lunatic is restrained",
     "enumeration": "8"
    },
-   "solution": "MEASURED"
+   "solution": "MEASURED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEASURED",
+    "definitions": [
+     {
+      "text": "restrained",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lunatic",
+      "for": "anagram",
+      "note": "a lunatic is crazy, so the preceding words are scrambled madly"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made sure",
+      "gives": "MADESURE",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADESURE",
+       "gives": "MEASURED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checked that a dangerous madman was locked up.",
+     "walkthrough": "'Lunatic' looks like the noun being restrained, but it is the signal to rearrange the two words before it.",
+     "definitionFit": "A measured response is calm and controlled, held back rather than excessive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lunatic"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +160,44 @@
     "text": "Sequence of steps looks hard to the audience",
     "enumeration": "6"
    },
-   "solution": "STAIRS"
+   "solution": "STAIRS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "STAIRS",
+    "definitions": [
+     {
+      "text": "Sequence of steps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the audience",
+      "for": "homophone",
+      "note": "what reaches an audience is heard, so the phrase is judged by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "looks hard",
+      "gives": "STAIRS",
+      "soundsLike": "STARES",
+      "note": "to stare is to look hard at something"
+     }
+    ],
+    "explanation": {
+     "surface": "A dance routine appears difficult to the people watching.",
+     "definitionFit": "A staircase is a flight of steps arranged one after another, climbing in a sequence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "steps"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +211,48 @@
     "text": "Agile mountaineer overlooking summit",
     "enumeration": "6"
    },
-   "solution": "LIMBER"
+   "solution": "LIMBER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIMBER",
+    "definitions": [
+     {
+      "text": "Agile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlooking summit",
+      "for": "deletion",
+      "note": "to overlook is to miss, and in a down entry the summit is the top letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mountaineer",
+      "gives": "CLIMBER",
+      "note": "a mountaineer climbs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A nimble climber looks out over the mountain top.",
+     "walkthrough": "CLIMBER loses its first letter C, the top of this down entry.",
+     "definitionFit": "Limber describes a supple body that bends and moves easily, much like agile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overlooking"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +266,57 @@
     "text": "Honourable heterosexual owing nothing directly",
     "enumeration": "8"
    },
-   "solution": "STRAIGHT"
+   "solution": "STRAIGHT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAIGHT",
+    "definitions": [
+     {
+      "text": "Honourable",
+      "at": 0
+     },
+     {
+      "text": "heterosexual",
+      "at": 11
+     },
+     {
+      "text": "owing nothing",
+      "at": 24
+     },
+     {
+      "text": "directly",
+      "at": 38
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Honourable",
+      "note": "first meaning: honest, upright"
+     },
+     {
+      "clueFragment": "heterosexual",
+      "note": "second meaning: slang for heterosexual"
+     },
+     {
+      "clueFragment": "owing nothing",
+      "note": "third meaning: square, with debts settled"
+     },
+     {
+      "clueFragment": "directly",
+      "note": "fourth meaning: without detour, as in go there right away"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Four separate senses of one word sit side by side with nothing joining them.",
+     "definitionFit": "The word covers honesty, sexual orientation, being square with creditors, and going somewhere without deviation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +330,58 @@
     "text": "Implore guard to take coat off and have some food",
     "enumeration": "7"
    },
-   "solution": "ENTREAT"
+   "solution": "ENTREAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENTREAT",
+    "definitions": [
+     {
+      "text": "Implore",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "take coat off",
+      "for": "deletion",
+      "note": "removing a coat strips the outside, so the outer letters go"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "guard",
+      "gives": "SENTRY",
+      "note": "a sentry stands guard"
+     },
+     {
+      "clueFragment": "have some food",
+      "gives": "EAT",
+      "note": "to eat is to have food"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTR",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges a sentry to strip off his coat and grab a bite.",
+     "walkthrough": "The coat is the guard word's outer layer: its first and last letters.",
+     "definitionFit": "To entreat is to beg or plead earnestly, a close synonym of implore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +395,53 @@
     "text": "Finish revising, but not before noon",
     "enumeration": "6"
    },
-   "solution": "ENDING"
+   "solution": "ENDING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENDING",
+    "definitions": [
+     {
+      "text": "Finish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "'but not' means except, so the named part is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "revising",
+      "gives": "AMENDING",
+      "note": "amending a text is revising it"
+     },
+     {
+      "clueFragment": "before noon",
+      "gives": "AM",
+      "note": "a.m. is the abbreviation for the hours before midday"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENDING"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to complete an edit, though not until after midday.",
+     "walkthrough": "AMENDING loses its opening AM.",
+     "definitionFit": "An ending is the conclusion or close of something, which is what a finish is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "noon"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +455,63 @@
     "text": "Blubber covers the sides of thickset animal",
     "enumeration": "7"
    },
-   "solution": "CRITTER"
+   "solution": "CRITTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CRITTER",
+    "definitions": [
+     {
+      "text": "animal",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the sides of",
+      "for": "letter_selection",
+      "note": "the sides of a word are its two outermost letters"
+     },
+     {
+      "text": "covers",
+      "for": "container",
+      "note": "something that covers another wraps around it, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Blubber",
+      "gives": "CRIER",
+      "note": "a blubber is someone who cries, a crier"
+     },
+     {
+      "clueFragment": "thickset",
+      "gives": "TT",
+      "select": "outer",
+      "note": "its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRI",
+      "TT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Fat wraps around a stocky creature.",
+     "walkthrough": "'Blubber' reads as whale fat but is a person who blubbers, that is, weeps.",
+     "definitionFit": "Critter is an informal, chiefly American word for a creature, especially a small beast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Blubber"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +525,61 @@
     "text": "Summon figure about assessment panel failing to reach conclusion",
     "enumeration": "7"
    },
-   "solution": "CONJURE"
+   "solution": "CONJURE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CONJURE",
+    "definitions": [
+     {
+      "text": "Summon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing to reach conclusion",
+      "for": "deletion",
+      "note": "not reaching the end means the final letter is dropped"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "figure",
+      "gives": "CONE",
+      "note": "a cone is a geometric figure"
+     },
+     {
+      "clueFragment": "assessment panel",
+      "gives": "JURY",
+      "note": "a jury assesses the evidence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "JUR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A jury fails to reach a verdict, so a number is called up.",
+     "walkthrough": "'Figure' suggests a number, but it is a geometric solid.",
+     "definitionFit": "To conjure a spirit is to call it up by magic, which is summoning it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +593,52 @@
     "text": "Revolution daring to depose king",
     "enumeration": "6"
    },
-   "solution": "RISING"
+   "solution": "RISING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RISING",
+    "definitions": [
+     {
+      "text": "Revolution",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to depose",
+      "for": "deletion",
+      "note": "deposing a ruler removes him, so the named letter is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daring",
+      "gives": "RISKING",
+      "note": "daring something is risking it"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RISING"
+     ]
+    },
+    "explanation": {
+     "surface": "A bold revolution sets out to overthrow the monarch.",
+     "walkthrough": "RISKING loses its K.",
+     "definitionFit": "A rising is an uprising or rebellion against authority, a revolt or revolution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +652,54 @@
     "text": "Process of assimilating something that's charged on summary account",
     "enumeration": "9"
    },
-   "solution": "DIGESTION"
+   "solution": "DIGESTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIGESTION",
+    "definitions": [
+     {
+      "text": "Process of assimilating",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, a piece placed on another is written after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summary account",
+      "gives": "DIGEST",
+      "note": "a digest is a condensed account or summary"
+     },
+     {
+      "clueFragment": "something that's charged",
+      "gives": "ION",
+      "note": "an ion is an atom carrying an electric charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIGEST",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A fee is levied on an abridged bill.",
+     "walkthrough": "'Charged' suggests billing, but here it means electrically charged.",
+     "definitionFit": "Digestion is how the body breaks down food and absorbs it into the system, assimilating nutrients."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charged"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +713,62 @@
     "text": "Singer interrupted by introduction of reed instruments",
     "enumeration": "5"
    },
-   "solution": "BRASS"
+   "solution": "BRASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BRASS",
+    "definitions": [
+     {
+      "text": "instruments",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction of",
+      "for": "letter_selection",
+      "note": "an introduction comes at the start, so only the first letter is used"
+     },
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "a thing interrupted has something break in, sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singer",
+      "gives": "BASS",
+      "note": "a bass is a low-voiced singer"
+     },
+     {
+      "clueFragment": "reed",
+      "gives": "R",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "ASS"
+     ]
+    },
+    "explanation": {
+     "surface": "A vocalist is cut off when the woodwinds come in.",
+     "walkthrough": "'Reed instruments' looks like one phrase, but the definition is 'instruments' alone; B(R)ASS.",
+     "definitionFit": "The brass are the trumpets, horns and trombones of an orchestra, a family of instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reed"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +782,67 @@
     "text": "Papers published externally reflected worst possible position",
     "enumeration": "5"
    },
-   "solution": "NADIR"
+   "solution": "NADIR",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NADIR",
+    "definitions": [
+     {
+      "text": "worst possible position",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "externally",
+      "for": "container",
+      "note": "something on the outside surrounds what is within"
+     },
+     {
+      "text": "reflected",
+      "for": "reversal",
+      "note": "a reflection shows things back to front, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "published",
+      "gives": "RAN",
+      "note": "a newspaper ran a story when it published it"
+     },
+     {
+      "clueFragment": "Papers",
+      "gives": "ID",
+      "note": "ID papers are identity documents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "DI",
+      "R"
+     ],
+     "reversals": [
+      {
+       "from": "RIDAN",
+       "to": "NADIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Newspapers printed abroad reported a dismal low point.",
+     "walkthrough": "'Papers' looks like newspapers but means identity documents.",
+     "definitionFit": "The nadir is the lowest point of anything, the very bottom of one's fortunes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Papers"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +862,48 @@
      }
     ]
    },
-   "solution": "SQUIRTGUN"
+   "solution": "SQUIRTGUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SQUIRT GUN",
+    "definitions": [
+     {
+      "text": "jet propellant",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Obnoxious youth",
+      "gives": "SQUIRT",
+      "note": "a squirt is an insignificant, impudent young person"
+     },
+     {
+      "clueFragment": "hit throttle of",
+      "gives": "GUN",
+      "note": "to gun an engine is to open the throttle hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUIRT",
+      "GUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky youngster floors the accelerator on a jet engine.",
+     "walkthrough": "'Jet propellant' sounds like aviation fuel but means a toy that propels a jet of water.",
+     "definitionFit": "A water pistol shoots a jet of water, so it is cheekily described as propelling a jet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jet"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +917,43 @@
     "text": "Negotiated deal cutting extra deductions",
     "enumeration": "6"
    },
-   "solution": "TRADED"
+   "solution": "TRADED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TRADED",
+    "definitions": [
+     {
+      "text": "Negotiated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "deal cutting",
+      "for": "hidden_word",
+      "note": "a deal is a portion, and a portion cut from the following words lies inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra deductions",
+      "gives": "TRADED",
+      "note": "the letters run across the gap between the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A bargain was struck that slashes additional tax deductions.",
+     "walkthrough": "Hidden in exTRA DEDuctions.",
+     "definitionFit": "Traded means bargained or dealt, exchanging goods or terms through negotiation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +967,55 @@
     "text": "Teasing dog in run is one way to lose digits",
     "enumeration": "8"
    },
-   "solution": "ROUNDING"
+   "solution": "ROUNDING",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROUNDING",
+    "definitions": [
+     {
+      "text": "one way to lose digits",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Teasing",
+      "for": "anagram",
+      "note": "teasing out fibres pulls them apart and rearranges them"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dog in run",
+      "gives": "DOGINRUN",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGINRUN",
+       "gives": "ROUNDING"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taunting a dog in its pen is a good way to lose fingers.",
+     "walkthrough": "The digits are numerals, not fingers.",
+     "definitionFit": "Rounding a number drops its trailing figures to give an approximation, shedding numerals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digits"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1029,57 @@
     "text": "Got ready to be upset having left first",
     "enumeration": "7"
    },
-   "solution": "DRESSED"
+   "solution": "DRESSED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DRESSED",
+    "definitions": [
+     {
+      "text": "Got ready",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having left",
+      "for": "deletion",
+      "note": "what has left is gone, so the named part is removed"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset",
+      "gives": "DISTRESSED",
+      "note": "distressed means upset"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "1st, written with I for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "RESSED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone prepared to be disappointed after coming in ahead.",
+     "walkthrough": "DISTRESSED loses IST, the Roman-numeral spelling of 1st.",
+     "definitionFit": "To get dressed is to put clothes on, which is how one prepares for the day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1093,57 @@
     "text": "Summon to appear in court after former partner's move",
     "enumeration": "6"
    },
-   "solution": "EXCITE"
+   "solution": "EXCITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXCITE",
+    "definitions": [
+     {
+      "text": "move",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "coming after means this piece is placed second, behind the other one"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former spouse or partner"
+     },
+     {
+      "clueFragment": "Summon to appear in court",
+      "gives": "CITE",
+      "note": "to cite is to summon someone before a court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "CITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal summons follows a divorcee's latest manoeuvre.",
+     "walkthrough": "'Move' looks like a noun for a manoeuvre, but it is the verb meaning stir the feelings.",
+     "definitionFit": "To move someone emotionally is to stir or excite their feelings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "move"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1157,58 @@
     "text": "Reforming state beginning to condemn capital punishment",
     "enumeration": "8"
    },
-   "solution": "CHANGING"
+   "solution": "CHANGING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CHANGING",
+    "definitions": [
+     {
+      "text": "Reforming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "state"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "condemn",
+      "gives": "C",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "capital punishment",
+      "gives": "HANGING",
+      "note": "hanging was the usual form of execution"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HANGING"
+     ]
+    },
+    "explanation": {
+     "surface": "A reforming government sets out to abolish the death penalty.",
+     "definitionFit": "Reforming something is altering it, so changing is a synonym of reforming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1222,52 @@
     "text": "Harrow Master put pupils into groups",
     "enumeration": "6"
    },
-   "solution": "STREAM"
+   "solution": "STREAM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STREAM",
+    "definitions": [
+     {
+      "text": "put pupils into groups",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Harrow",
+      "for": "anagram",
+      "note": "to harrow is to break up soil, so the next word is broken up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master",
+      "gives": "MASTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MASTER",
+       "gives": "STREAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher at Harrow School sorts the boys by ability.",
+     "walkthrough": "Harrow is a famous English public school, but here it is the verb meaning break up.",
+     "definitionFit": "British schools stream pupils by placing them in classes according to ability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Harrow"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1281,50 @@
     "text": "Agreed reforms with method of transmitting motion",
     "enumeration": "6"
    },
-   "solution": "GEARED"
+   "solution": "GEARED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GEARED",
+    "definitions": [
+     {
+      "text": "with method of transmitting motion",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reforms",
+      "for": "anagram",
+      "note": "reforming something gives it a new shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreed",
+      "gives": "AGREED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREED",
+       "gives": "GEARED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Changes were approved for a new form of drive.",
+     "definitionFit": "Geared machinery is fitted with toothed wheels that pass rotation from one shaft to another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reforms"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1338,51 @@
     "text": "Most sensitive way of sorting out ethics",
     "enumeration": "9"
    },
-   "solution": "TOUCHIEST"
+   "solution": "TOUCHIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOUCHIEST",
+    "definitions": [
+     {
+      "text": "Most sensitive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "way of sorting",
+      "for": "anagram",
+      "note": "sorting things puts them in a new order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out ethics",
+      "gives": "OUTETHICS",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OUTETHICS",
+       "gives": "TOUCHIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The most delicate method of resolving moral questions.",
+     "walkthrough": "'Sorting out' looks like one phrasal verb, but 'out' belongs with ethics as letters to rearrange.",
+     "definitionFit": "The touchiest person is the one most easily offended, quickest to take things badly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1396,61 @@
     "text": "Shouted out who was in front",
     "enumeration": "6"
    },
-   "solution": "HOWLED"
+   "solution": "HOWLED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "HOWLED",
+    "definitions": [
+     {
+      "text": "Shouted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or disordered, so the word before it is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "who",
+      "gives": "WHO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "was in front",
+      "gives": "LED",
+      "note": "whoever led was ahead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOW",
+      "LED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "WHO",
+       "gives": "HOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yelled to ask which runner was leading.",
+     "walkthrough": "'Shouted out' wants to be the definition, but 'out' is needed to rearrange 'who'.",
+     "definitionFit": "To howl is to cry out loudly, so howled is a past-tense synonym of shouted."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1464,70 @@
     "text": "Follows wheel-less stock car losing front end round bend",
     "enumeration": "6"
    },
-   "solution": "TRACKS"
+   "solution": "TRACKS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TRACKS",
+    "definitions": [
+     {
+      "text": "Follows",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wheel-less",
+      "for": "deletion",
+      "note": "a wheel is round like the letter O, so without a wheel that letter goes"
+     },
+     {
+      "text": "losing front end",
+      "for": "deletion",
+      "note": "losing the front end drops the first letter of the word it follows"
+     },
+     {
+      "text": "round bend",
+      "for": "anagram",
+      "note": "taking a bend twists the course, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stock",
+      "gives": "STOCK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "car",
+      "gives": "CAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRACKS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STCKAR",
+       "gives": "TRACKS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A stock car loses its wheels and nose as it skids round a corner.",
+     "walkthrough": "STOCK loses its O and CAR its C; the six letters left are rearranged.",
+     "definitionFit": "To track someone is to trail or pursue them, so tracks means follows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wheel-less"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1541,45 @@
     "text": "Passage writer will read out",
     "enumeration": "5"
    },
-   "solution": "AISLE"
+   "solution": "AISLE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "AISLE",
+    "definitions": [
+     {
+      "text": "Passage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "read out",
+      "for": "homophone",
+      "note": "reading something out means saying it, so its sound counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writer will",
+      "gives": "AISLE",
+      "soundsLike": "I'LL",
+      "note": "the writer is the setter, I, and 'I will' contracts to I'll"
+     }
+    ],
+    "explanation": {
+     "surface": "An author is going to recite an extract.",
+     "walkthrough": "'Passage' suggests a piece of text, matching 'writer'; it is a walkway.",
+     "definitionFit": "An aisle is a walkway between rows of seats, as in a church or plane."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Passage"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1593,44 @@
     "text": "Occupy town square",
     "enumeration": "6"
    },
-   "solution": "SETTLE"
+   "solution": "SETTLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SETTLE",
+    "definitions": [
+     {
+      "text": "Occupy town",
+      "at": 0
+     },
+     {
+      "text": "square",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Occupy town",
+      "note": "first meaning: colonise or populate a place"
+     },
+     {
+      "clueFragment": "square",
+      "note": "second meaning: pay off, as in square a bill"
+     }
+    ],
+    "explanation": {
+     "surface": "Protesters take over the central plaza.",
+     "walkthrough": "'Town square' reads as one place; the split falls between 'town' and 'square'.",
+     "definitionFit": "Settlers populate a new land, and one settles an account by paying what is owed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1644,44 @@
     "text": "When do we wrap present?",
     "enumeration": "5"
    },
-   "solution": "ENDOW"
+   "solution": "ENDOW",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENDOW",
+    "definitions": [
+     {
+      "text": "present",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrap",
+      "for": "hidden_word",
+      "note": "words that wrap something enclose it, so the letters lie inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "When do we",
+      "gives": "ENDOW",
+      "note": "the letters run across three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks when the gifts get wrapped.",
+     "walkthrough": "Hidden in whEN DO We; 'present' is the verb, not the gift.",
+     "definitionFit": "To endow is to give or bestow, as when one presents a college with funds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 26,
@@ -417,7 +1695,62 @@
     "text": "Killing Joke may release this on Spotify initially",
     "enumeration": "9"
    },
-   "solution": "SLAUGHTER"
+   "solution": "SLAUGHTER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLAUGHTER",
+    "definitions": [
+     {
+      "text": "Killing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the word before"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across answer, a piece placed on another is written after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spotify",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "Joke may release this",
+      "gives": "LAUGHTER",
+      "note": "a joke prompts laughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LAUGHTER"
+     ]
+    },
+    "explanation": {
+     "surface": "The band Killing Joke might put out a track on a streaming service.",
+     "walkthrough": "Killing Joke is a post-punk band; the name is split, 'Killing' as the definition and 'Joke' in the wordplay.",
+     "definitionFit": "Slaughter is mass or brutal killing, as of animals for meat or people in war."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 27,
@@ -431,7 +1764,42 @@
     "text": "Diminuendo conveys what changes by taking something away",
     "enumeration": "7"
    },
-   "solution": "MINUEND"
+   "solution": "MINUEND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MINUEND",
+    "definitions": [
+     {
+      "text": "what changes by taking something away",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conveys",
+      "for": "hidden_word",
+      "note": "to convey is to carry, so the word carries the letters within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diminuendo",
+      "gives": "MINUEND",
+      "note": "the letters sit inside this one word"
+     }
+    ],
+    "explanation": {
+     "surface": "A musical marking indicates a gradual reduction in volume.",
+     "walkthrough": "Hidden in diMINUENDo.",
+     "definitionFit": "In arithmetic the minuend is the number from which another is subtracted, altering its value."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 28,
@@ -445,7 +1813,42 @@
     "text": "Aroused having read e-book?",
     "enumeration": "7"
    },
-   "solution": "KINDLED"
+   "solution": "KINDLED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KINDLED",
+    "definitions": [
+     {
+      "text": "Aroused",
+      "at": 0
+     },
+     {
+      "text": "having read e-book",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aroused",
+      "note": "first meaning: stirred up, as a fire or feeling is lit"
+     },
+     {
+      "clueFragment": "having read e-book",
+      "note": "second meaning, playful: used a Kindle, the Amazon e-reader"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the invented verb made from the Kindle brand name.",
+     "definitionFit": "Passions or fires are kindled when ignited, so the word means stirred or roused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   }
  ]
 }
