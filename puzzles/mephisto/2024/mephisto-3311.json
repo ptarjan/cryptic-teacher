@@ -38,6 +38,9 @@
   "date": "2024-02-18",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,91 @@
     "text": "Sort originally from region around here? Not he",
     "enumeration": "9"
    },
-   "solution": "FOREIGNER"
+   "solution": "FOREIGNER",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "FOREIGNER",
+    "definitions": [
+     {
+      "text": "Sort originally from region around here? Not he",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the very start of the next word, so only its opening letter is used"
+     },
+     {
+      "text": "Sort",
+      "for": "anagram",
+      "note": "to sort things is to rearrange them, so the letters that follow are put into a new order"
+     },
+     {
+      "text": "Not he",
+      "for": "deletion",
+      "note": "the pronoun after not is struck out of the word just before it, leaving the rest"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning something around makes it face the other way, so the short remainder is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "from",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of from"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "REGION",
+      "note": "taken as written, then rearranged with the F"
+     },
+     {
+      "clueFragment": "here",
+      "gives": "RE",
+      "note": "here with its first two letters, he, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOREIGN",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FREGION",
+       "gives": "FOREIGN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RE",
+       "to": "ER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks what sort of person comes from round here, and is told it is not him.",
+     "walkthrough": "The whole clue does double duty as wordplay and definition: a foreigner is just the sort of person who is not from around here.",
+     "definitionFit": "A foreigner is a person born in another country, someone who does not originate locally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Sort"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +152,56 @@
     "text": "Obsessive after glimpse of flashing lighthouse in the past",
     "enumeration": "5"
    },
-   "solution": "FANAL"
+   "solution": "FANAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "FANAL",
+    "definitions": [
+     {
+      "text": "lighthouse in the past",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "glimpse of",
+      "for": "letter_selection",
+      "note": "a glimpse is only a brief partial view, so just the first letter of the following word is seen"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "flashing",
+      "gives": "F",
+      "select": "first",
+      "note": "the first letter of flashing"
+     },
+     {
+      "clueFragment": "Obsessive",
+      "gives": "ANAL",
+      "note": "anal is informal for fussily obsessive about detail"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ANAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A fixated person watching for the flash of an old lighthouse.",
+     "walkthrough": "After places the obsessive word behind the single letter.",
+     "definitionFit": "Fanal is an archaic word for a beacon or lighthouse, hence the marker of an obsolete term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flashing"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +215,51 @@
     "text": "Iowan mob condemned witch",
     "enumeration": "8"
    },
-   "solution": "OBIWOMAN"
+   "solution": "OBIWOMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OBIWOMAN",
+    "definitions": [
+     {
+      "text": "witch",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "condemned",
+      "for": "anagram",
+      "note": "something condemned is wrecked or ruined, so the preceding letters are broken up and rebuilt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Iowan mob",
+      "gives": "IOWANMOB",
+      "note": "the letters of both words, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IOWANMOB",
+       "gives": "OBIWOMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lynch mob in Iowa passes sentence on a woman accused of witchcraft.",
+     "walkthrough": "Obi (or obeah) is a form of West Indian sorcery, so an obi-woman practises it.",
+     "definitionFit": "An obi-woman is a female practitioner of obeah sorcery, which makes her a sorceress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Iowan"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +273,71 @@
     "text": "Vape offering formality about end of fag?",
     "enumeration": "4"
    },
-   "solution": "ECIG"
+   "solution": "ECIG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "ECIG",
+    "definitions": [
+     {
+      "text": "Vape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about suggests turning about, so the word for formality is read from its far end"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of picks out only the final letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formality",
+      "gives": "ICE",
+      "note": "ice can mean chilly formality or reserve of manner"
+     },
+     {
+      "clueFragment": "fag",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of fag"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ECI",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "ICE",
+       "to": "ECI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A vape shop offering something about the end of the cigarette habit.",
+     "walkthrough": "A fag is British slang for a cigarette; the question mark admits that the definition is the device, not the act.",
+     "definitionFit": "An e-cig, electronic cigarette, is the device people call a vape, used instead of smoking tobacco."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "formality"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +351,67 @@
     "text": "I tempt back current oil producer",
     "enumeration": "6"
    },
-   "solution": "ILLUPI"
+   "solution": "ILLUPI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ILLUPI",
+    "definitions": [
+     {
+      "text": "oil producer",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the word for tempt is read right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tempt",
+      "gives": "PULL",
+      "note": "a pull is an attraction, so to pull is to lure or tempt"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "LLUP",
+      "I"
+     ],
+     "reversals": [
+      {
+       "from": "PULL",
+       "to": "LLUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to tempt us back to the current price of oil.",
+     "walkthrough": "The illupi is an Indian tree whose seeds yield a fat used as oil.",
+     "definitionFit": "The illupi, or mahua, is a tropical tree whose seeds yield a valuable cooking and lamp fat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +425,51 @@
     "text": "I return our awful food",
     "enumeration": "10"
    },
-   "solution": "NOURRITURE"
+   "solution": "NOURRITURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOURRITURE",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awful",
+      "for": "anagram",
+      "note": "something awful is in a dreadful state, so the preceding letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I return our",
+      "gives": "IRETURNOUR",
+      "note": "the letters of all three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IRETURNOUR",
+       "gives": "NOURRITURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A diner sending back an awful meal at a restaurant.",
+     "walkthrough": "The answer is an old word borrowed from French.",
+     "definitionFit": "Nourriture is an archaic word for nourishment, sustenance or provisions eaten to live."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +483,66 @@
     "text": "Spectre’s blown up James with no justice",
     "enumeration": "6"
    },
-   "solution": "EMPUSA"
+   "solution": "EMPUSA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EMPUSA",
+    "definitions": [
+     {
+      "text": "Spectre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no justice",
+      "for": "deletion",
+      "note": "with no means the abbreviation for justice is dropped from the name"
+     },
+     {
+      "text": "blown",
+      "for": "anagram",
+      "note": "blown means blasted apart, so the letters are scattered and rearranged"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "James",
+      "gives": "AMES",
+      "note": "the name losing its J, the abbreviation for justice"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPAMES",
+       "gives": "EMPUSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news line about the Bond film Spectre: James Bond blown up, with justice not done.",
+     "walkthrough": "Blown up reads as one phrase, but blown is the signal and up joins the fodder.",
+     "definitionFit": "An empusa is a hobgoblin or shape-shifting spectre of Greek myth, sent by Hecate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spectre"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +556,62 @@
     "text": "State control set-up is constrained by small amount of money",
     "enumeration": "9"
    },
-   "solution": "DIRIGISME"
+   "solution": "DIRIGISME",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIRIGISME",
+    "definitions": [
+     {
+      "text": "State control",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is constrained by",
+      "for": "container",
+      "note": "something constrained is held in, so the first part sits inside the coin word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small amount of money",
+      "gives": "DIME",
+      "note": "a dime is a US ten-cent coin"
+     },
+     {
+      "clueFragment": "set-up",
+      "gives": "RIG",
+      "note": "a rig is an apparatus or arrangement"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "RIG",
+      "IS",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A political claim that state control is held back by a lack of funds.",
+     "walkthrough": "D(RIG IS)ME. A dime is a US ten-cent coin.",
+     "definitionFit": "Dirigisme is the economic doctrine of central government planning and direction of the economy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set-up"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +625,55 @@
     "text": "Glacial mass lecturer besieged by environmentalists",
     "enumeration": "4"
    },
-   "solution": "FLOE"
+   "solution": "FLOE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FLOE",
+    "definitions": [
+     {
+      "text": "Glacial mass",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "besieged by",
+      "for": "container",
+      "note": "a besieged place is surrounded, so the lecturer letter is placed inside the group"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "environmentalists",
+      "gives": "FOE",
+      "note": "FoE is Friends of the Earth, an environmental group"
+     },
+     {
+      "clueFragment": "lecturer",
+      "gives": "L",
+      "note": "L is the abbreviation for lecturer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "L",
+      "OE"
+     ]
+    },
+    "explanation": {
+     "surface": "A glaciology lecturer surrounded by green protesters.",
+     "walkthrough": "F(L)OE.",
+     "definitionFit": "A floe is a sheet of floating ice, a large mass detached from a glacier or ice field."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "environmentalists"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +687,70 @@
     "text": "Chevrotain going round grass mound rolling",
     "enumeration": "7"
    },
-   "solution": "DEERLET"
+   "solution": "DEERLET",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEERLET",
+    "definitions": [
+     {
+      "text": "Chevrotain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going round",
+      "for": "reversal",
+      "note": "going round means turning to face back, so the grass word reads backwards"
+     },
+     {
+      "text": "rolling",
+      "for": "reversal",
+      "note": "a thing rolling over turns end to end, so the mound word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grass",
+      "gives": "REED",
+      "note": "a reed is a tall waterside grass"
+     },
+     {
+      "clueFragment": "mound",
+      "gives": "TEL",
+      "note": "a tel is an archaeological mound in the Middle East"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEER",
+      "LET"
+     ],
+     "reversals": [
+      {
+       "from": "REED",
+       "to": "DEER"
+      },
+      {
+       "from": "TEL",
+       "to": "LET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A small deer trotting round some grass and rolling down a hillock.",
+     "walkthrough": "Two separate reversal signals each turn one piece; tel is a word from Middle Eastern archaeology.",
+     "definitionFit": "A chevrotain, or mouse deer, is a tiny deer-like ruminant, sometimes called a deerlet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rolling"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +764,53 @@
     "text": "Shopping bag overturned set of scales",
     "enumeration": "4"
    },
-   "solution": "ABAC"
+   "solution": "ABAC",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ABAC",
+    "definitions": [
+     {
+      "text": "set of scales",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "something overturned ends up upside down, so the bag word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shopping bag",
+      "gives": "CABA",
+      "note": "a caba, or cabas, is a shopping basket or reticule"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABAC"
+     ],
+     "reversals": [
+      {
+       "from": "CABA",
+       "to": "ABAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopping bag knocked over onto a pair of scales.",
+     "definitionFit": "An abac is a nomogram, a chart with graduated scales for reading off calculations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "scales"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +824,59 @@
     "text": "Search endlessly on Bing — it’s what I do",
     "enumeration": "7"
    },
-   "solution": "COMPILE"
+   "solution": "COMPILE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "COMPILE",
+    "definitions": [
+     {
+      "text": "it’s what I do",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end means the final letter of the search word is lopped off"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Search",
+      "gives": "COM",
+      "note": "comb, to search thoroughly, with its last letter gone"
+     },
+     {
+      "clueFragment": "Bing",
+      "gives": "PILE",
+      "note": "bing is a dialect word for a heap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COM",
+      "PILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Endless searching on the Bing search engine described as someone's job.",
+     "walkthrough": "Bing is a heap, not the search engine. The I is the setter, whose job is to compile the crossword.",
+     "definitionFit": "A crossword setter is called a compiler, so assembling the puzzle is exactly the setter's job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Bing"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +890,60 @@
     "text": "Nearly no good, nearly type nothing",
     "enumeration": "5"
    },
-   "solution": "NIHIL"
+   "solution": "NIHIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "NIHIL",
+    "definitions": [
+     {
+      "text": "nothing",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "no good",
+      "for": "deletion",
+      "note": "with no good, the abbreviation for good is removed from the word for nearly"
+     },
+     {
+      "text": "nearly",
+      "for": "deletion",
+      "note": "nearly means not quite all, so the last letter of the type word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nearly",
+      "gives": "NIH",
+      "note": "nigh, meaning nearly, losing its G for good"
+     },
+     {
+      "clueFragment": "type",
+      "gives": "IL",
+      "note": "ilk, a type or kind, losing its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIH",
+      "IL"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that something is all but useless, almost nothing.",
+     "walkthrough": "The first nearly is a definition (NIGH), the second an instruction to cut.",
+     "definitionFit": "Nihil is the Latin word for nothing, used in English for something of no value."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Nearly"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +957,52 @@
     "text": "Possibly until I used … it’s this?",
     "enumeration": "10"
    },
-   "solution": "UNUTILISED"
+   "solution": "UNUTILISED",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "UNUTILISED",
+    "definitions": [
+     {
+      "text": "Possibly until I used … it’s this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possibly",
+      "for": "anagram",
+      "note": "possibly hints at one possible arrangement among many of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "until I used",
+      "gives": "UNTILIUSED",
+      "note": "the letters of all three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNTILIUSED",
+       "gives": "UNUTILISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something lay idle until somebody used it, so what was it before?",
+     "walkthrough": "The whole clue does double duty: until I used it, a thing was not in use.",
+     "definitionFit": "Something not put to use before I employed it was idle, never yet exploited."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Possibly"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1016,80 @@
     "text": "Beginning to undo rope tangled round hard wooden block",
     "enumeration": "6"
    },
-   "solution": "UPHROE"
+   "solution": "UPHROE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "UPHROE",
+    "definitions": [
+     {
+      "text": "wooden block",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of the following word is just its opening letter"
+     },
+     {
+      "text": "tangled",
+      "for": "anagram",
+      "note": "tangled things are knotted out of order, so the letters are rearranged"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says the knotted letters go around the hard abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "undo",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of undo"
+     },
+     {
+      "clueFragment": "rope",
+      "gives": "PROE",
+      "note": "the letters rearranged"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "P",
+      "H",
+      "ROE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROPE",
+       "gives": "PROE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor starting to undo a rope knotted round a hard block of wood.",
+     "walkthrough": "The rope letters split around H: P(H)ROE.",
+     "definitionFit": "An uphroe, or euphroe, is a long wooden block with holes used to adjust an awning's crowfoot lines at sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1103,58 @@
     "text": "Shakespeare’s region cut crop that’s ripe",
     "enumeration": "9"
    },
-   "solution": "CLIMATURE"
+   "solution": "CLIMATURE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CLIMATURE",
+    "definitions": [
+     {
+      "text": "Shakespeare’s region",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so the crop word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crop",
+      "gives": "CLI",
+      "note": "clip, to crop, with its tail gone"
+     },
+     {
+      "clueFragment": "ripe",
+      "gives": "MATURE",
+      "note": "ripe fruit is mature"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLI",
+      "MATURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A harvest note: the district where crops are cut once ripe.",
+     "walkthrough": "Shakespeare's marks the word as one he used; it appears once, in Hamlet.",
+     "definitionFit": "Climature, in Hamlet, means a region or clime, the inhabitants of a particular zone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crop"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1168,55 @@
     "text": "Boundless charity event, one that remains more rowdy",
     "enumeration": "8"
    },
-   "solution": "UNRULIER"
+   "solution": "UNRULIER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "UNRULIER",
+    "definitions": [
+     {
+      "text": "more rowdy",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Boundless",
+      "for": "deletion",
+      "note": "without bounds means both edge letters of the event are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charity event",
+      "gives": "UNRU",
+      "note": "fun run, a sponsored charity race, without its first and last letters"
+     },
+     {
+      "clueFragment": "one that remains",
+      "gives": "LIER",
+      "note": "one who lies, that is stays put"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNRU",
+      "LIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A charity event getting out of hand while one participant stays behind.",
+     "walkthrough": "A lier is one who lies in the sense of remaining where they are, not one who tells untruths.",
+     "definitionFit": "Unrulier is the comparative of unruly, so it means more disorderly or boisterous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Boundless"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1230,51 @@
     "text": "Slump? Money’s short",
     "enumeration": "4"
    },
-   "solution": "LOLL"
+   "solution": "LOLL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOLL",
+    "definitions": [
+     {
+      "text": "Slump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "falling short means the last letter of the money word is missing"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "LOLLY",
+      "note": "lolly is British slang for cash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOLL"
+     ]
+    },
+    "explanation": {
+     "surface": "An economic slump explained by a shortage of money.",
+     "walkthrough": "Slump is a verb here, to slouch, not a downturn.",
+     "definitionFit": "To loll is to lounge or sprawl lazily, just as one slumps in a chair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slump"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1288,53 @@
     "text": "Royal surrendering rule like in Richard III?",
     "enumeration": "4"
    },
-   "solution": "EGAL"
+   "solution": "EGAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EGAL",
+    "definitions": [
+     {
+      "text": "like in Richard III",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrendering",
+      "for": "deletion",
+      "note": "surrendering means giving up, so the rule abbreviation is given away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Royal",
+      "gives": "REGAL",
+      "note": "regal means royal"
+     },
+     {
+      "clueFragment": "rule",
+      "gives": "R",
+      "note": "R is the abbreviation for rule; it is the letter given up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EGAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A king giving up his rule, as Richard III does in the play.",
+     "walkthrough": "R is the abbreviation for rule. Richard III marks the word as Shakespeare's, used in that play.",
+     "definitionFit": "Egal is an old word for equal, meaning just alike or the same, used by Shakespeare in Titus and Richard III."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Royal"
+    }
+   }
   },
   {
    "number": 19,
@@ -323,7 +1354,67 @@
      }
     ]
    },
-   "solution": "AVOLONTE"
+   "solution": "AVOLONTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "A VOLONTE",
+    "definitions": [
+     {
+      "text": "at pleasure",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "something entering goes inside, so the first pieces are put within the ballot"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ballot",
+      "gives": "VOTE",
+      "note": "a ballot is a vote"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "close to",
+      "gives": "ON",
+      "note": "on can mean next to or near, as in a house on the river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VO",
+      "LON",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal candidate edging closer to winning a ballot.",
+     "walkthrough": "A VO(L ON)TE. Close to is not a last-letter signal here; it means near.",
+     "definitionFit": "A volonté is a French phrase used in music meaning freely, as the performer wishes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 20,
@@ -337,7 +1428,60 @@
     "text": "Idiot once more dropping nuclear weapon",
     "enumeration": "7"
    },
-   "solution": "ASSAGAI"
+   "solution": "ASSAGAI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ASSAGAI",
+    "definitions": [
+     {
+      "text": "weapon",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so the nuclear abbreviation is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     },
+     {
+      "clueFragment": "once more",
+      "gives": "AGAIN",
+      "note": "again means once more"
+     },
+     {
+      "clueFragment": "nuclear",
+      "gives": "N",
+      "note": "N is the abbreviation for nuclear; it is the letter dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "AGAI"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool, yet again, letting go of a nuclear weapon.",
+     "walkthrough": "N is the abbreviation for nuclear.",
+     "definitionFit": "An assagai, or assegai, is a slender throwing spear of southern Africa, a hunting and war weapon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuclear"
+    }
+   }
   },
   {
    "number": 21,
@@ -351,7 +1495,67 @@
     "text": "One indigenous species around SA I lead",
     "enumeration": "10"
    },
-   "solution": "INITIATIVE"
+   "solution": "INITIATIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INITIATIVE",
+    "definitions": [
+     {
+      "text": "lead",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the species word goes on either side of the next two pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "indigenous species",
+      "gives": "NATIVE",
+      "note": "an indigenous species is native"
+     },
+     {
+      "clueFragment": "SA",
+      "gives": "IT",
+      "note": "SA is sex appeal, which is also called it"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "N",
+      "ITI",
+      "ATIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A conservation officer leading a project on a native species in South Africa.",
+     "walkthrough": "SA looks like South Africa; here it is sex appeal, which old slang calls it.",
+     "definitionFit": "To take the initiative is to take the lead, acting first before others do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "SA"
+    }
+   }
   },
   {
    "number": 22,
@@ -365,7 +1569,69 @@
     "text": "Sweden accepted aliens, backing centre for those helping the distressed",
     "enumeration": "10"
    },
-   "solution": "SAMARITANS"
+   "solution": "SAMARITANS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SAMARITANS",
+    "definitions": [
+     {
+      "text": "those helping the distressed",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing centre",
+      "for": "reversal",
+      "note": "the middle pair of the word for aliens is put in backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweden",
+      "gives": "S",
+      "note": "S is the international vehicle code for Sweden"
+     },
+     {
+      "clueFragment": "accepted",
+      "gives": "A",
+      "note": "A is the abbreviation for accepted"
+     },
+     {
+      "clueFragment": "aliens",
+      "gives": "MARTIANS",
+      "note": "Martians are aliens from Mars; its centre two letters then swap order"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "MAR",
+      "IT",
+      "ANS"
+     ],
+     "reversals": [
+      {
+       "from": "TI",
+       "to": "IT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sweden taking in refugees and supporting a reception centre for them.",
+     "walkthrough": "The Samaritans are a UK charity that runs a phone line for people in despair.",
+     "definitionFit": "The Samaritans are a charity offering a listening ear to people in emotional crisis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aliens"
+    }
+   }
   },
   {
    "number": 23,
@@ -379,7 +1645,56 @@
     "text": "Note number plate on A road",
     "enumeration": "6"
    },
-   "solution": "REGARD"
+   "solution": "REGARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REGARD",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number plate",
+      "gives": "REG",
+      "note": "reg is short for a car's registration number"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "RD",
+      "note": "Rd is the address abbreviation for road"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REG",
+      "A",
+      "RD"
+     ]
+    },
+    "explanation": {
+     "surface": "Jotting down a car's number plate seen on an A road.",
+     "walkthrough": "In Britain an A road is a main road.",
+     "definitionFit": "To note something is to observe or pay attention to it, which is what regard means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1708,60 @@
     "text": "US football star headed ball, support lacking at the back",
     "enumeration": "6"
    },
-   "solution": "ALLPRO"
+   "solution": "ALLPRO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALLPRO",
+    "definitions": [
+     {
+      "text": "US football star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "headed",
+      "for": "deletion",
+      "note": "headed here means beheaded, so the first letter of the ball word goes"
+     },
+     {
+      "text": "lacking at the back",
+      "for": "deletion",
+      "note": "the support word is missing its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ball",
+      "gives": "ALL",
+      "note": "the word without its head"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "PROP",
+      "note": "a prop is a support; its last letter then goes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "PRO"
+     ]
+    },
+    "explanation": {
+     "surface": "An American footballer heading the ball with no backing from teammates.",
+     "walkthrough": "Headed tempts as a football action; it means beheaded.",
+     "definitionFit": "An all-pro is a player picked for the season's all-star team in American professional football."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "headed"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1775,49 @@
     "text": "Starts to shout noisily as pairs appear in this?",
     "enumeration": "4"
    },
-   "solution": "SNAP"
+   "solution": "SNAP",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "SNAP",
+    "definitions": [
+     {
+      "text": "Starts to shout noisily as pairs appear in this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starts to",
+      "for": "letter_selection",
+      "note": "starts are beginnings, so the first letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shout noisily as pairs",
+      "gives": "SNAP",
+      "select": "first",
+      "note": "the opening letters of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Players yelling loudly whenever matching cards turn up in a card game.",
+     "walkthrough": "The whole clue also describes the game: players shout when two matching cards appear.",
+     "definitionFit": "Snap is a children's card game where players call out when two matching cards are turned up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1831,70 @@
     "text": "Tree workmate cut down by morning",
     "enumeration": "4"
    },
-   "solution": "AMLA"
+   "solution": "AMLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "deletion"
+    ],
+    "answer": "AMLA",
+    "definitions": [
+     {
+      "text": "Tree",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "down",
+      "for": "reversal",
+      "note": "knocked down means turned over, so the workmate word is read backwards"
+     },
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is shortened, so the turned word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "morning",
+      "gives": "AM",
+      "note": "a.m. stands for the morning hours"
+     },
+     {
+      "clueFragment": "workmate",
+      "gives": "PAL",
+      "note": "a pal is a friend or mate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "LA"
+     ],
+     "reversals": [
+      {
+       "from": "PAL",
+       "to": "LAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A colleague hewing a tree in the early morning.",
+     "walkthrough": "The mate is turned and shortened to LA, placed by AM.",
+     "definitionFit": "The amla, or emblic, is an Indian tree whose sour fruit is used in medicine and cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1908,53 @@
     "text": "Quizzer from Scotland to search after answer",
     "enumeration": "5"
    },
-   "solution": "ASKER"
+   "solution": "ASKER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ASKER",
+    "definitions": [
+     {
+      "text": "Quizzer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the Scots search word behind the single letter, so the clue order is swapped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     },
+     {
+      "clueFragment": "from Scotland to search",
+      "gives": "SKER",
+      "note": "a Scots form meaning to scour or search"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SKER"
+     ]
+    },
+    "explanation": {
+     "surface": "A quizmaster from Scotland searching for the answer.",
+     "walkthrough": "The Scots word goes after the A.",
+     "definitionFit": "Someone who asks questions, a questioner, is a quizzer by another name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -449,7 +1968,59 @@
     "text": "What’ll encourage a woman to follow international rugby league?",
     "enumeration": "8"
    },
-   "solution": "ATTAGIRL"
+   "solution": "ATTAGIRL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATTAGIRL",
+    "definitions": [
+     {
+      "text": "What’ll encourage a woman",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "AT",
+      "note": "at and to both mark place, as in at home and to hand"
+     },
+     {
+      "clueFragment": "follow",
+      "gives": "TAG",
+      "note": "to tag along is to follow"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "I is the abbreviation for international"
+     },
+     {
+      "clueFragment": "rugby league",
+      "gives": "RL",
+      "note": "RL is the usual abbreviation for rugby league"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TAG",
+      "I",
+      "RL"
+     ]
+    },
+    "explanation": {
+     "surface": "Should a woman be encouraged to take up following international rugby league?",
+     "walkthrough": "A woman reads as part of the wordplay; it belongs to the definition, and the rest builds the answer.",
+     "definitionFit": "Attagirl is an exclamation of praise or encouragement addressed to a woman or girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "follow"
+    }
+   }
   },
   {
    "number": 29,
@@ -463,7 +2034,56 @@
     "text": "Struggle wasting energy and time in office",
     "enumeration": "4"
    },
-   "solution": "TOIL"
+   "solution": "TOIL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TOIL",
+    "definitions": [
+     {
+      "text": "Struggle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasting",
+      "for": "deletion",
+      "note": "wasting means losing, so the energy and time abbreviations go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "note": "E is the symbol for energy; it is removed"
+     },
+     {
+      "clueFragment": "time",
+      "note": "T is the abbreviation for time; it is removed"
+     },
+     {
+      "clueFragment": "office",
+      "gives": "TOILET",
+      "note": "offices is an old euphemism for a lavatory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOIL"
+     ]
+    },
+    "explanation": {
+     "surface": "An office worker struggling while wasting energy and time.",
+     "walkthrough": "Office is the lavatory, not the workplace.",
+     "definitionFit": "To toil is to work hard and laboriously, to labour against difficulty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "office"
+    }
+   }
   },
   {
    "number": 30,
@@ -477,7 +2097,63 @@
     "text": "Almost puncture close to kerb. Spare tyre?",
     "enumeration": "4"
    },
-   "solution": "FLAB"
+   "solution": "FLAB",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FLAB",
+    "definitions": [
+     {
+      "text": "Spare tyre?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite, so the last letter of the puncture word goes"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "puncture",
+      "gives": "FLAT",
+      "note": "a flat is a punctured tyre"
+     },
+     {
+      "clueFragment": "kerb",
+      "gives": "B",
+      "select": "last",
+      "note": "the last letter of kerb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLA",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist nearly gets a puncture by the kerb and reaches for the spare tyre.",
+     "walkthrough": "A spare tyre is jokey slang for a roll of fat round the waist; the question mark flags it.",
+     "definitionFit": "Flab is loose body fat, and a spare tyre is the roll of it round someone's middle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spare"
+    }
+   }
   },
   {
    "number": 31,
@@ -491,7 +2167,55 @@
     "text": "Pigeons generally regarded as safe besetting man in East London",
     "enumeration": "6"
    },
-   "solution": "GOURAS"
+   "solution": "GOURAS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GOURAS",
+    "definitions": [
+     {
+      "text": "Pigeons",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "besetting",
+      "for": "container",
+      "note": "to beset is to surround on all sides, so the safety initials enclose the man"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "generally regarded as safe",
+      "gives": "GRAS",
+      "note": "GRAS is the US food-safety label generally recognized as safe"
+     },
+     {
+      "clueFragment": "man in East London",
+      "gives": "OU",
+      "note": "ou is South African slang for a man, and East London is a South African city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OU",
+      "RAS"
+     ]
+    },
+    "explanation": {
+     "surface": "Pigeons in the East End being declared harmless.",
+     "walkthrough": "East London is not the Cockney East End but the South African port, where an ou is a bloke.",
+     "definitionFit": "Gouras are large crowned pigeons of New Guinea, the genus Goura."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "London"
+    }
+   }
   },
   {
    "number": 32,
@@ -505,7 +2229,59 @@
     "text": "Political principle, Keir’s first added to road map?",
     "enumeration": "5"
    },
-   "solution": "PLANK"
+   "solution": "PLANK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PLANK",
+    "definitions": [
+     {
+      "text": "Political principle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the leader's name"
+     }
+    ],
+    "linkWords": [
+     "added to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road map",
+      "gives": "PLAN",
+      "note": "a road map is a plan of action"
+     },
+     {
+      "clueFragment": "Keir’s",
+      "gives": "K",
+      "select": "first",
+      "note": "the first letter of Keir, as in Keir Starmer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAN",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "Keir Starmer's first policy point added to Labour's road map.",
+     "walkthrough": "Keir Starmer is the Labour leader; road map is a plan, not a map.",
+     "definitionFit": "A plank is one item in a party's political platform, a single policy commitment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "road"
+    }
+   }
   },
   {
    "number": 33,
@@ -519,7 +2295,60 @@
     "text": "Staff on plane triumphed after first class run",
     "enumeration": "7"
    },
-   "solution": "AIRCREW"
+   "solution": "AIRCREW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIRCREW",
+    "definitions": [
+     {
+      "text": "Staff on plane",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sends the word for triumphed to the end, behind the class and run pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first class",
+      "gives": "AI",
+      "note": "A1 means first-class, written AI"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "triumphed",
+      "gives": "CREW",
+      "note": "crew is a past tense of crow, to exult in triumph"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "R",
+      "CREW"
+     ]
+    },
+    "explanation": {
+     "surface": "Flight staff celebrating after a first-class run.",
+     "walkthrough": "Crew is the old past tense of crow, still used in Britain.",
+     "definitionFit": "The aircrew are the people who fly and serve on an aircraft."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "triumphed"
+    }
+   }
   },
   {
    "number": 34,
@@ -533,7 +2362,43 @@
     "text": "Fixed stake in agrarian terrain",
     "enumeration": "4"
    },
-   "solution": "ANTE"
+   "solution": "ANTE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANTE",
+    "definitions": [
+     {
+      "text": "Fixed stake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the phrase that follows, spanning its two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agrarian terrain",
+      "gives": "ANTE",
+      "note": "the letters straddle the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A farmer's fixed share in a piece of farmland.",
+     "definitionFit": "In poker the ante is a set stake each player puts in before the deal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stake"
+    }
+   }
   },
   {
    "number": 35,
@@ -547,7 +2412,63 @@
     "text": "Bojo branded an abject rogue, he does occasional work around the House",
     "enumeration": "9"
    },
-   "solution": "ODDJOBBER"
+   "solution": "ODDJOBBER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ODDJOBBER",
+    "definitions": [
+     {
+      "text": "he does occasional work around the House",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "an abject",
+      "for": "deletion",
+      "note": "abject in its old sense is to cast out, so the two letters are thrown away"
+     },
+     {
+      "text": "rogue",
+      "for": "anagram",
+      "note": "a rogue behaves wildly, so the combined letters run out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bojo",
+      "gives": "BOJO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "branded",
+      "gives": "BRDED",
+      "note": "the word with its an removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BOJOBRDED",
+       "gives": "ODDJOBBER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Boris Johnson, Bojo, damned as a wretched rogue who barely worked in the House of Commons.",
+     "walkthrough": "Bojo is Boris Johnson's nickname; the House is the Commons, but the definition means a household.",
+     "definitionFit": "An odd-jobber does casual small tasks and repairs, such as household handyman work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "House"
+    }
+   }
   }
  ]
 }
