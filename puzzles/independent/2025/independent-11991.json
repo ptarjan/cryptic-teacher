@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Bribes generated amidst suspicious behaviour",
     "enumeration": "7"
    },
-   "solution": "SUBORNS"
+   "solution": "SUBORNS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUBORNS",
+    "definitions": [
+     {
+      "text": "Bribes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amidst",
+      "for": "container",
+      "note": "amidst places one word in the middle of another, flanked on both sides"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suspicious behaviour",
+      "gives": "SUS",
+      "note": "sus is informal British slang for suspicious, as in the old 'sus laws'"
+     },
+     {
+      "clueFragment": "generated",
+      "gives": "BORN",
+      "note": "something generated has been brought into being"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "BORN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone acting shiftily turns out to be handing over bribes.",
+     "walkthrough": "SUS is British slang for suspect or suspicious, as in the old 'sus laws' on stop and search.",
+     "definitionFit": "To suborn is to induce someone, typically by payment, into wrongdoing such as perjury."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "generated"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,51 @@
     "text": "Winter transport requiring a lot of dexterity",
     "enumeration": "6"
    },
-   "solution": "SLEIGH"
+   "solution": "SLEIGH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SLEIGH",
+    "definitions": [
+     {
+      "text": "Winter transport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of something is not quite all of it, so the final letter goes"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dexterity",
+      "gives": "SLEIGHT",
+      "note": "sleight, as in sleight of hand, means nimble skill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SLEIGH"
+     ]
+    },
+    "explanation": {
+     "surface": "Steering a vehicle through the snow takes real skill.",
+     "walkthrough": "SLEIGHT loses its last letter T.",
+     "definitionFit": "A sleigh is a sledge drawn by horses or reindeer over snow and ice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "requiring"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,55 @@
     "text": "Rudimentary matters around American measures of speed",
     "enumeration": "5"
    },
-   "solution": "BAUDS"
+   "solution": "BAUDS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BAUDS",
+    "definitions": [
+     {
+      "text": "measures of speed",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around has the first item wrapped about the second, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rudimentary matters",
+      "gives": "BUDS",
+      "note": "buds are the undeveloped beginnings of flowers or leaves"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a standard abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "UDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Basic issues surround American rates of speed.",
+     "walkthrough": "A goes inside BUDS, after the B.",
+     "definitionFit": "A baud is a unit of signalling rate in data transmission, one symbol per second."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rudimentary"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,65 @@
     "text": "Regret impounding European spaceship for subsequent release",
     "enumeration": "7"
    },
-   "solution": "REISSUE"
+   "solution": "REISSUE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REISSUE",
+    "definitions": [
+     {
+      "text": "subsequent release",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impounding",
+      "for": "container",
+      "note": "impounding means shutting something away inside an enclosure"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "spaceship",
+      "gives": "ISS",
+      "note": "the International Space Station, a crewed orbital craft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "ISS",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regrets confiscating a European spacecraft that was later let go.",
+     "walkthrough": "The ISS is the International Space Station, a common crossword abbreviation.",
+     "definitionFit": "A reissue is a further release of a book, record or stamp after the original one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "impounding"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +290,55 @@
     "text": "Excessive pace requiring extra energy",
     "enumeration": "5"
    },
-   "solution": "STEEP"
+   "solution": "STEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEEP",
+    "definitions": [
+     {
+      "text": "Excessive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "requiring extra",
+      "for": "container",
+      "note": "requiring extra suggests something added into the word to make it complete"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pace",
+      "gives": "STEP",
+      "note": "a pace is a single step"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "E",
+      "EP"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping up a punishing speed needs more stamina.",
+     "walkthrough": "E slips into STEP, beside the existing E.",
+     "definitionFit": "A steep price or demand is unreasonably high, an informal sense meaning too much."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Excessive"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +352,70 @@
     "text": "Shakespearean figure backed genuine revolution in scenery etc",
     "enumeration": "7"
    },
-   "solution": "LAERTES"
+   "solution": "LAERTES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LAERTES",
+    "definitions": [
+     {
+      "text": "Shakespearean figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backed",
+      "for": "reversal",
+      "note": "backed means going backwards, so the word is read from its end"
+     },
+     {
+      "text": "revolution in",
+      "for": "reversal",
+      "note": "a revolution turns something round, so this word is also read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "genuine",
+      "gives": "REAL",
+      "note": "genuine means real"
+     },
+     {
+      "clueFragment": "scenery etc",
+      "gives": "SET",
+      "note": "a stage set is the scenery and props"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAER",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "REAL",
+       "to": "LAER"
+      },
+      {
+       "from": "SET",
+       "to": "TES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatrical character spins round on stage among the scenery.",
+     "walkthrough": "REAL backwards gives LAER and SET backwards gives TES.",
+     "definitionFit": "Laertes is the brother of Ophelia in Hamlet, who kills the prince in the final duel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +435,71 @@
      }
     ]
    },
-   "solution": "LOWCOMEDY"
+   "solution": "LOWCOMEDY",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "LOW COMEDY",
+    "definitions": [
+     {
+      "text": "Produced farmyard noises, incorporating common vulgarity ultimately - this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorporating",
+      "for": "container",
+      "note": "incorporating takes something into the body of another word"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very last letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Produced farmyard noises",
+      "gives": "LOWED",
+      "note": "cattle low, so mooing cows lowed"
+     },
+     {
+      "clueFragment": "common",
+      "gives": "COM",
+      "note": "com is a standard abbreviation for common"
+     },
+     {
+      "clueFragment": "vulgarity",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of vulgarity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOW",
+      "COM",
+      "ED",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Mooing noises and a bit of vulgarity: the clue asks whether that is a style of humour.",
+     "walkthrough": "The whole clue, farmyard noises plus crudeness, also describes the answer, which is what 'this?' prompts.",
+     "definitionFit": "Low comedy is broad humour relying on slapstick, crude jokes and farce rather than wit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "common"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +513,56 @@
     "text": "Say good leader of teachers should be intellectual",
     "enumeration": "7"
    },
-   "solution": "EGGHEAD"
+   "solution": "EGGHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EGGHEAD",
+    "definitions": [
+     {
+      "text": "intellectual",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "should be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Say",
+      "gives": "EG",
+      "note": "e.g. means for example, as does say"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "leader of teachers",
+      "gives": "HEAD",
+      "note": "a head teacher leads a school's staff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "G",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A school's head ought to be a clever person.",
+     "walkthrough": "'Say' gives EG, the abbreviation for 'for example'.",
+     "definitionFit": "An egghead is an informal, slightly mocking word for a highly academic, bookish person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Say"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +576,55 @@
     "text": "Sudden attacks securing Australian policy change",
     "enumeration": "9"
    },
-   "solution": "TURNABOUT"
+   "solution": "TURNABOUT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TURNABOUT",
+    "definitions": [
+     {
+      "text": "policy change",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "securing",
+      "for": "container",
+      "note": "securing means holding something firmly within, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sudden attacks",
+      "gives": "TURNBOUT",
+      "note": "two words for an attack of illness: a turn and a bout"
+     },
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is a standard abbreviation for Australian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TURN",
+      "A",
+      "BOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Abrupt assaults capture an Australian, forcing a change of plan.",
+     "walkthrough": "The plural 'attacks' asks for two separate words, with the abbreviation held between them.",
+     "definitionFit": "A turnabout is a complete reversal of position, opinion or policy, also called a U-turn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "attacks"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +638,74 @@
     "text": "Police officer not losing heart after quantity of work in the main",
     "enumeration": "8"
    },
-   "solution": "SERGEANT"
+   "solution": "SERGEANT",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SERGEANT",
+    "definitions": [
+     {
+      "text": "Police officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another"
+     },
+     {
+      "text": "losing heart",
+      "for": "letter_selection",
+      "note": "losing its heart means the middle letter goes, keeping only the outside"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts one part later in the word than the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the main",
+      "gives": "SEA",
+      "note": "the main is a poetic term for the open sea"
+     },
+     {
+      "clueFragment": "quantity of work",
+      "gives": "ERG",
+      "note": "the erg is a unit of work or energy"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NT",
+      "select": "outer",
+      "note": "the first and last letters of not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ERG",
+      "EA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "An officer keeps up their spirits after a stint of work at sea.",
+     "walkthrough": "'The main' is an old poetic name for the ocean; the erg is the small CGS unit of work.",
+     "definitionFit": "A sergeant is a police rank above constable and below inspector in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +719,62 @@
     "text": "Displaying knowledge? English not polite about it",
     "enumeration": "7"
    },
-   "solution": "ERUDITE"
+   "solution": "ERUDITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ERUDITE",
+    "definitions": [
+     {
+      "text": "Displaying knowledge?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, placed around another part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "not polite",
+      "gives": "RUDE",
+      "note": "rude is the opposite of polite"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RUD",
+      "IT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An Englishman shows off what he knows and is rude about it.",
+     "walkthrough": "The question mark admits the definition is loose: being learned is shown by displaying knowledge.",
+     "definitionFit": "Erudite describes someone showing great learning and scholarship, a fitting description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +788,65 @@
     "text": "German composer replaces note with a show of hesitation, I bet",
     "enumeration": "7"
    },
-   "solution": "WAGERER"
+   "solution": "WAGERER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WAGERER",
+    "definitions": [
+     {
+      "text": "I bet",
+      "at": 57,
+      "note": "a cryptic definition: the person who says 'I bet' is one"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaces",
+      "for": "substitution",
+      "note": "replaces swaps one element in a word for something else"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German composer",
+      "gives": "WAGNER",
+      "note": "Richard Wagner, composer of the Ring cycle"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "N",
+      "note": "N stands for note"
+     },
+     {
+      "clueFragment": "a show of hesitation",
+      "gives": "ER",
+      "note": "er is the sound people make when hesitating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAG",
+      "ER",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bets that Wagner would have hesitated over a note.",
+     "walkthrough": "In WAGNER the N is replaced by ER.",
+     "definitionFit": "Anyone who says 'I bet' is placing a wager, which makes the speaker a gambler of that kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +860,55 @@
     "text": "Government obscurations concealing initial main points",
     "enumeration": "5"
    },
-   "solution": "GISTS"
+   "solution": "GISTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GISTS",
+    "definitions": [
+     {
+      "text": "main points",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "concealing initial",
+      "for": "deletion",
+      "note": "concealing the initial hides the first letter from view"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Government",
+      "gives": "G",
+      "note": "G is the abbreviation for government"
+     },
+     {
+      "clueFragment": "obscurations",
+      "gives": "MISTS",
+      "note": "mists obscure the view"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ISTS"
+     ]
+    },
+    "explanation": {
+     "surface": "A government fog hides the key facts of an issue.",
+     "walkthrough": "MISTS loses its M. 'Main' looks attached to 'initial' but belongs to the definition.",
+     "definitionFit": "The gist of something is its essential substance or central thrust, so gists are its key ideas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initial"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +922,72 @@
     "text": "Drop name outrageously before end of some walk",
     "enumeration": "9"
    },
-   "solution": "PROMENADE"
+   "solution": "PROMENADE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PROMENADE",
+    "definitions": [
+     {
+      "text": "walk",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outrageously",
+      "for": "anagram",
+      "note": "doing something outrageously means wildly, so these letters are thrown out of order"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of takes only the final letter of the following word"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before puts the jumbled part ahead of the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop name",
+      "gives": "DROPNAME",
+      "note": "taken as written for the jumble"
+     },
+     {
+      "clueFragment": "some",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of some"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROMENAD",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DROPNAME",
+       "gives": "PROMENAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A name-dropper shamelessly boasts during a stroll.",
+     "definitionFit": "A promenade is a leisurely stroll, or the paved seafront path where people take one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +1001,61 @@
     "text": "Parasites understand about new publican",
     "enumeration": "8"
    },
-   "solution": "LICENSEE"
+   "solution": "LICENSEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LICENSEE",
+    "definitions": [
+     {
+      "text": "publican",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the pair goes round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parasites",
+      "gives": "LICE",
+      "note": "lice are parasitic insects"
+     },
+     {
+      "clueFragment": "understand",
+      "gives": "SEE",
+      "note": "'I see' means I understand"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LICE",
+      "N",
+      "SEE"
+     ]
+    },
+    "explanation": {
+     "surface": "The new landlord grasps the problem of bugs in the pub.",
+     "walkthrough": "'About' here means the two words together wrap the single letter.",
+     "definitionFit": "In Britain a publican holds the licence to sell alcohol on the premises, making him the licensee."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "understand"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1069,61 @@
     "text": "Bird is caught by international physician",
     "enumeration": "9"
    },
-   "solution": "INTERNIST"
+   "solution": "INTERNIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INTERNIST",
+    "definitions": [
+     {
+      "text": "physician",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "something caught by another is trapped inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "international",
+      "gives": "INT",
+      "note": "int is the abbreviation for international"
+     },
+     {
+      "clueFragment": "Bird",
+      "gives": "TERN",
+      "note": "a tern is a seabird"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TERN",
+      "IS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird is caught by a doctor of international standing.",
+     "walkthrough": "Internist is mainly an American word for a specialist in internal medicine.",
+     "definitionFit": "An internist is a specialist in internal medicine, the American term for a general physician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bird"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1137,51 @@
     "text": "Mess Rebus sorted out is overwhelming",
     "enumeration": "9"
    },
-   "solution": "SUBMERSES"
+   "solution": "SUBMERSES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUBMERSES",
+    "definitions": [
+     {
+      "text": "is overwhelming",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sorted out",
+      "for": "anagram",
+      "note": "sorted out means put into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mess Rebus",
+      "gives": "MESSREBUS",
+      "note": "taken as written for the jumble; Rebus is Ian Rankin's detective"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MESSREBUS",
+       "gives": "SUBMERSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clearing up the detective Rebus's mess is too much to cope with.",
+     "walkthrough": "Inspector Rebus is the Edinburgh detective of Ian Rankin's novels.",
+     "definitionFit": "To submerse is to plunge under water, figuratively to swamp or overpower, matching third-person 'is overwhelming'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rebus"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1195,58 @@
     "text": "Low period interrupted by river in flood",
     "enumeration": "5"
    },
-   "solution": "DROWN"
+   "solution": "DROWN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DROWN",
+    "definitions": [
+     {
+      "text": "flood",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupted by",
+      "for": "container",
+      "note": "a word interrupted by something has that thing break into its middle"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Low period",
+      "gives": "DOWN",
+      "note": "a down is a spell of low spirits, as in ups and downs"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dry spell is broken by a river bursting its banks.",
+     "walkthrough": "R goes into DOWN after the D.",
+     "definitionFit": "To drown land is to flood or submerge it completely under water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flood"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1260,65 @@
     "text": "No performance in church for romantic piece",
     "enumeration": "8"
    },
-   "solution": "NOCTURNE"
+   "solution": "NOCTURNE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NOCTURNE",
+    "definitions": [
+     {
+      "text": "romantic piece",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one word inside another"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "performance",
+      "gives": "TURN",
+      "note": "a turn is a stage act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "C",
+      "TURN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A church refuses to stage a love song.",
+     "walkthrough": "'Romantic' means of the Romantic era in music, not amorous.",
+     "definitionFit": "A nocturne is a dreamy, lyrical composition associated with the Romantic era, notably Chopin's piano works."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "romantic"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1332,55 @@
     "text": "Settled opinion piece about Tesla",
     "enumeration": "5"
    },
-   "solution": "OPTED"
+   "solution": "OPTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPTED",
+    "definitions": [
+     {
+      "text": "Settled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, placed around another part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opinion piece",
+      "gives": "OPED",
+      "note": "an op-ed is a newspaper opinion column"
+     },
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A columnist made up their mind in a newspaper piece about the carmaker Tesla.",
+     "walkthrough": "T goes inside OPED.",
+     "definitionFit": "Having opted, one has chosen or decided, as in settled on a choice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tesla"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1400,55 @@
      }
     ]
    },
-   "solution": "DRIVEIN"
+   "solution": "DRIVEIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DRIVE-IN",
+    "definitions": [
+     {
+      "text": "where moviegoers gather",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed means having had its tail cut off, so the last letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pathetic person",
+      "gives": "DRIP",
+      "note": "a drip is a feeble, wet person"
+     },
+     {
+      "clueFragment": "streak",
+      "gives": "VEIN",
+      "note": "a vein is a streak, as in a vein of humour or ore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRI",
+      "VEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A feeble character has a brief streak of something where cinema audiences assemble.",
+     "walkthrough": "DRIP loses its P.",
+     "definitionFit": "A drive-in is an outdoor cinema where audiences watch films from their parked cars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "streak"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1462,60 @@
     "text": "Things that can pierce old fishing gear beside coastal region",
     "enumeration": "8"
    },
-   "solution": "BAYONETS"
+   "solution": "BAYONETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BAYONETS",
+    "definitions": [
+     {
+      "text": "Things that can pierce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beside",
+      "for": "charade",
+      "note": "beside sets one piece directly next to another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coastal region",
+      "gives": "BAY",
+      "note": "a bay is a curved stretch of coast"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "fishing gear",
+      "gives": "NETS",
+      "note": "nets are used to catch fish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAY",
+      "O",
+      "NETS"
+     ]
+    },
+    "explanation": {
+     "surface": "Old fishing equipment by the shore is full of sharp hooks.",
+     "walkthrough": "'Beside' allows either order, and here the coast comes first.",
+     "definitionFit": "Bayonets are blades fixed to rifles, designed to stab and pierce in close combat."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "pierce"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1529,64 @@
     "text": "Cloudy, close to covering most of large structure?",
     "enumeration": "7"
    },
-   "solution": "NEBULAR"
+   "solution": "NEBULAR",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion"
+    ],
+    "answer": "NEBULAR",
+    "definitions": [
+     {
+      "text": "Cloudy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering means wrapping around something and enclosing it"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means all but the last letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "close to",
+      "gives": "NEAR",
+      "note": "near means close to"
+     },
+     {
+      "clueFragment": "large structure?",
+      "gives": "BULK",
+      "note": "bulk is great size, a large mass or body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "BUL",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A vast building looks hazy when you get near it.",
+     "walkthrough": "The question mark flags that 'large structure' is a loose description of bulk, great size or mass.",
+     "definitionFit": "Nebular relates to a nebula, an interstellar cloud of gas and dust, hence hazy or misty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "structure"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1600,71 @@
     "text": "Large vessels? Possible limitation to arrangement with a small",
     "enumeration": "6"
    },
-   "solution": "AORTAS"
+   "solution": "AORTAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AORTAS",
+    "definitions": [
+     {
+      "text": "Large vessels?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Possible",
+      "for": "anagram",
+      "note": "a possible version is just one of several ways the letters might be arranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "limitation to arrangement",
+      "gives": "ROTA",
+      "note": "a rota is a fixed arrangement of duties that limits who works when"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AORT",
+      "A",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROTA",
+       "gives": "AORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A query about big ships and a scheduling restriction.",
+     "walkthrough": "The question mark flags that the vessels are blood vessels, not ships.",
+     "definitionFit": "The aorta is the main artery carrying blood from the heart, the largest blood vessel in the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "vessels"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1678,50 @@
     "text": "Agitate and resist delay",
     "enumeration": "9"
    },
-   "solution": "TARDINESS"
+   "solution": "TARDINESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TARDINESS",
+    "definitions": [
+     {
+      "text": "delay",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Agitate",
+      "for": "anagram",
+      "note": "to agitate is to stir up and shake, disturbing the order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and resist",
+      "gives": "ANDRESIST",
+      "note": "taken as written for the jumble"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDRESIST",
+       "gives": "TARDINESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A call to stir up protest and resist being held up.",
+     "definitionFit": "Tardiness is lateness or slowness, the state of being behind time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Agitate"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1735,53 @@
     "text": "Doctors run from fountains",
     "enumeration": "5"
    },
-   "solution": "SPAYS"
+   "solution": "SPAYS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SPAYS",
+    "definitions": [
+     {
+      "text": "Doctors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "deletion",
+      "note": "taking one thing from another removes it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "fountains",
+      "gives": "SPRAYS",
+      "note": "fountains throw up sprays of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAYS"
+     ]
+    },
+    "explanation": {
+     "surface": "Medics sprint away from the fountains.",
+     "walkthrough": "SPRAYS loses R. 'Doctors' looks like medics, but it is a verb meaning neuters.",
+     "definitionFit": "To doctor an animal is a euphemism for neutering it, and spaying is neutering a female."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Doctors"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1795,57 @@
     "text": "Donkey’s over being attached to sticky part of plant",
     "enumeration": "5"
    },
-   "solution": "BURRO"
+   "solution": "BURRO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BURRO",
+    "definitions": [
+     {
+      "text": "Donkey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being attached to",
+      "for": "charade",
+      "note": "being attached to joins one piece directly onto another"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sticky part of plant",
+      "gives": "BURR",
+      "note": "a burr is a prickly seed head that clings to fur and clothing"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BURR",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A donkey ends up covered in clinging plant matter.",
+     "walkthrough": "The 's means 'is', a link.",
+     "definitionFit": "Burro is the Spanish word for a small donkey, used in the American southwest as a pack animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1859,74 @@
     "text": "Always upset about end of brave deceased actor",
     "enumeration": "5"
    },
-   "solution": "REEVE"
+   "solution": "REEVE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REEVE",
+    "definitions": [
+     {
+      "text": "deceased actor",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset in a down clue means turned upside down, so the word reads backwards"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "end of takes only the last letter of the following word"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, placed around another part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Always",
+      "gives": "EVER",
+      "note": "ever means always"
+     },
+     {
+      "clueFragment": "brave",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of brave"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "EVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVER",
+       "to": "REVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor known for bravery has died, to everyone's lasting distress.",
+     "walkthrough": "EVER reversed is REVE, which goes round E. Christopher Reeve, who played Superman, died in 2004.",
+     "definitionFit": "Christopher Reeve was the American actor famous as Superman, who died in 2004 after a riding accident."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brave"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1940,64 @@
     "text": "Acquisitive financiers I discovered amongst brokers, wasting time",
     "enumeration": "7"
    },
-   "solution": "RAIDERS"
+   "solution": "RAIDERS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RAIDERS",
+    "definitions": [
+     {
+      "text": "Acquisitive financiers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasting time",
+      "for": "deletion",
+      "note": "wasting time throws away the letter that stands for time"
+     },
+     {
+      "text": "amongst",
+      "for": "container",
+      "note": "amongst places one item in the midst of another"
+     }
+    ],
+    "linkWords": [
+     "discovered"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brokers",
+      "gives": "TRADERS",
+      "note": "traders buy and sell on behalf of clients"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "I",
+      "DERS"
+     ]
+    },
+    "explanation": {
+     "surface": "I find predatory investors among dealers who are idling.",
+     "walkthrough": "'Discovered' reads as uncovered, but here it only joins: I was found among them.",
+     "definitionFit": "Corporate raiders are investors who buy large stakes in companies, aiming at takeover or quick profit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wasting"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +2011,62 @@
     "text": "Excellent and fast, suppressing male illness",
     "enumeration": "7"
    },
-   "solution": "AILMENT"
+   "solution": "AILMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AILMENT",
+    "definitions": [
+     {
+      "text": "illness",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppressing",
+      "for": "container",
+      "note": "suppressing holds something down underneath, keeping it within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, with 1 read as the letter I"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "LENT",
+      "note": "Lent is the Christian period of fasting"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AI",
+      "L",
+      "M",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A fit, quick man's sickness is being held down.",
+     "walkthrough": "A1, meaning first-rate, is written with the digit read as the letter I.",
+     "definitionFit": "An ailment is a minor sickness or complaint, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 29,
@@ -465,7 +2080,60 @@
     "text": "Adds to writings, erasing beginning but including conclusion",
     "enumeration": "7"
    },
-   "solution": "EXTENDS"
+   "solution": "EXTENDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EXTENDS",
+    "definitions": [
+     {
+      "text": "Adds to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "erasing beginning",
+      "for": "deletion",
+      "note": "erasing the beginning rubs out the first letter"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "including takes something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "writings",
+      "gives": "TEXTS",
+      "note": "texts are written works"
+     },
+     {
+      "clueFragment": "conclusion",
+      "gives": "END",
+      "note": "the end is the conclusion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXT",
+      "END",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer revises a manuscript by deleting the opening and adding an ending.",
+     "definitionFit": "To extend something is to lengthen or enlarge it, making it bigger by adding more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "writings"
+    }
+   }
   },
   {
    "number": 30,
@@ -479,7 +2147,60 @@
     "text": "Hides rocky rubble next to rear parts of garden beds",
     "enumeration": "7"
    },
-   "solution": "SCREENS"
+   "solution": "SCREENS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SCREENS",
+    "definitions": [
+     {
+      "text": "Hides",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "next to",
+      "for": "charade",
+      "note": "next to sets one piece directly alongside another"
+     },
+     {
+      "text": "rear parts of",
+      "for": "letter_selection",
+      "note": "rear parts are the back ends, so the last letters of each word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rocky rubble",
+      "gives": "SCREE",
+      "note": "scree is loose broken rock on a mountainside"
+     },
+     {
+      "clueFragment": "garden beds",
+      "gives": "NS",
+      "select": "last",
+      "note": "the final letters of garden and beds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCREE",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener conceals stony debris behind the flower beds.",
+     "definitionFit": "To screen something is to shield or conceal it from view, as with a partition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hides"
+    }
+   }
   }
  ]
 }
