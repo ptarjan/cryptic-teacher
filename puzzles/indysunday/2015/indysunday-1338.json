@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "In France, Lebanese name is conspicuous",
     "enumeration": "5"
    },
-   "solution": "CELEB"
+   "solution": "CELEB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CELEB",
+    "definitions": [
+     {
+      "text": "name",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows, spanning the gap between two of them"
+     },
+     {
+      "text": "is conspicuous",
+      "for": "hidden_word",
+      "note": "the answer stands out in plain view among the printed letters once you look for it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "France, Lebanese",
+      "gives": "CELEB",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone from Lebanon living in France stands out from the crowd.",
+     "walkthrough": "The answer straddles franCE LEBanese.",
+     "definitionFit": "A big name is a famous person, and a celeb is the casual word for a celebrity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "conspicuous"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,50 @@
     "text": "Graded fiscal side ‘uncertain’",
     "enumeration": "10"
    },
-   "solution": "CLASSIFIED"
+   "solution": "CLASSIFIED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLASSIFIED",
+    "definitions": [
+     {
+      "text": "Graded",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncertain",
+      "for": "anagram",
+      "note": "letters that are uncertain have no fixed order, so the words before it are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fiscal side",
+      "gives": "FISCALSIDE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FISCALSIDE",
+       "gives": "CLASSIFIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tax department's position is described as up in the air, as if in a report.",
+     "definitionFit": "Something classified has been sorted into classes or grades, like hotels or listed buildings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncertain"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +154,51 @@
      }
     ]
    },
-   "solution": "LIGHTBULB"
+   "solution": "LIGHTBULB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIGHT BULB",
+    "definitions": [
+     {
+      "text": "a picture of inspiration",
+      "at": 4
+     }
+    ],
+    "linkWords": [
+     "For"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "settle on",
+      "gives": "LIGHT",
+      "note": "to light on something is to settle or land on it"
+     },
+     {
+      "clueFragment": "daffodil?",
+      "gives": "BULB",
+      "note": "a daffodil grows from a bulb; the question mark admits it is an example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "BULB"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist hunting for an image to stand for inspiration might choose a daffodil, as Wordsworth did.",
+     "walkthrough": "The daffodil nods to Wordsworth's poem, but here it is just a plant grown from a bulb.",
+     "definitionFit": "Cartoonists draw a glowing bulb over a character's head to show a sudden bright idea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "daffodil"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +212,62 @@
     "text": "Fire-holder is less rational, caught going for book",
     "enumeration": "7"
    },
-   "solution": "BRAZIER"
+   "solution": "BRAZIER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BRAZIER",
+    "definitions": [
+     {
+      "text": "Fire-holder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going for",
+      "for": "substitution",
+      "note": "one letter goes in place of another, the first named taking the position of the second"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "less rational",
+      "gives": "CRAZIER",
+      "note": "less rational means more crazy"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAZIER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tending a fire is becoming unhinged.",
+     "walkthrough": "Swap the C at the front of CRAZIER for B.",
+     "definitionFit": "A brazier is a metal basket or stand that holds burning coals outdoors."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +281,60 @@
     "text": "Site manager brews up with mate",
     "enumeration": "9"
    },
-   "solution": "WEBMASTER"
+   "solution": "WEBMASTER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WEBMASTER",
+    "definitions": [
+     {
+      "text": "Site manager",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "things that are stirred up are thrown into disorder, so the letters get rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brews",
+      "gives": "BREWS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mate",
+      "gives": "MATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BREWSMATE",
+       "gives": "WEBMASTER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A foreman on a building site makes tea with a colleague.",
+     "walkthrough": "'Site manager' suggests a building site; it is a website.",
+     "definitionFit": "A webmaster is the person who runs and maintains a website."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Site"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +348,54 @@
     "text": "Twist connections, severing one",
     "enumeration": "5"
    },
-   "solution": "WRING"
+   "solution": "WRING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WRING",
+    "definitions": [
+     {
+      "text": "Twist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "severing",
+      "for": "deletion",
+      "note": "severing cuts something off, so a letter is removed from the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "connections",
+      "gives": "WIRING",
+      "note": "electrical connections are the wiring"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone twists the wires, cutting one of them.",
+     "walkthrough": "Take the first I out of WIRING.",
+     "definitionFit": "To wring something is to twist it hard, as when squeezing water from a cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "connections"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +409,66 @@
     "text": "Lad right in buff with lover",
     "enumeration": "9"
    },
-   "solution": "BOYFRIEND"
+   "solution": "BOYFRIEND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BOYFRIEND",
+    "definitions": [
+     {
+      "text": "lover",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one element is placed inside the other word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lad",
+      "gives": "BOY",
+      "note": "a lad is a boy"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "buff",
+      "gives": "FIEND",
+      "note": "a buff or enthusiast is a fiend, as in a fitness fiend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOY",
+      "F",
+      "R",
+      "IEND"
+     ]
+    },
+    "explanation": {
+     "surface": "A young man is in the nude alongside his sweetheart.",
+     "walkthrough": "'In buff' suggests naked, but buff means an enthusiast here, and 'in' is the insertion signal.",
+     "definitionFit": "A boyfriend is a man in a romantic relationship, someone's male lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "buff"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +482,70 @@
     "text": "A queen has a short moment as a fish?",
     "enumeration": "7"
    },
-   "solution": "AQUATIC"
+   "solution": "AQUATIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AQUATIC",
+    "definitions": [
+     {
+      "text": "as a fish?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something cut short loses its end, so the last letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "QU",
+      "note": "QU is an abbreviation for queen"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "moment",
+      "gives": "TICK",
+      "note": "a tick is a moment, as in 'just a tick'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "QU",
+      "A",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch briefly takes on the role of a fish, as in a pantomime.",
+     "definitionFit": "Fish live in water, and aquatic describes creatures that live in water; the question mark marks the example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "queen"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +559,78 @@
     "text": "Verily Thy reign hath no end where Earth’s last vestige hath fled away",
     "enumeration": "5"
    },
-   "solution": "TRULY"
+   "solution": "TRULY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "TRULY",
+    "definitions": [
+     {
+      "text": "Verily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hath no end",
+      "for": "deletion",
+      "note": "a word with no end has lost its final letter"
+     },
+     {
+      "text": "last vestige",
+      "for": "letter_selection",
+      "note": "the last trace of a word is its final letter"
+     },
+     {
+      "text": "where",
+      "for": "substitution",
+      "note": "the shortened word fills the very place a letter has vacated, standing in for it"
+     },
+     {
+      "text": "hath fled away",
+      "for": "substitution",
+      "note": "a letter that has fled leaves an empty slot for the other piece to fill"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thy",
+      "gives": "THY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "reign",
+      "gives": "RULE",
+      "note": "to reign is to rule"
+     },
+     {
+      "clueFragment": "Earth’s",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of the word earth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RUL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A biblical-sounding prophecy that a reign will last forever once the earth has passed away.",
+     "walkthrough": "Take the H out of THY and put the curtailed RUL in its place. The mock-scriptural language suits the archaic definition.",
+     "definitionFit": "Verily is an archaic word for truly or in truth, familiar from the King James Bible."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Earth’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +644,46 @@
     "text": "Said to cause a stink",
     "enumeration": "4"
    },
-   "solution": "REEK"
+   "solution": "REEK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REEK",
+    "definitions": [
+     {
+      "text": "a stink",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Said",
+      "for": "homophone",
+      "note": "said means spoken, so the word is taken by its sound rather than its spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cause",
+      "gives": "REEK",
+      "soundsLike": "WREAK",
+      "note": "to wreak havoc is to cause it"
+     }
+    ],
+    "explanation": {
+     "surface": "A rumour that someone has been stirring up trouble.",
+     "definitionFit": "A reek is a strong unpleasant smell, so it is a noun meaning a bad stench."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stink"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +697,52 @@
     "text": "Cruelly hang, if a person in Kabul’s ready",
     "enumeration": "7"
    },
-   "solution": "AFGHANI"
+   "solution": "AFGHANI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFGHANI",
+    "definitions": [
+     {
+      "text": "person in Kabul’s ready",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cruelly",
+      "for": "anagram",
+      "note": "treating something cruelly mangles it, so the following letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hang, if a",
+      "gives": "HANGIFA",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HANGIFA",
+       "gives": "AFGHANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Kabul is prepared to be executed harshly.",
+     "walkthrough": "Ready is slang for cash. The afghani is the currency of Afghanistan, whose capital is Kabul.",
+     "definitionFit": "The Afghan's money is the afghani, the national currency of Afghanistan, ready being slang for cash."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ready"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +756,68 @@
     "text": "Solver’s beginning to emigrate? Butt in: ‘I’ll look after your videos’",
     "enumeration": "7"
    },
-   "solution": "YOUTUBE"
+   "solution": "YOUTUBE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "YOUTUBE",
+    "definitions": [
+     {
+      "text": "I’ll look after your videos",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the item is pushed inside the letters already assembled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Solver",
+      "gives": "YOU",
+      "note": "the solver is you, the person reading"
+     },
+     {
+      "clueFragment": "Butt",
+      "gives": "TUB",
+      "note": "a butt is a large cask or tub"
+     },
+     {
+      "clueFragment": "emigrate",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of emigrate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YOU",
+      "TUB",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A solver thinks of emigrating, then someone butts in offering to look after their video collection.",
+     "walkthrough": "A butt is a large barrel for water or wine; the question mark covers the jokey surface.",
+     "definitionFit": "YouTube is the website that stores and shares the videos people upload to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Butt"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +837,65 @@
      }
     ]
    },
-   "solution": "SITTINGPRETTY"
+   "solution": "SITTINGPRETTY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SITTING PRETTY",
+    "definitions": [
+     {
+      "text": "well placed",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one element goes inside the other, as something caught in a trap"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "police trap",
+      "gives": "STING",
+      "note": "a sting is a police operation to trap criminals"
+     },
+     {
+      "clueFragment": "the object",
+      "gives": "IT",
+      "note": "it is the object pronoun"
+     },
+     {
+      "clueFragment": "fairly",
+      "gives": "PRETTY",
+      "note": "pretty means fairly, as in pretty good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IT",
+      "TING",
+      "PRETTY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something caught in a police operation is fairly well located.",
+     "walkthrough": "'The object' is grammar: it is the object pronoun, not a thing.",
+     "definitionFit": "Sitting pretty is an idiom for being in a comfortable, advantageous position."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +909,54 @@
     "text": "Built us a true ark or dish",
     "enumeration": "10"
    },
-   "solution": "SAUERKRAUT"
+   "solution": "SAUERKRAUT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SAUERKRAUT",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Built",
+      "for": "anagram",
+      "note": "building puts materials together into a new form, so the following letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "us a true ark",
+      "gives": "USATRUEARK",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USATRUEARK",
+       "gives": "SAUERKRAUT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone like Noah constructed a proper ark, or perhaps a meal, for the crew.",
+     "definitionFit": "Sauerkraut is a German side dish of finely shredded fermented cabbage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Built"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +970,63 @@
     "text": "Glow in the dark or escape through chimney",
     "enumeration": "9"
    },
-   "solution": "FLUORESCE"
+   "solution": "FLUORESCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "FLUORESCE",
+    "definitions": [
+     {
+      "text": "Glow in the dark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "through",
+      "for": "container",
+      "note": "passing through something puts you inside it, so the items go within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "escape",
+      "gives": "ESC",
+      "note": "Esc is the escape key on a keyboard"
+     },
+     {
+      "clueFragment": "chimney",
+      "gives": "FLUE",
+      "note": "a flue is the duct of a chimney"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLU",
+      "OR",
+      "ESC",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A choice between glowing in the dark or escaping up the chimney, like a ghost or Santa.",
+     "walkthrough": "'Escape' gives the abbreviation on the computer key, not a synonym.",
+     "definitionFit": "To fluoresce is to emit visible light after absorbing radiation, as glowing paint or minerals do."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "escape"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +1040,52 @@
     "text": "Ready for the main other ways on journey",
     "enumeration": "9"
    },
-   "solution": "SEAWORTHY"
+   "solution": "SEAWORTHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEAWORTHY",
+    "definitions": [
+     {
+      "text": "Ready for the main",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on journey",
+      "for": "anagram",
+      "note": "things on a journey are on the move, so the letters are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "other ways",
+      "gives": "OTHERWAYS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OTHERWAYS",
+       "gives": "SEAWORTHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone prepared for the main course takes a different route.",
+     "walkthrough": "'The main' is a poetic term for the open sea.",
+     "definitionFit": "A seaworthy vessel is fit and safe to sail on the open ocean, the main."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1099,59 @@
     "text": "Drink two halves of Coke with dash of Angostura",
     "enumeration": "5"
    },
-   "solution": "COCOA"
+   "solution": "COCOA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COCOA",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dash of",
+      "for": "letter_selection",
+      "note": "a dash is a tiny amount, so only the first letter of the word is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two halves of Coke",
+      "gives": "COCO",
+      "note": "the first half of coke, CO, taken twice"
+     },
+     {
+      "clueFragment": "Angostura",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of Angostura"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A bartender's cocktail: two half-measures of cola with a splash of bitters.",
+     "walkthrough": "Angostura is a brand of cocktail bitters.",
+     "definitionFit": "Cocoa is a hot chocolate drink made from powdered cacao beans and milk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "halves"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1165,61 @@
     "text": "Dodging and dashing a north-easterly line",
     "enumeration": "9"
    },
-   "solution": "CHICANERY"
+   "solution": "CHICANERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHICANERY",
+    "definitions": [
+     {
+      "text": "Dodging",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dashing",
+      "gives": "CHIC",
+      "note": "dashing means stylish, chic"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "north-easterly",
+      "gives": "NE",
+      "note": "NE is the compass abbreviation for north-east"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIC",
+      "A",
+      "NE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone darting and weaving along a railway heading north-east.",
+     "definitionFit": "Dodging here means trickery and evasion, and chicanery is deceitful underhand behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dashing"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1233,58 @@
     "text": "Drug doctor’s given journalist for fix",
     "enumeration": "5"
    },
-   "solution": "EMBED"
+   "solution": "EMBED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMBED",
+    "definitions": [
+     {
+      "text": "fix",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "’s given",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is a medical degree, Bachelor of Medicine"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor gives a drug to a reporter looking for a fix.",
+     "walkthrough": "'Fix' suggests a drug dose; it is the verb meaning to set firmly.",
+     "definitionFit": "To embed something is to fix it firmly in a surrounding mass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fix"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1298,64 @@
     "text": "Figure there’s a month before the start of November",
     "enumeration": "7"
    },
-   "solution": "DECAGON"
+   "solution": "DECAGON",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DECAGON",
+    "definitions": [
+     {
+      "text": "Figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "there’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a month",
+      "gives": "DEC",
+      "note": "Dec is the abbreviation for December"
+     },
+     {
+      "clueFragment": "before",
+      "gives": "AGO",
+      "note": "ago means before now, in the past"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "select": "first",
+      "note": "the first letter of November"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEC",
+      "AGO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone counts the days in a month leading up to November.",
+     "definitionFit": "A decagon is a geometrical figure, a polygon with ten sides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Figure"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1369,58 @@
     "text": "Perhaps flavouring containing cocaine is very moreish",
     "enumeration": "9"
    },
-   "solution": "ADDICTIVE"
+   "solution": "ADDICTIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADDICTIVE",
+    "definitions": [
+     {
+      "text": "very moreish",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "the first item holds the second inside it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Perhaps flavouring",
+      "gives": "ADDITIVE",
+      "note": "a flavouring is one example of a food additive"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "C is slang for cocaine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDI",
+      "C",
+      "TIVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A food flavouring laced with cocaine makes a snack hard to stop eating.",
+     "definitionFit": "Moreish food makes you want more, and addictive food is hard to stop consuming."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "cocaine"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1434,62 @@
     "text": "Purge families around eastern Spain",
     "enumeration": "7"
    },
-   "solution": "CLEANSE"
+   "solution": "CLEANSE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CLEANSE",
+    "definitions": [
+     {
+      "text": "Purge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one item wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "families",
+      "gives": "CLANS",
+      "note": "clans are extended families"
+     },
+     {
+      "clueFragment": "eastern",
+      "gives": "E",
+      "note": "E is the abbreviation for eastern"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CL",
+      "E",
+      "ANS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A historical purge of clans across eastern Spain.",
+     "walkthrough": "CLANS goes around E, then E for Spain follows.",
+     "definitionFit": "To cleanse is to rid something of impurities, the same idea as purging it clean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Purge"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1517,50 @@
      }
     ]
    },
-   "solution": "COCKOFTHEWALK"
+   "solution": "COCKOFTHEWALK",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COCK OF THE WALK",
+    "definitions": [
+     {
+      "text": "Strutting fellow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "motivating",
+      "for": "anagram",
+      "note": "motivating sets things in motion, so the letters are moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "few to hack lock",
+      "gives": "FEWTOHACKLOCK",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FEWTOHACKLOCK",
+       "gives": "COCKOFTHEWALK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swaggering burglar inspires a small gang to break a lock.",
+     "definitionFit": "A cock of the walk is a domineering, swaggering man who acts as the boss of a group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "motivating"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1574,60 @@
     "text": "She doubts motives shown when niceness follows intimacy",
     "enumeration": "5"
    },
-   "solution": "CYNIC"
+   "solution": "CYNIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CYNIC",
+    "definitions": [
+     {
+      "text": "She doubts motives",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "follows",
+      "for": "charade",
+      "note": "the first-named word is to be written after the second, reversing the printed order"
+     },
+     {
+      "text": "shown",
+      "for": "deletion",
+      "note": "only the stretch on view where the two words meet is kept, the rest of each word dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intimacy",
+      "gives": "INTIMACY",
+      "note": "taken as written, placed first"
+     },
+     {
+      "clueFragment": "niceness",
+      "gives": "NICENESS",
+      "note": "taken as written, placed second"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CY",
+      "NIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A wary woman suspects ulterior motives when kindness comes after closeness.",
+     "walkthrough": "Put niceness after intimacy and the answer straddles intimaCY NICeness.",
+     "definitionFit": "A cynic believes people act only from self-interest and so distrusts their motives."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "follows"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1641,60 @@
     "text": "Note girl taking a shy",
     "enumeration": "5"
    },
-   "solution": "TIMID"
+   "solution": "TIMID",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "TIMID",
+    "definitions": [
+     {
+      "text": "shy",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking something away removes it, so a letter comes out of the word before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "TI",
+      "note": "ti is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "MAID",
+      "note": "a maid is an old word for a girl"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "MID"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl takes a nervous note.",
+     "walkthrough": "'Taking a' looks like adding; here it takes the A out of MAID.",
+     "definitionFit": "Timid and shy both describe someone lacking confidence and easily frightened."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1708,56 @@
     "text": "Want to throw piano away",
     "enumeration": "4"
    },
-   "solution": "ITCH"
+   "solution": "ITCH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITCH",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "something sent away is gone, so the letter is removed"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "throw",
+      "gives": "PITCH",
+      "note": "to pitch is to throw"
+     },
+     {
+      "clueFragment": "piano",
+      "gives": "P",
+      "note": "P is the musical abbreviation for piano, softly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone longs to hurl a piano out of the room.",
+     "definitionFit": "An itch is a restless craving, as in an itch to travel, so it is a want."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "piano"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1771,55 @@
     "text": "Performing in fast Broadway song",
     "enumeration": "7"
    },
-   "solution": "TONIGHT"
+   "solution": "TONIGHT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TONIGHT",
+    "definitions": [
+     {
+      "text": "Broadway song",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Performing",
+      "gives": "ON",
+      "note": "a performer on stage is on"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "TIGHT",
+      "note": "fast as in held fast, firmly fixed, tight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ON",
+      "IGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Appearing in a quick number on Broadway.",
+     "walkthrough": "'Fast' suggests speed; here it means firmly secured.",
+     "definitionFit": "Tonight is a famous song from the Broadway musical West Side Story."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1833,48 @@
     "text": "E.g. Horatio de la Nelson?",
     "enumeration": "7"
    },
-   "solution": "MANDELA"
+   "solution": "MANDELA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MANDELA",
+    "definitions": [
+     {
+      "text": "Nelson?",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E.g. Horatio",
+      "gives": "MAN",
+      "note": "Horatio is a man's name, so he is an example of a man"
+     },
+     {
+      "clueFragment": "de la",
+      "gives": "DELA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN",
+      "DELA"
+     ]
+    },
+    "explanation": {
+     "surface": "A mock-aristocratic version of Admiral Horatio Nelson's name.",
+     "walkthrough": "The admiral is a false lead: the Nelson wanted is the South African president Nelson Mandela, and the question mark flags him as one example.",
+     "definitionFit": "Nelson Mandela was the anti-apartheid leader who became South Africa's first black president; Nelson is his first name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Horatio"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1888,61 @@
     "text": "Knight on horse looked tired",
     "enumeration": "9"
    },
-   "solution": "HACKNEYED"
+   "solution": "HACKNEYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HACKNEYED",
+    "definitions": [
+     {
+      "text": "tired",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing on another comes after it, so the first-named piece goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "HACK",
+      "note": "a hack is a horse for ordinary riding"
+     },
+     {
+      "clueFragment": "Knight",
+      "gives": "N",
+      "note": "N is the chess notation for knight"
+     },
+     {
+      "clueFragment": "looked",
+      "gives": "EYED",
+      "note": "to eye something is to look at it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HACK",
+      "N",
+      "EYED"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight on horseback looked exhausted.",
+     "walkthrough": "In an across clue, 'on' means after, so N follows HACK.",
+     "definitionFit": "Hackneyed means overused and stale, and tired here means trite rather than weary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tired"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1956,55 @@
     "text": "Grief amidst alien land",
     "enumeration": "5"
    },
-   "solution": "EGYPT"
+   "solution": "EGYPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EGYPT",
+    "definitions": [
+     {
+      "text": "land",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amidst",
+      "for": "container",
+      "note": "something amidst another lies in the middle of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grief",
+      "gives": "GYP",
+      "note": "gyp is British slang for pain or trouble, as in 'giving me gyp'"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the film alien, extraterrestrial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GYP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Sorrow among extraterrestrials on a strange planet.",
+     "walkthrough": "'Alien land' reads as one phrase; alien gives ET and land alone is the definition.",
+     "definitionFit": "Egypt is a country in north-east Africa, and a country is a land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "alien"
+    }
+   }
   }
  ]
 }
