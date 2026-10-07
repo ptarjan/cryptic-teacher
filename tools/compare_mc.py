@@ -89,8 +89,9 @@ def def_place(clue, d):
     if not text or at < 0 or clue[at:at + len(text)] != text:
         return "."
     bare = re.sub(r"\s*\([^)]*\)\s*$", "", clue)
-    before = bare[:at].strip()
-    after = bare[at + len(text):].strip()
+    # A side with no letter or digit is punctuation and holds no wordplay.
+    before, after = (x.strip() if re.search(r"[a-z0-9]", x, re.IGNORECASE) else ""
+                     for x in (bare[:at], bare[at + len(text):]))
     if not before and not after:
         return " — which is the whole clue, and that is what makes this one unusual."
     if not before:
