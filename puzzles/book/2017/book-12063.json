@@ -29,6 +29,9 @@
   "check": "28 entries, 58 crossings, 0 conflicts",
   "officialKey": "never"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,74 @@
     "text": "Sign on back of door by itself turned back round",
     "enumeration": "5"
    },
-   "solution": "ENROL"
+   "solution": "ENROL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "ENROL",
+    "definitions": [
+     {
+      "text": "Sign on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter, so only the tail end is wanted"
+     },
+     {
+      "text": "turned back",
+      "for": "reversal",
+      "note": "something turned back faces the other way, so read the word from right to left"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by itself",
+      "gives": "LONE",
+      "note": "alone, on its own"
+     },
+     {
+      "clueFragment": "door",
+      "gives": "R",
+      "select": "last",
+      "note": "the final letter of door"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "R",
+      "OL"
+     ],
+     "reversals": [
+      {
+       "from": "LONE",
+       "to": "ENOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A notice on the back of a door has flipped itself around.",
+     "walkthrough": "The reversed word for 'by itself' wraps round the last letter of door.",
+     "definitionFit": "To enrol is to register or put your name down, which is what signing on means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sign"
+    }
+   }
   },
   {
    "number": 1,
@@ -62,7 +132,38 @@
      }
     ]
    },
-   "solution": "EXCHANGERATE"
+   "solution": "EXCHANGERATE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "EXCHANGE RATE",
+    "definitions": [
+     {
+      "text": "What one gets for a pound?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What one gets for a pound?",
+      "note": "surface reading: what a pound coin buys you in a shop"
+     },
+     {
+      "clueFragment": "a pound",
+      "note": "setter's reading: the amount of foreign currency handed over in return for sterling"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question sounds like shopping; it is about changing money at the bureau before a holiday.",
+     "definitionFit": "The figure at a currency counter states how many euros or dollars are given per unit of sterling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "gets"
+    }
+   }
   },
   {
    "number": 2,
@@ -76,7 +177,59 @@
     "text": "Clear, when blood type checked, so not this?",
     "enumeration": "5"
    },
-   "solution": "RABID"
+   "solution": "RABID",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "container"
+    ],
+    "answer": "RABID",
+    "definitions": [
+     {
+      "text": "Clear, when blood type checked, so not this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "checked",
+      "for": "container",
+      "note": "something checked is held back or contained, so these letters are enclosed"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clear",
+      "gives": "RID",
+      "note": "to rid is to clear away"
+     },
+     {
+      "clueFragment": "blood type",
+      "gives": "AB",
+      "note": "AB is one of the blood groups"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AB",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A patient whose blood test comes back clear is therefore free of infection.",
+     "walkthrough": "The whole clue also describes the answer: after a clean blood test, you are not suffering from rabies.",
+     "definitionFit": "Rabid means infected with rabies, which a clear blood test would rule out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Clear"
+    }
+   }
   },
   {
    "number": 3,
@@ -90,7 +243,39 @@
     "text": "Does he have the property of crippling networks?",
     "enumeration": "9"
    },
-   "solution": "LANDOWNER"
+   "solution": "LANDOWNER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LANDOWNER",
+    "definitions": [
+     {
+      "text": "Does he have the property of crippling networks?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Does he have the property",
+      "note": "surface reading: someone who holds real estate"
+     },
+     {
+      "clueFragment": "crippling networks",
+      "note": "setter's reading: something that knocks out local area networks, a computer saboteur"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as LAN DOWNER: a LAN is a local area network, and a downer brings it down.",
+     "definitionFit": "An owner of estates holds real property, and the split form describes something that takes local computer links offline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "property"
+    }
+   }
   },
   {
    "number": 4,
@@ -104,7 +289,57 @@
     "text": "Shopping centre not entirely prepared for poet",
     "enumeration": "8"
    },
-   "solution": "MALLARME"
+   "solution": "MALLARME",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "MALLARME",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not entirely",
+      "for": "deletion",
+      "note": "not the entire word, so its final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shopping centre",
+      "gives": "MALL",
+      "note": "a mall is a shopping centre"
+     },
+     {
+      "clueFragment": "prepared",
+      "gives": "ARMED",
+      "note": "armed and ready, prepared for a fight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MALL",
+      "ARME"
+     ]
+    },
+    "explanation": {
+     "surface": "A shopping mall is only half ready for a visiting poet.",
+     "definitionFit": "Stéphane Mallarmé was a French Symbolist poet of the nineteenth century."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 4,
@@ -118,7 +353,57 @@
     "text": "One on hand is always sober in appearance",
     "enumeration": "6"
    },
-   "solution": "MITTEN"
+   "solution": "MITTEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MITTEN",
+    "definitions": [
+     {
+      "text": "One on hand",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing sitting in another, so the first is enclosed by the second"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "appearance",
+      "gives": "MIEN",
+      "note": "mien is a person's look or bearing"
+     },
+     {
+      "clueFragment": "always sober",
+      "gives": "TT",
+      "note": "TT, teetotal, never drinking alcohol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "TT",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A person always on call looks permanently sober.",
+     "definitionFit": "A mitten is a glove without separate fingers, something worn on the hand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hand"
+    }
+   }
   },
   {
    "number": 5,
@@ -132,7 +417,77 @@
     "text": "Double up, needing a half-dose of painkiller — this?",
     "enumeration": "8"
    },
-   "solution": "LAUDANUM"
+   "solution": "LAUDANUM",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "reversal",
+     "charade",
+     "deletion"
+    ],
+    "answer": "LAUDANUM",
+    "definitions": [
+     {
+      "text": "Double up, needing a half-dose of painkiller — this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue going up means reading from the bottom, so the word runs backwards"
+     },
+     {
+      "text": "half-dose of",
+      "for": "deletion",
+      "note": "only half the dose is given, so just the first half of the word is kept"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Double",
+      "gives": "DUAL",
+      "note": "dual means double, twofold"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "painkiller",
+      "gives": "NUMBER",
+      "note": "something that numbs, read literally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAUD",
+      "A",
+      "NUM"
+     ],
+     "reversals": [
+      {
+       "from": "DUAL",
+       "to": "LAUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone doubled over in pain needs a smaller dose of their medicine.",
+     "walkthrough": "The whole clue also points at the answer: a historic opiate painkiller that someone in agony would take.",
+     "definitionFit": "Laudanum was a tincture of opium widely used as a painkiller in Victorian times."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "painkiller"
+    }
+   }
   },
   {
    "number": 6,
@@ -146,7 +501,54 @@
     "text": "Range of old invaders, heading to the centre",
     "enumeration": "5"
    },
-   "solution": "ANDES"
+   "solution": "ANDES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ANDES",
+    "definitions": [
+     {
+      "text": "Range",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading to the centre",
+      "for": "container",
+      "note": "the head of the word is moved to its middle, so it is placed inside what is left"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old invaders",
+      "gives": "DANES",
+      "note": "the Danes raided and settled in England in the Viking age"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "D",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A band of ancient raiders marches towards the middle of the country.",
+     "walkthrough": "The first letter of the invaders moves into the middle of the word.",
+     "definitionFit": "The Andes are the mountain range running down western South America."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Range"
+    }
+   }
   },
   {
    "number": 7,
@@ -160,7 +562,50 @@
     "text": "Tinker’s despairing admission, becoming beggar",
     "enumeration": "9"
    },
-   "solution": "MENDICANT"
+   "solution": "MENDICANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MENDICANT",
+    "definitions": [
+     {
+      "text": "beggar",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "becoming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tinker’s",
+      "gives": "MEND",
+      "note": "to tinker with is to try to repair"
+     },
+     {
+      "clueFragment": "despairing admission",
+      "gives": "ICANT",
+      "note": "a cry of defeat: I can't"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MEND",
+      "ICANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A travelling tinker admits failure and ends up begging.",
+     "walkthrough": "A tinker was an itinerant mender of pots, and the clue has one trying to repair something then giving up.",
+     "definitionFit": "A mendicant lives by asking for alms, as with the mendicant friars."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tinker’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -180,7 +625,46 @@
      }
     ]
    },
-   "solution": "CABINETPUDDING"
+   "solution": "CABINETPUDDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CABINET PUDDING",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     },
+     {
+      "text": "one contributes little to high-level debate?",
+      "at": 11
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sweet",
+      "note": "first meaning: a dessert, a steamed sponge with dried fruit"
+     },
+     {
+      "clueFragment": "one contributes little to high-level debate?",
+      "note": "second, whimsical meaning: a stodgy, silent member of a government's top table"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second half reads the name literally: a pudding in the sense of a dull lump who sits in the Cabinet without speaking.",
+     "definitionFit": "It is a traditional British steamed dessert, and pudding is also slang for a dull, heavy person sitting among ministers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 9,
@@ -200,7 +684,51 @@
      }
     ]
    },
-   "solution": "LONELYHEARTS"
+   "solution": "LONELYHEARTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LONELY HEARTS",
+    "definitions": [
+     {
+      "text": "column in paper",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "New",
+      "for": "anagram",
+      "note": "something new is made afresh, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "really honest",
+      "gives": "REALLYHONEST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REALLYHONEST",
+       "gives": "LONELYHEARTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper's latest column is truly candid.",
+     "walkthrough": "The section where single people advertise for partners is famously not always really honest.",
+     "definitionFit": "A lonely hearts column is the personal advertisement section of a newspaper where people seek partners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "honest"
+    }
+   }
   },
   {
    "number": 10,
@@ -214,7 +742,57 @@
     "text": "Damsel in distress wants an Arabian to carry her, finally rejecting a couple",
     "enumeration": "9"
    },
-   "solution": "ANDROMEDA"
+   "solution": "ANDROMEDA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANDROMEDA",
+    "definitions": [
+     {
+      "text": "Damsel in distress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally rejecting a couple",
+      "for": "deletion",
+      "note": "rejecting a couple of letters at the end means the last two are thrown away"
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Arabian to carry her",
+      "gives": "DROMEDARY",
+      "note": "the one-humped Arabian camel, a beast to ride on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "DROMEDA"
+     ]
+    },
+    "explanation": {
+     "surface": "A distressed young woman needs a desert camel to carry her away to safety.",
+     "definitionFit": "In Greek myth Andromeda was chained to a rock for a sea monster until Perseus rescued her, the classic maiden in peril."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Arabian"
+    }
+   }
   },
   {
    "number": 11,
@@ -228,7 +806,73 @@
     "text": "County’s old pupils have no heart to return",
     "enumeration": "5"
    },
-   "solution": "SLIGO"
+   "solution": "SLIGO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SLIGO",
+    "definitions": [
+     {
+      "text": "County",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "have no heart",
+      "for": "deletion",
+      "note": "losing the heart means the central letter is taken out"
+     },
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way you came, so read right to left"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "pupils",
+      "gives": "GIRLS",
+      "note": "schoolgirls are pupils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "I",
+      "G",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "OGILS",
+       "to": "SLIGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Former pupils of a county school have lost the heart to go back.",
+     "walkthrough": "Old girls is the phrase for former pupils; the five-letter word loses its middle R before the whole lot is turned round.",
+     "definitionFit": "Sligo is a county on the north-west coast of Ireland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pupils"
+    }
+   }
   },
   {
    "number": 12,
@@ -242,7 +886,42 @@
     "text": "Hunger unduly to comprehend item of grammar",
     "enumeration": "6"
    },
-   "solution": "GERUND"
+   "solution": "GERUND",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GERUND",
+    "definitions": [
+     {
+      "text": "item of grammar",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to comprehend",
+      "for": "hidden_word",
+      "note": "to comprehend is to take in, so the answer is held inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hunger unduly",
+      "gives": "GERUND",
+      "note": "found across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone craving food excessively is trying to understand a point of grammar.",
+     "definitionFit": "A gerund is a verb form ending -ing used as a noun, a standard grammatical term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "comprehend"
+    }
+   }
   },
   {
    "number": 13,
@@ -256,7 +935,61 @@
     "text": "Able to recover soldiers I infiltrated without noise",
     "enumeration": "9"
    },
-   "solution": "RESILIENT"
+   "solution": "RESILIENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RESILIENT",
+    "definitions": [
+     {
+      "text": "Able to recover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infiltrated",
+      "for": "container",
+      "note": "to infiltrate is to slip inside, so one piece goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldiers",
+      "gives": "RE",
+      "note": "RE, the Royal Engineers"
+     },
+     {
+      "clueFragment": "without noise",
+      "gives": "SILENT",
+      "note": "making no sound"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIL",
+      "I",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier recovers after silently slipping behind enemy lines.",
+     "definitionFit": "Resilient people or materials bounce back from strain or setbacks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "infiltrated"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,10 +1000,67 @@
    },
    "length": 8,
    "clue": {
-    "text": "Incontract, check having a firm grasp",
+    "text": "In contract, check having a firm grasp",
     "enumeration": "8"
    },
-   "solution": "PURCHASE"
+   "solution": "PURCHASE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PURCHASE",
+    "definitions": [
+     {
+      "text": "firm grasp",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "placed in something means sitting inside it, so the other words go within"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contract",
+      "gives": "PURSE",
+      "note": "to purse the lips is to contract them"
+     },
+     {
+      "clueFragment": "check",
+      "gives": "CH",
+      "note": "CH is the chess abbreviation for check"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUR",
+      "CH",
+      "A",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A contract is checked by someone with a firm grip on the details.",
+     "definitionFit": "Purchase means a hold or leverage that stops slipping, as in getting purchase on a rock face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "contract"
+    }
+   }
   },
   {
    "number": 15,
@@ -284,7 +1074,50 @@
     "text": "Angry snake: it may force you out of your way",
     "enumeration": "9"
    },
-   "solution": "CROSSWIND"
+   "solution": "CROSSWIND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CROSSWIND",
+    "definitions": [
+     {
+      "text": "it may force you out of your way",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Angry",
+      "gives": "CROSS",
+      "note": "cross means annoyed"
+     },
+     {
+      "clueFragment": "snake",
+      "gives": "WIND",
+      "note": "to snake is to wind, as a road does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROSS",
+      "WIND"
+     ]
+    },
+    "explanation": {
+     "surface": "An angry serpent might drive you off the path.",
+     "walkthrough": "Snake is the verb, not the reptile.",
+     "definitionFit": "A crosswind blows across your path of travel and can push a car, plane or cyclist off course."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "snake"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,10 +1128,69 @@
    },
    "length": 8,
    "clue": {
-    "text": "Inchair, one has not to name coastal area",
+    "text": "In chair, one has not to name coastal area",
     "enumeration": "8"
    },
-   "solution": "SEAFRONT"
+   "solution": "SEAFRONT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEAFRONT",
+    "definitions": [
+     {
+      "text": "coastal area",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "container",
+      "note": "a thing that has something holds it within, so the following words go inside"
+     }
+    ],
+    "linkWords": [
+     "In",
+     "one"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chair",
+      "gives": "SEAT",
+      "note": "a chair is a seat"
+     },
+     {
+      "clueFragment": "not to",
+      "gives": "FRO",
+      "note": "as in to and fro, the opposite direction of to"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "FRO",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in the chair has been told not to name a seaside spot.",
+     "walkthrough": "The pairing to and fro lets 'not to' mean its partner word.",
+     "definitionFit": "A seafront is the part of a seaside town along the shore, with its promenade and beach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 17,
@@ -312,7 +1204,57 @@
     "text": "Taken to be a lackey, wearing scarlet",
     "enumeration": "8"
    },
-   "solution": "RESERVED"
+   "solution": "RESERVED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESERVED",
+    "definitions": [
+     {
+      "text": "Taken",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "something worn is put on around you, so one piece is clothed in the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scarlet",
+      "gives": "RED",
+      "note": "scarlet is a shade of red"
+     },
+     {
+      "clueFragment": "be a lackey",
+      "gives": "SERVE",
+      "note": "a lackey's job is to wait on others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SERVE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A footman in scarlet livery is hired to be someone's servant.",
+     "definitionFit": "A reserved seat or table is one already booked, so it is taken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Taken"
+    }
+   }
   },
   {
    "number": 18,
@@ -326,7 +1268,55 @@
     "text": "Piano regularly positioned in arch",
     "enumeration": "6"
    },
-   "solution": "SOFTLY"
+   "solution": "SOFTLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOFTLY",
+    "definitions": [
+     {
+      "text": "Piano",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "positioned in",
+      "for": "container",
+      "note": "placed inside another word, so that word surrounds this one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arch",
+      "gives": "SLY",
+      "note": "arch means knowingly mischievous"
+     },
+     {
+      "clueFragment": "regularly",
+      "gives": "OFT",
+      "note": "often, frequently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "OFT",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A piano is placed at regular points within an archway.",
+     "walkthrough": "Piano here is the musical direction, not the instrument; arch is the adjective meaning cunning.",
+     "definitionFit": "Piano is the Italian musical marking telling the player to perform quietly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Piano"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,10 +1327,66 @@
    },
    "length": 6,
    "clue": {
-    "text": "J agree small rise for royal minister",
+    "text": "I agree small rise for royal minister",
     "enumeration": "6"
    },
-   "solution": "WOLSEY"
+   "solution": "WOLSEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "WOLSEY",
+    "definitions": [
+     {
+      "text": "royal minister",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rise",
+      "for": "reversal",
+      "note": "in a down clue rising means reading upwards, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I agree",
+      "gives": "YES",
+      "note": "an expression of agreement"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "LOW",
+      "note": "low as in a small amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WOL",
+      "SEY"
+     ],
+     "reversals": [
+      {
+       "from": "YESLOW",
+       "to": "WOLSEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minister to the crown accepts a modest pay rise.",
+     "definitionFit": "Cardinal Thomas Wolsey was Lord Chancellor and chief minister to Henry VIII."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 20,
@@ -354,7 +1400,49 @@
     "text": "Note Roman law’s old-fashioned message",
     "enumeration": "5"
    },
-   "solution": "TELEX"
+   "solution": "TELEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TELEX",
+    "definitions": [
+     {
+      "text": "old-fashioned message",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "TE",
+      "note": "te is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "Roman law",
+      "gives": "LEX",
+      "note": "lex is Latin for law"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "LEX"
+     ]
+    },
+    "explanation": {
+     "surface": "Remember that Roman law is now outdated communication.",
+     "definitionFit": "A telex was a printed message sent over a teleprinter network, superseded by fax and email."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Note"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1456,51 @@
     "text": "Clicking tongue has ox on the move",
     "enumeration": "5"
    },
-   "solution": "XHOSA"
+   "solution": "XHOSA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "XHOSA",
+    "definitions": [
+     {
+      "text": "Clicking tongue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the move",
+      "for": "anagram",
+      "note": "things on the move change position, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has ox",
+      "gives": "HASOX",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HASOX",
+       "gives": "XHOSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tongue clicking at an ox to drive it along.",
+     "walkthrough": "Tongue means language here, not the body part.",
+     "definitionFit": "Xhosa is a South African language famous for its click consonants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 22,
@@ -388,7 +1520,49 @@
      }
     ]
    },
-   "solution": "FOOLSMATE"
+   "solution": "FOOLSMATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOOL'S MATE",
+    "definitions": [
+     {
+      "text": "disaster in a couple of moves",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "—"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheats",
+      "gives": "FOOLS",
+      "note": "fools means tricks or deceives"
+     },
+     {
+      "clueFragment": "in marriage",
+      "gives": "MATE",
+      "note": "a spouse, one of the partners in a marriage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOLS",
+      "MATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Infidelity in a marriage leads to disaster almost at once.",
+     "definitionFit": "Fool's mate is the fastest possible checkmate in chess, delivered by Black on the second move, a humiliating rout."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "moves"
+    }
+   }
   },
   {
    "number": 23,
@@ -402,7 +1576,69 @@
     "text": "Pupil with a small swelling losing one mark",
     "enumeration": "5"
    },
-   "solution": "APPLE"
+   "solution": "APPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "APPLE",
+    "definitions": [
+     {
+      "text": "Pupil",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing something means it is taken away, so these letters go"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small swelling",
+      "gives": "PIMPLE",
+      "note": "a spot on the skin"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "note": "M for the German mark currency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolchild with a spot loses a mark in the test.",
+     "walkthrough": "Pupil is the eye, not the schoolchild: the apple of the eye was an old name for the pupil.",
+     "definitionFit": "The apple of the eye originally meant the pupil, thought to be a solid round ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pupil"
+    }
+   }
   },
   {
    "number": 24,
@@ -422,7 +1658,77 @@
      }
     ]
    },
-   "solution": "HEROWORSHIPPER"
+   "solution": "HEROWORSHIPPER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "HERO-WORSHIPPER",
+    "definitions": [
+     {
+      "text": "Great admirer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "something keeping a thing holds it, so the surrounding words enclose it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "he, a male person"
+     },
+     {
+      "clueFragment": "argument",
+      "gives": "ROW",
+      "note": "a row is a quarrel"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket abbreviation for an over"
+     },
+     {
+      "clueFragment": "killer",
+      "gives": "RIPPER",
+      "note": "a ripper is a murderer, as in Jack the Ripper"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for silence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "ROW",
+      "O",
+      "R",
+      "SH",
+      "IPPER"
+     ]
+    },
+    "explanation": {
+     "surface": "A devoted fan of a man stays silent through a row about a murderer.",
+     "walkthrough": "The hush sits inside the killer, just after its first letter.",
+     "definitionFit": "A hero-worshipper idolises someone, admiring them to excess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "killer"
+    }
+   }
   },
   {
    "number": 25,
@@ -436,7 +1742,63 @@
     "text": "Secret way to get fit, avoiding hospital at first",
     "enumeration": "8"
    },
-   "solution": "STEALTHY"
+   "solution": "STEALTHY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STEALTHY",
+    "definitions": [
+     {
+      "text": "Secret",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding something means leaving it out, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "at first"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "HEALTHY",
+      "note": "fit and well"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EALTHY"
+     ]
+    },
+    "explanation": {
+     "surface": "A hidden method of getting fit that keeps you out of hospital in the first place.",
+     "walkthrough": "The H removed is the first letter of the fit word, which is why the clue says at first.",
+     "definitionFit": "Stealthy actions are done quietly and covertly, so they are secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 26,
@@ -450,7 +1812,56 @@
     "text": "Medical men say arrested? They weren’t drunk",
     "enumeration": "5"
    },
-   "solution": "DREGS"
+   "solution": "DREGS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DREGS",
+    "definitions": [
+     {
+      "text": "They weren’t drunk",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrested",
+      "for": "container",
+      "note": "a person arrested is held, so these doctors hold the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Medical men",
+      "gives": "DRS",
+      "note": "Drs is the abbreviation for doctors"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "eg, for example"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "EG",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Doctors claim someone was detained, but insist they were sober.",
+     "walkthrough": "The definition reads like a defence of drivers; it means the bits left in the glass that nobody drank.",
+     "definitionFit": "Dregs are the sediment left at the bottom of a cup or bottle, the part that remains undrunk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drunk"
+    }
+   }
   }
  ]
 }
