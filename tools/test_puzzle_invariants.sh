@@ -4,9 +4,9 @@
 #     bash tools/test_puzzle_invariants.sh
 #
 # fetch_puzzle.write_puzzle_file runs puzzle_integrity.check_puzzle on every
-# write, so a fetcher cannot put on disk a defect an earlier fetcher shipped.
-# Each case below takes a healthy puzzle from the corpus, gives it one defect
-# a fetcher once wrote, and expects the write to be refused naming it; the
+# write, so a fetcher cannot put a corpus-sweep defect on disk.
+# Each case below takes a healthy puzzle from the corpus, gives it one defect,
+# and expects the write to be refused naming it; the
 # deliberate shapes (cryptic-30098's blank 12-across, cryptic-23053's corrected
 # answer, a Times prize the filer cannot date yet) must still write. The
 # cross-puzzle DATE check is asked of synthetic rows and then of the corpus.

@@ -4,7 +4,7 @@
 #     bash tools/test_placeholder_clues.sh
 #
 # The Guardian's 2000-02 alphabetical jigsaws print "See special instructions"
-# (or "See clues page") on every light. Read as clues, each one queued its
+# (or "See clues page") on every light. Read as clues, each would queue its
 # puzzle for an annotation run that could only end in "produced no change".
 # placeholder_clues() reads them as missing, puzzle-wide; one such pointer among
 # real clues (cryptic-26741's 5-down, defined by the preamble) stays a clue.

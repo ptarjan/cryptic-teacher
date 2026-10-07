@@ -1,16 +1,15 @@
 #!/bin/bash
 # Does a fetch/push that loses the ref-lock race get retried, or does it just
-# alert like 2026-09-27's nightly run did?
+# alert?
 #
 # daily_update.sh and prereset_backfill.sh each run in their own worktree of
 # the SAME repo, sharing one .git and so one refs/remotes/origin/master. A
 # fetch or push that lands while the other is mid-fetch/push fails with
 # "cannot lock ref 'refs/remotes/origin/master': is at X but expected Y" —
-# the ref moved under us, not a conflict — and that night the push's one
-# attempt hit exactly this and gave up, stranding a finished commit until it
-# was pushed by hand.
+# the ref moved under us, not a conflict — and without a retry a finished
+# commit is stranded until it is pushed by hand.
 #
-# push_race_retry (tools/nightly_worktree.sh) is what both scripts now route
+# push_race_retry (tools/nightly_worktree.sh) is what both scripts route
 # every fetch+rebase+push attempt through. It is read out of the real file
 # and sourced directly — not copied here — so the thing under test is the
 # thing that runs, the same convention tools/test_push_conflict.sh uses for

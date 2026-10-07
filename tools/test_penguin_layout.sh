@@ -8,14 +8,14 @@
 # does not degrade when the parser cannot read it — it collapses. Every
 # puzzle in the book falls through to jigsaw mode, losing the Across/Down
 # split, and clue-number recovery is exactly 0%. Measured on
-# crypticcrossword0000unse: 17/17 puzzles jigsaw and 0/394 numbers before the
-# variant, 0/17 and 68/401 after. It is 12 of the 33 scans on hand, so this
+# crypticcrossword0000unse: without the variant 17/17 puzzles are jigsaw and
+# 0/394 numbers are recovered. It is 12 of the 33 scans on hand, so this
 # gates a convention, not a book.
 #
 # THE FIXTURES ARE SYNTHETIC, written here in the layout rather than copied
 # out of any scan: no book text lives in this repo, and a layout test should
 # fail for layout reasons and not because one OCR line changed. The sharp
-# edge they exist to hold is case 3 — "13. See 14 Across" is a real clue in
+# edge they exist to hold is case 2 — "13. See 14 Across" is a real clue in
 # this convention and it ENDS IN THE WORD ACROSS, so a glued-head rule loose
 # enough to accept "Cryptic Across" will read it as a section header and
 # throw away every clue above it. That failure is silent and looks like a

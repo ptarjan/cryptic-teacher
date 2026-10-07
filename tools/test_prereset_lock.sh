@@ -4,10 +4,8 @@
 #     bash tools/test_prereset_lock.sh
 #
 # The lock is a directory, and the only thing that removes it is an EXIT trap.
-# A container restart on 2026-09-20 killed a run that held it at 20:15 the
-# night before, and every hourly fire for the next three hours read the orphan
-# as a healthy sibling and exited having done nothing — the job was locked out
-# of its own queue by a directory with no process behind it.
+# A run killed outright leaves an orphan directory with no process behind it,
+# which every later fire would read as a healthy sibling and exit.
 #
 # So the holder writes its pid inside, and the decision is lock_is_dead. It is
 # read out of tools/prereset_backfill.sh rather than copied here, because a

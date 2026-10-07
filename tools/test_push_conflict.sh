@@ -5,19 +5,18 @@
 # interactive session pushed while it worked is on master first. The files that
 # collide are always the GENERATED ones — README.md above all, since both sides
 # rebuild it from their own view of the corpus. That is not a disagreement, and
-# on 2026-09-06 and 2026-09-07 it cost the site a day each time: the rebase
-# stopped, the push never happened, and a finished night's annotations sat in a
-# detached worktree until someone went looking.
+# a rebase left stopped on it means the push never happens and a finished
+# night's annotations sit in a detached worktree.
 #
 # The generated file used here is README.md because it is generated AND tracked.
 # The puzzle manifest is generated and not tracked, so it cannot conflict at
-# all — which is the whole reason it stopped being committed.
+# all.
 #
 #     bash tools/test_push_conflict.sh
 #
 # rebuild_generated_conflicts is READ OUT of tools/daily_update.sh by its own
 # first and last lines rather than copied here, so the thing under test is the
-# thing that runs. The case that matters is the third one: a conflict in a file
+# thing that runs. The case that matters is the last one: a conflict in a file
 # no builder owns must NOT be resolved, or the job silently publishes one side
 # of somebody's real edit.
 set -uo pipefail
@@ -54,10 +53,9 @@ eval "$fn"
 
 # The builders the function runs are the real ones, with two cuts that change
 # nothing it decides. build_seo_pages.py writes only untracked pages, which no
-# check below reads and no conflict can involve. The second case and the
-# builders there are skipped whole: that case is about which file is left
-# unresolved, and building nothing leaves the same one. Each full build costs
-# minutes on a runner, and this test was the slowest in the suite.
+# check below reads and no conflict can involve. In the last case the builders
+# are skipped whole: it is about which file is left unresolved, and building
+# nothing leaves the same one. Each full build costs minutes on a runner.
 # only_build names the one builder a case needs and skips the rest.
 skip_builds="" only_build=""
 python3() {
@@ -119,10 +117,10 @@ check "index.html is not in the rebuilt pick" \
   "$(git diff --name-only HEAD~1 HEAD -- index.html)" ""
 
 echo "a file master deleted while the night wrote to it stays deleted:"
-# 2026-10-02: master retired tools/data/abbreviations.json and its layout row
-# while the nightly rewrote the file. The modify/delete left it in the index,
-# build_readme.py refused a tracked file with no row, and the day stranded.
-# Only build_readme.py runs: it is the builder that refused.
+# Master retires a tracked file and its layout row while the nightly rewrites
+# the file. The modify/delete leaves it in the index, and build_readme.py
+# refuses a tracked file with no row. Only build_readme.py runs: it is the
+# builder that refuses.
 rebase_running && git rebase --abort
 only_build=tools/build_readme.py
 retired=tools/data/difficulty_check.json
