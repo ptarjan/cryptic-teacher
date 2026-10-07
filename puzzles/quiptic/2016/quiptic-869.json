@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Indications of gang leader stopping offences?",
     "enumeration": "5"
    },
-   "solution": "SIGNS"
+   "solution": "SIGNS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SIGNS",
+    "definitions": [
+     {
+      "text": "Indications",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader is at the front, so only the opening letter of the word before it is kept"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "something stopping a gap plugs it, so it sits inside the other word"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offences",
+      "gives": "SINS",
+      "note": "offences against morality are sins"
+     },
+     {
+      "clueFragment": "gang",
+      "gives": "G",
+      "select": "first",
+      "note": "first letter of gang"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "G",
+      "NS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether the boss of a gang has put an end to crimes.",
+     "walkthrough": "The G goes into the middle of SINS to give SIGNS.",
+     "definitionFit": "Signs are pointers or evidence that something is so, which is what indications are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "stopping"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,55 @@
     "text": "Spotters hear cuckoo in part of the sky",
     "enumeration": "12"
    },
-   "solution": "STRATOSPHERE"
+   "solution": "STRATOSPHERE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STRATOSPHERE",
+    "definitions": [
+     {
+      "text": "part of the sky",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters before it go mad and rearrange"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spotters hear",
+      "gives": "SPOTTERSHEAR",
+      "note": "all twelve letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SPOTTERSHEAR",
+       "gives": "STRATOSPHERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Birdwatchers hear a cuckoo calling somewhere up in the sky.",
+     "walkthrough": "With spotters and hear the cuckoo looks like the bird, but here it only signals the rearrangement.",
+     "definitionFit": "The stratosphere is a layer of the atmosphere above the clouds, so it is a region of the sky."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "cuckoo"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +176,82 @@
      }
     ]
    },
-   "solution": "GOBETWEEN"
+   "solution": "GOBETWEEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "GO-BETWEEN",
+    "definitions": [
+     {
+      "text": "Agent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "letters swimming about are moving freely, so they come out in a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "going round something means surrounding it, so the jumbled letters wrap the rest"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, one piece sitting on another simply comes before it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gone",
+      "gives": "GONE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "punt",
+      "gives": "BET",
+      "note": "a punt is a wager"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "WE",
+      "note": "an unusual shortening; W is the standard abbreviation for water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "BETWE",
+      "EN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GONE",
+       "gives": "GOEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spy has gone for a swim around a flat-bottomed boat on a river.",
+     "walkthrough": "Punt looks like the boat, but it is a gamble. Water normally gives just W; this parse needs an extra E from it, which is a loose abbreviation.",
+     "definitionFit": "A go-between is an intermediary who carries messages between two sides, which is what an agent does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "punt"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +265,64 @@
     "text": "Society woman turning to laxative",
     "enumeration": "5"
    },
-   "solution": "SENNA"
+   "solution": "SENNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SENNA",
+    "definitions": [
+     {
+      "text": "laxative",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes the name face the other way, so it is read backwards"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "ANNE",
+      "note": "a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ENNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANNE",
+       "to": "ENNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A society lady takes up laxatives.",
+     "walkthrough": "Any woman's name could fit; the answer's length and the laxative point to ANNE.",
+     "definitionFit": "Senna is a plant whose dried leaves and pods are used as a purgative medicine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +336,56 @@
     "text": "Beer served in black container may be offered to customers",
     "enumeration": "8"
    },
-   "solution": "SALEABLE"
+   "solution": "SALEABLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALEABLE",
+    "definitions": [
+     {
+      "text": "may be offered to customers",
+      "at": 31,
+      "note": "a verb phrase standing for an adjective meaning fit to be sold"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served in",
+      "for": "container",
+      "note": "a drink served in a vessel is put inside it, so one word goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black container",
+      "gives": "SABLE",
+      "note": "sable is the heraldic word for black; the container wraps the beer"
+     },
+     {
+      "clueFragment": "Beer",
+      "gives": "ALE",
+      "note": "ale is a type of beer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALE",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Beer poured into a dark vessel can be sold to drinkers.",
+     "walkthrough": "Sable is the heraldic term for black.",
+     "definitionFit": "Something saleable is in a fit state to be sold, so it can be put on offer to buyers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +399,70 @@
     "text": "Plodder is to look into innovative cash cow",
     "enumeration": "9"
    },
-   "solution": "SLOWCOACH"
+   "solution": "SLOWCOACH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SLOWCOACH",
+    "definitions": [
+     {
+      "text": "Plodder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it inside, so one piece sits within the other"
+     },
+     {
+      "text": "innovative",
+      "for": "anagram",
+      "note": "innovative means newly made, so the letters that follow are made new by rearranging"
+     }
+    ],
+    "linkWords": [
+     "is to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is an old word for look, as in lo and behold"
+     },
+     {
+      "clueFragment": "cash cow",
+      "gives": "CASHCOW",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LO",
+      "WCOACH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CASHCOW",
+       "gives": "SWCOACH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slow worker is to examine a new money-spinning business.",
+     "walkthrough": "A cash cow is a reliable source of income, but here its letters are simply rearranged, with LO placed after the first.",
+     "definitionFit": "A slowcoach is a person who moves or works slowly, an informal British word for a plodder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "innovative"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +476,49 @@
     "text": "Intricate fabric left to expert",
     "enumeration": "4"
    },
-   "solution": "LACE"
+   "solution": "LACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LACE",
+    "definitions": [
+     {
+      "text": "Intricate fabric",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is a highly skilled person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Delicate material handed over to a specialist.",
+     "definitionFit": "Lace is an openwork fabric made of threads looped into fine patterns, hence intricate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +532,56 @@
     "text": "Outline given by a foolish judge",
     "enumeration": "9"
    },
-   "solution": "ADUMBRATE"
+   "solution": "ADUMBRATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADUMBRATE",
+    "definitions": [
+     {
+      "text": "Outline",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "foolish",
+      "gives": "DUMB",
+      "note": "dumb means stupid"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "RATE",
+      "note": "to rate is to assess or judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "DUMB",
+      "RATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sketch produced by a dim-witted magistrate.",
+     "walkthrough": "Judge reads as a noun for a person on the bench, but it is the verb meaning to assess.",
+     "definitionFit": "To adumbrate is to sketch or indicate in a faint, partial way, which is to outline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "judge"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +595,65 @@
     "text": "A dessert turned into sponge",
     "enumeration": "5"
    },
-   "solution": "LOOFA"
+   "solution": "LOOFA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LOOFA",
+    "definitions": [
+     {
+      "text": "sponge",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "reversal",
+      "note": "something turned round faces back the way it came, so it is read backwards"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dessert",
+      "gives": "FOOL",
+      "note": "a fool is a pudding of fruit puree and cream"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOF",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AFOOL",
+       "to": "LOOFA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pudding has been made into sponge cake.",
+     "walkthrough": "Sponge suggests a cake to match the dessert, but it is the bathroom kind. A fool is a British dessert of fruit folded into cream.",
+     "definitionFit": "A loofa is the dried fibrous pod of a gourd used as a bath sponge for scrubbing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sponge"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +673,60 @@
      }
     ]
    },
-   "solution": "ROBINSONCRUSOE"
+   "solution": "ROBINSONCRUSOE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ROBINSON CRUSOE",
+    "definitions": [
+     {
+      "text": "castaway",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperate",
+      "for": "anagram",
+      "note": "a desperate person is wild and frantic, so these letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bird",
+      "gives": "ROBIN",
+      "note": "a robin is a small garden bird"
+     },
+     {
+      "clueFragment": "soon cures",
+      "gives": "SOONCURES",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROBIN",
+      "SONCRUSOE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOONCURES",
+       "gives": "SONCRUSOE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird quickly heals a man in dire straits.",
+     "definitionFit": "Robinson Crusoe is Defoe's hero, shipwrecked alone on an island: literature's best-known castaway."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cures"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +746,63 @@
      }
     ]
    },
-   "solution": "YELLOWJERSEY"
+   "solution": "YELLOWJERSEY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YELLOW JERSEY",
+    "definitions": [
+     {
+      "text": "sporting trophy",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "at",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shout",
+      "gives": "YELL",
+      "note": "to yell is to shout"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "W",
+      "note": "W is the abbreviation for woman"
+     },
+     {
+      "clueFragment": "cow",
+      "gives": "JERSEY",
+      "note": "a Jersey is a breed of dairy cow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YELL",
+      "O",
+      "W",
+      "JERSEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone yells at an elderly lady leading a cow.",
+     "walkthrough": "Sporting looks like an adjective about the cow or the woman's clothes, but it belongs with trophy.",
+     "definitionFit": "The yellow jersey is worn by the overall leader of the Tour de France and awarded to its winner, a prize in cycling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sporting"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +816,69 @@
     "text": "Silly chatter about king and Roman governor",
     "enumeration": "8"
    },
-   "solution": "TETRARCH"
+   "solution": "TETRARCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TETRARCH",
+    "definitions": [
+     {
+      "text": "Roman governor",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Silly",
+      "for": "anagram",
+      "note": "silly means nonsensical, so the following letters are muddled into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the jumbled letters go around the other piece"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chatter",
+      "gives": "CHATTER",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is short for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TET",
+      "R",
+      "ARCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHATTER",
+       "gives": "TETARCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Foolish talk about a monarch and an official of ancient Rome.",
+     "definitionFit": "A tetrarch was a ruler of a quarter of a Roman province, a subordinate governor under Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Silly"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +892,65 @@
     "text": "Sufficiently prepared to cover central part of maze that's on fire",
     "enumeration": "6"
    },
-   "solution": "ABLAZE"
+   "solution": "ABLAZE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ABLAZE",
+    "definitions": [
+     {
+      "text": "on fire",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central part of",
+      "for": "letter_selection",
+      "note": "the central part of a word is its middle, so only the inner letters are kept"
+     },
+     {
+      "text": "to cover",
+      "for": "container",
+      "note": "covering something wraps it, so the first word goes around the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sufficiently prepared",
+      "gives": "ABLE",
+      "note": "able means capable or fit for the task"
+     },
+     {
+      "clueFragment": "maze",
+      "gives": "AZ",
+      "select": "middle",
+      "note": "the two middle letters of maze"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AB",
+      "LAZ",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone ready enough to get through the heart of a burning maze.",
+     "walkthrough": "The covering word is split after its second letter, not wrapped evenly round the pair it takes in.",
+     "definitionFit": "Ablaze means burning fiercely, the same state as being alight or in flames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +964,58 @@
     "text": "After dessert, conversation is flatter",
     "enumeration": "9"
    },
-   "solution": "SWEETTALK"
+   "solution": "SWEETTALK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SWEET-TALK",
+    "definitions": [
+     {
+      "text": "flatter",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "After",
+      "for": "charade",
+      "note": "one thing after another places them in sequence, so the second piece follows the first"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dessert",
+      "gives": "SWEET",
+      "note": "sweet is a British word for dessert"
+     },
+     {
+      "clueFragment": "conversation",
+      "gives": "TALK",
+      "note": "a talk is a conversation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SWEET",
+      "TALK"
+     ]
+    },
+    "explanation": {
+     "surface": "Once the pudding is served, the chat turns to compliments.",
+     "walkthrough": "Flatter reads as an adjective meaning more level, but it is the verb.",
+     "definitionFit": "To sweet-talk someone is to coax them with charming praise, which is to flatter them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flatter"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1029,86 @@
     "text": "Dish served up before riot breaks out at a restaurant",
     "enumeration": "9"
    },
-   "solution": "TRATTORIA"
+   "solution": "TRATTORIA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "TRATTORIA",
+    "definitions": [
+     {
+      "text": "restaurant",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is written from bottom to top"
+     },
+     {
+      "text": "breaks out",
+      "for": "anagram",
+      "note": "a riot breaking out is chaos, so its letters erupt in a new order"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before places one piece ahead of the next in the answer"
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dish",
+      "gives": "TART",
+      "note": "a tart is a pastry dish"
+     },
+     {
+      "clueFragment": "riot",
+      "gives": "RIOT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAT",
+      "TORI",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIOT",
+       "gives": "TORI"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "TART",
+       "to": "TRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meal is brought to the table just as trouble erupts at a restaurant.",
+     "definitionFit": "A trattoria is an informal Italian eating house, a kind of restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "served"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1122,69 @@
     "text": "King currently taking Latin on verge of enlightenment",
     "enumeration": "9"
    },
-   "solution": "KNOWLEDGE"
+   "solution": "KNOWLEDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "KNOWLEDGE",
+    "definitions": [
+     {
+      "text": "enlightenment",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "charade",
+      "note": "taking something on means adding it, so the pieces are joined in sequence"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     },
+     {
+      "clueFragment": "currently",
+      "gives": "NOW",
+      "note": "now means at present"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the abbreviation for Latin"
+     },
+     {
+      "clueFragment": "verge",
+      "gives": "EDGE",
+      "note": "a verge is an edge or border"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NOW",
+      "L",
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A monarch is studying Latin when on the brink of a revelation.",
+     "definitionFit": "Knowledge is understanding gained through learning, and enlightenment is the state of having such insight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "currently"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1198,70 @@
     "text": "Kind soul gets a new member to return",
     "enumeration": "5"
    },
-   "solution": "ANGEL"
+   "solution": "ANGEL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ANGEL",
+    "definitions": [
+     {
+      "text": "Kind soul",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to return",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read backwards"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a member is a limb"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "GEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEG",
+       "to": "GEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A generous person acquires a new recruit who will come back.",
+     "walkthrough": "Member suggests someone joining a club; it is a limb, here a leg.",
+     "definitionFit": "Calling a kind, helpful person an angel is an everyday compliment, likening them to a heavenly messenger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1275,55 @@
     "text": "Bird in medal atop heraldic device",
     "enumeration": "9"
    },
-   "solution": "GOLDCREST"
+   "solution": "GOLDCREST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GOLDCREST",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "atop",
+      "for": "charade",
+      "note": "in a down clue, one piece atop another sits above it and so comes first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "medal",
+      "gives": "GOLD",
+      "note": "a gold is a first-place medal"
+     },
+     {
+      "clueFragment": "heraldic device",
+      "gives": "CREST",
+      "note": "a crest is an emblem in heraldry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLD",
+      "CREST"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird appears on a medal above a coat of arms.",
+     "definitionFit": "The goldcrest is a tiny songbird with a gold stripe on its head, Britain's smallest bird."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1337,42 @@
     "text": "Dye from Chennai?",
     "enumeration": "5"
    },
-   "solution": "HENNA"
+   "solution": "HENNA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HENNA",
+    "definitions": [
+     {
+      "text": "Dye",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from",
+      "for": "hidden_word",
+      "note": "from signals the letters are taken out of the place name that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chennai",
+      "gives": "HENNA",
+      "note": "all but the first and last letters of the city"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks whether a dye comes from the Indian city of Chennai.",
+     "walkthrough": "Henna is widely used in India, which makes the question mark fair.",
+     "definitionFit": "Henna is a reddish-brown dye made from a shrub's leaves, used on hair and skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1392,60 @@
      }
     ]
    },
-   "solution": "HOOKESLAW"
+   "solution": "HOOKESLAW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOOKE'S LAW",
+    "definitions": [
+     {
+      "text": "physicist's principle",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "designed",
+      "for": "anagram",
+      "note": "something designed is planned and laid out afresh, so the letters are arranged anew"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A wok",
+      "gives": "AWOK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "holes",
+      "gives": "HOLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AWOKHOLES",
+       "gives": "HOOKESLAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cooking pan perforated to hold up some scientist's theory.",
+     "definitionFit": "Hooke's law, from the 17th-century physicist Robert Hooke, states that a spring's extension is proportional to the load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1459,72 @@
     "text": "Take source of inspiration into creative and unusual event",
     "enumeration": "6"
    },
-   "solution": "RARITY"
+   "solution": "RARITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RARITY",
+    "definitions": [
+     {
+      "text": "unusual event",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "a source is where something begins, so just the opening letter is used"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "putting one thing into another places it inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R stands for recipe, Latin for take, on prescriptions"
+     },
+     {
+      "clueFragment": "creative",
+      "gives": "ARTY",
+      "note": "arty means artistic"
+     },
+     {
+      "clueFragment": "inspiration",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of inspiration"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AR",
+      "I",
+      "TY"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to bring a muse to the creative and the strange.",
+     "walkthrough": "Take seems an ordinary instruction but gives R, from the doctor's Rx meaning take.",
+     "definitionFit": "A rarity is something that seldom happens or is seldom found, an uncommon occurrence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1538,63 @@
     "text": "Hear about boozer's first treatment option",
     "enumeration": "5"
    },
-   "solution": "REHAB"
+   "solution": "REHAB",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "REHAB",
+    "definitions": [
+     {
+      "text": "treatment option",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean in a disordered state, so the letters before it are shuffled"
+     },
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the opening letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hear",
+      "gives": "HEAR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "boozer's",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of boozer"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEARB",
+       "gives": "REHAB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "News reaches us about a heavy drinker's first time in a clinic.",
+     "walkthrough": "The surface links boozer and rehab, though the anagram also takes the B.",
+     "definitionFit": "Rehab, short for rehabilitation, is a course of therapy for addiction, one way of treating it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Hear"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1608,70 @@
     "text": "Bone found when one leaves frozen water outside toilet",
     "enumeration": "8"
    },
-   "solution": "CLAVICLE"
+   "solution": "CLAVICLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CLAVICLE",
+    "definitions": [
+     {
+      "text": "Bone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "one leaves",
+      "for": "deletion",
+      "note": "when one leaves, a letter for one goes away from the word"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it"
+     }
+    ],
+    "linkWords": [
+     "found when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "frozen water",
+      "gives": "ICICLE",
+      "note": "an icicle is a hanging spike of ice"
+     },
+     {
+      "clueFragment": "toilet",
+      "gives": "LAV",
+      "note": "lav is short for lavatory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAV",
+      "ICLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bone is discovered after someone walks away from ice by the loo.",
+     "walkthrough": "Frozen water suggests plain ice, but the answer's length needs the longer hanging spike of ice. Lav is British slang for a toilet.",
+     "definitionFit": "The clavicle is the collarbone, linking the shoulder blade to the breastbone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1685,56 @@
     "text": "Endless struggle to get vehicle for clergyman",
     "enumeration": "5"
    },
-   "solution": "VICAR"
+   "solution": "VICAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VICAR",
+    "definitions": [
+     {
+      "text": "clergyman",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "without an end means the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "struggle",
+      "gives": "VIE",
+      "note": "to vie is to struggle or compete"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "CAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A perpetual fight to obtain transport for a priest.",
+     "definitionFit": "A vicar is a Church of England parish priest, a member of the clergy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1748,49 @@
     "text": "Mythological creature still on island",
     "enumeration": "4"
    },
-   "solution": "YETI"
+   "solution": "YETI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YETI",
+    "definitions": [
+     {
+      "text": "Mythological creature",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "YET",
+      "note": "yet means still, as in not yet over"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YET",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary beast is still living on an island.",
+     "definitionFit": "The yeti is the abominable snowman, a legendary ape-like beast of the Himalayas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1810,72 @@
      }
     ]
    },
-   "solution": "CHARLESDICKENS"
+   "solution": "CHARLESDICKENS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "CHARLES DICKENS",
+    "definitions": [
+     {
+      "text": "Author",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "the birds touring a place travel all around it, so they surround it"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Birds",
+      "gives": "CHICKENS",
+      "note": "chickens are birds"
+     },
+     {
+      "clueFragment": "Provence city",
+      "gives": "ARLES",
+      "note": "Arles is a city in Provence"
+     },
+     {
+      "clueFragment": "vineyard",
+      "gives": "D",
+      "select": "last",
+      "note": "the last letter of vineyard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "ARLES",
+      "D",
+      "ICKENS"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of a book called Birds travels around a French city near a vineyard.",
+     "walkthrough": "Author of Birds reads as one phrase, but Author alone is the definition and of is the link.",
+     "definitionFit": "Charles Dickens was the Victorian novelist who wrote Oliver Twist and Great Expectations, so he is an author."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Birds"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1889,69 @@
     "text": "I save change to bag garment that's chafing!",
     "enumeration": "8"
    },
-   "solution": "ABRASIVE"
+   "solution": "ABRASIVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ABRASIVE",
+    "definitions": [
+     {
+      "text": "chafing",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change something is to alter it, so the letters before it come out differently"
+     },
+     {
+      "text": "to bag",
+      "for": "container",
+      "note": "to bag something is to put it in a bag, so these letters enclose the next piece"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I save",
+      "gives": "ISAVE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "garment",
+      "gives": "BRA",
+      "note": "a bra is an undergarment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BRA",
+      "SIVE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISAVE",
+       "gives": "ASIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone says they save money by changing a piece of clothing that rubs.",
+     "definitionFit": "Abrasive means scraping or wearing away by friction, as rough cloth does to skin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "save"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1965,58 @@
     "text": "Chap entertaining teetotaller is in a bad mood",
     "enumeration": "5"
    },
-   "solution": "RATTY"
+   "solution": "RATTY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RATTY",
+    "definitions": [
+     {
+      "text": "in a bad mood",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "a host entertaining a guest takes them in, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chap",
+      "gives": "RAY",
+      "note": "Ray is a man's name"
+     },
+     {
+      "clueFragment": "teetotaller",
+      "gives": "TT",
+      "note": "TT is the usual abbreviation for teetotal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "TT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A man hosting a non-drinker turns grumpy.",
+     "walkthrough": "Ratty is British informal for irritable.",
+     "definitionFit": "Ratty is a colloquial word for irritable or bad-tempered, the state of someone in a bad mood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entertaining"
+    }
+   }
   }
  ]
 }
