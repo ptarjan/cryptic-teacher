@@ -165,7 +165,9 @@ check("a 404 between 5xx resets the count",
       not streak([http(502)] * (fa.FAILURES_IN_A_ROW - 1) + [http(404)] + [http(502)] * (fa.FAILURES_IN_A_ROW - 1)))
 
 # Groups take turns: one item each, so a long group cannot starve the next.
-check("groups interleave", fa.interleave([["t1", "t2", "t3"], ["l1"], ["f1", "f2"]]) == ["t1", "l1", "f1", "t2", "f2", "t3"])
+check("groups share editions, not items",
+      fa.by_editions([["t1", "t2"], ["l1", "l2", "l3", "l4"], ["d1", "l5"]], lambda x: 3 if x[0] == "t" else 0 if x[0] == "d" else 1)
+      == ["t1", "l1", "d1", "l5", "l2", "l3", "t2", "l4"])
 
 # Leaf numbering: a scan starting with a colour card has djvu page k on leaf
 # k+1; the OBJECT's PAGE param places it, and the per-page endpoint's empty
