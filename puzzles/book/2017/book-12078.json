@@ -23,8 +23,15 @@
   }
  },
  "solutions": {
-  "origin": "unsolved"
+  "origin": "model",
+  "model": "opus",
+  "date": "2026-10-07",
+  "check": "30 entries, 60 crossings, 0 conflicts",
+  "officialKey": "never"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,6 +44,43 @@
    "clue": {
     "text": "Wild creature feeding outside houses",
     "enumeration": "5"
+   },
+   "solution": "DINGO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DINGO",
+    "definitions": [
+     {
+      "text": "Wild creature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "houses",
+      "for": "hidden_word",
+      "note": "to house something is to hold it inside, so the run of words that follows contains the solution within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feeding outside",
+      "gives": "DINGO",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An untamed animal is spotted eating outside people's homes.",
+     "walkthrough": "'Houses' reads as the place the creature feeds, but it is a verb: the phrase feeDING Outside holds the answer.",
+     "definitionFit": "The dingo is Australia's untamed native dog, a classic example of a wild animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "houses"
+    }
    }
   },
   {
@@ -50,6 +94,44 @@
    "clue": {
     "text": "Ponder, and shut up again?",
     "enumeration": "10"
+   },
+   "solution": "DELIBERATE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DELIBERATE",
+    "definitions": [
+     {
+      "text": "Ponder",
+      "at": 0
+     },
+     {
+      "text": "shut up again?",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ponder",
+      "note": "first meaning: to think something over carefully"
+     },
+     {
+      "clueFragment": "shut up again?",
+      "note": "second, playful meaning: to undo a release, putting a freed captive back inside"
+     }
+    ],
+    "explanation": {
+     "surface": "Should one think hard and then fall silent once more?",
+     "walkthrough": "The question mark flags the joke: read as DE-LIBERATE, the word would mean reversing a liberation, locking someone up again.",
+     "definitionFit": "To deliberate is to consider carefully and at length, a close synonym of ponder."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shut"
+    }
    }
   },
   {
@@ -63,6 +145,52 @@
    "clue": {
     "text": "Harry in decline, having changed direction",
     "enumeration": "3"
+   },
+   "solution": "NAG",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "NAG",
+    "definitions": [
+     {
+      "text": "Harry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having changed direction",
+      "for": "substitution",
+      "note": "one compass point is swapped for another, so a direction letter in the word is exchanged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decline",
+      "gives": "SAG",
+      "note": "to sag is to droop or decline; its S (south) becomes N (north)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AG"
+     ]
+    },
+    "explanation": {
+     "surface": "Harry is going downhill and has taken a new direction in life.",
+     "walkthrough": "'Harry' looks like a man's name, but it is a verb meaning to pester.",
+     "definitionFit": "To harry someone is to harass or pester them persistently, which is what nagging does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Harry"
+    }
    }
   },
   {
@@ -76,6 +204,72 @@
    "clue": {
     "text": "Developed country dismissing UN’s latest protest",
     "enumeration": "6"
+   },
+   "solution": "OUTCRY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "OUTCRY",
+    "definitions": [
+     {
+      "text": "protest",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Developed",
+      "for": "anagram",
+      "note": "something developed has been worked into a new form, so the remaining letters are rearranged"
+     },
+     {
+      "text": "dismissing",
+      "for": "deletion",
+      "note": "dismissing someone sends them away, so the named letter leaves the word"
+     },
+     {
+      "text": "latest",
+      "for": "letter_selection",
+      "note": "the latest of something is its most recent and so its final part, here a single letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "COUNTRY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "UN’s",
+      "gives": "N",
+      "select": "last",
+      "note": "only the closing letter of this abbreviation is used"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUTCRY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COUTRY",
+       "gives": "OUTCRY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A developed nation brushes aside the United Nations' latest objection.",
+     "walkthrough": "'Developed country' reads as one economic term, but 'developed' is the signal to rearrange.",
+     "definitionFit": "An outcry is a loud public expression of disapproval, the noun sense of a protest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Developed"
+    }
    }
   },
   {
@@ -95,6 +289,60 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "CRABAPPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CRAB APPLE",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting something fall away, so the named letter is taken out of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curmudgeon",
+      "gives": "CRAB",
+      "note": "a crab is a bad-tempered, grumpy person"
+     },
+     {
+      "clueFragment": "spotted",
+      "gives": "DAPPLE",
+      "note": "dapple means marked with spots or patches"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRAB",
+      "APPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumpy old person, having seen a daughter, lets some fruit fall.",
+     "walkthrough": "CRAB plus DAPPLE without its D gives CRAB APPLE.",
+     "definitionFit": "The crab apple is a small sour wild apple, so it is a kind of fruit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
    }
   },
   {
@@ -108,6 +356,47 @@
    "clue": {
     "text": "Lady, as musician says, with attitude",
     "enumeration": "9"
+   },
+   "solution": "CONSTANCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONSTANCE",
+    "definitions": [
+     {
+      "text": "Lady",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as musician says, with",
+      "gives": "CON",
+      "note": "con is the Italian for with, used in musical directions such as con brio"
+     },
+     {
+      "clueFragment": "attitude",
+      "gives": "STANCE",
+      "note": "a stance is a position or attitude on an issue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "STANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman who, as a performer puts it, has plenty of attitude.",
+     "walkthrough": "'As musician says' does not signal a sound-alike; it marks a word from a musician's score, where Italian directions use con for with.",
+     "definitionFit": "Constance is a woman's first name, so it can stand for a particular lady."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "says"
+    }
    }
   },
   {
@@ -121,6 +410,53 @@
    "clue": {
     "text": "Confuse movement of duck with flying",
     "enumeration": "5"
+   },
+   "solution": "ADDLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ADDLE",
+    "definitions": [
+     {
+      "text": "Confuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flying",
+      "for": "deletion",
+      "note": "something flying has gone off into the air, so the letter it describes disappears"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "movement of duck",
+      "gives": "WADDLE",
+      "note": "a duck walks with a swaying gait"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the standard abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck's gait combined with flight might baffle an observer.",
+     "walkthrough": "'Flying' seems to describe the duck, but it tells you the W for 'with' flies off.",
+     "definitionFit": "To addle is to muddle someone's thinking, so it is a synonym of confuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flying"
+    }
    }
   },
   {
@@ -134,6 +470,46 @@
    "clue": {
     "text": "Make familiar account whimsical",
     "enumeration": "8"
+   },
+   "solution": "ACQUAINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACQUAINT",
+    "definitions": [
+     {
+      "text": "Make familiar",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the usual abbreviation for account"
+     },
+     {
+      "clueFragment": "whimsical",
+      "gives": "QUAINT",
+      "note": "quaint means oddly old-fashioned or whimsical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "QUAINT"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting to know a story that turns out to be fanciful.",
+     "definitionFit": "To acquaint someone with something is to inform them so they come to know it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
    }
   },
   {
@@ -153,6 +529,45 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "PRESTERJOHN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PRESTER JOHN",
+    "definitions": [
+     {
+      "text": "Legendary leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is the spoken sound, so the phrase is matched by how it is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insisted on a privy",
+      "gives": "PRESTERJOHN",
+      "soundsLike": "PRESSED A JOHN",
+      "note": "to press is to insist, and a john is slang for a lavatory"
+     }
+    ],
+    "explanation": {
+     "surface": "A mythical chief demanded a private toilet, so the gossip goes.",
+     "walkthrough": "John is slang for a toilet and privy an old word for one.",
+     "definitionFit": "Prester John was a fabled Christian priest-king of medieval legend, said to rule a lost realm in the East."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "privy"
+    }
    }
   },
   {
@@ -166,6 +581,48 @@
    "clue": {
     "text": "Amphibians finally shake off persistent predators",
     "enumeration": "4"
+   },
+   "solution": "EFTS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EFTS",
+    "definitions": [
+     {
+      "text": "Amphibians",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last of each word, so only the closing letters are used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shake off persistent predators",
+      "gives": "EFTS",
+      "select": "last",
+      "note": "the final letter of each of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EFTS"
+     ]
+    },
+    "explanation": {
+     "surface": "Small amphibians at last manage to escape the predators that keep hunting them.",
+     "definitionFit": "An eft is a young newt, and newts are amphibians."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "finally"
+    }
    }
   },
   {
@@ -179,6 +636,64 @@
    "clue": {
     "text": "Land by west-facing valley got more sun perhaps",
     "enumeration": "9"
+   },
+   "solution": "LIGHTENED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "LIGHTENED",
+    "definitions": [
+     {
+      "text": "got more sun perhaps",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "west-facing",
+      "for": "reversal",
+      "note": "in an across entry west is leftwards, so a word facing west is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Land",
+      "gives": "LIGHT",
+      "note": "to light on something is to land or settle on it, as a bird does"
+     },
+     {
+      "clueFragment": "valley",
+      "gives": "DENE",
+      "note": "a dene is a small wooded valley"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIGHT",
+      "ENED"
+     ],
+     "reversals": [
+      {
+       "from": "DENE",
+       "to": "ENED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A house on land beside a valley that opens to the west catches more afternoon sun.",
+     "walkthrough": "'Perhaps' marks the definition as one example: getting more sun is one way a room or a colour becomes brighter.",
+     "definitionFit": "To lighten is to become brighter, and extra sunshine is one illustrative cause of that."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Land"
+    }
    }
   },
   {
@@ -192,6 +707,54 @@
    "clue": {
     "text": "Go in search of what’s left — be off!",
     "enumeration": "5"
+   },
+   "solution": "QUEST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "QUEST",
+    "definitions": [
+     {
+      "text": "Go in search of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "when something is off it has been removed, so the named letters are struck out of the longer word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what’s left",
+      "gives": "BEQUEST",
+      "note": "what someone leaves in a will is a bequest"
+     },
+     {
+      "clueFragment": "be",
+      "gives": "BE",
+      "note": "the two letters of this word are the ones to remove"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QUEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A scavenger is told to go looking for leftovers, then told to clear off.",
+     "walkthrough": "'What's left' looks like scraps, but here it is a legacy; 'be off!' sounds like a command to leave, yet it tells you to drop BE from BEQUEST.",
+     "definitionFit": "As a verb, to quest means to search or seek, the sense used in hunting for a trail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
    }
   },
   {
@@ -215,6 +778,62 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "BEFORETHEMAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BEFORE THE MAST",
+    "definitions": [
+     {
+      "text": "as seamen",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going into",
+      "for": "container",
+      "note": "going into something means entering it, so one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "gives": "BEFOR",
+      "note": "to be for something is to support it"
+     },
+     {
+      "clueFragment": "Orient",
+      "gives": "EAST",
+      "note": "the Orient is the East"
+     },
+     {
+      "clueFragment": "those people",
+      "gives": "THEM",
+      "note": "a pronoun for those people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEFOR",
+      "E",
+      "THEM",
+      "AST"
+     ]
+    },
+    "explanation": {
+     "surface": "Backing a group of sailors heading out to the Far East.",
+     "walkthrough": "Ordinary sailors once lodged in the forecastle, forward of the mainmast, so serving there meant serving as a common seaman rather than an officer.",
+     "definitionFit": "The phrase describes working as a common sailor rather than an officer, so it fits an adverbial 'as seamen'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Orient"
+    }
    }
   },
   {
@@ -228,6 +847,48 @@
    "clue": {
     "text": "Gives away unlikely digital protection",
     "enumeration": "11"
+   },
+   "solution": "FINGERSTALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FINGERSTALL",
+    "definitions": [
+     {
+      "text": "digital protection",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gives away",
+      "gives": "FINGERS",
+      "note": "to finger someone is to inform on them, betraying them to the police"
+     },
+     {
+      "clueFragment": "unlikely",
+      "gives": "TALL",
+      "note": "a tall story is an unlikely one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINGERS",
+      "TALL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hands out an improbable kind of computer security.",
+     "walkthrough": "'Digital protection' suggests computer security; here digital refers to fingers.",
+     "definitionFit": "A fingerstall is a cover worn over an injured finger, so it protects a digit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "digital"
+    }
    }
   },
   {
@@ -241,6 +902,65 @@
    "clue": {
     "text": "PC’s predecessor’s pretty weird, almost screwy",
     "enumeration": "10"
+   },
+   "solution": "TYPEWRITER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TYPEWRITER",
+    "definitions": [
+     {
+      "text": "PC’s predecessor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite complete, so the last letter of the word is cut off"
+     },
+     {
+      "text": "screwy",
+      "for": "anagram",
+      "note": "screwy means crazy and disordered, so the letters are jumbled into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty",
+      "gives": "PRETTY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "weird",
+      "gives": "WEIRD",
+      "note": "taken as written, before the cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TYPEWRITER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRETTYWEIR",
+       "gives": "TYPEWRITER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old computer is described as quite strange and nearly broken.",
+     "walkthrough": "'Pretty weird' reads as 'rather odd', but both words are fodder.",
+     "definitionFit": "Before personal computers, documents were typed on this mechanical machine, so it preceded the PC as a writing tool."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pretty"
+    }
    }
   },
   {
@@ -254,6 +974,47 @@
    "clue": {
     "text": "Hard work removing first tough skin",
     "enumeration": "4"
+   },
+   "solution": "RIND",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RIND",
+    "definitions": [
+     {
+      "text": "tough skin",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing first",
+      "for": "deletion",
+      "note": "removing the first means taking away the opening letter of the word that comes before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard work",
+      "gives": "GRIND",
+      "note": "a grind is tedious, laborious work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIND"
+     ]
+    },
+    "explanation": {
+     "surface": "Peeling the first tough skin off something is hard work.",
+     "definitionFit": "Rind is the tough outer layer of fruit, cheese or bacon, a thick protective peel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
    }
   },
   {
@@ -267,6 +1028,67 @@
    "clue": {
     "text": "Ill-bred lady on vacation put on a French air",
     "enumeration": "10"
+   },
+   "solution": "UNMANNERLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNMANNERLY",
+    "definitions": [
+     {
+      "text": "Ill-bred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a place on vacation is emptied out, so only the outside letters of the word stay"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "put on says one piece is placed onto another, so it follows on after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "un is French for a"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "MANNER",
+      "note": "an air is a manner or way of carrying oneself"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "LY",
+      "select": "outer",
+      "note": "only the first and last letters of this word are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "MANNER",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A badly brought-up woman, away on holiday, affects a French manner.",
+     "walkthrough": "'On vacation' looks like the lady's holiday, but it empties her name to its outer letters.",
+     "definitionFit": "Unmannerly means lacking good manners, which is what being ill-bred amounts to in behaviour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vacation"
+    }
    }
   },
   {
@@ -280,6 +1102,74 @@
    "clue": {
     "text": "Capitol’s worried about memo ultimately emanating from Vatican",
     "enumeration": "9"
+   },
+   "solution": "APOSTOLIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "APOSTOLIC",
+    "definitions": [
+     {
+      "text": "emanating from Vatican",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried means troubled and agitated, so the letters are shaken into a new order"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters go round the other piece"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the closing letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Capitol’s",
+      "gives": "CAPITOLS",
+      "note": "taken as written, with its s"
+     },
+     {
+      "clueFragment": "memo",
+      "gives": "O",
+      "select": "last",
+      "note": "only the last letter of this word is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "O",
+      "STOLIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAPITOLS",
+       "gives": "APOSTLIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Washington's Capitol is anxious about a memo coming out of Rome.",
+     "walkthrough": "The Capitol is the US Congress building; its letters are rearranged around O.",
+     "definitionFit": "Apostolic relates to the Pope as successor of the apostle Peter, so papal decrees from the Vatican are apostolic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
    }
   },
   {
@@ -293,6 +1183,55 @@
    "clue": {
     "text": "Sailor tails gumshoe running off illicitly",
     "enumeration": "8"
+   },
+   "solution": "PIRATING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PIRATING",
+    "definitions": [
+     {
+      "text": "running off illicitly",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tails",
+      "for": "charade",
+      "note": "to tail someone is to follow behind them, so the first-named piece comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gumshoe",
+      "gives": "PI",
+      "note": "a gumshoe is a private investigator, PI"
+     },
+     {
+      "clueFragment": "Sailor",
+      "gives": "RATING",
+      "note": "a rating is a non-officer sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "RATING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor shadows a private eye who is sneaking away.",
+     "walkthrough": "'Running off' sounds like fleeing, but it means printing copies, as in running off leaflets.",
+     "definitionFit": "Pirating means copying and selling someone else's work without permission, which is producing copies illicitly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "running"
+    }
    }
   },
   {
@@ -316,6 +1255,51 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "THELIKESOF",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE LIKES OF",
+    "definitions": [
+     {
+      "text": "People such as",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "relocated",
+      "for": "anagram",
+      "note": "things that are relocated are moved to new places, so these letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "these folk I",
+      "gives": "THESEFOLKI",
+      "note": "the ten letters of these three words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESEFOLKI",
+       "gives": "THELIKESOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone explains that they have moved these people to new homes.",
+     "walkthrough": "'People such as these' looks like the whole definition, but 'these' is part of the fodder; the definition stops at 'such as'.",
+     "definitionFit": "The idiom introduces examples of a type of person, as in the likes of him, so it means people such as."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "these"
+    }
    }
   },
   {
@@ -329,6 +1313,52 @@
    "clue": {
     "text": "Pacifist compelled to avoid Republican",
     "enumeration": "4"
+   },
+   "solution": "DOVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DOVE",
+    "definitions": [
+     {
+      "text": "Pacifist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to avoid",
+      "for": "deletion",
+      "note": "a word that avoids a letter has to do without it, so that letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compelled",
+      "gives": "DROVE",
+      "note": "to drive someone to do something is to compel them"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the usual abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A peace campaigner is forced to keep away from a Republican.",
+     "definitionFit": "In politics a dove is someone favouring peace over war, the opposite of a hawk, so a pacifist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "compelled"
+    }
    }
   },
   {
@@ -342,6 +1372,65 @@
    "clue": {
     "text": "Cast’s coloured clothing extremely radical",
     "enumeration": "6"
+   },
+   "solution": "HURLED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HURLED",
+    "definitions": [
+     {
+      "text": "Cast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing something means wrapping it, so one piece goes around the other"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of the word, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coloured",
+      "gives": "HUED",
+      "note": "hued means having a particular colour"
+     },
+     {
+      "clueFragment": "radical",
+      "gives": "RL",
+      "select": "outer",
+      "note": "only the first and last letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HU",
+      "RL",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre company's colourful costumes are wildly radical.",
+     "walkthrough": "'Cast' looks like a set of actors, but it is the verb meaning thrown.",
+     "definitionFit": "Hurled means thrown with force, the past tense sense of cast as in cast a stone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cast"
+    }
    }
   },
   {
@@ -361,6 +1450,44 @@
       "mark": ","
      }
     ]
+   },
+   "solution": "SCARLETRUNNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCARLET RUNNER",
+    "definitions": [
+     {
+      "text": "Athlete of dubious morality",
+      "at": 0
+     },
+     {
+      "text": "trained climber in garden",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Athlete of dubious morality",
+      "note": "first meaning: a sprinter or racer who is sinful, scarlet being the colour of sin"
+     },
+     {
+      "clueFragment": "trained climber in garden",
+      "note": "second meaning: a bean plant grown up canes in a vegetable patch"
+     }
+    ],
+    "explanation": {
+     "surface": "A disreputable sportsman has trained to climb, in a garden of all places.",
+     "walkthrough": "Scarlet suggests sin (the 'scarlet woman'), and a runner is an athlete; the same two words name a popular red-flowered bean that gardeners train up poles.",
+     "definitionFit": "The scarlet runner bean is a twining climbing plant that gardeners train up canes to grow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trained"
+    }
    }
   },
   {
@@ -374,6 +1501,56 @@
    "clue": {
     "text": "Austrian of note King Henry imprisoned",
     "enumeration": "5"
+   },
+   "solution": "LEHAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEHAR",
+    "definitions": [
+     {
+      "text": "Austrian of note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "imprisoned",
+      "for": "container",
+      "note": "something imprisoned is locked inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King",
+      "gives": "LEAR",
+      "note": "Shakespeare's King Lear"
+     },
+     {
+      "clueFragment": "Henry",
+      "gives": "H",
+      "note": "H is the abbreviation for henry, the unit of inductance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "H",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous Austrian was locked up by King Henry.",
+     "walkthrough": "'King Henry' reads as one monarch, but the king is Lear and Henry is just H.",
+     "definitionFit": "Franz Lehár, composer of The Merry Widow, worked in Vienna, so he is a notable Austrian musician."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "note"
+    }
    }
   },
   {
@@ -387,6 +1564,66 @@
    "clue": {
     "text": "Flyer put up when touring country",
     "enumeration": "4"
+   },
+   "solution": "SKUA",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "SKUA",
+    "definitions": [
+     {
+      "text": "Flyer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "touring a place means going all around it, so one piece encircles the other"
+     },
+     {
+      "text": "put up",
+      "for": "reversal",
+      "note": "in a down entry, putting something up means reading it from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when",
+      "gives": "AS",
+      "note": "as can mean when, as in 'as he arrived'"
+     },
+     {
+      "clueFragment": "country",
+      "gives": "UK",
+      "note": "UK, the United Kingdom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "KU",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "AUKS",
+       "to": "SKUA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot is put up in a hotel while on a tour of the country.",
+     "definitionFit": "The skua is a large predatory seabird, and any bird is a flyer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flyer"
+    }
    }
   },
   {
@@ -400,6 +1637,49 @@
    "clue": {
     "text": "They say it’s necessary to secure motor of uniform colour",
     "enumeration": "5"
+   },
+   "solution": "KHAKI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KHAKI",
+    "definitions": [
+     {
+      "text": "uniform colour",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "They say",
+      "for": "homophone",
+      "note": "what they say is what is heard spoken, so the sound of the phrase matters, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "it’s",
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "necessary to secure motor",
+      "gives": "KHAKI",
+      "soundsLike": "CAR KEY",
+      "note": "the thing you need to lock a car is its key"
+     }
+    ],
+    "explanation": {
+     "surface": "People insist you need something to lock a vehicle of a certain uniform colour.",
+     "walkthrough": "In standard British pronunciation the colour is said 'car-key'; American speakers who say 'kack-ee' will not hear the match.",
+     "definitionFit": "Khaki is the dull yellowish-brown used for army uniforms, so it is a uniform colour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "motor"
+    }
    }
   },
   {
@@ -419,6 +1699,62 @@
       "mark": "-"
      }
     ]
+   },
+   "solution": "HALFLIGHT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HALF-LIGHT",
+    "definitions": [
+     {
+      "text": "gloom",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "something short is cut down, so the word loses its final letter"
+     },
+     {
+      "text": "at end of",
+      "for": "charade",
+      "note": "being at the end of something means coming after it, which fixes the order of the two pieces"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passage",
+      "gives": "HALL",
+      "note": "a hall is a passage or corridor in a house"
+     },
+     {
+      "clueFragment": "Escape",
+      "gives": "FLIGHT",
+      "note": "flight is the act of fleeing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAL",
+      "FLIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone makes a getaway at the end of a dark corridor.",
+     "definitionFit": "Half-light is dim light, as at dusk, so it is a kind of gloom or murk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Escape"
+    }
    }
   },
   {
@@ -432,6 +1768,57 @@
    "clue": {
     "text": "Face up to seal",
     "enumeration": "3"
+   },
+   "solution": "GUM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "GUM",
+    "definitions": [
+     {
+      "text": "seal",
+      "at": 11
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means reading the word from the bottom to the top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Face",
+      "gives": "MUG",
+      "note": "mug is slang for face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUM"
+     ],
+     "reversals": [
+      {
+       "from": "MUG",
+       "to": "GUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Confronting a marine animal head on.",
+     "walkthrough": "'Seal' looks like the animal, but it is the verb meaning to stick shut.",
+     "definitionFit": "To gum something is to stick it down with adhesive, closing it as an envelope is sealed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "seal"
+    }
    }
   },
   {
@@ -445,6 +1832,71 @@
    "clue": {
     "text": "Lively work with final twist — one chapter in symbolic form",
     "enumeration": "9"
+   },
+   "solution": "ALLEGORIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ALLEGORIC",
+    "definitions": [
+     {
+      "text": "in symbolic form",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "final twist",
+      "for": "reversal",
+      "note": "a twist at the end turns the closing letters around, so the last pair is read the other way"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lively work",
+      "gives": "ALLEGRO",
+      "note": "allegro marks a brisk, lively musical movement"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "chapter",
+      "gives": "C",
+      "note": "C is the standard abbreviation for chapter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALLEG",
+      "OR",
+      "I",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "RO",
+       "to": "OR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lively novel with a twist at the end, where a single chapter is told in symbols.",
+     "walkthrough": "'Lively work with final twist' sounds like a thriller, but it is a musical term whose last two letters swap.",
+     "definitionFit": "Allegoric describes a story or picture whose characters stand for abstract ideas, which is symbolic expression."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "twist"
+    }
    }
   },
   {
@@ -458,6 +1910,58 @@
    "clue": {
     "text": "Aussie runner confined by doctor to raise objections",
     "enumeration": "5"
+   },
+   "solution": "DEMUR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DEMUR",
+    "definitions": [
+     {
+      "text": "raise objections",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confined by",
+      "for": "container",
+      "note": "being confined by something means being shut inside it, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doctor",
+      "gives": "DR",
+      "note": "DR is the usual abbreviation for doctor"
+     },
+     {
+      "clueFragment": "Aussie runner",
+      "gives": "EMU",
+      "note": "the emu is a large flightless Australian bird that runs fast"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EMU",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian athlete kept in by the medic starts to protest.",
+     "walkthrough": "'Aussie runner' looks like a sprinter, but it is the flightless bird.",
+     "definitionFit": "To demur is to voice hesitation or disagreement, which is what raising objections means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "runner"
+    }
    }
   }
  ]
