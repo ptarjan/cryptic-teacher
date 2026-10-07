@@ -130,6 +130,12 @@ assert "1980-12-25" not in days and "1980-12-28" not in days and "1980-12-27" in
 
 cases = [
     ({"verdicts": []}, "no-crossword-found"),
+    # Scanned, not yet read: the scan's titles wait for the read; a scan
+    # with none is no crossword whether it is read or not.
+    ({"scan": {"puzzles": [{"number": 5644, "leaf": 39}], "solutions": []}}, "not-read"),
+    ({"scan": {"puzzles": [], "solutions": []}}, "no-crossword-found"),
+    ({"scan": {"puzzles": [{"number": 1652, "leaf": 1}], "solutions": []}, "inputs": "x", "verdicts": []},
+     "no-crossword-found"),
     ({"verdicts": [{"number": 1, "refused": "no reading parses", "cause": "no-reading-parses"}]}, "no-reading-parses"),
     ({"verdicts": [{"number": 1, "refused": "1x2, not a grid", "cause": "not-a-grid"}]}, "not-a-grid"),
     # The class is the verdict's fields, never its prose.
