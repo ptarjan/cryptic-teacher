@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,64 @@
     "text": "Daughter called back to make claim",
     "enumeration": "6"
    },
-   "solution": "DEMAND"
+   "solution": "DEMAND",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEMAND",
+    "definitions": [
+     {
+      "text": "make claim",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "something called back returns the way it came, so the whole string is read from its end"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "called",
+      "gives": "NAMED",
+      "note": "to be called something is to be given that name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMAN",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DNAMED",
+       "to": "DEMAND"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter is summoned home to assert her right to something.",
+     "walkthrough": "The reversal covers both pieces together: D followed by NAMED, read backwards, gives DEMAND.",
+     "definitionFit": "To demand something is to insist on it as a right, which is exactly what making a claim involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "called"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +107,48 @@
     "text": "Recorder makes the most terrible sound",
     "enumeration": "7"
    },
-   "solution": "DIARIST"
+   "solution": "DIARIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DIARIST",
+    "definitions": [
+     {
+      "text": "Recorder",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sound",
+      "for": "homophone",
+      "note": "the word for the most terrible is to be heard rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "makes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the most terrible",
+      "gives": "DIARIST",
+      "soundsLike": "DIREST",
+      "note": "dire means terrible, so the superlative is direst"
+     }
+    ],
+    "explanation": {
+     "surface": "A recording device produces an awful noise.",
+     "walkthrough": "'Recorder' suggests a musical instrument or tape machine, which fits 'terrible sound'; here it is a person who records daily events.",
+     "definitionFit": "A diarist keeps a journal, writing down each day's events, so is someone who records things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Recorder"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +162,57 @@
     "text": "Lead is one for master and others to follow",
     "enumeration": "5"
    },
-   "solution": "METAL"
+   "solution": "METAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "METAL",
+    "definitions": [
+     {
+      "text": "Lead is one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to follow",
+      "for": "charade",
+      "note": "the others come after the master, fixing the order of the two parts"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "master",
+      "gives": "M",
+      "note": "M is a common abbreviation for master, as in an MA degree"
+     },
+     {
+      "clueFragment": "and others",
+      "gives": "ETAL",
+      "note": "et al is the Latin abbreviation meaning and others"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ETAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A leading role is shared among a master and his followers.",
+     "walkthrough": "'Lead' looks like a verb or a leading role, but it is the heavy grey element, pronounced 'led'.",
+     "definitionFit": "Lead is a chemical element classed among the metals, so lead is one example of the category."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +226,53 @@
     "text": "Exchanged reg number to get location of controversial rally",
     "enumeration": "9"
    },
-   "solution": "NUREMBERG"
+   "solution": "NUREMBERG",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUREMBERG",
+    "definitions": [
+     {
+      "text": "location of controversial rally",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exchanged",
+      "for": "anagram",
+      "note": "things exchanged swap places, so these letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reg number",
+      "gives": "REGNUMBER",
+      "note": "taken as written; reg is short for a car registration"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REGNUMBER",
+       "gives": "NUREMBERG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swaps car number plates to reach a disputed political gathering.",
+     "definitionFit": "The German city hosted the notorious Nazi Party rallies of the 1930s, gatherings now remembered with horror."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "reg"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +292,48 @@
      }
     ]
    },
-   "solution": "CARPARK"
+   "solution": "CARPARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CAR PARK",
+    "definitions": [
+     {
+      "text": "where jaguar, for example, may be found",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Criticise",
+      "gives": "CARP",
+      "note": "to carp is to complain or find fault"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "ARK",
+      "note": "Noah's ark sheltered the animals from the flood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARP",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "Finding fault with an animal refuge where a big cat might live.",
+     "walkthrough": "The jaguar seems to be the big cat, fitting the ark; it is the Jaguar make of car.",
+     "definitionFit": "A Jaguar is a luxury car, and a parking area is where such vehicles are left."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jaguar"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +347,39 @@
     "text": "Plant that low sounds come from?",
     "enumeration": "7"
    },
-   "solution": "COWSLIP"
+   "solution": "COWSLIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COWSLIP",
+    "definitions": [
+     {
+      "text": "Plant that low sounds come from?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plant that low sounds come from?",
+      "note": "surface reading: a flower that makes deep, quiet noises"
+     },
+     {
+      "clueFragment": "low sounds",
+      "note": "setter's reading: lowing is a cow's moo, which comes out through the animal's mouth"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read the flower's name as COW'S LIP: the place a moo, or 'low', comes from.",
+     "definitionFit": "The cowslip is a yellow-flowered wild primula of European meadows, so it is a plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +393,43 @@
     "text": "He is called out to give confirmation",
     "enumeration": "5"
    },
-   "solution": "ROGER"
+   "solution": "ROGER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROGER",
+    "definitions": [
+     {
+      "text": "He is called out",
+      "at": 0
+     },
+     {
+      "text": "to give confirmation",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "He is called out",
+      "note": "first meaning: a man's first name, the thing a person is called by"
+     },
+     {
+      "clueFragment": "to give confirmation",
+      "note": "second meaning: the radio word meaning message received and understood"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The two halves read as one sentence about someone summoned, but split into a man's name and a radio reply.",
+     "definitionFit": "Roger is a common male forename, and in radio procedure it is spoken to acknowledge a message was received."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "called"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +443,55 @@
     "text": "Dodgy tale can do as one form of evidence",
     "enumeration": "9"
    },
-   "solution": "ANECDOTAL"
+   "solution": "ANECDOTAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANECDOTAL",
+    "definitions": [
+     {
+      "text": "one form of evidence",
+      "at": 21,
+      "note": "the adjective describes the evidence rather than naming it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Dodgy",
+      "for": "anagram",
+      "note": "something dodgy is unreliable and not as it should be, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tale can do",
+      "gives": "TALECANDO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TALECANDO",
+       "gives": "ANECDOTAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A suspicious story may still serve as proof of something.",
+     "walkthrough": "The surface is wry: anecdotal evidence is famously the weakest kind, so a dodgy tale does qualify.",
+     "definitionFit": "Anecdotal evidence rests on personal stories rather than systematic study, a recognised if weak kind of proof."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Dodgy"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +505,46 @@
     "text": "One who saves is good relationship material",
     "enumeration": "6"
    },
-   "solution": "KEEPER"
+   "solution": "KEEPER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KEEPER",
+    "definitions": [
+     {
+      "text": "One who saves",
+      "at": 0
+     },
+     {
+      "text": "good relationship material",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who saves",
+      "note": "first meaning: a goalkeeper, who stops shots going in"
+     },
+     {
+      "clueFragment": "good relationship material",
+      "note": "second meaning: informal praise for a partner worth holding on to"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Saves' suggests thrift, making a sensible partner; it is a goalkeeper making saves.",
+     "definitionFit": "A goalkeeper makes saves in football, and calling a partner a keeper means they are worth staying with long term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saves"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +558,56 @@
     "text": "Client checks only half completed? It's so commonplace",
     "enumeration": "6"
    },
-   "solution": "CLICHE"
+   "solution": "CLICHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CLICHE",
+    "definitions": [
+     {
+      "text": "It's so commonplace",
+      "at": 35,
+      "note": "the whole phrase describes the answer, a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only half completed",
+      "for": "deletion",
+      "note": "work only half done stops midway, so each word keeps just its opening portion"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Client",
+      "gives": "CLIENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "checks",
+      "gives": "CHECKS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLI",
+      "CHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A customer finds work only half finished, which is a familiar story.",
+     "walkthrough": "Both six-letter words lose their last three letters: CLI from client and CHE from checks.",
+     "definitionFit": "A cliché is an overused phrase or idea, something so familiar that it has become unoriginal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "checks"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +621,54 @@
     "text": "Water golf rough in fading light",
     "enumeration": "9"
    },
-   "solution": "AFTERGLOW"
+   "solution": "AFTERGLOW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AFTERGLOW",
+    "definitions": [
+     {
+      "text": "fading light",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rough",
+      "for": "anagram",
+      "note": "rough means crude or disordered, so the letters before it are jumbled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Water golf",
+      "gives": "WATERGOLF",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WATERGOLF",
+       "gives": "AFTERGLOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer ends up in a water hazard and the long grass as dusk falls.",
+     "walkthrough": "'Water' and 'rough' sound like golf course hazards; the rough is the anagram signal.",
+     "definitionFit": "An afterglow is the light lingering in the sky after sunset, gradually dimming away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rough"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +682,39 @@
     "text": "Bird, when nesting on Channel Islands, turns into shipping hazard!",
     "enumeration": "5"
    },
-   "solution": "GREBE"
+   "solution": "GREBE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GREBE",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "when nesting on Channel Islands, turns into shipping hazard!",
+      "note": "surface reading: a seabird settling on Jersey or Guernsey somehow becomes a danger to ships"
+     },
+     {
+      "clueFragment": "Channel Islands",
+      "note": "setter's reading: write the bird, put the abbreviation CI after it, and read the whole backwards to get a floating danger to ships"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A reverse clue: GREBE followed by CI (Channel Islands), reversed, spells ICEBERG, the shipping hazard. The Channel Islands are British islands off Normandy.",
+     "definitionFit": "The grebe is a diving waterbird with lobed toes, found on lakes and coasts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "turns"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +728,55 @@
     "text": "Doctrine taking in the Italian faith",
     "enumeration": "5"
    },
-   "solution": "ISLAM"
+   "solution": "ISLAM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ISLAM",
+    "definitions": [
+     {
+      "text": "faith",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "to take in is to admit inside, so one word goes into the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctrine",
+      "gives": "ISM",
+      "note": "an ism is any distinctive doctrine or theory"
+     },
+     {
+      "clueFragment": "the Italian",
+      "gives": "LA",
+      "note": "la is the feminine definite article in Italian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "LA",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A belief system that absorbs an Italian religion.",
+     "walkthrough": "'Doctrine' looks like the definition next to 'faith', but it is wordplay; 'faith' alone is defined.",
+     "definitionFit": "Islam is the religion of Muslims, one of the world's major faiths."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +790,50 @@
     "text": "Poet provides merry old king with crest",
     "enumeration": "9"
    },
-   "solution": "COLERIDGE"
+   "solution": "COLERIDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLERIDGE",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merry old king",
+      "gives": "COLE",
+      "note": "Old King Cole of the nursery rhyme was a merry old soul"
+     },
+     {
+      "clueFragment": "with crest",
+      "gives": "RIDGE",
+      "note": "a crest is the top line of a hill, a ridge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COLE",
+      "RIDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer of verse supplies a jolly monarch with a heraldic emblem.",
+     "walkthrough": "'Crest' suggests a coat of arms to go with the king, but it is a hilltop.",
+     "definitionFit": "Samuel Taylor Coleridge was the English Romantic writer of The Rime of the Ancient Mariner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crest"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +847,38 @@
     "text": "We must look up when artist is on there",
     "enumeration": "7"
    },
-   "solution": "TRAPEZE"
+   "solution": "TRAPEZE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TRAPEZE",
+    "definitions": [
+     {
+      "text": "We must look up when artist is on there",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "We must look up when artist is on there",
+      "note": "surface reading: a painter perched somewhere high, perhaps on scaffolding or a ceiling"
+     },
+     {
+      "clueFragment": "artist",
+      "note": "setter's reading: a circus performer swinging high above the audience on a bar hung from ropes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Artist' suggests a painter like Michelangelo on a ceiling; the circus acrobat is the real artist.",
+     "definitionFit": "The circus swing is a horizontal bar hung high on ropes, so the audience gazes upward at the performer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "artist"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +892,56 @@
     "text": "Champion provides a game summary",
     "enumeration": "9"
    },
-   "solution": "APOLOGIST"
+   "solution": "APOLOGIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APOLOGIST",
+    "definitions": [
+     {
+      "text": "Champion",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provides"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "POLO",
+      "note": "polo is a sport played on horseback"
+     },
+     {
+      "clueFragment": "summary",
+      "gives": "GIST",
+      "note": "the gist is the main point or substance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLO",
+      "GIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A sports winner offers a brief match report.",
+     "walkthrough": "'Champion' suggests a winner, fitting the game; here it means someone who argues for a cause.",
+     "definitionFit": "An apologist defends or argues for a belief or person, just as a champion of a cause does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Champion"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +955,55 @@
     "text": "Communications officer starts to name the others immediately",
     "enumeration": "6"
    },
-   "solution": "PRONTO"
+   "solution": "PRONTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRONTO",
+    "definitions": [
+     {
+      "text": "immediately",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of the words are their first letters, the only ones kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Communications officer",
+      "gives": "PRO",
+      "note": "a PRO is a public relations officer, who handles communications"
+     },
+     {
+      "clueFragment": "name the others",
+      "gives": "NTO",
+      "select": "first",
+      "note": "opening letters of three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "NTO"
+     ]
+    },
+    "explanation": {
+     "surface": "A spokesperson begins to name everybody else without delay.",
+     "definitionFit": "Pronto is informal for at once or right away, borrowed from Spanish and Italian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "starts"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1023,55 @@
      }
     ]
    },
-   "solution": "OVENREADY"
+   "solution": "OVENREADY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVEN READY",
+    "definitions": [
+     {
+      "text": "Prepared for a roasting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "something varied has been changed, so the letters are put in a different order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yoda never",
+      "gives": "YODANEVER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YODANEVER",
+       "gives": "OVENREADY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ready for a scolding, the Star Wars sage never changed his ways.",
+     "walkthrough": "'Roasting' looks like a telling-off; here it is literal cooking.",
+     "definitionFit": "Oven-ready food has been prepared in advance so it can go straight into the oven to be cooked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "roasting"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1085,51 @@
     "text": "Commercial music piece, which makes very little impact",
     "enumeration": "6"
    },
-   "solution": "POPGUN"
+   "solution": "POPGUN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POPGUN",
+    "definitions": [
+     {
+      "text": "which makes very little impact",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Commercial music",
+      "gives": "POP",
+      "note": "pop is mass-market popular music"
+     },
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "piece is slang for a firearm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "GUN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bit of chart music that fails to make any mark.",
+     "walkthrough": "'Piece' looks like a piece of music; it is gangster slang for a gun.",
+     "definitionFit": "A popgun is a toy firing a cork with a bang, so its shot hits with hardly any force."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1143,79 @@
     "text": "Remarkably, central donors extend deadline before close of play",
     "enumeration": "7"
    },
-   "solution": "NOTEDLY"
+   "solution": "NOTEDLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NOTEDLY",
+    "definitions": [
+     {
+      "text": "Remarkably",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central",
+      "for": "letter_selection",
+      "note": "central refers to the middle of each of the following three words, keeping only those letters"
+     },
+     {
+      "text": "close of",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "donors",
+      "gives": "NO",
+      "select": "middle",
+      "note": "middle two of six letters"
+     },
+     {
+      "clueFragment": "extend",
+      "gives": "TE",
+      "select": "middle",
+      "note": "middle two of six letters"
+     },
+     {
+      "clueFragment": "deadline",
+      "gives": "DL",
+      "select": "middle",
+      "note": "middle two of eight letters"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TE",
+      "DL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Donors unusually grant extra time before a performance ends.",
+     "walkthrough": "'Central' governs all three words that follow it, each giving its middle pair.",
+     "definitionFit": "Notedly means in a noticeable or notable way, much like remarkably or especially."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "central"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1229,66 @@
     "text": "Resident of Derby dropping by to pick up spring",
     "enumeration": "7"
    },
-   "solution": "DWELLER"
+   "solution": "DWELLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DWELLER",
+    "definitions": [
+     {
+      "text": "Resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "to drop something is to let it go, so those letters are removed"
+     },
+     {
+      "text": "to pick up",
+      "for": "container",
+      "note": "picking something up means taking it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Derby",
+      "gives": "DERBY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written, the letters removed"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "WELL",
+      "note": "a spring is a natural well or source of water"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "WELL",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone living in Derby stops by to collect a spring.",
+     "walkthrough": "Derby is an English Midlands city; its name happens to end in the very word to drop.",
+     "definitionFit": "A dweller is one who lives in a particular place, an inhabitant or resident of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1302,59 @@
     "text": "Death leads to half empty senate",
     "enumeration": "6"
    },
-   "solution": "DEMISE"
+   "solution": "DEMISE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "DEMISE",
+    "definitions": [
+     {
+      "text": "Death",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "emptying a word removes its inside, keeping only the outer shell"
+     }
+    ],
+    "linkWords": [
+     "leads to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "half",
+      "gives": "DEMI",
+      "note": "demi is a prefix meaning half, as in demigod"
+     },
+     {
+      "clueFragment": "senate",
+      "gives": "SE",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEMI",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fatality leaves a political chamber half deserted.",
+     "walkthrough": "'Leads to' joins definition and wordplay; 'half' is not a halving instruction but gives the prefix DEMI.",
+     "definitionFit": "Demise is a formal word for a person's end, their passing away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 20,
@@ -359,7 +1374,55 @@
      }
     ]
    },
-   "solution": "ROPEDIN"
+   "solution": "ROPEDIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROPED IN",
+    "definitions": [
+     {
+      "text": "Recruited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take on",
+      "for": "container",
+      "note": "to take something on is to bring it in, so one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sculptor",
+      "gives": "RODIN",
+      "note": "Auguste Rodin, French sculptor of The Thinker"
+     },
+     {
+      "clueFragment": "exercise",
+      "gives": "PE",
+      "note": "PE is physical education, school exercise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "PE",
+      "DIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sculptor was hired to do a fitness routine.",
+     "walkthrough": "PE is the British school subject name for physical education.",
+     "definitionFit": "To be roped in is to be persuaded or enlisted to take part in something, often reluctantly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exercise"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1442,69 @@
      }
     ]
    },
-   "solution": "JETSET"
+   "solution": "JETSET",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "JET SET",
+    "definitions": [
+     {
+      "text": "wealthy crowd",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raise",
+      "for": "reversal",
+      "note": "in a down clue raising a word lifts it bottom to top, so it reads backwards"
+     },
+     {
+      "text": "In France",
+      "for": "charade",
+      "note": "says the following pronoun is to be given in French"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "JE",
+      "note": "je is the French first-person pronoun"
+     },
+     {
+      "clueFragment": "tax",
+      "gives": "TEST",
+      "note": "to tax someone's patience is to test it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JE",
+      "TSET"
+     ],
+     "reversals": [
+      {
+       "from": "TEST",
+       "to": "TSET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French official proposes increasing a levy on the rich.",
+     "walkthrough": "'Raise tax' sounds like fiscal policy; here tax means to strain or try.",
+     "definitionFit": "The jet set are rich, fashionable people who fly between glamorous resorts, a wealthy social group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tax"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1518,62 @@
     "text": "Europe leads warm support for living community",
     "enumeration": "9"
    },
-   "solution": "ECOSYSTEM"
+   "solution": "ECOSYSTEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ECOSYSTEM",
+    "definitions": [
+     {
+      "text": "living community",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads",
+      "for": "charade",
+      "note": "one that leads goes in front, so this piece comes first"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Europe",
+      "gives": "E",
+      "note": "E is the abbreviation for Europe"
+     },
+     {
+      "clueFragment": "warm",
+      "gives": "COSY",
+      "note": "cosy means snug and warm"
+     },
+     {
+      "clueFragment": "support",
+      "gives": "STEM",
+      "note": "a stem supports a flower or leaf"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "COSY",
+      "STEM"
+     ]
+    },
+    "explanation": {
+     "surface": "Europe heads up efforts to back a thriving society.",
+     "definitionFit": "An ecosystem is a biological community of interacting organisms together with their physical environment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1587,50 @@
     "text": "How the Swiss might call on Derek  …",
     "enumeration": "5"
    },
-   "solution": "YODEL"
+   "solution": "YODEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YODEL",
+    "definitions": [
+     {
+      "text": "How the Swiss might call",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "YO",
+      "note": "yo is an informal shout to get attention"
+     },
+     {
+      "clueFragment": "Derek",
+      "gives": "DEL",
+      "note": "Del is a short form of Derek, as in Del Boy of Only Fools and Horses"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YO",
+      "DEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Swiss person might drop in on someone named Derek.",
+     "walkthrough": "'Call' does double duty in the surface: the definition's call is the singing style, the wordplay's call is the shout YO.",
+     "definitionFit": "Yodelling, rapid switching between chest voice and falsetto, is the traditional Alpine way of calling across mountains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 24,
@@ -421,7 +1644,46 @@
     "text": "Run over what venture capitalist holds",
     "enumeration": "5"
    },
-   "solution": "RECAP"
+   "solution": "RECAP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RECAP",
+    "definitions": [
+     {
+      "text": "Run over",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "hidden_word",
+      "note": "the phrase holds the answer inside it, contained within its letters"
+     }
+    ],
+    "linkWords": [
+     "what"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "venture capitalist",
+      "gives": "RECAP",
+      "note": "letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks to review what an investor owns.",
+     "walkthrough": "'Run over' sounds like a traffic accident; here it means to go over again.",
+     "definitionFit": "To recap is to summarise again the main points, as one does when running over something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "holds"
+    }
+   }
   },
   {
    "number": 25,
@@ -435,7 +1697,49 @@
     "text": "…  to begin covering up really interesting object",
     "enumeration": "5"
    },
-   "solution": "CURIO"
+   "solution": "CURIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "CURIO",
+    "definitions": [
+     {
+      "text": "covering up really interesting object",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin",
+      "for": "letter_selection",
+      "note": "the beginnings of the words are their first letters, which are the ones kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "covering up really interesting object",
+      "gives": "CURIO",
+      "select": "first",
+      "note": "the initial letter of each of five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURIO"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue, a Swiss caller starts to hide something fascinating.",
+     "walkthrough": "The ellipsis links it to 23 down for the surface only. Read whole, the clue also describes the answer: a really interesting object.",
+     "definitionFit": "A curio is an unusual, intriguing small article, a rare item valued for its novelty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1753,63 @@
     "text": "Saw momentum when I replaced initial energy",
     "enumeration": "5"
    },
-   "solution": "SPIED"
+   "solution": "SPIED",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SPIED",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replaced",
+      "for": "substitution",
+      "note": "one letter is replaced by another in the word, a swap of a single piece"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "momentum",
+      "gives": "SPEED",
+      "note": "momentum suggests speed or pace"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "initial energy",
+      "gives": "E",
+      "note": "E is the symbol for energy; initial means the first one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "I",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A physicist sees that momentum changes when energy is swapped out.",
+     "walkthrough": "The first E of SPEED becomes I.",
+     "definitionFit": "Spied, the past tense of spy, means caught sight of or noticed, just as saw does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 27,
@@ -463,7 +1823,59 @@
     "text": "Gave up having incorrectly read previous solution",
     "enumeration": "9"
    },
-   "solution": "DESPAIRED"
+   "solution": "DESPAIRED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESPAIRED",
+    "definitions": [
+     {
+      "text": "Gave up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorrectly",
+      "for": "anagram",
+      "note": "something done incorrectly is wrong, so the letters come out in the wrong order"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "read",
+      "gives": "READ",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "previous solution",
+      "gives": "SPIED",
+      "note": "the answer to the clue just before, 26 across"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "READSPIED",
+       "gives": "DESPAIRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone abandons a puzzle after misreading the last answer.",
+     "walkthrough": "'Previous solution' points to the answer of 26 across, which joins READ as anagram fodder.",
+     "definitionFit": "To despair is to lose all hope, so someone who despaired effectively gave up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "read"
+    }
+   }
   },
   {
    "number": 28,
@@ -477,7 +1889,47 @@
     "text": "Completely child friendly",
     "enumeration": "7"
    },
-   "solution": "TOTALLY"
+   "solution": "TOTALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOTALLY",
+    "definitions": [
+     {
+      "text": "Completely",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "TOT",
+      "note": "a tot is a small child"
+     },
+     {
+      "clueFragment": "friendly",
+      "gives": "ALLY",
+      "note": "a friendly nation or person is an ally"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOT",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Something wholly suitable for children.",
+     "walkthrough": "'Child friendly' reads as one phrase, but splits into a noun and an adjective used as a noun.",
+     "definitionFit": "Totally and completely both mean wholly, entirely, to the fullest degree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "friendly"
+    }
+   }
   },
   {
    "number": 29,
@@ -491,7 +1943,74 @@
     "text": "Big businessman not coming back to acquire unknown company",
     "enumeration": "6"
    },
-   "solution": "TYCOON"
+   "solution": "TYCOON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "TYCOON",
+    "definitions": [
+     {
+      "text": "Big businessman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "coming back",
+      "for": "reversal",
+      "note": "coming back means returning the way it went, so the word reads backwards"
+     },
+     {
+      "text": "to acquire",
+      "for": "container",
+      "note": "acquiring something takes it in, so the other pieces go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "Y is one of the algebraic unknowns"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "Co is the abbreviation for company"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "Y",
+      "CO",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOT",
+       "to": "TON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A magnate refuses to return to buy a mystery firm.",
+     "walkthrough": "'Not coming back' reads as refusing to return, but it is the word not reversed.",
+     "definitionFit": "A tycoon is a wealthy, powerful person in business or industry, a magnate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "acquire"
+    }
+   }
   }
  ]
 }
