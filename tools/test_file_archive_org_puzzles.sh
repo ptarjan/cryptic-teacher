@@ -1507,6 +1507,11 @@ got = gale_words({rs[2]: title("The Times Crossword Puzzle NO 17,249"),
 check("a title one reader read stands after the solution heading the others read", [17249], [t[0] for t in got[0]])
 got = gale_words({rs[2]: title("The Times Crossword Puzzle No 17,300")})
 check("one reader's title with no solution heading to back it is not", [], got[0])
+ran_on = [(10, 300, 30, 320, "27"), (35, 300, 80, 320, "Order"), (85, 300, 120, 320, "con-")]
+got = gale_words({r: ran_on + [(w[0] + 140, w[1], w[2] + 140, w[3], "Solotion" if w[4] == "Solution" else w[4])
+                               for w in sol] for r in rs[:2]})
+check("a solution heading read on the end of a clue line, 'Solotion', is read once a reader", ([17247], []),
+      ([s_[0] for s_ in got[1]], got[0]))
 
 # The 1930 Times (pub_times, one item an issue): its paper, its 1-3 digit
 # numbers held to the date, four clue columns, and counts from the grid.

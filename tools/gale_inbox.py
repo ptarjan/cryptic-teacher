@@ -719,9 +719,12 @@ def start_reads(out=sys.stdout, job=READ_JOB, log=READ_LOG):
     if not waiting:
         return None
     log.parent.mkdir(parents=True, exist_ok=True)
+    # Without this tick's worktree marks, so the job takes a worktree of its
+    # own (tools/nightly_worktree.sh): this tree is reset every tick.
+    env = {k: v for k, v in os.environ.items() if k not in ("CT_IN_WORKTREE", "CT_MAIN_CHECKOUT")}
     with open(log, "a") as f:
         p = subprocess.Popen(["bash", str(job)], stdout=f, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
-                             start_new_session=True, close_fds=True)
+                             start_new_session=True, close_fds=True, env=env)
     print(f"started {job.name} (pid {p.pid}) for {len(waiting)} fresh edition(s): {', '.join(waiting[:5])}; "
           f"log {log}", file=out)
     return p
