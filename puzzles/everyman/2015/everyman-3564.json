@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "Respiratory complaint in New Zealand got by adult inhaling pipe",
     "enumeration": "9"
    },
-   "solution": "INFLUENZA"
+   "solution": "INFLUENZA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INFLUENZA",
+    "definitions": [
+     {
+      "text": "Respiratory complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inhaling",
+      "for": "container",
+      "note": "whatever is inhaled is drawn inside, so one set of letters takes another into its middle"
+     }
+    ],
+    "linkWords": [
+     "got by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pipe",
+      "gives": "FLUE",
+      "note": "a flue is a chimney pipe"
+     },
+     {
+      "clueFragment": "New Zealand",
+      "gives": "NZ",
+      "note": "standard abbreviation for New Zealand"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the film-rating abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FLUE",
+      "NZ",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone catches a chest infection on a trip to New Zealand, perhaps from a grown-up smoking a pipe.",
+     "walkthrough": "The inhaling is done by the string 'in New Zealand got by adult' as a whole: the pipe goes inside it, just after the opening word.",
+     "definitionFit": "Flu is a viral illness of the airways, so it is fairly called a breathing-related ailment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pipe"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +113,63 @@
     "text": "The Italian applied sun oil to create a false impression",
     "enumeration": "8"
    },
-   "solution": "ILLUSION"
+   "solution": "ILLUSION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "ILLUSION",
+    "definitions": [
+     {
+      "text": "false impression",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "applied",
+      "for": "anagram",
+      "note": "letters that are applied are put to work in a fresh arrangement rather than left as they stand"
+     }
+    ],
+    "linkWords": [
+     "to create a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Italian",
+      "gives": "IL",
+      "note": "il is Italian for 'the'"
+     },
+     {
+      "clueFragment": "sun oil",
+      "gives": "SUNOIL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IL",
+      "LUSION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUNOIL",
+       "gives": "LUSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Italian slathers on suntan lotion to fake a tan.",
+     "definitionFit": "An illusion is a deceptive appearance, something that misleads the senses or mind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "applied"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,61 @@
     "text": "To supply coat by noon is hard",
     "enumeration": "7"
    },
-   "solution": "FURNISH"
+   "solution": "FURNISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FURNISH",
+    "definitions": [
+     {
+      "text": "To supply",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "coat",
+      "gives": "FUR",
+      "note": "an animal's fur is its coat"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is an abbreviation for noon"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grade abbreviation for hard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FUR",
+      "N",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor finds it tough to deliver a coat by midday.",
+     "definitionFit": "To furnish is to provide or equip someone with something, a close synonym of supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +261,48 @@
      }
     ]
    },
-   "solution": "UNDERTHEWEATHER"
+   "solution": "UNDERTHEWEATHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDER THE WEATHER",
+    "definitions": [
+     {
+      "text": "Indisposed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "subordinate",
+      "gives": "UNDER",
+      "note": "one under another is subordinate to them"
+     },
+     {
+      "clueFragment": "a British subject?",
+      "gives": "THEWEATHER",
+      "note": "the weather is the topic the British famously talk about; the question mark flags the pun on subject"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "THEWEATHER"
+     ]
+    },
+    "explanation": {
+     "surface": "A junior British citizen is off sick.",
+     "walkthrough": "'A British subject' reads as a citizen, but here it is a topic of conversation, the one Britons are said never to stop discussing.",
+     "definitionFit": "Under the weather is an idiom for feeling slightly unwell, which is what indisposed means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "subject"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +316,41 @@
     "text": "Antelope found in many a land",
     "enumeration": "5"
    },
-   "solution": "NYALA"
+   "solution": "NYALA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "NYALA",
+    "definitions": [
+     {
+      "text": "Antelope",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "something found in a phrase is sitting inside it, waiting to be spotted across the word breaks"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many a land",
+      "gives": "NYALA",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A grazing animal turns up across many countries.",
+     "definitionFit": "The nyala is a spiral-horned antelope of southern Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +364,46 @@
     "text": "Member blowing hard, renowned trumpeter",
     "enumeration": "9"
    },
-   "solution": "ARMSTRONG"
+   "solution": "ARMSTRONG",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ARMSTRONG",
+    "definitions": [
+     {
+      "text": "renowned trumpeter",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member",
+      "gives": "ARM",
+      "note": "a limb is a member of the body"
+     },
+     {
+      "clueFragment": "blowing hard",
+      "gives": "STRONG",
+      "note": "a wind blowing hard is a strong one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARM",
+      "STRONG"
+     ]
+    },
+    "explanation": {
+     "surface": "A band member blows with gusto: a famous trumpet player.",
+     "definitionFit": "Louis Armstrong was the celebrated American jazz trumpet player, an example of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +417,47 @@
     "text": "Mack's mate married Magwitch, maybe",
     "enumeration": "5"
    },
-   "solution": "MABEL"
+   "solution": "MABEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MABEL",
+    "definitions": [
+     {
+      "text": "Mack's mate",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "Magwitch, maybe",
+      "gives": "ABEL",
+      "note": "Abel Magwitch is the convict in Dickens's Great Expectations, so his first name is a possibility"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ABEL"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Mack's companion wed a Dickensian convict.",
+     "walkthrough": "'Maybe' signals that Magwitch is one example of someone with the first name, here Abel.",
+     "definitionFit": "Mabel Normand was the silent-film star partnered with producer Mack Sennett, so she was Mack's companion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Magwitch"
+    }
+   }
   },
   {
    "number": 6,
@@ -155,7 +485,43 @@
      }
     ]
    },
-   "solution": "MIDDLEOFTHEROAD"
+   "solution": "MIDDLEOFTHEROAD",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MIDDLE-OF-THE-ROAD",
+    "definitions": [
+     {
+      "text": "Central",
+      "at": 0
+     },
+     {
+      "text": "square",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Central",
+      "note": "first meaning: moderate, in the political centre"
+     },
+     {
+      "clueFragment": "square",
+      "note": "second meaning: conventional and unadventurous"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it looks like a town's main plaza; the two words are separate senses of one hyphenated phrase.",
+     "definitionFit": "Middle-of-the-road describes both moderate centrist views and dull, conventional taste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "square"
+    }
+   }
   },
   {
    "number": 7,
@@ -169,7 +535,68 @@
     "text": "A learner, one taken in by deceptive talk",
     "enumeration": "7"
    },
-   "solution": "BALONEY"
+   "solution": "BALONEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BALONEY",
+    "definitions": [
+     {
+      "text": "deceptive talk",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "to be taken in by something is to be held within it, so these letters go inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner-driver plate"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "by",
+      "gives": "BY",
+      "note": "taken as written, it wraps the other pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "L",
+      "ONE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A novice is fooled by smooth-talking lies.",
+     "walkthrough": "The 'by' is not a link: it is the outer word, and A L ONE sits within it to give B-ALONE-Y.",
+     "definitionFit": "Baloney is nonsense or humbug, talk meant to mislead or impress."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 8,
@@ -183,7 +610,58 @@
     "text": "Relax having free gin at the end",
     "enumeration": "6"
    },
-   "solution": "LOOSEN"
+   "solution": "LOOSEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "LOOSEN",
+    "definitions": [
+     {
+      "text": "Relax",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "free",
+      "gives": "LOOSE",
+      "note": "something loose is free, not tied"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOOSE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone unwinds with a free gin at the close of the day.",
+     "definitionFit": "To loosen is to slacken or make less tight, the same as relax a grip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gin"
+    }
+   }
   },
   {
    "number": 9,
@@ -197,7 +675,54 @@
     "text": "Shocking cover - ancient city featured inside",
     "enumeration": "5"
    },
-   "solution": "LURID"
+   "solution": "LURID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LURID",
+    "definitions": [
+     {
+      "text": "Shocking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "featured inside",
+      "for": "container",
+      "note": "a thing featured inside another appears within it, so one word goes into the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cover",
+      "gives": "LID",
+      "note": "a lid covers a pot"
+     },
+     {
+      "clueFragment": "ancient city",
+      "gives": "UR",
+      "note": "Ur is the ancient Sumerian city, a crossword favourite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UR",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A sensational cover story about a lost city.",
+     "definitionFit": "Lurid means sensational and horrifying, as in lurid details that shock."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +736,53 @@
     "text": "Nocturnal animal found in mall, radio broadcast",
     "enumeration": "9"
    },
-   "solution": "ARMADILLO"
+   "solution": "ARMADILLO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ARMADILLO",
+    "definitions": [
+     {
+      "text": "Nocturnal animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "something broadcast is scattered about widely, so the letters are spread into a new order"
+     }
+    ],
+    "linkWords": [
+     "found in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mall, radio",
+      "gives": "MALLRADIO",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MALLRADIO",
+       "gives": "ARMADILLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news report about a night creature spotted in a shopping centre.",
+     "definitionFit": "The armadillo is an armoured American mammal that forages mostly at night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 11,
@@ -231,7 +802,51 @@
      }
     ]
    },
-   "solution": "SPITROAST"
+   "solution": "SPITROAST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPIT ROAST",
+    "definitions": [
+     {
+      "text": "Cook",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mistaken",
+      "for": "anagram",
+      "note": "something mistaken is wrong, so the letters are in the wrong order and must be put right"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strait? P&O's",
+      "gives": "STRAITPOS",
+      "note": "the letters to be rearranged, including the S of the possessive"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STRAITPOS",
+       "gives": "SPITROAST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone queries whether the ferry company P&O sails Cook Strait, and is told they are wrong.",
+     "walkthrough": "Cook Strait separates New Zealand's two main islands and P&O is a shipping line, so the surface reads as geography; 'Cook' is the verb.",
+     "definitionFit": "To spit-roast is to cook meat on a revolving skewer over a fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +860,47 @@
     "text": "Stab leader leaving dive",
     "enumeration": "5"
    },
-   "solution": "LUNGE"
+   "solution": "LUNGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUNGE",
+    "definitions": [
+     {
+      "text": "Stab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader leaving",
+      "for": "deletion",
+      "note": "when the leader leaves, the front letter of the word departs"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dive",
+      "gives": "PLUNGE",
+      "note": "to plunge is to dive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUNGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A knife attack as the gang boss makes a run for it.",
+     "definitionFit": "A lunge is a sudden forward thrust, as with a sword: a stab at someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +914,39 @@
     "text": "Pupils may be examined in this branch of medicine",
     "enumeration": "13"
    },
-   "solution": "OPHTHALMOLOGY"
+   "solution": "OPHTHALMOLOGY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OPHTHALMOLOGY",
+    "definitions": [
+     {
+      "text": "Pupils may be examined in this branch of medicine",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pupils may be examined",
+      "note": "surface reading: schoolchildren sitting a test"
+     },
+     {
+      "clueFragment": "Pupils",
+      "note": "setter's reading: the dark centres of the eyes, which a specialist inspects"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Pupils sit exams at school, but these pupils belong to eyes, and the branch of medicine is the one that studies them.",
+     "definitionFit": "This is the medical specialism dealing with the eye and its disorders, where checking pupils is routine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pupils"
+    }
+   }
   },
   {
    "number": 14,
@@ -273,7 +960,43 @@
     "text": "Queen's favourite city?",
     "enumeration": "9"
    },
-   "solution": "LEICESTER"
+   "solution": "LEICESTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEICESTER",
+    "definitions": [
+     {
+      "text": "Queen's favourite",
+      "at": 0
+     },
+     {
+      "text": "city",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen's favourite",
+      "note": "first meaning: Robert Dudley, Earl of ..., favourite of Elizabeth I"
+     },
+     {
+      "clueFragment": "city",
+      "note": "second meaning: the city in the English East Midlands"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as asking which city a queen likes best; the title of Elizabeth I's favourite courtier is also a city name.",
+     "definitionFit": "Robert Dudley, Earl of Leicester, was Elizabeth I's favourite, and Leicester is a city in central England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "favourite"
+    }
+   }
   },
   {
    "number": 15,
@@ -287,7 +1010,57 @@
     "text": "Trampled on top of everyone in headlong rush",
     "enumeration": "8"
    },
-   "solution": "STAMPEDE"
+   "solution": "STAMPEDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STAMPEDE",
+    "definitions": [
+     {
+      "text": "headlong rush",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "in a down clue the top of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trampled on",
+      "gives": "STAMPED",
+      "note": "stamped on means trampled"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "E",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAMPED",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "In a mad rush everyone got trodden underfoot.",
+     "definitionFit": "A stampede is a sudden panicked rush of a herd or crowd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -307,7 +1080,74 @@
      }
     ]
    },
-   "solution": "DOWNINGSTREET"
+   "solution": "DOWNINGSTREET",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "DOWNING STREET",
+    "definitions": [
+     {
+      "text": "British Government",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "setting things out lays them out afresh, so the word before it is reordered"
+     },
+     {
+      "text": "to repress",
+      "for": "container",
+      "note": "to repress something is to hold it down within, so the letters close around the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out of order",
+      "gives": "DOWN",
+      "note": "a broken machine is down"
+     },
+     {
+      "clueFragment": "setting",
+      "gives": "SETTING",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "religious education",
+      "gives": "RE",
+      "note": "RE is the school-subject abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOWN",
+      "INGST",
+      "RE",
+      "ET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SETTING",
+       "gives": "INGSTET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The government is in a mess, setting out to clamp down on RE in schools.",
+     "walkthrough": "'Out of order' looks like the anagram signal, but it is a synonym; the anagram signal is the 'out' in 'setting out'.",
+     "definitionFit": "Downing Street, home of the Prime Minister, is metonymy for the UK government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "order"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1161,48 @@
     "text": "Dingy church in French port",
     "enumeration": "7"
    },
-   "solution": "DUNKIRK"
+   "solution": "DUNKIRK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUNKIRK",
+    "definitions": [
+     {
+      "text": "French port",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dingy",
+      "gives": "DUN",
+      "note": "dun is a dull greyish brown"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "KIRK",
+      "note": "kirk is the Scottish word for church"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUN",
+      "KIRK"
+     ]
+    },
+    "explanation": {
+     "surface": "A drab church in a French harbour town.",
+     "definitionFit": "Dunkirk (Dunkerque) is a port on the north coast of France."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1216,48 @@
     "text": "Rabble-rousing? Head of state ignored issue",
     "enumeration": "7"
    },
-   "solution": "EDITION"
+   "solution": "EDITION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EDITION",
+    "definitions": [
+     {
+      "text": "issue",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Head of state ignored",
+      "for": "deletion",
+      "note": "ignoring the head of something leaves its front letter out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rabble-rousing",
+      "gives": "SEDITION",
+      "note": "sedition is stirring up rebellion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDITION"
+     ]
+    },
+    "explanation": {
+     "surface": "Agitators ignore the president and stir up a political issue.",
+     "walkthrough": "'Head of state' looks like a ruler; it is the first letter of the word 'state', which matches the S that drops off.",
+     "definitionFit": "An edition is one issue of a newspaper or magazine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1271,59 @@
     "text": "Very small person, quiet politician touring Rhode Island",
     "enumeration": "6"
    },
-   "solution": "SHRIMP"
+   "solution": "SHRIMP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SHRIMP",
+    "definitions": [
+     {
+      "text": "Very small person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "someone touring a place travels around it, so these letters go around the next item"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "Rhode Island",
+      "gives": "RI",
+      "note": "the US state abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "RI",
+      "MP"
+     ]
+    },
+    "explanation": {
+     "surface": "A short, reserved politician on a tour of Rhode Island.",
+     "definitionFit": "Shrimp is informal for a tiny or puny person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1337,64 @@
     "text": "Woman repelled by husband suggesting a dye",
     "enumeration": "5"
    },
-   "solution": "HENNA"
+   "solution": "HENNA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HENNA",
+    "definitions": [
+     {
+      "text": "a dye",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repelled",
+      "for": "reversal",
+      "note": "something repelled is driven back, so the word runs the other way"
+     }
+    ],
+    "linkWords": [
+     "suggesting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     },
+     {
+      "clueFragment": "Woman",
+      "gives": "ANNE",
+      "note": "a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ENNA"
+     ],
+     "reversals": [
+      {
+       "from": "ANNE",
+       "to": "ENNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman spurns her husband's advances.",
+     "walkthrough": "The husband comes first in the answer although the clue names him second: 'by' places him beside the reversed name.",
+     "definitionFit": "Henna is a reddish dye from a shrub's leaves, used on hair and skin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "repelled"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1408,52 @@
     "text": "Mum's pie - he used a polite term",
     "enumeration": "9"
    },
-   "solution": "EUPHEMISM"
+   "solution": "EUPHEMISM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EUPHEMISM",
+    "definitions": [
+     {
+      "text": "a polite term",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "used",
+      "for": "anagram",
+      "note": "letters that are used are worked over, ending up in a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum's pie - he",
+      "gives": "MUMSPIEHE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUMSPIEHE",
+       "gives": "EUPHEMISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man tactfully describes his mother's pie.",
+     "walkthrough": "The surface invites a tactful word for Mum's pie, which is itself the sort of soft phrasing the answer names.",
+     "definitionFit": "A euphemism is a mild word substituted for one thought too blunt or offensive."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "used"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1467,65 @@
     "text": "Prisoners of war describing ending of captivity in Welsh county",
     "enumeration": "5"
    },
-   "solution": "POWYS"
+   "solution": "POWYS",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection"
+    ],
+    "answer": "POWYS",
+    "definitions": [
+     {
+      "text": "Welsh county",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a circle is to draw it around something, so these letters enclose the next one"
+     },
+     {
+      "text": "ending of",
+      "for": "letter_selection",
+      "note": "the ending of a word is its last letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoners of war",
+      "gives": "POWS",
+      "note": "POWs is the standard abbreviation"
+     },
+     {
+      "clueFragment": "captivity",
+      "gives": "Y",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POW",
+      "Y",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Captured soldiers recount the end of their imprisonment in Wales.",
+     "walkthrough": "'Describing' looks like telling a story, but it is the geometric sense of drawing around.",
+     "definitionFit": "Powys is a large rural county in mid-Wales."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "describing"
+    }
+   }
   },
   {
    "number": 22,
@@ -411,7 +1545,63 @@
      }
     ]
    },
-   "solution": "IRISHSTEW"
+   "solution": "IRISHSTEW",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IRISH STEW",
+    "definitions": [
+     {
+      "text": "a dish",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are mixed into a new form"
+     }
+    ],
+    "linkWords": [
+     "produces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tries his",
+      "gives": "TRIESHIS",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRISHSTE",
+      "W"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRIESHIS",
+       "gives": "IRISHSTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A husband has a go at cooking before his wife serves dinner.",
+     "definitionFit": "Irish stew is a traditional casserole of mutton, potatoes and onions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Tries"
+    }
+   }
   },
   {
    "number": 23,
@@ -425,7 +1615,61 @@
     "text": "Fruit, old and turning bad",
     "enumeration": "5"
    },
-   "solution": "OLIVE"
+   "solution": "OLIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OLIVE",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round sends the word back the way it came"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "EVIL",
+      "note": "evil means bad"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVIL",
+       "to": "LIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some old fruit is going off.",
+     "walkthrough": "'Turning bad' reads as going rotten; 'turning' actually applies to the word for bad.",
+     "definitionFit": "The olive is the small oily stone fruit of the olive tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1683,46 @@
     "text": "Fire-raiser's game?",
     "enumeration": "5"
    },
-   "solution": "POKER"
+   "solution": "POKER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POKER",
+    "definitions": [
+     {
+      "text": "Fire-raiser",
+      "at": 0
+     },
+     {
+      "text": "game",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fire-raiser",
+      "note": "first meaning: a rod used to stir a fire into flame"
+     },
+     {
+      "clueFragment": "game",
+      "note": "second meaning: the card game played for stakes"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A fire-raiser sounds like an arsonist, but here it is the fireside iron that livens up a fire.",
+     "definitionFit": "A poker is the metal rod for stoking a fire, and poker is also a betting card game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Fire-raiser"
+    }
+   }
   },
   {
    "number": 25,
@@ -453,7 +1736,60 @@
     "text": "Home team in Italian city losing first three",
     "enumeration": "9"
    },
-   "solution": "RESIDENCE"
+   "solution": "RESIDENCE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RESIDENCE",
+    "definitions": [
+     {
+      "text": "Home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing first three",
+      "for": "deletion",
+      "note": "losing the first three means the opening trio of letters is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another sits inside it, so the word goes into the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "SIDE",
+      "note": "a side is a team"
+     },
+     {
+      "clueFragment": "Italian city",
+      "gives": "FLORENCE",
+      "note": "the Tuscan city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIDE",
+      "NCE"
+     ]
+    },
+    "explanation": {
+     "surface": "The home side in an Italian city loses its first three matches.",
+     "definitionFit": "A residence is the place where someone lives, their house or dwelling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Home"
+    }
+   }
   }
  ]
 }
