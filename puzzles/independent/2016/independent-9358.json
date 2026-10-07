@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "European paper with story about Corbyn?",
     "enumeration": "6"
    },
-   "solution": "LEFTIE"
+   "solution": "LEFTIE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LEFTIE",
+    "definitions": [
+     {
+      "text": "Corbyn?",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the story goes round, so the earlier pieces sit inside it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     },
+     {
+      "clueFragment": "paper",
+      "gives": "FT",
+      "note": "the Financial Times, a British newspaper"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a story can be a falsehood"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "E",
+      "FT",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A European newspaper runs a piece about the former Labour leader Jeremy Corbyn.",
+     "walkthrough": "Jeremy Corbyn, a former Labour Party leader, is a well-known British socialist.",
+     "definitionFit": "Corbyn is an example of a socialist, informally called a leftie; the question mark flags the definition by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +108,51 @@
     "text": "Third member dropped from team of Brownies?",
     "enumeration": "5"
    },
-   "solution": "ELVEN"
+   "solution": "ELVEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ELVEN",
+    "definitions": [
+     {
+      "text": "of Brownies?",
+      "at": 31,
+      "note": "adjective phrase: belonging to brownies"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Third member dropped from",
+      "for": "deletion",
+      "note": "the word for a team loses the item standing third in its line of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "team",
+      "gives": "ELEVEN",
+      "note": "a football or cricket side has this many players"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EL",
+      "VEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Brownie pack has had to leave out its third member.",
+     "walkthrough": "Brownies are junior Girl Guides in the surface, but in folklore a brownie is a household elf.",
+     "definitionFit": "A brownie is a small helpful elf of folklore, so something belonging to brownies is elven."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Brownies"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +166,43 @@
     "text": "Fish sandwich you can get in America",
     "enumeration": "7"
    },
-   "solution": "TORPEDO"
+   "solution": "TORPEDO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TORPEDO",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     },
+     {
+      "text": "sandwich you can get in America",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "note": "first meaning: an electric ray"
+     },
+     {
+      "clueFragment": "sandwich you can get in America",
+      "note": "second meaning: a long filled roll, also called a sub or hoagie"
+     }
+    ],
+    "explanation": {
+     "surface": "A fish sandwich available in the United States.",
+     "walkthrough": "It reads as one fish sandwich; actually it is two separate meanings.",
+     "definitionFit": "The electric ray is called a torpedo, and in parts of the US a long submarine-style sandwich goes by that name too."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fish"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,50 @@
     "text": "Assessed a valet due to be reassigned",
     "enumeration": "9"
    },
-   "solution": "EVALUATED"
+   "solution": "EVALUATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EVALUATED",
+    "definitions": [
+     {
+      "text": "Assessed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be reassigned",
+      "for": "anagram",
+      "note": "reassigning means putting into new positions, so these letters get a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a valet due",
+      "gives": "AVALETDUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AVALETDUE",
+       "gives": "EVALUATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A manservant's performance was reviewed because he was about to be moved to other duties.",
+     "definitionFit": "To assess something is to judge its worth, which is what evaluating means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reassigned"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +273,61 @@
     "text": "One after bananas or giant pasta shapes",
     "enumeration": "8"
    },
-   "solution": "RIGATONI"
+   "solution": "RIGATONI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "RIGATONI",
+    "definitions": [
+     {
+      "text": "pasta shapes",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bananas",
+      "for": "anagram",
+      "note": "bananas is slang for crazy, so these letters go wild into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or giant",
+      "gives": "ORGIANT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGATON",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORGIANT",
+       "gives": "RIGATON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone choosing between bananas and huge pasta tubes.",
+     "walkthrough": "'One after' puts I at the end of the mixed-up letters.",
+     "definitionFit": "Rigatoni are short ridged tubes, one of the many named shapes of Italian dried pasta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bananas"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +341,48 @@
     "text": "Ciabatta German packs up for sports meet",
     "enumeration": "7"
    },
-   "solution": "REGATTA"
+   "solution": "REGATTA",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "REGATTA",
+    "definitions": [
+     {
+      "text": "sports meet",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "packs",
+      "for": "hidden_word",
+      "note": "the phrase packs the letters inside itself, carried across the word break"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ciabatta German",
+      "gives": "ATTAGER",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A German packing bread rolls for a sports meeting.",
+     "definitionFit": "A regatta is a meeting of boat races, so it is a sporting event on water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "packs"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +396,56 @@
     "text": "Looked stupidly good, like Batman without a top?",
     "enumeration": "5"
    },
-   "solution": "GAPED"
+   "solution": "GAPED",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GAPED",
+    "definitions": [
+     {
+      "text": "Looked stupidly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without a top",
+      "for": "deletion",
+      "note": "in a down clue the top is the first letter, which is taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation for good"
+     },
+     {
+      "clueFragment": "like Batman",
+      "gives": "CAPED",
+      "note": "Batman is the Caped Crusader"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "APED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone looking very fine, like Batman but shirtless.",
+     "walkthrough": "Batman wears a cape, so he is caped; beheaded, that leaves APED, after G.",
+     "definitionFit": "To gape is to stare open-mouthed in a vacant or astonished way, so gaped means stared stupidly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +459,57 @@
     "text": "People in authority taking charge in treatment",
     "enumeration": "7"
    },
-   "solution": "THERAPY"
+   "solution": "THERAPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THERAPY",
+    "definitions": [
+     {
+      "text": "treatment",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "the people take something in, so it goes inside them"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People in authority",
+      "gives": "THEY",
+      "note": "the unnamed powers that be, as in 'they say'"
+     },
+     {
+      "clueFragment": "charge",
+      "gives": "RAP",
+      "note": "a criminal charge, as in 'take the rap'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "RAP",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Officials taking control of someone's medical care.",
+     "definitionFit": "Therapy is treatment meant to heal a disorder, physical or mental."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +523,57 @@
     "text": "Without a hooter to squeeze one might be thus",
     "enumeration": "9"
    },
-   "solution": "NOISELESS"
+   "solution": "NOISELESS",
+   "annotation": {
+    "type": [
+     "container",
+     "and_lit"
+    ],
+    "answer": "NOISELESS",
+    "definitions": [
+     {
+      "text": "Without a hooter to squeeze one might be thus",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to squeeze",
+      "for": "container",
+      "note": "squeezing something presses it in, so a letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Without a hooter",
+      "gives": "NOSELESS",
+      "note": "hooter is slang for nose"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "I",
+      "SELESS"
+     ]
+    },
+    "explanation": {
+     "surface": "If you had no horn to squeeze, you would make no sound.",
+     "walkthrough": "Hooter means both a car horn and a nose. Read whole, the clue describes the answer: with no horn to honk you would be silent.",
+     "definitionFit": "Someone with no horn to sound makes no sound at all, which is exactly what silent or soundless describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hooter"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +587,72 @@
     "text": "Done with husband, a half-cut dung beetle",
     "enumeration": "8"
    },
-   "solution": "OVERHANG"
+   "solution": "OVERHANG",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OVERHANG",
+    "definitions": [
+     {
+      "text": "beetle",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-cut",
+      "for": "letter_selection",
+      "note": "half of the word is cut away, keeping only its back half"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Done",
+      "gives": "OVER",
+      "note": "finished"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "standard abbreviation for husband"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dung",
+      "gives": "NG",
+      "select": "last",
+      "note": "its second half"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "H",
+      "A",
+      "NG"
+     ]
+    },
+    "explanation": {
+     "surface": "A dung beetle is finished with its husband, and the speaker is half-drunk.",
+     "walkthrough": "'Half-cut' (British slang for tipsy) and 'dung beetle' tempt you to read beetle as the insect; it is a verb. Beetling brows jut out.",
+     "definitionFit": "To beetle is to jut out or project, as cliffs or eyebrows do, which is what overhanging means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "beetle"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +666,59 @@
     "text": "Conductor's leg broken by vicar",
     "enumeration": "6"
    },
-   "solution": "PREVIN"
+   "solution": "PREVIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREVIN",
+    "definitions": [
+     {
+      "text": "Conductor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken by",
+      "for": "container",
+      "note": "the leg is broken open and something is set inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leg",
+      "gives": "PIN",
+      "note": "pins is slang for legs"
+     },
+     {
+      "clueFragment": "vicar",
+      "gives": "REV",
+      "note": "short for Reverend, a vicar's title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "REV",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An orchestra conductor's leg fractured by a clergyman.",
+     "walkthrough": "The 's stands for 'is'. André Previn conducted the London Symphony Orchestra.",
+     "definitionFit": "André Previn was a famous conductor and composer, music director of several major orchestras."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "broken"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +732,61 @@
     "text": "One accepting about query not being answered",
     "enumeration": "10"
    },
-   "solution": "UNREQUITED"
+   "solution": "UNREQUITED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UNREQUITED",
+    "definitions": [
+     {
+      "text": "not being answered",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "to accept is to take in, so the other letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "UNITED",
+      "note": "united means made one"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "query",
+      "gives": "QU",
+      "note": "standard abbreviation for question or query"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "RE",
+      "QU",
+      "ITED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone receiving a question that no one ever responds to.",
+     "definitionFit": "Unrequited love is not returned; the word means unreturned or unanswered in feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +800,58 @@
     "text": "Bar and bench losing their heads once again",
     "enumeration": "4"
    },
-   "solution": "ANEW"
+   "solution": "ANEW",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANEW",
+    "definitions": [
+     {
+      "text": "once again",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing their heads",
+      "for": "deletion",
+      "note": "each word sheds its first letter, its head"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bar",
+      "gives": "BAN",
+      "note": "to bar is to prohibit"
+     },
+     {
+      "clueFragment": "bench",
+      "gives": "PEW",
+      "note": "a church bench"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AN",
+      "EW"
+     ]
+    },
+    "explanation": {
+     "surface": "A pub's counter and seating being beheaded all over again.",
+     "walkthrough": "Bar and bench both suggest the law courts, but here they are a ban and a pew.",
+     "definitionFit": "Doing something anew means starting it over again, fresh, a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +871,61 @@
      }
     ]
    },
-   "solution": "DAYOUT"
+   "solution": "DAYOUT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DAY OUT",
+    "definitions": [
+     {
+      "text": "Perhaps a jolly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the word loses its final letter"
+     },
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "a guest entertained is held within the host's company"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solver",
+      "gives": "YOU",
+      "note": "the solver is the person being addressed"
+     },
+     {
+      "clueFragment": "escort",
+      "gives": "DATE",
+      "note": "a partner on an evening out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "YOU",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheerful puzzler taken out by a brief companion.",
+     "walkthrough": "A jolly is British slang for a pleasure trip or outing, often at someone else's expense.",
+     "definitionFit": "A jolly is an outing for fun, and a day out is one example of such a trip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "jolly"
+    }
+   }
   },
   {
    "number": 14,
@@ -235,7 +939,56 @@
     "text": "Investments in iTunes Anonymous disrupted",
     "enumeration": "9"
    },
-   "solution": "ANNUITIES"
+   "solution": "ANNUITIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANNUITIES",
+    "definitions": [
+     {
+      "text": "Investments",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrupted",
+      "for": "anagram",
+      "note": "disruption throws things out of order, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in iTunes",
+      "gives": "INITUNES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Anonymous",
+      "gives": "A",
+      "note": "standard abbreviation for anonymous"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INITUNESA",
+       "gives": "ANNUITIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Money put into Apple's music store, with a hacking group causing trouble.",
+     "walkthrough": "'in' looks like a link word but its letters are part of the mix.",
+     "definitionFit": "An annuity is a financial product bought with a lump sum that pays out regular income, a kind of investment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1002,56 @@
     "text": "Learn, say, about Freud?",
     "enumeration": "8"
    },
-   "solution": "ANALYSER"
+   "solution": "ANALYSER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANALYSER",
+    "definitions": [
+     {
+      "text": "Freud?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean turned around or astir, so these letters are moved round"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learn",
+      "gives": "LEARN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "SAY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LEARNSAY",
+       "gives": "ANALYSER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prompt to study, perhaps, what Freud thought.",
+     "walkthrough": "'say' looks like the usual by-example marker, but it is part of the fodder; the question mark does that job.",
+     "definitionFit": "Freud founded psychoanalysis, so he is an example of a psychoanalyst, often shortened to analyst or analyser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1065,62 @@
     "text": "A pad fit to house cunning people",
     "enumeration": "9"
    },
-   "solution": "APARTMENT"
+   "solution": "APARTMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APARTMENT",
+    "definitions": [
+     {
+      "text": "A pad",
+      "at": 0,
+      "note": "includes the article: an apartment is a pad"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to house",
+      "for": "container",
+      "note": "housing something means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fit",
+      "gives": "APT",
+      "note": "suitable"
+     },
+     {
+      "clueFragment": "cunning",
+      "gives": "ART",
+      "note": "art can mean craft or guile"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "taken as people in general"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "ART",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A flat suitable for crafty folk to live in.",
+     "definitionFit": "Pad is informal slang for a flat or place to live, so an apartment is a pad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cunning"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1144,67 @@
      }
     ]
    },
-   "solution": "ONTHEDOT"
+   "solution": "ONTHEDOT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ON THE DOT",
+    "definitions": [
+     {
+      "text": "Sharp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fabulous",
+      "for": "anagram",
+      "note": "fabulous suggests something fantastic and made up, so these letters are reinvented"
+     },
+     {
+      "text": "dressed in",
+      "for": "container",
+      "note": "something dressed in clothing sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "standard abbreviation for tenor"
+     },
+     {
+      "clueFragment": "net hood",
+      "gives": "NETHOOD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "T",
+      "HEDOT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NETHOOD",
+       "gives": "ONHEDOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smart singer wearing a gorgeous mesh hood.",
+     "walkthrough": "'Sharp' looks like a description of the tenor's dress; it is the definition, as in 'at three sharp'.",
+     "definitionFit": "Sharp after a time means exactly at it, so 'on the dot' and 'sharp' are synonymous idioms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sharp"
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1218,60 @@
     "text": "Hard right-winger supporting one's record",
     "enumeration": "7"
    },
-   "solution": "HISTORY"
+   "solution": "HISTORY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HISTORY",
+    "definitions": [
+     {
+      "text": "record",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, what supports another piece is placed below it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "standard abbreviation for hard, as on pencils"
+     },
+     {
+      "clueFragment": "one's",
+      "gives": "IS",
+      "note": "one's read as 'one is'"
+     },
+     {
+      "clueFragment": "right-winger",
+      "gives": "TORY",
+      "note": "a member of Britain's Conservative Party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "IS",
+      "TORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A hardline conservative backing someone's track record.",
+     "walkthrough": "'Hard right-winger' reads as one phrase but splits: H is separate from the Tory.",
+     "definitionFit": "A history is an account or record of past events, as in a medical history."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one's"
+    }
+   }
   },
   {
    "number": 19,
@@ -321,7 +1291,67 @@
      }
     ]
    },
-   "solution": "TIBETAN"
+   "solution": "TIBETAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TIBETAN",
+    "definitions": [
+     {
+      "text": "of Lhasa?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the outer pieces go around the rest, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "standard abbreviation for time"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "AN",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "international",
+      "gives": "I",
+      "note": "standard abbreviation for international"
+     },
+     {
+      "clueFragment": "view",
+      "gives": "BET",
+      "note": "my bet is, meaning in my view"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "I",
+      "BET",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A magazine piece giving a world perspective on the Tibetan capital.",
+     "walkthrough": "'Time article' together is the outer pair, and 'about' wraps them around the other two pieces.",
+     "definitionFit": "Lhasa is the capital of Tibet, so something from Lhasa is Tibetan, defined by example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "view"
+    }
+   }
   },
   {
    "number": 20,
@@ -335,7 +1365,67 @@
     "text": "Small current on a chat server from the 90s?",
     "enumeration": "6"
    },
-   "solution": "AGASSI"
+   "solution": "AGASSI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AGASSI",
+    "definitions": [
+     {
+      "text": "server from the 90s?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one piece on another is placed after it, so the small current goes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "chat",
+      "gives": "GAS",
+      "note": "to gas is to talk idly"
+     },
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "standard abbreviation for small"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAS",
+      "S",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny feed running on an old internet chat server.",
+     "walkthrough": "'On' puts S and I after A GAS. Server suggests computing; Andre Agassi was a tennis champion of the 1990s.",
+     "definitionFit": "Andre Agassi was a leading tennis player of the 1990s, and every tennis player serves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "server"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1439,60 @@
     "text": "Terrible pain suing a terrible hospital",
     "enumeration": "7"
    },
-   "solution": "ANGUISH"
+   "solution": "ANGUISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ANGUISH",
+    "definitions": [
+     {
+      "text": "Terrible pain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "terrible",
+      "for": "anagram",
+      "note": "the second terrible says the letters before it are in a terrible state, so jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suing a",
+      "gives": "SUINGA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "standard abbreviation for hospital, as on road signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGUIS",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SUINGA",
+       "gives": "ANGUIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The agony of taking a dreadful hospital to court.",
+     "definitionFit": "Anguish is severe mental or physical suffering, a synonym for great pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suing"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1506,56 @@
     "text": "Little drinks making turn fall over",
     "enumeration": "4"
    },
-   "solution": "NIPS"
+   "solution": "NIPS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NIPS",
+    "definitions": [
+     {
+      "text": "Little drinks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fall over",
+      "for": "reversal",
+      "note": "something that falls over ends up the other way round"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "turn",
+      "gives": "SPIN",
+      "note": "a spin is a turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIPS"
+     ],
+     "reversals": [
+      {
+       "from": "SPIN",
+       "to": "NIPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A few small drinks cause a dizzy spell and a tumble.",
+     "definitionFit": "A nip is a small measure of spirits, so nips are little drinks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turn"
+    }
+   }
   },
   {
    "number": 23,
@@ -377,7 +1569,72 @@
     "text": "Scuppering sailor takes bit of oomph in organising",
     "enumeration": "10"
    },
-   "solution": "SABOTAGING"
+   "solution": "SABOTAGING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "SABOTAGING",
+    "definitions": [
+     {
+      "text": "Scuppering",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "only a small piece is used, the opening letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the earlier pieces go inside the word that follows"
+     }
+    ],
+    "linkWords": [
+     "takes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "able seaman"
+     },
+     {
+      "clueFragment": "oomph",
+      "gives": "O",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "organising",
+      "gives": "STAGING",
+      "note": "staging an event is organising it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AB",
+      "O",
+      "TAGING"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor puts a bit of energy into organising, but the effort is wrecked.",
+     "walkthrough": "The sailor and the bit of oomph go in just after the first letter of the organising word.",
+     "definitionFit": "To scupper a plan is to wreck it deliberately, which is what sabotaging means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Scuppering"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1648,62 @@
     "text": "Note describing American hot dish",
     "enumeration": "5"
    },
-   "solution": "SUSHI"
+   "solution": "SUSHI",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SUSHI",
+    "definitions": [
+     {
+      "text": "dish",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe a shape is to draw round it, so the note encircles the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "SI",
+      "note": "the seventh note of the sol-fa scale, also written ti"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "standard abbreviation, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "US",
+      "H",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about a spicy American dish.",
+     "walkthrough": "'hot dish' looks like one phrase; hot is H, and sushi is served cold.",
+     "definitionFit": "Sushi is a Japanese dish of vinegared rice with raw fish or other toppings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hot"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1717,53 @@
     "text": "More pleasant runs south of French resort",
     "enumeration": "5"
    },
-   "solution": "NICER"
+   "solution": "NICER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NICER",
+    "definitions": [
+     {
+      "text": "More pleasant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "south of",
+      "for": "charade",
+      "note": "in a down clue, south of means placed underneath"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French resort",
+      "gives": "NICE",
+      "note": "a city on the French Riviera"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "the cricket scoring abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Things are nicer once you run further south from the Riviera.",
+     "definitionFit": "Nicer is the comparative of nice, meaning more agreeable or more pleasant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "runs"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1777,61 @@
     "text": "Jam-makers' parties filled with Welsh dowagers?",
     "enumeration": "6"
    },
-   "solution": "WIDOWS"
+   "solution": "WIDOWS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WIDOWS",
+    "definitions": [
+     {
+      "text": "dowagers?",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "a thing filled with something holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jam-makers'",
+      "gives": "WI",
+      "note": "the Women's Institute, a British women's organisation famed for jam-making"
+     },
+     {
+      "clueFragment": "parties",
+      "gives": "DOS",
+      "note": "dos are parties or celebrations"
+     },
+     {
+      "clueFragment": "Welsh",
+      "gives": "W",
+      "note": "standard abbreviation for Welsh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "DO",
+      "W",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Women's Institute gatherings attended by elderly Welsh ladies.",
+     "definitionFit": "A dowager is a widow holding a title or property from her late husband, so dowagers are a kind of widow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jam-makers'"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1851,68 @@
      }
     ]
    },
-   "solution": "THEBIRCH"
+   "solution": "THEBIRCH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THE BIRCH",
+    "definitions": [
+     {
+      "text": "Old beater",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "driving",
+      "for": "anagram",
+      "note": "driving the letters about sends them into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the mixed letters go around the abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hitcher",
+      "gives": "HITCHER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Britain",
+      "gives": "B",
+      "note": "standard abbreviation for Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "B",
+      "IRCH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HITCHER",
+       "gives": "THEIRCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old banger of a car driving a hitchhiker round Britain.",
+     "walkthrough": "'Old beater' suggests a battered old car; it is the cane once used for school beatings.",
+     "definitionFit": "The birch was a bundle of twigs used to flog offenders, a punishment now abolished in Britain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "beater"
+    }
+   }
   },
   {
    "number": 27,
@@ -453,7 +1926,62 @@
     "text": "Idiot Scotsman biting your tongue?",
     "enumeration": "8"
    },
-   "solution": "ASSYRIAN"
+   "solution": "ASSYRIAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ASSYRIAN",
+    "definitions": [
+     {
+      "text": "tongue?",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "to bite is to hold between the teeth, so the other piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot",
+      "gives": "ASS",
+      "note": "a fool"
+     },
+     {
+      "clueFragment": "your",
+      "gives": "YR",
+      "note": "standard abbreviation for your"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "IAN",
+      "note": "a typical Scottish first name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASS",
+      "YR",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A foolish Scot biting your tongue for you.",
+     "walkthrough": "The idiot and the Scotsman together bite the abbreviation between them. Assyrian is an ancient language of Mesopotamia.",
+     "definitionFit": "A tongue is a language, and Assyrian is one, a dialect of ancient Akkadian."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tongue"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +2001,59 @@
      }
     ]
    },
-   "solution": "TSHIRT"
+   "solution": "TSHIRT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "T-SHIRT",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving west",
+      "for": "container",
+      "note": "the letter shifts leftwards in an across answer and is set back in earlier"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soprano",
+      "gives": "S",
+      "note": "standard abbreviation for soprano"
+     },
+     {
+      "clueFragment": "desire for drink",
+      "gives": "THIRST",
+      "note": "the need to drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "S",
+      "HIRT"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer moving westward while longing for a drink.",
+     "walkthrough": "The S in THIRST moves left, to sit after the T.",
+     "definitionFit": "A top is an upper-body garment, and a T-shirt is one kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Top"
+    }
+   }
   }
  ]
 }
