@@ -708,7 +708,8 @@ def script(store):
     and says so; "Next batch" hides the clicked rows of #next and shows the
     next BATCH; the first one not clicked is highlighted. A click anywhere on
 a row not yet clicked is a click on its Download (a.dl); its other links
-and buttons keep their own."""
+and buttons keep their own. A middle click on a link opens a tab without a
+click event, so it runs the link's onclick (the mark) itself."""
     return """<script>
 const S=STORE,H=S+'Hidden',BATCH=SIZE;
 function get(n){return JSON.parse(localStorage.getItem(n)||'[]')}
@@ -731,6 +732,7 @@ function cp(b,t){const done=()=>{b.textContent='Copied'};
 addEventListener('DOMContentLoaded',show)
 addEventListener('click',ev=>{const r=ev.target.closest('tr.dlrow');
   if(r&&!ev.target.closest('a,button,summary'))r.querySelector('a.dl').click()})
+addEventListener('auxclick',ev=>{const a=ev.button===1&&ev.target.closest('a[onclick]');if(a)a.onclick()})
 </script>""".replace("STORE", json.dumps(store)).replace("SIZE", str(BATCH))
 
 
