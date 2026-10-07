@@ -215,8 +215,7 @@ for signame, sig in (("SIGTERM", signal.SIGTERM), ("SIGKILL", signal.SIGKILL)):
         events.clear()
     proc = spawn(identifier, "hang")
     # Starting this child ran a reconcile of its own, so anything the
-    # PREVIOUS kill left out should already be back — the fix working
-    # incidentally, before any test asks it to.
+    # PREVIOUS kill left out should already be back, before any test asks.
     for earlier in leaked:
         if returns_for(earlier):
             ok(f"starting this run returned {earlier}, leaked by the last one")
@@ -248,7 +247,7 @@ for signame, sig in (("SIGTERM", signal.SIGTERM), ("SIGKILL", signal.SIGKILL)):
         ok(f"{signame}: the ledger survived the kill holding the leaked loan")
 
 # ------------------------------------------------------------------ case 3
-# The fix. A fresh run of a DIFFERENT book must give both leaked loans back
+# The reconcile. A fresh run of a DIFFERENT book must give both leaked loans back
 # before it takes one of its own — and must do it in that order, because the
 # whole point is not to be holding them when the new borrow is judged.
 print("case: the next run reconciles them away")

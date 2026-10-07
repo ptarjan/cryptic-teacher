@@ -28,7 +28,7 @@ def check(what, want, got):
         print(f"FAIL {what}: expected {want!r}, got {got!r}")
 
 # A missing optional model changes the reading (the solution reader's
-# en_PP-OCRv3 once did), so each must be in the versions compared.
+# en_PP-OCRv3 does), so each must be in the versions compared.
 want = {m for m in ocr_clues.READERS.values() if isinstance(m, Path)} | set(trove_solution_ocr.EXTRA_MODELS)
 check("every reader model is compared on connect", want, set(ocr_remote.models().values()))
 

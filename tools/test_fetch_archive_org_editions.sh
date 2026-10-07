@@ -184,9 +184,8 @@ for reply, what in ((b"", "an empty words reply"), (obj(2, "two").encode(), "a w
 script(obj(1, "one").encode())
 check("a words reply for its own leaf is kept",
       fa.sparse_djvu_xml(fx, meta, "ed", "ed", {1}, 3)[1] == {1: (10, 20)})
-# An edition marked done before the fetcher checked the per-page words' leaf
-# holds another leaf's words: its cached djvu.xml.gz has an OBJECT whose PAGE
-# names a later leaf. It is due again at the same DETECTOR_VERSION, and its
+# An edition whose cached djvu.xml.gz has an OBJECT whose PAGE names a later
+# leaf holds another leaf's words. It is due again at the same DETECTOR_VERSION, and its
 # re-fetch takes the whole djvu.xml, stored so the n-th OBJECT is leaf n.
 import gzip
 check("scan_aligned pads the skipped colour card",

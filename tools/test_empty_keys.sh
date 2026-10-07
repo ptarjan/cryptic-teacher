@@ -6,9 +6,9 @@
 # Every key is written when it carries data and left out when it does not:
 # the clue's `separators`, `italics` and `missing`, the entry's `group` and
 # `annotation`. An empty form on every entry is megabytes of the corpus spent
-# saying nothing, paid for again on every clone, CI checkout and page build. That only works if an
-# absent key reads exactly like an empty one, which is what this tests on both
-# sides — the writers must not emit the empty form, and the readers must take
+# saying nothing, paid for again on every clone, CI checkout and page build.
+# That only works if an absent key reads exactly like an empty one, which is
+# what this tests on both sides — the writers must not emit the empty form, and the readers must take
 # the absence as empty rather than throwing on it.
 set -uo pipefail
 cd "$(dirname "$0")/.."
@@ -59,8 +59,8 @@ with tempfile.TemporaryDirectory() as d:
     print("NOEMPTY", '"separators": []' in text, '"annotation": null' in text)
 
 # An annotation that could not be written is an absent key, not a null one.
-# grade_model_fill throws away an annotation written off a wrong answer; before
-# this it wrote the null back, which is how the null got onto solved puzzles.
+# grade_model_fill throws away an annotation written off a wrong answer and
+# leaves the key out rather than writing a null back.
 # Its ledger is stubbed: this is a test, and a test must not file a miss
 # against tools/data/blind_misses.json that no solve ever made.
 fetcher.record_misses = lambda *a, **k: None
@@ -87,7 +87,7 @@ same "blanking an annotation removes the key rather than nulling it" \
 echo "the readers take an absent key as an empty one"
 # Not asked of the source but of the functions: a real puzzle with both keys
 # stripped from every entry, through the readers that weigh them. A KeyError or
-# an AttributeError anywhere here is the bug this whole change could have had.
+# an AttributeError anywhere here is a reader that cannot take an absent key.
 out=$(PYTHONPATH=tools python3 - <<'PY'
 from pathlib import Path
 import fetch_puzzle as fetcher
@@ -121,7 +121,7 @@ same "and the puzzle reads as un-annotated, which is what it is" \
 echo "app.js reads both keys through a guard"
 # app.js is the reader that matters most and cannot be imported here, so its
 # guards are read out of the source. A bare e.clue.separators.forEach or
-# e.annotation.type throws on every puzzle this repo now ships.
+# e.annotation.type throws on every puzzle this repo ships.
 reads=$(grep -cE '\be\.clue\.separators\b' app.js)
 guarded=$(grep -cE '\be\.clue\.separators \|\| \[\]' app.js)
 same "app.js reads clue.separators only through a || []" "$reads" "$guarded"
@@ -135,8 +135,8 @@ same "nothing in the app tells a null annotation from an absent one" "$strict" "
 
 echo "and the corpus carries neither empty form"
 # The whole point of the exercise, asked of the files rather than of the code
-# that writes them: 21.5 MB came out of puzzles/ on 2026-09-19 and nothing is
-# allowed to put it back, one nightly fetch at a time. Read as bytes, because
+# that writes them: nothing is allowed to put empty forms back into puzzles/,
+# one nightly fetch at a time. Read as bytes, because
 # both strings are unambiguous at this indent and parsing 135 MB to learn it
 # would be the slow way round.
 found=$(grep -rlF --include='*.json' \

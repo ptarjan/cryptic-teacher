@@ -11,9 +11,8 @@
 #
 # The solve scripts emit the opposite shape, a per-light count on each half,
 # because a light is what they measured. tools/file_penguin_puzzle.py refused
-# that shape one puzzle at a time, which is how one mistake in one script cost
-# three separate hand investigations (books 18, 27 and 45, 2026-09-18) before
-# anybody wrote it down. Refusing is not the fix; converting is, and a
+# that shape one puzzle at a time (books 18, 27 and 45 hit it). Refusing is not the fix;
+# converting is, and a
 # convention nothing tests is a convention that drifts back. So this holds both
 # ends: the corpus on disk still reads leader form, and the route that writes it
 # converts rather than trusting its input.

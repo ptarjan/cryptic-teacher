@@ -109,7 +109,7 @@ git -C "$tmp/trees/faketask" checkout -q -- tools/faketask.sh
 
 # 2c. Starting the job from inside its worktree, or in place, skips the reset
 #     but writes to the same tree, so it needs the same lease. A hand start of
-#     the burn that bypassed it lost 11 of 14 annotations on 2026-09-30.
+#     the burn that bypassed it would lose annotations.
 exec 8>"$tmp/main/.faketask.tree.lock"
 flock -n 8
 for how in CT_IN_WORKTREE CT_NO_WORKTREE; do
@@ -151,8 +151,7 @@ git -C "$tmp/main" checkout -q -- tools/faketask.sh
 
 # 6. The main checkout follows origin/master at every job start. A local edit
 #    that is provably nothing — origin/master's own content, or index.html
-#    differing only by asset stamps — is put back rather than left to block it
-#    (on 2026-10-05 those two held it 758 commits behind for a day, silently);
+#    differing only by asset stamps — is put back rather than left to block it;
 #    any other edit leaves it behind and says so in an alert.
 git clone -q -b master "$tmp/origin.git" "$tmp/other"
 upstream() { # upstream <file> <content>: commit and push from another clone

@@ -172,7 +172,7 @@ filed, skipped = F.file(write=False)
 print("BRACKETS", F.tidy("Having paid, he [he] recovers (6)"), "|", F.tidy("Mark character [sic] as weary (7)"))
 print("REPRINT", filed, sorted(k for k in skipped if k.startswith("reprint")))
 
-# A file written before the parser tidied clues is tidied on the next run:
+# A file holding untidied clues is tidied on the next run:
 # the blogger's definition slash goes from the clue and from the annotation's
 # quotation of it. A file another tool wrote is left alone.
 held = {**built(300, "Withdraw / cash"), "source": {"acquiredBy": F.GENERATOR}}
