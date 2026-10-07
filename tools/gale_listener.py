@@ -621,6 +621,8 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None):
     idx = [r for r in idx if printed(r)]
     todo = [r for r in idx if r["number"] not in filed and r["number"] not in got and r["number"] not in came]
     first = todo[0] if todo else None
+    read = {e_["file"] for e_ in ledger.values()}
+    ledger_waiting = any(a["file"] not in read for a in arrivals)
     e = html.escape
     out = [f"""<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="180">
 <title>Listener crosswords to save from Gale</title>
@@ -642,7 +644,7 @@ to the crossword (a grid with ACROSS and DOWN clue lists); or search for its tit
 {e(FOLDER)}. Any file name works; a name with the date (e.g. <code>1930-04-09</code>) is the surest match.
 When the grid and the clues are on different pages ("For Clues see page 340"), save both.</li>
 <li>Its answers are printed about two issues later, as &ldquo;Report on Crossword No. N&rdquo; with the filled
-grid: save that page too. A row says "save its solution too" until one has arrived.</li>
+grid: save that page too. Once the pages saved are read, a row whose solution page is still missing asks for it.</li>
 <li>That's all. A Gale download in Downloads is moved into the folder for you; within 3 minutes its row
 says "arrived", and once the full pass has read it (at its next slice, within about an hour), how many clues read.</li>
 </ol>
@@ -670,13 +672,14 @@ says "arrived", and once the full pass has read it (at its next slice, within ab
                 status = ""
             if n in solved:
                 status += ' <span class="got">solution saved</span>'
-            elif status and n not in filed:
+            elif (n in got or n in tried) and not ledger_waiting:
+                # Asked only once every saved file is read: a report is
+                # often found by the page's words, not its citation.
                 status += (f' <span class="bad">save its solution too: &ldquo;Report on Crossword No. {n}&rdquo;,'
                            f' about {r["date"] + datetime.timedelta(days=14):%d %b %Y}</span>')
             out.append(f"<tr><td>{r['date']:%a %d %b %Y}</td><td>{n}</td><td>{e(r['title'])}</td>"
                        f"<td>{e(r.get('setter') or '')}</td><td>{status}</td></tr>")
         out.append("</table>")
-    read = {e_["file"] for e_ in ledger.values()}
     waiting = [a for a in unnamed if a["file"] not in read]
     if waiting:
         out.append("<h2>Arrived, puzzle not yet known</h2><p>The name and citation name no puzzle; the full pass "

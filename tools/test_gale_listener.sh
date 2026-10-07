@@ -148,6 +148,15 @@ check("the saved puzzle is marked", True, "saved: 1 of 1 clues read" in page)
 check("the filed puzzle is marked", True, ">filed<" in page)
 check("the unmatched file is listed", True, "holiday snap.jpg" in page)
 check("a saved solution is marked", True, "solution saved" in page)
+inbox2, store2 = Path(sys.argv[1]) / "inbox2", Path(sys.argv[1]) / "store2"
+inbox2.mkdir()
+Image.new("RGB", (300, 203), "white").save(inbox2 / "1930-04-09.png")
+g.run(inbox2, store2, rows, out=out, reader=reader)
+page2 = g.checklist(rows, store2, Path(sys.argv[1]) / "none", arrivals=[])
+check("a read puzzle's missing solution is asked for", True,
+      "save its solution too: &ldquo;Report on Crossword No. 2&rdquo;" in page2)
+check("not while a saved file waits to be read", False, "save its solution too:" in g.checklist(
+    rows, store2, Path(sys.argv[1]) / "none", arrivals=[{"file": "new.pdf", "number": 1}]))
 check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))
 
 # The 3-minute tick: a page matched by its name alone is ticked off as
@@ -163,7 +172,6 @@ check("a file already matched is not opened again", 4, len(g.arrived(inbox, rows
 (root / "puzzles" / "listener" / "1930" / "listener-2.json").unlink()
 page = g.checklist(rows, store, root, arrivals=came)
 check("an arrived page is ticked off", True, "arrived: the full pass reads it at its next slice" in page)
-check("its missing solution is asked for", True, "save its solution too: &ldquo;Report on Crossword No. 2&rdquo;" in page)
 check("and counted", True, "<b>2 of 2</b> saved or filed" in page)
 check("a page naming no puzzle waits for the pass", True,
       "<li>download.png</li>" in page[page.index("puzzle not yet known"):])
