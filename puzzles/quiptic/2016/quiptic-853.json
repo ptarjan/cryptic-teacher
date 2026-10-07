@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,71 @@
     "text": "Invalid has tube, initially that is, inserted to breathe",
     "enumeration": "7"
    },
-   "solution": "PATIENT"
+   "solution": "PATIENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "PATIENT",
+    "definitions": [
+     {
+      "text": "Invalid",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the opening letter of the word just before it"
+     },
+     {
+      "text": "inserted",
+      "for": "container",
+      "note": "something inserted is put inside another word, here the one for gasping"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to breathe",
+      "gives": "PANT",
+      "note": "to pant is to breathe hard"
+     },
+     {
+      "clueFragment": "tube",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of tube"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the abbreviation of id est, Latin for that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "TIE",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sick person on a ward has a tube fitted to help them breathe.",
+     "walkthrough": "'Invalid' tempts as the adjective meaning not valid; it is the noun for a sick person. 'Initially' acts on tube alone.",
+     "definitionFit": "An invalid, stressed on the first syllable, is a sick person, and a sick person under care is a patient."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Invalid"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +114,53 @@
     "text": "Satisfied after fruit drop",
     "enumeration": "7"
    },
-   "solution": "PLUMMET"
+   "solution": "PLUMMET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLUMMET",
+    "definitions": [
+     {
+      "text": "drop",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after means the first word given is placed behind the second in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PLUM",
+      "note": "a plum is a fruit"
+     },
+     {
+      "clueFragment": "Satisfied",
+      "gives": "MET",
+      "note": "a demand that is satisfied has been met"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLUM",
+      "MET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is contented once the fruit has fallen from the tree.",
+     "definitionFit": "To plummet is to fall steeply, the same as to drop like a stone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "drop"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +180,58 @@
      }
     ]
    },
-   "solution": "TESTMATCH"
+   "solution": "TESTMATCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEST MATCH",
+    "definitions": [
+     {
+      "text": "sporting event",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in a down clue, on means the first word sits on top of the next one"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Try",
+      "gives": "TEST",
+      "note": "to test is to try out"
+     },
+     {
+      "clueFragment": "suit",
+      "gives": "MATCH",
+      "note": "to suit something is to match it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEST",
+      "MATCH"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying on an outfit to wear to a big sporting occasion.",
+     "walkthrough": "A test match is an international cricket (or rugby) match between national sides.",
+     "definitionFit": "A test match is an international fixture, a major contest in cricket or rugby, so a sporting event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "suit"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +245,45 @@
     "text": "Had dinner with some bloke at Enzo's",
     "enumeration": "5"
    },
-   "solution": "EATEN"
+   "solution": "EATEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EATEN",
+    "definitions": [
+     {
+      "text": "Had dinner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only part of the following words is taken, a run of letters inside them"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloke at Enzo's",
+      "gives": "EATEN",
+      "note": "the letters run across bloke, at and Enzo"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone dined with a man at an Italian restaurant called Enzo's.",
+     "definitionFit": "Eaten is the past participle: 'I have had dinner' and 'I have eaten' say the same thing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "some"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +297,66 @@
     "text": "One draws on people from Edinburgh Festival event and its organisation",
     "enumeration": "9"
    },
-   "solution": "TATTOOIST"
+   "solution": "TATTOOIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TATTOOIST",
+    "definitions": [
+     {
+      "text": "One draws on people",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "organisation",
+      "for": "anagram",
+      "note": "organisation is the act of arranging, so these letters get put in a new order"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Edinburgh Festival event",
+      "gives": "TATTOO",
+      "note": "the Edinburgh Military Tattoo is a famous display held during the festival"
+     },
+     {
+      "clueFragment": "its",
+      "gives": "ITS",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TATTOO",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITS",
+       "gives": "IST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist from the Edinburgh Festival, drawing on its organisers for material.",
+     "walkthrough": "A military tattoo is an evening display of military music and marching, the Edinburgh one held at the castle each August.",
+     "definitionFit": "A tattooist literally draws designs in ink on people's skin, a cryptic twist on drawing on people for inspiration."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "draws"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +370,55 @@
     "text": "Acted to deceive in plot",
     "enumeration": "7"
    },
-   "solution": "BEHAVED"
+   "solution": "BEHAVED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BEHAVED",
+    "definitions": [
+     {
+      "text": "Acted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first word inside the following one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plot",
+      "gives": "BED",
+      "note": "a plot of garden is a bed"
+     },
+     {
+      "clueFragment": "to deceive",
+      "gives": "HAVE",
+      "note": "to have someone, as in 'you've been had', is to deceive them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "HAVE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone played a part in order to deceive, as part of a conspiracy.",
+     "walkthrough": "'Plot' reads as a conspiracy, but it is the gardener's sense, a patch of ground for planting.",
+     "definitionFit": "To behave is to act or conduct oneself in a particular way, so the past tense matches acted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +432,47 @@
     "text": "Sad son squanders money",
     "enumeration": "5"
    },
-   "solution": "BLUES"
+   "solution": "BLUES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUES",
+    "definitions": [
+     {
+      "text": "squanders money",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sad",
+      "gives": "BLUE",
+      "note": "feeling blue is feeling sad"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "s is the standard abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A father is unhappy that his boy is wasting cash.",
+     "walkthrough": "To blue money is British slang for spending it recklessly; blues is the verb's third person.",
+     "definitionFit": "In British slang to blue cash is to waste it, so someone who blues it squanders money."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sad"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +492,39 @@
      }
     ]
    },
-   "solution": "HIGHMARKS"
+   "solution": "HIGHMARKS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HIGH MARKS",
+    "definitions": [
+     {
+      "text": "Good exam results for senior boys?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good exam results",
+      "note": "surface reading: top scores in a test"
+     },
+     {
+      "clueFragment": "senior boys",
+      "note": "setter's reading: older lads who share a common boy's name, the tall ones"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "High marks are good exam scores; read as a name, Mark, and high as tall or senior, they are also older boys called Mark.",
+     "definitionFit": "Excellent scores in an exam are described as high marks, the phrase that also names lofty boys called Mark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "boys"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +538,58 @@
     "text": "Very unknown at home, German's competing",
     "enumeration": "5"
    },
-   "solution": "VYING"
+   "solution": "VYING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VYING",
+    "definitions": [
+     {
+      "text": "competing",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "V",
+      "note": "v is the abbreviation for very"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is one of the algebra letters for an unknown quantity"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     },
+     {
+      "clueFragment": "German's",
+      "gives": "G",
+      "note": "G is the abbreviation for German; the 's stands for is, joining to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "Y",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A little-known German, staying in, is taking part in a contest.",
+     "definitionFit": "To vie is to compete, so vying means competing for something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +603,66 @@
     "text": "Journal contains time after note about what one eats",
     "enumeration": "7"
    },
-   "solution": "DIETARY"
+   "solution": "DIETARY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DIETARY",
+    "definitions": [
+     {
+      "text": "about what one eats",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains says the first word holds the others inside it"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the time letter follows the note letter in the order written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journal",
+      "gives": "DIARY",
+      "note": "a diary is a daily journal"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "E",
+      "note": "E is a musical note"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "ET",
+      "ARY"
+     ]
+    },
+    "explanation": {
+     "surface": "A food diary records, after each note, the time of every meal.",
+     "walkthrough": "E then T go inside DIARY after its second letter: DI-ET-ARY.",
+     "definitionFit": "Dietary means relating to diet, the food a person habitually consumes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +676,51 @@
     "text": "Furore raised by Gogglebox?",
     "enumeration": "5"
    },
-   "solution": "UPSET"
+   "solution": "UPSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPSET",
+    "definitions": [
+     {
+      "text": "Furore",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raised",
+      "gives": "UP",
+      "note": "something raised is up"
+     },
+     {
+      "clueFragment": "Gogglebox",
+      "gives": "SET",
+      "note": "goggle-box is British slang for a television set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "A row stirred up by the TV show Gogglebox, where people are filmed watching television.",
+     "walkthrough": "Gogglebox is also a British reality show, which makes the surface plausible; here it is just the TV set.",
+     "definitionFit": "An upset is a disturbance or commotion, a fuss of the same kind as a furore."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gogglebox"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +740,73 @@
      }
     ]
    },
-   "solution": "TOURGUIDE"
+   "solution": "TOURGUIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "TOUR GUIDE",
+    "definitions": [
+     {
+      "text": "Holiday rep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the middle of",
+      "for": "letter_selection",
+      "note": "the middle of keeps only the central pair of letters of the six-letter word"
+     },
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means the letters are put into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around has the rearranged letters wrap themselves about the central pair"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ride out",
+      "gives": "RIDEOUT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "August",
+      "gives": "GU",
+      "select": "middle",
+      "note": "the two central letters of August"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOUR",
+      "GU",
+      "IDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RIDEOUT",
+       "gives": "TOURIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holiday rep organised a trip out in mid-August.",
+     "definitionFit": "A holiday rep often leads excursions, and a tour guide is the person who shows visitors around."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +820,65 @@
     "text": "Doctor, doctor! One must be serious!",
     "enumeration": "9"
    },
-   "solution": "MOMENTOUS"
+   "solution": "MOMENTOUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "MOMENTOUS",
+    "definitions": [
+     {
+      "text": "serious",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doctor",
+      "for": "anagram",
+      "note": "to doctor is to tamper with, so the next words are altered into a new order"
+     }
+    ],
+    "linkWords": [
+     "be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MO",
+      "note": "MO is a medical officer, a doctor"
+     },
+     {
+      "clueFragment": "One must",
+      "gives": "ONEMUST",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "MENTOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONEMUST",
+       "gives": "MENTOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The old 'Doctor, doctor!' joke opening, with a stern warning that this time it's no laughing matter.",
+     "walkthrough": "The repeated 'Doctor' does two jobs: the first is the noun MO, the second the verb meaning tamper with.",
+     "definitionFit": "A momentous matter is one of great importance, grave and weighty, so serious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "doctor"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +892,58 @@
     "text": "Mum's eating good hot stuff!",
     "enumeration": "5"
    },
-   "solution": "MAGMA"
+   "solution": "MAGMA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAGMA",
+    "definitions": [
+     {
+      "text": "hot stuff",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating has the first word swallow the next one inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MAMA",
+      "note": "mama is another word for mum"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "g is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "G",
+      "MA"
+     ]
+    },
+    "explanation": {
+     "surface": "Mum is tucking in, and the food is good and very hot.",
+     "definitionFit": "Magma is molten rock beneath the earth's crust, literally extremely hot material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +957,50 @@
     "text": "Teach to prepare trout",
     "enumeration": "5"
    },
-   "solution": "TUTOR"
+   "solution": "TUTOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TUTOR",
+    "definitions": [
+     {
+      "text": "Teach",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to prepare",
+      "for": "anagram",
+      "note": "preparing fish means cutting and working it, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trout",
+      "gives": "TROUT",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TROUT",
+       "gives": "TUTOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cookery lesson on how to get a fish ready for the pan.",
+     "definitionFit": "To tutor is to give private instruction, a synonym for the verb teach."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prepare"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1014,53 @@
     "text": "Get leader redeployed and demoted",
     "enumeration": "9"
    },
-   "solution": "RELEGATED"
+   "solution": "RELEGATED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RELEGATED",
+    "definitions": [
+     {
+      "text": "demoted",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "redeployed",
+      "for": "anagram",
+      "note": "redeployed means moved to new positions, so the letters are placed differently"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get leader",
+      "gives": "GETLEADER",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GETLEADER",
+       "gives": "RELEGATED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office politics: the boss is moved to another post and dropped down the ladder.",
+     "definitionFit": "Relegated means moved to a lower rank or division, which is being demoted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "redeployed"
+    }
+   }
   },
   {
    "number": 15,
@@ -275,7 +1074,62 @@
     "text": "Popular company has top grade lines in place to get better",
     "enumeration": "9"
    },
-   "solution": "INFIRMARY"
+   "solution": "INFIRMARY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFIRMARY",
+    "definitions": [
+     {
+      "text": "place to get better",
+      "at": 39
+     }
+    ],
+    "linkWords": [
+     "has",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Popular",
+      "gives": "IN",
+      "note": "something in fashion is in"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "FIRM",
+      "note": "a firm is a business company"
+     },
+     {
+      "clueFragment": "top grade",
+      "gives": "A",
+      "note": "A is the top grade in many marking schemes"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, the lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FIRM",
+      "A",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular company boasts a top-rated railway network, as places to improve go.",
+     "definitionFit": "An infirmary is a hospital, where patients are cared for until they recover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1143,50 @@
     "text": "Inspire Jo to be a rebel",
     "enumeration": "9"
    },
-   "solution": "FIREBRAND"
+   "solution": "FIREBRAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FIREBRAND",
+    "definitions": [
+     {
+      "text": "a rebel",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inspire",
+      "gives": "FIRE",
+      "note": "to fire someone up is to inspire them"
+     },
+     {
+      "clueFragment": "Jo",
+      "gives": "BRAND",
+      "note": "Jo Brand is a well-known British comedian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIRE",
+      "BRAND"
+     ]
+    },
+    "explanation": {
+     "surface": "Encouraging a girl named Jo to turn rebellious.",
+     "walkthrough": "Jo Brand is a British stand-up comedian, so her first name stands for her surname.",
+     "definitionFit": "A firebrand is a person who stirs up trouble or passionately champions a cause, an agitator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Jo"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1200,53 @@
     "text": "Random treat but I get credit",
     "enumeration": "9"
    },
-   "solution": "ATTRIBUTE"
+   "solution": "ATTRIBUTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATTRIBUTE",
+    "definitions": [
+     {
+      "text": "credit",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Random",
+      "for": "anagram",
+      "note": "random means in no fixed order, so the following letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treat but I",
+      "gives": "TREATBUTI",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREATBUTI",
+       "gives": "ATTRIBUTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone does a random good deed for others but takes the praise for it.",
+     "definitionFit": "To attribute something to a person is to credit them with it, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1260,51 @@
     "text": "Cover chair with high armrest",
     "enumeration": "9"
    },
-   "solution": "UPHOLSTER"
+   "solution": "UPHOLSTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UPHOLSTER",
+    "definitions": [
+     {
+      "text": "Cover chair",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "high",
+      "gives": "UP",
+      "note": "something high is up"
+     },
+     {
+      "clueFragment": "armrest",
+      "gives": "HOLSTER",
+      "note": "read as arm-rest, a place where a firearm rests: a gun holster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "HOLSTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Furnishing advice: put fabric on a chair with tall armrests.",
+     "walkthrough": "'Armrest' looks like part of the chair; split as arm (a weapon) and rest, it is a holster.",
+     "definitionFit": "To upholster is to fit a chair or sofa with padding and a fabric covering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "armrest"
+    }
+   }
   },
   {
    "number": 18,
@@ -331,7 +1318,71 @@
     "text": "Modernised university has personal digital assistant initially taking notes",
     "enumeration": "7"
    },
-   "solution": "UPDATED"
+   "solution": "UPDATED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "UPDATED",
+    "definitions": [
+     {
+      "text": "Modernised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially says to take opening letters from the words around it"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "personal digital assistant",
+      "gives": "PDA",
+      "select": "first",
+      "note": "the first letters of the three words"
+     },
+     {
+      "clueFragment": "taking",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter of taking"
+     },
+     {
+      "clueFragment": "notes",
+      "gives": "ED",
+      "note": "E and D are musical notes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "PDA",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A university now has handheld gadgets for students to take notes on.",
+     "definitionFit": "Updated means brought up to date, made current, which is what modernised describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 19,
@@ -345,7 +1396,66 @@
     "text": "Model in sari playing Indian instrument",
     "enumeration": "5"
    },
-   "solution": "SITAR"
+   "solution": "SITAR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SITAR",
+    "definitions": [
+     {
+      "text": "Indian instrument",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests the letters are played about with and reordered"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first item inside the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sari",
+      "gives": "SARI",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "Model",
+      "gives": "T",
+      "note": "the Model T was Ford's famous early car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SI",
+      "T",
+      "AR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SARI",
+       "gives": "SIAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A model in traditional Indian dress performs on an Indian instrument.",
+     "definitionFit": "The sitar is a long-necked plucked string instrument from India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 20,
@@ -365,7 +1475,56 @@
      }
     ]
    },
-   "solution": "REELECT"
+   "solution": "REELECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RE-ELECT",
+    "definitions": [
+     {
+      "text": "Give seat once more to",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "REEL",
+      "note": "a reel is a lively Scottish dance"
+     },
+     {
+      "clueFragment": "partner",
+      "gives": "E",
+      "note": "in bridge East is partner to West, abbreviated E"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEL",
+      "E",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "At a royal court ball, a dancer offers a chair again to a partner.",
+     "walkthrough": "Bridge is played in pairs, North with South and East with West, so a partner can be any compass letter.",
+     "definitionFit": "To re-elect someone is to vote them back into office, giving them their parliamentary seat again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "seat"
+    }
+   }
   },
   {
    "number": 21,
@@ -379,7 +1538,55 @@
     "text": "Hound about home-making",
     "enumeration": "5"
    },
-   "solution": "DOING"
+   "solution": "DOING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOING",
+    "definitions": [
+     {
+      "text": "making",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about has the first word go round the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hound",
+      "gives": "DOG",
+      "note": "a hound is a dog"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "IN",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog fussing around a domestic task, as dogs underfoot do.",
+     "walkthrough": "The hyphen in 'home-making' is a trick: 'home' belongs to the wordplay and 'making' alone is the definition.",
+     "definitionFit": "Doing and making are both general verbs for carrying out or producing, as in doing or making a cake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home-making"
+    }
+   }
   },
   {
    "number": 22,
@@ -393,7 +1600,59 @@
     "text": "Often an incident arising's a bit absurd",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "absurd",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "hidden_word",
+      "note": "a bit means only a small part of the words before it is used"
+     },
+     {
+      "text": "arising",
+      "for": "reversal",
+      "note": "in a down clue, arising means the letters read upwards, from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Often an incident",
+      "gives": "ENANI",
+      "note": "the letters run across often, an and incident"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ENANI",
+       "to": "INANE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Things that crop up often are rather ridiculous.",
+     "definitionFit": "Inane means silly or pointless, a close synonym for absurd."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arising"
+    }
+   }
   },
   {
    "number": 23,
@@ -407,7 +1666,68 @@
     "text": "Vegetable from Aube region cooked with nothing removed",
     "enumeration": "9"
    },
-   "solution": "AUBERGINE"
+   "solution": "AUBERGINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "AUBERGINE",
+    "definitions": [
+     {
+      "text": "Vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooked means prepared and changed, so the letters are mixed up"
+     },
+     {
+      "text": "removed",
+      "for": "deletion",
+      "note": "removed means that letter is taken away from the rest"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aube region",
+      "gives": "AUBEREGION",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, the letter O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUBERGINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AUBEREGIN",
+       "gives": "AUBERGINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A French recipe: a vegetable from the Aube department cooked on its own.",
+     "walkthrough": "Aube is a department of north-east France, which makes a French dish plausible.",
+     "definitionFit": "Aubergine is the British name for the eggplant, a purple vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nothing"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1741,58 @@
     "text": "Getting help to acquire credit is bitter",
     "enumeration": "5"
    },
-   "solution": "ACRID"
+   "solution": "ACRID",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ACRID",
+    "definitions": [
+     {
+      "text": "bitter",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to acquire",
+      "for": "container",
+      "note": "to acquire is to take something in, so one word holds the other"
+     }
+    ],
+    "linkWords": [
+     "Getting",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help",
+      "gives": "AID",
+      "note": "aid is help"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CR",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Having to ask for financial help to get a loan leaves a sour taste.",
+     "definitionFit": "Acrid means sharp and harsh to taste or smell, which is bitter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1806,60 @@
     "text": "Agrees, even, to support artist's violent passions",
     "enumeration": "5"
    },
-   "solution": "RAGES"
+   "solution": "RAGES",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RAGES",
+    "definitions": [
+     {
+      "text": "violent passions",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "even",
+      "for": "letter_selection",
+      "note": "even means only the letters in even-numbered places, second, fourth and sixth, are kept"
+     },
+     {
+      "text": "to support",
+      "for": "charade",
+      "note": "in a down clue, to support means placed underneath the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist's",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     },
+     {
+      "clueFragment": "Agrees",
+      "gives": "GES",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "GES"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone even agrees to back a painter's furious outbursts.",
+     "definitionFit": "Rages are fits of violent anger, intense outbursts of feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "even"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1873,86 @@
     "text": "Man races to catch rodent before old atmosphere returns in restaurant",
     "enumeration": "9"
    },
-   "solution": "TRATTORIA"
+   "solution": "TRATTORIA",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRATTORIA",
+    "definitions": [
+     {
+      "text": "restaurant",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to catch",
+      "for": "container",
+      "note": "to catch is to hold, so the first item is wrapped round the next"
+     },
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "before says the next piece comes after what precedes it"
+     },
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returns means the word goes back the way it came, read right to left"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man races",
+      "gives": "TT",
+      "note": "the TT (Tourist Trophy) motorcycle races are held on the Isle of Man"
+     },
+     {
+      "clueFragment": "rodent",
+      "gives": "RAT",
+      "note": "a rat is a rodent"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "o is the abbreviation for old"
+     },
+     {
+      "clueFragment": "atmosphere",
+      "gives": "AIR",
+      "note": "air is atmosphere"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRATT",
+      "O",
+      "RIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man hurries to catch a rat in a restaurant before the old ambience comes back.",
+     "walkthrough": "'Man' looks like a person, but it is the Isle of Man, home of the TT races.",
+     "definitionFit": "A trattoria is an informal Italian eating house, a kind of restaurant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1966,47 @@
     "text": "Dressing for matador's wounds reportedly?",
     "enumeration": "5"
    },
-   "solution": "GAUZE"
+   "solution": "GAUZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GAUZE",
+    "definitions": [
+     {
+      "text": "Dressing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as said aloud, so the sound counts, not the spelling"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "matador's wounds",
+      "gives": "GAUZE",
+      "soundsLike": "GORES",
+      "note": "a matador is wounded when a bull gores him; in a non-rhotic British accent the two words sound alike"
+     }
+    ],
+    "explanation": {
+     "surface": "Bandages needed for a bullfighter's injuries.",
+     "definitionFit": "Gauze is the thin open-weave fabric used as a wound dressing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Dressing"
+    }
+   }
   },
   {
    "number": 27,
@@ -483,7 +2026,50 @@
      }
     ]
    },
-   "solution": "DREADED"
+   "solution": "DREADED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DREADED",
+    "definitions": [
+     {
+      "text": "Feared",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "becoming",
+      "for": "anagram",
+      "note": "becoming means turning into something else, so the letters change their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red and dead",
+      "gives": "REDDEAD",
+      "note": "the two words red and dead, joined by and, are rearranged together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDDEAD",
+       "gives": "DREADED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A frightening fate: turning red and then dying.",
+     "definitionFit": "Dreaded means regarded with great fear, which is what feared describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "becoming"
+    }
+   }
   },
   {
    "number": 28,
@@ -497,7 +2083,48 @@
     "text": "Drop of French perfume",
     "enumeration": "7"
    },
-   "solution": "DESCENT"
+   "solution": "DESCENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DESCENT",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "perfume",
+      "gives": "SCENT",
+      "note": "scent is perfume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SCENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A drop of French perfume, as a dab behind the ear.",
+     "walkthrough": "'Drop' reads as a tiny amount of scent, but it is the definition: a fall or downward slope.",
+     "definitionFit": "A descent is a downward slope or fall, the noun sense of drop."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Drop"
+    }
+   }
   }
  ]
 }
