@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,52 @@
     "text": "The Times unmentioned in Tit-bits flyer",
     "enumeration": "4"
    },
-   "solution": "IBIS"
+   "solution": "IBIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IBIS",
+    "definitions": [
+     {
+      "text": "flyer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unmentioned",
+      "for": "deletion",
+      "note": "what goes unmentioned is left out, so every letter standing for time is dropped from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The Times",
+      "note": "T is the abbreviation for time; here every T is meant"
+     },
+     {
+      "clueFragment": "Tit-bits",
+      "gives": "TITBITS",
+      "note": "taken as written, without the hyphen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IBIS"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper columnist grumbles that their paper got no mention in the rival magazine Tit-Bits.",
+     "walkthrough": "Take all three Ts out of TITBITS and IBIS is left. Tit-Bits was a popular British weekly magazine, and The Times a newspaper.",
+     "definitionFit": "The ibis is a long-legged wading bird, so it is a flyer in the general crossword sense of a bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Times"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +95,49 @@
     "text": "Something enchanting from poet in steps of rare praise",
     "enumeration": "6"
    },
-   "solution": "FAERIE"
+   "solution": "FAERIE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "FAERIE",
+    "definitions": [
+     {
+      "text": "Something enchanting from poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in steps",
+      "for": "letter_selection",
+      "note": "walking in steps lands on every second spot, so only alternate letters are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of rare praise",
+      "gives": "FAERIE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FAERIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tribute in verse moves through stages of unusual admiration.",
+     "walkthrough": "The run starts at 'of', not 'rare': the even letters of 'of rare praise' spell the word. The word is the old poetic spelling famous from Spenser's The Faerie Queene.",
+     "definitionFit": "Faerie is the archaic literary form for fairyland or a fairy, a magical thing found in poetry such as Spenser."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "steps"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +151,80 @@
     "text": "In which, fixated by notable date, am I not deluded about love?",
     "enumeration": "10"
    },
-   "solution": "EROTOMANIA"
+   "solution": "EROTOMANIA",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "container"
+    ],
+    "answer": "EROTOMANIA",
+    "definitions": [
+     {
+      "text": "In which, fixated by notable date, am I not deluded about love?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fixated by",
+      "for": "container",
+      "note": "something fixated by another is held fast within it, so the remaining letters sit inside"
+     },
+     {
+      "text": "deluded",
+      "for": "anagram",
+      "note": "a deluded mind has its thoughts scrambled, so these letters are rearranged"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the jumble goes around the next item, wrapping it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notable date",
+      "gives": "ERA",
+      "note": "an era is a period dated from a notable event"
+     },
+     {
+      "clueFragment": "am I not",
+      "gives": "AMINOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "OT",
+      "O",
+      "MANI",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMINOT",
+       "gives": "OTMANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone obsessed with an anniversary asks whether they are really mistaken about romance.",
+     "walkthrough": "Rearrange AM I NOT around O to get OTOMANI, then put that inside ERA. The whole clue also describes the condition: a deluded belief about love.",
+     "definitionFit": "Erotomania is the delusion that another person is in love with you, a state in which one is deluded about love."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +238,48 @@
     "text": "Cut a slice of Somerset (or Dorset??) Cheddar",
     "enumeration": "6"
    },
-   "solution": "ETCHED"
+   "solution": "ETCHED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ETCHED",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a slice of",
+      "for": "hidden_word",
+      "note": "a slice is a piece taken from within something larger, so the letters lie inside the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Somerset (or",
+      "note": "surface padding: the other county, which would hide the same letters"
+     },
+     {
+      "clueFragment": "Dorset??) Cheddar",
+      "gives": "ETCHED",
+      "note": "found running across the county name and the cheese"
+     }
+    ],
+    "explanation": {
+     "surface": "Instructions to cut a piece of West Country cheese, with doubt over which county it comes from.",
+     "walkthrough": "The joke is that it hides equally well in 'Somerset Cheddar' and 'Dorset Cheddar', hence the bemused question marks. Both are English counties.",
+     "definitionFit": "To etch is to cut lines into a surface, so etched is a past-tense synonym for cut in engraving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +293,54 @@
     "text": "Receive news about article made of tanned hide",
     "enumeration": "8"
    },
-   "solution": "LEATHERN"
+   "solution": "LEATHERN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LEATHERN",
+    "definitions": [
+     {
+      "text": "made of tanned hide",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "the first word goes around the following one, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Receive news",
+      "gives": "LEARN",
+      "note": "to learn something is to receive news of it"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "THE",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "A report on an item fashioned from cured animal skin.",
+     "definitionFit": "Leathern is an old adjective describing things made of leather, which is tanned animal hide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +354,42 @@
     "text": "More than 50% of the letters above",
     "enumeration": "4"
    },
-   "solution": "ATOP"
+   "solution": "ATOP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ATOP",
+    "definitions": [
+     {
+      "text": "above",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More than 50% of the letters",
+      "gives": "ATOP",
+      "note": "the alphabet from its first letter through to the sixteenth, which is over half of twenty-six"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATOP"
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle about what proportion of the characters sit higher up the page.",
+     "walkthrough": "Read 'A to P' as a stretch of the alphabet: sixteen of the twenty-six letters, so more than half.",
+     "definitionFit": "Atop is a preposition meaning on top of, which serves exactly as above does in a sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +403,54 @@
     "text": "A fall in teaching of old French region",
     "enumeration": "8"
    },
-   "solution": "LORRAINE"
+   "solution": "LORRAINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LORRAINE",
+    "definitions": [
+     {
+      "text": "old French region",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teaching",
+      "gives": "LORE",
+      "note": "lore is a body of teaching or traditional knowledge"
+     },
+     {
+      "clueFragment": "A fall",
+      "gives": "RAIN",
+      "note": "rain is a fall from the sky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOR",
+      "RAIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A collapse in education standards in a historic province of France.",
+     "definitionFit": "Lorraine is a historical province in north-eastern France, now part of the Grand Est region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fall"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +470,70 @@
      }
     ]
    },
-   "solution": "LEADASTRAY"
+   "solution": "LEADASTRAY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "LEAD ASTRAY",
+    "definitions": [
+     {
+      "text": "Take once-a-year drinker out, maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     },
+     {
+      "text": "getting tiddly",
+      "for": "anagram",
+      "note": "tiddly means tipsy, and a tipsy word staggers into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ely",
+      "gives": "ELY",
+      "note": "the cathedral city, taken as written"
+     },
+     {
+      "clueFragment": "to the Stars",
+      "gives": "ADASTRA",
+      "note": "Latin for to the stars, as in the RAF motto per ardua ad astra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "ADASTRA",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ELY",
+       "gives": "LEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Taking a teetotaller to a pub called the Stars in Ely, where they end up a little drunk.",
+     "walkthrough": "'The Stars' looks like a pub name, but it must be translated into Latin. Ely is a cathedral city in Cambridgeshire; 'tiddly' is British slang for slightly drunk.",
+     "definitionFit": "To lead astray is to tempt someone into misbehaving, as taking a rare drinker out boozing might, hence the 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Stars"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +553,45 @@
      }
     ]
    },
-   "solution": "BYAIR"
+   "solution": "BYAIR",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "hidden_word"
+    ],
+    "answer": "BY AIR",
+    "definitions": [
+     {
+      "text": "This Libya-Ireland passage?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passage",
+      "for": "hidden_word",
+      "note": "a passage is a section lifted from a text, so the letters lie within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Libya-Ireland",
+      "gives": "BYAIR",
+      "note": "found across the join of the two country names"
+     }
+    ],
+    "explanation": {
+     "surface": "A query about a journey between North Africa and Ireland.",
+     "walkthrough": "The hidden letters also describe how such a journey would most likely be made, so the clue doubles as its own definition.",
+     "definitionFit": "Travelling by air means flying, the obvious way to make a passage from Libya to Ireland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "passage"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +611,40 @@
      }
     ]
    },
-   "solution": "TWENTYONE"
+   "solution": "TWENTYONE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "TWENTY-ONE",
+    "definitions": [
+     {
+      "text": "Time to reject Old Year – insert this by end of date",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time to reject Old Year",
+      "note": "surface reading: the moment to cast off the year just ending"
+     },
+     {
+      "clueFragment": "insert this by end of date",
+      "note": "setter's reading: the number now written at the end of every date in the new year"
+     }
+    ],
+    "explanation": {
+     "surface": "New Year advice: time to throw out the old year and write the new figures when dating things.",
+     "walkthrough": "The puzzle appeared at the start of 2021, so from now on the year's last two digits change from 20 to this number.",
+     "definitionFit": "In 2021 the final two digits written in every date became 21, the figure one adds at the end of the date."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "insert"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +658,77 @@
     "text": "Some time, this compiler’s beginnings in Hatfield perhaps, looking back",
     "enumeration": "7"
    },
-   "solution": "STRETCH"
+   "solution": "STRETCH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "STRETCH",
+    "definitions": [
+     {
+      "text": "Some time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginnings",
+      "for": "letter_selection",
+      "note": "beginnings are the starts of words, so only each first letter is kept"
+     },
+     {
+      "text": "looking back",
+      "for": "reversal",
+      "note": "looking back means facing the other way, so the place name is read from its end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hatfield perhaps",
+      "gives": "HERTS",
+      "note": "Hatfield is a town in Hertfordshire, abbreviated Herts; 'perhaps' marks an example"
+     },
+     {
+      "clueFragment": "this compiler’s",
+      "gives": "TC",
+      "select": "first",
+      "note": "the first letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRE",
+      "TC",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HERTS",
+       "to": "STREH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The setter reminisces about their early days in Hatfield.",
+     "walkthrough": "Hertfordshire is an English county just north of London. Reverse its abbreviation, then slot the two initials in before the last letter.",
+     "definitionFit": "A stretch is a continuous period, and in slang a prison sentence, so it means some time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beginnings"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +742,53 @@
     "text": "Cart-horse bureaucracy, up to a point?",
     "enumeration": "7"
    },
-   "solution": "TAPERED"
+   "solution": "TAPERED",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "TAPERED",
+    "definitions": [
+     {
+      "text": "up to a point?",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cart-horse",
+      "for": "cycling",
+      "note": "putting the cart before the horse swaps rear and front, so the back part moves to the front"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bureaucracy",
+      "gives": "REDTAPE",
+      "note": "red tape is bureaucratic procedure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAPE",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "Officialdom about a working horse, accepted only partly.",
+     "walkthrough": "'Up to a point' looks like a hedge meaning partly; read literally it describes something narrowing to a point.",
+     "definitionFit": "Something tapered narrows gradually until it ends in a point, which is the literal sense of the phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cart-horse"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +802,56 @@
     "text": "This man features in weird sleep",
     "enumeration": "5"
    },
-   "solution": "RHEUM"
+   "solution": "RHEUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RHEUM",
+    "definitions": [
+     {
+      "text": "sleep",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "features in",
+      "for": "container",
+      "note": "to feature in something is to appear within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "weird",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or weird"
+     },
+     {
+      "clueFragment": "This man",
+      "gives": "HE",
+      "note": "the pronoun for a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "HE",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "A man appears in a strange dream while asleep.",
+     "walkthrough": "'Sleep' is not slumber here but the crust that forms in the corners of the eyes overnight. 'Rum' meaning odd is British.",
+     "definitionFit": "Rheum is the watery discharge from eyes that dries as the crusty matter people call sleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "sleep"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +865,39 @@
     "text": "Have you just made one on your completed grid?",
     "enumeration": "10"
    },
-   "solution": "RESOLUTION"
+   "solution": "RESOLUTION",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "RESOLUTION",
+    "definitions": [
+     {
+      "text": "Have you just made one on your completed grid?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Have you just made one",
+      "note": "surface reading: a New Year pledge you have just made"
+     },
+     {
+      "clueFragment": "on your completed grid",
+      "note": "setter's reading: a finished puzzle is solved, and solving is another sense of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A New Year question asked of a solver who has just finished this crossword.",
+     "definitionFit": "The word means both a firm New Year pledge and the act of solving a problem, as a completed grid shows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "made"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +911,70 @@
     "text": "It’s tied up with restrictions of cuisine",
     "enumeration": "9"
    },
-   "solution": "DIETETICS"
+   "solution": "DIETETICS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "DIETETICS",
+    "definitions": [
+     {
+      "text": "It’s tied up with restrictions of cuisine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "something tied up is churned up and disordered, so the letters are rearranged"
+     },
+     {
+      "text": "restrictions of",
+      "for": "letter_selection",
+      "note": "restrictions are bounds, so only the outer edges of the word are taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s tied",
+      "gives": "ITSTIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cuisine",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIETETICS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITSTIEDCE",
+       "gives": "DIETETICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A field that is bound up with limits on what we may eat.",
+     "walkthrough": "The whole clue also describes the subject: a discipline concerned with restricting food.",
+     "definitionFit": "Dietetics is the science of diet and nutrition, which deals in controlling and limiting what people eat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tied"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +988,72 @@
     "text": "Counteracting unfair treatment, Jolson leaves Ross early 20thC collection",
     "enumeration": "10"
    },
-   "solution": "EDWARDIANA"
+   "solution": "EDWARDIANA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "EDWARDIANA",
+    "definitions": [
+     {
+      "text": "early 20thC collection",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Counteracting",
+      "for": "reversal",
+      "note": "counteracting works against something, turning it the opposite way"
+     },
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "the singer leaves, so his name departs from the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfair treatment",
+      "gives": "RAWDEAL",
+      "note": "a raw deal is unfair treatment"
+     },
+     {
+      "clueFragment": "Jolson",
+      "gives": "AL",
+      "note": "Al Jolson, the American singer"
+     },
+     {
+      "clueFragment": "Ross",
+      "gives": "DIANA",
+      "note": "Diana Ross, the American singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EDWAR",
+      "DIANA"
+     ],
+     "reversals": [
+      {
+       "from": "RAWDE",
+       "to": "EDWAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale of justice being done as one singer quits another's company.",
+     "walkthrough": "Take AL out of RAW DEAL, turn the rest round, then add Ross's first name.",
+     "definitionFit": "Edwardiana are objects and memorabilia from the Edwardian era, the reign of Edward VII from 1901 to 1910."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Counteracting"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1085,43 @@
      }
     ]
    },
-   "solution": "SEEINTHENEWYEAR"
+   "solution": "SEEINTHENEWYEAR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SEE IN THE NEW YEAR",
+    "definitions": [
+     {
+      "text": "Welcome 20 10, did you say?",
+      "at": 0
+     },
+     {
+      "text": "Enter here to make merry with wine and no end of beer",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welcome 20 10, did you say?",
+      "note": "first meaning: greet twenty twenty-one, spoken from the figures plus the answers at 20 and 10"
+     },
+     {
+      "clueFragment": "Enter here to make merry with wine and no end of beer",
+      "note": "second meaning: a description of a party on 31 December"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Say '20' then the answer at 10 and you hear twenty twenty-one, the year being welcomed when this puzzle ran.",
+     "definitionFit": "To welcome a coming year is to celebrate its arrival at midnight, usually with drink and festivity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Enter"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1135,56 @@
     "text": "Music centre at which ____’s played?",
     "enumeration": "8"
    },
-   "solution": "ENTRACTE"
+   "solution": "ENTRACTE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram"
+    ],
+    "answer": "ENTRACTE",
+    "definitions": [
+     {
+      "text": "Music centre at which ____’s played?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played",
+      "for": "anagram",
+      "note": "played suggests letters performed in a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "centre at",
+      "gives": "CENTREAT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENTRACTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CENTREAT",
+       "gives": "ENTRACTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what is played at a music venue, with a blank where the act should be.",
+     "walkthrough": "The blank stands for the gap in a show: the music is played in the middle, when nothing else is happening on stage.",
+     "definitionFit": "An entr'acte is music performed in the interval between two acts of a play or opera."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "centre"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1198,53 @@
     "text": "Meanly keep mum – no time to 16!",
     "enumeration": "8"
    },
-   "solution": "HOGMANAY"
+   "solution": "HOGMANAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOGMANAY",
+    "definitions": [
+     {
+      "text": "time to 16",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meanly keep",
+      "gives": "HOG",
+      "note": "to hog is to keep selfishly"
+     },
+     {
+      "clueFragment": "mum",
+      "gives": "MA",
+      "note": "an informal word for mother"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NAY",
+      "note": "an old word for no"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOG",
+      "MA",
+      "NAY"
+     ]
+    },
+    "explanation": {
+     "surface": "A miser stays silent and has no time to celebrate.",
+     "walkthrough": "'Keep mum' looks like a phrase meaning stay quiet, but it splits into two pieces.",
+     "definitionFit": "Hogmanay is the Scottish name for New Year's Eve, the occasion to welcome the year with a party."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "mum"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1258,72 @@
     "text": "Slow glacier moving round this is not detected",
     "enumeration": "9"
    },
-   "solution": "LETHARGIC"
+   "solution": "LETHARGIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "LETHARGIC",
+    "definitions": [
+     {
+      "text": "Slow",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "a moving thing shifts position, so the letters are reordered"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "the jumble goes round the next item, enclosing it"
+     },
+     {
+      "text": "is not detected",
+      "for": "deletion",
+      "note": "the word 'is' goes undetected, meaning those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "glacier",
+      "gives": "GLACIER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "THIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "TH",
+      "ARGIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLACIER",
+       "gives": "LEARGIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A glacier creeps along so slowly that nobody notices it moving.",
+     "definitionFit": "Lethargic describes someone sluggish and lacking energy, so slow is a fair adjective synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "glacier"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1337,74 @@
     "text": "A bit of Christmas cheer’s unusual around nursery",
     "enumeration": "6"
    },
-   "solution": "CRECHE"
+   "solution": "CRECHE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "CRECHE",
+    "definitions": [
+     {
+      "text": "nursery",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A bit of",
+      "for": "letter_selection",
+      "note": "just a bit of the word is used, namely its first letter"
+     },
+     {
+      "text": "unusual",
+      "for": "anagram",
+      "note": "an unusual form is an altered one, so these letters are rearranged"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the jumble goes around the single letter, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheer",
+      "gives": "CHEER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Christmas",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "C",
+      "HE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHEER",
+       "gives": "CREHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Festive goodwill is rare around the children's nursery at Christmas.",
+     "walkthrough": "The surface invites the nativity crib, another sense of the word, but the definition here is the childcare one.",
+     "definitionFit": "A crèche is a nursery where young children are looked after while their parents work or shop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cheer"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1418,44 @@
     "text": "Received summons notice with some style!",
     "enumeration": "5"
    },
-   "solution": "RITZY"
+   "solution": "RITZY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RITZY",
+    "definitions": [
+     {
+      "text": "with some style!",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Received",
+      "for": "homophone",
+      "note": "something received by the ear is heard, so the pieces are judged by how they are spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "summons notice",
+      "gives": "RITZY",
+      "soundsLike": "WRIT SEE",
+      "note": "a writ is a legal summons, and to see is to notice"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone served with a court summons takes the news with flair.",
+     "walkthrough": "'Received' looks like part of the story of being served, but it signals sound.",
+     "definitionFit": "Ritzy, from the Ritz hotel, means showily smart and luxurious, so it describes something done with style."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Received"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1469,60 @@
     "text": "Shake what took over a day to build right up",
     "enumeration": "6"
    },
-   "solution": "TREMOR"
+   "solution": "TREMOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TREMOR",
+    "definitions": [
+     {
+      "text": "Shake",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading from the bottom, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what took over a day to build",
+      "gives": "ROME",
+      "note": "from the saying that Rome was not built in a day"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "a standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EMOR"
+     ],
+     "reversals": [
+      {
+       "from": "ROMERT",
+       "to": "TREMOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shaking something that took ages to put together.",
+     "definitionFit": "A tremor is a shaking movement, as of the ground or a hand, so the noun fits shake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "build"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1536,75 @@
     "text": "NZ resident clipped car reversing back over something suspicious",
     "enumeration": "7"
    },
-   "solution": "TUATARA"
+   "solution": "TUATARA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TUATARA",
+    "definitions": [
+     {
+      "text": "NZ resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clipped",
+      "for": "deletion",
+      "note": "something clipped has its end trimmed off"
+     },
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "a reversing car goes backwards, so its letters run backwards"
+     },
+     {
+      "text": "back over",
+      "for": "reversal",
+      "note": "turning back over flips the order of the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "car",
+      "gives": "AUTO",
+      "note": "auto is a car"
+     },
+     {
+      "clueFragment": "something suspicious",
+      "gives": "ARAT",
+      "note": "from the phrase to smell a rat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TUA",
+      "TARA"
+     ],
+     "reversals": [
+      {
+       "from": "AUT",
+       "to": "TUA"
+      },
+      {
+       "from": "ARAT",
+       "to": "TARA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A New Zealander backs a damaged car over something dubious.",
+     "definitionFit": "The tuatara is a lizard-like reptile found only in New Zealand, so it is a native resident there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "resident"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1618,61 @@
     "text": "Justify what one’s done with eggs on the turn?",
     "enumeration": "4"
    },
-   "solution": "AVOW"
+   "solution": "AVOW",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AVOW",
+    "definitions": [
+     {
+      "text": "Justify what one’s done",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the turn",
+      "for": "reversal",
+      "note": "something on the turn is turning round, so the letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "OVA",
+      "note": "ova are eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVO",
+      "W"
+     ],
+     "reversals": [
+      {
+       "from": "WOVA",
+       "to": "AVOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Defending one's cooking when the eggs have started to go off.",
+     "walkthrough": "Turn W and OVA round together.",
+     "definitionFit": "To avow is to declare openly and stand by an action, owning it rather than denying it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eggs"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1686,58 @@
     "text": "Out-door clothes dope’s pressing",
     "enumeration": "7"
    },
-   "solution": "EXIGENT"
+   "solution": "EXIGENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXIGENT",
+    "definitions": [
+     {
+      "text": "pressing",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "to clothe something is to wrap it up, so one word encloses the next"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Out-door",
+      "gives": "EXIT",
+      "note": "an exit is a door leading out"
+     },
+     {
+      "clueFragment": "dope",
+      "gives": "GEN",
+      "note": "dope and gen are both slang for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXI",
+      "GEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Garments for outdoors are urgently needed, says a drug user.",
+     "walkthrough": "'Clothes' looks like a noun in the surface but is a verb here. Gen is British slang for information.",
+     "definitionFit": "Exigent means urgent and demanding immediate attention, just as a pressing matter does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1751,66 @@
     "text": "Official figures hot parts still rising",
     "enumeration": "4"
    },
-   "solution": "THEY"
+   "solution": "THEY",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "THEY",
+    "definitions": [
+     {
+      "text": "Official figures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "the hot item parts the next word, splitting it to sit inside"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down clue, rising means reading upwards, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "still",
+      "gives": "YET",
+      "note": "still and yet both mean nevertheless or up to now"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "H is the abbreviation for hot, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "EY"
+     ],
+     "reversals": [
+      {
+       "from": "YEHT",
+       "to": "THEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Government statistics show temperatures still climbing in some regions.",
+     "definitionFit": "They is the faceless authority in sayings like 'they say', the officials who run things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "figures"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1824,61 @@
     "text": "Manipulating sort thought a poet’s odes retro features",
     "enumeration": "9"
    },
-   "solution": "OSTEOPATH"
+   "solution": "OSTEOPATH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "OSTEOPATH",
+    "definitions": [
+     {
+      "text": "Manipulating sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "features",
+      "for": "hidden_word",
+      "note": "what a phrase features it contains, so the letters lie within these words"
+     },
+     {
+      "text": "retro",
+      "for": "reversal",
+      "note": "retro means backward-looking, so the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thought a poet’s odes",
+      "gives": "HTAPOETSO",
+      "note": "running from the end of the first word into the last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSTEOPATH"
+     ],
+     "reversals": [
+      {
+       "from": "HTAPOETSO",
+       "to": "OSTEOPATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scheming type considered that a poet's verses were old-fashioned.",
+     "walkthrough": "'Manipulating sort' suggests a schemer, but the manipulation is of bones and joints.",
+     "definitionFit": "An osteopath treats patients by manipulating the bones, muscles and joints with the hands."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Manipulating"
+    }
+   }
   },
   {
    "number": 28,
@@ -467,7 +1898,60 @@
      }
     ]
    },
-   "solution": "NOONE"
+   "solution": "NOONE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NO-ONE",
+    "definitions": [
+     {
+      "text": "who’s got any?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What’s left of",
+      "for": "letter_selection",
+      "note": "the left end of a word is its start, so the first letter is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "twelve",
+      "gives": "NOON",
+      "note": "noon is twelve o'clock midday"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering who still has any energy left after midnight celebrations.",
+     "walkthrough": "'What's left of' sounds like a remnant but means the leftmost letter. 'After' places it behind the time.",
+     "definitionFit": "Asked who has any, the answer is nobody, so the pronoun phrase replies to the question."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   }
  ]
 }
