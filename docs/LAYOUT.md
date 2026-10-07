@@ -257,9 +257,12 @@ tools/acquire_book.py                         takes a book from an archive.org i
                                               reading that votes on that puzzle's clues, not
                                               filed as a new book-N; a newspaper puzzle filed
                                               after its book copy turns the book-N file into
-                                              that reading, in fetch_puzzle.write_puzzle_file),
-                                              and a per-puzzle report of what it got and why
-                                              the rest failed
+                                              that reading, in fetch_puzzle.write_puzzle_file,
+                                              and fetch_puzzle.py --supersede-books does the
+                                              same for a pair two jobs filed in two worktrees,
+                                              each before the other's push reached it), and a
+                                              per-puzzle report of what it got and why the rest
+                                              failed
 tools/light_spec.py                           turns one OCR'd clue list into the light spec the
                                               reconstructor wants, repairing linked fields,
                                               clues OCR ran together, and numbers that lost a
@@ -659,7 +662,9 @@ tools/build_authored_puzzle.py                merges a fill and its hand-written
 tools/test_build_authored_puzzle.sh           builds A001 through the real write path into a
                                               scratch tree and holds it to the schema, the
                                               integrity checks and the annotation rules, since
-                                              no corpus sweep ever sees it
+                                              no corpus sweep ever sees it; and does a book
+                                              copy of a newspaper puzzle become a reading of it
+                                              whichever was filed first, by one job or by two
 tools/test_hidden_edges.sh                    holds the builder's refusal of a hidden answer
                                               that sits inside one word or starts or ends on a
                                               word boundary, forwards or reversed
@@ -1248,7 +1253,9 @@ tools/rank_book_candidates.py                 rank archive.org crossword books b
                                               acquiring one in full is worth it
 tools/acquire_books.sh                        read the next archive.org crossword books nobody
                                               has read yet — up to three loans a run, then
-                                              every book due
+                                              every book due; first turns any held book file
+                                              that reprints a held newspaper puzzle into a
+                                              reading of it (fetch_puzzle.py --supersede-books)
 tools/book_queue.py                           which registered archive.org books have not been
                                               read yet, best first
 tools/test_book_queue.sh                      does tools/book_queue.py still offer the right
@@ -1263,7 +1270,10 @@ tools/test_durable.sh                         does a long job keep what it filed
                                               running, sent SIGTERM, or SIGKILLed and
                                               restarted, without filing anything twice; does
                                               corpus_queue.py stop let the pass commit; does
-                                              every long scheduled job use tools/durable.sh?
+                                              every long scheduled job use tools/durable.sh,
+                                              committing all of puzzles/ so a book file a
+                                              newspaper write superseded is deleted on origin
+                                              too?
 tools/data/source_answer_wrong.json           answers a source's key got wrong, keyed puzzle
                                               id/entry id: what it serves, the corrected
                                               letters, the evidence; read as

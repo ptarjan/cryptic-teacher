@@ -55,13 +55,15 @@
 # holding a ledger.
 #
 # Runs in a worktree of its own (tools/nightly_worktree.sh), at origin/master.
-SERIES=(puzzles/canberra puzzles/telegraph puzzles/cryptic puzzles/ftcryptic puzzles/times)
+# All of puzzles/, not the series it files: filing a newspaper puzzle deletes
+# the held book file that reprints it (fetch_puzzle.supersede_book), and that
+# deletion is part of the write.
 # shellcheck disable=SC2034  # read by the sourced nightly_worktree.sh
-CT_SALVAGE_PATHS="${SERIES[*]}"
+CT_SALVAGE_PATHS="puzzles"
 . "$(dirname "$0")/nightly_worktree.sh"
 cd "$(dirname "$0")/.." || exit 1
 # shellcheck disable=SC2034  # read by the sourced durable.sh
-DURABLE_PATHS=("${SERIES[@]}")
+DURABLE_PATHS=(puzzles)
 . tools/durable.sh
 
 # Every line reaches the log as it is printed, never at a slice's end.
