@@ -25,6 +25,9 @@
   "date": "2023-12-31",
   "check": "grid and clues read from the Guardian's printable PDF, its numbering matching the clue list; every fifteensquared answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,55 @@
     "text": "Acknowledge cook quickly in Latin",
     "enumeration": "6"
    },
-   "solution": "SALUTE"
+   "solution": "SALUTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALUTE",
+    "definitions": [
+     {
+      "text": "Acknowledge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item sitting in another is enclosed by it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cook quickly",
+      "gives": "SAUTE",
+      "note": "to sauté is to fry fast over high heat"
+     },
+     {
+      "clueFragment": "Latin",
+      "gives": "L",
+      "note": "L is the standard abbreviation for Latin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "L",
+      "UTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is told to greet a chef with a hasty Latin phrase.",
+     "walkthrough": "One of the seven manipulated clues: read its words last-to-first, as 'Latin in quickly cook Acknowledge', and it parses normally. The grid's perimeter says SOLVE SEVEN CLUES IN REVERSE.",
+     "definitionFit": "To salute someone is to greet or recognise them formally, a synonym of acknowledging them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cook"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +103,47 @@
     "text": "Aristocrat almost lacking boundaries",
     "enumeration": "4"
    },
-   "solution": "EARL"
+   "solution": "EARL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EARL",
+    "definitions": [
+     {
+      "text": "Aristocrat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking boundaries",
+      "for": "deletion",
+      "note": "a word without its boundaries has lost its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "almost",
+      "gives": "NEARLY",
+      "note": "nearly is a synonym of almost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL"
+     ]
+    },
+    "explanation": {
+     "surface": "A nobleman is described as almost without limits.",
+     "definitionFit": "An earl is a British nobleman ranking above a viscount, so a type of aristocrat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boundaries"
+    }
+   }
   },
   {
    "number": 3,
@@ -66,7 +157,65 @@
     "text": "Short summary of complicated vetting procedure's conclusion",
     "enumeration": "8"
    },
-   "solution": "VIGNETTE"
+   "solution": "VIGNETTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "VIGNETTE",
+    "definitions": [
+     {
+      "text": "Short summary",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "complicated",
+      "for": "anagram",
+      "note": "something complicated has been tangled up, so these letters are jumbled"
+     },
+     {
+      "text": "conclusion",
+      "for": "letter_selection",
+      "note": "the conclusion of a word is its final letter"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vetting",
+      "gives": "VETTING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "procedure's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of procedure"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VETTINGE",
+       "gives": "VIGNETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A brief précis of how a tricky vetting process ended.",
+     "definitionFit": "A vignette is a brief descriptive sketch or account, close enough to a short summary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "complicated"
+    }
+   }
   },
   {
    "number": 4,
@@ -80,7 +229,56 @@
     "text": "Engraver caught partway through number",
     "enumeration": "6"
    },
-   "solution": "ETCHER"
+   "solution": "ETCHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ETCHER",
+    "definitions": [
+     {
+      "text": "Engraver",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "partway through",
+      "for": "container",
+      "note": "something partway through another sits inside it rather than at either end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "ETHER",
+      "note": "a number is something that numbs, an anaesthetic such as ether"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "C",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "An engraver is caught in the middle of a musical number.",
+     "walkthrough": "'Number' is read as 'numb-er', a thing that numbs: the old anaesthetic ether.",
+     "definitionFit": "An etcher cuts designs into metal plates with acid, a kind of engraver."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +298,52 @@
      }
     ]
    },
-   "solution": "NETTLERASH"
+   "solution": "NETTLERASH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NETTLE RASH",
+    "definitions": [
+     {
+      "text": "Stinging complaint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parties",
+      "for": "anagram",
+      "note": "to party is to dance and carouse, so the letters are thrown about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rattles hen",
+      "gives": "RATTLESHEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RATTLESHEN",
+       "gives": "NETTLERASH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rowdy hen night leaves someone with a stinging grievance.",
+     "walkthrough": "A hen party is a British bride's pre-wedding night out, so 'hen parties' reads as one phrase; split them and 'parties' is the signal.",
+     "definitionFit": "Nettle rash is an itchy skin condition like a nettle sting, a medical complaint that stings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "parties"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +357,64 @@
     "text": "Devil-worshipper took a pew next to shocked Saint",
     "enumeration": "8"
    },
-   "solution": "SATANIST"
+   "solution": "SATANIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SATANIST",
+    "definitions": [
+     {
+      "text": "Devil-worshipper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shocked",
+      "for": "anagram",
+      "note": "something shocked is jolted out of shape, so these letters are disturbed"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "took a pew",
+      "gives": "SAT",
+      "note": "to take a pew is a British idiom for sitting down"
+     },
+     {
+      "clueFragment": "Saint",
+      "gives": "SAINT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAT",
+      "ANIST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAINT",
+       "gives": "ANIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A devil-worshipper sits in church beside an appalled saint.",
+     "definitionFit": "A Satanist venerates Satan, the Devil, so is literally a worshipper of the devil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "shocked"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +428,48 @@
     "text": "Sad old Italian city centre ignored",
     "enumeration": "6"
    },
-   "solution": "TRISTE"
+   "solution": "TRISTE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRISTE",
+    "definitions": [
+     {
+      "text": "Sad old",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "centre ignored",
+      "for": "deletion",
+      "note": "ignoring the centre of a word means dropping its middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian city",
+      "gives": "TRIESTE",
+      "note": "Trieste is a port city in north-east Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRISTE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient Italian town looks forlorn because its heart is neglected.",
+     "walkthrough": "'Old' belongs to the definition, marking the English word as archaic, not the city as ancient.",
+     "definitionFit": "Triste is an archaic or literary English word for sorrowful, borrowed from French."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +483,58 @@
     "text": "Shaking, clothes remorseful nudist",
     "enumeration": "6"
    },
-   "solution": "TREMOR"
+   "solution": "TREMOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "TREMOR",
+    "definitions": [
+     {
+      "text": "Shaking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "letter_selection",
+      "note": "clothing something covers it, so the wanted letters are wrapped inside the neighbouring words and only the inner parts are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nudist",
+      "gives": "T",
+      "select": "last",
+      "note": "once the clue's word order is flipped this word comes first, and only its tail is used"
+     },
+     {
+      "clueFragment": "remorseful",
+      "gives": "REMORSEFUL",
+      "note": "only the head of this word is used, continuing the run across the join"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "REMOR"
+     ]
+    },
+    "explanation": {
+     "surface": "Trembling, a guilt-ridden naturist puts some clothes on.",
+     "walkthrough": "A manipulated clue: read last word first, 'nudist remorseful clothes, Shaking', and the answer is concealed across the join of the first two words. The grid's perimeter says SOLVE SEVEN CLUES IN REVERSE.",
+     "definitionFit": "A tremor is an involuntary trembling movement, so a noun for shaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 9,
@@ -162,7 +554,61 @@
      }
     ]
    },
-   "solution": "OVEREGG"
+   "solution": "OVEREGG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OVER-EGG",
+    "definitions": [
+     {
+      "text": "Excessively promote",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "the partner is missing a letter, so one letter is dropped from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sexual partner",
+      "gives": "LOVER",
+      "note": "a lover is a sexual partner"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "winger's laying",
+      "gives": "EGG",
+      "note": "a winger here is anything with wings, a bird, and what it lays"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "EGG"
+     ]
+    },
+    "explanation": {
+     "surface": "A left-wing politician's unfaithful partner is talked up too much.",
+     "walkthrough": "'Left-winger' looks like a politician; split at the hyphen, 'left' is a letter and 'winger' is a bird.",
+     "definitionFit": "To over-egg something is to exaggerate or overstate it, as an idiom for overdoing promotion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "winger's"
+    }
+   }
   },
   {
    "number": 10,
@@ -176,7 +622,68 @@
     "text": "Unconventional husband is unconscious in saddle",
     "enumeration": "10"
    },
-   "solution": "OUTLANDISH"
+   "solution": "OUTLANDISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OUTLANDISH",
+    "definitions": [
+     {
+      "text": "Unconventional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing in another is held inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unconscious",
+      "gives": "OUT",
+      "note": "someone knocked out cold is unconscious"
+     },
+     {
+      "clueFragment": "saddle",
+      "gives": "LAND",
+      "note": "to saddle someone with a burden is to land them with it"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "h is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "LAND",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd husband lies senseless in his horse's saddle.",
+     "walkthrough": "A manipulated clue: read last-to-first, 'saddle in unconscious is husband Unconventional'; the saddle word goes into the run of the other three pieces. The grid's perimeter says SOLVE SEVEN CLUES IN REVERSE.",
+     "definitionFit": "Outlandish means bizarre or very strange, far from the conventional."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "saddle"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +697,63 @@
     "text": "Italian leader will leave Scottish island in box, perhaps",
     "enumeration": "4"
    },
-   "solution": "TREE"
+   "solution": "TREE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "TREE",
+    "definitions": [
+     {
+      "text": "box, perhaps",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader of a word is its first letter"
+     },
+     {
+      "text": "will leave",
+      "for": "deletion",
+      "note": "a letter that leaves a word is taken out of it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of Italian"
+     },
+     {
+      "clueFragment": "Scottish island",
+      "gives": "TIREE",
+      "note": "Tiree is an island of the Inner Hebrides"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREE"
+     ]
+    },
+    "explanation": {
+     "surface": "Italy's prime minister is to quit a Hebridean island, perhaps in a coffin.",
+     "walkthrough": "'Box' looks like a container, but it is the evergreen shrub, an example of the answer.",
+     "definitionFit": "Box is an evergreen shrub that can grow as a small tree, so it exemplifies one, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "box"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +767,65 @@
     "text": "Skins body in hollow, returning after time",
     "enumeration": "6"
    },
-   "solution": "LEVANT"
+   "solution": "LEVANT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "LEVANT",
+    "definitions": [
+     {
+      "text": "Skins",
+      "at": 0,
+      "note": "plural against a mass noun: levant is a kind of leather"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way one came, so the word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "body in hollow",
+      "gives": "NAVEL",
+      "note": "once the clue's word order is flipped this reads hollow in body: the belly button"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "t is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEVAN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "NAVEL",
+       "to": "LEVAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A body is found in a hollow, coming back after some time.",
+     "walkthrough": "A manipulated clue: read last-to-first, 'time after returning hollow in body Skins'. The grid's perimeter says SOLVE SEVEN CLUES IN REVERSE.",
+     "definitionFit": "Levant, or Levant morocco, is a high-grade goatskin leather, so material made from animal hides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Skins"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +839,63 @@
     "text": "Charge in and buy jersey with a \"Sorry\"",
     "enumeration": "10"
    },
-   "solution": "APOLOGETIC"
+   "solution": "APOLOGETIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APOLOGETIC",
+    "definitions": [
+     {
+      "text": "Sorry",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jersey",
+      "gives": "POLO",
+      "note": "a polo shirt is a kind of jersey top"
+     },
+     {
+      "clueFragment": "buy",
+      "gives": "GET",
+      "note": "to get something can mean to buy it"
+     },
+     {
+      "clueFragment": "Charge in",
+      "gives": "IC",
+      "note": "once the word order is flipped this reads in charge, abbreviated I/C"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POLO",
+      "GET",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes charge and buys a sweater with 'Sorry' printed on it.",
+     "walkthrough": "A manipulated clue: read last-to-first, '\"Sorry\" a with jersey buy and in Charge'. The grid's perimeter says SOLVE SEVEN CLUES IN REVERSE.",
+     "definitionFit": "Saying sorry is being apologetic, expressing regret for something done."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jersey"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +909,85 @@
     "text": "Writer for Vogue to start resolving ten cracks on egg",
     "enumeration": "8"
    },
-   "solution": "TURGENEV"
+   "solution": "TURGENEV",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TURGENEV",
+    "definitions": [
+     {
+      "text": "Writer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "resolving",
+      "for": "anagram",
+      "note": "resolving something breaks it into its parts, so these letters are separated and reset"
+     },
+     {
+      "text": "cracks",
+      "for": "container",
+      "note": "something that cracks another breaks into it, so it ends up inside"
+     },
+     {
+      "text": "to start",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ten",
+      "gives": "TEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on egg",
+      "gives": "URGE",
+      "note": "once the word order is flipped this reads egg on, to encourage"
+     },
+     {
+      "clueFragment": "Vogue",
+      "gives": "V",
+      "select": "first",
+      "note": "the first letter of Vogue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "URGE",
+      "NE",
+      "V"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TEN",
+       "gives": "TNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Vogue journalist sets about fixing ten crazed eggshells.",
+     "walkthrough": "A manipulated clue: read last-to-first, 'egg on cracks ten resolving start to Vogue for Writer'. The grid's perimeter says SOLVE SEVEN CLUES IN REVERSE.",
+     "definitionFit": "Ivan Turgenev was a nineteenth-century Russian novelist, author of Fathers and Sons."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "egg"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +1001,84 @@
     "text": "Flapped, as short jeering revolutionary Oscar knocks one out",
     "enumeration": "7"
    },
-   "solution": "VISORED"
+   "solution": "VISORED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "substitution"
+    ],
+    "answer": "VISORED",
+    "definitions": [
+     {
+      "text": "Flapped",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "a word cut short loses its final letter"
+     },
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns something right round, so the word is read from its end"
+     },
+     {
+      "text": "knocks",
+      "for": "substitution",
+      "note": "knocking one thing out puts the newcomer in its place"
+     },
+     {
+      "text": "out",
+      "for": "substitution",
+      "note": "completes knocks, saying the existing letter is expelled to make room"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jeering",
+      "gives": "DERISIVE",
+      "note": "derisive means mocking or jeering"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VISORED"
+     ],
+     "reversals": [
+      {
+       "from": "DERISIV",
+       "to": "VISIRED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film-award winner flails while a heckling rebel is knocked unconscious.",
+     "walkthrough": "The I in the second syllable of the turned word is the one swapped for O.",
+     "definitionFit": "A visor is a movable flap on a helmet or cap, so visored means fitted with such a flap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 16,
@@ -260,7 +1092,57 @@
     "text": "Membranes created by American in Asian country",
     "enumeration": "7"
    },
-   "solution": "INDUSIA"
+   "solution": "INDUSIA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "INDUSIA",
+    "definitions": [
+     {
+      "text": "Membranes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "someone in a country is inside its borders, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "created by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Asian country",
+      "gives": "INDIA",
+      "note": "India is a country in South Asia"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American, as in the US"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IND",
+      "US",
+      "IA"
+     ]
+    },
+    "explanation": {
+     "surface": "Some membranes were made by an American living in Asia.",
+     "definitionFit": "Indusia, plural of indusium, are thin protective flaps of tissue, as covering fern spore clusters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "American"
+    }
+   }
   },
   {
    "number": 17,
@@ -274,7 +1156,64 @@
     "text": "Unusual way to get anger managed",
     "enumeration": "7"
    },
-   "solution": "STRANGE"
+   "solution": "STRANGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "STRANGE",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "managed",
+      "for": "anagram",
+      "note": "something managed has been handled and rearranged, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "ANGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RANGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ANGER",
+       "gives": "RANGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd approach to bringing one's temper under control.",
+     "walkthrough": "'Anger managed' reads like anger management therapy; 'managed' is the signal.",
+     "definitionFit": "Strange means odd or out of the ordinary, a direct synonym of unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "managed"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1233,71 @@
      }
     ]
    },
-   "solution": "THANKYOU"
+   "solution": "THANKYOU",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THANK YOU",
+    "definitions": [
+     {
+      "text": "cheers",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "one thing inside another is held within it"
+     },
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and land in a new order"
+     }
+    ],
+    "linkWords": [
+     "when",
+     "leading to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tissue",
+      "gives": "HANKY",
+      "note": "a hanky, or handkerchief, can be a paper tissue"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HANKY",
+      "OU"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OUT",
+       "gives": "TOU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tissue gets turned inside out on the dance floor, prompting a toast.",
+     "walkthrough": "'Inside out' looks like one phrase; split it, and 'inside' places the tissue within the jumbled 'out'. Cheers is British slang for thanks.",
+     "definitionFit": "In British informal speech 'cheers' is a common way of saying thanks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1311,61 @@
     "text": "Maybe Merkel has nothing for European country",
     "enumeration": "6"
    },
-   "solution": "ANGOLA"
+   "solution": "ANGOLA",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ANGOLA",
+    "definitions": [
+     {
+      "text": "country",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing for another means it takes the other's place"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe Merkel",
+      "gives": "ANGELA",
+      "note": "Angela Merkel was German chancellor; maybe marks her first name as one Merkel among others"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANGOLA"
+     ]
+    },
+    "explanation": {
+     "surface": "The former German leader is left with nothing to offer Europe.",
+     "walkthrough": "'European country' reads as one phrase, but the answer is African and 'European' is only a letter.",
+     "definitionFit": "Angola is a nation in south-western Africa, an independent state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "European"
+    }
+   }
   },
   {
    "number": 20,
@@ -322,7 +1379,85 @@
     "text": "Editor not working on framing head of Manchester City",
     "enumeration": "8"
    },
-   "solution": "EDMONTON"
+   "solution": "EDMONTON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "EDMONTON",
+    "definitions": [
+     {
+      "text": "City",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "something working is operating and in motion, so these letters are set going in a new order"
+     },
+     {
+      "text": "framing",
+      "for": "container",
+      "note": "a frame goes round a picture, so these letters surround the next piece"
+     },
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Editor",
+      "gives": "ED",
+      "note": "Ed is short for editor"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Manchester",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of Manchester"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "M",
+      "ONTON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOTON",
+       "gives": "ONTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor is idle while working on a frame for Manchester City's manager.",
+     "walkthrough": "'Manchester City' looks like the football club; 'City' is the definition. The editor and the jumbled words together surround the selected letter.",
+     "definitionFit": "Edmonton is the capital city of the Canadian province of Alberta."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "City"
+    }
+   }
   },
   {
    "number": 21,
@@ -336,7 +1471,69 @@
     "text": "Idiot allowed back outside to make decoration",
     "enumeration": "6"
    },
-   "solution": "TASSEL"
+   "solution": "TASSEL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TASSEL",
+    "definitions": [
+     {
+      "text": "decoration",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the other way, so the word is read from its end"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "something outside another surrounds it"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "allowed",
+      "gives": "LET",
+      "note": "let means allowed"
+     },
+     {
+      "clueFragment": "Idiot",
+      "gives": "ASS",
+      "note": "an ass is a fool"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ASS",
+      "EL"
+     ],
+     "reversals": [
+      {
+       "from": "LET",
+       "to": "TEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fool is permitted to return outdoors to put up ornaments.",
+     "definitionFit": "A tassel is a tuft of hanging threads used as ornament on cushions, curtains or clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 22,
@@ -350,7 +1547,53 @@
     "text": "I reach out, which is more painful",
     "enumeration": "6"
    },
-   "solution": "ACHIER"
+   "solution": "ACHIER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACHIER",
+    "definitions": [
+     {
+      "text": "more painful",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "letters that are out are out of place, so they need putting in a new order"
+     }
+    ],
+    "linkWords": [
+     "which is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I reach",
+      "gives": "IREACH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IREACH",
+       "gives": "ACHIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone stretches their arm out and it hurts even more.",
+     "definitionFit": "Achier is the comparative of achy, so it describes something that hurts more."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 23,
@@ -364,7 +1607,59 @@
     "text": "Expels English visitors removing uniform",
     "enumeration": "6"
    },
-   "solution": "EGESTS"
+   "solution": "EGESTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "EGESTS",
+    "definitions": [
+     {
+      "text": "Expels",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing",
+      "for": "deletion",
+      "note": "the visitors removing a letter means it is taken out of their word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "visitors",
+      "gives": "GUESTS",
+      "note": "guests are visitors"
+     },
+     {
+      "clueFragment": "uniform",
+      "gives": "U",
+      "note": "Uniform is U in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GESTS"
+     ]
+    },
+    "explanation": {
+     "surface": "English hosts throw out visitors who take off their uniforms.",
+     "definitionFit": "To egest is to discharge waste from the body, a technical term for excreting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "uniform"
+    }
+   }
   },
   {
    "number": 24,
@@ -378,7 +1673,69 @@
     "text": "Somehow in focus, small of back is Iona's possibly?",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ISLE",
+    "definitions": [
+     {
+      "text": "Iona's possibly",
+      "at": 35,
+      "note": "with the word order flipped this reads 'possibly Iona's', the 's standing for 'is' and joining definition to wordplay"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in focus",
+      "for": "letter_selection",
+      "note": "the focus of a word is its central point, so its middle letter is kept"
+     },
+     {
+      "text": "back",
+      "for": "letter_selection",
+      "note": "the back of a word is its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "L",
+      "select": "last",
+      "note": "the last letter of small"
+     },
+     {
+      "clueFragment": "Somehow",
+      "gives": "E",
+      "select": "middle",
+      "note": "the middle letter of the seven-letter Somehow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IS",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A camera's focus somehow picks out the small of Iona's back.",
+     "walkthrough": "A manipulated clue: read its words last-to-first, starting 'possibly? Iona's is back of small'. The grid's perimeter says SOLVE SEVEN CLUES IN REVERSE.",
+     "definitionFit": "Iona is an island in the Inner Hebrides, so an example of an isle; 'possibly' marks the example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Iona's"
+    }
+   }
   },
   {
    "number": 25,
@@ -392,7 +1749,50 @@
     "text": "Saves Cokes spilt all over the place",
     "enumeration": "10"
    },
-   "solution": "STOCKPILES"
+   "solution": "STOCKPILES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STOCKPILES",
+    "definitions": [
+     {
+      "text": "Saves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "things all over the place are scattered in disorder, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cokes spilt",
+      "gives": "COKESSPILT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COKESSPILT",
+       "gives": "STOCKPILES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone rescues the cans of cola knocked over and spilled everywhere.",
+     "definitionFit": "To stockpile is to accumulate and store reserves, as a verb meaning to save up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spilt"
+    }
+   }
   },
   {
    "number": 26,
@@ -406,7 +1806,52 @@
     "text": "American comedian and singer stripped for British comedian and singer",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "British comedian and singer",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stripped",
+      "for": "deletion",
+      "note": "something stripped has had its outer covering taken off, so its first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American comedian and singer",
+      "gives": "MIDLER",
+      "note": "Bette Midler is an American comic actress and singer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A US entertainer undresses in exchange for a British counterpart.",
+     "walkthrough": "The parallel phrasing of the two halves is the joke: one comic singer stripped becomes another.",
+     "definitionFit": "Eric Idle of Monty Python is a British comic performer who also wrote and sang songs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "stripped"
+    }
+   }
   },
   {
    "number": 27,
@@ -420,7 +1865,56 @@
     "text": "Thailand charges innocent mother",
     "enumeration": "6"
    },
-   "solution": "NATIVE"
+   "solution": "NATIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NATIVE",
+    "definitions": [
+     {
+      "text": "mother",
+      "at": 26,
+      "note": "used attributively, as in mother tongue, so an adjective"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charges",
+      "for": "container",
+      "note": "to charge is to rush into something, so one piece ends up inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "innocent",
+      "gives": "NAIVE",
+      "note": "naive means innocent or unworldly"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle code for Thailand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "T",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Thai court accuses a blameless mother.",
+     "walkthrough": "'Charges' reads as legal accusation; it is a rush into something.",
+     "definitionFit": "Mother tongue and native tongue are interchangeable, so 'mother' as a modifier means native, belonging by birth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "charges"
+    }
+   }
   },
   {
    "number": 28,
@@ -444,7 +1938,62 @@
      }
     ]
    },
-   "solution": "ASOFLATE"
+   "solution": "ASOFLATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AS OF LATE",
+    "definitions": [
+     {
+      "text": "recently",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in a place is within its walls, so one piece sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A&E",
+      "gives": "AE",
+      "note": "A and E taken as two letters"
+     },
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     },
+     {
+      "clueFragment": "quiet",
+      "gives": "FLAT",
+      "note": "a flat market or mood is quiet and inactive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "SO",
+      "FLAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The hospital casualty department has been very quiet lately.",
+     "walkthrough": "A&E, Accident and Emergency, is the British hospital emergency department; here it only supplies two letters to hold the rest.",
+     "definitionFit": "As of late is an idiom meaning lately, in the recent past."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "A&Erecently"
+    }
+   }
   }
  ]
 }
