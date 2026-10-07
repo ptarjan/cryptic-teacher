@@ -171,7 +171,7 @@ when it says `clean`. What it prints under "worth knowing now" is advice, not a 
 
 Nine first runs in ten fail, nearly always on these five rules. Get them right first time:
 
-- `definitionFit` needs 25+ characters and 3+ content words that are in neither the
+- `definitionFit` needs 25+ characters and a content word that is in neither the
   definition nor the answer. Name the relation (synonym, example, crossword-only
   sense, idiom); don't read the definition back with the answer in it.
 - An indicator `note` needs 25+ characters and words beyond the indicator's own. It

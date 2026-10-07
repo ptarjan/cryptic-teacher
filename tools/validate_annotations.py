@@ -1104,7 +1104,9 @@ def check_definition_fit(tag, ann, errors, warnings):
     assert rather than explain. Backwards: the definition read out again with the
     answer swapped in ("an army ant is a crawler"), which looks like an
     explanation and teaches nothing — detectable because it contains no content
-    word that isn't already in the definition or the answer.
+    word that isn't already in the definition or the answer. One such word is
+    enough: "Cardiff is the capital city of Wales" for "City" teaches, and
+    asking for more only buys padding.
     """
     fit = explanation(ann).get("definitionFit")
     if fit is None:
@@ -1123,7 +1125,7 @@ def check_definition_fit(tag, ann, errors, warnings):
     known |= set(re.findall(r"[a-z']+", (ann.get("answer") or "").lower()))
     fresh = [w for w in re.findall(r"[a-z']+", fit.lower())
              if w not in known and w not in FILLER_WORDS and len(w) > 2]
-    if len(fresh) < 3:
+    if not fresh:
         errors.append(f"{tag}: definitionFit {fit!r} just restates the definition with the "
                       f"answer in it. {DEFINITION_FIT_HOW}")
 
