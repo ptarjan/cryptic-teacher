@@ -1498,6 +1498,15 @@ check("1930 spacing leaves a known word, a word broken over a line end, and spli
       "41 Neat gem (anag.)\n25 Holds an esta-\nblished ap-\npearance",
       f.spaced("41 Neat gem (anag.)\n25Holdsan esta-\nblished ap-\npearance"))
 
+import datetime
+tue = datetime.date(1996, 6, 11)
+check("a stray lower number does not date the edition's own puzzle later (Guardian 1996-06-11 read No 20673 beside No 20676)",
+      tue, f.issue_day(tue, 20676, [20676, 20673]))
+check("each number of an unbroken run above the edition's own is one issue later, skipping Sunday",
+      datetime.date(1996, 6, 17), f.issue_day(datetime.date(1996, 6, 15), 20681, [20680, 20681]))
+check("a number above a gap is not a later issue",
+      tue, f.issue_day(tue, 20679, [20676, 20677, 20679]))
+
 print(f"FAILS {fails}")
 EOF
 )
