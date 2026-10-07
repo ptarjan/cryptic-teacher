@@ -1607,8 +1607,9 @@ tools/gale_inbox.py                           the 1974-99 Times editions archive
                                               over the ssh hatch, stages it as
                                               GaleTimes<year>UKEnglish editions for
                                               file_archive_org_puzzles.py, and publishes a
-                                              checklist of what to search for next and which
-                                              pages to redo; never requests anything from Gale
+                                              checklist of what to fetch next (a Download link
+                                              where gale_docs.py found the page, else Gale's
+                                              search) and which pages to redo
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every 3 minutes, from a worktree
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the
@@ -1625,7 +1626,23 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               reading, then file_gale_listener.py run, at the
                                               full pass's start and before every slice; the
                                               checklist asks for a saved puzzle's solution
-                                              report; never requests anything from Gale
+                                              report and links each next puzzle to Gale's
+                                              Download (gale_docs.py)
+tools/gale_docs.py                            Gale's PDF Download link for each checklist's
+                                              next rows: each 3-minute sync looks up at most 15
+                                              uncached dates per paper on Gale (portal session,
+                                              the month's issues, the issue's contents), 2 s
+                                              apart, and caches the crossword's document and
+                                              page records, misses too, in
+                                              ~/.cache/gale_inbox/docs.json; Paul allowed this
+                                              on 2026-10-07
+tools/test_gale_docs.sh                       with Gale stood in: is the day's crossword found
+                                              in an issue's contents (not the Concise or a
+                                              competition), its Download link's citation one
+                                              the inbox files by, at most the limit of uncached
+                                              dates asked, a miss kept, Gale's first error said
+                                              and retried next tick, and do both checklists
+                                              offer Download beside Open in Gale?
 tools/test_gale_listener.sh                   is a saved Listener page matched by its name,
                                               citation title, citation date (across a line
                                               break) or title, not by a browser's "(1)" copy

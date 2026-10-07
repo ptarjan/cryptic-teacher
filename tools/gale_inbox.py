@@ -3,8 +3,9 @@
 from the crossword pages Paul downloads BY HAND from Gale's Times Digital
 Archive (through the Alberta Research Portal).
 
-Gale's terms forbid scripted access: nothing here requests anything from
-Gale or the portal. It writes a checklist of the editions to fetch, and lays
+Only tools/gale_docs.py asks Gale anything: each sync looks up the next
+editions' document ids, so their rows link straight to Gale's Download. This
+writes a checklist of the editions to fetch, and lays
 each page Paul saves into his inbox out as one more Times edition for
 tools/file_archive_org_puzzles.py, which reads it like any scan: our
 readers' and the VLM's readings voted on, the Canberra reprint's beside them.
@@ -55,6 +56,7 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import archive_coverage
 import file_archive_org_puzzles as fa
+import gale_docs
 import pypdf
 
 HOST = os.environ.get("GALE_INBOX_HOST", "pt@host.docker.internal")
@@ -740,7 +742,16 @@ def problems(rows, by_number, staged, unmatched=UNMATCHED):
     return out
 
 
-def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED):
+def next_up(rows, staged):
+    """The NEXT_UP editions to fetch first: the worst year's first."""
+    years = collections.defaultdict(list)
+    for day, cls in rows:
+        years[day.year].append((day, cls))
+    order = [(day, cls) for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0])) for day, cls in sorted(ds)]
+    return [(d, c) for d, c in order if d not in staged][:NEXT_UP]
+
+
+def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None):
     """The checklist page: progress, any page that needs redoing, the next
     editions to fetch with what to search for, then every wanted edition by
     year, the worst year first."""
@@ -749,10 +760,10 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED):
     pages = usual_pages()
     ledger = archive_coverage.ledger()
     staged = staged_files(cache)
+    docs = gale_docs.load() if docs is None else docs
     years = collections.defaultdict(list)
     for day, cls in rows:
         years[day.year].append((day, cls))
-    order = [(day, cls) for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0])) for day, cls in sorted(ds)]
     e = html.escape
     filed = set(by_number.values())
     done = len(staged)
@@ -776,7 +787,9 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED):
         else:
             status = "Canberra reprint only" if cls == "canberra-reprint" else ""
         q = search_for(n)
-        find = (f'<a class="go" href="{e(search_url(day))}" target="gale" onclick="mark(\'{k}\')">Open in Gale</a> '
+        dl = gale_docs.link("TTDA", day, docs)
+        find = ((f'<a class="go" href="{e(dl)}" target="gale" onclick="mark(\'{k}\')">Download</a> ' if dl else "")
+                + f'<a class="go" href="{e(search_url(day))}" target="gale" onclick="mark(\'{k}\')">Open in Gale</a> '
                 f'<button onclick="cp(this,{e(json.dumps(q))},\'{k}\')">Copy</button> <code>{e(q)}</code>'
                 + ("" if sure else ' <span class="est">number estimated: check the date</span>'))
         return (f'<tr id="d{k}"><td>{day:%a %d %b %Y}</td><td>{find if next_up or day not in staged else ""}</td>'
@@ -801,15 +814,15 @@ Updated {datetime.datetime.now().astimezone():%a %d %b %H:%M}; this page refresh
         out.append("</ul></div>")
     out.append(f"""<div class="how"><p class="start">1. <a href="{SESSION.format('TTDA')}" target="gale">Start Gale session</a>
 (once per sitting, on an Alberta connection; no login)</p>
-<ol start="2"><li>Click <b>Open in Gale</b> on the next puzzle below: Gale's results for that day's crossword open in the same
-tab as the session.</li>
-<li>Open <i>The Times Crossword Puzzle No N</i> (not the Concise) and click <b>Download</b> (PDF).</li></ol>
+<ol start="2"><li>Click <b>Download</b> on the next puzzle below: Gale saves that day's crossword page as a PDF.</li>
+<li>A row with no Download link yet: click <b>Open in Gale</b> (Gale's results for that day's crossword), open
+<i>The Times Crossword Puzzle No N</i> (not the Concise) and click <b>Download</b> (PDF).</li></ol>
 That's all: it lands in Downloads and is moved here, <code>{e(SHARE)}</code>, within 3 minutes, and ticked off below.
 If Gale asks for a password, start from <a href="{PORTAL}">the Alberta Research Portal</a> (choose
 <i>The Times Digital Archive</i>) instead, then come back here. If a day's results are empty, <b>Copy</b> the search
 and paste it into Gale's search box, or use <i>Browse &rarr; Browse By Date</i> and go to the page shown.
-By hand only (Gale allows 50 downloads a session, no scripts or download tools).</div>""")
-    nxt = [(d, c) for d, c in order if d not in staged][:NEXT_UP]
+Gale allows 50 downloads a session.</div>""")
+    nxt = next_up(rows, staged)
     if nxt:
         out.append(f"<h2>Next up</h2><table>{head}")
         out += [row(d, c, True) for d, c in nxt]
@@ -847,7 +860,10 @@ def sync(out=sys.stdout, force=False):
     with locked():
         moved = collect(out)
         changed = mirror(out)
-        if force or moved or changed or time.time() - last_render() > RENDER_EVERY:
+        by_number = held()
+        linked = gale_docs.resolve("TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files())],
+                                   out)
+        if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
             stage(MIRROR, out=out)
             CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
             CHECKLIST.write_text(checklist())

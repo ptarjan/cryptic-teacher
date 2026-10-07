@@ -1,0 +1,117 @@
+#!/bin/bash
+# Does tools/gale_docs.py find the day's crossword in a Gale issue's contents
+# (the numbered Times or Listener puzzle, not the Concise or a competition),
+# build Gale's Download link with a citation the inbox recognises and files,
+# look up at most its limit of uncached rows, remember misses, stop at Gale's
+# first error, and do both checklists offer Download beside Open in Gale?
+#
+#     bash tools/test_gale_docs.sh
+#
+# Gale is a stand-in object: nothing is asked of Gale, the portal, the Mac or
+# the desktop, and nothing is written outside a temp dir.
+set -euo pipefail
+cd "$(dirname "$0")"
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+python3 - "$tmp" <<'PY'
+import datetime, io, sys, urllib.parse
+from pathlib import Path
+import gale_docs as gd
+import gale_inbox as gi
+import gale_listener as gl
+
+fails = 0
+def check(what, want, got):
+    global fails
+    if want == got:
+        print(f"ok   {what}")
+    else:
+        fails += 1
+        print(f"FAIL {what}: expected {want!r}, got {got!r}")
+
+D = datetime.date
+tmp = Path(sys.argv[1])
+
+def issue(titles, pages=24):
+    toc = [{"docId": None, "docTitle": f"Page {p}", "startingPage": p, "subArticleDocuments": [
+        {"docId": f"IF{1000 + i:010}", "docTitle": t, "startingPage": p, "pageCount": n, "subArticleDocuments": []}
+        for i, (t, p2, n) in enumerate(titles) if p2 == p]} for p in range(1, pages + 1)]
+    return {"originalDocument": {"articleTableOfContents": toc},
+            "pageDocuments": [{"pageNumber": p, "mediaRecordId": f"rec{p}%2F"} for p in range(1, pages + 1)]}
+
+class FakeGale:
+    def __init__(self, days, fail=()):
+        self.days, self.fail, self.asked = days, set(fail), []
+    def issues(self, prod, day):
+        self.asked.append(day)
+        if day in self.fail:
+            raise OSError("Gale said 500")
+        return [{"mcode": "0FFO", "date": f"1{day:%Y%m%d}", "issueNumber": "1", "volume": ""}] if day in self.days else []
+    def issue(self, prod, i):
+        return self.days[datetime.datetime.strptime(i["date"][1:], "%Y%m%d").date()]
+
+times = issue([("Concise crossword No 1460", 8, 1), ("The Times Crossword Puzzle No 17,563", 18, 1),
+               ("Solution to Puzzle No 17,562", 18, 1)])
+e = gd.entry("TTDA", times, 17563)
+check("the Times cryptic, not the Concise or the solution", ("IF0000001001", 18, ["rec18%2F"]),
+      (e["doc"], e["page"], e["records"]))
+listener = issue([("Competition No. 8", 13, 1), ("Crossword No. 1,309", 42, 2)], 44)
+e = gd.entry("LSNR", listener, 1309)
+check("the Listener crossword, both its pages", ("IF0000001001", ["rec42%2F", "rec43%2F"]), (e["doc"], e["records"]))
+check("the numbered one first", 1, gd.crossword("TTDA", ["The Times Crossword Puzzle No 17,562",
+                                                         "The Times Crossword Puzzle No 17,563"], 17563))
+check("no crossword, no entry", None, gd.entry("LSNR", issue([("Competition No. 8", 13, 1)]), 8))
+
+# The link: Gale's BulkPDF GET, its citation the one the inbox files by.
+day = D(1988, 1, 12)
+url = gd.download_url("TTDA", day, gd.entry("TTDA", times, 17563))
+q = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(url).query))
+check("the Download target", "https://go.gale.com/ps/callisto/BulkPDF/UBER2", url.split("?")[0])
+check("the document and its page record", ("IF0000001001", "TTDA", "rec18%2F"), (q["dl"], q["p"], q["recordIds"]))
+cite = urllib.parse.unquote(q["citationTextJson"])
+check("the citation is recognised as Gale's", True, gi.is_gale("IF0000001001.pdf", cite))
+m = gi.CITED.search(cite)
+check("and dates the page", (day, 18), (D(int(m.group(3)), gi.MONTHS[m.group(2)[:3].lower()], int(m.group(1))),
+                                        int(m.group(4))))
+lday = D(1955, 6, 2)
+lcite = urllib.parse.unquote(dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(
+    gd.download_url("LSNR", lday, gd.entry("LSNR", listener, 1309))).query))["citationTextJson"])
+check("the Listener citation dates the page", lday, gl.cited_day(lcite))
+
+# resolve: at most `limit` uncached rows, a miss kept, stops at an error.
+cache = tmp / "docs.json"
+days = [D(1988, 1, d) for d in range(4, 12)]
+fake = FakeGale({d: times for d in days[:3] + [days[4]]}, fail=[days[5]])
+out = io.StringIO()
+check("links added, up to the limit", 4, gd.resolve("TTDA", [(d, None) for d in days], out, fake, cache, limit=5))
+check("a day with no issue is kept as a miss", "Gale has no issue that day", gd.load(cache)["TTDA/1988-01-07"]["why"])
+check("a date asked once for two puzzles", 0, gd.resolve("TTDA", [(D(1990, 1, 1), 1), (D(1990, 1, 1), 2)], out, fake,
+                                                         tmp / "dup.json"))
+check("once", 1, sum(d == D(1990, 1, 1) for d in fake.asked))
+fake.asked.clear()
+check("the next tick asks only what is not cached, up to the error", 0,
+      gd.resolve("TTDA", [(d, None) for d in days], out, fake, cache, limit=5))
+check("and asked just those", [days[5]], fake.asked)
+check("the error is said", True, "OSError: Gale said 500" in out.getvalue())
+check("the failed day is asked again later", False, "TTDA/1988-01-09" in gd.load(cache))
+check("a cached link", True, (gd.link("TTDA", days[0], gd.load(cache)) or "").startswith("https://go.gale.com/ps/callisto"))
+check("no link for a miss", None, gd.link("TTDA", days[3], gd.load(cache)))
+
+# The checklists: Download where a link is cached, Open in Gale always.
+docs = {"TTDA/1988-01-12": gd.entry("TTDA", times, 17563)}
+row = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
+                                   docs=docs).split("\n") if 'id="d1988-01-12"' in r)
+check("Times row has Download", True, ">Download</a>" in row and "callisto/BulkPDF" in row)
+check("and still Open in Gale", True, "Open in Gale" in row)
+other = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
+                                     docs=docs).split("\n") if 'id="d1988-01-13"' in r)
+check("an unlinked Times row: Open in Gale only", (False, True), ("Download</a>" in other, "Open in Gale" in other))
+idx = [{"number": 1309, "title": "Crossword No. 1,309", "setter": None, "date": lday}]
+page = gl.checklist(idx, tmp / "store", tmp / "none", arrivals=[],
+                    docs={"LSNR/1955-06-02": gd.entry("LSNR", listener, 1309)})
+check("Listener row has Download", True, "<b>Download</b></a>" in page and "p=LSNR" in page)
+check("to_save lists it", [1309], [r["number"] for r in gl.to_save(idx, tmp / "store", tmp / "none", arrivals=[])])
+
+print(f"{fails} failure(s)")
+sys.exit(1 if fails else 0)
+PY

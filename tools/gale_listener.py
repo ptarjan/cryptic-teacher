@@ -2,8 +2,9 @@
 """The Listener crosswords of 1930-91, read from the pages Paul saves BY HAND
 from Gale's Listener Historical Archive (through the Alberta Research Portal).
 
-Gale's terms forbid scripted access: nothing here requests anything from
-Gale or the portal. It writes a checklist of the puzzles to save, from the
+Only tools/gale_docs.py asks Gale anything: each sync looks up the next
+puzzles' document ids, so their rows link straight to Gale's Download. This
+writes a checklist of the puzzles to save, from the
 Listener Team's year index (listenercrossword.com /Years/Y<year>.html, read
 for the numbers and dates only), and reads each page Paul saves into his
 inbox with the clue OCR every scan filer shares (tools/ocr_clues.py's
@@ -54,6 +55,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import archive_org_listener as al
 import file_archive_org_puzzles as fa
+import gale_docs
 import gale_inbox as gi
 import listener_puzzles as lp
 import ocr_clues
@@ -599,20 +601,31 @@ def tick(out=sys.stdout, force=False):
     inbox and, when it moved (or gi.RENDER_EVERY passed), re-render the
     checklist. The clue reading stays in the full pass."""
     changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
+    idx = index()
+    linked = gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out)
     last = CHECKLIST.stat().st_mtime if CHECKLIST.exists() else 0
-    if force or changed or time.time() - last > gi.RENDER_EVERY:
-        render(out=out)
+    if force or changed or linked or time.time() - last > gi.RENDER_EVERY:
+        render(idx, out=out)
 
 
 def filed_numbers(root=ROOT):
     return {int(p.stem.split("-")[1]) for p in (root / "puzzles" / lp.SERIES).glob("*/listener-*.json")}
 
 
-def checklist(idx=None, store=STORE, root=ROOT, arrivals=None):
+def to_save(idx, store=STORE, root=ROOT, arrivals=None):
+    """The printed puzzles not filed, read or arrived, earliest first."""
+    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
+    held = filed_numbers(root) | {json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")} | {
+        a["number"] for a in arrivals if a.get("number") is not None}
+    return [r for r in idx if printed(r) and r["number"] not in held]
+
+
+def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None):
     """The checklist page: every Listener the magazine printed, earliest
     first, with what the inbox (`arrivals`, else ARRIVED's last) and the
     corpus hold of each."""
     idx = index() if idx is None else idx
+    docs = gale_docs.load() if docs is None else docs
     arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
     came = {a["number"] for a in arrivals if a.get("number") is not None}
     unnamed = [a for a in arrivals if a.get("number") is None and not a.get("reports")]
@@ -629,7 +642,7 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None):
         r = json.loads(p.read_text())
         got[r["number"]] = r["verdict"]
     idx = [r for r in idx if printed(r)]
-    todo = [r for r in idx if r["number"] not in filed and r["number"] not in got and r["number"] not in came]
+    todo = to_save(idx, store, root, arrivals)
     first = todo[0] if todo else None
     read = {e_["file"] for e_ in ledger.values()}
     ledger_waiting = any(a["file"] not in read for a in arrivals)
@@ -648,8 +661,8 @@ Listener Team's index (numbers and dates only) and what this folder holds. Earli
 <li>Be on an Alberta internet connection (home Wi-Fi works): Gale lets Albertans in by location, with no card or login.</li>
 <li><b><a href="{gi.SESSION.format('LSNR')}" target="gale">Start Gale session</a></b> (once per sitting). If Gale asks for
 a password, open <a href="{PORTAL}">the Alberta Research Portal</a> and choose <i>The Listener Historical Archive</i> instead.</li>
-<li>Click <b>Open in Gale</b> on the puzzle's row: Gale's results for that issue's crossword pages open in the same tab.
-If they are empty, use <i>Browse &rarr; Browse By Date</i>, pick the date, and page through it
+<li>Click <b>Download</b> on the puzzle's row: Gale saves its crossword page as a PDF, and you are done. A row with
+no Download link yet: click <b>Open in Gale</b> (Gale's results for that issue's crossword pages). If they are empty, use <i>Browse &rarr; Browse By Date</i>, pick the date, and page through it
 to the crossword (a grid with ACROSS and DOWN clue lists).</li>
 <li>On the crossword's page press <i>Download</i> and save it (PDF or image, either works) into this folder,
 {e(FOLDER)}. Any file name works; a name with the date (e.g. <code>1930-04-09</code>) is the surest match.
@@ -659,7 +672,7 @@ grid: save that page too. Once the pages saved are read, a row whose solution pa
 <li>That's all. A Gale download in Downloads is moved into the folder for you; within 3 minutes its row
 says "arrived", and once the full pass has read it (at its next slice, within about an hour), how many clues read.</li>
 </ol>
-<p>Gale's terms allow up to 50 downloads a session, by hand only: no scripts or download tools.</p>
+<p>Gale allows up to 50 downloads a session.</p>
 {f'<p><b>Next to save:</b> No {first["number"]}, {first["date"]:%a %d %b %Y}, &ldquo;{e(first["title"])}&rdquo;.</p>' if first else ''}"""]
     years = {}
     for r in idx:
@@ -688,8 +701,10 @@ says "arrived", and once the full pass has read it (at its next slice, within ab
                 # often found by the page's words, not its citation.
                 status += (f' <span class="bad">save its solution too: &ldquo;Report on Crossword No. {n}&rdquo;,'
                            f' about {r["date"] + datetime.timedelta(days=14):%d %b %Y}</span>')
+            dl = gale_docs.link("LSNR", r["date"], docs)
             go = "" if n in filed or n in got else (
-                f' <a href="{e(gi.search_url(r["date"], "LSNR"))}" target="gale">Open in Gale</a>')
+                (f' <a href="{e(dl)}" target="gale"><b>Download</b></a>' if dl else "")
+                + f' <a href="{e(gi.search_url(r["date"], "LSNR"))}" target="gale">Open in Gale</a>')
             out.append(f"<tr><td>{r['date']:%a %d %b %Y}{go}</td><td>{n}</td><td>{e(r['title'])}</td>"
                        f"<td>{e(r.get('setter') or '')}</td><td>{status}</td></tr>")
         out.append("</table>")
