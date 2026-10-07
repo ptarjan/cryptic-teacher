@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,44 @@
      }
     ]
    },
-   "solution": "HANGUP"
+   "solution": "HANGUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HANG UP",
+    "definitions": [
+     {
+      "text": "Problem",
+      "at": 0
+     },
+     {
+      "text": "getting ring off",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem",
+      "note": "first meaning: a nagging difficulty or neurosis"
+     },
+     {
+      "clueFragment": "getting ring off",
+      "note": "second meaning: ending a telephone call by putting the receiver down"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone struggles to pull a tight ring from their finger.",
+     "walkthrough": "As a noun the answer is a psychological snag; as a phrasal verb it is what you do to end a call, so 'ring' is the phone, not jewellery.",
+     "definitionFit": "A hang-up is a fixation or difficulty, while to hang up is to end a telephone conversation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ring"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +93,72 @@
     "text": "Play down communist uprising in a French territory",
     "enumeration": "10"
    },
-   "solution": "UNDERSTATE"
+   "solution": "UNDERSTATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "UNDERSTATE",
+    "definitions": [
+     {
+      "text": "Play down",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down clue something rising reads from bottom to top, so the word is turned round"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the turned word sits inside the letters that follow, between the article and the territory"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a French",
+      "gives": "UN",
+      "note": "the French masculine indefinite article"
+     },
+     {
+      "clueFragment": "communist",
+      "gives": "RED",
+      "note": "red is the standard colour and nickname for a communist"
+     },
+     {
+      "clueFragment": "territory",
+      "gives": "STATE",
+      "note": "a state is a political territory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "DER",
+      "STATE"
+     ],
+     "reversals": [
+      {
+       "from": "RED",
+       "to": "DER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A report on a communist revolt in some French overseas possession.",
+     "definitionFit": "To understate is to minimise or describe something as less significant than it really is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uprising"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +172,58 @@
     "text": "Residence stocks wine that's extremely unpleasant",
     "enumeration": "8"
    },
-   "solution": "NASTIEST"
+   "solution": "NASTIEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NASTIEST",
+    "definitions": [
+     {
+      "text": "extremely unpleasant",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stocks",
+      "for": "container",
+      "note": "a home that stocks something holds it within, so one word goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Residence",
+      "gives": "NEST",
+      "note": "a nest is a bird's home, used loosely for any residence"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "ASTI",
+      "note": "Asti is a sparkling Italian wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ASTI",
+      "EST"
+     ]
+    },
+    "explanation": {
+     "surface": "A house whose cellar holds a truly dreadful wine.",
+     "walkthrough": "'Residence' suggests a grand house, but here it is a bird's home; Asti is an Italian sparkling wine from Piedmont.",
+     "definitionFit": "The superlative of nasty means the most disagreeable, matching 'extremely' with an adjective of distaste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Residence"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +237,42 @@
     "text": "Opera singer helping to make Verdi valued",
     "enumeration": "4"
    },
-   "solution": "DIVA"
+   "solution": "DIVA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DIVA",
+    "definitions": [
+     {
+      "text": "Opera singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "helping to make",
+      "for": "hidden_word",
+      "note": "the letters help form the phrase that follows, so they lie inside it across the word break"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verdi valued",
+      "gives": "DIVA",
+      "note": "the end of the composer's name runs into the start of the next word"
+     }
+    ],
+    "explanation": {
+     "surface": "A soprano whose performances gave Verdi's operas their worth.",
+     "definitionFit": "A diva is a celebrated female operatic star, especially a leading soprano."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "helping"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +286,62 @@
     "text": "Go back on screen, introducing recipe",
     "enumeration": "6"
    },
-   "solution": "REVERT"
+   "solution": "REVERT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "REVERT",
+    "definitions": [
+     {
+      "text": "Go back",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introducing",
+      "for": "container",
+      "note": "the screening word has the next letter brought into its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "screen",
+      "gives": "VET",
+      "note": "to vet is to screen or check"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, as on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "VE",
+      "R",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cookery show bringing a recipe to the screen.",
+     "walkthrough": "R for recipe comes from the Latin 'take' heading old prescriptions; 'on' is the preposition meaning concerning.",
+     "definitionFit": "To revert is to return to an earlier state or habit, the same movement as going back."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "screen"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +355,59 @@
     "text": "French art entertains cricket side for ages",
     "enumeration": "4"
    },
-   "solution": "EONS"
+   "solution": "EONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EONS",
+    "definitions": [
+     {
+      "text": "ages",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertains",
+      "for": "container",
+      "note": "a host who entertains has the guest within, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French art",
+      "gives": "ES",
+      "note": "'tu es' is French for 'thou art', so the archaic verb 'art' becomes es"
+     },
+     {
+      "clueFragment": "cricket side",
+      "gives": "ON",
+      "note": "the on side is the leg side of a cricket field"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ON",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "French painting has amused a cricket team for a very long time.",
+     "walkthrough": "'Art' is not painting but the old second-person form of 'are'; in cricket the on side is the half of the field behind the batter's legs.",
+     "definitionFit": "Eons are immensely long periods of time, as are ages in the informal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "art"
+    }
+   }
   },
   {
    "number": 7,
@@ -129,7 +427,73 @@
      }
     ]
    },
-   "solution": "DEADHEAT"
+   "solution": "DEADHEAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DEAD HEAT",
+    "definitions": [
+     {
+      "text": "tie",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "the pieces that wear something are clothed by it, so they go inside"
+     },
+     {
+      "text": "ridiculously",
+      "for": "anagram",
+      "note": "something done ridiculously is absurdly jumbled, so the next word is rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Man",
+      "gives": "HE",
+      "note": "he stands for a male person"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "dated",
+      "gives": "DATED",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEAD",
+      "HEA",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATED",
+       "gives": "DEADT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An American man sporting a hopelessly old-fashioned necktie.",
+     "walkthrough": "'Tie' looks like the necktie in the scene but means a drawn result.",
+     "definitionFit": "A dead heat is a race or contest finishing level, which is a tie in the sporting sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tie"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +507,74 @@
     "text": "Making tough decision, finally located in a north London borough",
     "enumeration": "9"
    },
-   "solution": "ANNEALING"
+   "solution": "ANNEALING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "ANNEALING",
+    "definitions": [
+     {
+      "text": "Making tough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the closing letter of the word before it"
+     },
+     {
+      "text": "located in",
+      "for": "container",
+      "note": "something located in a place sits within it, so this letter goes inside the borough phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "N",
+      "note": "N is the abbreviation for north"
+     },
+     {
+      "clueFragment": "decision",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of decision"
+     },
+     {
+      "clueFragment": "London borough",
+      "gives": "EALING",
+      "note": "Ealing is a borough of west London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "N",
+      "EALING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reaches a hard choice about settling in a London borough.",
+     "walkthrough": "The decision's last letter slips between A N and EALING; Ealing is a London borough famous for its film studios.",
+     "definitionFit": "Annealing heats then slowly cools metal or glass to toughen it and relieve internal stresses."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "decision"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +588,72 @@
     "text": "Sponsor's yearly payment supporting rising boxer?",
     "enumeration": "9"
    },
-   "solution": "GODPARENT"
+   "solution": "GODPARENT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "GODPARENT",
+    "definitions": [
+     {
+      "text": "Sponsor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry rising means read upwards, so the word is turned round"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "supporting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boxer",
+      "gives": "DOG",
+      "note": "a boxer is a breed of dog"
+     },
+     {
+      "clueFragment": "yearly",
+      "gives": "PA",
+      "note": "p.a. is per annum, yearly"
+     },
+     {
+      "clueFragment": "payment",
+      "gives": "RENT",
+      "note": "rent is a regular payment for property"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOD",
+      "PA",
+      "RENT"
+     ],
+     "reversals": [
+      {
+       "from": "DOG",
+       "to": "GOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer's annual fee seems to hold up a fighter on the way up.",
+     "walkthrough": "In a down clue 'supporting' puts PA RENT beneath the reversed dog; the boxer is the breed, not a fighter.",
+     "definitionFit": "A godparent stands sponsor for a child at baptism, promising to oversee its religious upbringing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boxer"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +667,54 @@
     "text": "Call up the day before to secure approval",
     "enumeration": "5"
    },
-   "solution": "EVOKE"
+   "solution": "EVOKE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EVOKE",
+    "definitions": [
+     {
+      "text": "Call up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to secure",
+      "for": "container",
+      "note": "to secure something is to hold it firmly inside, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the day before",
+      "gives": "EVE",
+      "note": "the eve is the day before an event"
+     },
+     {
+      "clueFragment": "approval",
+      "gives": "OK",
+      "note": "OK signals approval"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EV",
+      "OK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Phoning a day early to get sign-off for a plan.",
+     "definitionFit": "To evoke is to summon up a memory or feeling, as one may call up the past."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +728,43 @@
     "text": "Hotel resident thought aloud",
     "enumeration": "5"
    },
-   "solution": "GUEST"
+   "solution": "GUEST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "GUEST",
+    "definitions": [
+     {
+      "text": "Hotel resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aloud",
+      "for": "homophone",
+      "note": "spoken aloud, the word sounds the same as another of different spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thought",
+      "gives": "GUEST",
+      "soundsLike": "GUESSED",
+      "note": "thought as in supposed or surmised"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone staying at a hotel muses out loud.",
+     "definitionFit": "A person staying in a hotel is called a guest of the establishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thought"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +778,61 @@
     "text": "Sent extra clothes to iron, first off",
     "enumeration": "9"
    },
-   "solution": "ADDRESSED"
+   "solution": "ADDRESSED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ADDRESSED",
+    "definitions": [
+     {
+      "text": "Sent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothes",
+      "for": "container",
+      "note": "used as a verb, clothes means covers or wraps around, so the first word surrounds the next"
+     },
+     {
+      "text": "first off",
+      "for": "deletion",
+      "note": "first off tells us the opening letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extra",
+      "gives": "ADDED",
+      "note": "added as in extra, additional"
+     },
+     {
+      "clueFragment": "to iron",
+      "gives": "PRESS",
+      "note": "to press clothes is to iron them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADD",
+      "RESS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone dispatched more garments to be pressed.",
+     "walkthrough": "'Clothes' looks like the noun for garments but is a verb meaning wraps round.",
+     "definitionFit": "A letter that has been addressed has been directed or dispatched to a recipient, as with something sent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +846,47 @@
     "text": "Have groups of lawmen succeeded?",
     "enumeration": "7"
    },
-   "solution": "POSSESS"
+   "solution": "POSSESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POSSESS",
+    "definitions": [
+     {
+      "text": "Have",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "groups of lawmen",
+      "gives": "POSSES",
+      "note": "a posse is a band summoned by a sheriff"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, used in family trees"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POSSES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether sheriffs' bands have pulled it off.",
+     "walkthrough": "'Have' looks like the auxiliary of a question, but it is the definition.",
+     "definitionFit": "To possess something is to own or hold it, which is one sense of having."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Have"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +900,57 @@
     "text": "Holy person wants to talk about a certain singer",
     "enumeration": "9"
    },
-   "solution": "STONECHAT"
+   "solution": "STONECHAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STONECHAT",
+    "definitions": [
+     {
+      "text": "singer",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "wants",
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holy person",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "a certain",
+      "gives": "ONE",
+      "note": "one as in 'a certain one', a particular person"
+     },
+     {
+      "clueFragment": "to talk",
+      "gives": "CHAT",
+      "note": "to chat is to talk casually"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ONE",
+      "CHAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A saint wants a word about a particular vocalist.",
+     "walkthrough": "The pieces come in the order ST, ONE, CHAT, so 'about' is read loosely as attaching CHAT to the saint and the certain one. The singer is a songbird.",
+     "definitionFit": "The stonechat is a small songbird, and birds that sing are a standard crossword sense of singer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "singer"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +964,62 @@
     "text": "It is time to stop live performer",
     "enumeration": "7"
    },
-   "solution": "ARTISTE"
+   "solution": "ARTISTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ARTISTE",
+    "definitions": [
+     {
+      "text": "performer",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop a gap is to fill it, so these pieces plug the middle of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It is",
+      "gives": "TIS",
+      "note": "'tis is the contraction of it is"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "ARE",
+      "note": "are, as in to be or exist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "TIS",
+      "T",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A warning that it is time to stop performing live.",
+     "walkthrough": "'Live' looks like an adjective about performing, but it is the verb meaning to exist.",
+     "definitionFit": "An artiste is a professional entertainer such as a singer or dancer, a performer on stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "live"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1033,71 @@
     "text": "Con artist's crime ultimately creates shock",
     "enumeration": "10"
    },
-   "solution": "SCANDALISE"
+   "solution": "SCANDALISE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCANDALISE",
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the closing letter of the word beside it"
+     }
+    ],
+    "linkWords": [
+     "creates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Con",
+      "gives": "SCAN",
+      "note": "to con is to study or scan closely"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "DALI",
+      "note": "Salvador Dali, the surrealist painter"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "crime",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of crime"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAN",
+      "DALI",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A swindler's offence ends up causing outrage.",
+     "walkthrough": "'Con artist' reads as a swindler, but it splits: con means study, the artist is Dali.",
+     "definitionFit": "To scandalise is to outrage or offend people's sense of propriety, which is to shock them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Con"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1125,51 @@
      }
     ]
    },
-   "solution": "NEARTOONESHEART"
+   "solution": "NEARTOONESHEART",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NEAR TO ONES HEART",
+    "definitions": [
+     {
+      "text": "Much-loved",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sporting",
+      "for": "anagram",
+      "note": "sporting suggests playing around, so the letters frolic into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hero a teen star? No",
+      "gives": "HEROATEENSTARNO",
+      "note": "every letter of these words is used"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HEROATEENSTARNO",
+       "gives": "NEARTOONESHEART"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Doubting whether an athletics hero counts as a teenage star.",
+     "walkthrough": "'Sporting' seems to describe the hero but is the anagram signal; even the 'No' is fodder.",
+     "definitionFit": "Something near to one's heart is dearly cherished, an idiom for being much loved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sporting"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1193,69 @@
      }
     ]
    },
-   "solution": "NOTAPEEP"
+   "solution": "NOTAPEEP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOT A PEEP",
+    "definitions": [
+     {
+      "text": "having no sound",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upset",
+      "for": "reversal",
+      "note": "in a down entry upset means turned upside down, so the word reads backwards"
+     }
+    ],
+    "linkWords": [
+     "–"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "on means about or concerning"
+     },
+     {
+      "clueFragment": "recording",
+      "gives": "TAPE",
+      "note": "a tape is a recording"
+     },
+     {
+      "clueFragment": "old recording",
+      "gives": "EP",
+      "note": "an EP, an extended-play record, is an old format"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "TAPE",
+      "EP"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone annoyed that an old record has gone silent.",
+     "definitionFit": "Not a peep means not the slightest sound, an idiom for complete silence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1269,67 @@
     "text": "Plant a herb around spring, not start of winter",
     "enumeration": "8"
    },
-   "solution": "HAREBELL"
+   "solution": "HAREBELL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "HAREBELL",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "around suggests the letters are moved round into a new order"
+     },
+     {
+      "text": "not start of winter",
+      "for": "deletion",
+      "note": "the opening letter of winter is to be dropped from the spring word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a herb",
+      "gives": "AHERB",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "spring",
+      "gives": "WELL",
+      "note": "a well or spring is a water source"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAREB",
+      "ELL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AHERB",
+       "gives": "HAREB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Gardening advice: plant a herb in spring rather than at the start of winter.",
+     "walkthrough": "'Spring' is the water source, not the season, despite the gardening setting.",
+     "definitionFit": "The harebell is a wild flowering plant with pale blue bell-shaped blooms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spring"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1343,66 @@
     "text": "Sweet stuff in parcels regularly carried by plane?",
     "enumeration": "7"
    },
-   "solution": "TREACLE"
+   "solution": "TREACLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TREACLE",
+    "definitions": [
+     {
+      "text": "Sweet stuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking letters at even intervals, every other one"
+     },
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "what is carried is held within the carrier"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plane",
+      "gives": "TREE",
+      "note": "the plane is a kind of tree"
+     },
+     {
+      "clueFragment": "parcels",
+      "gives": "ACL",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of parcels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRE",
+      "ACL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Sweets packed in parcels routinely flown by aircraft.",
+     "walkthrough": "'Plane' suggests an aircraft, but it is the tree.",
+     "definitionFit": "Treacle is a sweet syrup made from refining sugar, a sticky sweet substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plane"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1416,59 @@
     "text": "Fabric, a feature associated with 25? Not half!",
     "enumeration": "6"
    },
-   "solution": "CHINTZ"
+   "solution": "CHINTZ",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CHINTZ",
+    "definitions": [
+     {
+      "text": "Fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not half",
+      "for": "deletion",
+      "note": "not half means only half of the cross-referenced word is used"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a feature",
+      "gives": "CHIN",
+      "note": "the chin is a facial feature"
+     },
+     {
+      "clueFragment": "25",
+      "gives": "RITZ",
+      "note": "the answer to 25 down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "TZ"
+     ]
+    },
+    "explanation": {
+     "surface": "A fabric whose look is linked to a swanky hotel, emphatically.",
+     "walkthrough": "'Not half!' sounds like the British exclamation meaning 'very much', but it drops the first half of RITZ, leaving TZ.",
+     "definitionFit": "Chintz is a glazed cotton cloth printed with flowery patterns, used for curtains and upholstery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "half"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1482,73 @@
     "text": "Diatribes lacking in balance primarily? Could be",
     "enumeration": "7"
    },
-   "solution": "TIRADES"
+   "solution": "TIRADES",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TIRADES",
+    "definitions": [
+     {
+      "text": "Diatribes lacking in balance primarily? Could be",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking says certain letters are missing from the word before"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the first letters of the words just before it"
+     },
+     {
+      "text": "Could be",
+      "for": "anagram",
+      "note": "could be hints that the remaining letters can become another word when rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diatribes",
+      "gives": "DIATRIBES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "in balance",
+      "gives": "IB",
+      "select": "first",
+      "note": "the first letters of in and balance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIRADES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATRIES",
+       "gives": "TIRADES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wondering whether rants that lack balance are what we mean.",
+     "walkthrough": "Remove I and B from DIATRIBES and the rest rearranges; the whole clue also defines, since rants are seldom balanced.",
+     "definitionFit": "Tirades are long angry speeches of denunciation, which are diatribes and rarely even-handed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "balance"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1562,67 @@
     "text": "High sea's extremely rough for clippers",
     "enumeration": "6"
    },
-   "solution": "SHEARS"
+   "solution": "SHEARS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SHEARS",
+    "definitions": [
+     {
+      "text": "clippers",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "High",
+      "for": "anagram",
+      "note": "high as in drunk or excited, so the letters lurch into a new order"
+     },
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the two end letters of the following word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea's",
+      "gives": "SEAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rough",
+      "gives": "RH",
+      "select": "outer",
+      "note": "the first and last letters of rough"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEASRH",
+       "gives": "SHEARS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heavy seas are dangerous for clipper ships.",
+     "walkthrough": "'High sea's' reads as a phrase, but 'High' is the anagram signal; 'rough' looks like the anagram signal and is only its outer letters. Clippers are the shears, not the ships.",
+     "definitionFit": "Shears and clippers are both large cutting tools for trimming hedges or hair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clippers"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1636,72 @@
     "text": "First of lads in bar is the woman's bookmaker!",
     "enumeration": "9"
    },
-   "solution": "PUBLISHER"
+   "solution": "PUBLISHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PUBLISHER",
+    "definitions": [
+     {
+      "text": "bookmaker",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "First of",
+      "for": "letter_selection",
+      "note": "first of points to the opening letter of the word that follows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "PUB",
+      "note": "a pub is a bar"
+     },
+     {
+      "clueFragment": "lads",
+      "gives": "L",
+      "select": "first",
+      "note": "the opening letter of lads"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the woman's",
+      "gives": "HER",
+      "note": "her is the possessive for a woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUB",
+      "L",
+      "IS",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman taking bets from the lads in a pub.",
+     "walkthrough": "The bar letters come first and the lads' L follows, so 'in' is loose placement. 'Bookmaker' suggests a betting shop, but it is a maker of books.",
+     "definitionFit": "A publisher produces and issues books, so it is literally a maker of books."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bookmaker"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1715,49 @@
     "text": "Fop wants British Evian water?",
     "enumeration": "4"
    },
-   "solution": "BEAU"
+   "solution": "BEAU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEAU",
+    "definitions": [
+     {
+      "text": "Fop",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "wants"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "Evian water",
+      "gives": "EAU",
+      "note": "eau is French for water, Evian being a French spring"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "A dandy who insists on bottled French mineral water.",
+     "definitionFit": "A beau is a dandy who dresses with great care, an old synonym for a fop."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Evian"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1771,48 @@
     "text": "Hotel needs legal documents for hearing",
     "enumeration": "4"
    },
-   "solution": "RITZ"
+   "solution": "RITZ",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RITZ",
+    "definitions": [
+     {
+      "text": "Hotel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for hearing",
+      "for": "homophone",
+      "note": "for hearing means the word is to be heard rather than read, matching another spelling"
+     }
+    ],
+    "linkWords": [
+     "needs"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal documents",
+      "gives": "RITZ",
+      "soundsLike": "WRITS",
+      "note": "writs are formal written court orders"
+     }
+    ],
+    "explanation": {
+     "surface": "A hotel requires paperwork for a court hearing.",
+     "walkthrough": "'Hearing' looks like a court hearing, but it signals the sound. The Ritz is a famous luxury hotel in London.",
+     "definitionFit": "The Ritz is a famous luxury hotel, in London and elsewhere, a byword for opulence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hearing"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1826,60 @@
     "text": "Learner advances in brass instrument – that's swell",
     "enumeration": "5"
    },
-   "solution": "BULGE"
+   "solution": "BULGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BULGE",
+    "definitions": [
+     {
+      "text": "swell",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "advances in",
+      "for": "container",
+      "note": "the letter moves forward within the instrument's name, taking an earlier slot inside it"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Learner",
+      "gives": "L",
+      "note": "L is the learner driver's plate"
+     },
+     {
+      "clueFragment": "brass instrument",
+      "gives": "BUGLE",
+      "note": "a bugle is a simple brass instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BU",
+      "L",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "A trainee progresses on the trumpet, which is great.",
+     "walkthrough": "The L of BUGLE is lifted out and put back two places earlier. 'Swell' looks like approval, but it is the noun.",
+     "definitionFit": "A bulge is a rounded swelling or protuberance, so swell as a noun fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "swell"
+    }
+   }
   },
   {
    "number": 27,
@@ -447,7 +1893,55 @@
     "text": "Praise a cracking former officer",
     "enumeration": "5"
    },
-   "solution": "EXALT"
+   "solution": "EXALT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXALT",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cracking",
+      "for": "container",
+      "note": "cracking something open lets a piece get inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "former officer",
+      "gives": "EXLT",
+      "note": "ex for former, Lt for lieutenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "LT"
+     ]
+    },
+    "explanation": {
+     "surface": "Applauding a terrific retired army officer.",
+     "walkthrough": "'Cracking' looks like British praise for excellent, but it signals the insertion.",
+     "definitionFit": "To exalt is to glorify or extol someone highly, which is to praise them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cracking"
+    }
+   }
   },
   {
    "number": 28,
@@ -461,7 +1955,52 @@
     "text": "Aristotle changed system for the better",
     "enumeration": "9"
    },
-   "solution": "TOTALISER"
+   "solution": "TOTALISER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOTALISER",
+    "definitions": [
+     {
+      "text": "system for the better",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changed",
+      "for": "anagram",
+      "note": "changed means the philosopher's letters are altered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Aristotle",
+      "gives": "ARISTOTLE",
+      "note": "the Greek philosopher's name, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARISTOTLE",
+       "gives": "TOTALISER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek philosopher reformed a system of thought for the better.",
+     "walkthrough": "'For the better' sounds like improvement but means for the one who bets: a totaliser is the tote, a pool-betting system.",
+     "definitionFit": "A totaliser is a betting machine that pools wagers and calculates the payouts for punters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   }
  ]
 }
