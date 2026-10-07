@@ -70,6 +70,9 @@ INBOXES = {"times": f"{GALE_ROOT}/Times", "listener": f"{GALE_ROOT}/Listener"}
 HOST_INBOX = INBOXES["times"]
 LISTENER_INBOX = INBOXES["listener"]
 CHECKLIST_NAME = "Checklist.html"
+#: Where the desktop's Chrome saves downloads (Z:\Downloads\chrome): swept
+#: like Downloads, at any age.
+CHROME = "/Volumes/Media/Downloads/chrome"
 #: The Windows desktop Paul browses Gale on; its Downloads is swept too.
 DESKTOP = os.environ.get("GALE_DESKTOP", "micro@100.68.145.15")
 #: A Downloads file older than this is not looked at: Gale files are swept
@@ -540,18 +543,20 @@ def parse_listing(text):
 
 
 def collect(out=sys.stdout, seen_path=SEEN, now=None):
-    """Move every Gale file in the drop folder and the Mac's and desktop's
-    Downloads into its paper's inbox; leave every other file alone. How many
+    """Move every Gale file in the drop folder, the Mac's and desktop's
+    Downloads and CHROME into its paper's inbox; leave every other file alone. How many
     it moved."""
     now = now or time.time()
     seen = load(seen_path, {})
     q = shlex.quote
-    dirs = {"drop": GALE_ROOT, "downloads": "$HOME/Downloads", **INBOXES}
+    #: where: (its folder in the shell, what the log calls it)
+    swept = {"drop": (q(GALE_ROOT), "the drop folder"), "downloads": ('"$HOME"/Downloads', "Mac Downloads"),
+             "chrome": (q(CHROME), "Chrome downloads")}
+    dirs = {**{w: d for w, (d, _) in swept.items()}, **{p: q(d) for p, d in INBOXES.items()}}
     script = [f"mkdir -p {' '.join(q(d) for d in [GALE_ROOT, *INBOXES.values()])}"]
-    for where, d in dirs.items():
+    for where, place in dirs.items():
         recent = f"-mtime -{RECENT_DAYS}" if where == "downloads" else ""
-        place = '"$HOME"/Downloads' if where == "downloads" else q(d)
-        script.append(f"(cd {place} && find . -maxdepth 1 -type f {recent} "
+        script.append(f"(cd {place} 2>/dev/null && find . -maxdepth 1 -type f {recent} "
                       f"-exec stat -f '{where}%t%z%t%m%t%N' {{}} +)")
     rows = parse_listing(ssh("; ".join(script) + "; exit 0", text=True).stdout)
     taken = {paper: {n for w, _, _, n in rows if w == paper} for paper in INBOXES}
@@ -568,13 +573,13 @@ def collect(out=sys.stdout, seen_path=SEEN, now=None):
         return dest
 
     for where, size, mtime, name in rows:
-        if where not in ("drop", "downloads") or now - mtime < SETTLE_SECONDS:
+        if where not in swept or now - mtime < SETTLE_SECONDS:
             continue
         key = f"mac:{name}:{size}:{mtime}"
         if key in seen or Path(name).suffix.lower() not in PAGES:
             continue
         dropped = where == "drop"
-        src = f"{q(GALE_ROOT)}/{q(name)}" if dropped else f"\"$HOME\"/Downloads/{q(name)}"
+        src = f"{swept[where][0]}/{q(name)}"
         text = pdf_text(ssh(f"cat {src}").stdout) if needs_text(name, dropped) else ""
         paper = classify(name, text, dropped)
         if paper is None:
@@ -586,8 +591,7 @@ def collect(out=sys.stdout, seen_path=SEEN, now=None):
             print(f"{name}: already in {paper}, removed the copy", file=out)
         else:
             moves.append(f"mv -n {src} {q(INBOXES[paper] + '/' + dest)}")
-            print(f"{name}: moved from {'the drop folder' if dropped else 'Mac Downloads'} to {paper}/{dest}",
-                  file=out)
+            print(f"{name}: moved from {swept[where][1]} to {paper}/{dest}", file=out)
         moved += 1
     if moves:
         ssh(" && ".join(moves))
@@ -690,20 +694,66 @@ def staged_files(cache=CACHE):
     return out
 
 
-#: How many editions the checklist's "next up" lists.
-NEXT_UP = 15
+#: The checklist's "next up": BATCH rows shown at a time, from a POOL
+#: rendered so the next batch needs no new render; links are looked up for
+#: the first LOOKAHEAD.
+BATCH = 15
+POOL = 60
+LOOKAHEAD = 200
 
-SCRIPT = """<script>
-function show(){JSON.parse(localStorage.getItem('galeCopied')||'[]').forEach(k=>{
-  const r=document.getElementById('d'+k);if(r)r.classList.add('copied')})}
-function mark(k){const s=JSON.parse(localStorage.getItem('galeCopied')||'[]');
-  s.push(k);localStorage.setItem('galeCopied',JSON.stringify(s.slice(-500)));show()}
-function cp(b,t,k){const done=()=>{b.textContent='Copied';mark(k)};
+
+def script(store):
+    """The checklists' row state, kept in the browser (localStorage `store`)
+    so the 3-minute refresh keeps it: a row clicked through to Gale greys out
+    and says so; "Next batch" hides the clicked rows of #next and shows the
+    next BATCH; the first one not clicked is highlighted. A click anywhere on
+a row not yet clicked is a click on its Download (a.dl); its other links
+and buttons keep their own."""
+    return """<script>
+const S=STORE,H=S+'Hidden',BATCH=SIZE;
+function get(n){return JSON.parse(localStorage.getItem(n)||'[]')}
+function put(n,s){localStorage.setItem(n,JSON.stringify([...new Set(s)].slice(-5000)))}
+function show(){const c=new Set(get(S)),h=new Set(get(H));let n=0,lit=false;
+  document.querySelectorAll('tr[data-k]').forEach(r=>{r.classList.toggle('copied',c.has(r.dataset.k));
+    r.classList.toggle('dlrow',!c.has(r.dataset.k)&&!!r.querySelector('a.dl'))});
+  document.querySelectorAll('#next tr[data-k]').forEach(r=>{const k=r.dataset.k,on=!h.has(k)&&n<BATCH;
+    if(on)n++;r.hidden=!on;const nx=on&&!lit&&!c.has(k);r.classList.toggle('next',nx);if(nx)lit=true});
+  const m=document.getElementById('more');if(m)m.hidden=n>0}
+function mark(k){put(S,[...get(S),k]);show()}
+function unmark(k){put(S,get(S).filter(x=>x!==k));put(H,get(H).filter(x=>x!==k));show()}
+function nextBatch(){const c=new Set(get(S)),h=get(H);
+  document.querySelectorAll('#next tr[data-k]').forEach(r=>{if(!r.hidden&&c.has(r.dataset.k))h.push(r.dataset.k)});
+  put(H,h);show()}
+function cp(b,t){const done=()=>{b.textContent='Copied'};
   const fb=()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
   document.execCommand('copy');a.remove();done()};
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,fb);else fb()}
 addEventListener('DOMContentLoaded',show)
-</script>"""
+addEventListener('click',ev=>{const r=ev.target.closest('tr.dlrow');
+  if(r&&!ev.target.closest('a,button,summary'))r.querySelector('a.dl').click()})
+</script>""".replace("STORE", json.dumps(store)).replace("SIZE", str(BATCH))
+
+
+#: The row state's look, both checklists.
+ROW_CSS = """tr.copied td{color:#999;text-decoration:line-through}tr.copied .acts{display:none}
+.done{display:none}tr.copied .done{display:inline-block;color:#070;font-weight:bold}
+tr.next td{background:#fff3b0}tr.next td:first-child{border-left:4px solid #e0a800}
+.batch button{font-size:15px;margin-right:.6em}tr.dlrow{cursor:pointer}tr.dlrow:hover td{background:#dcebff}"""
+
+
+def done_label(k):
+    """What a clicked row says instead of its links."""
+    return (f'<span class="done">downloaded &#10003; <a href="#" onclick="unmark(\'{k}\');return false">undo'
+            "</a></span>")
+
+
+def batch_bar(pool, what):
+    """The buttons over a next-up table of `pool` rows."""
+    return (f'<p class="batch"><button onclick="nextBatch()">Next batch</button>'
+            f'<button onclick="location.reload()">Refresh</button> Showing {BATCH} of the next {pool} {what}. '
+            "A row you click greys out; <b>Next batch</b> hides those and shows the next ones. "
+            "The highlighted row is the one to do next.</p>"
+            '<p id="more" hidden>All of these are clicked: <b>Refresh</b> once they arrive for more.</p>')
 
 
 def search_for(n):
@@ -742,13 +792,18 @@ def problems(rows, by_number, staged, unmatched=UNMATCHED):
     return out
 
 
-def next_up(rows, staged):
-    """The NEXT_UP editions to fetch first: the worst year's first."""
+#: How next_up orders, said on the page.
+ORDER = ("Order: the year missing the most editions first, and oldest date first within a year; "
+         "an edition leaves the list once its file arrives.")
+
+
+def next_up(rows, staged, n=POOL):
+    """The `n` editions to fetch first: the worst year's first (ORDER)."""
     years = collections.defaultdict(list)
     for day, cls in rows:
         years[day.year].append((day, cls))
     order = [(day, cls) for y, ds in sorted(years.items(), key=lambda kv: (-len(kv[1]), kv[0])) for day, cls in sorted(ds)]
-    return [(d, c) for d, c in order if d not in staged][:NEXT_UP]
+    return [(d, c) for d, c in order if d not in staged][:n]
 
 
 def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None):
@@ -788,11 +843,15 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None):
             status = "Canberra reprint only" if cls == "canberra-reprint" else ""
         q = search_for(n)
         dl = gale_docs.link("TTDA", day, docs)
-        find = ((f'<a class="go" href="{e(dl)}" target="gale" onclick="mark(\'{k}\')">Download</a> ' if dl else "")
-                + f'<a class="go" href="{e(search_url(day))}" target="gale" onclick="mark(\'{k}\')">Open in Gale</a> '
-                f'<button onclick="cp(this,{e(json.dumps(q))},\'{k}\')">Copy</button> <code>{e(q)}</code>'
-                + ("" if sure else ' <span class="est">number estimated: check the date</span>'))
-        return (f'<tr id="d{k}"><td>{day:%a %d %b %Y}</td><td>{find if next_up or day not in staged else ""}</td>'
+        # Open in Gale counts as the click only when there is no Download.
+        find = ('<span class="acts">'
+                + (f'<a class="go dl" href="{e(dl)}" target="gale" onclick="mark(\'{k}\')">Download</a> ' if dl else "")
+                + f'<a class="go" href="{e(search_url(day))}" target="gale"'
+                + ("" if dl else f' onclick="mark(\'{k}\')"') + '>Open in Gale</a> '
+                f'<button onclick="cp(this,{e(json.dumps(q))})">Copy</button> <code>{e(q)}</code>'
+                + ("" if sure else ' <span class="est">number estimated: check the date</span>') + "</span>"
+                + done_label(k))
+        return (f'<tr data-k="{k}"><td>{day:%a %d %b %Y}</td><td>{find if next_up or day not in staged else ""}</td>'
                 f"<td>{page_of(day.year)}</td><td>{status}</td></tr>")
 
     head = "<tr><th>Date</th><th>Open, or search Gale for</th><th>Page</th><th>Status</th></tr>"
@@ -802,9 +861,9 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED, docs=None):
 tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.4em}}.got{{color:#070}}.est{{color:#a60;font-size:90%}}
 .bad{{background:#fee;border:2px solid #c00;padding:.5em 1em}}.how{{background:#eef6ff;padding:.5em 1em}}
 button{{font-size:14px;padding:2px 10px;cursor:pointer}}a.go{{font-weight:bold;margin-right:.6em}}
-.start{{font-size:17px;font-weight:bold}}tr.copied td:first-child::before{{content:"\\2713 ";color:#070}}
-progress{{width:20em;height:1.2em;vertical-align:middle}}</style>
-{SCRIPT}
+.start{{font-size:17px;font-weight:bold}}progress{{width:20em;height:1.2em;vertical-align:middle}}
+{ROW_CSS}</style>
+{script("galeCopied")}
 <h1>Times crosswords from Gale</h1>
 <p><progress value="{done}" max="{max(total, 1)}"></progress> <b>{done:,} of {total:,}</b> arrived, {total - done:,} to go.
 Updated {datetime.datetime.now().astimezone():%a %d %b %H:%M}; this page refreshes itself every 3 minutes.</p>"""]
@@ -824,7 +883,7 @@ and paste it into Gale's search box, or use <i>Browse &rarr; Browse By Date</i> 
 Gale allows 50 downloads a session.</div>""")
     nxt = next_up(rows, staged)
     if nxt:
-        out.append(f"<h2>Next up</h2><table>{head}")
+        out.append(f"<h2>Next up</h2><p>{ORDER}</p>{batch_bar(len(nxt), 'editions')}<table id=\"next\">{head}")
         out += [row(d, c, True) for d, c in nxt]
         out.append("</table>")
     out.append("<h2>Everything, by year</h2><p>The worst year first. An edition leaves this list once its puzzle is filed."
@@ -861,7 +920,7 @@ def sync(out=sys.stdout, force=False):
         moved = collect(out)
         changed = mirror(out)
         by_number = held()
-        linked = gale_docs.resolve("TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files())],
+        linked = gale_docs.resolve("TTDA", [(d, number_on(d, by_number)[0]) for d, _ in next_up(wanted(), staged_files(), LOOKAHEAD)],
                                    out)
         if force or moved or changed or linked or time.time() - last_render() > RENDER_EVERY:
             stage(MIRROR, out=out)

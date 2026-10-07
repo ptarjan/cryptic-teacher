@@ -160,8 +160,11 @@ check("the filed puzzle is marked", True, ">filed<" in page)
 check("the unmatched file is listed", True, "holiday snap.jpg" in page)
 check("a saved solution is marked", True, "solution saved" in page)
 bare = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none", arrivals=[])
-check("a session link, then a Listener search on each puzzle still to save", (True, 2),
+check("a session link, then a Listener search on each puzzle still to save, in next up and its year", (True, 4),
       (g.gi.SESSION.format("LSNR") in bare, bare.count("prodId=LSNR")))
+check("next up lists them with the ordering rule and a Next batch", True,
+      '<table id="next">' in bare and g.ORDER in bare and "nextBatch()" in bare)
+check("years collapsed", True, "<details><summary><b>1930</b>" in bare)
 check("no search link once a puzzle is saved or filed", 0, page.count("prodId=LSNR"))
 inbox2, store2 = Path(sys.argv[1]) / "inbox2", Path(sys.argv[1]) / "store2"
 inbox2.mkdir()
@@ -170,6 +173,7 @@ g.run(inbox2, store2, rows, out=out, reader=reader)
 page2 = g.checklist(rows, store2, Path(sys.argv[1]) / "none", arrivals=[])
 check("a read puzzle's missing solution is asked for", True,
       "save its solution too: &ldquo;Report on Crossword No. 2&rdquo;" in page2)
+check("and offers its solution as the row's job", True, 'data-k="r2"' in page2)
 check("not while a saved file waits to be read", False, "save its solution too:" in g.checklist(
     rows, store2, Path(sys.argv[1]) / "none", arrivals=[{"file": "new.pdf", "number": 1}]))
 check("earliest first", True, page.index("Wed 02 Apr 1930") < page.index("Wed 09 Apr 1930"))

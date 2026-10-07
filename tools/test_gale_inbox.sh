@@ -116,7 +116,13 @@ check("next up starts at the worst year's first edition not arrived", True,
       nxt.index("Wed 13 Jan 1988") < nxt.index("Thu 14 Jan 1988") < nxt.index("Mon 02 Mar 1987"))
 check("an arrived edition is not next up", False, "Tue 12 Jan 1988" in nxt)
 check("a search to copy for the puzzle's number", True,
-      """onclick="cp(this,&quot;\\&quot;Crossword Puzzle No 17,564\\&quot;&quot;,'1988-01-13')">Copy</button>""" in nxt)
+      """onclick="cp(this,&quot;\\&quot;Crossword Puzzle No 17,564\\&quot;&quot;)">Copy</button>""" in nxt)
+check("the ordering rule is said", True, g.ORDER in nxt)
+check("next up is a pool with its Next batch and Refresh", True,
+      '<table id="next">' in nxt and 'onclick="nextBatch()"' in nxt and 'onclick="location.reload()"' in nxt)
+check("the pool is POOL long, the lookahead longer", ([D(1988, 1, 13)], 60, 200),
+      ([d for d, _ in g.next_up(rows, {D(1988, 1, 12): []}, 1)], g.POOL, g.LOOKAHEAD))
+check("a clicked row's label is there to show", True, 'downloaded &#10003;' in nxt)
 check("an estimated number says so", True, "number estimated" in nxt[nxt.index("Mon 02 Mar 1987"):])
 check("a date's likely page", True, "p. 18 (or 16-24)" in nxt)
 check("an arrived edition is marked", True, "arrived (1988-01-12 page 2.png, GALE|IF0503151598 1988-01-12.jpg)" in html)

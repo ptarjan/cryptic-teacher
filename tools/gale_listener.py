@@ -602,7 +602,8 @@ def tick(out=sys.stdout, force=False):
     checklist. The clue reading stays in the full pass."""
     changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
     idx = index()
-    linked = gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out)
+    linked = gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out,
+                               reports=[(r["date"], r["number"]) for r in unsolved(idx)])
     last = CHECKLIST.stat().st_mtime if CHECKLIST.exists() else 0
     if force or changed or linked or time.time() - last > gi.RENDER_EVERY:
         render(idx, out=out)
@@ -618,6 +619,32 @@ def to_save(idx, store=STORE, root=ROOT, arrivals=None):
     held = filed_numbers(root) | {json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")} | {
         a["number"] for a in arrivals if a.get("number") is not None}
     return [r for r in idx if printed(r) and r["number"] not in held]
+
+
+def solutions(store=STORE, arrivals=None):
+    """{number} of the puzzles a saved page reports on, and whether a saved
+    file still waits to be read."""
+    arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
+    ledger = load_ledger(store)
+    read = {e["file"] for e in ledger.values()}
+    return ({n for e in [*ledger.values(), *arrivals] for n in e.get("reports") or ()},
+            any(a["file"] not in read for a in arrivals))
+
+
+def unsolved(idx, store=STORE, arrivals=None):
+    """The printed puzzles saved whose report page is still to save; none while a saved file waits to be read (a report is often found
+    by the page's words, not its citation)."""
+    solved, waiting = solutions(store, arrivals)
+    if waiting:
+        return []
+    saved = {e["number"] for e in load_ledger(store).values() if e.get("number") is not None} | {
+        json.loads(p.read_text())["number"] for p in store.glob("listener-*.json")}
+    return [r for r in idx if printed(r) and r["number"] in saved - solved]
+
+
+#: How the Listener's next up orders, said on the page.
+ORDER = ("Order: earliest issue first, a puzzle's page and its solution page alike; a row leaves the list "
+         "once its file arrives.")
 
 
 def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None):
@@ -636,21 +663,22 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None):
         if e.get("number") is not None:
             tried.setdefault(e["number"], []).append(e)
     lost = [e for e in ledger.values() if e.get("number") is None and not e.get("reports")]
-    solved = {n for e in [*ledger.values(), *arrivals] for n in e.get("reports") or ()}
+    solved, _ = solutions(store, arrivals)
     got = {}
     for p in store.glob("listener-*.json"):
         r = json.loads(p.read_text())
         got[r["number"]] = r["verdict"]
     idx = [r for r in idx if printed(r)]
     todo = to_save(idx, store, root, arrivals)
-    first = todo[0] if todo else None
     read = {e_["file"] for e_ in ledger.values()}
-    ledger_waiting = any(a["file"] not in read for a in arrivals)
+    asks = {r["number"] for r in unsolved(idx, store, arrivals)}
     e = html.escape
     out = [f"""<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="180">
 <title>Listener crosswords to save from Gale</title>
 <style>body{{font:14px -apple-system,sans-serif;margin:2em;max-width:60em}}td,th{{padding:2px 8px;text-align:left}}
-tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.5em}}.got{{color:#070}}.bad{{color:#a00}}</style>
+tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.5em}}.got{{color:#070}}.bad{{color:#a00}}
+summary{{font-size:16px;margin:.4em 0;cursor:pointer}}{gi.ROW_CSS}</style>
+{gi.script("listenerCopied")}
 <h1>Listener crosswords to save from Gale: {len(todo):,} of {len(idx):,} to go</h1>
 <p><progress value="{len(idx) - len(todo)}" max="{max(len(idx), 1)}"></progress>
 <b>{len(idx) - len(todo):,} of {len(idx):,}</b> saved or filed. This page refreshes itself every 3 minutes.</p>
@@ -672,42 +700,56 @@ grid: save that page too. Once the pages saved are read, a row whose solution pa
 <li>That's all. A Gale download in Downloads is moved into the folder for you; within 3 minutes its row
 says "arrived", and once the full pass has read it (at its next slice, within about an hour), how many clues read.</li>
 </ol>
-<p>Gale allows up to 50 downloads a session.</p>
-{f'<p><b>Next to save:</b> No {first["number"]}, {first["date"]:%a %d %b %Y}, &ldquo;{e(first["title"])}&rdquo;.</p>' if first else ''}"""]
+<p>Gale allows up to 50 downloads a session.</p>"""]
+    head = "<tr><th>Issue date</th><th>No</th><th>Title</th><th>Setter</th><th>Status</th></tr>"
+
+    def row(r):
+        n = r["number"]
+        if n in filed:
+            status = '<span class="got">filed</span>'
+        elif n in got:
+            v = got[n]
+            status = f'<span class="got">saved: {v.get("agreed", 0)} of {v.get("clues", 0)} clues read</span>'
+        elif n in tried:
+            status = f'<span class="bad">saved, not read: {e(tried[n][-1].get("why") or "")}</span>'
+        elif n in came:
+            status = '<span class="got">arrived: the full pass reads it at its next slice</span>'
+        else:
+            status = ""
+        if n in solved:
+            status += ' <span class="got">solution saved</span>'
+        elif n in asks:
+            status += (f' <span class="bad">save its solution too: &ldquo;Report on Crossword No. {n}&rdquo;,'
+                       f' about {r["date"] + datetime.timedelta(days=14):%d %b %Y}</span>')
+        if n in asks:
+            k, dl, label = f"r{n}", gale_docs.report_link("LSNR", n, docs), "Download solution"
+        elif n not in filed and n not in got:
+            k, dl, label = f"p{n}", gale_docs.link("LSNR", r["date"], docs), "Download"
+        else:
+            k = dl = None
+        go = "" if k is None else (
+            '<span class="acts">'
+            + (f' <a class="dl" href="{e(dl)}" target="gale" onclick="mark(\'{k}\')"><b>{label}</b></a>' if dl else "")
+            + f' <a href="{e(gi.search_url(r["date"], "LSNR"))}" target="gale"'
+            + ("" if dl else f' onclick="mark(\'{k}\')"') + ">Open in Gale</a></span> " + gi.done_label(k))
+        return (f'<tr{f" data-k={chr(34)}{k}{chr(34)}" if k else ""}><td>{r["date"]:%a %d %b %Y}{go}</td><td>{n}</td>'
+                f'<td>{e(r["title"])}</td><td>{e(r.get("setter") or "")}</td><td>{status}</td></tr>')
+
+    want = asks | {r["number"] for r in todo}
+    pool = [r for r in idx if r["number"] in want][:gi.POOL]
+    if pool:
+        out.append(f"<h2>Next up</h2><p>{ORDER}</p>{gi.batch_bar(len(pool), 'pages')}<table id=\"next\">{head}")
+        out += [row(r) for r in pool]
+        out.append("</table>")
+    out.append("<h2>Every puzzle, by year</h2>")
     years = {}
     for r in idx:
         years.setdefault(r["date"].year, []).append(r)
     for y, rs in sorted(years.items()):
         left = sum(1 for r in rs if r["number"] not in filed and r["number"] not in got and r["number"] not in came)
-        out.append(f"<h2>{y}: {left} of {len(rs)} to save</h2><table><tr><th>Issue date</th><th>No</th>"
-                   "<th>Title</th><th>Setter</th><th>Status</th></tr>")
-        for r in rs:
-            n = r["number"]
-            if n in filed:
-                status = '<span class="got">filed</span>'
-            elif n in got:
-                v = got[n]
-                status = f'<span class="got">saved: {v.get("agreed", 0)} of {v.get("clues", 0)} clues read</span>'
-            elif n in tried:
-                status = f'<span class="bad">saved, not read: {e(tried[n][-1].get("why") or "")}</span>'
-            elif n in came:
-                status = '<span class="got">arrived: the full pass reads it at its next slice</span>'
-            else:
-                status = ""
-            if n in solved:
-                status += ' <span class="got">solution saved</span>'
-            elif (n in got or n in tried) and not ledger_waiting:
-                # Asked only once every saved file is read: a report is
-                # often found by the page's words, not its citation.
-                status += (f' <span class="bad">save its solution too: &ldquo;Report on Crossword No. {n}&rdquo;,'
-                           f' about {r["date"] + datetime.timedelta(days=14):%d %b %Y}</span>')
-            dl = gale_docs.link("LSNR", r["date"], docs)
-            go = "" if n in filed or n in got else (
-                (f' <a href="{e(dl)}" target="gale"><b>Download</b></a>' if dl else "")
-                + f' <a href="{e(gi.search_url(r["date"], "LSNR"))}" target="gale">Open in Gale</a>')
-            out.append(f"<tr><td>{r['date']:%a %d %b %Y}{go}</td><td>{n}</td><td>{e(r['title'])}</td>"
-                       f"<td>{e(r.get('setter') or '')}</td><td>{status}</td></tr>")
-        out.append("</table>")
+        out.append(f"<details><summary><b>{y}</b>: {left} of {len(rs)} to save</summary><table>{head}")
+        out += [row(r) for r in rs]
+        out.append("</table></details>")
     waiting = [a for a in unnamed if a["file"] not in read]
     if waiting:
         out.append("<h2>Arrived, puzzle not yet known</h2><p>The name and citation name no puzzle; the full pass "
