@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Church officer, maybe Manx speaker",
     "enumeration": "4"
    },
-   "solution": "CELT"
+   "solution": "CELT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CELT",
+    "definitions": [
+     {
+      "text": "maybe Manx speaker",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the abbreviation for the Church of England"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "LT",
+      "note": "LT is short for lieutenant, an army officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "LT"
+     ]
+    },
+    "explanation": {
+     "surface": "A church functionary on the Isle of Man who perhaps speaks the old island tongue.",
+     "walkthrough": "'Church officer' reads as one role, like a verger, but splits into two abbreviations. Manx is the Celtic language of the Isle of Man.",
+     "definitionFit": "Manx is a Gaelic tongue, so anyone who speaks it is an example of that ancient people of Atlantic Europe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "officer"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +90,53 @@
     "text": "Worried — loathe having to leave hospital",
     "enumeration": "3"
    },
-   "solution": "ATE"
+   "solution": "ATE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ATE",
+    "definitions": [
+     {
+      "text": "Worried",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having to leave",
+      "for": "deletion",
+      "note": "something that has to leave is taken away, so the letter for hospital drops out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loathe",
+      "gives": "HATE",
+      "note": "a synonym for detest"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone anxious because they hate being discharged from hospital.",
+     "walkthrough": "Remove H from HATE. 'Worried' is in the sense of something eating at you: 'what's eating you?'",
+     "definitionFit": "To eat at someone is to trouble or gnaw at them, so the past tense matches 'worried' as in fretted or bothered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Worried"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,70 @@
     "text": "Answer with blood, written up, and sign letter",
     "enumeration": "8"
    },
-   "solution": "AEROGRAM"
+   "solution": "AEROGRAM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "AEROGRAM",
+    "definitions": [
+     {
+      "text": "letter",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down entry, writing something upwards means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Answer",
+      "gives": "A",
+      "note": "A is the standard abbreviation for answer"
+     },
+     {
+      "clueFragment": "blood",
+      "gives": "GORE",
+      "note": "gore is spilt blood"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "RAM",
+      "note": "the ram is the zodiac sign Aries"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "EROG",
+      "RAM"
+     ],
+     "reversals": [
+      {
+       "from": "GORE",
+       "to": "EROG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim instruction to answer in blood and sign a letter, like a pact with the devil.",
+     "walkthrough": "A, then GORE written upwards as EROG, then RAM gives AEROGRAM. 'Sign' looks like a verb, but here it is a star sign.",
+     "definitionFit": "An aerogram is a lightweight sheet folded into its own envelope and sent by airmail, a kind of letter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +227,43 @@
     "text": "Rest in peace as expired",
     "enumeration": "4"
    },
-   "solution": "EASE"
+   "solution": "EASE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "EASE",
+    "definitions": [
+     {
+      "text": "Rest",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peace as expired",
+      "gives": "EASE",
+      "note": "the letters run across the end of peace, all of as and the start of expired"
+     }
+    ],
+    "explanation": {
+     "surface": "A deathly echo of RIP: someone rests in peace now that they have died.",
+     "walkthrough": "'Rest in peace' looks like the familiar phrase, but 'Rest' alone is the definition and 'in' points into the words after it.",
+     "definitionFit": "Ease means relaxation or freedom from effort, which is what a rest provides."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +277,54 @@
     "text": "Bacon slice monarch spots first",
     "enumeration": "6"
    },
-   "solution": "RASHER"
+   "solution": "RASHER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RASHER",
+    "definitions": [
+     {
+      "text": "Bacon slice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "charade",
+      "note": "this says the second item named goes ahead of the first one in the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spots",
+      "gives": "RASH",
+      "note": "a rash is an outbreak of spots on the skin"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RASH",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A king or queen spies a slice of bacon before anyone else does.",
+     "walkthrough": "'Spots' looks like a verb meaning sees, but it is the noun, placed first, before the monarch.",
+     "definitionFit": "A rasher is a single thin cut of bacon or ham, as served at a British breakfast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spots"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +344,61 @@
      }
     ]
    },
-   "solution": "SANDMARTIN"
+   "solution": "SANDMARTIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SAND MARTIN",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nests in",
+      "for": "container",
+      "note": "something that nests in another settles inside it, like an egg within its holder"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means along with"
+     },
+     {
+      "clueFragment": "stylish",
+      "gives": "SMART",
+      "note": "smart means elegantly dressed"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SANDMART",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird that builds its nest in a chic residence.",
+     "walkthrough": "'Nests' fits a bird so well that it seems part of the definition, but it is the signal for one piece sitting inside another.",
+     "definitionFit": "The sand martin is a small brown swallow-like bird that digs nesting burrows in sandy riverbanks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "nests"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +412,57 @@
     "text": "Note black Republican brought to First Lady",
     "enumeration": "5"
    },
-   "solution": "BREVE"
+   "solution": "BREVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BREVE",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "brought to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the pencil abbreviation for black"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     },
+     {
+      "clueFragment": "First Lady",
+      "gives": "EVE",
+      "note": "Eve is the first woman in Genesis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "R",
+      "EVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A note about a black Republican politician being introduced to the President's wife.",
+     "walkthrough": "'First Lady' suggests the US President's wife, but in crosswords it is usually Eve.",
+     "definitionFit": "A breve is a musical note equal to two semibreves, the longest note value in common use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lady"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +476,50 @@
     "text": "Bewhiskered and brave little 12",
     "enumeration": "7"
    },
-   "solution": "BEARDED"
+   "solution": "BEARDED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEARDED",
+    "definitions": [
+     {
+      "text": "Bewhiskered",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brave",
+      "gives": "BEARD",
+      "note": "to beard someone is to confront them boldly"
+     },
+     {
+      "clueFragment": "little 12",
+      "gives": "ED",
+      "note": "12 across is a newspaper boss; ED is the short form of that title"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEARD",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A description of a hairy, courageous little newspaper chief.",
+     "walkthrough": "'Brave' looks like an adjective but is the verb, as in bearding a lion in its den.",
+     "definitionFit": "Having a growth of hair on the chin and face, as whiskers are, is what this adjective describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brave"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +533,43 @@
     "text": "Resolute Armada man taking ships",
     "enumeration": "7"
    },
-   "solution": "ADAMANT"
+   "solution": "ADAMANT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADAMANT",
+    "definitions": [
+     {
+      "text": "Resolute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ships",
+      "for": "hidden_word",
+      "note": "to ship is to carry as cargo, so the preceding words carry the answer inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Armada man taking",
+      "gives": "ADAMANT",
+      "note": "the letters run from the middle of Armada, through man, to the first letter of taking"
+     }
+    ],
+    "explanation": {
+     "surface": "A determined sailor of the Spanish Armada seizing enemy vessels.",
+     "walkthrough": "'Armada' and 'ships' belong together in the surface, so 'ships' reads as a noun rather than the signal for carried letters.",
+     "definitionFit": "Someone adamant refuses to be persuaded or to change their mind, which is a firmly resolute stance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ships"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +583,55 @@
     "text": "Trying experience in revolutionary state",
     "enumeration": "5"
    },
-   "solution": "TASTE"
+   "solution": "TASTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TASTE",
+    "definitions": [
+     {
+      "text": "Trying experience",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns the existing order, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "STATE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STATE",
+       "gives": "TASTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Living through an ordeal in a country in revolt.",
+     "walkthrough": "'Trying' suggests hardship, but here it means sampling: a brief try of something.",
+     "definitionFit": "A taste is a short first encounter with something, a sample of what it is like to have tried it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Trying"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +645,55 @@
     "text": "Storm god not lacking in heart",
     "enumeration": "4"
    },
-   "solution": "RANT"
+   "solution": "RANT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RANT",
+    "definitions": [
+     {
+      "text": "Storm",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking in heart",
+      "for": "deletion",
+      "note": "something lacking its heart has had its central letter taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "god",
+      "gives": "RA",
+      "note": "Ra is the Egyptian sun god"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "A tempest-god who is anything but faint-hearted.",
+     "walkthrough": "'Storm god' looks like one deity, such as Thor, but 'Storm' is the definition, used as a verb, and 'god' is RA.",
+     "definitionFit": "To storm is to shout and rage angrily, which is exactly what someone does in a long furious tirade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Storm"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +707,61 @@
     "text": "Love place to sunbathe avoiding cold spells",
     "enumeration": "5"
    },
-   "solution": "OBEAH"
+   "solution": "OBEAH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OBEAH",
+    "definitions": [
+     {
+      "text": "spells",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding something means keeping it out, so the letter for cold is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     },
+     {
+      "clueFragment": "place to sunbathe",
+      "gives": "BEACH",
+      "note": "a beach is where people lie in the sun"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C is the tap abbreviation for cold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "BEAH"
+     ]
+    },
+    "explanation": {
+     "surface": "A sunbather's dream of a warm spot that escapes cold snaps.",
+     "walkthrough": "'Cold spells' looks like a weather phrase, but 'spells' is the definition. Obeah is a Caribbean folk magic.",
+     "definitionFit": "Obeah is a system of sorcery from the West Indies, practised through charms and magical incantations."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spells"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +775,51 @@
     "text": "Music scene wants backer in the circle",
     "enumeration": "4"
    },
-   "solution": "DISC"
+   "solution": "DISC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DISC",
+    "definitions": [
+     {
+      "text": "circle",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wants backer",
+      "for": "deletion",
+      "note": "to want something is to be without it, and the backer is the final letter"
+     }
+    ],
+    "linkWords": [
+     "in the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Music scene",
+      "gives": "DISCO",
+      "note": "a disco is a club or genre of dance music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DISC"
+     ]
+    },
+    "explanation": {
+     "surface": "A music scene looking for a financial sponsor within the inner circle.",
+     "walkthrough": "'Backer' suggests a sponsor, but it means the last letter of the word.",
+     "definitionFit": "A disc is a flat round shape, so it is a circle in the sense of a round, flat object."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "backer"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +833,51 @@
     "text": "Re-do it, emended for this boss?",
     "enumeration": "6"
    },
-   "solution": "EDITOR"
+   "solution": "EDITOR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "EDITOR",
+    "definitions": [
+     {
+      "text": "Re-do it, emended for this boss?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emended",
+      "for": "anagram",
+      "note": "a text that has been emended has been corrected and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Re-do it",
+      "gives": "REDOIT",
+      "note": "taken as written, ignoring the hyphen"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDOIT",
+       "gives": "EDITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A boss who returns copy marked 'Re-do it, corrected'.",
+     "walkthrough": "The whole clue describes the job: a person who sends work back to be redone and emends it is the newspaper's boss.",
+     "definitionFit": "Editors run publications and correct copy, so ordering a rewrite and emending text is exactly their role."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +897,69 @@
      }
     ]
    },
-   "solution": "TRENCHFOOT"
+   "solution": "TRENCHFOOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRENCH FOOT",
+    "definitions": [
+     {
+      "text": "Condition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "these letters go into the river named after them, held inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "companion",
+      "gives": "CH",
+      "note": "CH stands for Companion of Honour, a British order"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "F is the abbreviation for following, as in page references"
+     },
+     {
+      "clueFragment": "ducks",
+      "gives": "OO",
+      "note": "a duck is a score of nought in cricket, shaped like O"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "TRENT",
+      "note": "the Trent is a major river of the English Midlands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TREN",
+      "CHFOO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The state of a friend who has chased ducks into a river.",
+     "walkthrough": "A duck in cricket is a score of zero, shaped like the letter O. The Companion of Honour is a British order of merit.",
+     "definitionFit": "Trench foot is a painful medical condition caused by feet staying cold and wet for long periods, as in WWI trenches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +973,58 @@
     "text": "Fearsome shot with bowler receiving credit?",
     "enumeration": "8"
    },
-   "solution": "SCREAMER"
+   "solution": "SCREAMER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SCREAMER",
+    "definitions": [
+     {
+      "text": "Fearsome shot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "something receiving another takes it in, holding it within"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bowler",
+      "gives": "SEAMER",
+      "note": "a seamer is a cricket bowler who makes the ball deviate off its seam"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CR",
+      "EAMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer's thunderbolt delivery that earns the bowler praise.",
+     "walkthrough": "'Bowler' could be a hat, but here it is a cricketer: a seamer bowls the ball to move off its stitched seam.",
+     "definitionFit": "In football slang a screamer is a spectacular long-range goal struck with tremendous power."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "credit"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +1038,55 @@
     "text": "Dismiss boy speaking German",
     "enumeration": "5"
    },
-   "solution": "SAXON"
+   "solution": "SAXON",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SAXON",
+    "definitions": [
+     {
+      "text": "German",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "speaking",
+      "for": "homophone",
+      "note": "speaking means we go by the sound of the words when said out loud"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dismiss",
+      "gives": "SACK",
+      "note": "to sack is to fire from a job"
+     },
+     {
+      "clueFragment": "boy",
+      "gives": "SON",
+      "note": "a son is a male child"
+     },
+     {
+      "clueFragment": "Dismiss boy",
+      "gives": "SAXON",
+      "soundsLike": "SACK SON",
+      "note": "the two words run together make the sound"
+     }
+    ],
+    "explanation": {
+     "surface": "An order to dismiss a lad who is speaking German.",
+     "walkthrough": "'German' looks like the language being spoken, but it is the definition: the Saxons were a Germanic people.",
+     "definitionFit": "The Saxons were a Germanic tribe, and Saxony remains a German state, so a Saxon is one kind of German."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "speaking"
+    }
+   }
   },
   {
    "number": 15,
@@ -283,7 +1100,51 @@
     "text": "Speed reduced in desert",
     "enumeration": "3"
    },
-   "solution": "RAT"
+   "solution": "RAT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RAT",
+    "definitions": [
+     {
+      "text": "desert",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "reduced means cut short, so the final letter is lost"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Speed",
+      "gives": "RATE",
+      "note": "rate means pace or velocity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Slowing down while driving through a desert.",
+     "walkthrough": "'Desert' looks like a sandy place, but it is the verb meaning to abandon.",
+     "definitionFit": "To rat is to betray or abandon one's side, just as rats were said to leave a sinking ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "desert"
+    }
+   }
   },
   {
    "number": 16,
@@ -297,7 +1158,45 @@
     "text": "Woodcutter advertising verbally",
     "enumeration": "4"
    },
-   "solution": "ADZE"
+   "solution": "ADZE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ADZE",
+    "definitions": [
+     {
+      "text": "Woodcutter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "verbally",
+      "for": "homophone",
+      "note": "verbally means by spoken words, so we go by how the word is said"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advertising",
+      "gives": "ADZE",
+      "soundsLike": "ADS",
+      "note": "ads are short for advertisements"
+     }
+    ],
+    "explanation": {
+     "surface": "A lumberjack who promotes himself by word of mouth.",
+     "walkthrough": "'Woodcutter' suggests a person, but it is a tool.",
+     "definitionFit": "An adze is an axe-like tool with its blade at right angles to the handle, used for shaping timber."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Woodcutter"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1210,56 @@
     "text": "Fine to abandon truth in law passed",
     "enumeration": "3"
    },
-   "solution": "ACT"
+   "solution": "ACT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ACT",
+    "definitions": [
+     {
+      "text": "law passed",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "abandon means leave behind, so the letter for fine departs"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fine",
+      "gives": "F",
+      "note": "F is the pencil-grade abbreviation for fine"
+     },
+     {
+      "clueFragment": "truth",
+      "gives": "FACT",
+      "note": "a fact is something true"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACT"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a fine forsook the truth in a law that was passed.",
+     "walkthrough": "'Fine' looks like a penalty, but it is just the letter F, removed from FACT.",
+     "definitionFit": "An Act of Parliament is a statute that has been formally enacted, so it is legislation that has passed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fine"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1273,42 @@
     "text": "Saw an early machine-gun",
     "enumeration": "5"
    },
-   "solution": "MAXIM"
+   "solution": "MAXIM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MAXIM",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     },
+     {
+      "text": "an early machine-gun",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saw",
+      "note": "first meaning: an old saying or proverb"
+     },
+     {
+      "clueFragment": "an early machine-gun",
+      "note": "second meaning: the first fully automatic gun"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Saw' looks like the past tense of see or a cutting tool, but here it is an old saying.",
+     "definitionFit": "A maxim is a pithy saying, like a saw; Hiram Maxim's 1884 gun was the first true automatic weapon."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 18,
@@ -339,7 +1322,68 @@
     "text": "Setter's engaged in Mass — a liturgy at sea",
     "enumeration": "8"
    },
-   "solution": "MARITIME"
+   "solution": "MARITIME",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MARITIME",
+    "definitions": [
+     {
+      "text": "at sea",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaged in",
+      "for": "container",
+      "note": "engaged in means involved inside something, so these letters go within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mass",
+      "gives": "M",
+      "note": "M is the abbreviation for mass in physics"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "liturgy",
+      "gives": "RITE",
+      "note": "a rite is a formal religious ceremony"
+     },
+     {
+      "clueFragment": "Setter's",
+      "gives": "IM",
+      "note": "the setter is I, so the setter's, meaning the setter is, gives I'M"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "A",
+      "RIT",
+      "IM",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle-maker attending a Mass and a service on board ship.",
+     "walkthrough": "'Mass' beside 'liturgy' reads as church, but here it is the physics abbreviation. Setters refer to themselves in the first person.",
+     "definitionFit": "Maritime means connected with the sea or shipping, so it describes things that happen at sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 19,
@@ -353,7 +1397,45 @@
     "text": "Evaluation for Shell",
     "enumeration": "4"
    },
-   "solution": "TEST"
+   "solution": "TEST",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEST",
+    "definitions": [
+     {
+      "text": "Evaluation",
+      "at": 0
+     },
+     {
+      "text": "Shell",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evaluation",
+      "note": "first meaning: an examination or trial"
+     },
+     {
+      "clueFragment": "Shell",
+      "note": "second meaning: the hard outer casing of some invertebrates, like sea urchins"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Shell looks like an oil company being assessed, but it is a zoological term for a hard outer covering.",
+     "definitionFit": "A test is an exam or assessment; in zoology it is also the hard outer case of creatures like sea urchins."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Shell"
+    }
+   }
   },
   {
    "number": 20,
@@ -367,7 +1449,60 @@
     "text": "Conspicuous way to protect a right",
     "enumeration": "7"
    },
-   "solution": "SALIENT"
+   "solution": "SALIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALIENT",
+    "definitions": [
+     {
+      "text": "Conspicuous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "to protect something is to surround and shield it, so the letters go around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "LIEN",
+      "note": "a lien is a legal right to hold property until a debt is paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ALIEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An obvious method of safeguarding a right.",
+     "walkthrough": "A lien is a legal claim over someone's property; it goes with A inside ST.",
+     "definitionFit": "Salient means most noticeable or prominent, so something salient stands out and is conspicuous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "way"
+    }
+   }
   },
   {
    "number": 21,
@@ -381,7 +1516,51 @@
     "text": "Purchase intact or otherwise",
     "enumeration": "8"
    },
-   "solution": "TRACTION"
+   "solution": "TRACTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRACTION",
+    "definitions": [
+     {
+      "text": "Purchase",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "otherwise",
+      "for": "anagram",
+      "note": "otherwise means in another manner, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intact or",
+      "gives": "INTACTOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INTACTOR",
+       "gives": "TRACTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Buying something either undamaged or not.",
+     "walkthrough": "'Purchase' means buying in the surface, but here it is grip, as when tyres get purchase on a road.",
+     "definitionFit": "Purchase can mean firm grip or leverage, and traction is the grip of a wheel or foot on a surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Purchase"
+    }
+   }
   },
   {
    "number": 22,
@@ -395,7 +1574,47 @@
     "text": "Flyer delivered by estate supervisor",
     "enumeration": "5"
    },
-   "solution": "REEVE"
+   "solution": "REEVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REEVE",
+    "definitions": [
+     {
+      "text": "Flyer",
+      "at": 0
+     },
+     {
+      "text": "estate supervisor",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "delivered by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flyer",
+      "note": "first meaning: the female of the ruff, a wading bird"
+     },
+     {
+      "clueFragment": "estate supervisor",
+      "note": "second meaning: a medieval manor official overseeing tenants"
+     }
+    ],
+    "explanation": {
+     "surface": "A leaflet handed out by the manager of an estate.",
+     "walkthrough": "'Flyer delivered' suggests a leaflet through the door, but a flyer is a bird.",
+     "definitionFit": "A reeve is the female ruff, a sandpiper; historically it was also a manorial officer who oversaw the lord's land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flyer"
+    }
+   }
   },
   {
    "number": 23,
@@ -409,7 +1628,50 @@
     "text": "Maybe demonic look causes damage",
     "enumeration": "6"
    },
-   "solution": "IMPAIR"
+   "solution": "IMPAIR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPAIR",
+    "definitions": [
+     {
+      "text": "damage",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe demonic",
+      "gives": "IMP",
+      "note": "an imp is a small demon, one example of something demonic"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "AIR",
+      "note": "an air is a manner or appearance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "AIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A devilish glance does harm.",
+     "walkthrough": "'Maybe' marks IMP as an example of a demonic being.",
+     "definitionFit": "To impair is to weaken or diminish something's quality or function, which is to damage it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1685,50 @@
     "text": "Run joint and cause resentment",
     "enumeration": "6"
    },
-   "solution": "RANKLE"
+   "solution": "RANKLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RANKLE",
+    "definitions": [
+     {
+      "text": "cause resentment",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Run",
+      "gives": "R",
+      "note": "R is the cricket scoring abbreviation for run"
+     },
+     {
+      "clueFragment": "joint",
+      "gives": "ANKLE",
+      "note": "the ankle is the joint between foot and leg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ANKLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Running on a sore joint brings on bitterness.",
+     "walkthrough": "'Run joint' suggests managing a bar or club, but it is R plus a body joint.",
+     "definitionFit": "When something rankles it keeps causing bitter irritation, the lasting resentment of a grievance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1742,63 @@
     "text": "Person's body sent back shortly",
     "enumeration": "4"
    },
-   "solution": "SELF"
+   "solution": "SELF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "SELF",
+    "definitions": [
+     {
+      "text": "Person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sending something back returns it the way it came, read right to left"
+     },
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "shortly means made short, so the last letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "body",
+      "gives": "FLESH",
+      "note": "flesh is the physical body"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SELF"
+     ],
+     "reversals": [
+      {
+       "from": "FLES",
+       "to": "SELF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone's corpse is returned home in short order.",
+     "walkthrough": "Shorten FLESH to FLES and reverse it. 'Person's body' reads as one phrase but splits after 'Person'.",
+     "definitionFit": "A self is an individual being, the essential person, as in 'my true self'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "body"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1812,55 @@
     "text": "Gather fuel — litres taken within",
     "enumeration": "5"
    },
-   "solution": "PLEAT"
+   "solution": "PLEAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PLEAT",
+    "definitions": [
+     {
+      "text": "Gather",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken within",
+      "for": "container",
+      "note": "taken within means brought inside, so this letter is placed in the middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fuel",
+      "gives": "PEAT",
+      "note": "peat is dried bog material burned as fuel"
+     },
+     {
+      "clueFragment": "litres",
+      "gives": "L",
+      "note": "L is the abbreviation for litres"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "EAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Collecting fuel, with the litres counted in.",
+     "walkthrough": "'Gather' looks like a verb about collecting fuel, but it is a dressmaking noun.",
+     "definitionFit": "In sewing a gather is a fold of fabric drawn together, much like a pleat, a fold pressed into cloth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Gather"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +1874,49 @@
     "text": "Regularly seen Neptunian feature that spews lava",
     "enumeration": "4"
    },
-   "solution": "ETNA"
+   "solution": "ETNA",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ETNA",
+    "definitions": [
+     {
+      "text": "feature that spews lava",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly seen",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so only every second letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Neptunian",
+      "gives": "ETNA",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETNA"
+     ]
+    },
+    "explanation": {
+     "surface": "A volcano-like feature spotted on the planet Neptune.",
+     "walkthrough": "Etna is the active volcano in Sicily. 'Neptunian' looks like it places the feature on Neptune.",
+     "definitionFit": "Mount Etna in Sicily is Europe's most active volcano, a landform that erupts molten rock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Neptunian"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +1930,53 @@
     "text": "Northern banker in St Helens occasionally",
     "enumeration": "4"
    },
-   "solution": "TEES"
+   "solution": "TEES",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TEES",
+    "definitions": [
+     {
+      "text": "Northern banker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "St Helens",
+      "gives": "TEES",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEES"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank official in the Merseyside town of St Helens who works there now and then.",
+     "walkthrough": "A banker in crosswords is often a river, which has banks; the Tees flows through north-east England. It is also this setter's name.",
+     "definitionFit": "A river has banks, so the River Tees in north-east England is a banker in crossword slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "banker"
+    }
+   }
   },
   {
    "number": 28,
@@ -493,7 +1990,64 @@
     "text": "Hard one to stop 28 across producing puzzle?",
     "enumeration": "4"
    },
-   "solution": "THIS"
+   "solution": "THIS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "THIS",
+    "definitions": [
+     {
+      "text": "puzzle?",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to stop",
+      "for": "substitution",
+      "note": "these letters stop up the middle of the word, filling the gap where its centre was"
+     }
+    ],
+    "linkWords": [
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "28 across",
+      "gives": "TEES",
+      "note": "the answer to 28 across, a river and the setter's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HI",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A tough setter's puzzle, with the setter named by his own clue number.",
+     "walkthrough": "HI replaces the middle EE of TEES. The question mark flags that 'puzzle' stands for the very puzzle being solved: the one in hand.",
+     "definitionFit": "The crossword the solver is doing right now is referred to as this one, so the word stands for the present puzzle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 29,
@@ -507,7 +2061,50 @@
     "text": "Online movement generates strong feeling",
     "enumeration": "7"
    },
-   "solution": "EMOTION"
+   "solution": "EMOTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMOTION",
+    "definitions": [
+     {
+      "text": "strong feeling",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "generates"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Online",
+      "gives": "E",
+      "note": "E as in e-mail stands for electronic, so online"
+     },
+     {
+      "clueFragment": "movement",
+      "gives": "MOTION",
+      "note": "motion is movement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MOTION"
+     ]
+    },
+    "explanation": {
+     "surface": "An internet campaign that stirs up passions.",
+     "walkthrough": "'Online movement' reads as a web campaign, but splits into E and MOTION.",
+     "definitionFit": "An emotion is an intense mental state such as joy, anger or love: a powerful sensation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Online"
+    }
+   }
   },
   {
    "number": 30,
@@ -521,7 +2118,55 @@
     "text": "Somewhat wet old film shown outside",
     "enumeration": "5"
    },
-   "solution": "MOIST"
+   "solution": "MOIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MOIST",
+    "definitions": [
+     {
+      "text": "Somewhat wet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shown outside",
+      "for": "container",
+      "note": "shown outside means placed around, so these letters surround the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "MIST",
+      "note": "a film of moisture is a mist"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "O",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A vintage movie screened outdoors on a damp evening.",
+     "walkthrough": "'Film shown outside' suggests an open-air cinema; the film is a fine layer of mist.",
+     "definitionFit": "Moist means slightly damp, not soaking, which is the same as being a little wet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "film"
+    }
+   }
   },
   {
    "number": 31,
@@ -535,7 +2180,43 @@
     "text": "Excellent service",
     "enumeration": "3"
    },
-   "solution": "ACE"
+   "solution": "ACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACE",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 0
+     },
+     {
+      "text": "service",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excellent",
+      "note": "first meaning: first-rate, outstanding"
+     },
+     {
+      "clueFragment": "service",
+      "note": "second meaning: in tennis, a serve the receiver cannot touch"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as praise for good service in a restaurant, but service is a tennis serve.",
+     "definitionFit": "As slang the word means superb; in tennis it is an unreturnable serve that wins the point outright."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "service"
+    }
+   }
   }
  ]
 }
