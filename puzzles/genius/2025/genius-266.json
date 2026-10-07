@@ -25,6 +25,9 @@
   "date": "2025-08-31",
   "check": "grid and clues read from the Guardian's printable PDF, its numbering matching the clue list; every fifteensquared answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -38,7 +41,45 @@
     "text": "Told to destroy planet",
     "enumeration": "10"
    },
-   "solution": "IRRADICATE"
+   "solution": "IRRADICATE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IRRADICATE",
+    "definitions": [
+     {
+      "text": "planet",
+      "at": 16
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Told",
+      "for": "homophone",
+      "note": "something told is spoken out loud, so we want a word that is said the same way as the one meant"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to destroy",
+      "gives": "IRRADICATE",
+      "soundsLike": "ERADICATE",
+      "note": "to destroy utterly is to eradicate, and the rare word for planting sounds just like it"
+     }
+    ],
+    "explanation": {
+     "surface": "A villain announces a plan to wipe out a whole world.",
+     "walkthrough": "The extra letter is the E of 'planet': drop it and the definition is 'plant'. IRRADICATE is a rare word meaning to root firmly, the opposite of eradicate.",
+     "definitionFit": "To irradicate is to fix something firmly by its roots, which is what you do when you plant it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "planet"
+    }
+   }
   },
   {
    "number": 2,
@@ -52,7 +93,60 @@
     "text": "Curt Republican expelled from bank in harsh manner",
     "enumeration": "8"
    },
-   "solution": "SEVERELY"
+   "solution": "SEVERELY",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SEVERELY",
+    "definitions": [
+     {
+      "text": "in harsh manner",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "expelled from",
+      "for": "deletion",
+      "note": "someone expelled is thrown out, so the party letter is taken out of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curt",
+      "gives": "SEVER",
+      "note": "read as 'Cut' once the extra R goes; to cut is to sever"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the standard abbreviation for Republican"
+     },
+     {
+      "clueFragment": "bank",
+      "gives": "RELY",
+      "note": "to bank on someone is to rely on them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVER",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rude politician is thrown out of a bank and treated roughly.",
+     "walkthrough": "The R of 'Curt' is the superfluous letter, leaving 'Cut'. 'Bank' is the verb, as in bank on.",
+     "definitionFit": "Severely is the adverb of severe, describing anything done with harshness or strictness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 3,
@@ -72,7 +166,61 @@
      }
     ]
    },
-   "solution": "EASYSTREET"
+   "solution": "EASYSTREET",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EASY STREET",
+    "definitions": [
+     {
+      "text": "See rest day out with time here?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means put out of order, so those letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See rest day",
+      "gives": "SEERESTAY",
+      "note": "taken as written, once the extra D of 'day' goes to leave 'ay'"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the usual abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEERESTAYT",
+       "gives": "EASYSTREET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An invitation to a place where you can idle away every day and have time on your hands.",
+     "walkthrough": "The extra letter is the D of 'day'; 'ay' is a poetic word for always. Read whole, the clue describes the comfortable life it spells.",
+     "definitionFit": "Easy street is an idiom for a state of comfort and financial ease, where rest is endless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 4,
@@ -86,7 +234,50 @@
     "text": "Perhaps Othello's second omen",
     "enumeration": "4"
    },
-   "solution": "MOOR"
+   "solution": "MOOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOOR",
+    "definitions": [
+     {
+      "text": "Perhaps Othello",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "MO",
+      "note": "a mo is a moment, a short time like a second"
+     },
+     {
+      "clueFragment": "omen",
+      "gives": "OR",
+      "note": "read as 'men' once the extra O goes; OR is other ranks, the ordinary soldiers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "Shakespeare's tragic general sees a second bad sign.",
+     "walkthrough": "The O of 'omen' is the extra letter. 'Perhaps' flags Othello as one example of the answer.",
+     "definitionFit": "Othello is Shakespeare's Moor of Venice, the best-known example of a Moor in literature."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "omen"
+    }
+   }
   },
   {
    "number": 5,
@@ -100,7 +291,61 @@
     "text": "Small men cycling at the front for ages",
     "enumeration": "4"
    },
-   "solution": "EONS"
+   "solution": "EONS",
+   "annotation": {
+    "type": [
+     "cycling",
+     "charade"
+    ],
+    "answer": "EONS",
+    "definitions": [
+     {
+      "text": "for ages",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling at the front",
+      "for": "cycling",
+      "note": "letters cycling round move from the back of the word to its front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "men",
+      "gives": "ONE",
+      "note": "read as 'me' once the extra N goes; one is a formal way to say me, as in one does one's best"
+     },
+     {
+      "clueFragment": "Small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EON",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONE",
+       "gives": "EON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Little men have been cycling in the lead for a very long time.",
+     "walkthrough": "The N of 'men' is the extra letter, leaving 'me'. The last letter of ONE moves round to the front.",
+     "definitionFit": "Eons are vast spans of time, so something lasting eons lasts for ages."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 6,
@@ -114,7 +359,61 @@
     "text": "Deny low-down about head",
     "enumeration": "6"
    },
-   "solution": "NEGATE"
+   "solution": "NEGATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NEGATE",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the word for the low-down faces the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low-down",
+      "gives": "GEN",
+      "note": "gen is British slang for information, the low-down"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "ATE",
+      "note": "read as 'had' once the extra E goes; to have a meal is to eat it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEG",
+      "ATE"
+     ],
+     "reversals": [
+      {
+       "from": "GEN",
+       "to": "NEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone refuses to admit the inside story about their boss.",
+     "walkthrough": "The E of 'head' is superfluous, leaving 'had', as in had dinner.",
+     "definitionFit": "To negate a statement is to deny or contradict it, cancelling its truth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 7,
@@ -128,7 +427,62 @@
     "text": "Current sign making Brazilians noisy bar lovers initially",
     "enumeration": "4"
    },
-   "solution": "TIDE"
+   "solution": "TIDE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "TIDE",
+    "definitions": [
+     {
+      "text": "Current",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     },
+     {
+      "text": "bar",
+      "for": "deletion",
+      "note": "bar here means except, so that letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sign making Brazilians noisy",
+      "gives": "TILDE",
+      "note": "read with 'nosy' once the extra I goes: the tilde over a Portuguese vowel, as in não, makes it nasal"
+     },
+     {
+      "clueFragment": "lovers",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of lovers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bar full of loud Brazilian romantics, with some sign of the current mood.",
+     "walkthrough": "The I of 'noisy' goes, leaving 'nosy': the tilde gives Portuguese, Brazil's language, its nasal vowels, so it makes speakers nosy.",
+     "definitionFit": "A tide is a current of the sea, and figuratively any current of opinion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "noisy"
+    }
+   }
   },
   {
    "number": 8,
@@ -142,7 +496,49 @@
     "text": "Genuine star pulled regularly",
     "enumeration": "4"
    },
-   "solution": "TRUE"
+   "solution": "TRUE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TRUE",
+    "definitions": [
+     {
+      "text": "Genuine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "star pulled",
+      "gives": "TRUE",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters once the extra L goes, leaving 'puled'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A real celebrity has been dropped from a show at regular intervals.",
+     "walkthrough": "The extra letter is one L of 'pulled'; 'puled' is the past of pule, to whimper.",
+     "definitionFit": "True and genuine are synonyms for something real rather than fake."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pulled"
+    }
+   }
   },
   {
    "number": 9,
@@ -156,7 +552,67 @@
     "text": "Defence logo brought in by imaginative American goes ahead",
     "enumeration": "10"
    },
-   "solution": "APOLOGETIC"
+   "solution": "APOLOGETIC",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "APOLOGETIC",
+    "definitions": [
+     {
+      "text": "Defence",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought in by",
+      "for": "container",
+      "note": "something brought in by another is taken inside it, so one word sits within the other"
+     },
+     {
+      "text": "goes ahead",
+      "for": "charade",
+      "note": "going ahead means leading, so the national letter comes first in the line"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     },
+     {
+      "clueFragment": "imaginative",
+      "gives": "POETIC",
+      "note": "poetic means imaginative, full of fancy"
+     },
+     {
+      "clueFragment": "logo",
+      "gives": "LOG",
+      "note": "read as 'log' once the extra O goes: a written record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PO",
+      "LOG",
+      "ETIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A creative American designer's defence of a logo is taken on board.",
+     "walkthrough": "The O of 'logo' is superfluous. APOLOGETIC here is the noun, a formal defence or vindication, not the everyday adjective.",
+     "definitionFit": "An apologetic, like an apologia, is a reasoned argument in defence of a belief, especially a religious one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "logo"
+    }
+   }
   },
   {
    "number": 10,
@@ -170,7 +626,49 @@
     "text": "Coached by withdrawn freestyler articulating very little",
     "enumeration": "6"
    },
-   "solution": "RARELY"
+   "solution": "RARELY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "RARELY",
+    "definitions": [
+     {
+      "text": "very little",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Coached by",
+      "for": "hidden_word",
+      "note": "with the extra O gone this reads 'cached by', and something cached is hidden away inside"
+     },
+     {
+      "text": "withdrawn",
+      "for": "reversal",
+      "note": "something withdrawn is drawn back, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "freestyler articulating",
+      "gives": "YLERAR",
+      "note": "the run of letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A shy rap freestyler is being coached because he barely speaks.",
+     "walkthrough": "'Coached' loses its O to become 'Cached', which turns a sports scene into the signal for concealment.",
+     "definitionFit": "Rarely means seldom, which is doing something very little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Coached"
+    }
+   }
   },
   {
    "number": 11,
@@ -190,7 +688,51 @@
      }
     ]
    },
-   "solution": "RESTAREA"
+   "solution": "RESTAREA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REST AREA",
+    "definitions": [
+     {
+      "text": "Where Aussie could stop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mutating",
+      "for": "anagram",
+      "note": "something mutating changes its form, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare skate",
+      "gives": "RARESATE",
+      "note": "taken as written once the extra K goes, leaving 'sate'"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RARESATE",
+       "gives": "RESTAREA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An Australian halts a rare fish as it changes form.",
+     "walkthrough": "The K of 'skate' is the extra letter. A rest area is the Australian term for a roadside lay-by.",
+     "definitionFit": "In Australia a rest area is a roadside stopping place for drivers, what Britons call a lay-by."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "skate"
+    }
+   }
   },
   {
    "number": 12,
@@ -204,7 +746,63 @@
     "text": "Country House is regaling crowds",
     "enumeration": "4"
    },
-   "solution": "EIRE"
+   "solution": "EIRE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EIRE",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crowds",
+      "for": "letter_selection",
+      "note": "to crowd is to hem in, so the answer is held within the run of words and we keep only those letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of House"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "I",
+      "select": "first",
+      "note": "read as 'I' once the extra S goes"
+     },
+     {
+      "clueFragment": "regaling",
+      "gives": "RE",
+      "note": "its opening pair of letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "I",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A stately home entertains throngs of visitors.",
+     "walkthrough": "With the S of 'is' removed, the answer is hidden across 'House I regaling'. 'Country House' looks like one phrase but splits after its first word.",
+     "definitionFit": "Eire is the Irish-language name of Ireland, the country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 13,
@@ -218,7 +816,52 @@
     "text": "Some of them will wear clogs – what might drag queens say?",
     "enumeration": "10"
    },
-   "solution": "TIMEPIECES"
+   "solution": "TIMEPIECES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TIMEPIECES",
+    "definitions": [
+     {
+      "text": "Some of them will wear clogs",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "–",
+     "say"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what might drag",
+      "gives": "TIME",
+      "note": "time drags when you are bored"
+     },
+     {
+      "clueFragment": "queens",
+      "gives": "PIECES",
+      "note": "queens are chess pieces"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIME",
+      "PIECES"
+     ]
+    },
+    "explanation": {
+     "surface": "Clog-dancing drag queens and what they might shout.",
+     "walkthrough": "The L of 'clogs' goes, leaving 'cogs': clocks wear cogs. 'Drag queens' is not a phrase here; drag is a verb.",
+     "definitionFit": "Timepieces such as clocks and watches run on geared wheels, so some wear cogs inside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drag"
+    }
+   }
   },
   {
    "number": 14,
@@ -232,7 +875,66 @@
     "text": "Spoilt daughter charging millions is nothing",
     "enumeration": "5"
    },
-   "solution": "MISDO"
+   "solution": "MISDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MISDO",
+    "definitions": [
+     {
+      "text": "Spoilt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "charging",
+      "for": "container",
+      "note": "charging here means filling, as you charge a glass, so the letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "M is the abbreviation for million"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "D",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A pampered daughter running up millions in charges shrugs it off.",
+     "walkthrough": "The T of 'Spoilt' is superfluous, leaving the verb 'Spoil' to match the verb answer.",
+     "definitionFit": "To misdo is to do something badly, to botch or spoil it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "charging"
+    }
+   }
   },
   {
    "number": 15,
@@ -246,7 +948,63 @@
     "text": "Mediocre, corrupt president primarily wallowing",
     "enumeration": "10"
    },
-   "solution": "PEDESTRIAN"
+   "solution": "PEDESTRIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "PEDESTRIAN",
+    "definitions": [
+     {
+      "text": "Mediocre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "corrupt",
+      "for": "anagram",
+      "note": "corrupt means spoilt or perverted from its proper form, so the letters are disordered"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so we take the opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "president",
+      "gives": "PRESIDENT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "wallowing",
+      "gives": "A",
+      "select": "first",
+      "note": "read as 'allowing' once the extra W goes; its first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRESIDENTA",
+       "gives": "PEDESTRIAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A second-rate, crooked head of state wallows in scandal.",
+     "walkthrough": "The W of 'wallowing' is the extra letter, leaving 'allowing'.",
+     "definitionFit": "Pedestrian as an adjective means dull and uninspired, plodding like someone on foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corrupt"
+    }
+   }
   },
   {
    "number": 16,
@@ -266,7 +1024,59 @@
      }
     ]
    },
-   "solution": "EASTANGLIA"
+   "solution": "EASTANGLIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "EAST ANGLIA",
+    "definitions": [
+     {
+      "text": "Where one can find the Orwell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are put into a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alias Angie",
+      "gives": "ALASANGIE",
+      "note": "taken as written once the extra I goes, leaving 'Alas'"
+     },
+     {
+      "clueFragment": "Tango",
+      "gives": "T",
+      "select": "first",
+      "note": "Tango is the code word for T in the NATO phonetic alphabet, and also its first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALASANGIET",
+       "gives": "EASTANGLIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Where to find a George Orwell novel about a woman with a false name.",
+     "walkthrough": "'Orwell' looks like the author but is the River Orwell in Suffolk. The extra letter is the I of 'Alias'.",
+     "definitionFit": "The River Orwell flows through Ipswich in Suffolk, a county of England's eastern region."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Orwell"
+    }
+   }
   },
   {
    "number": 17,
@@ -280,7 +1090,72 @@
     "text": "Confirm taking heater back out for air change",
     "enumeration": "4"
    },
-   "solution": "VARY"
+   "solution": "VARY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "substitution"
+    ],
+    "answer": "VARY",
+    "definitions": [
+     {
+      "text": "change",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back here means turned backwards, so the heater word runs the other way"
+     },
+     {
+      "text": "taking",
+      "for": "substitution",
+      "note": "taking one thing out for another means swapping them, so one set of letters replaces the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Confirm",
+      "gives": "VERIFY",
+      "note": "to confirm is to verify"
+     },
+     {
+      "clueFragment": "heater",
+      "gives": "FIRE",
+      "note": "a fire heats a room"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "AR",
+      "note": "read as 'ar' once the extra I goes: ar is the name of the letter R"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "AR",
+      "Y"
+     ],
+     "reversals": [
+      {
+       "from": "FIRE",
+       "to": "ERIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone checks that the heater has been switched off to freshen the air.",
+     "walkthrough": "The extra letter is the I of 'air'. The backwards heater sits inside the word for confirm, and is swapped out.",
+     "definitionFit": "To vary is to change or alter something, making it different."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heater"
+    }
+   }
   },
   {
    "number": 18,
@@ -294,7 +1169,58 @@
     "text": "Endless dikes with depth reduced",
     "enumeration": "5"
    },
-   "solution": "EASED"
+   "solution": "EASED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EASED",
+    "definitions": [
+     {
+      "text": "reduced",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endless",
+      "for": "deletion",
+      "note": "something endless has had both its ends cut off"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dikes",
+      "gives": "CEASES",
+      "note": "read as 'dies' once the extra K goes; something that dies ceases"
+     },
+     {
+      "clueFragment": "depth",
+      "gives": "D",
+      "note": "D is the abbreviation for depth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Never-ending dykes become shallower.",
+     "walkthrough": "The K of 'dikes' is superfluous, leaving 'dies', a verb.",
+     "definitionFit": "Eased means lessened or relieved, as pain is reduced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dikes"
+    }
+   }
   },
   {
    "number": 19,
@@ -308,7 +1234,49 @@
     "text": "Take heart from temporary resident below",
     "enumeration": "4"
    },
-   "solution": "GUST"
+   "solution": "GUST",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "GUST",
+    "definitions": [
+     {
+      "text": "below",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Take heart from",
+      "for": "deletion",
+      "note": "taking the heart from a word removes its middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "temporary resident",
+      "gives": "GUEST",
+      "note": "a guest stays only for a while"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "Encouragement for a lodger downstairs.",
+     "walkthrough": "The E of 'below' is the extra letter, leaving the noun 'blow'.",
+     "definitionFit": "A gust is a sudden blow of wind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "below"
+    }
+   }
   },
   {
    "number": 19,
@@ -322,7 +1290,60 @@
     "text": "Table tennis star covers current political messages?",
     "enumeration": "8"
    },
-   "solution": "GRAFFITI"
+   "solution": "GRAFFITI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRAFFITI",
+    "definitions": [
+     {
+      "text": "political messages?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covers",
+      "for": "charade",
+      "note": "in a down clue one thing covers another by sitting on top of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tennis star",
+      "gives": "GRAF",
+      "note": "Steffi Graf, the German tennis champion"
+     },
+     {
+      "clueFragment": "Table",
+      "gives": "FIT",
+      "note": "read as 'Able' once the extra T goes; able means fit"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRAF",
+      "FIT",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A table tennis champion holds forth on current politics.",
+     "walkthrough": "The T of 'Table' goes, breaking up 'table tennis'. The question mark admits that only some messages on walls are political.",
+     "definitionFit": "Graffiti are words scrawled on public walls, often slogans or protests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Table"
+    }
+   }
   },
   {
    "number": 20,
@@ -336,7 +1357,68 @@
     "text": "Sketches deserted island surrounded by vast towns",
     "enumeration": "10"
    },
-   "solution": "DEPICTIONS"
+   "solution": "DEPICTIONS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEPICTIONS",
+    "definitions": [
+     {
+      "text": "Sketches",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "surrounded by",
+      "for": "container",
+      "note": "something surrounded by another is enclosed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deserted",
+      "gives": "D",
+      "note": "D is an abbreviation for deserted"
+     },
+     {
+      "clueFragment": "vast",
+      "gives": "EPIC",
+      "note": "epic means vast in scale"
+     },
+     {
+      "clueFragment": "towns",
+      "gives": "TONS",
+      "note": "read as 'tons' once the extra W goes"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "I is the abbreviation for island"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EPIC",
+      "T",
+      "I",
+      "ONS"
+     ]
+    },
+    "explanation": {
+     "surface": "Drawings of an abandoned island surrounded by huge cities.",
+     "walkthrough": "The W of 'towns' is superfluous. The two single letters go into the vast tons, D before EPIC and I after T.",
+     "definitionFit": "Depictions are representations of things in pictures, such as sketches or drawings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "towns"
+    }
+   }
   },
   {
    "number": 21,
@@ -350,7 +1432,59 @@
     "text": "Periodically pinches blow then finds a place to chill",
     "enumeration": "6"
    },
-   "solution": "ICEBOX"
+   "solution": "ICEBOX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ICEBOX",
+    "definitions": [
+     {
+      "text": "a place to chill",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "finds"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pinches blow",
+      "gives": "ICEBO",
+      "select": "alternate",
+      "note": "the even letters of these two words"
+     },
+     {
+      "clueFragment": "then",
+      "gives": "X",
+      "note": "read as 'ten' once the extra H goes; X is the Roman numeral for ten"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ICEBO",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nicks things now and then and puts them on ice.",
+     "walkthrough": "The H of 'then' is superfluous, and 'ten' is no link word but the final letter.",
+     "definitionFit": "An icebox is a refrigerator or cool box, somewhere to keep food chilled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "then"
+    }
+   }
   },
   {
    "number": 22,
@@ -364,7 +1498,74 @@
     "text": "Fussy peer rejected an earldom essentially",
     "enumeration": "4"
    },
-   "solution": "ANAL"
+   "solution": "ANAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "ANAL",
+    "definitions": [
+     {
+      "text": "Fussy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the little word runs the other way"
+     },
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "essentially means at its essence or heart, so we take the middle letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "peer",
+      "gives": "A",
+      "note": "read as 'per' once the extra E goes; per means a, as in 50p a head"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "earldom",
+      "gives": "L",
+      "select": "middle",
+      "note": "the central letter of earldom"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NA",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "AN",
+       "to": "NA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A picky aristocrat turns down the offer of a title.",
+     "walkthrough": "The E of 'peer' is superfluous, leaving 'per', which in prices means a.",
+     "definitionFit": "Anal, short for anal-retentive, is slang for obsessively fussy about detail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peer"
+    }
+   }
   },
   {
    "number": 23,
@@ -384,7 +1585,42 @@
      }
     ]
    },
-   "solution": "AFTERALL"
+   "solution": "AFTERALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AFTER ALL",
+    "definitions": [
+     {
+      "text": "Where Grant's vow is placed",
+      "at": 0
+     },
+     {
+      "text": "ultimately",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where Grant's vow is placed",
+      "note": "read with 'ow' once the extra V goes: to grant is to allow"
+     },
+     {
+      "clueFragment": "ultimately",
+      "note": "second meaning: in the end, when everything is considered"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The V of 'vow' is the extra letter. The surface suggests a wedding or a general's oath; the cryptic half is about letters in the word for grant.",
+     "definitionFit": "The phrase is an idiom for in the end, eventually or in spite of everything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "vow"
+    }
+   }
   },
   {
    "number": 24,
@@ -398,7 +1634,61 @@
     "text": "Lead without uplifting half of fleet",
     "enumeration": "4"
    },
-   "solution": "FLEX"
+   "solution": "FLEX",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FLEX",
+    "definitions": [
+     {
+      "text": "Lead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of a four-letter word is two of its letters, here the first pair"
+     },
+     {
+      "text": "uplifting",
+      "for": "charade",
+      "note": "in a down clue a word uplifting another holds it up from below"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fleet",
+      "gives": "FL",
+      "select": "first",
+      "note": "read as 'flee' once the extra T goes; its first half"
+     },
+     {
+      "clueFragment": "without",
+      "gives": "EX",
+      "note": "ex means without, as in ex dividend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "EX"
+     ]
+    },
+    "explanation": {
+     "surface": "The flagship sails without encouraging half the fleet.",
+     "walkthrough": "The T of 'fleet' is superfluous. A flex is the British word for an electric lead, the cable on an appliance.",
+     "definitionFit": "A flex is a flexible insulated cable connecting an appliance to the mains, also called a lead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lead"
+    }
+   }
   },
   {
    "number": 25,
@@ -412,7 +1702,54 @@
     "text": "Top act has KISS supporting",
     "enumeration": "4"
    },
-   "solution": "APEX"
+   "solution": "APEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "APEX",
+    "definitions": [
+     {
+      "text": "Top",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue a supporting piece sits underneath the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "act has",
+      "gives": "APE",
+      "note": "read as 'act as' once the extra H goes; to ape someone is to mimic them"
+     },
+     {
+      "clueFragment": "KISS",
+      "gives": "X",
+      "note": "X stands for a kiss at the end of a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APE",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "A headline show by the rock band Kiss.",
+     "walkthrough": "The H of 'has' is superfluous. KISS is capitalised to suggest the American glam-rock band.",
+     "definitionFit": "An apex is the highest point or peak of something, its top."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "KISS"
+    }
+   }
   },
   {
    "number": 26,
@@ -426,7 +1763,48 @@
     "text": "Something slightly tart exposed core",
     "enumeration": "4"
    },
-   "solution": "LIME"
+   "solution": "LIME",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LIME",
+    "definitions": [
+     {
+      "text": "Something slightly tart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exposed",
+      "for": "deletion",
+      "note": "something exposed has had its covering stripped off, so its outer letters go"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "core",
+      "gives": "BLIMEY",
+      "note": "read as 'cor' once the extra E goes; cor and blimey are both British exclamations of surprise"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIME"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp-tasting fruit with its core laid bare.",
+     "walkthrough": "The E of 'core' is the extra letter. Cor and blimey are both mild British exclamations of surprise.",
+     "definitionFit": "A lime is a green citrus fruit with sour, sharp-tasting juice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "core"
+    }
+   }
   },
   {
    "number": 27,
@@ -440,7 +1818,61 @@
     "text": "One following giant to East Londoner’s retreat",
     "enumeration": "6"
    },
-   "solution": "REFUGE"
+   "solution": "REFUGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REFUGE",
+    "definitions": [
+     {
+      "text": "retreat",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to East Londoner",
+      "for": "deletion",
+      "note": "a Cockney from London's East End traditionally drops the H sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "RE",
+      "note": "read as 'On' once the extra E goes; re means on, concerning"
+     },
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f. is the abbreviation for following"
+     },
+     {
+      "clueFragment": "giant",
+      "gives": "HUGE",
+      "note": "giant means huge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "F",
+      "UGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sidekick trailing behind a Cockney giant heads for a hideaway.",
+     "walkthrough": "The E of 'One' is superfluous. A Cockney is a working-class East Londoner, known for dropping H.",
+     "definitionFit": "A refuge is a place of shelter, somewhere you retreat to for safety."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 28,
@@ -454,7 +1886,95 @@
     "text": "Curiously, Demi Moore disrobed by English artist outside, revealing skin condition",
     "enumeration": "10"
    },
-   "solution": "XERODERMIA"
+   "solution": "XERODERMIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "XERODERMIA",
+    "definitions": [
+     {
+      "text": "skin condition",
+      "at": 68
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disrobed",
+      "for": "letter_selection",
+      "note": "disrobed means stripped of clothes, so the outer letters come off and the middle stays"
+     },
+     {
+      "text": "Curiously",
+      "for": "anagram",
+      "note": "curiously means in an odd way, so the letters are put in a strange new order"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "the artist's letters go outside, round the scrambled letters"
+     }
+    ],
+    "linkWords": [
+     "revealing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "X",
+      "note": "by means times, as in three by four, and X is the times sign"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician, an artist"
+     },
+     {
+      "clueFragment": "Demi",
+      "gives": "DEMI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Moore",
+      "gives": "OR",
+      "select": "middle",
+      "note": "read as 'More' once the extra O goes; its middle two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "X",
+      "E",
+      "R",
+      "ODERMI",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEMIOR",
+       "gives": "ODERMI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A film star undresses for an English painter and reveals a skin complaint.",
+     "walkthrough": "The O of 'Moore' is superfluous, leaving 'More'. Demi Moore is the American film actress.",
+     "definitionFit": "Xerodermia is a medical condition of abnormally dry, rough skin, from Greek xeros, dry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 29,
@@ -468,7 +1988,57 @@
     "text": "Smart Tesla gets shove behind",
     "enumeration": "4"
    },
-   "solution": "TRIM"
+   "solution": "TRIM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRIM",
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means following on after, so the second piece is placed last"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density"
+     },
+     {
+      "clueFragment": "shove",
+      "gives": "RIM",
+      "note": "read as 'shoe' once the extra V goes; a shoe is a metal rim, as round a wheel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIM"
+     ]
+    },
+    "explanation": {
+     "surface": "A sleek electric car gets pushed from behind.",
+     "walkthrough": "The V of 'shove' is the extra letter. The capital on Tesla suggests the car maker.",
+     "definitionFit": "Trim means neat and smart in appearance, as in a trim figure or trim garden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tesla"
+    }
+   }
   }
  ]
 }
