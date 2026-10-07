@@ -1,6 +1,7 @@
 #!/bin/bash
 # Does tools/validate_annotations.py refuse a link word that app.js would place
-# on top of an indicator, wholly or in part, and pass one with a free copy?
+# on top of an indicator or a definition, wholly or in part, and pass one with
+# a free copy?
 # The placement is app.js placedFragments(), so these are the clues that
 # reached the screen with a bought indicator half-erased.
 #
@@ -9,7 +10,7 @@ set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
 
 PYTHONPATH=tools python3 - <<'PY'
-from validate_annotations import check_link_word_is_not_inside_an_indicator as check
+from validate_annotations import check_link_word_is_clear_of_other_marks as check
 
 def refused(clue, inds, links, defs=()):
     ann = {"indicators": [{"text": t} for t in inds], "linkWords": list(links),
@@ -34,6 +35,14 @@ cases = [
      ["in"], ["in"], ["France, say"], False),
     ("What about dividing strong drink to bring about sleep?",
      ["about", "dividing"], ["to bring about"], ["sleep"], False),
+    # azed-2718 1A: an &lit's whole clue is the definition, so it has no link
+    ("Vigorously march with pride to end of avenue – and this?",
+     ["Vigorously", "end of"], ["with"],
+     ["Vigorously march with pride to end of avenue – and this?"], True),
+    # the link straddles the definition's edge
+    ("Once has to employ canine to break egg", [], ["to break"], ["break egg"], True),
+    # trimmed to the part outside, it stands clear
+    ("Once has to employ canine to break egg", [], ["to"], ["break egg"], False),
 ]
 bad = 0
 for clue, inds, links, defs, want in cases:
