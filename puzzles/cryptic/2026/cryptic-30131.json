@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,51 @@
     "text": "Brute has wiped mouth on floor",
     "enumeration": "6"
    },
-   "solution": "LUMMOX"
+   "solution": "LUMMOX",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LUMMOX",
+    "definitions": [
+     {
+      "text": "Brute",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has wiped mouth",
+      "for": "deletion",
+      "note": "a word's mouth is its opening, so wiping it away removes the very first letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "floor",
+      "gives": "FLUMMOX",
+      "note": "to floor someone is to baffle them completely"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUMMOX"
+     ]
+    },
+    "explanation": {
+     "surface": "A thuggish man smears his mouth clean on the floor after eating.",
+     "walkthrough": "'Floor' looks like a noun for where the wiping happens, but it is the verb meaning to baffle: FLUMMOX loses its F to leave LUMMOX.",
+     "definitionFit": "A lummox is a clumsy, oafish lout, which is what a brute can be called."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "floor"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +94,43 @@
     "text": "Hair clip",
     "enumeration": "4"
    },
-   "solution": "LOCK"
+   "solution": "LOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOCK",
+    "definitions": [
+     {
+      "text": "Hair",
+      "at": 0
+     },
+     {
+      "text": "clip",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hair",
+      "note": "first meaning: a tress or curl of hair"
+     },
+     {
+      "clueFragment": "clip",
+      "note": "second meaning: a fastening device that holds things shut"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Read together it is a hairgrip; the two words are separate meanings of one short word.",
+     "definitionFit": "A single curl of hair is a tress, and a device that fastens something closed is likewise a fastener holding things together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "clip"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +144,47 @@
     "text": "Not everyone’s cup of tea in pot?",
     "enumeration": "7"
    },
-   "solution": "MARMITE"
+   "solution": "MARMITE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MARMITE",
+    "definitions": [
+     {
+      "text": "Not everyone’s cup of tea",
+      "at": 0
+     },
+     {
+      "text": "pot",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not everyone’s cup of tea",
+      "note": "first meaning: the yeast spread famously advertised as something you either love or hate"
+     },
+     {
+      "clueFragment": "pot",
+      "note": "second meaning: in French it is an earthenware cooking pot, the one pictured on the jar"
+     }
+    ],
+    "explanation": {
+     "surface": "Something unpopular sits in a teapot.",
+     "walkthrough": "Marmite is a salty British yeast-extract spread sold in a pot-shaped jar, marketed with the slogan 'love it or hate it'; the French word marmite means a cooking pot.",
+     "definitionFit": "The spread divides opinion so famously that it has become shorthand for something liked by some and loathed by others."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tea"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +198,54 @@
     "text": "Love French poet briefly covered",
     "enumeration": "8"
    },
-   "solution": "OVERLAIN"
+   "solution": "OVERLAIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OVERLAIN",
+    "definitions": [
+     {
+      "text": "covered",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "something said briefly is cut short, so the name loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     },
+     {
+      "clueFragment": "French poet",
+      "gives": "VERLAINE",
+      "note": "Paul Verlaine, the nineteenth-century French Symbolist poet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VERLAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A French poet is said to have covered love briefly in his verse.",
+     "definitionFit": "Overlain is the past participle of overlie, meaning lain on top of, so spread over or covered."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Love"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +265,78 @@
      }
     ]
    },
-   "solution": "ETONCROP"
+   "solution": "ETONCROP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container",
+     "reversal"
+    ],
+    "answer": "ETON CROP",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "top off",
+      "for": "letter_selection",
+      "note": "the top of a word written downwards is its first letter, taken off for use"
+     },
+     {
+      "text": "probing",
+      "for": "container",
+      "note": "something probing pushes into the middle of what follows"
+     },
+     {
+      "text": "from the back",
+      "for": "reversal",
+      "note": "reading from the back means the whole assembly is spelt from its end to its start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cavity",
+      "gives": "PORE",
+      "note": "a pore is a tiny opening or hollow in the skin"
+     },
+     {
+      "clueFragment": "crown",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of crown"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETONCROP"
+     ],
+     "reversals": [
+      {
+       "from": "PORCNOTE",
+       "to": "ETONCROP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist trims the top off a crown without poking into the cavity at the back.",
+     "walkthrough": "The two short pieces sit inside the cavity word after its third letter, and only then is everything read backwards. The dental surface makes 'crown' and 'cavity' look like teeth.",
+     "definitionFit": "An Eton crop is a short, slicked-back women's haircut of the 1920s, so a kind of cut."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "crown"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +356,84 @@
      }
     ]
    },
-   "solution": "TRANSFERFEE"
+   "solution": "TRANSFERFEE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "TRANSFER FEE",
+    "definitions": [
+     {
+      "text": "Cash for moving",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, lifting a word up makes it read from bottom to top"
+     },
+     {
+      "text": "wonky",
+      "for": "anagram",
+      "note": "something wonky is askew, so these letters are knocked out of order"
+     },
+     {
+      "text": "held",
+      "for": "container",
+      "note": "being held by something means sitting inside it, wrapped by the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wonky fastener",
+      "gives": "TRANS",
+      "note": "the first part of the rearranged fastener"
+     },
+     {
+      "clueFragment": "Whistler",
+      "gives": "REF",
+      "note": "a referee blows the whistle in a match"
+     },
+     {
+      "clueFragment": "fastener",
+      "gives": "FEE",
+      "note": "the rest of the rearranged fastener"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRANS",
+      "FER",
+      "FEE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FASTENER",
+       "gives": "TRANSFEE"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "REF",
+       "to": "FER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who whistles is delayed by a badly fitted fastener while moving house.",
+     "walkthrough": "The referee's abbreviation goes inside the rearranged fastener, after its first five letters. Whistler, capitalised, suggests the painter but is just a referee.",
+     "definitionFit": "A transfer fee is the sum one football club pays another to sign a player who moves between them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Whistler"
+    }
+   }
   },
   {
    "number": 6,
@@ -129,7 +447,68 @@
     "text": "Nothing about swap, initially, question exchange",
     "enumeration": "6"
    },
-   "solution": "NASDAQ"
+   "solution": "NASDAQ",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "NASDAQ",
+    "definitions": [
+     {
+      "text": "exchange",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so the first word encloses the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nothing",
+      "gives": "NADA",
+      "note": "nada is Spanish-derived slang for nothing"
+     },
+     {
+      "clueFragment": "swap",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of swap"
+     },
+     {
+      "clueFragment": "question",
+      "gives": "Q",
+      "note": "Q is the standard abbreviation for question"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "S",
+      "DA",
+      "Q"
+     ]
+    },
+    "explanation": {
+     "surface": "Nothing much is said about a swap at first, just a question about the exchange.",
+     "definitionFit": "The NASDAQ is the American electronic stock exchange where technology shares are traded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swap"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +522,55 @@
     "text": "Debauchee gripping metal drill",
     "enumeration": "7"
    },
-   "solution": "ROUTINE"
+   "solution": "ROUTINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROUTINE",
+    "definitions": [
+     {
+      "text": "drill",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gripping",
+      "for": "container",
+      "note": "gripping something means holding it tightly within, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Debauchee",
+      "gives": "ROUE",
+      "note": "a roué is a dissolute, pleasure-seeking man"
+     },
+     {
+      "clueFragment": "metal",
+      "gives": "TIN",
+      "note": "tin is a metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROU",
+      "TIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dissolute man clutches a metal drill.",
+     "walkthrough": "'Drill' looks like a tool but is the noun for a set procedure.",
+     "definitionFit": "A drill is a fixed, rehearsed procedure, the same as a regular routine practised repeatedly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drill"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +584,82 @@
     "text": "In having wrong date below space towards the top, numbered for reference",
     "enumeration": "9"
    },
-   "solution": "PAGINATED"
+   "solution": "PAGINATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PAGINATED",
+    "definitions": [
+     {
+      "text": "numbered for reference",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "towards the top",
+      "for": "reversal",
+      "note": "in a down clue, moving towards the top means reading the word from bottom to top"
+     },
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "a wrong arrangement means the letters are not in their proper order"
+     }
+    ],
+    "linkWords": [
+     "having",
+     "below"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "GAP",
+      "note": "a gap is a space"
+     },
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "ATED",
+      "note": "the rearranged letters of date"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAGIN",
+      "ATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATE",
+       "gives": "ATED"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "GAP",
+       "to": "PAG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for laying out a diary: put the misprinted date below a gap at the top.",
+     "walkthrough": "'Below' places IN with the jumbled date underneath it, and the reversed space sits at the top of the down entry.",
+     "definitionFit": "Paginated pages carry sequential numbers so that a reader can find and cite them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +673,57 @@
     "text": "Pith in decay, sign – it’s this?",
     "enumeration": "6"
    },
-   "solution": "CARIES"
+   "solution": "CARIES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "CARIES",
+    "definitions": [
+     {
+      "text": "Pith in decay, sign – it’s this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pith in",
+      "for": "letter_selection",
+      "note": "the pith of something is its core, so only the central letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "decay",
+      "gives": "C",
+      "select": "middle",
+      "note": "the middle letter of decay"
+     },
+     {
+      "clueFragment": "sign",
+      "gives": "ARIES",
+      "note": "Aries, the ram, is a sign of the zodiac"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ARIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Something rotten at the core of a tooth is a sign of what is wrong.",
+     "walkthrough": "Read as a whole, the clue also describes the answer: tooth decay, with the heart of 'decay' and a star sign spelling it.",
+     "definitionFit": "Caries is the medical term for tooth decay, the rotting of a tooth from the inside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "sign"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +737,76 @@
     "text": "Food’s black I see, scraped back in house",
     "enumeration": "8"
    },
-   "solution": "HABSBURG"
+   "solution": "HABSBURG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "reversal"
+    ],
+    "answer": "HABSBURG",
+    "definitions": [
+     {
+      "text": "house",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scraped",
+      "for": "deletion",
+      "note": "something scraped has a bit taken off its end"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the whole string is read from its end"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food’s",
+      "gives": "GRUBS",
+      "note": "grub is slang for food, with the possessive s"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "B is the abbreviation for black, as on pencils"
+     },
+     {
+      "clueFragment": "I see",
+      "gives": "AHA",
+      "note": "an exclamation of understanding"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "B",
+      "SBURG"
+     ],
+     "reversals": [
+      {
+       "from": "GRUBSBAH",
+       "to": "HABSBURG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices the food is burnt black, scraped at the back of the house.",
+     "walkthrough": "AHA loses its last letter, then the whole chain is read backwards. A royal house, not a building, is defined.",
+     "definitionFit": "The Habsburgs were the dynasty that ruled Austria and the Holy Roman Empire, a royal house."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "house"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +826,44 @@
      }
     ]
    },
-   "solution": "FILLINGSTATION"
+   "solution": "FILLINGSTATION",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FILLING STATION",
+    "definitions": [
+     {
+      "text": "Dentist’s chair",
+      "at": 0
+     },
+     {
+      "text": "where gas supplied in the US",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dentist’s chair",
+      "note": "first meaning, cryptic: the place where teeth are filled"
+     },
+     {
+      "clueFragment": "where gas supplied in the US",
+      "note": "second meaning: American gas is petrol, sold at a forecourt"
+     }
+    ],
+    "explanation": {
+     "surface": "At the dentist, laughing gas is given in an American surgery.",
+     "walkthrough": "The dental theme makes gas sound like an anaesthetic, but the American sense is petrol.",
+     "definitionFit": "A filling station is a petrol forecourt, Americans calling petrol gas, and the dentist's chair is jokingly where cavities are filled."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "gas"
+    }
+   }
   },
   {
    "number": 12,
@@ -229,7 +887,52 @@
      }
     ]
    },
-   "solution": "NOGREATLOSS"
+   "solution": "NOGREATLOSS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NO GREAT LOSS",
+    "definitions": [
+     {
+      "text": "extraction causing little discomfort then?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "zonked",
+      "for": "anagram",
+      "note": "someone zonked is knocked out and befuddled, so these letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artless goon",
+      "gives": "ARTLESSGOON",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARTLESSGOON",
+       "gives": "NOGREATLOSS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naive thug is sedated, so pulling his tooth hardly hurts.",
+     "walkthrough": "The definition is playful: losing a tooth painlessly might be called this, as the phrase means a loss that hardly matters.",
+     "definitionFit": "The idiom describes a loss that is not regretted, fitting a tooth pulled with hardly any pain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "zonked"
+    }
+   }
   },
   {
    "number": 13,
@@ -249,7 +952,86 @@
      }
     ]
    },
-   "solution": "THEGIGGLES"
+   "solution": "THEGIGGLES",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "THE GIGGLES",
+    "definitions": [
+     {
+      "text": "what would nitrous oxide have given her?",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disheartened",
+      "for": "deletion",
+      "note": "losing the heart means the central letters are removed"
+     },
+     {
+      "text": "loose",
+      "for": "anagram",
+      "note": "something loose is not held in place, so these letters move around"
+     },
+     {
+      "text": "bandaged by",
+      "for": "container",
+      "note": "a bandage wraps around, so the outer letters enclose the inner ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheet",
+      "gives": "THE",
+      "note": "the first part of the rearranged sheet"
+     },
+     {
+      "clueFragment": "Show",
+      "gives": "GIG",
+      "note": "a gig is a live show"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "GL",
+      "note": "girl with its middle letters removed"
+     },
+     {
+      "clueFragment": "loose sheet",
+      "gives": "ES",
+      "note": "the rest of the rearranged sheet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "GIG",
+      "GL",
+      "ES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHEET",
+       "gives": "THEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A showgirl in a dentist's chair, wrapped in a loose sheet, is given laughing gas.",
+     "walkthrough": "Nitrous oxide is laughing gas, used as a dental anaesthetic.",
+     "definitionFit": "Laughing gas causes uncontrollable laughter, a fit of tittering known informally by this phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Show"
+    }
+   }
   },
   {
    "number": 13,
@@ -269,7 +1051,66 @@
      }
     ]
    },
-   "solution": "TEARDUCTS"
+   "solution": "TEARDUCTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TEAR DUCTS",
+    "definitions": [
+     {
+      "text": "little things activated when emotional?",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mushy",
+      "for": "anagram",
+      "note": "something mushy is soft and shapeless, so the letters lose their order"
+     },
+     {
+      "text": "bottled by",
+      "for": "container",
+      "note": "something bottled sits inside a container, enclosed by the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "baby feeders",
+      "gives": "TEATS",
+      "note": "teats are the nipples on baby bottles"
+     },
+     {
+      "clueFragment": "crud",
+      "gives": "RDUC",
+      "note": "the rearranged letters of crud"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEA",
+      "RDUC",
+      "TS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRUD",
+       "gives": "RDUC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mushy muck in a baby's bottle makes the little one weepy.",
+     "definitionFit": "Tear ducts are small glands that release tears when someone is upset or moved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "feeders"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +1124,58 @@
     "text": "Send erotic message with kiss where flossing teeth?",
     "enumeration": "4"
    },
-   "solution": "SEXT"
+   "solution": "SEXT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEXT",
+    "definitions": [
+     {
+      "text": "Send erotic message",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "where flossing",
+      "for": "container",
+      "note": "floss goes between the teeth, so the letter is pushed into the middle of the next word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "teeth",
+      "gives": "SET",
+      "note": "a set of teeth, such as dentures"
+     },
+     {
+      "clueFragment": "kiss",
+      "gives": "X",
+      "note": "X is the kiss written at the end of a letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "X",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sends a racy message signed with a kiss while flossing.",
+     "definitionFit": "To sext is to text sexually explicit words or images by phone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "flossing"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1189,55 @@
     "text": "One carrying on is supporter of working rights",
     "enumeration": "8"
    },
-   "solution": "UNIONIST"
+   "solution": "UNIONIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNIONIST",
+    "definitions": [
+     {
+      "text": "supporter of working rights",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "carrying something means holding it within, so the outer word encloses the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "UNIT",
+      "note": "a unit is a single thing, one"
+     },
+     {
+      "clueFragment": "on is",
+      "gives": "ONIS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "ONIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who keeps going is described as a champion of workers' rights.",
+     "walkthrough": "'Carrying on' reads as a phrase meaning continuing, but the words split: carrying is the container and 'on is' are the letters held.",
+     "definitionFit": "A trade unionist is a member of a labour union fighting for workers' pay and conditions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "carrying"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1251,61 @@
     "text": "Pivot end of utensil into chopper",
     "enumeration": "4"
    },
-   "solution": "AXLE"
+   "solution": "AXLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "AXLE",
+    "definitions": [
+     {
+      "text": "Pivot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its last letter, so only that is kept"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something means sitting inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chopper",
+      "gives": "AXE",
+      "note": "an axe is a chopping tool"
+     },
+     {
+      "clueFragment": "utensil",
+      "gives": "L",
+      "select": "last",
+      "note": "the final letter of utensil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AX",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The tip of a kitchen tool turns inside a chopper.",
+     "definitionFit": "An axle is the rod on which a wheel turns, its spindle or pivot point."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chopper"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1325,42 @@
      }
     ]
    },
-   "solution": "LOWDOWN"
+   "solution": "LOWDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LOW-DOWN",
+    "definitions": [
+     {
+      "text": "Very bad",
+      "at": 0
+     },
+     {
+      "text": "the score",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very bad",
+      "note": "first meaning: mean and despicable"
+     },
+     {
+      "clueFragment": "the score",
+      "note": "second meaning: the inside information on a situation"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'The score' sounds like a sports result, but it is slang for the true facts.",
+     "definitionFit": "Low-down describes contemptible behaviour, and the lowdown is informal for the essential facts, as is knowing the score."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "score"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1374,48 @@
     "text": "Contemporary guided by dental implant?",
     "enumeration": "10"
    },
-   "solution": "NEWFANGLED"
+   "solution": "NEWFANGLED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NEWFANGLED",
+    "definitions": [
+     {
+      "text": "Contemporary",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dental implant",
+      "gives": "NEWFANG",
+      "note": "playfully, a replacement tooth is a new fang"
+     },
+     {
+      "clueFragment": "guided",
+      "gives": "LED",
+      "note": "led means guided"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEWFANG",
+      "LED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone modern is steered by a new false tooth.",
+     "walkthrough": "'Guided by' places the word for guided after the implant.",
+     "definitionFit": "Newfangled means novel or modern, usually said with disapproval of recent gadgets or ideas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "implant"
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1429,63 @@
     "text": "Baltic, welcome this when shivering",
     "enumeration": "7"
    },
-   "solution": "LETTISH"
+   "solution": "LETTISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "LETTISH",
+    "definitions": [
+     {
+      "text": "Baltic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shivering",
+      "for": "anagram",
+      "note": "shivering letters tremble and are shaken into a different order"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "welcome",
+      "gives": "LET",
+      "note": "to let someone in is to welcome them"
+     },
+     {
+      "clueFragment": "this",
+      "gives": "TISH",
+      "note": "the rearranged letters of this"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LET",
+      "TISH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THIS",
+       "gives": "TISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cold Baltic welcome leaves a visitor trembling.",
+     "definitionFit": "Lettish is an old name for Latvian, the language and people of a Baltic state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Baltic"
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1499,44 @@
     "text": "Nipper, a little chap in cerise",
     "enumeration": "6"
    },
-   "solution": "PINCER"
+   "solution": "PINCER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PINCER",
+    "definitions": [
+     {
+      "text": "Nipper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a little",
+      "for": "hidden_word",
+      "note": "only a little of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap in cerise",
+      "gives": "PINCER",
+      "note": "spans the end of the first word through the start of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "A small boy is dressed in cherry red.",
+     "walkthrough": "'Nipper' looks like a child to match the little chap, but it means something that pinches.",
+     "definitionFit": "A pincer is a crab's claw or a gripping tool, something that nips."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nipper"
+    }
+   }
   },
   {
    "number": 21,
@@ -401,7 +1564,43 @@
      }
     ]
    },
-   "solution": "DOWNINTHEMOUTH"
+   "solution": "DOWNINTHEMOUTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DOWN IN THE MOUTH",
+    "definitions": [
+     {
+      "text": "Where dentist looks",
+      "at": 0
+     },
+     {
+      "text": "miserable",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where dentist looks",
+      "note": "first meaning, literal: inside a patient's open jaw"
+     },
+     {
+      "clueFragment": "miserable",
+      "note": "second meaning: an idiom for dejected or glum"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as a dentist looking unhappy; the phrase is both a literal place and an idiom.",
+     "definitionFit": "Being down in the mouth is an idiom for looking sad, from the drooping corners of the lips."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "looks"
+    }
+   }
   },
   {
    "number": 22,
@@ -415,7 +1614,54 @@
     "text": "Substance taking dental impression, pattern scaled up",
     "enumeration": "4"
    },
-   "solution": "AGAR"
+   "solution": "AGAR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "AGAR",
+    "definitions": [
+     {
+      "text": "Substance taking dental impression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, moving up means reading the word from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pattern scaled",
+      "gives": "RAGA",
+      "note": "a raga is a melodic pattern built on a scale in Indian music"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGAR"
+     ],
+     "reversals": [
+      {
+       "from": "RAGA",
+       "to": "AGAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist's mould material shows a pattern when enlarged.",
+     "walkthrough": "'Scaled up' suggests enlarging, but scaled describes the musical pattern and up turns it over.",
+     "definitionFit": "Agar is a seaweed-derived jelly, and agar hydrocolloids are used as moulding material for dental impressions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scaled"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1681,50 @@
      }
     ]
    },
-   "solution": "CHOWCHOW"
+   "solution": "CHOWCHOW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHOW-CHOW",
+    "definitions": [
+     {
+      "text": "Canine",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "eats",
+      "gives": "CHOW",
+      "note": "chow is slang for food, eats"
+     },
+     {
+      "clueFragment": "eats",
+      "gives": "CHOW",
+      "note": "the same slang word again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHOW",
+      "CHOW"
+     ]
+    },
+    "explanation": {
+     "surface": "A hungry dog wolfs down food after food.",
+     "walkthrough": "In a dental puzzle 'Canine' suggests a tooth, but here it is a dog.",
+     "definitionFit": "The chow chow is a fluffy Chinese dog breed with a blue-black tongue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Canine"
+    }
+   }
   },
   {
    "number": 24,
@@ -449,7 +1738,43 @@
     "text": "Nippy dental ability?",
     "enumeration": "6"
    },
-   "solution": "BITING"
+   "solution": "BITING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BITING",
+    "definitions": [
+     {
+      "text": "Nippy",
+      "at": 0
+     },
+     {
+      "text": "dental ability",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nippy",
+      "note": "first meaning: sharply cold"
+     },
+     {
+      "clueFragment": "dental ability",
+      "note": "second meaning, playful: what teeth are good for"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Nippy can mean quick, but here it is the chilly sense; the second half treats the word as a skill teeth have.",
+     "definitionFit": "A biting wind is piercingly cold, and the capacity to chomp is what teeth provide."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nippy"
+    }
+   }
   },
   {
    "number": 25,
@@ -463,7 +1788,58 @@
     "text": "Something worn, in under three seconds chewed up",
     "enumeration": "8"
    },
-   "solution": "SUNDRESS"
+   "solution": "SUNDRESS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SUNDRESS",
+    "definitions": [
+     {
+      "text": "Something worn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "chewed up",
+      "for": "anagram",
+      "note": "something chewed up is mangled, so the letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "under",
+      "gives": "UNDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "three seconds",
+      "gives": "SSS",
+      "note": "S is the abbreviation for second, three times over"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNDERSSS",
+       "gives": "SUNDRESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A worn-down tooth is chewed up in under three seconds.",
+     "definitionFit": "A sundress is a light, sleeveless summer frock, an item of clothing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worn"
+    }
+   }
   },
   {
    "number": 26,
@@ -477,7 +1853,66 @@
     "text": "Anaesthetic around root of canine – and incisor?",
     "enumeration": "6"
    },
-   "solution": "ETCHER"
+   "solution": "ETCHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ETCHER",
+    "definitions": [
+     {
+      "text": "incisor",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "root of",
+      "for": "letter_selection",
+      "note": "a root is where something starts, so just the opening letter is used"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means encircling, so one word wraps the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Anaesthetic",
+      "gives": "ETHER",
+      "note": "ether is an old general anaesthetic"
+     },
+     {
+      "clueFragment": "canine",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of canine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "C",
+      "HER"
+     ]
+    },
+    "explanation": {
+     "surface": "A dentist numbs the root of a canine tooth and a front tooth.",
+     "walkthrough": "'Incisor' looks like a front tooth, but it is one who incises: an engraver cutting lines into metal.",
+     "definitionFit": "An etcher cuts designs into a plate with acid or a needle, so jokingly one who incises."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "incisor"
+    }
+   }
   }
  ]
 }
