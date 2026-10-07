@@ -1,10 +1,8 @@
 // The fake DOM that boots app.js under Node, shared by every harness that needs
 // to see what a learner sees.
 //
-// This lived inside smoke_test.js until tools/make_hint_packets.js needed the same
-// thing. Copying it would have been the obvious move and the wrong one: the point
-// of booting the real app.js is that the harness cannot drift from the app, and
-// two stubs drift from EACH OTHER as well. The hint ladder is built per clue by
+// One stub, never a copy: the point of booting the real app.js is that the
+// harness cannot drift from the app, and two stubs drift from EACH OTHER as well. The hint ladder is built per clue by
 // ladderSteps() in app.js and nowhere else — any re-derivation in Python or in a
 // second stub is a guess about what the app shows, and a grader marking a guess
 // is worse than no grader.
@@ -60,21 +58,19 @@ function boot(opts) {
     // "is anything in here yet" without materialising the list.
     get childElementCount() { return this.children.length; }
     // Setting an id must publish the element, exactly as a real DOM does. Without
-    // this, an element built by createElement() was invisible to getElementById(),
-    // which then minted a SECOND, empty element under the same id — so app code and
-    // test code silently held different objects and every assertion about a
-    // dynamically-created element (clue rows, hint buttons) was vacuous.
+    // this, an element built by createElement() is invisible to getElementById(),
+    // which then mints a SECOND, empty element under the same id — so app code and
+    // test code silently hold different objects and every assertion about a
+    // dynamically-created element (clue rows, hint buttons) is vacuous.
     set id(v) { this._id = String(v || ""); if (this._id) registry[this._id] = this; }
     // The other half of that rule: what leaves the page leaves the registry.
     get id() { return this._id; }
     set className(v) { this.classList._set = new Set(String(v).split(/\s+/).filter(Boolean)); }
     get className() { return [...this.classList._set].join(" "); }
     // Clearing a container really throws away what was in it, ids and all.
-    // Without the unpublish the registry went on handing out rows that had been
-    // discarded — getElementById returning a clue row from a puzzle that is no
-    // longer open — so a test that clicked one was asserting about a dead
-    // element, and the crash only arrived when a newly annotated puzzle changed
-    // the shape of the stale row (2026-08-19).
+    // Without the unpublish the registry goes on handing out discarded rows —
+    // getElementById returning a clue row from a puzzle that is no longer open
+    // — so a test that clicks one asserts about a dead element.
     set innerHTML(v) {
       // Every write is counted, because a write IS the cost: a browser throws
       // the subtree away, reparses it and lays the block out again, and that is
@@ -84,9 +80,9 @@ function boot(opts) {
       this.writes++;
       this._innerHTML = String(v);
       // ANY assignment discards the existing children, which is what a real DOM
-      // does and what this stub used to do only for "". A pass that appended a
-      // button and then assigned innerHTML kept both here and kept one in a
-      // browser, so the harness reported a panel the solver never saw.
+      // does. A pass that appends a button and then assigns innerHTML keeps one
+      // in a browser, so keeping both here would report a panel the solver
+      // never sees.
       this.children.forEach(unpublish);
       this.children = [];
     }
@@ -159,8 +155,7 @@ function boot(opts) {
     // Focus is modelled, not stubbed, because on a touch device it is the soft
     // keyboard: focusing the hidden input raises it and blurring puts it away,
     // and either move resizes the viewport and reflows the page mid-tap. The app
-    // now decides what to do off document.activeElement, so the harness needs one
-    // (Paul, iPad, 2026-08-17: a hint that "opened then quickly closed").
+    // decides what to do off document.activeElement, so the harness needs one.
     // Counted as well as modelled: on iOS a focus() lands on an already-focused
     // input as a fresh request for the keys, so "did anything call focus" is a
     // question activeElement cannot answer — it reads the same either way.
@@ -171,8 +166,8 @@ function boot(opts) {
     blur() { if (document.activeElement === this) document.activeElement = null; }
     scrollIntoView() {}
     // Scrolling is modelled rather than stubbed away, because the bug it hides
-    // is a real one: a panel that took two taps to come into view on an iPad
-    // (Paul, 2026-08-16). layout() nails a box down in PAGE space, and the rect
+    // is a real one: a panel that takes two taps to come into view on an iPad.
+    // layout() nails a box down in PAGE space, and the rect
     // subtracts the window's scroll — which is what a browser does, so app code
     // that measures and scrolls can be driven honestly. Unlaid-out elements
     // report a zero box, and the app has to cope with that too.
@@ -186,13 +181,11 @@ function boot(opts) {
   }
 
   // The stub's elements are read out of index.html rather than retyped here.
-  // The hand-kept version of this list was three lists really — which ids
-  // exist, which are inputs, and which start hidden — and all three had to be
-  // updated by hand whenever the page grew a control. Miss the third and the
-  // symptom is baffling: a panel the page ships closed is open in the harness,
-  // so the first click closes it and every assertion after that is upside down
-  // (Paul, sync panel, 2026-08-10). Parsed, a new control is simply present,
-  // in the state the page actually ships it in.
+  // A hand-kept list is three lists really — which ids exist, which are inputs,
+  // and which start hidden — and missing the third is baffling: a panel the
+  // page ships closed is open in the harness, so the first click closes it and
+  // every assertion after that is upside down. Parsed, a new control is simply
+  // present, in the state the page actually ships it in.
   {
     const html = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
     const tags = /<([a-zA-Z]+)((?:[^>"']|"[^"]*"|'[^']*')*)>/g;
@@ -212,10 +205,10 @@ function boot(opts) {
   // over the plain object, for one reason: the iteration half of the Storage
   // API below has to hand out a key LIST, and rebuilding that list per call is
   // quadratic. app.js's savedProgress() walks `for (i = 0; i < length; i++)
-  // key(i)`, which is the only shape a browser offers — over a run of this
-  // suite that is 1.9M calls against a store that reaches 438 keys, and
-  // materialising Object.keys() inside each of them cost 48 seconds, a sixth of
-  // the whole file, in an array nobody kept.
+  // key(i)`, which is the only shape a browser offers — over a run of the
+  // suite that is millions of calls, and materialising Object.keys() inside
+  // each of them costs a large share of the whole run, in an array nobody
+  // keeps.
   //
   // So the list is cached and thrown away when the SET of keys changes. The
   // trap is what makes that safe: several tests write `storage[k] = v` and
@@ -315,7 +308,7 @@ function boot(opts) {
     // The soft keyboard, which is the ONLY thing that tells you how much screen
     // there really is: iOS leaves innerHeight at its full height and draws the
     // keys over the bottom of it, so a stub without visualViewport can only ever
-    // agree with the bug (Paul, iPad, 2026-08-16). raiseKeyboard() shrinks the
+    // agree with the bug. raiseKeyboard() shrinks the
     // band and fires resize, the way a real keyboard sliding up does.
     visualViewport: {
       height: 1000,
@@ -402,11 +395,9 @@ function boot(opts) {
 
   // Modelled for the same reason the clock and the scroll are: the app asks an
   // IntersectionObserver whether the finish box is on screen, and holds the
-  // fireworks until it says yes. Without one here `typeof IntersectionObserver
-  // !== "function"` was true on every run, so every test took the "no observer,
-  // burn now" branch — which meant the hold, the observer and the abandon, the
-  // three pieces of "I have never seen fireworks on iPad", were untested by
-  // construction rather than by choice.
+  // fireworks until it says yes. Without one here every test takes the "no
+  // observer, burn now" branch, leaving the hold, the observer and the abandon
+  // untested by construction rather than by choice.
   //
   // Nothing intersects on its own. A layout here has no compositor to notice it,
   // and the test is the only thing that knows when the page has travelled, so
@@ -489,7 +480,7 @@ function boot(opts) {
     removeItem: (k) => { delete session[k]; },
   };
   global.confirm = () => true;
-  // app.js reads ?p=<number> so the static answer pages can hand off into the app.
+  // app.js reads ?p=<id> so the static answer pages can hand off into the app.
   // Override CT_TEST_QUERY to boot the harness on a specific puzzle.
   global.location = { search: options.query || process.env.CT_TEST_QUERY || "", href: "", hash: "",
     // A navigation away is recorded, not made: app.js stops booting after one.
@@ -520,8 +511,8 @@ function boot(opts) {
   global.window.CTMerge = global.CTMerge;
   // The manifest is generated and untracked, so it is rebuilt from the puzzle
   // files before it is read — in a fresh clone there is no index.js at all, and
-  // in a working tree there is whatever the last rebuild left. Memoised, so the
-  // nine boots in tools/smoke_test.js cost one rebuild.
+  // in a working tree there is whatever the last rebuild left. Memoised, so
+  // every boot in one process costs one rebuild.
   reindex();
   new Function("window", fs.readFileSync(path.join(ROOT, "puzzles/index.js"), "utf8"))(global.window);
   global.CRYPTIC_INDEX = global.window.CRYPTIC_INDEX;

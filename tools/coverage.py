@@ -175,7 +175,7 @@ def _causes():
         "tools/acquire_book.py", "book_reads.json records a read under the reader in force and no report.json "
         "row says why this position is unfiled", True, True)
     # A read book's per-puzzle status (tools/grid_verdict.py verdict(), and
-    # acquire_book.py's own two), for each position not filed.
+    # the ones acquire_book.py sets itself), for each position not filed.
     for status, owner, fix in BOOK_PUZZLE_STATUSES:
         out[("book", status)] = Cause(owner, fix, status not in ("split-moved", "id-taken", "reprint", "duplicate-in-read"),
                                       status in ("unique-not-filed", "unknown-status"))

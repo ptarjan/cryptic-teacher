@@ -12,7 +12,8 @@ media.ft.com still serves many of the PDFs; where it answers 403, Wayback's own
 copy of the PDF is tried. The PDF is text, not a scan: pypdf reads the clue
 list, and the grid is vector art (a white square, then one filled rectangle per
 black cell) read straight out of the page's content stream, so the black
-squares are the FT's own.
+squares are the FT's own. Where that art is missing or misread, the grid is the
+one the clue list's numbering fits, filed only when exactly one does.
 
 The answers are fifteensquared's: its write-ups of these years print the light
 number and the answer but seldom the clue. Each light the PDF lists is looked
@@ -241,9 +242,9 @@ def pdf_path(number):
 
 
 #: Why a PDF could not be fetched: fetch_failed.json's {number: {"cause", "how"}}.
-#: Only "transient" is tried again; the rest are Wayback's or the FT's answer,
-#: checked by hand on 2026-10-06 (every snapshot of a paywalled page is the
-#: paywall; CDX lists no copy of the 404s).
+#: Only "transient" is tried again; the rest are Wayback's or the FT's settled
+#: answer (every snapshot of a paywalled page is the paywall; CDX lists no copy
+#: of the 404s).
 FETCH_CAUSES = {
     "page-not-archived": "Wayback holds no copy of the article page that linked the PDF",
     "page-paywalled": "Wayback's copies of the article page are the FT's subscriber paywall, no PDF link",

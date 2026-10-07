@@ -10,13 +10,13 @@ arrives already carrying the evidence: a message saying "independent-12459 ran
 past 90m" tells its reader to go and open a 270k-line log on a machine they are
 not sitting at, which is the same as telling them nothing.
 
-WHAT IT LOOKS FOR, and why these and not others. On 2026-09-11 and 09-12 two
-Independent puzzles ran 3h44m and 1h21m and annotated nothing. The shape was
-not a tool loop: it was turns that spent the ENTIRE 128,000-token output ceiling
-on thinking, emitted no text and no tool call, and were retried verbatim. A
-turn like that makes no progress, is charged in full, and --max-turns cannot
-see it, because a turn that calls no tool is not a turn as far as that limit is
-concerned. So the first thing this prints is how many turns ended that way.
+WHAT IT LOOKS FOR, and why these and not others. A run that burns hours and
+annotates nothing is usually not a tool loop: it is turns that spend the ENTIRE
+output ceiling on thinking, emit no text and no tool call, and are retried
+verbatim. A turn like that makes no progress, is charged in full, and
+--max-turns cannot see it, because a turn that calls no tool is not a turn as
+far as that limit is concerned. So the first thing this prints is how many
+turns ended that way.
 
 The thinking figure is read from usage.output_tokens_details.thinking_tokens
 rather than measured off the `thinking` blocks: on an adaptive-thinking model

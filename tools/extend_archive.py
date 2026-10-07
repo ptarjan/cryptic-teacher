@@ -48,7 +48,7 @@ from backlog_burndown import events  # noqa: E402
 # One call each, round-robin, so a source that has run out of archive costs one
 # chunk and not the whole top-up. Ordered by how much the app wants them: the
 # Guardian cryptic is the flagship series, the Quiptic is the beginner tier the
-# tutorial points at, and the Independent pair are the newest additions.
+# tutorial points at, then the Independent pair, Everyman and the Telegraph.
 SOURCES = [
     ("cryptic", ["python3", "tools/fetch_puzzle.py", "--extend", "{n}", "cryptic"]),
     ("quiptic", ["python3", "tools/fetch_puzzle.py", "--extend", "{n}", "quiptic"]),

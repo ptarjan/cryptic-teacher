@@ -15,7 +15,7 @@
     python3 tools/cross_validate.py georgeho               # 17 series against georgeho's blog clues
     python3 tools/cross_validate.py bigdave44              # the Telegraph's app files against the blog
     python3 tools/cross_validate.py timesforthetimes       # the Globe's files against the Times blog
-    python3 tools/cross_validate.py archiveorg             # the Times 1974-99 against its print
+    python3 tools/cross_validate.py archiveorg             # the Times, FT and Guardian against archive.org's scans
     python3 tools/cross_validate.py all --apply --limit 10000
                                                            # every copy at once; a majority fixes ours
     python3 tools/cross_validate.py all --apply --new      # the same over tonight's filings
@@ -64,14 +64,15 @@ left to the per-source refiles.
 
 Every copy we hold, by series. "own" is the paper's own feed, app or page; an
 adapter in brackets reads it; a cell marked with an adapter is compared by
-`all`. The nightly runs `all --new` on tonight's filings; a pass over the rest
+`all`. The nightly runs `all --new --apply` on tonight's filings; a pass over the rest
 (`all --apply --limit N`, resuming at a cursor) is run by hand after a change
 to an adapter or to majority().
 
   series                     primary (where ours came from)     other copies we hold
   cryptic quiptic everyman   own page (fetch_puzzle)            own page [guardian], fifteensquared
                                                                 [fifteensquared], georgeho
-                                                                [georgeho, fifteensquared's origin]
+                                                                [georgeho, fifteensquared's origin];
+                                                                cryptic: archive.org scan [archiveorg]
   independent indysunday     own feed from 2015-06, else        own feed [independent], fifteensquared
                              fifteensquared rebuild             [fifteensquared], georgeho
   cyclops                    own .puz (fetch_privateeye)        fifteensquared [fifteensquared], georgeho
@@ -79,14 +80,18 @@ to an adapter or to majority().
   toughie sundaytough        bigdave44 rebuild                  [bigdave44], georgeho (bigdave44's origin)
   times sundaytimes          timesforthetimes rebuild           georgeho (the same blog, to 2023-07: a
   timesjumbo mephisto                                           split is a lead, never a fix); the
-  timesclub tls                                                 Times listing's dates (corroborate.py)
+  timesclub tls                                                 Times listing's dates (corroborate.py);
+                                                                times: archive.org scan [archiveorg],
+                                                                Canberra reprint [canberra]
   timesquick                 timesforthetimes rebuild to 3105   Globe [globe] for the blog copy from
                                                                 3106, georgeho
   globeandmail               own Amuse payload                  own payload [globe], timesforthetimes
                                                                 [timesforthetimes]
   ftcryptic                  FT PDF 2006-12, else               FT PDF [ft], the fifteensquared post
-                             fifteensquared rebuild             the rebuild came from
-  canberra                   Trove scan                         none yet
+                             fifteensquared rebuild             the rebuild came from, archive.org
+                                                                scan [archiveorg]
+  canberra                   Trove scan                         archive.org scan of the Times puzzle
+                                                                it reprints [archiveorg]
   book metro listener        the book, the paper, the PDF       none
 
 georgeho is frozen (2023-07-15), so its pair needed one pass, not a nightly
@@ -1290,7 +1295,7 @@ def refile_guardian(adapter, pid, path, url, found):
     old = read_puzzle_file(path)
     data = json.loads(adapter.raw_file(url).read_text(encoding="utf-8"))
     from_page = (old.get("source") or {}).get("acquiredBy") == "tools/fetch_puzzle.py"
-    # Files fetched before puzzles kept a preamble lack the page's note. A
+    # A held file with no preamble may lack the note the page prints. A
     # note that is only errata converts to none (tools/errata.py): nothing lacks.
     number = int(pid.rsplit("-", 1)[1])
     lacks_note = (not old.get("preamble") and fp.preamble(data.get("instructions"))
@@ -1839,7 +1844,7 @@ def main(argv=None):
     ap.add_argument("--apply", action="store_true", help="all: write what a majority settles")
     ap.add_argument("--start", metavar="ID", help="all: begin after this id, not the cursor")
     ap.add_argument("--fetch", action="store_true", help="top up the cache first")
-    ap.add_argument("--limit", type=int, help="fetch or refile at most this many")
+    ap.add_argument("--limit", type=int, help="fetch or refile at most this many; all: visit this many after the cursor")
     ap.add_argument("--refile", action="store_true",
                     help="refile from the source what the last report found (guardian, independent, ft)")
     ap.add_argument("--show", nargs="+", metavar="ID", help="diff these puzzles and print")

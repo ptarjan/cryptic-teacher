@@ -28,7 +28,8 @@ by git) and wakes the room only when one of the top three findings is new, or
 has clearly grown since the room was last told about it, or median cost or
 turns regressed against the previous window. What it told the room is kept in
 .annotate_audit/state.json, so an unchanged finding never wakes it twice.
-Below MIN_SESSIONS sessions in either window it reports and stays quiet.
+Below MIN_SESSIONS sessions in the current window it reports and stays quiet;
+a trend needs MIN_SESSIONS in both windows.
 """
 import argparse
 import ast

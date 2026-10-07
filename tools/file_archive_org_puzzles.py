@@ -940,7 +940,7 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
     """One recogniser's reading of the page under the grid (RapidOCR's, or
     Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
     coordinates; cached as JSON with the crop it read, so a reading of another
-    crop is read again (a bare list is a cache from before crops were kept)."""
+    crop is read again (a bare list kept no crop and is used as it stands)."""
     gx0, gy0, gx1, gy1 = grid
     gw = gx1 - gx0
     box = (max(0, gx0 - margin), gy1, min(img.width, gx1 + RIGHT_REACH), min(img.height, int(gy1 + 1.8 * gw)))

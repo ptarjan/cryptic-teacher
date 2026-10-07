@@ -2,41 +2,35 @@
 #
 # Source this, don't execute it:  . "$(dirname "$0")/alert.sh"
 #
-# Why it exists: on 2026-07-31 a /login rewrote the CLI's credentials under a
-# different keychain key, and every scheduled annotation run from then until
-# 2026-08-06 died on "Failed to authenticate". The script noticed, printed it,
-# carried on with everything else, and committed cleanly — so the site kept
-# updating, the log kept saying PASSED, and nobody found out for seven days.
-# The lesson is not "check the log": nobody reads a log that is fine 99 days out
-# of 100. A failure that only lands in a file nobody opens is a silent failure.
+# Why it exists: a run that fails one step, prints it, and carries on with
+# everything else still commits cleanly, so the site keeps updating and the log
+# keeps saying PASSED. Nobody reads a log that is fine 99 days out of 100; a
+# failure that only lands in a file nobody opens is a silent failure.
 #
 # So: anything that stops this job doing the one thing it exists to do wakes the
 # room. It reuses the bridge bot's token rather than owning a
 # credential of its own, and every failure mode here is a no-op — an alert that
 # can't be sent must never take the run down with it.
 #
-# Identical alerts are sent once per ALERT_REPEAT_HOURS. The pre-reset job polls
-# hourly, so on 2026-08-07 one lapsed access token produced the same paragraph
-# four times in a row, and a channel that cries wolf on the hour trains its one
-# reader to scroll past it — which is the silent failure again, wearing the
-# opposite mask. The log still records every occurrence; only the channel is
-# spared.
+# Identical alerts are sent once per ALERT_REPEAT_HOURS. The pre-reset job fires
+# hourly, so one lapsed access token would otherwise post the same paragraph
+# every hour, and a channel that cries wolf on the hour trains its one reader to
+# scroll past it — which is the silent failure again, wearing the opposite mask.
+# The log still records every occurrence; only the channel is spared.
 #
 # The room is a NAME, never an id. An id names one front, so a hard-coded one
-# kept posting every alert this job raised into Discord after the rest of the
-# bridge had moved to Telegram — the channel was right, the service was not, and
-# nothing about a delivered message says it went to the room nobody reads.
-# wake.sh resolves the name against both fronts and DEFAULT_FRONT decides, so
-# this follows the bridge wherever it goes.
+# keeps posting to that service after the bridge moves, and nothing about a
+# delivered message says it went to the room nobody reads. wake.sh resolves the
+# name against both fronts and DEFAULT_FRONT decides, so this follows the bridge
+# wherever it goes.
 ALERT_CHANNEL="${ALERT_CHANNEL:-cryptic-crosswords}"
 # The bridge checkout sits beside the MAIN checkout of this repo, so derive it
 # from the repository rather than from this file or from $HOME. Not $HOME: it is
 # the checkout's parent on the Mac and a different directory in the container.
-# Not this file's own grandparent either — sourced from a nightly worktree that
-# is two levels under CT_WORKTREE_ROOT, that named a household beside the
-# worktrees, so every alert this job raised printed "no wake.sh" into the log it
-# exists to stop anyone having to read. A worktree's git-common-dir is the main
-# checkout's .git from either place.
+# Not this file's own grandparent either — sourced from a nightly worktree two
+# levels under CT_WORKTREE_ROOT, that names a household beside the worktrees,
+# where there is no wake.sh. A worktree's git-common-dir is the main checkout's
+# .git from either place.
 ALERT_ENV_FILE="${ALERT_ENV_FILE:-$(dirname "$(dirname "$(git \
   -C "$(dirname "${BASH_SOURCE[0]}")" rev-parse --path-format=absolute \
   --git-common-dir 2>/dev/null || echo "$(dirname "${BASH_SOURCE[0]}")/../.git")")")/household/.env}"
@@ -50,10 +44,9 @@ ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
 # The alerts below are hand-placed: each one guards a failure somebody already
 # thought of. This one guards the rest. A scheduled job's real failure mode is
 # not the branch with an alert on it — it is the traceback, the "usage:" from a
-# tool called with the wrong argument, the CLI that isn't on PATH. Those printed
-# and the run carried on, and on 2026-08-28 the log had been carrying
-# `apply_solution.py: error: argument number: invalid int value: 'everyman-4166'`
-# for days: a whole model solve, paid for and thrown away, every single night.
+# tool called with the wrong argument, the CLI that isn't on PATH. Those print
+# and the run carries on, so one wrong argument can throw away a paid-for model
+# solve every night without any hand-placed alert firing.
 #
 # Matched on a short allowlist rather than the word "error", because a hint
 # warning that happens to contain the word must not cry wolf — this channel has
@@ -62,12 +55,11 @@ ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
 # The lines travel IN the message. "See the log" is not a report: the reader is
 # on a phone and the log is on the mini.
 #
-# A line a hand-placed alert already carried is not unclaimed. The bad-hint
-# alert quotes the traceback that explains it, and that quote goes to stdout
-# with the alert, into this same log — so on 2026-09-08 one broken KV read
-# arrived twice: once explained, and once as a bare `Traceback` line nobody
-# had written an alert for. Filtered on the text an alert really sent, so a
-# new alert that quotes its own cause is covered without editing this list.
+# A line a hand-placed alert already carried is not unclaimed. An alert that
+# quotes the traceback explaining it puts that quote on stdout, into this same
+# log; without the filter one failure would arrive twice, once explained and
+# once as a bare `Traceback` line. Filtered on the text an alert really sent, so
+# a new alert that quotes its own cause is covered without editing this list.
 alert_run_failures() {
   local log="$1" hits claimed line
   [ -r "$log" ] || return 0

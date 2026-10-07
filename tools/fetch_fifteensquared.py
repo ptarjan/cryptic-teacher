@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cache fifteensquared blog posts and their comments, so we fetch each once.
 
-fifteensquared.net blogs every puzzle in our five series, and its bloggers and
+fifteensquared.net blogs every puzzle in the series in CATEGORIES, and its bloggers and
 commenters name their favourite clues. That is the only per-clue quality signal
 available to us, and it is what `tools/craft_report.py` needs to be tested
 against — see that file for why testing is not the same as fitting.
@@ -17,15 +17,15 @@ we care about is tens of requests rather than hundreds — minutes at the crawl
 delay, not hours. Do not "optimise" that into one-request-per-post.
 
 A run walks every page the API reports for each category, because a page cap
-silently truncates the archive: Independent alone is 73 pages, and a run that
-stopped at six looked exactly like a finished one. `--pages` is there to bound a
+silently truncates the archive: Independent alone is 73 pages, and a capped
+run looks exactly like a finished one. `--pages` is there to bound a
 quick spot-check, never to bound a top-up.
 
   python3 tools/fetch_fifteensquared.py                       # top up the cache
   python3 tools/fetch_fifteensquared.py --status              # what is cached
   python3 tools/fetch_fifteensquared.py --category Everyman   # one series
 
-Two things that cost a round trip to learn (2026-09-09): the `.com` domain
+Two things that cost a round trip to learn: the `.com` domain
 times out, only `.net` answers; and the API returns 403 to python-urllib's
 default User-Agent, with nothing in the error naming the header.
 """

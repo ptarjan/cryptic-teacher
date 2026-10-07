@@ -4,9 +4,8 @@
     python3 tools/acquire_book.py newpenguinbkguar0000perk
     python3 tools/acquire_book.py <id> --file --puzzle-dir puzzles
 
-Acquiring a crossword book used to cost hours of inference per book: a model
-read the OCR, eyeballed the clue lists, and hand-built the JSON. Every step of
-that is arithmetic, and this is the arithmetic. What comes out the far end is
+Every step of turning a book's OCR into puzzle JSON is arithmetic, and this
+is the arithmetic. What comes out the far end is
 a filed, UNSOLVED puzzle -- grid and clue list, no answers -- which the
 nightly cold-solve queue picks up on its own. The only thing left for a human
 is to read the report and spot-check what it flagged.
@@ -262,9 +261,9 @@ def borrow_text(identifier, max_pages=None):
         with ia.borrowed(identifier) as session:
             text = ia.fetch_full_text(session, identifier, max_pages)
     except ia.LendingLimitReached as err:
-        # Caught ahead of SystemExit, which it subclasses. Folding it into
-        # "borrow-refused" is what let one run report the same account-level
-        # refusal 24 times, once per book, and acquire nothing.
+        # Caught ahead of SystemExit, which it subclasses. Folded into
+        # "borrow-refused", the same account-level refusal would be reported
+        # once per book while acquiring nothing.
         return None, str(err), "lending-limit"
     except ia.NotLendable as err:
         # Also a SystemExit, and the one refusal about the book for good.
@@ -404,10 +403,8 @@ def file_unsolved(puzzle_meta, grid, across, down, identifier, out_dir):
 
     `identifier` is the archive.org item THIS RUN read, and it is the ONLY
     thing that names the book: tools/data/books.json turns it into the index
-    the number is built from, the title and source.url alike. Reading one
-    volume's text while filing under another used to be this route's one
-    silent mistake, and every puzzle it filed cited a book it did not come
-    from for good. There is no second argument to disagree with now.
+    the number is built from, the title and source.url alike, so the text
+    read and the book a puzzle cites cannot disagree.
     """
     import puzzle_integrity
     from fetch_puzzle import write_puzzle_file

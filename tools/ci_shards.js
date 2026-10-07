@@ -6,7 +6,7 @@
    exactly one shard, and a file nobody's glob matched is a file that runs
    nowhere, which is what tools/test_ci_coverage.js is there to catch.
 
-   Balance is by cost, not by count: four scripts are most of the suite's
+   Balance is by cost, not by count: a few scripts are most of the suite's
    runtime and putting two of them in one shard makes that shard the wall clock.
    COST holds their measured seconds; anything not listed is assumed light. A
    stale entry costs balance and nothing else — an unknown test still runs, just
@@ -31,14 +31,12 @@
           printf '%s\n' <shard's items> | node tools/ci_shards.js --needs-pages */
 "use strict";
 
-// Runner seconds, measured 2026-09-28 (smoke and the three slow scripts
-// re-measured 2026-10-05 from run 37311849285). Every script that took three seconds or
+// Runner seconds, measured on CI. Every script that took three seconds or
 // more is here; the default covers the rest and any test written since.
 const COST = {
   // One slice of the whole corpus with nothing cached, the case a code change
   // pays; a slice whose every puzzle is cached is dropped before it runs
-  // (tools/ci_cache.js). Estimated 2026-10-05 from run 37311849285, where a
-  // 1/24 slice ran past 12 minutes four-wide.
+  // (tools/ci_cache.js).
   "tools/smoke_test.js": 480,
   "tools/test_push_conflict.sh": 17,
   "tools/test_reconstruct_grid.sh": 25,
@@ -60,7 +58,7 @@ const DEFAULT_COST = 3;
 // How many slices each splittable script runs as (see the header).
 const SLICES = { "tools/smoke_test.js": 40 };
 
-// See the header: run concurrently within a shard, CORES at a time.
+// See the header: all run concurrently within a shard, each charged COST/CORES.
 const PARALLEL = new Set(["tools/smoke_test.js"]);
 const CORES = 4;
 

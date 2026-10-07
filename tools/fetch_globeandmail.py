@@ -20,16 +20,18 @@ Usage:
   --out DIR     write .json files here instead of puzzles/ (also skips reindex(),
                 since reindex() always scans the real puzzles/ dir)
 
-Exit codes: 0 did what was asked, 3 --latest found nothing new, 1 the day asked
-for is expected-but-unfetchable (the Saturday puzzle, a date below the floor) —
-one self-contained line on stderr and no traceback. A weekly event that prints a
+Exit codes: 0 did what was asked, 3 --latest found nothing new, 1 --latest's
+newest day is expected-but-unfetchable (the Saturday puzzle) — one
+self-contained line on stderr and no traceback. Explicit dates and --extend
+print such a day as a "skip" line and go on. A weekly event that prints a
 stack trace is indistinguishable from a real crash, which is the whole reason
-ExpectedlyUnfetchable exists; the exit stays non-zero so an unattended run can
-never report success having fetched nothing.
+ExpectedlyUnfetchable exists; the exit stays non-zero so an unattended --latest
+run can never report success having fetched nothing.
 
 Companion to fetch_puzzle.py (Guardian) and fetch_independent.py (Independent);
-no code is shared with either beyond http_bytes/write_puzzle_file/reindex, because
-nothing else is shared: this is a different vendor with a different payload shape.
+it borrows fetch_puzzle.py's generic helpers (HTTP, clue flattening, file
+writing, reindex) but none of the payload parsing: this is a different vendor
+with a different payload shape.
 
 WHERE THIS CAME FROM. The Globe and Mail's cryptic is hosted by Amuse Labs /
 PuzzleMe, set "globeandmail-new-cryptic". Two endpoints matter:
@@ -46,10 +48,10 @@ PuzzleMe, set "globeandmail-new-cryptic". Two endpoints matter:
       HTML containing `"rawc":"<obfuscated>"`. Amuse never sends the grid in the
       clear; it ships a base64 blob whose bytes have been shuffled by a
       short repeating key, and the key itself is not sent — only the picker's
-      own JS knows it, derived at runtime. DECODE below re-derives it by brute
+      own JS knows it, derived at runtime. deobfuscate_rawc() re-derives it by brute
       force (see its docstring) rather than executing that JS. This is the same
       scheme xword-dl's amuselabs source already reverse-engineered; the
-      implementation here is a independent port kept local, not an xword-dl
+      implementation here is an independent port kept local, not an xword-dl
       dependency, so this tool has no new import.
 
 THE GRID IS COLUMN-MAJOR. The decoded JSON's `box` field is indexed box[x][y]
@@ -64,7 +66,7 @@ this is read; nothing else should index box directly.
 
 ENUMERATIONS ARE DATA, NOT TEXT. Amuse gives `wordLens`, an int array, never a
 rendered "(6)" or "(4,4)" in the clue text itself (checked: no clue in the
-sample sample payload ends in anything parenthesised). This tool always
+sample payload ends in anything parenthesised). This tool always
 appends the rendered form, and only skips appending if the clue text already
 ends in one — belt and braces, in case some other day's clue already carries
 it. A multi-element wordLens (a "REAL LIFE"-style answer spanning contiguous
@@ -125,7 +127,7 @@ DATE_PICKER_URL = f"https://cdn-us.amuselabs.com/pmm/date-picker?set={SET}"
 PUZZLE_URL = f"https://cdn-us.amuselabs.com/pmm/crossword?id={{puzzle_id}}&set={SET}&embed=1"
 PLAY_URL = "https://www.theglobeandmail.com/puzzles-and-crosswords/new-cryptic/?date={ymd}"
 REQUEST_GAP = 1.0  # seconds between requests — see PACING above
-# The oldest date the numbered series has a puzzle at. Checked 2026-09-18: the
+# The oldest date the numbered series has a puzzle at. The
 # crossword endpoint 200s with a genuine Amuse "puzzle not found" page (not an
 # HTTP 404, and not a shape change — no rawc field, no title field, nothing to
 # parse) for every day from 2025-11-02 to 2025-11-14 and every Saturday walked

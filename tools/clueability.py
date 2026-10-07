@@ -101,8 +101,8 @@ def load_lexicon(path=LEXICON, british_only=True):
     callers must handle that.
 
     british_only drops spellings the Lufz "Britain" region replaces. This is not
-    pedantry: the first fill produced by this tool answered KILOMETERS in a
-    Guardian-style grid, which a British solver would (rightly) call an error."""
+    pedantry: KILOMETERS in a Guardian-style grid is an error to a British
+    solver."""
     if not path.exists():
         return {}, {}, {}
     lines = path.read_text(encoding="utf-8").splitlines()

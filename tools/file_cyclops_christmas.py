@@ -26,8 +26,9 @@ ring is read clockwise, a line from its end nearest the top left. Its letters
 are the crossing answers' plus, for the cells no answer crosses, the post's
 quotation, found by matching the checked letters against the post's letter
 stream at every starting cell of the ring. The match must be exact on checked
-cells except where the grid overrides a typo in the post, and the unchecked
-letters must equal the multiset the preamble lists. Anything less is refused.
+cells except where the grid overrides a typo in the post (at most two), and
+the unchecked letters must equal the multiset the preamble lists or the puzzle
+is refused. A ring no quotation in the post fits is filed unsolved.
 """
 import argparse
 import html

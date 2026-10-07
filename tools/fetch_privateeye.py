@@ -57,9 +57,7 @@ substitution-plus-permutation cipher cannot manufacture 148 distinct letters
 that satisfy 32 different clues out of an input with one repeated symbol; the
 output for every one of the 10000 keys is just some deterministic scramble of
 all-D, and any checksum match against it is a 16-bit-checksum coincidence, not
-a real unlock (this is exactly why early testing "found" different keys at
-different candidate checksum offsets — all four were coincidences on garbage).
-If Private Eye ever ships a real scrambled grid, this code will unscramble it
+a real unlock. If Private Eye ever ships a real scrambled grid, this code will unscramble it
 without changes; nothing here assumes the dummy.
 
 ANSWERS COME FROM FIFTEENSQUARED.NET INSTEAD. It has blogged Private Eye's
@@ -73,11 +71,9 @@ instead — same shape the app already uses for a prize puzzle whose answers
 haven't been published (see hasSolutions in fetch_puzzle.reindex).
 
 Writes <out>/cyclops-<number>.json (preserving any existing per-clue annotations
-via merge_annotations). Deliberately does NOT rebuild puzzles/index.json or
-index.js — this fetcher lands before the "cyclops" series exists in
-tools/series.py and app.js, so an index write here would either crash (series
-metadata missing) or bake in an incomplete picture. Once the series is
-registered, run tools/fetch_puzzle.py --reindex once by hand.
+via merge_annotations). It does not rebuild puzzles/index.json or index.js:
+those are generated, and tools/fetch_puzzle.py --reindex (which
+tools/daily_update.sh runs after its fetchers) rebuilds them.
 """
 
 import argparse
@@ -703,7 +699,7 @@ def find_link_groups(puzzle):
 
     # Now the continuations. A light some leader's prefix already names keeps
     # that group and its own "see" is dropped; anything else forms or joins a
-    # group as before. Dropped rather than merged because the union would be a
+    # group from its "see". Dropped rather than merged because the union would be a
     # third light in a two-light answer — 683's SECOND WAVE does not gain 9ac's
     # GAIN just because 23dn misprints the number it points at.
     claimed = {light for members in groups.values() for light in members}
@@ -778,7 +774,7 @@ def link_groups(puzzle):
         # validate_annotations.py rejects. find_link_groups has already settled
         # the misprint it can name, so what is left is prose nothing here reads.
         # Both groups go: one silently winning on dict order is how a group its
-        # own members disagree with got written in the first place.
+        # own members disagree with gets written.
         if settled:
             for stale in settled:
                 for eid in stale:
@@ -936,8 +932,8 @@ def solve_from_fifteensquared(puzzle, post):
         # Direction for an unsuffixed member comes from the GRID's own link
         # group, never from the leading member's direction: Cyclops links run
         # across-to-down freely ("8/3" is 8ac linked to 3dn) and fifteensquared
-        # prints bare numbers, so assuming the leader's direction mis-resolved
-        # 160 of the 249 unsolved puzzles. The grid is the authority on which
+        # prints bare numbers, so the leader's direction is often the wrong
+        # one. The grid is the authority on which
         # lights a group contains; the blog only supplies the letters, and
         # assign()'s length check plus the crossing check still police the join.
         lead_num, lead_dir = parsed[0]
@@ -1126,10 +1122,9 @@ def refresh_unsolved():
             continue
         if provenance.solution_detail(p).get("blog") == "fifteensquared":
             continue
-        # A Cyclops old enough is never getting a fifteensquared write-up
-        # either — 78 of them, from 2006-2009, were being searched for on
-        # fifteensquared every night before this. See still_worth_refreshing
-        # in fetch_puzzle.py for the cutoff and why it lives there once.
+        # A Cyclops old enough is never getting a fifteensquared write-up, so
+        # it is not searched for. See still_worth_refreshing in fetch_puzzle.py
+        # for the cutoff and why it lives there once.
         if not still_worth_refreshing(p):
             continue
         pending.append(p["number"])

@@ -39,7 +39,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tools" / "data" / "fill_floors.json"
 
 # At p25 about 60% of published answers clear both floors at every length
-# (the axes correlate), against 5-45% under the old flat 40/25.
+# (the axes correlate).
 QUANTILE = 0.25
 MIN_ANSWERS = 200
 

@@ -196,8 +196,8 @@ def image_key(img):
 
 def cited(cite):
     """(number, how, reports) a Gale PDF's citation gives: the puzzle its
-    article title numbers, else the one the issue's date prints (None for
-    neither), and the past puzzles whose report it is."""
+    article title numbers (None, None when it numbers none; cited_day reads
+    the date), and the past puzzles whose report it is."""
     cite = re.sub(r"\s+", " ", cite or "")
     title = (m.group(1) if (m := ARTICLE.search(cite)) else "").strip()
     reports = {int(n) for n in REPORT.findall(title)}

@@ -5,6 +5,7 @@ Run it:
 
     python3 tools/coverage_report.py            # the table
     python3 tools/coverage_report.py --quiet    # only the series with a problem
+    python3 tools/coverage_report.py --stale-only   # only STALE, as the nightly alerts on
 
 Every series is meant to be walked back to its source's floor and then kept
 current nightly. Two different things stop that happening and neither one
@@ -20,10 +21,11 @@ The flags, in the order they matter:
   STALE    the newest puzzle is older than three times the series' cadence, so
            the feed has stopped answering and nobody has been told.
   SHALLOW  the whole series spans less than SHALLOW_DAYS, which means it has
-           never been backfilled -- the state tools/fetch_metro.py was in on
-           2026-09-17, holding exactly one puzzle.
+           never been backfilled.
   HOLES    more than HOLES_PCT of the numbers between the oldest and newest we
            hold are missing, so a walk stopped part-way.
+  REACH    the oldest number held is above the series' ARCHIVE_FLOOR, so the
+           walk back has not reached what the source still serves.
   STRAY    a puzzle whose number is nowhere near the rest of its series, which
            means it was filed under the wrong one.
   WEEKDAY  a puzzle dated on a day of the week its paper does not publish on,
@@ -96,7 +98,7 @@ ARCHIVE_FLOOR = {
     # 2003-07-27, confirmed by tools/fetch_puzzle.py's --extend walk 404ing at
     # 2,964 and below. Same number as that file's EVERYMAN_FLOOR.
     "everyman": 2965,
-    # 2025-11-16 ("No 3106"), confirmed 2026-09-18: cdn-us.amuselabs.com
+    # 2025-11-16 ("No 3106"): cdn-us.amuselabs.com
     # "puzzle not found"s every day from 2025-11-02 to 2025-11-14 and every
     # Saturday walked back to 2025-01-04. Three earlier dates (2025-11-01,
     # -08, -15) do carry real puzzle data but no publisher number in any
