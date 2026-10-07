@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,76 @@
     "text": "Rope fibre from lasso cut and spun, catching setter",
     "enumeration": "5"
    },
-   "solution": "SISAL"
+   "solution": "SISAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "SISAL",
+    "definitions": [
+     {
+      "text": "Rope fibre",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "a word that is cut loses its tail, so its final letter goes"
+     },
+     {
+      "text": "spun",
+      "for": "reversal",
+      "note": "something spun round faces the other way, so the shortened word is read backwards"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "the turned word catches the setter, holding that piece inside itself"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lasso",
+      "gives": "LASS",
+      "note": "lasso without its last letter"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "I",
+      "SAL"
+     ],
+     "reversals": [
+      {
+       "from": "LASS",
+       "to": "SSAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cowboy's rope is made by cutting and twisting a lasso, with the setter caught up in it.",
+     "walkthrough": "LASS reversed is SSAL, and the setter's I goes in after the first S to make SISAL.",
+     "definitionFit": "Sisal is a stiff plant fibre from an agave, traditionally twisted into rope and twine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spun"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +119,42 @@
     "text": "Pastor meekly suppresses outburst",
     "enumeration": "5"
    },
-   "solution": "STORM"
+   "solution": "STORM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "STORM",
+    "definitions": [
+     {
+      "text": "outburst",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suppresses",
+      "for": "hidden_word",
+      "note": "the two words suppress, or hold down inside them, the answer across their join"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pastor meekly",
+      "gives": "STORM",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A mild-mannered clergyman quietly holds back an angry outburst.",
+     "definitionFit": "A storm can mean a violent outburst of feeling, such as a storm of protest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suppresses"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +168,47 @@
     "text": "That woman will try to find out what's in Molly Malone's wheelbarrow",
     "enumeration": "9"
    },
-   "solution": "SHELLFISH"
+   "solution": "SHELLFISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHELLFISH",
+    "definitions": [
+     {
+      "text": "what's in Molly Malone's wheelbarrow",
+      "at": 32
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "That woman will",
+      "gives": "SHELL",
+      "note": "she'll, short for she will"
+     },
+     {
+      "clueFragment": "try to find out",
+      "gives": "FISH",
+      "note": "to fish is to probe for information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHELL",
+      "FISH"
+     ]
+    },
+    "explanation": {
+     "surface": "A curious woman means to discover what Molly Malone is carrying.",
+     "walkthrough": "Molly Malone is the Dublin fishmonger of the song, wheeling her barrow and crying 'cockles and mussels'.",
+     "definitionFit": "Cockles and mussels, sold from Molly Malone's barrow in the song, are both kinds of shellfish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "find"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +228,77 @@
      }
     ]
    },
-   "solution": "LASTMAN"
+   "solution": "LASTMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "LAST MAN",
+    "definitions": [
+     {
+      "text": "One standing at the end",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case",
+      "for": "letter_selection",
+      "note": "a word's case is its outside, so only its first and last letters are kept"
+     },
+     {
+      "text": "swinging",
+      "for": "anagram",
+      "note": "swinging letters swing about and land in a different order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around has the outer letters enclosing the rearranged phrase"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lantern",
+      "gives": "LN",
+      "select": "outer",
+      "note": "the first and last letters of lantern"
+     },
+     {
+      "clueFragment": "a mast",
+      "gives": "AMAST",
+      "note": "the two words as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASTMA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AMAST",
+       "gives": "ASTMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor clings to the top of a mast as a lantern swings round it.",
+     "walkthrough": "A MAST rearranged is ASTMA, with L...N around it.",
+     "definitionFit": "The last man is the final survivor, the one still on his feet when everyone else has fallen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +312,70 @@
     "text": "Talk to me about the Queen's storage unit",
     "enumeration": "9"
    },
-   "solution": "GASOMETER"
+   "solution": "GASOMETER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "GASOMETER",
+    "definitions": [
+     {
+      "text": "storage unit",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean around in a jumbled way, so the two little words are rearranged"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk",
+      "gives": "GAS",
+      "note": "to gas is to chatter idly"
+     },
+     {
+      "clueFragment": "to me",
+      "gives": "TOME",
+      "note": "the two words as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "the Queen",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the late Queen's cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAS",
+      "OMET",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOME",
+       "gives": "OMET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks to hear about where the Queen keeps her belongings.",
+     "walkthrough": "GAS + OMET (TO ME rearranged) + ER gives GASOMETER. ER, Elizabeth Regina, is the standard crossword Queen.",
+     "definitionFit": "A gasometer is a large tank holding town gas, so it is literally a storage container for fuel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +389,63 @@
     "text": "Chewed, green rind - a watermelon rind?",
     "enumeration": "5"
    },
-   "solution": "GNAWN"
+   "solution": "GNAWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GNAWN",
+    "definitions": [
+     {
+      "text": "Chewed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rind",
+      "for": "letter_selection",
+      "note": "the rind is the skin of a fruit, so only the outside letters of each word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "green",
+      "gives": "GN",
+      "select": "outer",
+      "note": "the first and last letters of green"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "watermelon",
+      "gives": "WN",
+      "select": "outer",
+      "note": "the first and last letters of watermelon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GN",
+      "A",
+      "WN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has chomped a green watermelon down to its rind.",
+     "walkthrough": "The repeated 'rind' signals outer letters twice, once for green and once for watermelon.",
+     "definitionFit": "Gnawn is an old past participle of gnaw, meaning bitten or chewed at persistently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rind"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +459,62 @@
     "text": "Chopping leeks? Loads - you'll find them in the cupboard",
     "enumeration": "9"
    },
-   "solution": "SKELETONS"
+   "solution": "SKELETONS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SKELETONS",
+    "definitions": [
+     {
+      "text": "you'll find them in the cupboard",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Chopping",
+      "for": "anagram",
+      "note": "chopping cuts the vegetable into bits that can be put back together differently"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leeks",
+      "gives": "LEEKS",
+      "note": "the word as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Loads",
+      "gives": "TONS",
+      "note": "tons of something means loads of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKELE",
+      "TONS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEEKS",
+       "gives": "SKELE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A kitchen picture: piles of chopped leeks, the rest stored in the cupboard.",
+     "walkthrough": "The definition plays on the idiom of skeletons in the cupboard, meaning hidden secrets; Americans say closet.",
+     "definitionFit": "Skeletons in the cupboard are embarrassing secrets kept hidden, so the idiom puts them there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cupboard"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +528,45 @@
     "text": "Like a man's overheard secret",
     "enumeration": "7"
    },
-   "solution": "MYSTERY"
+   "solution": "MYSTERY",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "MYSTERY",
+    "definitions": [
+     {
+      "text": "secret",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overheard",
+      "for": "homophone",
+      "note": "overheard means caught by ear, so the sound of the phrase matters rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Like a man's",
+      "gives": "MYSTERY",
+      "soundsLike": "MISTER-Y",
+      "note": "mister-y, coined as an adjective meaning like a mister, a man"
+     }
+    ],
+    "explanation": {
+     "surface": "A man's private secret is accidentally overheard.",
+     "walkthrough": "Mister plus the adjective ending -y makes a jokey word for man-like, which sounds the same as the answer.",
+     "definitionFit": "A mystery is something unknown or kept hidden, so it is a secret."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "overheard"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +580,60 @@
     "text": "A piece of Baronet Rothschild's upside-down cake",
     "enumeration": "5"
    },
-   "solution": "TORTE"
+   "solution": "TORTE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TORTE",
+    "definitions": [
+     {
+      "text": "cake",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "A piece of",
+      "for": "hidden_word",
+      "note": "a piece of the following words is cut out from inside them"
+     },
+     {
+      "text": "upside-down",
+      "for": "reversal",
+      "note": "in a down entry upside-down means reading from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Baronet Rothschild",
+      "gives": "ETROT",
+      "note": "letters running across the two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "ETROT",
+       "to": "TORTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A slice of a wealthy baronet's upside-down cake.",
+     "walkthrough": "'Upside-down cake' is a real dessert, so the reversal signal hides in plain sight.",
+     "definitionFit": "A torte is a rich, layered continental cake, often made with ground nuts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upside-down"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +653,55 @@
      }
     ]
    },
-   "solution": "RUMPSTEAK"
+   "solution": "RUMPSTEAK",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "RUMP STEAK",
+    "definitions": [
+     {
+      "text": "Strange footnote: 'Tree from which this produce is derived'",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strange",
+      "gives": "RUM",
+      "note": "rum means odd or strange"
+     },
+     {
+      "clueFragment": "footnote",
+      "gives": "PS",
+      "note": "a postscript, a note added at the end"
+     },
+     {
+      "clueFragment": "Tree",
+      "gives": "TEAK",
+      "note": "teak is a tropical hardwood tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "PS",
+      "TEAK"
+     ]
+    },
+    "explanation": {
+     "surface": "An odd footnote claims to name the tree some produce came from.",
+     "walkthrough": "RUM + PS + TEAK. As a whole the clue jokes that the steak is grown on a teak tree, which is plainly strange.",
+     "definitionFit": "Rump steak is a cut of beef, meat produce that comes from a cow, not from any tree."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "footnote"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +715,54 @@
     "text": "Aggrandise Sri Lanka, say, after a brief spell of cricket",
     "enumeration": "9"
    },
-   "solution": "OVERSTATE"
+   "solution": "OVERSTATE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERSTATE",
+    "definitions": [
+     {
+      "text": "Aggrandise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the cricket piece comes first, with the country example following it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a brief spell of cricket",
+      "gives": "OVER",
+      "note": "an over is a set of six balls bowled in cricket"
+     },
+     {
+      "clueFragment": "Sri Lanka, say",
+      "gives": "STATE",
+      "note": "Sri Lanka is an example of a nation state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "STATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone talks up Sri Lanka after a short stint watching it play cricket.",
+     "walkthrough": "'After' puts the cricket piece first even though the clue names Sri Lanka first. An over is a cricket unit of six balls.",
+     "definitionFit": "To overstate is to exaggerate, making something seem bigger or grander than it really is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Aggrandise"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +776,48 @@
     "text": "Go out, laugh, take drugs",
     "enumeration": "5"
    },
-   "solution": "SCRAM"
+   "solution": "SCRAM",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SCRAM",
+    "definitions": [
+     {
+      "text": "Go out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "take drugs",
+      "for": "deletion",
+      "note": "take here means take away, and drugs is the usual crossword code for ecstasy, so that drug's letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "laugh",
+      "gives": "SCREAM",
+      "note": "something hilarious is a scream, a real laugh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCRAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A wild night instruction: go out, have a laugh and take some drugs.",
+     "walkthrough": "SCREAM loses its E (ecstasy) to leave SCRAM. 'Take drugs' reads like partying but means remove the drug.",
+     "definitionFit": "Scram is a slangy order to leave at once, the same as telling someone to get out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "take"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +831,71 @@
     "text": "He delivers knitwear and mohair caps within fashionable Italian city",
     "enumeration": "7"
    },
-   "solution": "MILKMAN"
+   "solution": "MILKMAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MILKMAN",
+    "definitions": [
+     {
+      "text": "He delivers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caps",
+      "for": "letter_selection",
+      "note": "caps are the tops, so only the opening letter of each garment word is kept"
+     },
+     {
+      "text": "within",
+      "for": "container",
+      "note": "within places the kept letters inside the name of the city"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knitwear",
+      "gives": "K",
+      "select": "first",
+      "note": "the first letter of knitwear"
+     },
+     {
+      "clueFragment": "mohair",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of mohair"
+     },
+     {
+      "clueFragment": "fashionable Italian city",
+      "gives": "MILAN",
+      "note": "Milan is Italy's fashion capital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIL",
+      "KM",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A courier brings knitwear and mohair hats into Milan's fashion world.",
+     "walkthrough": "'Delivers' suggests parcels of clothing rather than bottles of milk; Milan is the fashion capital of Italy.",
+     "definitionFit": "A milkman's job is a daily round bringing milk to people's doorsteps, so he is a deliverer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "delivers"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +909,64 @@
     "text": "Sea captain's birds leaving rents or small holes",
     "enumeration": "7"
    },
-   "solution": "EYELETS"
+   "solution": "EYELETS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EYELETS",
+    "definitions": [
+     {
+      "text": "small holes",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "the birds are leaving, so that word departs from the name of the captain"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sea captain's",
+      "gives": "BIRDSEYE",
+      "note": "Captain Birdseye is the bearded sea captain who advertises a British brand of frozen fish fingers"
+     },
+     {
+      "clueFragment": "birds",
+      "gives": "BIRDS",
+      "note": "the word as written, the part that departs"
+     },
+     {
+      "clueFragment": "rents",
+      "gives": "LETS",
+      "note": "lets are properties rented out, or the verb to rent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "LETS"
+     ]
+    },
+    "explanation": {
+     "surface": "Seabirds abandon the tears in a sail, leaving only small holes behind.",
+     "walkthrough": "Captain Birdseye is the mascot of a British frozen-food brand; drop BIRDS from BIRDSEYE for EYE, then add LETS. 'Rents' suggests tears, but it means lets.",
+     "definitionFit": "Eyelets are little reinforced holes for laces or cords, as in shoes or sails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "rents"
+    }
+   }
   },
   {
    "number": 13,
@@ -241,7 +980,62 @@
     "text": "Exhausted corgi carried by son/heir",
     "enumeration": "5"
    },
-   "solution": "SCION"
+   "solution": "SCION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCION",
+    "definitions": [
+     {
+      "text": "heir",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Exhausted",
+      "for": "letter_selection",
+      "note": "an exhausted word is emptied of its insides, so only its outer letters remain"
+     },
+     {
+      "text": "carried by",
+      "for": "container",
+      "note": "carried by means held inside, so the remnant sits within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corgi",
+      "gives": "CI",
+      "select": "outer",
+      "note": "the first and last letters of corgi"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "SON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired royal corgi is carried home by the son and heir.",
+     "walkthrough": "The slash makes son/heir look like one phrase, but son is wordplay and heir is the definition.",
+     "definitionFit": "A scion is a descendant or heir of a notable family, especially a young one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Exhausted"
+    }
+   }
   },
   {
    "number": 13,
@@ -261,7 +1055,51 @@
      }
     ]
    },
-   "solution": "SNAILLIKE"
+   "solution": "SNAILLIKE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNAIL-LIKE",
+    "definitions": [
+     {
+      "text": "The antithesis of fast",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "accompanied by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "food in France, maybe",
+      "gives": "SNAIL",
+      "note": "snails, escargots, are a French delicacy"
+     },
+     {
+      "clueFragment": "relish",
+      "gives": "LIKE",
+      "note": "to relish something is to like it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAIL",
+      "LIKE"
+     ]
+    },
+    "explanation": {
+     "surface": "A French dish served slowly with a sauce on the side, the opposite of fast food.",
+     "walkthrough": "'Fast food' and 'relish' suggest burgers and sauce; fast is the definition's adjective, food starts the wordplay.",
+     "definitionFit": "Snails are proverbially slow, so moving at a snail's pace is the opposite of quick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "relish"
+    }
+   }
   },
   {
    "number": 14,
@@ -275,7 +1113,68 @@
     "text": "Conservative policy is heralded by the commencement of secret plot",
     "enumeration": "9"
    },
-   "solution": "STORYLINE"
+   "solution": "STORYLINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STORYLINE",
+    "definitions": [
+     {
+      "text": "plot",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the commencement of",
+      "for": "letter_selection",
+      "note": "the commencement of a word is its opening letter, so only that is kept"
+     },
+     {
+      "text": "is heralded by",
+      "for": "charade",
+      "note": "being heralded by something means it arrives first, so the kept letter goes in front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "secret",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of secret"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "TORY",
+      "note": "a Tory is a member of the UK Conservative Party"
+     },
+     {
+      "clueFragment": "policy",
+      "gives": "LINE",
+      "note": "a party line is its official policy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TORY",
+      "LINE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative policy is announced as the start of a secret plot.",
+     "walkthrough": "S + TORY + LINE. 'Plot' reads as a conspiracy in the surface; here it is the story of a book or film.",
+     "definitionFit": "A storyline is the sequence of events in a narrative, which is the plot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 14,
@@ -289,7 +1188,51 @@
     "text": "Scrape piece of rock to make screw",
     "enumeration": "9"
    },
-   "solution": "SKINFLINT"
+   "solution": "SKINFLINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SKINFLINT",
+    "definitions": [
+     {
+      "text": "screw",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scrape",
+      "gives": "SKIN",
+      "note": "to skin a knee is to scrape it"
+     },
+     {
+      "clueFragment": "piece of rock",
+      "gives": "FLINT",
+      "note": "flint is a hard stone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIN",
+      "FLINT"
+     ]
+    },
+    "explanation": {
+     "surface": "DIY instructions: scrape a stone to fashion a screw.",
+     "walkthrough": "Screw is informal for a miser, someone who screws every penny out of others.",
+     "definitionFit": "A skinflint is a mean, stingy person, which is also what the slang word screw can mean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "screw"
+    }
+   }
   },
   {
    "number": 15,
@@ -303,7 +1246,91 @@
     "text": "I finally strongarm Italian suspect into sucking a dummy",
     "enumeration": "9"
    },
-   "solution": "IMITATION"
+   "solution": "IMITATION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container",
+     "anagram"
+    ],
+    "answer": "IMITATION",
+    "definitions": [
+     {
+      "text": "dummy",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally keeps just the final letter of the next word"
+     },
+     {
+      "text": "sucking",
+      "for": "container",
+      "note": "something sucking takes in what follows, so the lone article is drawn into the word"
+     },
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect means dubious, not to be taken at face value, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "strongarm",
+      "gives": "M",
+      "select": "last",
+      "note": "the last letter of strongarm"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "It is an abbreviation for Italian, as on vermouth"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "IT",
+      "ATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTOA",
+       "gives": "ATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tough guy forces an Italian suspect to suck on a baby's dummy.",
+     "walkthrough": "A goes into INTO, and that is rearranged to ATION. A dummy is the British word for a baby's pacifier, but here means a fake.",
+     "definitionFit": "A dummy is a replica or fake object, so it is an imitation of the real thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +1344,50 @@
     "text": "Lithe cats dancing, running and jumping, etc.",
     "enumeration": "9"
    },
-   "solution": "ATHLETICS"
+   "solution": "ATHLETICS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ATHLETICS",
+    "definitions": [
+     {
+      "text": "running and jumping, etc.",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about the floor and end up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lithe cats",
+      "gives": "LITHECATS",
+      "note": "the two words as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LITHECATS",
+       "gives": "ATHLETICS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supple cats leap about, dancing, running and jumping.",
+     "definitionFit": "Athletics is the sport made up of track and field events such as races, jumps and throws."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1401,61 @@
     "text": "They introduce old radio plays",
     "enumeration": "7"
    },
-   "solution": "EXORDIA"
+   "solution": "EXORDIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXORDIA",
+    "definitions": [
+     {
+      "text": "They introduce",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "plays",
+      "for": "anagram",
+      "note": "plays means moves about freely, so the letters of the word before are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "radio",
+      "gives": "RADIO",
+      "note": "the word as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ORDIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RADIO",
+       "gives": "ORDIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Classic radio dramas are being introduced to new listeners.",
+     "walkthrough": "'Radio plays' reads as a single genre, but plays is the anagram signal.",
+     "definitionFit": "Exordia, plural of exordium, are the opening parts of speeches or treatises that introduce them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plays"
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1469,62 @@
     "text": "Beginning to loosen, being surrounded by pink noise",
     "enumeration": "5"
    },
-   "solution": "PLINK"
+   "solution": "PLINK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PLINK",
+    "definitions": [
+     {
+      "text": "noise",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter, so just that is kept"
+     },
+     {
+      "text": "being surrounded by",
+      "for": "container",
+      "note": "surrounded means enclosed, so the kept letter goes inside the colour word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loosen",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of loosen"
+     },
+     {
+      "clueFragment": "pink",
+      "gives": "PINK",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "L",
+      "INK"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone starts to relax as they are bathed in soothing pink noise.",
+     "walkthrough": "'Pink noise' looks like a single sound term, but pink is the container and noise alone is the definition.",
+     "definitionFit": "A plink is a short, sharp, metallic sound, like a plucked string or a drop hitting tin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pink"
+    }
+   }
   },
   {
    "number": 18,
@@ -359,7 +1538,66 @@
     "text": "Programme that's about peas, and about what's in the middle of whistles",
     "enumeration": "7"
    },
-   "solution": "PODCAST"
+   "solution": "PODCAST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PODCAST",
+    "definitions": [
+     {
+      "text": "Programme",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what's in the middle of",
+      "for": "letter_selection",
+      "note": "what's in the middle of a word is its central pair of letters, so only those are kept"
+     }
+    ],
+    "linkWords": [
+     "that's",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about peas",
+      "gives": "POD",
+      "note": "a pod is what surrounds peas"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "ca is circa, Latin for about"
+     },
+     {
+      "clueFragment": "whistles",
+      "gives": "ST",
+      "select": "middle",
+      "note": "the two central letters of whistles"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POD",
+      "CA",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A show about peas and the inside workings of whistles, a quirky programme.",
+     "walkthrough": "The repeated 'about' does two jobs: a pod is what is around peas, and ca is about as an abbreviation.",
+     "definitionFit": "A podcast is an audio or video show distributed online, so it is a programme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "peas"
+    }
+   }
   },
   {
    "number": 19,
@@ -385,7 +1623,48 @@
      }
     ]
    },
-   "solution": "LIFTOFF"
+   "solution": "LIFTOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIFT-OFF",
+    "definitions": [
+     {
+      "text": "the Countdown finale?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nick",
+      "gives": "LIFT",
+      "note": "to nick or lift something is to steal it"
+     },
+     {
+      "clueFragment": "spoiled",
+      "gives": "OFF",
+      "note": "food that has spoiled has gone off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIFT",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nicked a contestant's win and ruined the end of Countdown, the long-running British TV word-and-numbers quiz.",
+     "walkthrough": "Countdown is a British TV quiz show, but here it is the count before a rocket launches.",
+     "definitionFit": "A launch countdown ends at zero with the rocket leaving the pad, which is the moment of liftoff."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Countdown"
+    }
+   }
   },
   {
    "number": 20,
@@ -399,7 +1678,50 @@
     "text": "Yarn created by following expert",
     "enumeration": "5"
    },
-   "solution": "FABLE"
+   "solution": "FABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FABLE",
+    "definitions": [
+     {
+      "text": "Yarn",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "created by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "following",
+      "gives": "F",
+      "note": "f is short for following, as in pp. 5f"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ABLE",
+      "note": "an able person is capable, skilled"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wool spun by a skilled follower of the craft.",
+     "walkthrough": "Yarn suggests knitting wool, but here it is a tall tale.",
+     "definitionFit": "A yarn is a story, often far-fetched, and a fable is a short moral tale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Yarn"
+    }
+   }
   },
   {
    "number": 21,
@@ -413,7 +1735,52 @@
     "text": "Mating the desired outcome of this assignment given to whistleblower?",
     "enumeration": "7"
    },
-   "solution": "ENDGAME"
+   "solution": "ENDGAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDGAME",
+    "definitions": [
+     {
+      "text": "Mating",
+      "at": 0,
+      "note": "noun phrase for the chess stage in which checkmate is usually delivered"
+     }
+    ],
+    "linkWords": [
+     "of this"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the desired outcome",
+      "gives": "END",
+      "note": "an end is an aim or goal"
+     },
+     {
+      "clueFragment": "assignment given to whistleblower",
+      "gives": "GAME",
+      "note": "a referee, who blows the whistle, is assigned a match to officiate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "GAME"
+     ]
+    },
+    "explanation": {
+     "surface": "It suggests a leaker's mission whose aim is some sort of mating, a puzzling scenario.",
+     "walkthrough": "The whistleblower is not a leaker but a referee, whose assignment is a match. The question mark flags the loose chess definition.",
+     "definitionFit": "In chess the endgame is the final phase, where checkmate is most often achieved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "whistleblower"
+    }
+   }
   },
   {
    "number": 21,
@@ -427,7 +1794,71 @@
     "text": "Lament life's end, and the end of masterly, welcoming supporter",
     "enumeration": "5"
    },
-   "solution": "ELEGY"
+   "solution": "ELEGY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ELEGY",
+    "definitions": [
+     {
+      "text": "Lament",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so just that one is kept from each"
+     },
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "welcoming means taking in a guest, so the two kept letters enclose the next piece"
+     }
+    ],
+    "linkWords": [
+     "and the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "life's",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of life"
+     },
+     {
+      "clueFragment": "supporter",
+      "gives": "LEG",
+      "note": "a leg supports a table or a body"
+     },
+     {
+      "clueFragment": "masterly",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of masterly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "LEG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A mournful poem for a life ended, with a master's touch, hosting a supporter.",
+     "walkthrough": "E and Y, the two ends, enclose LEG.",
+     "definitionFit": "An elegy is a mournful poem written for the dead, a formal lament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporter"
+    }
+   }
   },
   {
    "number": 22,
@@ -441,7 +1872,51 @@
     "text": "Each scrumper thrown out of garden given lines?",
     "enumeration": "5"
    },
-   "solution": "EVERY"
+   "solution": "EVERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EVERY",
+    "definitions": [
+     {
+      "text": "Each",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scrumper thrown out of garden",
+      "gives": "EVE",
+      "note": "Eve took the forbidden fruit and was expelled from Eden"
+     },
+     {
+      "clueFragment": "lines",
+      "gives": "RY",
+      "note": "railway lines, abbreviated RY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVE",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Every apple thief caught and expelled from an orchard is made to write lines.",
+     "walkthrough": "A scrumper is British slang for someone who steals apples from orchards, and Eve is the original. Lines are a school punishment of repeated sentences.",
+     "definitionFit": "Every and each both refer to all members of a group taken one by one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lines"
+    }
+   }
   },
   {
    "number": 23,
@@ -461,7 +1936,60 @@
      }
     ]
    },
-   "solution": "INBED"
+   "solution": "INBED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "IN BED",
+    "definitions": [
+     {
+      "text": "Teddy's here, alongside the tops of ironed new blankets",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the tops of",
+      "for": "letter_selection",
+      "note": "the tops of words are their first letters, so one is taken from each of the next three words"
+     }
+    ],
+    "linkWords": [
+     "alongside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ironed new blankets",
+      "gives": "INB",
+      "select": "first",
+      "note": "the first letters of ironed, new and blankets"
+     },
+     {
+      "clueFragment": "Teddy",
+      "gives": "ED",
+      "note": "Ed is a short form of Edward, as is Teddy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INB",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A child's teddy bear lies tucked up among freshly ironed bedclothes.",
+     "walkthrough": "INB + ED. Read as a whole, the clue also describes where the teddy is: tucked under the blankets.",
+     "definitionFit": "A teddy lying beside fresh blankets is tucked up for the night, so it is lying between the sheets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Teddy"
+    }
+   }
   },
   {
    "number": 24,
@@ -475,7 +2003,63 @@
     "text": "It's repetitious nowadays - perhaps one has to be given time",
     "enumeration": "9"
    },
-   "solution": "ITERATIVE"
+   "solution": "ITERATIVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ITERATIVE",
+    "definitions": [
+     {
+      "text": "repetitious",
+      "at": 5
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to be given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nowadays",
+      "gives": "ERA",
+      "note": "the present era is nowadays"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "perhaps one has",
+      "gives": "IVE",
+      "note": "I've is what one person might say for I have"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IT",
+      "ERA",
+      "T",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "It's a tedious modern habit, perhaps: everyone needs to be given time.",
+     "walkthrough": "'One has' becomes the contraction I'VE, as one might say of oneself; 'to be given' sets the time abbreviation in front of it.",
+     "definitionFit": "An iterative process repeats the same step again and again, so it is repetitious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 25,
@@ -489,7 +2073,62 @@
     "text": "Six-footer, 50, wearing 21D with style",
     "enumeration": "9"
    },
-   "solution": "ELEGANTLY"
+   "solution": "ELEGANTLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ELEGANTLY",
+    "definitions": [
+     {
+      "text": "with style",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "container",
+      "note": "the wearer contains what is worn, so the first two pieces go inside the other entry's word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Six-footer",
+      "gives": "ANT",
+      "note": "an insect has six feet"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "21D",
+      "gives": "ELEGY",
+      "note": "the answer to 21 Down"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELEG",
+      "ANTL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall fifty-year-old dresses with flair.",
+     "walkthrough": "'Six-footer' suggests a tall person, but it is an insect with six legs.",
+     "definitionFit": "To do something elegantly is to do it gracefully and stylishly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Six-footer"
+    }
+   }
   },
   {
    "number": 26,
@@ -503,7 +2142,62 @@
     "text": "At last, dessert, in a city in Australia - it's a beer",
     "enumeration": "5"
    },
-   "solution": "TINNY"
+   "solution": "TINNY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TINNY",
+    "definitions": [
+     {
+      "text": "in Australia - it's a beer",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "At last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the next word only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dessert",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of dessert"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a city",
+      "gives": "NY",
+      "note": "NY is New York"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "IN",
+      "NY"
+     ]
+    },
+    "explanation": {
+     "surface": "After pudding in an Australian city, someone finally gets a beer.",
+     "walkthrough": "'In' looks like a placement word, but it is taken literally. A tinny is Australian slang for a can of beer.",
+     "definitionFit": "Australians call a can of beer a tinny because it comes in a metal tin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   }
  ]
 }
