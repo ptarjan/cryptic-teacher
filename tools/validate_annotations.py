@@ -1882,9 +1882,9 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     grid entry with no clue text, as in cryptic-30098 12A). That is detectable
     from the clue itself rather than from an allowlist: it has no text.
 
-    The other is a blind run's miss, in `misses`. A blind night hides the key,
-    and the grader afterwards drops the explanation of every clue the model got
-    wrong, because an explanation built on a wrong answer is wrong from its
+    The other is a cold solve's miss, in `misses`. A puzzle solved before its
+    key was published is graded when the key arrives, and the grader drops the
+    explanation of every clue the model got wrong, because an explanation built on a wrong answer is wrong from its
     first line. That blank is the grader's, decided after the run ended and off
     the published key, so it is not an escape hatch — the model cannot reach it.
     """
@@ -1895,7 +1895,7 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
         tag = f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
         if entry_id(e) in misses:
             warnings.append(
-                f"{tag}: no annotation — the blind run answered "
+                f"{tag}: no annotation — the cold solve answered "
                 f"{misses[entry_id(e)]!r} wrongly and the grader dropped its "
                 f"explanation. It ships with answers only until someone annotates it")
             continue
