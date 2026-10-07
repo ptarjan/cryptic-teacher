@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Go too far starting heavy industry in plain",
     "enumeration": "7"
    },
-   "solution": "OVERHIT"
+   "solution": "OVERHIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OVERHIT",
+    "definitions": [
+     {
+      "text": "Go too far",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starting",
+      "for": "letter_selection",
+      "note": "what is starting a word is its opening letter, so only the fronts of the two words count"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the selected letters sit inside the other word, which wraps around them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plain",
+      "gives": "OVERT",
+      "note": "plain, as in open and not hidden"
+     },
+     {
+      "clueFragment": "heavy industry",
+      "gives": "HI",
+      "select": "first",
+      "note": "the opening letters of heavy and industry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "HI",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone warns that starting heavy industry in open countryside goes too far.",
+     "definitionFit": "To overhit a ball or a shot is to hit it beyond the target, overdoing things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plain"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +110,46 @@
      }
     ]
    },
-   "solution": "ONEDOWN"
+   "solution": "ONEDOWN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONE DOWN",
+    "definitions": [
+     {
+      "text": "Where you are",
+      "at": 0
+     },
+     {
+      "text": "having conceded the first goal",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where you are",
+      "note": "first meaning: the solver is reading the first down clue right now"
+     },
+     {
+      "clueFragment": "having conceded the first goal",
+      "note": "second meaning: losing by a single score"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first sense is self-referential: this very clue is numbered 1 down.",
+     "definitionFit": "The clue's own grid position gives one sense; a team trailing by a single score after the opening goal gives the other."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Where"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +163,56 @@
     "text": "Almost merit promotion for reducing noise",
     "enumeration": "7"
    },
-   "solution": "EARPLUG"
+   "solution": "EARPLUG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EARPLUG",
+    "definitions": [
+     {
+      "text": "for reducing noise",
+      "at": 23,
+      "note": "a description of the object's use, standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost all of a word means its final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "merit",
+      "gives": "EARN",
+      "note": "to merit something is to earn it"
+     },
+     {
+      "clueFragment": "promotion",
+      "gives": "PLUG",
+      "note": "a plug is a piece of promotion or advertising"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "PLUG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nearly deserves a promotion for keeping the office quiet.",
+     "walkthrough": "'Promotion' suggests a job advance, but it means publicity.",
+     "definitionFit": "A small stopper pushed into the ear canal is used to block out sound and dampen loud surroundings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "promotion"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +226,51 @@
     "text": "Lift engineer is hot!",
     "enumeration": "5"
    },
-   "solution": "HOIST"
+   "solution": "HOIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HOIST",
+    "definitions": [
+     {
+      "text": "Lift",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engineer",
+      "for": "anagram",
+      "note": "to engineer something is to construct or rig it, so the letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is hot",
+      "gives": "ISHOT",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISHOT",
+       "gives": "HOIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An admiring remark that the lift engineer is attractive.",
+     "walkthrough": "'Engineer' reads as a noun, a person, but it is a verb telling you to rearrange.",
+     "definitionFit": "To raise something up, often with ropes or a crane, is to lift it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "engineer"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +284,53 @@
     "text": "Spell with natural sounding finish",
     "enumeration": "9"
    },
-   "solution": "TERMINATE"
+   "solution": "TERMINATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "TERMINATE",
+    "definitions": [
+     {
+      "text": "finish",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding",
+      "for": "homophone",
+      "note": "sounding means we hear the word rather than see it, so we write a word said the same way"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spell",
+      "gives": "TERM",
+      "note": "a spell is a period of time, like a school term"
+     },
+     {
+      "clueFragment": "natural",
+      "gives": "INATE",
+      "soundsLike": "INNATE",
+      "note": "innate means inborn, natural"
+     }
+    ],
+    "explanation": {
+     "surface": "A magic spell with a natural-sounding ending.",
+     "walkthrough": "'Spell' suggests magic or spelling, but it is a stretch of time.",
+     "definitionFit": "To end or bring something to a close is to finish it, so the verb is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spell"
+    }
+   }
   },
   {
    "number": 5,
@@ -115,7 +350,50 @@
      }
     ]
    },
-   "solution": "THEARTS"
+   "solution": "THEARTS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE ARTS",
+    "definitions": [
+     {
+      "text": "cultural occupations",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Mad",
+      "for": "anagram",
+      "note": "something mad is deranged, so the letters of the next word are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hatter's",
+      "gives": "HATTERS",
+      "note": "the letters of the word, apostrophe ignored"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HATTERS",
+       "gives": "THEARTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It evokes Lewis Carroll's Mad Hatter and his supposed cultural pastimes.",
+     "definitionFit": "Painting, music, theatre and literature are collectively known as this phrase, the creative pursuits of a culture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mad"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +407,53 @@
     "text": "The grasses are oddly clipped",
     "enumeration": "5"
    },
-   "solution": "TERSE"
+   "solution": "TERSE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TERSE",
+    "definitions": [
+     {
+      "text": "clipped",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly",
+      "for": "letter_selection",
+      "note": "oddly means taking the letters in the odd positions, first, third and so on"
+     }
+    ],
+    "linkWords": [
+     "are"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The grasses",
+      "gives": "TERSE",
+      "select": "alternate",
+      "note": "the first, third, fifth, seventh and ninth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener notes that the grasses have been cut unevenly.",
+     "walkthrough": "'Clipped' suggests mowing, but it describes curt speech.",
+     "definitionFit": "Clipped speech is short and abrupt, which is what brief, curt replies are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "clipped"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +467,53 @@
     "text": "Poet's near crazy for made-up language",
     "enumeration": "9"
    },
-   "solution": "ESPERANTO"
+   "solution": "ESPERANTO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESPERANTO",
+    "definitions": [
+     {
+      "text": "made-up language",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crazy",
+      "for": "anagram",
+      "note": "crazy means wild and disordered, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poet's near",
+      "gives": "POETSNEAR",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POETSNEAR",
+       "gives": "ESPERANTO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poet is nearly mad about an invented language.",
+     "definitionFit": "This international tongue was constructed by Zamenhof in 1887, so it is an invented, artificial means of communication."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "near"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +527,55 @@
     "text": "Regret taking on steady sales line",
     "enumeration": "7"
    },
-   "solution": "REVENUE"
+   "solution": "REVENUE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVENUE",
+    "definitions": [
+     {
+      "text": "sales line",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking on",
+      "for": "container",
+      "note": "taking on something means taking it in, so one word holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "steady",
+      "gives": "EVEN",
+      "note": "even means steady, regular"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EVEN",
+      "UE"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm regrets taking on a steady product line.",
+     "walkthrough": "'Sales line' suggests a range of goods, but it is the line in the accounts showing income from sales.",
+     "definitionFit": "In a company's accounts, income from sales appears as the top figure, often called turnover or income."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +589,49 @@
     "text": "The Blues Brothers send a solo piece back",
     "enumeration": "7"
    },
-   "solution": "SADNESS"
+   "solution": "SADNESS",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SADNESS",
+    "definitions": [
+     {
+      "text": "The Blues",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "piece",
+      "for": "hidden_word",
+      "note": "a piece is only a part, so the letters are a section taken from inside the words"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means reading the letters from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brothers send a solo",
+      "gives": "SSENDAS",
+      "note": "the last letter of the first word, then the next two words, then the first letter of the last"
+     }
+    ],
+    "explanation": {
+     "surface": "It evokes the Blues Brothers sending back a solo piece of music.",
+     "walkthrough": "'The Blues Brothers' is a film title, but 'The Blues' is the definition and the rest is wordplay.",
+     "definitionFit": "Having the blues means feeling melancholy, so the phrase is an informal name for unhappiness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Blues"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +645,51 @@
     "text": "Prior could be seen as more than a lord, perhaps",
     "enumeration": "7"
    },
-   "solution": "EARLIER"
+   "solution": "EARLIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARLIER",
+    "definitions": [
+     {
+      "text": "Prior",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "could be seen as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a lord, perhaps",
+      "gives": "EARL",
+      "note": "an earl is one kind of lord, hence the 'perhaps'"
+     },
+     {
+      "clueFragment": "more than",
+      "gives": "IER",
+      "note": "the comparative ending, as in 'happier', meaning more so"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "IER"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious prior might be seen as outranking a lord.",
+     "walkthrough": "'Prior' looks like a monk, but it is the adjective meaning before. The joke reads the answer as 'more earl-like'.",
+     "definitionFit": "Prior and this word both describe something that happened before in time, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Prior"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +703,59 @@
     "text": "Enthused about old record being flagged again",
     "enumeration": "7"
    },
-   "solution": "REPAVED"
+   "solution": "REPAVED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REPAVED",
+    "definitions": [
+     {
+      "text": "flagged again",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one thing about another goes around it, wrapping the inner piece"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Enthused",
+      "gives": "RAVED",
+      "note": "raved about something, praised it wildly"
+     },
+     {
+      "clueFragment": "old record",
+      "gives": "EP",
+      "note": "an EP, extended play, is an old vinyl record format"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EP",
+      "AVED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gushed about a vintage record that had been signalled again.",
+     "walkthrough": "'Flagged' suggests marked or tired, but here it means laid with flagstones.",
+     "definitionFit": "Flagstones are paving slabs, so a path flagged again has been given a fresh paved surface."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flagged"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +775,39 @@
      }
     ]
    },
-   "solution": "OILSTRIKE"
+   "solution": "OILSTRIKE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OIL STRIKE",
+    "definitions": [
+     {
+      "text": "It can provide or deny fuel",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It can provide or deny fuel",
+      "note": "surface reading: a riddle about something that both supplies and withholds fuel"
+     },
+     {
+      "clueFragment": "provide or deny",
+      "note": "setter's reading: one sense is a lucky find of petroleum underground, the other a walkout by petroleum workers"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The phrase has two senses: a discovery of a gusher, which gives fuel, and industrial action by refinery workers, which cuts supply.",
+     "definitionFit": "The phrase means both a successful petroleum find and a stoppage by petroleum industry workers, giving or withholding supply."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deny"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +821,45 @@
     "text": "Explore scope for selection",
     "enumeration": "5"
    },
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RANGE",
+    "definitions": [
+     {
+      "text": "Explore",
+      "at": 0
+     },
+     {
+      "text": "scope",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "for selection"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Explore",
+      "note": "first meaning: to roam over an area"
+     },
+     {
+      "clueFragment": "scope",
+      "note": "second meaning: the extent or span of something"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The word also means a selection, as in a product line, so 'for selection' adds a third sense.",
+     "definitionFit": "As a verb it means to wander widely; as a noun it means extent, reach, or an assortment of goods."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Explore"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +873,60 @@
     "text": "His name means nothing, if he abandons good English",
     "enumeration": "5"
    },
-   "solution": "NIGEL"
+   "solution": "NIGEL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NIGEL",
+    "definitions": [
+     {
+      "text": "His name",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "abandons",
+      "for": "container",
+      "note": "read backwards, the answer abandoning two letters leaves the word for nothing, so those letters sit inside it"
+     }
+    ],
+    "linkWords": [
+     "means",
+     "if he"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing",
+      "gives": "NIL",
+      "note": "nil is zero, nothing"
+     },
+     {
+      "clueFragment": "good English",
+      "gives": "GE",
+      "note": "G for good and E for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NI",
+      "GE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A man's name is said to be worthless once he gives up good English.",
+     "walkthrough": "The clue runs in reverse: take the G and E out of the answer and NIL is left, so the name means nothing.",
+     "definitionFit": "The answer is a common English man's first name, which is what 'his name' points to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "abandons"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +946,54 @@
      }
     ]
    },
-   "solution": "LOCKEDOUT"
+   "solution": "LOCKEDOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LOCKED OUT",
+    "definitions": [
+     {
+      "text": "being excluded from work",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in opposition to",
+      "for": "charade",
+      "note": "being in opposition means taking the contrary of each word rather than the words themselves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Opened",
+      "gives": "LOCKED",
+      "note": "the opposite of opened"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "OUT",
+      "note": "the opposite of in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOCKED",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Striking workers opened a dispute with the bosses about being kept off the site.",
+     "walkthrough": "The 'in' of 'in opposition' does double duty: it is also the word whose opposite gives the second piece.",
+     "definitionFit": "Workers shut out of their workplace by the employer during a dispute are barred from employment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "opposition"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1007,50 @@
     "text": "Those missing beats seen to get in a tangle",
     "enumeration": "9"
    },
-   "solution": "ABSENTEES"
+   "solution": "ABSENTEES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSENTEES",
+    "definitions": [
+     {
+      "text": "Those missing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get in a tangle",
+      "for": "anagram",
+      "note": "things in a tangle are knotted and jumbled, so the letters are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beats seen",
+      "gives": "BEATSSEEN",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BEATSSEEN",
+       "gives": "ABSENTEES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Absent people are apparently seen beating themselves into a muddle.",
+     "definitionFit": "People who are absent from work or school are those missing from where they should be."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beats"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1064,52 @@
     "text": "Lions come circulating; there's one!",
     "enumeration": "9"
    },
-   "solution": "SEMICOLON"
+   "solution": "SEMICOLON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SEMICOLON",
+    "definitions": [
+     {
+      "text": "there's one!",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circulating",
+      "for": "anagram",
+      "note": "circulating means moving around, so the letters move into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lions come",
+      "gives": "LIONSCOME",
+      "note": "the letters of both words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIONSCOME",
+       "gives": "SEMICOLON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A safari spotter warns that lions are coming round and points one out.",
+     "walkthrough": "'There's one!' points at the punctuation mark in the clue itself, the one after 'circulating'.",
+     "definitionFit": "The clue itself contains this punctuation mark, so the exclamation literally points to an example in the text."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lions"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1129,48 @@
      }
     ]
    },
-   "solution": "FACECREAM"
+   "solution": "FACECREAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FACE CREAM",
+    "definitions": [
+     {
+      "text": "it may make you look better!",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take on",
+      "gives": "FACE",
+      "note": "to face an opponent is to take them on"
+     },
+     {
+      "clueFragment": "elite",
+      "gives": "CREAM",
+      "note": "the cream is the best, the elite"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FACE",
+      "CREAM"
+     ]
+    },
+    "explanation": {
+     "surface": "A pep talk about confronting the best, which may improve your image.",
+     "walkthrough": "'Look better' suggests reputation, but it means appearance.",
+     "definitionFit": "A cosmetic moisturiser applied to the skin is meant to improve your complexion and appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "look"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1190,50 @@
      }
     ]
    },
-   "solution": "FILLSUP"
+   "solution": "FILLSUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FILLS UP",
+    "definitions": [
+     {
+      "text": "Gets emotional",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with",
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pack",
+      "gives": "FILL",
+      "note": "to pack a space is to fill it"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to sip a drink"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FILL",
+      "SUP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone becomes tearful while packing up over a drink.",
+     "definitionFit": "When tears well up from strong feeling, a person becomes tearful or choked."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pack"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1247,65 @@
     "text": "Demolished luncheon dropping over the way to France",
     "enumeration": "7"
    },
-   "solution": "CHUNNEL"
+   "solution": "CHUNNEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CHUNNEL",
+    "definitions": [
+     {
+      "text": "the way to France",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Demolished",
+      "for": "anagram",
+      "note": "something demolished is knocked down and broken up, so the letters are rearranged"
+     },
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "luncheon",
+      "gives": "LUNCHEON",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHUNNEL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LUNCHEN",
+       "gives": "CHUNNEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wolfed lunch before the trip to France.",
+     "walkthrough": "In cricket an over is a set of six balls, marked O on a scorecard. The answer is the nickname for the Channel Tunnel.",
+     "definitionFit": "The rail tunnel under the English Channel links Britain with the French coast near Calais."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Demolished"
+    }
+   }
   },
   {
    "number": 19,
@@ -369,7 +1325,50 @@
      }
     ]
    },
-   "solution": "OPART"
+   "solution": "OPART",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OP ART",
+    "definitions": [
+     {
+      "text": "picture that dazzles the eye",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "role",
+      "gives": "PART",
+      "note": "a part played by an actor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PART"
+     ]
+    },
+    "explanation": {
+     "surface": "An Oscar-winning role in a film that dazzles audiences.",
+     "walkthrough": "Oscar and role suggest a film, but 'picture' is a painting.",
+     "definitionFit": "This 1960s movement painted geometric optical illusions designed to trick and dazzle the viewer's vision."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 20,
@@ -393,7 +1392,60 @@
      }
     ]
    },
-   "solution": "ALAMODE"
+   "solution": "ALAMODE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "A LA MODE",
+    "definitions": [
+     {
+      "text": "Fashionable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrote up",
+      "for": "reversal",
+      "note": "in a down entry, going up means the letters run from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place in Texas",
+      "gives": "ALAMO",
+      "note": "the Alamo is the historic mission in San Antonio"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALAMO",
+      "DE"
+     ],
+     "reversals": [
+      {
+       "from": "ED",
+       "to": "DE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist wrote up a trendy venue in Texas.",
+     "definitionFit": "The French-derived phrase means in the current style, a borrowing for trendy or stylish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wrote"
+    }
+   }
   },
   {
    "number": 21,
@@ -407,7 +1459,44 @@
     "text": "Some restaurants bar anyone so unconnected!",
     "enumeration": "7"
    },
-   "solution": "TIELESS"
+   "solution": "TIELESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TIELESS",
+    "definitions": [
+     {
+      "text": "Some restaurants bar anyone so",
+      "at": 0,
+      "note": "describes a person without a necktie"
+     },
+     {
+      "text": "unconnected",
+      "at": 31
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Some restaurants bar anyone so",
+      "note": "first meaning: without a necktie, against a dress code"
+     },
+     {
+      "clueFragment": "unconnected",
+      "note": "second meaning: without ties or bonds"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Smart restaurants may turn away a man without a necktie; read whimsically, the word also means having no ties at all.",
+     "definitionFit": "Lacking neckwear is the literal sense; lacking bonds or attachments is the punning sense of having no links."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "unconnected"
+    }
+   }
   },
   {
    "number": 22,
@@ -421,7 +1510,54 @@
     "text": "Bug where French enter London college",
     "enumeration": "5"
    },
-   "solution": "LOUSE"
+   "solution": "LOUSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LOUSE",
+    "definitions": [
+     {
+      "text": "Bug",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enter",
+      "for": "container",
+      "note": "a word that enters another goes inside it, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London college",
+      "gives": "LSE",
+      "note": "the London School of Economics"
+     },
+     {
+      "clueFragment": "where French",
+      "gives": "OU",
+      "note": "the French word for where"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "OU",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A virus or bug is found where French students enter a London college.",
+     "definitionFit": "A small parasitic insect counts as a bug in everyday speech, especially American usage for insects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bug"
+    }
+   }
   },
   {
    "number": 23,
@@ -435,7 +1571,49 @@
     "text": "Small gesture can warm things up",
     "enumeration": "9"
    },
-   "solution": "MICROWAVE"
+   "solution": "MICROWAVE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MICROWAVE",
+    "definitions": [
+     {
+      "text": "can warm things up",
+      "at": 14,
+      "note": "a description of what the appliance does, standing for its name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small",
+      "gives": "MICRO",
+      "note": "micro means very small"
+     },
+     {
+      "clueFragment": "gesture",
+      "gives": "WAVE",
+      "note": "a wave of the hand is a gesture"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MICRO",
+      "WAVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small friendly gesture can thaw relations between people.",
+     "walkthrough": "'Warm things up' suggests improving the mood, but it is the kitchen oven heating food.",
+     "definitionFit": "This kitchen oven reheats leftovers quickly using electromagnetic radiation, so it heats food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 23,
@@ -449,7 +1627,56 @@
     "text": "Master in America means to take off  …",
     "enumeration": "5"
    },
-   "solution": "MINUS"
+   "solution": "MINUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MINUS",
+    "definitions": [
+     {
+      "text": "to take off",
+      "at": 24,
+      "note": "the sign tells you to subtract"
+     }
+    ],
+    "linkWords": [
+     "means"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Master",
+      "gives": "M",
+      "note": "M is short for Master, as in an MA"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "America",
+      "gives": "US",
+      "note": "the United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "An American master craftsman explains how to remove something, continued in the next clue.",
+     "definitionFit": "The arithmetic sign or word instructs you to subtract, which is to deduct or take away."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Master"
+    }
+   }
   },
   {
    "number": 24,
@@ -463,7 +1690,49 @@
     "text": "…  and start working group",
     "enumeration": "5"
    },
-   "solution": "ONSET"
+   "solution": "ONSET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONSET",
+    "definitions": [
+     {
+      "text": "start",
+      "at": 7
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means functioning, working"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group of things"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "SET"
+     ]
+    },
+    "explanation": {
+     "surface": "Continuing the previous clue: take off and start a working group.",
+     "definitionFit": "The beginning of something, especially an illness or season, is its commencement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 25,
@@ -477,7 +1746,50 @@
     "text": "Local star is dejected, when the lights come on",
     "enumeration": "7"
    },
-   "solution": "SUNDOWN"
+   "solution": "SUNDOWN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUNDOWN",
+    "definitions": [
+     {
+      "text": "when the lights come on",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Local star",
+      "gives": "SUN",
+      "note": "our own nearby star"
+     },
+     {
+      "clueFragment": "dejected",
+      "gives": "DOWN",
+      "note": "down means low in spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "DOWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A local celebrity feels low when the stage lights come on.",
+     "walkthrough": "'Local star' suggests a hometown celebrity, but it is the star at the centre of our solar system.",
+     "definitionFit": "Evening dusk is the time of day when street lamps are switched on as it grows dark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 26,
@@ -491,7 +1803,54 @@
     "text": "Graceful line is what I'm all about",
     "enumeration": "7"
    },
-   "solution": "LISSOME"
+   "solution": "LISSOME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LISSOME",
+    "definitions": [
+     {
+      "text": "Graceful",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the standard abbreviation for line"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "what I'm all about",
+      "gives": "SOME",
+      "note": "'so me' is slang for typical of me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IS",
+      "SOME"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer boasts that a graceful line is exactly their style.",
+     "walkthrough": "The answer splits as L + IS + SO ME, using the slang 'that's so me'.",
+     "definitionFit": "A supple, slim and flexible body moves with grace, which is what this word describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 27,
@@ -505,7 +1864,42 @@
     "text": "Exercise taken by pupil at estate",
     "enumeration": "7"
    },
-   "solution": "PILATES"
+   "solution": "PILATES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PILATES",
+    "definitions": [
+     {
+      "text": "Exercise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken by",
+      "for": "hidden_word",
+      "note": "the run of letters is held by the words that follow, sitting within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pupil at estate",
+      "gives": "PILATES",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A schoolchild on a housing estate takes some exercise.",
+     "definitionFit": "This system of controlled body-conditioning workouts, focusing on core strength, is a form of physical exercise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 28,
@@ -519,7 +1913,66 @@
     "text": "Nurse worried about limits of test for eccentrics",
     "enumeration": "7"
    },
-   "solution": "NUTTERS"
+   "solution": "NUTTERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "NUTTERS",
+    "definitions": [
+     {
+      "text": "eccentrics",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits of",
+      "for": "letter_selection",
+      "note": "the limits of a word are its two ends, so only its outermost letters count"
+     },
+     {
+      "text": "worried about",
+      "for": "anagram",
+      "note": "something worried about is shaken around, so the letters are disordered"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nurse",
+      "gives": "NURSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "test",
+      "gives": "TT",
+      "select": "outer",
+      "note": "the first and last letters of test"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NURSETT",
+       "gives": "NUTTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse frets over the outcome of a test given to odd patients.",
+     "walkthrough": "A nutter is British slang for a crazy or eccentric person.",
+     "definitionFit": "Informal slang for crazy or odd people, so it matches oddballs and cranks in a colloquial way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "worried"
+    }
+   }
   }
  ]
 }
