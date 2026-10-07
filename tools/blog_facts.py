@@ -1817,9 +1817,9 @@ def bigdave_entries(r):
 
 
 def bigdave_records():
-    """bigdave44's own parsed light lists, as stand-in puzzles to measure on
-    until the Telegraph puzzles are filed, each (id, number, byte offset of its
-    record, digest of its record, series). Ids are prefixed so nothing
+    """bigdave44's own parsed light lists, as stand-in puzzles to measure on,
+    each (id, number, byte offset of its record, digest of its record,
+    series). Ids are prefixed so nothing
     mistakes them for ours."""
     path = BLOGS["bigdave44"][0] / "parsed.jsonl"
     if not path.exists():
@@ -2311,9 +2311,8 @@ def main():
         return
     import fcntl  # not at the top: letter_facts imports this module on the desktop, and Windows has no fcntl
 
-    # A full parse at nice 0 in every copy of this repo at once starved the bridge
-    # sharing this machine until its container restarted. So it runs niced, and one
-    # at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
+    # A full parse at nice 0 in every copy of this repo at once starves the bridge
+    # sharing this machine. So it runs niced, and one at a time machine-wide: the lock lives in $HOME, not in the checkout, so a
     # second clone kept for an old-vs-new comparison waits its turn too.
     os.nice(19)
     lock = open(Path.home() / ".cache" / "cryptic-blog-facts.lock", "a")  # noqa: SIM115 -- held until exit
@@ -2353,7 +2352,7 @@ def main():
             print(json.dumps({"id": r["id"], "entry": eid, "url": r["url"], **f}, ensure_ascii=False))
     print(f"wrote blog facts for {write(best, series, spool)} puzzles to {OUT.relative_to(ROOT)}")
     # letter_facts reads back what was just written, so the joins it came from
-    # are not held under its corpus: both at once were the run's peak memory.
+    # are not held under its corpus: both at once would be the run's peak memory.
     del best, series, spool
     import letter_facts
     said = letter_facts.read_leads(required=True)

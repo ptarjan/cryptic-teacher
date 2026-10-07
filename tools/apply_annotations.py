@@ -24,14 +24,8 @@ Except when the run's copy of the puzzle (tools/_puzzle_<ID>.json, written by
 key, every other entry keeps its annotation byte for byte, and a key that
 would change one is refused.
 
-This exists because the annotation run used to hand-write a throwaway Python
-script per puzzle to do it. Eighty-four of them, in six spellings of the same
-`sys.path` incantation; forty-eight re-typed the `/*JSON-START*/` markers by hand
-instead of importing them, one in eighty-four used `puzzle_path()`, and several
-stamped a `generator=` provenance naming a module they never imported. All of it
-was scaffolding around a dict, rebuilt nightly and deleted, and none of it is the
-part a model should be spending turns on: the annotations themselves are the
-work, and they are all that goes in the JSON now.
+The annotations themselves are the work, and they are all that goes in the
+JSON: the file I/O, markers and provenance are this tool's job, not the run's.
 
 On a grid a model solved (solutions.origin "model"), an annotation whose
 `answer` differs from its light's letters corrects them, once the new fill

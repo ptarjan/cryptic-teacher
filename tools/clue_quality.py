@@ -18,11 +18,12 @@ comma or a copula, with no sentence wrapped around them.
 Rewriting those six clues produced a second complaint, and it is the sharper one:
 *they still do not read as real sentences or carry a joke.* `That Conservative
 lot, and mean with it` is a grammatical fragment with no finite verb — nothing a
-person would ever say out loud. Two further checks look for that: a clue that
-opens by telling the solver what to do (`imperative-opening`), and a clue built
-out of word pairs that no published setter has ever written
-(`unattested-phrasing`). A third, a clue with no finite verb, was deleted: it
-fired on half of published clues and solvers' favourites ignored it.
+person would ever say out loud. Two checks look for that: a clue that opens
+by telling the solver what to do (`imperative-opening`), and a clue built out
+of word pairs that no published setter has ever written
+(`unattested-phrasing`). There is no check for a clue with no finite verb
+(`not-a-sentence` below): it fires on half of published clues and solvers'
+favourites ignore it.
 
 Every warning here is a smell, not an error. Exit status is 0 either way — this
 informs the setter, it does not block the build.
@@ -47,11 +48,12 @@ each puzzle, favourite against puzzle-mate
 
 An odds ratio under 1 means solvers favour the clue less when the check fires;
 |z| under 2 is no evidence either way. Two checks are established the way they
-were designed: `indicator-abuts-fodder` and `terse`. Three were deleted on
-this table. `fenced-definition` was established the OTHER way: a definition
-standing alone behind a comma or colon makes a clue half as likely again to be
-a favourite. `stock-indicator` and `not-a-sentence` fired on a sixth and on
-half of all published clues and carried no signal at all. `copula-definition`, `imperative-opening` and
+were designed: `indicator-abuts-fodder` and `terse`. Three rows are measured
+here but not run as checks, because of this table. `fenced-definition` is
+established the OTHER way: a definition standing alone behind a comma or colon
+makes a clue half as likely again to be a favourite. `stock-indicator` and
+`not-a-sentence` fire on a sixth and on half of all published clues and carry
+no signal at all. `copula-definition`, `imperative-opening` and
 `unattested-phrasing` point the right way but are too rare to establish.
 
 Two cautions. The votes are fifteensquared's: Guardian, Independent, Everyman
@@ -99,13 +101,13 @@ are simply false:
     shape in the corpus. It is kept only because it is the check with the second
     strongest correlation to judge score above (-0.45), and that correlation, not
     the shape, is the whole of its claim to exist. Read it as "this clue had no
-    other disguise", never as "setters do not do this". Since 2026-07-30 the
-    opposite is a hard rule: `check_indicator_adjacency` in
+    other disguise", never as "setters do not do this". The opposite is a
+    hard rule: `check_indicator_adjacency` in
     validate_annotations.py ERRORs when an anagram indicator is NOT next to its
     fodder, because an indicator only operates on what it touches. So the only
     legal response to this smell is a different indicator, never a moved one.
   * Rarity does not separate once indicators are compared like with like. The
-    existing `stock-indicator` premise — that published setters use each
+    `stock-indicator` premise — that published setters use each
     indicator about once — is an artefact of counting rows in the `indicators`
     table, which holds one row per (wordplay, indicator) pair and so tops out at
     5; the real usage counts live in its `clue_rowids` column. Counted properly,
@@ -116,8 +118,7 @@ are simply false:
     all-types distribution ours look commoner (mean percentile 0.69), but that
     pool mixes anagram indicators with container and deletion ones drawn from far
     larger vocabularies, and the comparison is worthless. A rarity percentile
-    does not discriminate better than the current top-2% cutoff; it discriminates
-    no better than chance, so nothing was changed.
+    discriminates no better than chance.
 
 Position is the one place a gap appears, and it did not survive being poked. Our
 indicator starts in the clue's first two words on 10 of 13 against a published
@@ -334,7 +335,7 @@ def check(eid, spec, norms):
     lower = clue.lower()
     definition = ((ann.get("definitions") or [{}])[0].get("text") or "").strip()
 
-    # 1. Definition welded on with a copula, at the seam of the wordplay.
+    # Definition welded on with a copula, at the seam of the wordplay.
     if definition:
         d = re.escape(definition.lower())
         if re.search(rf"\b{COPULAS}\s+(?:an?\s+|the\s+)?{d}\b", lower):
@@ -342,7 +343,7 @@ def check(eid, spec, norms):
                         f"'{definition}' is bolted on with a copula; the clue "
                         f"states its own answer rather than describing a scene"))
 
-    # 3. Anagram indicator jammed against its own fodder.
+    # Anagram indicator jammed against its own fodder.
     fodder = (whole_anagram(ann) or "").strip()
     if fodder:
         for ind in (i["text"] for i in ann.get("indicators") or []):
@@ -361,10 +362,9 @@ def check(eid, spec, norms):
                             f"description; do NOT move it, adjacency is required"))
                 break
 
-    # 7. Opens by telling the solver what to do. Grammatically a sentence, but
-    #    the addressee is the solver,
-    #    not anyone inside the surface — instructions wearing a sentence's
-    #    clothes.
+    # Opens by telling the solver what to do. Grammatically a sentence, but
+    # the addressee is the solver, not anyone inside the surface — instructions
+    # wearing a sentence's clothes.
     toks = tokens(clue)
     imperative = opens_imperative(toks, norms)
     if imperative and imperative in ASSEMBLY_VERBS:
@@ -374,9 +374,9 @@ def check(eid, spec, norms):
                     f"so there is no scene for anyone else to picture"))
 
     if norms:
-        # 8. Phrasing nobody has ever published. Not a rule against novelty —
-        #    a rule against word pairs that only exist because the letters
-        #    needed them.
+        # Phrasing nobody has ever published. Not a rule against novelty — a
+        # rule against word pairs that only exist because the letters needed
+        # them.
         content = [(a, b) for a, b in bigrams(toks)
                    if a not in FUNCTION_WORDS or b not in FUNCTION_WORDS]
         if len(content) >= UNATTESTED_MIN_BIGRAMS:
@@ -390,8 +390,8 @@ def check(eid, spec, norms):
                             f"clues ({shown}); the phrasing was built to fit the "
                             f"letters, not spoken"))
 
-        # 5. Too short to carry a picture. Not a rule against brevity — a rule
-        #    against having no room for a surface idea.
+        # Too short to carry a picture. Not a rule against brevity — a rule
+        # against having no room for a surface idea.
         n = len("".join(c for c in ann.get("answer", "") if c.isalpha()))
         med = norms["median_words"].get(n)
         if med and len(ws) < med - 1:

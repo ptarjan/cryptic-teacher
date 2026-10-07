@@ -11,7 +11,7 @@ symbol), the Symbol part of speech, and Translingual's Symbol and Numeral
 parts of speech, where chemical symbols, units and Roman numerals live: about 125 MB streamed line by line, so
 the 3 GB full dump is never needed. A sense counts when it carries one of those
 tags or is a Symbol, and its expansion is what the dictionary says it stands
-for: the alt_of/form_of words, or a gloss of four words or fewer when it gives
+for: the alt_of/form_of words, or a gloss of three words or fewer when it gives
 none ("month" for mon, "copper" for Cu's "Chemical element symbol for copper").
 
 An entry spelled with a final period is an abbreviation by its spelling, and

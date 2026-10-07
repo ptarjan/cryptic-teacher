@@ -24,9 +24,9 @@
 //                  today and a handful of recent days. No answers, no hints;
 //                  cheap, and a year of real clues is worth having.
 //
-// WHERE THE HINTS LIVE (mapped 2026-08-02 with a headless browser, after two
-// wrong answers, so nobody has to do it a third time). Their player pulls the
-// whole of today's puzzle from ONE undocumented route:
+// WHERE THE HINTS LIVE (mapped with a headless browser, so nobody has to do it
+// again). Their player pulls the whole of today's puzzle from ONE undocumented
+// route:
 //
 //     GET /api/daily_puzzle/today?tz=<IANA zone>
 //
@@ -90,8 +90,8 @@ async function get(url, asJson) {
 // the script stays usable somewhere the memory file doesn't exist.
 // CLAUDE_CONFIG_DIR first: $HOME is not the config dir. In the container the
 // agent's home is /data/home and its memory is on a different volume at
-// /data/claude, so deriving this from $HOME read a path that does not exist and
-// signed in anonymously without saying so.
+// /data/claude, so deriving this from $HOME reads a path that does not exist and
+// signs in anonymously without saying so.
 const CRED_FILE = path.join(
   process.env.CLAUDE_CONFIG_DIR || path.join(process.env.HOME, ".claude"),
   "projects/-Users-pt/memory/minutecryptic-account.md");

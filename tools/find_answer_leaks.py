@@ -15,10 +15,9 @@ while a short answer is not caught inside an unrelated longer word.
   python3 tools/find_answer_leaks.py 30104      # just this puzzle, clue by clue
   python3 tools/find_answer_leaks.py --json     # per-clue targets for a rewrite
 
-Name a puzzle rather than grepping the corpus run for its number: annotation
-sessions were piping the whole-corpus summary through `grep -i <num>` roughly
-once a session, which matches the filename and prints the ranking line, not the
-notes that are wrong.
+Name a puzzle rather than grepping the corpus run for its number: `grep -i
+<num>` on the whole-corpus summary matches the filename and prints the ranking
+line, not the notes that are wrong.
 """
 
 import argparse

@@ -24,16 +24,15 @@ WHAT IT DERIVES, AND FROM WHAT
                       actually produce this (series, host). What a file claims
                       is the last tool to WRITE it rather than the one that
                       fetched it, so it is believed only where it is possible
-                      and overruled by the table where it is not. See that
-                      table's comment for the two tools that used to overwrite
-                      it. The banner on the generated .js shim restates this
-                      field and is never a source for it.
+                      and overruled by the table where it is not. The banner
+                      on the generated .js shim restates this field and is
+                      never a source for it.
 
   source.acquiredOn   the date the puzzle first appears in git. That is
                       what is knowable: no fetcher recorded a fetch time, and
                       the commit that added the file is the closest honest
-                      statement of when the puzzle arrived. Puzzles added before
-                      2026-08-19 were renamed by the id-namespacing commit, so
+                      statement of when the puzzle arrived. Puzzles added on or
+                      before NAMESPACING_DATE were renamed by the id-namespacing commit, so
                       those are re-resolved with `git log --follow` to reach the
                       real first appearance rather than the rename.
 

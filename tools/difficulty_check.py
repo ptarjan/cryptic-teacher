@@ -17,7 +17,7 @@ Each set is split into date thirds, oldest first, and each third is scored
 (Spearman) against the NITCH minus the weekday mean of the rated puzzles
 OUTSIDE that third, so no puzzle helps set its own target. The "blended" rows
 are the same sets under the badges' comment blend (difficulty.blend()), with
-its per-series moments taken over the set, as scratch/comment_blend.py did.
+its per-series moments taken over the set.
 Then the gentle-series margin: the mean index of every other series minus
 that of difficulty.GENTLE_SERIES, in the index's own sd.
 

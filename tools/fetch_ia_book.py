@@ -22,9 +22,9 @@ fix.
 WHY A LOAN AT ALL, AND WHY NOT _djvu.txt. <id>_djvu.txt at
 https://archive.org/download/<id>/<id>_djvu.txt is the plain-text OCR dump
 you'd want, and it's what a public-domain item serves — but for a lending
-book it stays HTTP 401 even with an active loan held (verified live
-2026-09-18: logged in, browse_book + create_token both succeeded, loan
-cookies present, and the request still 401'd). archive.org simply does not
+book it stays HTTP 401 even with an active loan held (logged in,
+browse_book + create_token both succeeded, loan cookies present, and the
+request still 401s). archive.org simply does not
 generate/serve that whole-book text file for lending items; a loan does not
 unlock it. What a loan *does* unlock is the BookReader's own per-page OCR
 endpoint (see FULL-TEXT ENDPOINT below), which is loan-gated (HTTP 403
@@ -32,9 +32,9 @@ endpoint (see FULL-TEXT ENDPOINT below), which is loan-gated (HTTP 403
 logged in and holding the loan) and is the only route this script found
 that returns real text for a book you don't own outright.
 
-ENDPOINT SEQUENCE (verified against archive.org live 2026-09-18, and cross-
-checked against github.com/MiniGlome/Archive.org-Downloader, a working
-downloader that exercises the same login/loan flow):
+ENDPOINT SEQUENCE (cross-checked against
+github.com/MiniGlome/Archive.org-Downloader, a working downloader that
+exercises the same login/loan flow):
 
   1. GET  https://archive.org/services/csrf-token
      -> {"success": true, "value": {"token": "..."}} — token feeds both the
@@ -46,8 +46,7 @@ downloader that exercises the same login/loan flow):
      reference implementation sends and archive.org accepts):
        {"username": <email>, "password": <password>, "t": <token>}
      Success: {"success": true, ...}. Bad credentials: HTTP 400,
-     {"success": false, "value": "bad_login", "error": "..."} — confirmed
-     live with a throwaway bad login 2026-09-18. Session cookies from here
+     {"success": false, "value": "bad_login", "error": "..."}. Session cookies from here
      carry the login through every later request.
   3. POST https://archive.org/services/loans/loan/  data: action=browse_book,
      identifier=<id>
@@ -57,10 +56,9 @@ downloader that exercises the same login/loan flow):
      Any other non-2xx here is real.
   3b. THE BORROW TRAP. archive.org returns that one byte-identical 400 body
      for two different conditions: (a) an item that needs no loan at all, and
-     (b) a lending item whose every copy is checked out right now. Verified
-     live 2026-09-18 with one logged-in session: sketchbookofgeof00irvi (no
-     loan needed) and dailytelegraphcr0000dail (single copy out until
-     04:37 UTC) both answered with exactly
+     (b) a lending item whose every copy is checked out right now. With one
+     logged-in session, sketchbookofgeof00irvi (no loan needed) and
+     dailytelegraphcr0000dail (its single copy out) both answer with exactly
      {"error":"This book is not available to borrow at this time. Please try
      again later."} — same status, same string, nothing in the response
      separating them. Reading it as (a) sends a temporarily-unavailable book
@@ -84,15 +82,13 @@ downloader that exercises the same login/loan flow):
      code says it cannot tell rather than picking the friendlier side.
   4. POST same URL, data: action=create_token, identifier=<id>
      ONLY when a loan was actually granted. Without one it answers HTTP 400
-     "You do not currently have this book borrowed." — which is how the
-     borrow trap used to surface.
+     "You do not currently have this book borrowed."
      Success has the literal substring "token" in the response body (the
      reference implementation's own success check; the response isn't a
      clean {"success": true} shape here). This sets loan-<id> and
      br-loan-<id> cookies on the session — those, not the token value
      itself, are what later requests need.
-  5. FULL-TEXT ENDPOINT (this is the part that took experimentation — see
-     fetch_full_text()'s docstring for the full story):
+  5. FULL-TEXT ENDPOINT (see fetch_full_text()'s docstring):
      a. GET https://archive.org/metadata/<id> (public, no login needed) for
         "server", "dir", and metadata.imagecount — dir + "/" + <id> +
         "_djvu.xml" is the page path the next call wants, and imagecount
@@ -105,9 +101,8 @@ downloader that exercises the same login/loan flow):
         carrying its OCR text plus pixel coordinates and a confidence
         score. Cover/blank pages have no <HIDDENTEXT> at all — normal, not
         an error. This is the same per-page endpoint the in-browser reader
-        uses for text selection (found via the "textSelection" plugin URL
-        template in BookReaderJSIA.php's response, which is where this
-        endpoint was discovered — see fetch_full_text() docstring).
+        uses for text selection (the "textSelection" plugin URL template in
+        BookReaderJSIA.php's response names it).
      Concatenated per-page text, pages joined with form-feed (\x0c), is
      what this script writes.
   6. POST loan URL, data: action=return_loan, identifier=<id>, but only when
@@ -115,20 +110,15 @@ downloader that exercises the same login/loan flow):
      (It answers {"success": true} for an item you never borrowed as well, so
      its reply is no evidence a loan existed — borrow()'s return value is.)
 
-Every step above, including the full-text route, was run for real against
-archive.org for newpenguinbkguar0000perk (150 pages) on 2026-09-18: login,
-browse_book, create_token, all 150 pages of BookReaderGetTextWrapper.php,
-and return_loan all succeeded, and the output file contains real book text.
-
 The loan is always returned on the way out, success or exception, unless
---keep-loan is given — these are one-hour, one-copy, no-waitlist loans on
-both target books, so a crash that leaves one held locks the next borrow
+--keep-loan is given — these are one-hour, one-copy, no-waitlist loans,
+so a crash that leaves one held locks the next borrow
 out for the full hour.
 
 WHY A LEDGER AS WELL AS THE CONTEXT MANAGER. borrowed()'s finally clause
 covers every exit Python controls, and nothing else: a process killed by a
 signal runs no finally clause at all, and that includes plain SIGTERM, which
-is what `timeout N` sends. Verified by tools/test_fetch_ia_book.sh, which
+is what `timeout N` sends. Verified by tools/test_ia_loan_leak.sh, which
 kills a holder mid-loan with SIGTERM and with SIGKILL and watches the loan
 stay out. So the return cannot be guaranteed in-process, and the guarantee is
 moved to the NEXT process instead: record_loan() writes the identifier to
@@ -139,7 +129,7 @@ run is not working on. A killed run therefore leaks a loan for exactly as
 long as it takes the next run to start.
 
 There is NO list-my-loans call to reconcile against. The loans service takes
-one action per request and its action namespace was swept live 2026-09-19:
+one action per request, and a live sweep of its action namespace found none:
 query, user_loans, list_loans, loans, get_loans, my_loans, loan_records,
 current_loans and a dozen more all answer HTTP 400 invalid_action, and
 action=availability without an identifier 400s too. What availability DOES
@@ -158,7 +148,7 @@ the next book collects one identical refusal per book and acquires nothing.
 borrow() raises LendingLimitReached for it, which callers are expected to
 treat as "stop the run", not "try the next one".
 NOT A CONCURRENCY CAP, and this is the trap: returning loans need not clear
-it. Verified live 2026-09-19 — the account was refused every borrow for more
+it. Observed live: the account was refused every borrow for more
 than four hours after a run ended while holding ZERO loans: all 24 plan books
 plus unrelated lending items reported user_loan_count=0, user_at_max_loans=
 false, available_to_browse=true with a free copy, and browse_book still
@@ -647,7 +637,7 @@ def fetch_full_text(session, identifier, max_pages=None):
     the same per-page OCR (djvu.xml with word coordinates) the in-browser
     reader uses for text selection: confirmed HTTP 403 "Item not available"
     with no session, HTTP 200 with hidden text once logged in and holding
-    the loan (verified live 2026-09-18). There is no whole-book endpoint,
+    the loan. There is no whole-book endpoint,
     so this walks every page and concatenates.
     """
     meta = session.get(METADATA_URL.format(id=identifier), timeout=30)

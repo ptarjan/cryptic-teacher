@@ -91,10 +91,9 @@ keeps (1977-07-22, leaf 21: 64 counts, no heading).
 
 A rerun skips every edition in done.tsv at the current DETECTOR_VERSION,
 except one whose per-page words (pagetext.json.gz beside a djvu.xml.gz) hold
-an OBJECT on a leaf other than the one its PAGE names (misplaced): the
-per-page endpoint gave another leaf's words before the fetcher checked them,
-so the edition is fetched again by the whole-djvu.xml path, and its changed
-files make the filer read it again.
+an OBJECT on a leaf other than the one its PAGE names (misplaced): that
+edition is fetched again by the whole-djvu.xml path, and its changed files
+make the filer read it again.
 Bumping DETECTOR_VERSION re-runs detection from the cached djvu.xml and
 fetches only the page images it newly finds; no text is downloaded again.
 

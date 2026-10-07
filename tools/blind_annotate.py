@@ -104,9 +104,8 @@ def restore():
             for e in puzzle["entries"]:
                 if key.get(entry_id(e)):
                     e["solution"] = key[entry_id(e)]
-            # No generator: restoring a stashed key must put back the file's
-            # own banner, not the default, which relabelled every
-            # non-Guardian puzzle this ever touched.
+            # No generator: restoring a stashed key keeps the file's own
+            # banner; the default would relabel a non-Guardian puzzle.
             write_puzzle_file(path, puzzle)
             print(f"BLIND ANNOTATE: {puzzle['id']} was never attempted — key restored, "
                   f"nothing graded")

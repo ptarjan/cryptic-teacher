@@ -5,8 +5,8 @@
     python3 tools/corroborate.py --sweep --apply    # ...and write what it resolves
     python3 tools/corroborate.py cryptic-23053      # one puzzle, report only
 
-fetch_puzzle.write_puzzle_file calls corroborate() on every puzzle it writes,
-so every fetcher gets this without asking for it. A source here only ever
+fetch_puzzle.write_puzzle_file calls corroborate() on every puzzle it writes
+into puzzles/, so every fetcher gets this without asking for it. A source here only ever
 reads a local cache, which keeps a write cheap and offline: a puzzle whose
 series no cache covers simply has no second source, and that is not an error.
 The caches are filled by the tools that own them — fetch_fifteensquared.py,
