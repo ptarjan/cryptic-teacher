@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """File the Listener crossword from the Listener Team's archive PDFs.
 
-    python3 tools/listener_puzzles.py [--dry-run]
+    python3 tools/listener_puzzles.py [--dry-run]            # the archive PDFs
+    python3 tools/listener_puzzles.py --wayback [--dry-run]  # the Times' pages
 
 The Listener Team's site (listenercrossword.com) prints clue text for only five
 historic puzzles, each as a pair of vector PDFs at /PDF/Archive/: List<nnnn>.pdf
@@ -847,9 +848,10 @@ def file_pdfs(write=True, log=print):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--dry-run", action="store_true")
-    write = not ap.parse_args(argv).dry_run
-    file_pdfs(write=write)
-    file_times(write=write)
+    ap.add_argument("--wayback", action="store_true",
+                    help="file the Times' Wayback pages instead of the archive PDFs")
+    args = ap.parse_args(argv)
+    (file_times if args.wayback else file_pdfs)(write=not args.dry_run)
     return 0
 
 

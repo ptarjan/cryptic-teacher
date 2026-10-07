@@ -1126,9 +1126,9 @@ python3 tools/fetch_puzzle.py --reindex
 # final commit.
 python3 tools/build_abbreviations.py
 # The README's corpus counts are generated too, and annotating is what moves
-# them. daily_update.sh rebuilds them before it commits so they are never more
-# than one run behind; this job commits annotations as well, and without the
-# same line the counts stall at whatever the last nightly saw. They are worth
+# them; nothing else rebuilds them on every run (daily_update.sh does only when
+# its rebase conflicts on a generated file), so without this line the counts
+# stall at whatever the last rebuild saw. They are worth
 # saying and not worth stopping for, so a refusal here names itself and the run
 # carries on -- the puzzles are the point.
 if ! readme_err=$(python3 tools/build_readme.py 2>&1); then
