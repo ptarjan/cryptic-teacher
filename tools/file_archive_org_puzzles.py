@@ -1492,25 +1492,35 @@ def ocr_titles(img, paper, day, key):
     return found
 
 
+#: "Crossword" as our readers misread it on a Gale page ("Cressword",
+#: "Cr0ssword"), read as the word.
+OCR_CROSSWORD = re.compile(r"cr[eo0]s{1,2}w[o0]rd", re.IGNORECASE)
+
+
 def ocr_headings(img, paper, key):
     """([(number, box, setter, readers)], [(number, box)]) of the titles and
     solution headings on a page archive.org has no text for (a Gale page:
     one article, so its whole ink is read): each heading's number at least
-    half our readers read, with the box and setter of the first."""
+    half our readers read, with the box and setter of the first; a title
+    fewer read stands when it is the number after a solution heading read
+    on the page (the day before's, printed under the clues)."""
     box = img.convert("L").point(lambda v: 255 if v < 128 else 0).getbbox()
     if box is None:
         return [], []
     titles, sols = {}, {}
     for which in READERS:
         path = CROPS / "titles" / f"{key}_page.{reader_key(which)}.json"
-        ts, ss = paper.headings(printed_lines(band_words(img, box, which, path)))
+        words = [(*w[:4], OCR_CROSSWORD.sub("Crossword", w[4])) for w in band_words(img, box, which, path)]
+        ts, ss = paper.headings(printed_lines(words))
         for n, b, setter in ts:
             titles.setdefault(n, []).append((which, b, setter))
         for n, b in ss:
             sols.setdefault(n, []).append(b)
     least = len(READERS) / 2
-    return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items() if len(reads) >= least],
-            [(n, boxes[0]) for n, boxes in sols.items() if len(boxes) >= least])
+    sols = {n: boxes for n, boxes in sols.items() if len(boxes) >= least}
+    return ([(n, reads[0][1], reads[0][2], [r[0] for r in reads]) for n, reads in titles.items()
+             if len(reads) >= least or n - 1 in sols],
+            [(n, boxes[0]) for n, boxes in sols.items()])
 
 
 def page(d, leaf):
@@ -1799,8 +1809,7 @@ class Paper:
     the series its puzzles file as."""
 
     def __init__(self, key, series, item, name, expected, third=0, solution_above=False, margin=40,
-                 clues_above=False, shrink=1, slack=None, four=False, also=(), ledger="filed.jsonl",
-                 newest_first=False):
+                 clues_above=False, shrink=1, slack=None, four=False, also=()):
         self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
         #: The width of a clue column right of the grid (0: none), whether
         #: the solution grid is printed above its heading, how far left
@@ -1818,10 +1827,6 @@ class Paper:
         #: Papers of the same series in other items, whose editions a run of
         #: this one reads too.
         self.also = also
-        #: Its ledger's name in the cache (run), and whether its never-read
-        #: editions are read latest staged first (pages saved by hand, whose
-        #: saver waits to see them filed) rather than a year at a time.
-        self.ledger, self.newest_first = ledger, newest_first
 
     def headings(self, lines):
         if self.key == "times1930":
@@ -1852,12 +1857,17 @@ TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Tele
 #: of their own: a run of them, minutes after a page lands, never waits on the
 #: full pass holding filed.jsonl for an hour-long slice, and the full pass's
 #: Times runs never read them.
-GALE = Paper("gale", SERIES, GALE_ITEM, "Times cryptic crossword No {:,}", expected_number,
-             ledger=downloads.GALE_LEDGER.name, newest_first=True)
+GALE = Paper("gale", SERIES, GALE_ITEM, "Times cryptic crossword No {:,}", expected_number)
 #: The archive.org papers (coverage counts each series once, off these).
 PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
 #: Every --paper a run can read: each ledger's editions.
 FILERS = {**PAPERS, GALE.key: GALE}
+#: Each run's ledger in the cache, filed.jsonl unless named here. Kept off
+#: Paper, whose source is in the scan key (SCAN_CODE).
+LEDGER_NAMES = {GALE.key: downloads.GALE_LEDGER.name}
+#: The runs whose never-read editions are read latest laid out first (pages
+#: saved by hand, whose saver waits to see them filed), not a year at a time.
+NEWEST_FIRST = {GALE.key}
 
 
 def paper_of(d):
@@ -2062,7 +2072,7 @@ def filed_number(d, found, hit):
     n = hit["number"]
     paper = paper_of(d)
     day = issue_day(datetime.date.fromisoformat(found["date"]), n, [h["number"] for h in found["puzzles"]])
-    if paper is TIMES and day.weekday() == 6:
+    if paper in (TIMES, GALE) and day.weekday() == 6:
         return None, day, f"{day} is a Sunday and the Times prints no daily cryptic on it: a Sunday paper's puzzle"
     if abs(n - paper.expected(day)) > paper.slack:
         # A short number misread ("200" for 209): the page's solution
@@ -2593,7 +2603,7 @@ def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limi
     is not set."""
     deadline = None if seconds is None else time.monotonic() + seconds
     paper = paper or TIMES
-    ledger = Path(ledger or cache / paper.ledger)
+    ledger = Path(ledger or cache / LEDGER_NAMES.get(paper.key, "filed.jsonl"))
     with scan_queue.lock(ledger, wait) as mine:
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
@@ -2781,7 +2791,7 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         if editions or due_reason(known[rel], h, sol_seen, seen_by, reread):
             due[d] = (h, sol_seen, fh)
-    keys = sorted(due, key=staged_at, reverse=True) if paper.newest_first else list(due)
+    keys = sorted(due, key=staged_at, reverse=True) if paper.key in NEWEST_FIRST else list(due)
     queue = scan_queue.order(keys, {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
         queue = queue[:limit]

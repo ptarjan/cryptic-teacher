@@ -755,7 +755,7 @@ check("the FT's editions are the FT phase's, and their paper is the FT",
 check("a Gale page is the Gale run's, never the Times run's, and files as the Times",
       (["1974-05-01_1", "1990-01-02_3", "1974-05-02_2"], ["1987-03-02"], "gale", "times", "filed-gale.jsonl"),
       ([d.name for d in f.edition_dirs(cache)], [d.name for d in f.edition_dirs(cache, f.GALE)],
-       f.paper_of(cache / "GaleTimes1987UKEnglish" / "x").key, f.GALE.series, f.GALE.ledger))
+       f.paper_of(cache / "GaleTimes1987UKEnglish" / "x").key, f.GALE.series, f.LEDGER_NAMES["gale"]))
 check("filer_of: each edition to the run that reads it (the 1930 Times the Times run's)",
       ["gale", "times", "times", "ft", None],
       [getattr(f.filer_of(r), "key", None) for r in ("GaleTimes1987UKEnglish/1987-03-02", "NewsUK1990UKEnglish/x",
@@ -1478,6 +1478,35 @@ os.environ.pop("OCR_REMOTE")
 sunday = {"date": "1994-08-14", "puzzles": [{"number": 19620}]}
 n, day, why = f.filed_number(Path("x/NewsUK1994UKEnglish/ed"), sunday, {"number": 19620, "leaf": 1})
 check("a Sunday Times-item puzzle is refused, not filed on a Sunday", (None, True), (n, bool(why and "Sunday" in why)))
+n, day, why = f.filed_number(Path("x/GaleTimes1994UKEnglish/1994-08-14"), sunday, {"number": 19620, "leaf": 1})
+check("and so is one off a Gale page", (None, True), (n, bool(why and "Sunday" in why)))
+
+# A Gale page's headings (ocr_headings): "Crossword" misread is read as the
+# word, and a title fewer than half the readers read stands when the page's
+# solution heading names the day before's puzzle (1987-01-08, -09).
+from PIL import Image
+gale_img = Image.new("L", (400, 400), 255)
+gale_img.putpixel((10, 10), 0)
+def gale_words(by_reader):
+    saved_bw = f.band_words
+    f.band_words = lambda img, box, which, path: by_reader.get(which, [])
+    try:
+        return f.ocr_headings(gale_img, f.GALE, "test")
+    finally:
+        f.band_words = saved_bw
+title = lambda text: [(10 + 60 * k, 10, 60 + 60 * k, 30, w) for k, w in enumerate(text.split())]
+sol = [(10, 300, 40, 320, "Solution"), (45, 300, 60, 320, "to"), (65, 300, 90, 320, "Puzzle"),
+       (95, 300, 110, 320, "No"), (115, 300, 160, 320, "17,247")]
+rs = list(f.READERS)
+got = gale_words({rs[0]: title("The Times CresswordPuzzle No 17,248") + sol,
+                  rs[1]: title("The Times Cressword Puzzle No 17,248") + sol})
+check("a title read 'Cressword' is the title", ([17248], [17247]), ([t[0] for t in got[0]], [s_[0] for s_ in got[1]]))
+got = gale_words({rs[2]: title("The Times Crossword Puzzle NO 17,249"),
+                  rs[0]: [(*w[:4], "17,248" if w[4] == "17,247" else w[4]) for w in sol],
+                  rs[1]: [(*w[:4], "17,248" if w[4] == "17,247" else w[4]) for w in sol]})
+check("a title one reader read stands after the solution heading the others read", [17249], [t[0] for t in got[0]])
+got = gale_words({rs[2]: title("The Times Crossword Puzzle No 17,300")})
+check("one reader's title with no solution heading to back it is not", [], got[0])
 
 # The 1930 Times (pub_times, one item an issue): its paper, its 1-3 digit
 # numbers held to the date, four clue columns, and counts from the grid.
