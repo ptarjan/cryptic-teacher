@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "Sign in front of camera in broadcast is poor",
     "enumeration": "7"
    },
-   "solution": "SCORPIO"
+   "solution": "SCORPIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SCORPIO",
+    "definitions": [
+     {
+      "text": "Sign",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that one is kept"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast seed is to scatter it, so these letters are scattered into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the other, so it is placed inside the scattered letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "camera",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of camera"
+     },
+     {
+      "clueFragment": "is poor",
+      "gives": "ISPOOR",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "ORPIO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISPOOR",
+       "gives": "SORPIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A TV producer complains that a star sign segment in front of the camera made for a poor broadcast.",
+     "definitionFit": "Scorpio is one of the twelve signs of the zodiac, the scorpion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +116,58 @@
     "text": "Collapse, losing heart after second doubt",
     "enumeration": "7"
    },
-   "solution": "SCRUPLE"
+   "solution": "SCRUPLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SCRUPLE",
+    "definitions": [
+     {
+      "text": "doubt",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing heart",
+      "for": "deletion",
+      "note": "a word that loses its heart drops its central letter"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the standard abbreviation for second"
+     },
+     {
+      "clueFragment": "Collapse",
+      "gives": "CRUMPLE",
+      "note": "to crumple is to collapse in a heap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CRUPLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone collapses after a moment of hesitation, overcome by doubt.",
+     "walkthrough": "CRUMPLE has seven letters, so its heart is the fourth, M; what remains follows S to give SCRUPLE.",
+     "definitionFit": "A scruple is a moral hesitation, a qualm that makes one doubt whether an action is right."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +181,65 @@
     "text": "Finished dispatch admitting pressure and excessive outlay",
     "enumeration": "9"
    },
-   "solution": "OVERSPEND"
+   "solution": "OVERSPEND",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OVERSPEND",
+    "definitions": [
+     {
+      "text": "excessive outlay",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit someone is to let them in, so the dispatch word takes a letter inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Finished",
+      "gives": "OVER",
+      "note": "a match that is finished is over"
+     },
+     {
+      "clueFragment": "dispatch",
+      "gives": "SEND",
+      "note": "to dispatch a letter is to send it"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the physics symbol for pressure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "S",
+      "P",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "An office manager notes that a finished dispatch has let pressure grow over spending too much.",
+     "walkthrough": "The pressure letter goes in just after the first letter of the dispatch word, not at its centre.",
+     "definitionFit": "An overspend is a noun for spending beyond budget, i.e. an outlay that is too large."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pressure"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +253,56 @@
     "text": "Food made from dough by middle of day",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "Food made from dough",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a three-letter word is its single central letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by",
+      "gives": "PAST",
+      "note": "to walk by a house is to walk past it"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "A",
+      "select": "middle",
+      "note": "the central letter of day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A meal prepared from dough is ready by midday.",
+     "walkthrough": "The definition runs to 'dough', so 'by' is the start of the wordplay rather than part of the description.",
+     "definitionFit": "Pasta is Italian food shaped from a dough of flour and water or egg."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "by"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +316,51 @@
     "text": "One caring for eyes unaccustomed to Soho lamplight",
     "enumeration": "15"
    },
-   "solution": "OPHTHALMOLOGIST"
+   "solution": "OPHTHALMOLOGIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPHTHALMOLOGIST",
+    "definitions": [
+     {
+      "text": "One caring for eyes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unaccustomed",
+      "for": "anagram",
+      "note": "letters that are unaccustomed are out of their usual order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to Soho lamplight",
+      "gives": "TOSOHOLAMPLIGHT",
+      "note": "fifteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOSOHOLAMPLIGHT",
+       "gives": "OPHTHALMOLOGIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An eye doctor whose patients find the lights of Soho, a London nightlife district, hard on the eyes.",
+     "walkthrough": "'to' looks like a link word but its letters are needed in the fodder.",
+     "definitionFit": "An ophthalmologist is a medical specialist who treats diseases of the eye."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unaccustomed"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +374,71 @@
     "text": "Noah's arranged new start for animals, getting cry of praise",
     "enumeration": "7"
    },
-   "solution": "HOSANNA"
+   "solution": "HOSANNA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HOSANNA",
+    "definitions": [
+     {
+      "text": "cry of praise",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged letters have been put into a fresh order"
+     },
+     {
+      "text": "start for",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noah's",
+      "gives": "NOAHS",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "animals",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of animals"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOAHSNA",
+       "gives": "HOSANNA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Noah organises a fresh beginning for the animals on the ark and is greeted with shouts of praise.",
+     "walkthrough": "'arranged' governs everything that follows: Noah's letters plus N and the A from animals.",
+     "definitionFit": "Hosanna is a Biblical exclamation of adoration and worship, shouted in praise of God."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arranged"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +458,89 @@
      }
     ]
    },
-   "solution": "HIPPOCRATICOATH"
+   "solution": "HIPPOCRATICOATH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "HIPPOCRATIC OATH",
+    "definitions": [
+     {
+      "text": "promise of ethical treatment",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Funny",
+      "for": "anagram",
+      "note": "something funny is odd or peculiar, so the letters are made to come out strangely"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the preceding group is placed in the word that follows"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "HIP",
+      "note": "hip means fashionable"
+     },
+     {
+      "clueFragment": "actor",
+      "gives": "ACTOR",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "CO is the abbreviation for company"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "PATH",
+      "note": "a path is a way through"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIP",
+      "P",
+      "OCRAT",
+      "I",
+      "CO",
+      "ATH"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTOR",
+       "gives": "OCRAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian with his theatre company takes a fashionable approach to good medical practice.",
+     "walkthrough": "'in' governs everything before it except the opening adjective, which stands outside at the front; the inserted group splits the way word after its first letter.",
+     "definitionFit": "The Hippocratic oath is the pledge doctors traditionally swear to treat patients ethically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Funny"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +560,69 @@
      }
     ]
    },
-   "solution": "SICKLEAVE"
+   "solution": "SICKLEAVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "SICK LEAVE",
+    "definitions": [
+     {
+      "text": "time off when ill",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "having no",
+      "for": "deletion",
+      "note": "having none of something means it is taken away"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word is held in another, as goods are kept inside a shop"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Predicament",
+      "gives": "PICKLE",
+      "note": "to be in a pickle is to be in a predicament"
+     },
+     {
+      "clueFragment": "pence",
+      "gives": "P",
+      "note": "P is the abbreviation for pence; it is removed"
+     },
+     {
+      "clueFragment": "store",
+      "gives": "SAVE",
+      "note": "to store money is to save it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ICKLE",
+      "AVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a fix, with no money in the shop, needs time off sick.",
+     "walkthrough": "A pickle is British slang for an awkward situation. Without P it goes inside SAVE after the S.",
+     "definitionFit": "Sick leave is the absence from work an employee is allowed while unwell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +636,51 @@
     "text": "Famous end to novel",
     "enumeration": "5"
    },
-   "solution": "NOTED"
+   "solution": "NOTED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOTED",
+    "definitions": [
+     {
+      "text": "Famous",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are given a new arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "end to",
+      "gives": "ENDTO",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ENDTO",
+       "gives": "NOTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The celebrated final chapter of a book.",
+     "walkthrough": "'novel' reads as a book but is an adjective meaning new, signalling rearrangement of the two words before it.",
+     "definitionFit": "Noted is an adjective for someone well known or renowned, a synonym of famous."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +694,65 @@
     "text": "Complete account on busy place filled with energy",
     "enumeration": "7"
    },
-   "solution": "ACHIEVE"
+   "solution": "ACHIEVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ACHIEVE",
+    "definitions": [
+     {
+      "text": "Complete",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "filled with",
+      "for": "container",
+      "note": "a container filled with something holds it inside"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "account",
+      "gives": "AC",
+      "note": "AC is the abbreviation for account"
+     },
+     {
+      "clueFragment": "busy place",
+      "gives": "HIVE",
+      "note": "a hive of activity is a busy place"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "HI",
+      "E",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "Finishing the books on a bustling, energetic workplace.",
+     "walkthrough": "In a down clue, 'on' means placed above, so the account abbreviation sits on top of the filled hive.",
+     "definitionFit": "To achieve a task is to complete it successfully, bring it to a finish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "account"
+    }
+   }
   },
   {
    "number": 9,
@@ -185,7 +766,44 @@
     "text": "Reportedly studies water plants",
     "enumeration": "5"
    },
-   "solution": "REEDS"
+   "solution": "REEDS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REEDS",
+    "definitions": [
+     {
+      "text": "water plants",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "studies",
+      "gives": "REEDS",
+      "soundsLike": "READS",
+      "note": "a student studies or reads a subject"
+     }
+    ],
+    "explanation": {
+     "surface": "A news item about research into aquatic vegetation.",
+     "walkthrough": "To read a subject is British usage for studying it at university.",
+     "definitionFit": "Reeds are tall grasses that grow in shallow water and marshes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "studies"
+    }
+   }
   },
   {
    "number": 10,
@@ -199,7 +817,56 @@
     "text": "Game and drink after hard work",
     "enumeration": "9"
    },
-   "solution": "HOPSCOTCH"
+   "solution": "HOPSCOTCH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOPSCOTCH",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil-grading abbreviation for hard"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP, short for opus, is a musical work"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SCOTCH",
+      "note": "Scotch is whisky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OP",
+      "SCOTCH"
+     ]
+    },
+    "explanation": {
+     "surface": "After a day's hard graft, someone plays a game and has a whisky.",
+     "walkthrough": "'after' places the drink behind the other two pieces.",
+     "definitionFit": "Hopscotch is a children's playground game of hopping through squares chalked on the ground."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 11,
@@ -213,7 +880,71 @@
     "text": "One absorbed by weird topic has to be a nut",
     "enumeration": "9"
    },
-   "solution": "PISTACHIO"
+   "solution": "PISTACHIO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PISTACHIO",
+    "definitions": [
+     {
+      "text": "a nut",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absorbed by",
+      "for": "container",
+      "note": "something absorbed is taken in, so it ends up inside"
+     },
+     {
+      "text": "weird",
+      "for": "anagram",
+      "note": "weird means strange, so the following letters are put in a strange order"
+     }
+    ],
+    "linkWords": [
+     "has to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "topic has",
+      "gives": "TOPICHAS",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "I",
+      "STACHIO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOPICHAS",
+       "gives": "PSTACHIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone engrossed in an odd subject must be mad.",
+     "walkthrough": "'a nut' reads as an eccentric person but is the definition; the extra I goes after the P.",
+     "definitionFit": "The pistachio is a green-kernelled nut from a tree native to the Middle East."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "nut"
+    }
+   }
   },
   {
    "number": 12,
@@ -227,7 +958,50 @@
     "text": "Projection in line with advantage",
     "enumeration": "5"
    },
-   "solution": "LEDGE"
+   "solution": "LEDGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEDGE",
+    "definitions": [
+     {
+      "text": "Projection",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "advantage",
+      "gives": "EDGE",
+      "note": "having the edge means having an advantage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "EDGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A forecast that falls in line with having the upper hand.",
+     "definitionFit": "A ledge is a narrow shelf jutting out from a wall or cliff face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Projection"
+    }
+   }
   },
   {
    "number": 13,
@@ -247,7 +1021,67 @@
      }
     ]
    },
-   "solution": "ETERNALTRIANGLE"
+   "solution": "ETERNALTRIANGLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ETERNAL TRIANGLE",
+    "definitions": [
+     {
+      "text": "tense relationship",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unfolded",
+      "for": "anagram",
+      "note": "something unfolded is opened out and laid differently, so these letters are reordered"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the rearranged letters go around the last piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter, learning",
+      "gives": "LETTERLEARNING",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETERNALTRI",
+      "A",
+      "NGLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LETTERLEARNING",
+       "gives": "ETERNALTRINGLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Opening a letter reveals news of a strained love affair.",
+     "walkthrough": "The extra A sits inside the rearranged letters, just after TRI.",
+     "definitionFit": "An eternal triangle is a romantic situation involving three people, typically a couple and a lover."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 14,
@@ -261,7 +1095,67 @@
     "text": "Colour, for example, about to be found in fresh linen",
     "enumeration": "9"
    },
-   "solution": "NILEGREEN"
+   "solution": "NILEGREEN",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "NILEGREEN",
+    "definitions": [
+     {
+      "text": "Colour",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be found in",
+      "for": "container",
+      "note": "what is found in something lies inside it"
+     },
+     {
+      "text": "fresh",
+      "for": "anagram",
+      "note": "fresh means newly made, so the letters are made over in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "EG is the abbreviation for for example"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "RE means about or concerning"
+     },
+     {
+      "clueFragment": "linen",
+      "gives": "LINEN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EGRELINEN",
+       "gives": "NILEGREEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shade, say, that turns up in new bed sheets.",
+     "walkthrough": "The two abbreviations join the linen, and the whole lot is rearranged.",
+     "definitionFit": "Nile green is a pale bluish green, named after the colour of the river Nile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fresh"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1175,68 @@
      }
     ]
    },
-   "solution": "GHOSTTOWN"
+   "solution": "GHOSTTOWN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "GHOST TOWN",
+    "definitions": [
+     {
+      "text": "deserted place",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the earlier pieces are put in the clothing word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Presenter",
+      "gives": "HOST",
+      "note": "a TV host presents the show"
+     },
+     {
+      "clueFragment": "tousled",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of tousled"
+     },
+     {
+      "clueFragment": "dress",
+      "gives": "GOWN",
+      "note": "a gown is a long dress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "HOST",
+      "T",
+      "OWN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dishevelled TV presenter in a frock arrives somewhere abandoned.",
+     "definitionFit": "A ghost town is a once-busy settlement now empty of inhabitants."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Presenter"
+    }
+   }
   },
   {
    "number": 16,
@@ -309,7 +1264,66 @@
      }
     ]
    },
-   "solution": "MIDDLEOFTHEROAD"
+   "solution": "MIDDLEOFTHEROAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MIDDLE-OF-THE-ROAD",
+    "definitions": [
+     {
+      "text": "extreme? Far from it",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the idol and notice pieces are sent to the back, behind the heart and frequently pieces"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heart",
+      "gives": "MIDDLE",
+      "note": "the heart of something is its middle"
+     },
+     {
+      "clueFragment": "frequently",
+      "gives": "OFT",
+      "note": "oft is an old word for often"
+     },
+     {
+      "clueFragment": "Idol",
+      "gives": "HERO",
+      "note": "an idol is someone's hero"
+     },
+     {
+      "clueFragment": "notice",
+      "gives": "AD",
+      "note": "an ad is a notice in a paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIDDLE",
+      "OFT",
+      "HERO",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity notices that they keep following their heart to extremes.",
+     "walkthrough": "'following' puts the idol and notice after the heart and frequently pieces, so the clue's first words come last.",
+     "definitionFit": "Middle-of-the-road means moderate and unadventurous, the opposite of extreme."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 16,
@@ -323,7 +1337,57 @@
     "text": "Vehicle's driven into horse? Ghastly",
     "enumeration": "7"
    },
-   "solution": "MACABRE"
+   "solution": "MACABRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MACABRE",
+    "definitions": [
+     {
+      "text": "Ghastly",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "driven into",
+      "for": "container",
+      "note": "a vehicle driven into something ends up inside it"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horse",
+      "gives": "MARE",
+      "note": "a mare is a female horse"
+     },
+     {
+      "clueFragment": "Vehicle",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CAB",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A car has ploughed into a horse: a horrible scene.",
+     "definitionFit": "Macabre means gruesome, dealing with death in a horrifying way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vehicle"
+    }
+   }
   },
   {
    "number": 17,
@@ -337,7 +1401,44 @@
     "text": "Selected for service, composed",
     "enumeration": "7"
    },
-   "solution": "DRAFTED"
+   "solution": "DRAFTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRAFTED",
+    "definitions": [
+     {
+      "text": "Selected for service",
+      "at": 0
+     },
+     {
+      "text": "composed",
+      "at": 22
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Selected for service",
+      "note": "first meaning: conscripted into the armed forces"
+     },
+     {
+      "clueFragment": "composed",
+      "note": "second meaning: written in a first version"
+     }
+    ],
+    "explanation": {
+     "surface": "A soldier picked for duty stays calm.",
+     "walkthrough": "'composed' tempts as calm; here it means written out.",
+     "definitionFit": "To be drafted is to be called up for military duty, and also to have been written as a draft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "composed"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1452,42 @@
     "text": "Metallic sound in futuristic language",
     "enumeration": "5"
    },
-   "solution": "CLANG"
+   "solution": "CLANG",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CLANG",
+    "definitions": [
+     {
+      "text": "Metallic sound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the letters sit in the following words, spanning the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "futuristic language",
+      "gives": "CLANG",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A science-fiction language includes a clanking noise.",
+     "definitionFit": "A clang is the loud ringing noise made when metal strikes metal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "futuristic"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1501,50 @@
     "text": "Dispense completely with part of Bible",
     "enumeration": "5"
    },
-   "solution": "ALLOT"
+   "solution": "ALLOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALLOT",
+    "definitions": [
+     {
+      "text": "Dispense",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "completely",
+      "gives": "ALL",
+      "note": "all means wholly or completely"
+     },
+     {
+      "clueFragment": "part of Bible",
+      "gives": "OT",
+      "note": "OT is the Old Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALL",
+      "OT"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting rid of a whole section of scripture.",
+     "walkthrough": "'Dispense with' reads as one phrase meaning discard, but 'Dispense' alone is the definition.",
+     "definitionFit": "To allot is to distribute or hand out shares, which is to dispense them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dispense"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1558,54 @@
     "text": "Group of players in short race out of shape",
     "enumeration": "9"
    },
-   "solution": "ORCHESTRA"
+   "solution": "ORCHESTRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORCHESTRA",
+    "definitions": [
+     {
+      "text": "Group of players",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of shape",
+      "for": "anagram",
+      "note": "letters that are out of shape have lost their form and are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "short race",
+      "gives": "SHORTRACE",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SHORTRACE",
+       "gives": "ORCHESTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A team of unfit athletes competes in a sprint.",
+     "walkthrough": "'players' suggests sport, but here they are musicians.",
+     "definitionFit": "An orchestra is a large ensemble of musicians playing instruments together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "players"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1619,68 @@
     "text": "Be gloomy, upset about small location of course",
     "enumeration": "5"
    },
-   "solution": "EPSOM"
+   "solution": "EPSOM",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EPSOM",
+    "definitions": [
+     {
+      "text": "location of course",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the word reads bottom to top"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the turned word goes round the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Be gloomy",
+      "gives": "MOPE",
+      "note": "to mope is to be listless and gloomy"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EP",
+      "S",
+      "OM"
+     ],
+     "reversals": [
+      {
+       "from": "MOPE",
+       "to": "EPOM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sulks, distressed about a minor setting, of course.",
+     "walkthrough": "'of course' reads as a throwaway phrase but means racecourse: Epsom, in Surrey, is home to the Derby.",
+     "definitionFit": "Epsom is the English town whose racecourse, Epsom Downs, stages the Derby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1694,65 @@
     "text": "Dancer having left Ireland settled in Welsh town",
     "enumeration": "9"
    },
-   "solution": "BALLERINA"
+   "solution": "BALLERINA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BALLERINA",
+    "definitions": [
+     {
+      "text": "Dancer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "settled in",
+      "for": "container",
+      "note": "to settle in a place is to take up residence inside it"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Welsh town",
+      "gives": "BALA",
+      "note": "Bala is a small town in north Wales"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "Ireland",
+      "gives": "ERIN",
+      "note": "Erin is a poetic name for Ireland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAL",
+      "L",
+      "ERIN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer who quit Ireland has made her home in a Welsh town.",
+     "walkthrough": "'left' looks like departing Ireland, but it is just the letter L.",
+     "definitionFit": "A ballerina is a female ballet dancer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1766,46 @@
     "text": "Brave saint no longer in prison",
     "enumeration": "5"
    },
-   "solution": "STOUT"
+   "solution": "STOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOUT",
+    "definitions": [
+     {
+      "text": "Brave",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "ST is the abbreviation for saint"
+     },
+     {
+      "clueFragment": "no longer in prison",
+      "gives": "OUT",
+      "note": "a released prisoner is out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "OUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A courageous holy man has been freed from jail.",
+     "definitionFit": "Stout, in an older sense, means bold and courageous, as in stout-hearted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "saint"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1819,71 @@
     "text": "Unknown vessel with hundred captured by alien being wiped out",
     "enumeration": "7"
    },
-   "solution": "EXTINCT"
+   "solution": "EXTINCT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXTINCT",
+    "definitions": [
+     {
+      "text": "wiped out",
+      "at": 52
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured by",
+      "for": "container",
+      "note": "what is captured is held inside its captor"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET is the film alien, the extra-terrestrial"
+     },
+     {
+      "clueFragment": "Unknown",
+      "gives": "X",
+      "note": "X is the mathematical unknown"
+     },
+     {
+      "clueFragment": "vessel",
+      "gives": "TIN",
+      "note": "a tin is a container"
+     },
+     {
+      "clueFragment": "hundred",
+      "gives": "C",
+      "note": "C is the Roman numeral for a hundred"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "TIN",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A mysterious spaceship and a hundred crew seized by aliens, never to be seen again.",
+     "definitionFit": "A species is extinct when it has died out entirely and no longer exists."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1897,66 @@
     "text": "Little in note about primate",
     "enumeration": "7"
    },
-   "solution": "HOMINID"
+   "solution": "HOMINID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "HOMINID",
+    "definitions": [
+     {
+      "text": "primate",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the small word sits in the turned note"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "brought about means turned round, so the note reads backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "DOH",
+      "note": "doh is the first note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "Little",
+      "gives": "MINI",
+      "note": "mini means small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HO",
+      "MINI",
+      "D"
+     ],
+     "reversals": [
+      {
+       "from": "DOH",
+       "to": "HOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short entry in a memo about the great apes.",
+     "definitionFit": "A hominid is a member of the family of great apes that includes humans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   }
  ]
 }
