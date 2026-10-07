@@ -55,6 +55,21 @@ check "a claimed traceback does not silence an unrelated failure" \
 
 $traceback" "VALIDATION FAILED")" "1"
 
+# Alerts quote `tail -12` of a tool's output, which drops the header of a
+# long traceback; the exception line that ends it still claims it.
+frames='  File "tools/andlit_azed.py", line 98, in get
+    return r.geturl(), r.read()
+http.client.IncompleteRead: IncompleteRead(786216 bytes read, 167601 more expected)'
+check "a traceback whose tail an alert quoted is not reported again" \
+  "$(run "tools/andlit_azed.py failed:
+$frames" "$traceback
+$frames")" "0"
+check "a traceback ending in an unquoted exception is still reported" \
+  "$(run "tools/andlit_azed.py failed:
+$frames" "$traceback
+  File \"x.py\", line 1, in f
+KeyError: 4923")" "1"
+
 # A path that prints its own failure line before alerting claims it by
 # printing it with echo_alerted, so the catch-all does not report it again.
 claimed_line() {  # claimed_line <line> -> catch-all reports for that run
