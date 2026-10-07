@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Start to regret taking ecstasy after a meal",
     "enumeration": "6"
    },
-   "solution": "REPAST"
+   "solution": "REPAST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REPAST",
+    "definitions": [
+     {
+      "text": "a meal",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, so only that one is kept"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "regret",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter of regret"
+     },
+     {
+      "clueFragment": "ecstasy",
+      "gives": "E",
+      "note": "E is the drug ecstasy"
+     },
+     {
+      "clueFragment": "after",
+      "gives": "PAST",
+      "note": "past means after, as in half past two"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "E",
+      "PAST"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who took a pill after dinner soon wishes they hadn't.",
+     "walkthrough": "'Taking' just strings the first two letters together; 'after' supplies the last four, so 'after a meal' is not one phrase.",
+     "definitionFit": "A repast is a formal word for a meal or feast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,64 @@
     "text": "Take great pleasure in continually going over to Luxembourg",
     "enumeration": "5"
    },
-   "solution": "REVEL"
+   "solution": "REVEL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "REVEL",
+    "definitions": [
+     {
+      "text": "Take great pleasure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going over",
+      "for": "reversal",
+      "note": "going over suggests turning something over, so in a down entry the word is read upward"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "continually",
+      "gives": "EVER",
+      "note": "ever means always, continually"
+     },
+     {
+      "clueFragment": "Luxembourg",
+      "gives": "L",
+      "note": "L is the international vehicle code for Luxembourg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVE",
+      "L"
+     ],
+     "reversals": [
+      {
+       "from": "EVER",
+       "to": "REVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keeps travelling to Luxembourg because they enjoy it so much.",
+     "definitionFit": "To revel is to take great delight, and 'revel in' is the idiom the surface borrows."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "continually"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +179,84 @@
     "text": "Call to mind a bit of advice about crossing Cambodia's principal river",
     "enumeration": "7"
    },
-   "solution": "PICTURE"
+   "solution": "PICTURE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PICTURE",
+    "definitions": [
+     {
+      "text": "Call to mind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned round, so the word for advice is read backwards"
+     },
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "something crossing another lies across it, so one piece sits inside the other"
+     },
+     {
+      "text": "principal",
+      "for": "letter_selection",
+      "note": "the principal letter of a word is its first one"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a bit of advice",
+      "gives": "TIP",
+      "note": "a tip is a piece of advice"
+     },
+     {
+      "clueFragment": "Cambodia",
+      "gives": "C",
+      "select": "first",
+      "note": "the leading letter of Cambodia"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "URE",
+      "note": "the Ure is a river in Yorkshire"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "C",
+      "T",
+      "URE"
+     ],
+     "reversals": [
+      {
+       "from": "TCIP",
+       "to": "PICT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travel tip about getting over the main river of Cambodia, the Mekong.",
+     "walkthrough": "The reversed advice goes round the C, then the river is added at the end. The Ure is a Yorkshire river much used in crosswords.",
+     "definitionFit": "To picture something is to imagine it, to bring an image of it to mind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "principal"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +270,67 @@
     "text": "Resent failing to receive small backhander",
     "enumeration": "9"
    },
-   "solution": "SWEETENER"
+   "solution": "SWEETENER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SWEETENER",
+    "definitions": [
+     {
+      "text": "backhander",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "a failing word has broken down, so its letters fall into a new order"
+     },
+     {
+      "text": "to receive",
+      "for": "container",
+      "note": "receiving something means taking it in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Resent",
+      "gives": "RESENT",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEE",
+      "TENER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RESENT",
+       "gives": "STENER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sulks at missing out on a little bribe.",
+     "walkthrough": "'Resent' looks like a verb with a subject missing; it is the letters to rearrange, with the small word slipped in after the first S.",
+     "definitionFit": "A backhander is a bribe, and a sweetener is an inducement payment of the same kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Resent"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +350,60 @@
      }
     ]
    },
-   "solution": "BELIEF"
+   "solution": "BELIEF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BELIEF",
+    "definitions": [
+     {
+      "text": "Persuasion",
+      "at": 64
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a name is its first letter, so only that is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail to give a true impression of",
+      "gives": "BELIE",
+      "note": "to belie is to misrepresent"
+     },
+     {
+      "clueFragment": "Frederick",
+      "gives": "F",
+      "select": "first",
+      "note": "the opening letter of Frederick"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELIE",
+      "F"
+     ]
+    },
+    "explanation": {
+     "surface": "Captain Frederick Wentworth seems misrepresented at the start of Jane Austen's novel Persuasion.",
+     "walkthrough": "Persuasion is an Austen novel whose hero is Frederick Wentworth, which makes it look like a title; here it is the definition, meaning conviction.",
+     "definitionFit": "A persuasion is a firmly held opinion or creed, which is what a belief is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Persuasion"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +417,65 @@
     "text": "Banishment of former priest is overturned",
     "enumeration": "5"
    },
-   "solution": "EXILE"
+   "solution": "EXILE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "EXILE",
+    "definitions": [
+     {
+      "text": "Banishment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overturned",
+      "for": "reversal",
+      "note": "something overturned is upside down, so in a down entry the word is read from the bottom"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "ELI",
+      "note": "Eli is the priest in the Book of Samuel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "ILE"
+     ],
+     "reversals": [
+      {
+       "from": "ELI",
+       "to": "ILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A retired cleric's sentence of banishment is quashed on appeal.",
+     "walkthrough": "Eli, the priest who raised Samuel, is crossword shorthand for priest.",
+     "definitionFit": "Exile is enforced absence from one's homeland, a synonym for banishment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "overturned"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +489,71 @@
     "text": "Minister's first job? To cut Iceland's taxes",
     "enumeration": "7"
    },
-   "solution": "IMPOSTS"
+   "solution": "IMPOSTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "IMPOSTS",
+    "definitions": [
+     {
+      "text": "taxes",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "the first of a word is its opening letter"
+     },
+     {
+      "text": "To cut",
+      "for": "container",
+      "note": "something that cuts another goes into it, splitting it in two"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Minister",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of Minister"
+     },
+     {
+      "clueFragment": "job",
+      "gives": "POST",
+      "note": "a post is a job"
+     },
+     {
+      "clueFragment": "Iceland",
+      "gives": "IS",
+      "note": "IS is the international code for Iceland"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "POST",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A new finance minister's first act is to cut Icelandic taxes.",
+     "definitionFit": "Imposts are duties or levies imposed by a government, which are taxes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cut"
+    }
+   }
   },
   {
    "number": 7,
@@ -143,7 +573,47 @@
      }
     ]
    },
-   "solution": "FANCYFREE"
+   "solution": "FANCYFREE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FANCY-FREE",
+    "definitions": [
+     {
+      "text": "Not currently in love",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like",
+      "gives": "FANCY",
+      "note": "to fancy someone is to like them"
+     },
+     {
+      "clueFragment": "Frank",
+      "gives": "FREE",
+      "note": "frank and free both mean open and unrestrained in speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FANCY",
+      "FREE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, like their friend Frank, is unattached at the moment.",
+     "walkthrough": "Frank looks like a man's name and 'like' like a comparison; both are verbs and adjectives in disguise.",
+     "definitionFit": "Fancy-free describes someone not attached romantically, unburdened by any love interest."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +627,65 @@
     "text": "Put out directive ignoring Irish revolutionary",
     "enumeration": "7"
    },
-   "solution": "EVICTED"
+   "solution": "EVICTED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EVICTED",
+    "definitions": [
+     {
+      "text": "Put out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignoring",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so those letters are dropped"
+     },
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolution overturns order, so the remaining letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "directive",
+      "gives": "DIRECTIVE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "Ir is the abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVICTED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DECTIVE",
+       "gives": "EVICTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order is issued that pays no attention to an Irish rebel.",
+     "walkthrough": "'Irish revolutionary' reads as one figure, but the adjective is removed and the noun signals the rearrangement.",
+     "definitionFit": "Evicted means expelled from one's home, put out on the street."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +705,63 @@
      }
     ]
    },
-   "solution": "PITPONY"
+   "solution": "PITPONY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "PIT PONY",
+    "definitions": [
+     {
+      "text": "mineworker",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting something means letting it in, so these letters go inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A matter for regret",
+      "gives": "PITY",
+      "note": "a pity is something regrettable"
+     },
+     {
+      "clueFragment": "pressure",
+      "gives": "P",
+      "note": "P is the symbol for pressure"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIT",
+      "P",
+      "ON",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "It is sad to see so much pressure put on a coal miner.",
+     "walkthrough": "Pit ponies were horses that hauled coal underground in British mines, so a 'mineworker' needn't be human.",
+     "definitionFit": "A pit pony was a small horse that worked down a coal mine, so it was literally a worker in a mine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mineworker"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +775,63 @@
     "text": "Spinoza was one of the first to be seen after blast",
     "enumeration": "9"
    },
-   "solution": "PANTHEIST"
+   "solution": "PANTHEIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PANTHEIST",
+    "definitions": [
+     {
+      "text": "Spinoza was one",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be seen after",
+      "for": "charade",
+      "note": "this says one piece follows another in the entry rather than going first"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blast",
+      "gives": "PAN",
+      "note": "to blast a play or film is to pan it, criticise it harshly"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first is written 1st, with the 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAN",
+      "THE",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "The philosopher Spinoza appeared early in the aftermath of some explosion.",
+     "walkthrough": "'One of the first' looks like a phrase about pioneers; 'of' is the link and 'the first' supplies letters. Blast means criticise, not explode.",
+     "definitionFit": "Spinoza identified God with nature, the classic pantheist position, so he is an example of the type."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blast"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +845,76 @@
     "text": "Explain with pictures of the Italian soldiers returning in splendour",
     "enumeration": "10"
    },
-   "solution": "ILLUSTRATE"
+   "solution": "ILLUSTRATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "ILLUSTRATE",
+    "definitions": [
+     {
+      "text": "Explain with pictures",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the soldiers are read right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the soldiers are put in the word for splendour"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Italian",
+      "gives": "IL",
+      "note": "il is the Italian for the"
+     },
+     {
+      "clueFragment": "soldiers",
+      "gives": "TA",
+      "note": "the TA, Territorial Army, is Britain's volunteer reserve force"
+     },
+     {
+      "clueFragment": "splendour",
+      "gives": "LUSTRE",
+      "note": "lustre is brilliance, splendour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IL",
+      "LUSTR",
+      "AT",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art book on Italian troops coming home in glory needs plates.",
+     "definitionFit": "To illustrate a text is to add pictures that clarify it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +928,62 @@
     "text": "Soldiers guarding the earliest of Yankee states",
     "enumeration": "4"
    },
-   "solution": "SAYS"
+   "solution": "SAYS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SAYS",
+    "definitions": [
+     {
+      "text": "states",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guarding",
+      "for": "container",
+      "note": "guards surround what they protect, so one piece goes around the other"
+     },
+     {
+      "text": "the earliest of",
+      "for": "letter_selection",
+      "note": "the earliest letter of a word is its first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "SAS",
+      "note": "the SAS is the British Special Air Service regiment"
+     },
+     {
+      "clueFragment": "Yankee",
+      "gives": "Y",
+      "select": "first",
+      "note": "the opening letter of Yankee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "Y",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops protect the oldest of the American states.",
+     "walkthrough": "'Yankee states' suggests New England; 'states' is a verb, the definition.",
+     "definitionFit": "Says and states are both verbs for declaring something in words."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "states"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +997,66 @@
     "text": "Fresh information involving queen from the east",
     "enumeration": "5"
    },
-   "solution": "GREEN"
+   "solution": "GREEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GREEN",
+    "definitions": [
+     {
+      "text": "Fresh",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve something is to take it inside, so one piece sits within the other"
+     },
+     {
+      "text": "from the east",
+      "for": "reversal",
+      "note": "in an across entry, coming from the east means reading from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the late Queen's cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RE",
+      "EN"
+     ],
+     "reversals": [
+      {
+       "from": "ER",
+       "to": "RE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "New intelligence about a queen arrives from the Orient.",
+     "definitionFit": "Green means new and unripe or inexperienced, the same sense as fresh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fresh"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +1080,71 @@
      }
     ]
    },
-   "solution": "GOITALONE"
+   "solution": "GOITALONE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "GO IT ALONE",
+    "definitions": [
+     {
+      "text": "act without help",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the talking goes round the next pieces"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Talk at length",
+      "gives": "GOON",
+      "note": "to go on is to talk at length"
+     },
+     {
+      "clueFragment": "Italian",
+      "gives": "IT",
+      "note": "It is the abbreviation for Italian"
+     },
+     {
+      "clueFragment": "gangster",
+      "gives": "AL",
+      "note": "Al Capone, the archetypal gangster"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "IT",
+      "AL",
+      "ON",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A mobster's long speech about his Italian roots and his independence.",
+     "walkthrough": "The talking goes round both Italian and gangster, then energy is tacked on after 'having'.",
+     "definitionFit": "To go it alone is the idiom for doing something independently, without assistance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gangster"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +1158,70 @@
     "text": "Attempt to capture saint standing by animal in ornamental textile",
     "enumeration": "8"
    },
-   "solution": "TAPESTRY"
+   "solution": "TAPESTRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TAPESTRY",
+    "definitions": [
+     {
+      "text": "ornamental textile",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "capturing something means holding it inside, so these letters go in"
+     },
+     {
+      "text": "standing by",
+      "for": "charade",
+      "note": "standing by means next to, so one piece is placed beside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempt",
+      "gives": "TRY",
+      "note": "a try is an attempt"
+     },
+     {
+      "clueFragment": "animal",
+      "gives": "APE",
+      "note": "an ape is an animal"
+     },
+     {
+      "clueFragment": "saint",
+      "gives": "ST",
+      "note": "St is the abbreviation for saint"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "APE",
+      "ST",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to depict a saint beside a beast in a woven hanging.",
+     "walkthrough": "The surface suggests St Jerome and his lion woven into a wall-hanging, which fits the answer neatly.",
+     "definitionFit": "A tapestry is a heavy decorative fabric with woven pictures, an ornamental textile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capture"
+    }
+   }
   },
   {
    "number": 15,
@@ -291,7 +1241,72 @@
      }
     ]
    },
-   "solution": "PERFORATE"
+   "solution": "PERFORATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PERFORATE",
+    "definitions": [
+     {
+      "text": "Punch",
+      "at": 60
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing up",
+      "for": "reversal",
+      "note": "in a down entry, standing something up means it reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "can be seen in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "salesman",
+      "gives": "REP",
+      "note": "a rep is a sales representative"
+     },
+     {
+      "clueFragment": "make a speech",
+      "gives": "ORATE",
+      "note": "to orate is to make a speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "F",
+      "ORATE"
+     ],
+     "reversals": [
+      {
+       "from": "FREP",
+       "to": "PERF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman gets up to make a speech, and it ends up in Punch magazine.",
+     "walkthrough": "Punch was a British humour magazine, so the capital P disguises a verb meaning to pierce.",
+     "definitionFit": "To perforate is to make a hole through something, to pierce or punch it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Punch"
+    }
+   }
   },
   {
    "number": 16,
@@ -305,7 +1320,58 @@
     "text": "Row over Ms Halliwell's underwear",
     "enumeration": "8"
    },
-   "solution": "LINGERIE"
+   "solution": "LINGERIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LINGERIE",
+    "definitions": [
+     {
+      "text": "underwear",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "lying over something means spanning it, so one piece is wrapped around the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Row",
+      "gives": "LINE",
+      "note": "a row is a line"
+     },
+     {
+      "clueFragment": "Ms Halliwell",
+      "gives": "GERI",
+      "note": "Geri Halliwell was Ginger Spice of the Spice Girls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LIN",
+      "GERI",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A quarrel breaks out over a pop star's underwear.",
+     "walkthrough": "Row looks like a quarrel; here it is a line.",
+     "definitionFit": "Lingerie is women's underwear and nightclothes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Row"
+    }
+   }
   },
   {
    "number": 17,
@@ -319,7 +1385,70 @@
     "text": "Book showing a form of gneiss seen around Spain",
     "enumeration": "7"
    },
-   "solution": "GENESIS"
+   "solution": "GENESIS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "GENESIS",
+    "definitions": [
+     {
+      "text": "Book",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a form of",
+      "for": "anagram",
+      "note": "a different form of a word means its letters take a new shape"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so these letters enclose the next piece"
+     }
+    ],
+    "linkWords": [
+     "showing",
+     "seen"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gneiss",
+      "gives": "GNEISS",
+      "note": "taken as written; gneiss is a banded metamorphic rock"
+     },
+     {
+      "clueFragment": "Spain",
+      "gives": "E",
+      "note": "E is the international vehicle code for Spain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "E",
+      "SIS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GNEISS",
+       "gives": "GENSIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geology book shows a variety of rock found in Spain.",
+     "definitionFit": "Genesis is the first book of the Bible."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 18,
@@ -333,7 +1462,46 @@
     "text": "Take sides with soldier for the most part",
     "enumeration": "5"
    },
-   "solution": "RANGE"
+   "solution": "RANGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "RANGE",
+    "definitions": [
+     {
+      "text": "Take sides with",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for the most part",
+      "for": "deletion",
+      "note": "most but not all of the word is used, so its final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "RANGER",
+      "note": "a Ranger is a soldier in a US commando unit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to back a soldier, mostly.",
+     "definitionFit": "To range oneself with someone is to align oneself on their side, an old-fashioned idiom for joining a cause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -347,7 +1515,76 @@
     "text": "Sniggers as dubiously stricken opponent finally quits",
     "enumeration": "7"
    },
-   "solution": "NICKERS"
+   "solution": "NICKERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NICKERS",
+    "definitions": [
+     {
+      "text": "Sniggers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dubiously",
+      "for": "anagram",
+      "note": "something dubious is unreliable, so these letters are not trusted in their given order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     },
+     {
+      "text": "quits",
+      "for": "deletion",
+      "note": "a letter that quits leaves, so it is removed"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stricken",
+      "gives": "STRICKEN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "opponent",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of opponent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NICKERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SRICKEN",
+       "gives": "NICKERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People snigger when a beaten opponent leaves the field.",
+     "walkthrough": "To nicker is to snigger or laugh quietly, an older British word; the plural noun has the same form, which the setter enjoys.",
+     "definitionFit": "A nicker is a snigger or suppressed laugh, so the plural verb form matches sniggers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sniggers"
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1598,50 @@
     "text": "American horse's endless suffering",
     "enumeration": "4"
    },
-   "solution": "PAIN"
+   "solution": "PAIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PAIN",
+    "definitions": [
+     {
+      "text": "suffering",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endless",
+      "for": "deletion",
+      "note": "without an end, so the final letter is cut off"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American horse",
+      "gives": "PAINT",
+      "note": "a paint is a piebald horse of the American West"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A US horse is in constant agony.",
+     "definitionFit": "Pain is physical or mental suffering, a direct synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endless"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1655,57 @@
     "text": "Upset to find candlestick covered with muck",
     "enumeration": "10"
    },
-   "solution": "DISCONCERT"
+   "solution": "DISCONCERT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISCONCERT",
+    "definitions": [
+     {
+      "text": "Upset",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covered with",
+      "for": "container",
+      "note": "a thing covered with something has it all round, so these letters go inside"
+     }
+    ],
+    "linkWords": [
+     "to find"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "muck",
+      "gives": "DIRT",
+      "note": "muck is dirt"
+     },
+     {
+      "clueFragment": "candlestick",
+      "gives": "SCONCE",
+      "note": "a sconce is a wall bracket holding a candle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SCONCE",
+      "RT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is dismayed to discover their candleholder caked in grime.",
+     "definitionFit": "To disconcert is to unsettle or fluster, to upset someone's composure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Upset"
+    }
+   }
   },
   {
    "number": 21,
@@ -389,7 +1719,56 @@
     "text": "Act on denial by Republican benefactor",
     "enumeration": "5"
    },
-   "solution": "DONOR"
+   "solution": "DONOR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DONOR",
+    "definitions": [
+     {
+      "text": "benefactor",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "on",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act",
+      "gives": "DO",
+      "note": "to do is to act"
+     },
+     {
+      "clueFragment": "denial",
+      "gives": "NO",
+      "note": "no is a denial"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "R is the abbreviation for Republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "NO",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy backer responds to a Republican refusal.",
+     "definitionFit": "A donor gives money or goods, as a benefactor does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Act"
+    }
+   }
   },
   {
    "number": 22,
@@ -403,7 +1782,63 @@
     "text": "Appropriate for an associate of Cobden to reject hint of bias",
     "enumeration": "5"
    },
-   "solution": "RIGHT"
+   "solution": "RIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "RIGHT",
+    "definitions": [
+     {
+      "text": "Appropriate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hint of",
+      "for": "letter_selection",
+      "note": "a hint of a word is just its opening letter"
+     },
+     {
+      "text": "to reject",
+      "for": "deletion",
+      "note": "rejecting something means throwing it out, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "an associate of Cobden",
+      "gives": "BRIGHT",
+      "note": "John Bright campaigned with Richard Cobden against the Corn Laws"
+     },
+     {
+      "clueFragment": "bias",
+      "gives": "B",
+      "select": "first",
+      "note": "the opening letter of bias"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "It is proper for a political ally to refuse any suggestion of prejudice.",
+     "walkthrough": "Cobden and Bright led the Anti-Corn Law League in 1840s Britain, campaigning for free trade.",
+     "definitionFit": "Right and appropriate both mean suitable or proper for the occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "associate"
+    }
+   }
   },
   {
    "number": 23,
@@ -417,7 +1852,50 @@
     "text": "The intention of Apollo for example revealed by a stroke of luck",
     "enumeration": "7"
    },
-   "solution": "GODSEND"
+   "solution": "GODSEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GODSEND",
+    "definitions": [
+     {
+      "text": "a stroke of luck",
+      "at": 48
+     }
+    ],
+    "linkWords": [
+     "revealed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Apollo for example",
+      "gives": "GODS",
+      "note": "Apollo is an example of a god, and 'of Apollo' makes it possessive"
+     },
+     {
+      "clueFragment": "The intention",
+      "gives": "END",
+      "note": "an end is an aim or intention"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GODS",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky break reveals the plan of the god Apollo.",
+     "walkthrough": "'Apollo for example' stands for a god, and 'of Apollo' makes it possessive; the possessive phrase is then read with the noun after it.",
+     "definitionFit": "A godsend is an unexpected welcome event, a piece of good fortune."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "intention"
+    }
+   }
   },
   {
    "number": 24,
@@ -441,7 +1919,64 @@
      }
     ]
    },
-   "solution": "HAVEAGO"
+   "solution": "HAVEAGO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HAVE A GO",
+    "definitions": [
+     {
+      "text": "Try",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the point of",
+      "for": "letter_selection",
+      "note": "the point of something is its tip, so only the leading letter is kept"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grasp",
+      "gives": "HAVE",
+      "note": "to have is to hold, grasp"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "select": "first",
+      "note": "the leading letter of American"
+     },
+     {
+      "clueFragment": "board game",
+      "gives": "GO",
+      "note": "Go is the Asian board game of stones"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAVE",
+      "A",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone attempts to understand the purpose of an American board game.",
+     "definitionFit": "To have a go is the informal idiom for making an attempt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "point"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1990,48 @@
     "text": "Guarantee heading off reprimand",
     "enumeration": "6"
    },
-   "solution": "ENSURE"
+   "solution": "ENSURE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENSURE",
+    "definitions": [
+     {
+      "text": "Guarantee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "the head of a word is its first letter, and off means it is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "reprimand",
+      "gives": "CENSURE",
+      "note": "censure is a formal reprimand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENSURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A promise that heads off a telling-off.",
+     "walkthrough": "'Heading off' looks like preventing; it says the first letter goes.",
+     "definitionFit": "To ensure is to make certain, which is to guarantee an outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 26,
@@ -469,7 +2045,70 @@
     "text": "Son breaks new bidet in rented accommodation",
     "enumeration": "6"
    },
-   "solution": "BEDSIT"
+   "solution": "BEDSIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BEDSIT",
+    "definitions": [
+     {
+      "text": "rented accommodation",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version has a fresh arrangement, so the letters are reordered"
+     },
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "breaking into something means getting inside, so this letter goes within"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bidet",
+      "gives": "BIDET",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BED",
+      "S",
+      "IT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BIDET",
+       "gives": "BEDIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tenant's son smashes the new bidet in their rented flat.",
+     "walkthrough": "A bedsit is a British one-room rented flat, bedroom and sitting room in one.",
+     "definitionFit": "A bedsit is a single rented room for living and sleeping, a kind of rented accommodation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   }
  ]
 }
