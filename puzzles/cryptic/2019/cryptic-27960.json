@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,63 @@
     "text": "Pesters travellers on vacation touring Russian capital",
     "enumeration": "8"
    },
-   "solution": "TROUBLES"
+   "solution": "TROUBLES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TROUBLES",
+    "definitions": [
+     {
+      "text": "Pesters",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a word on vacation is emptied of its contents, so only its two outside letters remain"
+     },
+     {
+      "text": "touring",
+      "for": "container",
+      "note": "to tour something is to go all round it, so the outer letters travel around the currency"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "travellers",
+      "gives": "TS",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "Russian capital",
+      "gives": "ROUBLE",
+      "note": "capital in the sense of money: the currency of Russia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ROUBLE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Tourists on holiday in Moscow hassle the locals.",
+     "walkthrough": "'Russian capital' points at Moscow, but capital here means money: the rouble sits inside the shell of travellers to give TROUBLES.",
+     "definitionFit": "To trouble someone is to bother or harass them, so the third-person verb is a synonym of pesters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +106,58 @@
     "text": "Cruel Romeo's jilted Mary Jane",
     "enumeration": "4"
    },
-   "solution": "HASH"
+   "solution": "HASH",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HASH",
+    "definitions": [
+     {
+      "text": "Mary Jane",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "jilted",
+      "for": "deletion",
+      "note": "to be jilted is to be dropped by a lover, so the named letter is thrown out of the word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruel",
+      "gives": "HARSH",
+      "note": "harsh treatment is cruel treatment"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HA",
+      "SH"
+     ]
+    },
+    "explanation": {
+     "surface": "A heartless Romeo has dumped a girl called Mary Jane.",
+     "walkthrough": "Mary Jane looks like the jilted girlfriend, but it is old slang for marijuana; take R out of HARSH to leave HASH.",
+     "definitionFit": "Mary Jane is a slang name for marijuana, and hash (hashish) is cannabis resin, so the slang terms overlap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mary"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +171,64 @@
     "text": "Blameless conduct arising under universal agreement?",
     "enumeration": "6"
    },
-   "solution": "UNISON"
+   "solution": "UNISON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "UNISON",
+    "definitions": [
+     {
+      "text": "agreement",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arising",
+      "for": "reversal",
+      "note": "in a down clue, arising means the words climb upwards, so they are read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "under"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "universal",
+      "gives": "U",
+      "note": "U is the film-certificate abbreviation for universal"
+     },
+     {
+      "clueFragment": "Blameless conduct",
+      "gives": "NOSIN",
+      "note": "conduct with no sin in it is blameless"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NISON"
+     ],
+     "reversals": [
+      {
+       "from": "NOSIN",
+       "to": "NISON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether faultless behaviour comes from a shared moral code everyone accepts.",
+     "walkthrough": "'Under' places the climbing NO SIN beneath U in this down entry, so U comes first: U + NISON.",
+     "definitionFit": "Acting in unison means acting together in complete accord, so the word is used for agreement or concord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "universal"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +242,51 @@
     "text": "RC burial conducted as per official rites",
     "enumeration": "8"
    },
-   "solution": "RUBRICAL"
+   "solution": "RUBRICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RUBRICAL",
+    "definitions": [
+     {
+      "text": "as per official rites",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "conducted",
+      "for": "anagram",
+      "note": "conducted suggests the letters are led about and directed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "RC burial",
+      "gives": "RCBURIAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RCBURIAL",
+       "gives": "RUBRICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman Catholic funeral carried out according to the Church's proper liturgy.",
+     "walkthrough": "RC is the usual abbreviation for Roman Catholic; the funeral is the anagram fodder, not the scene.",
+     "definitionFit": "Rubrics are the printed directions for conducting church services, so rubrical means following those prescribed liturgical rules."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "conducted"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +300,55 @@
     "text": "Monk with smoother cloak, allegedly survivor of fire",
     "enumeration": "10"
    },
-   "solution": "SALAMANDER"
+   "solution": "SALAMANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SALAMANDER",
+    "definitions": [
+     {
+      "text": "allegedly survivor of fire",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "container",
+      "note": "here with means held within the other word, as if the smoother is wrapped around the holy man"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monk",
+      "gives": "LAMA",
+      "note": "a lama is a Buddhist monk in Tibet"
+     },
+     {
+      "clueFragment": "smoother cloak",
+      "gives": "SANDER",
+      "note": "a sander is a tool for smoothing wood; cloak tells us it goes round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LAMA",
+      "NDER"
+     ]
+    },
+    "explanation": {
+     "surface": "A monk wearing the cloak of a tradesman is said to have walked out of a fire.",
+     "walkthrough": "'Allegedly' is fair because the fireproof creature is legend: medieval bestiaries claimed this amphibian could live unharmed in flames.",
+     "definitionFit": "Medieval lore claimed this amphibian was unharmed by flames, and in myth it is a spirit living in fire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "smoother"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +362,63 @@
     "text": "Overcharge to spend a penny (old currency not new)",
     "enumeration": "6"
    },
-   "solution": "DIDDLE"
+   "solution": "DIDDLE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DIDDLE",
+    "definitions": [
+     {
+      "text": "Overcharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "old currency not new",
+      "for": "substitution",
+      "note": "the pre-decimal penny symbol takes the place of the modern penny symbol, a swap of one letter for another"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spend a penny",
+      "gives": "PIDDLE",
+      "note": "to spend a penny is a British euphemism for urinating"
+     },
+     {
+      "clueFragment": "old currency",
+      "gives": "D",
+      "note": "d was the symbol for the old pre-1971 penny"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "P",
+      "note": "p is the symbol for the new decimal penny"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IDDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that it costs too much just to use a public toilet.",
+     "walkthrough": "'Spend a penny' comes from the coin once needed for public toilets; swap the new-penny P in PIDDLE for the old-penny D.",
+     "definitionFit": "To diddle is to swindle or cheat someone, and overcharging a customer is one way of cheating them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "penny"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +432,42 @@
     "text": "Predestined, as curate was",
     "enumeration": "8"
    },
-   "solution": "ORDAINED"
+   "solution": "ORDAINED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORDAINED",
+    "definitions": [
+     {
+      "text": "Predestined",
+      "at": 0
+     },
+     {
+      "text": "as curate was",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Predestined",
+      "note": "first meaning: decreed in advance by fate"
+     },
+     {
+      "clueFragment": "as curate was",
+      "note": "second meaning: formally made a member of the clergy"
+     }
+    ],
+    "explanation": {
+     "surface": "A curate's calling was fated from the start.",
+     "definitionFit": "The word means decreed by fate or God, and also describes a priest admitted to holy orders in a church ceremony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +481,61 @@
     "text": "Level for one river entering north-western estuary",
     "enumeration": "6"
    },
-   "solution": "DEGREE"
+   "solution": "DEGREE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DEGREE",
+    "definitions": [
+     {
+      "text": "Level",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means the first pieces go inside the later word, flowing into its mouth"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "e.g., for example, is the same as for one"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the standard abbreviation for river"
+     },
+     {
+      "clueFragment": "north-western estuary",
+      "gives": "DEE",
+      "note": "the Dee estuary lies between north Wales and the Wirral in north-west England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EGR",
+      "EE"
+     ]
+    },
+    "explanation": {
+     "surface": "A gauge of the water height when a river flows into a north-western estuary.",
+     "walkthrough": "'Level' looks like a water level beside the river, but it is the definition. The Dee estuary separates north Wales from the Wirral.",
+     "definitionFit": "A degree is a stage or grade on a scale, as in a high degree of skill, which is a level."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Level"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +549,62 @@
     "text": "Princess in the Emirates briefly inspiring sister",
     "enumeration": "6"
    },
-   "solution": "URANIA"
+   "solution": "URANIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "URANIA",
+    "definitions": [
+     {
+      "text": "sister",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly says the abbreviation is cut short, losing its final letter"
+     },
+     {
+      "text": "inspiring",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so the shortened Emirates takes the royal woman inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Princess",
+      "gives": "RANI",
+      "note": "a rani is an Indian princess or queen"
+     },
+     {
+      "clueFragment": "the Emirates",
+      "gives": "UAE",
+      "note": "UAE is the United Arab Emirates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "RANI",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A princess living in the Gulf is an inspiration to her sister.",
+     "walkthrough": "'Sister' looks like a family relation, but the Muses were nine sisters, and Urania was the Muse of astronomy.",
+     "definitionFit": "Urania was one of the nine Muses of Greek myth, daughters of Zeus who were all sisters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "inspiring"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +618,69 @@
     "text": "Mawkishness from son in returning embrace",
     "enumeration": "4"
    },
-   "solution": "GUSH"
+   "solution": "GUSH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GUSH",
+    "definitions": [
+     {
+      "text": "Mawkishness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the embrace word is read from right to left"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the son within the other word"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "embrace",
+      "gives": "HUG",
+      "note": "a hug is an embrace"
+     },
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "S",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HUG",
+       "to": "GUH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sentimentality as a son comes home to a hug.",
+     "definitionFit": "Gush is overflowing, excessive sentimental talk, which is exactly what mawkishness describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +700,66 @@
      }
     ]
    },
-   "solution": "SUGARDADDY"
+   "solution": "SUGARDADDY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SUGAR DADDY",
+    "definitions": [
+     {
+      "text": "Rich patron",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the police inside the French word for south"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "found by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "south of France",
+      "gives": "SUD",
+      "note": "sud is the French word for south"
+     },
+     {
+      "clueFragment": "police",
+      "gives": "GARDA",
+      "note": "the Garda is the police force of Ireland"
+     },
+     {
+      "clueFragment": "Benin",
+      "gives": "DY",
+      "note": "DY is the international vehicle code of Benin, from its former name Dahomey"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "GARDA",
+      "D",
+      "DY"
+     ]
+    },
+    "explanation": {
+     "surface": "A wealthy benefactor from West Africa is picked up by officers on the Riviera.",
+     "walkthrough": "'South of France' suggests the Midi, but it means the French word for south. Benin's car registration letters keep the old name Dahomey.",
+     "definitionFit": "A sugar daddy is a wealthy older man who lavishes money and gifts on a younger companion, a kind of rich sponsor."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Benin"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +779,48 @@
      }
     ]
    },
-   "solution": "OLDMAN"
+   "solution": "OLDMAN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "OLD MAN",
+    "definitions": [
+     {
+      "text": "Pop",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lodged in",
+      "for": "hidden_word",
+      "note": "lodged in says the answer is staying inside the following words, tucked across their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group",
+      "note": "surface padding that turns Pop into a pop group; it plays no part in the wordplay"
+     },
+     {
+      "clueFragment": "Cotswold mansion",
+      "gives": "OLDMAN",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A pop band is staying in a grand country house in the Cotswolds.",
+     "walkthrough": "'Pop group' reads as a band, but Pop alone is the definition. The Cotswolds are hills in south-west England dotted with stately homes.",
+     "definitionFit": "Pop and old man are both informal words for one's father, so they are interchangeable slang synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pop"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +834,51 @@
     "text": "Plays sensationalised madam's role perhaps",
     "enumeration": "10"
    },
-   "solution": "MELODRAMAS"
+   "solution": "MELODRAMAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MELODRAMAS",
+    "definitions": [
+     {
+      "text": "Plays sensationalised",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that the letters given are only one possible arrangement of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "madam's role",
+      "gives": "MADAMSROLE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADAMSROLE",
+       "gives": "MELODRAMAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Actors overplay the part of a brothel keeper.",
+     "walkthrough": "'Sensationalised' seems to describe how the madam is played, but it belongs to the definition: plays that are sensationalised.",
+     "definitionFit": "A melodrama is a stage work with exaggerated emotion and lurid plotting, so these are dramas pitched for sensation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plays"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +892,61 @@
     "text": "Old grottos bordering lake cut off areas of country",
     "enumeration": "8"
    },
-   "solution": "EXCLAVES"
+   "solution": "EXCLAVES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXCLAVES",
+    "definitions": [
+     {
+      "text": "cut off areas of country",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bordering",
+      "for": "container",
+      "note": "the grottos border the lake by enclosing it on every side"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex- means former, as in an ex-wife"
+     },
+     {
+      "clueFragment": "grottos",
+      "gives": "CAVES",
+      "note": "grottos are small caves"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "C",
+      "L",
+      "AVES"
+     ]
+    },
+    "explanation": {
+     "surface": "Ancient caverns beside a lake shut off whole districts of the land.",
+     "definitionFit": "An exclave is a portion of a country separated from the main territory and surrounded by foreign land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bordering"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +960,55 @@
     "text": "Very large card bringing comfort in hard times",
     "enumeration": "6"
    },
-   "solution": "SOLACE"
+   "solution": "SOLACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLACE",
+    "definitions": [
+     {
+      "text": "comfort in hard times",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "bringing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "card",
+      "gives": "ACE",
+      "note": "the ace is a playing card"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "L",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Drawing a big winning card cheers someone up when luck is bad.",
+     "definitionFit": "Solace is consolation offered to someone in grief or distress, which is comfort given in hard times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 16,
@@ -261,7 +1028,61 @@
      }
     ]
    },
-   "solution": "CREAMTEA"
+   "solution": "CREAMTEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CREAM TEA",
+    "definitions": [
+     {
+      "text": "West Country speciality",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boards",
+      "for": "container",
+      "note": "to board is to get on and go inside, so the mark climbs into the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "M",
+      "note": "M is an abbreviation for mark, the old German currency"
+     },
+     {
+      "clueFragment": "to form",
+      "gives": "CREATE",
+      "note": "to create is to form"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CREA",
+      "M",
+      "TEA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Mark sits on committees in order to set up something.",
+     "walkthrough": "Mark looks like a man joining boards; M goes inside CREATE A. The West Country is south-west England, Devon and Cornwall.",
+     "definitionFit": "Devon and Cornwall are famous for afternoon tea served with scones, jam and clotted cream, a regional speciality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boards"
+    }
+   }
   },
   {
    "number": 17,
@@ -275,7 +1096,64 @@
     "text": "Unobtrusive moves by Liberal in party succeeded",
     "enumeration": "6"
    },
-   "solution": "SLIDES"
+   "solution": "SLIDES",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SLIDES",
+    "definitions": [
+     {
+      "text": "Unobtrusive moves",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in sets the Liberal inside the word for a party"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "SIDE",
+      "note": "a side is a party or faction in a dispute"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "L",
+      "note": "L is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "succeeded",
+      "gives": "S",
+      "note": "S is the abbreviation for succeeded, as in genealogies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "L",
+      "IDE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal quietly manoeuvres within a party and gets ahead.",
+     "definitionFit": "To slide is to slip quietly or stealthily, so slides are moves made without attracting notice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "party"
+    }
+   }
   },
   {
    "number": 18,
@@ -295,7 +1173,47 @@
      }
     ]
    },
-   "solution": "STEMCELL"
+   "solution": "STEMCELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STEM CELL",
+    "definitions": [
+     {
+      "text": "from which specialised units develop",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Curb",
+      "gives": "STEM",
+      "note": "to stem a flow is to curb it"
+     },
+     {
+      "clueFragment": "coterie",
+      "gives": "CELL",
+      "note": "a cell is a small close group within an organisation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEM",
+      "CELL"
+     ]
+    },
+    "explanation": {
+     "surface": "Restrain the clique from which the specialist teams grow.",
+     "walkthrough": "'Units' sounds like military or business teams; here they are the specialised cells of the body.",
+     "definitionFit": "A stem cell is an undifferentiated cell that can divide and turn into the various specialised cells of an organism."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "units"
+    }
+   }
   },
   {
    "number": 19,
@@ -309,7 +1227,50 @@
     "text": "Passionate little Dickensian changes ends",
     "enumeration": "6"
    },
-   "solution": "TORRID"
+   "solution": "TORRID",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "TORRID",
+    "definitions": [
+     {
+      "text": "Passionate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes ends",
+      "for": "substitution",
+      "note": "changes ends means the first and last letters swap places with each other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "little Dickensian",
+      "gives": "DORRIT",
+      "note": "Little Dorrit is the title heroine of a Dickens novel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ORRI",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A small Dickens character keeps switching sides.",
+     "walkthrough": "'Little' seems to describe the character's size, but it is part of the name Little Dorrit; swap her D and T.",
+     "definitionFit": "A torrid affair is intensely hot and passionate, so the adjective is a close synonym of passionate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "little"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1290,74 @@
      }
     ]
    },
-   "solution": "TOODLEOO"
+   "solution": "TOODLEOO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "container"
+    ],
+    "answer": "TOODLE-OO",
+    "definitions": [
+     {
+      "text": "bye",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very end of the name, its final letter"
+     },
+     {
+      "text": "conceded",
+      "for": "deletion",
+      "note": "something conceded is given up, so that letter is surrendered from the word for plenty"
+     },
+     {
+      "text": "catching",
+      "for": "container",
+      "note": "catching means holding the other word inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Besides",
+      "gives": "TOO",
+      "note": "too means as well, besides"
+     },
+     {
+      "clueFragment": "plenty",
+      "gives": "OODLES",
+      "note": "oodles means lots, plenty"
+     },
+     {
+      "clueFragment": "Evans",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OODLE",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket report: as well as taking many catches, Evans gave away a bye.",
+     "walkthrough": "The cricket words are a disguise: in cricket a bye is a run conceded, but here bye simply means goodbye. Godfrey Evans was an England wicketkeeper.",
+     "definitionFit": "Toodle-oo is a jaunty, old-fashioned British way of saying goodbye, just like the casual farewell bye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bye"
+    }
+   }
   },
   {
    "number": 21,
@@ -349,7 +1377,46 @@
      }
     ]
    },
-   "solution": "ONEOFF"
+   "solution": "ONEOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONE-OFF",
+    "definitions": [
+     {
+      "text": "Special",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "person",
+      "gives": "ONE",
+      "note": "one means a person, as in one should"
+     },
+     {
+      "clueFragment": "leaving",
+      "gives": "OFF",
+      "note": "off means departing, as in I'm off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "Is someone who is going away somehow exceptional?",
+     "definitionFit": "A one-off is something unique, made or done only once, so the word describes a special, unrepeated thing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaving"
+    }
+   }
   },
   {
    "number": 22,
@@ -363,7 +1430,49 @@
     "text": "Contrary forces rapidly covering a huge distance",
     "enumeration": "6"
    },
-   "solution": "PARSEC"
+   "solution": "PARSEC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "hidden_word"
+    ],
+    "answer": "PARSEC",
+    "definitions": [
+     {
+      "text": "a huge distance",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Contrary",
+      "for": "reversal",
+      "note": "contrary means going the opposite way, so the letters are read from right to left"
+     },
+     {
+      "text": "covering",
+      "for": "hidden_word",
+      "note": "the two words cover the answer, holding it concealed across their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forces rapidly",
+      "gives": "CESRAP",
+      "note": "the letters spanning the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "Opposing armies racing across a vast stretch of ground.",
+     "walkthrough": "'Forces' and 'rapidly' look like words to turn into synonyms, but the answer is simply sitting backwards inside them.",
+     "definitionFit": "A parsec is an astronomical unit of length, about 3.26 light years, so it is an enormous distance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "forces"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1486,43 @@
     "text": "European buff",
     "enumeration": "6"
    },
-   "solution": "POLISH"
+   "solution": "POLISH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "POLISH",
+    "definitions": [
+     {
+      "text": "European",
+      "at": 0
+     },
+     {
+      "text": "buff",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "note": "first meaning: from Poland"
+     },
+     {
+      "clueFragment": "buff",
+      "note": "second meaning: to rub a surface until it shines"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Buff reads as an enthusiast, a European fan, but it is the verb to shine; the capital P sense is the nationality.",
+     "definitionFit": "Polish names a person from Poland, and polish as a verb means rubbing something until it gleams."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "buff"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1542,66 @@
      }
     ]
    },
-   "solution": "REDADMIRAL"
+   "solution": "REDADMIRAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RED ADMIRAL",
+    "definitions": [
+     {
+      "text": "Good-looking six-footer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short says the word for lady is cut, losing its last letter"
+     },
+     {
+      "text": "foolishly",
+      "for": "anagram",
+      "note": "foolishly suggests the letters behave in a silly, disordered way and are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "married",
+      "gives": "MARRIED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "LADY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REDADMIRAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MARRIEDLAD",
+       "gives": "REDADMIRAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A handsome tall man has unwisely wed a petite woman.",
+     "walkthrough": "A six-footer sounds like a tall man, but insects have six feet; the red admiral is a common, striking butterfly.",
+     "definitionFit": "The red admiral is a handsome black, red and white butterfly, and like all insects it has six legs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "six-footer"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1615,62 @@
     "text": "Britten primarily a children's composer?",
     "enumeration": "4"
    },
-   "solution": "BACH"
+   "solution": "BACH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BACH",
+    "definitions": [
+     {
+      "text": "composer",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the name counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britten",
+      "gives": "B",
+      "select": "first",
+      "note": "the first letter of the name"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "children's",
+      "gives": "CH",
+      "note": "CH is the abbreviation for children"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "A",
+      "CH"
+     ]
+    },
+    "explanation": {
+     "surface": "Was Benjamin Britten mainly a writer of music for young people?",
+     "walkthrough": "Britten wrote much music for children, which makes 'a children's composer' read as one phrase; the composer is the definition alone.",
+     "definitionFit": "Johann Sebastian Bach is one of the most famous composers in Western music, an example of the category."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "children's"
+    }
+   }
   },
   {
    "number": 24,
@@ -425,7 +1684,46 @@
     "text": "Drop live commercial",
     "enumeration": "4"
    },
-   "solution": "BEAD"
+   "solution": "BEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BEAD",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "live",
+      "gives": "BE",
+      "note": "to be is to live or exist"
+     },
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "an ad is a commercial"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster decides to pull an advert that was going out live.",
+     "definitionFit": "A bead of sweat or water is a small drop, so the noun is a synonym for a droplet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 25,
@@ -439,7 +1737,53 @@
     "text": "A female halting, deeply aroused",
     "enumeration": "6"
    },
-   "solution": "AFLAME"
+   "solution": "AFLAME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AFLAME",
+    "definitions": [
+     {
+      "text": "deeply aroused",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "halting",
+      "gives": "LAME",
+      "note": "halting means limping, as a lame person walks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "F",
+      "LAME"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman stops in her tracks, overcome with passion.",
+     "walkthrough": "'Halting' reads as stopping, but it is the old sense of limping.",
+     "definitionFit": "Aflame literally means on fire, and figuratively describes someone burning with strong emotion or passion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "halting"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1797,72 @@
     "text": "Prominent Victorian dancing ladies, one entertaining Queen",
     "enumeration": "8"
    },
-   "solution": "DISRAELI"
+   "solution": "DISRAELI",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DISRAELI",
+    "definitions": [
+     {
+      "text": "Prominent Victorian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing ladies move about, so their letters shift into a new order"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to have them inside, so the queen goes within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladies",
+      "gives": "LADIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R is short for regina, Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "R",
+      "AELI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LADIESI",
+       "gives": "DISAELI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dancing ladies put on a show for Queen Victoria.",
+     "walkthrough": "The Queen fits the Victorian scene, but she is only one letter here. Disraeli was Queen Victoria's favourite prime minister.",
+     "definitionFit": "Benjamin Disraeli was twice British prime minister under Queen Victoria, one of the leading figures of her reign."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dancing"
+    }
+   }
   }
  ]
 }
