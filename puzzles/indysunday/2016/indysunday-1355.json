@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,55 @@
     "text": "Hot drink is brought to European carriage",
     "enumeration": "6"
    },
-   "solution": "CHAISE"
+   "solution": "CHAISE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAISE",
+    "definitions": [
+     {
+      "text": "carriage",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "brought to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hot drink",
+      "gives": "CHA",
+      "note": "cha (or char) is British slang for tea"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the standard abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHA",
+      "IS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A cup of tea is served to someone sitting in a European railway carriage.",
+     "definitionFit": "A chaise is a light horse-drawn vehicle, an example of a carriage for one or two travellers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "carriage"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +98,41 @@
     "text": "School group of excellent quality",
     "enumeration": "5"
    },
-   "solution": "CLASS"
+   "solution": "CLASS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLASS",
+    "definitions": [
+     {
+      "text": "School group",
+      "at": 0
+     },
+     {
+      "text": "of excellent quality",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "School group",
+      "note": "first meaning: a set of pupils taught together"
+     },
+     {
+      "clueFragment": "of excellent quality",
+      "note": "second meaning: informal adjective"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The clue reads as praise for a school group; it is two separate meanings of one word, noun and informal adjective.",
+     "definitionFit": "The noun names pupils taught together, while the informal adjective praises something stylish or top-rate, as in a class act."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +146,58 @@
     "text": "Digression about Irish in part of Heathrow?",
     "enumeration": "7"
    },
-   "solution": "AIRSIDE"
+   "solution": "AIRSIDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AIRSIDE",
+    "definitions": [
+     {
+      "text": "part of Heathrow?",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps round the other here"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Digression",
+      "gives": "ASIDE",
+      "note": "an aside is a remark straying from the main subject"
+     },
+     {
+      "clueFragment": "Irish",
+      "gives": "IR",
+      "note": "IR is the abbreviation for Irish"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "IR",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rambling speech about the Irish delivered somewhere in London's Heathrow airport.",
+     "walkthrough": "Heathrow is London's main airport; the question mark flags that the definition is by example, since every airport has this zone.",
+     "definitionFit": "Airside is the zone of an airport beyond passport and security control, so it is one region of Heathrow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Digression"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +221,51 @@
      }
     ]
    },
-   "solution": "STEPONIT"
+   "solution": "STEPONIT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "STEP ON IT",
+    "definitions": [
+     {
+      "text": "Hurry up!",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in play",
+      "for": "anagram",
+      "note": "in play suggests letters being moved about loosely, as a ball is in a game"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Set point",
+      "gives": "SETPOINT",
+      "note": "a tennis term, used here only for its letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SETPOINT",
+       "gives": "STEPONIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis umpire urging players to get on with the game at set point.",
+     "walkthrough": "The tennis setting makes 'in play' sound like live action on court; it is the signal to rearrange.",
+     "definitionFit": "The phrase is a colloquial urging to go faster, originally to a driver pressing the accelerator, matching a shouted demand for speed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 4,
@@ -105,7 +285,65 @@
      }
     ]
    },
-   "solution": "GOPLACES"
+   "solution": "GOPLACES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GO PLACES",
+    "definitions": [
+     {
+      "text": "succeed",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means in the end, so only the final letter of that word is kept"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republicans",
+      "gives": "GOP",
+      "note": "the Grand Old Party, the US Republican Party"
+     },
+     {
+      "clueFragment": "beat",
+      "gives": "LACE",
+      "note": "to lace is to thrash or beat"
+     },
+     {
+      "clueFragment": "Democrats",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOP",
+      "LACE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An American election report: the Republicans defeated the Democrats in the end and won.",
+     "walkthrough": "'Beat' looks like the verb of the election story but supplies a synonym meaning thrash.",
+     "definitionFit": "To go places is an idiom for being successful and making progress in life or a career."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "beat"
+    }
+   }
   },
   {
    "number": 5,
@@ -119,7 +357,61 @@
     "text": "Verse, art, one translated - excessively serious",
     "enumeration": "11"
    },
-   "solution": "OVEREARNEST"
+   "solution": "OVEREARNEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVEREARNEST",
+    "definitions": [
+     {
+      "text": "excessively serious",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "translated",
+      "for": "anagram",
+      "note": "translated means turned into another form, so the letters are converted into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Verse",
+      "gives": "VERSE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "art",
+      "gives": "ART",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ONE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VERSEARTONE",
+       "gives": "OVEREARNEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Poetry and art rendered into another language come out far too solemn.",
+     "walkthrough": "'Translated' fits the poetry picture but signals rearranging the letters.",
+     "definitionFit": "Over- adds the sense of too much to earnest, which means grave and sincere, giving overly solemn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "translated"
+    }
+   }
   },
   {
    "number": 6,
@@ -133,7 +425,49 @@
     "text": "Gloomy lair at bottom of field",
     "enumeration": "6"
    },
-   "solution": "LEADEN"
+   "solution": "LEADEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEADEN",
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "at bottom of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "field",
+      "gives": "LEA",
+      "note": "a lea is a meadow, a poetic word for a field"
+     },
+     {
+      "clueFragment": "lair",
+      "gives": "DEN",
+      "note": "a den is an animal's lair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEA",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A dark animal's lair hidden at the foot of a meadow.",
+     "walkthrough": "In a down entry 'at bottom of' puts the lair below the field, so the field comes first.",
+     "definitionFit": "Leaden describes a dull, heavy, grey sky or mood, figuratively dark and depressing like lead."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -147,7 +481,52 @@
     "text": "Prisoner beginning, we hear, to accept defeat",
     "enumeration": "7"
    },
-   "solution": "CONCEDE"
+   "solution": "CONCEDE",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "CONCEDE",
+    "definitions": [
+     {
+      "text": "accept defeat",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear says a word is to be taken by its sound, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prisoner",
+      "gives": "CON",
+      "note": "con is short for convict"
+     },
+     {
+      "clueFragment": "beginning",
+      "gives": "CEDE",
+      "soundsLike": "SEED",
+      "note": "a seed is the beginning of something; the word sounds like a verb meaning yield"
+     }
+    ],
+    "explanation": {
+     "surface": "A convict starting his sentence decides to give in.",
+     "definitionFit": "To concede is to admit that one has lost, as a candidate does after an election count."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beginning"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +540,67 @@
     "text": "Irregular payment of small figure in London area? Right",
     "enumeration": "9"
    },
-   "solution": "SWEETENER"
+   "solution": "SWEETENER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SWEETENER",
+    "definitions": [
+     {
+      "text": "Irregular payment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other, which acts as its surround"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "London area?",
+      "gives": "SE",
+      "note": "SE is the south-east London postal district, an example hence the question mark"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "WEE",
+      "note": "wee is Scottish for small"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "TEN",
+      "note": "a number, any figure will do"
+     },
+     {
+      "clueFragment": "Right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WEETEN",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A dodgy cash payment for a small statue in some London district, okay?",
+     "walkthrough": "'Small figure' reads as a statuette but splits into two pieces, an adjective and a number.",
+     "definitionFit": "A sweetener is a bribe or inducement, a payment made outside proper channels to win favour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "figure"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +614,59 @@
     "text": "Regularly visited Algarve with journalist? Yes",
     "enumeration": "6"
    },
-   "solution": "AGREED"
+   "solution": "AGREED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AGREED",
+    "definitions": [
+     {
+      "text": "Yes",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly visited",
+      "for": "letter_selection",
+      "note": "visiting regularly means calling at every other point, so alternate letters are taken"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Algarve",
+      "gives": "AGRE",
+      "select": "alternate",
+      "note": "the odd-numbered letters"
+     },
+     {
+      "clueFragment": "journalist",
+      "gives": "ED",
+      "note": "ED is short for editor, the usual crossword journalist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGRE",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Asked whether they often went to the Algarve with a reporter, someone answers yes.",
+     "walkthrough": "The Algarve is Portugal's southern coast; 'visited' belongs to the selection signal, not the story.",
+     "definitionFit": "Agreed! is said as an exclamation of assent, so it can stand for yes in reply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Regularly"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +680,60 @@
     "text": "In canteen I ate daily on return, being confined",
     "enumeration": "8"
    },
-   "solution": "DETAINEE"
+   "solution": "DETAINEE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "DETAINEE",
+    "definitions": [
+     {
+      "text": "being confined",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "hidden_word",
+      "note": "In says the letters sit inside the following words of the clue"
+     },
+     {
+      "text": "on return",
+      "for": "reversal",
+      "note": "on return means coming back, so the letters are read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "canteen I ate daily",
+      "gives": "EENIATED",
+      "note": "the letters straddling the words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DETAINEE"
+     ],
+     "reversals": [
+      {
+       "from": "EENIATED",
+       "to": "DETAINEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who eats in a canteen every day when back, like a prisoner fed in a mess.",
+     "walkthrough": "'Being' is a noun here, a person, so the definition is a confined person.",
+     "definitionFit": "A detainee is a person held in custody, a creature kept locked up rather than free."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +761,65 @@
      }
     ]
    },
-   "solution": "SHIPOFTHEDESERT"
+   "solution": "SHIPOFTHEDESERT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHIP OF THE DESERT",
+    "definitions": [
+     {
+      "text": "One with hump",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things going wrong, so the letters fall into disorder"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "these",
+      "gives": "THESE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hopes",
+      "gives": "HOPES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drift",
+      "gives": "DRIFT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "THESEHOPESDRIFT",
+       "gives": "SHIPOFTHEDESERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in a sulk, 'got the hump', as their hopes fade away.",
+     "walkthrough": "'Having the hump' is British slang for being sulky, which the surface plays on; here the hump is literal.",
+     "definitionFit": "Ship of the desert is the traditional nickname for the camel, the animal famous for its hump."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hump"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +843,43 @@
      }
     ]
    },
-   "solution": "TOTHELETTER"
+   "solution": "TOTHELETTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TO THE LETTER",
+    "definitions": [
+     {
+      "text": "How rent is paid",
+      "at": 0
+     },
+     {
+      "text": "adhering to every detail",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How rent is paid",
+      "note": "first meaning, read cryptically: a tenant pays money over to the landlord, the one who lets"
+     },
+     {
+      "clueFragment": "adhering to every detail",
+      "note": "second meaning: the idiom for following instructions exactly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A letter here is not a written message but someone who lets property, so rent goes to that person.",
+     "definitionFit": "The phrase means precisely and literally, obeying instructions in every particular."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rent"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +893,39 @@
     "text": "No contemporary writing about this period",
     "enumeration": "10"
    },
-   "solution": "PREHISTORY"
+   "solution": "PREHISTORY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PREHISTORY",
+    "definitions": [
+     {
+      "text": "No contemporary writing about this period",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No contemporary writing about this period",
+      "note": "surface reading: an age that no modern author has written about"
+     },
+     {
+      "clueFragment": "No contemporary writing",
+      "note": "setter's reading: an era from which no written records survive, because writing had not been invented"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Contemporary' seems to mean modern; it means from the same time, so nobody living then wrote anything down.",
+     "definitionFit": "The term names the span of human existence before written records began, known only from archaeology."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "contemporary"
+    }
+   }
   },
   {
    "number": 13,
@@ -269,7 +939,72 @@
     "text": "Liking country film about a threesome, titillating initially",
     "enumeration": "9"
    },
-   "solution": "PATRIOTIC"
+   "solution": "PATRIOTIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PATRIOTIC",
+    "definitions": [
+     {
+      "text": "Liking country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word just before it"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece goes round the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "film",
+      "gives": "PIC",
+      "note": "pic is short for picture, a film"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "threesome",
+      "gives": "TRIO",
+      "note": "a trio is a group of three"
+     },
+     {
+      "clueFragment": "titillating",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ATRIOT",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A racy film about a ménage à trois, the sort a country-loving person might enjoy.",
+     "walkthrough": "'Country' suggests rural life, but it means one's nation.",
+     "definitionFit": "Patriotic describes devotion to and love of one's nation, so it means fond of one's homeland."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "country"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +1018,54 @@
     "text": "Refusal in Paris to make case for English element",
     "enumeration": "4"
    },
-   "solution": "NEON"
+   "solution": "NEON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEON",
+    "definitions": [
+     {
+      "text": "element",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to make case for",
+      "for": "container",
+      "note": "a case holds something, so one piece becomes the casing round another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Refusal in Paris",
+      "gives": "NON",
+      "note": "non is French for no"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "E",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A French refusal to argue in favour of some English element.",
+     "definitionFit": "Neon is a chemical element, a noble gas used in glowing advertising signs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1079,57 @@
     "text": "“Yes” in German firm to snack for rebel",
     "enumeration": "8"
    },
-   "solution": "JACOBITE"
+   "solution": "JACOBITE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JACOBITE",
+    "definitions": [
+     {
+      "text": "rebel",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "to",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "“Yes” in German",
+      "gives": "JA",
+      "note": "ja is German for yes"
+     },
+     {
+      "clueFragment": "firm",
+      "gives": "CO",
+      "note": "Co is short for company"
+     },
+     {
+      "clueFragment": "snack",
+      "gives": "BITE",
+      "note": "a bite is a quick snack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JA",
+      "CO",
+      "BITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A German company agreeing to provide snacks for an insurgent.",
+     "walkthrough": "Jacobites were supporters of the exiled Stuart kings who rose against the British crown in 1715 and 1745.",
+     "definitionFit": "A Jacobite rebelled in support of James II and his descendants, so the word names a historical insurgent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 16,
@@ -311,7 +1143,42 @@
     "text": "Novice lodged in city rooms",
     "enumeration": "4"
    },
-   "solution": "TYRO"
+   "solution": "TYRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TYRO",
+    "definitions": [
+     {
+      "text": "Novice",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lodged in",
+      "for": "hidden_word",
+      "note": "lodged in says the letters are staying inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city rooms",
+      "gives": "TYRO",
+      "note": "the letters bridging the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A beginner lives in rented rooms in town.",
+     "definitionFit": "A tyro is a beginner or learner, someone new to a skill or trade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lodged"
+    }
+   }
   },
   {
    "number": 17,
@@ -325,7 +1192,62 @@
     "text": "Nautical equipment sailor brought up on course",
     "enumeration": "7"
    },
-   "solution": "RATLINE"
+   "solution": "RATLINE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "RATLINE",
+    "definitions": [
+     {
+      "text": "Nautical equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought up",
+      "for": "reversal",
+      "note": "in a down entry, brought up means read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sailor",
+      "gives": "TAR",
+      "note": "tar is an old word for a seaman"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "LINE",
+      "note": "a line is a course or route"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAT",
+      "LINE"
+     ],
+     "reversals": [
+      {
+       "from": "TAR",
+       "to": "RAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ship's gear that a sailor raised while sailing a set route.",
+     "definitionFit": "Ratlines are small ropes fixed across a ship's shrouds to form ladder rungs for climbing the rigging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -345,7 +1267,55 @@
      }
     ]
    },
-   "solution": "VETERANCAR"
+   "solution": "VETERANCAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VETERAN CAR",
+    "definitions": [
+     {
+      "text": "Old vehicle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "refurbished",
+      "for": "anagram",
+      "note": "refurbished means done up and reworked, so the letters are rebuilt in another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "van",
+      "gives": "VAN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caterer",
+      "gives": "CATERER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VANCATERER",
+       "gives": "VETERANCAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old catering van has been restored.",
+     "walkthrough": "In Britain a veteran car is specifically one built before 1905, older than a vintage car.",
+     "definitionFit": "A veteran car is a very early motor car, so an old vehicle by definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -359,7 +1329,58 @@
     "text": "Ivy perhaps, chilly at first, then flexible",
     "enumeration": "7"
    },
-   "solution": "CLIMBER"
+   "solution": "CLIMBER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CLIMBER",
+    "definitions": [
+     {
+      "text": "Ivy perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first means only the opening letter of the word before it counts"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chilly",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "flexible",
+      "gives": "LIMBER",
+      "note": "limber means supple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "Ivy, stiff in the cold at first, later becomes pliable.",
+     "walkthrough": "'Perhaps' marks ivy as one example of the answer.",
+     "definitionFit": "Ivy is a plant that grows upward by clinging to walls and trees, so it is an example of a climbing plant."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -373,7 +1394,50 @@
     "text": "Clever Bishop supported by Conservative",
     "enumeration": "6"
    },
-   "solution": "BRIGHT"
+   "solution": "BRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIGHT",
+    "definitions": [
+     {
+      "text": "Clever",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "RIGHT",
+      "note": "the right is the conservative wing of politics"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A shrewd bishop is backed by a Tory politician.",
+     "walkthrough": "In a down entry 'supported by' puts the second piece underneath the first.",
+     "definitionFit": "Bright describes someone intelligent and quick-witted, a common synonym for smart."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 21,
@@ -387,7 +1451,74 @@
     "text": "Abroad, note invite isn't primarily required by him?",
     "enumeration": "15"
    },
-   "solution": "INTERVENTIONIST"
+   "solution": "INTERVENTIONIST",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "INTERVENTIONIST",
+    "definitions": [
+     {
+      "text": "Abroad, note invite isn't primarily required by him?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the next word is used"
+     },
+     {
+      "text": "Abroad",
+      "for": "anagram",
+      "note": "abroad suggests being scattered widely, so the letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "NOTE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "invite",
+      "gives": "INVITE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "isn't",
+      "gives": "ISNT",
+      "note": "taken as written, apostrophe dropped"
+     },
+     {
+      "clueFragment": "required",
+      "gives": "R",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTEINVITEISNTR",
+       "gives": "INTERVENTIONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A meddler in foreign affairs notes that he needs no invitation to act abroad.",
+     "walkthrough": "The whole clue is both wordplay and definition: someone who gets involved overseas without being asked.",
+     "definitionFit": "An interventionist favours involvement in other countries' affairs, uninvited if need be."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Abroad"
+    }
+   }
   },
   {
    "number": 22,
@@ -401,7 +1532,50 @@
     "text": "Recurring idea in article on Maine",
     "enumeration": "5"
    },
-   "solution": "THEME"
+   "solution": "THEME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THEME",
+    "definitions": [
+     {
+      "text": "Recurring idea",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     },
+     {
+      "clueFragment": "Maine",
+      "gives": "ME",
+      "note": "ME is the postal abbreviation for the US state of Maine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "ME"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper feature about the state of Maine keeps returning to the same idea.",
+     "definitionFit": "A theme is a subject or motif that comes back repeatedly through a work of art or argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 23,
@@ -415,7 +1589,65 @@
     "text": "Soldiers smuggling gun into French island drive dangerously",
     "enumeration": "8"
    },
-   "solution": "TAILGATE"
+   "solution": "TAILGATE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TAILGATE",
+    "definitions": [
+     {
+      "text": "drive dangerously",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "smuggling",
+      "for": "container",
+      "note": "something smuggled is carried hidden inside, so one piece goes within another"
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldiers",
+      "gives": "TA",
+      "note": "the Territorial Army, Britain's volunteer reserve force"
+     },
+     {
+      "clueFragment": "French island",
+      "gives": "ILE",
+      "note": "ile is French for island"
+     },
+     {
+      "clueFragment": "gun",
+      "gives": "GAT",
+      "note": "gat is old slang for a pistol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TA",
+      "IL",
+      "GAT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Troops sneaking a weapon onto an island off France.",
+     "walkthrough": "Strictly it is the island that takes in the gun; the soldiers simply stand in front.",
+     "definitionFit": "To tailgate is to follow another vehicle too closely, a risky habit on the road."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drive"
+    }
+   }
   },
   {
    "number": 24,
@@ -429,7 +1661,50 @@
     "text": "51 up to it and legally answerable",
     "enumeration": "6"
    },
-   "solution": "LIABLE"
+   "solution": "LIABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LIABLE",
+    "definitions": [
+     {
+      "text": "legally answerable",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "51",
+      "gives": "LI",
+      "note": "LI is 51 in Roman numerals"
+     },
+     {
+      "clueFragment": "up to it",
+      "gives": "ABLE",
+      "note": "capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone aged fifty-one is still fit for the job and responsible under the law.",
+     "walkthrough": "A bare number in a clue often wants its Roman numeral.",
+     "definitionFit": "Liable means responsible in law, bound to pay damages or bear the consequences."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "51"
+    }
+   }
   },
   {
    "number": 25,
@@ -443,7 +1718,56 @@
     "text": "Living being, rare, cute, evolving",
     "enumeration": "8"
    },
-   "solution": "CREATURE"
+   "solution": "CREATURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CREATURE",
+    "definitions": [
+     {
+      "text": "Living being",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evolving",
+      "for": "anagram",
+      "note": "evolving means changing form over time, so the letters develop into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rare",
+      "gives": "RARE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cute",
+      "gives": "CUTE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RARECUTE",
+       "gives": "CREATURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A description of some rare, adorable animal in the course of evolution.",
+     "walkthrough": "'Evolving' fits the natural-history picture perfectly but signals rearrangement.",
+     "definitionFit": "A creature is any animal or person, something alive and existing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evolving"
+    }
+   }
   },
   {
    "number": 26,
@@ -457,7 +1781,66 @@
     "text": "Award daughter, for one, always rejected",
     "enumeration": "6"
    },
-   "solution": "DEGREE"
+   "solution": "DEGREE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DEGREE",
+    "definitions": [
+     {
+      "text": "Award",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "rejected suggests being thrown back, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     },
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "e.g., for example"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EG",
+      "REE"
+     ],
+     "reversals": [
+      {
+       "from": "EER",
+       "to": "REE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter, for example, whose prize is forever refused.",
+     "definitionFit": "A degree is the qualification a university confers on a graduate, an academic honour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   }
  ]
 }
