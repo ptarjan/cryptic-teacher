@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "I'm not sure try's given as a result",
     "enumeration": "4"
    },
-   "solution": "ERGO"
+   "solution": "ERGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERGO",
+    "definitions": [
+     {
+      "text": "as a result",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm not sure",
+      "gives": "ER",
+      "note": "the hesitant noise someone makes when unsure"
+     },
+     {
+      "clueFragment": "try",
+      "gives": "GO",
+      "note": "to have a go is to have a try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "GO"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitantly concludes that an attempt has led to some outcome.",
+     "walkthrough": "The apostrophe-s on 'try's' is read as 'is': ER plus GO is given for the definition.",
+     "definitionFit": "Ergo is the Latin-derived word meaning therefore, used to introduce a logical consequence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sure"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +93,57 @@
     "text": "Main bottom in butt, behind",
     "enumeration": "4"
    },
-   "solution": "SEAT"
+   "solution": "SEAT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SEAT",
+    "definitions": [
+     {
+      "text": "behind",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom in",
+      "for": "letter_selection",
+      "note": "the bottom of a word written downwards is its final letter, so only that end is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Main",
+      "gives": "SEA",
+      "note": "the main is an old poetic name for the open ocean"
+     },
+     {
+      "clueFragment": "butt",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEA",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A sniggering line about the rear end, with butt and behind both pointing to the same place.",
+     "walkthrough": "'Main' looks like an adjective meaning chief, but here it is the noun for the sea.",
+     "definitionFit": "Seat is a polite word for the buttocks, just as behind is, both naming the part one sits on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Main"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +157,71 @@
     "text": "Plaster coming off initially after upping of austerity measures",
     "enumeration": "6"
    },
-   "solution": "STUCCO"
+   "solution": "STUCCO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STUCCO",
+    "definitions": [
+     {
+      "text": "Plaster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upping of",
+      "for": "reversal",
+      "note": "in a down clue, sending a word up the column means writing it from bottom to top"
+     },
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each word it governs"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "austerity measures",
+      "gives": "CUTS",
+      "note": "government spending cuts are the measures of austerity"
+     },
+     {
+      "clueFragment": "coming off",
+      "gives": "CO",
+      "select": "first",
+      "note": "the first letter of each of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUC",
+      "CO"
+     ],
+     "reversals": [
+      {
+       "from": "CUTS",
+       "to": "STUC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plaster flaking off a building once austerity cuts are increased, as maintenance budgets shrink.",
+     "walkthrough": "'After' tells you the two first letters go behind the turned-round word.",
+     "definitionFit": "Stucco is a fine plaster or render used to coat and decorate walls and facades."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upping"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +235,55 @@
     "text": "Pile I fed to males",
     "enumeration": "7"
    },
-   "solution": "MANSION"
+   "solution": "MANSION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MANSION",
+    "definitions": [
+     {
+      "text": "Pile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fed to",
+      "for": "container",
+      "note": "something fed to another goes inside it, so one piece is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "males",
+      "gives": "MANSON",
+      "note": "two male words side by side: a man and a son"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANS",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone boasts of feeding a heap of food to a group of men.",
+     "walkthrough": "The plural 'males' supplies two separate male words, MAN and SON, and the I goes between them.",
+     "definitionFit": "A pile is a large imposing house, as in a stately pile, so a mansion is an example."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Pile"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +297,45 @@
     "text": "Ambitious foursome you''ll find on the periphery from 17, did you say?",
     "enumeration": "8"
    },
-   "solution": "ASPIRING"
+   "solution": "ASPIRING",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ASPIRING",
+    "definitions": [
+     {
+      "text": "Ambitious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "did you say?",
+      "for": "homophone",
+      "note": "asking whether you said something means attending to how the words are pronounced"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foursome you''ll find on the periphery from 17",
+      "gives": "ASPIRING",
+      "soundsLike": "A SPY RING",
+      "note": "a small cell of agents, such as a group of four, operating on the margins besides (17) normal society"
+     }
+    ],
+    "explanation": {
+     "surface": "A foursome hovering at the edge of things, asked if they have ambitions.",
+     "walkthrough": "Spoken aloud the answer is 'a spy ring'. How 'on the periphery from 17' (BESIDES) describes that ring is not clear; it may allude to the Cambridge spies.",
+     "definitionFit": "An aspiring person is hoping and striving to achieve something, which is what being ambitious means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "foursome"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +349,51 @@
     "text": "Blends dispensed from some optics",
     "enumeration": "10"
    },
-   "solution": "COMPOSITES"
+   "solution": "COMPOSITES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COMPOSITES",
+    "definitions": [
+     {
+      "text": "Blends",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dispensed from",
+      "for": "anagram",
+      "note": "letters dispensed are let out and scattered, so they come out in a different order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some optics",
+      "gives": "SOMEOPTICS",
+      "note": "the ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOMEOPTICS",
+       "gives": "COMPOSITES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mixed drinks poured from the optics behind a bar.",
+     "walkthrough": "Optics are the upside-down spirit dispensers mounted behind a British bar, which is why blends sound like whiskies here.",
+     "definitionFit": "Composites are materials or things made by combining several components, which is what blends are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "optics"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +407,59 @@
     "text": "Drive two into the water",
     "enumeration": "6"
    },
-   "solution": "LIBIDO"
+   "solution": "LIBIDO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIBIDO",
+    "definitions": [
+     {
+      "text": "Drive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one thing going into another ends up enclosed inside it"
+     }
+    ],
+    "linkWords": [
+     "the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "LIDO",
+      "note": "a lido is an open-air swimming pool or bathing place"
+     },
+     {
+      "clueFragment": "two",
+      "gives": "BI",
+      "note": "the prefix meaning two, as in bicycle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "BI",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to steer a pair of vehicles into a lake.",
+     "walkthrough": "'Drive' looks like a verb about a car; it is the noun for an inner urge. A lido is a public outdoor pool, common in Britain.",
+     "definitionFit": "Libido is sexual desire, often called the sex drive, so drive in that sense is a synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Drive"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +479,72 @@
      }
     ]
    },
-   "solution": "GREENTEA"
+   "solution": "GREENTEA",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GREEN TEA",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Penning",
+      "for": "container",
+      "note": "penning something means writing it in or enclosing it, so one piece holds another"
+     },
+     {
+      "text": "first in",
+      "for": "letter_selection",
+      "note": "the first in a word is its opening letter only"
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "author",
+      "gives": "GREENE",
+      "note": "Graham Greene, the English novelist"
+     },
+     {
+      "clueFragment": "trilogy",
+      "gives": "T",
+      "select": "first",
+      "note": "opening letter of this word"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GREEN",
+      "T",
+      "E",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A novelist writing the first book of a trilogy who needs a drink to keep going.",
+     "walkthrough": "'Penning' fits the writer of the surface, but here it is the author's name that pens the letter.",
+     "definitionFit": "Green tea is an unfermented tea brewed as a drink, so it is a specific example of a beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Penning"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +558,64 @@
     "text": "Something to draw on right-hand side of page, so it could be?",
     "enumeration": "6"
    },
-   "solution": "STOGIE"
+   "solution": "STOGIE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "STOGIE",
+    "definitions": [
+     {
+      "text": "Something to draw on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "right-hand side of",
+      "for": "letter_selection",
+      "note": "the right-hand half of a written word is its last letters"
+     },
+     {
+      "text": "could be",
+      "for": "anagram",
+      "note": "what letters could be, if reshuffled, is a different arrangement of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "page",
+      "gives": "GE",
+      "select": "last",
+      "note": "the right half of the four-letter word"
+     },
+     {
+      "clueFragment": "so it",
+      "gives": "SOIT",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GESOIT",
+       "gives": "STOGIE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An artist wondering whether the right-hand side of the page might do as a place to sketch.",
+     "walkthrough": "'Draw on' suggests pencil and paper; it means to puff on, as one draws on a cigar.",
+     "definitionFit": "A stogie is a long cheap cigar, and smokers draw on a cigar by inhaling through it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "draw"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +629,65 @@
     "text": "Search close to over, with licence to kill time",
     "enumeration": "4"
    },
-   "solution": "ROOT"
+   "solution": "ROOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ROOT",
+    "definitions": [
+     {
+      "text": "Search",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its final letter, which is all that is used"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "R",
+      "select": "last",
+      "note": "closing letter of this word"
+     },
+     {
+      "clueFragment": "licence to kill",
+      "gives": "OO",
+      "note": "James Bond's 00 prefix, the double-O, marks an agent licensed to kill"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OO",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A spy thriller: the search nears its end, with a licence to kill time.",
+     "walkthrough": "The zeros of 007 are read as the letters O O.",
+     "definitionFit": "To root, or root around, is to search by rummaging through things, as a pig roots for food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "kill"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +701,44 @@
     "text": "Number going into two, neatly",
     "enumeration": "3"
    },
-   "solution": "ONE"
+   "solution": "ONE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ONE",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going into",
+      "for": "hidden_word",
+      "note": "something going into words sits inside them, so the letters are found within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two, neatly",
+      "gives": "ONE",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A sum where one figure divides neatly into another.",
+     "walkthrough": "Arithmetic tempts: no division is needed, the letters are sitting across the comma.",
+     "definitionFit": "One is the first of the cardinal numbers, the figure for a single unit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "going"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +752,63 @@
     "text": "Exercise beyond Shakespearean lieutenant, one with a vain queen",
     "enumeration": "10"
    },
-   "solution": "CASSIOPEIA"
+   "solution": "CASSIOPEIA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CASSIOPEIA",
+    "definitions": [
+     {
+      "text": "vain queen",
+      "at": 53
+     }
+    ],
+    "linkWords": [
+     "beyond",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Shakespearean lieutenant",
+      "gives": "CASSIO",
+      "note": "Cassio is Othello's lieutenant"
+     },
+     {
+      "clueFragment": "Exercise",
+      "gives": "PE",
+      "note": "physical education"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CASSIO",
+      "PE",
+      "I",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A workout scene from a production of Othello, the officer joined by a conceited monarch.",
+     "walkthrough": "'Beyond' places the exercise after the lieutenant.",
+     "definitionFit": "In Greek myth Cassiopeia, queen of Ethiopia, boasted that she was more beautiful than the sea nymphs, which is vanity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Exercise"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +822,54 @@
     "text": "Scientific body in fluid ounces",
     "enumeration": "6"
    },
-   "solution": "UNESCO"
+   "solution": "UNESCO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNESCO",
+    "definitions": [
+     {
+      "text": "Scientific body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fluid",
+      "for": "anagram",
+      "note": "fluid things have no fixed shape, so these letters can flow into another order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ounces",
+      "gives": "OUNCES",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OUNCES",
+       "gives": "UNESCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Lab scientists measuring their liquids in fluid ounces.",
+     "walkthrough": "'Fluid ounces' reads as a single unit of measure; split it, and the first word works on the second.",
+     "definitionFit": "UNESCO is the United Nations Educational, Scientific and Cultural Organization, an international organization dealing with science among other fields."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fluid"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +883,50 @@
     "text": "Born in the jungle, only fundamental characters?",
     "enumeration": "3"
    },
-   "solution": "NEE"
+   "solution": "NEE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "NEE",
+    "definitions": [
+     {
+      "text": "Born",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "only fundamental characters",
+      "for": "letter_selection",
+      "note": "the fundament is the bottom, so only the letters at the bottom end of each word count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in the jungle",
+      "gives": "NEE",
+      "select": "last",
+      "note": "the final letter of each of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A creature born and raised in the wild, knowing only the basics.",
+     "walkthrough": "'Fundamental' sounds like basic, but the fundament is the backside, so the clue wants the tail of each word.",
+     "definitionFit": "Née, French for born, introduces a woman's maiden name, as in Mrs Smith née Jones."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "fundamental"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +946,63 @@
      }
     ]
    },
-   "solution": "SPIDERCRAB"
+   "solution": "SPIDERCRAB",
+   "annotation": {
+    "type": [
+     "homophone",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPIDER CRAB",
+    "definitions": [
+     {
+      "text": "Marine animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say tells you to go by the sound of the words spoken"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter alone"
+     },
+     {
+      "text": "flooded with",
+      "for": "container",
+      "note": "something flooded with water has it inside, so one piece is filled with another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saw a vehicle",
+      "gives": "SPIDERCAB",
+      "soundsLike": "SPIED A CAB",
+      "note": "saw means spied and a taxi is a cab; run together the phrase is said like the letters given"
+     },
+     {
+      "clueFragment": "water",
+      "gives": "R",
+      "select": "last",
+      "note": "closing letter of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A sea creature spots a car that then floods with seawater.",
+     "walkthrough": "The comma before 'say' looks like grammar, but 'say' works on the phrase before it.",
+     "definitionFit": "A spider crab is a long-legged crab of the sea floor, so it is a kind of marine animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "saw"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1016,59 @@
     "text": "So scratching head with task - forgotten something?",
     "enumeration": "8"
    },
-   "solution": "OMISSION"
+   "solution": "OMISSION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OMISSION",
+    "definitions": [
+     {
+      "text": "forgotten something?",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scratching head",
+      "for": "deletion",
+      "note": "scratching out the head of a word strikes off its first letter"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "So",
+      "gives": "SO",
+      "note": "taken as written before losing its head"
+     },
+     {
+      "clueFragment": "task",
+      "gives": "MISSION",
+      "note": "a mission is an assigned task"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone scratching their head over a job, sure they have forgotten something.",
+     "walkthrough": "'Scratching head' paints puzzlement but means chopping the first letter off the word before it.",
+     "definitionFit": "An omission is a thing left out or overlooked, so it is something forgotten; the question mark flags the noun definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scratching"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1082,62 @@
     "text": "Less familiar tunes including Beethoven's Second, moreover",
     "enumeration": "7"
    },
-   "solution": "BESIDES"
+   "solution": "BESIDES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BESIDES",
+    "definitions": [
+     {
+      "text": "moreover",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Second",
+      "for": "letter_selection",
+      "note": "the second of a word is its letter in position two"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "something including another holds it within itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Less familiar tunes",
+      "gives": "BSIDES",
+      "note": "B-sides are the lesser tracks on the reverse of a single"
+     },
+     {
+      "clueFragment": "Beethoven's",
+      "gives": "E",
+      "select": 2,
+      "note": "the letter after the B of the composer's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "SIDES"
+     ]
+    },
+    "explanation": {
+     "surface": "An album of obscure numbers that also includes Beethoven's Second Symphony.",
+     "walkthrough": "'Beethoven's Second' looks like a symphony; it is the second letter of his name.",
+     "definitionFit": "Besides and moreover are both sentence adverbs used to add a further point to an argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Second"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1151,73 @@
     "text": "Label written up, amended date issued",
     "enumeration": "8"
    },
-   "solution": "EMANATED"
+   "solution": "EMANATED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EMANATED",
+    "definitions": [
+     {
+      "text": "issued",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written up",
+      "for": "reversal",
+      "note": "in a down clue, writing a word up the column puts it bottom to top"
+     },
+     {
+      "text": "amended",
+      "for": "anagram",
+      "note": "amended letters are altered, here rearranged into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Label",
+      "gives": "NAME",
+      "note": "to label something is to name it, and a name is a label"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "DATE",
+      "note": "the four letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMAN",
+      "ATED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DATE",
+       "gives": "ATED"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "NAME",
+       "to": "EMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Office procedure: a label is written out and a corrected date is issued.",
+     "walkthrough": "'Issued' sits at the end looking like part of the story; it is the definition.",
+     "definitionFit": "Emanated means came forth or flowed out from a source, which is what issued means as an intransitive verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "amended"
+    }
+   }
   },
   {
    "number": 19,
@@ -303,7 +1237,66 @@
      }
     ]
    },
-   "solution": "EGOTRIP"
+   "solution": "EGOTRIP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "EGO TRIP",
+    "definitions": [
+     {
+      "text": "journey of self love",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to what comes at the very end, the final letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "race",
+      "gives": "E",
+      "select": "last",
+      "note": "final letter of this word"
+     },
+     {
+      "clueFragment": "won",
+      "gives": "GOT",
+      "note": "to have won something is to have got it"
+     },
+     {
+      "clueFragment": "burst",
+      "gives": "RIP",
+      "note": "a rip is a burst or tear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GOT",
+      "RIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A runner wins with a final burst of speed and basks in self-admiration.",
+     "definitionFit": "An ego trip is an action undertaken to boost one's own self-importance; the definition puns on trip as journey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "race"
+    }
+   }
   },
   {
    "number": 20,
@@ -317,7 +1310,45 @@
     "text": "Princess sounding like a duck",
     "enumeration": "3"
    },
-   "solution": "IDA"
+   "solution": "IDA",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IDA",
+    "definitions": [
+     {
+      "text": "Princess",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounding like",
+      "for": "homophone",
+      "note": "sounding like asks for a word pronounced the same as another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a duck",
+      "gives": "IDA",
+      "soundsLike": "EIDER",
+      "note": "the eider is a sea duck, the source of eiderdown"
+     }
+    ],
+    "explanation": {
+     "surface": "A princess whose voice is compared to a quack.",
+     "walkthrough": "In non-rhotic British speech the name and the duck are said the same way.",
+     "definitionFit": "Princess Ida is the title heroine of the Gilbert and Sullivan comic opera, so she is a well-known princess."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "sounding"
+    }
+   }
   },
   {
    "number": 21,
@@ -337,7 +1368,52 @@
      }
     ]
    },
-   "solution": "LEGSPIN"
+   "solution": "LEGSPIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LEG SPIN",
+    "definitions": [
+     {
+      "text": "Style of delivery",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "member",
+      "gives": "LEG",
+      "note": "a limb is a member of the body"
+     },
+     {
+      "clueFragment": "political bias",
+      "gives": "SPIN",
+      "note": "spin is the slanted presentation of news by politicians"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEG",
+      "SPIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician's delivery style, marked by partisan bias.",
+     "walkthrough": "In cricket a leg-spinner bowls wrist spin that turns from leg to off; delivery is the bowler's ball, not a speech.",
+     "definitionFit": "Leg spin is a type of bowling in cricket, and each ball bowled is called a delivery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 22,
@@ -351,7 +1427,68 @@
     "text": "Bear hugs real hairy bear!",
     "enumeration": "8"
    },
-   "solution": "TOLERATE"
+   "solution": "TOLERATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOLERATE",
+    "definitions": [
+     {
+      "text": "Bear",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hairy",
+      "for": "anagram",
+      "note": "hairy means wild and alarming, so these letters are thrown into disorder"
+     },
+     {
+      "text": "hugs",
+      "for": "container",
+      "note": "one thing hugging another wraps around it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bear!",
+      "gives": "TOTE",
+      "note": "to tote is to carry or bear"
+     },
+     {
+      "clueFragment": "real",
+      "gives": "LERA",
+      "note": "the four letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "LERA",
+      "TE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REAL",
+       "gives": "LERA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cuddly scene: a bear embraces a genuinely shaggy bear.",
+     "walkthrough": "Both bears look like animals; the first is the verb to put up with, the last the verb to carry.",
+     "definitionFit": "To bear something, such as pain or rudeness, is to put up with or endure it, a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hairy"
+    }
+   }
   },
   {
    "number": 23,
@@ -365,7 +1502,47 @@
     "text": "American playwright, a person flat on his back?",
     "enumeration": "6"
    },
-   "solution": "ONEILL"
+   "solution": "ONEILL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONEILL",
+    "definitions": [
+     {
+      "text": "American playwright",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a person",
+      "gives": "ONE",
+      "note": "one is used to mean a person, as in one should"
+     },
+     {
+      "clueFragment": "flat on his back?",
+      "gives": "ILL",
+      "note": "someone laid up in bed, unwell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONE",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dramatist pictured lying flat out.",
+     "walkthrough": "Eugene O'Neill wrote Long Day's Journey into Night; the apostrophe is ignored in the grid.",
+     "definitionFit": "Eugene O'Neill was a Nobel-winning dramatist from the United States, author of The Iceman Cometh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 24,
@@ -379,7 +1556,58 @@
     "text": "Notes, perhaps, written about bachelor in African citadel",
     "enumeration": "6"
    },
-   "solution": "CASBAH"
+   "solution": "CASBAH",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CASBAH",
+    "definitions": [
+     {
+      "text": "African citadel",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written about",
+      "for": "container",
+      "note": "something written about another is wrapped around it, placing one inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Notes, perhaps",
+      "gives": "CASH",
+      "note": "banknotes are an example of cash"
+     },
+     {
+      "clueFragment": "bachelor",
+      "gives": "BA",
+      "note": "Bachelor of Arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAS",
+      "BA",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Notes written about a single man inside a North African fortress.",
+     "walkthrough": "'Notes' looks like writing or music; the 'perhaps' warns it is money given as an example.",
+     "definitionFit": "A casbah is the citadel or old walled quarter of a North African city such as Algiers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Notes"
+    }
+   }
   },
   {
    "number": 24,
@@ -393,7 +1621,50 @@
     "text": "Insect starts to chirp: \"I'm cricket, and drummer also!\"",
     "enumeration": "6"
    },
-   "solution": "CICADA"
+   "solution": "CICADA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "and_lit"
+    ],
+    "answer": "CICADA",
+    "definitions": [
+     {
+      "text": "Insect",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "the starts of words are their first letters, one taken from each"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chirp: \"I'm cricket, and drummer also",
+      "gives": "CICADA",
+      "select": "first",
+      "note": "the opening letter of each of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CICADA"
+     ]
+    },
+    "explanation": {
+     "surface": "An insect speaks: it chirps like a cricket and drums too.",
+     "walkthrough": "The whole clue also describes the answer: cicadas sing by vibrating drum-like membranes, a near relation of the cricket's chirp.",
+     "definitionFit": "The cicada is a large insect famous for the loud shrill song males make."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "drummer"
+    }
+   }
   },
   {
    "number": 25,
@@ -407,7 +1678,47 @@
     "text": "Almost ruined, public transport",
     "enumeration": "3"
    },
-   "solution": "BUS"
+   "solution": "BUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BUS",
+    "definitions": [
+     {
+      "text": "public transport",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ruined",
+      "gives": "BUST",
+      "note": "something bust is broken or ruined"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that public transport is nearly falling apart.",
+     "definitionFit": "A bus is a large road vehicle carrying passengers on a route, the commonest form of public transport."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruined"
+    }
+   }
   },
   {
    "number": 26,
@@ -421,7 +1732,63 @@
     "text": "Model as concise embodying fifty of David's paintings?",
     "enumeration": "10"
    },
-   "solution": "NEOCLASSIC"
+   "solution": "NEOCLASSIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "NEOCLASSIC",
+    "definitions": [
+     {
+      "text": "of David's paintings?",
+      "at": 33,
+      "note": "adjectival phrase for the adjective answer"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Model",
+      "for": "anagram",
+      "note": "to model clay is to reshape it, so these letters are formed into a new shape"
+     },
+     {
+      "text": "embodying",
+      "for": "container",
+      "note": "embodying something takes it into the body, placing it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as concise",
+      "gives": "ASCONCISE",
+      "note": "the nine letters to rearrange"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASCONCISEL",
+       "gives": "NEOCLASSIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An art critic praising a model's brief portrayal in a painter's works.",
+     "walkthrough": "David is Jacques-Louis David, the French painter of The Death of Marat.",
+     "definitionFit": "David led French Neoclassicism, whose paintings revived the clean forms and themes of Greek and Roman antiquity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Model"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1802,41 @@
     "text": "Fungal sacs, somewhat fascinatingly",
     "enumeration": "4"
    },
-   "solution": "ASCI"
+   "solution": "ASCI",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASCI",
+    "definitions": [
+     {
+      "text": "Fungal sacs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only part of the following word, so the letters lie within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fascinatingly",
+      "gives": "ASCI",
+      "note": "letters two to five of the word"
+     }
+    ],
+    "explanation": {
+     "surface": "An enthusiast finds mushroom spore pouches rather fascinating.",
+     "definitionFit": "Asci is the plural of ascus, the sac-shaped cell in which certain fungi form their spores."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1850,48 @@
     "text": "Pretentious litigant doffing cap",
     "enumeration": "4"
    },
-   "solution": "ARTY"
+   "solution": "ARTY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARTY",
+    "definitions": [
+     {
+      "text": "Pretentious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doffing cap",
+      "for": "deletion",
+      "note": "doffing a cap takes off what is on top, so in a down clue the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "litigant",
+      "gives": "PARTY",
+      "note": "each side in a lawsuit is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARTY"
+     ]
+    },
+    "explanation": {
+     "surface": "A pompous person in court tips their hat to the judge.",
+     "walkthrough": "'Doffing cap' looks like courtroom deference but means removing the top letter.",
+     "definitionFit": "Arty describes someone showily or affectedly artistic, a sense close to pretentious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "litigant"
+    }
+   }
   },
   {
    "number": 28,
@@ -463,7 +1905,41 @@
     "text": "Card game, cheat",
     "enumeration": "4"
    },
-   "solution": "CRIB"
+   "solution": "CRIB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CRIB",
+    "definitions": [
+     {
+      "text": "Card game",
+      "at": 0
+     },
+     {
+      "text": "cheat",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Card game",
+      "note": "first meaning: short for cribbage, a card game scored on a pegboard"
+     },
+     {
+      "clueFragment": "cheat",
+      "note": "second meaning: to copy someone else's work dishonestly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Cribbage is a traditional British pub card game, universally called crib.",
+     "definitionFit": "Crib is the familiar name for cribbage and also a verb meaning to copy or plagiarise dishonestly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -477,7 +1953,58 @@
     "text": "To capacity, lid off, time for the remaining liquid",
     "enumeration": "6"
    },
-   "solution": "ULLAGE"
+   "solution": "ULLAGE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ULLAGE",
+    "definitions": [
+     {
+      "text": "the remaining liquid",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lid off",
+      "for": "deletion",
+      "note": "taking the lid off removes the top, the first letter of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To capacity",
+      "gives": "FULL",
+      "note": "filled to capacity means full"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "AGE",
+      "note": "an age is a long period of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ULL",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Pouring a bottle to the brim, removing its cap, then waiting for what is left.",
+     "walkthrough": "Ullage strictly means the space or amount by which a container falls short of full; it is also used for the dregs left in a cask.",
+     "definitionFit": "Ullage can mean the sediment or liquid left in a barrel or bottle, the remaining liquid of the definition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lid"
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +2024,72 @@
      }
     ]
    },
-   "solution": "INDETAIL"
+   "solution": "INDETAIL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IN DETAIL",
+    "definitions": [
+     {
+      "text": "Thoroughly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfortunate",
+      "for": "anagram",
+      "note": "an unfortunate word has had bad luck, leaving its letters in a sorry jumble"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across clue, one thing placed on another follows it, so the paper comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "I",
+      "note": "the i is a British daily newspaper"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "NDE",
+      "note": "the three letters rearranged"
+     },
+     {
+      "clueFragment": "back",
+      "gives": "TAIL",
+      "note": "the tail is the back end"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NDE",
+      "TAIL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "END",
+       "gives": "NDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grim report of an unlucky death written up in the back pages of a paper.",
+     "walkthrough": "The i is a British national daily, a sister title of the Independent; 'on' puts the rest after it.",
+     "definitionFit": "To do something in detail is to do it thoroughly, covering every particular, an idiom matching the adverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unfortunate"
+    }
+   }
   }
  ]
 }
