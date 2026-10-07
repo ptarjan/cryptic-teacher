@@ -71,9 +71,9 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
 # session_id / session_exists — the resume mechanism run_claude below is built on.
 . "$REPO/tools/claude_session.sh"
-# worker_solve / worker_apply / worker_annotate — one puzzle's model work, the
-# same code the nightly (tools/daily_update.sh) runs; this script only picks and
-# paces the ids.
+# worker_annotate / worker_apply / worker_finish — one puzzle's model work and
+# what is done with it, the same code the nightly (tools/daily_update.sh)
+# runs; this script only picks and paces the ids.
 . "$REPO/tools/puzzle_worker.sh"
 
 # This run's own output, so the exit trap can report any failure line nobody
@@ -271,10 +271,13 @@ requeue_failed() {
 # out the wordplay and written half the answers down; a fresh -p throws that
 # thinking away and buys it a second time. Resuming replays the transcript and
 # carries on from the reasoning already paid for. The session lives in
-# /tmp/ct-prereset-<id>.sid, which run_solve names too, so the annotation after
-# a cold solve carries on in the solve's conversation (tools/puzzle_worker.sh).
+# /tmp/ct-prereset-<id>.sid.
+#
+# With a third argument the puzzle has no key, and the run solves it cold first,
+# writing its fill there (tools/puzzle_worker.sh); it writes the copy it
+# annotates itself, once that fill is in.
 run_claude() {
-  local tag="$1" prompt="$2" log resume_at note=""
+  local tag="$1" prompt="$2" fill="${3:-}" log resume_at note=""
   log="/tmp/ct-prereset-$1.txt"
   resume_at="/tmp/ct-prereset-$1.resume"
   if [ "$DRY_RUN" = 1 ]; then
@@ -286,8 +289,8 @@ run_claude() {
   rm -f "$resume_at"
   # The annotate prompt names this copy, which leaves out the solutions detail:
   # that names the blog, which annotate_check.py discloses only once the run is stuck.
-  python3 tools/annotate_check.py --view "$tag" >/dev/null
-  worker_annotate "$tag" "$log" "/tmp/ct-prereset-$tag.sid" "$prompt" "$note"
+  [ -n "$fill" ] || python3 tools/annotate_check.py --view "$tag" >/dev/null
+  worker_annotate "$tag" "$log" "/tmp/ct-prereset-$tag.sid" "$prompt" "$note" "$fill"
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
   # stays quiet. A broken login is a different animal: it fails identically, at
@@ -299,52 +302,23 @@ run_claude() {
   return $rc
 }
 
-# Solve a puzzle without all its answers cold, writing the fill to
-# /tmp/ct-prereset-<id>.fill, in the conversation its annotation resumes. The
-# fill goes in through solve_applied, which runs in the reaping shell like every
-# git command.
-run_solve() {
-  local id="$1" log="/tmp/ct-prereset-$1.txt" fill="/tmp/ct-prereset-$1.fill"
-  rm -f "$fill"
-  if [ "$DRY_RUN" = 1 ]; then
-    echo "would spend one $MODEL run solving $id" >"$log"
-    sleep 1
-    return 0
-  fi
-  worker_solve "$id" "$fill" "$log" "/tmp/ct-prereset-$id.sid"
-  local rc=$?
-  if [ $rc -ne 0 ] && grep -qi "Failed to authenticate\|Not logged in" "$log"; then
-    alert "pre-reset backfill cannot authenticate — the CLI needs a fresh /login. Nothing has been backfilled since this started."
-  fi
-  return $rc
-}
+# Whether pool_launch should have the run solve the puzzle before annotating it.
+needs_solve() { python3 tools/prereset_plan.py --unsolved "$1"; }
 
-# Ids this run has solved, so pool_launch sends them to the annotator next.
-SOLVED_HERE=" "
-# Whether pool_launch should solve the puzzle before annotating it.
-needs_solve() {
-  case "$SOLVED_HERE" in *" $1 "*) return 1 ;; esac
-  python3 tools/prereset_plan.py --unsolved "$1"
-}
-
-# A finished solve run: tools/puzzle_worker.sh applies, commits and pushes the
-# fill, and the puzzle is queued to be annotated next. A rejected one is
-# recorded in the solve ledger, which keeps it out of the queue until its
-# inputs change.
+# A finished solving run: tools/puzzle_worker.sh checks its fill again from the
+# committed puzzle and puts the run's annotations back on it. A rejected one
+# ships nothing and is recorded in the solve ledger, which keeps it out of the
+# queue until its inputs change.
 solve_applied() {
   local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
   elif ! worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict"; then
-    echo "  [$id] solve rejected, nothing written: $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-200)"
-    discard_puzzle "$id"
+    echo "  [$id] solve rejected, nothing it wrote ships: $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-200)"
     rm -f "$fill" "$verdict" "/tmp/ct-prereset-$id.sid"
     return 1
   fi
   rm -f "$fill" "$verdict"
-  SOLVED_HERE="$SOLVED_HERE$id "
-  queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
-  echo "  [$id] solved, annotating it next"
 }
 
 # The pool's validation-fix run holds a slot while it runs (pool_mark).
@@ -383,7 +357,7 @@ POOL_CHECK_SECS="${POOL_CHECK_SECS:-300}"
 # (sync_wave), so this often the pool stops refilling, drains and syncs.
 POOL_SYNC_SECS="${POOL_SYNC_SECS:-3600}"
 declare -A POOL_RUNS=()  # pid -> puzzle id, every run in flight
-declare -A POOL_SOLVING=()  # pid -> 1 for each of those that is a solve
+declare -A POOL_SOLVING=()  # pid -> 1 for each of those that solves its puzzle first
 POOL_RUN_US=0            # run-microseconds in flight since the checkpoint
 POOL_MARK_US=0           # when POOL_RUN_US was last brought up to date
 POOL_STARTED_US=0        # when the interval since the last checkpoint began
@@ -402,7 +376,7 @@ pool_mark() {
 }
 
 pool_launch() {
-  local id="$1" prompt wait_us
+  local id="$1" prompt wait_us fill=""
   wait_us=$(( POOL_LAUNCHED_US + POOL_LAUNCH_GAP_US - ${EPOCHREALTIME/[.,]/} ))
   [ "$wait_us" -gt 0 ] && sleep "$(printf '%d.%06d' $((wait_us / 1000000)) $((wait_us % 1000000)))"
   local again=""
@@ -410,12 +384,11 @@ pool_launch() {
   pool_mark
   if [ "$WAVE_WHAT" = Annotate ] && needs_solve "$id"; then
     again="$again, solving it first"
-    run_solve "$id" &
-    POOL_SOLVING[$!]=1
-  else
-    prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
-    run_claude "$id" "${prompt//@/$id}" &
+    fill="/tmp/ct-prereset-$id.fill"
   fi
+  prompt="${POOL_TMPL//@PATH@/$(python3 tools/puzzle_paths.py "$id")}"
+  run_claude "$id" "${prompt//@/$id}" "$fill" &
+  [ -n "$fill" ] && POOL_SOLVING[$!]=1
   POOL_RUNS[$!]="$id"
   POOL_LAUNCHED_US=${EPOCHREALTIME/[.,]/}
   echo "  [$id] started$again (${#POOL_RUNS[@]} of $wide in flight)"
@@ -455,16 +428,17 @@ pool_reap() {
   POOL_DONE=$((POOL_DONE + 1))
   if [ -n "${POOL_SOLVING[$pid]:-}" ]; then
     unset "POOL_SOLVING[$pid]"
-    if [ "$rc" -eq 0 ]; then
-      tail -3 "/tmp/ct-prereset-$id.txt" | sed "s/^/  [$id] /"
-      solve_applied "$id"
-    else
-      # Cut off, most likely by a lockout: requeued as a solve again.
+    # Cut off, most likely by a lockout, before its fill went in: requeued to
+    # be solved again from the start.
+    if [ "$rc" -ne 0 ] && [ -z "$(git status --porcelain -- "$(puzzle_spec "$id")")" ]; then
       tail -5 "/tmp/ct-prereset-$id.txt" 2>/dev/null | sed "s/^/  [$id] solve failed: /"
-      rm -f "/tmp/ct-prereset-$id.fill"
+      rm -f "/tmp/ct-prereset-$id.fill" "/tmp/ct-prereset-$id.sid"
       WAVE_FAILED_IDS+=("$id")
+      return
     fi
-  elif [ "$rc" -eq 0 ]; then
+    solve_applied "$id" || return
+  fi
+  if [ "$rc" -eq 0 ]; then
     tail -3 "/tmp/ct-prereset-$id.txt" | sed "s/^/  [$id] /"
     commit_puzzle "$id" "$WAVE_WHAT"
   else
@@ -771,8 +745,7 @@ commit_puzzle() {
   worker_finish "$id" "$what" "/tmp/ct-prereset-$id.sid" "/tmp/ct-prereset-$id.txt"
   case $? in
     0) return 0 ;;
-    2) SOLVED_HERE="${SOLVED_HERE/ $id / }"
-       queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
+    2) queue=("${queue[@]:0:$at}" "$id" "${queue[@]:$at}")
        echo "  [$id] solving it again next"
        return 1 ;;
     *) return 1 ;;
@@ -808,8 +781,8 @@ fi
 
 # --- 1. un-annotated puzzles, and the answerless solved first ---------------
 # The queue, its order and what it leaves out are tools/prereset_plan.py's
-# backlog(). A puzzle without all its answers is solved cold (pool_launch)
-# before it is annotated: its clues are all a puzzle has to come with. A puzzle
+# backlog(). A puzzle without all its answers is solved cold by the run that
+# annotates it (pool_launch): its clues are all a puzzle has to come with. A puzzle
 # held as its clues alone is queued too; its solve files its grid.
 echo "un-annotated backlog, newest first:"
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)

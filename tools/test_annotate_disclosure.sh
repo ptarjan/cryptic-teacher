@@ -419,7 +419,7 @@ done
 echo "the prompt no longer names the blog, and the run's inputs no longer carry it"
 same "the run reads the copy" "$(grep -c 'tools/_puzzle_@\.json' tools/prereset_backfill.sh)" "1"
 same "the nightly reads the copy" "$(grep -c 'ann_file=\$(python3 tools/annotate_check.py --view' tools/daily_update.sh)" "1"
-same "the worker hands the prompt over in the system prompt" "$(grep -c -- 'sys=tools/annotate_prompt.md' tools/puzzle_worker.sh)" "1"
+same "the worker hands the prompt over in the system prompt" "$(grep -c -- '--append-system-prompt-file tools/annotate_prompt.md' tools/puzzle_worker.sh)" "1"
 same "the prompt's worked annotations pass every check" "$(PYTHONPATH=tools python3 -c '
 import build_annotate_prompt as B, validate_annotations as V
 from fetch_puzzle import read_puzzle_file, resolve_puzzle

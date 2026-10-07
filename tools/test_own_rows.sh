@@ -46,6 +46,9 @@ git init -q && git add -A && git -c user.name=t -c user.email=t@t commit -qm bas
 commit() { git -c user.name=t -c user.email=t@t commit -qm "$1"; }
 
 eval "$(sed -n '/^puzzle_spec() {/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^clues_spec() {/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^puzzle_specs() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^restore_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^discard_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^stage_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 eval "$(sed -n '/^worker_commit() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"

@@ -1,10 +1,10 @@
 # Solving a puzzle that has no published answers
 
 Prize crosswords appear without solutions, which follow about a week later.
-You solve the puzzle cold so it can have hints in the meantime.
-`tools/annotate_prompt.md` then annotates your grid. The answers are published
-as ours, and when the paper's key arrives it grades them. Any entry you got
-wrong has its annotation thrown away and rewritten.
+You solve the puzzle cold so it can have hints in the meantime, then annotate
+your grid in this same turn by `tools/annotate_prompt.md`. The answers are
+published as ours, and when the paper's key arrives it grades them. Any entry
+you got wrong has its annotation thrown away and rewritten.
 
 ## Input
 
@@ -28,8 +28,23 @@ Spaces, hyphens and apostrophes are stripped. Then run the check:
 
 It lists missing entries, wrong lengths, crossings that disagree and
 definitions not at an end of their clue, and it writes nothing. Fix what it reports and run it again until it passes. The
-caller reruns it and refuses the whole fill unless it passes, so a partial or
-conflicting fill publishes nothing.
+caller reruns it against the puzzle as committed and refuses the whole fill
+unless it passes, so a partial or conflicting fill publishes nothing, and
+neither do the hints you built on it.
+
+## Then annotate
+
+Once the check passes, write the fill into the puzzle and make the copy you
+annotate from:
+
+    python3 tools/apply_solution.py <number> --fill <path> --no-reindex
+    python3 tools/annotate_check.py --view <number>
+
+Then do the annotation task your task names, from that copy. Your answers show
+there as `(MODEL)`. Annotate each from the wordplay you used to derive it.
+
+If you could not get the check to pass, skip all of this: write no
+annotations.
 
 ## Method
 
@@ -50,14 +65,14 @@ will catch it.
 
 ## Confidence
 
-When you finish, list each entry as one of:
+End your final message with every entry listed as one of:
 
 * **CONFIDENT**: the wordplay accounts for every letter.
 * **LIKELY**: the definition and crossings fit, but the wordplay is only partly
   parsed.
 * **GUESS**: it fits the letters and nothing more.
 
-Never invent wordplay to promote a GUESS. The annotation step will explain
+Never invent wordplay to promote a GUESS. Your annotation will explain
 whatever you claim with full authority. If you cannot get the check to pass
 honestly, stop and name the entries that beat you. The puzzle then waits for
 the paper's key, and that is a fine outcome.

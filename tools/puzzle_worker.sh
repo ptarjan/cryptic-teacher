@@ -1,17 +1,17 @@
 # shellcheck shell=bash
-# One puzzle's model work: solve it cold when it has no key, annotate it in that
-# same conversation, and record a solve the applier refused. Sourced by the
-# nightly (tools/daily_update.sh) and the burn (tools/prereset_backfill.sh),
+# One puzzle's model work: annotate it, solving it cold first in that same turn
+# when it has no key, and check, commit and push what the run left. Sourced by
+# the nightly (tools/daily_update.sh) and the burn (tools/prereset_backfill.sh),
 # which differ only in which ids they pick, when, how many at once and how they
 # pace themselves. This is the only file that runs a model on
 # tools/solve_prompt.md or tools/annotate_prompt.md, and
 # tools/test_puzzle_worker.sh holds it to that.
 #
-# A cold solve runs only as the first half of annotating the same puzzle: the
-# caller asks for one immediately before the annotation it feeds, never as a
-# pick of its own. Working an answer out and explaining how it was worked out
-# are the same reasoning, so the annotation resumes the solve's conversation
-# rather than buying that reasoning twice.
+# A cold solve runs only inside the turn that annotates the same puzzle, never
+# as a pick of its own: working an answer out and explaining how it was worked
+# out are the same reasoning, so one turn does both. The run applies its own
+# fill to have a grid to annotate; worker_apply then checks that fill again
+# from the committed puzzle, and nothing built on a fill it refuses ships.
 #
 # The caller sets WORKER_MODEL, WORKER_EFFORT, WORKER_JOB (its name in alerts)
 # and WORKER_WRAP (a command prefix such as "nice -n 19" or "timeout 90m", or
@@ -22,111 +22,91 @@
 # What stays the caller's is only scheduling: which ids, when, how many at
 # once, the usage gates, and what to do with an id after each step's verdict.
 #
-# A conversation is named by a sid file: "<session id>" for an annotation's own,
-# "<session id> solve" for a cold solve's not yet handed over, and
-# "<session id> annotating" once it has been. A conversation that began as a
-# solve keeps tools/solve_prompt.md as its system prompt on every later turn,
-# because a resume must send the one it began with or its cached prefix stops
-# matching; and it is handed over once, so a later fresh task on the same id
-# does not land in it.
+# A conversation is named by a sid file: "<session id>", or "<session id> solve"
+# for one that began with a cold solve, which has no web on any of its turns.
+# Every turn sends tools/annotate_prompt.md as its system prompt, so a resume's
+# cached prefix always matches.
 
 worker_sid() { local sid _; [ -s "$1" ] && read -r sid _ <"$1" && printf '%s\n' "$sid"; }
 
-# Solve $1 cold, writing its fill to $2 and the transcript to $3, in a new
-# conversation named in sid file $4. Returns the CLI's exit status; whether the
-# fill is any good is worker_apply's call.
-worker_solve() {   # id fill log sidfile
-  local id="$1" fill="$2" log="$3" sidfile="$4" sid sess=()
-  rm -f "$fill" "$sidfile"
-  if sid=$(session_id); then
-    sess=(--session-id "$sid")
-    echo "$sid solve" >"$sidfile"
+# Annotate $1, transcript to $2, in the conversation sid file $3 names.
+#   $4 the task, worded for a fresh run
+#   $5 a note to resume with instead (a retry after a cut-off), or empty
+#   $6 for a puzzle with no key: the path the run writes its cold solve's fill
+#      to, which worker_apply checks once the run is over
+# With a note, a live conversation is resumed with it; anything else starts
+# fresh. Web lookup belongs to the annotation of a keyed puzzle and nothing
+# else: a clue nobody can parse ships with no teaching ladder, so a solvers'
+# blog is worth a fetch as a last resort (tools/annotate_check.py discloses it
+# only once every clue but the last few is done, never up front), but a solve
+# that reads the answers measures nothing.
+# Returns the CLI's exit status (124 when a timeout WORKER_WRAP fired).
+worker_annotate() {   # id log sidfile task [note] [fill]
+  local id="$1" log="$2" sidfile="$3" prompt="$4" note="${5:-}" fill="${6:-}"
+  local sid="" kind="" sess=() tools="Read,Write,Edit,Bash(python3 *),Bash(node *)"
+  [ -s "$sidfile" ] && read -r sid kind <"$sidfile"
+  if [ -n "$note" ] && session_exists "$sid"; then
+    sess=(--resume "$sid")
+    prompt="$note"
+  else
+    rm -f "$sidfile"
+    kind=""
+    if [ -n "$fill" ]; then
+      kind=solve
+      rm -f "$fill"
+      prompt="Solve the cryptic crossword $id cold first: its answers have not all been published, so there is no key. Read tools/solve_prompt.md and follow it exactly, writing your fill to $fill; it ends by handing you this task: $prompt"
+    fi
+    if sid=$(session_id); then
+      sess=(--session-id "$sid")
+      echo "$sid${kind:+ $kind}" >"$sidfile"
+    fi
   fi
-  # No web: the paper's answers are unpublished but the blogs are not, and a
-  # solve that reads the answers measures nothing.
+  [ "$kind" = solve ] || tools="$tools,WebSearch,WebFetch"
   # shellcheck disable=SC2086 # $WORKER_WRAP is a command and its arguments, or nothing
-  $WORKER_WRAP claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$id") in this repo. Its answers have not all been published, so there is no key: follow tools/solve_prompt.md exactly (it is your system prompt's appendix; do not open the file), write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $id --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
-    "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
-    --append-system-prompt-file tools/solve_prompt.md \
+  $WORKER_WRAP claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
+    --append-system-prompt-file tools/annotate_prompt.md \
     --exclude-dynamic-system-prompt-sections \
     --model "$WORKER_MODEL" \
     --effort "$WORKER_EFFORT" \
-    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
-    --max-turns 120 >"$log" 2>&1
+    --allowedTools "$tools" \
+    --max-turns "$([ "$kind" = solve ] && echo 200 || echo 80)" >"$log" 2>&1
 }
 
-# Write the fill worker_solve left at $2 into the puzzle, if
-# tools/apply_solution.py passes it, and commit and push it; the verdict goes
-# to $4. 0 when the fill went in. Otherwise nothing is written, the
-# solve ledger (tools/failed_inputs.py) records the rejection so the puzzle is
-# not tried again on the same inputs, and the return is 1 — or 2 when there is
-# nothing more to alert about: the ledger refused the entry as transient (a
-# lockout, the network), or the commit was refused and has alerted already.
+# Check the cold solve a finished run (transcript $3) wrote to $2, from the
+# puzzle as committed: its file, and a clues-only file the run's own apply
+# promoted, go back to HEAD; tools/apply_solution.py writes the fill in only if
+# it passes; and the annotations the run wrote (tools/_ann_<id>.json) are put
+# back on top by tools/annotate_check.py. So what ships is a fill the applier
+# accepted with the hints built on it. The verdict goes to $4. 0 when the fill
+# went in. Otherwise the puzzle, its rows and the run's annotation files are
+# discarded, the solve ledger (tools/failed_inputs.py) records the rejection so
+# the puzzle is not tried again on the same inputs, and the return is 1 — or 2
+# when the ledger refused the entry as transient (a lockout, the network).
 worker_apply() {   # id fill log verdict
   local id="$1" fill="$2" log="$3" verdict="$4" judged="" said="$3"
+  restore_puzzle "$id"
   if [ -s "$fill" ]; then
     # --no-reindex: the index is the caller's to rebuild when its run ends.
     if python3 tools/apply_solution.py "$id" --fill "$fill" --model "$WORKER_MODEL" --no-reindex >"$verdict" 2>&1; then
       # The solver's own account outlives the run, for the miss diagnosis to
       # read when the paper's key grades it.
       python3 tools/solve_misses.py keep-log "$id" "$log"
-      worker_commit_solve "$id" && return 0
-      echo "its commit was refused" >>"$verdict"
-      return 2
+      # Its verdict is worker_finish's to act on.
+      python3 tools/annotate_check.py "$id" >>"$verdict" 2>&1 || true
+      return 0
     fi
     judged=--judged said="$verdict"
   else
-    echo "the solver finished without writing a fill to $fill at all" >"$verdict"
+    echo "the run finished without writing a fill to $fill at all" >"$verdict"
   fi
+  discard_puzzle "$id"
+  rm -f "tools/_ann_$id.json" "tools/_puzzle_$id.json"
   # A fill the applier refused is its verdict on the puzzle. No fill at all
   # means the CLI stopped, and its last line says whether that was transient.
   # shellcheck disable=SC2086 # $judged is one flag or nothing
   python3 tools/failed_inputs.py record solve "$id" $judged \
     --reason "$(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)" || return 2
   return 1
-}
-
-# Annotate $1, transcript to $2, in the conversation sid file $3 names.
-#   $4 the task, worded for a fresh run
-#   $5 a note to resume with instead (a retry after a cut-off), or empty
-# Web lookup belongs to the annotation and to nothing else: a clue nobody can
-# parse ships with no teaching ladder, so a solvers' blog is worth a fetch as a
-# last resort (tools/annotate_check.py discloses it only once every clue but
-# the last few is done, never up front).
-# With a note, a live conversation is resumed with it. Without one, a live cold
-# solve is resumed with the task behind a handover; anything else starts fresh.
-# Returns the CLI's exit status (124 when a timeout WORKER_WRAP fired).
-worker_annotate() {   # id log sidfile task [note]
-  local id="$1" log="$2" sidfile="$3" prompt="$4" note="${5:-}"
-  local sid="" kind="" sess=() sys=tools/annotate_prompt.md
-  [ -s "$sidfile" ] && read -r sid kind <"$sidfile"
-  if session_exists "$sid" && { [ -n "$note" ] || [ "$kind" = solve ]; }; then
-    sess=(--resume "$sid")
-    if [ -n "$note" ]; then
-      prompt="$note"
-    else
-      echo "$sid annotating" >"$sidfile"
-      echo "  $id was solved cold just now — annotating in that same conversation rather than from a cold start"
-      # The transcript ends before apply_solution.py wrote the fill, so the
-      # run is sent back to the file rather than trusted to memory.
-      prompt="You solved this crossword earlier in this conversation, and your fill has since been written into the puzzle file. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. tools/annotate_prompt.md is not in your system prompt this time: read it first and follow it exactly wherever the task below points at it. The task: $prompt"
-    fi
-    case "$kind" in solve|annotating) sys=tools/solve_prompt.md ;; esac
-  else
-    rm -f "$sidfile"
-    if sid=$(session_id); then
-      sess=(--session-id "$sid")
-      echo "$sid" >"$sidfile"
-    fi
-  fi
-  # shellcheck disable=SC2086 # $WORKER_WRAP is a command and its arguments, or nothing
-  $WORKER_WRAP claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
-    --append-system-prompt-file "$sys" \
-    --exclude-dynamic-system-prompt-sections \
-    --model "$WORKER_MODEL" \
-    --effort "$WORKER_EFFORT" \
-    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
-    --max-turns 80 >"$log" 2>&1
 }
 
 # --- after the model: validate, commit and push one puzzle ---------------------
@@ -142,29 +122,46 @@ worker_annotate() {   # id log sidfile task [note]
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
 # A puzzle held as its clues alone, as a git pathspec (tools/clues_only.py).
 clues_spec() { printf 'clues_only/*/%s.json' "$1"; }
+# One puzzle's pathspecs into the array named $2: its file, and its clues-only
+# file while git tracks one, which the apply that promotes it deletes.
+puzzle_specs() {   # id array-name
+  local -n _specs="$2"
+  _specs=("$(puzzle_spec "$1")")
+  [ -n "$(git ls-files -- "$(clues_spec "$1")")" ] && _specs+=("$(clues_spec "$1")")
+  return 0
+}
+# Put one puzzle's file, and a clues-only file promoted from it, back as HEAD
+# has them, including a copy written to a new folder.
+restore_puzzle() {
+  git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
+  git clean -qf -- "$(puzzle_spec "$1")"
+  [ -n "$(git ls-files -- "$(clues_spec "$1")")" ] && git checkout -- "$(clues_spec "$1")"
+  return 0
+}
 # The burn's runs share one index. Unlocked, one run's `git add` dies on
 # index.lock while a sibling commits, and a commit takes whatever its siblings
 # have staged. So each stages, commits and names its commit under this lock,
 # and pushes that commit by name rather than HEAD.
 index_lock() { exec 9>"$(git rev-parse --git-path ct-index.lock)"; flock 9; }
 index_unlock() { flock -u 9; exec 9>&-; }
-# Undo a run's edits to one puzzle, including a copy written to a new folder,
-# and its rows of the source-correction tables (tools/data/source_*_wrong.json,
-# fetch_puzzle.py): back as HEAD has them, then any SOURCE_CLUE_WRONG row left
-# for a clue the reverted file does not show.
+# Undo a run's edits to one puzzle (restore_puzzle) and its rows of the
+# source-correction tables (tools/data/source_*_wrong.json, fetch_puzzle.py):
+# back as HEAD has them, then any SOURCE_CLUE_WRONG row left for a clue the
+# reverted file does not show.
 discard_puzzle() {
-  git checkout -- "$(puzzle_spec "$1")" 2>/dev/null
-  git clean -qf -- "$(puzzle_spec "$1")"
+  restore_puzzle "$1"
   { python3 tools/own_rows.py revert "$1" && python3 tools/discard_clue_rows.py "$1"; } ||
     alert "$WORKER_JOB could not put back $1's rows of tools/fetch_puzzle.py after discarding it; the sweep at the end of the run may carry rows its file does not show."
 }
-# Stage one puzzle for its commit: its file, and its rows of fetch_puzzle.py
-# with no sibling's (tools/own_rows.py). On failure nothing is left staged, so
-# the next puzzle's commit cannot carry this one.
+# Stage one puzzle for its commit: its pathspecs (puzzle_specs), and its rows
+# of fetch_puzzle.py with no sibling's (tools/own_rows.py). On failure nothing
+# is left staged, so the next puzzle's commit cannot carry this one.
 stage_puzzle() {
-  git add -A -- "$(puzzle_spec "$1")" && python3 tools/own_rows.py stage "$1" && return 0
+  local -a spec
+  puzzle_specs "$1" spec
+  git add -A -- "${spec[@]}" && python3 tools/own_rows.py stage "$1" && return 0
   # shellcheck disable=SC2046  # one path per line, none with a space
-  git reset -q -- "$(puzzle_spec "$1")" $(python3 tools/own_rows.py paths)
+  git reset -q -- "${spec[@]}" $(python3 tools/own_rows.py paths)
   return 1
 }
 
@@ -186,28 +183,6 @@ worker_commit() {   # subject paths...
   tools/push_puzzle_commit.sh "$sha" ||
     alert "$WORKER_JOB committed $subject but could not push it — the site will not show it until the run's closing sync pushes it."
   return 0
-}
-
-# A cold solve that worker_apply wrote: commit and push it ahead of its
-# annotation. A puzzle held as its clues alone is promoted by that apply, which
-# files the grid it derives and deletes the clues-only file: both go in.
-worker_commit_solve() {   # id
-  local id="$1" out
-  local -a spec=("$(puzzle_spec "$id")")
-  [ -n "$(git ls-files -- "$(clues_spec "$id")")" ] && spec+=("$(clues_spec "$id")")
-  index_lock
-  if ! out=$(git add -A -- "${spec[@]}" 2>&1); then
-    git reset -q -- "${spec[@]}"
-    index_unlock
-    alert "$WORKER_JOB could not stage its solve of $id, so it is not annotated either: $(printf '%s' "$out" | tail -5)"
-    discard_puzzle "$id"
-    [ "${#spec[@]}" -gt 1 ] && git checkout -- "${spec[1]}"
-    return 1
-  fi
-  worker_commit "Solve $id" "${spec[@]}" && return 0
-  discard_puzzle "$id"
-  [ "${#spec[@]}" -gt 1 ] && git checkout -- "${spec[1]}"
-  return 1
 }
 
 # Blank the model answers ($2...) an annotation found no parse for, and commit
@@ -334,18 +309,21 @@ worker_finish() {   # id what sidfile log
     return 0
   fi
   # -A, so a file that changed year folders goes in as a rename rather than as
-  # a new copy beside the old one. Its rows of fetch_puzzle.py go with it, and
-  # only its own: a corrected clue is valid only beside its SOURCE_CLUE_WRONG
-  # row, and siblings still in flight file theirs into the same file.
+  # a new copy beside the old one, and a cold solve's promoted clues-only file
+  # goes in as its deletion. Its rows of fetch_puzzle.py go with it, and only
+  # its own: a corrected clue is valid only beside its SOURCE_CLUE_WRONG row,
+  # and siblings still in flight file theirs into the same file.
   index_lock
   local out
+  local -a spec
+  puzzle_specs "$id" spec
   if ! out=$(stage_puzzle "$id" 2>&1); then
     index_unlock
     alert "$WORKER_JOB could not stage $id's rows of tools/fetch_puzzle.py, so $what $id is not committed: $(printf '%s' "$out" | tail -5)"
     return 1
   fi
   # shellcheck disable=SC2046  # one path per line, none with a space
-  worker_commit "$what $id" "$(puzzle_spec "$id")" $(python3 tools/own_rows.py paths) || return 1
+  worker_commit "$what $id" "${spec[@]}" $(python3 tools/own_rows.py paths) || return 1
   python3 tools/failed_inputs.py clear annotate "$id" >/dev/null
   echo "committed $what $id"
   return 0
