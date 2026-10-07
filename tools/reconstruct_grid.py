@@ -996,6 +996,8 @@ def main(argv=None):
 
     if bool(args.puzzle) == bool(args.lights):
         ap.error("give either a puzzle id or --lights, not both")
+    if args.blank and args.lights:
+        ap.error("--blank blanks a puzzle's printed numbers; it needs a puzzle id, not --lights")
 
     published = None
     if args.puzzle:
