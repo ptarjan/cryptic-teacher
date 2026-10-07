@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,47 @@
     "text": "Cruise will do it, having effect on one MP in absentia",
     "enumeration": "6"
    },
-   "solution": "ACTING"
+   "solution": "ACTING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ACTING",
+    "definitions": [
+     {
+      "text": "Cruise will do it",
+      "at": 0
+     },
+     {
+      "text": "one MP in absentia",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "having effect on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cruise will do it",
+      "note": "first meaning: what the film star Tom Cruise does for a living, performing roles"
+     },
+     {
+      "clueFragment": "one MP in absentia",
+      "note": "second meaning: temporarily standing in for an absent office-holder, as a deputy does"
+     }
+    ],
+    "explanation": {
+     "surface": "A film star's influence apparently reaches a politician who never turns up.",
+     "walkthrough": "Cruise is Tom Cruise, not a sea voyage. 'Having effect on' is itself another sense of the answer, so the clue arguably packs in three meanings.",
+     "definitionFit": "Actors perform roles, and a deputy doing an absent official's job temporarily holds the post on an interim basis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Cruise"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +96,54 @@
      }
     ]
    },
-   "solution": "BEDLINEN"
+   "solution": "BEDLINEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BED LINEN",
+    "definitions": [
+     {
+      "text": "folded sheets?",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making new move",
+      "for": "anagram",
+      "note": "to make the letters move into a new order is to rearrange them"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bend line",
+      "gives": "BENDLINE",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BENDLINE",
+       "gives": "BEDLINEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for folding paper: bend along a line, then move it into the folds.",
+     "walkthrough": "The anagram needs no extra letters: the fodder has exactly the letters of the answer. The question mark flags that the sheets are for beds, not paper.",
+     "definitionFit": "Bed linen is the set of sheets and pillowcases kept folded in a cupboard until a bed is made up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "sheets"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +157,52 @@
     "text": "The little man held back by scaremongers",
     "enumeration": "5"
    },
-   "solution": "GNOME"
+   "solution": "GNOME",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "GNOME",
+    "definitions": [
+     {
+      "text": "The little man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held",
+      "for": "hidden_word",
+      "note": "something held is contained inside the following word"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the concealed letters read from right to left"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "scaremongers",
+      "gives": "EMONG",
+      "note": "the letters in the middle of this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A small man is restrained by people who spread panic.",
+     "walkthrough": "The answer runs backwards through the middle of scaremongers.",
+     "definitionFit": "A gnome is a dwarf-like figure of folklore, the classic tiny bearded fellow of garden ornaments."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "held"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +216,76 @@
     "text": "Odd fruit seen around to pick off with fifty taken by Crosophile",
     "enumeration": "8"
    },
-   "solution": "PECULIAR"
+   "solution": "PECULIAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade",
+     "container"
+    ],
+    "answer": "PECULIAR",
+    "definitions": [
+     {
+      "text": "Odd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen around",
+      "for": "container",
+      "note": "the fruit is placed around what follows, enclosing it"
+     },
+     {
+      "text": "taken",
+      "for": "deletion",
+      "note": "with a letter taken away, the word loses it"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fruit",
+      "gives": "PEAR",
+      "note": "a common fruit"
+     },
+     {
+      "clueFragment": "to pick off",
+      "gives": "CULL",
+      "note": "to cull is to pick off or kill selectively"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "Crosophile",
+      "gives": "I",
+      "note": "the setter refers to themself, so I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "CUL",
+      "I",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange piece of fruit is spotted near a picker, with fifty claimed by the setter.",
+     "walkthrough": "Setters often call themselves by name, so Crosophile here is simply 'I' or 'me'.",
+     "definitionFit": "Peculiar and odd are synonyms, both meaning strange or unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Crosophile"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +299,77 @@
     "text": "You and me can cast vote finally as is the custom",
     "enumeration": "6"
    },
-   "solution": "USANCE"
+   "solution": "USANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "USANCE",
+    "definitions": [
+     {
+      "text": "custom",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cast",
+      "for": "anagram",
+      "note": "to cast is to throw, so these letters are thrown into a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "as is the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You and me",
+      "gives": "US",
+      "note": "you and I together are us"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "CAN",
+      "note": "the word taken letter for letter"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of vote"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "US",
+      "ANC",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CAN",
+       "gives": "ANC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two people can cast their votes, as tradition dictates.",
+     "walkthrough": "'Cast vote' looks like one phrase, but cast acts on can, and vote supplies only its final letter.",
+     "definitionFit": "Usance is an old word for usage or habitual practice, the way things are customarily done."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cast"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +383,77 @@
     "text": "Impressed by intrepid manoeuvring across top of minefield",
     "enumeration": "9"
    },
-   "solution": "IMPRINTED"
+   "solution": "IMPRINTED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "IMPRINTED",
+    "definitions": [
+     {
+      "text": "Impressed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "manoeuvring",
+      "for": "anagram",
+      "note": "manoeuvring moves things about, so the letters are moved into a new order"
+     },
+     {
+      "text": "top of",
+      "for": "letter_selection",
+      "note": "the top of a word in a down clue is its first letter"
+     },
+     {
+      "text": "across",
+      "for": "container",
+      "note": "the rearranged letters lie across the selected letter, spanning it"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intrepid",
+      "gives": "INTREPID",
+      "note": "the word taken letter for letter"
+     },
+     {
+      "clueFragment": "minefield",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of minefield"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "M",
+      "PRINTED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTREPID",
+       "gives": "IPRINTED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is awed by a brave soldier picking a way across a minefield.",
+     "walkthrough": "Intrepid looks like praise for a soldier, but it is the letters to shuffle.",
+     "definitionFit": "To be imprinted is to be stamped or pressed in, the literal sense of impressed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "intrepid"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +467,56 @@
     "text": "Dog in wild?",
     "enumeration": "5"
    },
-   "solution": "DINGO"
+   "solution": "DINGO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "DINGO",
+    "definitions": [
+     {
+      "text": "Dog in wild?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means uncontrolled, so the letters run loose into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dog",
+      "gives": "DOG",
+      "note": "the word taken letter for letter"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "the word taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOGIN",
+       "gives": "DINGO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog living in the wild.",
+     "walkthrough": "The whole clue is both the wordplay and the definition: the answer is the Australian wild dog.",
+     "definitionFit": "The dingo is a feral dog of Australia, living untamed in the bush."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +530,59 @@
     "text": "Banks invested in church to do some laundering?",
     "enumeration": "7"
    },
-   "solution": "CLEANSE"
+   "solution": "CLEANSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLEANSE",
+    "definitions": [
+     {
+      "text": "do some laundering?",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "container",
+      "note": "money invested in something is put inside it"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "Banks",
+      "gives": "LEANS",
+      "note": "an aircraft banks when it leans over in a turn"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LEANS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Banks put money into a church to launder money.",
+     "walkthrough": "Banks suggests finance, but it is the verb for tilting. The question mark admits that laundering here means washing, not dirty money.",
+     "definitionFit": "To cleanse is to wash clean, which is what laundering does to clothes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Banks"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +596,68 @@
     "text": "As a warrior, I sure am upset getting 25 split up",
     "enumeration": "7"
    },
-   "solution": "SAMURAI"
+   "solution": "SAMURAI",
+   "annotation": {
+    "type": [
+     "substitution",
+     "anagram"
+    ],
+    "answer": "SAMURAI",
+    "definitions": [
+     {
+      "text": "warrior",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting",
+      "for": "substitution",
+      "note": "the anagram material gets one letter in exchange for another"
+     },
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "something upset is knocked over and its order disturbed"
+     }
+    ],
+    "linkWords": [
+     "As a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I sure am",
+      "gives": "ISUREAM",
+      "note": "the three words taken letter for letter"
+     },
+     {
+      "clueFragment": "25 split up",
+      "gives": "A",
+      "note": "the answer to 25 split into two words reads 'a for e', so one letter is swapped for another"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAMURAI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ISURAAM",
+       "gives": "SAMURAI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fighter admits to being upset at being cut to pieces.",
+     "walkthrough": "The answer to 25-down is AFORE, which split up reads A FOR E: swap the E in 'I sure am' for an A, then rearrange.",
+     "definitionFit": "A samurai was a member of Japan's hereditary military class, a professional fighting man."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "split"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +671,44 @@
     "text": "Means of checking report of wet weather",
     "enumeration": "5"
    },
-   "solution": "REINS"
+   "solution": "REINS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "REINS",
+    "definitions": [
+     {
+      "text": "Means of checking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "report of",
+      "for": "homophone",
+      "note": "a report is something heard, so the sound of the words counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wet weather",
+      "gives": "REINS",
+      "soundsLike": "RAINS",
+      "note": "showers of wet weather, said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "A way of checking the forecast for rain.",
+     "walkthrough": "'Checking' suggests inspecting, but here it means restraining, as a rider checks a horse.",
+     "definitionFit": "Reins are the straps a rider uses to restrain and steer a horse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "checking"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +722,49 @@
     "text": "One to criticise religion",
     "enumeration": "5"
    },
-   "solution": "ISLAM"
+   "solution": "ISLAM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ISLAM",
+    "definitions": [
+     {
+      "text": "religion",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     },
+     {
+      "clueFragment": "criticise",
+      "gives": "SLAM",
+      "note": "to slam is to criticise harshly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SLAM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out to attack a faith.",
+     "definitionFit": "Islam is the monotheistic faith founded on the teachings of the Prophet Muhammad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "criticise"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +778,43 @@
     "text": "Runner vingt-et-un keeps intimidating",
     "enumeration": "9"
    },
-   "solution": "UNNERVING"
+   "solution": "UNNERVING",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UNNERVING",
+    "definitions": [
+     {
+      "text": "intimidating",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "hidden_word",
+      "note": "what the phrase keeps is held within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Runner vingt-et-un",
+      "gives": "UNNERVING",
+      "note": "the letters running across the boundary between the words"
+     }
+    ],
+    "explanation": {
+     "surface": "A card player at vingt-et-un keeps up a menacing streak.",
+     "walkthrough": "Vingt-et-un is the French name for the card game pontoon or blackjack; the answer starts inside Runner and ends inside vingt.",
+     "definitionFit": "Something unnerving shakes your confidence, which is just what something intimidating does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Runner"
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +828,65 @@
     "text": "A medal's not the end for passed on leader of group",
     "enumeration": "4"
    },
-   "solution": "GONG"
+   "solution": "GONG",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GONG",
+    "definitions": [
+     {
+      "text": "A medal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not the end",
+      "for": "deletion",
+      "note": "without its end, the word loses its final letter"
+     },
+     {
+      "text": "leader of",
+      "for": "letter_selection",
+      "note": "the leader is the first letter of the following word"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "passed on",
+      "gives": "GONE",
+      "note": "someone who has passed on has died, or is gone"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "G",
+      "select": "first",
+      "note": "the first letter of group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GON",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A medal isn't everything for the late leader of a band.",
+     "walkthrough": "Gong is British slang for a medal or decoration.",
+     "definitionFit": "In British slang a gong is an award or honour, especially a medal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passed"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +900,65 @@
     "text": "It's about a characteristic of Bashful, and of Sleepy",
     "enumeration": "9"
    },
-   "solution": "TIREDNESS"
+   "solution": "TIREDNESS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TIREDNESS",
+    "definitions": [
+     {
+      "text": "of Sleepy",
+      "at": 44,
+      "note": "elliptical: 'a characteristic' is understood again before it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about, a word faces the other way and is read backwards"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's",
+      "gives": "IT",
+      "note": "the word it, before it is turned round"
+     },
+     {
+      "clueFragment": "a characteristic of Bashful",
+      "gives": "REDNESS",
+      "note": "a bashful person blushes, so their trait is a flushed face"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "REDNESS"
+     ],
+     "reversals": [
+      {
+       "from": "IT",
+       "to": "TI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trait shared by two of Snow White's seven dwarfs, Bashful and Sleepy.",
+     "walkthrough": "Bashful and Sleepy are two of the Seven Dwarfs; 'a characteristic' serves both the wordplay and the definition.",
+     "definitionFit": "Being sleepy is a matter of fatigue, and tiredness is that drowsy state."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Bashful"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +972,50 @@
     "text": "Tory publication's plan",
     "enumeration": "9"
    },
-   "solution": "BLUEPRINT"
+   "solution": "BLUEPRINT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLUEPRINT",
+    "definitions": [
+     {
+      "text": "plan",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tory",
+      "gives": "BLUE",
+      "note": "blue is the colour of the UK Conservative Party, so a Tory is a blue"
+     },
+     {
+      "clueFragment": "publication",
+      "gives": "PRINT",
+      "note": "something in print is published"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BLUE",
+      "PRINT"
+     ]
+    },
+    "explanation": {
+     "surface": "A Conservative party pamphlet sets out its policy.",
+     "walkthrough": "In Britain the Tories are the Conservative Party, whose colour is blue.",
+     "definitionFit": "A blueprint is a detailed design or scheme of action, from the old technical drawings printed white on blue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "publication"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +1029,71 @@
     "text": "It's blooming ridiculous for licensee to be drinking in new clubs",
     "enumeration": "13"
    },
-   "solution": "INFLORESCENCE"
+   "solution": "INFLORESCENCE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "INFLORESCENCE",
+    "definitions": [
+     {
+      "text": "blooming",
+      "at": 5
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ridiculous",
+      "for": "anagram",
+      "note": "something ridiculous is absurd and out of order, so the letters are jumbled"
+     },
+     {
+      "text": "to be drinking in",
+      "for": "container",
+      "note": "the outer letters take in what is drunk, so it sits inside them"
+     }
+    ],
+    "linkWords": [
+     "It's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "for licensee",
+      "gives": "FORLICENSEE",
+      "note": "the two words taken letter for letter"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NFORLICENSEEC",
+       "gives": "INFLORESCENCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Exasperation at a pub landlord drinking in new clubs.",
+     "walkthrough": "'Blooming ridiculous' reads as one British exclamation, but blooming is the definition; a licensee is a publican licensed to sell alcohol.",
+     "definitionFit": "Inflorescence is the botanical term for flowering, the process of coming into bloom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "blooming"
+    }
+   }
   },
   {
    "number": 17,
@@ -263,7 +1107,61 @@
     "text": "Knowing about cooker left in messy state",
     "enumeration": "8"
    },
-   "solution": "SLOVENLY"
+   "solution": "SLOVENLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLOVENLY",
+    "definitions": [
+     {
+      "text": "in messy state",
+      "at": 26,
+      "note": "describes being in that untidy state"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one word goes about the others, surrounding them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knowing",
+      "gives": "SLY",
+      "note": "a sly look is knowing and cunning"
+     },
+     {
+      "clueFragment": "cooker",
+      "gives": "OVEN",
+      "note": "an oven is a cooker"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SL",
+      "OVEN",
+      "L",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A knowing look at a cooker left filthy.",
+     "definitionFit": "Slovenly means untidy and careless in appearance or habits, so it describes a messy condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Knowing"
+    }
+   }
   },
   {
    "number": 18,
@@ -277,7 +1175,64 @@
     "text": "Little space in most of fridge for material",
     "enumeration": "8"
    },
-   "solution": "CHENILLE"
+   "solution": "CHENILLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CHENILLE",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the small space goes in, inside the other word"
+     },
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "only most of the word is used, so its final letter goes"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fridge",
+      "gives": "CHILLER",
+      "note": "a chiller is a fridge"
+     },
+     {
+      "clueFragment": "Little space",
+      "gives": "EN",
+      "note": "an en is a small printer's space, half an em"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "EN",
+      "ILLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Not much room in the fridge for the ingredients.",
+     "walkthrough": "An en is a printing unit of space; chiller loses its last letter before taking it in.",
+     "definitionFit": "Chenille is a tufted velvety yarn and the fabric woven from it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "material"
+    }
+   }
   },
   {
    "number": 19,
@@ -291,7 +1246,60 @@
     "text": "Decline bodyguard as stand-in for personal trainer in reception",
     "enumeration": "9"
    },
-   "solution": "RECESSION"
+   "solution": "RECESSION",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RECESSION",
+    "definitions": [
+     {
+      "text": "Decline",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "as stand-in for",
+      "for": "substitution",
+      "note": "a stand-in takes another's place, so one pair of letters replaces another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bodyguard",
+      "gives": "SS",
+      "note": "the SS began as Hitler's bodyguard"
+     },
+     {
+      "clueFragment": "personal trainer",
+      "gives": "PT",
+      "note": "PT is short for a personal trainer"
+     },
+     {
+      "clueFragment": "reception",
+      "gives": "RECEPTION",
+      "note": "the word taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RECE",
+      "SS",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone turns down the offer of a bodyguard replacing their personal trainer at the front desk.",
+     "walkthrough": "Decline looks like a verb, refusing the bodyguard, but it is the noun for a downturn.",
+     "definitionFit": "A recession is an economic downturn, a period of decline in trade and output."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Decline"
+    }
+   }
   },
   {
    "number": 20,
@@ -305,7 +1313,70 @@
     "text": "Fed up with Greek character being hugged by nurse",
     "enumeration": "5"
    },
-   "solution": "EATEN"
+   "solution": "EATEN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EATEN",
+    "definitions": [
+     {
+      "text": "Fed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from the bottom to the top"
+     },
+     {
+      "text": "being hugged by",
+      "for": "container",
+      "note": "something hugged is wrapped inside the arms of another"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nurse",
+      "gives": "EN",
+      "note": "EN is an Enrolled Nurse"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "ETA",
+      "note": "eta is a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ATE",
+      "N"
+     ],
+     "reversals": [
+      {
+       "from": "ETA",
+       "to": "ATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nurse cuddles a Greek who is fed up.",
+     "walkthrough": "'Fed up' reads as one phrase meaning annoyed, but it splits: Fed is the definition and up turns the Greek letter round.",
+     "definitionFit": "An animal that has fed has eaten; both describe having taken food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 21,
@@ -319,7 +1390,51 @@
     "text": "One's not at all thick, son, to analyse syntax",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARSE",
+    "definitions": [
+     {
+      "text": "not at all thick",
+      "at": 6
+     }
+    ],
+    "linkWords": [
+     "One's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "to analyse syntax",
+      "gives": "PARSE",
+      "note": "to parse a sentence is to analyse its grammar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PARSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A clever son is no dunce, able to break down sentences.",
+     "walkthrough": "Thick suggests stupidity, but the definition is about density, as of thin hair or scattered trees.",
+     "definitionFit": "Sparse means thinly scattered, the opposite of dense or thick growth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thick"
+    }
+   }
   },
   {
    "number": 22,
@@ -333,7 +1448,42 @@
     "text": "Somewhat undervalued engine fuel",
     "enumeration": "4"
    },
-   "solution": "DERV"
+   "solution": "DERV",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DERV",
+    "definitions": [
+     {
+      "text": "engine fuel",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Somewhat",
+      "for": "hidden_word",
+      "note": "somewhat means only a part, so only a piece of the next word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "undervalued",
+      "gives": "DERV",
+      "note": "letters inside this word"
+     }
+    ],
+    "explanation": {
+     "surface": "A fuel for engines is a bit underrated.",
+     "walkthrough": "Derv is the British name for diesel fuel for road vehicles.",
+     "definitionFit": "Derv is diesel oil used in lorries and cars, from Diesel Engined Road Vehicle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -347,7 +1497,65 @@
     "text": "New spirit after pathogen does away with us",
     "enumeration": "6"
    },
-   "solution": "VIRGIN"
+   "solution": "VIRGIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "VIRGIN",
+    "definitions": [
+     {
+      "text": "New",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "does away with",
+      "for": "deletion",
+      "note": "to do away with something is to get rid of it, so those letters are removed"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the drink behind the shortened word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spirit",
+      "gives": "GIN",
+      "note": "gin is a spirit"
+     },
+     {
+      "clueFragment": "pathogen",
+      "gives": "VIRUS",
+      "note": "a virus is a pathogen"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "the word taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIR",
+      "GIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A fresh drink after a germ wipes us out.",
+     "walkthrough": "Virgin means untouched or unused, as in virgin snow.",
+     "definitionFit": "Virgin describes something fresh and untouched, never used before, which is new."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spirit"
+    }
+   }
   },
   {
    "number": 24,
@@ -361,7 +1569,67 @@
     "text": "Do on air broadcast? That's not on, but might be on this",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "RADIO",
+    "definitions": [
+     {
+      "text": "might be on this",
+      "at": 40,
+      "note": "the clue's whole phrase points to the thing a broadcast is on"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "That's not on",
+      "for": "deletion",
+      "note": "not on says that word must be left out of the phrase"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so the letters are strewn into a new order"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do on air",
+      "gives": "DOONAIR",
+      "note": "the three words taken letter for letter"
+     },
+     {
+      "clueFragment": "on",
+      "gives": "ON",
+      "note": "the word taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DOAIR",
+       "gives": "RADIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests at a show going out over the airwaves.",
+     "walkthrough": "'That's not on' reads as an objection, but it tells you to drop the on; the rest of the clue hints the answer carries such broadcasts.",
+     "definitionFit": "A show sent out over the air is heard on the wireless, the medium of sound broadcasting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "not"
+    }
+   }
   },
   {
    "number": 25,
@@ -375,7 +1643,53 @@
     "text": "A figure heard in the van a while back",
     "enumeration": "5"
    },
-   "solution": "AFORE"
+   "solution": "AFORE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "AFORE",
+    "definitions": [
+     {
+      "text": "a while back",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means we use what is spoken, not what is written"
+     }
+    ],
+    "linkWords": [
+     "in the van"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "figure",
+      "gives": "FORE",
+      "soundsLike": "FOUR",
+      "note": "a number, spoken out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "A number was overheard in the van some time ago.",
+     "walkthrough": "'In the van' means at the front and backs up FORE, which also means front.",
+     "definitionFit": "Afore is a dialect or archaic word for before, meaning at an earlier time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "van"
+    }
+   }
   },
   {
    "number": 26,
@@ -389,7 +1703,39 @@
     "text": "Tending to succeed?",
     "enumeration": "9"
    },
-   "solution": "AFTERCARE"
+   "solution": "AFTERCARE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "AFTERCARE",
+    "definitions": [
+     {
+      "text": "Tending to succeed?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tending to succeed?",
+      "note": "surface reading: inclined to be successful"
+     },
+     {
+      "clueFragment": "Tending to succeed?",
+      "note": "setter's reading: nursing that comes after, following on from treatment"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tending looks like 'having a tendency', and succeed like 'do well'; really tending means caring for someone and succeed means come next.",
+     "definitionFit": "Aftercare is the support and nursing given to a patient after hospital treatment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "succeed"
+    }
+   }
   },
   {
    "number": 27,
@@ -403,7 +1749,47 @@
     "text": "Advertisement for Turkey perhaps?",
     "enumeration": "5"
    },
-   "solution": "FLIER"
+   "solution": "FLIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLIER",
+    "definitions": [
+     {
+      "text": "Advertisement",
+      "at": 0
+     },
+     {
+      "text": "Turkey perhaps?",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Advertisement",
+      "note": "first meaning: a printed leaflet handed out to promote something"
+     },
+     {
+      "clueFragment": "Turkey perhaps?",
+      "note": "second meaning: something that flies, as a bird such as a turkey can, after a fashion"
+     }
+    ],
+    "explanation": {
+     "surface": "A holiday brochure promoting Turkey.",
+     "walkthrough": "Turkey sits at the start, so it looks like the country; it is the bird, and the question mark admits turkeys are poor fliers.",
+     "definitionFit": "A flier is a promotional handbill, and also anything that flies, a bird being an example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Turkey"
+    }
+   }
   },
   {
    "number": 28,
@@ -417,7 +1803,53 @@
     "text": "Turn at the crease spoils after loss of wicket",
     "enumeration": "7"
    },
-   "solution": "INNINGS"
+   "solution": "INNINGS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "INNINGS",
+    "definitions": [
+     {
+      "text": "Turn at the crease",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after loss of",
+      "for": "deletion",
+      "note": "after losing something, the word is left without it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spoils",
+      "gives": "WINNINGS",
+      "note": "spoils are the gains won, or winnings"
+     },
+     {
+      "clueFragment": "wicket",
+      "gives": "W",
+      "note": "W is the cricket scoring abbreviation for a wicket"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNINGS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket batsman's turn at the crease is ruined by losing a wicket.",
+     "walkthrough": "In cricket the crease is the line where the batsman stands, and losing a wicket ends a batsman's turn.",
+     "definitionFit": "In cricket an innings is a player's or team's period of batting, their turn at the wicket."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "spoils"
+    }
+   }
   },
   {
    "number": 29,
@@ -437,7 +1869,46 @@
      }
     ]
    },
-   "solution": "LORELEI"
+   "solution": "LORELEI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LORELEI",
+    "definitions": [
+     {
+      "text": "Fascinating women",
+      "at": 0,
+      "note": "plural in the clue; the answer names one such woman, used as a type"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reminding one of",
+      "for": "homophone",
+      "note": "to remind one of is to call it to mind, here by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cider With Rosie's author",
+      "gives": "LORELEI",
+      "soundsLike": "LAURIE LEE",
+      "note": "the English writer of the memoir Cider With Rosie, said out loud"
+     }
+    ],
+    "explanation": {
+     "surface": "Alluring women bring to mind a much-loved English memoirist.",
+     "walkthrough": "Cider With Rosie is Laurie Lee's memoir of a Cotswold village childhood.",
+     "definitionFit": "The Lorelei is the Rhine siren who lured boatmen to their doom, so the name stands for any seductive temptress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cider"
+    }
+   }
   }
  ]
 }
