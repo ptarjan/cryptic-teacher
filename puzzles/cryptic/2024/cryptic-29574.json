@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "French biscuit? French politician consuming one with doughnut separately",
     "enumeration": "8"
    },
-   "solution": "MACAROON"
+   "solution": "MACAROON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MACAROON",
+    "definitions": [
+     {
+      "text": "French biscuit?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "a politician consuming things swallows them, taking them inside his name"
+     },
+     {
+      "text": "separately",
+      "for": "container",
+      "note": "the two swallowed items do not go in together but at two different points"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French politician",
+      "gives": "MACRON",
+      "note": "Emmanuel Macron, President of France"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a, the indefinite article, means one"
+     },
+     {
+      "clueFragment": "doughnut",
+      "gives": "O",
+      "note": "the letter O is ring-shaped like a doughnut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAC",
+      "A",
+      "R",
+      "O",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A French biscuit, or the French president eating a doughnut on the side.",
+     "walkthrough": "'Separately' means the two small pieces go into the politician at different points, not side by side. The question mark admits the biscuit is not strictly French.",
+     "definitionFit": "A macaroon is a small almond biscuit, associated with French baking through the similar macaron."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doughnut"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +113,43 @@
     "text": "Diet challenging to some extent? Eat away",
     "enumeration": "4"
    },
-   "solution": "ETCH"
+   "solution": "ETCH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ETCH",
+    "definitions": [
+     {
+      "text": "Eat away",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to some extent",
+      "for": "hidden_word",
+      "note": "only part of the preceding words is used, so the letters sit inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Diet challenging",
+      "gives": "ETCH",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A tough diet tempts you to eat away regardless.",
+     "walkthrough": "The answer spans the end of Diet and the start of challenging.",
+     "definitionFit": "Acid etching a plate corrodes it, gradually wearing the metal surface down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Eat"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +163,67 @@
     "text": "Enjoy hard currency, not against piling it up",
     "enumeration": "6"
    },
-   "solution": "RELISH"
+   "solution": "RELISH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "reversal"
+    ],
+    "answer": "RELISH",
+    "definitions": [
+     {
+      "text": "Enjoy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not against",
+      "for": "deletion",
+      "note": "against is versus, abbreviated v, and not means that letter is left out"
+     },
+     {
+      "text": "piling it up",
+      "for": "reversal",
+      "note": "in a down clue, piling up means building from the bottom, so the letters read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the pencil abbreviation for hard"
+     },
+     {
+      "clueFragment": "currency",
+      "gives": "SILVER",
+      "note": "silver is coinage, money in coins"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELIS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "HSILER",
+       "to": "RELISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoys stacking up hard cash.",
+     "walkthrough": "SILVER loses its V (versus, against) to leave SILER; H plus that is then turned upside down.",
+     "definitionFit": "To relish something is to take great pleasure in it, a straightforward synonym of enjoy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "against"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +243,49 @@
      }
     ]
    },
-   "solution": "INSTOCK"
+   "solution": "INSTOCK",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IN STOCK",
+    "definitions": [
+     {
+      "text": "Ready to be displayed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of the phrase is used, so its final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "given traditional punishment",
+      "gives": "INSTOCKS",
+      "note": "offenders were once put in the stocks as public punishment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSTOCK"
+     ]
+    },
+    "explanation": {
+     "surface": "An offender set up for public display in the old punishment, nearly.",
+     "walkthrough": "The stocks were a wooden frame locking the feet of an offender on public view; dropping the S gives IN STOCK.",
+     "definitionFit": "Goods in stock are held by a shop and available to put out for sale."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "displayed"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +299,57 @@
     "text": "This vegetable supplies make-up material, mostly wild",
     "enumeration": "8"
    },
-   "solution": "KOHLRABI"
+   "solution": "KOHLRABI",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "KOHLRABI",
+    "definitions": [
+     {
+      "text": "This vegetable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means most but not all, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "supplies"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "make-up material",
+      "gives": "KOHL",
+      "note": "kohl is a black powder used as eye make-up"
+     },
+     {
+      "clueFragment": "wild",
+      "gives": "RABID",
+      "note": "rabid means furious, wild"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KOHL",
+      "RABI"
+     ]
+    },
+    "explanation": {
+     "surface": "A vegetable that yields make-up, mostly growing wild.",
+     "definitionFit": "Kohlrabi is a cabbage cultivar with an edible swollen stem, eaten as a vegetable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wild"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +363,62 @@
     "text": "One is Mr Opera, when working?",
     "enumeration": "10"
    },
-   "solution": "IMPRESARIO"
+   "solution": "IMPRESARIO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "IMPRESARIO",
+    "definitions": [
+     {
+      "text": "One is Mr Opera, when working?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when working",
+      "for": "anagram",
+      "note": "working means in operation, so the letters are put to work in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mr Opera",
+      "gives": "MROPERA",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IISMROPERA",
+       "gives": "IMPRESARIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man nicknamed Mr Opera, at least while on the job.",
+     "walkthrough": "The whole clue is the definition too: an impresario running an opera company might well be called Mr Opera.",
+     "definitionFit": "An impresario organises and finances concerts or operas, the businessman behind the show."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +432,66 @@
     "text": "Regret accommodating two navies on large or small stretch of water",
     "enumeration": "6"
    },
-   "solution": "RUNNEL"
+   "solution": "RUNNEL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RUNNEL",
+    "definitions": [
+     {
+      "text": "small stretch of water",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "accommodating means housing, holding something within"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Regret",
+      "gives": "RUE",
+      "note": "to rue is to regret"
+     },
+     {
+      "clueFragment": "two navies",
+      "gives": "NN",
+      "note": "N is the abbreviation for navy, twice"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "NN",
+      "E",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Remorse over two fleets sailing on water, big or small.",
+     "walkthrough": "RUE holds the two Ns, then L follows. 'Large or small' looks like one phrase but splits: large is the letter, small begins the definition.",
+     "definitionFit": "A runnel is a brook or rivulet, a little stream or channel of water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "navies"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +505,62 @@
     "text": "President in the immediate future blocked by the gods",
     "enumeration": "8"
    },
-   "solution": "PANTHEON"
+   "solution": "PANTHEON",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PANTHEON",
+    "definitions": [
+     {
+      "text": "gods",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocked by",
+      "for": "container",
+      "note": "something blocked has an obstacle sitting in its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "President",
+      "gives": "P",
+      "note": "P is the abbreviation for president"
+     },
+     {
+      "clueFragment": "in the immediate future",
+      "gives": "ANON",
+      "note": "anon is an old word for soon"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AN",
+      "THE",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A president's plans for the near future thwarted by the gods.",
+     "walkthrough": "'The' looks like filler but is wordplay, taken as written; anon is an old-fashioned word for soon.",
+     "definitionFit": "A pantheon is the collective body of all the deities of a people or religion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "blocked"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +574,66 @@
     "text": "I’m into band performer backing heavy metal",
     "enumeration": "6"
    },
-   "solution": "OSMIUM"
+   "solution": "OSMIUM",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "OSMIUM",
+    "definitions": [
+     {
+      "text": "heavy metal",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so one piece is placed within the other"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the result reads right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "band performer",
+      "gives": "MUSO",
+      "note": "muso is slang for a musician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OSMIUM"
+     ],
+     "reversals": [
+      {
+       "from": "MUIMSO",
+       "to": "OSMIUM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone joining a band to support a heavy metal player.",
+     "walkthrough": "Heavy metal looks like the music; it is a dense chemical element. The insertion happens first, then the whole is turned round.",
+     "definitionFit": "Osmium is the densest naturally occurring element, a literally heavy metal; the musical genre is a decoy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "metal"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +647,50 @@
     "text": "Ancient city hospital getting behind cricketer",
     "enumeration": "4"
    },
-   "solution": "BATH"
+   "solution": "BATH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BATH",
+    "definitions": [
+     {
+      "text": "Ancient city",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "getting behind"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cricketer",
+      "gives": "BAT",
+      "note": "a bat is a batsman"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A hospital in an old city backing a cricket player.",
+     "walkthrough": "The hospital letter goes after the cricketer. Bath is a Roman spa city in Somerset, England.",
+     "definitionFit": "Bath was founded by the Romans as Aquae Sulis, so it qualifies as an old settlement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "behind"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +704,64 @@
     "text": "Keen on tirade about the French being prejudiced",
     "enumeration": "10"
    },
-   "solution": "INTOLERANT"
+   "solution": "INTOLERANT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INTOLERANT",
+    "definitions": [
+     {
+      "text": "prejudiced",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece goes round the other"
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keen on",
+      "gives": "INTO",
+      "note": "being into something means being keen on it"
+     },
+     {
+      "clueFragment": "tirade",
+      "gives": "RANT",
+      "note": "a rant is an angry tirade"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INTO",
+      "LE",
+      "RANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone fond of ranting against the French out of prejudice.",
+     "walkthrough": "'The French' is a classic signal for a French article such as le or la.",
+     "definitionFit": "An intolerant person refuses to accept views or people unlike themselves, which is bias."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +775,43 @@
     "text": "Podcast’s out a fraction",
     "enumeration": "6"
    },
-   "solution": "FOURTH"
+   "solution": "FOURTH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FOURTH",
+    "definitions": [
+     {
+      "text": "a fraction",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Podcast’s",
+      "for": "homophone",
+      "note": "a podcast is heard rather than read, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "FOURTH",
+      "soundsLike": "FORTH",
+      "note": "forth means out, as in go forth"
+     }
+    ],
+    "explanation": {
+     "surface": "An episode of a podcast has been released, or part of one.",
+     "definitionFit": "A fourth is a quarter, one of four equal parts of a whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Podcast’s"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +831,59 @@
      }
     ]
    },
-   "solution": "ROUTEMARCH"
+   "solution": "ROUTEMARCH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ROUTE MARCH",
+    "definitions": [
+     {
+      "text": "extended military training",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "failing",
+      "for": "anagram",
+      "note": "armour that is failing is breaking apart, so its letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Corps",
+      "gives": "C",
+      "note": "C is the abbreviation for corps"
+     },
+     {
+      "clueFragment": "the armour",
+      "gives": "THEARMOUR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CTHEARMOUR",
+       "gives": "ROUTEMARCH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A military corps finds its armour falling apart.",
+     "walkthrough": "The C joins the letters of 'the armour' in one mix.",
+     "definitionFit": "A route march is a long training march by soldiers in full kit, a test of endurance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "failing"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +897,62 @@
     "text": "Vehicles circling old cathedral city in a rough manner",
     "enumeration": "8"
    },
-   "solution": "COARSELY"
+   "solution": "COARSELY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "COARSELY",
+    "definitions": [
+     {
+      "text": "in a rough manner",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "circling",
+      "for": "container",
+      "note": "circling means going around, so the vehicles surround something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vehicles",
+      "gives": "CARS",
+      "note": "cars are vehicles"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "cathedral city",
+      "gives": "ELY",
+      "note": "Ely is a cathedral city in Cambridgeshire, England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "O",
+      "ARS",
+      "ELY"
+     ]
+    },
+    "explanation": {
+     "surface": "Traffic driving roughly around an ancient cathedral city.",
+     "walkthrough": "'Old cathedral city' tempts as one unit, but old is a separate letter and only 'cathedral city' gives the place.",
+     "definitionFit": "Coarsely means crudely or roughly, without refinement, as with a coarsely ground texture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "circling"
+    }
+   }
   },
   {
    "number": 15,
@@ -241,7 +966,70 @@
     "text": "Rascal in rude vein making bend",
     "enumeration": "7"
    },
-   "solution": "INCURVE"
+   "solution": "INCURVE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INCURVE",
+    "definitions": [
+     {
+      "text": "bend",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rude",
+      "for": "anagram",
+      "note": "rude means crude or rough-hewn, so the letters come out unpolished and rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the rascal inside the other letters"
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rascal",
+      "gives": "CUR",
+      "note": "a cur is a contemptible scoundrel"
+     },
+     {
+      "clueFragment": "vein",
+      "gives": "VEIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "CUR",
+      "VE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "VEIN",
+       "gives": "INVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rascal in a coarse mood bending the rules.",
+     "walkthrough": "'In' does double duty in the surface but is the container signal; 'making' is just a link to the definition.",
+     "definitionFit": "A plain synonym: something that incurves turns its shape inward, as a petal or claw curling towards its centre."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rude"
+    }
+   }
   },
   {
    "number": 16,
@@ -255,7 +1043,75 @@
     "text": "See one tour is arranged for top soloists",
     "enumeration": "8"
    },
-   "solution": "VIRTUOSI"
+   "solution": "VIRTUOSI",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "VIRTUOSI",
+    "definitions": [
+     {
+      "text": "top soloists",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is arranged",
+      "for": "anagram",
+      "note": "arranged means put in order, so these letters are set out afresh"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See",
+      "gives": "V",
+      "note": "v stands for vide, Latin for see"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     },
+     {
+      "clueFragment": "tour",
+      "gives": "TOUR",
+      "note": "taken as written, and joined by the next letters"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "I",
+      "RTUOSI"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOURIS",
+       "gives": "RTUOSI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Look, a tour has been organised for the finest solo musicians.",
+     "walkthrough": "'is' is fodder alongside tour, while 'arranged' is the anagram signal.",
+     "definitionFit": "Virtuosi are performers of outstanding technical skill, the leading players."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "See"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1125,64 @@
     "text": "One’s run into stubborn guy offering traditional Christmas festivities",
     "enumeration": "7"
    },
-   "solution": "MISRULE"
+   "solution": "MISRULE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISRULE",
+    "definitions": [
+     {
+      "text": "traditional Christmas festivities",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into means going inside, so these letters sit within the other word"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stubborn guy",
+      "gives": "MULE",
+      "note": "a mule is an obstinate person"
+     },
+     {
+      "clueFragment": "One’s",
+      "gives": "IS",
+      "note": "I for one, plus 's for is"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IS",
+      "R",
+      "ULE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone runs into an obstinate man who is laying on old-style Christmas revels.",
+     "walkthrough": "In old England a Lord of Misrule presided over Christmas revelry, games and mock disorder.",
+     "definitionFit": "Misrule names the riotous seasonal merrymaking of medieval Yule, overseen by a mock lord."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1196,58 @@
     "text": "Honoured recently after burying waste?",
     "enumeration": "8"
    },
-   "solution": "LAUREATE"
+   "solution": "LAUREATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LAUREATE",
+    "definitions": [
+     {
+      "text": "Honoured",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "burying",
+      "for": "container",
+      "note": "burying means putting something deep inside, so one piece is enclosed"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recently",
+      "gives": "LATE",
+      "note": "late means recently, as in of late"
+     },
+     {
+      "clueFragment": "waste",
+      "gives": "UREA",
+      "note": "urea is the body's nitrogenous waste product, passed in urine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "UREA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone honoured not long ago after waste disposal, a poet laureate perhaps.",
+     "walkthrough": "LATE holds UREA. The question mark admits urea is only one kind of waste.",
+     "definitionFit": "Laureate as an adjective means crowned with laurel, distinguished by an award or title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "waste"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1261,52 @@
     "text": "A lot of resistance to harem pants",
     "enumeration": "7"
    },
-   "solution": "TERAOHM"
+   "solution": "TERAOHM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TERAOHM",
+    "definitions": [
+     {
+      "text": "A lot of resistance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters are made a mess of"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to harem",
+      "gives": "TOHAREM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOHAREM",
+       "gives": "TERAOHM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Harem pants put up stiff resistance.",
+     "walkthrough": "Harem pants are loose baggy trousers, but here pants is the verb-like slang for rubbish.",
+     "definitionFit": "A teraohm is a million million ohms, a huge unit of electrical resistance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 20,
@@ -311,7 +1320,49 @@
     "text": "Footwear support: repositioned toes here?",
     "enumeration": "8"
    },
-   "solution": "SHOETREE"
+   "solution": "SHOETREE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SHOETREE",
+    "definitions": [
+     {
+      "text": "Footwear support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repositioned",
+      "for": "anagram",
+      "note": "repositioned means moved into new places, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "toes here",
+      "gives": "TOESHERE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOESHERE",
+       "gives": "SHOETREE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shoe insert that asks whether the toes have been moved to here.",
+     "definitionFit": "A shoe tree is a foot-shaped form placed inside a shoe to keep its shape."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -325,7 +1376,65 @@
     "text": "Buzzing with rising passion, they respond sharply when struck",
     "enumeration": "6"
    },
-   "solution": "HUMERI"
+   "solution": "HUMERI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "HUMERI",
+    "definitions": [
+     {
+      "text": "they respond sharply when struck",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "rising in a down clue means reading upwards, from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Buzzing",
+      "gives": "HUM",
+      "note": "a hum is a buzzing sound"
+     },
+     {
+      "clueFragment": "passion",
+      "gives": "IRE",
+      "note": "ire is anger, a passion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUM",
+      "ERI"
+     ],
+     "reversals": [
+      {
+       "from": "IRE",
+       "to": "ERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Buzzing with mounting anger, these react sharply when hit.",
+     "walkthrough": "The humerus holds the funny bone, the nerve at the elbow that tingles sharply when knocked.",
+     "definitionFit": "Humeri are upper-arm bones; hitting the elbow nerve near them causes a jolting pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "struck"
+    }
+   }
   },
   {
    "number": 22,
@@ -339,7 +1448,55 @@
     "text": "Ancient governor retaining corner in fine weather",
     "enumeration": "6"
    },
-   "solution": "SHOGUN"
+   "solution": "SHOGUN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHOGUN",
+    "definitions": [
+     {
+      "text": "Ancient governor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "retaining means holding on to, keeping something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine weather",
+      "gives": "SUN",
+      "note": "sunshine is fine weather"
+     },
+     {
+      "clueFragment": "corner",
+      "gives": "HOG",
+      "note": "to hog is to corner, to keep all for yourself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HOG",
+      "UN"
+     ]
+    },
+    "explanation": {
+     "surface": "An old ruler holds on to a sunny spot in good weather.",
+     "walkthrough": "Corner is a verb here, as in corner the market.",
+     "definitionFit": "A shogun was a hereditary military ruler of feudal Japan, governing in the emperor's name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "corner"
+    }
+   }
   },
   {
    "number": 22,
@@ -353,7 +1510,60 @@
     "text": "Elegant articles taken from bar near midnight?",
     "enumeration": "6"
    },
-   "solution": "SVELTE"
+   "solution": "SVELTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SVELTE",
+    "definitions": [
+     {
+      "text": "Elegant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken from",
+      "for": "deletion",
+      "note": "taken from means removed, so these letters leave the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "articles",
+      "gives": "AA",
+      "note": "a is the indefinite article, two of them"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "SAVE",
+      "note": "bar and save both mean except"
+     },
+     {
+      "clueFragment": "near midnight?",
+      "gives": "LATE",
+      "note": "near midnight is late at night"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SVE",
+      "LTE"
+     ]
+    },
+    "explanation": {
+     "surface": "Smart items removed from a pub close to midnight.",
+     "walkthrough": "SAVE and LATE each lose an A. Bar looks like a pub but means except.",
+     "definitionFit": "Svelte means slender and graceful, stylishly slim in figure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 23,
@@ -367,7 +1577,67 @@
     "text": "Well-turned-out – obvious personal statement about actual dressing",
     "enumeration": "10"
    },
-   "solution": "IMMACULATE"
+   "solution": "IMMACULATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMMACULATE",
+    "definitions": [
+     {
+      "text": "Well-turned-out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means turned around, so the letters are rearranged"
+     },
+     {
+      "text": "dressing",
+      "for": "container",
+      "note": "dressing means clothing, wrapping around something"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obvious personal statement",
+      "gives": "IMME",
+      "note": "saying I am me states the obvious about yourself"
+     },
+     {
+      "clueFragment": "actual",
+      "gives": "ACTUAL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MACULAT",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTUAL",
+       "gives": "ACULAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A smartly dressed person makes a self-evident statement about real clothes.",
+     "walkthrough": "I'M ME wraps round a jumble of actual: IM, then M is followed by ACULAT, then E.",
+     "definitionFit": "Immaculate means spotless and perfectly neat, describing someone impeccably groomed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 24,
@@ -381,7 +1651,56 @@
     "text": "Question about energy in dairy product",
     "enumeration": "4"
    },
-   "solution": "WHEY"
+   "solution": "WHEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "WHEY",
+    "definitions": [
+     {
+      "text": "dairy product",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the question surrounds the other letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Question",
+      "gives": "WHY",
+      "note": "why is a question word"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WH",
+      "E",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about the energy content of a milk product.",
+     "definitionFit": "Whey is the watery liquid left after milk curdles in cheesemaking, a by-product of dairy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1714,62 @@
     "text": "Sharpen question having European instead of American",
     "enumeration": "4"
    },
-   "solution": "WHET"
+   "solution": "WHET",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "WHET",
+    "definitions": [
+     {
+      "text": "Sharpen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "instead of",
+      "for": "substitution",
+      "note": "instead of means in place of, so one letter is swapped for another"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "WHAT",
+      "note": "what is a question word"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is the abbreviation for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WH",
+      "E",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Hone a query by swapping the American for a European.",
+     "walkthrough": "WHAT swaps its A for E.",
+     "definitionFit": "To whet a blade is to hone it on a stone; also used of stimulating an appetite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1783,57 @@
     "text": "Flower pot not finished by our group",
     "enumeration": "6"
    },
-   "solution": "CROCUS"
+   "solution": "CROCUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CROCUS",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not finished",
+      "for": "deletion",
+      "note": "not finished means the end is missing, so the last letter goes"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pot",
+      "gives": "CROCK",
+      "note": "a crock is an earthenware pot"
+     },
+     {
+      "clueFragment": "our group",
+      "gives": "US",
+      "note": "us is the group we belong to"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CROC",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "A flowerpot our team never finished planting.",
+     "definitionFit": "The crocus is a small spring-blooming plant grown from a corm, prized for its bright cups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Flower"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1847,62 @@
     "text": "Success for woman also curtailed till now",
     "enumeration": "8"
    },
-   "solution": "HITHERTO"
+   "solution": "HITHERTO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "HITHERTO",
+    "definitions": [
+     {
+      "text": "till now",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curtailed",
+      "for": "deletion",
+      "note": "curtailed means cut short at the tail, so the last letter is removed"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Success",
+      "gives": "HIT",
+      "note": "a hit is a success"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "HER",
+      "note": "her refers to a woman"
+     },
+     {
+      "clueFragment": "also",
+      "gives": "TOO",
+      "note": "too means also"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIT",
+      "HER",
+      "TO"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's triumph has been cut short so far.",
+     "definitionFit": "Hitherto is a formal adverb meaning up to this point in time, until the present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
