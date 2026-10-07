@@ -12,7 +12,8 @@ RapidOCR's reading of the article's text zones (cached by `fetch_trove.py
 zones` in ~/.cache/trove-clues/<id>/zone<N>.png at ~half the scan's top
 resolution, where the print is still ~17px tall).
 
-This module only reads the cache; an article whose zones are not cached waits
+This module fetches nothing (it caches only RapidOCR's reading, beside the
+zones); an article whose zones are not cached waits
 (tools/file_trove_puzzles.py leaves it pending) until the fetcher caches them.
 
 RapidOCR loses things too (it often drops brackets and the bold clue

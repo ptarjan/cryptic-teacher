@@ -11,14 +11,9 @@ one-clue fix or a fix-the-validator run opens differently. No output-token floor
 a cheap run is exactly the one a floor would drop, which biases the median up.
 tools/annotate_audit.py reads the same sessions for what the turns went on.
 
-WHY THIS IS A TOOL AND NOT A SCRIPT SOMEBODY RAN ONCE. Turn cost was measured by
-hand twice. The first measurement recorded a jump from a median of 47 API calls
-per session to 66, and two rounds of work were justified as undoing it; the
-second, on 2026-09-05 over 235 sessions, could not reproduce the 66 at all —
-that window measures 51, and the real shape is a slow creep of 47 -> 51 -> 54
-across three windows. A number nobody can re-derive is worse than no number,
-because it still gets quoted. So the method lives here, runs nightly, and every
-figure in this docstring can be checked by running the file.
+This is a tool so the number can be re-derived: it runs nightly (daily_update.sh)
+and every figure it prints comes from the transcripts, not from a hand
+measurement that still gets quoted after nobody can reproduce it.
 
 The count is API calls, not wall time or dollars: it is the thing that moves
 when the prompt makes the model go and look something up, which is the failure
