@@ -42,7 +42,6 @@ import re
 import sys
 import time
 import urllib.error
-import urllib.request
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
@@ -53,14 +52,13 @@ import file_blog_puzzles
 import ft_pdf_puzzles as fpp
 import listener_puzzles as lp
 import reconstruct_grid as rg
-from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
+from fetch_puzzle import correct_source_answers, http_fetch, puzzle_path, write_puzzle_file
 
 SERIES = "azed"
 CACHE = Path.home() / "cryptic-setter-data" / "andlit-azed"
 INDEX_URL = "https://www.andlit.org.uk/azed/puzzles.php"
 ROUTER = "https://www.andlit.org.uk/azed/puzzle_router.php?src=L&puzzle_no={}"
 GENERATOR = "tools/andlit_azed.py"
-UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-teacher)"}
 #: Seconds between requests: andlit and the Guardian's file servers are
 #: fetched one page at a time.
 PAUSE = 2.0
@@ -93,9 +91,7 @@ CHAMBERS = re.compile(r"(?i)(?:special instructions:\s*)?(?:the\s+)?chambers dic
 
 def get(url):
     """(final url, bytes)."""
-    req = urllib.request.Request(url, headers=UA)
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.geturl(), r.read()
+    return http_fetch(url, timeout=60)
 
 
 # ------------------------------------------------------------------ the index
