@@ -68,10 +68,11 @@ sys.path.insert(0, str(TOOLS))
 import enumeration
 import json_merge
 import provenance
+import downloads
 import series as series_meta
 from groups import entry_id
 
-DATA = Path.home() / "cryptic-setter-data"
+DATA = downloads.ROOT
 GEORGEHO = DATA / "georgeho" / "data.db"
 GEORGEHO_URL = "https://cryptics.georgeho.org/data.db"
 # Our own rows out of GEORGEHO, keyed by puzzle id; rebuilt when data.db changes.

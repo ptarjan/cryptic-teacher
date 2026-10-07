@@ -46,10 +46,11 @@ from PIL import Image, ImageFilter
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fetch_privateeye as fp  # noqa: E402
 import provenance  # noqa: E402
+import downloads  # noqa: E402
 from fetch_puzzle import write_puzzle_file  # noqa: E402
 
 GENERATOR = "tools/file_cyclops_christmas.py"
-POSTS = Path.home() / "cryptic-setter-data" / "fifteensquared" / "posts"
+POSTS = downloads.FIFTEENSQUARED / "posts"
 IMAGE_URL = "https://www.private-eye.co.uk/pictures/crossword/{issue}.gif"
 
 # number: (issue, fifteensquared cache file id, preamble start, preamble end).

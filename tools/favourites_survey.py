@@ -23,8 +23,9 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from fetch_puzzle import puzzle_files, read_puzzle_file  # noqa: E402 — one glob, one reader
 from groups import entry_id  # noqa: E402
+import downloads  # noqa: E402
 
-CACHE = os.path.expanduser("~/cryptic-setter-data/fifteensquared")
+CACHE = str(downloads.FIFTEENSQUARED)
 
 # "my favourite was", "COD", "pick of the bunch". Deliberately narrow: the
 # comments are full of favourite songs, films and TV roles, and a loose pattern

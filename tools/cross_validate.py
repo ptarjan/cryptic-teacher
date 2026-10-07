@@ -43,7 +43,7 @@ by class:
   CLUE         the same light, other words once punctuation, quotes, dashes,
                case and whitespace are normalised away
 
-The report goes to ~/cryptic-setter-data/cross-validate/<source>.jsonl, one
+The report goes to downloads.CROSS_VALIDATE/<source>.jsonl, one
 line per puzzle with mismatches, and a tally prints per class.
 
 `all` puts every copy of a puzzle to a vote at once (majority()): ours is one
@@ -126,11 +126,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import groups
+import downloads
 import provenance
 from fetch_puzzle import puzzle_files, read_puzzle_file
 
-DATA = Path.home() / "cryptic-setter-data"
-REPORTS = DATA / "cross-validate"
+DATA = downloads.ROOT
+REPORTS = downloads.CROSS_VALIDATE
 CLASSES = ("GRID", "NUMBERING", "MISSING", "EXTRA", "ANSWER", "ENUMERATION", "CLUE")
 #: Source authority, best first: the paper's own print (its feed, app, page or
 #: PDF), an OCR'd scan of it (archive.org, Trove, a book), a blog's retyping.
@@ -660,7 +661,7 @@ def globe_shape(data, key):
 
 class FT(Adapter):
     """The FT's own printable PDF of each cryptic, 2006 to 2012, fetched by
-    tools/ft_pdf_puzzles.py into ~/cryptic-setter-data/ft-pdf/pdf/<number>.pdf.
+    tools/ft_pdf_puzzles.py into downloads.FT_PDF/pdf/<number>.pdf.
 
     The PDF's clue list and vector grid are read with ft_pdf_puzzles.read_pdf
     and shaped here without file_blog_puzzles.build(), so a file filed from
@@ -987,7 +988,7 @@ def blog_rows(rec):
 class ArchiveOrg(Adapter):
     """The Times, FT and Guardian as printed, 1971-99:
     tools/file_archive_org_puzzles.py's reading of each daily cryptic in
-    archive.org's scans, kept in ~/cryptic-setter-data/archiveorg-source/
+    archive.org's scans, kept in downloads.ARCHIVE_ORG_SOURCE
     (times-<No>.json, ftcryptic-<No>.json, cryptic-<No>.json) whether or not
     it was filed. It votes on the file of that id another source gave us, and on
     each canberra file whose source names it as the Times puzzle it reprints
@@ -1001,7 +1002,7 @@ class ArchiveOrg(Adapter):
 
     @property
     def cache(self):
-        return DATA / "archiveorg-source"
+        return downloads.ARCHIVE_ORG_SOURCE
 
     def ids(self):
         out = {p.stem: (p.stem, p) for s in ("times", "ftcryptic", "cryptic")
@@ -1048,7 +1049,7 @@ class CanberraReprint(Adapter):
 class ListenerReport(Adapter):
     """The answers a 1930s Listener's "Report on Crossword No. N" prints, as
     tools/file_gale_listener.py reads them off the report's filled grid in a
-    page saved from Gale, kept in ~/cryptic-setter-data/listenerreport-source/
+    page saved from Gale, kept in downloads.ROOT/listenerreport-source/
     (listener-<No>.json) whether or not the puzzle filed. The filer files
     no answer it reads: the solve fills the key, and this copy is its check.
     A misread that is still a word (PERTS for AERTS) is a report's typical

@@ -37,7 +37,7 @@
 set -u
 cd "$(dirname "$0")/.."
 
-TEXT="${PENGUIN_TEXT:-${XDG_STATE_HOME:-$HOME/.local/state}/cryptic-teacher/ia-books/newpenguinbkguar0000perk.txt}"
+TEXT="${PENGUIN_TEXT:-$(python3 tools/downloads.py)/ia-books/newpenguinbkguar0000perk.txt}"
 export TEXT
 
 python3 - <<'PYEOF'

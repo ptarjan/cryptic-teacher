@@ -8,7 +8,7 @@
     python3 tools/file_archive_org_puzzles.py --check-filed  # list filed puzzles with a clue it refuses now
 
 Reads what tools/fetch_archive_org_editions.py leaves in
-~/.cache/archive_org_editions/<item>/<date>_<issue>/ (djvu.xml.gz with word
+downloads.ARCHIVE_ORG/<item>/<date>_<issue>/ (djvu.xml.gz with word
 positions, leaf_NNNN.jpg of each crossword page, pages.json) for the items
 NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
 
@@ -53,7 +53,7 @@ NewsUK19xxUKEnglish, and files each "Times Crossword Puzzle No N" as times-N:
     with a blank clue goes to --out (or nowhere without it).
   - A number already held is not written (unless this tool filed it and the
     new reading beats it on clues or answers, improves): the reading goes to
-    ~/cryptic-setter-data/archiveorg-source/, where tools/cross_validate.py's
+    downloads.ARCHIVE_ORG_SOURCE, where tools/cross_validate.py's
     `archiveorg` adapter votes with it. Every reading goes there, filed or not.
 
 A Times run also reads the 1930 Times (TIMES_1930: archive.org's pub_times,
@@ -95,7 +95,7 @@ the grid is under them (clues_above); the previous puzzle's grid prints
 under "SOLUTION No. 18,339". Its numbers run on into our telegraph series
 (No 25,846 in Feb 2009), so a puzzle files as telegraph-N.
 
-Resumable: ~/.cache/archive_org_editions/filed.jsonl records each edition's
+Resumable: downloads.ARCHIVE_ORG/filed.jsonl records each edition's
 headings and verdicts against its inputs (its files, the solutions seen,
 whether the VLM read it), after each edition. Editions never read go first, then the stale by when they were read
 (tools/scan_queue.py), so a capped run (--limit, --seconds) never starts over.
@@ -138,6 +138,7 @@ import trove_solution_ocr
 import vlm_reader as vlm
 from file_penguin_puzzle import separators
 from groups import entry_id
+import downloads
 from ocr_clues import (
     READERS,
     UPSCALE,
@@ -154,9 +155,9 @@ from ocr_clues import (
 )
 
 SERIES = "times"
-CACHE = Path(os.path.expanduser("~/.cache/archive_org_editions"))
+CACHE = downloads.ARCHIVE_ORG
 CROPS = Path(os.path.expanduser("~/.cache/archive_org_crops"))
-SOURCE = Path.home() / "cryptic-setter-data" / "archiveorg-source"
+SOURCE = downloads.ARCHIVE_ORG_SOURCE
 TOOL = "tools/file_archive_org_puzzles.py"
 #: archive.org's Times items, and the Gale page images tools/gale_inbox.py
 #: lays out as editions of the same shape (GaleTimes<year>UKEnglish/<date>).

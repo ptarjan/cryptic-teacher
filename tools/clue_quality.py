@@ -172,9 +172,10 @@ from pathlib import Path
 
 from annotation import whole_anagram  # tools/annotation.py
 from groups import entry_id
+import downloads
 
 ROOT = Path(__file__).resolve().parent.parent
-CORPUS = Path.home() / "cryptic-setter-data" / "georgeho" / "data.db"
+CORPUS = downloads.GEORGEHO / "data.db"
 
 # Verbs that bolt a definition onto assembled wordplay. Real setters use these
 # too, but as part of a sentence that means something; when one sits exactly at

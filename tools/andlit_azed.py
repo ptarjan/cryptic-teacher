@@ -51,11 +51,12 @@ import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
 import listener_puzzles as lp
+import downloads
 import reconstruct_grid as rg
 from fetch_puzzle import correct_source_answers, http_fetch, puzzle_path, write_puzzle_file
 
 SERIES = "azed"
-CACHE = Path.home() / "cryptic-setter-data" / "andlit-azed"
+CACHE = downloads.ANDLIT_AZED
 INDEX_URL = "https://www.andlit.org.uk/azed/puzzles.php"
 ROUTER = "https://www.andlit.org.uk/azed/puzzle_router.php?src=L&puzzle_no={}"
 GENERATOR = "tools/andlit_azed.py"

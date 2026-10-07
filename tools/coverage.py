@@ -43,14 +43,15 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 import archive_coverage
+import downloads
 import file_trove_puzzles
 import series as series_meta
 
 HOME = Path.home()
 STATE = Path(os.environ.get("COVERAGE_STATE", HOME / ".cache" / "coverage_ledger"))
-BLOGS = HOME / "cryptic-setter-data"
+BLOGS = downloads.ROOT
 FT_PDF = BLOGS / "ft-pdf"
-TROVE = HOME / ".cache" / "trove"
+TROVE = downloads.TROVE
 ROOM = "cryptic-crosswords"
 WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
 TOP = 3

@@ -146,7 +146,7 @@ tools/test_file_trove_puzzles.sh              files three real Trove articles: t
 tools/trove_clue_ocr.py                       repairs the clues Trove's OCR loses (a number
                                               read as junk, a broken bracket, "(S)") from
                                               RapidOCR's reading of the page's clue columns,
-                                              cached in ~/.cache/trove-clues by fetch_trove.py
+                                              cached in downloads.TROVE_CLUES by fetch_trove.py
                                               zones; file_trove_puzzles.py applies it, anchored
                                               on text both readings share
 tools/fixtures/archive-org-grids/             archive.org page crops whose grid lies far under,
@@ -187,6 +187,11 @@ tools/test_repair_fetched.sh                  builds a puzzle file with each of 
                                               and proves the repair fixes it, leaves a clean
                                               file and a real Cyclops per-light group
                                               byte-identical, and is clean on the second run
+tools/downloads.py                            where every fetcher keeps what it downloads,
+                                              ~/cryptic-setter-data/<source>/: the one place
+                                              each source's folder is named, and `python3
+                                              tools/downloads.py` prints the root for shell
+                                              scripts
 tools/puzzle_paths.py                         where a puzzle's file lives,
                                               puzzles/<series>/<year>/<id>.json: the one place
                                               the layout is spelled, and `python3
@@ -1280,6 +1285,10 @@ tools/test_book_queue.sh                      does tools/book_queue.py still off
                                               book to tools/acquire_books.sh?
 tools/test_build_readme.sh                    does tools/build_readme.py still read the header
                                               of every file it is asked about?
+tools/test_downloads.sh                       does every fetcher keep its downloads under
+                                              tools/downloads.py's root: fails on a home path,
+                                              ~/.cache folder or container path spelled
+                                              anywhere else in tools/
 tools/test_doc_pointers.sh                    does every backticked path and function in the
                                               prose docs still exist?
 tools/test_prereset_lock.sh                   does the pre-reset backfill still take over a

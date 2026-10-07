@@ -41,11 +41,11 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from datetime import UTC, date, datetime
-from pathlib import Path
+import downloads
 
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
-DATA = Path.home() / "cryptic-setter-data"
+DATA = downloads.ROOT
 
 
 @dataclass(frozen=True)

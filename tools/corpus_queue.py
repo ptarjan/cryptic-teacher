@@ -49,6 +49,7 @@ import subprocess
 import sys
 import time
 from pathlib import Path
+import downloads
 
 ROOT = Path(__file__).resolve().parent.parent
 FULL_PASS = ROOT / "tools" / "ocr_full_pass.sh"
@@ -59,12 +60,11 @@ STATE = STATE_DIR / "state.json"
 #: The pass's exit status, written when it ends; a killed pass writes none.
 EXIT = STATE_DIR / "full_pass.exit"
 LOG = STATE_DIR / "full_pass.log"
-LEDGERS = [HOME / ".cache" / "archive_org_editions" / "filed.jsonl", HOME / ".cache" / "trove" / "filed.jsonl"]
+LEDGERS = [downloads.ARCHIVE_ORG / "filed.jsonl", downloads.TROVE / "filed.jsonl"]
 #: What the pass's fetchers move when they fetch: the archive.org fetcher's
 #: done.tsv, and the Trove caches' directories (an article fetched, or its
 #: clue zones, is a new directory in them).
-FETCHED = [HOME / ".cache" / "archive_org_editions" / "done.tsv", HOME / ".cache" / "trove",
-           HOME / ".cache" / "trove-clues"]
+FETCHED = [downloads.ARCHIVE_ORG / "done.tsv", downloads.TROVE, downloads.TROVE_CLUES]
 WAKE_SH = os.environ.get("WAKE_SH", "/Users/pt/github/household/tools/wake.sh")
 ROOM = "cryptic-crosswords"
 NAME = "full_pass"
@@ -241,6 +241,8 @@ def launch(dry):
     if dry:
         print(f"[dry run] would start {' '.join(command())}")
         return
+    for line in downloads.migrate():  # nothing is running: no job holds an old path
+        print(line)
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     EXIT.unlink(missing_ok=True)
     env = {k: v for k, v in os.environ.items() if k not in ("CT_IN_WORKTREE", "CT_MAIN_CHECKOUT")}

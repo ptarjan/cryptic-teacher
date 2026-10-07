@@ -29,11 +29,11 @@ import re
 import sys
 import time
 import urllib.error
-from pathlib import Path
 
 from fetch_puzzle import http_bytes
+import downloads
 
-CACHE = Path.home() / "cryptic-setter-data" / "times-listing"
+CACHE = downloads.TIMES_LISTING
 HOSTS = ("thetimes.co.uk", "thetimes.com")
 CDX = ("https://web.archive.org/cdx/search/cdx?url={host}/puzzles/crossword"
        "&output=json&filter=statuscode:200&collapse=timestamp:8")

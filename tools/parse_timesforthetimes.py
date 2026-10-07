@@ -21,9 +21,9 @@ import json
 import re
 import sys
 import unicodedata
-from pathlib import Path
+import downloads
 
-CACHE = Path.home() / "cryptic-setter-data" / "timesforthetimes"
+CACHE = downloads.TIMESFORTHETIMES
 POSTS = CACHE / "posts"
 OUT = CACHE / "parsed.jsonl"
 

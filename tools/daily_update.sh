@@ -214,7 +214,7 @@ phase blog-chains 30
 # Neither paper publishes its grids, so each puzzle is a chain rather than a
 # fetch: cache the new blog posts, parse them, rebuild each grid from its
 # light list, file what passes into puzzles/. Each step reads the one before
-# it off ~/cryptic-setter-data/<blog>/, so a step that fails ends its chain --
+# it off <tools/downloads.py ROOT>/<blog>/, so a step that fails ends its chain --
 # anything after it would read a half-written file -- except the fetches,
 # whose failure only means the cache is as it was last night. The Times's
 # second fetch is its own puzzle listing, as the Wayback Machine keeps it,

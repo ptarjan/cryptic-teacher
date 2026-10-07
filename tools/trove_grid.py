@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Read a crossword's black squares off a scanned grid image.
 
-    python3 tools/trove_grid.py ~/.cache/trove/<id>/grid.jpg   # print the grid
+    python3 tools/trove_grid.py "$(python3 tools/downloads.py)"/trove/<id>/grid.jpg   # print the grid
 
 read_grid(path) returns (rows, None), each row a string of "#" (block) and
 "." (white), or (None, reason) when the picture does not prove one grid:

@@ -7,7 +7,7 @@ Usage:
   python3 tools/fetch_archive_org_editions.py --group times --group listener
   python3 tools/fetch_archive_org_editions.py --item NewsUK1998UKEnglish --edition 'Jul 25 1998'
   python3 tools/fetch_archive_org_editions.py --limit 20             # stop after 20 editions
-  --out DIR     cache root (default ~/.cache/archive_org_editions)
+  --out DIR     cache root (default downloads.ARCHIVE_ORG)
   --delay S     minimum seconds between one connection's requests (default 1.0)
   --jobs N      editions fetched at once (default 4)
   --min-free-gb N  stop cleanly when the cache disk has less free (default 30)
@@ -131,6 +131,7 @@ import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
 from pathlib import Path
+import downloads
 
 UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"
 SAMAAN = 'uploader:"samaan.alshayef@gmail.com"'
@@ -791,7 +792,7 @@ class Run:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    ap.add_argument("--out", default=os.path.expanduser("~/.cache/archive_org_editions"))
+    ap.add_argument("--out", default=str(downloads.ARCHIVE_ORG))
     ap.add_argument("--delay", type=float, default=1.0)
     ap.add_argument("--jobs", type=int, default=4)
     ap.add_argument("--group", action="append", choices=[g[0] for g in GROUPS])

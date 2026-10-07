@@ -45,11 +45,12 @@ from pathlib import Path
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import enumeration
+import downloads
 import series as series_meta
 from fetch_puzzle import puzzle_path, write_puzzle_file
 
 SERIES = "listener"
-CACHE = Path.home() / "cryptic-setter-data" / "listener"
+CACHE = downloads.LISTENER
 SITE = "https://www.listenercrossword.com"
 GENERATOR = "tools/listener_puzzles.py"
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; github.com/ptarjan/cryptic-teacher)"}

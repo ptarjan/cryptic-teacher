@@ -501,9 +501,9 @@ committed is never filed again. Three mechanisms, one shared helper
   left, pushed before the worktree is reset.
 
 Puzzle files are written whole (a temp file renamed into place), and a `.json`
-that does not parse is never committed. Caches live under `~/.cache` and
-`~/cryptic-setter-data`, never `/tmp`, and every fetcher skips what it already
-has, so a restart resumes. `tools/test_durable.sh` kills a fake job each way
+that does not parse is never committed. Downloads live under one root (see
+*Downloaded source material* below) and derived caches under `~/.cache`, never
+`/tmp`, and every fetcher skips what it already has, so a restart resumes. `tools/test_durable.sh` kills a fake job each way
 and fails if a scheduled job with no timeout, or one over 15 minutes, does not
 use these mechanisms.
 
@@ -572,6 +572,32 @@ scheduler runs as.
 Every tracked file, and what it is for, is listed in
 **[docs/LAYOUT.md](docs/LAYOUT.md)**. It is generated and checked the same way
 as the generated regions of this file.
+
+### Downloaded source material
+
+Everything a fetcher downloads lives outside the repo under one root,
+`~/cryptic-setter-data` (`python3 tools/downloads.py` prints it), one folder per
+source. `tools/downloads.py` is the only place a folder is named, and
+`tools/test_downloads.sh` fails on a download path spelled anywhere else.
+
+| Folder | What is in it | Filled by |
+|---|---|---|
+| archive_org_editions/ | archive.org newspaper scans and the filer's ledger | `tools/fetch_archive_org_editions.py` |
+| archiveorg-source/ | the archive.org filer's reading of each puzzle | `tools/file_archive_org_puzzles.py` |
+| trove/, trove-clues/ | Trove articles and the clue-column crops of each scan | `tools/fetch_trove.py` |
+| ia-books/, book-reprints/ | borrowed and public archive.org book text; reprinted leaves | `tools/fetch_ia_book.py`, `tools/acquire_book.py` |
+| ia-acquire/, ia-samples/ | per-book acquisition reports; candidate books' first leaves | `tools/acquire_book.py`, `tools/rank_book_candidates.py` |
+| ft-pdf/, genius/, listener/, andlit-azed/ | publisher PDFs and archive pages | the series' own `*_puzzles.py` |
+| NAME-source/ | each cross-checked source's cache (Guardian, Telegraph, Independent, Globe) | `tools/cross_validate.py`, `tools/fetch_telegraph.py` |
+| times-feed/, times-listing/ | the Times puzzle feed and its Wayback listing | `tools/fetch_times_feed.py`, `tools/fetch_times_listing.py` |
+| fifteensquared/, timesforthetimes/, bigdave44/, georgeho/ | solving blogs' posts and comments | `tools/fetch_fifteensquared.py`, `tools/fetch_wp_blog.py` |
+| youtube/CHANNEL/subs/ | solve-along video subtitles | `tools/ctc_transcripts.py` reads them |
+| cross-validate/ | per-source cross-validation reports | `tools/cross_validate.py` |
+
+Two things stay elsewhere: Gale's pages on the Mac's media disk
+(`/Volumes/Media/Gale crosswords`, `tools/gale_inbox.py`), and caches a tool
+rebuilds from these (crops, OCR and VLM readings, ledgers of job state) in
+`~/.cache`.
 
 ## Credits
 
