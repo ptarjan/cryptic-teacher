@@ -52,6 +52,14 @@ check("at is dropped from blocks and indicators",
       "at" not in got["blocks"][0] and "at" not in got["indicators"][0])
 check("a definition keeps its at", got["definitions"][0]["at"] == 0)
 check("the input is not mutated", sel["type"] == ["charade"] and "at" in sel["blocks"][0])
+# Clue words are written as the clue prints them, whatever the run typed.
+typed = {"type": ["charade"], "blocks": [{"clueFragment": "Mammal's", "gives": "X"}],
+         "indicators": [{"text": "COVERING", "for": "charade"}], "linkWords": ["it  with"]}
+got = A.in_clue_spelling(typed, "Mammal’s covering it with bristles")
+check("a block's typed apostrophe is the clue's", got["blocks"][0]["clueFragment"] == "Mammal’s")
+check("an indicator's case is the clue's", got["indicators"][0]["text"] == "covering")
+check("a link word's spacing is the clue's", got["linkWords"] == ["it with"])
+check("and the input is not mutated", typed["blocks"][0]["clueFragment"] == "Mammal's")
 # A block with no clueFragment is letters the preamble supplies.
 import contextlib, io
 import puzzle_schema, validate_annotations as V

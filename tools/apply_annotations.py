@@ -17,7 +17,10 @@ different from forgetting one — so absence is an error and `null` is not.
 
 `assembly` is worked out from the blocks wherever they reach the answer
 (tools/derive_assembly.py): filled in when absent, and `pieces` with the right
-letters in the wrong order redone.
+letters in the wrong order redone. Clue words are written as the clue prints
+them (definitions.respell: a retyped apostrophe, a capital or a space is the
+same word), and a one-letter block quoting its selector ("Irish leader" gives
+I) is split into the block "Irish" with `select` and the indicator "leader".
 
 Except when the run's copy of the puzzle (tools/_puzzle_<ID>.json, written by
 `annotate_check.py --view`) lists `annotateOnly`: then only those ids need a
@@ -56,11 +59,13 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import definitions  # noqa: E402
 import provenance  # noqa: E402
 import puzzle_integrity  # noqa: E402
 import groups  # noqa: E402 — linked answers
 from derive_assembly import complete  # noqa: E402
 from groups import entry_id  # noqa: E402
+from validate_annotations import SELECT_NOUNS, selector_in_block  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, source_clue, write_puzzle_file  # noqa: E402
 
 # The commands whose Bash call is the one running this file right now.
@@ -231,6 +236,8 @@ def normalize(ann, entry, entries):
         derived = derived_answer(entry, entries)
         if derived:
             ann["answer"] = derived
+    ann = in_clue_spelling(ann, entry["clue"].get("text") or "")
+    ann = split_selectors(ann)
     blocks = [b for b in ann.get("blocks") or [] if isinstance(b, dict)]
     types = ann.get("type")
     if (any("select" in b for b in blocks) and isinstance(types, list)
@@ -242,6 +249,59 @@ def normalize(ann, entry, entries):
             ann[key] = [{k: v for k, v in x.items() if k != "at"} if isinstance(x, dict) else x
                         for x in ann[key]]
     return with_assembly(ann, entry)
+
+
+def in_clue_spelling(ann, clue):
+    """`ann` with each block's, indicator's and link word's clue words spelt
+    as the clue prints them (definitions.respell): a retyped apostrophe, a
+    capital or a space is not a different word."""
+    ann = dict(ann)
+    for key, field in (("blocks", "clueFragment"), ("indicators", "text")):
+        if isinstance(ann.get(key), list):
+            ann[key] = [{**x, field: definitions.respell(x[field], clue)}
+                        if isinstance(x, dict) and isinstance(x.get(field), str) else x
+                        for x in ann[key]]
+    if isinstance(ann.get("linkWords"), list):
+        ann["linkWords"] = [definitions.respell(w, clue) for w in ann["linkWords"]]
+    return ann
+
+
+def split_selectors(ann):
+    """`ann` with each one-letter block that quotes its selector ("Irish
+    leader" gives I) split into the block of the word it selects from, with
+    `select`, and the selector as a letter_selection indicator, the shape
+    validate_annotations.check_selectors_are_indicators asks for."""
+    blocks, inds = ann.get("blocks"), ann.get("indicators", [])
+    if not isinstance(blocks, list) or not isinstance(inds, list):
+        return ann
+    out, added = [], []
+    for b in blocks:
+        found = (isinstance(b, dict)
+                 and len(re.sub(r"[^A-Za-z]", "", str(b.get("gives") or ""))) == 1
+                 and selector_in_block(b))
+        where = found and len(found[1].split()) == 1 and next(
+            (k for k in SELECT_NOUNS if b["gives"].strip().upper() == _pick(k, found[1])), None)
+        if not where:
+            out.append(b)
+            continue
+        sel, rest = found
+        out.append({**b, "clueFragment": rest, "select": where})
+        if not any(isinstance(i, dict) and i.get("text") == sel for i in inds + added):
+            added.append({"text": sel, "for": "letter_selection",
+                          "note": f"{sel!r} keeps only the {where} letter of {rest!r}"})
+    if out == blocks:
+        return ann
+    types = ann.get("type")
+    if isinstance(types, list) and "letter_selection" not in types:
+        types = [*types, "letter_selection"]
+    return {**ann, "type": types, "blocks": out, "indicators": [*inds, *added]}
+
+
+def _pick(where, word):
+    """The letter of `word` a first, last or middle selection keeps."""
+    run = re.sub(r"[^A-Za-z]", "", word).upper()
+    return {"first": run[:1], "last": run[-1:],
+            "middle": run[(len(run) - 1) // 2:len(run) // 2 + 1]}[where]
 
 
 def with_assembly(ann, entry):

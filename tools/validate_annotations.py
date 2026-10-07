@@ -55,6 +55,7 @@ fails.
 
 import ast
 import collections
+import difflib
 import functools
 import json
 import re
@@ -2407,23 +2408,68 @@ C1_RE = re.compile(r"[\x80-\x9f\ufffd]")
 
 
 
-# Characters that print alike and compare unequal. Guardian clues use curly
-# quotes and en dashes, the Independent's straight ones and hyphens, and a model
-# retyping a fragment writes whichever it prefers.
-LOOKALIKES = str.maketrans({"\u2018": "'", "\u2019": "'", "\u201c": '"',
-                            "\u201d": '"', "\u2013": "-", "\u2014": "-"})
-
-
 def verbatim_hint(fragment, clue):
     """What to say when a fragment is not verbatim in its clue: the clue's own
-    spelling of it, where only lookalike punctuation stood in the way."""
-    want, have = str(fragment).translate(LOOKALIKES), clue.translate(LOOKALIKES)
-    at = have.find(want)
-    if at < 0:
-        return (" — copy it character for character from the clue, which is the "
-                "only text it may be")
-    return (f" — the clue spells it {clue[at:at + len(want)]!r}: copy its quotes "
-            f"and dashes from the file rather than retyping them")
+    spelling of it (definitions.respell), or the clue words its words skip."""
+    spelt = definitions.respell(str(fragment), clue)
+    if spelt != fragment:
+        return (f" — the clue spells it {spelt!r}: copy it from the file rather "
+                f"than retyping it")
+    misread = respelt_words(str(fragment), clue)
+    if misread:
+        return (f" — the clue prints {' and '.join(f'{c!r} where this has {f!r}' for c, f in misread)}. "
+                f"Quote the clue as it stands; if the page prints your word and the "
+                f"clue is misread, give the entry `printedClue`: [\"<clue as printed, "
+                f"no count>\", \"OCR misread: <what the wordplay needs>\"]")
+    skipped = skipped_words(str(fragment), clue)
+    if skipped:
+        return (f" — its words are not consecutive in the clue, which prints "
+                f"{' and '.join(map(repr, skipped))} between them. Quote one unbroken "
+                f"run of clue words; the words between are their own block, "
+                f"indicator or link word")
+    return (" — copy it character for character from the clue, which is the "
+            "only text it may be")
+
+
+def respelt_words(fragment, clue):
+    """[(clue word, fragment word)] where `fragment` is a run of clue words
+    with one or two of them spelt a letter or two differently ("jumbled" for
+    the clue's "iumbled"): a clue misread, or retyped. [] otherwise."""
+    fold = lambda w: w.translate(definitions.LOOKALIKES).casefold()
+    want = definitions.WORD.findall(fragment)
+    words = definitions.WORD.findall(clue)
+    for k in range(len(words) - len(want) + 1):
+        pairs = [(c, f) for c, f in zip(words[k:k + len(want)], want) if fold(c) != fold(f)]
+        if pairs and len(pairs) <= 2 and len(pairs) < len(want) + (len(want) == 1) and all(
+                len(f) > 2 and difflib.SequenceMatcher(None, fold(c), fold(f)).ratio() >= 0.75
+                for c, f in pairs):
+            return pairs
+    return []
+
+
+def skipped_words(fragment, clue):
+    """The clue words between `fragment`'s words, where its words are clue
+    words in clue order with others between them: the fewest skipped of any
+    such reading. [] when there is no such reading."""
+    fold = lambda w: w.translate(definitions.LOOKALIKES).casefold()
+    want = [fold(w) for w in definitions.WORD.findall(fragment)]
+    words = list(definitions.WORD.finditer(clue))
+    best = None
+    for k in range(len(words)):
+        at, gaps = k, []
+        for j, w in enumerate(want):
+            start = at
+            while at < len(words) and fold(words[at].group()) != w:
+                at += 1
+            if at == len(words) or (j == 0 and at != k):
+                break
+            if at > start and j:
+                gaps.append(clue[words[start].start():words[at - 1].end()])
+            at += 1
+        else:
+            if want and gaps and (best is None or len(gaps) < len(best)):
+                best = gaps
+    return best or []
 
 
 def check_groups(puzzle, errors):
