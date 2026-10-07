@@ -23,6 +23,9 @@ read leaves no doubt:
      whole light as that word. Everything else stays None for the nightly
      solve.
 
+read_grid_letters reads a Listener report's filled grid the same way, on
+the lattice listener_grid finds and the lights of the puzzle's own grid.
+
 RapidOCR (pip install rapidocr-onnxruntime) is optional: without it every
 light stays unsolved and available() says why.
 """
@@ -252,24 +255,17 @@ VARIANTS = {
     "thinner": lambda a: np.asarray(Image.fromarray(a).resize((a.shape[1] * 3, a.shape[0] * 3), Image.BICUBIC)
                                     .filter(ImageFilter.MaxFilter(3))),
 }
-def read_answers(image, grid, tight=False):
-    """({(number, direction): answer} accepted, stats) for a solution image
-    and the puzzle's grid (rows of "#" and ".").
 
-    Every light is read in every rendering by every recogniser; a read counts only at the
-    light's full length. A cell's letter is read when SURE_READS counted
-    reads, across or down, give it at least MIN_PROB and no counted read
-    gives another letter that surely (so a crossing that disagrees unreads both).
-    A light is accepted when every one of its cells is read, some
-    recogniser read the light itself as exactly that word, and the word is
-    known()."""
-    gray = np.asarray(Image.open(image).convert("L"))
-    lat = lattice(gray, len(grid), tight)
-    lts = lights(grid)
-    sure = {}      # cell -> {letter: [directions that read it surely]}
-    full = {}      # light -> every full-length word read for it
+
+def read_lights(lts, crop):
+    """(sure, full) for lights {key: [(row, col), ...]} whose cells crop(r, c)
+    cuts out of the image: every light read in every rendering by every
+    recogniser, a read counting only at the light's full length. sure is
+    {cell: {letter: {(direction, rendering, recogniser)}}} for letters read at
+    MIN_PROB; full is {light: every full-length word read for it}."""
+    sure, full = {}, {}
     for key, cells in lts.items():
-        crops = [cell(gray, lat, r, c) for r, c in cells]
+        crops = [crop(r, c) for r, c in cells]
         for (vi, render), (ri, rec) in itertools.product(enumerate(VARIANTS.values()),
                                                          enumerate(recognisers())):
             word, probs = read_word(word_image([render(x) for x in crops]), rec)
@@ -279,8 +275,50 @@ def read_answers(image, grid, tight=False):
             for rc, ch, p in zip(cells, word, probs):
                 if p >= MIN_PROB:
                     sure.setdefault(rc, {}).setdefault(ch, set()).add((key[1], vi, ri))
-    read = {rc: next(iter(v)) for rc, v in sure.items()
+    return sure, full
+
+
+def sure_letters(sure):
+    """{cell: letter} where SURE_READS reads give one letter surely and no read
+    surely gives another (so a crossing that disagrees unreads the cell)."""
+    return {rc: next(iter(v)) for rc, v in sure.items()
             if len(v) == 1 and len(next(iter(v.values()))) >= SURE_READS}
+
+
+def read_grid_letters(gray, ys, xs, lts, margin=CELL_MARGIN):
+    """{"letters": {cell: letter}, "grid": rows ("?" unread, "#" in no light),
+    "lights": {key: word or None}, "known": [keys whose word is known()],
+    "full": {key: every full-length read}} for a filled solution grid whose
+    rules lie at ys and xs (a pitch of its own per cell, as listener_grid
+    finds them) and whose lights are lts (reconstruct_grid.light_cells of the
+    puzzle's grid). A light's word is set when every cell is read surely."""
+    def crop(r, c):
+        h, w = ys[r + 1] - ys[r], xs[c + 1] - xs[c]
+        return gray[int(ys[r] + margin * h):int(ys[r + 1] - margin * h),
+                    int(xs[c] + margin * w):int(xs[c + 1] - margin * w)]
+    sure, full = read_lights(lts, crop)
+    letters = sure_letters(sure)
+    words = {k: "".join(letters[rc] for rc in cells) if all(rc in letters for rc in cells) else None
+             for k, cells in lts.items()}
+    used = {rc for cells in lts.values() for rc in cells}
+    grid = ["".join(letters.get((r, c), "?") if (r, c) in used else "#" for c in range(len(xs) - 1))
+            for r in range(len(ys) - 1)]
+    return {"letters": letters, "grid": grid, "lights": words, "full": full,
+            "known": sorted(k for k, w in words.items() if w and known(w))}
+
+
+def read_answers(image, grid, tight=False):
+    """({(number, direction): answer} accepted, stats) for a solution image
+    and the puzzle's grid (rows of "#" and ".").
+
+    Cells are read by read_lights and sure_letters. A light is accepted when every one of its cells is read, some
+    recogniser read the light itself as exactly that word, and the word is
+    known()."""
+    gray = np.asarray(Image.open(image).convert("L"))
+    lat = lattice(gray, len(grid), tight)
+    lts = lights(grid)
+    sure, full = read_lights(lts, lambda r, c: cell(gray, lat, r, c))
+    read = sure_letters(sure)
     accepted = {}
     for key, cells in lts.items():
         if all(rc in read for rc in cells):
