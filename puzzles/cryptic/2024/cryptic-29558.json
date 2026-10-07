@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Daily paper ignored by rocker, say",
     "enumeration": "4"
    },
-   "solution": "CHAR"
+   "solution": "CHAR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CHAR",
+    "definitions": [
+     {
+      "text": "Daily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored by",
+      "for": "deletion",
+      "note": "what is ignored is left out, so the paper is dropped from the item that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "paper",
+      "gives": "I",
+      "note": "the i is a British daily newspaper"
+     },
+     {
+      "clueFragment": "rocker, say",
+      "gives": "CHAIR",
+      "note": "a rocking chair is an example of a chair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper going unread by an ageing rock fan.",
+     "walkthrough": "'Daily paper' looks like one phrase, but 'Daily' alone is the definition. Taking I out of CHAIR leaves CHAR.",
+     "definitionFit": "In British usage a daily or char is a cleaning woman who comes in to clean someone's house each day."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Daily"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +97,46 @@
     "text": "One who shouldn’t be drinking in 25",
     "enumeration": "6"
    },
-   "solution": "DRIVER"
+   "solution": "DRIVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRIVER",
+    "definitions": [
+     {
+      "text": "One who shouldn’t be drinking",
+      "at": 0
+     },
+     {
+      "text": "25",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One who shouldn’t be drinking",
+      "note": "first meaning: a motorist, who must stay sober"
+     },
+     {
+      "clueFragment": "25",
+      "note": "second meaning: 25 is CLUB, and a golf club for long tee shots has this name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "25 across the puzzle is CLUB, and many clues use it in different senses; here it is a golf club.",
+     "definitionFit": "Motorists are warned never to drink alcohol before taking the wheel, and the longest golf wood carries the same name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "drinking"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +150,72 @@
     "text": "They’re critical of French players, including right back",
     "enumeration": "10"
    },
-   "solution": "DETRACTORS"
+   "solution": "DETRACTORS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DETRACTORS",
+    "definitions": [
+     {
+      "text": "They’re critical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means the abbreviation is written from its end to its start"
+     },
+     {
+      "text": "including",
+      "for": "container",
+      "note": "to include something is to take it inside, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of French",
+      "gives": "DE",
+      "note": "de is French for of"
+     },
+     {
+      "clueFragment": "players",
+      "gives": "ACTORS",
+      "note": "stage players"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "RT",
+      "note": "a standard abbreviation of right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "TR",
+      "ACTORS"
+     ],
+     "reversals": [
+      {
+       "from": "RT",
+       "to": "TR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Critics who pan the French theatre company, among them a right-back.",
+     "walkthrough": "'Right back' suggests a football defender, but it is the abbreviation reversed.",
+     "definitionFit": "Detractors are people who disparage or belittle something, so they are critical of it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +229,42 @@
     "text": "Cricketer’s 25",
     "enumeration": "6"
    },
-   "solution": "BATTER"
+   "solution": "BATTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BATTER",
+    "definitions": [
+     {
+      "text": "Cricketer",
+      "at": 0
+     },
+     {
+      "text": "25",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cricketer",
+      "note": "first meaning: a player who bats"
+     },
+     {
+      "clueFragment": "25",
+      "note": "second meaning: 25 is CLUB, as a verb meaning to beat repeatedly"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's is read as 'is', joining two meanings; 25 is CLUB used as a verb.",
+     "definitionFit": "A batter is someone at the crease in cricket, and to batter is to strike hard again and again, as with a cudgel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +278,55 @@
     "text": "Girl enters bank in a careless manner",
     "enumeration": "8"
    },
-   "solution": "REMISSLY"
+   "solution": "REMISSLY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REMISSLY",
+    "definitions": [
+     {
+      "text": "in a careless manner",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "entering means going inside, so the girl goes into the word for bank"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank",
+      "gives": "RELY",
+      "note": "to bank on is to rely on"
+     },
+     {
+      "clueFragment": "Girl",
+      "gives": "MISS",
+      "note": "a miss is a young woman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MISS",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman walks into a bank carelessly.",
+     "walkthrough": "'Bank' is a verb here, as in banking on someone.",
+     "definitionFit": "Remiss means negligent, so acting remissly is acting negligently, without proper care or attention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +340,41 @@
     "text": "Mythical warrior’s 25",
     "enumeration": "4"
    },
-   "solution": "AJAX"
+   "solution": "AJAX",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AJAX",
+    "definitions": [
+     {
+      "text": "Mythical warrior",
+      "at": 0
+     },
+     {
+      "text": "25",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mythical warrior",
+      "note": "first meaning: a Greek hero of the Trojan War"
+     },
+     {
+      "clueFragment": "25",
+      "note": "second meaning: 25 is CLUB, here a famous Dutch football team"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The 's is read as 'is'. The football club in Amsterdam is named after the Greek hero.",
+     "definitionFit": "Ajax fought for the Greeks at Troy in Homer's epic, and Ajax Amsterdam is a leading Dutch football side."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +388,45 @@
     "text": "Key part of a crossword 25’s framework",
     "enumeration": "8"
    },
-   "solution": "GRIDIRON"
+   "solution": "GRIDIRON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRIDIRON",
+    "definitions": [
+     {
+      "text": "framework",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Key part of a crossword",
+      "gives": "GRID",
+      "note": "the pattern of squares"
+     },
+     {
+      "clueFragment": "25’s",
+      "gives": "IRON",
+      "note": "25 is CLUB; an iron is a kind of golf club, with the 's read as 'is'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRID",
+      "IRON"
+     ]
+    },
+    "explanation": {
+     "surface": "The puzzle's grid and its theme word as a structure holding it up.",
+     "definitionFit": "A gridiron is a frame of parallel bars, such as a grill for cooking or the structure above a theatre stage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +440,43 @@
     "text": "Maybe supplies with 25 members",
     "enumeration": "4"
    },
-   "solution": "ARMS"
+   "solution": "ARMS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARMS",
+    "definitions": [
+     {
+      "text": "Maybe supplies with 25",
+      "at": 0
+     },
+     {
+      "text": "members",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maybe supplies with 25",
+      "note": "first meaning: as a verb, provides weapons, a club being one"
+     },
+     {
+      "clueFragment": "members",
+      "note": "second meaning: upper limbs of the body"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Members' suggests people belonging to a club, but it means limbs.",
+     "definitionFit": "To arm someone is to equip them with weapons, and arms are also the two upper limbs of the body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "members"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +496,57 @@
      }
     ]
    },
-   "solution": "HORSERACE"
+   "solution": "HORSERACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HORSE RACE",
+    "definitions": [
+     {
+      "text": "Test of speed",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "another drug",
+      "gives": "HORSE",
+      "note": "speed is a drug, and horse is slang for heroin, another one"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "whizz",
+      "gives": "ACE",
+      "note": "a whizz is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HORSE",
+      "R",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Talk of speed, another drug and whizz, itself slang for speed, suggests a drugs bust.",
+     "walkthrough": "Speed in the definition is also a drug, which is why the wordplay asks for 'another' one.",
+     "definitionFit": "A horse race is a contest between runners to see which horse is fastest over a course."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "speed"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +560,48 @@
     "text": "One of twelve leaders in junta uselessly rowing over roles",
     "enumeration": "5"
    },
-   "solution": "JUROR"
+   "solution": "JUROR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "JUROR",
+    "definitions": [
+     {
+      "text": "One of twelve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders in",
+      "for": "letter_selection",
+      "note": "leaders are what go at the front, so the opening letter of each following word is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "junta uselessly rowing over roles",
+      "gives": "JUROR",
+      "select": "first",
+      "note": "the opening letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUROR"
+     ]
+    },
+    "explanation": {
+     "surface": "A military regime pointlessly squabbling over who does what.",
+     "definitionFit": "A jury in England has twelve members, each of whom is a juror sworn to try the case."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "twelve"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +615,50 @@
     "text": "One in the 25 in Republican state",
     "enumeration": "5"
    },
-   "solution": "RAVER"
+   "solution": "RAVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAVER",
+    "definitions": [
+     {
+      "text": "One in the 25",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver is to declare"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone at a nightclub in a Republican-voting US state.",
+     "walkthrough": "'State' looks like a US state, but it is a verb.",
+     "definitionFit": "A raver is a lively partygoer who dances at nightclubs and raves, so is found at a club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +672,65 @@
     "text": "Attempts to pen bovine I had in compounds",
     "enumeration": "9"
    },
-   "solution": "TRIOXIDES"
+   "solution": "TRIOXIDES",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "TRIOXIDES",
+    "definitions": [
+     {
+      "text": "compounds",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pen",
+      "for": "container",
+      "note": "penning something shuts it in an enclosure, so the attempts hold what follows"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attempts",
+      "gives": "TRIES",
+      "note": "goes or efforts"
+     },
+     {
+      "clueFragment": "bovine",
+      "gives": "OX",
+      "note": "an ox is a bovine animal"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "contraction of I had, I'd"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRI",
+      "OX",
+      "ID",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "Trying to fence in a cow inside some farm compounds.",
+     "walkthrough": "'Compounds' suggests enclosures, matching 'pen', but it is chemical.",
+     "definitionFit": "A trioxide is a chemical substance containing three oxygen atoms, so these are particular chemical compounds."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "compounds"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +750,73 @@
      }
     ]
    },
-   "solution": "HIRECAR"
+   "solution": "HIRECAR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "HIRE CAR",
+    "definitions": [
+     {
+      "text": "Traveller lets this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the wrong way",
+      "for": "reversal",
+      "note": "going the wrong way means running backwards, so the race is read from its end"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the setter and the run inside the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "9",
+      "gives": "HRACE",
+      "note": "9 is HORSE RACE, with horse in its drug sense, heroin, shortened to H"
+     },
+     {
+      "clueFragment": "this setter",
+      "gives": "I",
+      "note": "the setter speaking of himself"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "the cricket scoring abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "I",
+      "R",
+      "ECAR"
+     ],
+     "reversals": [
+      {
+       "from": "RACE",
+       "to": "ECAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller rents out something; the setter runs a horse race backwards.",
+     "walkthrough": "H for heroin, as in 9's 'another drug', keeps its place; RACE is turned round and I plus R go between.",
+     "definitionFit": "A hire car is a vehicle that a rental firm lets to someone travelling, for a fee."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Traveller"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +830,50 @@
     "text": "Idiot’s striking head, showing swollen areas",
     "enumeration": "5"
    },
-   "solution": "HUMPS"
+   "solution": "HUMPS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HUMPS",
+    "definitions": [
+     {
+      "text": "swollen areas",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "striking head",
+      "for": "deletion",
+      "note": "striking out the head means crossing off the opening letter"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Idiot’s",
+      "gives": "CHUMPS",
+      "note": "a chump is a fool, with the 's added"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HUMPS"
+     ]
+    },
+    "explanation": {
+     "surface": "A fool hits his head and comes up in bumps.",
+     "definitionFit": "Humps are rounded raised lumps, such as those on a camel's back or a swelling on the body."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +887,68 @@
     "text": "Mocking woman who’s educated about parting thus",
     "enumeration": "7"
    },
-   "solution": "SATIRIC"
+   "solution": "SATIRIC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SATIRIC",
+    "definitions": [
+     {
+      "text": "Mocking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means facing the other way, so the name is read backwards"
+     },
+     {
+      "text": "parting",
+      "for": "container",
+      "note": "parting a word splits it open so something can sit in the gap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman who’s educated",
+      "gives": "RITA",
+      "note": "the title character of the play and film Educating Rita"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SIC",
+      "note": "Latin for thus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "ATIR",
+      "IC"
+     ],
+     "reversals": [
+      {
+       "from": "RITA",
+       "to": "ATIR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sneering at a well-schooled woman for doing her hair this way.",
+     "walkthrough": "Educating Rita is Willy Russell's play about a hairdresser who studies literature; 'parting' teases a hairstyle.",
+     "definitionFit": "Satiric writing or speech ridicules its targets through irony and exaggeration, so it is scornfully mocking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parting"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +968,63 @@
      }
     ]
    },
-   "solution": "TIGERWOODS"
+   "solution": "TIGERWOODS",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TIGER WOODS",
+    "definitions": [
+     {
+      "text": "Expert using 25s",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the row goes around the abbreviation for good"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a row of seats"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "25s",
+      "gives": "WOODS",
+      "note": "25 is CLUB; woods are a type of golf club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "G",
+      "ER",
+      "WOODS"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled user of clubs lined up beside more good clubs.",
+     "definitionFit": "Tiger Woods is one of the greatest golfers ever, a master with every kind of golf club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1038,46 @@
     "text": "Comedians in 25s, say",
     "enumeration": "5"
    },
-   "solution": "CARDS"
+   "solution": "CARDS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CARDS",
+    "definitions": [
+     {
+      "text": "Comedians",
+      "at": 0
+     },
+     {
+      "text": "25s, say",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comedians",
+      "note": "first meaning: amusing, eccentric people"
+     },
+     {
+      "clueFragment": "25s, say",
+      "note": "second meaning: 25 is CLUB, one of four suits, so clubs are examples of playing items in a pack"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Say' marks clubs as an example: the suit stands for the playing pieces in a pack.",
+     "definitionFit": "A card is a witty, amusing person, and every club in a deck is one of the fifty-two playing cards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Comedians"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1103,60 @@
      }
     ]
    },
-   "solution": "METOO"
+   "solution": "METOO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ME TOO",
+    "definitions": [
+     {
+      "text": "Join the 25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not",
+      "for": "deletion",
+      "note": "but not means excluding, so the hero's name is struck out of the opera's title"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opera company",
+      "gives": "MET",
+      "note": "the Metropolitan Opera in New York"
+     },
+     {
+      "clueFragment": "Otello",
+      "gives": "OTELLO",
+      "note": "Verdi's opera title"
+     },
+     {
+      "clueFragment": "Rossini hero",
+      "gives": "TELL",
+      "note": "William Tell, title hero of a Rossini opera"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "OO"
+     ]
+    },
+    "explanation": {
+     "surface": "Joining an opera house's club with Verdi's Otello but not a Rossini lead.",
+     "walkthrough": "Removing TELL from OTELLO leaves O and O.",
+     "definitionFit": "'Join the club' is said to someone who shares your plight; 'me too' expresses the same shared experience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Join"
+    }
+   }
   },
   {
    "number": 18,
@@ -315,7 +1170,54 @@
     "text": "Parisian in donning hose tenses up",
     "enumeration": "8"
    },
-   "solution": "TIGHTENS"
+   "solution": "TIGHTENS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIGHTENS",
+    "definitions": [
+     {
+      "text": "tenses up",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "donning",
+      "for": "container",
+      "note": "garments that are donned go around the wearer, so the French word sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hose",
+      "gives": "TIGHTS",
+      "note": "hose are stockings or tights"
+     },
+     {
+      "clueFragment": "Parisian in",
+      "gives": "EN",
+      "note": "en is French for in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIGHT",
+      "EN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A Parisian pulling on stockings gets tense.",
+     "definitionFit": "To tighten is to make taut or stiff, so a muscle that tightens tenses up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hose"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1231,46 @@
     "text": "According to Carol, Holly’s partner gives name of London 25",
     "enumeration": "3"
    },
-   "solution": "IVY"
+   "solution": "IVY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IVY",
+    "definitions": [
+     {
+      "text": "According to Carol, Holly’s partner",
+      "at": 0
+     },
+     {
+      "text": "name of London 25",
+      "at": 42
+     }
+    ],
+    "linkWords": [
+     "gives"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "According to Carol, Holly’s partner",
+      "note": "first meaning: the plant paired with holly in the carol The Holly and the ..."
+     },
+     {
+      "clueFragment": "name of London 25",
+      "note": "second meaning: a famous London restaurant and private members' club"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Carol looks like a woman's name gossiping about Holly's boyfriend, but it is a Christmas carol.",
+     "definitionFit": "The carol pairs the two evergreens, and The Ivy is a celebrated restaurant and club in London's West End."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Carol"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1284,71 @@
     "text": "Troublemaker running round upset teacher is put in detention",
     "enumeration": "8"
    },
-   "solution": "IMPRISON"
+   "solution": "IMPRISON",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "IMPRISON",
+    "definitions": [
+     {
+      "text": "put in detention",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue upset means turned upside down, so the teacher's title is read upwards"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means surrounding, so the troublemaker and running enclose the teacher"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Troublemaker",
+      "gives": "IMP",
+      "note": "a mischievous child"
+     },
+     {
+      "clueFragment": "teacher",
+      "gives": "SIR",
+      "note": "how schoolchildren address a male teacher"
+     },
+     {
+      "clueFragment": "running",
+      "gives": "ON",
+      "note": "a machine that is running is on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "RIS",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "SIR",
+       "to": "RIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naughty pupil runs around an upset teacher and is kept in after school.",
+     "definitionFit": "To imprison is to lock someone up in custody, which is detention in the legal sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "detention"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1362,55 @@
     "text": "One’s finished strategic game? Swot hasn’t finished",
     "enumeration": "5"
    },
-   "solution": "GONER"
+   "solution": "GONER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GONER",
+    "definitions": [
+     {
+      "text": "One’s finished",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hasn’t finished",
+      "for": "deletion",
+      "note": "not finished means the word stops short of its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "strategic game",
+      "gives": "GO",
+      "note": "the Asian board game of territory"
+     },
+     {
+      "clueFragment": "Swot",
+      "gives": "NERD",
+      "note": "a swot is a studious bookworm"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "NER"
+     ]
+    },
+    "explanation": {
+     "surface": "A studious player still hasn't finished a strategy game.",
+     "walkthrough": "A swot is British for someone who studies very hard.",
+     "definitionFit": "A goner is someone doomed or past saving, a person who is done for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "finished"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1430,79 @@
      }
     ]
    },
-   "solution": "SIGNSUP"
+   "solution": "SIGNSUP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "container"
+    ],
+    "answer": "SIGNS UP",
+    "definitions": [
+     {
+      "text": "joins the 25, perhaps",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mixed",
+      "for": "anagram",
+      "note": "a mixed drink has its parts stirred together, so these letters are jumbled"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means the word for cat runs the other way"
+     },
+     {
+      "text": "to drink",
+      "for": "container",
+      "note": "drinking takes something inside, so the cat holds the drink"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cat",
+      "gives": "PUSS",
+      "note": "a pet name for a cat"
+     },
+     {
+      "clueFragment": "gin",
+      "gives": "GIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "IGN",
+      "SUP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GIN",
+       "gives": "IGN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "PUSS",
+       "to": "SSUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cat about to lap up a gin cocktail.",
+     "definitionFit": "To sign up is to enrol or become a member, which is how one joins a club, among other things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Cat"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1516,67 @@
     "text": "Clergymen you shouldn’t have over tucked into treats",
     "enumeration": "7"
    },
-   "solution": "CURATES"
+   "solution": "CURATES",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CURATES",
+    "definitions": [
+     {
+      "text": "Clergymen",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means the word is flipped end to end"
+     },
+     {
+      "text": "tucked into",
+      "for": "container",
+      "note": "tucked into means placed inside, so the thanks goes within the word for treats"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "treats",
+      "gives": "CURES",
+      "note": "a doctor treats or cures a patient"
+     },
+     {
+      "clueFragment": "you shouldn’t have",
+      "gives": "TA",
+      "note": "British slang for thanks, like the polite 'you shouldn't have'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR",
+      "AT",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "TA",
+       "to": "AT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Vicars protesting politely as they tuck into a plate of goodies.",
+     "walkthrough": "'Treats' reads as sweets, but it is a verb.",
+     "definitionFit": "Curates are assistant priests in the Church of England, junior members of the clergy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "treats"
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1590,50 @@
     "text": "Food for e.g. Jersey girl who’s upper-class in 25",
     "enumeration": "6"
    },
-   "solution": "CUDGEL"
+   "solution": "CUDGEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUDGEL",
+    "definitions": [
+     {
+      "text": "25",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Food for e.g. Jersey",
+      "gives": "CUD",
+      "note": "a Jersey cow chews cud"
+     },
+     {
+      "clueFragment": "girl who’s upper-class",
+      "gives": "GEL",
+      "note": "girl as pronounced by the posh"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUD",
+      "GEL"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeding a Jersey cow and a posh girl.",
+     "walkthrough": "Jersey looks like the island or a sweater, but it is a breed of dairy cow.",
+     "definitionFit": "A cudgel is a short thick stick used as a weapon, a heavy club."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jersey"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1647,46 @@
     "text": "Party in 25",
     "enumeration": "6"
    },
-   "solution": "THRASH"
+   "solution": "THRASH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "THRASH",
+    "definitions": [
+     {
+      "text": "Party",
+      "at": 0
+     },
+     {
+      "text": "25",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Party",
+      "note": "first meaning: a lively celebration"
+     },
+     {
+      "clueFragment": "25",
+      "note": "second meaning: 25 is CLUB, as a verb meaning to beat"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Party in club' sounds like a night out, but the two words are separate meanings.",
+     "definitionFit": "A thrash is informal British slang for a big party, and to thrash is to beat with a stick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Party"
+    }
+   }
   },
   {
    "number": 24,
@@ -439,7 +1706,72 @@
      }
     ]
    },
-   "solution": "WITHCHILD"
+   "solution": "WITHCHILD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "WITH CHILD",
+    "definitions": [
+     {
+      "text": "in the 25",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drinking",
+      "for": "container",
+      "note": "drinking takes something in, so the word for berated holds the litres"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comedian",
+      "gives": "WIT",
+      "note": "a witty person"
+     },
+     {
+      "clueFragment": "hot",
+      "gives": "H",
+      "note": "standard abbreviation, as on taps"
+     },
+     {
+      "clueFragment": "berated",
+      "gives": "CHID",
+      "note": "chid is an old past tense of chide, to scold"
+     },
+     {
+      "clueFragment": "litres",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WIT",
+      "H",
+      "CHI",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A comic gets heated and is heckled while downing drinks at a club.",
+     "walkthrough": "'In the club' is British slang for pregnant.",
+     "definitionFit": "Both the slang phrase and the old phrase describe a woman who is pregnant, expecting a baby."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "drinking"
+    }
+   }
   },
   {
    "number": 24,
@@ -453,7 +1785,60 @@
     "text": "Flycatchers with wings in wreckage and rubbish",
     "enumeration": "4"
    },
-   "solution": "WEBS"
+   "solution": "WEBS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WEBS",
+    "definitions": [
+     {
+      "text": "Flycatchers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wings in",
+      "for": "letter_selection",
+      "note": "wings are the two sides, so only the outside letters of the word are kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wreckage",
+      "gives": "WE",
+      "select": "outer",
+      "note": "the outside letters of this word"
+     },
+     {
+      "clueFragment": "rubbish",
+      "gives": "BS",
+      "note": "abbreviation of the slang for nonsense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WE",
+      "BS"
+     ]
+    },
+    "explanation": {
+     "surface": "Birds with wings caught in wreckage and litter.",
+     "walkthrough": "'Flycatchers' looks like a family of birds, matching 'wings', but it means spiders' traps.",
+     "definitionFit": "Spiders spin webs to trap flies and other insects, so webs are things that catch flies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Flycatchers"
+    }
+   }
   },
   {
    "number": 25,
@@ -467,7 +1852,55 @@
     "text": "Youngster in pride embraces liberal society",
     "enumeration": "4"
    },
-   "solution": "CLUB"
+   "solution": "CLUB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLUB",
+    "definitions": [
+     {
+      "text": "society",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embraces",
+      "for": "container",
+      "note": "embracing someone means wrapping arms around them, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Youngster in pride",
+      "gives": "CUB",
+      "note": "a pride is a group of lions, whose young are cubs"
+     },
+     {
+      "clueFragment": "liberal",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "L",
+      "UB"
+     ]
+    },
+    "explanation": {
+     "surface": "A young person proud to belong to a tolerant society.",
+     "walkthrough": "'Pride' suggests feeling or a parade, but it is a group of lions.",
+     "definitionFit": "A club is an association of people who meet for a shared interest, a kind of society."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pride"
+    }
+   }
   },
   {
    "number": 26,
@@ -481,7 +1914,61 @@
     "text": "Periodically dodges arrests about intimidating people",
     "enumeration": "5"
    },
-   "solution": "OGRES"
+   "solution": "OGRES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OGRES",
+    "definitions": [
+     {
+      "text": "intimidating people",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so every second letter is taken"
+     },
+     {
+      "text": "arrests",
+      "for": "container",
+      "note": "arresting someone holds them, so the chosen letters hold the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dodges",
+      "gives": "OGS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OG",
+      "RE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who keeps evading arrest is accused of intimidating people.",
+     "definitionFit": "Ogres are monsters of folk tales, and the word is used for frightening, brutal or bullying people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrests"
+    }
+   }
   },
   {
    "number": 27,
@@ -495,7 +1982,59 @@
     "text": "In America, follower of 25 in ground close to Atlanta",
     "enumeration": "4"
    },
-   "solution": "SODA"
+   "solution": "SODA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SODA",
+    "definitions": [
+     {
+      "text": "In America, follower of 25",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its final letter is taken"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ground",
+      "gives": "SOD",
+      "note": "turf or earth"
+     },
+     {
+      "clueFragment": "Atlanta",
+      "gives": "A",
+      "select": "last",
+      "note": "the final letter of the city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An American fan of a club playing in a stadium near Atlanta.",
+     "walkthrough": "Club soda is the American name for soda water, so soda follows club.",
+     "definitionFit": "Americans call carbonated water club soda, so the second word comes after the first in that name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "follower"
+    }
+   }
   },
   {
    "number": 28,
@@ -509,7 +2048,45 @@
     "text": "Some languages don’t allow you to translate into French",
     "enumeration": "5"
    },
-   "solution": "BANTU"
+   "solution": "BANTU",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BANTU",
+    "definitions": [
+     {
+      "text": "Some languages",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "don’t allow",
+      "gives": "BAN",
+      "note": "to prohibit"
+     },
+     {
+      "clueFragment": "you to translate into French",
+      "gives": "TU",
+      "note": "tu is the familiar French for you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAN",
+      "TU"
+     ]
+    },
+    "explanation": {
+     "surface": "Banning translation of some languages into French.",
+     "definitionFit": "Bantu is a large family of related tongues spoken across central and southern Africa, such as Swahili and Zulu."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -523,7 +2100,52 @@
     "text": "Ever so odd maverick made a quantitative error?",
     "enumeration": "9"
    },
-   "solution": "OVERDOSED"
+   "solution": "OVERDOSED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OVERDOSED",
+    "definitions": [
+     {
+      "text": "made a quantitative error?",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maverick",
+      "for": "anagram",
+      "note": "a maverick goes its own unorthodox way, so these letters are set out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ever so odd",
+      "gives": "EVERSOODD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EVERSOODD",
+       "gives": "OVERDOSED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very odd nonconformist who got the sums wrong.",
+     "walkthrough": "The question mark flags the playful definition: an overdose is a wrong amount.",
+     "definitionFit": "Taking an overdose means getting a dose too large, literally an error in quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "maverick"
+    }
+   }
   }
  ]
 }
