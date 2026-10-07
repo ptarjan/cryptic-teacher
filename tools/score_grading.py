@@ -20,12 +20,10 @@ Reports, in order of how much they should change our behaviour:
       --packets tools/data/grading/runs/<runid>/packets
 
 The key is resolved through the packets the judges actually saw, never through
-whatever key.json happens to be sitting in grading/ today. That distinction cost
-us a round: we scored one set of packets, edited a few clues, rebuilt, and the
-rebuild overwrote key.json with a different A/B/C/D shuffle. The old scores were
-still there and still perfectly loadable, and joining them to the new key would
-have produced a full report - clean columns, plausible numbers, every "ours" row
-belonging to somebody else's clue. Nothing would have looked wrong.
+whatever key.json happens to be sitting in grading/ today: a rebuild rewrites
+key.json with a fresh A/B/C/D shuffle, and joining older scores to it would
+produce a full, plausible report with every "ours" row belonging to somebody
+else's clue.
 
 So each packet carries the run id of the round that built it, and we load
 runs/<runid>/key.json. If the packets do not say which round they are from, or

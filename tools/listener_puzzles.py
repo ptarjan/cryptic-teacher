@@ -13,8 +13,8 @@ columns that may run onto a second page; each column is read top to bottom
 across the pages before the next.
 
 The other source of Listener clue text is the Wayback captures of the Times'
-article pages; five held full clue lists (3974, 3975, 3985, 3999, 4016) when
-this was written, cached under CACHE/times with the Listener Team's solution
+article pages; five hold full clue lists (3974, 3975, 3985, 3999, 4016),
+cached under CACHE/times with the Listener Team's solution
 notes for each. The notes give every clue's answer but no grid, so the grid is
 rebuilt from the numbered answers by tools/barred_grid.py's search (file_times).
 

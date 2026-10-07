@@ -5,8 +5,8 @@
    the rest, whatever cancel-in-progress says. tests.yml is grouped per branch
    with cancel-in-progress false: a pending suite may be replaced by a newer
    commit, which contains it, but a RUNNING suite is never killed, so a steady
-   stream of pushes cannot starve it. Ungrouped, every push queued a whole
-   sharded suite and the backlog starved the deploy of runners.
+   stream of pushes cannot starve it. Ungrouped, every push would queue a whole
+   sharded suite and the backlog would starve the deploy of runners.
 
    pages.yml's group exists so two deploys cannot race, and a check living
    there is still wrong: a broken test must never block a site deploy.

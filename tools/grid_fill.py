@@ -47,7 +47,7 @@ LIGHT = "."
 # --------------------------------------------------------------------------
 # Grid templates.
 #
-# Hand-checked, and re-checked mechanically at load time by check_template().
+# Checked mechanically at load time by check_template().
 # Written as text so a human can eyeball the shape: '#' is a block, '.' a light.
 # Both follow the Guardian daily idiom — a lattice with blocks at odd row / odd
 # column, broken up so that entries stay short enough to be fillable — which is
@@ -57,8 +57,7 @@ LIGHT = "."
 TEMPLATES = {
     # 20 entries, lengths 4-10, 37% checked, through-cuts 3/3. Found by
     # searching symmetric patterns over the lattice and keeping only those that
-    # pass every check below — the first three shapes drawn by hand all failed,
-    # which is the argument for the checks existing.
+    # pass every check below.
     11: """
 ....#......
 .#.#.#.#.#.
@@ -450,7 +449,7 @@ def length_floors(lengths, min_clue=None, min_familiarity=None):
 
 
 def load_words(floors, rebuild=False):
-    """Candidate words by length: {length: [(word, clue_score, familiarity)]},
+    """Candidate words by length: {length: [(word, clue_score, familiarity, hooks)]},
     best-clued first. `floors` is {length: (clue_floor, familiarity_floor)}.
 
     Falls back to /usr/share/dict/words when the Lufz lexicon has not been
@@ -538,7 +537,7 @@ class Filler:
         self.time_limit = time_limit
         self.jitter = jitter
         self.words = {}      # length -> [word]
-        self.meta = {}       # word -> (clue, familiarity)
+        self.meta = {}       # word -> (clue, familiarity, hooks)
         self.index = {}      # length -> {(pos, letter): bitmask}
         self.full = {}       # length -> bitmask of every candidate
         needed = {s.length for s in grid.slots}
@@ -600,9 +599,7 @@ class Filler:
             # held the fill — that is the whole point of the veto hook — so
             # unwind to whichever frame owns the newly-banned word and carry on
             # from there. Without this, resuming continues from the DEEPEST
-            # frame and happily re-offers the banned word for the rest of the
-            # subtree, which is how the first version of this quietly ignored
-            # its own blacklist.
+            # frame and re-offers the banned word for the rest of the subtree.
             if self.veto:
                 for w in assigned.values():
                     if self.veto(w):

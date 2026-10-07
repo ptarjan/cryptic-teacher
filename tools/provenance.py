@@ -21,8 +21,7 @@ Three top-level keys, one question each:
     "annotatedBy": ["claude-opus-5-5"]
 
 Every enumerated value is defined HERE and nowhere else: the dicts below are
-the documentation of each value, puzzle_schema.py reads its enums from them,
-and README.md's table is generated from them by tools/build_readme.py.
+the documentation of each value, and puzzle_schema.py reads its enums from them.
 
 `source` is the puzzle: which paper (`publisher`), the page to cite (`url`;
 absent only on an authored puzzle), the channel the bytes were actually read
@@ -74,11 +73,10 @@ import puzzle_schema  # noqa: E402
 from groups import entry_id  # noqa: E402
 import series as series_table  # noqa: E402
 
-# One series per BOOK, with the volume in the number (series.py:
-# volume * 1000 + position). Both questions — is this a book, and which volume
-# is this puzzle — are asked of that table and never parsed out of the key: the
-# key held the volume only while a book was one series per volume, and a key
-# that ends in no digits is every book series now.
+# One series for the whole shelf, with the book in the number (series.py:
+# book_index * 1000 + position). Both questions — is this a book, and which
+# volume is this puzzle — are asked of that table and never parsed out of the
+# key.
 is_book = series_table.is_book
 volume_of = series_table.volume_of
 position_of = series_table.position_of
@@ -87,9 +85,9 @@ position_of = series_table.position_of
 #
 # One dict per field. The key is the value that may appear in a puzzle file; the
 # value is what it asserts. Nothing else may appear, and nothing outside this
-# file may restate the list — puzzle_integrity.py validates against
-# GRID_ORIGINS/SOLUTION_ORIGINS/ACQUIRED_BY by membership, and README.md's table
-# is generated from these same dicts by tools/build_readme.py.
+# file may restate the list — check() validates against these dicts by
+# membership (puzzle_integrity.py calls it), and puzzle_schema.py reads its
+# enums from them.
 
 GRID_ORIGINS = {
     "published": "the geometry is the publisher's own — read off the diagram or "
@@ -156,11 +154,10 @@ def credit_annotator(puzzle, who, had_hints):
 
 # WHERE THE BYTES ACTUALLY CAME FROM — the publisher's own site, or somewhere
 # else. source.url is the puzzle's CANONICAL page, the address a reader would
-# cite, which is not always the address read. 492 Guardian
-# puzzles and 50 of the 52 Metro ones were not read from those addresses at all
-# — the paper had dropped the pages and they were recovered from Wayback
-# captures. On disk that was invisible: a 2009 puzzle recovered from an archive
-# looked identical to one fetched the morning it was published.
+# cite, which is not always the address read: where the paper dropped the page
+# it is recovered from a Wayback capture, and without this field a puzzle
+# recovered from an archive looks identical to one fetched the morning it was
+# published.
 RETRIEVAL_CHANNELS = {
     "publisher": "read from the publisher's own live site or feed — source.url is "
                  "both the canonical address and the address actually fetched",
@@ -366,9 +363,9 @@ ACQUISITION_BY_SOURCE = {
 BLOG_FILER = {"timesforthetimes.co.uk": "tools/file_times_puzzles.py",
               "fifteensquared.net": "tools/ft_puzzles.py",
               "bigdave44.com": "tools/file_telegraph_puzzles.py"}
-# Every book is its own series (see series.py), and they all arrive the same
-# way, so they are generated rather than typed — a book added to series.py must
-# not also need adding here.
+# Book series (series.is_book) all arrive the same way, so they are generated
+# rather than typed — a book added to tools/data/books.json must not also need
+# adding here.
 for _series in series_table.SERIES:
     if is_book(_series):
         ACQUISITION_BY_SOURCE[(_series, "archive.org")] = (
@@ -417,9 +414,9 @@ GRID_ORIGIN_PER_PUZZLE = {"canberra", "ftcryptic", "listener"}
 def book_of(series, number):
     """The book block for one book-sourced puzzle, or None.
 
-    Takes the number as well as the series because the volume is in the number
-    — a series is a book now, not a book's volume — and every field below is
-    the volume's, not the shelf's.
+    Takes the number as well as the series because the book is in the number
+    — the series is the whole shelf — and every field below is the book's, not
+    the shelf's.
 
     A book series with no recorded scan raises. There is no placeholder
     identifier: a file saying "unknown" reads afterwards as a fact about the
@@ -668,8 +665,8 @@ def derive(puzzle, claimed, acquired_on, previously=None):
     }
     book = book_of(series, puzzle["number"]) if is_book(series) else None
     if book:
-        # The book's own number, not the file's: the file's carries the volume
-        # (series.py, volume * 1000 + position) and the book prints No 18.
+        # The book's own number, not the file's: the file's carries the book
+        # (series.py, book_index * 1000 + position) and the book prints No 18.
         book["numberInBook"] = position_of(series, puzzle["number"])
         source["book"] = book
     source = {k: v for k, v in source.items() if v is not None}

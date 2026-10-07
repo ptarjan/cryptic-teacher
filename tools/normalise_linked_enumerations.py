@@ -6,7 +6,7 @@
 
 An answer that spans two lights is stored ONE way here: the leader carries the
 enumeration of the WHOLE answer and every continuation carries null.
-puzzles/book-3003.js is the settled example — 15-down "(9,5,4)" over NEWCASTLE,
+book-3003 is the settled example — 15-down "(9,5,4)" over NEWCASTLE,
 17-down "See 15" with no count of its own over UNDERLYME. tools/apply_solution.py,
 tools/puzzle_integrity.py's check_length and the app all read a linked answer's
 count off its leader, so a count sitting on a continuation is not a smaller
@@ -14,8 +14,7 @@ version of the same fact, it is a different one.
 
 The solver scripts emit the other shape: a per-light count on each half, because
 each light is what they measured. That shape is refused by
-tools/file_penguin_puzzle.py — correctly, but once per puzzle, by hand, three
-times for one mistake. This converts it instead, so the split shape is a thing
+tools/file_penguin_puzzle.py; this converts it instead, so the split shape is a thing
 the route absorbs rather than a thing it stops for. file_penguin_puzzle.py calls
 normalise_record() itself before building, which is what makes the wrong shape
 unfilable rather than merely refused; run this CLI when you want to see or

@@ -9,8 +9,8 @@ offers, so any day the nightly capture does not run is lost to it for good. It
 is not lost to YouTube: Minute Cryptic upload one video per clue and put the
 clue verbatim in the title, as `Minute Cryptic <n>: <clue> (<enumeration>)`.
 Publisher's own text, enumeration intact -- which the auto-generated captions
-are not. ASR on a fan re-post misheard a word of the clue itself and narrated
-"(5)" as prose, so captions are not a source and this does not read them.
+are not: speech recognition mishears clue words and narrates "(5)" as prose, so
+captions are not a source and this does not read them.
 
 DATE COMES FROM THE CLUE NUMBER, NOT THE UPLOAD DATE, which lags the clue by
 nought to seven days and cannot be trusted. Clue numbers run one per day, so

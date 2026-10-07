@@ -8,16 +8,14 @@
      require("./reindex").reindex();
 
    One call per process, however many times it is asked: tools/smoke_test.js
-   boots the app nine times, nothing in a test process writes puzzle files, and
-   the rebuild is eighteen seconds of python reading 15,992 files.
+   boots the app many times, nothing in a test process writes puzzle files, and
+   the rebuild is python reading every puzzle file.
 
-   Eighteen seconds ONCE PER PROCESS was the problem: a smoke-test run spends it
-   three times over, because tools/test_push_hold.js and tools/test_notify_race.js
-   are separate processes that call this too, and CI spends it a fourth time in
-   the build step before any test starts. Every one of those rebuilds wrote the
-   same bytes. So the work is skipped when the output is already newer than
-   everything it is derived from — see current() — which is the ordinary state
-   of both a developer's tree and a CI job whose build step has already run.
+   Across processes (tools/fake_dom.js, tools/test_push_hold.js, and CI's build
+   step before any test starts) the work is skipped when the output is already
+   newer than everything it is derived from — see current() — which is the
+   ordinary state of both a developer's tree and a CI job whose build step has
+   already run.
 
    It shells out to the same code path the site's build uses
    (tools/fetch_puzzle.py --reindex) rather than reimplementing the manifest
@@ -35,7 +33,7 @@ let built = false;
 // One pass over the puzzle sources (puzzles/<series>/<year>/<id>.json) and the
 // flat puzzles/<id>.js shims: the newest source mtime, how many sources there
 // are, and whether each has its shim. Stats rather than a content hash on
-// purpose — hashing the inputs means reading 748 MB, which is most of what the
+// purpose — hashing the inputs means reading the whole corpus, which is most of what the
 // rebuild costs in the first place, and a stat is what tells us whether reading
 // them could possibly change the answer.
 function scanPuzzles() {
@@ -67,7 +65,7 @@ function newest(dir, keep) {
    True only when every input is OLDER than the output, which is what makes the
    check conservative in the one direction that matters: anything it cannot
    account for — a missing file, an unreadable directory, a clock that went
-   backwards — reads as stale and pays the eighteen seconds. A wrong "stale" is
+   backwards — reads as stale and pays for a rebuild. A wrong "stale" is
    slow; a wrong "current" is a test suite reading yesterday's corpus.
 
    The inputs are the puzzle sources, and the code that turns them into a

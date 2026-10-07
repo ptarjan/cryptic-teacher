@@ -105,13 +105,12 @@ DEFAULT_OUT = Path(__file__).resolve().parent / "data" / "book_candidates.json"
 #     median (29), so for it to clear the 99th percentile of individual
 #     puzzles, the puzzles cannot be drawn from that population at all. Using
 #     the individual p99.9 (38) here instead would pass a book of large
-#     thematic magazine grids whose sampled median was 36 — which is exactly
-#     what it did before this was written down.
+#     thematic magazine grids whose sampled median is 36.
 #   * TWO PUZZLES GLUED INTO ONE LEAF read as one 45-light puzzle, and that
 #     passes every rule in grid_verdict: 45 lights averaging 5.5 cells total
-#     ~250, inside its 170..256 window. Nothing downstream would have caught
-#     it, and the book sorted to the TOP of the ranking on a number that
-#     described two puzzles.
+#     ~250, inside its 170..256 window. Nothing downstream catches it, and
+#     the book sorts to the TOP of the ranking on a number that describes two
+#     puzzles.
 #   * a leaf carrying TWO direction headers says the same thing structurally
 #     and says it without a threshold, so it is checked first and preferred:
 #     it names the cause (a two-page spread OCR'd as one leaf) instead of

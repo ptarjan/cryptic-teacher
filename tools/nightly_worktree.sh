@@ -5,8 +5,8 @@
 # from a private git worktree pinned to origin/master, so a job that runs for
 # two hours never shares a working tree with a person editing the repo.
 #
-# WHY. /Users/pt/github/cryptic-teacher is somebody's editor window. A job
-# running there would make every one of these true at once:
+# WHY. The main checkout has other writers: people, agents and the other
+# jobs. A job running there would make every one of these true at once:
 #
 #   * A half-written feature sitting unstaged looks, to the job, exactly like
 #     something the job changed, and gets swallowed into the job's commit.
@@ -28,12 +28,13 @@
 #
 # Untracked state is deliberately NOT copied. It is symlinked back to the main
 # checkout, so the usage cache, the alert dedupe and the CLI's settings stay one
-# thing across all three trees — otherwise the same alert fires from each job
-# and the quota reading is measured three times.
+# thing across every tree — otherwise the same alert fires from each job and
+# the quota reading is measured once per tree.
 #
-# Logs do not move: launchd owns the redirect, and it names the main checkout's
-# .update.log / .prereset.log. Where the script ran from does not change where
-# its output lands — which is why they are also trimmed from here.
+# Logs do not move: the scheduler owns the redirect (each plugin manifest's
+# `log`, under household-plugins/), and it names a file in the main checkout.
+# Where the script ran from does not change where its output lands — which is
+# why they are also trimmed from here.
 #
 # There is no fallback. If the worktree cannot be had the job stops and says so,
 # because the only other tree is the one all of this exists to stay out of.
@@ -187,11 +188,11 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   _ct_job="$(basename "$0" .sh)"
   _ct_tree="${CT_WORKTREE_ROOT:-$HOME/.cryptic-teacher}/$_ct_job"
 
-  # Trim the launchd logs before the run writes to them. Both live in the main
-  # checkout whichever tree the job runs from, so they are trimmed together
+  # Trim the jobs' logs before the run writes to them. They all live in the
+  # main checkout whichever tree the job runs from, so they are trimmed together
   # here, at the one point every scheduled job passes through.
   #
-  # Truncating in place is the rotation that works: launchd holds the log open
+  # Truncating in place is the rotation that works: the scheduler holds the log open
   # in append mode for the whole run, so renaming it sends tonight's output to
   # the renamed file, while an append write after a truncate lands at the new
   # end. A log is read when something failed, and what failed is recent.
@@ -291,8 +292,8 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
     exec /bin/bash -c '. "$0"' "$_ct_tree/tools/$(basename "$0")" "$@"
   fi
 
-  # No worktree, no run. The main checkout is not a fallback: it is somebody's
-  # editor window, and "clean and at origin/master" is a snapshot, not a lease —
+  # No worktree, no run. The main checkout is not a fallback: it has other
+  # writers, and "clean and at origin/master" is a snapshot, not a lease —
   # it says nothing about the edit that lands a minute later. A job that rebases
   # over one wedges that tree with a conflict it cannot resolve and throws away
   # the annotation it just paid for. Stopping costs one window; the next run

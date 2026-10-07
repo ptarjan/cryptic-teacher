@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 PAPER = (255, 255, 255)
 BLOCK = (20, 23, 26)        # --blockfill, and the field the motif sits on
-ACCENT = (15, 92, 134)      # --accent, the "revealed letter" blue
+ACCENT = (15, 92, 134)      # --cell-revealed, the "revealed letter" blue
 
 # The motif: a 5x5 mini-grid, blocks symmetric about the centre, one accent
 # square in the middle. Reads as a crossword even at 16px.

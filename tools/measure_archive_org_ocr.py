@@ -22,7 +22,7 @@ desktop's VLM when it answers, tools/vlm_reader.py, so set VLM_READER_URL=
 to measure without it), and every
 clue it files non-blank is scored against the transcription: the misreads
 are the word-level edit distance between the two lists of words and voted
-marks (file_archive_org_puzzles.marked, words compared without case), over
+marks (ocr_clues.marked, words compared without case), over
 the transcription's words and marks in those clues. A clue filed blank is
 no misread; the share of clues filed is reported beside the rate, and so
 is the count of puzzles with every clue filed: only those go into

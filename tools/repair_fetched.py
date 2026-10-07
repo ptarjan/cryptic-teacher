@@ -7,13 +7,12 @@
     python3 tools/repair_fetched.py --from 27600 --to 27900   # one stretch of numbers
     python3 tools/repair_fetched.py --series cryptic --from 27600 --apply
 
-Every defect below is one today's tools/fetch_puzzle.py cannot write any more.
-The fixes went in at the point of writing, which leaves the puzzles already on
-disk holding the bad version for ever — a long archive walk can run for days on
-the code it started with, so files written after a fix still carry the defect it
-fixed. This applies the same rules to what is already stored, by calling the
-fetcher's own functions rather than restating them: a repair that disagreed with
-the fetcher would be a third opinion about what a puzzle file may hold.
+Every defect below is one tools/fetch_puzzle.py refuses when it writes a file.
+Files already on disk can still hold one — a long archive walk runs for days on
+the code it started with — so this applies the same rules to what is stored, by
+calling the fetcher's own functions rather than restating them: a repair that
+disagreed with the fetcher would be a third opinion about what a puzzle file may
+hold.
 
 WHAT IT REPAIRS
 
@@ -54,7 +53,7 @@ as fact.
 
 WHAT IT ONLY REPORTS
 
-A mis-filed date. convert() now refuses a page whose two stated dates are more
+A mis-filed date. convert() refuses a page whose two stated dates are more
 than a month apart — /crosswords/cryptic/1183 serves Quiptic 1,183 under a date
 of 1934-01-18 — but a stored file keeps only the one date, so the second
 statement is gone and there is nothing left to compare it against. What survives
@@ -117,7 +116,7 @@ def unmask_solutions(puzzle):
 
     The letters are withheld, not wrong, so there is nothing to repair them to;
     what convert() does with such a page is store no solutions at all, and this
-    does the same to a page stored before it did. Run AFTER normalise_solutions,
+    does the same to a stored one. Run AFTER normalise_solutions,
     as in convert(), so an accent is not mistaken for a mask.
     """
     masked = [(entry_id(e), e["solution"]) for e in puzzle["entries"]

@@ -72,10 +72,11 @@ Beyond the numbering the search enforces these, and only these:
   * when the caller gives them: the answers agree wherever two lights cross,
     and no line of blocks is longer than the caller's cap.
 
-The last three are `strict`, and they are here because they hold for every
-published grid we have — recounted over the whole corpus every time
-tools/test_reconstruct_grid.sh runs, so a series that arrives breaking one
-fails that test rather than quietly costing hit rate. They earn their place
+The row, column and connectivity rules are `strict`, and they are here
+because they hold for every published grid we have — recounted over the whole
+corpus by tools/test_reconstruct_grid.sh's nightly run (CT_FULL=1; a sample of
+it otherwise), so a series that arrives breaking one fails that test rather
+than quietly costing hit rate. They earn their place
 on speed as much as on accuracy: an all-black row is numbered perfectly well
 and is not a crossword, and without them the search spends its whole budget
 under one.
@@ -557,8 +558,8 @@ class _Solver:
         stopped by a block. So half of the next row is already on the board,
         and a white stretch of it that no remaining across light could ever
         be is a dead end -- found now, rather than after the next row has been
-        searched a hundred thousand times. This is the single prune that made
-        the hard 15x15s finish.
+        searched a hundred thousand times. This is the prune that lets the
+        hard 15x15s finish.
         """
         lengths = set()
         for i in range(lo, hi):
@@ -765,19 +766,15 @@ def parse_lights(spec):
     """Normalise either input shape to (across, down, across_nums, down_nums).
 
     Numbers come back as None when the caller had none for that light, which
-    is the common case for anything that has been through OCR -- and now the
-    *usual* case, not just the all-or-nothing extremes: any mix of known and
-    unknown numbers is legal, one entry at a time.
+    is the common case for anything that has been through OCR: any mix of
+    known and unknown numbers is legal, one entry at a time.
 
-    The triple form ``(number, direction, length)`` used to be an unordered
-    set keyed by number, which meant a light with no number could not be
-    represented at all. It is read positionally instead: the triples for one
-    direction must already be given in the order the puzzle prints them
-    (row-major order, same as increasing number), and `number` may be `None`
-    for any of them. When every number is given this is the same order
-    sorting by number would produce, so nothing that always numbered fully
-    needs to change; a caller with gaps just leaves them `None` in place
-    rather than omitting them.
+    The triple form ``(number, direction, length)`` is read positionally: the
+    triples for one direction must be given in the order the puzzle prints
+    them (row-major order, same as increasing number), and `number` may be
+    `None` for any of them. When every number is given this is the order
+    sorting by number produces; a caller with gaps leaves them `None` in
+    place rather than omitting them.
     """
     if isinstance(spec, dict):
         across = [None if v is None else int(v) for v in spec.get("across", [])]

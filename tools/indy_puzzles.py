@@ -5,8 +5,8 @@
     python3 tools/indy_puzzles.py --limit 50       # the newest 50 not yet tried
     python3 tools/indy_puzzles.py --dry-run        # count, write no puzzle
 
-tools/fetch_independent.py reads the paper's own feed, which starts at No
-8,978 (2015-07-25). fifteensquared blogged every Independent and Independent
+tools/fetch_independent.py reads the paper's own feed, which starts in
+2015. fifteensquared blogged every Independent and Independent
 on Sunday puzzle long before that, and from 2011 a growing share of those
 posts write out every clue with its number and answer -- the whole input to
 the grid search tools/ft_puzzles.py runs for the FT. So this is that pipeline
