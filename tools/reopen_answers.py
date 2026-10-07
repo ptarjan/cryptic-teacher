@@ -3,6 +3,7 @@
 
     python3 tools/reopen_answers.py <ID> --which    # the ids to reopen, one line
     python3 tools/reopen_answers.py <ID> <id> ...   # blank them in the file
+    python3 tools/reopen_answers.py <ID> --ran <run's file> <id> ...
 
 A cold solve's answer can satisfy every crossing and still be wrong, and the
 annotator that cannot parse it leaves the clue null, which fails validation.
@@ -19,6 +20,11 @@ The paper's printed answers are never reopened; provenance.check refuses it.
 --which reads the file as the annotate run left it, before the burn discards
 the run: the nulls it lists are the run's. It prints nothing for a grid that is
 not a model's.
+
+--ran names a copy of that file. A puzzle solved and hinted in one run has no
+committed solve, so the file the discard puts back holds no answers to blank;
+the run's answers and solution detail are taken from the copy first, and its
+annotations left behind.
 """
 import sys
 from pathlib import Path
@@ -46,8 +52,22 @@ def reopenable(puzzle):
     return out
 
 
-def reopen(puzzle, ids):
+def with_runs_answers(puzzle, ran):
+    """`puzzle` carrying `ran`'s model solve, when only the run holds one."""
+    if (provenance.solution_origin_from_file(puzzle) == "model"
+            or provenance.solution_origin_from_file(ran) != "model"):
+        return puzzle
+    answers = {entry_id(e): e["solution"] for e in ran["entries"] if e.get("solution")}
+    for e in puzzle["entries"]:
+        if entry_id(e) in answers:
+            e["solution"] = answers[entry_id(e)]
+    return {**puzzle, "solutions": ran["solutions"]}
+
+
+def reopen(puzzle, ids, ran=None):
     """`puzzle` with the lights of `ids` blanked and listed in solutions.reopened."""
+    if ran is not None:
+        puzzle = with_runs_answers(puzzle, ran)
     allowed = set(reopenable(puzzle))
     refused = [i for i in ids if i not in allowed]
     if refused:
@@ -72,7 +92,11 @@ def main(argv):
     if argv[1] == "--which":
         print(" ".join(reopenable(puzzle)))
         return 0
-    write_puzzle_file(path, reopen(puzzle, argv[1:]))
+    ran = None
+    if argv[1] == "--ran":
+        ran = read_puzzle_file(Path(argv[2]))
+        argv = argv[:1] + argv[3:]
+    write_puzzle_file(path, reopen(puzzle, argv[1:], ran))
     print(f"reopen_answers: {puzzle['id']}: {', '.join(argv[1:])} blanked to be solved again")
     return 0
 

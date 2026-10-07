@@ -131,6 +131,17 @@ check("the reopened grid passes provenance", not provenance.check(bare))
 refilled = copy.deepcopy(again)
 next(x for x in refilled["entries"] if entry_id(x) == eid)["solution"] = right
 check("an entry is reopened once only", R.reopenable(refilled) == [])
+# Solved and hinted in one run: the committed file has no answers to blank.
+unsolved = copy.deepcopy(bare)
+for x in unsolved["entries"]:
+    x.pop("solution", None)
+unsolved["solutions"] = {"origin": "unsolved"}
+same = R.reopen(copy.deepcopy(unsolved), [eid], ran=copy.deepcopy(ran))
+check("a same-run solve reopens from the run's copy, without its annotations",
+      "solution" not in next(x for x in same["entries"] if entry_id(x) == eid)
+      and same["solutions"]["reopened"] == {**done, eid: right}
+      and not any("annotation" in x for x in same["entries"])
+      and not provenance.check(same))
 try:
     R.reopen(copy.deepcopy(ran), [p_eid])
     check("reopening a printed answer is refused", False)
