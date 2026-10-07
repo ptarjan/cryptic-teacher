@@ -24,6 +24,9 @@
   "date": "2024-07-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,44 @@
     "text": "Painter is successful as parliamentary candidate?",
     "enumeration": "12"
    },
-   "solution": "GAINSBOROUGH"
+   "solution": "GAINSBOROUGH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GAINSBOROUGH",
+    "definitions": [
+     {
+      "text": "Painter",
+      "at": 0
+     },
+     {
+      "text": "is successful as parliamentary candidate?",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Painter",
+      "note": "first meaning: Thomas ..., the 18th-century English portrait and landscape artist"
+     },
+     {
+      "clueFragment": "is successful as parliamentary candidate?",
+      "note": "second, punning meaning: a candidate who wins a seat takes a constituency, split as two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An artist who also triumphs at the ballot box.",
+     "walkthrough": "Read the answer as GAINS BOROUGH: a borough was a parliamentary constituency, so a winning candidate gains one. The question mark flags the pun.",
+     "definitionFit": "Gainsborough is the surname of a celebrated English portraitist, so it stands for a painter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "successful"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +91,62 @@
     "text": "High-class fruit eaten by an android",
     "enumeration": "9"
    },
-   "solution": "AUTOMATON"
+   "solution": "AUTOMATON",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AUTOMATON",
+    "definitions": [
+     {
+      "text": "android",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten ends up inside the eater, so the earlier letters go inside the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High-class",
+      "gives": "U",
+      "note": "U is the old label for upper-class usage"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "TOMATO",
+      "note": "botanically a fruit"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "U",
+      "TOMATO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A robot snacking on some posh fruit.",
+     "walkthrough": "U for upper-class is an old social label, as in U and non-U speech; 'eaten by' puts the fruit and U inside the article.",
+     "definitionFit": "An automaton is a self-operating machine in human form, which is what an android is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eaten"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +160,48 @@
     "text": "Old lady eager to produce hard-wearing fabric",
     "enumeration": "7"
    },
-   "solution": "NANKEEN"
+   "solution": "NANKEEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NANKEEN",
+    "definitions": [
+     {
+      "text": "hard-wearing fabric",
+      "at": 26
+     }
+    ],
+    "linkWords": [
+     "to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old lady",
+      "gives": "NAN",
+      "note": "a nan is a grandmother"
+     },
+     {
+      "clueFragment": "eager",
+      "gives": "KEEN",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAN",
+      "KEEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A granny keen to make some sturdy cloth.",
+     "definitionFit": "Nankeen is a durable yellowish cotton cloth originally made in Nanjing, used for trousers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +215,55 @@
     "text": "Ring road extremely busy? I can’t answer that",
     "enumeration": "6"
    },
-   "solution": "BYPASS"
+   "solution": "BYPASS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BYPASS",
+    "definitions": [
+     {
+      "text": "Ring road",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only its first and last letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "busy",
+      "gives": "BY",
+      "select": "outer",
+      "note": "the end letters of the word"
+     },
+     {
+      "clueFragment": "I can’t answer that",
+      "gives": "PASS",
+      "note": "what a quiz contestant says when stumped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BY",
+      "PASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asked whether the ring road is very busy shrugs off the question.",
+     "definitionFit": "A bypass is a road routed around a town to carry traffic past it, as a ring road does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 5,
@@ -93,7 +277,62 @@
     "text": "Country game artist loved to begin with",
     "enumeration": "5"
    },
-   "solution": "RURAL"
+   "solution": "RURAL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RURAL",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "what comes to begin with is the opening, so just the first letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     },
+     {
+      "clueFragment": "loved",
+      "gives": "L",
+      "select": "first",
+      "note": "opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "RA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter who loved country sports in their early days.",
+     "walkthrough": "'Country' is not a nation here but the adjective for the countryside.",
+     "definitionFit": "Country used as an adjective, as in country life, means relating to the countryside rather than towns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 6,
@@ -107,7 +346,43 @@
     "text": "Reportedly bring in vessel",
     "enumeration": "3"
    },
-   "solution": "URN"
+   "solution": "URN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "URN",
+    "definitions": [
+     {
+      "text": "vessel",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Reportedly",
+      "for": "homophone",
+      "note": "something reported is passed on by word of mouth, so the sound of the word matters, not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bring in",
+      "gives": "URN",
+      "soundsLike": "EARN",
+      "note": "to bring in money is to earn it"
+     }
+    ],
+    "explanation": {
+     "surface": "Bringing something into a ship, as gossip has it.",
+     "definitionFit": "An urn is a vase or container, and vessel is the general word for any container."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vessel"
+    }
+   }
   },
   {
    "number": 7,
@@ -121,7 +396,63 @@
     "text": "Thick-skinned type finally visited city music hall",
     "enumeration": "10"
    },
-   "solution": "HIPPODROME"
+   "solution": "HIPPODROME",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "HIPPODROME",
+    "definitions": [
+     {
+      "text": "music hall",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, so only its last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Thick-skinned type",
+      "gives": "HIPPO",
+      "note": "a hippopotamus is a pachyderm, literally thick-skinned"
+     },
+     {
+      "clueFragment": "visited",
+      "gives": "D",
+      "select": "last",
+      "note": "last letter"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "ROME",
+      "note": "the Italian capital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIPPO",
+      "D",
+      "ROME"
+     ]
+    },
+    "explanation": {
+     "surface": "An insensitive person eventually took in a variety show in town.",
+     "walkthrough": "'Thick-skinned type' suggests an insensitive person, but it is literal here: the animal.",
+     "definitionFit": "Many British variety theatres were named the Hippodrome, so the word came to mean a music hall."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Thick-skinned"
+    }
+   }
   },
   {
    "number": 8,
@@ -135,7 +466,61 @@
     "text": "Shock tactics initially revealed in tabloid newspaper",
     "enumeration": "4"
    },
-   "solution": "STUN"
+   "solution": "STUN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STUN",
+    "definitions": [
+     {
+      "text": "Shock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so only the first letter of the word is taken"
+     },
+     {
+      "text": "revealed in",
+      "for": "container",
+      "note": "something revealed in a place is shown inside it, so this letter sits within the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tactics",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "tabloid newspaper",
+      "gives": "SUN",
+      "note": "The Sun is a British tabloid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "UN"
+     ]
+    },
+    "explanation": {
+     "surface": "A red-top paper exposes shock tactics.",
+     "definitionFit": "To stun is to shock or stupefy someone, so the verbs are synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tactics"
+    }
+   }
   },
   {
    "number": 9,
@@ -149,7 +534,70 @@
     "text": "Knock back second dram and vegetable",
     "enumeration": "7"
    },
-   "solution": "PARSNIP"
+   "solution": "PARSNIP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PARSNIP",
+    "definitions": [
+     {
+      "text": "vegetable",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means travelling the opposite way, so the preceding word is read from its end"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Knock",
+      "gives": "RAP",
+      "note": "a rap is a sharp knock"
+     },
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "dram",
+      "gives": "NIP",
+      "note": "a nip is a small measure of spirits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "S",
+      "NIP"
+     ],
+     "reversals": [
+      {
+       "from": "RAP",
+       "to": "PAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Downing a second whisky with your vegetables.",
+     "walkthrough": "'Knock back' looks like a phrase for drinking, but only 'back' is the instruction, applied to 'Knock'.",
+     "definitionFit": "A parsnip is a pale root vegetable related to the carrot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 10,
@@ -163,7 +611,56 @@
     "text": "Irish boy held by mum or dad in legislative assembly",
     "enumeration": "10"
    },
-   "solution": "PARLIAMENT"
+   "solution": "PARLIAMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PARLIAMENT",
+    "definitions": [
+     {
+      "text": "legislative assembly",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "what is held by something is gripped inside it, so the first word goes within the second"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish boy",
+      "gives": "LIAM",
+      "note": "a common Irish boy's name"
+     },
+     {
+      "clueFragment": "mum or dad",
+      "gives": "PARENT",
+      "note": "either one is a parent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "LIAM",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A young Irish lad clutched by a parent in the debating chamber.",
+     "definitionFit": "A parliament is the body of elected representatives that makes laws, which is a legislative assembly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -177,7 +674,49 @@
     "text": "Like the Venus de Milo, posing no risk to Cockneys?",
     "enumeration": "7"
    },
-   "solution": "ARMLESS"
+   "solution": "ARMLESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARMLESS",
+    "definitions": [
+     {
+      "text": "Like the Venus de Milo",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to Cockneys",
+      "for": "deletion",
+      "note": "Cockney Londoners famously drop the H sound at the start of words, so the opening letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posing no risk",
+      "gives": "HARMLESS",
+      "note": "safe, not dangerous"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARMLESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A famous statue that would do nobody any harm in East London.",
+     "walkthrough": "Cockneys are working-class East Londoners whose accent drops initial H, so HARMLESS becomes ARMLESS.",
+     "definitionFit": "The Venus de Milo is a celebrated ancient Greek statue whose arms are missing."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "risk"
+    }
+   }
   },
   {
    "number": 12,
@@ -191,7 +730,48 @@
     "text": "Long rope with noose the Spanish thus used",
     "enumeration": "5"
    },
-   "solution": "LASSO"
+   "solution": "LASSO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LASSO",
+    "definitions": [
+     {
+      "text": "Long rope with noose",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "used"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Spanish",
+      "gives": "LAS",
+      "note": "las is the Spanish word for the before a feminine plural noun"
+     },
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAS",
+      "SO"
+     ]
+    },
+    "explanation": {
+     "surface": "Spanish cowboys using a looped rope in their own way.",
+     "definitionFit": "A lasso is a rope with a running loop at one end, thrown to catch cattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -205,7 +785,65 @@
     "text": "Oddly, his place across river is shaped like a ball",
     "enumeration": "9"
    },
-   "solution": "SPHERICAL"
+   "solution": "SPHERICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPHERICAL",
+    "definitions": [
+     {
+      "text": "shaped like a ball",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Oddly",
+      "for": "anagram",
+      "note": "done oddly means done in a strange way, so these letters come out in a new order"
+     }
+    ],
+    "linkWords": [
+     "across",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his",
+      "gives": "HIS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "PLACE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HISPLACER",
+       "gives": "SPHERICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Strangely, a man's riverside home is round.",
+     "walkthrough": "'Oddly' tempts the solver to take alternate letters, but here it means strangely: the whole of his, place and R are mixed.",
+     "definitionFit": "Spherical means having the form of a sphere, the geometric solid of a ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Oddly"
+    }
+   }
   },
   {
    "number": 14,
@@ -219,7 +857,49 @@
     "text": "Lying hidden in US city shelter",
     "enumeration": "6"
    },
-   "solution": "LATENT"
+   "solution": "LATENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LATENT",
+    "definitions": [
+     {
+      "text": "Lying hidden",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "US city",
+      "gives": "LA",
+      "note": "Los Angeles"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "TENT",
+      "note": "a canvas shelter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "TENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hiding out in a camping tent in an American city.",
+     "definitionFit": "Latent describes something present but dormant or concealed, not yet showing itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lying"
+    }
+   }
   },
   {
    "number": 15,
@@ -233,7 +913,43 @@
     "text": "It’s what William Tell was, more roguish!",
     "enumeration": "6"
    },
-   "solution": "ARCHER"
+   "solution": "ARCHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ARCHER",
+    "definitions": [
+     {
+      "text": "It’s what William Tell was",
+      "at": 0
+     },
+     {
+      "text": "more roguish",
+      "at": 28
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It’s what William Tell was",
+      "note": "first meaning: the Swiss folk hero famed for shooting an apple off his son's head with a crossbow"
+     },
+     {
+      "clueFragment": "more roguish",
+      "note": "second meaning: comparative of arch, meaning mischievous or knowing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense treats the word as arch plus the comparative ending.",
+     "definitionFit": "William Tell was a legendary marksman with a bow; arch means playfully mischievous, so its comparative means more roguish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "roguish"
+    }
+   }
   },
   {
    "number": 16,
@@ -247,7 +963,69 @@
     "text": "Italian dish drunkard primarily takes in port",
     "enumeration": "7"
    },
-   "solution": "RISOTTO"
+   "solution": "RISOTTO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "RISOTTO",
+    "definitions": [
+     {
+      "text": "Italian dish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter of the word counts"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the preceding letters inside the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drunkard",
+      "gives": "SOT",
+      "note": "a sot is a habitual drinker"
+     },
+     {
+      "clueFragment": "takes",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, the Brazilian port"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "SOT",
+      "T",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A boozer tucks into Italian food at the harbour.",
+     "walkthrough": "'takes in' reads as one phrase but splits: 'takes' supplies a letter and 'in' places the drunkard inside the port.",
+     "definitionFit": "Risotto is the Italian rice dish cooked slowly in stock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "takes"
+    }
+   }
   },
   {
    "number": 17,
@@ -261,7 +1039,53 @@
     "text": "Snake outside shelter having forty winks",
     "enumeration": "6"
    },
-   "solution": "ASLEEP"
+   "solution": "ASLEEP",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASLEEP",
+    "definitions": [
+     {
+      "text": "having forty winks",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "being outside something means surrounding it, so the first word wraps round the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Snake",
+      "gives": "ASP",
+      "note": "a small venomous snake"
+     },
+     {
+      "clueFragment": "shelter",
+      "gives": "LEE",
+      "note": "the lee is the sheltered side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "LEE",
+      "P"
+     ]
+    },
+    "explanation": {
+     "surface": "A snake dozing just outside its shelter.",
+     "definitionFit": "Forty winks is a short nap, so someone having forty winks is sleeping."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -275,7 +1099,52 @@
     "text": "Cancel article withdrawn from yearbook",
     "enumeration": "5"
    },
-   "solution": "ANNUL"
+   "solution": "ANNUL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ANNUL",
+    "definitions": [
+     {
+      "text": "Cancel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdrawn from",
+      "for": "deletion",
+      "note": "something withdrawn from a place is taken out of it, so one letter is removed from the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "yearbook",
+      "gives": "ANNUAL",
+      "note": "an annual is a book published each year"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANNUL"
+     ]
+    },
+    "explanation": {
+     "surface": "An article is pulled from a yearbook and scrapped.",
+     "walkthrough": "Take the second A out of ANNUAL to leave ANNUL.",
+     "definitionFit": "To annul is to declare void or invalid, as a marriage or contract, which is to cancel it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 19,
@@ -289,7 +1158,42 @@
     "text": "Permission to depart",
     "enumeration": "5"
    },
-   "solution": "LEAVE"
+   "solution": "LEAVE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LEAVE",
+    "definitions": [
+     {
+      "text": "Permission",
+      "at": 0
+     },
+     {
+      "text": "to depart",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Permission",
+      "note": "first meaning: a noun"
+     },
+     {
+      "clueFragment": "to depart",
+      "note": "second meaning: a verb, to go away"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads as one phrase, permission to depart, but splits into a noun and a verb.",
+     "definitionFit": "The word is a noun for authorisation and also the ordinary verb for going away from somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 20,
@@ -303,7 +1207,42 @@
     "text": "Ancient instrument, part of brass, is trumpet",
     "enumeration": "7"
    },
-   "solution": "SISTRUM"
+   "solution": "SISTRUM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SISTRUM",
+    "definitions": [
+     {
+      "text": "Ancient instrument",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "only a part of the following words is wanted, a run of letters lying inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brass, is trumpet",
+      "gives": "SISTRUM",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A note on an old instrument from the brass section.",
+     "definitionFit": "A sistrum is a metal rattle used in ancient Egyptian worship, an old percussion instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "trumpet"
+    }
+   }
   },
   {
    "number": 21,
@@ -317,7 +1256,54 @@
     "text": "Hug English doctor before contest",
     "enumeration": "7"
    },
-   "solution": "EMBRACE"
+   "solution": "EMBRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMBRACE",
+    "definitions": [
+     {
+      "text": "Hug",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB is Bachelor of Medicine"
+     },
+     {
+      "clueFragment": "contest",
+      "gives": "RACE",
+      "note": "a race is a contest of speed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "An English physician hugs someone before a competition.",
+     "definitionFit": "To embrace someone is to hold them tightly in your arms, a hug."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -331,7 +1317,56 @@
     "text": "Graduate pinching old stole",
     "enumeration": "3"
    },
-   "solution": "BOA"
+   "solution": "BOA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BOA",
+    "definitions": [
+     {
+      "text": "stole",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pinching",
+      "for": "container",
+      "note": "pinching means gripping something, so the first word holds the next inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Graduate",
+      "gives": "BA",
+      "note": "Bachelor of Arts"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A graduate nicking something old and stealing it.",
+     "walkthrough": "'stole' looks like the past of steal, matching 'pinching', but it is a noun: a scarf.",
+     "definitionFit": "A boa is a long fluffy scarf, typically of feathers, worn round the neck like a stole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stole"
+    }
+   }
   },
   {
    "number": 23,
@@ -345,7 +1380,45 @@
     "text": "Change course, finding security device",
     "enumeration": "4"
    },
-   "solution": "TACK"
+   "solution": "TACK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TACK",
+    "definitions": [
+     {
+      "text": "Change course",
+      "at": 0
+     },
+     {
+      "text": "security device",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "finding"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Change course",
+      "note": "first meaning: a sailing term for turning into the wind onto a new heading"
+     },
+     {
+      "clueFragment": "security device",
+      "note": "second meaning: a small nail that holds something fast"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone switches strategy after coming across a burglar alarm.",
+     "definitionFit": "Sailors alter direction by tacking, and a tack is a short pin that secures fabric or paper in place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "security"
+    }
+   }
   },
   {
    "number": 24,
@@ -359,7 +1432,53 @@
     "text": "Retailers in top deal peers mishandled",
     "enumeration": "12"
    },
-   "solution": "TRADESPEOPLE"
+   "solution": "TRADESPEOPLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRADESPEOPLE",
+    "definitions": [
+     {
+      "text": "Retailers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mishandled",
+      "for": "anagram",
+      "note": "things mishandled are knocked about and disordered, so these letters end up rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "top deal peers",
+      "gives": "TOPDEALPEERS",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOPDEALPEERS",
+       "gives": "TRADESPEOPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shopkeepers botching a lucrative deal with members of the House of Lords.",
+     "definitionFit": "Tradespeople are those who buy and sell goods, especially shopkeepers, so retailers in general."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mishandled"
+    }
+   }
   }
  ]
 }
