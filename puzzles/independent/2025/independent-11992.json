@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,61 @@
     "text": "Fail pious quest, regularly back boozing on this?",
     "enumeration": "7"
    },
-   "solution": "TEQUILA"
+   "solution": "TEQUILA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "TEQUILA",
+    "definitions": [
+     {
+      "text": "boozing on this",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means taking every other letter, at a steady interval, from the words before it"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back tells the solver to read the kept letters from the end towards the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail pious quest",
+      "gives": "ALIUQET",
+      "select": "alternate",
+      "note": "the second, fourth, sixth letters and so on of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEQUILA"
+     ],
+     "reversals": [
+      {
+       "from": "ALIUQET",
+       "to": "TEQUILA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker abandons a holy pilgrimage and returns to the bottle.",
+     "walkthrough": "The even letters of 'Fail pious quest' read backwards spell TEQUILA; the question mark flags that the definition is a loose description rather than a synonym.",
+     "definitionFit": "Tequila is a Mexican spirit, the kind of drink someone might get drunk on."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pious"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +104,42 @@
     "text": "Defeat admitted in umpteenth war trial",
     "enumeration": "6"
    },
-   "solution": "THWART"
+   "solution": "THWART",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THWART",
+    "definitions": [
+     {
+      "text": "Defeat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted in",
+      "for": "hidden_word",
+      "note": "admitted in says the letters are let inside the following words, sitting within them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "umpteenth war trial",
+      "gives": "THWART",
+      "note": "runs from the end of umpteenth through war to the start of trial"
+     }
+    ],
+    "explanation": {
+     "surface": "A defeat is acknowledged during yet another war crimes trial.",
+     "definitionFit": "To thwart a plan is to frustrate or block it, a verb sense of beating or foiling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "admitted"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +153,53 @@
     "text": "Charity supporting Queen’s misgivings",
     "enumeration": "6"
    },
-   "solution": "QUALMS"
+   "solution": "QUALMS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "QUALMS",
+    "definitions": [
+     {
+      "text": "misgivings",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue, supporting puts one piece underneath the other, so it comes second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queen’s",
+      "gives": "QU",
+      "note": "QU is an abbreviation for queen"
+     },
+     {
+      "clueFragment": "Charity",
+      "gives": "ALMS",
+      "note": "alms are charitable gifts to the poor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "QU",
+      "ALMS"
+     ]
+    },
+    "explanation": {
+     "surface": "A charity backed by royal patronage has some doubts.",
+     "definitionFit": "Qualms are uneasy doubts or pangs of conscience, a close synonym for misgivings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charity"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +227,56 @@
      }
     ]
    },
-   "solution": "IFYOUASKME"
+   "solution": "IFYOUASKME",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IF YOU ASK ME",
+    "definitions": [
+     {
+      "text": "Personally",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "provided",
+      "gives": "IF",
+      "note": "provided as a conjunction means on condition that"
+     },
+     {
+      "clueFragment": "solver",
+      "gives": "YOU",
+      "note": "the setter addresses the solver as you"
+     },
+     {
+      "clueFragment": "invitation to quiz setter",
+      "gives": "ASKME",
+      "note": "inviting someone to question the setter, who calls themself me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IF",
+      "YOU",
+      "ASKME"
+     ]
+    },
+    "explanation": {
+     "surface": "A setter personally sends the solver an invitation to a quiz night.",
+     "walkthrough": "'Quiz' looks like a noun for a trivia event, but it is the verb to question.",
+     "definitionFit": "The phrase introduces a personal opinion, much as one says 'in my view' before stating it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "quiz"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +290,59 @@
     "text": "Australian cricketers love maidens - that’s self-evident",
     "enumeration": "5"
    },
-   "solution": "AXIOM"
+   "solution": "AXIOM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AXIOM",
+    "definitions": [
+     {
+      "text": "that’s self-evident",
+      "at": 37
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Australian",
+      "gives": "A",
+      "note": "A is the abbreviation for Australian"
+     },
+     {
+      "clueFragment": "cricketers",
+      "gives": "XI",
+      "note": "a cricket team has eleven players, written XI"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "maidens",
+      "gives": "M",
+      "note": "M is the abbreviation for maiden overs on a cricket scorecard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "XI",
+      "O",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "It is obvious the Australian cricket team loves bowling maiden overs.",
+     "walkthrough": "A maiden in cricket is an over in which no runs are scored.",
+     "definitionFit": "An axiom is a statement accepted as true without proof because it seems obvious."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "maidens"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +356,47 @@
     "text": "Unemployed chap, long-suffering? Not so much",
     "enumeration": "7"
    },
-   "solution": "JOBLESS"
+   "solution": "JOBLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JOBLESS",
+    "definitions": [
+     {
+      "text": "Unemployed",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chap, long-suffering",
+      "gives": "JOB",
+      "note": "Job, the Bible figure famous for his patient suffering"
+     },
+     {
+      "clueFragment": "Not so much",
+      "gives": "LESS",
+      "note": "less means a smaller amount"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOB",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An out-of-work man has suffered for ages, though perhaps not so badly.",
+     "definitionFit": "Someone jobless has no paid work, the same state as being unemployed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "chap"
+    }
+   }
   },
   {
    "number": 5,
@@ -137,7 +416,66 @@
      }
     ]
    },
-   "solution": "JUMPLEADS"
+   "solution": "JUMPLEADS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "JUMP LEADS",
+    "definitions": [
+     {
+      "text": "Electricity suppliers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the very last letter of the word it follows"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bound",
+      "gives": "JUMP",
+      "note": "to bound is to leap"
+     },
+     {
+      "clueFragment": "direct",
+      "gives": "LEAD",
+      "note": "to direct is to lead"
+     },
+     {
+      "clueFragment": "debits",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of debits"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUMP",
+      "LEAD",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Energy companies are obliged to take payment by direct debit.",
+     "walkthrough": "'Direct debits' reads as one banking phrase, but the words are split. Jump leads are the British name for jumper cables.",
+     "definitionFit": "Jump leads are cables that carry power from one car battery to start another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "direct"
+    }
+   }
   },
   {
    "number": 6,
@@ -151,7 +489,61 @@
     "text": "Smell - dubiously at first - unknown substance",
     "enumeration": "4"
    },
-   "solution": "BODY"
+   "solution": "BODY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BODY",
+    "definitions": [
+     {
+      "text": "substance",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first picks out only the opening letter of the word before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Smell",
+      "gives": "BO",
+      "note": "BO is the standard abbreviation for an unpleasant personal odour"
+     },
+     {
+      "clueFragment": "dubiously",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of dubiously"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "y is an unknown quantity in algebra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BO",
+      "D",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A suspicious odour comes from some mysterious substance.",
+     "definitionFit": "Body means substance in the sense of solidity or weight, as a wine with plenty of body."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "unknown"
+    }
+   }
   },
   {
    "number": 7,
@@ -165,7 +557,70 @@
     "text": "Turn up to decide a title for issues",
     "enumeration": "8"
    },
-   "solution": "EMANATES"
+   "solution": "EMANATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "EMANATES",
+    "definitions": [
+     {
+      "text": "issues",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turn up",
+      "for": "reversal",
+      "note": "in a down clue, turning up flips the letters so they read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to decide",
+      "gives": "SET",
+      "note": "to set a date is to decide it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "title",
+      "gives": "NAME",
+      "note": "a title is a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMAN",
+      "A",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "SETANAME",
+       "to": "EMANATES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone arrives to choose a headline for a run of magazine issues.",
+     "walkthrough": "'Issues' looks like a noun for editions, but it is the verb: comes out.",
+     "definitionFit": "To emanate is to flow out from a source, as a sound or smell issues from somewhere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "issues"
+    }
+   }
   },
   {
    "number": 8,
@@ -179,7 +634,54 @@
     "text": "Observe Russia possibly recruiting muscle",
     "enumeration": "8"
    },
-   "solution": "SPECTATE"
+   "solution": "SPECTATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPECTATE",
+    "definitions": [
+     {
+      "text": "Observe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recruiting",
+      "for": "container",
+      "note": "recruiting means taking someone into the ranks, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Russia possibly",
+      "gives": "STATE",
+      "note": "Russia is an example of a nation"
+     },
+     {
+      "clueFragment": "muscle",
+      "gives": "PEC",
+      "note": "pec is short for pectoral muscle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEC",
+      "TATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Watch as Russia enlists armed force.",
+     "definitionFit": "To spectate is to watch an event as an onlooker rather than take part."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "muscle"
+    }
+   }
   },
   {
    "number": 9,
@@ -193,7 +695,50 @@
     "text": "Exhausted and inclined to blaspheme when losing head",
     "enumeration": "5"
    },
-   "solution": "WEARY"
+   "solution": "WEARY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "WEARY",
+    "definitions": [
+     {
+      "text": "Exhausted",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when losing head",
+      "for": "deletion",
+      "note": "losing its head means the word drops its first letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclined to blaspheme",
+      "gives": "SWEARY",
+      "note": "sweary is informal for given to swearing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEARY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is so tired they keep cursing, until they lose their temper.",
+     "definitionFit": "Weary means tired out, very close in sense to exhausted."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 10,
@@ -207,7 +752,72 @@
     "text": "“Bard is average, limited and borders on third-rate” - that’s direct!",
     "enumeration": "9"
    },
-   "solution": "IMMEDIATE"
+   "solution": "IMMEDIATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "IMMEDIATE",
+    "definitions": [
+     {
+      "text": "direct",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limited",
+      "for": "deletion",
+      "note": "limited means cut short, so the word before it loses its last letter"
+     },
+     {
+      "text": "borders on",
+      "for": "letter_selection",
+      "note": "the borders of a word are its edges, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bard is",
+      "gives": "IM",
+      "note": "Bard is this puzzle's setter, who says I am, shortened"
+     },
+     {
+      "clueFragment": "average",
+      "gives": "MEDIAN",
+      "note": "the median is a kind of average"
+     },
+     {
+      "clueFragment": "third-rate",
+      "gives": "TE",
+      "select": "outer",
+      "note": "the first and last letters of third-rate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "MEDIA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic bluntly calls the setter mediocre and close to third-rate.",
+     "walkthrough": "The setter names themself, so 'Bard is' is I'M.",
+     "definitionFit": "Immediate can mean direct, with nothing coming between, as in an immediate cause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bard"
+    }
+   }
   },
   {
    "number": 11,
@@ -227,7 +837,72 @@
      }
     ]
    },
-   "solution": "RUMOURMILL"
+   "solution": "RUMOURMILL",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RUMOUR MILL",
+    "definitions": [
+     {
+      "text": "gossip mongers",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Expose",
+      "for": "letter_selection",
+      "note": "to expose something is to strip off its covering, here the outside letters of each word"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trump",
+      "gives": "RUM",
+      "select": "middle",
+      "note": "Trump without its outer letters"
+     },
+     {
+      "clueFragment": "foul",
+      "gives": "OU",
+      "select": "middle",
+      "note": "foul without its outer letters"
+     },
+     {
+      "clueFragment": "army",
+      "gives": "RM",
+      "select": "middle",
+      "note": "army without its outer letters"
+     },
+     {
+      "clueFragment": "silly",
+      "gives": "ILL",
+      "select": "middle",
+      "note": "silly without its outer letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUM",
+      "OU",
+      "RM",
+      "ILL"
+     ]
+    },
+    "explanation": {
+     "surface": "A campaign to reveal a politician's dirty army secrets spreads through the tabloids.",
+     "definitionFit": "The rumour mill is the informal network of people who spread hearsay and tittle-tattle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Expose"
+    }
+   }
   },
   {
    "number": 12,
@@ -241,7 +916,54 @@
     "text": "Newspaper contains current information",
     "enumeration": "4"
    },
-   "solution": "FACT"
+   "solution": "FACT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FACT",
+    "definitions": [
+     {
+      "text": "information",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains says one piece holds the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper",
+      "gives": "FT",
+      "note": "FT is the Financial Times"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "AC",
+      "note": "AC is alternating current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "AC",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A paper carries up-to-date news.",
+     "definitionFit": "A fact is a piece of verified data, a single item of what is known."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 13,
@@ -255,7 +977,68 @@
     "text": "Seaside flats and ramshackle spa leased around November",
     "enumeration": "10"
    },
-   "solution": "ESPLANADES"
+   "solution": "ESPLANADES",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ESPLANADES",
+    "definitions": [
+     {
+      "text": "Seaside flats",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ramshackle",
+      "for": "anagram",
+      "note": "something ramshackle is tumbledown and disordered, so these letters are jumbled"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the jumbled letters go about the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "spa leased",
+      "gives": "SPALEASED",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "N",
+      "note": "N is November in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESPLA",
+      "N",
+      "ADES"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SPALEASED",
+       "gives": "ESPLAADES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Holiday apartments and a run-down spa are rented out in November.",
+     "walkthrough": "'Flats' looks like apartments, but here it means level stretches of ground.",
+     "definitionFit": "Esplanades are long level promenades along a seafront, so they are flat strips by the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flats"
+    }
+   }
   },
   {
    "number": 14,
@@ -269,7 +1052,50 @@
     "text": "Computer file parsed these incorrectly",
     "enumeration": "11"
    },
-   "solution": "SPREADSHEET"
+   "solution": "SPREADSHEET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPREADSHEET",
+    "definitions": [
+     {
+      "text": "Computer file",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incorrectly",
+      "for": "anagram",
+      "note": "done incorrectly means put together the wrong way, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "parsed these",
+      "gives": "PARSEDTHESE",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PARSEDTHESE",
+       "gives": "SPREADSHEET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A program has misread some data from a document.",
+     "definitionFit": "A spreadsheet is a document of rows and columns kept on a computer, such as an Excel workbook."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parsed"
+    }
+   }
   },
   {
    "number": 15,
@@ -289,7 +1115,55 @@
      }
     ]
    },
-   "solution": "REELEDOFF"
+   "solution": "REELEDOFF",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REELED OFF",
+    "definitions": [
+     {
+      "text": "Quickly ran through",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "REEL",
+      "note": "a reel is a lively Scottish dance"
+     },
+     {
+      "clueFragment": "Sheeran",
+      "gives": "ED",
+      "note": "Ed Sheeran, the British singer"
+     },
+     {
+      "clueFragment": "in the wings",
+      "gives": "OFF",
+      "note": "a performer waiting in the wings is offstage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REEL",
+      "ED",
+      "OFF"
+     ]
+    },
+    "explanation": {
+     "surface": "A dancer performs while a pop star waits backstage.",
+     "definitionFit": "To reel off a list is to recite it rapidly and fluently without pausing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 16,
@@ -313,7 +1187,43 @@
      }
     ]
    },
-   "solution": "ASITWERE"
+   "solution": "ASITWERE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "AS IT WERE",
+    "definitions": [
+     {
+      "text": "Grammatically suspect description of history",
+      "at": 0
+     },
+     {
+      "text": "so to speak",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grammatically suspect description of history",
+      "note": "first meaning, read cryptically: history is how things were, said with 'it' and 'were' oddly paired"
+     },
+     {
+      "clueFragment": "so to speak",
+      "note": "second meaning: a phrase softening a figurative remark"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The first half pretends 'as it were' is bad grammar for 'as it was', which is what history describes.",
+     "definitionFit": "The phrase is used to flag that words are meant loosely or metaphorically, just like 'so to speak'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "history"
+    }
+   }
   },
   {
    "number": 17,
@@ -333,7 +1243,73 @@
      }
     ]
    },
-   "solution": "FELTPENS"
+   "solution": "FELTPENS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FELT PENS",
+    "definitions": [
+     {
+      "text": "Pupil’s equipment",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means not right, so the word before it is rearranged"
+     },
+     {
+      "text": "earlier",
+      "for": "charade",
+      "note": "earlier puts the rearranged piece ahead of the other one"
+     },
+     {
+      "text": "their caps",
+      "for": "letter_selection",
+      "note": "the caps of words are their capital, or opening, letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "LEFT",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Pupil’s equipment not shading",
+      "gives": "PENS",
+      "select": "first",
+      "note": "the opening letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FELT",
+      "PENS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEFT",
+       "gives": "FELT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolchild's kit isn't colouring properly because the lids were left off.",
+     "walkthrough": "'Pupil's equipment' does double duty: it is the definition, and its initials join those of 'not shading'.",
+     "definitionFit": "Felt-tip pens are colouring pens that schoolchildren commonly use in class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "caps"
+    }
+   }
   },
   {
    "number": 18,
@@ -353,7 +1329,72 @@
      }
     ]
    },
-   "solution": "STEAMVESSEL"
+   "solution": "STEAMVESSEL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "STEAM VESSEL",
+    "definitions": [
+     {
+      "text": "ship",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "crashing",
+      "for": "anagram",
+      "note": "crashing suggests a smash that scatters things, so the letters are jumbled"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into says the jumbled letters go inside the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "metal",
+      "gives": "STEEL",
+      "note": "steel is an example of a metal"
+     },
+     {
+      "clueFragment": "Saves me",
+      "gives": "SAVESME",
+      "note": "taken as written, ready to be shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STE",
+      "AMVESS",
+      "EL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAVESM",
+       "gives": "AMVESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A driver who narrowly avoids a crash into a metal barrier is relieved.",
+     "definitionFit": "A steam vessel is a ship driven by steam power, such as a paddle steamer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Saves"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1408,52 @@
     "text": "Swinger using tips from trapeze artist, really zipping around now!",
     "enumeration": "6"
    },
-   "solution": "TARZAN"
+   "solution": "TARZAN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TARZAN",
+    "definitions": [
+     {
+      "text": "Swinger",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tips from",
+      "for": "letter_selection",
+      "note": "tips are the front ends of things, so the first letter of each word is kept"
+     }
+    ],
+    "linkWords": [
+     "using"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trapeze artist, really zipping around now",
+      "gives": "TARZAN",
+      "select": "first",
+      "note": "the opening letters of these six words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TARZAN"
+     ]
+    },
+    "explanation": {
+     "surface": "An acrobat on the swing borrows tricks from a trapeze performer flying through the air.",
+     "definitionFit": "Tarzan is the jungle hero of fiction who travels by swinging from vine to vine."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Swinger"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1467,61 @@
     "text": "Dull fare, e.g. peppers, thrown back up",
     "enumeration": "6"
    },
-   "solution": "STODGE"
+   "solution": "STODGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STODGE",
+    "definitions": [
+     {
+      "text": "Dull fare",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "thrown back up",
+      "for": "reversal",
+      "note": "in a down clue, going back up means the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e.g.",
+      "gives": "EG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "peppers",
+      "gives": "DOTS",
+      "note": "to pepper something is to dot or sprinkle it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOD",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGDOTS",
+       "to": "STODGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone vomits after a heavy meal containing peppers.",
+     "walkthrough": "'Peppers' looks like the vegetable, but it is the verb meaning sprinkles. Stodge is British for heavy, filling, starchy food.",
+     "definitionFit": "Stodge is heavy, unexciting food, like stodgy puddings, so it is dull fare."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "peppers"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1535,70 @@
     "text": "Skirt unfashionable, unloved and sent back repeatedly",
     "enumeration": "4"
    },
-   "solution": "TUTU"
+   "solution": "TUTU",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TUTU",
+    "definitions": [
+     {
+      "text": "Skirt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unloved",
+      "for": "deletion",
+      "note": "without love means the letter that looks like zero is taken out"
+     },
+     {
+      "text": "sent back",
+      "for": "reversal",
+      "note": "sent back means the letters are read from right to left"
+     },
+     {
+      "text": "repeatedly",
+      "for": "charade",
+      "note": "repeatedly means the piece is written out twice in a row"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unfashionable",
+      "gives": "OUT",
+      "note": "something out is no longer in fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TU",
+      "TU"
+     ],
+     "reversals": [
+      {
+       "from": "UT",
+       "to": "TU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dated, unwanted skirt keeps being returned to the shop.",
+     "walkthrough": "Love is O, so OUT without love is UT.",
+     "definitionFit": "A tutu is the short stiff skirt worn by a ballerina."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unloved"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1612,50 @@
     "text": "Maybe grandchild can send Ted loopy",
     "enumeration": "10"
    },
-   "solution": "DESCENDANT"
+   "solution": "DESCENDANT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DESCENDANT",
+    "definitions": [
+     {
+      "text": "Maybe grandchild",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loopy",
+      "for": "anagram",
+      "note": "loopy means crazy, so the letters are put in a mad new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can send Ted",
+      "gives": "CANSENDTED",
+      "note": "taken as written, ready to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANSENDTED",
+       "gives": "DESCENDANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grandchild is able to drive Grandpa Ted round the bend.",
+     "definitionFit": "A grandchild is one example of a descendant, someone in a later generation of a family line."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loopy"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1669,63 @@
     "text": "Rib about ‘big trap’ occasionally",
     "enumeration": "5"
    },
-   "solution": "COSTA"
+   "solution": "COSTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "COSTA",
+    "definitions": [
+     {
+      "text": "Rib",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means now and then, so only every other letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c, short for circa, means about"
+     },
+     {
+      "clueFragment": "big",
+      "gives": "OS",
+      "note": "OS is outsize, a clothing size for big"
+     },
+     {
+      "clueFragment": "trap",
+      "gives": "TA",
+      "select": "alternate",
+      "note": "the first and third letters of trap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "OS",
+      "TA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone teases another person now and then about their big mouth.",
+     "walkthrough": "'Rib' looks like the verb to tease, and 'big trap' like a big mouth; it is the Latin anatomical word for a rib.",
+     "definitionFit": "Costa is the anatomical Latin term for a rib, used in medical words such as intercostal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Rib"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1739,49 @@
     "text": "Food to accompany 1A, served up by advocate",
     "enumeration": "4"
    },
-   "solution": "TACO"
+   "solution": "TACO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "TACO",
+    "definitions": [
+     {
+      "text": "Food to accompany 1A",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by",
+      "for": "hidden_word",
+      "note": "by here means held within, so the letters lie inside the next word"
+     },
+     {
+      "text": "served up",
+      "for": "reversal",
+      "note": "in a down clue, served up means the letters read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advocate",
+      "gives": "OCAT",
+      "note": "the middle letters of advocate"
+     }
+    ],
+    "explanation": {
+     "surface": "A lawyer serves Mexican snacks with the drinks.",
+     "walkthrough": "1A is TEQUILA, a fellow Mexican item.",
+     "definitionFit": "A taco is a Mexican folded tortilla with a filling, the sort of food eaten alongside tequila."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "advocate"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1795,67 @@
     "text": "Settle or else! Tax collected for public transport going up",
     "enumeration": "9"
    },
-   "solution": "ELEVATORS"
+   "solution": "ELEVATORS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ELEVATORS",
+    "definitions": [
+     {
+      "text": "public transport going up",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Settle",
+      "for": "anagram",
+      "note": "to settle things is to put them in a new arrangement, so the letters are rearranged"
+     },
+     {
+      "text": "collected",
+      "for": "container",
+      "note": "collected means taken in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "or else",
+      "gives": "ORELSE",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "Tax",
+      "gives": "VAT",
+      "note": "VAT is value added tax"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ELE",
+      "VAT",
+      "ORS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORELSE",
+       "gives": "ELEORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tax collector threatens a debtor to pay up or face consequences.",
+     "walkthrough": "'Settle' looks like paying a bill, which fits the tax story, but it is the anagram signal.",
+     "definitionFit": "Elevators, the American word for lifts, carry the public between floors upwards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Settle"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1875,58 @@
      }
     ]
    },
-   "solution": "DAZED"
+   "solution": "DAZED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DAZED",
+    "definitions": [
+     {
+      "text": "bewildered",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "begins",
+      "for": "letter_selection",
+      "note": "how a word begins is its opening letter"
+     }
+    ],
+    "linkWords": [
+     "How"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dimwit",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter of dimwit"
+     },
+     {
+      "clueFragment": "Observer puzzle",
+      "gives": "AZED",
+      "note": "Azed is the long-running cryptic crossword in The Observer, a British Sunday paper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AZED"
+     ]
+    },
+    "explanation": {
+     "surface": "A dim solver starts the notoriously hard Sunday crossword and is baffled.",
+     "definitionFit": "Dazed means stunned and unable to think clearly, close to bewildered or confused."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Observer"
+    }
+   }
   },
   {
    "number": 27,
@@ -491,7 +1946,76 @@
      }
     ]
    },
-   "solution": "EASEOFF"
+   "solution": "EASEOFF",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "EASE OFF",
+    "definitions": [
+     {
+      "text": "Relax",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "the middle of a short word is its central letter"
+     },
+     {
+      "text": "swimming",
+      "for": "anagram",
+      "note": "swimming suggests the letters are moving about and rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red",
+      "gives": "E",
+      "select": "middle",
+      "note": "the central letter of Red"
+     },
+     {
+      "clueFragment": "Sea",
+      "gives": "SEA",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "away",
+      "gives": "OFF",
+      "note": "away means gone off"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "ASE",
+      "OFF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEA",
+       "gives": "ASE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A holidaymaker unwinds by swimming far out in the Red Sea.",
+     "definitionFit": "To ease off is to slacken effort or loosen up, a phrasal verb for taking it easier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swimming"
+    }
+   }
   },
   {
    "number": 28,
@@ -505,7 +2029,42 @@
     "text": "Deficiency spotted in Ahab’s encephalogram",
     "enumeration": "7"
    },
-   "solution": "ABSENCE"
+   "solution": "ABSENCE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ABSENCE",
+    "definitions": [
+     {
+      "text": "Deficiency",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spotted in",
+      "for": "hidden_word",
+      "note": "spotted in says the letters can be seen sitting inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ahab’s encephalogram",
+      "gives": "ABSENCE",
+      "note": "runs from the end of Ahab's into the start of encephalogram"
+     }
+    ],
+    "explanation": {
+     "surface": "A doctor spots a defect in the brain scan of Captain Ahab, of Moby-Dick.",
+     "definitionFit": "An absence is a lack of something, which is what a deficiency also describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spotted"
+    }
+   }
   }
  ]
 }
