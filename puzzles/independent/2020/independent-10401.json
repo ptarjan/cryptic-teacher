@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Shellfish from Yellow Sea exported to France",
     "enumeration": "5"
    },
-   "solution": "ORMER"
+   "solution": "ORMER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORMER",
+    "definitions": [
+     {
+      "text": "Shellfish",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yellow",
+      "gives": "OR",
+      "note": "or is the heraldic name for gold or yellow"
+     },
+     {
+      "clueFragment": "Sea exported to France",
+      "gives": "MER",
+      "note": "the French word for sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OR",
+      "MER"
+     ]
+    },
+    "explanation": {
+     "surface": "A seafood importer traces a shellfish caught in Chinese waters and shipped to France.",
+     "walkthrough": "'Exported to France' asks for the French translation of sea. OR is the heraldic word for gold.",
+     "definitionFit": "The ormer is an edible ear-shaped mollusc found around the Channel Islands, also called abalone."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exported"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,49 @@
     "text": "Public holiday causes epidemic",
     "enumeration": "8"
    },
-   "solution": "OUTBREAK"
+   "solution": "OUTBREAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTBREAK",
+    "definitions": [
+     {
+      "text": "epidemic",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Public",
+      "gives": "OUT",
+      "note": "a secret that is out is public knowledge"
+     },
+     {
+      "clueFragment": "holiday",
+      "gives": "BREAK",
+      "note": "a short holiday is a break"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "BREAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A bank holiday crowd spreads a disease around the country.",
+     "definitionFit": "An outbreak is a sudden rise in cases of a disease, which is what an epidemic consists of."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Public"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +149,73 @@
     "text": "Normal clue lacking definition ultimately becomes elementary?",
     "enumeration": "9"
    },
-   "solution": "MOLECULAR"
+   "solution": "MOLECULAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "anagram"
+    ],
+    "answer": "MOLECULAR",
+    "definitions": [
+     {
+      "text": "elementary?",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "something lacking is missing, so a letter is taken out of the fodder"
+     },
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to the final letter of the word it follows"
+     },
+     {
+      "text": "becomes",
+      "for": "anagram",
+      "note": "the letters turn into something else, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Normal clue",
+      "gives": "NORMALCLUE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "definition",
+      "gives": "N",
+      "select": "last",
+      "note": "the last letter of definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOLECULAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ORMALCLUE",
+       "gives": "MOLECULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A setter jokes that an ordinary clue without its definition becomes elementary.",
+     "walkthrough": "The question mark flags a definition by example: molecules are built from the elements, so at their level things are 'elementary' in a punning sense.",
+     "definitionFit": "Molecular describes the smallest particles of a compound, a basic level of matter, so it is playfully 'elementary'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "definition"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +229,57 @@
     "text": "Revolt as a result of undesirable uprising",
     "enumeration": "5"
    },
-   "solution": "REPEL"
+   "solution": "REPEL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "REPEL",
+    "definitions": [
+     {
+      "text": "Revolt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uprising",
+      "for": "reversal",
+      "note": "in a down entry, rising means the word is written from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "as a result of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "undesirable",
+      "gives": "LEPER",
+      "note": "a leper is a social outcast, an undesirable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPEL"
+     ],
+     "reversals": [
+      {
+       "from": "LEPER",
+       "to": "REPEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A revolt breaks out because some unwelcome group has risen up.",
+     "walkthrough": "'Revolt' looks like a noun but is the verb: to disgust.",
+     "definitionFit": "To revolt someone is to disgust them, which is one sense of repel, driving them away in distaste."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolt"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +293,55 @@
     "text": "Religious figure asks questions atheists regularly disregarded",
     "enumeration": "9"
    },
-   "solution": "PRIESTESS"
+   "solution": "PRIESTESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRIESTESS",
+    "definitions": [
+     {
+      "text": "Religious figure",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly disregarded",
+      "for": "letter_selection",
+      "note": "every other letter is ignored at a steady interval, keeping only the alternate ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "asks questions",
+      "gives": "PRIES",
+      "note": "to pry is to ask nosy questions"
+     },
+     {
+      "clueFragment": "atheists",
+      "gives": "TESS",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRIES",
+      "TESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric fields questions from unbelievers, whose objections are routinely ignored.",
+     "definitionFit": "A priestess is a woman who performs sacred rites, a female religious official."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "atheists"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +355,53 @@
     "text": "Established church driven out of French region",
     "enumeration": "6"
    },
-   "solution": "PROVEN"
+   "solution": "PROVEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PROVEN",
+    "definitions": [
+     {
+      "text": "Established",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "driven out of",
+      "for": "deletion",
+      "note": "something driven out of a place is expelled, so it is removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "French region",
+      "gives": "PROVENCE",
+      "note": "the region of south-east France"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROVEN"
+     ]
+    },
+    "explanation": {
+     "surface": "The established church is expelled from a part of France.",
+     "walkthrough": "'Established church' reads as one phrase, the Church of England; split it after 'Established'.",
+     "definitionFit": "Something proven has been shown true and accepted, so it is established as fact."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Established"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +415,69 @@
     "text": "Showing some reluctance to go initially in latrine that's out of order",
     "enumeration": "8"
    },
-   "solution": "INERTIAL"
+   "solution": "INERTIAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "INERTIAL",
+    "definitions": [
+     {
+      "text": "Showing some reluctance to go",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the next word"
+     },
+     {
+      "text": "out of order",
+      "for": "anagram",
+      "note": "a sequence out of order is jumbled, so the letters need rearranging"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "I",
+      "select": "first",
+      "note": "first letter of in"
+     },
+     {
+      "clueFragment": "latrine",
+      "gives": "NERTIAL",
+      "note": "its letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "NERTIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATRINE",
+       "gives": "NERTIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone hesitates to use a broken toilet.",
+     "walkthrough": "The surface reading of 'reluctance to go' is lavatorial; the definition is physics, the tendency of a body to resist starting to move.",
+     "definitionFit": "Inertia is resistance to a change in motion, so inertial describes a body reluctant to start moving."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "go"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +491,55 @@
     "text": "Sucking noises suppress last couple of kisses",
     "enumeration": "9"
    },
-   "solution": "SQUELCHES"
+   "solution": "SQUELCHES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SQUELCHES",
+    "definitions": [
+     {
+      "text": "Sucking noises",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last couple of",
+      "for": "letter_selection",
+      "note": "the final pair of letters of the next word are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "suppress",
+      "gives": "SQUELCH",
+      "note": "to squelch a rumour is to suppress it"
+     },
+     {
+      "clueFragment": "kisses",
+      "gives": "ES",
+      "select": "last",
+      "note": "the final two letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUELCH",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A couple's final kisses are stifled, leaving only wet sounds.",
+     "definitionFit": "Squelches are the wet sucking sounds made by feet pulled out of mud."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kisses"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +553,62 @@
     "text": "Journalist covering men battling enemy primarily",
     "enumeration": "5"
    },
-   "solution": "EMBED"
+   "solution": "EMBED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "EMBED",
+    "definitions": [
+     {
+      "text": "Journalist covering men battling enemy primarily",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "one piece covers the other, going around it on both sides"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means firstly, so the opening letter of each preceding word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Journalist",
+      "gives": "ED",
+      "note": "ED is short for editor"
+     },
+     {
+      "clueFragment": "men battling enemy",
+      "gives": "MBE",
+      "select": "first",
+      "note": "the first letter of each of the three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MBE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A reporter travels with troops who are fighting the enemy.",
+     "walkthrough": "The whole clue is the definition as well as the wordplay: an embedded reporter lives with soldiers to cover their battles.",
+     "definitionFit": "An embed is a war reporter attached to a military unit, reporting from among the fighting troops."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +622,51 @@
     "text": "Unruffled by lifting of some hygiene restrictions",
     "enumeration": "6"
    },
-   "solution": "SERENE"
+   "solution": "SERENE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "SERENE",
+    "definitions": [
+     {
+      "text": "Unruffled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some of the letters are wanted, so the answer sits inside the words that follow"
+     },
+     {
+      "text": "lifting",
+      "for": "reversal",
+      "note": "in a down entry, lifting reads the letters upwards, from the end back"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hygiene restrictions",
+      "gives": "ENERES",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "People stay calm as Covid hygiene rules are relaxed.",
+     "definitionFit": "Serene means calm and untroubled, the state of someone who is not ruffled or agitated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lifting"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +686,43 @@
      }
     ]
    },
-   "solution": "TELEPHONENUMBER"
+   "solution": "TELEPHONENUMBER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TELEPHONE NUMBER",
+    "definitions": [
+     {
+      "text": "What might one call",
+      "at": 0
+     },
+     {
+      "text": "a huge sum",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What might one call",
+      "note": "first meaning: the digits you dial to ring someone"
+     },
+     {
+      "clueFragment": "a huge sum",
+      "note": "second meaning: British slang for an enormous figure with very many digits"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In British usage a salary or fee in 'telephone numbers' is one so large it has as many digits as a phone number.",
+     "definitionFit": "You call a person on their phone line by dialling it, and the idiom names a sum with many digits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +736,47 @@
     "text": "Bring to mind prayer after bible class",
     "enumeration": "9"
    },
-   "solution": "RECOLLECT"
+   "solution": "RECOLLECT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RECOLLECT",
+    "definitions": [
+     {
+      "text": "Bring to mind",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bible class",
+      "gives": "RE",
+      "note": "RE is religious education, a school subject"
+     },
+     {
+      "clueFragment": "prayer",
+      "gives": "COLLECT",
+      "note": "a collect is a short prayer in a church service"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "COLLECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A pupil remembers a prayer after Sunday-school lesson.",
+     "walkthrough": "'After' puts the prayer behind the class. A collect, stressed on the first syllable, is a short liturgical prayer.",
+     "definitionFit": "To recollect is to remember, calling a past event back into memory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prayer"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +790,54 @@
     "text": "Lacking in energy, gloomy and weighed down",
     "enumeration": "5"
    },
-   "solution": "LADEN"
+   "solution": "LADEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LADEN",
+    "definitions": [
+     {
+      "text": "weighed down",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lacking in",
+      "for": "deletion",
+      "note": "lacking something means it is missing, so that letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "gloomy",
+      "gives": "LEADEN",
+      "note": "a leaden sky is grey and gloomy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LADEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is listless, depressed and burdened.",
+     "definitionFit": "Laden means heavily loaded, carrying a burden that presses it down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +851,48 @@
     "text": "Firm undergoing cyclical readjustment with supreme competence",
     "enumeration": "6"
    },
-   "solution": "ABLEST"
+   "solution": "ABLEST",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "ABLEST",
+    "definitions": [
+     {
+      "text": "with supreme competence",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "undergoing cyclical readjustment",
+      "for": "cycling",
+      "note": "a cyclical change rotates the letters, moving some from the front to the back"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "gives": "STABLE",
+      "note": "firm and steady"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABLEST"
+     ]
+    },
+    "explanation": {
+     "surface": "A company goes through restructuring with great skill.",
+     "walkthrough": "Move the first two letters of the word for firm to its end.",
+     "definitionFit": "Ablest is the superlative of able, so it describes whoever is most competent of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +906,57 @@
     "text": "Plot contains treasure under layers of rock",
     "enumeration": "9"
    },
-   "solution": "STRATAGEM"
+   "solution": "STRATAGEM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRATAGEM",
+    "definitions": [
+     {
+      "text": "Plot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down entry, being under means placed below, so this piece follows the other"
+     }
+    ],
+    "linkWords": [
+     "contains"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "layers of rock",
+      "gives": "STRATA",
+      "note": "geological layers"
+     },
+     {
+      "clueFragment": "treasure",
+      "gives": "GEM",
+      "note": "a gem is a treasure"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRATA",
+      "GEM"
+     ]
+    },
+    "explanation": {
+     "surface": "A story features buried treasure beneath rock layers.",
+     "walkthrough": "In a down entry, 'under' puts the treasure below the rock layers. 'Contains' looks like a container signal but just joins definition to wordplay.",
+     "definitionFit": "A stratagem is a scheme or ruse, the kind of secret scheme that a plot is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Plot"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +970,55 @@
     "text": "Creator of issue removed boxing article",
     "enumeration": "6"
    },
-   "solution": "FATHER"
+   "solution": "FATHER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FATHER",
+    "definitions": [
+     {
+      "text": "Creator of issue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "container",
+      "note": "boxing means enclosing, so one word wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "removed",
+      "gives": "FAR",
+      "note": "far removed, distant"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FA",
+      "THE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who caused a problem is taken out of a boxing article.",
+     "walkthrough": "'Issue' means offspring here, not a problem or a magazine edition.",
+     "definitionFit": "Issue is a legal word for children, and a father is a man who begets children."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "issue"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1032,46 @@
     "text": "Album of new arrangement for strings?",
     "enumeration": "9"
    },
-   "solution": "RECORDING"
+   "solution": "RECORDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RECORDING",
+    "definitions": [
+     {
+      "text": "Album",
+      "at": 0
+     },
+     {
+      "text": "new arrangement for strings?",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Album",
+      "note": "first meaning: a recorded release of music"
+     },
+     {
+      "clueFragment": "new arrangement for strings?",
+      "note": "second meaning, whimsical: fitting cords again"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a string orchestration; the question mark admits the second reading splits the answer into a prefix meaning again and a word for a set of cords.",
+     "definitionFit": "A recording is a captured musical performance issued as a disc, so an album is a recording."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "strings"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1085,60 @@
     "text": "Rural pile has riding gear around yard",
     "enumeration": "8"
    },
-   "solution": "HAYSTACK"
+   "solution": "HAYSTACK",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "HAYSTACK",
+    "definitions": [
+     {
+      "text": "Rural pile",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one word sits around the other, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "yard",
+      "gives": "Y",
+      "note": "Y is the abbreviation for yard"
+     },
+     {
+      "clueFragment": "riding gear",
+      "gives": "TACK",
+      "note": "tack is saddle, bridle and other horse equipment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAYS",
+      "TACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A country stable yard holds a heap of horse equipment.",
+     "walkthrough": "The word has wraps the yard abbreviation, then the riding gear follows.",
+     "definitionFit": "A haystack is a large outdoor heap of hay, a pile found in the countryside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pile"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1152,63 @@
     "text": "Absurdity of Nationalist version of \"oneness\"",
     "enumeration": "8"
    },
-   "solution": "NONSENSE"
+   "solution": "NONSENSE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NONSENSE",
+    "definitions": [
+     {
+      "text": "Absurdity",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "version of",
+      "for": "anagram",
+      "note": "a version is a different rendering, so the quoted word's letters are rewritten"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nationalist",
+      "gives": "N",
+      "note": "N is the abbreviation for Nationalist"
+     },
+     {
+      "clueFragment": "\"oneness\"",
+      "gives": "ONSENSE",
+      "note": "its letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ONSENSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONENESS",
+       "gives": "ONSENSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nationalist's idea of national unity is ridiculous.",
+     "definitionFit": "Nonsense is foolish talk or behaviour, something absurd or meaningless."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "version"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1222,63 @@
     "text": "Took another look at grey area lady uncovered",
     "enumeration": "6"
    },
-   "solution": "REREAD"
+   "solution": "REREAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "REREAD",
+    "definitions": [
+     {
+      "text": "Took another look at",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "uncovered",
+      "for": "letter_selection",
+      "note": "each word loses its covering, its outer letters, leaving the inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "grey",
+      "gives": "RE",
+      "select": "middle",
+      "note": "the inner pair of letters"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "RE",
+      "select": "middle",
+      "note": "the inner pair of letters"
+     },
+     {
+      "clueFragment": "lady",
+      "gives": "AD",
+      "select": "middle",
+      "note": "the inner pair of letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "RE",
+      "AD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes a second glance at a woman in a murky zone, perhaps exposed.",
+     "definitionFit": "To reread a text is to read it again, taking a second look at it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "uncovered"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1292,63 @@
     "text": "Maniac chops yuppie's head off",
     "enumeration": "6"
    },
-   "solution": "PSYCHO"
+   "solution": "PSYCHO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "PSYCHO",
+    "definitions": [
+     {
+      "text": "Maniac",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "off",
+      "for": "anagram",
+      "note": "off means awry or wrong, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "chops",
+      "gives": "CHOPS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "yuppie's",
+      "gives": "Y",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHOPSY",
+       "gives": "PSYCHO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A madman decapitates a young professional, like the killer in American Psycho.",
+     "walkthrough": "'Head off' reads as decapitation; in fact head picks a letter and off signals the reshuffle.",
+     "definitionFit": "A psycho is an informal word for a dangerously unstable person, a maniac."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "off"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1362,53 @@
     "text": "Conflict almost tore apart densely populated area",
     "enumeration": "6"
    },
-   "solution": "WARREN"
+   "solution": "WARREN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WARREN",
+    "definitions": [
+     {
+      "text": "densely populated area",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite, so the final letter of the word is cut"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conflict",
+      "gives": "WAR",
+      "note": "war is armed conflict"
+     },
+     {
+      "clueFragment": "tore apart",
+      "gives": "REND",
+      "note": "to rend is to tear apart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "REN"
+     ]
+    },
+    "explanation": {
+     "surface": "War nearly destroyed a crowded neighbourhood.",
+     "definitionFit": "A warren is a network of rabbit burrows, and by extension a crowded maze of streets or buildings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1422,55 @@
     "text": "Underground worker buries dead guard",
     "enumeration": "6"
    },
-   "solution": "MINDER"
+   "solution": "MINDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MINDER",
+    "definitions": [
+     {
+      "text": "guard",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "buries",
+      "for": "container",
+      "note": "burying something puts it inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Underground worker",
+      "gives": "MINER",
+      "note": "a miner works underground"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A miner buries a dead security guard.",
+     "walkthrough": "A minder is British slang for a bodyguard.",
+     "definitionFit": "A minder is someone employed to protect another person, a bodyguard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "buries"
+    }
+   }
   },
   {
    "number": 22,
@@ -361,7 +1484,43 @@
     "text": "Confines overambitious guards",
     "enumeration": "5"
    },
-   "solution": "AMBIT"
+   "solution": "AMBIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AMBIT",
+    "definitions": [
+     {
+      "text": "Confines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "guards",
+      "for": "hidden_word",
+      "note": "the word guards something within itself, holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "overambitious",
+      "gives": "AMBIT",
+      "note": "letters inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "Restrictions keep an overreaching person in check.",
+     "walkthrough": "'Confines' looks like a verb but is the noun, the bounds of something.",
+     "definitionFit": "An ambit is the scope or bounds of something, its limits or confines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Confines"
+    }
+   }
   },
   {
    "number": 23,
@@ -375,7 +1534,61 @@
     "text": "Britain managed to implicate one intelligence agent",
     "enumeration": "5"
    },
-   "solution": "BRAIN"
+   "solution": "BRAIN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "BRAIN",
+    "definitions": [
+     {
+      "text": "intelligence agent",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "implicate",
+      "for": "container",
+      "note": "to implicate is literally to fold in, so one piece is placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Britain",
+      "gives": "B",
+      "note": "B is an abbreviation for Britain"
+     },
+     {
+      "clueFragment": "managed",
+      "gives": "RAN",
+      "note": "ran a business, managed it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Britain manages to implicate a spy in some scandal.",
+     "walkthrough": "'Intelligence agent' suggests a spy; it is the organ that does the thinking.",
+     "definitionFit": "The brain is the organ responsible for thought, the agent behind human intelligence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "intelligence"
+    }
+   }
   },
   {
    "number": 24,
@@ -389,7 +1602,61 @@
     "text": "Line at end of letter lists retired fighters",
     "enumeration": "9"
    },
-   "solution": "SPITFIRES"
+   "solution": "SPITFIRES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPITFIRES",
+    "definitions": [
+     {
+      "text": "fighters",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means went back, so the letters are read in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Line at end of letter",
+      "gives": "SERIF",
+      "note": "a serif is the small stroke finishing a printed character"
+     },
+     {
+      "clueFragment": "lists",
+      "gives": "TIPS",
+      "note": "a ship that lists tips to one side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPIT",
+      "FIRES"
+     ],
+     "reversals": [
+      {
+       "from": "SERIFTIPS",
+       "to": "SPITFIRES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A postscript tacked onto a letter names fighter pilots who have retired.",
+     "walkthrough": "'Line at end of letter' suggests a P.S.; letter means a printed character. The Spitfire was the British fighter plane of the Second World War.",
+     "definitionFit": "Spitfires were single-seat fighter aircraft flown by the RAF, now retired from service."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "letter"
+    }
+   }
   },
   {
    "number": 25,
@@ -403,7 +1670,57 @@
     "text": "Female insect without wings is centre of attention",
     "enumeration": "5"
    },
-   "solution": "FOCUS"
+   "solution": "FOCUS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "FOCUS",
+    "definitions": [
+     {
+      "text": "centre of attention",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without wings",
+      "for": "deletion",
+      "note": "wings are the sides, so the outer letters at both ends are removed"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "insect",
+      "gives": "LOCUST",
+      "note": "a swarming grasshopper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OCUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A wingless female insect draws everyone's attention.",
+     "definitionFit": "The focus is the central point on which attention or interest concentrates."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "wings"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1740,66 @@
      }
     ]
    },
-   "solution": "REARGUARDACTION"
+   "solution": "REARGUARDACTION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REARGUARD ACTION",
+    "definitions": [
+     {
+      "text": "offensive when on the defensive",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk person is all over the place, so the letters are jumbled"
+     },
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most of, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "actor in a rage",
+      "gives": "ACTORINARAGE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rude",
+      "gives": "RUDE",
+      "note": "taken as written, before its tail is cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REARGUARDACTION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ACTORINARAGERUD",
+       "gives": "REARGUARDACTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunken actor in a temper is rude and offensive.",
+     "walkthrough": "The 'offensive' in the surface is rudeness; in the definition it is a military attack.",
+     "definitionFit": "A rearguard action is a defensive fight by retreating troops, an attack made while defending."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "offensive"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1819,65 @@
      }
     ]
    },
-   "solution": "NONSMOKER"
+   "solution": "NONSMOKER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "NON-SMOKER",
+    "definitions": [
+     {
+      "text": "She shouldn't have weed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "something shot is ruined or wrecked, so its letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on monks",
+      "gives": "NONSMOK",
+      "note": "the letters of the two words rearranged"
+     },
+     {
+      "clueFragment": "head of state",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONSMOK",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONMONKS",
+       "gives": "NONSMOK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Monks are told off for smoking cannabis by a queen.",
+     "walkthrough": "Weed here is slang for tobacco, not cannabis or garden plants. ER is the Queen's royal cipher.",
+     "definitionFit": "A non-smoker is a person who does not smoke tobacco, so she shouldn't be holding any."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "weed"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +1891,61 @@
     "text": "Good university dons get to continue without taking a break",
     "enumeration": "5"
    },
-   "solution": "SEGUE"
+   "solution": "SEGUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SEGUE",
+    "definitions": [
+     {
+      "text": "continue without taking a break",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dons",
+      "for": "container",
+      "note": "to don is to put on, as one wears clothes, so one piece goes around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "get",
+      "gives": "SEE",
+      "note": "to get a joke is to see it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "GU",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Good academics keep lecturing without pausing.",
+     "walkthrough": "'Dons' looks like university lecturers but is the verb, to put on, with the abbreviations wearing the understanding word around them.",
+     "definitionFit": "To segue is to pass smoothly from one thing to the next without interruption."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dons"
+    }
+   }
   }
  ]
 }
