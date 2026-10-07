@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,73 @@
     "text": "Witness implicating Socialist leader in parliament is extremely sleazy",
     "enumeration": "8"
    },
-   "solution": "SEEDIEST"
+   "solution": "SEEDIEST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SEEDIEST",
+    "definitions": [
+     {
+      "text": "extremely sleazy",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "a leader stands at the front, so only the opening letter of the word before it is kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed in the middle of the other, which then surrounds it"
+     }
+    ],
+    "linkWords": [
+     "implicating",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Witness",
+      "gives": "SEE",
+      "note": "to witness something is to see it"
+     },
+     {
+      "clueFragment": "parliament",
+      "gives": "DIET",
+      "note": "a diet is a formal legislative assembly, as in Japan or historically Germany"
+     },
+     {
+      "clueFragment": "Socialist",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of Socialist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "DIE",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A witness gives evidence that drags a socialist party leader into a parliamentary sleaze scandal.",
+     "walkthrough": "A diet is the name for some national parliaments, such as Japan's. 'Implicating' only strings the witness onto the rest.",
+     "definitionFit": "Seedy means shabby and disreputable, and the superlative form describes the most disreputable or sordid of all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "parliament"
+    }
+   }
   },
   {
    "number": 2,
@@ -53,7 +122,59 @@
      }
     ]
    },
-   "solution": "PILLAR"
+   "solution": "PILLAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PILLAR",
+    "definitions": [
+     {
+      "text": "Column",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contents",
+      "for": "container",
+      "note": "the word given as contents sits inside the other word, which holds it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Standard",
+      "gives": "PAR",
+      "note": "par is the standard or normal level, as in golf"
+     },
+     {
+      "clueFragment": "hurtful",
+      "gives": "ILL",
+      "note": "ill can mean harmful or hurtful, as in ill effects"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ILL",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper column in the Evening Standard full of hurtful remarks.",
+     "walkthrough": "The Standard is a London newspaper, so 'Column in Standard' reads like journalism; PAR holds ILL to give P(ILL)AR.",
+     "definitionFit": "A pillar is an upright supporting post in a building, the architectural sense of column."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Standard"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +188,52 @@
     "text": "Man perhaps taken for a ride after losing case",
     "enumeration": "4"
    },
-   "solution": "ISLE"
+   "solution": "ISLE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ISLE",
+    "definitions": [
+     {
+      "text": "Man perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing case",
+      "for": "deletion",
+      "note": "the case is the outer shell of a word, so its first and last letters are lost"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taken for a ride",
+      "gives": "MISLED",
+      "note": "to be taken for a ride is to be deceived or led astray"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who has been conned after losing his court case.",
+     "walkthrough": "MISLED without its outer letters gives ISLE. The Isle of Man is an island in the Irish Sea, so 'Man perhaps' defines by example.",
+     "definitionFit": "The Isle of Man is one example of an island, which is what an isle is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +247,44 @@
     "text": "Beaten thus, I astounded boxing aficionado",
     "enumeration": "10"
    },
-   "solution": "ENTHUSIAST"
+   "solution": "ENTHUSIAST",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTHUSIAST",
+    "definitions": [
+     {
+      "text": "aficionado",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boxing",
+      "for": "hidden_word",
+      "note": "boxing means enclosing, so the run of words holds the solution inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Beaten thus, I astounded",
+      "gives": "ENTHUSIAST",
+      "note": "the letters run across beatEN THUS I ASTounded"
+     }
+    ],
+    "explanation": {
+     "surface": "A boxing fan stunned to see a fighter beaten in such a way.",
+     "walkthrough": "'Boxing' looks like the sport the fan follows, but it is the signal to look inside the words before it.",
+     "definitionFit": "An aficionado is a keen devotee of some activity, which is exactly what an enthusiast is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "boxing"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +298,71 @@
     "text": "You peeled and ate most exotic fruit",
     "enumeration": "8"
    },
-   "solution": "TOMATOES"
+   "solution": "TOMATOES",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "TOMATOES",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "peeled",
+      "for": "letter_selection",
+      "note": "peeling strips off the skin, so the outside letters go and only the core remains"
+     },
+     {
+      "text": "exotic",
+      "for": "anagram",
+      "note": "exotic suggests something strange and unfamiliar, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "You",
+      "gives": "O",
+      "select": "middle",
+      "note": "the middle letter of You"
+     },
+     {
+      "clueFragment": "ate",
+      "gives": "ATE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "most",
+      "gives": "MOST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OATEMOST",
+       "gives": "TOMATOES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "You peeled some exotic fruit and ate most of it.",
+     "walkthrough": "'Exotic fruit' reads as one phrase, but exotic works on the letters before it and 'fruit' alone is the definition.",
+     "definitionFit": "Botanically the tomato is a fruit, the seed-bearing part of the plant, though cooked as a vegetable."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "exotic"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +376,73 @@
     "text": "Break wind, repelling leaders of Foreign Legion with greeting",
     "enumeration": "6"
    },
-   "solution": "HIATUS"
+   "solution": "HIATUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "HIATUS",
+    "definitions": [
+     {
+      "text": "Break",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders are those at the front, so only the initial letters are taken"
+     },
+     {
+      "text": "repelling",
+      "for": "deletion",
+      "note": "repelling means driving away, so those letters are pushed out of the word"
+     },
+     {
+      "text": "with",
+      "for": "charade",
+      "note": "with means alongside, so the two pieces are simply put together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "HI",
+      "note": "hi is a simple greeting"
+     },
+     {
+      "clueFragment": "wind",
+      "gives": "FLATUS",
+      "note": "flatus is the medical word for intestinal wind"
+     },
+     {
+      "clueFragment": "Foreign Legion",
+      "gives": "FL",
+      "select": "first",
+      "note": "the first letters of Foreign and Legion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HI",
+      "ATUS"
+     ]
+    },
+    "explanation": {
+     "surface": "A crude soldier's joke: a legionnaire breaking wind and greeting his commanders.",
+     "walkthrough": "'Break wind' is a phrase in the surface, but Break is the definition and wind is wordplay: flatus is the medical term for intestinal gas.",
+     "definitionFit": "A hiatus is a pause or gap in a sequence, so it is a break in continuity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +456,63 @@
     "text": "Type endowed with intelligence primarily?",
     "enumeration": "6"
    },
-   "solution": "GENIUS"
+   "solution": "GENIUS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GENIUS",
+    "definitions": [
+     {
+      "text": "Type endowed with intelligence primarily?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means first of all, so only the opening letter is wanted"
+     },
+     {
+      "text": "endowed with",
+      "for": "container",
+      "note": "one word is given another to hold, so it takes the letter inside itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type",
+      "gives": "GENUS",
+      "note": "a genus is a class or kind, a type of thing"
+     },
+     {
+      "clueFragment": "intelligence",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of intelligence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "I",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "Describes a person whose chief gift is a brilliant mind.",
+     "walkthrough": "The whole clue does double duty: it builds the word and also describes it, a type of person gifted with intellect above all.",
+     "definitionFit": "A genius is someone of exceptional intellectual ability, a kind of person blessed mainly with brains."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Type"
+    }
+   }
   },
   {
    "number": 8,
@@ -147,7 +536,67 @@
      }
     ]
    },
-   "solution": "RUNFORIT"
+   "solution": "RUNFORIT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RUN FOR IT",
+    "definitions": [
+     {
+      "text": "escape",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "impeding",
+      "for": "container",
+      "note": "something impeding gets in the way, so it is placed in the middle of the other word"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ladder",
+      "gives": "RUN",
+      "note": "a ladder in tights is a run"
+     },
+     {
+      "clueFragment": "keep",
+      "gives": "FORT",
+      "note": "a keep is the stronghold of a castle, a fort"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RUN",
+      "FOR",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A prisoner's escape ladder blocked from reaching the castle keep.",
+     "walkthrough": "A ladder is British for a run in tights or stockings, and a keep is a castle's central tower.",
+     "definitionFit": "To run for it is an idiom meaning to flee quickly, to make a dash and get away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ladder"
+    }
+   }
   },
   {
    "number": 8,
@@ -167,7 +616,70 @@
      }
     ]
    },
-   "solution": "RHYTHM"
+   "solution": "RHYTHM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RHYTHM",
+    "definitions": [
+     {
+      "text": "Time",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the final letter is dropped"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means lacking its end, so the last letter goes"
+     },
+     {
+      "text": "describing",
+      "for": "container",
+      "note": "to describe can mean to draw around, so one piece encircles the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heard correspondence",
+      "gives": "RHYME",
+      "note": "rhyme is a correspondence of sounds heard at the ends of words"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RHY",
+      "TH",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "Correspondence overheard describing a short article in Time magazine.",
+     "walkthrough": "Time sounds like the magazine but is the musical sense. 'Heard correspondence' is a matching of sounds, as at line ends in verse.",
+     "definitionFit": "In music time and rhythm both mean the regular pattern of beats underlying a piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Time"
+    }
+   }
   },
   {
    "number": 9,
@@ -181,7 +693,52 @@
     "text": "Cheating's \"like, more grown-up\" apparently!",
     "enumeration": "8"
    },
-   "solution": "ADULTERY"
+   "solution": "ADULTERY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADULTERY",
+    "definitions": [
+     {
+      "text": "Cheating",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "apparently"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more grown-up",
+      "gives": "ADULTER",
+      "note": "a jokey comparative of adult"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "Y",
+      "note": "-y is a suffix meaning like or having the quality of, as in silky"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADULTER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone excuses an affair as just being, like, more grown-up.",
+     "walkthrough": "The setter treats the answer as a made-up adjective: ADULTER (more adult) plus the suffix Y, hence 'apparently'.",
+     "definitionFit": "Adultery is sexual infidelity within marriage, the commonest sense of cheating on a partner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "like"
+    }
+   }
   },
   {
    "number": 10,
@@ -195,7 +752,66 @@
     "text": "Conservative prime minister adopting Labour leader's constitution",
     "enumeration": "6"
    },
-   "solution": "HEALTH"
+   "solution": "HEALTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "HEALTH",
+    "definitions": [
+     {
+      "text": "constitution",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader is at the front, so only the first letter is taken"
+     },
+     {
+      "text": "adopting",
+      "for": "container",
+      "note": "adopting means taking in, so the letter is placed inside the other name"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative prime minister",
+      "gives": "HEATH",
+      "note": "Edward Heath was Conservative Prime Minister 1970 to 1974"
+     },
+     {
+      "clueFragment": "Labour",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of Labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEA",
+      "L",
+      "TH"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory leader adopting the Labour leader's constitution, a political paradox.",
+     "walkthrough": "HEATH takes in L: HEA(L)TH. Constitution looks political but here means physical makeup.",
+     "definitionFit": "A person's constitution is their general physical condition, which is their state of health."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "constitution"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +825,55 @@
     "text": "Carers hope to change carpets",
     "enumeration": "10"
    },
-   "solution": "REPROACHES"
+   "solution": "REPROACHES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPROACHES",
+    "definitions": [
+     {
+      "text": "carpets",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change",
+      "for": "anagram",
+      "note": "to change the words is to alter them, so their letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Carers hope",
+      "gives": "CARERSHOPE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CARERSHOPE",
+       "gives": "REPROACHES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Care workers hope to replace a home's carpets.",
+     "walkthrough": "Carpets reads as floor coverings, but here it is the verb: to carpet someone is to tell them off.",
+     "definitionFit": "To carpet is informal British for scolding, called on the carpet; reproaching is expressing disapproval of someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "carpets"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +887,80 @@
     "text": "Pouring rain stopping me finishing water colour",
     "enumeration": "10"
    },
-   "solution": "AQUAMARINE"
+   "solution": "AQUAMARINE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "AQUAMARINE",
+    "definitions": [
+     {
+      "text": "colour",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Pouring",
+      "for": "anagram",
+      "note": "pouring suggests a tumbling flow, so those letters are jumbled"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "to stop something can mean to plug it, so these letters fill a gap inside"
+     },
+     {
+      "text": "finishing",
+      "for": "charade",
+      "note": "finishing means coming at the end, so this part follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "AQUA",
+      "note": "aqua is Latin for water"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rain",
+      "gives": "RAIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AQUA",
+      "M",
+      "ARIN",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAIN",
+       "gives": "ARIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Heavy rain stops me finishing a watercolour painting.",
+     "walkthrough": "'Water colour' suggests painting, but water is wordplay and colour alone is the definition.",
+     "definitionFit": "Aquamarine is a pale blue-green shade named after the gemstone of that hue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "water"
+    }
+   }
   },
   {
    "number": 13,
@@ -243,7 +980,58 @@
      }
     ]
    },
-   "solution": "ORSO"
+   "solution": "ORSO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "OR SO",
+    "definitions": [
+     {
+      "text": "roughly",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced to the last pair",
+      "for": "letter_selection",
+      "note": "cut down to the final two letters, so only the end of that word survives"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spectacled",
+      "gives": "OO",
+      "note": "a pair of spectacles is drawn as two rings, and being spectacled means having them round the eyes, so they frame what follows"
+     },
+     {
+      "clueFragment": "bears",
+      "gives": "RS",
+      "select": "last",
+      "note": "the last two letters of bears"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "Spectacled bears, an endangered species, cut down to the last couple or so.",
+     "walkthrough": "Spectacled bears are a real South American species. Here the word does double duty: the glasses supply two O's and also wear the other letters between them.",
+     "definitionFit": "Or so is an idiom tacked onto a number meaning approximately, about that many."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spectacled"
+    }
+   }
   },
   {
    "number": 14,
@@ -263,7 +1051,65 @@
      }
     ]
    },
-   "solution": "TOSSUP"
+   "solution": "TOSSUP",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TOSS-UP",
+    "definitions": [
+     {
+      "text": "This may be decisive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning round makes the word run the other way"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drinker",
+      "gives": "SOT",
+      "note": "a sot is a habitual drunkard"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "SUP",
+      "note": "to sup is to drink in small mouthfuls"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOS",
+      "SUP"
+     ],
+     "reversals": [
+      {
+       "from": "SOT",
+       "to": "TOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning a drinker against alcohol could be the decisive moment in recovery.",
+     "walkthrough": "The definition is cryptic: a coin flip can settle who starts a contest, so it may decide things.",
+     "definitionFit": "A toss-up is the flip of a coin used to decide something, or a situation whose outcome is even."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "decisive"
+    }
+   }
   },
   {
    "number": 15,
@@ -277,7 +1123,50 @@
     "text": "Race is on to develop plan of action",
     "enumeration": "8"
    },
-   "solution": "SCENARIO"
+   "solution": "SCENARIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCENARIO",
+    "definitions": [
+     {
+      "text": "plan of action",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to develop",
+      "for": "anagram",
+      "note": "developing means evolving into a new form, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Race is on",
+      "gives": "RACEISON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RACEISON",
+       "gives": "SCENARIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pressure is on to draw up a strategy before a deadline.",
+     "definitionFit": "A scenario is a postulated sequence of events, a projected outline of how things will play out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Race"
+    }
+   }
   },
   {
    "number": 16,
@@ -291,7 +1180,65 @@
     "text": "Sickness caused by new service for addicts tackling habit",
     "enumeration": "6"
    },
-   "solution": "NAUSEA"
+   "solution": "NAUSEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "NAUSEA",
+    "definitions": [
+     {
+      "text": "Sickness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tackling",
+      "for": "container",
+      "note": "to tackle is to grapple with something, wrapping round it"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is a standard abbreviation for new"
+     },
+     {
+      "clueFragment": "service for addicts",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous is a support service for people addicted to drink"
+     },
+     {
+      "clueFragment": "habit",
+      "gives": "USE",
+      "note": "use as in regular custom or practice, a habit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "A",
+      "USE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Nausea brought on by a new rehab programme tackling a drug habit.",
+     "walkthrough": "N, then AA wrapping USE: N + A(USE)A.",
+     "definitionFit": "Nausea is a feeling of sickness in the stomach with an urge to vomit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "habit"
+    }
+   }
   },
   {
    "number": 17,
@@ -305,7 +1252,52 @@
     "text": "Co-ordinate SAS basic training",
     "enumeration": "8"
    },
-   "solution": "ABSCISSA"
+   "solution": "ABSCISSA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ABSCISSA",
+    "definitions": [
+     {
+      "text": "Co-ordinate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "training",
+      "for": "anagram",
+      "note": "training puts recruits through drills that reshape them, so the letters are reformed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "SAS basic",
+      "gives": "SASBASIC",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SASBASIC",
+       "gives": "ABSCISSA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An order to co-ordinate basic training for the SAS, Britain's special forces.",
+     "walkthrough": "Co-ordinate reads as a verb organising the training, but it is a noun from geometry.",
+     "definitionFit": "The abscissa is the horizontal or x co-ordinate of a point on a graph."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Co-ordinate"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1311,55 @@
     "text": "No longer bound after one has a change of heart",
     "enumeration": "6"
    },
-   "solution": "UNTIED"
+   "solution": "UNTIED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNTIED",
+    "definitions": [
+     {
+      "text": "No longer bound",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of heart",
+      "for": "anagram",
+      "note": "the heart is the middle of a word, so its central letters change places"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "UNITED",
+      "note": "people who are as one are united"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UNITED",
+       "gives": "UNTIED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple are no longer bound together after one partner has a change of heart.",
+     "walkthrough": "Only the middle I and T swap, turning UNITED into the answer.",
+     "definitionFit": "Untied means unfastened or released, so something untied is no longer tied or bound up."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "heart"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1373,58 @@
     "text": "Fashion's not out to make human condition better?",
     "enumeration": "4"
    },
-   "solution": "CURE"
+   "solution": "CURE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CURE",
+    "definitions": [
+     {
+      "text": "make human condition better",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so the following word is taken away"
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashion",
+      "gives": "COUTURE",
+      "note": "couture is high fashion design"
+     },
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURE"
+     ]
+    },
+    "explanation": {
+     "surface": "A philosophical claim that fashion, never out of style, improves the human condition.",
+     "walkthrough": "COUTURE minus OUT leaves C...URE. The question mark flags the playful definition: a human condition here is an illness.",
+     "definitionFit": "To cure is to heal an illness, making a patient's medical condition better."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "condition"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1438,58 @@
     "text": "Reveal surname periodically deleted on request",
     "enumeration": "6"
    },
-   "solution": "UNMASK"
+   "solution": "UNMASK",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "UNMASK",
+    "definitions": [
+     {
+      "text": "Reveal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically deleted",
+      "for": "letter_selection",
+      "note": "removing letters at regular intervals leaves every other letter behind"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surname",
+      "gives": "UNM",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of surname"
+     },
+     {
+      "clueFragment": "request",
+      "gives": "ASK",
+      "note": "to ask is to make a request"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNM",
+      "ASK"
+     ]
+    },
+    "explanation": {
+     "surface": "A surname redacted from a document is disclosed when someone asks.",
+     "definitionFit": "To unmask is to expose someone's true identity, so to reveal who or what they are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "deleted"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1503,77 @@
     "text": "Economic policy of Margaret Thatcher initially exposed coal miners' suffering",
     "enumeration": "10"
    },
-   "solution": "MONETARISM"
+   "solution": "MONETARISM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MONETARISM",
+    "definitions": [
+     {
+      "text": "Economic policy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the start, so the opening letters are used"
+     },
+     {
+      "text": "exposed",
+      "for": "letter_selection",
+      "note": "exposed means stripped of its covering, so the outside letters are removed"
+     },
+     {
+      "text": "suffering",
+      "for": "anagram",
+      "note": "suffering suggests being in a bad way, so the letters are knocked into a new order"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Margaret Thatcher",
+      "gives": "MT",
+      "select": "first",
+      "note": "the initial letters of Margaret and Thatcher"
+     },
+     {
+      "clueFragment": "coal",
+      "gives": "OA",
+      "select": "middle",
+      "note": "the inner letters of coal"
+     },
+     {
+      "clueFragment": "miners",
+      "gives": "MINERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MTOAMINERS",
+       "gives": "MONETARISM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Thatcher's economic policy left coal miners suffering, as in the 1984-85 strike.",
+     "walkthrough": "The surface is apt: Thatcher's government pursued this policy and closed coal pits.",
+     "definitionFit": "Monetarism is the economic theory of controlling inflation through the money supply, adopted by Thatcher's government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suffering"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1587,59 @@
     "text": "Note band leader's dropped in pitch",
     "enumeration": "6"
    },
-   "solution": "REMARK"
+   "solution": "REMARK",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "REMARK",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leader's dropped",
+      "for": "deletion",
+      "note": "the leader is the front letter, and dropping it removes that letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "band",
+      "gives": "REM",
+      "note": "R.E.M. is an American rock band"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "DARK",
+      "note": "as in pitch-dark, completely black"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REM",
+      "ARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A note that a band's leader has dropped out of tune.",
+     "walkthrough": "Note and pitch suggest music, but pitch here means dark, as in pitch black.",
+     "definitionFit": "A note can be a brief written or spoken comment, which is a remark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pitch"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1653,61 @@
     "text": "Reduce quality of broadcast following 1pm broadcast",
     "enumeration": "6"
    },
-   "solution": "IMPAIR"
+   "solution": "IMPAIR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IMPAIR",
+    "definitions": [
+     {
+      "text": "Reduce quality of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so this piece is placed behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1pm",
+      "gives": "IPM",
+      "note": "the digit 1 is read as the letter I"
+     },
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air something is to broadcast it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "AIR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IPM",
+       "gives": "IMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that a programme's quality suffers when it follows the 1pm news.",
+     "walkthrough": "The second 'broadcast' scatters the letters of 1pm, with 1 read as I; the first gives AIR, which follows them.",
+     "definitionFit": "To impair is to weaken or damage something, lowering its quality or strength."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "1pm"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1721,39 @@
     "text": "What might make one restless?",
     "enumeration": "8"
    },
-   "solution": "INSOMNIA"
+   "solution": "INSOMNIA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INSOMNIA",
+    "definitions": [
+     {
+      "text": "What might make one restless?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What might make one restless?",
+      "note": "surface reading: something that makes a person fidgety or uneasy"
+     },
+     {
+      "clueFragment": "restless",
+      "note": "setter's reading: restless taken literally as without rest, unable to sleep"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Restless usually means agitated; read literally it means deprived of rest at night.",
+     "definitionFit": "Insomnia is chronic inability to sleep, a condition that leaves a sufferer without rest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "restless"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1767,53 @@
     "text": "Bar raising large sum of money",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STOP",
+    "definitions": [
+     {
+      "text": "Bar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raising",
+      "for": "reversal",
+      "note": "in a down entry, raising lifts the word so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "large sum of money",
+      "gives": "POTS",
+      "note": "pots of money means a great deal of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOP"
+     ],
+     "reversals": [
+      {
+       "from": "POTS",
+       "to": "STOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bar raising a large sum for charity.",
+     "definitionFit": "To bar something is to block or prevent it, which is to stop it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Bar"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1827,54 @@
     "text": "Set question almost provided written endorsement",
     "enumeration": "8"
    },
-   "solution": "ASSIGNED"
+   "solution": "ASSIGNED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ASSIGNED",
+    "definitions": [
+     {
+      "text": "Set",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the final letter is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "question",
+      "gives": "ASK",
+      "note": "to ask is to question"
+     },
+     {
+      "clueFragment": "provided written endorsement",
+      "gives": "SIGNED",
+      "note": "to sign is to endorse something in writing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SIGNED"
+     ]
+    },
+    "explanation": {
+     "surface": "An exam question set almost as soon as a signature endorsed it.",
+     "definitionFit": "Set as in homework set by a teacher means allocated, which is what assigned means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Set"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1888,56 @@
     "text": "This unpleasant person pursues public relations to make headway",
     "enumeration": "6"
    },
-   "solution": "OGRESS"
+   "solution": "OGRESS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OGRESS",
+    "definitions": [
+     {
+      "text": "This unpleasant person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pursues",
+      "for": "deletion",
+      "note": "pursuing means following behind, so the answer is what comes after that abbreviation in a longer word"
+     }
+    ],
+    "linkWords": [
+     "to make"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "headway",
+      "gives": "PROGRESS",
+      "note": "to make headway is to make progress"
+     },
+     {
+      "clueFragment": "public relations",
+      "gives": "PR",
+      "note": "PR is the usual abbreviation for public relations"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OGRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "An unpleasant person chases good publicity to get ahead.",
+     "walkthrough": "The answer, placed after PR, would make the word for headway; take PR away to find it.",
+     "definitionFit": "An ogress is a female ogre, a monstrous or cruel woman, so a very unpleasant person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pursues"
+    }
+   }
   }
  ]
 }
