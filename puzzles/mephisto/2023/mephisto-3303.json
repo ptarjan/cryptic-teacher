@@ -38,6 +38,9 @@
   "date": "2023-12-24",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,67 @@
     "text": "IT interface is something very difficult to put back",
     "enumeration": "6"
    },
-   "solution": "SPIGOT"
+   "solution": "SPIGOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SPIGOT",
+    "definitions": [
+     {
+      "text": "IT interface",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put back",
+      "for": "reversal",
+      "note": "putting a word back sends its letters the other way, last to first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is",
+      "gives": "S",
+      "note": "the 's contraction of is"
+     },
+     {
+      "clueFragment": "something very difficult",
+      "gives": "PIG",
+      "note": "a pig of a job is something very hard to do"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written, then turned round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PIG",
+      "OT"
+     ],
+     "reversals": [
+      {
+       "from": "TO",
+       "to": "OT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A grumble that some computer connection is a nightmare to refit.",
+     "walkthrough": "Only the little word 'to' is turned round; S and PIG stand as they are. A pig is informal for a horribly awkward task.",
+     "definitionFit": "A spigot is the plug end of a pipe that slots into a socket, so it is a connecting point; the setter extends that to computing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "IT"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +128,56 @@
     "text": "Perhaps tête-à-tête is nothing at all about nothing",
     "enumeration": "4"
    },
-   "solution": "SOFA"
+   "solution": "SOFA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOFA",
+    "definitions": [
+     {
+      "text": "Perhaps tête-à-tête",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nothing at all",
+      "gives": "SFA",
+      "note": "sweet FA, slang for nothing whatsoever"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "zero, the round figure for nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "O",
+      "FA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims an intimate chat amounts to nothing much at all.",
+     "walkthrough": "A tête-à-tête is also an S-shaped two-seater couch, which is why 'Perhaps' flags it as one example. Sweet FA (Fanny Adams) is British slang for nothing.",
+     "definitionFit": "A tête-à-tête is a kind of settee for two facing sitters, an example of the broader piece of furniture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tête-à-tête"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +191,88 @@
     "text": "Outside ruin in Delphi spending day raving about loving Greece",
     "enumeration": "12"
    },
-   "solution": "PHILHELLENIC"
+   "solution": "PHILHELLENIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "PHILHELLENIC",
+    "definitions": [
+     {
+      "text": "loving Greece",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Outside",
+      "for": "container",
+      "note": "the rest of the letters sit outside, wrapping round one piece"
+     },
+     {
+      "text": "spending",
+      "for": "deletion",
+      "note": "spending a thing means giving it up, so a letter is dropped"
+     },
+     {
+      "text": "raving",
+      "for": "anagram",
+      "note": "raving means wild and disordered, so letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Delphi",
+      "gives": "DELPHI",
+      "note": "the Greek oracle site, taken as written"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the abbreviation for day, removed"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c for circa, about"
+     },
+     {
+      "clueFragment": "ruin",
+      "gives": "HELL",
+      "note": "to go to hell is to be ruined; hell is ruin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHIL",
+      "HELL",
+      "ENIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INELPHIC",
+       "gives": "PHILENIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in ancient ruins at Delphi, raving about a love of Greece.",
+     "walkthrough": "'Delphi' makes the surface feel Greek, but it is only fodder; 'ruin' is the word that sits in the middle, and 'about' is a one-letter abbreviation joining the jumble.",
+     "definitionFit": "A philhellene is an admirer of Greece; the adjective describes fondness for Greek people and culture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ruin"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +286,65 @@
     "text": "Poetry school’s aim forged with energy",
     "enumeration": "7"
    },
-   "solution": "IMAGISM"
+   "solution": "IMAGISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "IMAGISM",
+    "definitions": [
+     {
+      "text": "Poetry school",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forged",
+      "for": "anagram",
+      "note": "forged means shaped or fashioned anew, so letters are remade in a new order"
+     }
+    ],
+    "linkWords": [
+     "’s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aim",
+      "gives": "IMA",
+      "note": "the word to be rearranged"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "GISM",
+      "note": "gism (or jism) is an old word in Chambers for energy or force"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMA",
+      "GISM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIM",
+       "gives": "IMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poetic movement's goal hammered out with vigour.",
+     "walkthrough": "GISM is a rare Chambers word for energy, a classic Mephisto building block.",
+     "definitionFit": "Imagism was an early twentieth-century movement of poets, led by Pound, who sought clear precise images."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +358,54 @@
     "text": "Only child to raise? Not quite a case for protection",
     "enumeration": "5"
    },
-   "solution": "OCREA"
+   "solution": "OCREA",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OCREA",
+    "definitions": [
+     {
+      "text": "a case for protection",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "not quite all of it means the final letter is cut off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only child",
+      "gives": "OC",
+      "note": "abbreviated to its initials"
+     },
+     {
+      "clueFragment": "to raise",
+      "gives": "REAR",
+      "note": "to rear is to raise, as with children; last letter lost"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "REA"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about bringing up a lone child, a protective case.",
+     "definitionFit": "An ocrea is a botanical sheath round a plant stem formed from stipules, a protective covering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +419,58 @@
     "text": "Agitating more with thin particle",
     "enumeration": "8"
    },
-   "solution": "THERMION"
+   "solution": "THERMION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THERMION",
+    "definitions": [
+     {
+      "text": "particle",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Agitating",
+      "for": "anagram",
+      "note": "agitating stirs things up, so the letters get shaken into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more",
+      "gives": "MORE",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "thin",
+      "gives": "THIN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MORETHIN",
+       "gives": "THERMION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook stirring more into something too thin.",
+     "definitionFit": "A thermion is an ion or electron given off by a hot body, a kind of charged particle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thin"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +484,57 @@
     "text": "Chambers leads to albergo’s definition as “European inn”",
     "enumeration": "6"
    },
-   "solution": "POSADA"
+   "solution": "POSADA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "POSADA",
+    "definitions": [
+     {
+      "text": "European inn",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "leads are the front runners, so only the opening letter of each word counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chambers",
+      "gives": "POS",
+      "note": "po is a chamber pot; plural pos"
+     },
+     {
+      "clueFragment": "albergo’s definition as",
+      "gives": "ADA",
+      "select": "first",
+      "note": "first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "ADA"
+     ]
+    },
+    "explanation": {
+     "surface": "It looks like a note that the Chambers dictionary defines albergo as a European inn.",
+     "walkthrough": "Chambers wants to be the dictionary that Mephisto solvers use; here it is chamber pots, po being the British nursery word. Albergo is Italian for inn.",
+     "definitionFit": "A posada is a Spanish inn or hotel, so a European inn."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Chambers"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +548,71 @@
     "text": "What’s opening offer on my US works bearing author’s name?",
     "enumeration": "7"
    },
-   "solution": "ONYMOUS"
+   "solution": "ONYMOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ONYMOUS",
+    "definitions": [
+     {
+      "text": "bearing author’s name",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is the very start, so just the first letter is used"
+     },
+     {
+      "text": "works",
+      "for": "anagram",
+      "note": "works suggests something being worked over and reshaped, so letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "What’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offer",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "on my US",
+      "gives": "NYMOUS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "NYMOUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONMYUS",
+       "gives": "NYMOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A publisher's question about the first offer for an author's American works.",
+     "walkthrough": "The word is the rare opposite of anonymous.",
+     "definitionFit": "Onymous describes a work that carries its writer's name, the reverse of anonymous."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +626,55 @@
     "text": "Refuse to learn about comedian",
     "enumeration": "6"
    },
-   "solution": "SEWAGE"
+   "solution": "SEWAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEWAGE",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to learn",
+      "gives": "SEE",
+      "note": "to see is to find out or learn"
+     },
+     {
+      "clueFragment": "comedian",
+      "gives": "WAG",
+      "note": "a wag is a joker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "WAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A comedian who will not learn.",
+     "walkthrough": "'Refuse' reads as a verb but is the noun, rubbish.",
+     "definitionFit": "Sewage is waste matter carried off by drains, a kind of refuse or rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +688,48 @@
     "text": "Eager to behead giant",
     "enumeration": "4"
    },
-   "solution": "AGOG"
+   "solution": "AGOG",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AGOG",
+    "definitions": [
+     {
+      "text": "Eager",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to behead",
+      "for": "deletion",
+      "note": "beheading cuts off the head, so the first letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "giant",
+      "gives": "MAGOG",
+      "note": "Magog, one of the legendary giants Gog and Magog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AGOG"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone keen to cut a giant down to size.",
+     "walkthrough": "Gog and Magog are the two giants of London legend whose statues stand in the Guildhall.",
+     "definitionFit": "Agog means full of eager excitement or anticipation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "giant"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +743,51 @@
     "text": "I’m out retired hurt — not exactly a gem",
     "enumeration": "12"
    },
-   "solution": "DUMORTIERITE"
+   "solution": "DUMORTIERITE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DUMORTIERITE",
+    "definitions": [
+     {
+      "text": "not exactly a gem",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hurt",
+      "for": "anagram",
+      "note": "something hurt is damaged and bent out of shape, so letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m out retired",
+      "gives": "IMOUTRETIRED",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMOUTRETIRED",
+       "gives": "DUMORTIERITE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer explaining he is out, having retired hurt.",
+     "walkthrough": "In cricket a batsman who leaves injured is 'retired hurt', which makes the anagram signal look like part of a scoreboard entry.",
+     "definitionFit": "Dumortierite is a blue borosilicate mineral, sometimes cut as an ornamental stone but not a precious one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +801,50 @@
     "text": "Most excited rocking ’n’ rolling in States",
     "enumeration": "8"
    },
-   "solution": "ANTSIEST"
+   "solution": "ANTSIEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ANTSIEST",
+    "definitions": [
+     {
+      "text": "Most excited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rocking ’n’ rolling",
+      "for": "anagram",
+      "note": "rocking and rolling are both wild movements, so the letters are tumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in States",
+      "gives": "INSTATES",
+      "note": "the letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSTATES",
+       "gives": "ANTSIEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The thrill of rock 'n' roll across the United States.",
+     "definitionFit": "Antsy means fidgety and restless, so the superlative describes the most agitated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rocking"
+    }
+   }
   },
   {
    "number": 12,
@@ -225,7 +864,78 @@
      }
     ]
    },
-   "solution": "MACHINEGUN"
+   "solution": "MACHINEGUN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "MACHINE GUN",
+    "definitions": [
+     {
+      "text": "a lethal weapon",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "killing",
+      "for": "deletion",
+      "note": "killing removes something entirely, so a letter is taken away"
+     },
+     {
+      "text": "shot",
+      "for": "anagram",
+      "note": "shot means ruined or wrecked, so the letters are scrambled"
+     },
+     {
+      "text": "clipping",
+      "for": "container",
+      "note": "clipping means holding fast, as a clip grips, so one part is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Magnum",
+      "gives": "MAGNUM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "mark",
+      "gives": "M",
+      "note": "M for mark, the old German currency; one M is removed"
+     },
+     {
+      "clueFragment": "piece of backbone",
+      "gives": "CHINE",
+      "note": "a chine is a cut of meat including the backbone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "CHINE",
+      "GUN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AGNUM",
+       "gives": "MAGUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A violent scene with a Magnum firing and spine-shattering wounds.",
+     "walkthrough": "A Magnum is also a powerful handgun, so the surface keeps the answer in view while the word is only fodder.",
+     "definitionFit": "A machine gun fires rapid continuous bursts, a deadly automatic firearm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 13,
@@ -239,7 +949,57 @@
     "text": "Heat’s requiring aircon to be fitted in old cabs",
     "enumeration": "7"
    },
-   "solution": "FIACRES"
+   "solution": "FIACRES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FIACRES",
+    "definitions": [
+     {
+      "text": "old cabs",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be fitted in",
+      "for": "container",
+      "note": "fitting one thing into another places it inside"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heat’s",
+      "gives": "FIRES",
+      "note": "heats as a verb, fires"
+     },
+     {
+      "clueFragment": "aircon",
+      "gives": "AC",
+      "note": "air conditioning abbreviated"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FI",
+      "AC",
+      "RES"
+     ]
+    },
+    "explanation": {
+     "surface": "Hot weather means old taxis need air conditioning installed.",
+     "definitionFit": "A fiacre is a small four-wheeled French carriage for hire, a horse-drawn cab of former times."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Heat’s"
+    }
+   }
   },
   {
    "number": 14,
@@ -253,7 +1013,41 @@
     "text": "Plant organism found in botanical gardens",
     "enumeration": "4"
    },
-   "solution": "ALGA"
+   "solution": "ALGA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALGA",
+    "definitions": [
+     {
+      "text": "Plant organism",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found in",
+      "for": "hidden_word",
+      "note": "found in means it is sitting inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "botanical gardens",
+      "gives": "ALGA",
+      "note": "spans the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A plant living in the botanic garden.",
+     "definitionFit": "An alga is a simple, chiefly aquatic plant-like organism such as seaweed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -267,7 +1061,72 @@
     "text": "Ideal parents in my opinion should insert silver spoon at the beginning",
     "enumeration": "6"
    },
-   "solution": "IMAGOS"
+   "solution": "IMAGOS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "IMAGOS",
+    "definitions": [
+     {
+      "text": "Ideal parents",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the beginning",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter alone"
+     },
+     {
+      "text": "insert",
+      "for": "container",
+      "note": "inserting something puts it inside another"
+     }
+    ],
+    "linkWords": [
+     "should"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in my opinion",
+      "gives": "IMO",
+      "note": "the texting abbreviation"
+     },
+     {
+      "clueFragment": "silver",
+      "gives": "AG",
+      "note": "Ag is the chemical symbol for silver"
+     },
+     {
+      "clueFragment": "spoon",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IM",
+      "AG",
+      "O",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An opinion that ideal parents should give a child a silver spoon from birth.",
+     "walkthrough": "Born with a silver spoon is the idiom the surface leans on.",
+     "definitionFit": "In psychoanalysis an imago is an idealised mental image of a person, especially a parent, formed in childhood."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "spoon"
+    }
+   }
   },
   {
    "number": 16,
@@ -281,7 +1140,79 @@
     "text": "Fungicide defiling most of the air on top of mould",
     "enumeration": "6"
    },
-   "solution": "THIRAM"
+   "solution": "THIRAM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THIRAM",
+    "definitions": [
+     {
+      "text": "Fungicide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of a word is all bar its last letter"
+     },
+     {
+      "text": "defiling",
+      "for": "anagram",
+      "note": "defiling spoils and corrupts, so letters are disordered"
+     },
+     {
+      "text": "on top of",
+      "for": "letter_selection",
+      "note": "the top of a word is its first letter alone"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "last letter dropped"
+     },
+     {
+      "clueFragment": "air",
+      "gives": "IRA",
+      "note": "rearranged"
+     },
+     {
+      "clueFragment": "mould",
+      "gives": "M",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "IRA",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AIR",
+       "gives": "IRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spray that pollutes the air above mouldy growth.",
+     "definitionFit": "Thiram is a sulphur compound used as an agricultural fungicide and seed treatment."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "defiling"
+    }
+   }
   },
   {
    "number": 16,
@@ -301,7 +1232,55 @@
      }
     ]
    },
-   "solution": "TEASHOPS"
+   "solution": "TEASHOPS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "TEA SHOPS",
+    "definitions": [
+     {
+      "text": "Cafés",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortened",
+      "for": "deletion",
+      "note": "shortening trims a word, so its final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kiddy",
+      "gives": "TEASE",
+      "note": "to kid is to tease; last letter cut"
+     },
+     {
+      "clueFragment": "dance parties",
+      "gives": "HOPS",
+      "note": "a hop is an informal dance party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEAS",
+      "HOPS"
+     ]
+    },
+    "explanation": {
+     "surface": "Cafés cutting back on children's dance parties.",
+     "walkthrough": "'kiddy' looks like childish, but it is read as joshing, the sense of kid meaning tease.",
+     "definitionFit": "Tea shops are small cafés serving tea and light meals, a near synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kiddy"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1294,64 @@
     "text": "It’s sordid grabbing last of rhino like a shark",
     "enumeration": "8"
    },
-   "solution": "SQUALOID"
+   "solution": "SQUALOID",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SQUALOID",
+    "definitions": [
+     {
+      "text": "like a shark",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "the last of a word is its final letter"
+     },
+     {
+      "text": "grabbing",
+      "for": "container",
+      "note": "grabbing takes hold of something and keeps it inside"
+     }
+    ],
+    "linkWords": [
+     "It’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sordid",
+      "gives": "SQUALID",
+      "note": "squalid means sordid"
+     },
+     {
+      "clueFragment": "rhino",
+      "gives": "O",
+      "select": "last",
+      "note": "final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SQUAL",
+      "O",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A grim scene of poachers seizing what is left of a rhino.",
+     "definitionFit": "Squaloid means resembling a dogfish or shark, from Latin squalus, a kind of shark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sordid"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1365,57 @@
     "text": "White lady in India offering alternative in sporty costume",
     "enumeration": "4"
    },
-   "solution": "GORI"
+   "solution": "GORI",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GORI",
+    "definitions": [
+     {
+      "text": "White lady in India",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "offering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sporty costume",
+      "gives": "GI",
+      "note": "a gi is the white suit worn for judo and karate"
+     },
+     {
+      "clueFragment": "alternative",
+      "gives": "OR",
+      "note": "or introduces an alternative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "OR",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman abroad offering an alternative outfit for sport.",
+     "definitionFit": "Gori is the Hindi word for a fair-skinned or white woman, a term used in India."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "offering"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1429,68 @@
     "text": "Spread better saving skin with quite good form",
     "enumeration": "9"
    },
-   "solution": "ETIQUETTE"
+   "solution": "ETIQUETTE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ETIQUETTE",
+    "definitions": [
+     {
+      "text": "good form",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saving skin",
+      "for": "deletion",
+      "note": "saving means except, so the outer layer of letters is left out"
+     },
+     {
+      "text": "Spread",
+      "for": "anagram",
+      "note": "spread means laid out loosely, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "better",
+      "gives": "BETTER",
+      "note": "taken as written; first and last letters removed"
+     },
+     {
+      "clueFragment": "quite",
+      "gives": "QUITE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ETIQUETTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ETTEQUITE",
+       "gives": "ETIQUETTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bookmaker's spread-betting advice involving skin in the game.",
+     "walkthrough": "'Spread better' suggests a spread-betting gambler, but 'Spread' is the anagram signal and 'better' is fodder.",
+     "definitionFit": "Etiquette is the code of polite conduct, what the British call good form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Spread"
+    }
+   }
   },
   {
    "number": 20,
@@ -357,7 +1504,63 @@
     "text": "Tense hands clenching Indian copper once in police station in Mumbai",
     "enumeration": "7"
    },
-   "solution": "THANNAH"
+   "solution": "THANNAH",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "THANNAH",
+    "definitions": [
+     {
+      "text": "police station in Mumbai",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clenching",
+      "for": "container",
+      "note": "clenching grips something tightly inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tense",
+      "gives": "T",
+      "note": "T is the grammar abbreviation for tense"
+     },
+     {
+      "clueFragment": "hands",
+      "gives": "HH",
+      "note": "h abbreviates hand, so two hands make two letters"
+     },
+     {
+      "clueFragment": "Indian copper once",
+      "gives": "ANNA",
+      "note": "the anna, a former small Indian coin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "ANNA",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A tense officer gripping an old coin inside a Mumbai police station.",
+     "walkthrough": "'copper' suggests a policeman, but it is a copper coin.",
+     "definitionFit": "A thanna, also thannah, is a police station in India."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 21,
@@ -371,7 +1574,51 @@
     "text": "Nice duster, light and practicable",
     "enumeration": "7"
    },
-   "solution": "TORCHON"
+   "solution": "TORCHON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TORCHON",
+    "definitions": [
+     {
+      "text": "Nice duster",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "light",
+      "gives": "TORCH",
+      "note": "a torch is a light"
+     },
+     {
+      "clueFragment": "practicable",
+      "gives": "ON",
+      "note": "on, as in 'that plan is on', means feasible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORCH",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A neat feather duster that is light and easy to use.",
+     "walkthrough": "'Nice' with its capital is the French city, standing for French.",
+     "definitionFit": "A torchon is French for a duster or dishcloth, the sort used in Nice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 22,
@@ -385,7 +1632,51 @@
     "text": "Arsenal changing hands? This may raise poor support",
     "enumeration": "9"
    },
-   "solution": "ALMSHOUSE"
+   "solution": "ALMSHOUSE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "ALMSHOUSE",
+    "definitions": [
+     {
+      "text": "This may raise poor support",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing hands",
+      "for": "substitution",
+      "note": "changing hands swaps right for left, so one letter is exchanged for another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arsenal",
+      "gives": "ARMSHOUSE",
+      "note": "an arsenal is a store or house for arms"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "MSHOUSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan asks whether a transfer at Arsenal might help a weak defence.",
+     "walkthrough": "R for right becomes L for left. Arsenal looks like the football club but is a weapons store.",
+     "definitionFit": "An almshouse is a charitable home for the poor, so it is something that may be built to support them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Arsenal"
+    }
+   }
   },
   {
    "number": 23,
@@ -399,7 +1690,54 @@
     "text": "Tired of Milton’s effect in Sanskrit?",
     "enumeration": "6"
    },
-   "solution": "SWINKT"
+   "solution": "SWINKT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWINKT",
+    "definitions": [
+     {
+      "text": "Tired of Milton’s",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts one piece within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sanskrit",
+      "gives": "SKT",
+      "note": "the standard abbreviation for Sanskrit"
+     },
+     {
+      "clueFragment": "effect",
+      "gives": "WIN",
+      "note": "to win is to bring about or achieve, to effect"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "WIN",
+      "KT"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about the effect of Milton's work in Sanskrit translation.",
+     "definitionFit": "Swinkt is an old past participle of swink, to toil, used by Milton to mean worn out with labour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "effect"
+    }
+   }
   },
   {
    "number": 24,
@@ -413,7 +1751,55 @@
     "text": "Slimmer for starters cops salad dish",
     "enumeration": "4"
    },
-   "solution": "SLAW"
+   "solution": "SLAW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SLAW",
+    "definitions": [
+     {
+      "text": "salad dish",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for starters",
+      "for": "letter_selection",
+      "note": "starters come first, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slimmer",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "cops",
+      "gives": "LAW",
+      "note": "the law is slang for the police"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LAW"
+     ]
+    },
+    "explanation": {
+     "surface": "A dieter orders a starter; the police turn up with a salad.",
+     "definitionFit": "Slaw, short for coleslaw, is a shredded cabbage salad."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "starters"
+    }
+   }
   },
   {
    "number": 25,
@@ -427,7 +1813,78 @@
     "text": "Serenade directed at me involves Romeo pursuing love",
     "enumeration": "6"
    },
-   "solution": "AMORET"
+   "solution": "AMORET",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "charade"
+    ],
+    "answer": "AMORET",
+    "definitions": [
+     {
+      "text": "Serenade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "directed",
+      "for": "anagram",
+      "note": "directed means arranged or set in order by someone, so letters are rearranged"
+     },
+     {
+      "text": "involves",
+      "for": "container",
+      "note": "involving something takes it inside"
+     },
+     {
+      "text": "pursuing",
+      "for": "charade",
+      "note": "pursuing means following, so one letter comes after the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at me",
+      "gives": "AMET",
+      "note": "rearranged, then split round the middle"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "zero in tennis scoring"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "R is Romeo in the radio alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "O",
+      "R",
+      "ET"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ATME",
+       "gives": "AMET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lover serenades me, and Romeo is chasing love.",
+     "definitionFit": "Chambers gives amoret as a love song or love sonnet, so a serenade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "directed"
+    }
+   }
   },
   {
    "number": 26,
@@ -441,7 +1898,60 @@
     "text": "Muslim that’s learned way of working round everything",
     "enumeration": "5"
    },
-   "solution": "MOLLA"
+   "solution": "MOLLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MOLLA",
+    "definitions": [
+     {
+      "text": "Muslim that’s learned",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning round sends the letters in the other direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "way of working",
+      "gives": "MO",
+      "note": "modus operandi abbreviated"
+     },
+     {
+      "clueFragment": "everything",
+      "gives": "ALL",
+      "note": "all is everything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "LLA"
+     ],
+     "reversals": [
+      {
+       "from": "ALL",
+       "to": "LLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Muslim scholar who has learned a method covering everything.",
+     "definitionFit": "Molla is a variant of mullah, a Muslim scholar or teacher of religious law."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 27,
@@ -455,7 +1965,65 @@
     "text": "Cuckoo unmoved about discarded amount of corn",
     "enumeration": "6"
    },
-   "solution": "HEMINA"
+   "solution": "HEMINA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HEMINA",
+    "definitions": [
+     {
+      "text": "amount of corn",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discarded",
+      "for": "deletion",
+      "note": "discarded means thrown out, so the letter is removed"
+     },
+     {
+      "text": "Cuckoo",
+      "for": "anagram",
+      "note": "cuckoo means crazy, so the letters go haywire"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "unmoved",
+      "gives": "MACHINE",
+      "note": "a machine is an unfeeling, mechanical person"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c for circa, removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEMINA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MAHINE",
+       "gives": "HEMINA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crazy bird that sits still when its grain is thrown away.",
+     "walkthrough": "'unmoved' has to be turned into a noun for an unfeeling person before any letters can come out.",
+     "definitionFit": "A hemina was an ancient Roman measure of volume, about half a pint, used for dry goods like grain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cuckoo"
+    }
+   }
   },
   {
    "number": 28,
@@ -469,7 +2037,50 @@
     "text": "Plastic laminate could be for this mineral",
     "enumeration": "4"
    },
-   "solution": "MICA"
+   "solution": "MICA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MICA",
+    "definitions": [
+     {
+      "text": "mineral",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Plastic laminate",
+      "gives": "FORMICA",
+      "note": "Formica is a trade name for a plastic laminate"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "the word itself, taken off the front"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MICA"
+     ]
+    },
+    "explanation": {
+     "surface": "A worktop laminate might be used in place of a natural stone.",
+     "walkthrough": "The clue says the laminate could be 'for' plus this, so removing those three letters leaves the answer.",
+     "definitionFit": "Mica is a silicate mineral that splits into thin flexible sheets."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 29,
@@ -483,7 +2094,43 @@
     "text": "Look into fortune-teller’s crystal?",
     "enumeration": "4"
    },
-   "solution": "SCRY"
+   "solution": "SCRY",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "SCRY",
+    "definitions": [
+     {
+      "text": "Look into fortune-teller’s crystal?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "hidden_word",
+      "note": "looking into something finds what lies inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fortune-teller’s crystal",
+      "gives": "SCRY",
+      "note": "spans the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A clairvoyant gazing into a crystal ball.",
+     "walkthrough": "The whole clue is both the definition and the instruction.",
+     "definitionFit": "To scry is to foretell the future by gazing into a crystal ball or other reflective surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 30,
@@ -497,7 +2144,54 @@
     "text": "Year with no right to study go to Spenser",
     "enumeration": "4"
    },
-   "solution": "YEAD"
+   "solution": "YEAD",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "YEAD",
+    "definitions": [
+     {
+      "text": "go to Spenser",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no right",
+      "for": "deletion",
+      "note": "with no right means the letter for right is taken out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Year",
+      "gives": "Y",
+      "note": "Y abbreviates year"
+     },
+     {
+      "clueFragment": "to study",
+      "gives": "READ",
+      "note": "to read a subject is to study it at university; R removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A year off before going to university to study.",
+     "definitionFit": "Yead is an archaic form of yede, to go, found in Spenser's poetry."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Year"
+    }
+   }
   },
   {
    "number": 31,
@@ -511,7 +2205,65 @@
     "text": "Radical boor reflecting on call to turn to the left",
     "enumeration": "7"
    },
-   "solution": "BOLSHIE"
+   "solution": "BOLSHIE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BOLSHIE",
+    "definitions": [
+     {
+      "text": "Radical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reflecting",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "boor",
+      "gives": "SLOB",
+      "note": "a slob is an uncouth person"
+     },
+     {
+      "clueFragment": "call to turn to the left",
+      "gives": "HIE",
+      "note": "hie is a dialect call to a horse to turn left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOLS",
+      "HIE"
+     ],
+     "reversals": [
+      {
+       "from": "SLOB",
+       "to": "BOLS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A political firebrand whose thoughts turn leftwards.",
+     "walkthrough": "'turn to the left' suggests politics, but it is a carter's call to a horse.",
+     "definitionFit": "Bolshie, from Bolshevik, is British slang for left-wing radical or rebellious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 32,
@@ -525,7 +2277,66 @@
     "text": "Collar unruly local kid following confusion",
     "enumeration": "10"
    },
-   "solution": "PICKADILLO"
+   "solution": "PICKADILLO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "PICKADILLO",
+    "definitions": [
+     {
+      "text": "Collar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unruly",
+      "for": "anagram",
+      "note": "unruly means out of order, so these letters are rearranged"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so one piece goes behind the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "confusion",
+      "gives": "PI",
+      "note": "pi (or pie) is printers' type in a jumbled heap"
+     },
+     {
+      "clueFragment": "local kid",
+      "gives": "CKADILLO",
+      "note": "rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "CKADILLO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOCALKID",
+       "gives": "CKADILLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Grabbing an unruly local child amid the chaos.",
+     "walkthrough": "'Collar' reads as a verb meaning seize, but it is a noun.",
+     "definitionFit": "A pickadillo, or piccadillo, was a stiff ruffled collar of the early seventeenth century, which gave Piccadilly its name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Collar"
+    }
+   }
   },
   {
    "number": 33,
@@ -539,7 +2350,48 @@
     "text": "Blast dropping high explosive",
     "enumeration": "6"
    },
-   "solution": "SCATHE"
+   "solution": "SCATHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCATHE",
+    "definitions": [
+     {
+      "text": "Blast",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dropping",
+      "gives": "SCAT",
+      "note": "scat is animal dung"
+     },
+     {
+      "clueFragment": "high explosive",
+      "gives": "HE",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAT",
+      "HE"
+     ]
+    },
+    "explanation": {
+     "surface": "A detonation after the explosive is dropped.",
+     "walkthrough": "'dropping' looks like a verb, but it is a single animal dropping.",
+     "definitionFit": "To scathe is to harm or destroy, as by a blast of lightning; blast is an old verb for injure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 34,
@@ -553,7 +2405,67 @@
     "text": "Very drunk men are picked up by designated driver",
     "enumeration": "6"
    },
-   "solution": "DAMNED"
+   "solution": "DAMNED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DAMNED",
+    "definitions": [
+     {
+      "text": "Very",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drunk",
+      "for": "anagram",
+      "note": "drunk means unsteady, so the letters stagger into a new order"
+     },
+     {
+      "text": "picked up by",
+      "for": "container",
+      "note": "being picked up by a vehicle puts you inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "designated driver",
+      "gives": "DD",
+      "note": "initials of the phrase"
+     },
+     {
+      "clueFragment": "men are",
+      "gives": "AMNE",
+      "note": "men plus A for are, the unit of area, rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AMNE",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MENA",
+       "gives": "AMNE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Drunk men being collected by the sober driver.",
+     "walkthrough": "An are is a metric unit of area, a hundred square metres, so the word gives just its symbol A.",
+     "definitionFit": "Damned is used informally as an intensifier, as in 'damned good', meaning extremely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Very"
+    }
+   }
   }
  ]
 }
