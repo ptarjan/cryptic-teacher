@@ -196,7 +196,7 @@ import blog_facts
 row = {"url": "u", "entries": {"2-down": {"blocks": [{"gives": "A", "clueFragment": "a"}], "type": ["charade"]},
                                "1-across": {"inferred": ["type"], "type": ["anagram"]}},
        "name": "n", "blog": "fifteensquared"}
-print("BLOGORDER", blog_facts.file_text({"p-1": row}).splitlines()[1])
+print("BLOGORDER", blog_facts.row_line("p-1", row))
 
 # A key the schema does not know is refused at the write gate...
 bad = copy.deepcopy(real)

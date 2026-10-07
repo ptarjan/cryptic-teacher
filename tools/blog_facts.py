@@ -2120,21 +2120,16 @@ def fact_json(fact, clue):
     return out
 
 
-def file_text(rows):
-    """A tools/data/blog_facts/<series>.json file: one puzzle per line in id
-    order, its clues in id order, every object's keys in the schema's order."""
-    return "{\n" + ",\n".join(row_line(pid, row) for pid, row in sorted(rows.items())) + "\n}\n"
-
-
 def row_line(pid, row):
-    """One puzzle's line of file_text, without its separating comma."""
+    """One puzzle's line of a facts file, without its separating comma: its
+    clues in id order, every object's keys in the schema's order."""
     return json.dumps(pid) + ": " + json.dumps(
         order({**row, "entries": dict(sorted(row["entries"].items()))}, "#/$defs/blogFacts"),
         ensure_ascii=False)
 
 
 def file_rows(path):
-    """(puzzle id, row) off a file_text file, one line at a time, in its order."""
+    """(puzzle id, row) off a rewrite_rows file, one line at a time, in its order."""
     dec = json.JSONDecoder()
     with path.open(encoding="utf-8") as f:
         for line in f:
@@ -2148,15 +2143,16 @@ def file_rows(path):
 
 
 def rewrite_rows(path, rows):
-    """Write `rows`, (puzzle id, row) in id order, to `path` as file_text lays
-    it out, one line at a time; `rows` may read the file it replaces."""
+    """Write `rows`, (puzzle id, row) in id order, to `path` as a
+    tools/data/blog_facts/<series>.json file: one puzzle per line (row_line) in
+    id order, written a line at a time; `rows` may read the file it replaces."""
     tmp = path.with_suffix(".tmp")
     with tmp.open("w", encoding="utf-8") as f:
         f.write("{\n")
         last = None
         for pid, row in rows:
             if last is not None and pid <= last:
-                sys.exit(f"{path}: {pid} follows {last}; file_text writes puzzles in id order")
+                sys.exit(f"{path}: {pid} follows {last}; facts files hold puzzles in id order")
             f.write((",\n" if last is not None else "") + row_line(pid, row))
             last = pid
         f.write("\n}\n")
@@ -2185,7 +2181,7 @@ def clues_of(pid):
 
 def write(best, series, spool):
     """Lay out the published lines `spool` holds for `best`, extract's joins:
-    tools/data/blog_facts/<series>.json as file_text would, and the leads file."""
+    tools/data/blog_facts/<series>.json as rewrite_rows does, and the leads file."""
     OUT.mkdir(parents=True, exist_ok=True)
     by_series = collections.defaultdict(list)
     for pid, r in sorted(best.items()):
