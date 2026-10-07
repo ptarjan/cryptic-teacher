@@ -74,7 +74,7 @@ with tempfile.TemporaryDirectory() as d:
     print("PUBLISHED", json.dumps(p["solutions"]), p["source"]["acquiredOn"])
     print("SCHEMA", puzzle_schema.validate(p))
     print("FIXPOINT", provenance.stamp(p, p["source"]["acquiredBy"]) == p)
-    # The old keys are not part of the shape.
+    # sourceUrl and provenance are not part of the shape.
     old = {**p, "sourceUrl": p["source"]["url"], "provenance": {}}
     print("OLDKEYS", len([x for x in puzzle_schema.validate(old)
                           if "sourceUrl" in x or "provenance" in x]))

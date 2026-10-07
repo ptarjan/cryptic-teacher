@@ -10,7 +10,7 @@
    three in the morning is silently never delivered — no error, no retry, and
    nothing to notice for months.
 
-   So this drives scheduled() itself, four times, across a night. Everything
+   So this drives scheduled() itself, repeatedly, across two nights. Everything
    below the Worker is real: the merge of the queue, the encryption in
    sync/webpush.js, the VAPID signature. Only two things are faked, and they are
    the two the test could not otherwise own — KV, which is a Map here, and

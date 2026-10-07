@@ -11,14 +11,15 @@
 # published puzzle, throw the grid away, keep only what a reader of the clue
 # list has, and see whether what comes back is the grid that was thrown away.
 #
-# Three outcomes are counted and all three are printed, because two of them are
-# easy to hide. EXACT is one grid and it is the published one. AMBIGUOUS is
-# several grids, the published one among them — a right answer that cannot be
-# used unattended. MISS is the published grid not in the set at all. A fourth,
-# BUDGET, is kept apart from MISS on purpose: it means the node cap stopped the
-# search before it had an answer, which is a statement about this machine and
-# not about the puzzle, and folding it into either hits or misses would be a
-# lie in whichever direction happened to flatter the tool.
+# Five outcomes are counted and all are printed, because some are easy to hide.
+# EXACT is one grid and it is the published one. AMBIGUOUS is several grids,
+# the published one among them — a right answer that cannot be used
+# unattended. MISS is the published grid not in the set at all. BUDGET is kept
+# apart from MISS on purpose: it means the node cap stopped the search before
+# it had an answer, which is a statement about this machine and not about the
+# puzzle, and folding it into either hits or misses would be a lie in whichever
+# direction happened to flatter the tool. UNCONVENTIONAL is a miss on a
+# published grid that itself breaks a convention the search enforces.
 #
 # Both input shapes are scored, because the weaker one is the one that matters.
 # Clue numbers survive in a newspaper and in a blog; they do not survive OCR of
@@ -28,8 +29,8 @@
 # some five times the search.
 #
 # The sample is stratified over every series and every grid size in the corpus,
-# not drawn uniformly: 8,393 Guardian cryptics would otherwise drown the 52
-# Metro puzzles, the 13x13s and the four 21x21-and-up grids, and those are
+# not drawn uniformly: the Guardian cryptics would otherwise drown the Metro
+# puzzles, the 13x13s and the 21x21-and-up grids, and those are
 # where a 15x15 assumption would show up. The seed is fixed, so a run that
 # changes its numbers is the tool changing, not the draw.
 #
@@ -37,9 +38,10 @@
 # SAMPLE and NUMBERLESS_SAMPLE take it as far as you have patience for.
 #
 # Before any of that, the conventions the search leans on are re-counted over
-# every 40th puzzle (all of them under CT_FULL=1, which the nightly sets). Every one of them was measured off this corpus rather
-# than taken from a book on crossword construction, and a corpus that has
-# grown a series since is a corpus that can have quietly falsified one —
+# every 40th puzzle (all of them under CT_FULL=1, which the nightly sets).
+# Every one of them was measured off this corpus rather than taken from a book
+# on crossword construction, and a corpus that grows a series can quietly
+# falsify one —
 # "no light shorter than three" and "at least half of every light is checked"
 # both sound right and are both false here. A convention that has stopped
 # holding must fail loudly in this file, not silently as a drop in the hit
@@ -158,8 +160,8 @@ same "and a puzzle whose printed numbering is not its grid's is told apart from 
 
 # Every STEP-th puzzle on disk, in file order, which is a fixed and evenly
 # spread draw. CT_FULL=1 (the nightly job) takes all of them: the recount over
-# the whole corpus was most of this script's two minutes, and a convention that
-# a fortieth of the corpus satisfies and the rest breaks is found by the night.
+# the whole corpus is most of this script's runtime, and a convention that a
+# fortieth of the corpus satisfies and the rest breaks is found by the night.
 if [ -n "${CT_FULL:-}" ]; then STEP=1; else STEP="${RECONSTRUCT_STEP:-40}"; fi
 export STEP
 echo "the conventions, re-counted over every ${STEP}th puzzle on disk (all of them when CT_FULL is set)"
@@ -254,7 +256,7 @@ same "no puzzle has two adjacent rows without an across light" \
 same "nor two adjacent columns without a down light" \
   "$(field NO_TWO_BARE_COLS "$out1")" "$n_total"
 # Symmetry is the one assumption known to have exceptions, so it is asserted as
-# a floor rather than as all of them: 35 puzzles are not symmetric and the
+# a floor rather than as all of them: some puzzles are not symmetric and the
 # default pass cannot reconstruct them.
 least "at least 99.5% of grids are 180-degree symmetric" \
   "$(( $(field SYMMETRIC "$out1") * 1000 / n_total ))" "995"
@@ -419,15 +421,13 @@ report("NUMBERED", sample, attempt, True, int(os.environ["MAX_NODES"]))
 smaller = sample[:int(os.environ["NUMBERLESS_SAMPLE"])]
 report("NUMBERLESS", smaller, attempt, False, int(os.environ["NUMBERLESS_MAX_NODES"]))
 
-# The point of this module: 175 of our 398 OCR'd book puzzles have SOME clue
-# numbers but not all. Full numbering (NUMBERED above) and none at all
-# (NUMBERLESS above) are the two ends of one curve; this sweeps the middle of
-# it on a small, fixed-seed sample, small enough to keep this file's runtime
-# close to what it was before partial numbering existed. PARTIAL_SAMPLE and
-# PARTIAL_MAX_NODES take it further, the same way SAMPLE and MAX_NODES do for
-# the fully-numbered pass. All four levels run as one batch of jobs in one
-# pool, not four reports back to back -- forking workers four separate times
-# for two puzzles each was most of what this section used to cost.
+# Many OCR'd book puzzles have SOME clue numbers but not all. Full numbering
+# (NUMBERED above) and none at all (NUMBERLESS above) are the two ends of one
+# curve; this sweeps the middle of it on a small, fixed-seed sample.
+# PARTIAL_SAMPLE and PARTIAL_MAX_NODES take it further, the same way SAMPLE and
+# MAX_NODES do for the fully-numbered pass. All four levels run as one batch of
+# jobs in one pool, not four reports back to back, since forking workers four
+# separate times for two puzzles each is mostly overhead.
 #
 # Named puzzles, not a draw: about 65% of ordinary grids resolve at 10%
 # blanked inside this budget, so a two-puzzle draw that reshuffles whenever
@@ -460,8 +460,8 @@ read -r _ _ n_bare _ ex_bare _ amb_bare _ miss_bare _ unc_bare _ bud_bare _ <<<"
 # is not a puzzle) and update it. 39 = cryptic at six sizes, listener at five,
 # azed at three (12x12, 13x11, 13x13), cyclops, sundaytimes and timesjumbo at two, and book, canberra, everyman, ftcryptic,
 # genius, globeandmail, independent, indysunday, mephisto, metro, quiptic, sundaytel, sundaytough, telegraph,
-# times, timesclub, timesquick, tls and toughie at one each. Every scanned printed book is the one `book` series, so a
-# thirty-first book does not move this number.
+# times, timesclub, timesquick, tls and toughie at one each. Every scanned printed book is the one `book` series, so
+# another book does not move this number.
 same "every series and size was drawn from" "$(field GROUPS "$out2")" "39"
 same "every attempt lands in exactly one of the five buckets" \
   "$(( ex_num + amb_num + miss_num + unc_num + bud_num ))" "$n_num"
@@ -471,9 +471,7 @@ same "every attempt lands in exactly one of the five buckets" \
 # seconds, so these hold on a slow machine too. An unconventional grid says
 # nothing about the search either: it is named on its own line above, and a
 # count of them belongs to whoever is auditing the corpus. Scoring either
-# against the search makes these percentages a fact about the draw -- which is
-# what they were while the sample happened to miss the corpus's one asymmetric
-# Independent grid.
+# against the search makes these percentages a fact about the draw.
 done_num=$(( n_num - bud_num - unc_num ))
 least "with numbers: at least 60% of the sample finishes inside the node cap" \
   "$(( (n_num - bud_num) * 100 / n_num ))" "60"
@@ -489,14 +487,14 @@ most "with numbers: at most 3% of those are wrong rather than unfinished" \
 most "without numbers: nothing that finishes comes back with the wrong grid" \
   "$miss_bare" "0"
 
-# Partial numbering: the actual prize, since 175 of our 398 book puzzles sit
-# somewhere on this curve and none of them are usable without it. Each level
+# Partial numbering: the actual prize, since many book puzzles sit somewhere on
+# this curve and none of them are usable without it. Each level
 # gets the one invariant that has to hold everywhere on the curve -- a miss
 # is a correctness bug regardless of how much numbering was left -- rather
 # than a percentage threshold, because PARTIAL_SAMPLE is small enough by
 # design that a percentage of it is not a stable number to assert against.
 # What the levels are actually worth is the tally line itself, printed above;
-# reading that curve is how the 175 partially-numbered book puzzles get
+# reading that curve is how the partially-numbered book puzzles get
 # triaged into "worth running" and "not yet", not a pass/fail here.
 for pct in 10 25 50 75; do
   read -r _ _ n_p _ ex_p _ amb_p _ miss_p _ unc_p _ bud_p _ <<<"$(grep "^PARTIAL_$pct " <<<"$out2")"

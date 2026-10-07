@@ -32,7 +32,7 @@
 #
 #   4. REAL PUZZLES PASS. Run against files on disk, not synthetic dicts. The
 #      sample below holds one puzzle of every grid origin, solution origin and
-#      retrieval channel in the corpus; walking all ~16,000 files (or the whole
+#      retrieval channel in the corpus; walking all ~43,000 files (or the whole
 #      git history, as backfill_provenance.py does without --only) is minutes,
 #      and a test runs in seconds.
 set -uo pipefail
