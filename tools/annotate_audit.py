@@ -4,7 +4,7 @@
     python3 tools/annotate_audit.py              # last 48h vs the 48h before, ranked
     python3 tools/annotate_audit.py --hours 168  # a wider window
     python3 tools/annotate_audit.py --json
-    python3 tools/annotate_audit.py --wake       # the daily job: save, wake only on news
+    python3 tools/annotate_audit.py --wake       # the daily job: save, wake with one fix target
     python3 tools/annotate_audit.py --wake --dry-run   # print the wake, send and record nothing
 
 The bill is the fix loop. Nearly every headless annotate run fails its first
@@ -24,12 +24,16 @@ pattern, so a reworded message moves with its check and nothing here has to be
 kept in step by hand. A line no pattern matches is shown as its first words.
 
 --wake is the scheduled form. It saves the report to .annotate_audit/ (ignored
-by git) and wakes the room only when one of the top three findings is new, or
-has clearly grown since the room was last told about it, or median cost or
-turns regressed against the previous window. What it told the room is kept in
-.annotate_audit/state.json, so an unchanged finding never wakes it twice.
-Below MIN_SESSIONS sessions in the current window it reports and stays quiet;
-a trend needs MIN_SESSIONS in both windows.
+by git) and wakes the room every run with exactly one fix target, chosen by
+pick(): a finding the room was woken about that has since clearly grown (or a
+median cost/turns regression that is new or worse) comes first; otherwise the
+highest-ranked finding not woken in the last COOLDOWN_DAYS, so successive days
+work down the ranking instead of re-sending one item. Only findings touching at
+least FIX_FLOOR of sessions qualify; when none does, it stays quiet. Each wake
+is stamped on its item and appended to "attempts" in .annotate_audit/state.json,
+and a target woken before says so, so the room knows the last fix did not move
+it. Below MIN_SESSIONS sessions in the current window it reports and stays
+quiet; a trend needs MIN_SESSIONS in both windows.
 """
 import argparse
 import ast
@@ -60,7 +64,9 @@ ROOM = os.environ.get("HOUSEHOLD_ROOM", "cryptic-crosswords")
 # $/MTok: input, output, cache read, 5-minute cache write, 1-hour cache write.
 PRICES = {"claude-opus-5-5": (4, 20, 0.20, 5, 8)}
 MIN_SESSIONS = 30          # per window, before a trend or a finding may wake anyone
-WAKE_SHARE = 0.10          # a finding must touch this share of sessions to wake
+FIX_FLOOR = 0.03           # a finding must touch this share of sessions to be a fix target
+COOLDOWN_DAYS = 7          # a woken finding is skipped this long unless it has grown
+KEEP_ATTEMPTS = 60
 WORSE_RATIO, WORSE_POINTS = 1.25, 0.10   # "clearly worse" than when last woken
 REGRESSION = 0.15          # median cost or turns up this much vs the window before
 FORGET_DAYS = 7            # a finding gone this long is new again if it returns
@@ -411,26 +417,44 @@ def trend_items(cur, prev):
     return out
 
 
-def decide(top, trends, state):
-    """Which items are news: [(item, why)] — never told, or clearly worse since."""
-    news = []
+def grown(item, last):
+    """Clearly worse than when the room was last woken about it."""
+    value = item.get("value", item["share"])
+    if item["key"].startswith("trend:"):
+        return value >= last["value"] * (1 + REGRESSION / 2)
+    return value >= last["value"] * WORSE_RATIO and value - last["value"] >= WORSE_POINTS
+
+
+def level(key, value):
+    return f"{value:g}" if key.startswith("trend:") else f"{value:.0%}"
+
+
+def pick(ranked, trends, state, now):
+    """The one fix target as (item, why), or None when nothing reaches FIX_FLOOR.
+
+    A woken item that has clearly grown, or a new trend, jumps the cooldown;
+    otherwise the highest-ranked item not woken within COOLDOWN_DAYS."""
     seen = state.get("items", {})
-    for item in trends + top:
+    pool = trends + [f for f in ranked if f["share"] >= FIX_FLOOR]
+    for item in pool:
         last = seen.get(item["key"])
-        value = item.get("value", item["share"])
+        if last and grown(item, last):
+            return item, f"up from {level(item['key'], last['value'])} on {last['woken'][:10]}"
+        if not last and item["key"].startswith("trend:"):
+            return item, "new regression"
+    for item in pool:
+        last = seen.get(item["key"])
         if last is None:
-            if item["key"].startswith("trend:") or item["share"] >= WAKE_SHARE:
-                news.append((item, "new"))
-        elif item["key"].startswith("trend:"):
-            if value >= last["value"] * (1 + REGRESSION / 2):
-                news.append((item, f"worse since {last['woken'][:10]}"))
-        elif value >= last["value"] * WORSE_RATIO and value - last["value"] >= WORSE_POINTS:
-            news.append((item, f"up from {last['value']:.0%} on {last['woken'][:10]}"))
-    return news
+            return item, "never targeted"
+        age = (now - datetime.datetime.fromisoformat(last["woken"])).days
+        if age >= COOLDOWN_DAYS:
+            return item, (f"targeted {last['woken'][:10]} at {level(item['key'], last['value'])}"
+                          f" and still here: that fix did not take, try another way")
+    return None
 
 
 def record(live_items, state, now):
-    """Stamp what is still live; forget a woken item gone FORGET_DAYS, so its return is news."""
+    """Stamp what is still live; forget a woken item gone FORGET_DAYS, so its return is a fresh target."""
     seen = state.setdefault("items", {})
     stamp = now.isoformat(timespec="seconds")
     live = {i["key"] for i in live_items}
@@ -441,11 +465,15 @@ def record(live_items, state, now):
             del seen[key]
 
 
-def mark_woken(news, state, now):
+def mark_woken(item, why, state, now):
+    """Stamp the target for the cooldown and log the attempt."""
     stamp = now.isoformat(timespec="seconds")
-    for item, _ in news:
-        state.setdefault("items", {})[item["key"]] = {
-            "value": item.get("value", item["share"]), "woken": stamp, "seen": stamp}
+    value = item.get("value", item["share"])
+    state.setdefault("items", {})[item["key"]] = {"value": value, "woken": stamp, "seen": stamp}
+    attempts = state.setdefault("attempts", [])
+    attempts.append({"woken": stamp, "key": item["key"], "title": item["title"],
+                     "value": value, "why": why})
+    del attempts[:-KEEP_ATTEMPTS]
 
 
 def share(f):
@@ -484,27 +512,26 @@ def report(cur, prev, ranked, trends, hours, n_prev_note):
     return "\n".join(lines)
 
 
-def wake_text(news, top3, cur):
-    newkeys = {i["key"]: why for i, why in news}
-    lines = [(f"annotate audit ({cur['n']} runs, median {cur['turns'] or 0:.0f} turns, "
-             f"{fmt_money(cur['cost'])}/puzzle, first check fails {cur['first_fail'] or 0:.0%}). "
-             f"Top 3 to fix:")]
-    for i, f in enumerate(top3, 1):
-        tag = f" [{newkeys[f['key']]}]" if f["key"] in newkeys else ""
-        lines.append(f"{i}. {f['title']} ({share(f)}): {f['detail']}{tag}")
-    lines.append("Spawn a fix worker for #1. Fix it with a tool, a validator message that says "
-                 "what to write, or an auto-fix in annotate_check — not prose padding in "
-                 "annotate_prompt.md. If the prompt already states the rule, the prose is "
-                 "not working: change a tool. `python3 tools/annotate_audit.py` reprints this; "
-                 "full report in .annotate_audit/latest.txt.")
-    return "\n".join(lines)[:1900]
+def wake_text(item, why, cur):
+    return "\n".join([
+        (f"annotate audit ({cur['n']} runs, median {cur['turns'] or 0:.0f} turns, "
+         f"{fmt_money(cur['cost'])}/puzzle, first check fails {cur['first_fail'] or 0:.0%}). "
+         f"Today's fix target [{why}]:"),
+        f"{item['title']} ({share(item)}): {item['detail']}",
+        ("Spawn a fix worker to land a fix for this today and push it. Prefer a tool, "
+         "validator or check change (a message that says what to write, an auto-fix in "
+         "annotate_check) over prose in annotate_prompt.md: if the prompt already states "
+         "the rule, the prose is not working. If it cannot be fixed, say why in the room. "
+         "`python3 tools/annotate_audit.py` reprints the ranking; full report in "
+         ".annotate_audit/latest.txt."),
+    ])[:1900]
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--hours", type=int, default=48)
     ap.add_argument("--json", action="store_true")
-    ap.add_argument("--wake", action="store_true", help="save the report, wake the room on news")
+    ap.add_argument("--wake", action="store_true", help="save the report, wake the room with one fix target")
     ap.add_argument("--dry-run", action="store_true", help="with --wake: print, send nothing")
     args = ap.parse_args(argv)
 
@@ -537,11 +564,10 @@ def main(argv=None):
     STATE_DIR.mkdir(exist_ok=True)
     state_path = STATE_DIR / "state.json"
     state = json.loads(state_path.read_text()) if state_path.exists() else {}
-    top3 = ranked[:3]
-    news = decide(top3, trends, state) if cur["n"] >= MIN_SESSIONS else []
+    target = pick(ranked, trends, state, now) if cur["n"] >= MIN_SESSIONS else None
     if args.dry_run:
-        print("\n--- would wake ---\n" + wake_text(news, trends + top3, cur) if news
-              else "\n--- no news: would stay quiet ---")
+        print("\n--- would wake ---\n" + wake_text(*target, cur) if target
+              else "\n--- nothing to fix: would stay quiet ---")
         return 0
     (STATE_DIR / f"{now:%Y-%m-%d}.txt").write_text(text + "\n")
     (STATE_DIR / "latest.txt").write_text(text + "\n")
@@ -549,17 +575,17 @@ def main(argv=None):
         old.unlink()
     if cur["n"] >= MIN_SESSIONS:
         record(trends + ranked, state, now)
-    if news:
-        msg = wake_text(news, (trends + top3)[:3], cur)
+    if target:
+        msg = wake_text(*target, cur)
         rc = subprocess.run([WAKE_SH, "-c", ROOM, msg], check=False).returncode
         if rc:
             # Unrecorded, so tomorrow's run tries again; non-zero, so the
             # plugin runner tells the room this job is broken.
             print(f"annotate audit: {WAKE_SH} exited {rc}; nothing recorded", file=sys.stderr)
             return rc
-        mark_woken(news, state, now)
+        mark_woken(*target, state, now)
     state_path.write_text(json.dumps(state, indent=1, sort_keys=True) + "\n")
-    print(f"\n{'woke #' + ROOM if news else 'no news; stayed quiet'}")
+    print(f"\n{'woke #' + ROOM if target else 'nothing to fix; stayed quiet'}")
     return 0
 
 

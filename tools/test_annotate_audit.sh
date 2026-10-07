@@ -1,11 +1,11 @@
 #!/bin/bash
-# Does the annotate audit name the right check, and wake only on news?
+# Does the annotate audit name the right check, and pick one fix target a day?
 #
 #     bash tools/test_annotate_audit.sh
 #
-# The wake is the part that costs: a finding the room was already told about
-# must not wake it again unless it has clearly grown, and a line must be
-# named by the check that wrote it rather than by its wording.
+# Every run with enough sessions must name exactly one finding to fix, rotating
+# down the ranking past ones woken within the cooldown unless they have grown,
+# and a line must be named by the check that wrote it rather than by its wording.
 set -uo pipefail
 cd "$(dirname "$0")/.." || exit 1
 python3 - <<'EOF'
@@ -84,12 +84,38 @@ check(a.failed_command("python3 - <<'EOF'\nimport a; b\nEOF"), "python3 -",
 check(a.tool_error_kind("Bash", "cat nope.json", "Exit code 1\ncat: nope.json: No such file"),
       "Bash `cat` exited non-zero", "a cat that really failed still counts")
 
-item = {"key": "rule:x", "share": 0.40, "title": "", "detail": ""}
-check([w for _, w in a.decide([item], [], {})], ["new"], "an untold finding is news")
-check(a.decide([dict(item, share=0.05)], [], {}), [], "a small one is not")
-told = {"items": {"rule:x": {"value": 0.40, "woken": "2026-09-01T00:00:00", "seen": "x"}}}
-check(a.decide([dict(item, share=0.45)], [], told), [], "an unchanged finding does not wake twice")
-check(len(a.decide([dict(item, share=0.55)], [], told)), 1, "a clearly worse one does")
+now = a.datetime.datetime(2026, 10, 7, tzinfo=a.datetime.timezone.utc)
+def f(key, sh):
+    return {"key": key, "share": sh, "title": key, "detail": ""}
+def told(days_ago, **vals):
+    stamp = (now - a.datetime.timedelta(days=days_ago)).isoformat()
+    return {"items": {k: {"value": v, "woken": stamp, "seen": stamp} for k, v in vals.items()}}
+def target(ranked, state, trends=()):
+    got = a.pick(ranked, list(trends), state, now)
+    return got and got[0]["key"]
+ranked = [f("rule:x", 0.07), f("rule:y", 0.06), f("rule:z", 0.05)]
+check(target(ranked, {}), "rule:x", "an untold top finding is the target")
+check(target(ranked, told(30, **{"rule:x": 0.07, "rule:y": 0.06})), "rule:x",
+      "a stable ranking still wakes: past the cooldown the top finding is retried")
+check(target(ranked, told(1, **{"rule:x": 0.07})), "rule:y",
+      "inside the cooldown the target rotates to #2")
+check(target(ranked, told(1, **{"rule:x": 0.07, "rule:y": 0.06})), "rule:z", "and on to #3")
+check(target(ranked, told(1, **{"rule:x": 0.40, "rule:z": 0.05})), "rule:y",
+      "a finding below its woken level does not jump the cooldown")
+check(target([f("rule:x", 0.55)] + ranked[1:], told(1, **{"rule:x": 0.40})), "rule:x",
+      "a clearly worse one jumps the cooldown")
+check(target([f("rule:x", 0.02)], {}), None, "nothing above the floor stays quiet")
+check(target(ranked, told(1, **{"rule:x": 0.1, "rule:y": 0.1, "rule:z": 0.1})), None,
+      "every qualifying finding in its cooldown stays quiet")
+trend = {"key": "trend:cost", "share": 1.0, "value": 1.3, "title": "t", "detail": ""}
+check(target(ranked, {}, [trend]), "trend:cost", "a new regression comes first")
+state = {}
+a.mark_woken(ranked[0], "never targeted", state, now)
+check((state["items"]["rule:x"]["value"], [x["key"] for x in state["attempts"]]),
+      (0.07, ["rule:x"]), "a wake stamps its item and logs the attempt")
+check("land a fix" in a.wake_text(ranked[0], "never targeted", dict(n=40, turns=5, cost=0.5,
+                                                                      first_fail=0.5)),
+      True, "the wake tells the room to land a fix")
 cur = dict(n=40, cost=1.30, turns=10); prev = dict(n=40, cost=1.00, turns=10)
 check([i["key"] for i in a.trend_items(cur, prev)], ["trend:cost"], "a cost regression is a finding")
 check(a.trend_items(dict(cur, n=5), prev), [], "not on too few sessions")
