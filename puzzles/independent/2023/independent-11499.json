@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,53 @@
     "text": "Cheat one out of some money",
     "enumeration": "3"
    },
-   "solution": "CON"
+   "solution": "CON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CON",
+    "definitions": [
+     {
+      "text": "Cheat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "a thing taken out of something else leaves it short, so a letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "some money",
+      "gives": "COIN",
+      "note": "a coin is a piece of money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON"
+     ]
+    },
+    "explanation": {
+     "surface": "A swindler tricks someone out of a little cash.",
+     "walkthrough": "Remove I from COIN to leave CON.",
+     "definitionFit": "To con someone is to swindle or trick them, a common informal synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "one"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +96,47 @@
     "text": "Transfer small amount of surplus cash?",
     "enumeration": "10"
    },
-   "solution": "CHANGEOVER"
+   "solution": "CHANGEOVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHANGEOVER",
+    "definitions": [
+     {
+      "text": "Transfer",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small amount of",
+      "gives": "CHANGE",
+      "note": "change is coins of low value"
+     },
+     {
+      "clueFragment": "surplus cash?",
+      "gives": "OVER",
+      "note": "money that is over is left as surplus"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHANGE",
+      "OVER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moves a few spare coins into another account.",
+     "walkthrough": "Read 'small amount of cash' as CHANGE and 'surplus' as OVER; the clue interweaves them.",
+     "definitionFit": "A changeover is a switch from one system or holder to another, a transfer of control."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "small"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,61 @@
     "text": "Idiots can upset comedians",
     "enumeration": "7"
    },
-   "solution": "NITWITS"
+   "solution": "NITWITS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NITWITS",
+    "definitions": [
+     {
+      "text": "Idiots",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means knocked over, which in a down entry turns the word upside down"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "comedians",
+      "gives": "WITS",
+      "note": "wits are clever, funny people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIT",
+      "WITS"
+     ],
+     "reversals": [
+      {
+       "from": "TIN",
+       "to": "NIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fools are able to offend stand-up performers.",
+     "walkthrough": "'Can' looks like a verb meaning be able; it is the noun, a metal container.",
+     "definitionFit": "Nitwits is an informal word for foolish or stupid people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +218,43 @@
     "text": "Team expressed satisfaction to audience",
     "enumeration": "4"
    },
-   "solution": "SIDE"
+   "solution": "SIDE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SIDE",
+    "definitions": [
+     {
+      "text": "Team",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to audience",
+      "for": "homophone",
+      "note": "words delivered to an audience are heard rather than read, so the sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expressed satisfaction",
+      "gives": "SIDE",
+      "soundsLike": "SIGHED",
+      "note": "a contented person may breathe out a sigh"
+     }
+    ],
+    "explanation": {
+     "surface": "A sports team lets its fans hear how pleased it is.",
+     "definitionFit": "A side is a sports team, as in a football or cricket eleven."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "audience"
+    }
+   }
   },
   {
    "number": 3,
@@ -89,7 +268,67 @@
     "text": "Paper covering consumer struggle in High Street",
     "enumeration": "9"
    },
-   "solution": "SERVIETTE"
+   "solution": "SERVIETTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SERVIETTE",
+    "definitions": [
+     {
+      "text": "Paper covering consumer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the letters that follow"
+     },
+     {
+      "text": "High",
+      "for": "anagram",
+      "note": "high means intoxicated, so the following word is reeling into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street",
+      "gives": "STREET",
+      "note": "taken as written for rearranging"
+     },
+     {
+      "clueFragment": "struggle",
+      "gives": "VIE",
+      "note": "to vie is to compete"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SER",
+      "VIE",
+      "TTE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STREET",
+       "gives": "SERTTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shoppers fight over newspapers on a busy main road.",
+     "walkthrough": "'High Street' looks like one unit, a British town's main shopping road, but High is the anagram signal for the second word.",
+     "definitionFit": "A serviette is a paper napkin, laid over a diner's lap while eating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "High"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +342,60 @@
     "text": "Electronic network revolutionised miserable work",
     "enumeration": "5"
    },
-   "solution": "DIRGE"
+   "solution": "DIRGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DIRGE",
+    "definitions": [
+     {
+      "text": "miserable work",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionised",
+      "for": "reversal",
+      "note": "revolutionised suggests turned around, so the combined letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Electronic",
+      "gives": "E",
+      "note": "E is a common abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "network",
+      "gives": "GRID",
+      "note": "a grid is a network, as of power lines"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRG",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EGRID",
+       "to": "DIRGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Digital networks have transformed a dismal job.",
+     "definitionFit": "A dirge is a mournful song or lament, a gloomy piece of music."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "work"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +409,43 @@
     "text": "Group trying to manipulate market competition here?",
     "enumeration": "4"
    },
-   "solution": "RING"
+   "solution": "RING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RING",
+    "definitions": [
+     {
+      "text": "Group trying to manipulate market",
+      "at": 0
+     },
+     {
+      "text": "competition here?",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group trying to manipulate market",
+      "note": "first meaning: a cartel of traders fixing prices"
+     },
+     {
+      "clueFragment": "competition here?",
+      "note": "second meaning: the arena where boxers or wrestlers compete"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface reads as one sentence about market rigging; 'competition' turns out to mean a bout, and the question mark flags the looser second definition.",
+     "definitionFit": "A ring is both a price-fixing cartel of dealers and the roped square where boxing bouts happen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "competition"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +459,54 @@
     "text": "First nine letters raised very small amount",
     "enumeration": "4"
    },
-   "solution": "IOTA"
+   "solution": "IOTA",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "IOTA",
+    "definitions": [
+     {
+      "text": "very small amount",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "raised in a down entry means lifted upward, so the letters read from the bottom"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "First nine letters",
+      "gives": "ATOI",
+      "note": "the alphabet's first nine letters run from A to I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IOTA"
+     ],
+     "reversals": [
+      {
+       "from": "ATOI",
+       "to": "IOTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The opening letters of the alphabet are lifted, a very modest amount.",
+     "walkthrough": "A TO I written upwards spells IOTA.",
+     "definitionFit": "Iota is the smallest Greek letter, so the word means a tiny quantity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "letters"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +520,63 @@
     "text": "Butter obtained outside entrance to Asda",
     "enumeration": "4"
    },
-   "solution": "GOAT"
+   "solution": "GOAT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "GOAT",
+    "definitions": [
+     {
+      "text": "Butter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entrance to",
+      "for": "letter_selection",
+      "note": "an entrance is a way in, so only the first letter of the word is kept"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means around, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "obtained",
+      "gives": "GOT",
+      "note": "obtained means got"
+     },
+     {
+      "clueFragment": "Asda",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of Asda, a British supermarket chain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GO",
+      "A",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bought dairy butter from outside a supermarket's door.",
+     "walkthrough": "'Butter' is not the spread but something that butts. Asda is a British supermarket chain.",
+     "definitionFit": "A goat butts with its horns, so it is literally a butter in the crossword sense of one who butts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Butter"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +590,74 @@
     "text": "Formal post mortem checks girl's heart over",
     "enumeration": "4"
    },
-   "solution": "PRIM"
+   "solution": "PRIM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container"
+    ],
+    "answer": "PRIM",
+    "definitions": [
+     {
+      "text": "Formal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "heart keeps the middle letters of the word"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so those letters run backwards"
+     },
+     {
+      "text": "checks",
+      "for": "container",
+      "note": "to check is to hold back or contain, so one piece is held within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "post mortem",
+      "gives": "PM",
+      "note": "PM is the standard abbreviation"
+     },
+     {
+      "clueFragment": "girl's",
+      "gives": "IR",
+      "select": "middle",
+      "note": "the middle two letters of girl"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RI",
+      "M"
+     ],
+     "reversals": [
+      {
+       "from": "IR",
+       "to": "RI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An autopsy formally examines a young woman's heart.",
+     "walkthrough": "In a down entry 'over' reverses the girl's middle letters before they are placed inside.",
+     "definitionFit": "Prim describes stiffly proper, formal behaviour, a synonym of prudish or starchy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "checks"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +671,60 @@
     "text": "Quote Consumers' Association about producing vinegar",
     "enumeration": "6"
    },
-   "solution": "ACETIC"
+   "solution": "ACETIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ACETIC",
+    "definitions": [
+     {
+      "text": "producing vinegar",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about can mean turned around, so the combined letters are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quote",
+      "gives": "CITE",
+      "note": "to cite is to quote"
+     },
+     {
+      "clueFragment": "Consumers' Association",
+      "gives": "CA",
+      "note": "the standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "ETIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITECA",
+       "to": "ACETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A consumer group is quoted on the subject of vinegar production.",
+     "definitionFit": "Acetic acid gives vinegar its sour taste, so acetic fermentation is the process that makes vinegar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +738,62 @@
     "text": "Religious figure inspires America's first responder",
     "enumeration": "7"
    },
-   "solution": "REACTOR"
+   "solution": "REACTOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REACTOR",
+    "definitions": [
+     {
+      "text": "responder",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out only the opening letter of the named word"
+     },
+     {
+      "text": "inspires",
+      "for": "container",
+      "note": "to inspire is literally to breathe in, so one piece is taken inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Religious figure",
+      "gives": "RECTOR",
+      "note": "a rector is a parish priest"
+     },
+     {
+      "clueFragment": "America's",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "CTOR"
+     ]
+    },
+    "explanation": {
+     "surface": "A priest motivates the leading American emergency worker.",
+     "walkthrough": "'First responder' looks like a single phrase about paramedics; 'first' belongs to America and 'responder' alone is the definition.",
+     "definitionFit": "A reactor is one who reacts, so it is a person or thing that responds to a stimulus."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +807,41 @@
     "text": "Dairy ingredient of apricot tart",
     "enumeration": "7"
    },
-   "solution": "RICOTTA"
+   "solution": "RICOTTA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RICOTTA",
+    "definitions": [
+     {
+      "text": "Dairy ingredient",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means made from part of, so the letters sit inside the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apricot tart",
+      "gives": "RICOTTA",
+      "note": "run across the two words, dropping the first two letters and the last two"
+     }
+    ],
+    "explanation": {
+     "surface": "A cheese is listed among the components of a fruit pastry.",
+     "definitionFit": "Ricotta is a soft Italian whey cheese, a dairy product often used in baking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +855,70 @@
     "text": "Cuckoo mainly infecting bats in August",
     "enumeration": "11"
    },
-   "solution": "MAGNIFICENT"
+   "solution": "MAGNIFICENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MAGNIFICENT",
+    "definitions": [
+     {
+      "text": "August",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most but not all, so the final letter is dropped"
+     },
+     {
+      "text": "bats",
+      "for": "anagram",
+      "note": "bats means crazy, so the following letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cuckoo",
+      "gives": "MAD",
+      "note": "cuckoo means crazy"
+     },
+     {
+      "clueFragment": "infecting",
+      "gives": "INFECTING",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "GNIFICENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INFECTING",
+       "gives": "GNIFICENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bird appears to be spreading disease among bats during the summer month.",
+     "walkthrough": "August looks like the month but is the adjective meaning grand; capitalised at the end it hides its sense.",
+     "definitionFit": "August as an adjective means majestic and inspiring awe, a close synonym of splendid or grand."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "August"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +932,75 @@
     "text": "Writer left home having injected first dose of intravenous drug",
     "enumeration": "10"
    },
-   "solution": "PENICILLIN"
+   "solution": "PENICILLIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "PENICILLIN",
+    "definitions": [
+     {
+      "text": "drug",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first dose of",
+      "for": "letter_selection",
+      "note": "first dose of takes only the opening letter of the next word"
+     },
+     {
+      "text": "injected",
+      "for": "container",
+      "note": "something injected is put inside, so a letter goes into another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "PENCIL",
+      "note": "a pencil is a writing implement"
+     },
+     {
+      "clueFragment": "intravenous",
+      "gives": "I",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the usual abbreviation"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEN",
+      "I",
+      "CIL",
+      "L",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "An author leaves the house after an intravenous drug injection.",
+     "walkthrough": "'Writer' tempts the solver toward a person or a pen; it is a longer writing implement, with the dose inserted after its third letter.",
+     "definitionFit": "Penicillin is the antibiotic drug discovered by Alexander Fleming, made from mould."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1014,57 @@
     "text": "Social worker ultimately forbade speculative investment",
     "enumeration": "4"
    },
-   "solution": "ANTE"
+   "solution": "ANTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ANTE",
+    "definitions": [
+     {
+      "text": "speculative investment",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Social worker",
+      "gives": "ANT",
+      "note": "ants are social insects and workers in a colony"
+     },
+     {
+      "clueFragment": "forbade",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANT",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A welfare officer finally bans a risky investment.",
+     "walkthrough": "'Social worker' suggests a welfare officer; it is an ant, a social insect.",
+     "definitionFit": "An ante is the stake placed in poker before the cards are dealt, a gamble on the outcome."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Social"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1078,67 @@
     "text": "Striking displays cause excitement holding nothing back",
     "enumeration": "5"
    },
-   "solution": "RIOTS"
+   "solution": "RIOTS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RIOTS",
+    "definitions": [
+     {
+      "text": "Striking displays",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means keeping something inside, so one piece goes within the other"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means running the opposite way, so the result is read from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cause excitement",
+      "gives": "STIR",
+      "note": "to stir is to cause a commotion"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "the shape of a zero"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "O",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "STOIR",
+       "to": "RIOTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Eye-catching shows make a stir while holding nothing back.",
+     "walkthrough": "STIR with O inside is STOIR, read backwards giving RIOTS.",
+     "definitionFit": "A riot of colour is a vivid, striking display, so riots can mean dazzling spectacles."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "back"
+    }
+   }
   },
   {
    "number": 15,
@@ -271,7 +1152,41 @@
     "text": "Flower came back to life",
     "enumeration": "4"
    },
-   "solution": "ROSE"
+   "solution": "ROSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ROSE",
+    "definitions": [
+     {
+      "text": "Flower",
+      "at": 0
+     },
+     {
+      "text": "came back to life",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flower",
+      "note": "first meaning: a thorny garden bloom"
+     },
+     {
+      "clueFragment": "came back to life",
+      "note": "second meaning: past tense of the verb used of resurrection, as in from the dead"
+     }
+    ],
+    "explanation": {
+     "surface": "A plant revives after seeming dead.",
+     "definitionFit": "A rose is a common garden bloom, and rose is also the past tense of rise, as when someone is resurrected."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 16,
@@ -285,7 +1200,56 @@
     "text": "What may be used to subdue suspect caught on the run?",
     "enumeration": "9"
    },
-   "solution": "TRUNCHEON"
+   "solution": "TRUNCHEON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRUNCHEON",
+    "definitions": [
+     {
+      "text": "What may be used to subdue",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspect",
+      "for": "anagram",
+      "note": "suspect as an adjective means dubious or not right, so the letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "on the run",
+      "gives": "ONTHERUN",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CONTHERUN",
+       "gives": "TRUNCHEON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer wonders what to use on a suspect caught while fleeing.",
+     "walkthrough": "'Suspect' reads as the fugitive, but it is the signal to rearrange C plus ON THE RUN.",
+     "definitionFit": "A truncheon is a short club carried by British police officers for restraining people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "suspect"
+    }
+   }
   },
   {
    "number": 17,
@@ -299,7 +1263,48 @@
     "text": "Short of pay like the downtrodden masses?",
     "enumeration": "9"
    },
-   "solution": "UNDERFOOT"
+   "solution": "UNDERFOOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERFOOT",
+    "definitions": [
+     {
+      "text": "like the downtrodden masses?",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short of",
+      "gives": "UNDER",
+      "note": "under means less than"
+     },
+     {
+      "clueFragment": "pay",
+      "gives": "FOOT",
+      "note": "to foot the bill is to pay it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "FOOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Low wages describe the oppressed working class.",
+     "walkthrough": "The question mark marks a playful definition: things trodden down are literally under foot.",
+     "definitionFit": "Underfoot means on the ground beneath people's feet, where trampled things lie, so it suits the downtrodden."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pay"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1318,69 @@
     "text": "Be in the vanguard of progress, first adopted by brand leader",
     "enumeration": "9"
    },
-   "solution": "SPEARHEAD"
+   "solution": "SPEARHEAD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "SPEARHEAD",
+    "definitions": [
+     {
+      "text": "Be in the vanguard of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first keeps only the opening letter of the preceding word"
+     },
+     {
+      "text": "adopted by",
+      "for": "container",
+      "note": "something adopted is taken in, so a letter is placed inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brand",
+      "gives": "SEAR",
+      "note": "to brand cattle is to sear their hide"
+     },
+     {
+      "clueFragment": "progress",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of progress"
+     },
+     {
+      "clueFragment": "leader",
+      "gives": "HEAD",
+      "note": "a head is a person in charge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "P",
+      "EAR",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A company's top product leads the way in progress.",
+     "walkthrough": "'Brand leader' looks like a marketing phrase; brand is the verb meaning burn and leader is a separate piece.",
+     "definitionFit": "To spearhead a campaign is to lead it from the front, like the point of a spear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brand"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1394,65 @@
     "text": "Course director is insulting about dead queen",
     "enumeration": "6"
    },
-   "solution": "RUDDER"
+   "solution": "RUDDER",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "RUDDER",
+    "definitions": [
+     {
+      "text": "Course director",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the next piece goes inside"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "insulting",
+      "gives": "RUDE",
+      "note": "rude means insulting"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead"
+     },
+     {
+      "clueFragment": "queen",
+      "gives": "R",
+      "note": "R for Regina, Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "D",
+      "DE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A golf course manager is offensive about a late monarch.",
+     "walkthrough": "D goes inside RUDE to make RUDDE, then R for Regina ends it.",
+     "definitionFit": "A rudder steers a ship or aircraft, directing the course it takes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Course"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1466,46 @@
     "text": "Worked hard, without finishing material",
     "enumeration": "5"
    },
-   "solution": "TOILE"
+   "solution": "TOILE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TOILE",
+    "definitions": [
+     {
+      "text": "material",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without finishing",
+      "for": "deletion",
+      "note": "not finishing means stopping short, so the final letter is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Worked hard",
+      "gives": "TOILED",
+      "note": "to toil is to labour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone laboured but never completed the fabric they were making.",
+     "definitionFit": "Toile is a linen or cotton fabric, also the trial garment a dressmaker cuts from it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -361,7 +1525,55 @@
      }
     ]
    },
-   "solution": "TANGENT"
+   "solution": "TANGENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TANGENT",
+    "definitions": [
+     {
+      "text": "Touching line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "depressed by",
+      "for": "charade",
+      "note": "depressed means pushed down, so in a down entry one piece lies below the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "result of The Sun's exposure",
+      "gives": "TAN",
+      "note": "a tan is skin browned by sunlight"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "GENT",
+      "note": "short for gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "GENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man is saddened by a moving story revealed in The Sun tabloid.",
+     "walkthrough": "The Sun is a British tabloid newspaper, and the clue makes its 'exposure' sound like a scandal story.",
+     "definitionFit": "In geometry a tangent is a straight line that touches a curve at one point without crossing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "depressed"
+    }
+   }
   },
   {
    "number": 21,
@@ -375,7 +1587,60 @@
     "text": "Delay in late broadcast showing respect",
     "enumeration": "11"
    },
-   "solution": "DEFERENTIAL"
+   "solution": "DEFERENTIAL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "DEFERENTIAL",
+    "definitions": [
+     {
+      "text": "showing respect",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "to broadcast seed is to scatter it, so the letters are spread into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delay",
+      "gives": "DEFER",
+      "note": "to defer is to postpone"
+     },
+     {
+      "clueFragment": "in late",
+      "gives": "INLATE",
+      "note": "taken as written for rearranging"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEFER",
+      "ENTIAL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INLATE",
+       "gives": "ENTIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A late-running programme goes out with an apology for the delay.",
+     "definitionFit": "Deferential behaviour yields politely to another person's status or wishes, signalling courteous regard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 22,
@@ -389,7 +1654,45 @@
     "text": "Promotional material could be more shrewd",
     "enumeration": "5"
    },
-   "solution": "FLYER"
+   "solution": "FLYER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLYER",
+    "definitions": [
+     {
+      "text": "Promotional material",
+      "at": 0
+     },
+     {
+      "text": "more shrewd",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "could be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Promotional material",
+      "note": "first meaning: a handbill or leaflet"
+     },
+     {
+      "clueFragment": "more shrewd",
+      "note": "second meaning: comparative of fly, slang for sharp or knowing"
+     }
+    ],
+    "explanation": {
+     "surface": "Advertising copy might be smarter.",
+     "walkthrough": "Fly is British slang for shrewd or streetwise.",
+     "definitionFit": "A flyer is a printed advertising leaflet, and as a comparative adjective it means more cunning."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -403,7 +1706,47 @@
     "text": "Run, run away after losing head",
     "enumeration": "4"
    },
-   "solution": "LOPE"
+   "solution": "LOPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LOPE",
+    "definitions": [
+     {
+      "text": "Run",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after losing head",
+      "for": "deletion",
+      "note": "losing its head means the word is beheaded, missing its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run away",
+      "gives": "ELOPE",
+      "note": "to elope is to run off to marry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LOPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flees, having panicked.",
+     "definitionFit": "To lope is to run with long, easy, bounding strides."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1760,61 @@
     "text": "I'm disgusted about government's last course of action",
     "enumeration": "4"
    },
-   "solution": "PATH"
+   "solution": "PATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "PATH",
+    "definitions": [
+     {
+      "text": "course of action",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last keeps only the final letter of the word before"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the exclamation surrounds a letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I'm disgusted",
+      "gives": "PAH",
+      "note": "pah is an exclamation of disgust"
+     },
+     {
+      "clueFragment": "government's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of government"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "T",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A citizen is appalled at the government's latest policy.",
+     "definitionFit": "A path is a way forward, so a path is a chosen approach or plan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disgusted"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1828,62 @@
     "text": "Hospital nurses start off consultant's examination?",
     "enumeration": "4"
    },
-   "solution": "SCAN"
+   "solution": "SCAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SCAN",
+    "definitions": [
+     {
+      "text": "examination?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start off",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter"
+     },
+     {
+      "text": "nurses",
+      "for": "container",
+      "note": "to nurse is to hold close, so one piece is cradled inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hospital",
+      "gives": "SAN",
+      "note": "short for sanatorium"
+     },
+     {
+      "clueFragment": "consultant's",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "Hospital nurses begin a senior doctor's check-up.",
+     "walkthrough": "'Nurses' looks like staff; it is the verb meaning hold.",
+     "definitionFit": "A scan is a medical image taken to look inside the body, a kind of inspection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nurses"
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1897,39 @@
     "text": "Targeted activity like a best-selling author?",
     "enumeration": "7"
    },
-   "solution": "ARCHERY"
+   "solution": "ARCHERY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ARCHERY",
+    "definitions": [
+     {
+      "text": "Targeted activity like a best-selling author?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Targeted activity",
+      "note": "the plain sense: a sport in which you shoot at a target"
+     },
+     {
+      "clueFragment": "like a best-selling author?",
+      "note": "the setter's reading: Jeffrey Archer is a best-selling British novelist, and adding -y makes an adjective meaning like him"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The sport of shooting arrows at a butt doubles as a jokey adjective built from the surname of the novelist Jeffrey Archer.",
+     "definitionFit": "Archery is the sport of shooting arrows at a target, so it is literally an activity aimed at a target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "author"
+    }
+   }
   },
   {
    "number": 27,
@@ -459,7 +1943,51 @@
     "text": "Drink too much in meeting place?",
     "enumeration": "7"
    },
-   "solution": "OVERLAP"
+   "solution": "OVERLAP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERLAP",
+    "definitions": [
+     {
+      "text": "meeting place?",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too much",
+      "gives": "OVER",
+      "note": "over means excessively, as in overdo"
+     },
+     {
+      "clueFragment": "Drink",
+      "gives": "LAP",
+      "note": "to lap is to drink like a cat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "LAP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone overindulges at the pub where friends gather.",
+     "walkthrough": "The pieces come in reverse order: the 'too much' part leads.",
+     "definitionFit": "An overlap is the area where two things coincide, so it is a place where they meet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "meeting"
+    }
+   }
   },
   {
    "number": 28,
@@ -473,7 +2001,43 @@
     "text": "Transfer deal will produce this",
     "enumeration": "4"
    },
-   "solution": "HAND"
+   "solution": "HAND",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HAND",
+    "definitions": [
+     {
+      "text": "Transfer",
+      "at": 0
+     },
+     {
+      "text": "deal will produce this",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Transfer",
+      "note": "first meaning: to pass something to someone"
+     },
+     {
+      "clueFragment": "deal will produce this",
+      "note": "second meaning: the set of cards a player receives when cards are dealt"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Transfer deal' reads like a footballer's move; 'deal' is the dealing of cards.",
+     "definitionFit": "To hand something over is to pass it on, and a hand is the set of playing cards each player is dealt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deal"
+    }
+   }
   },
   {
    "number": 29,
@@ -487,7 +2051,59 @@
     "text": "Women's rights primarily linked to sex in legal document",
     "enumeration": "4"
    },
-   "solution": "WRIT"
+   "solution": "WRIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "WRIT",
+    "definitions": [
+     {
+      "text": "legal document",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily means in the first place, so only initial letters are used"
+     }
+    ],
+    "linkWords": [
+     "linked to",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women's rights",
+      "gives": "WR",
+      "select": "first",
+      "note": "the initial letters of the two words"
+     },
+     {
+      "clueFragment": "sex",
+      "gives": "IT",
+      "note": "it is an old slang word for sex or sex appeal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WR",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Campaigning on women's rights and sexuality leads to a court document.",
+     "definitionFit": "A writ is a formal written order issued by a court, a standard legal instrument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "linked"
+    }
+   }
   },
   {
    "number": 30,
@@ -501,7 +2117,48 @@
     "text": "Number incarcerated in frightening penitentiary unintentionally",
     "enumeration": "3"
    },
-   "solution": "TEN"
+   "solution": "TEN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TEN",
+    "definitions": [
+     {
+      "text": "Number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "incarcerated in",
+      "for": "hidden_word",
+      "note": "someone incarcerated is locked inside, so the letters lie within the following word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "frightening",
+      "gives": "TEN",
+      "note": "the fifth to seventh letters"
+     },
+     {
+      "clueFragment": "penitentiary unintentionally",
+      "note": "surface padding, though each of these words also conceals the same three letters"
+     }
+    ],
+    "explanation": {
+     "surface": "A figure is locked up in a scary prison by accident.",
+     "walkthrough": "The same three letters also hide in penitentiary and unintentionally, a playful triple concealment.",
+     "definitionFit": "The answer is a cardinal numeral, the count of fingers on two hands."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Number"
+    }
+   }
   }
  ]
 }
