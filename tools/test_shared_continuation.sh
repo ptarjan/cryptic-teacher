@@ -4,8 +4,7 @@
 #     bash tools/test_shared_continuation.sh
 #
 # cryptic-23753's 51-across LIKE reads "See 6 and 48 down": it ends SOME LIKE IT
-# HOT and WARLIKE, but the page groups it with 6-across alone, so 48-down WAR's
-# "(7)" held three letters and the refetch was refused. A light already in one
+# HOT and WARLIKE, though the page groups it with 6-across alone. A light already in one
 # group is spare for another leader only when its own clue names that leader
 # among two or more (fetch_puzzle._spare_light); a pointer naming one leader is
 # never taken from the group it sits in.
