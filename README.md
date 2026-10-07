@@ -593,6 +593,7 @@ source. `tools/downloads.py` is the only place a folder is named, and
 | fifteensquared/, timesforthetimes/, bigdave44/, georgeho/ | solving blogs' posts and comments | `tools/fetch_fifteensquared.py`, `tools/fetch_wp_blog.py` |
 | youtube/CHANNEL/subs/ | solve-along video subtitles | `tools/ctc_transcripts.py` reads them |
 | cross-validate/ | per-source cross-validation reports | `tools/cross_validate.py` |
+| probes/ | pages saved by hand while probing a new source; nothing reads them | by hand |
 
 Two things stay elsewhere: Gale's pages on the Mac's media disk
 (`/Volumes/Media/Gale crosswords`, `tools/gale_inbox.py`), and caches a tool
