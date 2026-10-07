@@ -103,7 +103,7 @@ PER_RUN_RATE = 1.95
 # where the width is the runs in flight on average over the interval, measured.
 METER_LINE = re.compile(r"five-hour (\d+)% -> (\d+)% in ([\d.]+)h at width (\d+(?:\.\d+)?)")
 # The width the burn last ran at: "--- pool of 14: ..." at every checkpoint.
-WIDTH_LINE = re.compile(r"^--- (?:pool|wave) of (\d+):")
+WIDTH_LINE = re.compile(r"^--- pool of (\d+):")
 RATE_LINES = 60
 RATE_MIN_LINES = 10
 
@@ -607,11 +607,10 @@ def width_self_test():
             print(f"FAIL per_run_rate of {len(lines)} lines = {per_run_rate(lines)} "
                   f"(want {want})", file=sys.stderr)
             bad += 1
-    waves = ["--- wave of 14: a b ---", "x", "--- wave of 9: c ---", "  weekly ..."]
-    pools = waves + ["--- pool of 11: 3 in flight, 40 queued ---", "  [a] started"]
-    for arg, lines, want in [("12", waves, 12), (None, waves, 9), ("0", waves, 9),
-                             ("x", [], None), (None, ["--- wave of 0: ---"], None),
-                             (None, pools, 11), ("7", pools, 7),
+    pools = ["--- pool of 14: a b ---", "x", "--- pool of 9: c ---", "  weekly ...",
+             "--- pool of 11: 3 in flight, 40 queued ---", "  [a] started"]
+    for arg, lines, want in [("12", pools, 12), (None, pools, 11), ("0", pools, 11),
+                             ("x", [], None), ("7", pools, 7),
                              (None, ["--- pool of 0: ---"], None)]:
         if current_width(arg, lines) != want:
             print(f"FAIL current_width({arg!r}, {lines}) = {current_width(arg, lines)} "

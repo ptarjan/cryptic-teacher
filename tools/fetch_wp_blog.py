@@ -254,7 +254,7 @@ def status(blog):
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[1])
+    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("blog", choices=sorted(BLOGS))
     ap.add_argument("--since",
                     help="earliest post date to fetch (default: the whole archive)")

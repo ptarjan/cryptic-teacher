@@ -3031,7 +3031,8 @@ def count_backlog(warnings):
 
 
 def _sort_key(kv):
-    """Series, then number. The key is a namespaced id ("cryptic-30041")."""
+    """Series, then number, for a namespaced id ("cryptic-30041"). An id whose
+    tail is not a number sorts first in its series rather than raising."""
     series, _, num = kv[0].rpartition("-")
     return (series, int(num) if num.isdigit() else 0, kv[0])
 
