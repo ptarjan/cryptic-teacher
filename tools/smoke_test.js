@@ -8,8 +8,6 @@ const ROOT = require("path").join(__dirname, "..");
 const pp = require("./puzzle_paths");
 
 let failures = 0;
-// Returns the condition, so a check whose failure would crash the checks after it
-// can guard them: a stack trace stops the suite dead and hides every other result.
 // The clue's words, without the enumeration; "" where the paper printed none.
 const clueText = (e) => e.clue.text || "";
 // An entry's id, "<number>-<direction>": the puzzle file stores none.
@@ -17,6 +15,8 @@ const entryId = (e) => e.number + "-" + e.direction;
 // The line a solver reads: the words, then "(enumeration)" (app.js enumHTML).
 const printedClue = (e) => clueText(e) + (e.clue.enumeration
   ? (clueText(e) ? " " : "") + "(" + e.clue.enumeration + ")" : "");
+// Returns the condition, so a check whose failure would crash the checks after it
+// can guard them: a stack trace stops the suite dead and hides every other result.
 const assert = (cond, msg) => { if (!cond) { failures++; console.error("FAIL:", msg); } return !!cond; };
 // The walk says its sentence in exactly ONE node: the caption beside the
 // spotlight while there is a hole, the line down in the panel when there is
@@ -49,7 +49,7 @@ const { registry, document, storage, docListeners, winListeners, canonicalLink, 
 // would have gone through app.js, and a page it did NOT happen in is told by
 // the storage event. Writing the value without the event models neither, and
 // what it silently tests is whether the app re-reads localStorage on every
-// render — which the picker deliberately no longer does.
+// render — which the picker deliberately does not.
 const saveFromAnotherTab = (key, value) => {
   if (value === undefined) delete storage[key]; else storage[key] = value;
   (winListeners.storage || []).forEach((fn) => fn({ key, newValue: value === undefined ? null : value }));
@@ -57,9 +57,7 @@ const saveFromAnotherTab = (key, value) => {
 const EVENTS = require("../sync/events.js");
 // A guess is asked of the clue at the top of the panel and answered in the body
 // under it, so "what the panel is showing" spans both elements. Tests that care
-// which of the two still name the element; the rest ask the panel. The
-// question used to print a second copy of the clue in the body and
-// every one of these read hint-body alone.
+// which of the two still name the element; the rest ask the panel.
 const panelHTML = () => registry["hint-clue"].innerHTML + registry["hint-body"].innerHTML;
 // What the page reported since a mark, in order. Sliced rather than read whole:
 // the harness opens a great many puzzles over a run, and the rule under test is
@@ -99,9 +97,7 @@ function rungTemplateProse(src) {
 // The ladder, read off app.js's ordered LABELS map rather than copied here. The
 // map's key order is the ladder's order — app.js sorts by Object.keys(LABELS)
 // and tools/build_readme.py numbers README.md off the same map — so this file
-// cannot hold an order that disagrees with the app. It held one for two
-// reorders, and every assertion below that names a rung was reading a list the
-// app had stopped using.
+// cannot hold an order that disagrees with the app.
 const LADDER = (() => {
   const block = /const LABELS = \{([\s\S]*?)\n    \};/.exec(appSrc);
   if (!assert(block, "app.js still declares the ladder as `const LABELS = { … };`")) return [];
@@ -112,13 +108,13 @@ const LADDER = (() => {
 })();
 assert(LADDER.length === 5, "the ladder has five rungs: " + LADDER.map((r) => r.key).join(", "));
 
-// A row's number span carries the stored number as data-number, read here
-// rather than the printed "No 1,183", which a book or a date-keyed paper prints
-// as something else. Quoted, so 1183 cannot match the row of 11830.
 // An annotation's definitions, as clue text; `at` counts code points, so
 // cpToIdx turns it into a JS string index.
 const defTexts = (a) => ((a && a.definitions) || []).map((d) => d.text);
 const cpToIdx = (s, at) => [...s].slice(0, at).join("").length;
+// A row's number span carries the stored number as data-number, read here
+// rather than the printed "No 1,183", which a book or a date-keyed paper prints
+// as something else. Quoted, so 1183 cannot match the row of 11830.
 const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
 
 // --- the vendored decoder is the build vendor/README.md pins ---
@@ -203,7 +199,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
   // The same hazard one level down, for the files the REPO commits: a stamp
   // written by hand or by the stamper can go stale, so every one of them is
   // resolved back to the file it names. The generated pages are not swept here
-  // and cannot be: they are gitignored now, built from the current assets on a
+  // and cannot be: they are gitignored, built from the current assets on a
   // clean checkout by .github/workflows/pages.yml, so their stamps are right by
   // construction and a copy left lying in a working tree says nothing about
   // what gets deployed. What this catches is the tracked file that
@@ -255,9 +251,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
 // --- the app's own URLs resolve against the front door, not the address bar ---
 // Opening a puzzle replaceState's the address bar to /puzzles/<id>/, so a bare
 // relative "puzzles/..." built anywhere in app.js resolves one level deeper —
-// /puzzles/<id>/puzzles/... — and 404s. It took out "browse the whole archive"
-// at the foot of the picker AND the script tag that fetches the next puzzle, so
-// the app could only ever open one puzzle per page load.
+// /puzzles/<id>/puzzles/... — and 404s.
 // A source rule, because this harness's DOM has no URL resolution and so cannot
 // fail on the thing a browser fails on.
 {
@@ -300,11 +294,9 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
   assert(JSON.stringify(table) === JSON.stringify(fresh),
     "abbreviations.js is build_abbreviations.table() (run tools/build_abbreviations.py)");
 
-  // And the glossary the solver can READ is the same table again. It used to be
-  // a hand-picked "starter set" of two dozen pairs, which is how the blocks rung
-  // could say CH was check while the tutorial had never heard of it.
-  // Generated now, so a new convention reaches the page the solver
-  // is sent to as well as the one the hint quotes from.
+  // And the glossary the solver can READ is the same table again, so a new
+  // convention reaches the page the solver is sent to as well as the one the
+  // hint quotes from.
   const senses = new Set();
   Object.values(table).forEach((words) => words.forEach((w) => senses.add(w)));
 
@@ -331,9 +323,8 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
         + `${missing.length}, e.g. ` + missing.slice(0, 3).join(", "));
   }
 
-  // The hint's link has to land on that page, not on an anchor in a page that
-  // no longer carries the table: the lesson moved out to /learn/ and the
-  // glossary stayed behind on its own URL.
+  // The hint's link has to land on that page: the glossary has its own URL,
+  // separate from the lesson at /learn/.
   const appSrcGloss = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
   assert(appSrcGloss.includes('"abbreviations/#abbr-"'),
     "a hint's glossary link points at the /abbreviations/ page");
@@ -381,7 +372,7 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
 // iOS Safari resolves against a viewport that is still moving while the toolbar
 // collapses: the grid drew small and jumped bigger at the first scroll.
 // --cellsize must be declared once, off --gridspace, and no
-// #grid rule may reach for a viewport unit again — the breakpoints tune
+// #grid rule may use a viewport unit — the breakpoints tune
 // --cellcap. Asserted here because it is invisible in a headless DOM and the
 // only place it shows up is on a real tablet.
 {
@@ -401,11 +392,11 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
   assert(/--gridspace:\s*calc\(100cqi/.test(css),
     "the grid's space comes from a container query unit");
 
-  // And the cap is asked of the same ruler. As a @media (max-width: 700px) rule
-  // it was a second one, and on a resume the two disagreed for a frame: the
-  // window read narrow, so the cap came off, while 100cqi already resolved
-  // against the full-width column — the grid drew at ~78px cells and snapped
-  // back to 56. One ruler cannot disagree with itself.
+  // And the cap is asked of the same ruler. A @media width rule is a second
+  // ruler, and on a resume the two disagree for a frame: the window reads
+  // narrow, so the cap comes off, while 100cqi already resolves against the
+  // full-width column, and the grid draws oversized cells and snaps back.
+  // One ruler cannot disagree with itself.
   {
     const caps = [...all.matchAll(/--cellcap:\s*999px/g)];
     assert(caps.length === 1,
@@ -416,11 +407,9 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
   }
 
   // --- and how big things are is asked about the pointer, not the width ---
-  // The two were one query, so an iPad shrank when you turned it to the WIDER
-  // side: 820px portrait stacked and got 56px cells and tablet type, 1180px
-  // landscape fell through to the desktop rules and got 40px cells at desktop
-  // type. Splitting them is only worth anything if they stay
-  // split, and nothing else on the page would notice if they were merged back.
+  // As one query, an iPad shrinks when turned to the WIDER side: portrait
+  // stacks and gets tablet cells and type, landscape falls through to the
+  // desktop rules. Nothing else on the page would notice if they were merged.
   const media = [...all.matchAll(/@media([^{]+)\{((?:[^{}]|\{[^{}]*\})*)\}/g)]
     .map((m) => ({ q: m[1].trim(), body: m[2] }));
   const tablet = media.filter((b) => /max-width:\s*10\d\dpx/.test(b.q));
@@ -443,11 +432,8 @@ const rowHasNumber = (html, num) => html.includes(`data-number="${num}"`);
 // --- assertions after boot ---
 assert(!registry["app"].classList.contains("hidden"), "app visible after boot");
 
-// --- boot fetches the puzzle it opens, and not the other 229 ---
-// It used to fetch every puzzle in the index and wait for the last of them
-// before painting anything: 230 requests and about 1.4 MB to put one crossword
-// on screen, which was most of what a cold open cost on a phone. A puzzle
-// file may only be fetched because something needs its
+// --- boot fetches the puzzle it opens, and not the others ---
+// A puzzle file may only be fetched because something needs its
 // contents — the puzzle being opened, or one with letters saved, which the
 // picker holds against the solutions. This run starts with an empty store, so
 // the count is exactly one, and any number above it is the regression.
@@ -472,7 +458,7 @@ const openId = bootLoaded[0];
 // loads: the full index is ~16,000 puzzles and about three minutes, which is
 // not a loop anyone runs between edits. Locally it therefore loads a SAMPLE —
 // the newest annotated puzzle of every series, so each series' generator is
-// still exercised — and CI loads all of it. FULL is the flag every sweep-wide
+// still exercised — and the nightly (nightly-smoke.yml) loads all of it. FULL is the flag every sweep-wide
 // count below is gated on, because those counts are statements about the whole
 // corpus and a sample cannot make them.
 const FULL = !!process.env.CT_FULL;
@@ -590,9 +576,7 @@ const APP_BLOCKS = (() => {
 // every day, and a test that only ever exercises a frozen fixture stops
 // covering the puzzles people actually land on. Everything below therefore
 // derives its expectations (entry lengths, letters to type) from whichever
-// puzzle opened, rather than hard-coding one puzzle's answers — the previous
-// version typed "COLOGNE" and silently began failing the day the app stopped
-// booting on No 30,067. Set CT_TEST_QUERY=?p=30067 to pin one while debugging.
+// puzzle opened, rather than hard-coding one puzzle's answers. Set CT_TEST_QUERY=?p=30067 to pin one while debugging.
 const openTitle = registry["puzzle-title"].innerHTML;
 const openPuz = (global.window.CRYPTIC_PUZZLES || {})[openId];
 assert(openPuz, "the opened puzzle's data is loaded: " + openId);
@@ -608,9 +592,8 @@ const escName = htmlEsc(openPuz.name);
 assert(openTitle.includes(escName),
   `the title names the opened puzzle: want ${escName}, got ${openTitle}`);
 // A ?p= URL hands its indexing credit to the static write-up, not to the
-// homepage. It shipped canonicalling to the site root, so every link to a
-// specific puzzle credited the front page and Search Console filed the puzzle
-// under "alternate page with proper canonical tag". With no ?p the
+// homepage: canonicalling to the site root credits the front page for every
+// link to a specific puzzle. With no ?p the
 // URL really is the homepage, and so is the canonical.
 {
   const home = "https://cryptic.paultarjan.com/";
@@ -669,14 +652,13 @@ assert(registry["grid"].children.length === cellCount,
 const lightCells = registry["grid"].children.filter((c) => !c.classList.contains("block"));
 // A share of the grid, not a count. A British blocked grid is between a half
 // and three quarters light whatever its size, and a fixed floor only ever
-// describes the size that was in the corpus when it was written: 120 was a
-// 15x15 figure and the Metro's 13x13 has 109 lights, which is 64% and
+// describes one size: the Metro's 13x13 has 109 lights, which is 64% and
 // perfectly normal.
 assert(lightCells.length > cellCount * 0.5,
   `light cells present: ${lightCells.length} of ${cellCount}`);
 // One list item per entry, in each direction — not "more than ten". A floor is
-// a 15x15 figure in disguise: the Metro's 13x13 has exactly 10 across clues, so
-// `> 10` called a correctly rendered list empty. Counting against the puzzle's
+// a 15x15 figure in disguise: the Metro's 13x13 has exactly 10 across clues.
+// Counting against the puzzle's
 // own entries is also the stronger check, because it catches a list that
 // renders one clue too many as well as one that renders none.
 for (const dir of ["across", "down"]) {
@@ -701,17 +683,16 @@ const patBoxes = () => (patHTML().match(/class="pat-box [^"]*"/g) || []);
 }
 
 // --- the current-clue box is the clue, not a status report ---
-// The pattern strip used to print its aria-label next to the boxes: twenty words
-// restating what the boxes already show, sitting between the clue and the reader.
-// The summary stays for screen readers, which cannot see the boxes; it must never
+// The pattern strip's aria-label is not printed beside the boxes: it is twenty
+// words restating what the boxes already show. The summary stays for screen readers, which cannot see the boxes; it must never
 // come back as visible prose, and the meter beside it must stay a count. Asserted
 // at both ends so neither half can rot — the label has to still be there, and the
 // strip has to still be nothing but boxes.
 {
   assert(/aria-label="[^"]*letters? in place/.test(patHTML()),
     "the pattern strip still describes itself to a screen reader: " + patHTML());
-  // Counted spans once; it now wraps each word of the enumeration in one, so the
-  // rule is stated as what it always meant: the only text a sighted solver reads
+  // The strip wraps each word of the enumeration in a span, so the rule is
+  // stated as text: the only text a sighted solver reads
   // here is letters and the odd hyphen or apostrophe between words.
   assert(/^[A-Z’\-]*$/.test(patHTML().replace(/<[^>]*>/g, "")),
     "the pattern strip renders the boxes and nothing else — the summary is the " +
@@ -773,10 +754,9 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
 
 // --- every series in the index must have a badge in app.js ---
 {
-  // The badge names which paper a row is from. It used to skip the Guardian on
-  // the grounds that it was the default, which stopped being true once the
-  // other feeds outnumbered it: three quarters of the list wore a purple chip
-  // and the rest read as rows nobody had got round to labelling.
+  // The badge names which paper a row is from, for every series: the Guardian
+  // is not a default, and an unbadged row reads as one nobody got round to
+  // labelling.
   const badgeBlock = appSrc.slice(appSrc.indexOf("const SERIES_BADGE"),
                                  appSrc.indexOf("function seriesBadge"));
   const badged = [...badgeBlock.matchAll(/^\s{4}(\w+):/gm)].map((m) => m[1]);
@@ -789,8 +769,8 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
   /* --- a push notification says WHICH PAPER, and there is still one table ---
 
      On the site a row wears a badge, so "Cryptic crossword No 30,106" is
-     obviously the Guardian's. On a lock screen there is no badge and three of
-     the five series arrive anonymous, which is what this fixes.
+     obviously the Guardian's. On a lock screen there is no badge, so the
+     notification has to name the paper itself.
 
      sync/worker.js can import neither app.js nor tools/series.py, so the
      temptation is a second list of papers in the Worker — the list that would
@@ -951,9 +931,8 @@ const TYPE_FAMILY = Object.fromEntries(CLUE_TYPES.types.map((t) => [t.name, t.fa
     "tools/build_readme.py --check-layout: every tracked file has a layout row, and "
     + "docs/LAYOUT.md has them all\n" + (layout.stdout || "") + (layout.stderr || ""));
 
-  // Four processes, and about seven seconds of a run that is otherwise under
-  // ten: each one boots a second node or bash to test the Worker, the cron and
-  // the burn's shell, none of which app.js can break. CI pays for them; the
+  // Five processes, each booting a second node or bash to test the Worker, the
+  // cron and the scheduled jobs' shell, none of which app.js can break. CI pays for them; the
   // edit-and-run loop does not, because a loop nobody waits out is the only
   // kind that gets run before a push. Change any of these and run CI=1.
   if ((FULL || process.env.CI) && SLICE.i === 0) {
@@ -1043,7 +1022,7 @@ assert(registry["hint-next"].children.filter((c) => /rung-point/.test(c.classNam
     + spot.style.top + " / " + spot.style.height);
   // Said ONCE, by the light — and the panel's own line is left EMPTY rather than
   // merely hidden. Two nodes holding the same sentence put a stylesheet between
-  // the solver and reading it twice, which is a thing that happened.
+  // the solver and reading it twice.
   assert(/written up/.test(registry["spot-say"].textContent)
          && registry["nux"].textContent === ""
          && /in-spot/.test(registry["nux"].className || ""),
@@ -1077,7 +1056,7 @@ function isAsking(body) {
   return body.innerHTML.includes('class="hint-step guess"');
 }
 
-// Taking a rung is two clicks now: three of them ask you to point at the words
+// Taking a rung is two clicks: three of them ask you to point at the words
 // before they name them, so the button poses the question and "Just tell me"
 // answers it. Everything below walks the ladder the lazy way on purpose — the
 // guessing itself is tested at the end, on its own.
@@ -1090,14 +1069,13 @@ function takeRung(btn) {
 // already open. The building blocks come out one piece at a time, so a climb
 // that only recognises "N · label" stops halfway up that rung and then reads a
 // body it never finished buying. One predicate, used by every climb here, so
-// there is nowhere left for a sixth copy to disagree.
+// no copy of it can disagree.
 const CLIMBABLE = (btn) => !!(btn && btn.onclick && !btn.disabled
   && (/^\d+ · /.test(btn.textContent || "") || /^Next building block · /.test(btn.textContent || "")));
 
 // Every button in the ladder row, by label. The row is real elements, so its
-// innerHTML says nothing about what is on screen — asserting against that
-// string is how a pass that appended a button and then overwrote the row read
-// as healthy for a week.
+// innerHTML says nothing about what is on screen — an assertion against that
+// string passes on a row that shows something else.
 const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).join(" | ");
 
 // --- pick a rung out of order, but not out of tier ---
@@ -1120,7 +1098,7 @@ const btnNames = () => registry["hint-next"].children.map((b) => b.textContent).
     "the walkthrough is never one click from cold: " + locked[locked.length - 1].textContent);
   // The load-bearing one. Checking only that SOME button is disabled is not
   // enough: an app that offers every rung AND redundantly lists the late ones
-  // as disabled would satisfy that, and did. What must hold is that no late
+  // as disabled would satisfy that. What must hold is that no late
   // rung is clickable yet.
   assert(!open.some((b) => /walkthrough|building blocks|what each half means/i.test(b.textContent)),
     "a late rung is offered from cold: " + open.map((b) => b.textContent).join(" | "));
@@ -1163,10 +1141,7 @@ const hintMark = beacons.length;
 let rungs = 0, clicks = 0;
 // The lead button, unless it is the way OUT of the clue. fillAnswer() solves the
 // entry outright, so a climb that presses it stops climbing and starts asserting
-// about a finished clue. It only became reachable here once the fill button was
-// appended like every other button; before that it was written straight into the
-// row's innerHTML, which this DOM does not turn into children — so the ladder was
-// being tested against a row that did not contain half of what a browser showed.
+// about a finished clue.
 const leadRung = () => {
   const b = registry["hint-next"].children[0];
   return b && b.onclick && b.id !== "hx-entry" ? b : null;
@@ -1240,7 +1215,7 @@ assert(storage["ct:nux"] === "2",
     "every rung reports its own name off the shared list: " + climbed.join(","));
 }
 assert(registry["hint-body"].innerHTML.includes("Answer:"), "last rung shows answer");
-// no rung may be a content-free filler (the old "No indicator words" step)
+// no rung may be a content-free filler such as "No indicator words"
 assert(!registry["hint-body"].innerHTML.includes("No indicator words"),
   "ladder never shows an empty 'no indicators' rung");
 assert(registry["hint-clue"].innerHTML.includes('mark class="def"'), "definition highlighted");
@@ -1280,8 +1255,8 @@ function currentEntry() {
       ? y === e.position.y && x >= e.position.x && x < e.position.x + e.length
       : x === e.position.x && y >= e.position.y && y < e.position.y + e.length));
 }
-// A letter the entry definitely doesn't want at this square. Typing a fixed "Z"
-// made the wrong-letter assertions vacuous on any answer containing a Z.
+// A letter the entry definitely doesn't want at this square. A fixed "Z" would
+// make the wrong-letter assertions vacuous on any answer containing a Z.
 const wrongLetter = (right) => "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").find((c) => c !== right);
 
 // Tab to an entry long enough for the cursor tests below (they punch a gap at
@@ -1300,7 +1275,7 @@ const len = answer.length;
 // deleted, so an edit test that finishes the answer first would be testing the
 // lock rather than the cursor. The last letter goes in at the end of the block.
 answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
-// the pattern strip is live: it now shows the typed letters, all in place
+// the pattern strip is live: it shows the typed letters, all in place
 {
   const boxes = patBoxes();
   assert(boxes.length === len, `pattern strip follows the ${len}-letter entry: ` + boxes.length);
@@ -1331,12 +1306,12 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   // for "the letter strip is the only thing that summons". Listing it twice is
   // how the two lists come to disagree.
 
-  // A finger that moved across the grid is scrolling, not tapping — and the move
-  // guard used to bail out BEFORE preventDefault. preventDefault on touchend is
+  // A finger that moved across the grid is scrolling, not tapping, but the move
+  // guard must not bail out before preventDefault. preventDefault on touchend is
   // the only thing stopping iOS synthesising a mousedown afterwards, and this
-  // same cell listens to mousedown, so a drag skipped the tap handler and was
-  // then selected by the mouse handler it had just dodged. The guard has to
-  // cancel first and decide second.
+  // same cell listens to mousedown, so a drag that skips the tap handler is
+  // then selected by the mouse handler. The guard has to cancel first and
+  // decide second.
   {
     const cell = registry["grid"].children.find((d) => d.listeners && d.listeners.touchend);
     assert(cell, "the grid has tappable cells");
@@ -1396,8 +1371,8 @@ answer.slice(0, len - 1).split("").forEach((ch) => kd(ev(ch)));
   // rated and which way, and nothing else — see the privacy block further down,
   // which is where what may leave the page is settled.
   //
-  // In #hint-vote and never in #hint-body. Appended to the body it landed
-  // wherever the body happened to end, so the question moved up or down the
+  // In #hint-vote and never in #hint-body. Appended to the body it would land
+  // wherever the body happens to end, so the question would move up or down the
   // panel with how many rungs had been bought — a fixed slot at the foot of
   // the panel is the only thing that holds it still.
   {
@@ -1448,17 +1423,9 @@ assert(registry["scorebar"].innerHTML.match(/Solved <strong>[1-9]/), "at least o
     "index.html has the #check-result live region for check feedback");
 
   // Mistype the entry here rather than relying on what the navigation keys above
-  // happened to leave in it — that coupling is what made these three assertions
-  // fail the moment the app booted on a different puzzle.
-  //
-  // Half a fix, as it turned out: it stopped depending on the letters left in the
-  // entry but went on deriving the wrong letter from `answer`, which belongs to
-  // the entry we typed into further up, not the one the arrow keys have since
-  // moved to. When the boot puzzle became 1394 the cursor landed in a 14-letter
-  // entry holding one crossing letter, and a letter picked to be wrong for a
-  // different word happened to be right for that one — so the check honestly
-  // reported no errors and these three assertions failed nightly.
-  // Ask the app which entry the cursor is actually in.
+  // happened to leave in it, and derive the wrong letter from the entry the
+  // cursor is actually in, not from `answer`, which belongs to the entry typed
+  // into further up: a letter wrong for one word can be right for another.
   // ...and into one that is still open. A full entry is a confirmed one, and a
   // confirmed word refuses the wrong letter this check needs — correctly, which
   // is what the lock above asserts. Tab walks the entries in order.
@@ -1511,7 +1478,7 @@ const pickerRows = () => registry["picker-list"].children;
 const pickerHTMLNow = () => pickerRows().map((li) => li.children[0].innerHTML).join("");
 // How many rows go in before the list has to be scrolled. Read out of app.js
 // rather than written down again: a test that holds its own copy of the chunk
-// size is a test that can agree with a number the app has stopped using.
+// size is a test that can agree with a number the app does not use.
 const PICKER_CHUNK = Number((/const PICKER_CHUNK = (\d+);/.exec(appSrc) || [])[1]);
 assert(PICKER_CHUNK > 0, "app.js still draws the picker `PICKER_CHUNK` rows at a time");
 // The list is built a chunk at a time and grows as it is scrolled, so
@@ -1543,8 +1510,8 @@ const typeInPicker = (q) => {
 };
 // A number is not an identity. Seventy numbers in the corpus name a puzzle in
 // two series at once — cyclops-838 and quiptic-838 both exist — so a search for
-// the number alone returns both rows, and taking the first opened whichever the
-// index happened to list first. Everything afterwards then missed by a whole
+// the number alone returns both rows, and taking the first opens whichever the
+// index happens to list first. Everything afterwards then misses by a whole
 // puzzle: the clue ids belong to the puzzle that was meant, not the one that
 // opened. The series is printed on the row's badge and is in the picker's
 // haystack, so searching for both is also what a person does.
@@ -1599,8 +1566,7 @@ const openFromPicker = (id) => {
 // The corpus sweeps' door, and theirs alone. They walk clue by clue through
 // puzzles that hold dozens of them, and the picker charges a full filter of
 // every row in the index for a row it has already proved findable — transport,
-// not testing, and most of this file's running time when it was the only way
-// in. "ct:last" is the app's own record of what is open, so this cannot drift
+// not testing. "ct:last" is the app's own record of what is open, so this cannot drift
 // out of step with the page the way a count kept here would.
 //
 // The repeat visit gets its clean slate from reset-puzzle, which clears MORE
@@ -1611,9 +1577,7 @@ const openFromPicker = (id) => {
 // The reset is charged only where a cold ladder is not already guaranteed: on
 // the puzzle's first open, which wipes whatever an earlier section climbed
 // here, and on a SECOND visit to the same clue. A clue this sweep has not
-// opened yet is cold already, because app.js keeps hint state per clue --
-// resetting the whole puzzle in front of each of 3,685 clue opens cost 66s of
-// this file's running time.
+// opened yet is cold already, because app.js keeps hint state per clue.
 const sweptClues = new Map();  // puzzle id -> clues opened since its last reset
 const reopenForSweep = (id, clueId) => {
   const fresh = () => { registry["reset-puzzle"].onclick(); sweptClues.set(id, new Set()); };
@@ -1912,7 +1876,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   const html = others.map((li) => li.children[0].innerHTML).join("");
   // No full-hints badge anywhere: since it only lists full hints there is no
   // need to show it. A label every row carries distinguishes nothing; the
-  // badge marks the exception now, not the norm.
+  // badge marks the exception, not the norm.
   assert(!pickerHTMLNow().includes("full hints"),
     "picker rows carry a full-hints badge that says the same thing about every row");
   // Structural rather than textual, so deleting the badge can't quietly turn
@@ -1929,8 +1893,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
     "something is hidden, so the footer count means something");
   assert(/archive|search/i.test(registry["picker-more"].innerHTML),
     "the hidden ones are still signposted: " + registry["picker-more"].innerHTML);
-  // And it is a shortlist, not the catalogue. Every taught puzzle used to be
-  // listed, which at 226 of them is a scroll, not an answer to "what next".
+  // And it is a shortlist, not the catalogue: every taught puzzle is a scroll,
+  // not an answer to "what next".
   // Rows the solver has touched are exempt and don't count.
   const untouched = others.filter((li) => !/letters in|solved ✓/.test(li.children[0].innerHTML));
   assert(untouched.length <= 12,
@@ -1979,8 +1943,8 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
   // Driven through a series with no day dates, because a day-dated one passes
   // this without the ordering being there at all: annotating follows fetching,
   // so newest-first is annotated-first by accident. The book puzzles are
-  // reprints holding only their book's `year`, which is what made their taught
-  // ones unreachable.
+  // reprints holding only their book's `year`, so newest-first alone buries
+  // their taught ones.
   const undated = allPuzzles.find((p) => p.date === undefined && p.annotated);
   if (undated) {
     typeInPicker(String(undated.series));
@@ -2067,7 +2031,7 @@ assert(registry["picker-search"].value === "", "the filter box starts empty on o
 }
 
 // --- open an un-annotated puzzle (answers-only degradation) ---
-// Reachable only by searching for it now — which is exactly the escape hatch
+// Reachable only by searching for it — which is exactly the escape hatch
 // that makes hiding them by default acceptable.
 // hasSolutions matters: the escape hatches asserted below are the reveal
 // buttons, and a puzzle whose answers the Guardian hasn't published yet has
@@ -2114,7 +2078,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 //
 // It says /puzzles/<id>/ rather than ?p=<id> wherever that page exists, because
 // a crawler asking for ?p= is handed the app shell and the shell's single
-// og:image — so every link ever pasted previewed as the same card. The query
+// og:image — so every link pasted would preview as the same card. The query
 // form survives for a puzzle with no write-up to point at.
 {
   const urls = global.window.history.urls;
@@ -2414,8 +2378,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 }
 
 // --- the picker says which puzzles you have finished ---
-// With 78 rows listed, "have I done this one?" is the first question the list
-// has to answer. It is derived, not stored — from the saved letters against the
+// "Have I done this one?" is the first question the list has to answer. It is derived, not stored — from the saved letters against the
 // loaded solutions — so a change to either side can silently break it without
 // breaking anything else. Drive it from both directions: a complete correct
 // grid must read solved, one letter short must not.
@@ -2444,7 +2407,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // leads with the number, the setter, the date and four badges, so the first
   // 200 characters of it are the same whichever way this fails, and a failure
   // that cannot say which half of the `&&` went wrong sends the reader to the
-  // wrong half (2026-09-19).
+  // wrong half.
   const progressIn = (html) =>
     (html.match(/<span class="p-prog[^"]*"[^>]*>([^<]*)</) || [, "(nothing at all)"])[1].trim();
 
@@ -2533,11 +2496,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   }
 
   // A definition's `note` explains why the definition does not agree with the ANSWER,
-  // so it is written about the answer and routinely names it — 16 in the corpus
-  // did, and one of them handed TRUMP CARDS over on rung 2.
+  // so it is written about the answer and routinely names it.
   // It belongs beside definitionFit on the walkthrough, not on the definition
   // rung. Assert BOTH ends: absent early, present late. Only checking that it is
-  // shown somewhere is what let it sit on the wrong rung for months.
+  // shown somewhere would let it sit on the wrong rung.
   const noted = findClue((a) => (a.definitions || []).some((d) => d.note));
   assert(noted, "at least one annotation explains a definition that disagrees with its answer");
   openClue(noted);
@@ -2554,12 +2516,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 
   // --- a cryptic definition must not sell the answer on the blocks rung ---
   // The type has no wordplay, so the only "block" available is the whole clue
-  // giving the whole answer — and that is what four of the nine in the corpus
-  // had. Rendered, hint 3 of 4 read “Might this keep you to time?” → WATCHSTRAP,
-  // one rung after hint 2 had said there was nothing to take apart
-  // (1392 22-across). The validator now rejects that annotation and app.js
-  // suppresses `gives` for the type; this drives the real ladder to prove it, on
-  // every cryptic definition there is rather than the one that was reported.
+  // giving the whole answer, one rung after a hint that says there is nothing to
+  // take apart. The validator rejects that annotation and app.js suppresses
+  // `gives` for the type; this drives the real ladder to prove it, on every
+  // cryptic definition there is.
   {
     const cds = [];
     for (const id of Object.keys(puzzles).sort()) {
@@ -2614,7 +2574,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // --- the ladder's fixed prose never says the answer ---
   // The family and type sentences are written once for every clue of their
   // kind, so each of their words is somebody's answer: OTHER, CLUE, CHARADE and
-  // dozens more were printed on the type or blocks rung of their own clue.
+  // dozens more would print on the type or blocks rung of their own clue.
   // app.js blanks the answer out of that prose (maskAnswer); this drives the
   // real ladder on every clue whose own family label, family blurb, type name or
   // type sentence contains its answer as a word, and reads those paragraphs.
@@ -2653,8 +2613,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 
   // --- the letters rung never prints the whole answer as letters ---
   // For a hidden word, a homophone or a double definition one block legitimately
-  // resolves to the entire word, so the building blocks handed the solve over one
-  // rung early on 488 clues. app.js suppresses a `gives` that equals the answer;
+  // resolves to the entire word, so the building blocks would hand the solve over
+  // one rung early. app.js suppresses a `gives` that equals the answer;
   // this drives the real ladder on every clue that has such a block, rather than
   // trusting the annotation to keep choosing safe letters.
   {
@@ -2680,12 +2640,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         // Opened by hand rather than through takeRung(), because the question
         // stands BETWEEN the tap and the rung and takeRung answers it the
         // instant it appears. A sweep that never reads that screen cannot see
-        // a leak that only happens on it: the rung's body suppressed a `gives`
-        // that was the whole answer while the question in front of it printed
-        // the same letters in its prompt — "Which words give APPLAUDED?", the
-        // solve handed over on the rung bought to avoid being handed it
-        // (quiptic-1398 17a). One rule about what a piece may
-        // show, two readers of it, and only one of them obeying.
+        // a leak that only happens on it: the rung's body suppressing a `gives`
+        // that is the whole answer while the question in front of it prints
+        // the same letters in its prompt ("Which words give APPLAUDED?"). One
+        // rule about what a piece may show, two readers of it, both checked.
         btn.onclick();
         if (isAsking(registry["hint-body"])) {
           const asked = registry["hint-body"].innerHTML.match(/<span class="gives">([^<]*)<\/span>/g) || [];
@@ -2831,16 +2789,15 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // --- typing edits the ring: a letter adds a tile, Backspace removes the
   // last one, anything else does nothing ---
   //
-  // The ring used to only ever show the clue's own fodder, dealt by dealRing()
-  // and re-shuffled by the ana-shuffle button. The ring also supports adding
-  // and deleting letters by typing, which app.js implements as
-  // addRingLetter()/removeLastRingLetter() editing
+  // The ring is dealt by dealRing() and re-shuffled by the ana-shuffle button,
+  // and also supports adding and deleting letters by typing, which app.js
+  // implements as addRingLetter()/removeLastRingLetter() editing
   // `ring.letters`/`ring.order` directly, wired to #ana-kbd's keydown handler.
   // That is pure state and is exactly what this block checks. The FLIP
   // animation wired alongside it (playRingFlip in app.js) is not checkable
-  // here: fake_dom's getBoundingClientRect() always reports a zero box (no
-  // real layout runs under Node), so every measured delta is zero and a test
-  // asserting "the transform passed through a nonzero value" would be
+  // here: fake_dom's getBoundingClientRect() reports zero width and left for
+  // every element (no real layout runs under Node), so every measured delta is
+  // zero and a test asserting "the transform passed through a nonzero value" would be
   // asserting about the stub, not the app — it is exercised manually instead.
   {
     assert(ringSample, "an anagram ring sample was captured to test typing against");
@@ -2895,12 +2852,11 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // --- a rung's name may ask its question, never answer it ---
   // The names of the rungs you have NOT bought are on screen the whole time —
   // that is how you choose one. So a name that varies with the clue type is a
-  // free hint: the &lit definition rung was called "How can the whole clue be
-  // the definition?", and on a semi-&lit hidden word that button, unbought,
-  // was the entire solve (4096 21d, VSIGN). Same
+  // free hint: an &lit definition rung called "How can the whole clue be
+  // the definition?" gives a semi-&lit hidden word away unbought. Same
   // for "Where does the clue split?", "What is the clue really describing?",
   // "What each half means", and the singular/plural indicator label, which
-  // handed over how many indicators there were.
+  // hands over how many indicators there are.
   //
   // Checked as an invariant rather than as five strings: across every
   // annotated clue in the corpus, a rung key has exactly ONE name. Any future
@@ -2913,19 +2869,15 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 
     // Riding along on the same sweep: once every rung is bought, every fragment
     // the annotation named must be VISIBLY marked in the clue, on whole words.
-    // Both halves were broken and reported as one thing — a highlight that had
-    // been paid for not being there — the indicator highlight, disappearing
-    // right after it was clicked, and then again on the walkthrough. The
-    // cause was indexOf(): 'in' matched inside
-    // "Conclud(in)g", "island", "confusion" on 18 clues, and on 15 the wrong
-    // position landed under the definition, where the old overlap rule deleted
-    // whichever mark came second — always the indicator, since indicators were
-    // pushed last. So buying the definition took an earlier hint off the screen.
+    // A substring match (indexOf) finds 'in' inside "Conclud(in)g", "island",
+    // "confusion", and a mark at the wrong position can land under the
+    // definition and be dropped as an overlap, so buying the definition takes
+    // an earlier hint off the screen.
     //
     // Checked off the rendered HTML, because that is the thing the solver looks
-    // at, and over the whole corpus, because the failures were spread thin: two
-    // clues a puzzle, always the small function words a validator would never
-    // think to doubt.
+    // at, and over the whole corpus, because such failures are spread thin: a
+    // couple of clues a puzzle, always the small function words a validator
+    // would never think to doubt.
     const unesc = (s) => s.replace(/&lt;/g, "<").replace(/&gt;/g, ">")
       .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&");
     // The clue as (text, class) runs, adjacent runs of one class joined, with
@@ -2942,8 +2894,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
       // (data-edge — see markUp), which is about how it PAINTS and says nothing
       // about which part of the clue it is. Read the class and skip the rest.
       // The class is a LIST: a word that is its own indicator carries both
-      // highlights, class="def ind". Reading it as one token matched no mark at
-      // all, so the word came back unclassed.
+      // highlights, class="def ind". Read as one token it matches no mark at
+      // all, and the word comes back unclassed.
       const re = /<mark class="([a-z0-9 ]+)"[^>]*>([\s\S]*?)<\/mark>|<[^>]*>|([^<]+)/g;
       let m;
       while ((m = re.exec(html)) !== null) {
@@ -3101,10 +3053,9 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   }
 
   // --- the indicator rung says why THAT word indicates ---
-  // The indicator rung didn't explain why the indicator word actually
-  // indicated (4096 20a RENOVATOR) — it named the words and then gave the
-  // sentence it gives every anagram in the corpus. An indicator's `note` is the part
-  // that is only true of this clue, so it has to be on the screen the moment it
+  // Without it the rung names the words and then gives the sentence it gives
+  // every anagram in the corpus. An indicator's `note` is the part that is
+  // only true of this clue, so it has to be on the screen the moment it
   // exists in the file; a field that is written and never rendered is worse than
   // no field, because the backlog says the work is done.
   {
@@ -3151,9 +3102,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   }
 
   // --- a homophone must show you the word you say aloud ---
-  // In 4096 24d, the blocks rung read “Cockney mob” → OARED and stopped:
-  // HORDE, the dropped aitch and the sound itself all happened off-screen, and
-  // 18 of the corpus's 48 sound clues did the same. The sounded form is now a
+  // A blocks rung that reads “Cockney mob” → OARED and stops leaves HORDE, the
+  // dropped aitch and the sound itself off-screen. The sounded form is a
   // tracked field rather than a sentence somebody might remember to write, so
   // drive every sound clue there is and check it reaches the page.
   {
@@ -3177,11 +3127,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
         ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
       // What the blocks rung emits for a sounded block, character for character —
       // see the `b.soundsLike` line in app.js. Matching the markup and not the
-      // words is the point: this loop used to stop climbing as soon as the body
-      // contained the bare phrase "said aloud", which is also ordinary English an
-      // indicator note may use ("the words before this are to be said aloud"), so
-      // two clues broke out of the ladder one rung early and were then failed for
-      // a blocks rung they had never bought.
+      // words is the point: the bare phrase "said aloud" is also ordinary English
+      // an indicator note may use ("the words before this are to be said aloud"),
+      // so stopping on it breaks out of the ladder one rung early and fails a
+      // blocks rung that was never bought.
       const sounded = (b) => `<span class="gives">${esc(b.soundsLike)}</span>`
         + ` <span class="muted">said aloud</span>`;
       for (let i = 0; i < 8; i++) {
@@ -3204,7 +3153,7 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   // question in it: clicking for it gives it to you the instant the click lands.
   // Pacing the rung is meant to make it ask before it tells, so a step that can
   // only tell is a tap charged for nothing — clicking "Next piece" on building
-  // blocks should not simply hand the blocks over for free. Those pieces now
+  // blocks should not simply hand the blocks over for free. Those pieces
   // ride out with the piece before them, which is
   // invisible in the count and visible only here: drive every clue that has one
   // and check that every "Next piece" still offered opens a question.
@@ -3235,13 +3184,10 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
   }
 
   // --- a rung highlights its own words, on its own ---
-  // Choosing just the indicator clue didn't highlight the parts of the clue.
-  // All clue markup used to be gated on the
-  // definition rung, which was invisible while the ladder was strictly ordered
-  // and broke the day tier 0 allowed any order — so the legitimate route
-  // (indicators first, work the definition out yourself) spent a hint and lit
-  // nothing. Drive exactly that route, and check both directions: what was
-  // asked for is marked, what wasn't is not.
+  // Clue markup gated on the definition rung would make the legitimate route
+  // (indicators first, work the definition out yourself) spend a hint and
+  // light nothing, since tier 0 allows any order. Drive exactly that route, and
+  // check both directions: what was asked for is marked, what wasn't is not.
   const withInd = (() => {
     for (const id of Object.keys(puzzles).sort().reverse()) {
       for (const e of puzzles[id].entries || []) {
@@ -3269,9 +3215,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
     "the legend must name exactly the marks that were drawn: " + legend);
 
   // --- the walkthrough joins the definition to the answer ---
-  // The full walkthrough used to not explain why the answer matches the
-  // definition. The blocks spell the answer out of the wordplay, but nothing
-  // used to say why those words MEAN it. This tests the render path only — the
+  // The blocks spell the answer out of the wordplay; the walkthrough also says
+  // why the definition's words MEAN it. This tests the render path only — the
   // sentence is written by the annotator and policed by
   // check_definition_fit in tools/validate_annotations.py, so the field is
   // synthesised here rather than waiting on a puzzle that happens to carry one.
@@ -3300,9 +3245,8 @@ if (blogPuzzle && assert(blogRow, `picker finds ${blogPuzzle.id} when searched f
 }
 
 // --- the lesson is a page, not a panel ---
-// It is a document you read end to end and it outgrew the collapsible section
-// it used to live in. So the header carries a link and the
-// app carries no copy of the lesson at all.
+// It is a document you read end to end, too long for a collapsible section.
+// So the header carries a link and the app carries no copy of the lesson at all.
 {
   const home = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
   assert(/<a class="ghost" href="https:\/\/cryptic\.paultarjan\.com\/learn\/" aria-label="How cryptic clues work"[^>]*>/.test(home),
@@ -3326,12 +3270,11 @@ registry["reset-puzzle"].onclick();
 // --- picking a clue scrolls once, and lands in the same place every time ---
 // On an iPad in portrait the grid and the hint panel cannot both be on screen,
 // so picking a clue has to bring the panel to you. scrollIntoView("nearest")
-// did it in two goes: one tap moved a little and the next moved the rest,
-// because it measured before the panel had relaid out and because
-// "least you can move from here" makes the same tap land somewhere different
-// depending on where you were. The fix is an absolute target, so the property to
-// hold is idempotence: after one tap the panel is fully on screen, and tapping
-// again does not move the page at all.
+// does it in two goes, because it measures before the panel has relaid out
+// and because "least you can move from here" makes the same tap land somewhere
+// different depending on where you were. The target is absolute, so the
+// property to hold is idempotence: after one tap the panel is fully on screen,
+// and tapping again does not move the page at all.
 {
   const win = global.window;
   const panel = registry["hint-panel"];
@@ -3415,8 +3358,8 @@ registry["reset-puzzle"].onclick();
         + `viewport ${win.innerHeight})`);
 
     // An anchor that measures nothing falls back to placing the panel rather
-    // than cancelling the scroll: a tap that moves nothing is the bug this
-    // replaced, and it must not come back through a render that dropped the id.
+    // than cancelling the scroll, so a render that dropped the id cannot make
+    // a tap move nothing.
     focus.layout(0, 0);
     win.pageYOffset = 3000; win.scrolls.length = 0;
     // Whatever the next tap on the ladder is — the first one may have opened a
@@ -3455,10 +3398,10 @@ registry["reset-puzzle"].onclick();
   // --- and it gets there in one move, not three ---
   // The real sequence: the tap is handled while the keyboard is still sliding up,
   // so a placement made then is measured against a screen that is about to lose
-  // its bottom third. Placing anyway and correcting on every resize is what
-  // "scrolls down then back up a bit then wiggles" was — each correction started a
-  // smooth scroll over one still in flight, and on a phone Safari's URL bar
-  // collapsing under that scroll fires another resize and feeds the loop. So the
+  // its bottom third. Placing anyway and correcting on every resize wiggles:
+  // each correction starts a smooth scroll over one still in flight, and on a
+  // phone Safari's URL bar collapsing under that scroll fires another resize
+  // and feeds the loop. So the
   // property is not just "ends up in the right place": it is ONE entry in the
   // scroll log, after the viewport stops moving.
   vv.height = 1000;
@@ -3493,9 +3436,8 @@ registry["reset-puzzle"].onclick();
   // --- a keyboard is corrected for, never waited for ---
   // A tap cannot know whether keys are coming: an iPad with a hardware keyboard,
   // or one whose keyboard was dismissed with the chevron, looks exactly like a
-  // phone about to raise one. Waiting on that guess held the page still for a
-  // second on every device where the keys never came, delaying the scroll by about
-  // that long even when nothing was going to raise a keyboard. So the placement
+  // phone about to raise one. Waiting on that guess holds the page still for a
+  // second on every device where the keys never come. So the placement
   // sets off on the settle whatever the tap did, and the keys — whenever they land
   // — are what the one late look is for.
   drain();                               // drain the look left over from the tap above
@@ -3515,10 +3457,10 @@ registry["reset-puzzle"].onclick();
   assert(win.scrolls.length === 2,
     "with nothing left to correct the late look costs nothing: " + JSON.stringify(win.scrolls));
 
-  // And the correction is not a single allowance. Whichever viewport event fires
-  // first used to spend it — our own smooth scroll slides a phone's URL bar away
-  // long before a cold keyboard arrives — so the keys came up over the clue with
-  // nothing left to move it, leaving the keyboard covering the clue sometimes.
+  // And the correction is not a single allowance spent by whichever viewport
+  // event fires first — our own smooth scroll slides a phone's URL bar away
+  // long before a cold keyboard arrives, and the keys would then come up over
+  // the clue with nothing left to move it.
   // What bounds it is the keyboard's own state: a band that moved
   // for any other reason costs nothing, and every time the keys change their
   // mind inside the watch window the panel is put back.
@@ -3542,8 +3484,8 @@ registry["reset-puzzle"].onclick();
   // --- the strip's tap moves the page once: when the keys land, not before ---
   // Tapping the letter strip is the tap that raises the keys, and the clue and
   // strip are on screen when it is made. Placing the whole panel on the settle
-  // moved the page while the keys were still coming, and the keys then moved it
-  // again — twice, on an iPad in landscape, where the band left over is too
+  // moves the page while the keys are still coming, and the keys then move it
+  // again: twice, on an iPad in landscape, where the band left over is too
   // short for the panel. What the keys must not cover is the clue and the strip,
   // so that is what decides whether to move, and the keys are the only move.
   {
@@ -3583,7 +3525,7 @@ registry["reset-puzzle"].onclick();
   // --- another field's keyboard is not the clue's to correct for ---
   // Picking a clue leaves a watch open for keys on their way in. Opening the
   // picker inside it focuses the search box, whose keyboard is a keys-up like
-  // any other, and the correction dragged the page back down to the clue.
+  // any other, and correcting for it would drag the page back down to the clue.
   {
     vv.height = 1000; vv.offsetTop = 0;
     win.pageYOffset = 0; win.scrolls.length = 0;
@@ -3605,12 +3547,11 @@ registry["reset-puzzle"].onclick();
   }
 
   // --- but a keyboard that is GONE is not a keyboard that is coming ---
-  // "Owed" used to be read off the input: focused, with no keys showing. That is
+  // "Owed" is not read off the input being focused with no keys showing: that is
   // also exactly what an iPad looks like the moment you dismiss the keyboard with
   // the chevron, or dock it to a hardware one — the input keeps focus and nothing
-  // is on its way in. Every clue tap after that waited out the whole cold-keyboard
-  // deadline for keys that were never coming, and the page sat still for over a
-  // second before it set off. Only a focus that MOVES
+  // is on its way in, so every clue tap would wait out the whole cold-keyboard
+  // deadline for keys that never come. Only a focus that MOVES
   // focus can raise a keyboard, so only that is worth waiting for.
   assert(document.activeElement === registry["kbd"],
     "the typing input is still focused, as it is after typing or dismissing the keys");
@@ -3618,10 +3559,9 @@ registry["reset-puzzle"].onclick();
   win.pageYOffset = 0; win.scrolls.length = 0;
   // ...so there is nothing to keep, and the tap must not ask for anything either.
   // Focused-with-no-keys is the chevron-dismissed iPad, and re-focusing a focused
-  // input inside a touch gesture is how iOS is asked to put the keyboard BACK —
-  // which it did, on every clue tap after a dismissal, in the home-screen app
-  // activeElement cannot see this: it reads the same before
-  // and after, which is why the harness counts the calls.
+  // input inside a touch gesture is how iOS is asked to put the keyboard BACK.
+  // activeElement cannot see this: it reads the same before and after, which is
+  // why the harness counts the calls.
   registry["kbd"].focusCalls = 0;
   registry["clues-down"].listeners.mousedown[0]();   // keeps the focus, summons nothing
   assert(registry["kbd"].focusCalls === 0,
@@ -3636,7 +3576,7 @@ registry["reset-puzzle"].onclick();
   // A hardware keyboard, or an iOS that says nothing at all: the wait cannot be
   // unbounded, so the deadline places anyway, and the one late look is what
   // catches keys that arrive after it. Whether it lands must not depend on
-  // whether the keyboard beat us — that was "worked for some but not others".
+  // whether the keyboard beat us.
   vv.height = 1000; vv.offsetTop = 0;
   win.pageYOffset = 0; win.scrolls.length = 0;
   clues[0].listeners.click[0]();
@@ -3664,10 +3604,8 @@ registry["reset-puzzle"].onclick();
   vv.height = 1000;
 
   // --- and our own scroll must not be able to buy another one ---
-  // Clicking 3d with all the hints open used to scroll down then up then down
-  // then up then down. The late look above had been allowed to
-  // re-arm after it fired, on the reasoning that a keyboard arriving in stages
-  // moves the band twice. It does — but so does our own smooth scroll, because
+  // The late look above must not re-arm after it fires. A keyboard arriving in
+  // stages moves the band twice — but so does our own smooth scroll, because
   // iOS pans the visual viewport under it and fires the same event, and nothing
   // in a band measurement says which one moved it. So the guarantee cannot be
   // "re-place whenever the band is wrong"; it has to be a BUDGET. One placement,
@@ -3705,11 +3643,10 @@ registry["reset-puzzle"].onclick();
 
   // --- a tap on the clue you are already on is still a tap ---
   // 1-across is selected before the solver has touched anything, so the very first
-  // tap of a puzzle lands on the entry that is already current — and while this
-  // fired only when the SELECTED ENTRY CHANGED, that one tap did nothing at all:
-  // the clue stayed off the bottom of the screen with the keyboard drawn over
-  // where it would have been. Every test above picks a NEW clue, which is why it
-  // survived all of them. The property is about the tap, not about the change.
+  // tap of a puzzle lands on the entry that is already current. Placement must
+  // fire on that tap too, or the clue stays off the bottom of the screen with the
+  // keyboard drawn over it. Every test above picks a NEW clue, so only this one
+  // covers it. The property is about the tap, not about the change.
   {
     const kids = registry["grid"].children;
     const n = Math.round(Math.sqrt(kids.length));
@@ -3760,7 +3697,7 @@ registry["reset-puzzle"].onclick();
   // Everything above is wasted if the browser scrolls somewhere else afterwards,
   // and it will: iOS brings the focused element into view when the keyboard
   // opens, and the app focuses a 1px invisible input to raise it. Parked in the
-  // document at the top of the grid, that input dragged the page back up there
+  // document at the top of the grid, that input would drag the page back up there
   // whenever a clue was picked from further down. Fixed, it is always in view
   // and there is nothing to scroll to — but only outside #grid-wrap, which is a
   // query container and therefore the containing block for fixed children, so
@@ -3776,28 +3713,22 @@ registry["reset-puzzle"].onclick();
 
   // --- and reading a hint must not change the keyboard either way ---
   // A keyboard arriving is as big a viewport change as a keyboard leaving, and
-  // both of them reflow the page under the rung that has just appeared. The first
-  // half of this was fixed by focusing the hidden input on mousedown so a tap
-  // could not dismiss the keyboard ("clicking hints sometimes triggers them
-  // quickly open then closed") — which then SUMMONED one for
-  // anyone whose keyboard was down, and produced the identical symptom from the
-  // other direction: "I just clicked a hint once on my iPad and it opened then
-  // quickly closed".
+  // both of them reflow the page under the rung that has just appeared, and the
+  // reader sees the keyboard flash open then closed.
   //
   // So the property is steadiness, not focus: whatever the keyboard was doing
   // when the finger landed, it is still doing after. Asserted in both states,
-  // because a fix for either one alone is what caused the other.
+  // because a fix for either one alone causes the other.
   //
-  // THE LETTER STRIP IS THE ONLY THING THAT SUMMONS a keyboard. The grid used to
-  // as well, on the reading that tapping a square is a decision to type — but a
-  // square is how you pick a CLUE, and the ladder's first move on a new clue is
+  // THE LETTER STRIP IS THE ONLY THING THAT SUMMONS a keyboard. Not the grid:
+  // a square is how you pick a CLUE, and the ladder's first move on a new clue is
   // a question you answer by tapping, which a keyboard over the bottom half of
   // the screen buries.
   // Tapping the boxes you are about to fill in is the one tap that means typing.
   //
   // Every tappable thing in the app is listed, and asserted by tapping rather
-  // than by reading app.js for a focusKbd — a source test for the clue lists
-  // passed happily while the grid, two feet away, still raised one. A new
+  // than by reading app.js for a focusKbd, which a source test can miss on a
+  // neighbouring control. A new
   // control that is not in this list is a control with no rule.
   const kbd = registry["kbd"];
   const down = (id) => (registry[id].listeners.mousedown || []).forEach((f) => f());
@@ -3826,8 +3757,7 @@ registry["reset-puzzle"].onclick();
 // flick does, so only knowing WE started it can tell the two apart.
 //
 // docListeners.scroll is the app's own handler, registered on `document` exactly as
-// it is in a browser (there is no window.addEventListener in this stub, on purpose —
-// a real page's whole-document scroll is observable there too). Moving pageYOffset
+// it is in a browser. Moving pageYOffset
 // and then calling it is a genuine simulation of the browser dispatching the event,
 // not a stand-in for behaviour the app does not have.
 {
@@ -3875,9 +3805,7 @@ registry["reset-puzzle"].onclick();
   document.activeElement = kbd;
   win.pageYOffset = 3000; win.scrolls.length = 0;
   clues[0].listeners.click[0]();
-  // A big enough number to cover whichever settle wait applies — a stray kbdOwed
-  // left over from a mousedown further up can make this the long
-  // keyboard-cold wait rather than the short one — but it still only runs ONE
+  // A big enough number to cover the settle wait, but it still only runs ONE
   // generation of timers (see fake_dom.js's own comment on flushTimers): the
   // guard markOwnScroll() arms from inside this very settle callback is a fresh
   // timer, scheduled during this call, so it is left pending for the next call
@@ -3984,10 +3912,10 @@ registry["reset-puzzle"].onclick();
          mergeSaves(gue, rev).puzzles["1"].letters["0,0"] === "R!",
     "a revealed letter takes a tied square, from either direction");
 
-  // Rubbing a letter out has to reach the other device. This is the bug where
-  // absence used to mean only "I never filled this in", so a
-  // deletion could not win an argument it was not allowed to enter, and the
-  // other device handed the letters back on every single pull.
+  // Rubbing a letter out has to reach the other device. If absence meant only
+  // "I never filled this in", a deletion could not win an argument it was not
+  // allowed to enter, and the other device would hand the letters back on every
+  // single pull.
   const had = { v: 1, puzzles: { 1: {
     letters: { "0,0": "A", "1,0": "B" }, letterAt: { "0,0": 10, "1,0": 10 }, updated: 10 } } };
   const cut = { v: 1, puzzles: { 1: {
@@ -4003,8 +3931,7 @@ registry["reset-puzzle"].onclick();
     "the device that still has the letter cannot resurrect it by pushing");
 
   // Per-square, not per-puzzle: a device that saved more recently somewhere
-  // else on the grid does not thereby win squares it never touched. The first
-  // version compared whole-puzzle timestamps and got exactly this wrong.
+  // else on the grid does not thereby win squares it never touched.
   const edited = { v: 1, puzzles: { 1: {
     letters: { "0,0": "Q" }, letterAt: { "0,0": 100 }, updated: 100 } } };
   const busyElsewhere = { v: 1, puzzles: { 1: {
@@ -4043,11 +3970,8 @@ registry["reset-puzzle"].onclick();
   // The blocks rung is paced by a per-clue count of pieces handed over, kept
   // apart from hintsShown because a rung can be up with only its first piece
   // out. That count has to survive a merge like every other one here: app.js
-  // reads "rung shown, no count for it" as a save from before pacing existed,
-  // and hands over every piece the count would have held back — so a merge
-  // that drops the field un-paces the rung on the very next sync, which is
-  // what happens: solving one clue would silently solve the next one too,
-  // with no input from the solver.
+  // reads "rung shown, no count for it" as no pieces handed over, so a merge
+  // that drops the field takes back pieces the solver already paid for.
   const pacedFar = { v: 1, puzzles: { 30079: {
     hintsShown: { "1a": ["blocks"] }, blocksAt: { "1a": 2 }, updated: 100 } } };
   const pacedNear = { v: 1, puzzles: { 30079: {
@@ -4148,20 +4072,18 @@ registry["reset-puzzle"].onclick();
 }
 
 // --- a clue the paper printed blank is not a clue anyone failed to solve ---
-// The Guardian shipped Prize 30,098's 12-across as an en-space and "(7)" — blank
-// in the JSON, blank on the accessible page, blank in its own print PDF. Nothing
-// downstream could tell that from a hard clue, so the puzzle stayed
-// `annotated: false`, the nightly backfill bought a whole annotation run on it
-// every night to re-solve the same 28 clues, and alerted about the 29th one. The flag is written by the fetchers off ONE definition of
-// wordless (fetch_puzzle.has_words) so the app never re-derives it.
+// A paper can print a clue as nothing but whitespace and an enumeration. Unless
+// that is marked, nothing downstream can tell it from a hard clue: the puzzle
+// stays `annotated: false` and the nightly backfill re-spends an annotation run
+// on it every night. clue.missing is written by the fetchers off ONE definition
+// of wordless (fetch_puzzle.has_words) so the app never re-derives it.
 {
   const src = fs.readFileSync(path.join(ROOT, "app.js"), "utf8");
   assert(/\bclue\.missing\b/.test(src),
     "app.js reads clue.missing — otherwise a blank clue reads as 'not annotated yet', "
     + "which promises a ladder that can never be written");
 
-  // The static page makes the same promise to the same reader, and it shipped
-  // the wrong half of it while app.js had it right.
+  // The static page makes the same promise to the same reader.
   const seo = fs.readFileSync(path.join(ROOT, "tools", "build_seo_pages.py"), "utf8");
   assert(/\["clue"\]\.get\("missing"\)/.test(seo),
     "tools/build_seo_pages.py reads clue.missing — the puzzle page has to tell a blank "
@@ -4191,8 +4113,7 @@ registry["reset-puzzle"].onclick();
       assert(!(e.clue.missingNote && !e.clue.missing),
         `${puz.id} ${entryId(e)}: clue.missingNote on a clue that has words — it renders nowhere`);
     });
-    // The re-spend is the bug, and this is where it would come back: a puzzle
-    // whose only gaps are blank clues has to count as done, or it sits in the
+    // A puzzle whose only gaps are blank clues has to count as done, or it sits in the
     // backlog forever.
     if (annotatedInIndex.has(puz.id)) {
       const continuations = new Set(puz.entries.flatMap((e) => (e.group || []).slice(1)));
@@ -4277,8 +4198,8 @@ registry["reset-puzzle"].onclick();
 
   // --- and it shrinks to fit rather than stacking one word per line ---
   // Fourteen boxes at full size are wider than a phone, and flexbox moves a whole
-  // word to the next line rather than shrinking anything, so (3,8,3) came out as
-  // three almost-empty rows on a phone screen. CSS cannot count letters,
+  // word to the next line rather than shrinking anything, so (3,8,3) would come
+  // out as three almost-empty rows on a phone screen. CSS cannot count letters,
   // so the strip publishes its own shape and the stylesheet does the arithmetic.
   // Both halves are pinned here because either alone is silently useless: markup
   // with nothing reading it, or a rule sizing off a variable nobody sets.
@@ -4359,7 +4280,7 @@ registry["reset-puzzle"].onclick();
 
   // The bridge ignores a message its own bot wrote unless it carries the wake
   // marker, so an alert posted straight to Discord is a failure report that
-  // starts nothing. tools/wake.sh owns that marker; this file must go through
+  // starts nothing. The bridge's tools/wake.sh owns that marker; this file must go through
   // it rather than hold a second copy of the bridge's rules.
   const alerts = fs.readFileSync(path.join(ROOT, "tools/alert.sh"), "utf8");
   assert(/"\$wake_sh" -c "\$ALERT_CHANNEL"/.test(alerts),
@@ -4431,9 +4352,9 @@ registry["reset-puzzle"].onclick();
 
   // One slot, one panel. All three are drawn in the same corner at the same
   // z-index (see .panel), so a second one opened behind the first is simply
-  // invisible and its button reads as dead — which is what pressing Sync with
-  // the picker up did. Asserted on the set of visible panels rather than on the
-  // one being opened, because the failure was never about that one.
+  // invisible and its button reads as dead. Asserted on the set of visible
+  // panels rather than on the one being opened, because the failure is never
+  // about that one.
   const PANELS = ["sync-panel", "notify-panel", "picker-panel"];
   const openPanels = () => PANELS.filter((id) => !registry[id].classList.contains("hidden"));
   registry["btn-picker"].onclick();
@@ -4478,9 +4399,8 @@ registry["reset-puzzle"].onclick();
   assert(JSON.parse(storage["ct:sync"]) === "ABCD2345",
     "a device that is already syncing can adopt another device's code");
 
-  // Seeded rather than relied on: the reset test just above deliberately clears
-  // this puzzle's save, and what is being asserted is that *stopping sync* does
-  // not delete grids, not what some earlier test left lying around.
+  // Seeded rather than relied on: what is being asserted is that *stopping sync*
+  // does not delete grids, not what some earlier test left lying around.
   storage["ct:99999"] = JSON.stringify({ letters: { "0,0": "K" }, updated: 1 });
   registry["sync-stop"].onclick();
   assert(!storage["ct:sync"], "stopping sync forgets the code");
@@ -4496,9 +4416,7 @@ registry["reset-puzzle"].onclick();
 // it and stop the suite mid-file — printing a pass for the tests that had run
 // and saying nothing about the ones that never did.
 global.realSetTimeout(() => {
-  // Keyed on the puzzle actually open, not on "ct:3" — that prefix assumed the
-  // boot puzzle would always be a 30xxx Guardian daily, and it stopped being one
-  // the night the reindex made 1394 the newest. A test that only
+  // Keyed on the puzzle actually open, not on a fixed id prefix: a test that only
   // passes for one range of puzzle numbers is asserting the wrong thing.
   assert(storage["ct:" + openId], `progress persisted to localStorage under ct:${openId}, got ` +
     JSON.stringify(Object.keys(storage)));
@@ -4562,10 +4480,9 @@ global.realSetTimeout(() => {
   open();
   const box = registry["celebrate"];
   assert(box.classList.contains("hidden"), "nothing is celebrated on opening a fresh grid");
-  // #celebrate is two children: the burst and the scoreline. They were one
-  // innerHTML string, which is how a tally landing mid-burst used to delete the
-  // fireworks — so what used to be box.innerHTML is the scoreline's, and the
-  // separation is itself the thing under test.
+  // #celebrate is two children: the burst and the scoreline, kept apart so a
+  // tally landing mid-burst cannot delete the fireworks. The separation is
+  // itself the thing under test.
   const childOf = (cls) => box.children.find((c) => c.classList.contains(cls));
   const said = () => (childOf("scoreline") || { innerHTML: "" }).innerHTML;
 
@@ -4617,18 +4534,15 @@ global.realSetTimeout(() => {
     "finishing sets off fireworks, each spark with its own vector: "
     + (burst && burst.innerHTML));
   // Held, and held by nobody having looked yet — not by a scroll having been
-  // ordered. This is the assertion the harness could not make at all until
-  // fake_dom grew an IntersectionObserver: without one the app took its "no
-  // observer, burn now" branch on every run, so the hold was untested by
-  // construction and a burst that went off into an empty screen looked exactly
-  // like one that went off in front of someone.
+  // ordered. It needs fake_dom's IntersectionObserver: without one the app takes
+  // its "no observer, burn now" branch, and a burst that went off into an empty
+  // screen looks exactly like one that went off in front of someone.
   assert(burst.classList.contains("hold"),
     "the burst waits rather than burning into a page that is still moving: " + burst.className);
   // LIVE observers, and exactly one of them. The .fireworks node is built once
   // and reused by every finish in the session, so an observer left watching it
-  // is still there for the next burst: counted globally rather than per call,
-  // this said 378 the first time it ran — one for every grid any earlier test in
-  // this file had finished, all of them still watching the same div. Keep it
+  // is still there for the next burst — one for every grid any earlier test in
+  // this file has finished, all of them watching the same div. Keep it
   // counting every watcher of the node, not just the one this burst made, or it
   // stops being able to see that again.
   assert(global.watchersOf(burst) === 1,
@@ -4649,10 +4563,9 @@ global.realSetTimeout(() => {
   // --- the tally arriving cannot take the fireworks with it ---
   // The /v reply redraws the scoreline, and it lands whenever it lands: the
   // request goes out when the puzzle opens, so it is routinely still in the air
-  // as the last letter goes in. It used to be redrawn by writing the whole box,
-  // which deleted the .fireworks div mid-burst and re-armed nothing — the one
-  // bug here that could take a burst away from someone who WAS looking at it.
-  // The fix is structural, so this asserts the structure: same node, same
+  // as the last letter goes in. Redrawing the whole box would delete the
+  // .fireworks div mid-burst and re-arm nothing, taking the burst away from
+  // someone who WAS looking at it. So this asserts the structure: same node, same
   // sparks, same state, and a scoreline that really did change underneath.
   assert(typeof landTally === "function", "the finish box asked /v for the tally when it opened");
   {
@@ -4674,8 +4587,7 @@ global.realSetTimeout(() => {
     "and the observer disconnects behind it rather than firing all afternoon");
   // Spent, not left in the page. A burst that has finished is invisible either
   // way, so without a state on the element the DOM cannot tell "over" from
-  // "never happened" — which is the whole reason nobody could say what was
-  // going wrong on the iPad.
+  // "never happened".
   global.flushTimers(10000);
   assert(burst.classList.contains("spent") && burst.innerHTML === "",
     "and the shells come out of the page once they have burned: " + burst.className);
@@ -4708,8 +4620,7 @@ global.realSetTimeout(() => {
   const reopen = beacons.length;
   // Re-opening the finished puzzle: still solved, nothing earned. The save is
   // debounced, so it has to be flushed first — without that the reopened grid
-  // comes back empty and this assertion passes for the wrong reason, which is
-  // exactly what it did on the first run.
+  // comes back empty and this assertion passes for the wrong reason.
   global.flushTimers(200);
   open();
   assert(/Solved <strong>(\d+)\/\1<\/strong>/.test(registry["scorebar"].innerHTML),
@@ -4719,8 +4630,8 @@ global.realSetTimeout(() => {
   // is the moment; the sentence is the record.
   assert(!box.classList.contains("hidden") && /<strong>\d+<\/strong> clues/.test(said()),
     "re-opening a puzzle you already finished still shows what you did: " + said());
-  // Asserted on the burst node, not by grepping the box for a class name that
-  // stopped existing years ago and so could never have failed.
+  // Asserted on the burst node, not by grepping the box for a class name, which
+  // passes just as well once the name no longer exists.
   assert(childOf("fireworks").innerHTML === "",
     "but does not throw fireworks at you a second time: " + childOf("fireworks").innerHTML);
   // The same rule the celebration follows, in the counter: progress that was
@@ -4737,8 +4648,8 @@ global.realSetTimeout(() => {
 
   // --- a burst nobody ever looked at is given up, and says so ---
   // The other half of the observer. If the box never comes on screen the sparks
-  // must not be left in the page frozen at opacity 0, and — the part that cost
-  // the time — the four ways a burst can end must not all be the same nothing.
+  // must not be left in the page frozen at opacity 0, and the four ways a burst
+  // can end must not all be the same nothing.
   // Solved again from a reset, because that is the only way to a second, unseen
   // burst; the same node holds it, which is why the abandon timer names the run
   // it belongs to rather than trusting the node it finds.
@@ -4769,22 +4680,20 @@ global.realSetTimeout(() => {
 }
 
 // --- a single clue's own solve gets a gentle nod, once, only when typed ---
-// "Celebrate gently when a clue is solved," refined the same
-// day into two tiers: any solve settles a tint on its cells, and a solve with
+// "Celebrate gently when a clue is solved," in two tiers: any solve settles a
+// tint on its cells, and a solve with
 // no hints taken and no letters revealed also earns a small gold marker that
 // STAYS on the clue row after the flash fades — the thing worth highlighting
 // is the fact, not the moment. See celebrateSolve()/noHintsSolve() in app.js;
 // noHintsSolve reuses hintsCharged()/revealsUsed, the exact figures the
 // scorebar's own "n with no hints" tally already reads, so there is no second,
 // driftable definition of "clean" and nothing new to persist — solvedWith and
-// revealsUsed were already saved for scoring before this existed.
+// revealsUsed are already saved for scoring.
 //
 // Reuses the one running instance rather than a second boot(): a mid-file
-// boot() was tried here first and left the ORIGINAL instance's picker unable
-// to find "Definition" a couple of thousand lines later (a run-of-words test
-// this file already had) — some piece of shared state does not survive a
-// second app existing at once, and chasing that down is a bigger fix than
-// this feature warrants. Every other test on this fixture puzzle gets a clean
+// boot() leaves the ORIGINAL instance's picker unable to find "Definition" in
+// the run-of-words test further down — some piece of shared state does not
+// survive a second app existing at once. Every other test on this fixture puzzle gets a clean
 // slate the same way: open it and click reset-puzzle.
 {
   const id = "cryptic-30066";
@@ -4849,7 +4758,7 @@ global.realSetTimeout(() => {
   // --- a revealed answer is not a solve: neither tier, on a fresh entry ---
   // Every clue in this puzzle is annotated, so "Fill in answer" only appears
   // once the blocks rung is up (or the ladder is exhausted) — climb it the
-  // same way the sync-reply test above does, answering any question asked
+  // same way the sync-reply test below does, answering any question asked
   // along the way rather than guessing at it.
   select(revealedE);
   let climbGuard = 12;
@@ -5014,7 +4923,7 @@ global.realSetTimeout(() => {
   // The clue must not resize the moment tapping starts: at rest every word is
   // already its own .gw box (an inert one — see .gw.still), so tapping only
   // ever recolours borders that were already taking up the room. Pin the
-  // property that actually broke — the BOX COUNT, not a class name — because a
+  // BOX COUNT, not a class name, because a
   // clue that renders as plain flowing text at rest and as N bordered chips
   // once tapping starts passes a "contains guess-clue" check just fine while
   // still reflowing under the solver.
@@ -5035,17 +4944,15 @@ global.realSetTimeout(() => {
     "and tapping neither adds nor removes a single box, only recolours them: "
       + `${restingBoxes} at rest, ${boxCount(registry["hint-clue"].innerHTML)} tapping`);
   let html = panelHTML();
-  // "guess-clue" alone no longer tells asking apart from resting — the clue's
-  // words are chip-wrapped in both states now, so the box never resizes
+  // "guess-clue" alone does not tell asking apart from resting — the clue's
+  // words are chip-wrapped in both states, so the box never resizes
   // switching between them (see .gw.still in style.css). "ask" is the class
   // that only the actually-asking form carries.
   assert(html.includes("guess-clue ask"), "the definition rung asks before it tells: " + html);
   assert(!html.includes("hint-step\"><span class=\"step-label\">2 ·"),
     "the rung is not handed over while the question is still open: " + html);
-  // One clue on the screen, and it is the real one. The question used to print a
-  // second copy of the clue in the body and ask the solver to point at that,
-  // leaving them to work out which of the two sentences was the live one.
-  // The words are targets where they are read.
+  // One clue on the screen, and it is the real one: the words are targets where
+  // they are read, not in a second copy in the body.
   assert(/id="gw-\d+"/.test(registry["hint-clue"].innerHTML),
     "the clue's own words are the targets: " + registry["hint-clue"].innerHTML);
   assert(!/id="gw-\d+"/.test(registry["hint-body"].innerHTML),
@@ -5161,9 +5068,9 @@ global.realSetTimeout(() => {
 // its own reveal, and whether to go on to the next one is the solver's call.
 // One rung, one price, however many pieces are taken.
 //
-// And, same screen: opening a new hint used to delete the previous verdict and
-// empty the rung buttons, so the panel collapsed under the solver at the moment
-// a new question appeared below — "it jumps and switches to something else".
+// And, same screen: opening a new hint must not delete the previous verdict or
+// empty the rung buttons, or the panel collapses under the solver at the moment
+// a new question appears below.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const escHtml = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
@@ -5301,9 +5208,8 @@ global.realSetTimeout(() => {
 
   // One question about the whole charade, not one click per piece. Every
   // fragment gets a row, every chunk a chip, and nothing is paired up for you.
-  // Pacing the pieces out a click each is what this replaced: by the last piece
-  // the question answered itself by elimination, and the note under it only
-  // printed a synonym.
+  // Paced a click each, by the last piece the question would answer itself by
+  // elimination.
   let html = panelHTML();
   const idsIn = (re) => (html.match(re) || []).length;
   assert(idsIn(/id="gm-slot-\d+"/g) === walked.pairs.length,
@@ -5328,8 +5234,7 @@ global.realSetTimeout(() => {
       + "straight down the rows: " + JSON.stringify(chipAt));
 
   // Either order pairs. A row tapped with nothing in hand arms itself and waits
-  // for a chunk — the tap that used to do nothing whatever ("can I touch the
-  // pairing in any order").
+  // for a chunk.
   registry["gm-slot-0"].onclick();
   assert(/id="gm-slot-0" class="gm-slot armed"/.test(panelHTML()),
     "a row tapped first arms itself: " + panelHTML());
@@ -5337,9 +5242,9 @@ global.realSetTimeout(() => {
   assert(/id="gm-slot-0" class="gm-slot on"/.test(panelHTML()),
     "and the next chunk tapped lands in it: " + panelHTML());
   // A pair made leaves the strip exactly where it was, the placed chunk's
-  // space kept and hidden. Closing the gap slid the next chunk under the finger
-  // that had just placed one, and it wore that finger's hover border — the page
-  // appearing to pick out the next answer.
+  // space kept and hidden. Closing the gap would slide the next chunk under the
+  // finger that had just placed one, wearing that finger's hover border — the
+  // page appearing to pick out the next answer.
   {
     const strip = (h) => ((String(h).match(/<p class="gm-chips">([\s\S]*?)<\/p>/) || [])[1] || "")
       .match(/<button[^>]*>[^<]*<\/button>/g) || [];
@@ -5373,7 +5278,7 @@ global.realSetTimeout(() => {
   html = panelHTML();
   assert(!asking(), "answering it ends the question: " + html);
   // The question covered every piece, so answering it settles every piece.
-  // Anything still paced here would be the make-work this replaced.
+  // Anything still paced here would be make-work.
   walked.pairs.forEach((b) => assert(html.includes(givesSpan(b.gives)),
     `${b.gives} is handed over with the rest of the split: ` + html));
   assert(!rung(/next piece/i),
@@ -5399,7 +5304,7 @@ global.realSetTimeout(() => {
   registry["guess-check"].onclick();
   assert(registry["hint-body"].innerHTML.includes("guess-verdict"), "graded");
   // On to a rung that poses its own question, since that is the moment the old
-  // verdict used to be swept away to make room for the new one.
+  // verdict could be swept away to make room for the new one.
   let before = "";
   for (let i = 0; i < 5 && !asking(); i++) {
     const another = rungs().find((b) => !b.disabled);
@@ -5413,19 +5318,15 @@ global.realSetTimeout(() => {
     "asking for a new hint does not delete the verdict you were reading: " + after);
   // One thing does go: the verdict's graded copy of the clue (verdictHTML's
   // `quiet`), because the clue line above is now the tapping surface for the new
-  // question and two copies of the same words is the duplicate that was removed
-  // on purpose. A long clue's copy is longer than the question that replaces it,
+  // question and two copies of the same words is a duplicate. A long clue's copy is longer than the question that replaces it,
   // so the growth is measured without it.
   const kept = (h) => h.replace(/<p class="guess-clue mk[^"]*">[\s\S]*?<\/p>/g, "");
   assert(kept(after).length >= kept(before).length,
     `the panel only ever grows (${walked.id} ${entryId(walked.e)}): `
       + kept(before).length + " -> " + kept(after).length
       + "\nbefore: " + before + "\nafter: " + after);
-  // The ladder stays reachable while a question stands. It used to go all-
-  // disabled, so that a guess could not be walked around by buying a different
-  // hint — and that cornered a solver who had simply picked the wrong rung
-  // ("when you're in the middle of a hint you can't switch to a different
-  // hint"). Switching abandons the question; it never answers
+  // The ladder stays reachable while a question stands, so a solver who simply
+  // picked the wrong rung is not cornered. Switching abandons the question; it never answers
   // it, so nothing is earned by leaving.
   assert(rungs().some((b) => !b.disabled),
     "and another rung can still be taken while the question stands: "
@@ -5471,13 +5372,10 @@ global.realSetTimeout(() => {
 }
 
 // --- a save with the blocks rung shown and no count reveals nothing extra ---
-// sync/merge.js used to drop blocksAt on its way through a sync push, so a save
-// that reaches this app can have "blocks" in hintsShown with no count to say how
-// far it got. piecesShown() used to read exactly that shape as "from before the
-// rung was paced" and hand over every remaining piece — which fires just as
-// readily on a save the bug only just broke as on a genuinely old one, so the
-// fallback cannot tell them apart and must not act as if it can: either way, the
-// right read is that nothing beyond what is already implied has been shown.
+// A save can have "blocks" in hintsShown with no count to say how far it got —
+// one from before the rung was paced, or one a sync merge damaged. piecesShown()
+// cannot tell them apart and must not act as if it can: either way, the right
+// read is that nothing beyond what is already implied has been shown.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   let target = null;
@@ -5496,9 +5394,7 @@ global.realSetTimeout(() => {
     const { id, e } = target;
     const key = "ct:" + id;
     const kept = storage[key];
-    // hintsShown says the rung was opened; blocksAt says nothing at all — the
-    // shape a sync merge left behind before 9af9ed7, and the shape a save from
-    // before pacing existed has always had.
+    // hintsShown says the rung was opened; blocksAt says nothing at all.
     storage[key] = JSON.stringify({ hintsShown: { [entryId(e)]: ["blocks"] }, updated: Date.now() });
 
     registry["btn-picker"].onclick();
@@ -5623,18 +5519,17 @@ global.realSetTimeout(() => {
 }
 
 // --- the search suggests the words, and every one of them finds something ---
-// The numbers are easy to type and there are 226 of them; the setters are the
+// The numbers are easy to type and too many to list; the setters are the
 // opposite on both counts, which is what the dropdown is for. A suggestion that
 // returns an empty list would be worse than none, so each one is typed in.
 //
 // And it stays SHUT until two letters are in. A list offered up front hides the
 // puzzles it is there to search.
 //
-// Read off the chips in the panel, not off a datalist: the input used to carry
-// list="picker-terms", and a datalist popup is native UI the
-// page cannot place — on iPad it opened nowhere near the box. Asserting on
-// chips is also the only way a test can see WHERE the suggestions are, which is
-// the thing that was wrong.
+// Read off the chips in the panel, not off a datalist: a datalist popup is
+// native UI the page cannot place — on iPad it opens nowhere near the box.
+// Asserting on chips is also the only way a test can see WHERE the suggestions
+// are.
 {
   const suggestions = () =>
     [...registry["picker-filters"].innerHTML.matchAll(/class="badge term"[^>]*>([^<]*)</g)]
@@ -5654,7 +5549,7 @@ global.realSetTimeout(() => {
     if (p.setter && p.setter.length >= 2) openings.add(p.setter.slice(0, 2).toLowerCase());
   });
   // Every distinct opening in CI. Locally a fixed slice of them, because each
-  // probe re-filters all 16,000 rows and the rule under test — a suggestion
+  // probe re-filters every row and the rule under test — a suggestion
   // that finds nothing is worse than no suggestion — is about one probe at a
   // time, so the hundredth setter is re-proving what the first proved.
   const probes = new Set(["so", "un"].concat(
@@ -5666,11 +5561,7 @@ global.realSetTimeout(() => {
     assert(opts.length > 0, `"${q}" completes to something`);
     // There is no cap in app.js on how many completions a query can return —
     // pickerSuggestTerms() just filters the whole vocabulary and hands it all
-    // back — so a fixed "<= 12" here was never a real product invariant. It
-    // was a number that happened to hold while the archive was small, and a
-    // two-letter setter-initial probe was guaranteed to break it once enough
-    // setters shared an opening ("an" gave 13 once the archive passed a few
-    // thousand puzzles, Paul, 2026-09-17). What IS real and worth protecting:
+    // back — so no count is asserted. What IS real and worth protecting:
     // every offered term actually completes what was typed, case
     // insensitively, and none of them repeats.
     opts.forEach((t) => assert(t.toLowerCase().includes(q),
@@ -5982,11 +5873,9 @@ global.realSetTimeout(() => {
 }
 
 // --- a clue that is two things at once has two right answers ---
-// "There was a regularly indicator but I said it was a charade." Both were true:
-// the type was compound and the rung graded against whichever family its table
-// happened to reach first. Two of every five annotated clues in the collection
-// are compound, so this was not an edge — it was marking the truth wrong at
-// scale, and teaching that a clue has exactly one mechanism, which is the
+// "There was a regularly indicator but I said it was a charade." Both are true
+// of a compound type, and grading against one family alone marks the truth
+// wrong and teaches that a clue has exactly one mechanism, which is the
 // opposite of what the rung is for.
 //
 // The clue is found by a type naming mechanisms that CANNOT be the same family
@@ -6047,10 +5936,10 @@ global.realSetTimeout(() => {
 }
 
 // --- nothing is charged for without being offered first ---
-// A rung used to skip its question whenever what was left to point at WAS the
-// answer, on the grounds that the answer would then be elimination. On a
-// two-word double definition — "County flags (5)" — that is every rung the clue
-// has: the ladder took its price and never asked. An easy question is a free
+// A rung asks even when what is left to point at IS the answer. Skipping the
+// question there, on the grounds that the answer is elimination, would on a
+// two-word double definition — "County flags (5)" — skip every rung the clue
+// has: the ladder would take its price and never ask. An easy question is a free
 // rung, and a rung handed over unasked is one the solver paid for and was never
 // given the chance to win.
 {
@@ -6090,14 +5979,11 @@ global.realSetTimeout(() => {
       + clueText(found.e) + "): " + registry["hint-body"].innerHTML);
 }
 
-// --- every ladder names its precise type, including the two that used to be
-// exempt ---
-// Double and cryptic definitions skipped the `.mechanism` line because their
-// family label was held to have said it already. Their family is "Definitions
-// only", whose blurb offers BOTH arms and picks neither, so those two types were
-// the only ones the site never named — and a solver read that as the site having
-// mis-typed the clue: "this feels like a double definition not a definition
-// only" (30103 10A). Driven through the real buttons on one clue of each type,
+// --- every ladder names its precise type, double and cryptic definitions included ---
+// Their family is "Definitions only", whose blurb offers BOTH arms and picks
+// neither, so without the `.mechanism` line a solver reads the family label as
+// the site having mis-typed the clue: "this feels like a double definition not a
+// definition only". Driven through the real buttons on one clue of each type,
 // because the claim is about what ends up on the screen.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
@@ -6143,9 +6029,9 @@ global.realSetTimeout(() => {
 
 // --- where a definition ENDS is a judgement call ---
 // Take "Communication made meaningless by this" (SCRAMBLER): picking just
-// "Communication made meaningless" was marked wrong for leaving off the two
-// words that point back at the answer instead of defining it. 46 definitions in
-// the corpus end in a word like that, and a solver who stops one short of the
+// "Communication made meaningless" leaves off the two words that point back at
+// the answer instead of defining it. Many definitions in the corpus end in a
+// word like that, and a solver who stops one short of the
 // line the annotation drew has still named the definition. Leaving off a word
 // that carries meaning is a different thing and is still wrong — both are
 // asserted, because leniency that cannot fail anybody teaches nothing.
@@ -6207,7 +6093,7 @@ global.realSetTimeout(() => {
 // --- a double definition has no building blocks of its own ---
 // Its halves are its two definitions: the definition rung names both and asks
 // for them, and each one's letters are the whole answer, so a blocks rung made
-// of them asked "which words give the answer?" of words the solver had just
+// of them would ask "which words give the answer?" of words the solver had just
 // tapped. What such a block adds is its note on that sense, and the note rides
 // on the definition rung instead. A block the split never named — a third
 // definition — is still a building block, and the mirror below holds that.
@@ -6307,8 +6193,8 @@ global.realSetTimeout(() => {
       if (!a || defTexts(a).length > 1 || !claimed(e, a)) continue;
       const bl = a.blocks || [];
       const bare = (t) => String(t || "").replace(/[^A-Za-z]/g, "").toUpperCase();
-      // Fodder written as its own letters never asked; fodder that resolves to
-      // the answer did, and is the case this is about.
+      // Fodder written as its own letters is never asked anyway; fodder that
+      // resolves to the answer is the case this is about.
       if (!ana && JSON.stringify(a.type) === '["anagram"]' && bl.length === 1 && bl[0].gives
         && bare(bl[0].gives) !== bare(bl[0].clueFragment)) ana = { id, e };
       if (!cha && JSON.stringify(a.type) === '["charade"]' && bl.length === 2 && bl[0].gives !== bl[1].gives
@@ -6343,9 +6229,9 @@ global.realSetTimeout(() => {
 // --- the spotting rungs spend the type rung ---
 // Once the definition and the indicator are both on screen, "what kind of clue
 // is this?" has nothing left to tell anyone, so it must stop gating the assembly
-// rung. BY EITHER ROUTE: this ran on earnedRungs first, which is only written by
-// a PERFECT guess, so a near miss or a "just tell me" left the turnstile
-// standing — hence both routes are walked below and asserted identical.
+// rung. BY EITHER ROUTE: earnedRungs is only written by a PERFECT guess, so
+// keying on it would leave the turnstile standing after a near miss or a "just
+// tell me" — hence both routes are walked below and asserted identical.
 {
   const puzzles = global.window.CRYPTIC_PUZZLES;
   const spot = ["definition", "indicators"];
@@ -6405,7 +6291,7 @@ global.realSetTimeout(() => {
   // "Use the same colour for my selection as we use for indicator." The page
   // has exactly two highlight colours — green for a
   // definition, pink for an indicator and the fragments it works on — and
-  // picking used to have a third, neutral one of its own. That taught one colour
+  // picking has no third, neutral one of its own, which would teach one colour
   // for "I chose this" and a different one for the thing just correctly chosen.
   const pickClass = (re) => {
     open();
@@ -6433,7 +6319,7 @@ global.realSetTimeout(() => {
   // every one of them through the same .gw box (see pickableClueHTML): only
   // the border's colour, style, background and text colour may tell the
   // states apart. A rule here that snuck in a padding, margin or border WIDTH
-  // is exactly the bug that used to make the clue resize when tapping began.
+  // makes the clue resize when tapping begins.
   // Comments come out first: a selector is whatever precedes a rule's "{", so a
   // comment naming .gw would be read as part of the selector after it.
   const gwCss = pickCss.replace(/\/\*[\s\S]*?\*\//g, "");
@@ -6477,8 +6363,8 @@ global.realSetTimeout(() => {
       + (m ? m[1].trim() : "rule missing"));
   });
   // Including inside a media query. The sweep above reads one rule per line and
-  // cannot see the query wrapped round it, which is how a coarse pointer came to
-  // buy a thumb-sized box — and pay for it in leading on every clue it wrapped.
+  // cannot see the query wrapped round it, so a coarse-pointer query could buy a
+  // thumb-sized box — and pay for it in leading on every clue it wrapped.
   [...gwCss.matchAll(/@media([^{]+)\{((?:[^{}]|\{[^{}]*\})*)\}/g)].forEach((q) => {
     [...q[2].matchAll(/\.gw\b[^{}]*\{([^{}]*)\}/g)].forEach((g) => {
       assert(!boxProps.test(g[1]),
@@ -6564,14 +6450,14 @@ global.realSetTimeout(() => {
 }
 
 // --- typing does not rewrite the hint panel ---
-// refreshAll() runs on every keystroke and rebuilt the whole panel with it, so
-// every letter tore down a hint body, rung row and escape hatch in which nothing
-// had changed. The browser lays the block out again each time and it reads as
+// refreshAll() runs on every keystroke, and rebuilding the whole panel with it
+// would tear down a hint body, rung row and escape hatch in which nothing had
+// changed. The browser lays the block out again each time and it reads as
 // the panel shivering under the typing, worst on iOS. Only the pattern row and
 // the meter can differ while someone is typing.
 //
-// Booted fresh, and anything added after this must boot fresh too: boot()
-// replaces the globals every earlier test is still holding.
+// Booted fresh, and late in the file: boot() replaces the globals every earlier
+// test is still holding.
 {
   const d = require("./fake_dom.js").boot({ query: "?p=cryptic-30066" });
   const reg = d.registry;
@@ -6630,15 +6516,14 @@ global.realSetTimeout(() => {
 
 // --- a sync reply cannot undo what the solver just did ---
 // A reply describes the moment its request left, and a request is in flight for
-// as long as a round trip takes. It used to be written into localStorage as the
-// truth, so anything done during that second — the letter typed, the rung opened
-// — was deleted in front of the solver: "I clicked full walkthrough, it appeared
-// then disappeared". The reply is merged in now.
+// as long as a round trip takes. Written into localStorage as the truth, it
+// would delete anything done during that second — the letter typed, the rung
+// opened — in front of the solver. So the reply is merged in.
 //
 // The stub resolves synchronously, on purpose. A real promise lands after this
 // file has finished, and worse, an assertion thrown inside one is caught by the
 // app's own .catch() and reported as "Offline — will retry" — a test that can
-// only pass. Booted fresh, like everything after it.
+// only pass. Booted fresh.
 {
   const d = require("./fake_dom.js").boot({ query: "?p=cryptic-30066" });
   const reg = d.registry;
@@ -6701,9 +6586,8 @@ global.realSetTimeout(() => {
 // ?c=3D opens on that clue, so "which one are you stuck on" is answerable with a
 // URL and a first-timer can be handed one clue instead of a whole 15x15. Booted
 // fresh, because the ref has to survive openPuzzle rewriting the address bar to
-// ?p= on its way in — which is precisely how the first cut of this silently did
-// nothing. Last in the file: boot() replaces the globals every earlier test is
-// still holding.
+// ?p= on its way in. Late in the file: boot() replaces the globals every earlier
+// test is still holding.
 {
   const fresh = (q) => require("./fake_dom.js").boot({ query: q });
   const clueOf = (r) => (r.registry["hint-clue"].innerHTML || "").replace(/<[^>]+>/g, "");
@@ -6740,10 +6624,8 @@ global.realSetTimeout(() => {
     registry["rp-open"].onclick();
     assert(/id="rp-note"/.test(registry["hint-escape"].innerHTML),
       "and opening it gives you the line to write on: " + registry["hint-escape"].innerHTML);
-    // Something you can read your own sentence back in. It accepts 400
-    // characters and used to offer one 280px line for them.
-    // More than one line at rest, and it grows with the typing; the ceiling is
-    // CSS's, because the other end of this was "too big" the same day.
+    // Something you can read your own sentence back in: more than one line at
+    // rest, and it grows with the typing; the ceiling is CSS's.
     assert(/<textarea id="rp-note"[^>]*rows="[2-9]"/.test(registry["hint-escape"].innerHTML),
       "with room to write in: " + registry["hint-escape"].innerHTML);
 
@@ -6772,11 +6654,11 @@ global.realSetTimeout(() => {
     // --- and it is about the clue you are LOOKING at, after walking past others ---
     // The escape hatch's markup is byte-identical for every unsolved clue whose
     // report is not open, so setHTML — which skips a write when the new string
-    // equals the old — rebinds nothing as you move between them. bindReport used
-    // to close over the entry it was last bound on, and stayed bound to it for as
-    // long as the markup did not change: several clues, sometimes a whole puzzle.
-    // The report was then filed against a clue the reader had left, with the
-    // reader's own words attached to it, which is worse than losing the report.
+    // equals the old — rebinds nothing as you move between them. A bindReport
+    // that closed over the entry it was last bound on would stay bound to it for
+    // as long as the markup did not change, and file the report against a clue
+    // the reader had left, with the reader's own words attached to it, which is
+    // worse than losing the report.
     // Walk a few clues the way a solver does and check the last one is the one
     // that gets reported.
     const walkTo = (global.window.CRYPTIC_PUZZLES[first].entries || [])
@@ -6805,9 +6687,9 @@ global.realSetTimeout(() => {
 
 // --- an indicator is a phrase, and its linking words are not the lesson ---
 // "If the indicator has linking words it doesn't feel fair to lose. Like for
-// spooner if I just choose spooner I should get it." A third
-// of the corpus's indicators are more than one word — "starts to", "end of",
-// "according to Spooner" — and demanding the exact span marked a solver wrong
+// spooner if I just choose spooner I should get it." Many of the corpus's
+// indicators are more than one word — "starts to", "end of",
+// "according to Spooner" — and demanding the exact span would mark a solver wrong
 // for finding the thing and drawing its edge one word in. Finding every
 // indicator and pointing at nothing else is what the rung asks, so that is what
 // it marks; the phrase is then named in full, which is the teaching.
@@ -6880,7 +6762,7 @@ global.realSetTimeout(() => {
       "and the whole phrase is what comes back: " + html);
 
     // The other half of the rule: a phrase with no word picked at all is not
-    // found, however many of the others are. 216 clues have "in" as an entire
+    // found, however many of the others are. Many clues have "in" as an entire
     // indicator, and a rung that let a solver skip one would be free.
     if (found.spans.length > 1) {
       openClue(found.id, found.e);
@@ -6898,9 +6780,8 @@ global.realSetTimeout(() => {
 // --- solving a clue while a rung is quizzing you earns that rung ---
 // The score was already settled the moment the clue went in, so the rung costs
 // nothing either way — but the panel says which rungs were EARNED and which
-// were bought, and a rung handed over at that moment arrived looking bought:
-// "the step never said worked out · free" (quiptic-1396
-// 16D). Solving the clue is a better answer to "which words give which letters"
+// were bought, and a rung handed over at that moment must not arrive looking
+// bought. Solving the clue is a better answer to "which words give which letters"
 // than pointing at the words, so it is scored as one.
 {
   const d = require("./fake_dom.js").boot({ query: "?p=quiptic-1396" });
@@ -6940,9 +6821,8 @@ global.realSetTimeout(() => {
 //
 // A first visit is a BROWSER that has been here one day, not a page load that
 // happened to be the first of a day. reportVisit stops early once it has sent
-// today's beacon, and while the cursor was decided below that stop, anyone who
-// opened the site twice in a day saw the lines on neither load — which is every
-// person who reloads to look again, and was how this shipped broken. The seeded
+// today's beacon, so the cursor must be decided above that stop, or anyone who
+// opens the site twice in a day sees the lines on neither load. The seeded
 // tally says days: 1, so these lines are still owed.
 {
   const today = new Date().toISOString().slice(0, 10);
@@ -6996,7 +6876,7 @@ global.realSetTimeout(() => {
     + press.registry["hint-body"].innerHTML.slice(0, 200));
   // Picking every lit word moves the pulse and the hole onto the button that
   // grades them: selecting is half the gesture, and a light left on the
-  // question block left the newcomer hunting for what to press next.
+  // question block would leave the newcomer hunting for what to press next.
   const pulsing = Object.keys(press.registry).filter((id) => /^gw-\d+$/.test(id)
     && /walk-point/.test(press.registry[id].className || ""));
   if (pulsing.length && press.registry["guess-check"]) {
