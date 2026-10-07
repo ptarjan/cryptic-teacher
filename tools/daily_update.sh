@@ -25,11 +25,11 @@
 #      recorded with a hash of its inputs (tools/failed_inputs.py) and left out
 #      of the queue until those inputs change. Otherwise it would be the newest
 #      un-annotated puzzle every night, bought again at full price each time.
-#   4. Reads the bad-hint queue solvers write to from the site, hands the
+#   3c. Reads the bad-hint queue solvers write to from the site, hands the
 #      reports to the same headless model to fix, and alerts a person only
 #      about the ones it could not close. Before the commit, so a fix reaches
 #      the site the same night the report arrived.
-#   5. Validates tonight's annotations, reindexes, commits and pushes. The
+#   4. Validates tonight's annotations, reindexes, commits and pushes. The
 #      site is built, tested and deployed by .github/workflows/ on that push.
 #
 # Only work driven by new inputs runs here: tonight's puzzles, posts, keys,
@@ -37,15 +37,15 @@
 # could alter (a better scan reader, a stricter validator) is run once by
 # whoever changes the code, or by CI on the push that carries the change.
 #
-# Install: a line in the bridge container's tools/crontab (household repo),
-# 04:45 local, so a run of about two hours is done by 07:00, when Paul is up.
-# That is the only schedule this job has, and a second one is not
-# a fallback — two copies annotate the same backlog out of the same weekly
-# quota. Cron works here because the credential is a file under
+# Install: household-plugins/cryptic-daily/plugin.toml schedules it in the
+# bridge container at 04:45 local, so a run of about two hours is done by 07:00,
+# when Paul is up. That is the only schedule this job has, and a second one is
+# not a fallback — two copies annotate the same backlog out of the same weekly
+# quota. The container works because the credential is a file under
 # CLAUDE_CONFIG_DIR. On a Mac it does not: there the `claude` CLI reads the
 # *login* keychain, which cron cannot unlock, and every run dies with "Not
-# logged in" — so scheduling this on a Mac means launchctl, and means deleting
-# the crontab line rather than adding to it.
+# logged in" — so scheduling this on a Mac means launchctl, and means removing
+# the plugin rather than adding to it.
 #
 # Requirements: python3, git, and the `claude` CLI on PATH for the annotation step.
 
@@ -54,9 +54,7 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
 # Re-exec in a checkout of nobody else's — see tools/nightly_worktree.sh for the
 # whole argument. Everything below can then assume one writer: what is modified
-# here was modified by this run. There used to be a DIRTY_BEFORE snapshot
-# subtracted from the final status to guess that instead, and guessing it is
-# what let this job swallow a half-written feature on 2026-08-10.
+# here was modified by this run.
 # A dropped run's commits (the fetched sources, committed before annotating)
 # are pushed by the next start; its uncommitted annotations are not, since
 # each is validated against that run's HEAD and may be one it was rejecting.
@@ -71,13 +69,13 @@ cd "$REPO" || exit 1
 # The CLI keys its keychain item by CLAUDE_CONFIG_DIR: the entry is named
 # "Claude Code-credentials-<first 8 of sha256(configdir)>", and with the variable
 # unset it reads the legacy un-suffixed "Claude Code-credentials" instead. A
-# file-based /login on 2026-07-31 wrote the suffixed entry and emptied the legacy
-# one, so from then until 2026-08-06 every run of this script died on "Failed to
-# authenticate: OAuth session expired and could not be refreshed" and annotated
-# nothing for seven days — while interactive sessions and the Discord bridge
-# (which sets this variable) kept working, so nothing looked broken. Set it
-# here rather than only in the scheduler's environment: the failure is silent
-# and non-obvious, and this way it survives being run by hand too.
+# file-based /login writes the suffixed entry and empties the legacy one, and
+# then every run of this script dies on "Failed to authenticate: OAuth session
+# expired and could not be refreshed" and annotates nothing — while interactive
+# sessions and the Discord bridge (which sets this variable) keep working, so
+# nothing looks broken. Set it here rather than only in the scheduler's
+# environment: the failure is silent and non-obvious, and this way it survives
+# being run by hand too.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
 # The failure both of these were written for: thinking bills as output, and a
@@ -119,7 +117,7 @@ export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 # stored one with a credential that cannot refresh.
 
 # alert() — puts a failure in Discord instead of only in this log. See alert.sh
-# for why: the seven silent days above are what a log-only failure looks like.
+# for why.
 . "$REPO/tools/alert.sh"
 
 # session_id / session_exists — what lets a failed annotation resume instead of
@@ -127,7 +125,7 @@ export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 . "$REPO/tools/claude_session.sh"
 
 # Keep this run's output where the exit trap can read it back, and report any
-# failure line nobody wrote an alert for. launchd's .update.log holds every run
+# failure line nobody wrote an alert for. The scheduler's .update.log holds every run
 # ever, so "grep the log" would re-report last week; this is tonight only.
 # Spelled out rather than `mktemp -t cryptic-daily`: -t takes a bare prefix on macOS
 # but a template that must contain X's on GNU, so the one spelling cannot mean
@@ -185,8 +183,7 @@ phase fetch 30
 # returns 3 here; that is "nothing new", not a fault.
 #
 # Every fetcher with a --latest belongs in this list. A series backfilled but
-# left out of it stops at the day it was backfilled and rots from there, which
-# is what happened to Cyclops. Give a new fetcher --latest and add it here in
+# left out of it stops at the day it was backfilled and rots from there. Give a new fetcher --latest and add it here in
 # the same pass; a backfill that isn't in this loop is already rotting.
 FETCHERS="fetch_puzzle fetch_independent fetch_observer fetch_privateeye fetch_globeandmail fetch_metro"
 fetch_broken=""
@@ -403,8 +400,7 @@ graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
 # A clean sweep and a bad night are not the same message. Both are worth
 # sending — the grade is the whole measurement behind ANNOTATE_BLIND and it
 # happens on a night nobody knows in advance — but the miss trailer is a lie
-# when there are no misses, and 28/28 went out under a ⚠️ saying every miss
-# above had had its annotation dropped.
+# when there are no misses.
 if [ -n "$graded" ]; then
   if printf %s "$graded" | grep -q "^  miss "; then
     alert "a puzzle we solved ourselves has been graded against the
@@ -435,9 +431,7 @@ phase minute 30
 # and are ignored — a scrape of somebody else's bundle is expected to break the
 # day they change it, and that is not a reason to hold back tonight's puzzle.
 # The guard says so out loud. Their daily clue is only ever offered on the day,
-# so a silent skip is not a deferral, it is a permanent hole in daily.jsonl --
-# eleven days of them, when node went missing between 2026-08-28 and the
-# container cutover and this printed nothing either way.
+# so a silent skip is not a deferral, it is a permanent hole in daily.jsonl.
 if command -v node >/dev/null 2>&1; then
   node tools/fetch_minutecryptic.js --quiet || echo "WARNING: minutecryptic capture failed"
 else
@@ -471,15 +465,12 @@ phase annotate
 # number silently means "Guardian dailies first, forever": every 30xxx outranks
 # every quiptic 12xxx and every Everyman 4xxx no matter when it ran, so those
 # two series could never reach the head of the queue while a single Guardian was
-# pending — which is exactly what happened, all 16 quiptics unannotated
-# including the day's own (found 2026-08-12). Number is only a tie-break, for
+# pending. Number is only a tie-break, for
 # the several series that publish on the same morning.
 #
-# A bulk import gets no special treatment: 68 backfilled Everymans simply queue
-# by date like everything else and are worked newest to oldest (Paul, 2026-08-16,
-# on a hold flag that briefly existed here: "no need to do anything special for
-# the backfill"). The rate limit below is what stops a big import from being a
-# big bill, and it already did that job.
+# A bulk import gets no special treatment: backfilled puzzles queue by date like
+# everything else and are worked newest to oldest. The rate limit below is what
+# stops a big import from being a big bill.
 ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 # Puzzles whose annotation already failed on the inputs they have now. Selection
 # here is by date and nothing else, so without this a puzzle that fails is the
@@ -497,8 +488,7 @@ ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 # puzzles/index.json is generated and untracked, so the copy on disk here was
 # written by whatever code ran last, not by this checkout's. Both queues read
 # fields off it and read a missing field as a puzzle with nothing wrong, so an
-# index older than a field silently answers "fine" for every puzzle — which is
-# how cryptic-24577 was handed to a model the night clue counts were added.
+# index older than a field silently answers "fine" for every puzzle.
 # Nine seconds over the whole corpus; the rest of the script reindexes anyway.
 python3 tools/fetch_puzzle.py --reindex
 annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
@@ -538,9 +528,8 @@ todo = sorted(((puzzle_day(p) or datetime.date.min, p["id"]) for p in idx["puzzl
                if not p["annotated"] and p.get("hasSolutions")
                and p["id"] not in blocked), reverse=True)
 fresh = [i for d, i in todo if d >= cutoff or i in keyed_tonight]
-# A series' first puzzle leads the rest (Paul, 2026-10-02: "Puzzle 1 is a
-# special puzzle"), then a partly annotated one, which costs only its missing
-# clues.
+# A series' first puzzle leads the rest, then a partly annotated one, which
+# costs only its missing clues.
 partial = {p["id"]: p["unannotated"] for p in idx["puzzles"] if p.get("unannotated")}
 older = sorted((i for _, i in todo if i not in fresh),
                key=lambda i: (not is_first_issue(i), i not in partial, partial.get(i, 0)))
@@ -558,10 +547,9 @@ record_annotate_failure() {   # id, reason, [--judged]
 }
 
 # Puzzles the paper hasn't published answers for — Saturday prize crosswords,
-# which withhold them for about a week. They used to be excluded from
-# everything: no solutions means nothing for the annotator to explain, so the
-# newest and most-visited puzzle on the site sat hintless for its whole first
-# week and then took its turn at the back of a queue.
+# which withhold them for about a week. No solutions means nothing for the
+# annotator to explain, so unsolved, the newest and most-visited puzzle on the
+# site would sit hintless for its whole first week.
 #
 # So solve it instead. A model solves the grid cold, and tools/apply_solution.py
 # writes it only if every entry is answered, every length fits and all ~58
@@ -577,9 +565,9 @@ record_annotate_failure() {   # id, reason, [--judged]
 # hold with no answers in it, and on a normal night that queue is empty. It fills
 # in bursts, not one at a time — a Cyclops arrives answer-stripped and waits days
 # for fifteensquared, a Saturday prize waits a week for its key, and with eight
-# series those waits overlap. A limit of one made the burst take a working week
-# to clear, and the puzzles came out of it newest-first, so the oldest answerless
-# grid was the last one ever looked at.
+# series those waits overlap. A limit of one would take a working week to clear
+# a burst, newest-first, so the oldest answerless grid would be the last one
+# ever looked at.
 #
 # The ceiling is not a cost decision: a cold solve is the CHEAP job here — around
 # 10-15 turns against an annotation's 40-90, and a third of the spend once cache
@@ -603,10 +591,10 @@ idx = json.load(open("puzzles/index.json"))
 unsolved_ids = {p["id"] for p in idx["puzzles"] if not p.get("hasSolutions")}
 
 # A grid a model cannot READ is not a solve it can fail; it is a puzzle we hold
-# a picture of. cryptic-24577 has all 28 clues printed blank and no answers, so
-# it was the newest answerless puzzle every night, took a full cold solve, and
-# raised "gave up after 1 attempt" — an alert naming the model for a hole in the
-# data. 18 puzzles are in that state today. They are not queued at all, which is
+# a picture of. Queued, a puzzle whose clues are printed blank would be the
+# newest answerless puzzle every night, take a full cold solve, and raise "gave
+# up after 1 attempt" — an alert naming the model for a hole in the data. They
+# are not queued at all, which is
 # why nothing here alerts: there is no failure, only a fetch that came back
 # empty, and the thing that fixes it is re-fetching the clue text.
 #
@@ -645,28 +633,22 @@ python3 tools/failed_inputs.py summary
 # Annotation is the only thing here that spends inference, and a crossword
 # backlog is never worth being rate-limited for real work. Skip it once the
 # account's weekly window is more than ANNOTATE_MAX_WEEKLY_PCT spent; steps 1,
-# 2 and 4 still run, so the newest puzzle is still fetched and published, just
+# 2, 3c and 4 still run, so the newest puzzle is still fetched and published, just
 # without hints until the window resets.
 #
-# This gate used to fail OPEN — if it couldn't read the quota it annotated
-# anyway and printed a warning — on the argument that overspending is visible
-# while a stalled backlog isn't. That argument has now been tested twice and
-# lost both times. From 2026-08-01 to 08-07 the read failed every night against
-# a blanked keychain entry and the week ran to 68% with the gate wide open; on
-# 08-08 it failed again, ran ungated at 82%, and the annotation died on a limit
-# anyway — so fail-open didn't even buy the puzzle it was spending for.
-#
-# It fails CLOSED now, and the premise that made fail-open tempting is gone:
-# a skipped night raises an alert into Discord, so "nothing says so" is no
-# longer true. One day of backlog is recoverable; a week of someone's quota
-# spent by a gate that had stopped gating is not.
+# The gate fails CLOSED: if it cannot read the quota it skips, and a skipped
+# night raises an alert into Discord, so a stalled backlog is as visible as
+# overspending. Failing open does not even buy the puzzle it spends for: a read
+# that fails every night leaves the gate wide open while the week's quota runs
+# down, and the annotation dies on the limit anyway. One day of backlog is
+# recoverable; a week of someone's quota spent by a gate that had stopped
+# gating is not.
 #
 # The verdict comes from weekly_usage.py rather than from arithmetic here,
 # because "am I over the line" is answerable in cases where "what is the
 # percentage" isn't: usage only rises within a window, so even a stale cached
-# reading is a floor, and a floor above the limit is a decision. That is the
-# case this gate actually met on 08-08 — it was holding a 10-hour-old 75%
-# against a 50% limit and called itself blind.
+# reading is a floor, and a floor above the limit is a decision: a 10-hour-old
+# 75% against a 50% limit is a skip, not blindness.
 ANNOTATE_MAX_WEEKLY_PCT="${ANNOTATE_MAX_WEEKLY_PCT:-90}"
 # The annotating model. An alias, so it names whichever model it points at
 # tonight; the exact id that ran is recorded in each puzzle's
@@ -679,9 +661,8 @@ ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"
 # derives against them afterwards. See tools/blind_annotate.py for what this
 # measures that the sighted path cannot.
 #
-# Off by default: the trial ran 2026-09-06 to 09-17 and the numbers are in the
-# commit that turned it off. Set ANNOTATE_BLIND=1 to run a blind night; the
-# machinery, the grading and blind_misses.json all still work. The default
+# Off by default. Set ANNOTATE_BLIND=1 to run a blind night; the machinery,
+# the grading and blind_misses.json all work. The default
 # lives here rather than in a scheduler's environment because the repo is the
 # only thing that survives the machine, and a night whose mode was set
 # somewhere else cannot be read back out of the log.
@@ -697,8 +678,8 @@ if [ -n "$fresh$pending$unsolved" ] && ! python3 tools/weekly_usage.py --self-te
 fi
 if [ -n "$fresh$pending$unsolved" ]; then
   # The gate explains itself on stderr; keep it so the alert can carry the
-  # reason instead of pointing at a log. "can't read the quota" was the same
-  # sentence whether the API was down or the CLI was simply logged out — and
+  # reason instead of pointing at a log. "can't read the quota" alone is the
+  # same sentence whether the API is down or the CLI is simply logged out — and
   # those need opposite responses, since a logged-out CLI means nothing would
   # have run tonight regardless of what the gate decided.
   gate_why=$(mktemp)
@@ -727,21 +708,19 @@ fi
 
 # The five-hour window is the one this loop actually spends, so it is re-read
 # before every puzzle. Checking it once up front is worthless — it reads near
-# zero at 04:45 by construction — and that is why runs kept annotating two
-# puzzles and then dying on the third with "you've hit your limit", which is a
-# quota being discovered by crashing into it rather than being budgeted.
+# zero at 04:45 by construction — and a run checked only then annotates two
+# puzzles and dies on the third with "you've hit your limit", a quota
+# discovered by crashing into it rather than budgeted.
 ANNOTATE_MAX_SESSION_PCT="${ANNOTATE_MAX_SESSION_PCT:-90}"
 # Turns are the wrong unit to bound a run by, because one turn is not one price.
 # A turn cut off for overrunning the output ceiling emits no tool call, so the
 # CLI keeps its --max-turns budget intact and simply tries again; the ceiling is
-# 128k output tokens and takes ~25 minutes to reach. independent-12456 did that
-# six times inside one run on 2026-09-11 — 36 turns, 1.16M output tokens, four
-# hours, and not one byte written to the puzzle. Nothing in this script could see
-# it: the retry below only fires when the CLI EXITS saying "output token
+# 128k output tokens and takes ~25 minutes to reach, so a run can loop for
+# hours without writing one byte to the puzzle. Nothing in this script can see
+# that: the retry below only fires when the CLI EXITS saying "output token
 # maximum", and a run that absorbs the overrun never exits at all.
 # So bound the wall clock as well. A puzzle that is going to be annotated is
-# annotated in well under an hour (23 and 68 minutes, the two that finished that
-# same night); one still going at ANNOTATE_MAX_MINUTES is not slow, it is lost,
+# annotated in about an hour; one still going at ANNOTATE_MAX_MINUTES is not slow, it is lost,
 # and it is recorded against the puzzle like any other failure.
 ANNOTATE_MAX_MINUTES="${ANNOTATE_MAX_MINUTES:-90}"
 annotated_ok=0
@@ -838,7 +817,7 @@ phase solve
 # at. Same session gate as annotation, and
 # the same trailer, since it is the same model spending the same quota.
 #
-# "By definition the newest" stopped being true when the book reprints arrived.
+# "By definition the newest" is not true of a book reprint.
 # A book reprint holds only its book's `year` (no volume prints the day a
 # puzzle ran), so both queues above sort it behind every day-dated
 # puzzle, deliberately: the backfill does
@@ -846,7 +825,7 @@ phase solve
 # one here would undo that at the last moment and spend a place in tonight's
 # ANNOTATE_MAX on a reprint, dropping a puzzle somebody is solving today off the
 # end of the queue. So a day-dated solve goes to the front and a book (a `year`)
-# or a dateless one to the back, which is where the ordering had it all along.
+# or a dateless one to the back, which is where the ordering puts it.
 has_date() {   # id -> true when the puzzle file carries a publication DAY
   python3 - "$1" <<'EOF'
 import sys
@@ -897,7 +876,7 @@ if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
       --max-turns 120 >"$solvelog" 2>&1
     tail -40 "$solvelog"
     # The verdict comes from the checker, not from the model's own report. A
-    # run can exit 0 having given up, and did — the check is what decides. It is
+    # run can exit 0 having given up — the check is what decides. It is
     # captured rather than only printed, because the reason a fill was rejected
     # is the entire content of the give-up alert below.
     if [ -s "$fill" ]; then
@@ -954,10 +933,9 @@ fi
 pending="${fresh:+$fresh }$pending"
 
 if [ -n "$pending" ]; then
-  # Restate the controlled vocabulary and the validator's limits in the prompt
-  # from the code that enforces them, BEFORE the run reads it. A rule the run has
-  # to go and grep for is a rule the prompt did not state, and it was opening
-  # app.js and the validator several times a puzzle to find these.
+  # Restate the controlled vocabulary in the prompt from the file that defines
+  # it, BEFORE the run reads it. A rule the run has to go and grep for is a rule
+  # the prompt did not state.
   python3 tools/build_annotate_prompt.py
   if command -v claude >/dev/null 2>&1; then
     run_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-annotate.XXXXXX")"
@@ -969,12 +947,11 @@ if [ -n "$pending" ]; then
         break
       fi
       echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
-      # Pinned, not inherited. This used to name no model and take whatever
-      # ~/.claude/settings.json defaulted to, which meant a settings edit made
-      # for an interactive session silently retuned the nightly job — it moved
-      # from Fable to Opus that way on 2026-07-30 without anyone deciding to.
-      # Opus on purpose since 2026-08-09: benchmarked head-to-head against Fable
-      # on 30078 (see STYLE.md), it matched — 23/25 types, 22/25 definitions,
+      # Pinned, not inherited: taking whatever ~/.claude/settings.json defaults
+      # to would let a settings edit made for an interactive session silently
+      # retune the nightly job.
+      # Opus on purpose: benchmarked head-to-head against Fable
+      # on 30078 (see APP.md), it matched — 23/25 types, 22/25 definitions,
       # zero cryptic definitions, both hard clues solved — in the same wall time
       # for a third of the cost, because the bill is nearly all output tokens.
       # Web lookup belongs to the annotate call and to no other: a clue nobody
@@ -988,7 +965,7 @@ if [ -n "$pending" ]; then
       # then restores it and grades what the model derived. Same puzzle, same
       # single pass, same bill — the comparison is against the sighted runs
       # already in the corpus, so nothing is ever annotated twice. Web tools
-      # come off for the same reason the cold solve never had them: a solvers'
+      # come off for the same reason the cold solve never has them: a solvers'
       # blog carries the answers, and a blind run that reads one measures
       # nothing. A puzzle with no key to hide (a prize grid we solved
       # ourselves) is annotated sighted as usual.
@@ -1066,16 +1043,12 @@ if [ -n "$pending" ]; then
         [ "$ann_rc" = 0 ] && ann_ok=1
         [ -n "$ann_ok" ] && break
         # The cap fired. Say so here rather than below, because below reads the
-        # reason off the CLI's last line and a killed CLI never printed one —
-        # that is how this failure reached the ledger as "independent-12456
-        # failed:" with nothing after the colon.
+        # reason off the CLI's last line and a killed CLI never printed one.
         # This puzzle is lost; the night is not. The cap firing says the model
         # is stuck on THIS grid — it says nothing about the next one, and the
         # loop re-reads the five-hour window at the top of every iteration, so
-        # carrying on cannot outspend the gate. It used to `break 2` here, and
-        # that is why 2026-09-12 published one puzzle instead of three:
-        # independent-12459 ran out the clock and took cryptic-30109, which
-        # nothing had tried yet, down with it.
+        # carrying on cannot outspend the gate. Stopping the run here would take
+        # every puzzle after this one, untried, down with it.
         if [ "$ann_rc" = 124 ]; then
           ann_timeout="$num ran past ${ANNOTATE_MAX_MINUTES}m without finishing and was stopped"
           echo "  $ann_timeout"
@@ -1122,14 +1095,11 @@ if [ -n "$pending" ]; then
         # And write that down against the puzzle, because tomorrow's queue is
         # otherwise identical to tonight's: this puzzle is still un-annotated and
         # still the newest, so it comes back to the head of the list and is
-        # bought again from an empty context. That is what happened to
-        # indysunday-1906 after 2026-09-06, and it escaped a second full run only
-        # because a person annotated it by hand.
+        # bought again from an empty context.
         record_annotate_failure "$num" "$stop_reason"
         # Every dead puzzle is reported, not only a night that annotated none.
-        # A run that got two and lost one used to say so with `echo` and wake
-        # nobody, so 2026-09-10 and 09-12 each lost a puzzle in silence and the
-        # first anyone knew was the site being a day short.
+        # A run that got two and lost one is otherwise silent, and the first
+        # anyone knows is the site being a day short.
         annotate_alert "$num" "$stop_reason" "$ann_sid"
         break
       fi
@@ -1151,19 +1121,17 @@ if [ -n "$annotated_nums" ]; then
     alert "tonight's annotation came back short — $loss. Those clues ship with \"auto hints\" and no teaching ladder."
   echo "$loss"
 
-  # How many turns a session is taking, logged every night it annotates. This
-  # was measured by hand twice and the two measurements disagreed; the second
-  # could not reproduce the first at all. A number that only exists when
-  # somebody goes looking is a number that gets quoted long after it stopped
-  # being true, so it is computed here from the transcripts every run.
+  # How many turns a session is taking, logged every night it annotates. A
+  # number that only exists when somebody goes looking is a number that gets
+  # quoted long after it stopped being true, so it is computed here from the
+  # transcripts every run.
   python3 tools/turn_cost.py 2>&1 || true
 fi
 
 # Alert on the backlog not moving, not on a command exiting non-zero. A run that
 # annotates two puzzles and then meets a rate limit has done its job; a run that
-# annotates none has silently stalled, which is this repo's signature failure —
-# it shipped that three times (no PATH to claude, oldest-first ordering, a gate
-# reading a blanked keychain entry) and each time the log knew and nobody did.
+# annotates none has silently stalled, which is this repo's signature failure:
+# the log knows and nobody does.
 if [ -n "$lost_ids" ]; then
   echo "gave up on$lost_ids after ${ANNOTATE_MAX_MINUTES}m each and carried on with the rest of the queue"
   # A night where every attempt ran out the clock annotated nothing, and the
@@ -1257,15 +1225,14 @@ fi
 phase commit 30
 # --- 4. validate, reindex, commit ---
 python3 tools/fetch_puzzle.py --reindex
-# Tonight's work is judged on tonight's work. This used to validate the whole
-# corpus and revert on any failure anywhere, so a type part in a puzzle from
-# months ago discarded three clean puzzles and published nothing (2026-09-02).
-# A puzzle that is already live cannot be made good by throwing away a puzzle
-# that isn't.
+# Tonight's work is judged on tonight's work. Validating the whole corpus and
+# reverting on any failure anywhere would let a type part in a puzzle from
+# months ago discard tonight's clean puzzles. A puzzle that is already live
+# cannot be made good by throwing away a puzzle that isn't.
 # And one puzzle at a time, because the night is not the unit either. Validated
-# as a lump, one blank clue in cryptic-30109 threw away independent-12458 too on
-# 2026-09-11, which had just passed 29 of 29. A puzzle that is good is good on
-# its own, and nothing about the bad one makes it less so.
+# as a lump, one blank clue in one puzzle throws away another that passed every
+# check. A puzzle that is good is good on its own, and nothing about the bad one
+# makes it less so.
 ann_passed=""
 ann_failed=""
 for num in $annotated_nums; do
@@ -1292,8 +1259,8 @@ if [ -n "$ann_failed" ]; then
   # The index above was built over the files as they stood before that revert.
   python3 tools/fetch_puzzle.py --reindex
   # Tonight's annotation of those is gone and the inference that produced it is
-  # spent. This branch used to exit 1 in silence, which is the same shape of
-  # failure as the seven authentication days: the log knew, and nobody did.
+  # spent. Exiting in silence here would be this repo's signature failure: the
+  # log knows, and nobody does.
   alert "annotation validation failed on$ann_failed, so those hints were thrown away and those puzzles are skipped until their clues, answers, tools/annotate_prompt.md or tools/validate_annotations.py change: $(for n in $ann_failed; do grep -m1 ERROR "/tmp/ct-validate-$n.txt"; done | head -3 | tr '\n' ' ')${ann_passed:+ — the rest of the night ($ann_passed ) validated and still publishes}"
 fi
 rm -f /tmp/ct-validate-*.txt
@@ -1324,8 +1291,8 @@ EOF
   fi
 done
 # The annotation payloads apply_annotations.py consumed. Gitignored (tools/_*),
-# so this is housekeeping rather than safety — but the throwaway scripts these
-# replaced were gitignored too, and they piled up one per puzzle for months.
+# so this is housekeeping rather than safety — but nothing else clears them, and
+# they pile up one per puzzle.
 rm -f "$REPO/tools/_ann_"*.json "$REPO/tools/_puzzle_"*.json
 
 if [ -n "$(git status --porcelain)" ] || [ -n "$sources_committed" ]; then
@@ -1352,25 +1319,25 @@ if [ -n "$(git status --porcelain)" ] || [ -n "$sources_committed" ]; then
   fi
   git diff --cached --quiet ||
     git commit -m "$(printf 'Daily update: fetch latest cryptic / annotate backlog\n\n%s' "$(python3 tools/provenance.py trailer)")"
-  # Nothing may be left behind. With one writer this is no longer a judgement
+  # Nothing may be left behind. With one writer this is not a judgement
   # call about whose file it was: anything still showing here after `add -A` and
   # a commit is a bug, and it is work that will never reach the site. Read with
   # cut, not awk $2 — a rename prints two paths and a filename may contain a
-  # space, and both of those used to come out as the wrong filename.
+  # space, and awk would read either as the wrong filename.
   left=$(git status --porcelain | cut -c4- | tr '\n' ' ')
   [ -n "$left" ] && alert "the daily update committed, and left these behind in its own worktree: $left"
   # A rebase that stops here is rarely a disagreement. Every file this job writes
   # that an interactive session writes too is GENERATED — README.md and what is
   # still tracked of the built pages — so a
   # conflict in one is two rebuilds of the same inputs, not two opinions, and
-  # resolving it by hand is what stranded the 2026-09-06 and 09-07 runs. Rebuild
-  # from the merged sources instead.
+  # resolving it by hand strands the run. Rebuild from the merged sources
+  # instead.
   #
   # What makes that safe is not a list of generated filenames, which would drift
   # the moment a builder learns a new output: a path is only accepted once a
   # builder has actually rewritten it, and rewriting it is exactly what leaves no
   # conflict markers behind. A path still carrying markers is owned by no builder
-  # — a real conflict — and the whole rebase is abandoned to the alert above
+  # — a real conflict — and the whole rebase is abandoned to the alert below
   # rather than half-resolved.
   rebuild_generated_conflicts() {
     # Nothing to continue unless the rebase stopped mid-pick; a rebase that
@@ -1430,9 +1397,8 @@ REBUILT
 
   # Push only if a remote exists (GitHub Pages picks it up from master).
   # --autostash and a rebase first: the remote is routinely ahead of the mini
-  # (interactive sessions push to it all day), and this used to be a bare push
-  # swallowed by `|| true`, so a rejected push looked exactly like a successful
-  # one and the day's puzzle quietly never reached the site.
+  # (interactive sessions push to it all day), and a rejected push must not look
+  # like a successful one, or the day's puzzle quietly never reaches the site.
   if git remote get-url origin >/dev/null 2>&1; then
     # HEAD is detached in this worktree, so master is named explicitly on both
     # sides. --autostash still earns its place: a rebase refuses outright with

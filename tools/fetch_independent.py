@@ -22,9 +22,7 @@ the Guardian ships JSON embedded in an article page, the Independent ships
 Crossword Compiler XML from a CDN. The two converters have no code in common,
 and pretending otherwise would have meant a fetcher full of "if series ==".
 
-WHERE THIS FEED CAME FROM (2026-08-05). Paul asked for the Times; the Times
-sends a signed-out browser no puzzle data at all, so we went looking for free
-broadsheet cryptics instead. The Independent's puzzle is an Arkadium-hosted
+WHERE THIS FEED COMES FROM. The Independent's puzzle is an Arkadium-hosted
 game, and watching the page load tells you nothing — the grid arrives inside
 the game engine's own code, not as a visible fetch. The endpoint is declared in
 the *engine* bundle (arenaxstorage-blob/arenax-games/independentCrypticCrossword),
@@ -37,9 +35,8 @@ not in the page's wrapper bundle, which is only ads and analytics:
 So the feed is keyed by DATE, not by puzzle number — there is no way to ask for
 "No. 12,426" directly, which is why everything here counts in days and the
 puzzle number is read back out of the file. It needs no auth, no cookies and no
-referer; plain curl works. Reachable back to at least 2017-02-06 (proven
-2026-09-17, an --extend run that stopped on its own time cap, not on a 404);
-the true floor is still unknown. --extend does not auto-detect it — it walks
+referer; plain curl works. Reachable back to at least 2015-06-01, the oldest
+daily held from it; the true floor is unknown. --extend does not auto-detect it — it walks
 exactly the N days it's given and reports what came back missing, and a lone
 404 (Christmas Day, both years seen so far) is an editorial gap, not the
 floor. Finding the floor means rerunning --extend with a larger N and reading
@@ -77,20 +74,11 @@ NS = "{http://crossword.info/xml/rectangular-puzzle}"
 # This one feed carries TWO series. Monday–Saturday it is the Independent daily
 # cryptic; Sundays it is the Independent on Sunday cryptic, a separate weekly
 # sequence — same XML, same 15x15 grid, same setters, nothing in the puzzle
-# itself says which. In 2026 the daily is numbered ~12,400 and the Sunday
-# ~1,900, so a fixed number threshold (used until this comment) looked like a
-# safe way to tell them apart. It wasn't: walking the archive back past 2019
-# found the DAILY series was ALSO under 10,000 back then (No 9,897 on
-# 2018-07-03), which misfiled 539 daily puzzles as Sunday ones. A puzzle's
-# weekday is the one fact that is always right — the Independent on Sunday is
-# only ever printed on a Sunday — and it costs nothing extra since ymd is
-# already in hand.
-#
-# Sundays were skipped entirely until 2026-08-19, and the reason was ids: they
-# were bare numbers, so Sunday No 1,395 would have collided with Guardian Quiptic
-# No 1,395 in the mid-2030s and one would have overwritten the other's file.
-# Ids carry their series now, so the collision cannot happen and the reason is
-# gone.
+# itself says which. A number threshold cannot tell them apart: the daily was
+# also under 10,000 before 2019 (No 9,897 on 2018-07-03). A puzzle's weekday is
+# the one fact that is always right — the Independent on Sunday is only ever
+# printed on a Sunday — and it costs nothing extra since ymd is already in
+# hand. series_for() also honours the SHIFTED window below.
 
 
 # Dates whose puzzle number the source prints wrong. The number is typed by
@@ -235,7 +223,7 @@ def inner_xml(el):
 
     Only so that plain_text() can take it straight back out again — the tags
     are how the space between "Case for" and an italicised "Turandot" survives
-    the walk, and the stored clue is text, not HTML. See fetch_puzzle.plain_text
+    the walk, and the stored clue is text, not HTML. See fetch_puzzle.flatten_clue
     for why keeping the markup was tried and abandoned.
     """
     parts = [el.text or ""]
@@ -326,8 +314,7 @@ def clue_list_heading(puz):
     a title: it is empty on most days and on the rest holds whatever the setter
     was using to keep track ("Hob 23", "Kairos 0026", "gdn.cryptic"). Three of
     those parse as a title and yield a number that belongs to nothing. Where
-    both carry a number they agree, so preferring this one changes no day that
-    was already being read correctly.
+    both carry a number they agree.
     """
     for clues in puz.findall(f"{NS}crossword/{NS}clues"):
         heading = clues.find(f"{NS}title")
@@ -389,20 +376,17 @@ def parse(xml_bytes, ymd):
             # period ("6.2"), a slash ("2/2") and a bare space ("5 2"). None of
             # them mean anything in a cryptic enumeration, so all three are
             # typos and are normalised to a comma at the source rather than
-            # papered over downstream: int("6.2") raised, and because one bad
-            # clue aborts the whole parse the puzzle was simply absent —
-            # Independent on Sunday No 1,858 (2026-08-19), No 11,637 and
-            # No 12,317. The collapse catches "4, 2", where the space follows a
-            # comma that is already there.
+            # papered over downstream: one bad clue aborts the whole parse, and
+            # the puzzle with it. The collapse catches "4, 2", where the space
+            # follows a comma that is already there.
             fmt = re.sub(r",+", ",",
                          re.sub(r"[./\s]", ",", (clue.get("format") or "").strip()))
             fmt = FORMAT_FIXES.get((ymd, clue.get("word"), fmt), fmt)
             # A linked clue's number can carry a trailing A/D ("7/21A/11") when the
             # bare number would collide with an unrelated clue elsewhere in the same
             # grid — the compiler's own disambiguation, not data we need: direction
-            # is already read from grid geometry below. int("21A") raised and aborted
-            # the whole parse, which is how Independent on Sunday No 1,840 went
-            # missing (2026-09-10).
+            # is already read from grid geometry below. Left on, int("21A") would
+            # abort the whole parse.
             nums = [int(n.rstrip("ADad")) for n in clue.get("number", "").split("/") if n.strip()]
             segs = runs[clue.get("word")]
             if len(nums) != len(segs):
@@ -579,8 +563,8 @@ def main(argv):
         backfill(sundays_back(int(argv[1]) if len(argv) > 1 else 52))
         return 0
     # The two --extend forms walk older instead of newer, one per series. Both
-    # anchor a day before the oldest we hold: a Saturday for the daily, and for
-    # the Sunday walk a day that sundays_back then snaps to the Sunday before.
+    # anchor the day before the oldest of that series we hold; for the Sunday
+    # walk sundays_back then snaps it to the Sunday before.
     if argv[0] == "--extend":
         n = int(argv[1]) if len(argv) > 1 else 30
         held = oldest_held("independent")

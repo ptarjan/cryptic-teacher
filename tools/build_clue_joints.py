@@ -35,7 +35,7 @@ ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tools" / "data" / "clue_joints.json"
 
 # Set where the qualifying words are still joinery (then, but, seen, using,
-# needing) and the July rejects (lives, mistake, spent, would) stay out;
+# needing) and words that are not (lives, mistake, spent, would) stay out;
 # at 5 uses by 3 setters `would` gets in.
 LINK_MIN_USES = 10
 LINK_MIN_SETTERS = 5

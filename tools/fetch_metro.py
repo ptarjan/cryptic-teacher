@@ -29,7 +29,7 @@ the page is UK-served and the fetching machine's notion of "today" can be a day
 off near UK midnight. The id is metro-YYYYMMDD: a single digit run, not
 YYYY-MM-DD with internal hyphens, because every other id in this codebase is
 `<series>-<number>` split on the LAST hyphen (series.puzzle_id / parse_id,
-asserted by tools/smoke_test.js as `^[a-z]+-\\d+$`) — a hyphenated date would
+asserted by tools/smoke_test.js as `^[a-z0-9]+-\\d+$`) — a hyphenated date would
 parse as series "metro-2026-09" number "17". YYYYMMDD keeps the id
 date-derived and sortable while staying a plain integer, so it also sorts
 correctly against every other series' number in tools/fetch_puzzle.py's
@@ -176,7 +176,7 @@ def convert(data):
     entries = []
     grid = {}  # cell index -> letter, built alongside entries as a cross-check
     for item in gd["items"]:
-        # `start` is documented nowhere and was checked against this sample:
+        # `start` is documented nowhere and was checked against one captured page:
         # it is 1-BASED (start-1 lands on the item's own cell; start unmodified
         # lands one cell past it, sometimes onto a black square, sometimes into
         # the next entry — confirmed by brute-forcing offsets -1/0/+1 against
@@ -225,7 +225,7 @@ def convert(data):
     # The strongest available check that start/dir/pzlmap were read correctly
     # for THIS day's puzzle: every light cell got exactly one letter and no
     # light cell was left over. Anything else means today's puzzle broke an
-    # assumption verified only against the one saved sample, and writing a
+    # assumption verified only against one captured page, and writing a
     # grid we can't vouch for is worse than refusing to. Skipped when there was
     # no pzlmap to check against — the per-item crossing-conflict check above
     # is what's left to catch a bad start/dir reading in that case.

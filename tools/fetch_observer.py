@@ -14,18 +14,18 @@ Usage:
 
 Companion to fetch_puzzle.py (Guardian) and fetch_independent.py, run
 independently in tools/daily_update.sh step 1 so the Observer being down never
-costs the other two — same reasoning as the comment above that loop. Series is
+costs the others — same reasoning as the comment above that loop. Series is
 "everyman" — the Guardian mirrored it under that name until no. 4096
 (2025-04-20); the Observer was sold to Tortoise Media that month and
 everything from 4097 on only exists at observer.co.uk.
 
 A backfill gets no special treatment from the annotation queue: its puzzles
 sort in by date with everything else and get worked newest to oldest, which
-is the order somebody would want them in anyway (Paul, 2026-08-16). The
+is the order somebody would want them in anyway (Paul). The
 nightly job's own rate limit is what keeps a big import from being a big
 bill.
 
-WHERE THIS CAME FROM (2026-08-16). The Everyman article page
+WHERE THIS COMES FROM. The Everyman article page
 (observer.co.uk/puzzles/everyman/article/everyman-no-N) renders the grid
 client-side and shows a "Subscribe" banner, which looks like a dead end. It
 isn't one: the page's own hydration payload names the puzzle by a UUID
@@ -52,11 +52,9 @@ prize draw the article's small print describes). Until then, a puzzle's own
 closes, the SAME field set on the SAME puzzle's data.json grows a sibling,
 `copy.settings.solution` — a plain rows*cols-character row-major grid, spaces
 for blocked cells, verified against the puzzle's own block layout cell for
-cell. So refresh_unsolved() re-fetches puzzle N itself, not N+1: an earlier
-version of this fetcher read a `previous_solution` field instead, on the
-theory that a puzzle's answers only ever appeared on the FOLLOWING week's
-page — which briefly seemed to hold, then broke on 4135 and 4140, where that
-field was null despite `solution` sitting right there unhashed. See
+cell. So refresh_unsolved() re-fetches puzzle N itself, not N+1: the
+FOLLOWING week's `previous_solution` field can be null (4135, 4140) while
+`solution` sits right there unhashed on the puzzle's own page. See
 fetch_puzzle.py's refresh_unsolved for the same SHAPE of problem even though
 the mechanism differs (there it's the Saturday prize withholding a week; here
 it's every single week).
@@ -170,9 +168,7 @@ def clue_separators(fmt, length):
     every clue here maps to exactly one word), so it's simpler to total the
     boundaries within this one entry directly than to call that function
     through a one-entry list. It also doesn't know the apostrophe is a
-    separator at all: fed "1'5" it tries to int() that whole piece and dies,
-    which is what happened on 4126 and 4140 (G'DAY, WINE O'CLOCK) before this
-    existed."""
+    separator at all: fed "1'5" it tries to int() that whole piece and dies."""
     out = []
     pos = 0
     for piece in SEPARATOR_RE.split(fmt or ""):
@@ -399,14 +395,11 @@ def refresh_unsolved():
     yet, by re-fetching each one's OWN data.json (see module docstring — a
     puzzle's `copy.settings.solution` sits behind `solution_hashed` until its
     competition window closes, about a week after publish, then the plain
-    letters appear right there). `previous_solution` — the field this used to
-    read, on the theory that a puzzle's answers only ever showed up on the
-    FOLLOWING week's page — turned out to be an unreliable secondary field,
-    null on plenty of pages that already have their own `solution` filled in
-    (4135, 4140, both discovered this way on the initial backfill). Reading
-    the puzzle's own field instead needs no such theory: it just asks the one
-    page that would know, and a puzzle stays pending here only as long as
-    THAT field itself stays hashed."""
+    letters appear right there). The FOLLOWING week's `previous_solution` is
+    no substitute: it is null on plenty of pages whose puzzle already has its
+    own `solution` filled in. Reading the puzzle's own field asks the one page
+    that would know, and a puzzle stays pending here only as long as THAT
+    field itself stays hashed."""
     pending = []
     for path in puzzle_files():
         p = read_puzzle_file(path)
@@ -415,8 +408,7 @@ def refresh_unsolved():
         # A puzzle we solved ourselves has a letter in every square, so the
         # "any entry missing a solution" test walks straight past it — and it
         # is the one puzzle whose answers are a guess, so it is the last one
-        # that should stop being checked. everyman-4165 sat model-solved for
-        # weeks behind exactly that gap, with the paper's key long since out.
+        # that should stop being checked.
         #
         # still_worth_refreshing is the other half: an Everyman old enough that
         # its competition window is long closed is never getting a `solution`

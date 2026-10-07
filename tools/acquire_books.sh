@@ -16,9 +16,7 @@
 # (minutes) and the text then sits on disk, so the borrow and the read are
 # separate: up to BORROWS_PER_RUN loans, stopping at the first refusal rather
 # than collecting one per book, then every due book with text on disk is read,
-# its grid searches on the desktop when it answers. Before 2026-10-06 this took
-# one book per run, and a run's two books took 1-2 hours of this box's CPU, so
-# the hourly schedule mostly found the previous run still holding the lock.
+# its grid searches on the desktop when it answers.
 #
 # WHICH BOOK: tools/book_queue.py, best first — see its header for why "unread"
 # means no puzzles at all rather than a fraction of an estimate.

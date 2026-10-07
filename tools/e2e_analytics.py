@@ -14,7 +14,7 @@ only test worth trusting drives the live site and then looks in KV.
     tools/e2e_analytics.py            # live site, cleans up after itself
     tools/e2e_analytics.py --keep     # leave the keys it wrote
 
-Exit 0 when every event in sync/events.js was both sent and stored.
+Exit 0 when every event in sync/events.js was sent, stored and handed to GA.
 """
 import argparse
 import os

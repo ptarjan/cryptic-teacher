@@ -12,8 +12,7 @@ and the scan it was read out of. --book names that row BY THE ARCHIVE.ORG
 IDENTIFIER, which is also the item whose text was read, so the number, the
 title and source.url cannot come from three different books.
 
-These puzzles come from "The New Penguin Book of The Guardian Crosswords",
-scanned and OCR'd (tools/fetch_ia_book.py), parsed into clue lists
+These puzzles come from a scanned book, OCR'd (tools/fetch_ia_book.py), parsed into clue lists
 (tools/parse_penguin_book.py), given a grid reconstructed from the clue list
 alone (tools/reconstruct_grid.py), and then solved from scratch by a model.
 Nothing about them arrives from a feed, so this is the one place that turns a
@@ -21,14 +20,14 @@ solve record into a puzzle file, and everything the route has to get right is
 spelled once, here.
 
 THE NUMBER IS THE BOOK'S, NOT THE GUARDIAN'S. No volume prints a Guardian
-puzzle number or the day a puzzle ran — checked across all six books. So the
+puzzle number or the day a puzzle ran. So the
 key is book-local: the series is `book` for the whole shelf and the number carries
 the book and the puzzle's place in it, book_index * 1000 + position, giving
 "book-3003" for the book registered as index 3, No 3. The book is in the
 number and not in the key because every book restarts at 1 — one flat sequence
-would put thirty different puzzles at No 3 and walk prev/next from the Herald
-into the Daily Mail — while thirty keys meant thirty badges, thirty colours and
-thirty tooltips for one shelf.
+would put a puzzle from every book at No 3 and walk prev/next from the Herald
+into the Daily Mail — while a key per book means a badge, a colour and a
+tooltip per book for one shelf.
 
 THE BOOK'S YEAR, NOT A DATE. No volume prints the day a puzzle ran, but every
 imprint page prints the year the book came out, so the puzzle holds `year`, an
@@ -54,8 +53,8 @@ crossings to force the letters, with wordplay that does NOT fully account for
 the answer. Those carry `solutionConfidence: "LIKELY"` on the entry. It is
 written only where it is not CONFIDENT, the way `clues` coverage is written only
 where a clue is missing — absence is the default and saying so 28 times per
-puzzle states nothing. The annotator reads the puzzle file, and
-tools/annotate_prompt.md tells it what the field means: a LIKELY entry's
+puzzle states nothing. The annotator sees it in tools/annotate_check.py's
+listing, and tools/validate_annotations.py tells it what the field means: a LIKELY entry's
 letters are forced rather than derived, so it may not be written up as though
 the wordplay were known. Told "CONFIDENT", an annotator invents authoritative
 wordplay for exactly those clues, which is the worst thing this route could
@@ -78,8 +77,8 @@ than a person driving a solver.
 
 The flag is explicit because the alternative is dangerous. Inferring "unsolved"
 from a record that happens to be missing answers would turn a truncated solve
-into a silently half-filed puzzle; without the flag a missing answer is still
-the hard error it always was. And --unsolved files NO answers rather than the
+into a silently half-filed puzzle; without the flag a missing answer is a hard
+error. And --unsolved files NO answers rather than the
 ones it has: a partial fill in a puzzle file is worse than none, because
 tools/apply_solution.py refuses to write over a puzzle that already holds
 answers and no solution detail, so a half-filled file would turn away the very
@@ -97,7 +96,7 @@ The input record is what the solve wrote: `puzzle` (grid geometry and clue text
 from the reconstructor), `fill` (id -> answer), `entries` (id -> answer,
 confidence, parse) and `setter`. This writes the file and checks nothing; run
 tools/apply_solution.py --check-only and tools/puzzle_integrity.py over the
-result, which is what the recipe in docs/ does.
+result.
 """
 from __future__ import annotations
 
@@ -218,8 +217,8 @@ def build(record, identifier, model, unsolved=False):
     src = record["puzzle"]
     # The record carries the number the BOOK prints. The stored number carries
     # the book as well (tools/series.py: book_index * 1000 + position), because
-    # one series covers the whole shelf and No 18 alone would name thirty
-    # different puzzles.
+    # one series covers the whole shelf and No 18 alone would name a puzzle
+    # in every book.
     position = record["book_number"]
     series = BOOK_SERIES
     number = book_number(identifier, position)
@@ -270,7 +269,7 @@ def build(record, identifier, model, unsolved=False):
         e["solution"] = normalise(fill[entry_id(e)]) if entry_id(e) in fill else None
         confidence = (solved.get(entry_id(e)) or {}).get("confidence", "CONFIDENT")
         if confidence != "CONFIDENT":
-            # Read by the annotator, via tools/annotate_prompt.md. Written only
+            # Read by the annotator, via tools/annotate_check.py. Written only
             # when it is not the default, so its presence is the whole signal.
             e["solutionConfidence"] = confidence
         out.append(e)

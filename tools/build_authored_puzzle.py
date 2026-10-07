@@ -12,7 +12,7 @@ the same schema, validator, app and smoke test apply to our own puzzles with no
 special cases: the id is <series>-<number> like every other puzzle's, and the
 source names us as publisher with no url, since nothing was fetched. It
 refuses to write a puzzle tools/validate_annotations.py has an ERROR for, so
-the authoring rules (a stated scene on every clue, a joke on half of them)
+the authoring rules (a stated scene on every clue, a named word on every pun)
 cannot be skipped by not running the validator. It also refuses a hidden
 answer that sits inside one word or starts or ends on a word boundary
 (hidden_edge_errors), a rule for

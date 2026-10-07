@@ -1,28 +1,25 @@
 #!/usr/bin/env python3
 """Report what can honestly be said about how a puzzle is set. Not a score.
 
-`tools/difficulty.py` asks how hard a puzzle is. This one used to answer "is it
-any good?" with a single number. It no longer does, and the reason is the whole
-point of the file, so it is written down here rather than left for somebody to
-re-derive.
+`tools/difficulty.py` asks how hard a puzzle is. This one does not answer "is
+it any good?" with a single number, and the reason is the whole point of the
+file, so it is written down here rather than left for somebody to re-derive.
 
-WHAT THE EVIDENCE SAID (2026-09-09)
+WHAT THE EVIDENCE SAYS
 
 Two things were read, not guessed. First, the held-out test: 186 puzzles that
 are both scored here and blogged at fifteensquared, 5,398 annotated clues, 1,104
 of them named somebody's favourite (tools/favourites_survey.py resolves the
-nominations back to our own clue ids). The old composite index was unrelated to
+nominations back to our own clue ids). A composite index was unrelated to
 the share of a puzzle's clues that got named — rho -0.116 raw, -0.007 once
 thread size was held, and thread size alone carries rho +0.833. The raw number
 WAS the thread size.
 
-A rank bug was found while re-testing and is worth knowing about, because it
-manufactures signal out of nothing: this file used to break ties by array
-index, so a column that is constant or nearly so correlates with whatever order
-the puzzles happen to be in. It produced a confident rho -0.379 for a quantity
-that turned out to be 1 in all 359 puzzles. Ranks now come from
-difficulty._rank_list, which averages ties, and there is no second
-implementation here to drift from it.
+Ranks come from difficulty._rank_list, which averages ties, and there is no
+second implementation here to drift from it. Breaking ties by array index
+manufactures signal out of nothing: a column that is constant or nearly so
+correlates with whatever order the puzzles happen to be in, and gives a
+confident rho -0.379 for a quantity that is 1 in all 359 puzzles.
 
 Second, the prose around those votes: 551 comments naming favourites, and 68
 whole blog threads judging whole puzzles. What solvers name when they say why:
@@ -42,9 +39,9 @@ annotation spans and grid geometry. That is the finding, and no proxy for them
 belongs here: a confident number about what nobody complained about is worse
 than no number.
 
-WHAT WAS DROPPED, AND WHY
+WHAT IS NOT SCORED, AND WHY
 
-Each of the four old components was tested per clue against the favourite flags,
+Each of four candidate components was tested per clue against the favourite flags,
 shuffled inside each puzzle so a busy thread cannot inflate anything:
 
   FILLER SHARE        CONTRADICTED. Bare cryptic and double definitions, which
@@ -58,7 +55,7 @@ shuffled inside each puzzle so a busy thread cannot inflate anything:
                       the largest single share — one of them hand-counted "12
                       out of 28 clues involve anagrams". Replaced by DOMINANT
                       DEVICE below.
-  INDICATOR FRESHNESS KEPT, but it now names the repeated strings, because the
+  INDICATOR FRESHNESS KEPT, and it names the repeated strings, because the
                       ratio alone tells nobody which word to change.
 
 Five more computable features were built from what the comments praise and
@@ -72,8 +69,8 @@ padding a clue out does not make it good, so it is recorded and not scored.
 
 WHAT IS LEFT, AND HOW TO READ IT
 
-Four observations, reported separately, never averaged. Averaging them is what
-produced the number that turned out to be thread size, and any composite would
+Four observations, reported separately, never averaged. Averaging is what
+produces a number that turns out to be thread size, and any composite would
 be dominated by whatever happens to be measurable rather than by what matters.
 Each is z-scored against the same setter's other puzzles and against the same
 series, because essentially every verdict in 68 threads is comparative — "as
@@ -104,7 +101,7 @@ setter's own history is the only referent the prose supports.
                       per-puzzle report and never ranked. The longest run of
                       unchecked cells is 1 in all 359 puzzles — a blocked grid
                       cannot have two adjacent unchecked cells — so it is an
-                      invariant, not a measurement, and it is now printed only
+                      invariant, not a measurement, and it is printed only
                       when it is violated.
 
 NOT MEASURED HERE, ON PURPOSE: surface reading, humour, misdirection, whether a
@@ -126,7 +123,7 @@ catch the lifeless shapes OUR generated clues fall into, and its own calibration
 shows them firing on 20-48% of published clues, so as a discriminator between
 published puzzles it is mostly noise. Read it per clue; do not average it here.
 
-AS OF 2026-09-09 EVERY OBSERVATION HERE IS A NULL against the favourites, which
+EVERY OBSERVATION HERE IS A NULL against the favourites, which
 is the honest state and not a failure of the test: dominant device +0.18, repeat
 indicators -0.02, double duty -0.03, short entries -0.07, all with thread size
 held. They earn their place by being things solvers demonstrably argue about and
@@ -134,7 +131,7 @@ by being true, not by predicting admiration. Re-run --vs-favourites as the
 corpus grows; a number that goes large is the first real evidence this project
 has ever had, and it would deserve a paragraph of its own rather than a weight.
 
-The device table --vs-favourites now prints is that evidence, and it is the only
+The device table --vs-favourites prints is that evidence, and it is the only
 thing in the fields that has ever moved: a bare cryptic definition is named
 twice as often as its share of the grid (39 against 19.3 expected, z = +5.34),
 and a reversal about a quarter less (83 against 109.1, z = -3.19). Both clear a

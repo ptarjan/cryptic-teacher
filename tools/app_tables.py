@@ -35,9 +35,7 @@ def ladder(src=None):
     `LABELS` in app.js is written in ladder order and app.js sorts the rungs by
     `Object.keys(LABELS)`, so the map's key order is the order — the whole of it,
     with no second list anywhere to disagree. Every tool that needs to know which
-    rung is first reads it from here; three of them used to keep a list of their
-    own, and `tools/rung_report.py` was reporting a solver who took one rung as
-    having climbed three.
+    rung is first reads it from here.
     """
     src = src if src is not None else APP.read_text(encoding="utf-8")
     if not re.search(r"const RUNG_ORDER = Object\.keys\(LABELS\);", src):

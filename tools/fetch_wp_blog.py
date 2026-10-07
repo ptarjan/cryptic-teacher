@@ -77,7 +77,7 @@ class Blog:
 #: bytes. `--since` bounds a spot-check.
 BLOGS = {b.name: b for b in (
     Blog("timesforthetimes", "https://timesforthetimes.co.uk/wp-json/wp/v2/",
-         10,  # their robots.txt, verified 2026-09-21
+         10,  # their robots.txt
          {11: "Daily Cryptic", 12: "Quick Cryptic", 21: "Weekend Cryptic",
           14: "Jumbo Cryptic", 13: "Mephisto", 24: "Monthly Club Special",
           26: "Other Crosswords"}),

@@ -25,9 +25,9 @@ MIN_CLUES = 6
 #: Pairs of puzzle ids that legitimately share clues, each with the reason.
 #: Exempted by id, not by raising THRESHOLD: a threshold loose enough to pass
 #: these would pass a copy filed under the wrong number. Each pair here is a
-#: setter re-running an old puzzle with a few clues reworded; both files come
-#: from their own dated publication (own Guardian/Independent page or own blog
-#: post), so neither is a mis-filed copy of the other.
+#: setter re-running an old puzzle with a few clues reworded, or a book or paper
+#: reprinting one; both files come from their own dated publication, so neither
+#: is a mis-filed copy of the other.
 REPRINTS = {
     frozenset(pair): why for pair, why in (
         (("book-19003", "book-23183"), "Telegraph Book 28 No 3, reprinted as Big Book of Brain Sharpener vol 1 No 183"),

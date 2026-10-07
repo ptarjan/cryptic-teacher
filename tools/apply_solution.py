@@ -2,9 +2,9 @@
 """Write a solved grid into a puzzle file — but only if the grid checks out.
 
 Saturday prize puzzles publish without answers and only get them about a week
-later, which used to mean they sat un-annotatable until the paper caught up.
-This is the other route in: a model solves the puzzle cold and the fill lands
-here, where it is checked against the grid before anything is written.
+later, and until then they cannot be annotated. This is the other route in:
+a model solves the puzzle cold and the fill lands here, where it is checked
+against the grid before anything is written.
 
 The check is the whole point. There is no answer key for these puzzles — that
 is why we are solving them — so correctness cannot be verified directly. What
@@ -183,7 +183,7 @@ def check_geometry(puzzle):
 
 
 def check_fill(puzzle, fill):
-    """Return (cells, problems). Never raises on bad input — the caller decides
+    """Return (cells, crossings, problems). Never raises on bad input — the caller decides
     what to do with the list, and an empty list is the only thing that writes."""
     problems = []
     by_id = {entry_id(e): e for e in puzzle["entries"]}
@@ -364,11 +364,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     # A puzzle id ("everyman-4166") or the bare number ("4166"), the same pair
-    # resolve_puzzle takes and every other tool here accepts. It was type=int,
-    # which is what ids looked like before they were namespaced: from then until
-    # 2026-08-28 the nightly job solved every unsolved non-Guardian puzzle with a
-    # model, passed the id it had, and this exited on `invalid int value` before
-    # reading the fill. The solve was paid for and thrown away, nightly.
+    # resolve_puzzle takes and every other tool here accepts: a string, since
+    # the nightly passes namespaced ids.
     ap.add_argument("number", metavar="puzzle",
                     help="puzzle id (everyman-4166) or bare number (4166)")
     ap.add_argument("--fill", required=True,
@@ -439,13 +436,6 @@ def main():
         "check": f"{len(puzzle['entries'])} entries, {crossings} crossings, 0 conflicts"
                  + (f", agrees with the {printed} answers the paper printed" if printed else ""),
     }
-    # Whether a key is ever coming is a fact about the series, not about this
-    # solve, so it is read from tools/series.py rather than carried in the fill.
-    # It has to be stamped HERE as well as in tools/file_penguin_puzzle.py: a
-    # Penguin reprint filed without answers is solved by the nightly job through
-    # this function, and a reprint that reached the site without it would have
-    # tools/build_seo_pages.py promise official answers "as soon as those
-    # appear" for a book that prints its solutions as pictures.
     if kept:
         detail["printed"] = kept
     # What earlier runs did to this grid's answers outlives a re-solve: a
@@ -453,6 +443,13 @@ def main():
     for key in ("corrected", "reopened"):
         if key in provenance.solution_detail(puzzle):
             detail[key] = puzzle["solutions"][key]
+    # Whether a key is ever coming is a fact about the series, not about this
+    # solve, so it is read from tools/series.py rather than carried in the fill.
+    # It has to be stamped HERE as well as in tools/file_penguin_puzzle.py: a
+    # Penguin reprint filed without answers is solved by the nightly job through
+    # this function, and a reprint that reached the site without it would have
+    # tools/build_seo_pages.py promise the official answers will replace these
+    # for a book that prints its solutions as pictures.
     never = official_key(puzzle.get("series"))
     if never:
         detail["officialKey"] = never
