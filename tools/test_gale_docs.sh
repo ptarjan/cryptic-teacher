@@ -100,17 +100,48 @@ check("no link for a miss", None, gd.link("TTDA", days[3], gd.load(cache)))
 # The checklists: Download where a link is cached, Open in Gale always.
 docs = {"TTDA/1988-01-12": gd.entry("TTDA", times, 17563)}
 row = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
-                                   docs=docs).split("\n") if 'id="d1988-01-12"' in r)
+                                   docs=docs).split("\n") if 'data-k="1988-01-12"' in r)
 check("Times row has Download", True, ">Download</a>" in row and "callisto/BulkPDF" in row)
+check("its Download is the row's click, and marks it", True,
+      'class="go dl"' in row and "onclick=\"mark('1988-01-12')\">Download" in row)
 check("and still Open in Gale", True, "Open in Gale" in row)
 other = next(r for r in gi.checklist([(day, "no-scan"), (D(1988, 1, 13), "no-scan")], tmp / "cache", tmp / "un.json",
-                                     docs=docs).split("\n") if 'id="d1988-01-13"' in r)
+                                     docs=docs).split("\n") if 'data-k="1988-01-13"' in r)
 check("an unlinked Times row: Open in Gale only", (False, True), ("Download</a>" in other, "Open in Gale" in other))
+check("Open in Gale marks only a row with no Download", (False, True),
+      ("onclick=\"mark('1988-01-12')\">Open in Gale" in row, "onclick=\"mark('1988-01-13')\">Open in Gale" in other))
 idx = [{"number": 1309, "title": "Crossword No. 1,309", "setter": None, "date": lday}]
 page = gl.checklist(idx, tmp / "store", tmp / "none", arrivals=[],
                     docs={"LSNR/1955-06-02": gd.entry("LSNR", listener, 1309)})
 check("Listener row has Download", True, "<b>Download</b></a>" in page and "p=LSNR" in page)
+check("the Listener's Download marks its row", True,
+      'class="dl"' in page and "onclick=\"mark('p1309')\"><b>Download</b>" in page)
 check("to_save lists it", [1309], [r["number"] for r in gl.to_save(idx, tmp / "store", tmp / "none", arrivals=[])])
+
+# Gale's OCR'd titles still find the crossword; a report is found by its number.
+check("OCR'd crossword titles", [0, 0, 0, 0], [gd.crossword("LSNR", [t], n) for t, n in [
+    ("Grossword No. 630", 630), ("Crossward No. 607", 607), ("No. 360. 'Cross-number XIV'. By Afrit", 360),
+    ("Crossnumber No. 793", 793)]])
+check("a report is not the crossword", None, gd.crossword("LSNR", ["Report on Crossword No. 81"], 83))
+check("the report on the number asked", 1, gd.report(["Report on Crossword No. 1,308", "Report on Crossword No. 1,309"],
+                                                    1309))
+# A miss from an older matcher is asked again once; a current one is not.
+mcache = tmp / "miss.json"
+mcache.write_text('{"LSNR/1955-06-02": {"why": "no crossword in the issue\'s contents"}}')
+fake = FakeGale({lday: listener})
+check("an old miss is looked up again", 1, gd.resolve("LSNR", [(lday, 1309)], out, fake, mcache))
+mcache.write_text('{"LSNR/1955-06-02": {"why": "x", "matcher": %d}}' % gd.MATCHER)
+check("a current miss is not", (0, []), (gd.resolve("LSNR", [(lday, 1309)], out, fake, mcache), fake.asked[1:]))
+# The report on a puzzle: in an issue some weeks after it, linked as its own row.
+rday = lday + datetime.timedelta(weeks=2)
+fake = FakeGale({rday: issue([("Report on Crossword No. 1,309", 40, 1)], 44)})
+rcache = tmp / "rep.json"
+check("a report looked up after the puzzles, in the same limit", 1,
+      gd.resolve("LSNR", [], out, fake, rcache, limit=1, reports=[(lday, 1309)]))
+check("its issue's date kept", "1955-06-16", gd.load(rcache)["LSNR/report/1309"]["day"])
+rq = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.report_link("LSNR", 1309, gd.load(rcache))).query))
+check("its link cites the report's issue", True, "16 June 1955, p. 40" in urllib.parse.unquote(rq["citationTextJson"]))
+check("no report, a miss", True, "no report" in gd.lookup_report("LSNR", lday, FakeGale({}), 1309)["why"])
 
 print(f"{fails} failure(s)")
 sys.exit(1 if fails else 0)

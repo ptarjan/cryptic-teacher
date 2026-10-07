@@ -4,11 +4,14 @@ next rows (tools/gale_inbox.py's Times, tools/gale_listener.py's Listener).
 
 Paul allowed this lookup on 2026-10-07: each 3-minute sync looks up at most
 PER_TICK uncached rows per paper, PACE seconds apart, and nothing else. A
-row's lookup is the Alberta Research Portal's session (geo-IP, no login),
+row is a puzzle's issue, or (`reports`) the Listener's "Report on Crossword
+No. N" with its answers, searched in the issues one to REPORT_WEEKS weeks
+after the puzzle's. A row's lookup is the Alberta Research Portal's session (geo-IP, no login),
 Gale's month of issues (issuesForMonth, once per month), then that date's
 issue (navigateToIssue), whose table of contents names the crossword's
 document id, page and page-image record ids. CACHE keeps each answer, a miss
-too, so no date is asked twice.
+too, so no date is asked twice; a miss from an older MATCHER is asked once
+more.
 
 The link is Gale's own Download target, BulkPDF as a GET: it needs a Gale
 session in the browser (the checklists' "Start Gale session"), not this
@@ -33,6 +36,10 @@ from pathlib import Path
 CACHE = Path.home() / ".cache/gale_inbox/docs.json"
 PER_TICK = 15
 PACE = 2.0
+#: Bumped when crossword() or report() would find more: misses cached by an
+#: older one are looked up again.
+MATCHER = 2
+REPORT_WEEKS = 5
 PORTAL = "https://abresearchportal.ca"
 GALE = "https://go.gale.com/ps"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/128 Safari/537.36"
@@ -96,18 +103,34 @@ def crossword(prod, titles, number=None):
     naming a crossword, not the Concise or a solution or winners' list;
     the one naming `number` first."""
     bad = re.compile(r"concise|solution|winners|report on|quick", re.IGNORECASE)
-    cands = [i for i, t in enumerate(titles) if re.search(r"crossword", t, re.IGNORECASE) and not bad.search(t)]
+    # Gale's OCR'd titles: "Grossword", "Crossward", "Cross-number" too.
+    cands = [i for i, t in enumerate(titles) if KIND.search(t) and not bad.search(t)]
     if number is not None:
-        named = re.compile(rf"(?<![\d,.]){number // 1000},?{number % 1000:03}(?![\d,])" if number >= 1000
-                           else rf"(?<![\d,.]){number}(?![\d,])")
-        cands.sort(key=lambda i: not named.search(titles[i]))
+        cands.sort(key=lambda i: not named(number).search(titles[i]))
     return cands[0] if cands else None
 
 
-def entry(prod, dvi, number=None):
-    """The cache entry for the crossword in issue `dvi`."""
+KIND = re.compile(r"[cg]ross-? ?(word|ward|number)", re.IGNORECASE)
+
+
+def named(number):
+    """A title naming puzzle `number`, as 1309 or 1,309."""
+    return re.compile(rf"(?<![\d,.]){number // 1000},?{number % 1000:03}(?![\d,])" if number >= 1000
+                      else rf"(?<![\d,.]){number}(?![\d,])")
+
+
+def report(titles, number):
+    """The index into `titles` of the report on puzzle `number`, or None."""
+    return next((i for i, t in enumerate(titles) if re.search(r"report on", t, re.IGNORECASE)
+                 and named(number).search(t)), None)
+
+
+def entry(prod, dvi, number=None, find=None):
+    """The cache entry for the crossword in issue `dvi` (or the article
+    `find(titles)` picks)."""
     arts = list(articles(dvi["originalDocument"].get("articleTableOfContents")))
-    k = crossword(prod, [a["docTitle"] for a in arts], number)
+    titles = [a["docTitle"] for a in arts]
+    k = find(titles) if find else crossword(prod, titles, number)
     if k is None:
         return None
     a = arts[k]
@@ -134,6 +157,18 @@ def lookup(prod, day, gale, number=None):
     return {"why": "no crossword in the issue's contents", "crosswordish": [t for t in titles if "ross" in t.lower()]}
 
 
+def lookup_report(prod, day, gale, number):
+    """The entry for the report on puzzle `number` of `day`, with the "day"
+    of its issue, or {"why": ...}."""
+    for w in range(1, REPORT_WEEKS + 1):
+        for i in gale.issues(prod, day + datetime.timedelta(weeks=w)):
+            e = entry(prod, gale.issue(prod, i), find=lambda titles: report(titles, number))
+            if e:
+                d = i["date"]  # 1YYYYMMDD
+                return {**e, "day": f"{d[1:5]}-{d[5:7]}-{d[7:9]}"}
+    return {"why": f"no report on No {number} in the {REPORT_WEEKS} weeks after"}
+
+
 def download_url(prod, day, e):
     """Gale's Download (PDF) for entry `e` of `day`, as a GET."""
     _, paper, archive = PRODUCTS[prod]
@@ -154,28 +189,44 @@ def link(prod, day, docs):
     return download_url(prod, day, e) if e and "doc" in e else None
 
 
-def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK):
-    """Look up the first `limit` of `rows` ([(date, number or None)]) not in
-    the cache; stop at Gale's first error (said to `out`). Returns how many
-    links were added."""
+def report_link(prod, number, docs):
+    """The Download URL for the report on puzzle `number`, else None."""
+    e = docs.get(f"{prod}/report/{number}")
+    return download_url(prod, datetime.date.fromisoformat(e["day"]), e) if e and "doc" in e else None
+
+
+def cached(docs, key):
+    e = docs.get(key)
+    return e is not None and ("doc" in e or e.get("matcher", 0) >= MATCHER)
+
+
+def resolve(prod, rows, out=sys.stdout, gale=None, cache=CACHE, limit=PER_TICK, reports=()):
+    """Look up the first `limit` of `rows` ([(date, number or None)]), then
+    of `reports` ([(puzzle's date, number)]), not in the cache; stop at
+    Gale's first error (said to `out`). Returns how many links were added."""
     docs = load(cache)
     todo = {}  # one lookup a date, though two puzzles share it
     for d, n in rows:
-        if f"{prod}/{d.isoformat()}" not in docs:
-            todo.setdefault(d, n)
+        if not cached(docs, f"{prod}/{d.isoformat()}"):
+            todo.setdefault(f"{prod}/{d.isoformat()}", (d, n, lookup))
+    for d, n in reports:
+        if not cached(docs, f"{prod}/report/{n}"):
+            todo.setdefault(f"{prod}/report/{n}", (d, n, lookup_report))
     added = 0
-    for day, number in list(todo.items())[:limit]:
+    for key, (day, number, how) in list(todo.items())[:limit]:
         gale = gale or Gale()
         try:
-            e = lookup(prod, day, gale, number)
+            e = how(prod, day, gale, number)
         except (urllib.error.URLError, http.client.HTTPException, OSError, ValueError, KeyError) as ex:
             # A network or Gale error: the row is asked again next tick.
-            print(f"gale_docs: {prod} {day}: {type(ex).__name__}: {ex}", file=out)
+            print(f"gale_docs: {key}: {type(ex).__name__}: {ex}", file=out)
             break
         e["at"] = datetime.datetime.now().astimezone().isoformat(timespec="seconds")
-        docs[f"{prod}/{day.isoformat()}"] = e
+        if "doc" not in e:
+            e["matcher"] = MATCHER
+        docs[key] = e
         added += "doc" in e
-        print(f"gale_docs: {prod} {day}: " + (f"{e['doc']} {e['title']}" if "doc" in e else e["why"]), file=out)
+        print(f"gale_docs: {key}: " + (f"{e['doc']} {e['title']}" if "doc" in e else e["why"]), file=out)
         cache.parent.mkdir(parents=True, exist_ok=True)
         tmp = cache.with_suffix(".tmp")
         tmp.write_text(json.dumps(docs, indent=0, sort_keys=True))
