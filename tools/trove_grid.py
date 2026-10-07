@@ -48,6 +48,8 @@ SIZES = (9, 11, 13, 15, 17, 19, 21, 23, 27)
 
 
 def otsu(gray):
+    """The cut `gray < cut` splits ink from paper at: one over the darker
+    class's top level, so a bilevel page (0 and 255 only) has ink."""
     hist = np.bincount(gray.ravel(), minlength=256).astype(float)
     total, sum_all = hist.sum(), (hist * np.arange(256)).sum()
     best, cut, w0, sum0 = -1.0, 128, 0.0, 0.0
@@ -59,7 +61,7 @@ def otsu(gray):
         m0, m1 = sum0 / w0, (sum_all - sum0) / (total - w0)
         between = w0 * (total - w0) * (m0 - m1) ** 2
         if between > best:
-            best, cut = between, t
+            best, cut = between, t + 1
     return cut
 
 

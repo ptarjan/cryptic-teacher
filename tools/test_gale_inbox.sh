@@ -149,6 +149,37 @@ def pdf(text):
     out += b"trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n" % (len(objs) + 1, xref)
     return bytes(out)
 
+# A Gale page download: a whole bilevel page (ink 0, paper 255) as an image,
+# then a page of citation text quoting the article's title. Its grid is
+# found among a bigger photo, and its date read off the citation.
+import numpy as np, pypdf, trove_grid
+from PIL import ImageDraw
+bi = np.array([[0, 255, 255], [255, 0, 255]], dtype=np.uint8)
+check("a bilevel page's ink is all its black", 2, int((bi < trove_grid.otsu(bi)).sum()))
+whole = Image.new("L", (4600, 7200), 255)
+draw = ImageDraw.Draw(whole)
+draw.rectangle((1200, 400, 3300, 2400), fill=0)  # a photo, square and bigger than any grid
+for i in range(16):  # a 15x15 grid, 1000px wide
+    draw.rectangle((200 + i * 66, 4700, 206 + i * 66, 5696), fill=0)
+    draw.rectangle((200, 4700 + i * 66, 1196, 4706 + i * 66), fill=0)
+for r, c in [(1, 1), (1, 3), (3, 5), (5, 1), (7, 7), (9, 9), (11, 3), (13, 13)]:
+    draw.rectangle((200 + c * 66, 4700 + r * 66, 266 + c * 66, 4766 + r * 66), fill=0)
+whole = whole.convert("1")
+page, found = g.scaled(whole.convert("RGB"))
+check("a whole page is scaled by its grid, not its photo", (True, True),
+      (found, any(abs(b[2] - b[0] - g.GRID_WIDTH) < 20 for b in fa.grids_on(page))))
+gale = Path(sys.argv[1]) / "IF0500004465.pdf"
+buf = io.BytesIO()
+whole.save(buf, "PDF")
+w = pypdf.PdfWriter()
+w.add_page(pypdf.PdfReader(buf).pages[0])
+w.add_page(pypdf.PdfReader(io.BytesIO(pdf('"The Times Crossword Puzzle No 17,244." Times, 3 Jan. 1987, p. 20. '
+                                          "The Times Digital Archive, link.gale.com/apps/doc/IF0500004465/"))).pages[0])
+w.write(gale)
+m = g.match(gale, held)
+check("a Gale download is dated by its citation page", (D(1987, 1, 3), "PDF citation", 20, True),
+      (m["date"], m["how"], m["page"], m["grid"]))
+
 times = g.pdf_text(pdf("The Times, 12 Jan. 1988, p. 18. The Times Digital Archive. Gale Document Number: GALE|IF0503151598"))
 listener = g.pdf_text(pdf("The Listener, 5 Feb. 1970, p. 190. The Listener Historical Archive. link.gale.com/apps/doc/X"))
 tax = g.pdf_text(pdf("Notice of assessment 2025. Canada Revenue Agency"))
