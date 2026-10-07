@@ -361,6 +361,22 @@ and as a plural only if the singular is a word (EARPHONE yes, CHAOS no). It skip
 multi-word answers, whose final `-S` belongs to an inner noun (PICK UP THE
 PIECES). If the word list is missing, the check stands down instead of guessing.
 
+### A relaxed check puts back what it forced
+A check that rejects good annotations makes every run it fails rewrite the
+flagged text to get past it, and the rewrite is usually worse: a block note
+that avoids saying its own word ("a labyrinth of paths is a kind of puzzle" for
+MAZE), a definitionFit padded to reach a word count. Relaxing the check stops
+new damage but leaves the old in the corpus. So a commit that fixes a false
+positive also runs `python3 tools/restore_forced_rewrites.py <check> --apply`,
+which replays the annotate transcripts and restores the flagged field as the
+run first wrote it, wherever the puzzle still holds the forced text and today's
+validator passes the original. If the check judges a field the tool's `RESTORE`
+table does not name, add a row first.
+
+Not every demand a check later dropped did harm. Being made to write a
+walkthrough, or to split a block that handed over the whole answer, mostly
+improved the hint, so restore by check, after reading a sample of pairs.
+
 ### Fakes must not diverge from the real thing
 When a test harness fakes an API, the fake must keep that API's contracts. A
 divergence does not fail loudly; it makes tests pass when they should not.
