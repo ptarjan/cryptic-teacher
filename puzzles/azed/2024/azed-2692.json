@@ -38,6 +38,9 @@
   "date": "2024-01-28",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,43 @@
     "text": "Pet kept in hutch outside",
     "enumeration": "4"
    },
-   "solution": "CHOU"
+   "solution": "CHOU",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHOU",
+    "definitions": [
+     {
+      "text": "Pet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "hidden_word",
+      "note": "what is kept in something sits inside it, so the answer lies within the run of letters that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hutch outside",
+      "gives": "CHOU",
+      "note": "the end of the first word runs into the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A rabbit or guinea pig is housed in a hutch out in the garden.",
+     "walkthrough": "CHOU is French for cabbage, used as an endearment like 'my dear'.",
+     "definitionFit": "Chambers lists chou as a term of endearment, a darling, just as pet is used affectionately."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pet"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +103,66 @@
    "clue": {
     "text": "Multiple transplant expertise involving correction of ‘leg rust’ (12, two words)"
    },
-   "solution": "CLUSTERGRAFT"
+   "solution": "CLUSTERGRAFT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CLUSTER GRAFT",
+    "definitions": [
+     {
+      "text": "Multiple transplant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "correction of",
+      "for": "anagram",
+      "note": "a correction rearranges what was wrong, so the quoted letters are put in a new order"
+     },
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "involving means wrapping round, so the skill surrounds the corrected letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expertise",
+      "gives": "CRAFT",
+      "note": "craft is skill or expertise"
+     },
+     {
+      "clueFragment": "‘leg rust’",
+      "gives": "LEGRUST",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LUSTERG",
+      "RAFT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LEGRUST",
+       "gives": "LUSTERG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A surgeon's skill at multiple transplants is used to fix a fungal disease of the leg.",
+     "definitionFit": "A cluster graft is a skin graft of many small pieces at once, so a transplant done in multiple parts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expertise"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +176,47 @@
     "text": "Winter on the riviera? Here’s one taking shelter with group",
     "enumeration": "5"
    },
-   "solution": "HIVER"
+   "solution": "HIVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "HIVER",
+    "definitions": [
+     {
+      "text": "Winter on the riviera?",
+      "at": 0
+     },
+     {
+      "text": "one taking shelter with group",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "Here’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Winter on the riviera?",
+      "note": "first meaning: the French word for winter, as said on the Côte d'Azur"
+     },
+     {
+      "clueFragment": "one taking shelter with group",
+      "note": "second meaning: one who hives, gathering with others as bees do in a hive"
+     }
+    ],
+    "explanation": {
+     "surface": "A tourist who winters on the Mediterranean shelters with a party.",
+     "walkthrough": "The question mark flags that the first meaning is French rather than English.",
+     "definitionFit": "Hiver is French for winter, and in English a hiver is one who hives, sheltering together like bees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "riviera"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +230,55 @@
     "text": "Church stole, one with belt clothing artist",
     "enumeration": "7"
    },
-   "solution": "ORARION"
+   "solution": "ORARION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ORARION",
+    "definitions": [
+     {
+      "text": "Church stole",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "clothing means dressing round, so the hunter surrounds the artist"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one with belt",
+      "gives": "ORION",
+      "note": "Orion the hunter has a famous belt of three stars"
+     },
+     {
+      "clueFragment": "artist",
+      "gives": "RA",
+      "note": "RA is a Royal Academician"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "RA",
+      "RION"
+     ]
+    },
+    "explanation": {
+     "surface": "A clerical scarf, worn by someone with a belt, wraps a painter.",
+     "walkthrough": "'One with belt' is the constellation Orion, whose belt is three bright stars.",
+     "definitionFit": "The orarion is the deacon's stole worn in the Eastern Orthodox Church, a long narrow vestment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "belt"
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +292,62 @@
     "text": "Bits of unwanted wool reused for soft bit of swaddling",
     "enumeration": "8"
    },
-   "solution": "OFFSORTS"
+   "solution": "OFFSORTS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "OFFSORTS",
+    "definitions": [
+     {
+      "text": "Bits of unwanted wool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reused",
+      "for": "anagram",
+      "note": "material that is reused is made into something new, so the letters are put into a fresh order"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a small bit of a word here is its opening letter only"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for soft",
+      "gives": "FORSOFT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "swaddling",
+      "gives": "S",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FORSOFTS",
+       "gives": "OFFSORTS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Discarded wool is recycled to make soft wrapping for a baby.",
+     "definitionFit": "Offsorts are the inferior pieces of wool sorted out from a fleece and set aside, the wool nobody wants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "reused"
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +361,56 @@
     "text": "Poetic trifle, unfashionable, penned by e.g. Franciscan",
     "enumeration": "6"
    },
-   "solution": "FOUTRA"
+   "solution": "FOUTRA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FOUTRA",
+    "definitions": [
+     {
+      "text": "Poetic trifle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "penned by means shut in by, so the unfashionable word goes inside the friar's title"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "e.g. Franciscan",
+      "gives": "FRA",
+      "note": "Fra is the title of an Italian friar, a Franciscan being one"
+     },
+     {
+      "clueFragment": "unfashionable",
+      "gives": "OUT",
+      "note": "out means no longer in fashion"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "OUT",
+      "RA"
+     ]
+    },
+    "explanation": {
+     "surface": "A friar writes some dated light verse.",
+     "walkthrough": "'Poetic trifle' suggests a light poem; it is a word used in poetry meaning a worthless thing.",
+     "definitionFit": "Foutra is a Shakespearean term of contempt meaning a fig, something worthless, used in old poetic writing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Poetic"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +424,56 @@
     "text": "Class I caught crawling about like insects?",
     "enumeration": "6"
    },
-   "solution": "FORMIC"
+   "solution": "FORMIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FORMIC",
+    "definitions": [
+     {
+      "text": "like insects?",
+      "at": 30,
+      "note": "the question mark marks ants as one kind of insect"
+     }
+    ],
+    "linkWords": [
+     "crawling about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Class",
+      "gives": "FORM",
+      "note": "a form is a school class"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "C is the cricket abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORM",
+      "I",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A schoolchild describes their classmates swarming around like bugs.",
+     "definitionFit": "Formic means relating to ants, from Latin formica, so it describes one particular kind of insect."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Class"
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +487,49 @@
     "text": "Public upset when urn is spilt",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Public",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when urn is spilt",
+      "for": "deletion",
+      "note": "spilling empties the vessel out, so the word urn is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset",
+      "gives": "OVERTURN",
+      "note": "to overturn is to upset"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVERT"
+     ]
+    },
+    "explanation": {
+     "surface": "People are distressed after someone knocks over the tea urn.",
+     "walkthrough": "The vessel in the surface is literally removed from the word for upset.",
+     "definitionFit": "Overt means open and unconcealed, done in public view rather than in secret."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +543,58 @@
     "text": "Pink minerals, each half overturned",
     "enumeration": "4"
    },
-   "solution": "ROSE"
+   "solution": "ROSE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ROSE",
+    "definitions": [
+     {
+      "text": "Pink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "each half overturned",
+      "for": "reversal",
+      "note": "each half of the word is turned over in turn, so both halves are read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minerals",
+      "gives": "ORES",
+      "note": "ores are minerals mined for metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "SE"
+     ],
+     "reversals": [
+      {
+       "from": "OR",
+       "to": "RO"
+      },
+      {
+       "from": "ES",
+       "to": "SE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pink rocks are tipped over, half at a time.",
+     "definitionFit": "Rose is a pale pinkish-red colour, named after the flower."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Pink"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +608,76 @@
     "text": "Artist upset about end of courtesan, passing",
     "enumeration": "7"
    },
-   "solution": "TRANSIT"
+   "solution": "TRANSIT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "TRANSIT",
+    "definitions": [
+     {
+      "text": "passing",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset letters are knocked into disorder and fall back differently"
+     },
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the jumbled letters surround the chosen letter"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "ARTIST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "courtesan",
+      "gives": "N",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "N",
+      "SIT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARTIST",
+       "gives": "TRASIT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A painter is distressed about how things ended with a courtesan who is passing by.",
+     "definitionFit": "Transit is the act of passing across or through, so the noun for passing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "passing"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +691,53 @@
     "text": "One feeling being suggested by another, I sense a hasty shift",
     "enumeration": "12"
    },
-   "solution": "SYNAESTHESIA"
+   "solution": "SYNAESTHESIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SYNAESTHESIA",
+    "definitions": [
+     {
+      "text": "One feeling being suggested by another",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shift",
+      "for": "anagram",
+      "note": "a shift is a change of position, so the letters move into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I sense a hasty",
+      "gives": "ISENSEAHASTY",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISENSEAHASTY",
+       "gives": "SYNAESTHESIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone perceives a quick change in their feelings.",
+     "definitionFit": "Synaesthesia is the condition in which stimulating one sense produces a sensation in another, such as hearing colours."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "shift"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +751,61 @@
     "text": "Old fool I tear apart blocking means of escape",
     "enumeration": "8"
    },
-   "solution": "LIRIPOOP"
+   "solution": "LIRIPOOP",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LIRIPOOP",
+    "definitions": [
+     {
+      "text": "Old fool",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "something blocking an exit stands in the way inside it, so these letters go within the escape route"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tear apart",
+      "gives": "RIP",
+      "note": "to rip is to tear apart"
+     },
+     {
+      "clueFragment": "means of escape",
+      "gives": "LOOP",
+      "note": "loop is an old word for a loophole, a way out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IRIP",
+      "OOP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tears free from whatever is stopping their getaway.",
+     "walkthrough": "Loop in the sense of loophole is the Chambers meaning that makes this work.",
+     "definitionFit": "Liripoop, besides a graduate's tippet, is an obsolete word for a silly person, a dolt."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "means"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +819,51 @@
     "text": "One of those doing the rounds in Glasgow? Chambers an obligation",
     "enumeration": "6"
    },
-   "solution": "POSTIE"
+   "solution": "POSTIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POSTIE",
+    "definitions": [
+     {
+      "text": "One of those doing the rounds in Glasgow?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chambers",
+      "gives": "POS",
+      "note": "pos are chamber pots, plural of po"
+     },
+     {
+      "clueFragment": "obligation",
+      "gives": "TIE",
+      "note": "a tie is a binding obligation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POS",
+      "TIE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in Glasgow says the Chambers dictionary is required reading.",
+     "walkthrough": "'Chambers' looks like the dictionary; it means chamber pots. A po is a chamber pot.",
+     "definitionFit": "Postie is Scottish and informal for a postman, who does a round delivering letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chambers"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +877,50 @@
     "text": "Madam dancing courantes",
     "enumeration": "9"
    },
-   "solution": "COURTESAN"
+   "solution": "COURTESAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "COURTESAN",
+    "definitions": [
+     {
+      "text": "Madam",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing letters move about and change places, giving a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "courantes",
+      "gives": "COURANTES",
+      "note": "courantes are old court dances, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "COURANTES",
+       "gives": "COURTESAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lady of the house performs a stately old court dance.",
+     "definitionFit": "A madam can mean a brothel-keeper or a kept woman, close kin to a courtesan or high-class prostitute."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Madam"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +934,44 @@
     "text": "Nippers formerly among those resting",
     "enumeration": "5"
    },
-   "solution": "SERES"
+   "solution": "SERES",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SERES",
+    "definitions": [
+     {
+      "text": "Nippers formerly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "hidden_word",
+      "note": "what is among a group sits in their midst, so the letters are found inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "those resting",
+      "gives": "SERES",
+      "note": "spans the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Little children used to be found among the people having a rest.",
+     "walkthrough": "'Nippers' suggests small children; here it means claws.",
+     "definitionFit": "Sere is an obsolete word for a claw or talon, and claws are things that nip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nippers"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +985,69 @@
     "text": "Work not fair? Almost last bit for serving woman",
     "enumeration": "4"
    },
-   "solution": "WREN"
+   "solution": "WREN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "WREN",
+    "definitions": [
+     {
+      "text": "serving woman",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the word for acceptable is taken away"
+     },
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means falling just short, so the final letter is cut"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "WORK",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "fair",
+      "gives": "OK",
+      "note": "OK means fair, acceptable"
+     },
+     {
+      "clueFragment": "last bit",
+      "gives": "END",
+      "note": "the end is the last bit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WR",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that the work given to a maid is unjust.",
+     "walkthrough": "WORK without OK leaves WR; END almost is EN. A Wren was a member of the Women's Royal Naval Service.",
+     "definitionFit": "A Wren is a woman serving in the British navy, so a serving woman in the military sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "serving"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1061,48 @@
     "text": "Composition, very funny one rendered back to front",
     "enumeration": "4"
    },
-   "solution": "TRIO"
+   "solution": "TRIO",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "TRIO",
+    "definitions": [
+     {
+      "text": "Composition",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rendered back to front",
+      "for": "cycling",
+      "note": "the letter at the back is brought round to the front of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very funny one",
+      "gives": "RIOT",
+      "note": "something hilarious is a riot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A hilarious piece of music is performed in reverse.",
+     "definitionFit": "A trio is a musical piece written for three players or voices, so a kind of composition."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rendered"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1116,66 @@
     "text": "Former extravagance I detected among misguided Tories",
     "enumeration": "7"
    },
-   "solution": "RIOTISE"
+   "solution": "RIOTISE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "RIOTISE",
+    "definitions": [
+     {
+      "text": "Former extravagance",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misguided",
+      "for": "anagram",
+      "note": "misguided things are led astray, so the party members' letters go into a wrong order"
+     },
+     {
+      "text": "detected among",
+      "for": "container",
+      "note": "something detected among a group is found in their midst, so the single letter goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tories",
+      "gives": "TORIES",
+      "note": "members of the British Conservative Party, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "I",
+      "OTISE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TORIES",
+       "gives": "ROTISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots past excess among Conservatives who have lost their way.",
+     "definitionFit": "Riotise is an obsolete word for riot in its old sense of wanton, extravagant living."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "detected"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1189,63 @@
     "text": "Getting worse again, ’e’s losing colour after getting up",
     "enumeration": "7"
    },
-   "solution": "RELAPSE"
+   "solution": "RELAPSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RELAPSE",
+    "definitions": [
+     {
+      "text": "Getting worse again",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after getting up",
+      "for": "reversal",
+      "note": "in a down entry getting up means rising from bottom to top, so the letters read upwards"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "’e’s",
+      "gives": "ES",
+      "note": "he's with the h dropped, so just the letters left"
+     },
+     {
+      "clueFragment": "losing colour",
+      "gives": "PALER",
+      "note": "one losing colour grows paler"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELAP",
+      "SE"
+     ],
+     "reversals": [
+      {
+       "from": "ESPALER",
+       "to": "RELAPSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient goes pale after getting out of bed and is worse again.",
+     "definitionFit": "A relapse is a falling back into illness after apparent recovery, the act of getting worse again."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "colour"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1258,74 @@
    "clue": {
     "text": "Stations mostly crucial when moving about in force (9, two words)"
    },
-   "solution": "VIACRUCIS"
+   "solution": "VIACRUCIS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "VIA CRUCIS",
+    "definitions": [
+     {
+      "text": "Stations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means all but a little, so the last letter goes"
+     },
+     {
+      "text": "when moving about",
+      "for": "anagram",
+      "note": "letters moving about change their positions"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters inside the word for force"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crucial",
+      "gives": "CRUCIAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "force",
+      "gives": "VIS",
+      "note": "vis is Latin for force, listed in Chambers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "ACRUCI",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CRUCIA",
+       "gives": "ACRUCI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Railway stations are vital when people travel around in large numbers.",
+     "walkthrough": "'Stations' reads like railway stops; it means the Stations of the Cross.",
+     "definitionFit": "The Via Crucis, the Way of the Cross, is the series of fourteen Stations depicting Christ's passion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stations"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1339,46 @@
     "text": "Songbird, one in process of catching fish?",
     "enumeration": "6"
    },
-   "solution": "REELER"
+   "solution": "REELER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REELER",
+    "definitions": [
+     {
+      "text": "Songbird",
+      "at": 0
+     },
+     {
+      "text": "one in process of catching fish?",
+      "at": 10
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Songbird",
+      "note": "first meaning: the grasshopper warbler, named for its reel-like song"
+     },
+     {
+      "clueFragment": "one in process of catching fish?",
+      "note": "second meaning: an angler winding in a line"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark marks the second meaning as a playful coinage: one who reels a fish in.",
+     "definitionFit": "The grasshopper warbler is called a reeler from its trilling song, and an angler reels in a catch."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Songbird"
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1392,64 @@
     "text": "Focused briefly on poem? Wrong way round, I admit",
     "enumeration": "7"
    },
-   "solution": "CONCEDO"
+   "solution": "CONCEDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CONCEDO",
+    "definitions": [
+     {
+      "text": "I admit",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wrong way round",
+      "for": "reversal",
+      "note": "the wrong way round means back to front, so the short poem is read in reverse"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Focused briefly",
+      "gives": "CONC",
+      "note": "conc. is the abbreviation for concentrated"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONC",
+      "EDO"
+     ],
+     "reversals": [
+      {
+       "from": "ODE",
+       "to": "EDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone briefly concentrating on a poem confesses to getting it backwards.",
+     "walkthrough": "In a down clue 'on' places the first part above the second.",
+     "definitionFit": "Concedo is Latin for 'I concede', used in English as a formal admission in argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Focused"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1463,55 @@
     "text": "Tear when penning poetry, once upset",
     "enumeration": "9"
    },
-   "solution": "RENVERSED"
+   "solution": "RENVERSED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RENVERSED",
+    "definitions": [
+     {
+      "text": "once upset",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when penning",
+      "for": "container",
+      "note": "to pen something is to shut it in, so the poetry goes inside the tear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tear",
+      "gives": "REND",
+      "note": "to rend is to tear"
+     },
+     {
+      "clueFragment": "poetry",
+      "gives": "VERSE",
+      "note": "verse is poetry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REN",
+      "VERSE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer sheds a tear while composing verse, having been distressed.",
+     "walkthrough": "'Tear' suggests weeping; it is the verb to rip.",
+     "definitionFit": "Renversed is an old word meaning overturned or reversed, so upset in the physical sense, now obsolete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tear"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1525,46 @@
     "text": "Take external link between networks",
     "enumeration": "6"
    },
-   "solution": "ROUTER"
+   "solution": "ROUTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROUTER",
+    "definitions": [
+     {
+      "text": "link between networks",
+      "at": 14
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Take",
+      "gives": "R",
+      "note": "R stands for recipe, Latin for take, on prescriptions"
+     },
+     {
+      "clueFragment": "external",
+      "gives": "OUTER",
+      "note": "outer means external"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OUTER"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to take an outside connection between computer systems.",
+     "definitionFit": "A router is a device that forwards data packets from one network to another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Take"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1578,46 @@
     "text": "Sensation concerning probable misprint in Shakespeare",
     "enumeration": "6"
    },
-   "solution": "STIRRE"
+   "solution": "STIRRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STIRRE",
+    "definitions": [
+     {
+      "text": "probable misprint in Shakespeare",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sensation",
+      "gives": "STIR",
+      "note": "a stir is a sensation, a commotion"
+     },
+     {
+      "clueFragment": "concerning",
+      "gives": "RE",
+      "note": "re means concerning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIR",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A literary scandal over a likely typo in a Shakespeare text.",
+     "definitionFit": "Chambers records stirre as a form found in Shakespeare, probably an error by the printer of the early text."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sensation"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1631,51 @@
     "text": "Place to get stuck in? Up to leg freed",
     "enumeration": "7"
    },
-   "solution": "GLUEPOT"
+   "solution": "GLUEPOT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GLUEPOT",
+    "definitions": [
+     {
+      "text": "Place to get stuck in?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "freed",
+      "for": "anagram",
+      "note": "freed letters are let loose from their order and settle into a new one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Up to leg",
+      "gives": "UPTOLEG",
+      "note": "taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "UPTOLEG",
+       "gives": "GLUEPOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sunk in a bog up to the thigh is pulled free.",
+     "definitionFit": "A gluepot is figuratively a sticky place, such as heavy mud, where one gets bogged down; literally it holds glue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leg"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1689,68 @@
     "text": "Old Jack climbing inside half of volcano? He’ll hope it won’t",
     "enumeration": "5"
    },
-   "solution": "ERUPT"
+   "solution": "ERUPT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ERUPT",
+    "definitions": [
+     {
+      "text": "He’ll hope it won’t",
+      "at": 42,
+      "note": "a cryptic definition: someone living near a volcano hopes it won't do this"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "climbing in a down entry goes upwards, so the word for the knave reads bottom to top"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "inside means within, so the knave goes between the other two letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old Jack",
+      "gives": "PUR",
+      "note": "pur is an obsolete name for the knave in the card game post and pair"
+     },
+     {
+      "clueFragment": "half of volcano",
+      "gives": "ET",
+      "note": "the first half of Etna, the volcano in Sicily"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RUP",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "PUR",
+       "to": "RUP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old sailor is climbing up Etna, and hopes it stays quiet.",
+     "walkthrough": "'Jack' suggests a sailor; here it is the card. The volcano must be supplied as Etna, half of which is used.",
+     "definitionFit": "Someone near a volcano dreads it spewing lava, so the thing he hopes it won't do is break out violently."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Jack"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1764,43 @@
     "text": "What symbolizes life during bank holiday",
     "enumeration": "4"
    },
-   "solution": "ANKH"
+   "solution": "ANKH",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ANKH",
+    "definitions": [
+     {
+      "text": "What symbolizes life",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "hidden_word",
+      "note": "during means within the span of, so the answer lies inside the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bank holiday",
+      "gives": "ANKH",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Asks what represents real living on a public day off.",
+     "walkthrough": "A bank holiday is a British public holiday.",
+     "definitionFit": "The ankh is the ancient Egyptian looped cross, the hieroglyph and emblem for life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "life"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1814,56 @@
     "text": "Arthritis in the chest? It may kill you",
     "enumeration": "5"
    },
-   "solution": "KRAIT"
+   "solution": "KRAIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "KRAIT",
+    "definitions": [
+     {
+      "text": "It may kill you",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the ailment inside the box word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the chest",
+      "gives": "KIT",
+      "note": "a kit is a box or chest for tools and equipment"
+     },
+     {
+      "clueFragment": "Arthritis",
+      "gives": "RA",
+      "note": "RA is the medical abbreviation for rheumatoid arthritis"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "RA",
+      "IT"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks whether a joint disease in the ribcage could be fatal.",
+     "walkthrough": "'Chest' suggests the body; it is a box.",
+     "definitionFit": "A krait is a highly venomous Asian snake whose bite is frequently fatal to humans."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chest"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1877,60 @@
     "text": "Curly, very active, perverse, neglecting ward",
     "enumeration": "4"
    },
-   "solution": "AFRO"
+   "solution": "AFRO",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "AFRO",
+    "definitions": [
+     {
+      "text": "Curly, very",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "neglecting",
+      "for": "deletion",
+      "note": "to neglect something is to leave it out, so those letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "active",
+      "gives": "A",
+      "note": "A is the grammatical abbreviation for active"
+     },
+     {
+      "clueFragment": "perverse",
+      "gives": "FROWARD",
+      "note": "froward means perverse, contrary"
+     },
+     {
+      "clueFragment": "ward",
+      "gives": "WARD",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "FRO"
+     ]
+    },
+    "explanation": {
+     "surface": "A child described as curly-haired, lively, contrary and ignoring the hospital ward.",
+     "walkthrough": "The definition is split: 'very' sits after 'Curly' to say how curly. Froward is an old word for wilful or contrary.",
+     "definitionFit": "Afro describes hair in a tightly curled, bushy style, so hair that is very curly indeed."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "very"
+    }
+   }
   },
   {
    "number": 30,
@@ -469,7 +1944,53 @@
     "text": "Discharged matter, not right after viral infection",
     "enumeration": "4"
    },
-   "solution": "FLUX"
+   "solution": "FLUX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLUX",
+    "definitions": [
+     {
+      "text": "Discharged matter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the mark for wrong behind the illness, so the infection comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "viral infection",
+      "gives": "FLU",
+      "note": "flu is influenza, a viral infection"
+     },
+     {
+      "clueFragment": "not right",
+      "gives": "X",
+      "note": "a cross marks an answer as wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLU",
+      "X"
+     ]
+    },
+    "explanation": {
+     "surface": "Mucus brought up, and not quite well, after a bout of influenza.",
+     "definitionFit": "Flux is an abnormal discharge of fluid from the body, the matter that flows out."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 31,
@@ -483,7 +2004,63 @@
     "text": "He’s thrown off detective returning for sordid gain",
     "enumeration": "5"
    },
-   "solution": "LUCRE"
+   "solution": "LUCRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "LUCRE",
+    "definitions": [
+     {
+      "text": "sordid gain",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "He’s thrown off",
+      "for": "deletion",
+      "note": "the letters spelling he are thrown off the start, removed"
+     },
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so what remains is read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "detective",
+      "gives": "HERCULE",
+      "note": "Hercule Poirot, Agatha Christie's sleuth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LUCRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERCUL",
+       "to": "LUCRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sleuth comes back after being cast off a case, out for dirty money.",
+     "walkthrough": "Poirot's first name, Hercule, is needed here, not a generic word for detective.",
+     "definitionFit": "Lucre is money regarded as base or dishonourably gained, as in 'filthy lucre'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "thrown"
+    }
+   }
   },
   {
    "number": 32,
@@ -497,7 +2074,59 @@
     "text": "Parisian’s after admitting longing for what’ll decorate rear ends",
     "enumeration": "9"
    },
-   "solution": "APLUSTRES"
+   "solution": "APLUSTRES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APLUSTRES",
+    "definitions": [
+     {
+      "text": "what’ll decorate rear ends",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "admitting means letting in, so the longing goes inside the French word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parisian’s after",
+      "gives": "APRES",
+      "note": "après is French for after"
+     },
+     {
+      "clueFragment": "longing",
+      "gives": "LUST",
+      "note": "lust is a strong longing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AP",
+      "LUST",
+      "RES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman's desire is to adorn people's backsides.",
+     "walkthrough": "'Rear ends' sounds like backsides; it means the sterns of ships.",
+     "definitionFit": "An aplustre was the ornamental fan-shaped stern-post of an ancient ship, decorating its rear end."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rear"
+    }
+   }
   },
   {
    "number": 33,
@@ -511,7 +2140,75 @@
     "text": "Bits of e.g. jellyfish turned arid in crumbling pier",
     "enumeration": "8"
    },
-   "solution": "PERRADII"
+   "solution": "PERRADII",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PERRADII",
+    "definitions": [
+     {
+      "text": "Bits of e.g. jellyfish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned",
+      "for": "anagram",
+      "note": "turned letters are spun round into a new order"
+     },
+     {
+      "text": "crumbling",
+      "for": "anagram",
+      "note": "something crumbling falls apart and its pieces resettle differently"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first set of letters inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arid",
+      "gives": "ARID",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pier",
+      "gives": "PIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PER",
+      "RADI",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARID",
+       "gives": "RADI"
+      },
+      {
+       "fodder": "PIER",
+       "gives": "PERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Jellyfish on a decaying pier have dried out.",
+     "definitionFit": "Perradii are the primary radial axes or parts of a jellyfish or other radially symmetric animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turned"
+    }
+   }
   },
   {
    "number": 34,
@@ -525,7 +2222,56 @@
     "text": "Tenors abandoned practice opening words set to music",
     "enumeration": "8"
    },
-   "solution": "TEXTURES"
+   "solution": "TEXTURES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TEXTURES",
+    "definitions": [
+     {
+      "text": "Tenors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "container",
+      "note": "opening here means prising apart, so the obsolete word is set inside the lyrics"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "words set to music",
+      "gives": "TEXTS",
+      "note": "texts are the words of songs"
+     },
+     {
+      "clueFragment": "abandoned practice",
+      "gives": "URE",
+      "note": "ure is an obsolete word for practice or use"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEXT",
+      "URE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Singers gave up rehearsing the opening lines of a song.",
+     "walkthrough": "'Tenors' looks like singers; it is the definition in its sense of general character. 'Abandoned' marks the practice word as obsolete.",
+     "definitionFit": "A tenor is the general character or drift of something, and texture likewise means a thing's essential quality or character."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tenors"
+    }
+   }
   },
   {
    "number": 35,
@@ -539,7 +2285,55 @@
     "text": "What Spaniards may dance to, afternoon after Whit?",
     "enumeration": "4"
    },
-   "solution": "JOTA"
+   "solution": "JOTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JOTA",
+    "definitions": [
+     {
+      "text": "What Spaniards may dance to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the time of day behind the small amount, so the afternoon comes last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Whit",
+      "gives": "JOT",
+      "note": "a whit and a jot are both the smallest amount"
+     },
+     {
+      "clueFragment": "afternoon",
+      "gives": "A",
+      "note": "A is an abbreviation for afternoon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JOT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Asks what Spanish people dance to on the afternoon of Whitsunday.",
+     "walkthrough": "'Whit' looks like the Christian feast; it means a tiny amount.",
+     "definitionFit": "The jota is a lively Spanish folk dance in triple time, and also the music for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Whit"
+    }
+   }
   }
  ]
 }
