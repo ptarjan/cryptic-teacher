@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Alternative practitioner's institution with old approach",
     "enumeration": "9"
    },
-   "solution": "HOMEOPATH"
+   "solution": "HOMEOPATH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HOMEOPATH",
+    "definitions": [
+     {
+      "text": "Alternative practitioner",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "institution",
+      "gives": "HOME",
+      "note": "a home is a residential institution, such as a care home"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "approach",
+      "gives": "PATH",
+      "note": "a path is a way or approach"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOME",
+      "O",
+      "PATH"
+     ]
+    },
+    "explanation": {
+     "surface": "A practitioner of alternative medicine runs an old-fashioned clinic.",
+     "walkthrough": "The 's stands for 'has': the practitioner has the wordplay.",
+     "definitionFit": "Homeopathy is a form of alternative medicine, so someone who practises it is an alternative practitioner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "institution"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +100,43 @@
     "text": "Type of joint involved in stretching elbow",
     "enumeration": "5"
    },
-   "solution": "HINGE"
+   "solution": "HINGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HINGE",
+    "definitions": [
+     {
+      "text": "Type of joint",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "hidden_word",
+      "note": "something involved in a phrase sits inside it, so the letters lie within the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stretching elbow",
+      "gives": "HINGE",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A medical note about which kind of joint is used when you straighten your arm.",
+     "walkthrough": "The elbow genuinely is this kind of joint, which makes the surface accurate as well as a disguise.",
+     "definitionFit": "A hinge joint, like the elbow or knee, bends in only one plane, and is a recognised anatomical type."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,50 @@
     "text": "Renamed new bend in river",
     "enumeration": "7"
    },
-   "solution": "MEANDER"
+   "solution": "MEANDER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEANDER",
+    "definitions": [
+     {
+      "text": "bend in river",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new means remaking it, so the preceding word's letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Renamed",
+      "gives": "RENAMED",
+      "note": "the fodder, taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RENAMED",
+       "gives": "MEANDER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A curve in a river has been given a new name.",
+     "definitionFit": "A meander is a winding loop in the course of a river, named after the twisting Maeander river in Turkey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +207,56 @@
     "text": "Rang old battered thing making a noise in church",
     "enumeration": "5"
    },
-   "solution": "ORGAN"
+   "solution": "ORGAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ORGAN",
+    "definitions": [
+     {
+      "text": "thing making a noise in church",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "battered",
+      "for": "anagram",
+      "note": "something battered is knocked out of shape, so these letters are knocked into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rang",
+      "gives": "RANG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RANGO",
+       "gives": "ORGAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient, worn-out bell rang out noisily in a church.",
+     "walkthrough": "'Rang' and 'church' suggest bells, but the noise-maker is the instrument at the back of the nave.",
+     "definitionFit": "The organ is the large pipe instrument traditionally played during church services."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rang"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +270,68 @@
     "text": "A rugby player turned up very fit",
     "enumeration": "7"
    },
-   "solution": "APROPOS"
+   "solution": "APROPOS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "APROPOS",
+    "definitions": [
+     {
+      "text": "fit",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turning a word up makes it read from bottom to top, the reverse order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "rugby player",
+      "gives": "PROP",
+      "note": "a prop is a forward in the front row of the scrum"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "SO",
+      "note": "so means very, as in so good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "PROP",
+      "OS"
+     ],
+     "reversals": [
+      {
+       "from": "SO",
+       "to": "OS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rugby forward arrived for the match in excellent condition.",
+     "walkthrough": "'Fit' looks like a description of the player's physique; it is the definition in its sense of suitable.",
+     "definitionFit": "Apropos means appropriate or pertinent to the matter in hand, just as a fitting remark is suitable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +345,77 @@
     "text": "Bed down for winter when the brain becomes fuzzy around 4th of November",
     "enumeration": "9"
    },
-   "solution": "HIBERNATE"
+   "solution": "HIBERNATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "HIBERNATE",
+    "definitions": [
+     {
+      "text": "Bed down for winter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "becomes fuzzy",
+      "for": "anagram",
+      "note": "a fuzzy mind has its thoughts blurred and jumbled, so these letters are scrambled"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the scrambled letters surround the single selected letter"
+     },
+     {
+      "text": "4th of",
+      "for": "letter_selection",
+      "note": "the fourth letter of the following word is the one kept"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the brain",
+      "gives": "THEBRAIN",
+      "note": "taken letter for letter as the fodder"
+     },
+     {
+      "clueFragment": "November",
+      "gives": "E",
+      "select": 4,
+      "note": "its fourth letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIB",
+      "E",
+      "RNATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "THEBRAIN",
+       "gives": "HIBRNATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Settling in for the cold months as your mind goes foggy in early November.",
+     "walkthrough": "The jumbled letters of 'the brain' wrap around the fourth letter of November.",
+     "definitionFit": "To hibernate is to spend the cold season dormant, as hedgehogs and bears do, so it means to bed down for winter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fuzzy"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +429,58 @@
     "text": "Holy man dropping in to grotty nightspot",
     "enumeration": "4"
    },
-   "solution": "DIVE"
+   "solution": "DIVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DIVE",
+    "definitions": [
+     {
+      "text": "grotty nightspot",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something means letting it go, so the word after it is removed from the first one"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Holy man",
+      "gives": "DIVINE",
+      "note": "a divine is a clergyman or theologian"
+     },
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written: these are the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "VE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleric pops into a seedy club.",
+     "walkthrough": "'Dropping in' reads as visiting, but it splits: 'dropping' removes the letters 'in' from the holy man.",
+     "definitionFit": "A dive is slang for a disreputable, run-down bar or club."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dropping"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +494,39 @@
     "text": "Where to store the work of artists?",
     "enumeration": "7"
    },
-   "solution": "DRAWERS"
+   "solution": "DRAWERS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "DRAWERS",
+    "definitions": [
+     {
+      "text": "Where to store the work of artists?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where to store the work of artists?",
+      "note": "surface reading: a place for keeping paintings, such as a gallery store"
+     },
+     {
+      "clueFragment": "artists",
+      "note": "setter's reading: artists are people who draw, and the word for them doubles as storage compartments in a chest"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the pun: people who draw share a name with the sliding boxes of a chest.",
+     "definitionFit": "These are sliding compartments in furniture where things are kept, and the same word names those who draw."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "store"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +540,56 @@
     "text": "Member of the orchestra getting note regarding abuse",
     "enumeration": "9"
    },
-   "solution": "VIOLATION"
+   "solution": "VIOLATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VIOLATION",
+    "definitions": [
+     {
+      "text": "abuse",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Member of the orchestra",
+      "gives": "VIOLA",
+      "note": "the viola is a string instrument of the orchestra"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TI",
+      "note": "ti is the seventh note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "regarding",
+      "gives": "ON",
+      "note": "on means regarding, as in a talk on history"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VIOLA",
+      "TI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An orchestral musician receives a memo about mistreatment.",
+     "walkthrough": "'Member' suggests a player, but here it is the instrument itself.",
+     "definitionFit": "A violation is a breach or mistreatment, and abuse of rights or a person is described the same way."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +603,50 @@
     "text": "Stop bad feeling, reaching compromise",
     "enumeration": "8"
    },
-   "solution": "ENDANGER"
+   "solution": "ENDANGER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDANGER",
+    "definitions": [
+     {
+      "text": "compromise",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "reaching"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stop",
+      "gives": "END",
+      "note": "to end is to stop"
+     },
+     {
+      "clueFragment": "bad feeling",
+      "gives": "ANGER",
+      "note": "anger is a bad feeling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "ANGER"
+     ]
+    },
+    "explanation": {
+     "surface": "Ending a feud by agreeing to meet halfway.",
+     "walkthrough": "'Compromise' reads as a deal, but here it is the verb meaning to put at risk.",
+     "definitionFit": "To compromise safety or security is to expose it to danger, which is what endanger means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "compromise"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +660,65 @@
     "text": "It's used to warn travellers when pork product contains essence of horsemeat",
     "enumeration": "6"
    },
-   "solution": "BEACON"
+   "solution": "BEACON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "BEACON",
+    "definitions": [
+     {
+      "text": "It's used to warn travellers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains says the pork product holds the selected letter inside it"
+     },
+     {
+      "text": "essence of",
+      "for": "letter_selection",
+      "note": "the essence of a thing is its heart, so the central letter of the next word is taken"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pork product",
+      "gives": "BACON",
+      "note": "bacon is cured pork"
+     },
+     {
+      "clueFragment": "horsemeat",
+      "gives": "E",
+      "select": "middle",
+      "note": "its central letter, the fifth of nine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "E",
+      "ACON"
+     ]
+    },
+    "explanation": {
+     "surface": "A food-safety alarm about horsemeat found in pork products.",
+     "walkthrough": "The surface recalls the horsemeat food scandal; the warning is a fire lit on a hill.",
+     "definitionFit": "A beacon is a light or fire set up as a signal to warn or guide sailors and other travellers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "warn"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +732,56 @@
     "text": "Blush about taking date to secret hideaway",
     "enumeration": "6"
    },
-   "solution": "REDDEN"
+   "solution": "REDDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDDEN",
+    "definitions": [
+     {
+      "text": "Blush",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "date",
+      "gives": "D",
+      "note": "D is the abbreviation for date"
+     },
+     {
+      "clueFragment": "secret hideaway",
+      "gives": "DEN",
+      "note": "a den is a private hideaway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "D",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone colours up at the thought of bringing a date back to a secret love nest.",
+     "definitionFit": "To blush is to go red in the face, and to redden is to turn red in the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +795,75 @@
     "text": "Strike about foreign names for cheese",
     "enumeration": "8"
    },
-   "solution": "PARMESAN"
+   "solution": "PARMESAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "PARMESAN",
+    "definitions": [
+     {
+      "text": "cheese",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the word for strike is read backwards"
+     },
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "foreign means strange or unfamiliar, so the next word is rendered in a strange new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strike",
+      "gives": "RAP",
+      "note": "to rap is to strike sharply"
+     },
+     {
+      "clueFragment": "names",
+      "gives": "NAMES",
+      "note": "the anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAR",
+      "MESAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAMES",
+       "gives": "MESAN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "RAP",
+       "to": "PAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A protest against using foreign names on cheese labels.",
+     "definitionFit": "Parmesan is the hard Italian cheese from around Parma, often grated over pasta."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Strike"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +877,51 @@
     "text": "Poles taking English in short supply",
     "enumeration": "6"
    },
-   "solution": "SPARSE"
+   "solution": "SPARSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SPARSE",
+    "definitions": [
+     {
+      "text": "in short supply",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Poles",
+      "gives": "SPARS",
+      "note": "spars are poles, such as a ship's masts and booms"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPARS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Polish people learning English are hard to find.",
+     "walkthrough": "'Poles' looks like people from Poland, but it means wooden poles.",
+     "definitionFit": "Something sparse is thinly scattered or scarce, so it is in short supply."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Poles"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +935,47 @@
     "text": "Real friend gets restaurant reservation",
     "enumeration": "9"
    },
-   "solution": "PALATABLE"
+   "solution": "PALATABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PALATABLE",
+    "definitions": [
+     {
+      "text": "Real",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "friend",
+      "gives": "PAL",
+      "note": "a pal is a friend"
+     },
+     {
+      "clueFragment": "restaurant reservation",
+      "gives": "A TABLE",
+      "note": "booking at a restaurant secures a table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAL",
+      "ATABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A true friend manages to book you somewhere to eat.",
+     "walkthrough": "The definition is loose: the answer means acceptable or tasty, and 'Real' must stand for genuinely good enough.",
+     "definitionFit": "Palatable means acceptable or agreeable, and the setter stretches that to something real or genuine enough to swallow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Real"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +989,42 @@
     "text": "Separated in forest, rang Edinburgh",
     "enumeration": "9"
    },
-   "solution": "ESTRANGED"
+   "solution": "ESTRANGED",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ESTRANGED",
+    "definitions": [
+     {
+      "text": "Separated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters are found inside the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forest, rang Edinburgh",
+      "gives": "ESTRANGED",
+      "note": "the letters span the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone lost in a forest phones Edinburgh for help.",
+     "definitionFit": "Estranged couples or relatives are separated by a breakdown in their relationship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rang"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1038,51 @@
     "text": "Locks up family in hide",
     "enumeration": "8"
    },
-   "solution": "SEALSKIN"
+   "solution": "SEALSKIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEALSKIN",
+    "definitions": [
+     {
+      "text": "hide",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Locks up",
+      "gives": "SEALS",
+      "note": "to seal is to close securely"
+     },
+     {
+      "clueFragment": "family",
+      "gives": "KIN",
+      "note": "kin are relatives"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEALS",
+      "KIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone confines their relatives in a hiding place.",
+     "walkthrough": "'Hide' looks like a hiding place or verb; it is an animal's skin.",
+     "definitionFit": "A hide is an animal's pelt, and a sealskin is the pelt of a seal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "hide"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1096,59 @@
     "text": "Ruined by insight into plot",
     "enumeration": "8"
    },
-   "solution": "BLIGHTED"
+   "solution": "BLIGHTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLIGHTED",
+    "definitions": [
+     {
+      "text": "Ruined",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "into says one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plot",
+      "gives": "BED",
+      "note": "a bed is a garden plot, as in a flower bed"
+     },
+     {
+      "clueFragment": "insight",
+      "gives": "LIGHT",
+      "note": "light means insight or understanding, as in shed light on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LIGHT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A conspiracy undone because someone saw through it.",
+     "walkthrough": "'Plot' suggests a scheme, but it is a patch of garden.",
+     "definitionFit": "Blighted means spoilt or ruined, from blight, the disease that destroys crops."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1162,58 @@
     "text": "Governor's first to get permits for execution site",
     "enumeration": "7"
    },
-   "solution": "GALLOWS"
+   "solution": "GALLOWS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GALLOWS",
+    "definitions": [
+     {
+      "text": "execution site",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first says only the opening letter of the word before is kept"
+     }
+    ],
+    "linkWords": [
+     "to get",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Governor's",
+      "gives": "G",
+      "select": "first",
+      "note": "its opening letter"
+     },
+     {
+      "clueFragment": "permits",
+      "gives": "ALLOWS",
+      "note": "to permit is to allow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ALLOWS"
+     ]
+    },
+    "explanation": {
+     "surface": "A state governor signs off on a place for executions.",
+     "definitionFit": "The gallows is the wooden frame on which people were hanged, so it is a place of execution."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1227,79 @@
     "text": "Recognising responsibility to start off audit, worried over flu outbreak",
     "enumeration": "7"
    },
-   "solution": "DUTIFUL"
+   "solution": "DUTIFUL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "DUTIFUL",
+    "definitions": [
+     {
+      "text": "Recognising responsibility",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to start off",
+      "for": "deletion",
+      "note": "with its start taken off, the following word loses its opening letter"
+     },
+     {
+      "text": "worried",
+      "for": "anagram",
+      "note": "worried means agitated and disturbed, so the shortened word's letters are shaken up"
+     },
+     {
+      "text": "outbreak",
+      "for": "anagram",
+      "note": "an outbreak breaks things out of order, so the word before it is rearranged"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "audit",
+      "gives": "AUDIT",
+      "note": "taken as written, then shorn of its opening letter"
+     },
+     {
+      "clueFragment": "flu",
+      "gives": "FLU",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DUTI",
+      "FUL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UDIT",
+       "gives": "DUTI"
+      },
+      {
+       "fodder": "FLU",
+       "gives": "FUL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An accountant anxious about an audit being derailed by an epidemic among staff.",
+     "walkthrough": "In a down entry 'over' places the first piece above the second.",
+     "definitionFit": "A dutiful person is conscious of their obligations and carries them out conscientiously."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outbreak"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1313,50 @@
     "text": "Monarch has source of fur for ceremonial robes",
     "enumeration": "6"
    },
-   "solution": "ERMINE"
+   "solution": "ERMINE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERMINE",
+    "definitions": [
+     {
+      "text": "fur for ceremonial robes",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Monarch",
+      "gives": "ER",
+      "note": "ER stands for Elizabeth Regina, the Queen"
+     },
+     {
+      "clueFragment": "source",
+      "gives": "MINE",
+      "note": "a mine is a source of minerals or anything plentiful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ER",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "The king or queen has a supply of fur for coronation robes.",
+     "walkthrough": "'Source of fur' reads as one phrase, but 'source' alone is the wordplay.",
+     "definitionFit": "Ermine is the white winter coat of the stoat, traditionally used to trim the robes of peers and royalty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "source"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1370,67 @@
     "text": "Wet day to tour site redevelopment",
     "enumeration": "7"
    },
-   "solution": "MOISTEN"
+   "solution": "MOISTEN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "MOISTEN",
+    "definitions": [
+     {
+      "text": "Wet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "to tour a place is to go round it, so the day wraps around the rest"
+     },
+     {
+      "text": "redevelopment",
+      "for": "anagram",
+      "note": "redevelopment rebuilds a site, so the word's letters are rebuilt in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "day",
+      "gives": "MON",
+      "note": "Mon is the abbreviation for Monday"
+     },
+     {
+      "clueFragment": "site",
+      "gives": "SITE",
+      "note": "the anagram fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MO",
+      "ISTE",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SITE",
+       "gives": "ISTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rainy day spent looking round a building project.",
+     "walkthrough": "Mon is split after its second letter to wrap round the reordered site.",
+     "definitionFit": "To wet something is to dampen it, and moisten means to make slightly wet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Wet"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1444,77 @@
     "text": "Committed in support of last ground offensive by terrorist leader",
     "enumeration": "8"
    },
-   "solution": "STALWART"
+   "solution": "STALWART",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STALWART",
+    "definitions": [
+     {
+      "text": "Committed in support",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ground",
+      "for": "anagram",
+      "note": "something ground is crushed and broken up, so the word before it has its letters reordered"
+     },
+     {
+      "text": "leader",
+      "for": "letter_selection",
+      "note": "the leader is the one at the front, so only the opening letter is kept"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "last",
+      "gives": "LAST",
+      "note": "the anagram fodder, taken as written"
+     },
+     {
+      "clueFragment": "offensive",
+      "gives": "WAR",
+      "note": "an offensive is a military campaign, part of a war"
+     },
+     {
+      "clueFragment": "terrorist",
+      "gives": "T",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAL",
+      "WAR",
+      "T"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LAST",
+       "gives": "STAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Loyal backing for a final ground assault launched by a terrorist chief.",
+     "walkthrough": "'Ground offensive' looks like a military phrase; 'ground' is the anagram signal and 'offensive' stands alone.",
+     "definitionFit": "A stalwart is a loyal, reliable supporter, so the adjective describes someone firmly committed to a cause."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1528,58 @@
     "text": "Piece of bone rejected by a dog, say",
     "enumeration": "6"
    },
-   "solution": "ANIMAL"
+   "solution": "ANIMAL",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "ANIMAL",
+    "definitions": [
+     {
+      "text": "a dog, say",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the word is read in the backward direction"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Piece of bone",
+      "gives": "LAMINA",
+      "note": "a lamina is a thin plate or layer, as of bone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANIMAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAMINA",
+       "to": "ANIMAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dog turns its nose up at a bit of bone.",
+     "walkthrough": "The dog seems to be the one doing the rejecting, but it is the definition; 'say' marks it as one example.",
+     "definitionFit": "A dog is one example of an animal, which the 'say' signals as an instance of the wider class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "rejected"
+    }
+   }
   },
   {
    "number": 22,
@@ -369,7 +1593,54 @@
     "text": "A Liberal has one excuse",
     "enumeration": "5"
    },
-   "solution": "ALIBI"
+   "solution": "ALIBI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALIBI",
+    "definitions": [
+     {
+      "text": "excuse",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Liberal",
+      "gives": "LIB",
+      "note": "Lib is the abbreviation for Liberal"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LIB",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician has a single excuse to offer.",
+     "definitionFit": "An alibi is a claim of being elsewhere, and informally any excuse offered to avoid blame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 23,
@@ -383,7 +1654,63 @@
     "text": "Stirred a pan close to fire",
     "enumeration": "5"
    },
-   "solution": "AWOKE"
+   "solution": "AWOKE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AWOKE",
+    "definitions": [
+     {
+      "text": "Stirred",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "pan",
+      "gives": "WOK",
+      "note": "a wok is a Chinese frying pan"
+     },
+     {
+      "clueFragment": "fire",
+      "gives": "E",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WOK",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone moved a cooking pan near the flames.",
+     "walkthrough": "'Stirred' suggests cooking with a spoon; it means woke up.",
+     "definitionFit": "To stir is to begin to move after sleep, so someone who stirred has woken."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stirred"
+    }
+   }
   },
   {
    "number": 24,
@@ -397,7 +1724,72 @@
     "text": "Shape of old pipe containing source of lead",
     "enumeration": "6"
    },
-   "solution": "OBLONG"
+   "solution": "OBLONG",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "OBLONG",
+    "definitions": [
+     {
+      "text": "Shape",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source is where something starts, so the first letter of the next word is taken"
+     },
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing says the pipe holds the selected letter inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "pipe",
+      "gives": "BONG",
+      "note": "a bong is a water pipe for smoking"
+     },
+     {
+      "clueFragment": "lead",
+      "gives": "L",
+      "select": "first",
+      "note": "its opening letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "L",
+      "ONG"
+     ]
+    },
+    "explanation": {
+     "surface": "Describing the form of an antique lead pipe.",
+     "walkthrough": "'Lead pipe' reads as plumbing, but 'lead' only gives its first letter.",
+     "definitionFit": "An oblong is a rectangle longer than it is wide, a familiar geometric shape."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 25,
@@ -411,7 +1803,56 @@
     "text": "Tension caused by lie about king",
     "enumeration": "8"
    },
-   "solution": "FRICTION"
+   "solution": "FRICTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRICTION",
+    "definitions": [
+     {
+      "text": "Tension",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the lie goes around the royal letter"
+     }
+    ],
+    "linkWords": [
+     "caused by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lie",
+      "gives": "FICTION",
+      "note": "a fiction is an invented story, a lie"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R stands for Rex, king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "ICTION"
+     ]
+    },
+    "explanation": {
+     "surface": "Bad feeling at court caused by a falsehood concerning the king.",
+     "definitionFit": "Friction is conflict or disagreement between people, the strain that tension also describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -425,7 +1866,47 @@
     "text": "What golfers use to help them hit balls into river",
     "enumeration": "4"
    },
-   "solution": "TEES"
+   "solution": "TEES",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TEES",
+    "definitions": [
+     {
+      "text": "What golfers use to help them hit balls",
+      "at": 0
+     },
+     {
+      "text": "river",
+      "at": 45
+     }
+    ],
+    "linkWords": [
+     "into"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What golfers use to help them hit balls",
+      "note": "first meaning: small pegs on which a golf ball is set for driving"
+     },
+     {
+      "clueFragment": "river",
+      "note": "second meaning: a river in north-east England flowing out at Middlesbrough"
+     }
+    ],
+    "explanation": {
+     "surface": "Golfers sending their shots into the water.",
+     "walkthrough": "The Tees is a river in north-east England.",
+     "definitionFit": "Golf pegs that hold the ball up for a drive share their name with a river in the north of England."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "river"
+    }
+   }
   },
   {
    "number": 27,
@@ -439,7 +1920,64 @@
     "text": "Flirtation shown by every setter during smooch",
     "enumeration": "9"
    },
-   "solution": "DALLIANCE"
+   "solution": "DALLIANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DALLIANCE",
+    "definitions": [
+     {
+      "text": "Flirtation",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "container",
+      "note": "during says the pieces before it happen inside the word after it"
+     }
+    ],
+    "linkWords": [
+     "shown by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooch",
+      "gives": "DANCE",
+      "note": "a smooch is a slow, close dance"
+     },
+     {
+      "clueFragment": "every",
+      "gives": "ALL",
+      "note": "all means every one"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themselves as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "ALL",
+      "I",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword compiler confesses to flirting with everyone on the dance floor.",
+     "definitionFit": "A dalliance is a casual romantic involvement, the light flirting that the definition names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smooch"
+    }
+   }
   }
  ]
 }
