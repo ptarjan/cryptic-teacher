@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Stable company",
     "enumeration": "4"
    },
-   "solution": "FIRM"
+   "solution": "FIRM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FIRM",
+    "definitions": [
+     {
+      "text": "Stable",
+      "at": 0
+     },
+     {
+      "text": "company",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stable",
+      "note": "first meaning: steady, solid, not shaky"
+     },
+     {
+      "clueFragment": "company",
+      "note": "second meaning: a business concern"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests a business on a sound footing; the two words are separate meanings of one short word.",
+     "definitionFit": "The word is an adjective for something secure and fixed, and also a noun for a commercial business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Stable"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +85,48 @@
     "text": "Enquires of jobs wanting leader",
     "enumeration": "4"
    },
-   "solution": "ASKS"
+   "solution": "ASKS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASKS",
+    "definitions": [
+     {
+      "text": "Enquires of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wanting leader",
+      "for": "deletion",
+      "note": "wanting means lacking, so the word goes without its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jobs",
+      "gives": "TASKS",
+      "note": "jobs are tasks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone making enquiries about vacancies that still need a boss.",
+     "walkthrough": "TASKS loses its first letter to give ASKS.",
+     "definitionFit": "To ask someone is to put a question to them, the same as enquiring of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +140,70 @@
     "text": "Yearn to screen university debut of Eric Idle",
     "enumeration": "6"
    },
-   "solution": "LOUNGE"
+   "solution": "LOUNGE",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LOUNGE",
+    "definitions": [
+     {
+      "text": "Idle",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to screen",
+      "for": "container",
+      "note": "to screen something is to hide it behind a cover, so one piece is enclosed"
+     },
+     {
+      "text": "debut of",
+      "for": "letter_selection",
+      "note": "a debut is a first appearance, so only the opening letter is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Yearn",
+      "gives": "LONG",
+      "note": "to yearn is to long"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Eric",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of the name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LO",
+      "U",
+      "NG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Pining to film the first performance of Monty Python's Eric Idle at a university.",
+     "walkthrough": "LONG takes U inside, then E follows. Eric Idle is a Monty Python comedian, so 'Idle' reads as a surname until it becomes the definition.",
+     "definitionFit": "To lounge is to laze about doing nothing, a verb synonym of being idle."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Idle"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +217,58 @@
     "text": "German city chose to be empty by nature",
     "enumeration": "7"
    },
-   "solution": "ESSENCE"
+   "solution": "ESSENCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ESSENCE",
+    "definitions": [
+     {
+      "text": "nature",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be empty",
+      "for": "letter_selection",
+      "note": "empty means with nothing inside, so only the outer shell of the word stays"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "German city",
+      "gives": "ESSEN",
+      "note": "Essen is a city in the Ruhr"
+     },
+     {
+      "clueFragment": "chose",
+      "gives": "CE",
+      "select": "outer",
+      "note": "the word with its inside removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSEN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A German city decides to be deserted, as is its natural way.",
+     "definitionFit": "The essence of something is its intrinsic character, the same as its fundamental nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +282,55 @@
     "text": "Flexible cat described by pen",
     "enumeration": "8"
    },
-   "solution": "STRETCHY"
+   "solution": "STRETCHY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRETCHY",
+    "definitions": [
+     {
+      "text": "Flexible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "described by",
+      "for": "container",
+      "note": "to describe a shape is to draw around it, so one piece is outlined by another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pen",
+      "gives": "STY",
+      "note": "a pen for pigs"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "RETCH",
+      "note": "to cat is British slang for to vomit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RETCH",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A supple feline is portrayed by a writer's pen.",
+     "walkthrough": "'Cat' looks like the animal, but it is old British slang for to be sick, and 'pen' is an enclosure for pigs, not a writing tool.",
+     "definitionFit": "Something stretchy can be pulled out and spring back, so it is elastic or pliable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cat"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +350,81 @@
      }
     ]
    },
-   "solution": "GOATSTHORN"
+   "solution": "GOATSTHORN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container",
+     "anagram"
+    ],
+    "answer": "GOATS-THORN",
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "extremely points to the extremes of a word, its two ends, with the middle dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the next word before anything else happens"
+     },
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild means untamed and disorderly, so the combined letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Indian state",
+      "gives": "GOA",
+      "note": "Goa is a small state on India's west coast"
+     },
+     {
+      "clueFragment": "stout",
+      "gives": "ST",
+      "select": "outer",
+      "note": "the first and last letters of the word"
+     },
+     {
+      "clueFragment": "north",
+      "gives": "NORTH",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOA",
+      "TSTHORN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOSTRTH",
+       "gives": "TSTHORN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bush brought from Goa, very sturdy, growing in the untamed north.",
+     "definitionFit": "Goat's thorn is a spiny shrub of the genus Astragalus, the plant that yields tragacanth gum."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stout"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +438,78 @@
     "text": "I’m upset by Tory in Barking getting smaller number",
     "enumeration": "8"
    },
-   "solution": "MINORITY"
+   "solution": "MINORITY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MINORITY",
+    "definitions": [
+     {
+      "text": "smaller number",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means turned upside down, so the letters read from the bottom up"
+     },
+     {
+      "text": "Barking",
+      "for": "anagram",
+      "note": "barking means mad, so the letters that follow are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Tory in",
+      "gives": "TORYIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "NORITY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TORYIN",
+       "gives": "NORITY"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A candidate laments that the Tory vote in Barking, a London suburb, is shrinking.",
+     "walkthrough": "Barking is an east London district, which hides its role as the anagram signal.",
+     "definitionFit": "A minority is the lesser part of a group, the smaller count in a vote or population."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Barking"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +523,55 @@
     "text": "Religious organisations need to tour biblical hill",
     "enumeration": "8"
    },
-   "solution": "MISSIONS"
+   "solution": "MISSIONS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MISSIONS",
+    "definitions": [
+     {
+      "text": "Religious organisations",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to tour",
+      "for": "container",
+      "note": "to tour a place is to go all round it, so one word wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "need",
+      "gives": "MISS",
+      "note": "to need something is to miss it"
+     },
+     {
+      "clueFragment": "biblical hill",
+      "gives": "SION",
+      "note": "Sion is a variant spelling of Zion, the hill of Jerusalem"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIS",
+      "SION",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Church bodies want to make a trip around a hill named in the Bible.",
+     "walkthrough": "Sion is the older spelling of Zion, the hill in Jerusalem named throughout the Old Testament.",
+     "definitionFit": "Missions are bodies sent out by churches to preach and do charitable work."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "need"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +585,72 @@
     "text": "About 100 left over individual giving latitude",
     "enumeration": "6"
    },
-   "solution": "TROPIC"
+   "solution": "TROPIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TROPIC",
+    "definitions": [
+     {
+      "text": "latitude",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "reversal",
+      "note": "about can mean turned round, as when a ship goes about, so the whole string runs backwards"
+     }
+    ],
+    "linkWords": [
+     "over",
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "100",
+      "gives": "C",
+      "note": "Roman numeral"
+     },
+     {
+      "clueFragment": "individual",
+      "gives": "I",
+      "note": "I is one, a single individual"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "PORT",
+      "note": "port is the left side of a ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TROP",
+      "I",
+      "C"
+     ],
+     "reversals": [
+      {
+       "from": "CIPORT",
+       "to": "TROPIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Roughly a hundred people left over, each one allowed some freedom.",
+     "walkthrough": "C, I and PORT run backwards to give TROPIC. 'Latitude' looks like freedom, as 'giving latitude' suggests, but it is a geographical line.",
+     "definitionFit": "The tropics of Cancer and Capricorn are parallels of latitude, so a tropic is one such line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "latitude"
+    }
+   }
   },
   {
    "number": 10,
@@ -171,7 +670,68 @@
      }
     ]
    },
-   "solution": "KMESON"
+   "solution": "KMESON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "K-MESON",
+    "definitions": [
+     {
+      "text": "Subatomic particle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disperses",
+      "for": "anagram",
+      "note": "smoke that disperses spreads out and loses its shape, so its letters scatter into a new order"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the next word, so only its closing letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smoke",
+      "gives": "SMOKE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seen",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KMESO",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SMOKE",
+       "gives": "KMESO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "In a cloud chamber, a tiny particle shows up at last once the smoke clears.",
+     "walkthrough": "'after' places the N at the end.",
+     "definitionFit": "A K-meson, or kaon, is a short-lived subatomic particle made of a quark and an antiquark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "smoke"
+    }
+   }
   },
   {
    "number": 11,
@@ -185,7 +745,53 @@
     "text": "Nice water regularly provided by Belarus",
     "enumeration": "3"
    },
-   "solution": "EAU"
+   "solution": "EAU",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EAU",
+    "definitions": [
+     {
+      "text": "Nice water",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is taken"
+     }
+    ],
+    "linkWords": [
+     "provided by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belarus",
+      "gives": "EAU",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAU"
+     ]
+    },
+    "explanation": {
+     "surface": "Pleasant drinking water is routinely supplied by Belarus.",
+     "walkthrough": "'Nice' reads as pleasant, but it is the French city, so the definition wants the French word for water.",
+     "definitionFit": "Eau is French for water, and Nice is a city in France where that word is used."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +805,65 @@
     "text": "Effort of flowing into two rivers to begin with",
     "enumeration": "8"
    },
-   "solution": "EXERTION"
+   "solution": "EXERTION",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EXERTION",
+    "definitions": [
+     {
+      "text": "Effort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flowing",
+      "for": "anagram",
+      "note": "flowing water moves and shifts, so the next word's letters are stirred about"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "to begin with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "two rivers",
+      "gives": "EXER",
+      "note": "the Exe, a river in Devon, then R for river"
+     },
+     {
+      "clueFragment": "into",
+      "gives": "INTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXER",
+      "TION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTO",
+       "gives": "TION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The labour of rafting down two rivers at the outset.",
+     "walkthrough": "'to begin with' puts the rivers before the rearranged word. The Exe is a river in Devon, England.",
+     "definitionFit": "Exertion is physical or mental effort, the strain of working hard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flowing"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +877,60 @@
     "text": "Soldier’s command – drop war game",
     "enumeration": "3"
    },
-   "solution": "GIN"
+   "solution": "GIN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "GIN",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "drop",
+      "for": "deletion",
+      "note": "to drop something is to let it go, so these letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier’s",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "command",
+      "gives": "WARN",
+      "note": "to warn someone to do something is to order them"
+     },
+     {
+      "clueFragment": "war",
+      "gives": "WAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is ordered to abandon a military exercise.",
+     "walkthrough": "GI + WARN, with WAR dropped, leaves GIN. 'War game' looks like one phrase; 'game' alone is the definition.",
+     "definitionFit": "Gin, short for gin rummy, is a card game for two players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "war"
+    }
+   }
   },
   {
    "number": 14,
@@ -227,7 +944,43 @@
     "text": "Groups on boats discussed voyage",
     "enumeration": "6"
    },
-   "solution": "CRUISE"
+   "solution": "CRUISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CRUISE",
+    "definitions": [
+     {
+      "text": "voyage",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discussed",
+      "for": "homophone",
+      "note": "something discussed is talked about, so the word is judged by its spoken sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Groups on boats",
+      "gives": "CRUISE",
+      "soundsLike": "CREWS",
+      "note": "crews are the teams who work ships"
+     }
+    ],
+    "explanation": {
+     "surface": "Sailors talk over their coming sea journey.",
+     "definitionFit": "A cruise is a pleasure trip by sea, a kind of voyage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discussed"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +994,44 @@
     "text": "It’s offered during lunch and tea",
     "enumeration": "3"
    },
-   "solution": "CHA"
+   "solution": "CHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CHA",
+    "definitions": [
+     {
+      "text": "tea",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "during",
+      "for": "hidden_word",
+      "note": "during means within the span of, so the letters sit inside the phrase"
+     }
+    ],
+    "linkWords": [
+     "It’s offered"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lunch and",
+      "gives": "CHA",
+      "note": "spans the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A drink served at midday and in the afternoon.",
+     "definitionFit": "Cha, or char, is British slang for tea, from the Chinese word for it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1045,84 @@
     "text": "Hopeless politician taken in by Number 10’s nasty lies about Belgium",
     "enumeration": "10"
    },
-   "solution": "IMPOSSIBLE"
+   "solution": "IMPOSSIBLE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "IMPOSSIBLE",
+    "definitions": [
+     {
+      "text": "Hopeless",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in by",
+      "for": "container",
+      "note": "something taken in is received inside, so one piece goes within another"
+     },
+     {
+      "text": "nasty",
+      "for": "anagram",
+      "note": "nasty suggests something twisted and spoilt, so the following letters are mixed up"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one part surrounds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number 10’s",
+      "gives": "IOS",
+      "note": "10 written as the letters I and O, with the S of the possessive"
+     },
+     {
+      "clueFragment": "politician",
+      "gives": "MP",
+      "note": "Member of Parliament"
+     },
+     {
+      "clueFragment": "lies",
+      "gives": "LIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Belgium",
+      "gives": "B",
+      "note": "international vehicle code"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MP",
+      "OS",
+      "SIBLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LIESB",
+       "gives": "SIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A useless MP is fooled by Downing Street's nasty untruths about Belgium.",
+     "walkthrough": "Number 10 Downing Street is the UK Prime Minister's residence; here the digits 1 and 0 are read as the look-alike letters I and O.",
+     "definitionFit": "A hopeless task cannot be achieved, which is what impossible means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Number"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1136,38 @@
     "text": "Drink-k?",
     "enumeration": "8"
    },
-   "solution": "COCKTAIL"
+   "solution": "COCKTAIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "COCKTAIL",
+    "definitions": [
+     {
+      "text": "Drink-k?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drink-k?",
+      "note": "surface reading: a stammered or misspelt word for a drink"
+     },
+     {
+      "clueFragment": "Drink-k?",
+      "note": "setter's reading: the word drink with its last letter repeated as a tail, so a drink with a tail added"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The extra K looks like a typo; it is a tail tacked onto the word, and the answer splits into a bird's name plus that tail.",
+     "definitionFit": "A cocktail is a mixed alcoholic drink, and the answer read in two parts describes a tail."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1187,73 @@
      }
     ]
    },
-   "solution": "ASHPANS"
+   "solution": "ASHPANS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "ASH-PANS",
+    "definitions": [
+     {
+      "text": "trays by fire",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook something is to work it into a new form, so the letters are reshuffled"
+     },
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "over means turned over, so the word before it runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "has",
+      "gives": "HAS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "break",
+      "gives": "SNAP",
+      "note": "to break is to snap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASH",
+      "PANS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAS",
+       "gives": "ASH"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "SNAP",
+       "to": "PANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chef takes a rest after carrying trays over to the stove.",
+     "walkthrough": "'Cook' looks like the person in the kitchen; it signals the rearrangement.",
+     "definitionFit": "Ash pans are metal trays set under a grate to catch the ashes from a fire."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1267,66 @@
     "text": "UK stood apart buying British horse’s record of descent",
     "enumeration": "8"
    },
-   "solution": "STUDBOOK"
+   "solution": "STUDBOOK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STUDBOOK",
+    "definitions": [
+     {
+      "text": "horse’s record of descent",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "apart",
+      "for": "anagram",
+      "note": "apart means broken into pieces, so the letters are reassembled differently"
+     },
+     {
+      "text": "buying",
+      "for": "container",
+      "note": "buying means taking something on board, so one letter is held within the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "UK stood",
+      "gives": "UKSTOOD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUD",
+      "B",
+      "OOK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "UKSTOOD",
+       "gives": "STUDOOK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Britain kept aloof when purchasing a pedigree register.",
+     "definitionFit": "A studbook is the official register of thoroughbred horses' pedigrees."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "apart"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1340,58 @@
     "text": "Most vocal that no-one has short nap in the afternoon",
     "enumeration": "8"
    },
-   "solution": "NOISIEST"
+   "solution": "NOISIEST",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NOISIEST",
+    "definitions": [
+     {
+      "text": "Most vocal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means cut off before the end, so the last letter is lost"
+     }
+    ],
+    "linkWords": [
+     "that",
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no-one",
+      "gives": "NOI",
+      "note": "NO, then I for one"
+     },
+     {
+      "clueFragment": "nap in the afternoon",
+      "gives": "SIESTA",
+      "note": "a siesta is an afternoon nap"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOI",
+      "SIEST"
+     ]
+    },
+    "explanation": {
+     "surface": "The loudest protest is that nobody gets an afternoon doze.",
+     "definitionFit": "Noisiest is the superlative of noisy, so it means the loudest or most vocal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "no-one"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1405,86 @@
     "text": "Tin storing yen, not European funny money or similar word",
     "enumeration": "7"
    },
-   "solution": "SYNONYM"
+   "solution": "SYNONYM",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "SYNONYM",
+    "definitions": [
+     {
+      "text": "similar word",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "storing",
+      "for": "container",
+      "note": "storing means keeping inside, so one letter goes within another word"
+     },
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so a letter is taken away"
+     },
+     {
+      "text": "funny",
+      "for": "anagram",
+      "note": "funny means peculiar, so the letters come out in an odd order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tin",
+      "gives": "SN",
+      "note": "chemical symbol"
+     },
+     {
+      "clueFragment": "yen",
+      "gives": "Y",
+      "note": "currency abbreviation"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "MONEY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYN",
+      "ONYM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MONY",
+       "gives": "ONYM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tin hoarding Japanese cash, but no euros: odd money or something like it.",
+     "walkthrough": "'Tin' looks like a container or slang for cash; it is the metal, by its chemical symbol.",
+     "definitionFit": "A synonym is a word with the same or nearly the same meaning as another."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tin"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1498,60 @@
     "text": "Vassal turning handle three quarters",
     "enumeration": "3"
    },
-   "solution": "MAN"
+   "solution": "MAN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "MAN",
+    "definitions": [
+     {
+      "text": "Vassal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "three quarters",
+      "for": "deletion",
+      "note": "three quarters means only three of four parts remain, so one letter goes"
+     },
+     {
+      "text": "turning",
+      "for": "reversal",
+      "note": "turning means facing the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "handle",
+      "gives": "NAME",
+      "note": "a handle is slang for a name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAN"
+     ],
+     "reversals": [
+      {
+       "from": "NAM",
+       "to": "MAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A servant turns three quarters of a door handle.",
+     "walkthrough": "NAME drops its last letter and the rest reverses.",
+     "definitionFit": "In feudal law a vassal was the lord's man, sworn to serve him in return for land."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "handle"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1565,61 @@
     "text": "Starting to tremble hard beneath very loud bellow",
     "enumeration": "7"
    },
-   "solution": "THUNDER"
+   "solution": "THUNDER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "THUNDER",
+    "definitions": [
+     {
+      "text": "very loud bellow",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starting to",
+      "for": "letter_selection",
+      "note": "starting points to the opening of a word, so only its first letter counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tremble",
+      "gives": "T",
+      "select": "first",
+      "note": "the first letter"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "pencil grading abbreviation"
+     },
+     {
+      "clueFragment": "beneath",
+      "gives": "UNDER",
+      "note": "beneath means under"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "H",
+      "UNDER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone begins to shake as a huge roar comes from below.",
+     "definitionFit": "To thunder is to shout loudly and angrily, so a booming roar."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "beneath"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1633,49 @@
     "text": "In America, one making piece for Joe?",
     "enumeration": "8"
    },
-   "solution": "GUNSMITH"
+   "solution": "GUNSMITH",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "charade"
+    ],
+    "answer": "GUNSMITH",
+    "definitions": [
+     {
+      "text": "In America, one making piece for Joe?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "in American slang a piece is a handgun, as 'In America' warns"
+     },
+     {
+      "clueFragment": "one making",
+      "gives": "SMITH",
+      "note": "a smith is a craftsman who makes things from metal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUN",
+      "SMITH"
+     ]
+    },
+    "explanation": {
+     "surface": "An American craftsman turning out something for an ordinary Joe.",
+     "walkthrough": "'Piece' suggests a portion; in US slang it is a pistol. Joe is an everyman name, so the whole clue also describes the trade.",
+     "definitionFit": "A gunsmith is a craftsman who makes and repairs firearms for anyone who wants one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1689,68 @@
     "text": "Unrestrained social worker now dancing outside",
     "enumeration": "6"
    },
-   "solution": "WANTON"
+   "solution": "WANTON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "WANTON",
+    "definitions": [
+     {
+      "text": "Unrestrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing means moving about, so the letters are shuffled into a new order"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so one part wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "now",
+      "gives": "NOW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "social worker",
+      "gives": "ANT",
+      "note": "ants are social insects that work in colonies"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ANT",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NOW",
+       "gives": "WON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A carefree social worker is out on the dance floor.",
+     "walkthrough": "'Social worker' looks like a job title; it is an insect.",
+     "definitionFit": "Wanton behaviour is unchecked and reckless, done without restraint."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "social"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1764,49 @@
     "text": "Guardian in military bunker?",
     "enumeration": "6"
    },
-   "solution": "WARDEN"
+   "solution": "WARDEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WARDEN",
+    "definitions": [
+     {
+      "text": "Guardian",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "military",
+      "gives": "WAR",
+      "note": "war is the business of the military"
+     },
+     {
+      "clueFragment": "bunker",
+      "gives": "DEN",
+      "note": "a den is a hideaway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR",
+      "DEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A protector sheltering in an army dugout.",
+     "definitionFit": "A warden is a keeper or custodian, someone who guards or supervises."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guardian"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1820,56 @@
     "text": "Lifting anything in Yorkshire for a couple",
     "enumeration": "3"
    },
-   "solution": "TWO"
+   "solution": "TWO",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TWO",
+    "definitions": [
+     {
+      "text": "a couple",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Lifting",
+      "for": "reversal",
+      "note": "lifting raises the letters, so in a down clue they read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "anything in Yorkshire",
+      "gives": "OWT",
+      "note": "owt is Yorkshire dialect for anything"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWO"
+     ],
+     "reversals": [
+      {
+       "from": "OWT",
+       "to": "TWO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Raising anything at all in Yorkshire takes two people.",
+     "definitionFit": "A couple is a pair, so two of anything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lifting"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1883,42 @@
     "text": "Country captured by Marcus Aurelius",
     "enumeration": "3"
    },
-   "solution": "USA"
+   "solution": "USA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "USA",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured by",
+      "for": "hidden_word",
+      "note": "captured means held within, so the letters are inside the name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marcus Aurelius",
+      "gives": "USA",
+      "note": "spans the end of the first name and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A land seized by the Roman emperor Marcus Aurelius.",
+     "definitionFit": "The United States of America is a country."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "captured"
+    }
+   }
   },
   {
    "number": 27,
@@ -443,7 +1932,71 @@
     "text": "Old black cat eating 6 in limbo",
     "enumeration": "8"
    },
-   "solution": "OBLIVION"
+   "solution": "OBLIVION",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OBLIVION",
+    "definitions": [
+     {
+      "text": "limbo",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating means taking inside, so a piece goes within the animal's name"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "black",
+      "gives": "B",
+      "note": "pencil grading abbreviation"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "LION",
+      "note": "a lion is a big cat"
+     },
+     {
+      "clueFragment": "6",
+      "gives": "VI",
+      "note": "Roman numeral"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "LI",
+      "VI",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient dark cat consumes six while waiting in limbo.",
+     "walkthrough": "The 6 is written as a Roman numeral before going inside the cat.",
+     "definitionFit": "Oblivion is a state of being forgotten or disregarded, like being left in limbo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "6"
+    }
+   }
   },
   {
    "number": 28,
@@ -457,7 +2010,46 @@
     "text": "Article on wine",
     "enumeration": "6"
    },
-   "solution": "REPORT"
+   "solution": "REPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPORT",
+    "definitions": [
+     {
+      "text": "Article",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or concerning"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of writing about wine.",
+     "definitionFit": "A report is a newspaper article giving an account of events."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Article"
+    }
+   }
   },
   {
    "number": 29,
@@ -471,7 +2063,45 @@
     "text": "Former Prime Ministers, allegedly the worst?",
     "enumeration": "4"
    },
-   "solution": "PITS"
+   "solution": "PITS",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PITS",
+    "definitions": [
+     {
+      "text": "the worst",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "allegedly",
+      "for": "homophone",
+      "note": "allegedly means so it is said, so the word is matched by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former Prime Ministers",
+      "gives": "PITS",
+      "soundsLike": "PITTS",
+      "note": "William Pitt the Elder and his son Pitt the Younger both led Britain"
+     }
+    ],
+    "explanation": {
+     "surface": "A jibe that two historic premiers were the worst of all.",
+     "walkthrough": "The two Pitts were British Prime Ministers in the 18th century.",
+     "definitionFit": "The pits is an informal idiom for the very worst place or situation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Former"
+    }
+   }
   },
   {
    "number": 30,
@@ -485,7 +2115,49 @@
     "text": "What might flow through middle of downpipes?",
     "enumeration": "4"
    },
-   "solution": "RAIN"
+   "solution": "RAIN",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion"
+    ],
+    "answer": "RAIN",
+    "definitions": [
+     {
+      "text": "What might flow through middle of downpipes?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "middle of",
+      "for": "deletion",
+      "note": "middle asks for only the inner part, so the outer letters at each end are discarded"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "downpipes",
+      "gives": "DRAINPIPES",
+      "note": "downpipes are also called drainpipes; the D at the front and PIPES at the back are the ends dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A plumber's riddle about what runs down the inside of a gutter pipe.",
+     "walkthrough": "Downpipes have another name; strip its opening D and closing PIPES and what is left in the middle is the very thing that flows through them, so the whole clue is also the definition.",
+     "definitionFit": "Water falling from the sky runs off the roof and down a downpipe into the drain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 31,
@@ -499,7 +2171,69 @@
     "text": "Golfer losing 1-0 takes sides in areas of interest",
     "enumeration": "6"
    },
-   "solution": "WORLDS"
+   "solution": "WORLDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "WORLDS",
+    "definitions": [
+     {
+      "text": "areas of interest",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing",
+      "for": "deletion",
+      "note": "losing means giving something up, so a letter is removed"
+     },
+     {
+      "text": "takes",
+      "for": "container",
+      "note": "takes means accepts inside, so letters are put within the name"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golfer",
+      "gives": "WOODS",
+      "note": "Tiger Woods, the golfer"
+     },
+     {
+      "clueFragment": "1-0",
+      "gives": "O",
+      "note": "one O, the score read as a single zero"
+     },
+     {
+      "clueFragment": "sides",
+      "gives": "RL",
+      "note": "right and left"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WO",
+      "RL",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer down one-nil chooses partisan positions.",
+     "walkthrough": "WOODS loses one O and takes R and L inside.",
+     "definitionFit": "Worlds can mean spheres of activity, as in the world of fashion or sport."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "1-0"
+    }
+   }
   },
   {
    "number": 32,
@@ -513,7 +2247,44 @@
     "text": "To make Stein president sounds thrilling",
     "enumeration": "8"
    },
-   "solution": "ELECTRIC"
+   "solution": "ELECTRIC",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "ELECTRIC",
+    "definitions": [
+     {
+      "text": "thrilling",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sounds",
+      "for": "homophone",
+      "note": "sounds means as heard, so the spoken form of the phrase gives the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To make Stein president",
+      "gives": "ELECTRIC",
+      "soundsLike": "ELECT RICK",
+      "note": "Rick Stein is a British TV chef; to elect him is to vote him into office"
+     }
+    ],
+    "explanation": {
+     "surface": "Voting a celebrity chef in as president would be a sensation.",
+     "definitionFit": "An electric atmosphere is exciting and charged, so the word means thrilling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Stein"
+    }
+   }
   }
  ]
 }
