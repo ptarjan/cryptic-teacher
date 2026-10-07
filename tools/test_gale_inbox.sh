@@ -122,18 +122,40 @@ check("next up is a pool with its Next batch and Refresh", True,
       '<table id="next">' in nxt and 'onclick="nextBatch()"' in nxt and 'onclick="location.reload()"' in nxt)
 check("the pool is POOL long, the lookahead longer", ([D(1988, 1, 13)], 60, 200),
       ([d for d, _ in g.next_up(rows, {D(1988, 1, 12): []}, 1)], g.POOL, g.LOOKAHEAD))
-check("a clicked row's label is there to show", True, 'downloaded &#10003;' in nxt)
+check("each row to fetch has a state badge the script fills", True, '<span class="st"></span>' in nxt)
+check("which says downloading, then late, then in the inbox", True,
+      all(w in html for w in ("downloading&hellip; clicked", 'not arrived: <a class="retry"', "&#10003; in the inbox")))
 check("an estimated number says so", True, "number estimated" in nxt[nxt.index("Mon 02 Mar 1987"):])
 check("a date's likely page", True, "p. 18 (or 16-24)" in nxt)
 check("an arrived edition is marked", True, "arrived (1988-01-12 page 2.png, GALE|IF0503151598 1988-01-12.jpg)" in html)
-bad = html[html.index("Redo these"):html.index('<div class="how">')]
+bad = html[html.index("Check these files"):html.index('<div class="how">')]
 check("an unmatched file is listed to redo", True, "holiday snap.jpg" in bad and "Rename it" in bad)
 check("a page with no grid is listed to redo", True, "no crossword grid" in bad)
-check("the page refreshes itself", True, 'http-equiv="refresh"' in html)
+check("the page reads its status file, no blind refresh", (True, False),
+      ('SRC="Checklist.status.js"' in html, 'http-equiv="refresh"' in html))
+arrived = next(r for r in html.split("\n") if 'data-k="1988-01-12"' in r)
+check("an arrived row says so and offers no Download", (True, True, False, False),
+      ('data-in="1"' in arrived, "in the inbox" in arrived, 'class="dl"' in arrived, "Open in Gale" in arrived))
+check("Download is a big button", True, all(w in g.CSS for w in ("a.dl{display:inline-block;padding:8px 18px;font-size:17px",)))
+status = {}
+g.checklist(rows, cache, un, status=status)
+check("a render's status names the page and its arrived rows", (True, ["1988-01-12"]),
+      (status["page"] > 0, status["in"]))
+published = []
+g.publish = lambda path, host_inbox=None: published.append(path.name)
+page_path = Path(sys.argv[1]) / "Checklist.html"
+g.publish_status(page_path, status)
+g.publish_status(page_path)
+js = (Path(sys.argv[1]) / "Checklist.status.js").read_text()
+check("the status file is a script call, kept between renders, published each tick",
+      (True, ["1988-01-12"], ["Checklist.status.js"] * 2),
+      (js.startswith("galeStatus("), json.loads(js[len("galeStatus("):js.rindex(")")])["in"], published))
 check("the session link comes before any row's link", True,
       html.index(g.SESSION.format("TTDA")) < html.index('class="go"'))
-check("the session link and every row's link open in one tab", html.count('class="go"') + 1,
-      html.count('target="gale"'))
+check("the session link and every row's Gale link open in one tab", [],
+      [a for a in re.findall(r'<a [^>]*href="https://[^"]*gale\.com[^>]*>', html) if 'target="gale"' not in a])
+check("and there are such links: the session and each row's search", True,
+      html.count('target="gale"') >= 1 + nxt.count("Open in Gale"))
 want = ("https://go.gale.com/ps/advancedSearch.do?inputFieldNames%5B0%5D=TI&inputFieldValues%5B0%5D=crossword"
         "&dateIndices=DA&dateLimiterValues%5BDA%5D.dateMode=2&dateLimiterValues%5BDA%5D.fromYear=1988"
         "&dateLimiterValues%5BDA%5D.fromMonth=01&dateLimiterValues%5BDA%5D.fromDay=13"
@@ -230,6 +252,9 @@ check("listing lines parse, junk skipped", [("downloads", 10, 1759700000, "GALE_
       g.parse_listing("downloads\t10\t1759700000\t./GALE_X 1.pdf\nstat: junk\ndesktop\t5\t1\ty.pdf\r\n"))
 check("the inboxes share one root on the Media share", (True, True),
       (g.HOST_INBOX.startswith(g.GALE_ROOT + "/"), g.LISTENER_INBOX.startswith(g.GALE_ROOT + "/")))
+stamp = Path(sys.argv[1]) / "looked_up"
+check("Gale is asked at most every LOOKUP_EVERY, however often the tick runs", [True, False, False, True],
+      [g.gale_due(t, stamp) for t in (1000, 1060, 1120, 1000 + g.LOOKUP_EVERY)])
 print("FAILS", fails)
 sys.exit(1 if fails else 0)
 PY

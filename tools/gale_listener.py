@@ -60,16 +60,13 @@ import gale_inbox as gi
 import listener_puzzles as lp
 import ocr_clues
 
-#: The Listener folder under the Gale root on the Mac's Media disk
-#: (gi.LISTENER_INBOX), shared to the desktop as Z:\\Gale crosswords\\Listener;
-#: the checklist is published to the root beside the Times'.
-FOLDER = "Gale crosswords/Listener on the Media disk (Z:\\Gale crosswords\\Listener on the desktop)"
+#: Published to the Gale root beside the Times' checklist.
 CHECKLIST_NAME = "Listener checklist.html"
 HOME = Path(os.path.expanduser("~/.cache/gale_listener"))
 MIRROR = HOME / "files"
 CHECKLIST = HOME / CHECKLIST_NAME
 #: Each mirrored file's cheap match (name, citation; no OCR), by name, size
-#: and mtime: what the 3-minute tick ticks off before the full pass reads it.
+#: and mtime: what the every-minute tick ticks off before the full pass reads it.
 ARRIVED = HOME / "arrived.json"
 OCR_CACHE = HOME / "ocr"
 #: The readings and the ledger: derived from Paul's pages, kept beside the
@@ -591,22 +588,28 @@ def render(idx=None, out=sys.stdout):
     """Match what arrived and publish the checklist to the Mac."""
     idx = index() if idx is None else idx
     CHECKLIST.parent.mkdir(parents=True, exist_ok=True)
-    CHECKLIST.write_text(checklist(idx, arrivals=arrived(MIRROR, idx)))
+    status = {}
+    CHECKLIST.write_text(checklist(idx, arrivals=arrived(MIRROR, idx), status=status))
     gi.publish(CHECKLIST, host_inbox=gi.GALE_ROOT)
+    gi.publish_status(CHECKLIST, status)
     print(f"checklist published to {gi.GALE_ROOT}/{CHECKLIST.name}", file=out)
 
 
-def tick(out=sys.stdout, force=False):
-    """The 3-minute part (gale_inbox.sync calls it): mirror the Listener
+def tick(out=sys.stdout, force=False, ask=True):
+    """The every-minute part (gale_inbox.sync calls it): mirror the Listener
     inbox and, when it moved (or gi.RENDER_EVERY passed), re-render the
-    checklist. The clue reading stays in the full pass."""
+    checklist; publish its status file either way. Gale is asked for links
+    only when `ask` (gale_inbox.gale_due). The clue reading stays in the
+    full pass."""
     changed = gi.mirror(out, host_inbox=gi.LISTENER_INBOX, into=MIRROR)
     idx = index()
-    linked = gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out,
-                               reports=[(r["date"], r["number"]) for r in unsolved(idx)])
+    linked = ask and gale_docs.resolve("LSNR", [(r["date"], r["number"]) for r in to_save(idx)], out,
+                                       reports=[(r["date"], r["number"]) for r in unsolved(idx)])
     last = CHECKLIST.stat().st_mtime if CHECKLIST.exists() else 0
     if force or changed or linked or time.time() - last > gi.RENDER_EVERY:
         render(idx, out=out)
+    else:
+        gi.publish_status(CHECKLIST)
 
 
 def filed_numbers(root=ROOT):
@@ -644,13 +647,32 @@ def unsolved(idx, store=STORE, arrivals=None):
 
 #: How the Listener's next up orders, said on the page.
 ORDER = ("Order: earliest issue first, a puzzle's page and its solution page alike; a row leaves the list "
-         "once its file arrives.")
+         "once its file arrives. Numbers, titles and dates are the Listener Team's index (listenercrossword.com).")
 
 
-def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None):
-    """The checklist page: every Listener the magazine printed, earliest
-    first, with what the inbox (`arrivals`, else ARRIVED's last) and the
-    corpus hold of each."""
+#: The Listener's own items of the checklist's how-to (gi.page).
+STEPS = (
+    ("A row with no Download button yet: click <b>Open in Gale</b> (Gale's results for that issue's crossword"
+     " pages). If they are empty, use <i>Browse &rarr; Browse By Date</i>, pick the date, page through it to"
+     " the crossword (a grid with ACROSS and DOWN clue lists) and press <i>Download</i> (PDF or image, either"
+     " works). Any file name works; one with the date (e.g. <code>1930-04-09</code>) is the surest match."
+     " When the grid and the clues are on different pages (&ldquo;For Clues see page 340&rdquo;), save both."),
+    ("Its answers are printed about two issues later, as &ldquo;Report on Crossword No. N&rdquo; with the"
+     " filled grid: save that page too. Once the pages saved are read, a row whose solution page is still"
+     " missing offers <b>Download solution</b>."),
+    ("Once the full pass has read a page (at its next slice, within about an hour), its status says how"
+     " many clues read."),
+)
+RENAME = "Rename it with its issue date (e.g. 1930-04-09)."
+#: What the checklist says of a file whose puzzle the tick could not name.
+UNKNOWN = ("arrived, puzzle not yet known: the name and citation name no puzzle, and the full pass reads the title"
+           f" at its next slice. To be sure now: {RENAME}")
+
+
+def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None, status=None):
+    """The Listener checklist (gi.page): every Listener the magazine
+    printed, earliest first, with what the inbox (`arrivals`, else
+    ARRIVED's last) and the corpus hold of each."""
     idx = index() if idx is None else idx
     docs = gale_docs.load() if docs is None else docs
     arrivals = list(gi.load(ARRIVED, {}).values()) if arrivals is None else arrivals
@@ -672,95 +694,48 @@ def checklist(idx=None, store=STORE, root=ROOT, arrivals=None, docs=None):
     todo = to_save(idx, store, root, arrivals)
     read = {e_["file"] for e_ in ledger.values()}
     asks = {r["number"] for r in unsolved(idx, store, arrivals)}
-    e = html.escape
-    out = [f"""<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="180">
-<title>Listener crosswords to save from Gale</title>
-<style>body{{font:14px -apple-system,sans-serif;margin:2em;max-width:60em}}td,th{{padding:2px 8px;text-align:left}}
-tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.5em}}.got{{color:#070}}.bad{{color:#a00}}
-summary{{font-size:16px;margin:.4em 0;cursor:pointer}}{gi.ROW_CSS}</style>
-{gi.script("listenerCopied")}
-<h1>Listener crosswords to save from Gale: {len(todo):,} of {len(idx):,} to go</h1>
-<p><progress value="{len(idx) - len(todo)}" max="{max(len(idx), 1)}"></progress>
-<b>{len(idx) - len(todo):,} of {len(idx):,}</b> saved or filed. This page refreshes itself every 3 minutes.</p>
-<p>Generated {datetime.datetime.now().astimezone():%Y-%m-%d %H:%M %Z} by <code>tools/gale_listener.py</code> from the
-Listener Team's index (numbers and dates only) and what this folder holds. Earliest first: start at the top.</p>
-<h2>How to save one</h2>
-<ol>
-<li>Be on an Alberta internet connection (home Wi-Fi works): Gale lets Albertans in by location, with no card or login.</li>
-<li><b><a href="{gi.SESSION.format('LSNR')}" target="gale">Start Gale session</a></b> (once per sitting). If Gale asks for
-a password, open <a href="{PORTAL}">the Alberta Research Portal</a> and choose <i>The Listener Historical Archive</i> instead.</li>
-<li>Click <b>Download</b> on the puzzle's row: Gale saves its crossword page as a PDF, and you are done. A row with
-no Download link yet: click <b>Open in Gale</b> (Gale's results for that issue's crossword pages). If they are empty, use <i>Browse &rarr; Browse By Date</i>, pick the date, and page through it
-to the crossword (a grid with ACROSS and DOWN clue lists).</li>
-<li>On the crossword's page press <i>Download</i> and save it (PDF or image, either works) into this folder,
-{e(FOLDER)}. Any file name works; a name with the date (e.g. <code>1930-04-09</code>) is the surest match.
-When the grid and the clues are on different pages ("For Clues see page 340"), save both.</li>
-<li>Its answers are printed about two issues later, as &ldquo;Report on Crossword No. N&rdquo; with the filled
-grid: save that page too. Once the pages saved are read, a row whose solution page is still missing asks for it.</li>
-<li>That's all. A Gale download in Downloads is moved into the folder for you; within 3 minutes its row
-says "arrived", and once the full pass has read it (at its next slice, within about an hour), how many clues read.</li>
-</ol>
-<p>Gale allows up to 50 downloads a session.</p>"""]
-    head = "<tr><th>Issue date</th><th>No</th><th>Title</th><th>Setter</th><th>Status</th></tr>"
 
     def row(r):
         n = r["number"]
         if n in filed:
-            status = '<span class="got">filed</span>'
+            status = [("filed", "got")]
         elif n in got:
-            v = got[n]
-            status = f'<span class="got">saved: {v.get("agreed", 0)} of {v.get("clues", 0)} clues read</span>'
+            status = [(f'saved: {got[n].get("agreed", 0)} of {got[n].get("clues", 0)} clues read', "got")]
         elif n in tried:
-            status = f'<span class="bad">saved, not read: {e(tried[n][-1].get("why") or "")}</span>'
+            status = [(f'saved, not read: {tried[n][-1].get("why") or ""}', "bad")]
         elif n in came:
-            status = '<span class="got">arrived: the full pass reads it at its next slice</span>'
+            status = [("arrived: the full pass reads it at its next slice", "got")]
         else:
-            status = ""
+            status = []
         if n in solved:
-            status += ' <span class="got">solution saved</span>'
+            status.append(("solution saved", "got"))
         elif n in asks:
-            status += (f' <span class="bad">save its solution too: &ldquo;Report on Crossword No. {n}&rdquo;,'
-                       f' about {r["date"] + datetime.timedelta(days=14):%d %b %Y}</span>')
+            about = r["date"] + datetime.timedelta(days=14)
+            status.append((f"save its solution too: “Report on Crossword No. {n}”, about {about:%d %b %Y}", "bad"))
+        out = {"date": r["date"], "search": gi.search_url(r["date"], "LSNR"), "status": status,
+               "cells": [str(n), r["title"], r.get("setter") or ""]}
         if n in asks:
-            k, dl, label = f"r{n}", gale_docs.report_link("LSNR", n, docs), "Download solution"
+            out.update(key=f"r{n}", dl=gale_docs.report_link("LSNR", n, docs), label="Download solution")
         elif n not in filed and n not in got:
-            k, dl, label = f"p{n}", gale_docs.link("LSNR", r["date"], docs), "Download"
-        else:
-            k = dl = None
-        go = "" if k is None else (
-            '<span class="acts">'
-            + (f' <a class="dl" href="{e(dl)}" target="gale" onclick="mark(\'{k}\')"><b>{label}</b></a>' if dl else "")
-            + f' <a href="{e(gi.search_url(r["date"], "LSNR"))}" target="gale"'
-            + ("" if dl else f' onclick="mark(\'{k}\')"') + ">Open in Gale</a></span> " + gi.done_label(k))
-        return (f'<tr{f" data-k={chr(34)}{k}{chr(34)}" if k else ""}><td>{r["date"]:%a %d %b %Y}{go}</td><td>{n}</td>'
-                f'<td>{e(r["title"])}</td><td>{e(r.get("setter") or "")}</td><td>{status}</td></tr>')
+            out.update(key=f"p{n}", dl=gale_docs.link("LSNR", r["date"], docs), arrived=n in came or n in tried)
+        return out
 
     want = asks | {r["number"] for r in todo}
-    pool = [r for r in idx if r["number"] in want][:gi.POOL]
-    if pool:
-        out.append(f"<h2>Next up</h2><p>{ORDER}</p>{gi.batch_bar(len(pool), 'pages')}<table id=\"next\">{head}")
-        out += [row(r) for r in pool]
-        out.append("</table>")
-    out.append("<h2>Every puzzle, by year</h2>")
+    held = filed | set(got) | came
     years = {}
     for r in idx:
         years.setdefault(r["date"].year, []).append(r)
-    for y, rs in sorted(years.items()):
-        left = sum(1 for r in rs if r["number"] not in filed and r["number"] not in got and r["number"] not in came)
-        out.append(f"<details><summary><b>{y}</b>: {left} of {len(rs)} to save</summary><table>{head}")
-        out += [row(r) for r in rs]
-        out.append("</table></details>")
-    waiting = [a for a in unnamed if a["file"] not in read]
-    if waiting:
-        out.append("<h2>Arrived, puzzle not yet known</h2><p>The name and citation name no puzzle; the full pass "
-                   "reads the title at its next slice. To be sure now, rename the file with the issue date (e.g. 1930-04-09).</p><ul>")
-        out += [f"<li>{e(a['file'])}</li>" for a in waiting]
-        out.append("</ul>")
-    if lost:
-        out.append("<h2>Files that matched no puzzle</h2><p>Rename each with its issue date (e.g. 1930-04-09).</p><ul>")
-        out += [f"<li>{e(m['file'])}: {e(m.get('why') or '')}</li>" for m in lost]
-        out.append("</ul>")
-    return "\n".join(out) + "\n"
+    return gi.page(
+        paper="Listener", prod="LSNR", name=CHECKLIST_NAME, store="listenerCopied", done=len(idx) - len(todo),
+        total=len(idx), done_word="saved or filed", folder=gi.SHARE + "\\Listener",
+        redo=[(a["file"], UNKNOWN) for a in unnamed if a["file"] not in read]
+             + [(m["file"], f"matched no puzzle ({m.get('why') or ''}). {RENAME}") for m in lost],
+        steps=STEPS,
+        order=ORDER, what="pages", next_rows=[row(r) for r in idx if r["number"] in want][:gi.POOL],
+        years_note="Earliest first.",
+        years=[(y, f"{sum(1 for r in rs if r['number'] not in held)} of {len(rs)} to save",
+                [row(r) for r in rs]) for y, rs in sorted(years.items())],
+        columns=["No", "Title", "Setter"], status=status)
 
 
 def main(argv=None):
