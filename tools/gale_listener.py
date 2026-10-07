@@ -83,13 +83,14 @@ DATES = gi.date_patterns(r"19[2-9]\d")
 #: "#", or a bare number that is no year of the run.
 LABELLED = re.compile(r"(?:\bno|listener|crossword|puzzle|#)\W{0,3}(\d[,.]?\d{0,3})(?![\d,])", re.IGNORECASE)
 BARE = re.compile(r"(?<![\d,.])(\d{1,4})(?![\d,])")
-#: The citation a Gale PDF prints: "The Listener, vol. 3, no. 64, 2 Apr. 1930, p. 612".
-CITED = re.compile(r"The Listener\b[^\n]{0,80}?([0-3]?\d)\s+" + gi.MON + r"\s*(19[2-9]\d)(?:,\s*p\.?\s*(\d+))?",
+#: The citation a Gale PDF prints: "The Listener, vol. 3, no. 64, 2 Apr. 1930, p. 612"
+#: (the Times archive's drops the "The": "Times, 3 Jan. 1987, p. 20").
+CITED = re.compile(r"(?:The )?Listener\b[^\n]{0,80}?([0-3]?\d)\s+" + gi.MON + r"\s*(19[2-9]\d)(?:,\s*p\.?\s*(\d+))?",
                    re.IGNORECASE)
 #: The title our readers read on the page.
 TITLE = re.compile(r"crossword\W{0,3}(?:puzzle\W{0,3})?n[o0]\.?\s*(\d[,.]?\d{0,3})(?![\d,])", re.IGNORECASE)
 #: The article title a Gale PDF's citation quotes, before "The Listener".
-ARTICLE = re.compile(r'^\W*"(.*?)\W*"\s*The Listener\b', re.DOTALL)
+ARTICLE = re.compile(r'^\W*"(.*?)\W*"\s*(?:The )?Listener\b', re.DOTALL)
 #: A puzzle's own title: "No. 22—A French Crossword", "Crossword No. 19",
 #: "Our Crossword Puzzle No. 1". A "Competition No." is the magazine's own
 #: competition count, not the puzzle's.
