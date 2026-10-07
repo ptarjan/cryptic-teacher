@@ -8,10 +8,11 @@
     python3 tools/corpus_queue.py stop               # stop the pass (it commits what it filed first) and hold it
     python3 tools/corpus_queue.py release            # let a held pass start again
 
-There is one job and it takes no edition list. It first runs the scan
-fetchers (archive.org editions, Trove articles and clue zones), each for a
-bounded slice that resumes where the last stopped, so a fetcher change such as
-a DETECTOR_VERSION bump is fetched by the next pass. The scan filers decide what
+There is one job and it takes no edition list. Beside its reads it runs the
+scan fetchers (archive.org editions, Trove clue zones and articles) in
+bounded slices that resume where the last stopped, until their backlog is
+fetched, so a fetcher change such as a DETECTOR_VERSION bump is fetched by
+the same pass. The scan filers decide what
 is due (each one's due_reason: never read, inputs changed, read without the
 VLM that now answers, read before ocr_full_pass.sh's REREAD_BEFORE) and the
 pass reads all of it, plus the open annotation re-read requests, then ends.
