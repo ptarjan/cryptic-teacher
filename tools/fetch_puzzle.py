@@ -655,7 +655,7 @@ BLOG_FACTS = ROOT / "tools" / "data" / "blog_facts"
 
 class _FactsFile:
     """A tools/data/blog_facts/<series>.json read one puzzle's line at a time,
-    as blog_facts.file_text writes it: parsed whole, the corpus's facts were
+    as blog_facts.rewrite_rows writes it: parsed whole, the corpus's facts were
     most of what a reindex or a page build held."""
 
     def __init__(self, path):
