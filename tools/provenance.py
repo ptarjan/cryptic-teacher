@@ -166,9 +166,9 @@ RETRIEVAL_CHANNELS = {
                "address, which now 404s",
     "blog": "read from a third party's write-up rather than the publisher",
     "book": "read off a scanned and OCR'd printed book, not a web page at all",
-    "newspaper": "read off a library's scan of the printed newspaper page (the "
-                 "National Library of Australia's Trove): clue text from its OCR, "
-                 "the grid from the page image. source.url is the article there",
+    "newspaper": "read off a library's scan of the printed newspaper or magazine page "
+                 "(the National Library of Australia's Trove, archive.org, Gale): clue "
+                 "text from OCR, the grid from the page image. source.url is the page there",
     "authored": "not retrieved from anywhere — set in this repo",
     "unknown": "the corpus cannot say which of the above it was",
 }
@@ -240,6 +240,12 @@ ACQUIRED_BY = {
                 "(tools/fetch_archive_org_editions.py): "
                 "clues where archive.org's OCR and RapidOCR agree, the grid read off the scan or "
                 "rebuilt from the clues, answers off a later edition's solution grid"},
+    "tools/file_gale_listener.py": {
+        "channel": "newspaper",
+        "what": "a 1930s Listener page Paul saved from Gale's Listener Historical Archive "
+                "(tools/gale_listener.py): clues voted across the OCR readers, the barred grid "
+                "read off the scan by tools/listener_grid.py, answers off the later issue's "
+                "printed report grid"},
     "tools/file_times_puzzles.py": {
         "channel": "blog",
         "what": "a times-for-the-times write-up's clue list and answers, the "
@@ -340,6 +346,7 @@ ACQUISITION_BY_SOURCE = {
     ("genius", "www.theguardian.com"): ("tools/genius_puzzles.py",),
     ("listener", "www.listenercrossword.com"): ("tools/listener_puzzles.py",),
     ("listener", "www.thetimes.com"): ("tools/listener_puzzles.py --wayback",),
+    ("listener", "go.gale.com"): ("tools/file_gale_listener.py",),
     ("cyclops", "www.private-eye.co.uk"): ("tools/fetch_privateeye.py", "tools/file_cyclops_christmas.py"),
     ("telegraph", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),
     ("toughie", "www.telegraph.co.uk"): ("tools/fetch_telegraph.py",),

@@ -5,7 +5,8 @@
 # clue lists read in column order wherever DOWN falls, the 1930s lists by
 # their numbers in bands across two columns when a heading goes unread, a
 # clue a line when the lists print no counts; is each file read once (the
-# ledger is keyed by its hash); and does the checklist list every puzzle of
+# ledger is keyed by its hash; one whose OCR times out stays unread); and
+# does the checklist list every puzzle of
 # the index, earliest first, marking what is filed or saved, and what the
 # 3-minute tick saw arrive (matched by name or citation, each file once),
 # asking for a saved puzzle's missing solution?
@@ -130,6 +131,14 @@ check("its reading", "Spanish for aubade",
       json.loads((store / "listener-1.json").read_text())["clues"]["1-across"]["text"])
 g.run(inbox, store, rows, out=out, reader=reader)
 check("nothing read twice", 1, len(reads))
+Image.new("RGB", (300, 201), "white").save(inbox / "1930-04-02.png")
+import subprocess
+def slow(m):
+    raise subprocess.TimeoutExpired("tesseract", 300)
+Image.new("RGB", (300, 199), "white").save(inbox / "1930-04-02.png")
+g.run(inbox, store, rows, out=out, reader=slow)
+check("a Tesseract timeout is no reading: the file stays to read", False,
+      g.file_hash(inbox / "1930-04-02.png") in g.load_ledger(store))
 Image.new("RGB", (300, 201), "white").save(inbox / "1930-04-02.png")
 g.run(inbox, store, rows, out=out, reader=reader)
 check("a changed file read again", 2, len(reads))

@@ -9,7 +9,7 @@ for the numbers and dates only), and reads each page Paul saves into his
 inbox with the clue OCR every scan filer shares (tools/ocr_clues.py's
 readers, tools/archive_org_listener.py's vote).
 
-    python3 tools/gale_listener.py sync               # mirror the Mac's inbox, read new pages, publish the checklist
+    python3 tools/gale_listener.py sync               # mirror the Mac's inbox, read new pages, file, publish the checklist
     python3 tools/gale_listener.py read --inbox DIR [--store DIR]   # read a local folder (no Mac)
     python3 tools/gale_listener.py checklist [--out FILE]
     python3 tools/gale_listener.py match FILE...      # which puzzle each file is, and how that was read
@@ -32,8 +32,10 @@ slice, so a page is read within about a slice of landing.
 What a page gives is its clues: STORE/listener-N.json, the reading
 tools/archive_org_listener.py writes (clue text and count by light, the
 vote's blanks, the source). A puzzle file needs the grid and answers too,
-which a barred grid's clues alone do not give; those readings are the input
-of that later step, and nothing here writes puzzles/listener.
+which a barred grid's clues alone do not give: `sync` then runs
+tools/file_gale_listener.py, which joins each reading with its page's grid
+(tools/listener_grid.py) and the later report's letters and files what
+passes.
 """
 import argparse
 import datetime
@@ -42,6 +44,7 @@ import html
 import json
 import os
 import re
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -521,15 +524,21 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
             continue
         entry = {"file": p.name, "version": VERSION, "readOn": datetime.datetime.now().astimezone().date().isoformat()}
         try:
-            m = match(p, idx)
-        except (OSError, ValueError) as e:  # reported in the ledger and the checklist
-            m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": [],
-                 "reports": []}
+            try:
+                m = match(p, idx)
+            except (OSError, ValueError) as e:  # reported in the ledger and the checklist
+                m = {"file": p.name, "number": None, "why": f"unreadable: {type(e).__name__}: {e}", "pages": [],
+                     "reports": []}
+            verdict, laid = reader(m) if m["number"] is not None else ({}, None)
+        except subprocess.TimeoutExpired as e:
+            # A loaded host's Tesseract: not the page's fault, so it is not
+            # ledgered, and the next run reads it again.
+            print(f"{p.name}: OCR timed out after {e.timeout:.0f} s; read again next run", file=out)
+            continue
         entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
         if m["number"] is None and m["reports"]:
             entry["why"] = None
         if m["number"] is not None:
-            verdict, laid = reader(m)
             if laid is None:
                 entry["why"] = verdict.get("refused", "no reading")
             else:
@@ -700,7 +709,7 @@ says "arrived", and once the full pass has read it (at its next slice, within ab
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    sub.add_parser("sync", help="mirror the Mac inbox, read new pages, publish the checklist there")
+    sub.add_parser("sync", help="mirror the Mac inbox, read new pages, file what they give, publish the checklist there")
     rd = sub.add_parser("read", help="read a local folder of pages")
     rd.add_argument("--inbox", type=Path, default=MIRROR)
     rd.add_argument("--store", type=Path, default=STORE)
@@ -727,6 +736,8 @@ def main(argv=None):
             gi.mirror(host_inbox=gi.LISTENER_INBOX, into=MIRROR)
     run(a.inbox if a.cmd == "read" else MIRROR, a.store if a.cmd == "read" else STORE)
     if a.cmd == "sync":
+        import file_gale_listener  # it imports this module
+        file_gale_listener.run()
         render()
     return 0
 
