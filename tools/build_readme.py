@@ -895,7 +895,9 @@ def build_knobs(k):
         f"else with no gate: as many runs as land the weekly meter at its limit "
         f"right at the weekly reset, net of the bridge's own spend, waiting out "
         f"any five-hour lockout, until the weekly meter is spent or the week "
-        f"resets."
+        f"resets. When Paul has weekly resets to spend, "
+        f"`tools/prereset_plan.py --five-hour` paces each five-hour window to "
+        f"its own reset instead, until the week resets or `--weekly` is run."
     )
 
 

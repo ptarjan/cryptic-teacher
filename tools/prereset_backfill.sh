@@ -5,9 +5,11 @@
 # over. daily_update.sh deliberately refuses to annotate above
 # ANNOTATE_MAX_WEEKLY_PCT because a crossword backlog is never worth being
 # rate-limited for real work; this job is the other half and runs with NO usage
-# gate. It keeps as many runs in flight as spends the weekly window evenly up to
-# its reset (tools/prereset_plan.py --width), from the moment it starts until the
-# week resets: a rolling pool, where a finished run's slot is refilled at once.
+# gate. It keeps as many runs in flight as spends the paced meter evenly up to
+# its reset (tools/prereset_plan.py --width): the weekly one by default, each
+# five-hour window after `tools/prereset_plan.py --five-hour`. That holds from
+# the moment it starts until the week resets: a rolling pool, where a finished
+# run's slot is refilled at once.
 #
 # The only stops are the meters and the reset itself:
 #   - the FIVE-hour limit: saturate it and nothing more can be bought until it
@@ -94,8 +96,8 @@ ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
 WORKER_MODEL="$MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_WRAP="nice -n 19"
 WORKER_JOB="pre-reset backfill"
 # Runs to keep in flight, asked at every pool checkpoint with the width now:
-# what spends the weekly window to EXHAUSTED by its reset, capped by free memory
-# and CPU (tools/prereset_plan.py, which logs its inputs). If it prints no
+# what spends the paced meter (weekly, or five-hour) to EXHAUSTED by its reset,
+# capped by free memory and CPU (tools/prereset_plan.py, which logs its inputs). If it prints no
 # width the current one stands. At 0 (the bridge alone will spend what the
 # week has left, or the machine has no room) nothing new starts, and once the
 # runs in flight are done the pool naps a checkpoint interval and asks again.
