@@ -11,6 +11,11 @@ everything else on it is counted: memory over the size of a run, and idle
 cores over a run's measured CPU. The five-hour window is only a ceiling: a
 lockout is napped through by prereset_backfill.sh.
 
+When Paul will reset the week by hand, pacing to the reset only wastes it:
+`--spend-now` writes SPEND_NOW holding the current weekly reset, and while
+that reset stands the need is DEFAULT_CEILING, so the width is whatever the
+machine has room for. A reset that moves (Paul's, or the week's own) retires it.
+
 The queue is backlog(): every un-annotated puzzle, those without all their
 answers included (the burn solves them cold, then annotates them), and every
 puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
@@ -27,6 +32,7 @@ then the rest round-robin across the series, newest first inside each one.
     tools/prereset_plan.py --backlog "ANNOTATE_BLOCKED" "SOLVE_BLOCKED"  # the queue
     tools/prereset_plan.py --unsolved ID      # exit 0 when ID lacks any answer
     ids | tools/prereset_plan.py --cover-first "PINNED"   # the queue, cover first
+    tools/prereset_plan.py --spend-now        # full width until this week resets
     tools/prereset_plan.py --self-test
 """
 import datetime as dt
@@ -78,6 +84,7 @@ RUN_RSS_KB = 250 * 1024
 CPU_SPAN_S = (10, 900)
 CPU_SAMPLE_S = 2.0
 CPU_STATE = ".prereset.cpu"
+SPEND_NOW = ".prereset.spend-now"
 
 # The bridge's spend until the reset is its rate over the last SPEND_WINDOW_S:
 # the five-hour meter's rise in usage-history.csv, split between the burn and
@@ -307,6 +314,26 @@ def width_for(runs_needed, mem, cpu, current, floor=1):
     return max(floor, w)
 
 
+def spending_now(home, resets_at):
+    """Whether --spend-now was asked for this week: its stamp is this reset."""
+    stamp = _read(home / SPEND_NOW)
+    try:
+        return abs(float(stamp) - resets_at) < 3600
+    except (TypeError, ValueError):
+        return False
+
+
+def spend_now():
+    import weekly_usage
+    home = Path(os.environ.get("CT_MAIN_CHECKOUT") or REPO)
+    hours_left, _ = weekly_usage.resets_in_hours("weekly")
+    resets_at = time.time() + hours_left * 3600
+    (home / SPEND_NOW).write_text(f"{resets_at:.0f}\n")
+    print(f"spending now: full width until the weekly reset at "
+          f"{dt.datetime.fromtimestamp(resets_at, dt.timezone.utc).astimezone():%Y-%m-%d %H:%M} moves or arrives")
+    return 0
+
+
 def current_width(arg, lines):
     """The width the burn runs now: its argument, else the last one logged."""
     try:
@@ -441,6 +468,8 @@ def width(arg=None, floor=1):
         ratio = five_per_weekly(_read(weekly_usage.SAMPLE_CSV_PATH),
                                 now - RATIO_SPAN_S, now)
         runs_needed = need(pct, hours_left, rate, bridge or 0.0, ratio)
+        if spending_now(home, now + hours_left * 3600):
+            runs_needed = DEFAULT_CEILING
     except Exception as exc:  # noqa: BLE001 — an unread meter leaves the need unknown
         print(f"width: meter unread: {exc}", file=sys.stderr)
     rss = burn_rss_kb()
@@ -1194,6 +1223,8 @@ def main():
     if "--cover-first" in sys.argv:
         at = sys.argv.index("--cover-first")
         return cover_first(" ".join(sys.argv[at + 1:]).split())
+    if "--spend-now" in sys.argv:
+        return spend_now()
     if "--self-test" in sys.argv:
         return self_test()
     if "--backlog" in sys.argv:
