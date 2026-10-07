@@ -457,6 +457,42 @@ def check_link_word_is_clear_of_other_marks(tag, ann, clue, errors):
                     f"(an &lit's whole clue is its definition, so it has no link words)")
 
 
+def check_link_word_is_not_inside_a_block(tag, ann, clue, errors):
+    """A link word may not be a word a block parses.
+
+    A link adds no letters, so a word in both lists is counted twice: the page
+    marks it a link, and the block's fragment is then never what the clue has
+    left. cyclops-491 20A filed "when" as a link and "when that's" as the
+    anagram fodder, and the building-blocks rung asked for fodder that took
+    back a word the definition rung had called a link. Refused when no choice
+    of copies puts every link word on words no block fragment uses.
+    """
+    clue = clue or ""
+    links = [t for t in ann.get("linkWords") or [] if isinstance(t, str) and t]
+    frags = [b.get("clueFragment") for b in ann.get("blocks") or [] if isinstance(b, dict)]
+    frags = [f for f in frags if isinstance(f, str) and f]
+    hits = lambda t: [(m.start(), m.start() + len(t)) for m in re.finditer(re.escape(t), clue)]
+    link_hits, frag_hits = [hits(t) for t in links], [hits(f) for f in frags]
+    if not links or not frags or not all(link_hits + frag_hits):
+        return              # a fragment not in the clue is reported elsewhere
+    clear = lambda s, taken: not any(s[0] < d and c < s[1] for c, d in taken)
+
+    # Links take words of their own; blocks may share words with each other (a
+    # container's outer piece holds its inner one), so given the links' copies
+    # each block needs only one copy clear of them.
+    def fits(k, taken):
+        if k == len(links):
+            return all(any(clear(s, taken) for s in fh) for fh in frag_hits)
+        return any(fits(k + 1, taken + [s]) for s in link_hits[k] if clear(s, taken))
+
+    if not fits(0, []):
+        errors.append(
+            f"{tag}: linkWords {links} have no copy in the clue clear of the block "
+            f"fragments {frags}, so a word is counted twice: once as a "
+            f"link adding no letters, once as wordplay. Each clue word is either link "
+            f"or wordplay; drop it from one list")
+
+
 def place_fragments(ann, clue):
     """Where app.js placedFragments() puts each fragment: (kind, text, index).
 
@@ -3006,6 +3042,9 @@ def validate_puzzle(puzzle, corpus=False):
         # OUR parse of a published clue, on somebody else's grid.
         check_link_word_is_not_an_order(tag, ann, clue, warnings)
         check_link_word_is_clear_of_other_marks(tag, ann, clue, errors)
+        # 895 published clues predate it: a corpus sweep warns, a run writing a
+        # puzzle must fix it.
+        check_link_word_is_not_inside_a_block(tag, ann, clue, warnings if corpus else errors)
         check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors)
         check_anagram_fodder_from_clue(tag, ann, clue, authored, errors, warnings)
         if authored:
