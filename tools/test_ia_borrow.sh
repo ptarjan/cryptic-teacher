@@ -198,6 +198,33 @@ if AMBIGUOUS_BODY != json.dumps(
 else:
     ok("one recorded body drives both cases; only availability separates them")
 
+# --------------------------------------------------------------- case 3b
+# A browse_book whose reply times out may still have granted the loan:
+# ask holds_loan before borrowing again, never re-browse a held book.
+print("case 3b: the borrow reply times out")
+import requests
+
+
+class TimeoutOnce(StubSession):
+    def post(self, url, data=None, timeout=None):
+        if data["action"] == "browse_book" and "timed-out" not in self.calls:
+            self.calls.append("timed-out")
+            raise requests.exceptions.ReadTimeout("read timed out")
+        return super().post(url, data=data, timeout=timeout)
+
+
+s = TimeoutOnce(browse=Response(200, "{}"),
+                availability=availability_response(
+                    dict(NO_LOAN_NEEDED, user_has_browsed=True)))
+check("a loan granted behind a lost reply is kept, not re-borrowed",
+      (F.borrow_through_timeouts(s, "secondpenguinboo0000unse_c2w6", pause=0),
+       s.calls.count("browse_book")), (True, 0))
+s = TimeoutOnce(browse=Response(200, "{}"),
+                availability=availability_response(NO_LOAN_NEEDED))
+check("no loan behind the timeout: borrows again",
+      (F.borrow_through_timeouts(s, "secondpenguinboo0000unse_c2w6", pause=0),
+       s.calls.count("browse_book")), (True, 1))
+
 # --------------------------------------------------------------- case 4
 # A normal, granted loan still works and reports itself as held.
 print("case 4: a loan is granted")
