@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Chemical contents of beer listed",
     "enumeration": "6"
    },
-   "solution": "ETHENE"
+   "solution": "ETHENE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ETHENE",
+    "definitions": [
+     {
+      "text": "Chemical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contents of",
+      "for": "letter_selection",
+      "note": "the contents of a word are what lies inside its skin, so only the inner letters of the next word count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "EE",
+      "select": "middle",
+      "note": "the inside of the word beer"
+     },
+     {
+      "clueFragment": "listed",
+      "gives": "THEN",
+      "note": "items listed come one, then the next"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "THEN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A label on a bottle shows the chemicals in the beer.",
+     "walkthrough": "The two middle letters of beer wrap around THEN, giving ETHENE. Reading 'listed' as THEN (the word that strings a list together) is loose.",
+     "definitionFit": "Ethene, also called ethylene, is a simple hydrocarbon gas, an industrial chemical compound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "listed"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,61 @@
     "text": "Trying new way of cooking omelettes",
     "enumeration": "10"
    },
-   "solution": "NETTLESOME"
+   "solution": "NETTLESOME",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "NETTLESOME",
+    "definitions": [
+     {
+      "text": "Trying",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "way of cooking",
+      "for": "anagram",
+      "note": "a way of cooking eggs reworks them, so the letters of the following word are mixed up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "omelettes",
+      "gives": "OMELETTES",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "ETTLESOME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OMELETTES",
+       "gives": "ETTLESOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook finds a new method of making omelettes hard going.",
+     "walkthrough": "'Trying' looks like an attempt at a new recipe, but it is the adjective meaning irritating.",
+     "definitionFit": "Nettlesome means irritating or vexing, just as a trying person or situation tests your patience."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Trying"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,59 @@
     "text": "Lady in sports car is a flapper",
     "enumeration": "6"
    },
-   "solution": "GANNET"
+   "solution": "GANNET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GANNET",
+    "definitions": [
+     {
+      "text": "flapper",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "a lady sitting in a car is enclosed by it, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sports car",
+      "gives": "GT",
+      "note": "GT, gran turismo, labels a sports car"
+     },
+     {
+      "clueFragment": "Lady",
+      "gives": "ANNE",
+      "note": "a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "ANNE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman in a sports car is a 1920s flapper, a fashionable young party girl.",
+     "walkthrough": "A flapper was a jazz-age young woman, which suits the lady in the sports car; here it means something that flaps its wings.",
+     "definitionFit": "A gannet is a large seabird, and any bird is jokingly something that flaps its wings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flapper"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +234,67 @@
     "text": "Little chap with scales has fat clothing size made thinner",
     "enumeration": "6"
    },
-   "solution": "LIZARD"
+   "solution": "LIZARD",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "LIZARD",
+    "definitions": [
+     {
+      "text": "Little chap with scales",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clothing",
+      "for": "container",
+      "note": "fat clothing something wraps around it, so one piece goes inside the other"
+     },
+     {
+      "text": "made thinner",
+      "for": "deletion",
+      "note": "making something thinner trims its sides, so the word loses its outside letters"
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fat",
+      "gives": "LARD",
+      "note": "lard is pig fat"
+     },
+     {
+      "clueFragment": "size",
+      "gives": "IZ",
+      "select": "middle",
+      "note": "the word size without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "IZ",
+      "ARD"
+     ]
+    },
+    "explanation": {
+     "surface": "A small man on a diet weighs himself on the scales and drops a clothing size.",
+     "walkthrough": "The scales look like bathroom scales for a slimmer; they are reptile skin.",
+     "definitionFit": "A lizard is a small reptile covered in scaly skin, playfully called a little chap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "scales"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +308,66 @@
     "text": "Couple upset one after the other",
     "enumeration": "4"
    },
-   "solution": "ITEM"
+   "solution": "ITEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ITEM",
+    "definitions": [
+     {
+      "text": "Couple",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry, upset turns a word upside down, so it reads from the bottom"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after sets one piece behind the other in the order they are written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the other",
+      "gives": "IT",
+      "note": "a bit of the other is slang for sex, also called it"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "ME",
+      "note": "one, the speaker, is me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IT",
+      "EM"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couple fall out over one partner sleeping with someone else.",
+     "walkthrough": "'The other' is British slang for sex, as in 'a bit of the other', and IT means the same; one (meaning me) is turned over and placed after it.",
+     "definitionFit": "Two people seen together romantically are called an item in gossip columns."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "other"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +381,55 @@
     "text": "E.g. fish with stuffing cooks gently",
     "enumeration": "8"
    },
-   "solution": "SWIMMERS"
+   "solution": "SWIMMERS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SWIMMERS",
+    "definitions": [
+     {
+      "text": "E.g. fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuffing",
+      "for": "container",
+      "note": "stuffing goes inside something, so the abbreviation is placed within the verb"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is short for with"
+     },
+     {
+      "clueFragment": "cooks gently",
+      "gives": "SIMMERS",
+      "note": "to simmer is to cook just below the boil"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "W",
+      "IMMERS"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: stuffed fish, poached over a low heat.",
+     "walkthrough": "The kitchen setting makes fish look like food; it is an example of creatures that swim.",
+     "definitionFit": "Fish move through water by swimming, so they are an example of swimmers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "fish"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +443,49 @@
     "text": "Tip head right down in water",
     "enumeration": "4"
    },
-   "solution": "HINT"
+   "solution": "HINT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "HINT",
+    "definitions": [
+     {
+      "text": "Tip",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head right down",
+      "for": "cycling",
+      "note": "in a down entry, sending the top letter right down to the bottom moves the first letter to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "water",
+      "gives": "THIN",
+      "note": "to water down a liquid is to thin it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to tip your head all the way under the water.",
+     "walkthrough": "THIN moves its first letter to the bottom. 'Tip' looks like an instruction to tilt; it is a piece of advice.",
+     "definitionFit": "A tip is a useful piece of advice, and a hint is a small suggestion of the same kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tip"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +499,55 @@
     "text": "Health worker first wraps up what Patsy takes",
     "enumeration": "9"
    },
-   "solution": "THERAPIST"
+   "solution": "THERAPIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "THERAPIST",
+    "definitions": [
+     {
+      "text": "Health worker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wraps up",
+      "for": "charade",
+      "note": "the piece that wraps up the sequence comes last, after the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what Patsy takes",
+      "gives": "THE RAP",
+      "note": "a patsy is a fall guy who takes the rap, the blame"
+     },
+     {
+      "clueFragment": "first",
+      "gives": "IST",
+      "note": "first is written 1ST, with 1 read as I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THERAP",
+      "IST"
+     ]
+    },
+    "explanation": {
+     "surface": "A medical professional takes on the burden first, as if absorbing a patient's troubles.",
+     "walkthrough": "Patsy looks like a woman's name; with its capital it disguises a patsy, a dupe who takes the rap for others.",
+     "definitionFit": "A therapist treats patients' physical or mental conditions, so belongs among health professionals."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Patsy"
+    }
+   }
   },
   {
    "number": 9,
@@ -155,7 +571,68 @@
    "group": [
     "9-across",
     "19-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WHITE CLIFFS",
+    "definitions": [
+     {
+      "text": "Kentish beauties",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "order",
+      "for": "anagram",
+      "note": "to order something is to rearrange it, so the following letters are put in a new sequence"
+     },
+     {
+      "text": "put on",
+      "for": "charade",
+      "note": "putting on something adds it to what is already there, so one more letter joins the mix"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fifth slice",
+      "gives": "FIFTHSLICE",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WHITECLIFFS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FIFTHSLICEW",
+       "gives": "WHITECLIFFS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Kentish beauties order a fifth slice of cake and gain weight.",
+     "walkthrough": "'Put on weight' adds W to the jumble. Kent is the county at England's south-east corner, home of the chalk cliffs of Dover.",
+     "definitionFit": "The white chalk cliffs of Dover in Kent are a famous scenic landmark, a natural beauty of the county."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "beauties"
+    }
+   }
   },
   {
    "number": 10,
@@ -169,7 +646,47 @@
     "text": "Trip with commission",
     "enumeration": "6"
    },
-   "solution": "ERRAND"
+   "solution": "ERRAND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERRAND",
+    "definitions": [
+     {
+      "text": "commission",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trip",
+      "gives": "ERR",
+      "note": "to trip up is to make a mistake, to err"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERR",
+      "AND"
+     ]
+    },
+    "explanation": {
+     "surface": "A business journey paid for on commission.",
+     "walkthrough": "Trip looks like a journey, which suits an errand, but it is the verb to slip up.",
+     "definitionFit": "An errand is a task one is sent to carry out, a small commission given by someone else."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Trip"
+    }
+   }
   },
   {
    "number": 11,
@@ -183,7 +700,48 @@
     "text": "According to report, prestigious school’s gone down",
     "enumeration": "5"
    },
-   "solution": "EATEN"
+   "solution": "EATEN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "EATEN",
+    "definitions": [
+     {
+      "text": "gone down",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "According to report",
+      "for": "homophone",
+      "note": "a report is something heard, so the word is taken by its sound rather than spelling"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prestigious school",
+      "gives": "EATEN",
+      "soundsLike": "ETON",
+      "note": "Eton is England's famous elite boarding school"
+     }
+    ],
+    "explanation": {
+     "surface": "A news report says a top school's standards or reputation have slipped.",
+     "walkthrough": "'Gone down' suggests decline; it means swallowed, as food goes down.",
+     "definitionFit": "Food that has been eaten has gone down the throat, so the past participle matches."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "down"
+    }
+   }
   },
   {
    "number": 12,
@@ -203,7 +761,67 @@
      }
     ]
    },
-   "solution": "ALMAMATER"
+   "solution": "ALMAMATER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ALMA MATER",
+    "definitions": [
+     {
+      "text": "Old school",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means gone back, so the pair is read backwards"
+     },
+     {
+      "text": "amidst",
+      "for": "container",
+      "note": "amidst places one piece in the middle of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "change",
+      "gives": "ALTER",
+      "note": "to alter is to change"
+     },
+     {
+      "clueFragment": "American couple",
+      "gives": "AMAM",
+      "note": "two lots of AM, short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "MAMA",
+      "TER"
+     ],
+     "reversals": [
+      {
+       "from": "AMAM",
+       "to": "MAMA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly American couple, now retired, return to their old school amid changes.",
+     "walkthrough": "A couple of AMs gives two of them, which are then turned round inside ALTER.",
+     "definitionFit": "Alma mater, Latin for nourishing mother, is the phrase for the school or university one attended."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "couple"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +835,56 @@
     "text": "Down but a daughter missing, left plane in a panic",
     "enumeration": "7"
    },
-   "solution": "EJECTED"
+   "solution": "EJECTED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EJECTED",
+    "definitions": [
+     {
+      "text": "left plane in a panic",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing",
+      "for": "deletion",
+      "note": "something missing is absent, so that letter is taken out of the word"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Down",
+      "gives": "DEJECTED",
+      "note": "feeling down is feeling dejected"
+     },
+     {
+      "clueFragment": "a daughter",
+      "gives": "D",
+      "note": "D is short for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EJECTED"
+     ]
+    },
+    "explanation": {
+     "surface": "A miserable pilot without his daughter bails out of a crashing aircraft.",
+     "walkthrough": "DEJECTED loses its D. 'Down' sits first, looking like part of the plane story; it is the mood.",
+     "definitionFit": "A pilot who is ejected is propelled out of the aircraft by an emergency seat, typically when it is going down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Down"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +898,54 @@
     "text": "Maybe take tuppence off assortment of ha'pence",
     "enumeration": "7"
    },
-   "solution": "CHEAPEN"
+   "solution": "CHEAPEN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHEAPEN",
+    "definitions": [
+     {
+      "text": "Maybe take tuppence off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assortment of",
+      "for": "anagram",
+      "note": "an assortment is a mixed collection, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ha'pence",
+      "gives": "HAPENCE",
+      "note": "the anagram fodder, ignoring the apostrophe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHEAPEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HAPENCE",
+       "gives": "CHEAPEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper knocks a couple of old pennies off a mixed bag of small coins.",
+     "walkthrough": "Tuppence (two pence) and ha'pence (halfpennies) are old British small coins.",
+     "definitionFit": "To cheapen something is to lower its price, and a small reduction like two pence is one example."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "assortment"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +959,46 @@
     "text": "Wait until this line has gone if giving a speech",
     "enumeration": "3"
    },
-   "solution": "CUE"
+   "solution": "CUE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "homophone"
+    ],
+    "answer": "CUE",
+    "definitions": [
+     {
+      "text": "Wait until this line has gone if giving a speech",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "if giving a speech",
+      "for": "homophone",
+      "note": "giving a speech means speaking out, so the word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wait until this line has gone",
+      "gives": "CUE",
+      "soundsLike": "QUEUE",
+      "note": "a line of people waiting is something you stand in until it has moved on"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to a speaker to pause until the people in line have gone.",
+     "walkthrough": "Read whole, the clue also describes an actor's prompt: you wait for it, the previous line spoken, before giving your own speech.",
+     "definitionFit": "A cue is the signal, often another actor's last words, that tells a performer to begin speaking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1012,54 @@
     "text": "I don't care for the beautiful junk in this pile",
     "enumeration": "10"
    },
-   "solution": "PHILISTINE"
+   "solution": "PHILISTINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PHILISTINE",
+    "definitions": [
+     {
+      "text": "I don't care for the beautiful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "junk",
+      "for": "anagram",
+      "note": "junk is a jumbled heap of rubbish, so the letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in this pile",
+      "gives": "INTHISPILE",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PHILISTINE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INTHISPILE",
+       "gives": "PHILISTINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with no time for beauty dismisses an art collection as a junk heap.",
+     "walkthrough": "The definition is the philistine speaking for themselves.",
+     "definitionFit": "A philistine is a person indifferent or hostile to art and culture, who cares nothing for beauty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "junk"
+    }
+   }
   },
   {
    "number": 16,
@@ -279,7 +1079,69 @@
      }
     ]
    },
-   "solution": "CONTAINERSHIP"
+   "solution": "CONTAINERSHIP",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CONTAINER SHIP",
+    "definitions": [
+     {
+      "text": "Huge exporter",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "run out once",
+      "for": "deletion",
+      "note": "out once means one occurrence is dropped, so one copy of that letter goes"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blue",
+      "gives": "CON",
+      "note": "blue is the colour of the Conservatives, CON for short"
+     },
+     {
+      "clueFragment": "shoes",
+      "gives": "TRAINERS",
+      "note": "trainers are sports shoes"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for a run"
+     },
+     {
+      "clueFragment": "in fashion",
+      "gives": "HIP",
+      "note": "hip means fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "TAINERS",
+      "HIP"
+     ]
+    },
+    "explanation": {
+     "surface": "A big footwear exporter's blue shoes, once fashionable, have sold out.",
+     "walkthrough": "TRAINERS has two Rs and loses only one. Blue is the colour of Britain's Conservative party.",
+     "definitionFit": "A container ship is a vast cargo vessel that carries goods abroad, a huge carrier of exports."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "blue"
+    }
+   }
   },
   {
    "number": 17,
@@ -293,7 +1155,67 @@
     "text": "Inclined to pinch hit, he somehow edges sixes",
     "enumeration": "8"
    },
-   "solution": "THIEVISH"
+   "solution": "THIEVISH",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "THIEVISH",
+    "definitions": [
+     {
+      "text": "Inclined to pinch",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "somehow",
+      "for": "anagram",
+      "note": "somehow means by some unexplained means, so the letters are arranged anyhow"
+     },
+     {
+      "text": "edges",
+      "for": "container",
+      "note": "edges means borders, so the jumbled letters go around the sixes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit, he",
+      "gives": "HITHE",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "sixes",
+      "gives": "VIS",
+      "note": "six is VI in Roman numerals, so sixes are VIs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THIE",
+      "VIS",
+      "H"
+     ],
+     "anagrams": [
+      {
+       "fodder": "HITHE",
+       "gives": "THIEH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer prone to pinching runs slashes edges for sixes.",
+     "walkthrough": "Hit, edges and sixes all look like cricket, where an edge is a ball glancing off the bat; none are used that way.",
+     "definitionFit": "Thievish means given to stealing, and to pinch is everyday slang for to steal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edges"
+    }
+   }
   },
   {
    "number": 18,
@@ -307,7 +1229,53 @@
     "text": "One has to be generous, parting with a grand",
     "enumeration": "3"
    },
-   "solution": "IVE"
+   "solution": "IVE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "I'VE",
+    "definitions": [
+     {
+      "text": "One has",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parting with",
+      "for": "deletion",
+      "note": "parting with something means giving it up, so that letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to be generous",
+      "gives": "GIVE",
+      "note": "to give freely is to be generous"
+     },
+     {
+      "clueFragment": "a grand",
+      "gives": "G",
+      "note": "G is slang for a grand, a thousand pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A donor must be generous enough to hand over a thousand pounds.",
+     "walkthrough": "'One has' reads as part of a moral maxim; it is the definition, the speaker saying I have.",
+     "definitionFit": "I've is the contraction of I have, where one means the speaker in formal English."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "One"
+    }
+   }
   },
   {
    "number": 19,
@@ -340,7 +1308,46 @@
      }
     ]
    },
-   "solution": "LEETIDE"
+   "solution": "LEETIDE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LEE TIDE",
+    "definitions": [
+     {
+      "text": "going out with the wind",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most of",
+      "for": "hidden_word",
+      "note": "most of the words, not all, are used, so the answer is a stretch inside them"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fleet, I'd expect",
+      "gives": "LEETIDE",
+      "note": "letters running across these words"
+     }
+    ],
+    "explanation": {
+     "surface": "A sailor guesses most of the fleet will sail out with the wind behind it.",
+     "walkthrough": "The answer runs from the second letter of fleet to the first of expect.",
+     "definitionFit": "A lee tide is a tidal current running in the same direction as the wind blows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fleet"
+    }
+   }
   },
   {
    "number": 21,
@@ -354,7 +1361,62 @@
     "text": "French pilot swapping sides would be British, by George!",
     "enumeration": "7"
    },
-   "solution": "BLERIOT"
+   "solution": "BLERIOT",
+   "annotation": {
+    "type": [
+     "charade",
+     "substitution"
+    ],
+    "answer": "BLERIOT",
+    "definitions": [
+     {
+      "text": "French pilot",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swapping sides",
+      "for": "substitution",
+      "note": "sides are left and right, so the letters for left and right change places"
+     }
+    ],
+    "linkWords": [
+     "would be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "BR",
+      "note": "BR is short for British"
+     },
+     {
+      "clueFragment": "George",
+      "gives": "ELIOT",
+      "note": "George Eliot, the Victorian novelist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "E",
+      "R",
+      "IOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A French airman who changed allegiance would be British, by George!",
+     "walkthrough": "BR plus ELIOT makes BRELIOT; swap its L and R. 'By George' looks like an exclamation of surprise.",
+     "definitionFit": "Louis Blériot was the French aviator who made the first aeroplane flight across the English Channel in 1909."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "George"
+    }
+   }
   },
   {
    "number": 21,
@@ -368,7 +1430,55 @@
     "text": "Gun directed at parts of northwest France",
     "enumeration": "6"
    },
-   "solution": "BRETON"
+   "solution": "BRETON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BRETON",
+    "definitions": [
+     {
+      "text": "of northwest France",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "something that parts the gun splits it open, so the other piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gun",
+      "gives": "BREN",
+      "note": "the Bren gun, a light machine gun"
+     },
+     {
+      "clueFragment": "directed at",
+      "gives": "TO",
+      "note": "to means towards"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRE",
+      "TO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A gun aimed at parts of Brittany.",
+     "walkthrough": "'Parts' looks like regions of France; it is the verb.",
+     "definitionFit": "Breton describes Brittany, the peninsula region forming the northwest corner of France."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 22,
@@ -382,7 +1492,61 @@
     "text": "Non-resident no longer wasted rent",
     "enumeration": "6"
    },
-   "solution": "EXTERN"
+   "solution": "EXTERN",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXTERN",
+    "definitions": [
+     {
+      "text": "Non-resident",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wasted",
+      "for": "anagram",
+      "note": "wasted means ruined, so the word is broken up and its letters rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no longer",
+      "gives": "EX",
+      "note": "ex means former"
+     },
+     {
+      "clueFragment": "rent",
+      "gives": "RENT",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TERN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RENT",
+       "gives": "TERN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former tenant who no longer lives there feels the rent was wasted.",
+     "walkthrough": "An extern is a pupil or worker living outside the institution.",
+     "definitionFit": "An extern is someone connected with an institution who lives outside it, such as a day pupil."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wasted"
+    }
+   }
   },
   {
    "number": 23,
@@ -396,7 +1560,62 @@
     "text": "Returning fast from Paris, one to go through",
     "enumeration": "6"
    },
-   "solution": "TUNNEL"
+   "solution": "TUNNEL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TUNNEL",
+    "definitions": [
+     {
+      "text": "to go through",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returning",
+      "for": "reversal",
+      "note": "returning means coming back, so the word for fast is written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fast",
+      "gives": "LENT",
+      "note": "Lent is the Christian season of fasting"
+     },
+     {
+      "clueFragment": "from Paris, one",
+      "gives": "UN",
+      "note": "un is French for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "UN",
+      "NEL"
+     ],
+     "reversals": [
+      {
+       "from": "LENT",
+       "to": "TNEL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Coming back quickly from Paris, a traveller takes the Channel Tunnel.",
+     "walkthrough": "The French one simply sits inside the reversed fast; the Channel Tunnel links Paris and London, so the answer is in the picture.",
+     "definitionFit": "To tunnel is to dig a way through something, so it means going through it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fast"
+    }
+   }
   },
   {
    "number": 24,
@@ -416,7 +1635,39 @@
      }
     ]
    },
-   "solution": "FACEVALUE"
+   "solution": "FACEVALUE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "FACE VALUE",
+    "definitions": [
+     {
+      "text": "What it says on the tin",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What it says on the tin",
+      "note": "surface reading: the British advertising slogan for a product that does exactly what its label promises"
+     },
+     {
+      "clueFragment": "What it says on the tin",
+      "note": "setter's reading: the worth printed on a coin, or the apparent meaning of something taken literally"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Does exactly what it says on the tin' is a well-known British slogan from Ronseal wood-stain adverts, now an idiom for something being as described.",
+     "definitionFit": "Face value is the nominal worth printed on money, or the apparent meaning of something, exactly what it appears to state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "tin"
+    }
+   }
   },
   {
    "number": 25,
@@ -430,7 +1681,62 @@
     "text": "Smart electronic device in which power doesn't remain constant",
     "enumeration": "4"
    },
-   "solution": "CHIC"
+   "solution": "CHIC",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CHIC",
+    "definitions": [
+     {
+      "text": "Smart",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "doesn't remain",
+      "for": "substitution",
+      "note": "a letter that does not remain is swapped out, with the other one taking its place"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic device",
+      "gives": "CHIP",
+      "note": "a silicon chip"
+     },
+     {
+      "clueFragment": "power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     },
+     {
+      "clueFragment": "constant",
+      "gives": "C",
+      "note": "C is a standard symbol for a constant, such as the speed of light"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHI",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A sleek gadget whose power supply keeps fluctuating.",
+     "walkthrough": "CHIP swaps its P for C. 'Power doesn't remain constant' reads as an electrical fault.",
+     "definitionFit": "Chic means stylish and elegant, which is what smart means when describing appearance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "constant"
+    }
+   }
   },
   {
    "number": 26,
@@ -444,7 +1750,63 @@
     "text": "Brian left group trying to stay dry crossing river",
     "enumeration": "4"
    },
-   "solution": "LARA"
+   "solution": "LARA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LARA",
+    "definitions": [
+     {
+      "text": "Brian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "the group crossing something stretches over it, so it lies around the other letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L for left"
+     },
+     {
+      "clueFragment": "group trying to stay dry",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous helps members stay off drink"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "R",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Brian leaves his support group in their attempt to cross a river without getting wet.",
+     "walkthrough": "Brian Lara is the great West Indian cricketer; 'dry' means teetotal, not out of the water.",
+     "definitionFit": "Brian Lara, the Trinidadian batsman, holds the record Test innings score, so Brian points to his surname."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "dry"
+    }
+   }
   },
   {
    "number": 27,
@@ -458,7 +1820,45 @@
     "text": "Major satellite contract delivered",
     "enumeration": "5"
    },
-   "solution": "TITAN"
+   "solution": "TITAN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TITAN",
+    "definitions": [
+     {
+      "text": "Major satellite",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "a speech is delivered aloud, so the word is used for its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "contract",
+      "gives": "TITAN",
+      "soundsLike": "TIGHTEN",
+      "note": "to contract is to draw tighter"
+     }
+    ],
+    "explanation": {
+     "surface": "A big satellite contract has been fulfilled.",
+     "walkthrough": "'Contract' looks like a business deal; it is the verb to shrink, and 'delivered' means spoken.",
+     "definitionFit": "Titan is Saturn's largest moon, a major natural satellite in the solar system."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "delivered"
+    }
+   }
   },
   {
    "number": 28,
@@ -472,7 +1872,62 @@
     "text": "Canvas sacks emptied and refilled with trouble",
     "enumeration": "5"
    },
-   "solution": "SAILS"
+   "solution": "SAILS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SAILS",
+    "definitions": [
+     {
+      "text": "Canvas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "emptied",
+      "for": "letter_selection",
+      "note": "an emptied word has lost its contents, so only its outer letters stay"
+     },
+     {
+      "text": "refilled with",
+      "for": "container",
+      "note": "refilling puts new contents inside, so the other piece goes into the shell"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sacks",
+      "gives": "SS",
+      "select": "outer",
+      "note": "the first and last letters of sacks"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "AIL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Canvas sacks are emptied and filled again with some difficulty.",
+     "walkthrough": "'Canvas' looks like the sacks' fabric; it is the definition, as sailors say of a ship under canvas.",
+     "definitionFit": "Canvas is the traditional fabric for sails, so canvas collectively means a ship's sails."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Canvas"
+    }
+   }
   },
   {
    "number": 29,
@@ -492,7 +1947,62 @@
      }
     ]
    },
-   "solution": "RIOGRANDE"
+   "solution": "RIOGRANDE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RIO GRANDE",
+    "definitions": [
+     {
+      "text": "Channel stopping free movement of workers",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Snarled up",
+      "for": "anagram",
+      "note": "traffic snarled up is tangled, so the letters that follow are knotted into a new order"
+     }
+    ],
+    "linkWords": [
+     "&"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ring road",
+      "gives": "RINGROAD",
+      "note": "the anagram fodder"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIOGRANDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RINGROADE",
+       "gives": "RIOGRANDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A jammed ring road and the English Channel both stop workers moving freely.",
+     "walkthrough": "'English Channel' is the obvious phrase but it splits: English gives a letter, Channel starts the definition.",
+     "definitionFit": "The Rio Grande is a river forming much of the US-Mexico border, a channel that migrant workers struggle to cross."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Channel"
+    }
+   }
   }
  ]
 }
