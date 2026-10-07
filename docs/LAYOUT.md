@@ -902,14 +902,22 @@ tools/weekly_usage.py                         how much of a Claude quota window 
                                               when it resets
 tools/prereset_backfill.sh                    burns the tail of the weekly quota on backfills,
                                               ungated
+tools/puzzle_worker.sh                        sourced by the nightly and the burn: one puzzle's
+                                              model work, solving cold only on the way to
+                                              annotating, in the conversation the annotation
+                                              resumes
+tools/test_puzzle_worker.sh                   holds the solve and annotate prompts to that one
+                                              file, and every cold solve to the annotation
+                                              right after it
 household-plugins/<name>/plugin.toml          when and where the household bridge runs each
                                               scheduled job (daily, prereset, books, annotate
                                               audit, corpus queue, archive coverage, Gale
                                               inbox, VLM health); symlinked from
                                               ~/.config/household/plugins/<name>, then
                                               `tools/plugins.py --write` in the household repo
-tools/test_annotate_retry.sh                  drives that resume with a fake CLI, so it is not
-                                              first tried on a night it is needed
+tools/test_annotate_retry.sh                  drives that resume, and the hand-over from a cold
+                                              solve, with a fake CLI, so it is not first tried
+                                              on a night it is needed
 tools/test_apply_refusal.sh                   a refused annotation write names clue ids and no
                                               traceback, so the model does not map entries[N]
                                               by hand

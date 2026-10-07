@@ -71,6 +71,10 @@ export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 
 # session_id / session_exists — the resume mechanism run_claude below is built on.
 . "$REPO/tools/claude_session.sh"
+# worker_solve / worker_apply / worker_annotate — one puzzle's model work, the
+# same code the nightly (tools/daily_update.sh) runs; this script only picks and
+# paces the ids.
+. "$REPO/tools/puzzle_worker.sh"
 
 # This run's own output, so the exit trap can report any failure line nobody
 # wrote an alert for. See alert_run_failures in alert.sh.
@@ -86,6 +90,8 @@ exec > >(tee -a "$RUN_LOG") 2>&1
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
 ANNOTATE_EFFORT="${ANNOTATE_EFFORT:-medium}"  # see daily_update.sh
+# Niced, with everything it runs: the pool shares this machine with the bridge.
+WORKER_MODEL="$MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT" WORKER_WRAP="nice -n 19"
 # Runs to keep in flight, asked at every pool checkpoint with the width now:
 # what spends the weekly window to EXHAUSTED by its reset, capped by free memory
 # and CPU (tools/prereset_plan.py, which logs its inputs). If it prints no
@@ -263,47 +269,31 @@ requeue_failed() {
 # than start over. A run the limit cut off had already read the puzzle, worked
 # out the wordplay and written half the answers down; a fresh -p throws that
 # thinking away and buys it a second time. Resuming replays the transcript and
-# carries on from the reasoning already paid for.
+# carries on from the reasoning already paid for. The session lives in
+# /tmp/ct-prereset-<id>.sid, which run_solve names too, so the annotation after
+# a cold solve carries on in the solve's conversation (tools/puzzle_worker.sh).
 run_claude() {
-  local tag="$1" prompt="$2" log sid sidfile resume_at sess=()
+  local tag="$1" prompt="$2" log resume_at note=""
   log="/tmp/ct-prereset-$1.txt"
-  sidfile="/tmp/ct-prereset-$1.sid"
   resume_at="/tmp/ct-prereset-$1.resume"
   if [ "$DRY_RUN" = 1 ]; then
     echo "would spend one $MODEL run on $tag" >"$log"
     sleep 1
     return 0
   fi
+  [ -s "$resume_at" ] && note=$(cat "$resume_at")
+  rm -f "$resume_at"
+  # The annotate prompt names this copy, which leaves out the solutions detail:
+  # that names the blog, which annotate_check.py discloses only once the run is stuck.
+  python3 tools/annotate_check.py --view "$tag" >/dev/null
   # WebSearch/WebFetch are here for the last rung only: when a clue will not come
   # apart, a solvers' blog is the difference between an annotation and a `null`,
   # and a `null` ships a clue with no teaching ladder. tools/annotate_check.py
   # names the blog only once every clue but the last few is done, and says to
   # write the explanation from scratch, because the blog's prose teaches nobody
   # in rungs.
-  if [ -s "$resume_at" ] && [ -s "$sidfile" ] && session_exists "$(cat "$sidfile")"; then
-    sess=(--resume "$(cat "$sidfile")")
-    prompt=$(cat "$resume_at")
-  else
-    sid=$(session_id) || sid=""
-    echo "$sid" >"$sidfile"
-    sess=(--session-id "$sid")
-  fi
-  rm -f "$resume_at"
-  # The annotate prompt names this copy, which leaves out the solutions detail:
-  # that names the blog, which annotate_check.py discloses only once the run is stuck.
-  python3 tools/annotate_check.py --view "$tag" >/dev/null
-  # Niced, with everything it runs: the pool shares this machine with the bridge.
-  # The instructions ride in the system prompt, where every run of the pool shares
-  # one cached prefix, instead of costing each run a turn to cat them. The git
-  # status that differs run to run moves out of it into the first message, or
-  # it would split that prefix.
-  nice -n 19 claude -p "$prompt" "${sess[@]}" "${CLAUDE_HEADLESS[@]}" \
-    --append-system-prompt-file tools/annotate_prompt.md \
-    --exclude-dynamic-system-prompt-sections \
-    --model "$MODEL" \
-    --effort "$ANNOTATE_EFFORT" \
-    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" \
-    --max-turns 80 >"$log" 2>&1
+  worker_annotate "$tag" "$log" "/tmp/ct-prereset-$tag.sid" \
+    "Read,Write,Edit,Bash(python3 *),Bash(node *),WebSearch,WebFetch" 80 "$prompt" "$note"
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
   # stays quiet. A broken login is a different animal: it fails identically, at
@@ -316,9 +306,9 @@ run_claude() {
 }
 
 # Solve a puzzle without all its answers cold, writing the fill to
-# /tmp/ct-prereset-<id>.fill. The fill goes in through solve_applied, which runs
-# in the reaping shell like every git command. Same tools and limits as the
-# nightly job's cold solve in daily_update.sh.
+# /tmp/ct-prereset-<id>.fill, in the conversation its annotation resumes. The
+# fill goes in through solve_applied, which runs in the reaping shell like every
+# git command.
 run_solve() {
   local id="$1" log="/tmp/ct-prereset-$1.txt" fill="/tmp/ct-prereset-$1.fill"
   rm -f "$fill"
@@ -327,14 +317,7 @@ run_solve() {
     sleep 1
     return 0
   fi
-  nice -n 19 claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$id") in this repo. Its answers have not all been published, so there is no key: follow tools/solve_prompt.md exactly (it is your system prompt's appendix; do not open the file), write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $id --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
-    "${CLAUDE_HEADLESS[@]}" \
-    --append-system-prompt-file tools/solve_prompt.md \
-    --exclude-dynamic-system-prompt-sections \
-    --model "$MODEL" \
-    --effort "$ANNOTATE_EFFORT" \
-    --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
-    --max-turns 120 >"$log" 2>&1
+  worker_solve "$id" "$fill" "$log" "/tmp/ct-prereset-$id.sid"
   local rc=$?
   if [ $rc -ne 0 ] && grep -qi "Failed to authenticate\|Not logged in" "$log"; then
     alert "pre-reset backfill cannot authenticate — the CLI needs a fresh /login. Nothing has been backfilled since this started."
@@ -358,13 +341,12 @@ needs_solve() {
 # the grid it derives and deletes the clues-only file: both go in the commit.
 solve_applied() {
   local id="$1" fill="/tmp/ct-prereset-$1.fill" verdict="/tmp/ct-prereset-$1.verdict"
-  local judged="" said="/tmp/ct-prereset-$1.txt" out sha
+  local out sha
   local -a spec=("$(puzzle_spec "$id")")
   [ -n "$(git ls-files -- "$(clues_spec "$id")")" ] && spec+=("$(clues_spec "$id")")
   if [ "$DRY_RUN" = 1 ]; then
     echo "  [$id] would apply the fill"
-  elif [ -s "$fill" ] &&
-       python3 tools/apply_solution.py "$id" --fill "$fill" --model "$MODEL" --no-reindex >"$verdict" 2>&1; then
+  elif worker_apply "$id" "$fill" "/tmp/ct-prereset-$id.txt" "$verdict" --no-reindex; then
     index_lock
     if ! out=$(git add -A -- "${spec[@]}" 2>&1 &&
                git commit -q -m "$(printf 'Solve %s\n\n%s' "$id" "$(python3 tools/provenance.py trailer)")" 2>&1); then
@@ -381,13 +363,9 @@ solve_applied() {
     tools/push_puzzle_commit.sh "$sha" ||
       alert "pre-reset backfill committed its solve of $id but could not push it — the pool's next sync retries. See .prereset.log."
   else
-    if [ -s "$fill" ]; then judged=--judged said="$verdict"; fi
-    echo "  [$id] solve rejected, nothing written: $(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)"
-    # shellcheck disable=SC2086 # $judged is one flag or nothing
-    python3 tools/failed_inputs.py record solve "$id" $judged \
-      --reason "$(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)" || true
+    echo "  [$id] solve rejected, nothing written: $(grep -v '^[[:space:]]*$' "$verdict" | tail -1 | cut -c1-200)"
     discard_puzzle "$id"
-    rm -f "$fill" "$verdict"
+    rm -f "$fill" "$verdict" "/tmp/ct-prereset-$id.sid"
     return 1
   fi
   rm -f "$fill" "$verdict"

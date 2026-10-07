@@ -14,7 +14,10 @@
 #      first, following tools/annotate_prompt.md. Every new arrival is annotated
 #      — dated within the last two days, or given its official key tonight —
 #      however many there are. ANNOTATE_MAX (default 3) bounds only the rest:
-#      tonight's cold solves plus the older backlog, on top of the new arrivals.
+#      answerless puzzles plus the older backlog, on top of the new arrivals.
+#      An answerless one is solved cold immediately before its annotation, in
+#      the conversation the annotation carries on (tools/puzzle_worker.sh), and
+#      never otherwise; a rejected solve skips it.
 #      All of it runs only while the account's weekly usage window is under
 #      ANNOTATE_MAX_WEEKLY_PCT (default 90) and its five-hour window is under
 #      ANNOTATE_MAX_SESSION_PCT (default 90), re-read between puzzles. Stops
@@ -123,6 +126,10 @@ export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 # session_id / session_exists — what lets a failed annotation resume instead of
 # being bought a second time.
 . "$REPO/tools/claude_session.sh"
+
+# worker_solve / worker_apply / worker_annotate — one puzzle's model work, the
+# same code the burn (tools/prereset_backfill.sh) runs.
+. "$REPO/tools/puzzle_worker.sh"
 
 # Keep this run's output where the exit trap can read it back, and report any
 # failure line nobody wrote an alert for. The scheduler's .update.log holds every run
@@ -482,7 +489,7 @@ ANNOTATE_MAX="${ANNOTATE_MAX:-3}"
 # last two days, or one whose official key landed tonight (a tracked file that
 # had no complete published key at HEAD and has one now — the step 2 refetch).
 # `pending` is everything older, newest first, and ANNOTATE_MAX bounds it
-# together with tonight's cold solves, which join it in step 3a. Only the usage
+# together with tonight's answerless puzzles, which join it in step 3a. Only the usage
 # gates below limit `fresh`.
 #
 # puzzles/index.json is generated and untracked, so the copy on disk here was
@@ -551,7 +558,11 @@ record_annotate_failure() {   # id, reason, [--judged]
 # annotator to explain, so unsolved, the newest and most-visited puzzle on the
 # site would sit hintless for its whole first week.
 #
-# So solve it instead. A model solves the grid cold, and tools/apply_solution.py
+# So solve it, as the first half of annotating it: step 3a places it in the
+# annotation queue and the loop there solves it immediately before its
+# annotation, in the conversation the annotation then carries on. Never as a
+# separate pick: a grid solved and not hinted is spend the site never shows. A
+# model solves the grid cold, and tools/apply_solution.py
 # writes it only if every entry is answered, every length fits and all ~58
 # crossings agree — which is not proof, but is a check no accidental fill
 # passes. The answers go in marked as ours (solutions.model), the site says so,
@@ -561,18 +572,11 @@ record_annotate_failure() {   # id, reason, [--judged]
 # mode we refuse is being wrong and silent, which is why a fill that fails the
 # check writes nothing at all.
 #
-# Five a night, which is a ceiling and not a target: the queue is every puzzle we
-# hold with no answers in it, and on a normal night that queue is empty. It fills
-# in bursts, not one at a time — a Cyclops arrives answer-stripped and waits days
-# for fifteensquared, a Saturday prize waits a week for its key, and with eight
-# series those waits overlap. A limit of one would take a working week to clear
-# a burst, newest-first, so the oldest answerless grid would be the last one
-# ever looked at.
-#
-# The ceiling is not a cost decision: a cold solve is the CHEAP job here — around
-# 10-15 turns against an annotation's 40-90, and a third of the spend once cache
-# reads are priced at their tenth. Raising SOLVE_MAX is not what will blow the
-# budget. The weekly and five-hour usage gates below are what bounds it.
+# SOLVE_MAX bounds how many answerless puzzles are offered to the queue, a
+# ceiling and not a target; ANNOTATE_MAX then cuts them with the rest of the
+# backlog. On a normal night there are none. They come in bursts — a Cyclops
+# arrives answer-stripped and waits days for fifteensquared, a Saturday prize
+# waits a week for its key, and with eight series those waits overlap.
 SOLVE_MAX="${SOLVE_MAX:-5}"
 # A cold solve that fails is not tried again until its inputs change: the
 # clues, the solve prompt, or apply_solution.py (tools/failed_inputs.py).
@@ -687,7 +691,7 @@ if [ -n "$fresh$pending$unsolved" ]; then
   cat "$gate_why" >&2
   case "$gate_verdict" in
     spend)
-      echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $fresh $pending${unsolved:+, solving $unsolved}" ;;
+      echo "weekly usage under ${ANNOTATE_MAX_WEEKLY_PCT}% — annotating $fresh $pending${unsolved:+, solving first whichever of $unsolved the queue reaches}" ;;
     skip)
       echo "weekly usage over ${ANNOTATE_MAX_WEEKLY_PCT}% — skipping annotation of $fresh $pending${unsolved:+ and solving of $unsolved}"
       fresh=""
@@ -809,25 +813,24 @@ MISSES
   rm -f "$misslog"
 fi
 
-phase solve
-# --- 3a. solve the unsolved, so step 3b has something to annotate ---
-# Runs before the annotation loop and feeds it: a grid solved tonight joins the
-# front of the capped backlog queue (`pending`, behind `fresh`), because it is
-# by definition the newest puzzle there and the one people are actually looking
-# at. Same session gate as annotation, and
-# the same trailer, since it is the same model spending the same quota.
+phase work
+# --- 3a. place the unsolved in the annotation queue ---
+# An answerless puzzle is solved only as the first half of annotating it: the
+# loop below solves it immediately before its annotation, and nothing else in
+# this script runs a solve. So a grid enters the queue here, where the queue
+# would annotate it, and is cut with everything else; one the cut drops is not
+# solved tonight either, because a solve nobody hints is spend with nothing to
+# show for it on the site.
 #
-# "By definition the newest" is not true of a book reprint.
-# A book reprint holds only its book's `year` (no volume prints the day a
-# puzzle ran), so both queues above sort it behind every day-dated
-# puzzle, deliberately: the backfill does
-# today's crosswords first and gets to a 1970s reprint eventually. Prepending
-# one here would undo that at the last moment and spend a place in tonight's
-# ANNOTATE_MAX on a reprint, dropping a puzzle somebody is solving today off the
-# end of the queue. So a day-dated solve goes to the front and a book (a `year`)
-# or a dateless one to the back, which is where the ordering puts it.
+# A day-dated one goes to the front of the capped backlog (`pending`, behind
+# `fresh`): it is the newest puzzle there and the one people are looking at. A
+# book reprint holds only its book's `year` (no volume prints the day a puzzle
+# ran), so both queues above sort it behind every day-dated puzzle,
+# deliberately, and putting one at the front would spend a place in tonight's
+# ANNOTATE_MAX on a 1970s reprint while today's crossword waits. So a book or a
+# dateless puzzle goes to the back, which is where the ordering puts it.
 has_date() {   # id -> true when the puzzle file carries a publication DAY
-  python3 - "$1" <<'EOF'
+  python3 - "$1" <<'PY'
 import sys
 from pathlib import Path
 sys.path.insert(0, "tools")
@@ -839,96 +842,26 @@ except Exception as err:  # noqa: BLE001 — an unreadable file is not a date
     print(f"cannot read {sys.argv[1]} to place it in the queue: {err}", file=sys.stderr)
     sys.exit(1)
 sys.exit(0 if "date" in puzzle else 1)
-EOF
+PY
 }
-solved_ok=0
-# id:session for every grid solved tonight, so the annotation below can carry on
-# in the conversation that worked it out. A "$num:$sid" list rather than an
-# associative array, because bash 3.2 has no `declare -A`.
-solve_sids=""
-solve_session_of() { printf '%s\n' $solve_sids | sed -n "s/^$1://p" | tail -1; }
-if [ -n "$unsolved" ] && command -v claude >/dev/null 2>&1; then
-  for num in $unsolved; do
-    session=$(python3 tools/weekly_usage.py --group session)
-    if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
-      stop_reason="five-hour window ${session}% spent (limit ${ANNOTATE_MAX_SESSION_PCT}%) — solving $num waits for the reset"
-      stop_budget=1
-      break
-    fi
-    fill="${TMPDIR:-/tmp}/cryptic-fill-$num.json"
-    solvelog="${TMPDIR:-/tmp}/cryptic-solve-$num.log"
-    verdict="${TMPDIR:-/tmp}/cryptic-verdict-$num.log"
-    rm -f "$fill"
-    echo "solving puzzle $num cold with Claude Code... (session ${session:-unknown}%)"
-    # Named, so the annotation can resume it. Working an answer out and
-    # explaining how it was worked out are the same reasoning, and this is the
-    # only place the second half is still bought twice.
-    solve_sid=$(session_id) || solve_sid=""
-    solve_sess=()
-    [ -n "$solve_sid" ] && solve_sess=(--session-id "$solve_sid")
-    claude -p "Solve the cryptic crossword in $(python3 tools/puzzle_paths.py "$num") in this repo. Its answers have not been published, so there is no key: follow tools/solve_prompt.md exactly (it is your system prompt's appendix; do not open the file), write your fill to $fill, and iterate against 'python3 tools/apply_solution.py $num --fill $fill --check-only' until every crossing agrees. Do not write to puzzles/ — the calling script applies the fill." \
-      "${solve_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
-      --append-system-prompt-file tools/solve_prompt.md \
-      --exclude-dynamic-system-prompt-sections \
-      --model "$ANNOTATE_MODEL" \
-      --effort "$ANNOTATE_EFFORT" \
-      --allowedTools "Read,Write,Edit,Bash(python3 *),Bash(node *)" \
-      --max-turns 120 >"$solvelog" 2>&1
-    tail -40 "$solvelog"
-    # The verdict comes from the checker, not from the model's own report. A
-    # run can exit 0 having given up — the check is what decides. It is
-    # captured rather than only printed, because the reason a fill was rejected
-    # is the entire content of the give-up alert below.
-    if [ -s "$fill" ]; then
-      python3 tools/apply_solution.py "$num" --fill "$fill" --model "$ANNOTATE_MODEL" >"$verdict" 2>&1
-      applied=$?
-    else
-      echo "the solver finished without writing a fill to $fill at all" >"$verdict"
-      applied=1
-    fi
-    cat "$verdict"
-    if [ "$applied" -eq 0 ]; then
-      solved_ok=$((solved_ok + 1))
-      if has_date "$num"; then
-        pending="$num $pending"
-      else
-        echo "  $num has no date — annotating it after tonight's dated puzzles, not before"
-        pending="$pending $num"
-      fi
-      solve_sids="$solve_sids $num:$solve_sid"
-    else
-      echo "solve of $num rejected — nothing written"
-      # A fill the applier refused is its verdict on the puzzle. No fill at all
-      # means the CLI stopped, and its last line says whether that was transient.
-      judged="" said="$solvelog"
-      [ -s "$fill" ] && judged=--judged said="$verdict"
-      # shellcheck disable=SC2086 # $judged is one flag or nothing
-      if python3 tools/failed_inputs.py record solve "$num" $judged \
-           --reason "$(grep -v '^[[:space:]]*$' "$said" | tail -1 | cut -c1-200)"; then
-        # The lines travel in the alert. A solve failure is a bug in this repo
-        # far more often than a hard crossword, and the reader needs the
-        # applier's complaint and the model's last words to tell which.
-        alert "solving $num failed and will not be tried again until its clues, tools/solve_prompt.md or tools/apply_solution.py change — the puzzle ships hintless until then or until the paper publishes its key. The applier said:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$verdict" | cut -c1-200)"$'\n'"\`\`\`"$'\n'"and the solver's last words were:"$'\n'"\`\`\`"$'\n'"$(tail -6 "$solvelog" | cut -c1-200)"$'\n'"\`\`\`"
-      fi
-    fi
-    # The solver's own account outlives the night, for step 2c to read when
-    # the paper's key grades it.
-    [ "$applied" -eq 0 ] && python3 tools/solve_misses.py keep-log "$num" "$solvelog"
-    rm -f "$fill" "$solvelog" "$verdict"
-  done
-  # The backlog budget is still ANNOTATE_MAX puzzles, cold solves included.
-  # Solving adds its puzzle, so a backlog already at the cap loses its last
-  # entry here — the dateless reprint itself when that is what was solved, and
-  # the oldest backlog puzzle when it is not. `fresh` is not cut. Name the ones
-  # being dropped: the queue line above has already promised them by id, and a
-  # promise withdrawn in silence reads in the log as a puzzle that failed rather
-  # than one that was never begun.
-  kept=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')
-  dropped=$(echo $pending | tr ' ' '\n' | grep -v '^$' | tail -n +"$((ANNOTATE_MAX + 1))" | tr '\n' ' ')
-  [ -n "$dropped" ] &&
-    echo "over the ANNOTATE_MAX=$ANNOTATE_MAX backlog budget once solving was prepended — not annotating tonight: $dropped"
-  pending=$kept
-fi
+dated_unsolved="" dateless_unsolved=""
+for num in $unsolved; do
+  if has_date "$num"; then
+    dated_unsolved="$dated_unsolved $num"
+  else
+    dateless_unsolved="$dateless_unsolved $num"
+  fi
+done
+# The backlog budget is ANNOTATE_MAX puzzles, cold solves included. `fresh` is
+# not cut. Name the ones dropped: the queue line above has already promised
+# them by id, and a promise withdrawn in silence reads in the log as a puzzle
+# that failed rather than one that was never begun.
+pending=$(echo $dated_unsolved $pending $dateless_unsolved)
+kept=$(echo $pending | tr ' ' '\n' | grep -v '^$' | head -"$ANNOTATE_MAX" | tr '\n' ' ')
+dropped=$(echo $pending | tr ' ' '\n' | grep -v '^$' | tail -n +"$((ANNOTATE_MAX + 1))" | tr '\n' ' ')
+[ -n "$dropped" ] &&
+  echo "over the ANNOTATE_MAX=$ANNOTATE_MAX backlog budget with the unsolved placed — not solving or annotating tonight: $dropped"
+pending=$(echo $kept)
 # New arrivals first, then the capped backlog: newest-first either way.
 pending="${fresh:+$fresh }$pending"
 
@@ -939,6 +872,23 @@ if [ -n "$pending" ]; then
   python3 tools/build_annotate_prompt.py
   if command -v claude >/dev/null 2>&1; then
     run_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-annotate.XXXXXX")"
+    work_dir="$(mktemp -d "${TMPDIR:-/tmp}/cryptic-work.XXXXXX")"
+    # Pinned, not inherited: taking whatever ~/.claude/settings.json defaults
+    # to would let a settings edit made for an interactive session silently
+    # retune the nightly job.
+    # Opus on purpose: benchmarked head-to-head against Fable
+    # on 30078 (see APP.md), it matched — 23/25 types, 22/25 definitions,
+    # zero cryptic definitions, both hard clues solved — in the same wall time
+    # for a third of the cost, because the bill is nearly all output tokens.
+    WORKER_MODEL="$ANNOTATE_MODEL" WORKER_EFFORT="$ANNOTATE_EFFORT"
+    # Empty means no cap. `timeout` is GNU and the nightly runs in the Linux
+    # container; a by-hand run on the Mac says so rather than silently going
+    # uncapped.
+    WORKER_WRAP="timeout ${ANNOTATE_MAX_MINUTES}m"
+    if ! command -v timeout >/dev/null 2>&1; then
+      WORKER_WRAP=""
+      echo "  no timeout(1) here, so tonight's runs have no wall-clock cap"
+    fi
     for num in $pending; do
       session=$(python3 tools/weekly_usage.py --group session)
       if [ -n "$session" ] && [ "$session" -gt "$ANNOTATE_MAX_SESSION_PCT" ]; then
@@ -946,21 +896,33 @@ if [ -n "$pending" ]; then
         stop_budget=1
         break
       fi
+      sidfile="$work_dir/$num.sid"
+      # An answerless puzzle is solved here, immediately before the annotation
+      # it feeds and nowhere else (see step 3a). A rejected fill skips the
+      # puzzle: there is nothing to annotate.
+      case " $unsolved " in *" $num "*)
+        fill="$work_dir/$num.fill" solvelog="$work_dir/$num.solve.log" verdict="$work_dir/$num.verdict"
+        echo "solving puzzle $num cold with Claude Code before annotating it... (session ${session:-unknown}%)"
+        worker_solve "$num" "$fill" "$solvelog" "$sidfile"
+        tail -40 "$solvelog"
+        worker_apply "$num" "$fill" "$solvelog" "$verdict"
+        applied=$?
+        cat "$verdict"
+        if [ "$applied" -ne 0 ]; then
+          echo "solve of $num rejected — nothing written, nothing to annotate"
+          # The lines travel in the alert. A solve failure is a bug in this
+          # repo far more often than a hard crossword, and the reader needs the
+          # applier's complaint and the model's last words to tell which.
+          [ "$applied" -eq 1 ] &&
+            alert "solving $num failed and will not be tried again until its clues, tools/solve_prompt.md or tools/apply_solution.py change — the puzzle ships hintless until then or until the paper publishes its key. The applier said:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$verdict" | cut -c1-200)"$'\n'"\`\`\`"$'\n'"and the solver's last words were:"$'\n'"\`\`\`"$'\n'"$(tail -6 "$solvelog" | cut -c1-200)"$'\n'"\`\`\`"
+          continue
+        fi ;;
+      esac
       echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
-      # Pinned, not inherited: taking whatever ~/.claude/settings.json defaults
-      # to would let a settings edit made for an interactive session silently
-      # retune the nightly job.
-      # Opus on purpose: benchmarked head-to-head against Fable
-      # on 30078 (see APP.md), it matched — 23/25 types, 22/25 definitions,
-      # zero cryptic definitions, both hard clues solved — in the same wall time
-      # for a third of the cost, because the bill is nearly all output tokens.
-      # Web lookup belongs to the annotate call and to no other: a clue nobody
+      # Web lookup belongs to the annotation and to nothing else: a clue nobody
       # can parse ships with no teaching ladder, so a solvers' blog is worth a
       # fetch as a last resort (disclosed by tools/annotate_check.py only once
-      # every clue but the last few is done, never up front). The cold
-      # solve above gets none on purpose — the paper's answers are unpublished
-      # but the blogs are not, and a solve that reads the answers measures
-      # nothing.
+      # every clue but the last few is done, never up front).
       # Blind mode hides the published key for the duration of this one call,
       # then restores it and grades what the model derived. Same puzzle, same
       # single pass, same bill — the comparison is against the sighted runs
@@ -994,52 +956,19 @@ if [ -n "$pending" ]; then
         ann_turns=120
         ann_task="Solve AND annotate the cryptic crossword in $ann_file in this repo. Its \"solution\" fields are deliberately empty: the answers are not published to you, so work each one out from the clue and the crossings, and write what you derive into that entry's \"solution\" field as you go. Do not look for the answers anywhere else in the repo, in git history, or on the web — a derived answer is the point. Where you cannot get an answer with confidence, leave its solution empty and its annotation null rather than guessing."
       fi
-      # One session id per puzzle, fixed before the first attempt, because a run
-      # that dies has already been paid for: it read the grid, worked out the
-      # wordplay and wrote some of it down, and a fresh -p buys every bit of
-      # that again. --resume replays the transcript and carries on from it.
-      ann_sid=$(session_id) || ann_sid=""
-      ann_sess=(--session-id "$ann_sid")
-      ann_sys=tools/annotate_prompt.md
       ann_prompt="$ann_task Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
-      # This grid may have been solved cold half an hour ago in a conversation
-      # that is still on disk. That run derived every answer and the wordplay
-      # that reached it, which is exactly what an annotation has to say;
-      # starting fresh hands the model a key and makes it work backwards to
-      # reasoning it already did. It cannot work from memory alone -- the
-      # transcript ends before apply_solution.py wrote the fill in -- so the
-      # prompt sends it back to the file.
-      solve_prior=$(solve_session_of "$num")
-      if session_exists "$solve_prior"; then
-        ann_sid="$solve_prior"
-        ann_sess=(--resume "$ann_sid")
-        # The solve's system prompt again, so the cached transcript prefix
-        # still matches; the annotation rules come in as a file read instead.
-        ann_sys=tools/solve_prompt.md
-        ann_prompt="You solved this crossword earlier in this conversation, and your fill has since been written into $ann_file. Read the file as it now stands rather than working from memory, then annotate it from the wordplay you used to derive each answer. $ann_task Read tools/annotate_prompt.md and follow it exactly, including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
-        echo "  $num was solved cold tonight — annotating in that same conversation rather than from a cold start"
-      fi
+      # The conversation is fixed before the first attempt and named in
+      # $sidfile (the cold solve's, when there was one), because a run that
+      # dies has already been paid for: a retry resumes it.
+      ann_note=""
       ann_ok=""
       ann_retried=0
       ann_timeout=""
-      # Unquoted on purpose: empty means no cap, and neither field can contain a
-      # space. `timeout` is GNU and the nightly runs in the Linux container; a
-      # by-hand run on the Mac says so rather than silently going uncapped.
-      ann_cap="timeout ${ANNOTATE_MAX_MINUTES}m"
-      if ! command -v timeout >/dev/null 2>&1; then
-        ann_cap=""
-        echo "  no timeout(1) here, so $num runs with no wall-clock cap"
-      fi
       while :; do
-        # shellcheck disable=SC2086
-        $ann_cap claude -p "$ann_prompt" "${ann_sess[@]}" "${CLAUDE_HEADLESS[@]}" \
-            --append-system-prompt-file "$ann_sys" \
-            --exclude-dynamic-system-prompt-sections \
-            --model "$ANNOTATE_MODEL" \
-            --effort "$ANNOTATE_EFFORT" \
-            --allowedTools "$ann_tools" \
-            --max-turns "$ann_turns" 2>&1 | tee "$run_log"
+        worker_annotate "$num" "$run_log" "$sidfile" "$ann_tools" "$ann_turns" "$ann_prompt" "$ann_note"
         ann_rc=$?
+        cat "$run_log"
+        ann_sid=$(worker_sid "$sidfile")
         [ "$ann_rc" = 0 ] && ann_ok=1
         [ -n "$ann_ok" ] && break
         # The cap fired. Say so here rather than below, because below reads the
@@ -1070,8 +999,7 @@ if [ -n "$pending" ]; then
         grep -q "output token maximum" "$run_log" || break
         session_exists "$ann_sid" || break
         ann_retried=1
-        ann_sess=(--resume "$ann_sid")
-        ann_prompt="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read $ann_file to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
+        ann_note="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read $ann_file to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
         echo "  $num overran the output ceiling — resuming that same session, told to write in smaller edits, rather than paying for it twice"
       done
       if [ -n "$ann_ok" ]; then
@@ -1108,7 +1036,7 @@ if [ -n "$pending" ]; then
     # key left stashed is a key only git still has. Runs before the validator
     # and the commit, both of which would otherwise see the blanked grid.
     python3 tools/blind_annotate.py restore
-    rm -f "$run_log"
+    rm -rf "$run_log" "$work_dir"
   else
     stop_reason="claude CLI not on PATH ($PATH)"
   fi
