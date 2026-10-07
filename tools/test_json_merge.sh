@@ -23,8 +23,8 @@ git config user.name test
 mkdir -p tools/data
 cp "$ROOT/tools/json_merge.py" "$ROOT/.gitattributes" tools/ 2>/dev/null
 mv tools/.gitattributes .
-eval "$(grep -E "config (merge|filter)\.(json-keys|puzzle-json)" "$ROOT/tools/nightly_worktree.sh" |
-  sed 's/git -C "$(dirname "${BASH_SOURCE\[0\]}")"/git/')"
+_ct_cfg() { git config "$1" "$2"; }
+eval "$(grep -E "^_ct_cfg (merge|filter)\.(json-keys|puzzle-json)" "$ROOT/tools/nightly_worktree.sh")"
 check "driver registered from nightly_worktree.sh" \
   "$(git config merge.json-keys.driver)" "python3 tools/json_merge.py %O %A %B"
 check "clean filter registered from nightly_worktree.sh" \
