@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,44 @@
     "text": "Rock band come into contact with smack",
     "enumeration": "4"
    },
-   "solution": "KISS"
+   "solution": "KISS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "KISS",
+    "definitions": [
+     {
+      "text": "Rock band",
+      "at": 0
+     },
+     {
+      "text": "come into contact with smack",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rock band",
+      "note": "first meaning: the American glam-rock group famous for face paint"
+     },
+     {
+      "clueFragment": "come into contact with smack",
+      "note": "second meaning: to touch lightly, as billiard balls do, or to give a smacker on the lips"
+     }
+    ],
+    "explanation": {
+     "surface": "A rock band getting mixed up with heroin, smack being slang for the drug.",
+     "walkthrough": "Smack looks like heroin in a rock-and-roll story, but here it is a loud kiss, and touching lightly is the other sense.",
+     "definitionFit": "The group took its name from the word, and touching lightly or planting a smacker are both everyday senses of the verb."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "smack"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +87,42 @@
     "text": "Checkpoint entirely controlling import",
     "enumeration": "6"
    },
-   "solution": "INTENT"
+   "solution": "INTENT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INTENT",
+    "definitions": [
+     {
+      "text": "import",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "controlling",
+      "for": "hidden_word",
+      "note": "the outer words control, or hold within them, the letters that are wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Checkpoint entirely",
+      "gives": "INTENT",
+      "note": "the letters run across the join of these two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A border checkpoint with total control over what goods are brought into the country.",
+     "definitionFit": "Import as a noun means meaning or significance, the same sense as purpose or purport, a sober synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "import"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +136,61 @@
     "text": "Reiterated three points about recycling rubbish",
     "enumeration": "8"
    },
-   "solution": "NONSENSE"
+   "solution": "NONSENSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NONSENSE",
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recycling",
+      "for": "reversal",
+      "note": "recycling sends something round again, so the little word comes back the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "ON",
+      "note": "about in the sense of concerning, as in a talk on a topic"
+     },
+     {
+      "clueFragment": "Reiterated three points",
+      "gives": "NSENSE",
+      "note": "three compass points, north, south and east, said twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "NSENSE"
+     ],
+     "reversals": [
+      {
+       "from": "ON",
+       "to": "NO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone repeating three points about recycling household waste.",
+     "walkthrough": "Recycling seems to be the subject of the talk, but it turns the little word for about back to front.",
+     "definitionFit": "Rubbish in the sense of foolish talk is a direct synonym for drivel or claptrap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recycling"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +204,64 @@
     "text": "Blunt objections raised over qualification",
     "enumeration": "7"
    },
-   "solution": "STUBBED"
+   "solution": "STUBBED",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "STUBBED",
+    "definitions": [
+     {
+      "text": "Blunt",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raising a word lifts it bottom to top, so it reads upwards"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "objections",
+      "gives": "BUTS",
+      "note": "as in ifs and buts"
+     },
+     {
+      "clueFragment": "qualification",
+      "gives": "BED",
+      "note": "Bachelor of Education, a teaching degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STUB",
+      "BED"
+     ],
+     "reversals": [
+      {
+       "from": "BUTS",
+       "to": "STUB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bluntly raising objections to a candidate's qualification.",
+     "walkthrough": "In a down clue 'over' places the first piece on top of the second. BEd is the British teaching degree.",
+     "definitionFit": "Something stubbed has been cut short or worn down, so it is blunt rather than pointed, as a stubbed pencil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Blunt"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +275,54 @@
     "text": "Most young sheep protected by conservation organisation",
     "enumeration": "6"
    },
-   "solution": "NEWEST"
+   "solution": "NEWEST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NEWEST",
+    "definitions": [
+     {
+      "text": "Most young",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "protected by",
+      "for": "container",
+      "note": "what is protected sits inside its guardian, wrapped by the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sheep",
+      "gives": "EWES",
+      "note": "female sheep"
+     },
+     {
+      "clueFragment": "conservation organisation",
+      "gives": "NT",
+      "note": "the National Trust, which looks after historic buildings and land in Britain"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "EWES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Lambs, the youngest sheep, being safeguarded by a conservation charity.",
+     "definitionFit": "Being the most recent arrival makes something the youngest, so the superlative matches the superlative phrase."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "young"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +336,67 @@
     "text": "Sort of ladies captivated by author's belief in perfection",
     "enumeration": "8"
    },
-   "solution": "IDEALISM"
+   "solution": "IDEALISM",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IDEALISM",
+    "definitions": [
+     {
+      "text": "belief in perfection",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sort of",
+      "for": "anagram",
+      "note": "a sort of something is a variant version, so the letters come out rearranged"
+     },
+     {
+      "text": "captivated by",
+      "for": "container",
+      "note": "being held captive means being enclosed, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladies",
+      "gives": "LADIES",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "author's",
+      "gives": "IM",
+      "note": "the author says 'I am', shortened"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "DEALIS",
+      "M"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LADIES",
+       "gives": "DEALIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Some ladies charmed by a writer's faith that the world can be perfect.",
+     "walkthrough": "In crosswords the author or setter is 'I', so author's can mean 'I'm'.",
+     "definitionFit": "Idealism is the pursuit of, or faith in, perfect standards and ideals, so the phrase describes it exactly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sort"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +410,56 @@
     "text": "Lock in colleague's support for retired people",
     "enumeration": "10"
    },
-   "solution": "MATTRESSES"
+   "solution": "MATTRESSES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MATTRESSES",
+    "definitions": [
+     {
+      "text": "support for retired people",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the first piece is placed inside the second, as its literal position word says"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lock",
+      "gives": "TRESS",
+      "note": "a lock of hair"
+     },
+     {
+      "clueFragment": "colleague's",
+      "gives": "MATES",
+      "note": "a mate is a workmate, made possessive"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAT",
+      "TRESS",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A colleague backing a pension scheme for those who have retired from work.",
+     "walkthrough": "Retired here means gone to bed, not stopped working.",
+     "definitionFit": "Beds rest on these padded cushions, which hold up sleepers who have turned in for the night."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +473,53 @@
     "text": "Job function reportedly introduces guidance",
     "enumeration": "8"
    },
-   "solution": "SIGNPOST"
+   "solution": "SIGNPOST",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SIGNPOST",
+    "definitions": [
+     {
+      "text": "guidance",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is heard spoken, so the word is wanted for its sound, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "introduces"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "function",
+      "gives": "SIGN",
+      "soundsLike": "SINE",
+      "note": "the trigonometric function, said out loud"
+     },
+     {
+      "clueFragment": "Job",
+      "gives": "POST",
+      "note": "a post is a position of employment"
+     }
+    ],
+    "explanation": {
+     "surface": "Reports on what a job involves, offered as advice to newcomers.",
+     "walkthrough": "'Introduces' puts the sound-alike piece before the job.",
+     "definitionFit": "A roadside pointer gives directions, and figuratively the word means any indication showing which way to go."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "function"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +533,50 @@
     "text": "Cause to be valued by objective listener",
     "enumeration": "6"
    },
-   "solution": "ENDEAR"
+   "solution": "ENDEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ENDEAR",
+    "definitions": [
+     {
+      "text": "Cause to be valued",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "objective",
+      "gives": "END",
+      "note": "an end is an aim or goal"
+     },
+     {
+      "clueFragment": "listener",
+      "gives": "EAR",
+      "note": "the organ that listens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "END",
+      "EAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Winning favour with an impartial listener.",
+     "walkthrough": "Objective looks like an adjective meaning impartial; it is a noun meaning goal.",
+     "definitionFit": "To make someone loved or cherished by others is the core sense of this verb, usually used with 'to'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "objective"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +590,50 @@
     "text": "Claimed elite snobs must be beaten up",
     "enumeration": "10"
    },
-   "solution": "OSTENSIBLE"
+   "solution": "OSTENSIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OSTENSIBLE",
+    "definitions": [
+     {
+      "text": "Claimed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "must be beaten up",
+      "for": "anagram",
+      "note": "a battered thing is knocked out of shape, so the letters lose their original order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "elite snobs",
+      "gives": "ELITESNOBS",
+      "note": "taken as written, ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELITESNOBS",
+       "gives": "OSTENSIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A violent claim that upper-class snobs deserve a thrashing.",
+     "definitionFit": "Something stated or appearing true but possibly not so is apparent or professed, which is what claimed means here."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Claimed"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +647,41 @@
     "text": "Singer taking part in recital tomorrow",
     "enumeration": "4"
    },
-   "solution": "ALTO"
+   "solution": "ALTO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ALTO",
+    "definitions": [
+     {
+      "text": "Singer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking part in",
+      "for": "hidden_word",
+      "note": "the wanted word takes part in the phrase, forming a piece of the run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "recital tomorrow",
+      "gives": "ALTO",
+      "note": "the letters span the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A vocalist who will perform in a concert the next day.",
+     "definitionFit": "This voice part sits below soprano in a choir, and the word also names a singer with that range."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +695,56 @@
     "text": "Be quick to punish taking cocaine",
     "enumeration": "6"
    },
-   "solution": "HASTEN"
+   "solution": "HASTEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HASTEN",
+    "definitions": [
+     {
+      "text": "Be quick",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking",
+      "for": "deletion",
+      "note": "taking means taking away here, so the drug's letter is removed from the verb"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "punish",
+      "gives": "CHASTEN",
+      "note": "to discipline or chastise"
+     },
+     {
+      "clueFragment": "cocaine",
+      "gives": "C",
+      "note": "the common abbreviation for the drug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HASTEN"
+     ]
+    },
+    "explanation": {
+     "surface": "Swift penalties for anyone caught with drugs.",
+     "walkthrough": "Taking reads as using the drug, but it means taking away the C.",
+     "definitionFit": "To hurry or make haste is to act quickly, so the verb phrase matches the verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +758,78 @@
     "text": "Sailors upset at popular elected government refusing to vote",
     "enumeration": "10"
    },
-   "solution": "ABSTAINING"
+   "solution": "ABSTAINING",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ABSTAINING",
+    "definitions": [
+     {
+      "text": "refusing to vote",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "upset means knocked over, and in a down clue a toppled word reads from the bottom up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sailors",
+      "gives": "ABS",
+      "note": "able seamen, abbreviated AB"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written, then turned upside down in this down clue"
+     },
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "fashionable"
+     },
+     {
+      "clueFragment": "elected",
+      "gives": "IN",
+      "note": "a winning candidate gets in"
+     },
+     {
+      "clueFragment": "government",
+      "gives": "G",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABS",
+      "TA",
+      "IN",
+      "IN",
+      "G"
+     ],
+     "reversals": [
+      {
+       "from": "AT",
+       "to": "TA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Sailors annoyed at a popular elected administration and staying away from the polls.",
+     "definitionFit": "Abstention is formally declining to cast a ballot, so the participle matches the phrase exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 14,
@@ -215,7 +843,67 @@
     "text": "Required English books' assistance to grasp French article",
     "enumeration": "8"
    },
-   "solution": "ENTAILED"
+   "solution": "ENTAILED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ENTAILED",
+    "definitions": [
+     {
+      "text": "Required",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to grasp",
+      "for": "container",
+      "note": "something that grasps holds another item in its hand, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "books'",
+      "gives": "NT",
+      "note": "New Testament, the books of the Bible's second part"
+     },
+     {
+      "clueFragment": "assistance",
+      "gives": "AID",
+      "note": "help"
+     },
+     {
+      "clueFragment": "French article",
+      "gives": "LE",
+      "note": "the French masculine definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "NT",
+      "AI",
+      "LE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Course requirements: English textbooks plus help with French grammar.",
+     "definitionFit": "If something entails a thing, it makes it necessary, so the past form means needed or involved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "books'"
+    }
+   }
   },
   {
    "number": 15,
@@ -229,7 +917,48 @@
     "text": "Part of building resembling a shop?",
     "enumeration": "6"
    },
-   "solution": "STOREY"
+   "solution": "STOREY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STOREY",
+    "definitions": [
+     {
+      "text": "Part of building",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a shop",
+      "gives": "STORE",
+      "note": "a store is a shop"
+     },
+     {
+      "clueFragment": "resembling",
+      "gives": "Y",
+      "note": "the adjective suffix meaning like, as in 'feathery'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STORE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether one level of a building looks like a shop.",
+     "walkthrough": "The question mark flags an unusual piece: the suffix -y turns a noun into 'like that noun'.",
+     "definitionFit": "Each level or floor of a building is a separate horizontal division of it, which is what the word names."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "resembling"
+    }
+   }
   },
   {
    "number": 16,
@@ -243,7 +972,60 @@
     "text": "NATO finally getting embassy to provide oversight",
     "enumeration": "8"
    },
-   "solution": "OMISSION"
+   "solution": "OMISSION",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OMISSION",
+    "definitions": [
+     {
+      "text": "oversight",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end of the name before it, so only its closing letter counts"
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "NATO",
+      "gives": "O",
+      "select": "last",
+      "note": "the last letter of the alliance's name"
+     },
+     {
+      "clueFragment": "getting embassy",
+      "gives": "MISSION",
+      "note": "a diplomatic mission is an embassy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "MISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "The military alliance at last securing diplomatic supervision.",
+     "walkthrough": "Oversight looks like supervision, but here it means a careless mistake.",
+     "definitionFit": "Something left out by mistake is an unintended lapse, the slip sense of the word rather than the supervising sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "oversight"
+    }
+   }
   },
   {
    "number": 17,
@@ -257,7 +1039,54 @@
     "text": "Person who investigated difficult situations involving money",
     "enumeration": "6"
    },
-   "solution": "HOLMES"
+   "solution": "HOLMES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOLMES",
+    "definitions": [
+     {
+      "text": "Person who investigated",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involving",
+      "for": "container",
+      "note": "to involve is to enfold or include, so the troubles wrap around the cash"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "difficult situations",
+      "gives": "HOLES",
+      "note": "being in a hole means being in trouble"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOL",
+      "M",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective probing tricky cases that involve cash.",
+     "walkthrough": "Sherlock Holmes is Conan Doyle's fictional detective.",
+     "definitionFit": "The famous Baker Street sleuth investigated crimes, so he is a fair example of a past investigator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -271,7 +1100,50 @@
     "text": "Holiday abroad precedes epidemic",
     "enumeration": "8"
    },
-   "solution": "OUTBREAK"
+   "solution": "OUTBREAK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OUTBREAK",
+    "definitions": [
+     {
+      "text": "epidemic",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "precedes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "abroad",
+      "gives": "OUT",
+      "note": "out and about, away from home"
+     },
+     {
+      "clueFragment": "Holiday",
+      "gives": "BREAK",
+      "note": "a short holiday is a break"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "BREAK"
+     ]
+    },
+    "explanation": {
+     "surface": "A trip overseas followed by a spread of disease.",
+     "walkthrough": "'Holiday abroad' reads as one phrase; split it, with 'precedes' putting the second word's piece first.",
+     "definitionFit": "A sudden spread of disease through a population is called both these terms, so they are synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "abroad"
+    }
+   }
   },
   {
    "number": 19,
@@ -285,7 +1157,47 @@
     "text": "Wash cloth with soft soap",
     "enumeration": "7"
    },
-   "solution": "FLANNEL"
+   "solution": "FLANNEL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FLANNEL",
+    "definitions": [
+     {
+      "text": "Wash cloth",
+      "at": 0
+     },
+     {
+      "text": "soft soap",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wash cloth",
+      "note": "first meaning: a small towel for washing the face, called a washcloth in the US"
+     },
+     {
+      "clueFragment": "soft soap",
+      "note": "second meaning: flattering or evasive talk"
+     }
+    ],
+    "explanation": {
+     "surface": "Washing with a cloth and some gentle soap.",
+     "walkthrough": "Soft soap sounds like a bathroom product; it is figurative, meaning smooth talk.",
+     "definitionFit": "The British face cloth shares its name with smooth evasive talk, and soft soap means flattery in the same way."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "soap"
+    }
+   }
   },
   {
    "number": 20,
@@ -299,7 +1211,56 @@
     "text": "Restrict distribution of case of alcohol with good reason",
     "enumeration": "8"
    },
-   "solution": "RATIONAL"
+   "solution": "RATIONAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "RATIONAL",
+    "definitions": [
+     {
+      "text": "with good reason",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case of",
+      "for": "letter_selection",
+      "note": "a case is the outside casing of something, so only its outermost letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Restrict distribution of",
+      "gives": "RATION",
+      "note": "to ration is to limit how much is handed out"
+     },
+     {
+      "clueFragment": "alcohol",
+      "gives": "AL",
+      "select": "outer",
+      "note": "the first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATION",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "Limiting how much drink is handed out, for sound reasons.",
+     "walkthrough": "A case of alcohol looks like a crate of bottles; it is the word's outside letters.",
+     "definitionFit": "Something sensible and logical is grounded in reason, so the adjective describes acting with sound logic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 21,
@@ -313,7 +1274,56 @@
     "text": "Central elements in clue's anagram fodder",
     "enumeration": "6"
    },
-   "solution": "NUCLEI"
+   "solution": "NUCLEI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUCLEI",
+    "definitions": [
+     {
+      "text": "Central elements",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "anagram fodder",
+      "for": "anagram",
+      "note": "the clue openly names the preceding words as raw material for rearranging, a jokey self-reference"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clue",
+      "gives": "CLUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INCLUE",
+       "gives": "NUCLEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A self-referential note about the key parts of the clue being material for rearrangement.",
+     "walkthrough": "The clue says outright that the two words before it ('in clue', with 's meaning is) are the letters to rearrange.",
+     "definitionFit": "Cores of atoms or cells are their central parts, so the plural noun matches central elements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 22,
@@ -327,7 +1337,45 @@
     "text": "Auditor's restraint irritated American manual worker",
     "enumeration": "6"
    },
-   "solution": "TYPIST"
+   "solution": "TYPIST",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TYPIST",
+    "definitions": [
+     {
+      "text": "manual worker",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Auditor's",
+      "for": "homophone",
+      "note": "an auditor is literally a hearer, so the words are taken as they would be heard"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "restraint irritated American",
+      "gives": "TYPIST",
+      "soundsLike": "TIE PISSED",
+      "note": "a tie restrains, and pissed is American slang for annoyed"
+     }
+    ],
+    "explanation": {
+     "surface": "An auditor annoyed by limits placed on an American labourer.",
+     "walkthrough": "An auditor is literally a listener, so it signals sound. In the US, pissed means angry, while in Britain it means drunk.",
+     "definitionFit": "Someone who types works with the hands at a keyboard, so manual worker is a witty literal description."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Auditor's"
+    }
+   }
   },
   {
    "number": 23,
@@ -341,7 +1389,60 @@
     "text": "Language used by French philosopher is out of line",
     "enumeration": "6"
    },
-   "solution": "PATOIS"
+   "solution": "PATOIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PATOIS",
+    "definitions": [
+     {
+      "text": "Language used by French",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "out of line here means that the line abbreviation is taken out of the thinker plus is"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "philosopher",
+      "gives": "PLATO",
+      "note": "the Greek philosopher"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "standard abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PATO",
+      "IS"
+     ]
+    },
+    "explanation": {
+     "surface": "A French thinker saying something inappropriate.",
+     "walkthrough": "'French philosopher' wants to be read together, but French belongs to the definition and the thinker is Greek.",
+     "definitionFit": "This term names a regional dialect, originally of rural France, so it is a language spoken by some French people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 24,
@@ -355,7 +1456,38 @@
     "text": "What could be seen as our responsibility?",
     "enumeration": "4"
    },
-   "solution": "ONUS"
+   "solution": "ONUS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ONUS",
+    "definitions": [
+     {
+      "text": "What could be seen as our responsibility",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What could be seen as our responsibility",
+      "note": "surface reading: a duty that falls to the two of us"
+     },
+     {
+      "clueFragment": "What could be seen as our",
+      "note": "setter's reading: break the answer after its second letter and the two little words mean 'it's down to us to pay'"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the four letters into two words and they make the everyday phrase meaning 'our responsibility', as when drinks are paid for by the speakers.",
+     "definitionFit": "A burden or duty resting on someone is exactly what the four-letter word means, as in burden of proof."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 25,
@@ -369,7 +1501,51 @@
     "text": "Do not recycle using material objects?",
     "enumeration": "10"
    },
-   "solution": "CONCRETELY"
+   "solution": "CONCRETELY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONCRETELY",
+    "definitions": [
+     {
+      "text": "using material objects",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Do",
+      "for": "anagram",
+      "note": "to do a thing can mean to fix or rework it, as in doing up a house, so the letters are remade"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not recycle",
+      "gives": "NOTRECYCLE",
+      "note": "taken as written, ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NOTRECYCLE",
+       "gives": "CONCRETELY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction on packaging telling you not to put it in the recycling.",
+     "walkthrough": "The instruction 'Do not recycle' reads as one order, but 'Do' alone works on the next two words, as in doing up a room.",
+     "definitionFit": "Working in a concrete way means dealing in tangible, physical things rather than abstractions."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recycle"
+    }
+   }
   },
   {
    "number": 26,
@@ -383,7 +1559,45 @@
     "text": "Place where people should go on the radio",
     "enumeration": "4"
    },
-   "solution": "LIEU"
+   "solution": "LIEU",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LIEU",
+    "definitions": [
+     {
+      "text": "Place",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the radio",
+      "for": "homophone",
+      "note": "anything broadcast on the radio is heard rather than seen, so sound matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "where people should go",
+      "gives": "LIEU",
+      "soundsLike": "LOO",
+      "note": "a loo is British slang for a toilet, where one goes when one needs to"
+     }
+    ],
+    "explanation": {
+     "surface": "A broadcast telling people where they ought to go.",
+     "walkthrough": "The answer is usually met in 'in lieu of', meaning in place of.",
+     "definitionFit": "Borrowed from French, the word means stead or position, as in 'in lieu of payment'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "radio"
+    }
+   }
   },
   {
    "number": 27,
@@ -397,7 +1611,46 @@
     "text": "Drop off tin with leak",
     "enumeration": "6"
    },
-   "solution": "SNOOZE"
+   "solution": "SNOOZE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SNOOZE",
+    "definitions": [
+     {
+      "text": "Drop off",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin",
+      "gives": "SN",
+      "note": "the chemical symbol for tin"
+     },
+     {
+      "clueFragment": "with leak",
+      "gives": "OOZE",
+      "note": "to ooze is to seep or leak out"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SN",
+      "OOZE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tin can falling off because it is leaking.",
+     "definitionFit": "To drop off is to fall asleep briefly, the same sense as having a nap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Drop"
+    }
+   }
   },
   {
    "number": 28,
@@ -411,7 +1664,72 @@
     "text": "Scrutineer condemned Remain after European vote",
     "enumeration": "8"
    },
-   "solution": "EXAMINER"
+   "solution": "EXAMINER",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "EXAMINER",
+    "definitions": [
+     {
+      "text": "Scrutineer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "condemned",
+      "for": "anagram",
+      "note": "something condemned is wrecked or ruined, so its letters are broken up"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after says the rearranged word follows the other pieces, so it is sent to the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "vote",
+      "gives": "X",
+      "note": "the cross put on a ballot paper"
+     },
+     {
+      "clueFragment": "Remain",
+      "gives": "REMAIN",
+      "note": "taken as written, to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "X",
+      "AMINER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "REMAIN",
+       "gives": "AMINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An election observer criticising the Remain side after the EU referendum vote.",
+     "walkthrough": "'After' puts the rearranged word at the end. Remain was the side backing EU membership in Britain's 2016 Brexit referendum.",
+     "definitionFit": "A scrutineer inspects things closely, typically votes or papers, which is what an inspector or tester does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Remain"
+    }
+   }
   }
  ]
 }
