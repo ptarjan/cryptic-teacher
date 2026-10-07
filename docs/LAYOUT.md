@@ -1644,12 +1644,16 @@ tools/listener_grid.py                        reads a 1930s Listener grid off a 
                                               not), rows x cols, blocks by ink fill, bars by
                                               rule width against the thin rule, numbered by
                                               reconstruct_grid.light_cells; match() checks the
-                                              numbers against gale_listener's clue lists; no
+                                              numbers against gale_listener's clue lists; fit()
+                                              sets each unsure bar so the numbering agrees with
+                                              the cells' printed numbers (read with the shared
+                                              clue readers) and says whether it is exact; no
                                               symmetry assumed
 tools/test_listener_grid.sh                   does listener_grid read a drawn, slightly turned,
                                               non-square barred grid with a block back exactly,
                                               among prose, a column rule and a boxed advert,
-                                              and number it as light_cells does?
+                                              and number it as light_cells does, and do printed
+                                              numbers put a faint bar back?
 tools/test_gale_inbox.sh                      is a page saved into the Gale inbox matched to
                                               its date by its name or puzzle number, staged as
                                               that date's Times edition with its Gale link, due
