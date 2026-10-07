@@ -1041,13 +1041,13 @@ def refresh_unsolved():
         path = out_path(puzzle_paths.PUZZLE_DIR, num)
         puzzle = read_puzzle_file(path)
         was_model = "model" in provenance.solution_detail(puzzle)
-        guessed = ({entry_id(e): e.get("solution") for e in puzzle["entries"]}
-                   if was_model else None)
+        guessed = provenance.model_answers(puzzle) if was_model else None
         try:
             fill_answers(puzzle, num, puzzle)
             if provenance.solution_detail(puzzle).get("blog") == "fifteensquared":
                 if guessed is not None:
-                    print_grade(puzzle, grade_model_fill(puzzle, guessed))
+                    print_grade(puzzle, grade_model_fill(puzzle, guessed), guessed,
+                                "fifteensquared's answers")
                 write_puzzle_file(path, puzzle, generator="tools/fetch_privateeye.py")
                 print(f"solutions now published for {num}")
                 filled += 1

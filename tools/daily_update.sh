@@ -394,29 +394,34 @@ phase solutions 30
 #     annotations written off them, and the score is alerted rather than left in
 #     .update.log. That grade is the only measurement of how often a derived answer is right —
 #     it happens once per puzzle, on a night nobody knows in advance, so it has
-#     to come and find us.
+#     to come and find us. A key that never comes from the paper comes from a
+#     solver's blog: cross_validate.py all --model grades every model-solved
+#     file against each cached copy that answers it (bigdave44,
+#     timesforthetimes, fifteensquared, georgeho, scans), through the same grader.
 # A Cyclops its cover page misdates gets the fortnightly cadence's date.
 python3 tools/fetch_privateeye.py --backfill-dates
 refreshed=$( { python3 tools/fetch_puzzle.py --refresh-unsolved
                python3 tools/fetch_observer.py --refresh-unsolved
-               python3 tools/fetch_privateeye.py --refresh-unsolved; } 2>&1 | tee /dev/stderr)
+               python3 tools/fetch_privateeye.py --refresh-unsolved
+               python3 tools/cross_validate.py all --model --apply; } 2>&1 | tee /dev/stderr)
 graded=$(printf %s "$refreshed" | grep -E "^BLIND SOLVE GRADED|^  miss ")
+[ -n "$graded" ] && python3 tools/fetch_puzzle.py --reindex
 # A clean sweep and a bad night are not the same message. Both are worth
 # sending — the grade is the only measurement of derived answers and it
 # happens on a night nobody knows in advance — but the miss trailer is a lie
 # when there are no misses.
 if [ -n "$graded" ]; then
   if printf %s "$graded" | grep -q "^  miss "; then
-    alert "a puzzle we solved ourselves has been graded against the
-paper's published answers:
+    alert "a puzzle we solved ourselves has been graded against
+published answers (the paper's key, or a solver's write-up):
 
 $graded
 
 Every miss listed above has had its annotation dropped, so those clues are back
 in tonight's queue and will be rewritten against the real answer."
   else
-    ALERT_ICON="✅" alert "a puzzle we solved ourselves graded CLEAN against the
-paper's published answers:
+    ALERT_ICON="✅" alert "a puzzle we solved ourselves graded CLEAN against
+published answers (the paper's key, or a solver's write-up):
 
 $graded
 

@@ -55,8 +55,9 @@ and ft adapters, or ours when retrieved from that feed) beats an OCR'd scan
 (archiveorg, canberra, a book), which beats a blog's rebuild (fifteensquared,
 bigdave44, timesforthetimes, georgeho). Ours' rank is its file's: clues and
 counts by source.retrievedFrom, answers a blog's when solutions came from a
-write-up (ours_authority()). The nearer copy wins; equal or unknown rank, or
-no majority of three, leaves the file and is a lead in
+write-up (ours_authority()); a model's guess ranks below every copy. The
+nearer copy wins; equal or unknown rank, or no majority of three, leaves the
+file and is a lead in
 cross-validate/all-leads.jsonl. Each fix is recorded in
 tools/data/corroboration_ledger.json and is still refused where it crosses a
 letter it does not share or rewrites a clue an annotation quotes. The votes
@@ -67,7 +68,10 @@ Every copy we hold, by series. "own" is the paper's own feed, app or page; an
 adapter in brackets reads it; a cell marked with an adapter is compared by
 `all`. The nightly runs `all --new --apply` on tonight's filings; a pass over the rest
 (`all --apply --limit N`, resuming at a cursor) is run by hand after a change
-to an adapter or to majority().
+to an adapter or to majority(). `all --model --apply` visits every
+model-solved file and grades it (grade_model()) against each copy that
+answers it, through fetch_puzzle.grade_model_fill, the grader the paper's key
+uses: a solver's blog is the only key many cold solves will ever get.
 
   series                     primary (where ours came from)     other copies we hold
   cryptic quiptic everyman   own page (fetch_puzzle)            own page [guardian], fifteensquared
@@ -122,6 +126,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import groups
+import provenance
 from fetch_puzzle import puzzle_files, read_puzzle_file
 
 DATA = Path.home() / "cryptic-setter-data"
@@ -130,6 +135,8 @@ CLASSES = ("GRID", "NUMBERING", "MISSING", "EXTRA", "ANSWER", "ENUMERATION", "CL
 #: Source authority, best first: the paper's own print (its feed, app, page or
 #: PDF), an OCR'd scan of it (archive.org, Trove, a book), a blog's retyping.
 PAPER, SCAN, BLOG = 0, 1, 2
+#: A model's answer to a light no copy has graded yet: any copy outranks it.
+MODEL = 3
 #: A file's source.retrievedFrom, as an authority.
 RETRIEVED_AUTHORITY = {"publisher": PAPER, "wayback": PAPER, "newspaper": SCAN,
                        "book": SCAN, "blog": BLOG}
@@ -1574,13 +1581,17 @@ CURSOR = REPORTS / "all-cursor.json"
 TRAILING_COUNTS = re.compile(r"(?:\s*\([\d\s,.\-–—'’]+\))+\s*$")
 
 
+LETTERS = re.compile(r"[A-Z]+")
+
+
 def ballot(entry, cls):
     """What one copy's light says for `cls`, normalised as diff() compares
     it, or None when it says nothing: no answer that fills the light, a
-    pointer, no words, or a count copied from ours."""
+    pointer, no words, or a count copied from ours. An answer with anything
+    but letters in it (a prize page's "M1D1L") is no answer."""
     if cls == "ANSWER":
         sol = entry.get("solution")
-        return sol if sol and len(sol) == entry["length"] else None
+        return sol if sol and len(sol) == entry["length"] and LETTERS.fullmatch(sol) else None
     clue = entry.get("clue") or {}
     text = clue.get("text")
     if CONTINUATION.match(text or "") or not norm_text(text):
@@ -1608,15 +1619,21 @@ def copies(pid, ours, adapters, keys):
     return out
 
 
-def ours_authority(ours, cls):
-    """How far our file's value for `cls` is from the paper's print, or None
-    when the file does not say: its clues and counts are where the file was
-    retrieved from, its answers that too when published, a blog's when taken
-    from a write-up, and unranked when a model solved them."""
+def ours_authority(ours, cls, light=None):
+    """How far our file's value for `cls` at `light` is from the paper's
+    print, or None when the file does not say: its clues and counts are where
+    the file was retrieved from, its answers that too when published, a blog's
+    when taken from a write-up. Under a model's solve, an answer its source
+    printed ranks as that source, a guess no copy has graded yet ranks MODEL,
+    below every copy, and a graded one is unranked."""
     rest = RETRIEVED_AUTHORITY.get((ours.get("source") or {}).get("retrievedFrom"))
     if cls != "ANSWER":
         return rest
     origin = (ours.get("solutions") or {}).get("origin")
+    if origin == "model" and light is not None:
+        if light in provenance.printed_answers(ours):
+            return rest
+        return MODEL if light in provenance.model_answers(ours) else None
     return BLOG if origin == "writeup" else rest if origin in (None, "published") else None
 
 
@@ -1667,7 +1684,7 @@ def majority(ours, held_copies):
             kind = "outvoted" if settled and top != own else "backed" if settled else "split"
             if len(votes) == 2:
                 (them, top), = ((g, v) for g, v in votes.items() if g != "ours")
-                mine_rank, their_rank = ours_authority(ours, cls), ranks[them]
+                mine_rank, their_rank = ours_authority(ours, cls, groups.entry_id(o)), ranks[them]
                 if None not in (mine_rank, their_rank) and mine_rank != their_rank:
                     kind = "outranked" if their_rank < mine_rank else "upheld"
             fixed = kind in ("outvoted", "outranked")
@@ -1709,15 +1726,62 @@ def apply_majority(ours, verdicts):
                      why="the annotation quotes our clue")
         else:
             e["clue"]["text"] = src["clue"]["text"]
-    if conflicts(new) - conflicts(ours):
-        for v in verdicts:
-            if v["fixed"] and v["class"] == "ANSWER":
-                at[v["at"]]["solution"] = next(e["solution"] for e in ours["entries"]
-                                               if where(e) == v["at"])
-                v.update(fixed=False, winner=v["ours"], kind="split",
-                         why="crossings disagree with it")
+    # An answer whose letters a crossing contradicts goes back, one light at a
+    # time, so a sound fix is not refused for a neighbour's bad one.
+    was = {where(e): e.get("solution") for e in ours["entries"]}
+    while bad := conflicts(new) - conflicts(ours):
+        fixed = [v for v in verdicts if v["fixed"] and v["class"] == "ANSWER"]
+        crossed = [v for v in fixed if bad & set(cells(at[v["at"]]))] or fixed
+        if not crossed:
+            break
+        for v in crossed:
+            at[v["at"]]["solution"] = was[v["at"]]
+            v.update(fixed=False, winner=v["ours"], kind="split",
+                     why="crossings disagree with it")
     drop_stale_annotations(ours, new)
     return new
+
+
+def grade_model(ours, held_copies, found, verdicts):
+    """Mark a model's solve against the copies that answer it, through the
+    one grader every key's arrival uses (fetch_puzzle.grade_model_fill), or
+    None when no copy answers a guess not yet graded.
+
+    `verdicts` is majority()'s: an ungraded guess ranks below every copy
+    (ours_authority), so a copy's answer takes it over unless its crossings
+    refute it (apply_majority), and a miss is a guess the copies replaced. A
+    guess is graded once every copy answering it agrees with the grid as
+    written, or when the crossings refuted the copy; one the copies still
+    dispute (no majority, or two reads that differ) waits for another copy.
+
+    Returns (puzzle with the fixes and solutions.graded written, misses,
+    {entry id: our guess} for every light marked, the copies' origins)."""
+    guesses = provenance.model_answers(ours)
+    if not guesses:
+        return None
+    new = apply_majority(ours, verdicts)
+    refuted = {v["light"] for v in verdicts if v.get("why") == "crossings disagree with it"}
+    grid = {where(e): groups.entry_id(e) for e in ours["entries"]}
+    final = {groups.entry_id(e): e.get("solution") for e in new["entries"]}
+    said = defaultdict(dict)
+    for a, rows in found:
+        if "ANSWER" not in a.votes or any(m["class"] == "GRID" for m in rows):
+            continue
+        theirs = next(t for b, t in held_copies if b is a)
+        for e in theirs["entries"]:
+            eid = grid.get(where(e))
+            if eid in guesses and ballot(e, "ANSWER") is not None:
+                said[eid][a.origin_of(ours)] = ballot(e, "ANSWER")
+    marked = {eid: guesses[eid] for eid, by in said.items()
+              if eid in refuted or set(by.values()) == {final[eid]}}
+    if not marked:
+        return None
+    import fetch_puzzle
+    wrong = fetch_puzzle.grade_model_fill(new, marked)
+    graded = {**((new.get("solutions") or {}).get("graded") or {}),
+              **{eid: "+".join(sorted(said[eid])) for eid in marked}}
+    new["solutions"] = {**new["solutions"], "graded": graded}
+    return new, wrong, marked, sorted({o for eid in marked for o in said[eid]})
 
 
 def group_answer(puzzle, e):
@@ -1771,12 +1835,15 @@ def changed_files():
             if line[3:].strip().endswith(".json")}
 
 
-def corroborate_all(series=None, limit=None, only=None, new=False, write=False, start=None):
+def corroborate_all(series=None, limit=None, only=None, new=False, write=False, start=None,
+                    model=False):
     """Every copy of each selected puzzle against ours at once (majority()),
     fixing what a majority settles when `write`. The selection is `only`, the
-    files `new` names, or the next `limit` held puzzles after the cursor,
-    wrapping, so bounded runs walk the whole corpus in turn (the
-    cursor moves only when `write`, so a report-only run leaves it)."""
+    files `new` names, every model-solved file when `model`, or the next
+    `limit` held puzzles after the cursor, wrapping, so bounded runs walk the
+    whole corpus in turn (the cursor moves only when `write`, so a
+    report-only run leaves it). A model's solve that a copy answers is
+    graded (grade_model), and with `write` the grade is kept."""
     adapters = [cls() for cls in ADAPTERS.values()
                 if series is None or set(cls.series) & set(series)]
     for a in adapters:
@@ -1787,6 +1854,9 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
         todo = [p for p in only if p in disk]
     elif new:
         todo = sorted(changed_files() & disk.keys())
+    elif model:
+        todo = sorted(pid for pid, path in disk.items() if '"origin": "model"' in
+                      path.read_text(encoding="utf-8"))
     else:
         order = sorted(disk)
         if start is None:
@@ -1814,7 +1884,15 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
         for a, rows in found:
             pair[(a.name, "compared")] += 1
             pair.update((a.name, m["class"]) for m in rows)
-        if write and any(v["fixed"] for v in verdicts):
+        graded = grade_model(ours, held_copies, found, verdicts) if write else None
+        if graded:
+            import fetch_puzzle
+            new_puzzle, wrong, marked, origins = graded
+            ledger_majority(pid, verdicts)
+            fetch_puzzle.write_puzzle_file(disk[pid], new_puzzle)
+            fixed_files += 1
+            fetch_puzzle.print_grade(new_puzzle, wrong, marked, " and ".join(origins) + "'s answers")
+        elif write and any(v["fixed"] for v in verdicts):
             new_puzzle = apply_majority(ours, verdicts)
             if new_puzzle != ours:
                 import fetch_puzzle
@@ -1844,7 +1922,7 @@ def corroborate_all(series=None, limit=None, only=None, new=False, write=False, 
         kept.update(leads)
         LEADS.write_text("".join(json.dumps({"id": p, "leads": r}, ensure_ascii=False) + "\n"
                                  for p, r in sorted(kept.items()) if r), encoding="utf-8")
-        if write and not new and todo:
+        if write and not (new or model) and todo:
             CURSOR.write_text(json.dumps({"after": todo[-1]}))
     print(f"visited {len(todo)}; copies per puzzle {dict(sorted(copies_seen.items()))}")
     print("mismatches by pair (ours against each copy):")
@@ -1871,7 +1949,10 @@ def main(argv=None):
     ap.add_argument("--series", nargs="+", help="all: only these series")
     ap.add_argument("--new", action="store_true",
                     help="all: only the puzzle files git sees as new or changed")
-    ap.add_argument("--apply", action="store_true", help="all: write what a majority settles")
+    ap.add_argument("--model", action="store_true",
+                    help="all: only the model-solved files, graded against every copy that answers them")
+    ap.add_argument("--apply", action="store_true",
+                    help="all: write what a majority settles, and keep each grade")
     ap.add_argument("--start", metavar="ID", help="all: begin after this id, not the cursor")
     ap.add_argument("--fetch", action="store_true", help="top up the cache first")
     ap.add_argument("--limit", type=int, help="fetch or refile at most this many; all: visit this many after the cursor")
@@ -1880,7 +1961,8 @@ def main(argv=None):
     ap.add_argument("--show", nargs="+", metavar="ID", help="diff these puzzles and print")
     args = ap.parse_args(argv)
     if args.source == "all":
-        corroborate_all(args.series, args.limit, args.show, args.new, args.apply, args.start)
+        corroborate_all(args.series, args.limit, args.show, args.new, args.apply, args.start,
+                        args.model)
         return 0
     adapter = ADAPTERS[args.source]()
     if args.fetch:

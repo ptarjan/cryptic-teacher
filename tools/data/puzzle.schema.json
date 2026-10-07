@@ -987,6 +987,12 @@
      "minProperties": 1,
      "additionalProperties": {"type": "string", "pattern": "^[A-Z]*$"},
      "description": "Entry id -> the model answer no parse supported, sent back to be solved again (tools/reopen_answers.py). Once per entry."
+    },
+    "graded": {
+     "type": "object",
+     "minProperties": 1,
+     "additionalProperties": {"type": "string", "pattern": "^[a-z0-9-]+(\\+[a-z0-9-]+)*$"},
+     "description": "Entry id -> the copy (or copies, joined by +) a model answer was graded against once it arrived with answers: a solver's blog, a scan (tools/cross_validate.py all --model). Each guess is graded once."
     }
    }
   },
