@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Quiet historian losing footing on edges of ruin",
     "enumeration": "8"
    },
-   "solution": "TACITURN"
+   "solution": "TACITURN",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion",
+     "letter_selection"
+    ],
+    "answer": "TACITURN",
+    "definitions": [
+     {
+      "text": "Quiet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "losing footing",
+      "for": "deletion",
+      "note": "a word's footing is its base, so losing it means dropping the final letter"
+     },
+     {
+      "text": "edges of",
+      "for": "letter_selection",
+      "note": "the edges of a word are its outermost letters, first and last"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "historian",
+      "gives": "TACITUS",
+      "note": "Tacitus was the Roman historian of the early empire"
+     },
+     {
+      "clueFragment": "ruin",
+      "gives": "RN",
+      "select": "outer",
+      "note": "the first and last letters of ruin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TACITU",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "A historian goes quiet after slipping at the edge of an ancient ruin.",
+     "walkthrough": "TACITUS drops its last letter S to give TACITU, then RN completes TACITURN.",
+     "definitionFit": "A taciturn person says very little, so the adjective is a synonym for quiet in temperament."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "footing"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +108,56 @@
     "text": "Slothful extremes of island life",
     "enumeration": "4"
    },
-   "solution": "IDLE"
+   "solution": "IDLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "IDLE",
+    "definitions": [
+     {
+      "text": "Slothful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of each word are its two end letters, first and last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "ID",
+      "select": "outer",
+      "note": "first and last letters of island"
+     },
+     {
+      "clueFragment": "life",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters of life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ID",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Island living at its laziest, lounging about at the far ends of the earth.",
+     "definitionFit": "Idle and slothful both describe someone lazy who avoids work or effort."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremes"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +171,57 @@
     "text": "Maidens periodically need bluesy tunes",
     "enumeration": "6"
    },
-   "solution": "MEDLEY"
+   "solution": "MEDLEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MEDLEY",
+    "definitions": [
+     {
+      "text": "tunes",
+      "at": 33,
+      "note": "the answer is a single piece made of several tunes"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals, so only every second letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maidens",
+      "gives": "M",
+      "note": "M is the cricket scorer's abbreviation for maiden overs"
+     },
+     {
+      "clueFragment": "need bluesy",
+      "gives": "EDLEY",
+      "select": "alternate",
+      "note": "the even letters of need bluesy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "EDLEY"
+     ]
+    },
+    "explanation": {
+     "surface": "Young women from time to time want sad, bluesy songs.",
+     "walkthrough": "In cricket a maiden is an over with no runs scored, recorded as M on the scorecard.",
+     "definitionFit": "A medley is a musical piece stringing together several songs or tunes in sequence."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Maidens"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +235,60 @@
     "text": "Scientist loves squeezing large marrow",
     "enumeration": "7"
    },
-   "solution": "OLOGIST"
+   "solution": "OLOGIST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "OLOGIST",
+    "definitions": [
+     {
+      "text": "Scientist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "squeezing",
+      "for": "container",
+      "note": "squeezing means pressing something inside, so the pair of loves hold the large between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loves",
+      "gives": "OO",
+      "note": "love is zero in tennis, written O; two of them"
+     },
+     {
+      "clueFragment": "large",
+      "gives": "L",
+      "note": "L is the clothing-size abbreviation for large"
+     },
+     {
+      "clueFragment": "marrow",
+      "gives": "GIST",
+      "note": "the marrow of a matter is its essence or core"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLO",
+      "GIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A researcher adores pressing a giant vegetable marrow, presumably for an experiment.",
+     "walkthrough": "Marrow looks like the vegetable but means the central point, as in the marrow of an argument.",
+     "definitionFit": "An ologist is an informal word for any specialist in an -ology, a branch of science."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "marrow"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +308,51 @@
      }
     ]
    },
-   "solution": "THIRDAGE"
+   "solution": "THIRDAGE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THIRD AGE",
+    "definitions": [
+     {
+      "text": "Seniors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrong",
+      "for": "anagram",
+      "note": "something put wrong is set out of its proper order, so these letters must be rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "righted a",
+      "gives": "RIGHTEDA",
+      "note": "the fodder letters, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIGHTEDA",
+       "gives": "THIRDAGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Older people put right something that had been done badly.",
+     "walkthrough": "The joke is in righted a wrong: wrong is really the instruction to rearrange righted a.",
+     "definitionFit": "The third age is the period of active life after retirement, so it collectively names older people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wrong"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +366,40 @@
     "text": "Turns section of poultry farm into co-op?",
     "enumeration": "10"
    },
-   "solution": "HYPHENATES"
+   "solution": "HYPHENATES",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HYPHENATES",
+    "definitions": [
+     {
+      "text": "Turns section of poultry farm into co-op?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turns section of poultry farm into co-op?",
+      "note": "surface reading: converts a part of a chicken farm into a cooperative business"
+     },
+     {
+      "clueFragment": "section of poultry farm into co-op",
+      "note": "setter's reading: the word coop, a hen house, becomes co-op once a dash is put between its two Os"
+     }
+    ],
+    "explanation": {
+     "surface": "A farmer converts the chicken unit into a cooperative enterprise.",
+     "walkthrough": "A coop is a hen house; adding a hyphen spells co-op. The question mark flags the wordplay on spelling.",
+     "definitionFit": "The verb names inserting a short dash between parts of a word, exactly what changes coop into co-op."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "co-op"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +413,62 @@
     "text": "Arab in Italy supporting the old folk",
     "enumeration": "6"
    },
-   "solution": "YEMENI"
+   "solution": "YEMENI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "YEMENI",
+    "definitions": [
+     {
+      "text": "Arab",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supporting",
+      "for": "charade",
+      "note": "in a down clue supporting means sitting underneath, so this piece comes last"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is the archaic spelling of the"
+     },
+     {
+      "clueFragment": "folk",
+      "gives": "MEN",
+      "note": "men, people"
+     },
+     {
+      "clueFragment": "Italy",
+      "gives": "I",
+      "note": "I is the international vehicle code for Italy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "YE",
+      "MEN",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "An Arab living in Italy looks after the elderly.",
+     "definitionFit": "Yemen is on the Arabian Peninsula, so a native of that country is an Arab."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +482,64 @@
     "text": "Composer accepting billion pounds for percussion instrument",
     "enumeration": "8"
    },
-   "solution": "HANDBELL"
+   "solution": "HANDBELL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HANDBELL",
+    "definitions": [
+     {
+      "text": "percussion instrument",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting means taking in, so the composer's name holds the other letters inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Composer",
+      "gives": "HANDEL",
+      "note": "George Frideric Handel, the Baroque composer"
+     },
+     {
+      "clueFragment": "billion",
+      "gives": "B",
+      "note": "B is a standard abbreviation for billion"
+     },
+     {
+      "clueFragment": "pounds",
+      "gives": "L",
+      "note": "L, from Latin libra, is the symbol for pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HAND",
+      "B",
+      "EL",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A composer takes a vast fee in return for writing for percussion.",
+     "walkthrough": "Billion pounds reads as a fat fee, but each word is only its single-letter abbreviation.",
+     "definitionFit": "A handbell is a small bell rung by hand, struck to sound and so counted among percussion instruments."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "accepting"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +553,55 @@
     "text": "Olive eaten by male astrophysicist",
     "enumeration": "5"
    },
-   "solution": "HOYLE"
+   "solution": "HOYLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOYLE",
+    "definitions": [
+     {
+      "text": "astrophysicist",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eaten by",
+      "for": "container",
+      "note": "what is eaten goes inside the eater, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Olive",
+      "gives": "OYL",
+      "note": "Olive Oyl is Popeye's girlfriend in the cartoons"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "HE",
+      "note": "he, the male pronoun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OYL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A man munches an olive.",
+     "walkthrough": "Olive looks like the fruit, but stands for Olive Oyl, the cartoon sweetheart of Popeye the Sailor.",
+     "definitionFit": "Sir Fred Hoyle was a British astronomer and cosmologist who coined the phrase Big Bang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Olive"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +615,49 @@
     "text": "Ecstasy and anger in Ireland",
     "enumeration": "4"
    },
-   "solution": "EIRE"
+   "solution": "EIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EIRE",
+    "definitions": [
+     {
+      "text": "Ireland",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ecstasy",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "IRE",
+      "note": "ire, wrath"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Drug-taking and bad tempers in Ireland.",
+     "definitionFit": "Eire is the Irish-language name for the country, used in English for the Republic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ecstasy"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +671,60 @@
     "text": "Eccentric horologer with a wind problem",
     "enumeration": "10"
    },
-   "solution": "LOGORRHOEA"
+   "solution": "LOGORRHOEA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LOGORRHOEA",
+    "definitions": [
+     {
+      "text": "wind problem",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Eccentric",
+      "for": "anagram",
+      "note": "eccentric means off-centre and odd, so the letters that follow are arranged unusually"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "horologer",
+      "gives": "HOROLOGER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOROLOGERA",
+       "gives": "LOGORRHOEA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An odd clockmaker suffers from flatulence, or from winding trouble with his clocks.",
+     "walkthrough": "A horologer makes clocks, so wind suggests winding them; here wind means empty talk.",
+     "definitionFit": "Logorrhoea is excessive talkativeness, and wind is idle verbose chatter, so the condition is a problem of too much talk."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "wind"
+    }
+   }
   },
   {
    "number": 12,
@@ -199,7 +744,52 @@
      }
     ]
    },
-   "solution": "RUNDRY"
+   "solution": "RUNDRY",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "RUN DRY",
+    "definitions": [
+     {
+      "text": "become exhausted",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "change of leader",
+      "for": "substitution",
+      "note": "a new leader means swapping the first letter of the word for a different one"
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "several",
+      "gives": "SUNDRY",
+      "note": "sundry means various or several"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "UNDRY"
+     ]
+    },
+    "explanation": {
+     "surface": "After a new boss arrives, a number of staff burn out.",
+     "walkthrough": "SUNDRY swaps its leading S for R; the new letter is fixed by the definition rather than clued.",
+     "definitionFit": "To run dry is to be used up completely, like a well or supply that has nothing left."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leader"
+    }
+   }
   },
   {
    "number": 13,
@@ -213,7 +803,65 @@
     "text": "Roman emperor, regularly ignoring advisor, called time on Scotsman",
     "enumeration": "10"
    },
-   "solution": "DIOCLETIAN"
+   "solution": "DIOCLETIAN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DIOCLETIAN",
+    "definitions": [
+     {
+      "text": "Roman emperor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly ignoring",
+      "for": "letter_selection",
+      "note": "regularly ignoring means skipping letters at a steady interval and keeping the others"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "advisor, called",
+      "gives": "DIOCLE",
+      "select": "alternate",
+      "note": "the even letters of advisor called"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "IAN",
+      "note": "Ian is the stock Scottish man's name in crosswords"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIOCLE",
+      "T",
+      "IAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A Roman emperor sacked his counsellor and halted a Scot's career.",
+     "walkthrough": "Called looks like the start of called time, but its letters join advisor in the alternating run.",
+     "definitionFit": "Diocletian ruled Rome from 284 to 305 and divided the empire into a tetrarchy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "called"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +881,63 @@
      }
     ]
    },
-   "solution": "SEASNAIL"
+   "solution": "SEASNAIL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEA SNAIL",
+    "definitions": [
+     {
+      "text": "gastropod",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ducks",
+      "for": "deletion",
+      "note": "to duck something is to dodge it, so the word avoids one of its letters"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is a standard abbreviation for old"
+     },
+     {
+      "clueFragment": "spell",
+      "gives": "SEASON",
+      "note": "a spell or season is a period of time"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "AIL",
+      "note": "to ail is to trouble or afflict"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEASN",
+      "AIL"
+     ]
+    },
+    "explanation": {
+     "surface": "Elderly dears forecast misfortune for the snail.",
+     "walkthrough": "Old ducks reads as a fond term for elderly people, but it is O being dodged by SEASON, leaving SEASN.",
+     "definitionFit": "A sea snail is a marine mollusc with a coiled shell, one of the many kinds of gastropod."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ducks"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +961,66 @@
      }
     ]
    },
-   "solution": "ONEOFUS"
+   "solution": "ONEOFUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "ONE OF US",
+    "definitions": [
+     {
+      "text": "Our sort",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "retired means drawn back, so the group's name is read in the backward direction"
+     },
+     {
+      "text": "overwhelmed by",
+      "for": "container",
+      "note": "being overwhelmed by something means being engulfed, so these letters go inside the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "environmentalists",
+      "gives": "FOE",
+      "note": "FoE is Friends of the Earth, the environmental campaign group"
+     },
+     {
+      "clueFragment": "burden",
+      "gives": "ONUS",
+      "note": "onus, a duty or burden"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "EOF",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "FOE",
+       "to": "EOF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Green campaigners like us stood down, crushed by their responsibilities.",
+     "definitionFit": "Someone who is one of us belongs to our group, the same sort as ourselves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retired"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1034,58 @@
     "text": "Mum dined merrily, as luminous as ever",
     "enumeration": "8"
    },
-   "solution": "UNDIMMED"
+   "solution": "UNDIMMED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "UNDIMMED",
+    "definitions": [
+     {
+      "text": "as luminous as ever",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "merrily",
+      "for": "anagram",
+      "note": "merrily suggests a tipsy, carefree state, so the letters of the dinner reel into a new order"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mum",
+      "gives": "MUM",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dined",
+      "gives": "DINED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MUMDINED",
+       "gives": "UNDIMMED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mother ate cheerfully and was as radiant as she always is.",
+     "definitionFit": "Something undimmed has lost none of its brightness, so it shines as luminously as it always did."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "merrily"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1099,63 @@
     "text": "Cover skin of backside with trousers, back to front",
     "enumeration": "7"
    },
-   "solution": "BESTREW"
+   "solution": "BESTREW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "cycling",
+     "charade"
+    ],
+    "answer": "BESTREW",
+    "definitions": [
+     {
+      "text": "Cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skin of",
+      "for": "letter_selection",
+      "note": "a word's skin is its outer layer, the first and last letters"
+     },
+     {
+      "text": "back to front",
+      "for": "cycling",
+      "note": "moving the back to the front means the last letter is shifted to the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "backside",
+      "gives": "BE",
+      "select": "outer",
+      "note": "first and last letters of backside"
+     },
+     {
+      "clueFragment": "trousers",
+      "gives": "TREWS",
+      "note": "trews are close-fitting tartan trousers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BE",
+      "STREW"
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for hiding one's behind by putting trousers on the wrong way round.",
+     "walkthrough": "TREWS has its final S moved to the front. Trews are Scottish tartan trousers.",
+     "definitionFit": "To bestrew is to scatter things over a surface, covering it, as with petals or litter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "skin"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1169,42 @@
     "text": "All children tire, lying about",
     "enumeration": "8"
    },
-   "solution": "ENTIRELY"
+   "solution": "ENTIRELY",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENTIRELY",
+    "definitions": [
+     {
+      "text": "All",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lying about",
+      "for": "hidden_word",
+      "note": "the letters are lying about in the phrase, spread across the word boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "children tire, lying",
+      "gives": "ENTIRELY",
+      "note": "found across the end of children, all of tire and the start of lying"
+     }
+    ],
+    "explanation": {
+     "surface": "All the kids get tired, sprawled around the place.",
+     "definitionFit": "Entirely and all both mean wholly or completely, as in all alone or entirely alone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lying"
+    }
+   }
   },
   {
    "number": 19,
@@ -313,7 +1218,54 @@
     "text": "Dramatic deep breaths heard over microphone",
     "enumeration": "7"
    },
-   "solution": "SEISMIC"
+   "solution": "SEISMIC",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "SEISMIC",
+    "definitions": [
+     {
+      "text": "Dramatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard means the words are taken as spoken, by their sound not their spelling"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue over means placed above, so this piece comes first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deep breaths",
+      "gives": "SEIS",
+      "soundsLike": "SIGHS",
+      "note": "sighs are deep breaths, and the first syllable of the answer is said the same way"
+     },
+     {
+      "clueFragment": "microphone",
+      "gives": "MIC",
+      "note": "mic is the short form of microphone"
+     }
+    ],
+    "explanation": {
+     "surface": "A performer gasps theatrically into the microphone.",
+     "definitionFit": "Seismic is used figuratively for something of enormous, earth-shaking impact, hence dramatic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Dramatic"
+    }
+   }
   },
   {
    "number": 20,
@@ -327,7 +1279,66 @@
     "text": "Creep round ridiculously cool green hotel",
     "enumeration": "8"
    },
-   "solution": "ECOLODGE"
+   "solution": "ECOLODGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ECOLODGE",
+    "definitions": [
+     {
+      "text": "green hotel",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ridiculously",
+      "for": "anagram",
+      "note": "ridiculously suggests something absurd and out of shape, so these letters are jumbled"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means encircling, so the first word wraps around the jumbled letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Creep",
+      "gives": "EDGE",
+      "note": "to edge is to creep slowly forward"
+     },
+     {
+      "clueFragment": "cool",
+      "gives": "COOL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "COLO",
+      "DGE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COOL",
+       "gives": "COLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unpleasant sycophant hangs around an absurdly trendy environmentally friendly hotel.",
+     "definitionFit": "An eco-lodge is tourist accommodation built to have little environmental impact, so a green place to stay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Creep"
+    }
+   }
   },
   {
    "number": 21,
@@ -341,7 +1352,71 @@
     "text": "Iroquois dude turned up in California area",
     "enumeration": "6"
    },
-   "solution": "CAYUGA"
+   "solution": "CAYUGA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CAYUGA",
+    "definitions": [
+     {
+      "text": "Iroquois",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down clue turned up means read from bottom to top, backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the reversed word inside the outer letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dude",
+      "gives": "GUY",
+      "note": "dude and guy both mean a man"
+     },
+     {
+      "clueFragment": "California",
+      "gives": "CA",
+      "note": "CA is the postal abbreviation for California"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "YUG",
+      "A"
+     ],
+     "reversals": [
+      {
+       "from": "GUY",
+       "to": "YUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Native American man appears in a part of California.",
+     "definitionFit": "The Cayuga are one of the five original nations of the Iroquois Confederacy in New York State."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dude"
+    }
+   }
   },
   {
    "number": 22,
@@ -355,7 +1430,63 @@
     "text": "Married prince leaving old Spanish capital for plateau",
     "enumeration": "6"
    },
-   "solution": "MESETA"
+   "solution": "MESETA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "MESETA",
+    "definitions": [
+     {
+      "text": "plateau",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so the letter for the royal goes out of the word"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "prince",
+      "gives": "P",
+      "note": "P is the abbreviation for prince"
+     },
+     {
+      "clueFragment": "old Spanish capital",
+      "gives": "PESETA",
+      "note": "the peseta was Spain's currency before the euro"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ESETA"
+     ]
+    },
+    "explanation": {
+     "surface": "A newly wed prince moves from the former Spanish capital city up to the highlands.",
+     "walkthrough": "Capital looks like a city such as Toledo, but means money: PESETA loses its P.",
+     "definitionFit": "The Meseta is the high central tableland of Spain, and the word means a plateau generally."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "capital"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1506,61 @@
      }
     ]
    },
-   "solution": "MADEDO"
+   "solution": "MADEDO",
+   "annotation": {
+    "type": [
+     "homophone",
+     "deletion",
+     "charade"
+    ],
+    "answer": "MADE DO",
+    "definitions": [
+     {
+      "text": "managed",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken aloud, so the word is taken by its sound"
+     },
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not all, so the final letter is left off"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "MADE",
+      "soundsLike": "MAID",
+      "note": "a maid is a girl, and sounds identical to the past tense of make"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "DOC",
+      "note": "doc, short for doctor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MADE",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman reports that the doctor largely coped.",
+     "definitionFit": "To make do is to manage with whatever is available, so made do means managed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Girl"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1574,64 @@
     "text": "Imposed order on society, yet missed vagrant",
     "enumeration": "10"
    },
-   "solution": "SYSTEMISED"
+   "solution": "SYSTEMISED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SYSTEMISED",
+    "definitions": [
+     {
+      "text": "Imposed order",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vagrant",
+      "for": "anagram",
+      "note": "a vagrant wanders without settling, so the letters roam into a fresh order"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "society",
+      "gives": "S",
+      "note": "S is the abbreviation for society"
+     },
+     {
+      "clueFragment": "yet missed",
+      "gives": "YETMISSED",
+      "note": "the fodder letters, taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "YSTEMISED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "YETMISSED",
+       "gives": "YSTEMISED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Social order was imposed, yet the homeless person was left out.",
+     "walkthrough": "Vagrant looks like a noun, a homeless wanderer, but acts as the adjective telling you to rearrange.",
+     "definitionFit": "To systemise something is to arrange it methodically, which is imposing order on it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "vagrant"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1645,55 @@
     "text": "Coarse group of women, rowdily discontented",
     "enumeration": "4"
    },
-   "solution": "WIRY"
+   "solution": "WIRY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "WIRY",
+    "definitions": [
+     {
+      "text": "Coarse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "discontented",
+      "for": "letter_selection",
+      "note": "discontented means emptied of contents, so only the shell of the word stays"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "group of women",
+      "gives": "WI",
+      "note": "the WI is the Women's Institute, a British community organisation for women"
+     },
+     {
+      "clueFragment": "rowdily",
+      "gives": "RY",
+      "select": "outer",
+      "note": "rowdily without its middle letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WI",
+      "RY"
+     ]
+    },
+    "explanation": {
+     "surface": "A rough, unruly bunch of women who are unhappy with their lot.",
+     "definitionFit": "Wiry hair is stiff and rough to the touch, so coarse in texture like wire."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "discontented"
+    }
+   }
   },
   {
    "number": 24,
@@ -417,7 +1707,49 @@
     "text": "Roots of sow thistle are dedicated gardener's enemy",
     "enumeration": "4"
    },
-   "solution": "WEED"
+   "solution": "WEED",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "WEED",
+    "definitions": [
+     {
+      "text": "gardener's enemy",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Roots of",
+      "for": "letter_selection",
+      "note": "in a down clue roots are at the bottom, so the last letter of each word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sow thistle are dedicated",
+      "gives": "WEED",
+      "select": "last",
+      "note": "the final letters of these four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEED"
+     ]
+    },
+    "explanation": {
+     "surface": "The roots of the sow thistle are a committed gardener's nemesis.",
+     "walkthrough": "Sow thistle really is a common garden weed, so the surface describes the answer too.",
+     "definitionFit": "A weed is an unwanted wild plant that competes with cultivated ones, so it is the gardener's foe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Roots"
+    }
+   }
   },
   {
    "number": 25,
@@ -431,7 +1763,48 @@
     "text": "Prayer of thanks from good people",
     "enumeration": "5"
    },
-   "solution": "GRACE"
+   "solution": "GRACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GRACE",
+    "definitions": [
+     {
+      "text": "Prayer of thanks",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "RACE",
+      "note": "a race is a people or nation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "RACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Decent folk offer a prayer of gratitude.",
+     "definitionFit": "Grace is the short prayer said before or after a meal giving thanks for the food."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -445,7 +1818,42 @@
     "text": "Remains for ever in mind, we'll swear",
     "enumeration": "8"
    },
-   "solution": "INDWELLS"
+   "solution": "INDWELLS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INDWELLS",
+    "definitions": [
+     {
+      "text": "Remains for ever",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in tells you the letters sit inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mind, we'll swear",
+      "gives": "INDWELLS",
+      "note": "spans the end of mind, all of we'll and the first letter of swear"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone vows that a memory will stay in their thoughts forever.",
+     "definitionFit": "To indwell is to abide or live permanently within, as a spirit dwells within a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   }
  ]
 }
