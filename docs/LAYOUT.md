@@ -1262,6 +1262,8 @@ tools/test_book_queue.sh                      does tools/book_queue.py still off
                                               book to tools/acquire_books.sh?
 tools/test_build_readme.sh                    does tools/build_readme.py still read the header
                                               of every file it is asked about?
+tools/test_doc_pointers.sh                    does every backticked path and function in the
+                                              prose docs still exist?
 tools/test_prereset_lock.sh                   does the pre-reset backfill still take over a
                                               lock nobody is holding?
 tools/test_nightly_worktree.sh                which tree does a scheduled job end up running

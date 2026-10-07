@@ -26,10 +26,9 @@ The walkthrough rung shows two labelled parts:
 
 An annotation without a surface shows "The trick" alone. That is correct, but
 poorer. `tools/annotate_prompt.md` asks for `surface` on new annotations, and
-omits it only when the clue has no surface apart from its mechanism (double
-definitions, cryptic definitions, idioms). On 2026-09-24, 11,111 of 17,769
-annotated walkthroughs had a `surface`. The rest are the backlog, though some
-of them correctly have none.
+omits it only for a pure double or cryptic definition, or a clue that paints no
+picture apart from its mechanism. Older annotations without one are the
+backlog, though some of them correctly have none.
 
 **This cannot be done mechanically.** No phrase list can tell a surface sentence
 from a mechanical one: "the donkey is scenery" and "the definition is being

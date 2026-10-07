@@ -15,6 +15,6 @@ and a pinned dependency is not that. Bumping it means a new filename and a new
 hash here, so the two can never drift apart quietly — `tools/smoke_test.js`
 checks the file against the hash above.
 
-It is fetched on the first press of "Scan a code" and never otherwise. A quarter
+It is fetched on the first press of "Scan a QR code" and never otherwise. A quarter
 of a megabyte is a lot to answer a question most people answer by typing eight
 characters, and nobody who types them pays for it.

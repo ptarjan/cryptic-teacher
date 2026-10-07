@@ -416,6 +416,7 @@ LAYOUT = [
     ("tables everything else reads", "tools/book_queue.py", "which registered archive.org books have not been read yet, best first"),
     ("tables everything else reads", "tools/test_book_queue.sh", "does tools/book_queue.py still offer the right book to tools/acquire_books.sh?"),
     ("tables everything else reads", "tools/test_build_readme.sh", "does tools/build_readme.py still read the header of every file it is asked about?"),
+    ("tables everything else reads", "tools/test_doc_pointers.sh", "does every backticked path and function in the prose docs still exist?"),
     ("tables everything else reads", "tools/test_prereset_lock.sh", "does the pre-reset backfill still take over a lock nobody is holding?"),
     ("tables everything else reads", "tools/test_nightly_worktree.sh", "which tree does a scheduled job end up running in? checked by running one"),
     ("tables everything else reads", "tools/test_durable.sh", "does a long job keep what it filed when left running, sent SIGTERM, or SIGKILLed and restarted, without filing anything twice; does corpus_queue.py stop let the pass commit; does every long scheduled job use tools/durable.sh, committing all of puzzles/ so a book file a newspaper write superseded is deleted on origin too?"),

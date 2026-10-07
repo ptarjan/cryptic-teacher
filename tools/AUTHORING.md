@@ -73,7 +73,7 @@ below came from this tool's own runs:
 
 * **KILOMETERS**: legal and common, but an American spelling that a British
   solver would call an error. The Lufz lexicon's Britain region lists 5,212 such
-  spellings, and the filler now drops all of them.
+  spellings, and the filler drops all of them.
 * **PARC** and **PROTO**: PARC is French, and PROTO is a prefix with no
   definition. Both are good *pieces* of wordplay and impossible *answers*.
 * **AMINO**: only ever appears in "amino acid", so it cannot be defined
@@ -212,11 +212,11 @@ The default floors are per length, in `tools/data/fill_floors.json`:
 clueability and of the familiarity of published single-word answers of that
 length, and the nightly rebuilds it. Both scores fall with length (a
 published 4-letter answer has a median clueability of 64, a 13-letter one 34),
-so one flat floor rejected most long answers: the old hand-set 40/25 passed
-45% of published 4-letter answers and 11% of 13-letter ones, and only 38 of
-the 1,252 thirteen-letter words in the cache. At the measured floors about
-60% of published answers pass at every length, and 488 thirteen-letter words
-qualify. `--min-clue 40 --min-familiarity 25` still gives the old fill.
+so one flat floor rejects most long answers: a flat 40/25 passes 45% of
+published 4-letter answers and 11% of 13-letter ones, and only 38 of the 1,252
+thirteen-letter words in the cache. At the measured floors about 60% of
+published answers pass at every length, and 488 thirteen-letter words qualify.
+`--min-clue 40 --min-familiarity 25` gives a flat floor.
 
 ## What blind grading found
 
@@ -285,7 +285,7 @@ ones. Extra words help only if they buy a surface idea.
 `claude-opus-5-5` wrote twenty fresh clues without seeing any earlier A001 clue
 or any published clue for these answers. It got these rules with the A001
 examples removed, and all twenty passed `tools/validate_annotations.py`. Judges
-are now `tools/grade_clues_judge.sh`: three fresh `claude-opus-5-5` runs at
+are `tools/grade_clues_judge.sh`: three fresh `claude-opus-5-5` runs at
 medium effort per arm. July recorded neither the judges' model nor their prompt,
 so a control arm re-judged July's round-two packets byte for byte.
 
@@ -334,7 +334,7 @@ two repair rounds; all 20 answers needed at least one, and 2 of 100 candidates
 were dropped. A separate fresh run picked one per answer on misdirection and
 penny-drop alone (`tools/author_trial_select.md` plus the rubric). The picks
 faced round two's exact sixty rivals (`tools/grade_clues.py --rivals-from`,
-because the seed alone now draws a different LEADERSHIP field) and three
+because the seed alone would draw a different LEADERSHIP field) and three
 serial judges:
 
 | arm | misdir + penny-drop gap | misdirection | penny-drop | wins /20 | spotted |
@@ -441,7 +441,7 @@ to homophone. The sentence came first, and the mechanism was found inside it.
 The rule above was on the page during the September trial, and the clues
 still came out as standard Times clues: level with a typical published clue,
 beaten by the best on 13 of 20, with a joke on 8 of 20. Prose alone did not
-hold. So two parts of it are now ERRORs on every puzzle we set, and
+hold. So two parts of it are ERRORs on every puzzle we set, and
 `tools/build_authored_puzzle.py` will not write a puzzle that has one:
 
 * **Every clue states its scene in `explanation.surface`.** Write this first:
@@ -452,7 +452,7 @@ hold. So two parts of it are now ERRORs on every puzzle we set, and
   describing the machinery. (`check_authored_surface`)
 * **A pun names its word.** A clue tagged `features.joke: pun` names the word
   whose second sense carries it in `features.misdirectedWord`. There is no joke
-  quota: a quota of half, tried on 2026-09-29, was met by tagging clues rather
+  quota: a quota of half was met by tagging clues rather
   than writing jokes, and scored worse (see the grading section).
   (`check_authored_puns`)
 
@@ -465,11 +465,10 @@ backfires? (10)` = TRAGICOMIC has "A gag in which the cigar goes off in
 Groucho Marx's face", with its pun on `minute`. Each is a scene
 you could tell someone about, and the mechanism was found inside it.
 
-`tools/clue_quality.py` also flags `not-a-sentence`, `imperative-opening` and
+`tools/clue_quality.py` also flags `imperative-opening` and
 `unattested-phrasing`, but read its vote table before trusting them. Against
-2,082 solver favourites, `not-a-sentence` has no signal (odds 0.94; it fires
-on half of published clues). The other two point the right way but are too
-rare to establish. The two tests above remain judgements, made aloud.
+2,082 solver favourites, both point the right way but are too rare to
+establish. The two tests above remain judgements, made aloud.
 
 ## The standard is a pub joke, not a rubric score
 
@@ -665,8 +664,7 @@ is what is being taught, and PEAS before SWEET makes the learner reassemble what
 the annotation should show. What made it look like noise was scope. Limited to
 `type == "charade"` exactly, it has 10 hits in 127 and no false positives. Every
 hit outside that scope is a container or a rotation, whose blocks are
-*supposed* to come before the positional step. The backlog was fixed in the same
-commit, so the check started at zero.
+*supposed* to come before the positional step.
 
 The general lesson: before shelving a check for firing on honest work, ask
 whether the rule is wrong or only its scope, and whether "honest work" is a
@@ -678,13 +676,11 @@ cryptic definition in the puzzle, and a human reads them. This is deliberate. A
 check that catches the remaining case does not exist, because every version
 tried was wrong more often than right.
 
-The cap went through the same scoping lesson in the other direction. It was
-once an ERROR on every puzzle. Then quiptic-1372 (Harpo) turned out to have five
-real cryptic definitions, so the annotator solved all five and shipped three of
-them with `annotation: null` to get under the limit. The rule was right and its
-scope was wrong: our own count is ours to change, but a published setter's count
-is a fact about their grid. It now ERRORs on authored puzzles and warns on
-fetched ones. The second repair matters more: a rule that can be satisfied with
+The cap is scoped the same way, in the other direction: our own count is ours
+to change, but a published setter's count is a fact about their grid
+(quiptic-1372, by Harpo, has five real cryptic definitions). So it ERRORs on
+authored puzzles and warns on fetched ones. An ERROR on a published grid can
+only be met by leaving clues blank, and a rule that can be satisfied with
 blanks turns a loud failure into a silent one. So `check_every_clue_is_annotated()`
 makes a blank annotation an error, exempting only an entry the setter printed
 with no clue text.
@@ -709,8 +705,8 @@ rm puzzles/authored/*/authored-1.json
 
 `tools/build_authored_puzzle.py` writes `puzzles/authored/<year>/authored-1.json`,
 the year of `--date` (it uses the grid in `tools/data/sample_fill_11.json` unless
-`--fill` says otherwise), and refuses to write a file that fails the schema or
-the integrity checks. Delete the file when you are done: A001 is not published,
+`--fill` says otherwise), and refuses to write a puzzle that
+`tools/validate_annotations.py` has an ERROR for. Delete the file when you are done: A001 is not published,
 and the clues JSON is the source.
 
 A clean validate ends with no ERROR lines.
@@ -902,6 +898,5 @@ valid response to that smell is a different indicator, never a moved one.
 STOREY keeps its pun (floor as surface, floor as storey) and pays for it
 honestly. Crushed oyster shell really is laid as flooring, so `Ground` both
 describes the material and shuffles it, and `makes` is a true equals sign. Five
-words, four jobs, nothing spare. LOOP's walkthrough now teaches the direction
-convention; the old one said "in a down clue the reversal runs upwards" while
-using `Back` to do it.
+words, four jobs, nothing spare. LOOP's walkthrough teaches the direction
+convention.
