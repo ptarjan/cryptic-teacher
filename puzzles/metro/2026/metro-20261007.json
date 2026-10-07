@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Glaring, but natal baby holds it back",
     "enumeration": "7"
    },
-   "solution": "BLATANT"
+   "solution": "BLATANT",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "BLATANT",
+    "definitions": [
+     {
+      "text": "Glaring",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holds",
+      "for": "hidden_word",
+      "note": "the words hold something within their run of letters, so the answer sits inside them"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the concealed letters are read in the opposite direction, right to left"
+     }
+    ],
+    "linkWords": [
+     "it"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "but natal baby",
+      "gives": "TNATALB",
+      "note": "letters spanning the end of the first word, all of the second and the start of the third"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LATAN",
+      "T"
+     ],
+     "reversals": [
+      {
+       "from": "TNATALB",
+       "to": "BLATANT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newborn baby is being held back, which is plainly wrong.",
+     "walkthrough": "'it' is the subject pointing back to the definition: the words hold it, backwards. 'natal baby' tempts you to use NATAL as a whole piece, but the hidden run starts in but.",
+     "definitionFit": "Something blatant is obvious and unashamed, just as a glaring error stands out for everyone to notice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "baby"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,67 @@
     "text": "John, eg, fitting odd bits outside",
     "enumeration": "7"
    },
-   "solution": "BAPTIST"
+   "solution": "BAPTIST",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BAPTIST",
+    "definitions": [
+     {
+      "text": "John, eg",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "odd",
+      "for": "anagram",
+      "note": "odd means strange or irregular, so these letters come out in an unusual order"
+     },
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside places the reworked letters around the other piece, wrapping it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bits",
+      "gives": "BIST",
+      "note": "the four letters rearranged"
+     },
+     {
+      "clueFragment": "fitting",
+      "gives": "APT",
+      "note": "fitting means suitable or appropriate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "APT",
+      "IST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BITS",
+       "gives": "BIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone called John is fitting the strange pieces round the outside of something.",
+     "walkthrough": "'odd bits' looks like a call to take the odd-numbered letters, but odd is the shuffle signal acting on the whole word.",
+     "definitionFit": "John the Baptist is the famous biblical figure, so John serves as an example of someone with this title."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "odd"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +188,42 @@
      }
     ]
    },
-   "solution": "ADDUP"
+   "solution": "ADDUP",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ADD UP",
+    "definitions": [
+     {
+      "text": "total",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some of the following words means only a portion of their run of letters is taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "had duplicated",
+      "gives": "ADDUP",
+      "note": "found spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone had copied a sum, doubling the figure.",
+     "definitionFit": "To total figures is to sum them, which is the phrasal verb formed by these letters, as in counting numbers together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "duplicated"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +237,52 @@
     "text": "Expert by pitch is solvent",
     "enumeration": "7"
    },
-   "solution": "ACETONE"
+   "solution": "ACETONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACETONE",
+    "definitions": [
+     {
+      "text": "solvent",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "by",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Expert",
+      "gives": "ACE",
+      "note": "an ace is a highly skilled person"
+     },
+     {
+      "clueFragment": "pitch",
+      "gives": "TONE",
+      "note": "musical pitch or sound quality"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACE",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "A skilled performer's sense of pitch keeps them financially afloat.",
+     "walkthrough": "'solvent' seems to mean able to pay debts; here it is the chemical sense.",
+     "definitionFit": "Acetone is a common liquid chemical used to dissolve paint and nail varnish, an example of a solvent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "solvent"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +296,55 @@
     "text": "Wood doctor enters row",
     "enumeration": "6"
    },
-   "solution": "TIMBER"
+   "solution": "TIMBER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TIMBER",
+    "definitions": [
+     {
+      "text": "Wood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "something that enters goes inside another word, so one piece sits within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a tier is a row, as in tiered seating"
+     },
+     {
+      "clueFragment": "doctor",
+      "gives": "MB",
+      "note": "MB, Bachelor of Medicine, is a medical degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "MB",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A physician called Wood joins a squabble.",
+     "walkthrough": "'row' looks like an argument but is the line-of-seats sense.",
+     "definitionFit": "Timber is cut wood used for building, a straightforward synonym for the material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +358,49 @@
     "text": "Registered to improve river",
     "enumeration": "5"
    },
-   "solution": "RHONE"
+   "solution": "RHONE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RHONE",
+    "definitions": [
+     {
+      "text": "river",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Registered",
+      "gives": "R",
+      "note": "R is the standard abbreviation, as in the registered trademark sign"
+     },
+     {
+      "clueFragment": "improve",
+      "gives": "HONE",
+      "note": "to hone a skill is to sharpen and improve it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "HONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something was officially registered in order to make a river better.",
+     "definitionFit": "The Rhone is a major European waterway flowing from Switzerland through France to the Mediterranean."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "improve"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +414,54 @@
     "text": "Notice in South American port a broadcasting device",
     "enumeration": "5"
    },
-   "solution": "RADIO"
+   "solution": "RADIO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RADIO",
+    "definitions": [
+     {
+      "text": "a broadcasting device",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South American port",
+      "gives": "RIO",
+      "note": "Rio de Janeiro, the Brazilian harbour city"
+     },
+     {
+      "clueFragment": "Notice",
+      "gives": "AD",
+      "note": "an ad is a notice advertising something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "AD",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign spotted in a Brazilian harbour points to a transmitter.",
+     "definitionFit": "A radio receives or transmits programmes over the airwaves, so it is a device for broadcasting sound."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Notice"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +475,52 @@
     "text": "Old book setting – disgusting!",
     "enumeration": "7"
    },
-   "solution": "OBSCENE"
+   "solution": "OBSCENE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSCENE",
+    "definitions": [
+     {
+      "text": "disgusting",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the usual abbreviation for old"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     },
+     {
+      "clueFragment": "setting",
+      "gives": "SCENE",
+      "note": "the scene is where a story is set"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "B",
+      "SCENE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reader is appalled by where an antique novel takes place.",
+     "definitionFit": "Something obscene is offensive and repulsive, close in meaning to vile or revolting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "setting"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +534,55 @@
     "text": "Nation speaking Arabic and Latin without trouble",
     "enumeration": "5"
    },
-   "solution": "EGYPT"
+   "solution": "EGYPT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EGYPT",
+    "definitions": [
+     {
+      "text": "Nation speaking Arabic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "container",
+      "note": "without here means outside, so the first piece wraps around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and Latin",
+      "gives": "ET",
+      "note": "et is the Latin word for and"
+     },
+     {
+      "clueFragment": "trouble",
+      "gives": "GYP",
+      "note": "in British slang, something that gives you gyp causes pain or trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "GYP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A country where people speak Arabic and Latin with no difficulty.",
+     "walkthrough": "'without trouble' reads as 'easily'; really without means outside, and 'and Latin' asks for the Latin for and.",
+     "definitionFit": "Egypt is a North African country whose official language is Arabic, so it fits a nation using that tongue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "without"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +596,49 @@
     "text": "Chaplain, shepherd aptly keeps up",
     "enumeration": "5"
    },
-   "solution": "PADRE"
+   "solution": "PADRE",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "PADRE",
+    "definitions": [
+     {
+      "text": "Chaplain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeps",
+      "for": "hidden_word",
+      "note": "the words keep something inside their run of letters"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down-reading sense, up means the letters are read from bottom to top, so backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shepherd aptly",
+      "gives": "ERDAP",
+      "note": "letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A clergyman herds his flock skilfully, as a shepherd might.",
+     "walkthrough": "The chaplain-as-shepherd picture is apt, but the shepherd is just the container of the letters.",
+     "definitionFit": "Padre is the informal name for a military chaplain, a priest serving soldiers or sailors."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shepherd"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +652,49 @@
     "text": "Style of farm building suggests humbleness",
     "enumeration": "7"
    },
-   "solution": "MODESTY"
+   "solution": "MODESTY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MODESTY",
+    "definitions": [
+     {
+      "text": "humbleness",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "suggests"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Style",
+      "gives": "MODE",
+      "note": "a mode is a way or fashion"
+     },
+     {
+      "clueFragment": "farm building",
+      "gives": "STY",
+      "note": "a sty is a pigpen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MODE",
+      "STY"
+     ]
+    },
+    "explanation": {
+     "surface": "The look of a pigpen implies its owner is modest.",
+     "definitionFit": "Modesty is the quality of not boasting about yourself, the noun for being humble and unassuming."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Style"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +708,67 @@
     "text": "Collapse that is restricting old PM, perhaps",
     "enumeration": "7"
    },
-   "solution": "IMPLODE"
+   "solution": "IMPLODE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "IMPLODE",
+    "definitions": [
+     {
+      "text": "Collapse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps hints that these letters are only one possible arrangement, so they must be reshuffled"
+     },
+     {
+      "text": "restricting",
+      "for": "container",
+      "note": "restricting means holding something in, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. abbreviates the Latin id est, that is"
+     },
+     {
+      "clueFragment": "old PM",
+      "gives": "MPLOD",
+      "note": "these five letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "MPLOD",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OLDPM",
+       "gives": "MPLOD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former prime minister falls apart under pressure.",
+     "walkthrough": "'old PM' tempts you toward a famous name; it is just letters to shuffle.",
+     "definitionFit": "To implode is to cave inwards and fall apart, so it is a verb synonym for crumbling down."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "PM"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +782,51 @@
     "text": "Frank has done time",
     "enumeration": "5"
    },
-   "solution": "OVERT"
+   "solution": "OVERT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OVERT",
+    "definitions": [
+     {
+      "text": "Frank",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "done",
+      "gives": "OVER",
+      "note": "when something is done it is finished"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OVER",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Frank has served a prison sentence.",
+     "walkthrough": "Frank looks like a name; it is the adjective meaning open.",
+     "definitionFit": "Overt means open and unconcealed, much as frank describes candid, undisguised speech or behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Frank"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +840,53 @@
     "text": "Coupon for new kit etc",
     "enumeration": "6"
    },
-   "solution": "TICKET"
+   "solution": "TICKET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TICKET",
+    "definitions": [
+     {
+      "text": "Coupon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "new suggests a fresh version, so the letters take a different order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kit etc",
+      "gives": "KITETC",
+      "note": "the six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "KITETC",
+       "gives": "TICKET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A voucher entitling you to fresh gear and so on.",
+     "definitionFit": "A ticket and a coupon are both slips of paper that entitle the holder to something, such as entry or a discount."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "new"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +900,57 @@
     "text": "Be in the running and finish without pupil",
     "enumeration": "7"
    },
-   "solution": "COMPETE"
+   "solution": "COMPETE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "COMPETE",
+    "definitions": [
+     {
+      "text": "Be in the running",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "finish",
+      "gives": "COMPLETE",
+      "note": "to finish is to bring to an end"
+     },
+     {
+      "clueFragment": "pupil",
+      "gives": "L",
+      "note": "L for learner, as on British learner-driver plates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMP",
+      "ETE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes part in a race and ends it without a student.",
+     "walkthrough": "A pupil is a learner, and L is the learner plate on a British car.",
+     "definitionFit": "To compete is to take part in a contest, which is what being in the running for a prize means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pupil"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +964,52 @@
     "text": "Snakes and ladders not started",
     "enumeration": "6"
    },
-   "solution": "ADDERS"
+   "solution": "ADDERS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ADDERS",
+    "definitions": [
+     {
+      "text": "Snakes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not started",
+      "for": "deletion",
+      "note": "not started means the word loses its opening letter"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ladders",
+      "gives": "LADDERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "The board game Snakes and Ladders has yet to begin.",
+     "walkthrough": "The surface evokes the children's board game; snakes is the definition.",
+     "definitionFit": "Adders are venomous vipers, the only poisonous kind found in Britain, so they are examples of snakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Snakes"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1023,58 @@
     "text": "Uproar half a baguette causes in kitchen area",
     "enumeration": "7"
    },
-   "solution": "DINETTE"
+   "solution": "DINETTE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DINETTE",
+    "definitions": [
+     {
+      "text": "kitchen area",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half a",
+      "for": "letter_selection",
+      "note": "half a means only one of the two equal parts of the word is used"
+     }
+    ],
+    "linkWords": [
+     "causes in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uproar",
+      "gives": "DIN",
+      "note": "a din is a loud noise or commotion"
+     },
+     {
+      "clueFragment": "baguette",
+      "gives": "ETTE",
+      "select": "last",
+      "note": "the back half of this eight-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIN",
+      "ETTE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fuss over a split French loaf breaks out in the kitchen.",
+     "definitionFit": "A dinette is a small dining nook, often part of or next to a kitchen, so it is a kitchen eating area."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Uproar"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1088,54 @@
     "text": "Excel? Almost certainly on way through mountains",
     "enumeration": "7"
    },
-   "solution": "SURPASS"
+   "solution": "SURPASS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SURPASS",
+    "definitions": [
+     {
+      "text": "Excel",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certainly",
+      "gives": "SURE",
+      "note": "sure means certainly"
+     },
+     {
+      "clueFragment": "way through mountains",
+      "gives": "PASS",
+      "note": "a mountain pass is a route through high ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUR",
+      "PASS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether to shine, then is nearly sure the route crosses the peaks.",
+     "definitionFit": "To surpass is to outdo or go beyond others, which is what it means to excel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Excel"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1149,42 @@
     "text": "Admission in tarmac cesspool",
     "enumeration": "6"
    },
-   "solution": "ACCESS"
+   "solution": "ACCESS",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ACCESS",
+    "definitions": [
+     {
+      "text": "Admission",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the answer is sitting inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tarmac cesspool",
+      "gives": "ACCESS",
+      "note": "spanning the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "An entrance found in a sewer pit beneath the tarmac.",
+     "definitionFit": "Access means the right or means of entry, a synonym for admission to a place."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tarmac"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1198,53 @@
     "text": "Fruit produced an awkward smile",
     "enumeration": "5"
    },
-   "solution": "LIMES"
+   "solution": "LIMES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIMES",
+    "definitions": [
+     {
+      "text": "Fruit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "awkward",
+      "for": "anagram",
+      "note": "awkward suggests something clumsy and out of place, so the letters are jumbled"
+     }
+    ],
+    "linkWords": [
+     "produced"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smile",
+      "gives": "SMILE",
+      "note": "the five letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SMILE",
+       "gives": "LIMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of sour fruit makes someone grin uncomfortably.",
+     "definitionFit": "Limes are small green citrus fruits, so the plural fits the general word for produce from trees."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "awkward"
+    }
+   }
   },
   {
    "number": 18,
@@ -319,7 +1258,42 @@
     "text": "Leans over sets of items",
     "enumeration": "5"
    },
-   "solution": "LISTS"
+   "solution": "LISTS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LISTS",
+    "definitions": [
+     {
+      "text": "Leans over",
+      "at": 0
+     },
+     {
+      "text": "sets of items",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leans over",
+      "note": "first meaning: a ship tilting to one side"
+     },
+     {
+      "clueFragment": "sets of items",
+      "note": "second meaning: written series of things"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The nautical verb, used of a ship heeling, is the less familiar sense.",
+     "definitionFit": "A vessel that tilts is said to do this, and the same word as a noun means catalogues or registers of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leans"
+    }
+   }
   },
   {
    "number": 19,
@@ -333,7 +1307,50 @@
     "text": "Stain spoilt shiny fabric",
     "enumeration": "5"
    },
-   "solution": "SATIN"
+   "solution": "SATIN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SATIN",
+    "definitions": [
+     {
+      "text": "shiny fabric",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "spoilt",
+      "for": "anagram",
+      "note": "spoilt means damaged or ruined, so the letters are knocked out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stain",
+      "gives": "STAIN",
+      "note": "the five letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STAIN",
+       "gives": "SATIN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A mark ruined a glossy cloth.",
+     "definitionFit": "Satin is a smooth, glossy woven material, typically silk, so it is a cloth with a sheen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spoilt"
+    }
+   }
   },
   {
    "number": 20,
@@ -347,7 +1364,58 @@
     "text": "Discuss things with one in tree",
     "enumeration": "7"
    },
-   "solution": "CONIFER"
+   "solution": "CONIFER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CONIFER",
+    "definitions": [
+     {
+      "text": "tree",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with",
+      "for": "container",
+      "note": "with here places the second piece among the letters of the first"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Discuss things",
+      "gives": "CONFER",
+      "note": "to confer is to talk matters over"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "I",
+      "FER"
+     ]
+    },
+    "explanation": {
+     "surface": "Holding a conversation with someone up a tree.",
+     "definitionFit": "A conifer is a cone-bearing evergreen such as a pine or fir, a type of tree."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Discuss"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1429,46 @@
     "text": "Showy Florida tree",
     "enumeration": "5"
    },
-   "solution": "FLASH"
+   "solution": "FLASH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLASH",
+    "definitions": [
+     {
+      "text": "Showy",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Florida",
+      "gives": "FL",
+      "note": "FL is the postal abbreviation for Florida"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "ASH",
+      "note": "the ash is a common tree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FL",
+      "ASH"
+     ]
+    },
+    "explanation": {
+     "surface": "A flamboyant tree grows in the Sunshine State.",
+     "definitionFit": "Flash is informal for ostentatious or flashy, describing something showy or vulgarly expensive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Showy"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1482,55 @@
     "text": "Closely cover moorland in the Home Counties",
     "enumeration": "7"
    },
-   "solution": "SHEATHE"
+   "solution": "SHEATHE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHEATHE",
+    "definitions": [
+     {
+      "text": "Closely cover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first piece inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the Home Counties",
+      "gives": "SE",
+      "note": "the Home Counties surround London in the South East of England"
+     },
+     {
+      "clueFragment": "moorland",
+      "gives": "HEATH",
+      "note": "a heath is open uncultivated land"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HEATH",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Tightly wrapping up open moors near London.",
+     "walkthrough": "The Home Counties are the counties around London, in the South East, giving SE.",
+     "definitionFit": "To sheathe something is to encase it snugly, as a blade fits in its scabbard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "moorland"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1544,42 @@
     "text": "Found in Tahiti, a rare head-dress",
     "enumeration": "5"
    },
-   "solution": "TIARA"
+   "solution": "TIARA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TIARA",
+    "definitions": [
+     {
+      "text": "head-dress",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Found in",
+      "for": "hidden_word",
+      "note": "found in says the answer is located within the following letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tahiti, a rare",
+      "gives": "TIARA",
+      "note": "running across the end of the first word, the next word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "An unusual crown discovered on a Pacific island.",
+     "definitionFit": "A tiara is a jewelled ornamental band worn on the head, a type of headwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rare"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1593,53 @@
     "text": "Genius without a German mug",
     "enumeration": "5"
    },
-   "solution": "STEIN"
+   "solution": "STEIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STEIN",
+    "definitions": [
+     {
+      "text": "mug",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so some letters are taken away"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Genius",
+      "gives": "EINSTEIN",
+      "note": "Albert Einstein, the byword for a genius"
+     },
+     {
+      "clueFragment": "a German",
+      "gives": "EIN",
+      "note": "ein is the German for a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A brilliant mind has no German beer tankard.",
+     "walkthrough": "'a German' is not a person: it asks for the German word for a.",
+     "definitionFit": "A stein is a large earthenware beer mug, traditionally associated with Germany."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1653,57 @@
     "text": "Is furious when article goes into looks",
     "enumeration": "7"
    },
-   "solution": "SEETHES"
+   "solution": "SEETHES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEETHES",
+    "definitions": [
+     {
+      "text": "Is furious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes into",
+      "for": "container",
+      "note": "goes into places one piece inside the other"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "looks",
+      "gives": "SEES",
+      "note": "looks, as in sees or observes"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "THE",
+      "note": "the definite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "THE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flies into a rage when a newspaper piece appears in a magazine.",
+     "definitionFit": "To seethe is to boil with anger, so it means being very angry inside."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   }
  ]
 }
