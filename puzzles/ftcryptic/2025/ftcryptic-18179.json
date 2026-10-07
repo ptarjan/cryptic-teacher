@@ -24,6 +24,9 @@
   "date": "2025-10-06",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,75 @@
     "text": "Fashion house turned back on woman dressing softly rounded figure",
     "enumeration": "8"
    },
-   "solution": "SPHEROID"
+   "solution": "SPHEROID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "SPHEROID",
+    "definitions": [
+     {
+      "text": "rounded figure",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned back",
+      "for": "reversal",
+      "note": "something turned back faces the other way, so the fashion house's name is read from its end"
+     },
+     {
+      "text": "dressing",
+      "for": "container",
+      "note": "the woman is dressing, or clothing, the soft letter, wrapping around it"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "SHE",
+      "note": "a woman is a she"
+     },
+     {
+      "clueFragment": "softly",
+      "gives": "P",
+      "note": "p for piano, the musical direction meaning softly"
+     },
+     {
+      "clueFragment": "Fashion house",
+      "gives": "DIOR",
+      "note": "the Paris couture house founded by Christian Dior"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPHE",
+      "ROID"
+     ],
+     "reversals": [
+      {
+       "from": "DIOR",
+       "to": "ROID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A couture house's model is dressed to flatter a softly curved figure.",
+     "walkthrough": "In an across clue 'on' means placed after, so the reversed fashion house comes last.",
+     "definitionFit": "A spheroid is a solid shaped like a slightly squashed or stretched ball, a geometric body with curved outline."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dressing"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +122,71 @@
     "text": "Doctor Seuss created odd characters, originally encountering resistance. Who will replace him?",
     "enumeration": "9"
    },
-   "solution": "SUCCESSOR"
+   "solution": "SUCCESSOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SUCCESSOR",
+    "definitions": [
+     {
+      "text": "Who will replace him?",
+      "at": 73
+     }
+    ],
+    "indicators": [
+     {
+      "text": "originally",
+      "for": "letter_selection",
+      "note": "originally points to the beginnings of words, so each word contributes its opening letter"
+     },
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "encountering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seuss",
+      "gives": "SEUSS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "created odd characters",
+      "gives": "COC",
+      "select": "first",
+      "note": "the opening letters of these three words"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the physics symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SEUSSCOCR",
+       "gives": "SUCCESSOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Dr Seuss invented strange creatures and met opposition; who will take his place?",
+     "walkthrough": "'Doctor Seuss' reads as the author's title, but 'Doctor' is the anagram signal. 'Odd characters' fits Seuss's creations and also a letter count trick that does not apply.",
+     "definitionFit": "A successor is whoever follows and takes over from a predecessor in a role or position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +200,59 @@
     "text": "Fish served by mother catering in half portions",
     "enumeration": "7"
    },
-   "solution": "HERRING"
+   "solution": "HERRING",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "HERRING",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in half portions",
+      "for": "letter_selection",
+      "note": "serving half portions means only half of each word is dished up, here the back half"
+     }
+    ],
+    "linkWords": [
+     "served by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "HER",
+      "select": "last",
+      "note": "the second half of this six-letter word"
+     },
+     {
+      "clueFragment": "catering",
+      "gives": "RING",
+      "select": "last",
+      "note": "the second half of this eight-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HER",
+      "RING"
+     ]
+    },
+    "explanation": {
+     "surface": "A mother dishes up small helpings of fish when catering.",
+     "definitionFit": "The herring is a silvery North Atlantic food fish, eaten smoked as kippers or pickled."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "catering"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +266,55 @@
     "text": "Stand up to retired sibling bores",
     "enumeration": "6"
    },
-   "solution": "RESIST"
+   "solution": "RESIST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESIST",
+    "definitions": [
+     {
+      "text": "Stand up to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bores",
+      "for": "container",
+      "note": "to bore is to drill into something, so the sibling goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retired",
+      "gives": "RET",
+      "note": "ret. or retd is the abbreviation for retired"
+     },
+     {
+      "clueFragment": "sibling",
+      "gives": "SIS",
+      "note": "sis is short for sister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SIS",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Facing up to a dull retired sister.",
+     "walkthrough": "'Bores' looks like the sibling being tedious; it means drilling into RET.",
+     "definitionFit": "To resist someone is to oppose them or hold firm against them, which is standing up to them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bores"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +328,62 @@
     "text": "Speak off the cuff, taking line from Primo Levi’s novel",
     "enumeration": "9"
    },
-   "solution": "IMPROVISE"
+   "solution": "IMPROVISE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "IMPROVISE",
+    "definitions": [
+     {
+      "text": "Speak off the cuff",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking line from",
+      "for": "deletion",
+      "note": "taking something from a word removes it, here the abbreviation for line"
+     },
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new and different, so the letters take a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     },
+     {
+      "clueFragment": "Primo Levi’s",
+      "gives": "PRIMOLEVIS",
+      "note": "the Italian author's name with its possessive s"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PRIMOEVIS",
+       "gives": "IMPROVISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ad-libbing with a line borrowed from one of Primo Levi's novels.",
+     "walkthrough": "Primo Levi was an Italian writer; 'novel' looks like one of his books but signals the rearrangement.",
+     "definitionFit": "To improvise is to perform or talk without preparation, making it up on the spot."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 5,
@@ -107,7 +397,59 @@
     "text": "Dingy quiet place for monks lacking energy",
     "enumeration": "6"
    },
-   "solution": "SHABBY"
+   "solution": "SHABBY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SHABBY",
+    "definitions": [
+     {
+      "text": "Dingy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so one letter is left out of the monks' place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "place for monks",
+      "gives": "ABBEY",
+      "note": "an abbey houses a community of monks"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "ABBY"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy, silent monastery that has run out of energy.",
+     "definitionFit": "Shabby and dingy both describe something worn, faded and drab from neglect or long use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +463,42 @@
     "text": "Firm to stop water leaking?",
     "enumeration": "7"
    },
-   "solution": "STAUNCH"
+   "solution": "STAUNCH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAUNCH",
+    "definitions": [
+     {
+      "text": "Firm",
+      "at": 0
+     },
+     {
+      "text": "to stop water leaking",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firm",
+      "note": "first meaning: loyal and steadfast"
+     },
+     {
+      "clueFragment": "to stop water leaking",
+      "note": "second meaning: a verb for checking a flow of liquid, also spelt without the u"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the second meaning stretches 'water' to any flowing liquid, typically blood from a wound.",
+     "definitionFit": "The word means steadfastly loyal as an adjective, and as a verb it means to stem a flow such as bleeding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firm"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +512,56 @@
     "text": "MAs and PhDs, two in Rome, exploited position on board",
     "enumeration": "9"
    },
-   "solution": "AMIDSHIPS"
+   "solution": "AMIDSHIPS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMIDSHIPS",
+    "definitions": [
+     {
+      "text": "position on board",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploited",
+      "for": "anagram",
+      "note": "something exploited is worked over and put to new use, so the letters are reused in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MAs and PhDs",
+      "gives": "MASPHDS",
+      "note": "the two degrees as written, without the joining word"
+     },
+     {
+      "clueFragment": "two in Rome",
+      "gives": "II",
+      "note": "II is two in Roman numerals"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MASPHDSII",
+       "gives": "AMIDSHIPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Graduates with higher degrees exploited as cheap labour in Rome.",
+     "walkthrough": "'On board' means on a ship, not on a committee.",
+     "definitionFit": "Amidships is the middle part of a vessel, a location aboard a ship."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +575,55 @@
     "text": "High point in the Cairngorms, riverless ground below",
     "enumeration": "7"
    },
-   "solution": "BENEATH"
+   "solution": "BENEATH",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BENEATH",
+    "definitions": [
+     {
+      "text": "below",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "riverless",
+      "for": "deletion",
+      "note": "riverless means without a river, so the abbreviation for river is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "High point in the Cairngorms",
+      "gives": "BEN",
+      "note": "ben is a Scottish word for a mountain peak, as in Ben Macdui in the Cairngorms"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "EARTH",
+      "note": "earth is soil or ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEN",
+      "EATH"
+     ]
+    },
+    "explanation": {
+     "surface": "Standing on a Scottish summit with dry land spread out underneath.",
+     "walkthrough": "The Cairngorms are mountains in the Scottish Highlands. EARTH loses its R.",
+     "definitionFit": "Beneath and below both mean lower down than, or under, something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +637,48 @@
     "text": "Short docked dog",
     "enumeration": "3"
    },
-   "solution": "CUR"
+   "solution": "CUR",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "CUR",
+    "definitions": [
+     {
+      "text": "dog",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "docked",
+      "for": "deletion",
+      "note": "a docked tail has been cut off, so the word loses its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short",
+      "gives": "CURT",
+      "note": "curt means short or brusque in manner"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUR"
+     ]
+    },
+    "explanation": {
+     "surface": "A dog whose tail has been cut short.",
+     "walkthrough": "'Short docked' looks like a description of the dog's tail, but 'Short' is the word to dock: CURT loses its T.",
+     "definitionFit": "A cur is a mongrel or snappish dog, usually said with contempt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Short"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +692,53 @@
     "text": "Starting afresh — compensation for divorce?",
     "enumeration": "10"
    },
-   "solution": "SEPARATION"
+   "solution": "SEPARATION",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "SEPARATION",
+    "definitions": [
+     {
+      "text": "divorce",
+      "at": 35,
+      "note": "a noun for the splitting of a couple; the answer is the looser word for it"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Starting afresh",
+      "for": "substitution",
+      "note": "a fresh start means the first letter is swapped for a new one"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "compensation",
+      "gives": "REPARATION",
+      "note": "reparation is compensation paid for a wrong"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EPARATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether a divorce settlement lets a person start life over.",
+     "walkthrough": "REPARATION gets a new first letter, S in place of R. The question mark admits the loose fit of a separation for a divorce.",
+     "definitionFit": "A separation is a couple living apart, a formal step that often comes before or stands in for divorce."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "afresh"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +752,55 @@
     "text": "Discharge space flight without leader",
     "enumeration": "8"
    },
-   "solution": "EMISSION"
+   "solution": "EMISSION",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "EMISSION",
+    "definitions": [
+     {
+      "text": "Discharge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without leader",
+      "for": "deletion",
+      "note": "having no leader means the word loses its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "space",
+      "gives": "EM",
+      "note": "an em is a printer's space as wide as the letter M"
+     },
+     {
+      "clueFragment": "flight",
+      "gives": "MISSION",
+      "note": "a space mission is a flight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "ISSION"
+     ]
+    },
+    "explanation": {
+     "surface": "A space flight is scrubbed after losing its commander.",
+     "walkthrough": "'Space flight' reads as one phrase, but it splits in two: a printer's space, then a flight without its first letter.",
+     "definitionFit": "An emission is something given off or released, as a discharge of gas, light or fluid is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +814,61 @@
     "text": "Una’s cycling around South American capital",
     "enumeration": "6"
    },
-   "solution": "NASSAU"
+   "solution": "NASSAU",
+   "annotation": {
+    "type": [
+     "cycling",
+     "container"
+    ],
+    "answer": "NASSAU",
+    "definitions": [
+     {
+      "text": "capital",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cycling",
+      "for": "cycling",
+      "note": "cycling moves the first letter of the name round to the end"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means going about the outside, so the cycled name encloses the continent's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Una’s",
+      "gives": "UNAS",
+      "note": "the name with its possessive s"
+     },
+     {
+      "clueFragment": "South American",
+      "gives": "SA",
+      "note": "SA is the abbreviation for South America"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAS",
+      "SA",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Una is on a bike tour round a South American capital city.",
+     "walkthrough": "The surface wants a capital in South America, but the answer is in the Bahamas; South American only supplies two letters.",
+     "definitionFit": "Nassau is the capital city of the Bahamas, on the island of New Providence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cycling"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +882,40 @@
     "text": "Giving this story an urban setting would make sense",
     "enumeration": "4"
    },
-   "solution": "SAGA"
+   "solution": "SAGA",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SAGA",
+    "definitions": [
+     {
+      "text": "this story",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Giving this story an urban setting would make sense",
+      "note": "surface reading: setting a tale in a town would make it more sensible"
+     },
+     {
+      "clueFragment": "urban setting",
+      "note": "setter's reading: add the word for a big town to the story's word and the result is a word meaning good sense"
+     }
+    ],
+    "explanation": {
+     "surface": "A critic suggests a story would hang together better if set in a city.",
+     "walkthrough": "SAGA followed by CITY makes SAGACITY, which is sense or wisdom.",
+     "definitionFit": "A saga is a long story, originally a Norse or Icelandic prose tale of heroes and families."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sense"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +929,64 @@
     "text": "Where setter goes in a Rugby gathering to be stunned",
     "enumeration": "9"
    },
-   "solution": "AWESTRUCK"
+   "solution": "AWESTRUCK",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AWESTRUCK",
+    "definitions": [
+     {
+      "text": "stunned",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "goes in",
+      "for": "container",
+      "note": "going in means entering, so this part is placed inside the other"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Where setter goes",
+      "gives": "WEST",
+      "note": "the setting sun goes down in the west"
+     },
+     {
+      "clueFragment": "Rugby gathering",
+      "gives": "RUCK",
+      "note": "a ruck is a loose scrum of players over the ball in rugby"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "WEST",
+      "RUCK"
+     ]
+    },
+    "explanation": {
+     "surface": "The crossword setter piles into a rugby ruck and is left dazed.",
+     "walkthrough": "'Setter' seems to be Bobcat, the compiler; it is the sun, which sets in the west.",
+     "definitionFit": "Being awestruck means being overwhelmed with wonder, so astonished as to be stunned."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +1000,47 @@
     "text": "Entitlement of Trump’s to deliver justice?",
     "enumeration": "10"
    },
-   "solution": "BIRTHRIGHT"
+   "solution": "BIRTHRIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BIRTHRIGHT",
+    "definitions": [
+     {
+      "text": "Entitlement of Trump’s",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to deliver",
+      "gives": "BIRTH",
+      "note": "to deliver a baby is to give birth"
+     },
+     {
+      "clueFragment": "justice",
+      "gives": "RIGHT",
+      "note": "justice is what is right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRTH",
+      "RIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "Is it Trump's privilege to dispense justice?",
+     "walkthrough": "The definition plays on Trump's inherited fortune and his attempts to restrict birthright citizenship.",
+     "definitionFit": "A birthright is a privilege or property someone is owed simply by being born into a family or country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "deliver"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +1054,79 @@
     "text": "Short story about musical enthrals king. That’s saying a lot",
     "enumeration": "9"
    },
-   "solution": "TALKATIVE"
+   "solution": "TALKATIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container"
+    ],
+    "answer": "TALKATIVE",
+    "definitions": [
+     {
+      "text": "That’s saying a lot",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "a shortened word has lost its last letter"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned round, so the musical's title runs backwards"
+     },
+     {
+      "text": "enthrals",
+      "for": "container",
+      "note": "to enthral is to hold captive, so the king is held inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a tale is a story"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "EVITA",
+      "note": "the Lloyd Webber musical about Eva Perón"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "K",
+      "note": "K is the chess abbreviation for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAL",
+      "K",
+      "ATIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVITA",
+       "to": "ATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A short story about a musical that captivates a king, which is quite something.",
+     "walkthrough": "Evita is the Lloyd Webber musical about Eva Perón; 'about' turns it round rather than meaning 'concerning'.",
+     "definitionFit": "A talkative person chatters a great deal; the definition is an idiom turned literal, someone who says plenty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "saying"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1140,67 @@
     "text": "Most funky object irritates crowds over time",
     "enumeration": "9"
    },
-   "solution": "TRENDIEST"
+   "solution": "TRENDIEST",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "TRENDIEST",
+    "definitions": [
+     {
+      "text": "Most funky",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crowds",
+      "for": "container",
+      "note": "to crowd something is to press in around it, so the object is surrounded"
+     },
+     {
+      "text": "over",
+      "for": "charade",
+      "note": "in a down clue over means placed above, so the first part sits on top of the last"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "irritates",
+      "gives": "TRIES",
+      "note": "something that tries you tests your patience"
+     },
+     {
+      "clueFragment": "object",
+      "gives": "END",
+      "note": "an end is an aim or object"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "END",
+      "IES",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "The trendiest thing around is a funky item that annoys people over time.",
+     "walkthrough": "'Object' is a noun meaning purpose, not a thing or a verb. TR-END-IES then takes T beneath it.",
+     "definitionFit": "Trendiest means most fashionable, and funky is slang for stylishly modern."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "object"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1214,65 @@
     "text": "Cook desperately short of seconds time and again",
     "enumeration": "10"
    },
-   "solution": "REPEATEDLY"
+   "solution": "REPEATEDLY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "REPEATEDLY",
+    "definitions": [
+     {
+      "text": "time and again",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "being short of something means lacking it, so one letter goes"
+     },
+     {
+      "text": "Cook",
+      "for": "anagram",
+      "note": "to cook something is to doctor or falsify it, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "desperately",
+      "gives": "DESPERATELY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "seconds",
+      "gives": "S",
+      "note": "s is the abbreviation for seconds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REPEATEDLY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEPERATELY",
+       "gives": "REPEATEDLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook frantically short of time, over and over.",
+     "walkthrough": "'Cook' looks like the person in the kitchen; it is the signal to rearrange 'desperately' once its S is gone.",
+     "definitionFit": "Doing something repeatedly is doing it over and over, many times in succession."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cook"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1286,60 @@
     "text": "Survey area enclosed by defunct colliery",
     "enumeration": "7"
    },
-   "solution": "EXAMINE"
+   "solution": "EXAMINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EXAMINE",
+    "definitions": [
+     {
+      "text": "Survey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enclosed by",
+      "for": "container",
+      "note": "something enclosed by another is fenced inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "defunct",
+      "gives": "EX",
+      "note": "ex means former or no longer active"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "a is the abbreviation for area"
+     },
+     {
+      "clueFragment": "colliery",
+      "gives": "MINE",
+      "note": "a colliery is a coal mine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "MINE"
+     ]
+    },
+    "explanation": {
+     "surface": "Surveying a fenced-off area around a closed-down coal pit.",
+     "walkthrough": "'Defunct colliery' is one phrase in the surface but two pieces in the wordplay, with the area letter between them.",
+     "definitionFit": "To examine something is to inspect it carefully, which is what a survey of a site involves."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "colliery"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1353,69 @@
     "text": "I denied involvement in play with entertaining adult nonsense",
     "enumeration": "7"
    },
-   "solution": "TWADDLE"
+   "solution": "TWADDLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TWADDLE",
+    "definitions": [
+     {
+      "text": "nonsense",
+      "at": 53
+     }
+    ],
+    "indicators": [
+     {
+      "text": "denied involvement in",
+      "for": "deletion",
+      "note": "being denied involvement means being shut out, so that letter is removed"
+     },
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to have them inside, so the adult is held within"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "TWIDDLE",
+      "note": "to twiddle is to fiddle or play idly with something"
+     },
+     {
+      "clueFragment": "adult",
+      "gives": "A",
+      "note": "A is the old film-certificate abbreviation for adult"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TW",
+      "A",
+      "DDLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone claims no part in a play that entertains grown-ups with rubbish.",
+     "walkthrough": "'Play' reads as a stage play; it is the verb. TWIDDLE loses its I and takes A in that space.",
+     "definitionFit": "Twaddle is silly, trivial talk or writing, the same as nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1429,54 @@
     "text": "Exchange seat vacated by learned cleric",
     "enumeration": "4"
    },
-   "solution": "SALE"
+   "solution": "SALE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SALE",
+    "definitions": [
+     {
+      "text": "Exchange",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "vacated by",
+      "for": "deletion",
+      "note": "a seat vacated by someone has been left by them, so those letters depart from the seat word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seat",
+      "gives": "SADDLE",
+      "note": "a saddle is a rider's seat"
+     },
+     {
+      "clueFragment": "learned cleric",
+      "gives": "DD",
+      "note": "DD, Doctor of Divinity, is a learned clergyman's degree"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A scholarly priest gives up his seat in a swap.",
+     "walkthrough": "The DD is taken out of the middle of SADDLE, leaving SA + LE.",
+     "definitionFit": "A sale is a transaction where goods are handed over for money, a commercial exchange."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "learned"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1490,55 @@
     "text": "One of a dozen supper guests put up beer bottles",
     "enumeration": "7"
    },
-   "solution": "APOSTLE"
+   "solution": "APOSTLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "APOSTLE",
+    "definitions": [
+     {
+      "text": "One of a dozen supper guests",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "container",
+      "note": "to bottle something is to put it inside a container, so the beer holds the other part"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beer",
+      "gives": "ALE",
+      "note": "ale is a kind of beer"
+     },
+     {
+      "clueFragment": "put up",
+      "gives": "POST",
+      "note": "to post a notice is to put it up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "POST",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Twelve dinner guests stock up on bottled beer.",
+     "walkthrough": "The supper is the Last Supper, at which Jesus ate with his twelve disciples.",
+     "definitionFit": "An apostle is one of the twelve disciples who shared the Last Supper with Jesus."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1552,57 @@
     "text": "Attractive piece, often game, a bit stuck-up?",
     "enumeration": "6"
    },
-   "solution": "MAGNET"
+   "solution": "MAGNET",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "MAGNET",
+    "definitions": [
+     {
+      "text": "Attractive piece",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a bit",
+      "for": "hidden_word",
+      "note": "a bit of something is only a part, so the letters lie within the words"
+     },
+     {
+      "text": "stuck-up",
+      "for": "reversal",
+      "note": "in a down clue, stuck up means pushed upwards, so the letters are read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "often game",
+      "gives": "TENGAM",
+      "note": "the run of letters across these two words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "TENGAM",
+       "to": "MAGNET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An attractive person, often up for anything, is a little snooty.",
+     "definitionFit": "A magnet is a piece of iron or similar that attracts metal, literally an attractive piece."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Attractive"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1616,55 @@
     "text": "Fascinating woman liberates priest in sacred text",
     "enumeration": "6"
    },
-   "solution": "MANTRA"
+   "solution": "MANTRA",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MANTRA",
+    "definitions": [
+     {
+      "text": "sacred text",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "liberates",
+      "for": "deletion",
+      "note": "to liberate someone is to set them free, so a letter escapes from the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fascinating woman",
+      "gives": "MANTRAP",
+      "note": "a mantrap is a woman thought irresistible to men"
+     },
+     {
+      "clueFragment": "priest",
+      "gives": "P",
+      "note": "p is an abbreviation for priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANTRA"
+     ]
+    },
+    "explanation": {
+     "surface": "A seductive woman frees a captive priest in a holy book's story.",
+     "definitionFit": "A mantra is a sacred word or verse from Hindu or Buddhist scripture, chanted in meditation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "liberates"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1678,54 @@
     "text": "Suspicious absence of papers dogs soldier",
     "enumeration": "8"
    },
-   "solution": "PARANOID"
+   "solution": "PARANOID",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PARANOID",
+    "definitions": [
+     {
+      "text": "Suspicious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dogs",
+      "for": "charade",
+      "note": "to dog someone is to follow at their heels, so this part comes after the soldier"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "soldier",
+      "gives": "PARA",
+      "note": "a para is a paratrooper"
+     },
+     {
+      "clueFragment": "absence of papers",
+      "gives": "NO ID",
+      "note": "having no identity documents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARA",
+      "NOID"
+     ]
+    },
+    "explanation": {
+     "surface": "Lack of documents shadows a soldier, making everyone wary.",
+     "walkthrough": "The clue names the papers first, but 'dogs' means they follow behind the soldier.",
+     "definitionFit": "Being paranoid means being unreasonably distrustful, convinced that others mean harm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dogs"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1739,51 @@
     "text": "Swimming in and out in deluge",
     "enumeration": "10"
    },
-   "solution": "INUNDATION"
+   "solution": "INUNDATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INUNDATION",
+    "definitions": [
+     {
+      "text": "deluge",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Swimming",
+      "for": "anagram",
+      "note": "letters that are swimming float about loosely and settle in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in and out in",
+      "gives": "INANDOUTIN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INANDOUTIN",
+       "gives": "INUNDATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A swimmer going back and forth in a downpour.",
+     "walkthrough": "The 'in' before 'deluge' looks like a link word, but it belongs to the fodder.",
+     "definitionFit": "An inundation is a flood, an overwhelming rush of water over land."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Swimming"
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1797,50 @@
     "text": "Member displaying European dedication",
     "enumeration": "3"
    },
-   "solution": "TOE"
+   "solution": "TOE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TOE",
+    "definitions": [
+     {
+      "text": "Member",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "displaying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dedication",
+      "gives": "TO",
+      "note": "a dedication begins 'To ...'"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A club member shows Continental commitment.",
+     "walkthrough": "The dedication comes first in the answer even though it is last in the clue.",
+     "definitionFit": "A member is a part of the body, and a toe is one of the digits of the foot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Member"
+    }
+   }
   },
   {
    "number": 27,
@@ -429,7 +1854,50 @@
     "text": "Taunt the French with a form of hell",
     "enumeration": "6"
    },
-   "solution": "HECKLE"
+   "solution": "HECKLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HECKLE",
+    "definitions": [
+     {
+      "text": "Taunt",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a form of hell",
+      "gives": "HECK",
+      "note": "heck is a mild substitute for hell"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HECK",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking the French with a kind of hellish torment.",
+     "walkthrough": "The French article comes second though it is named first.",
+     "definitionFit": "To heckle is to interrupt a speaker with jeers and gibes, much as a taunt provokes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "form"
+    }
+   }
   },
   {
    "number": 28,
@@ -443,7 +1911,59 @@
     "text": "Conscious of millions not holding opinion? The opposite",
     "enumeration": "8"
    },
-   "solution": "SENTIENT"
+   "solution": "SENTIENT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SENTIENT",
+    "definitions": [
+     {
+      "text": "Conscious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not holding",
+      "for": "deletion",
+      "note": "read literally, the millions would fail to hold the opinion word"
+     },
+     {
+      "text": "The opposite",
+      "for": "deletion",
+      "note": "this flips the previous instruction, so it is the opinion word that must not keep the letter for millions"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opinion",
+      "gives": "SENTIMENT",
+      "note": "a sentiment is a view or opinion"
+     },
+     {
+      "clueFragment": "millions",
+      "gives": "M",
+      "note": "m is the abbreviation for millions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SENTI",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone aware that millions lack an opinion, or is it the other way round?",
+     "walkthrough": "Read literally, millions would not hold the opinion; 'The opposite' flips it so the opinion word does not hold M.",
+     "definitionFit": "Sentient means able to feel and perceive, aware in the way a conscious being is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opposite"
+    }
+   }
   }
  ]
 }
