@@ -63,11 +63,18 @@ fi
 # data files. Repo config is shared by every worktree of the checkout, so
 # registering them on each run covers the jobs, the people and the agents
 # rebasing and committing alongside them.
-git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.json-keys.name "per-key JSON merge (tools/json_merge.py)"
-git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
-git -C "$(dirname "${BASH_SOURCE[0]}")" config filter.json-keys.clean "python3 tools/json_merge.py --clean"
-git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.puzzle-json.name "per-entry puzzle merge (tools/json_merge.py --puzzle)"
-git -C "$(dirname "${BASH_SOURCE[0]}")" config merge.puzzle-json.driver "python3 tools/json_merge.py --puzzle %O %A %B"
+# Written only when the value differs: git takes .git/config.lock for every
+# write, and two jobs starting together collide on it ("could not lock config
+# file") although the value is already right.
+_ct_cfg() {  # _ct_cfg <key> <value>
+  local d; d="$(dirname "${BASH_SOURCE[0]}")"
+  [ "$(git -C "$d" config --get "$1")" = "$2" ] || git -C "$d" config "$1" "$2"
+}
+_ct_cfg merge.json-keys.name "per-key JSON merge (tools/json_merge.py)"
+_ct_cfg merge.json-keys.driver "python3 tools/json_merge.py %O %A %B"
+_ct_cfg filter.json-keys.clean "python3 tools/json_merge.py --clean"
+_ct_cfg merge.puzzle-json.name "per-entry puzzle merge (tools/json_merge.py --puzzle)"
+_ct_cfg merge.puzzle-json.driver "python3 tools/json_merge.py --puzzle %O %A %B"
 
 # The main checkout is nobody's editor window: the plugin manifests and the
 # entry points the scheduler names are read from it, so it follows origin/master

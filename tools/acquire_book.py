@@ -103,7 +103,8 @@ sys.path.insert(0, str(TOOLS))
 import book_queue  # noqa: E402
 import grid_verdict  # noqa: E402
 from light_spec import build_spec, coverage  # noqa: E402
-from parse_penguin_book import build_quality_report, parse_book  # noqa: E402
+from parse_penguin_book import (  # noqa: E402
+    NoPuzzleRegion, build_quality_report, parse_book)  # noqa: E402
 from reconstruct_grid import conventions_broken, reconstruct  # noqa: E402
 import clues_only  # noqa: E402
 from series import BOOK_SERIES, book_number, puzzle_id  # noqa: E402
@@ -126,6 +127,10 @@ EXIT_LENDING_LIMIT = 3
 # (fetch_ia_book.NotLendable). Recorded in book_queue's ledger, which drops it
 # from the queue, so a driver moves on to the next book instead of alerting.
 EXIT_NOT_LENDABLE = 4
+# Stage 2 found no puzzle region in the text (parse_penguin_book.NoPuzzleRegion).
+# Recorded as a `no_puzzles` row in book_reads.json, so it is read as of today
+# and not due again until a reader change; a driver moves on to the next book.
+EXIT_NO_PUZZLES = 5
 
 NODE_BUDGET = 8_000_000   # the budget the vol-5 control was measured under
 WALL_SECONDS = 240        # per puzzle, enforced inside the worker
@@ -570,7 +575,12 @@ def main(argv=None):
         return 0
 
     # ---- stage 2
-    puzzles = parse_book(text_path)
+    try:
+        puzzles = parse_book(text_path)
+    except NoPuzzleRegion as err:
+        book_queue.record_no_puzzles(args.identifier, str(err))
+        print(f"{args.identifier}: no-puzzles — {err}", file=sys.stderr)
+        return EXIT_NO_PUZZLES
     quality = {p["book_number"]: p for p in build_quality_report(puzzles)["puzzles"]}
     if args.only:
         puzzles = [p for p in puzzles if p["book_number"] in set(args.only)]

@@ -110,6 +110,24 @@ def record_not_lendable(identifier, reason):
                      encoding="utf-8")
 
 
+def record_no_puzzles(identifier, reason):
+    """Note that identifier's text holds no puzzle region the reader can find
+    (parse_penguin_book.NoPuzzleRegion). It is read as of today, so it is not
+    due again until a reader change moves REREAD_BEFORE; the reason is kept
+    beside it. Its text stays on disk."""
+    import datetime
+    rows = reads()
+    now = datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds")
+    rows[identifier] = {"on": now, "found": 0, "filed": 0, "no_puzzles": reason}
+    READS.write_text(json.dumps(dict(sorted(rows.items())), indent=1) + "\n",
+                     encoding="utf-8")
+
+
+def no_puzzles(identifier):
+    """The reason the reader found no puzzles in identifier's text, or None."""
+    return (reads().get(identifier) or {}).get("no_puzzles")
+
+
 def not_lendable(identifier):
     """archive.org's reason identifier can never be borrowed, or None."""
     return (reads().get(identifier) or {}).get("not_lendable")

@@ -130,6 +130,26 @@ echo text > "$tree/state/cryptic-teacher/ia-books/unread-best.txt"
 check "an unread book with text on disk is not borrowed" "" \
   "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | grep -x unread-best)"
 
+# A book whose text holds no puzzle region the reader can find: acquire_book
+# exits 5, writes a no_puzzles row with the reason (read as of today, so not
+# due), and leaves the queue free for the next book. Run end to end on a copy
+# of tools/ with a text that has no section title and no clue leaf.
+# A copy of the real tools/ and registries in a second tree, so series.py
+# finds the book it reads.
+real="$(cd "$REPO" && python3 -c 'import json; print(json.load(open("tools/data/books.json"))["books"][0]["identifier"])')"
+t2="$tree/real"
+mkdir -p "$t2"
+cp -r "$REPO/tools" "$t2/tools"
+printf 'A cookery book\n\nNothing here is a crossword.\n' > "$tree/blank.txt"
+echo '{}' > "$t2/tools/data/book_reads.json"
+(cd "$t2" && python3 tools/acquire_book.py "$real" --text "$tree/blank.txt" \
+   --out "$tree/out" >/dev/null 2>&1)
+check "no puzzle region exits EXIT_NO_PUZZLES" "5" "$?"
+q2() { (cd "$t2" && python3 -c "import sys; sys.path.insert(0, 'tools'); import book_queue as q; print($1)"); }
+check "and records a no_puzzles row with its reason, found 0" "True 0" \
+  "$(q2 "bool(q.no_puzzles('$real')), q.reads()['$real']['found']")"
+check "and is not due again" "False" "$(q2 "q.due('$real')")"
+
 # The real registries must still parse and agree with each other, since the
 # fixtures above cannot catch a row that lost its identifier.
 (cd "$REPO" && python3 tools/book_queue.py >/dev/null 2>&1)
