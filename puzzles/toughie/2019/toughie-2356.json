@@ -23,6 +23,9 @@
   "date": "2026-10-07",
   "check": "26 entries, 45 crossings, 0 conflicts"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +45,75 @@
      }
     ]
    },
-   "solution": "BARMEAL"
+   "solution": "BARMEAL",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "BAR MEAL",
+    "definitions": [
+     {
+      "text": "pub grub",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Two-thirds of",
+      "for": "deletion",
+      "note": "taking two parts out of three means a three-letter word loses its final third"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points at what comes first, so only the opening letter of the word counts"
+     },
+     {
+      "text": "found in",
+      "for": "container",
+      "note": "something found in a place sits inside it, so one piece goes within another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poor",
+      "gives": "BAD",
+      "note": "poor in quality is bad"
+     },
+     {
+      "clueFragment": "meat",
+      "gives": "M",
+      "select": "first",
+      "note": "the first letter of meat"
+     },
+     {
+      "clueFragment": "‘authentic’",
+      "gives": "REAL",
+      "note": "authentic means genuine or real"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BA",
+      "R",
+      "M",
+      "EAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sneer at pub food whose so-called authentic recipe is mostly cheap meat.",
+     "walkthrough": "The meat's initial is inserted just after the first letter of the 'authentic' word, and the quotation marks hint that it is a word to be taken apart.",
+     "definitionFit": "A bar meal is a simple dish served in a pub, exactly the kind of food called pub grub."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "authentic"
+    }
+   }
   },
   {
    "number": 2,
@@ -56,7 +127,52 @@
     "text": "Middle part of expedition is a great distance out",
     "enumeration": "4"
    },
-   "solution": "AFAR"
+   "solution": "AFAR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "AFAR",
+    "definitions": [
+     {
+      "text": "a great distance out",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Middle part of",
+      "for": "letter_selection",
+      "note": "the middle part asks for the inner letters of a word, with its ends dropped"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expedition",
+      "gives": "AFAR",
+      "select": "middle",
+      "note": "an expedition into the wild is a safari, whose inner four letters are kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AFAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Travellers halfway through a long trip find themselves very far from home.",
+     "walkthrough": "Expedition must first become SAFARI, a hunting or viewing trip in Africa; strip its S and I to leave AFAR.",
+     "definitionFit": "Afar is an adverb meaning at or to a long way off, matching the phrase about remote position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expedition"
+    }
+   }
   },
   {
    "number": 3,
@@ -70,7 +186,44 @@
     "text": "More work needed to make knockout opiates",
     "enumeration": "6"
    },
-   "solution": "UTOPIA"
+   "solution": "UTOPIA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "UTOPIA",
+    "definitions": [
+     {
+      "text": "More work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "needed to make",
+      "for": "hidden_word",
+      "note": "the following words together make up the answer, which lies within their run of letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "knockout opiates",
+      "gives": "UTOPIA",
+      "note": "the letters run across the end of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A pharmacist complaining that strong sleeping drugs take extra effort to prepare.",
+     "walkthrough": "The answer is hidden in knockoUT OPIAtes. More is Sir Thomas More, the Tudor statesman, and his famous book is Utopia; 'More work' looks like 'extra labour'.",
+     "definitionFit": "Utopia is the 1516 book written by Thomas More, so it is literally a work by More."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "More"
+    }
+   }
   },
   {
    "number": 4,
@@ -84,7 +237,56 @@
     "text": "Gifted editor provides conclusion for story books",
     "enumeration": "8"
    },
-   "solution": "TALENTED"
+   "solution": "TALENTED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TALENTED",
+    "definitions": [
+     {
+      "text": "Gifted",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "provides conclusion for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "story",
+      "gives": "TALE",
+      "note": "a story is a tale"
+     },
+     {
+      "clueFragment": "books",
+      "gives": "NT",
+      "note": "NT is the New Testament, a set of books of the Bible"
+     },
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the standard abbreviation for editor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TALE",
+      "NT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A talented editor supplies the ending that a story collection needs.",
+     "walkthrough": "The editor comes first in the clue but last in the answer: ED finishes TALE + NT, which is what 'provides conclusion for' says.",
+     "definitionFit": "Gifted and talented are synonyms, both describing someone with natural ability."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 5,
@@ -104,7 +306,60 @@
      }
     ]
    },
-   "solution": "DERNIERCRI"
+   "solution": "DERNIERCRI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DERNIER CRI",
+    "definitions": [
+     {
+      "text": "the latest fashion",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "pants",
+      "for": "anagram",
+      "note": "pants is British slang for rubbish, so the letters before it are judged poor and rearranged"
+     }
+    ],
+    "linkWords": [
+     "it’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rider",
+      "gives": "RIDER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "nicer",
+      "gives": "NICER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RIDERNICER",
+       "gives": "DERNIERCRI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A horse rider in smarter trousers is the height of fashion.",
+     "walkthrough": "'Pants' reads as trousers, but as a word for rubbish it signals the anagram. 'With' just joins the two pieces of fodder.",
+     "definitionFit": "Dernier cri is French for 'last cry', borrowed into English to mean the newest trend or style."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pants"
+    }
+   }
   },
   {
    "number": 6,
@@ -118,7 +373,50 @@
     "text": "Admin worker taking advantage of break",
     "enumeration": "7"
    },
-   "solution": "PAUSING"
+   "solution": "PAUSING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PAUSING",
+    "definitions": [
+     {
+      "text": "break",
+      "at": 33,
+      "note": "the clue gives the verb; the answer is its participle, as in 'pausing for a moment'"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Admin worker",
+      "gives": "PA",
+      "note": "a PA is a personal assistant"
+     },
+     {
+      "clueFragment": "taking advantage",
+      "gives": "USING",
+      "note": "taking advantage of someone is using them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "USING"
+     ]
+    },
+    "explanation": {
+     "surface": "An office assistant exploiting a coffee break.",
+     "definitionFit": "To pause is to stop briefly, which is taking a break, so pausing is breaking off for a while."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Admin"
+    }
+   }
   },
   {
    "number": 7,
@@ -132,7 +430,61 @@
     "text": "Thin fabric put around thick cheese",
     "enumeration": "7"
    },
-   "solution": "TAFFETA"
+   "solution": "TAFFETA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TAFFETA",
+    "definitions": [
+     {
+      "text": "Thin fabric",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put around",
+      "for": "reversal",
+      "note": "putting something around turns it to face the other way, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thick",
+      "gives": "FAT",
+      "note": "thick in girth is fat"
+     },
+     {
+      "clueFragment": "cheese",
+      "gives": "FETA",
+      "note": "feta is a crumbly Greek cheese"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAF",
+      "FETA"
+     ],
+     "reversals": [
+      {
+       "from": "FAT",
+       "to": "TAF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cook wrapping a chunk of cheese in a light cloth.",
+     "walkthrough": "'Put around' looks like wrapping one thing inside another, but here it means turned round, and the turned word simply precedes the cheese.",
+     "definitionFit": "Taffeta is a crisp, lightweight woven silk or synthetic cloth, often used for dresses."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 8,
@@ -146,7 +498,70 @@
     "text": "Track electronic vehicle reversing by road",
     "enumeration": "7"
    },
-   "solution": "RACEWAY"
+   "solution": "RACEWAY",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RACEWAY",
+    "definitions": [
+     {
+      "text": "Track",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "a vehicle reversing travels backwards, so its letters are read the other way"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "electronic",
+      "gives": "E",
+      "note": "E is the abbreviation for electronic, as in e-mail"
+     },
+     {
+      "clueFragment": "vehicle",
+      "gives": "CAR",
+      "note": "a car is a vehicle"
+     },
+     {
+      "clueFragment": "road",
+      "gives": "WAY",
+      "note": "a way is a road or path"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAC",
+      "E",
+      "WAY"
+     ],
+     "reversals": [
+      {
+       "from": "ECAR",
+       "to": "RACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An electric car backing along a road beside a track.",
+     "walkthrough": "The reversal covers both 'electronic' and 'vehicle' together, an e-car backing up, before the road is added.",
+     "definitionFit": "A raceway is a track for racing, especially for harness racing or cars in the US."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "electronic"
+    }
+   }
   },
   {
    "number": 9,
@@ -160,7 +575,56 @@
     "text": "Liberal poet producing cliché-ridden material",
     "enumeration": "11"
    },
-   "solution": "BOILERPLATE"
+   "solution": "BOILERPLATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOILERPLATE",
+    "definitions": [
+     {
+      "text": "cliché-ridden material",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "producing",
+      "for": "anagram",
+      "note": "producing means making something new out of raw material, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liberal",
+      "gives": "LIBERAL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "poet",
+      "gives": "POET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIBERALPOET",
+       "gives": "BOILERPLATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Liberal politician who writes verse is accused of churning out stale phrases.",
+     "walkthrough": "'Liberal' tempts as L, the party abbreviation, but the whole word is anagram fodder.",
+     "definitionFit": "Boilerplate is standardised, stock text reused without change, hence trite and full of stock phrases."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Liberal"
+    }
+   }
   },
   {
    "number": 10,
@@ -174,7 +638,56 @@
     "text": "MP playing with another’s mobile",
     "enumeration": "10"
    },
-   "solution": "SMARTPHONE"
+   "solution": "SMARTPHONE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SMARTPHONE",
+    "definitions": [
+     {
+      "text": "mobile",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing with",
+      "for": "anagram",
+      "note": "playing with something means fiddling with it, so these letters get moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "MP",
+      "gives": "MP",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "another’s",
+      "gives": "ANOTHERS",
+      "note": "taken as written, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MPANOTHERS",
+       "gives": "SMARTPHONE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Member of Parliament caught fiddling with a colleague's phone.",
+     "walkthrough": "Mobile is the British word for a mobile phone, a cell phone.",
+     "definitionFit": "In British usage a mobile is a cell phone, and a smartphone is the modern kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "playing"
+    }
+   }
   },
   {
    "number": 11,
@@ -188,7 +701,64 @@
     "text": "Boy repulsed by hospital food",
     "enumeration": "4"
    },
-   "solution": "NOSH"
+   "solution": "NOSH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOSH",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "repulsed",
+      "for": "reversal",
+      "note": "something repulsed is driven back, so the word goes in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boy",
+      "gives": "SON",
+      "note": "a boy can be a son"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital on maps and signs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "SON",
+       "to": "NOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lad disgusted by hospital meals.",
+     "walkthrough": "SON turned back gives NOS, followed by H. Nosh is informal British slang for food.",
+     "definitionFit": "Nosh is a colloquial word for something to eat, a meal or snack."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "repulsed"
+    }
+   }
   },
   {
    "number": 12,
@@ -208,7 +778,57 @@
      }
     ]
    },
-   "solution": "CATCHALL"
+   "solution": "CATCHALL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CATCH-ALL",
+    "definitions": [
+     {
+      "text": "comprehensive",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "outside"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Happen to see",
+      "gives": "CATCH",
+      "note": "to catch sight of something is to happen to see it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "two students",
+      "gives": "LL",
+      "note": "L for learner, a student, twice over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CATCH",
+      "A",
+      "LL"
+     ]
+    },
+    "explanation": {
+     "surface": "Spotting a pair of pupils from the local comprehensive school.",
+     "walkthrough": "'Outside' places the two students beyond the A, so they follow it rather than wrap it. A comprehensive is a British state secondary school, but here it is the adjective.",
+     "definitionFit": "A catch-all term or policy covers every case, which is what comprehensive means: including everything."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "comprehensive"
+    }
+   }
   },
   {
    "number": 13,
@@ -222,7 +842,59 @@
     "text": "Senior exec in a car now, travelling with him",
     "enumeration": "10"
    },
-   "solution": "CHAIRWOMAN"
+   "solution": "CHAIRWOMAN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CHAIRWOMAN",
+    "definitions": [
+     {
+      "text": "Senior exec",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "travelling means on the move, so these letters shift into new places"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a car now",
+      "gives": "ACARNOW",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "him",
+      "gives": "HIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACARNOWHIM",
+       "gives": "CHAIRWOMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior executive being driven around with a male companion.",
+     "walkthrough": "'Him' points to a man, yet the letters give a woman's title.",
+     "definitionFit": "A chairwoman heads a company board, one of the most senior executive roles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "him"
+    }
+   }
   },
   {
    "number": 14,
@@ -242,7 +914,69 @@
      }
     ]
    },
-   "solution": "THEONE"
+   "solution": "THEONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "THE ONE",
+    "definitions": [
+     {
+      "text": "Remarkable person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "charade",
+      "note": "the beginning of a word supplies just its first letter here"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it, so one piece goes inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "immediately",
+      "gives": "THEN",
+      "note": "then, in the sense of at that moment, straight after"
+     },
+     {
+      "clueFragment": "envision",
+      "gives": "E",
+      "select": "first",
+      "note": "the first letter of envision"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scoring abbreviation for an over"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THE",
+      "O",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A visionary who takes charge as soon as they start imagining things.",
+     "walkthrough": "The parse is only partly certain: 'immediately' for 'then' is a stretch, and the over goes in before the last letter of that word.",
+     "definitionFit": "Calling someone 'the one' marks them out as special, the outstanding chosen individual."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 15,
@@ -262,7 +996,65 @@
      }
     ]
    },
-   "solution": "MASSPRODUCE"
+   "solution": "MASSPRODUCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MASS-PRODUCE",
+    "definitions": [
+     {
+      "text": "Make tons of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so its central letter is wanted"
+     }
+    ],
+    "linkWords": [
+     "without"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yummy",
+      "gives": "M",
+      "select": "middle",
+      "note": "the middle letter of yummy"
+     },
+     {
+      "clueFragment": "a steamer",
+      "gives": "ASS",
+      "note": "A plus SS, the prefix for a steamship"
+     },
+     {
+      "clueFragment": "veg, say",
+      "gives": "PRODUCE",
+      "note": "vegetables are an example of farm produce"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ASS",
+      "PRODUCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook boiling huge quantities of tasty vegetables without the help of a steamer.",
+     "walkthrough": "'Without' here means outside, beside: A SS stands outside PRODUCE, ahead of it, after the M.",
+     "definitionFit": "To mass-produce is to manufacture goods in enormous quantities, so tons of them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steamer"
+    }
+   }
   },
   {
    "number": 16,
@@ -276,7 +1068,58 @@
     "text": "Deposit of 10c enclosed in dispatched mail",
     "enumeration": "8"
    },
-   "solution": "SEDIMENT"
+   "solution": "SEDIMENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEDIMENT",
+    "definitions": [
+     {
+      "text": "Deposit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enclosed in",
+      "for": "container",
+      "note": "something enclosed in a letter is put inside it, so one word sits within another"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dispatched mail",
+      "gives": "SENT",
+      "note": "mail that has been dispatched has been sent"
+     },
+     {
+      "clueFragment": "10c",
+      "gives": "DIME",
+      "note": "a dime is the US coin worth ten cents"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "DIME",
+      "NT"
+     ]
+    },
+    "explanation": {
+     "surface": "Coins tucked into an envelope that has gone in the post.",
+     "walkthrough": "The 10c is American money: a dime, not anything in pounds and pence.",
+     "definitionFit": "Sediment is matter that settles at the bottom of a liquid, a deposit laid down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Deposit"
+    }
+   }
   },
   {
    "number": 17,
@@ -290,7 +1133,68 @@
     "text": "Full-length intro to ‘Halloween’ contains nothing rude",
     "enumeration": "7"
    },
-   "solution": "UNCOUTH"
+   "solution": "UNCOUTH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "UNCOUTH",
+    "definitions": [
+     {
+      "text": "rude",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "intro to",
+      "for": "letter_selection",
+      "note": "an intro is the start, so only the opening letter of the next word is used"
+     },
+     {
+      "text": "contains",
+      "for": "container",
+      "note": "contains means holds within, so a piece goes inside the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Full-length",
+      "gives": "UNCUT",
+      "note": "a full-length film has not been cut"
+     },
+     {
+      "clueFragment": "‘Halloween’",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of Halloween"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "nothing is zero, written as O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNC",
+      "O",
+      "UTH"
+     ]
+    },
+    "explanation": {
+     "surface": "The uncut version of a horror film opens with crude material.",
+     "walkthrough": "The zero goes into the full-length word before its last two letters, while Halloween's initial is added at the end.",
+     "definitionFit": "Uncouth describes manners that are coarse and lacking refinement, which is being rude."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Full-length"
+    }
+   }
   },
   {
    "number": 18,
@@ -304,7 +1208,77 @@
     "text": "Soldier fired into area close to enemy, showing quick-wittedness",
     "enumeration": "7"
    },
-   "solution": "AGILITY"
+   "solution": "AGILITY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container",
+     "letter_selection"
+    ],
+    "answer": "AGILITY",
+    "definitions": [
+     {
+      "text": "quick-wittedness",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "into",
+      "for": "container",
+      "note": "going into something puts it inside, so these pieces sit within another"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so its final letter is used"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "Soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "fired",
+      "gives": "LIT",
+      "note": "fired, as of a fuse or fire, means lit"
+     },
+     {
+      "clueFragment": "enemy",
+      "gives": "Y",
+      "select": "last",
+      "note": "the last letter of enemy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GI",
+      "LIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier shooting into a zone near the enemy line shows fast thinking.",
+     "walkthrough": "Both the soldier and 'fired' go inside the area together; 'close to enemy' supplies the final letter.",
+     "definitionFit": "Agility can be mental as well as physical, meaning nimbleness of mind or sharp thinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fired"
+    }
+   }
   },
   {
    "number": 19,
@@ -318,7 +1292,39 @@
     "text": "‘Casablanca star’ as crossword answer?",
     "enumeration": "6"
    },
-   "solution": "INGRID"
+   "solution": "INGRID",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "INGRID",
+    "definitions": [
+     {
+      "text": "‘Casablanca star’ as crossword answer?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "‘Casablanca star’",
+      "note": "surface reading: an actor from the 1942 film Casablanca"
+     },
+     {
+      "clueFragment": "as crossword answer?",
+      "note": "setter's reading: what is written into a crossword is entered in the grid, which spells her first name"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The female lead of Casablanca was Ingrid Bergman, and an answer goes 'in grid', which sounds the same as her first name.",
+     "definitionFit": "Ingrid Bergman starred in Casablanca, and every crossword solution is written in the grid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "star"
+    }
+   }
   },
   {
    "number": 20,
@@ -332,7 +1338,46 @@
     "text": "Lots of punishment",
     "enumeration": "8"
    },
-   "solution": "LASHINGS"
+   "solution": "LASHINGS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LASHINGS",
+    "definitions": [
+     {
+      "text": "Lots",
+      "at": 0
+     },
+     {
+      "text": "punishment",
+      "at": 8
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lots",
+      "note": "first meaning: British informal for large amounts"
+     },
+     {
+      "clueFragment": "punishment",
+      "note": "second meaning: floggings with a whip"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests heavy punishment; 'lashings of' is everyday British for plenty of something.",
+     "definitionFit": "The word means both a generous quantity and a series of beatings with a whip."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Lots"
+    }
+   }
   },
   {
    "number": 21,
@@ -346,7 +1391,55 @@
     "text": "Dozy American general captured by foreign agent",
     "enumeration": "6"
    },
-   "solution": "SLEEPY"
+   "solution": "SLEEPY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SLEEPY",
+    "definitions": [
+     {
+      "text": "Dozy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "captured by",
+      "for": "container",
+      "note": "someone captured by another is held inside their grasp, so one piece sits within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "foreign agent",
+      "gives": "SPY",
+      "note": "a spy is an agent working for a foreign power"
+     },
+     {
+      "clueFragment": "American general",
+      "gives": "LEE",
+      "note": "Robert E. Lee was the Confederate general in the American Civil War"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "LEE",
+      "PY"
+     ]
+    },
+    "explanation": {
+     "surface": "A drowsy US general seized by an enemy spy.",
+     "walkthrough": "Lee is the stock crossword American general, Robert E. Lee of the Confederate army.",
+     "definitionFit": "Dozy and sleepy both describe someone drowsy and ready to nod off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dozy"
+    }
+   }
   },
   {
    "number": 22,
@@ -360,7 +1453,44 @@
     "text": "Nepalese dumpling made in a couple of seconds",
     "enumeration": "4"
    },
-   "solution": "MOMO"
+   "solution": "MOMO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOMO",
+    "definitions": [
+     {
+      "text": "Nepalese dumpling",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "made in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a couple of seconds",
+      "gives": "MOMO",
+      "note": "a mo is a moment or second, and a couple gives two of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOMO"
+     ]
+    },
+    "explanation": {
+     "surface": "A dumpling cooked in almost no time at all.",
+     "walkthrough": "'Mo' is British informal for a moment, as in 'half a mo'.",
+     "definitionFit": "Momo are steamed filled dumplings, a staple food of Nepal and Tibet."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 23,
@@ -374,7 +1504,50 @@
     "text": "Dam conveniently supplying somewhere in Scotland",
     "enumeration": "10"
    },
-   "solution": "MOTHERWELL"
+   "solution": "MOTHERWELL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOTHERWELL",
+    "definitions": [
+     {
+      "text": "somewhere in Scotland",
+      "at": 27
+     }
+    ],
+    "linkWords": [
+     "supplying"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dam",
+      "gives": "MOTHER",
+      "note": "a dam is an animal's mother"
+     },
+     {
+      "clueFragment": "conveniently",
+      "gives": "WELL",
+      "note": "something that fits in well suits conveniently"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOTHER",
+      "WELL"
+     ]
+    },
+    "explanation": {
+     "surface": "A reservoir dam that handily supplies water to a Scottish town.",
+     "walkthrough": "'Dam' suggests a barrier holding water, but it is the parent of a foal or calf. Motherwell is a town near Glasgow.",
+     "definitionFit": "Motherwell is a town in North Lanarkshire, so it is a place found in Scotland."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dam"
+    }
+   }
   },
   {
    "number": 24,
@@ -388,7 +1561,46 @@
     "text": "Send a message with indignation",
     "enumeration": "4"
    },
-   "solution": "WIRE"
+   "solution": "WIRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WIRE",
+    "definitions": [
+     {
+      "text": "Send a message",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "indignation",
+      "gives": "IRE",
+      "note": "ire is anger or indignation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "IRE"
+     ]
+    },
+    "explanation": {
+     "surface": "Firing off an angry message.",
+     "definitionFit": "To wire someone is to send them a telegram, an old way of sending a message."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 25,
@@ -402,7 +1614,55 @@
     "text": "Locomotive transported by doubly small tugs",
     "enumeration": "7"
    },
-   "solution": "STRAINS"
+   "solution": "STRAINS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STRAINS",
+    "definitions": [
+     {
+      "text": "tugs",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transported by",
+      "for": "container",
+      "note": "being transported by something means being carried within it, so one piece sits inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "doubly small",
+      "gives": "SS",
+      "note": "S for small, twice"
+     },
+     {
+      "clueFragment": "Locomotive",
+      "gives": "TRAIN",
+      "note": "a locomotive pulls a train"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRAIN",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A railway engine carried along by a pair of little tugboats.",
+     "walkthrough": "TRAIN goes between the two Ss. 'Tugs' looks like boats, but it is a verb.",
+     "definitionFit": "To strain at something is to pull hard on it, so strains means tugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tugs"
+    }
+   }
   },
   {
    "number": 26,
@@ -416,7 +1676,56 @@
     "text": "Work leads to tedious extra work",
     "enumeration": "7"
    },
-   "solution": "OPERATE"
+   "solution": "OPERATE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "OPERATE",
+    "definitions": [
+     {
+      "text": "work",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leads to",
+      "for": "letter_selection",
+      "note": "the leads of words are their front runners, so only the first letters count"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Work",
+      "gives": "OPERA",
+      "note": "an opera is a musical work"
+     },
+     {
+      "clueFragment": "tedious extra",
+      "gives": "TE",
+      "select": "first",
+      "note": "the first letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPERA",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Office drudgery piled on top of a dull job.",
+     "walkthrough": "The opening Work is the musical OPERA, and the leading letters of 'tedious extra' follow it; the final word is the definition.",
+     "definitionFit": "As a verb, operate means function or run, the sense in which a machine or a plan is said to work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leads"
+    }
+   }
   }
  ]
 }
