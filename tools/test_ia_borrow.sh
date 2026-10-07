@@ -44,7 +44,11 @@ except ModuleNotFoundError:
     # in this file is a stub, so a placeholder import keeps these checks
     # RUNNING on a runner with no third-party packages — CI installs none —
     # rather than skipping, which is the same as not having them.
-    sys.modules["requests"] = types.ModuleType("requests")
+    stub = types.ModuleType("requests")
+    stub.RequestException = type("RequestException", (OSError,), {})
+    stub.exceptions = types.SimpleNamespace(ReadTimeout=type(
+        "ReadTimeout", (stub.RequestException,), {}))
+    sys.modules["requests"] = stub
 import fetch_ia_book as F
 
 failures = []
