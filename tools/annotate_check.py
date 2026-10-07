@@ -323,6 +323,96 @@ def notes(puzzle, only=None):
     return out
 
 
+_DECODER = json.JSONDecoder()
+
+
+def _ws(text, i):
+    while i < len(text) and text[i] in " \t\r\n":
+        i += 1
+    return i
+
+
+def _node(text, i):
+    """(start, end, members) of the JSON value at text[i]: members is
+    [(key or index, key start, child node)] for a container, None
+    for a scalar. Raises ValueError on anything that is not JSON."""
+    i = _ws(text, i)
+    if i >= len(text) or text[i] not in "{[":
+        _, end = _DECODER.raw_decode(text, i)
+        return i, end, None
+    close, members, j = "}" if text[i] == "{" else "]", [], _ws(text, i + 1)
+    if text[j:j + 1] == close:
+        return i, j + 1, members
+    while True:
+        k0 = j
+        if close == "}":
+            key, j = _DECODER.raw_decode(text, j)
+            j = _ws(text, j)
+            if text[j:j + 1] != ":":
+                raise ValueError(f"no colon at {j}")
+        else:
+            key, j = len(members), j - 1
+        child = _node(text, j + 1)
+        members.append((key, k0, child))
+        j = _ws(text, child[1])
+        if text[j:j + 1] == close:
+            return i, j + 1, members
+        if text[j:j + 1] != ",":
+            raise ValueError(f"no comma at {j}")
+        j = _ws(text, j + 1)
+
+
+def _same(a, b):
+    return json.dumps(a, sort_keys=True) == json.dumps(b, sort_keys=True)
+
+
+def _splice(text, node, new):
+    """`new` written in the layout of the value `node` spans in `text`: every
+    part `new` shares with it keeps its own characters, and only what changed
+    is written afresh, on one line."""
+    start, end, members = node
+    if _same(json.loads(text[start:end]), new):
+        return text[start:end]
+    is_obj = isinstance(new, dict)
+    if not members or is_obj != (text[start] == "{") or not isinstance(new, (dict, list)):
+        return json.dumps(new, ensure_ascii=False)
+    keys = list(new) if is_obj else range(len(new))
+    old = {m[0]: (n, m) for n, m in enumerate(members)}
+    seps = [text[members[n - 1][2][1]:members[n][1]] for n in range(1, len(members))]
+    sep = seps[-1] if seps else ", "
+    out = [text[start:members[0][1]]]
+    for n, key in enumerate(keys):
+        if key in old:
+            k, (_, k0, child) = old[key]
+            if n:
+                out.append(seps[k - 1] if k else sep)
+            out.append(text[k0:child[0]] + _splice(text, child, new[key]))
+        else:
+            out.append((sep if n else "")
+                       + (json.dumps(key, ensure_ascii=False) + ": " if is_obj else "")
+                       + json.dumps(new[key], ensure_ascii=False))
+    out.append(text[members[-1][2][1]:end])
+    return "".join(out)
+
+
+def write_pending(pending, ann):
+    """Write `ann` over `pending` keeping the run's own layout.
+
+    The run edits the _ann file with string replacements of text it wrote;
+    re-dumping the whole file in another layout after a fix-up here made its
+    next replacement miss, a wasted turn in one run of eight. So only the
+    values that changed are rewritten, and everything else stays byte for byte."""
+    try:
+        text = pending.read_text(encoding="utf-8")
+        node = _node(text, 0)
+        if text[_ws(text, node[1]):]:
+            raise ValueError("trailing text")
+        body = text[:node[0]] + _splice(text, node, ann) + text[node[1]:]
+    except (OSError, ValueError):
+        body = json.dumps(ann, ensure_ascii=False, indent=2) + "\n"
+    pending.write_text(body, encoding="utf-8")
+
+
 def patch(pending, fix):
     """Merge `fix`, {entry: {field: value or null}}, into `pending`; what is
     wrong, or None."""
@@ -347,7 +437,7 @@ def patch(pending, fix):
                 ann[eid].pop(k, None)
             else:
                 ann[eid][k] = v
-    pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_pending(pending, ann)
     fix.unlink()
     return None
 
@@ -472,7 +562,7 @@ def file_rows(path, pending, data=DATA):
         (data / f"{name}.json").write_text(dump_lines(rows), encoding="utf-8")
     if fixes:
         fetch_puzzle.write_puzzle_file(path, puzzle)
-    pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    write_pending(pending, ann)
     return [f"{field} {eid}" for field, eid, _ in wants], None
 
 
@@ -495,7 +585,7 @@ def fill_missing(path, pending):
                and (only is None or entry_id(e) in only)]
     if missing:
         ann.update(dict.fromkeys(missing))
-        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        write_pending(pending, ann)
     return missing
 
 
@@ -515,7 +605,7 @@ def respell_answers(pending):
             a["answer"] = re.sub(r"\s*,\s*", " ", a["answer"]).strip()
             changed.append(eid)
     if changed:
-        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        write_pending(pending, ann)
     return changed
 
 
@@ -532,7 +622,7 @@ def normalize_pending(path, pending):
     by_id = {entry_id(e): e for e in entries}
     out = {k: normalize(v, by_id[k], entries) if k in by_id else v for k, v in ann.items()}
     if out != ann:
-        pending.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        write_pending(pending, out)
 
 
 def _edits(a, b):
@@ -615,7 +705,7 @@ def recut_pieces(path, pending):
             build["pieces"] = new
             changed.append((eid, new))
     if changed:
-        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        write_pending(pending, ann)
     return changed
 
 
@@ -652,7 +742,7 @@ def unname_block_notes(path, pending):
                     block["note"] = new
                     changed.append(eid)
     if changed:
-        pending.write_text(json.dumps(ann, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        write_pending(pending, ann)
     return sorted(set(changed), key=changed.index)
 
 

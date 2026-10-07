@@ -1767,5 +1767,8 @@ tools/test_file_gale_listener.sh              does the Gale Listener filer put b
 tools/test_listener_letters.sh                does trove_solution_ocr.read_grid_letters read
                                               the letters of a drawn, filled Listener report
                                               grid back through listener_grid's lattice?
+tools/test_ann_layout.sh                      annotate_check's fix-ups rewrite only the values
+                                              they change in tools/_ann_<ID>.json, so the run's
+                                              next Edit of text it wrote still matches
 ```
 <!-- LAYOUT-END -->

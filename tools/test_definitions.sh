@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # A definition's `at` is computed from its text by the rules in
 # tools/definitions.py, refused where they leave it ambiguous, and checked by
-# validate_annotations against the clue.
+# validate_annotations against the clue; a definitionFit that reads the
+# definition back is refused.
 set -euo pipefail
 cd "$(dirname "$0")"
 python3 - <<'PY'
@@ -54,6 +55,20 @@ def errors(defs):
 check("validator: `at` on its text", [], errors([{"text": "Changes", "at": 0}]))
 check("validator: `at` off its text", True,
       any("is not at 3" in e for e in errors([{"text": "Changes", "at": 3}])))
+
+def fit_errors(answer, definition, fit):
+    errs = []
+    v.check_definition_fit("1A", {"answer": answer, "definitions": [{"text": definition}],
+                                  "explanation": {"definitionFit": fit}}, errs, [])
+    return [e for e in errs if "restates" in e]
+check("definitionFit: one word beyond definition and answer is an explanation", [],
+      fit_errors("CARDIFF", "City", "Cardiff is the capital city of Wales."))
+check("definitionFit: a plain synonym with a gloss passes", [],
+      fit_errors("SIP", "take a drink", "To sip is to drink in small mouthfuls."))
+check("definitionFit: the definition read back is refused", 1,
+      len(fit_errors("LION CUB", "young animal", "A lion cub is the young of a lion, so it is a young animal.")))
+check("definitionFit: the army ant is refused", 1,
+      len(fit_errors("CRAWLER", "army ant", "An army ant is a crawler, as it is.")))
 raise SystemExit(fails)
 PY
 echo "all definition placement checks passed"
