@@ -43,7 +43,8 @@ a printedClue row HEAD does not have, or check_clue_unchanged or
 check_anagram_letters fails. Exit 0 when a re-read was queued.
 
 Exit code is the validator's: 0 when the puzzle is publishable. Warnings and
-audit hits are worth fixing and do not fail the build.
+audit hits are worth fixing and do not fail the build. 2 when the annotations
+were not applied at all (STOPPED), so the puzzle file is as it was.
 """
 import contextlib
 import io
@@ -906,7 +907,7 @@ def main(argv):
             print(f"\nannotate_check {stem}: STOPPED — the annotations were not "
                   f"applied, so {shown} is unchanged. Fix everything above in "
                   f"{pending.name} in one edit and re-run.")
-            return rc
+            return 2
     else:
         print(f"no {pending.name}, so nothing to apply — checking "
               f"{shown} as it stands")

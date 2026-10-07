@@ -972,7 +972,7 @@ if [ -n "$pending" ]; then
       # A cold solve's fill is checked again however the run ended, before
       # anything it wrote can ship. A rejected one ships nothing.
       if [ -n "$fill" ]; then
-        worker_apply "$num" "$fill" "$run_log" "$verdict"
+        worker_apply "$num" "$fill" "$run_log" "$verdict" "$sidfile"
         applied=$?
         cat "$verdict"
         if [ "$applied" -ne 0 ]; then

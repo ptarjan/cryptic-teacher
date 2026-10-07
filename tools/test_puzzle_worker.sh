@@ -90,7 +90,7 @@ echo "done"
 STUB
 chmod +x "$stub/claude"
 # shellcheck disable=SC2329  # its stubs are called by the sourced worker
-flow() (   # mode: accepted | refused | nofill
+flow() (   # mode: accepted | refused | nofill | nohints
   PATH="$stub:$PATH" CALLS="$stub/calls" EVENTS="$stub/events"
   export CALLS
   : >"$CALLS"; : >"$EVENTS"
@@ -109,6 +109,9 @@ flow() (   # mode: accepted | refused | nofill
       tools/apply_solution.py)
         [ "$MODE" = refused ] && { echo "REJECTED — 1 problem(s), nothing written:"; echo "  1-across: crossing disagrees"; return 1; }
         echo "wrote 1 solutions" ;;
+      tools/annotate_check.py)
+        echo "session $CLAUDE_CODE_SESSION_ID" >>"$EVENTS"
+        [ "$MODE" = nohints ] && { echo "annotate_check $2: STOPPED — the annotations were not applied"; return 2; } ;;
       tools/failed_inputs.py) echo "recorded" ;;
     esac
     return 0
@@ -120,7 +123,7 @@ flow() (   # mode: accepted | refused | nofill
   echo "rc=$?"
   echo "calls=$(wc -l <"$CALLS" | tr -d ' ')"
   echo "sid=$(cat "$sidfile")"
-  worker_apply "$id" "$fill" "$stub/log" "$stub/verdict"
+  worker_apply "$id" "$fill" "$stub/log" "$stub/verdict" "$sidfile"
   echo "applied=$?"
   echo "ann=$([ -e "tools/_ann_$id.json" ] && echo kept || echo gone)"
 )
@@ -138,6 +141,7 @@ check "its conversation is marked as a solve's" "$(got sid)" "sid-1 solve"
 check "the fill is applied from the committed puzzle, then the hints put back" \
   "$(grep -o 'git checkout\|tools/apply_solution.py [^ ]* --fill\|tools/solve_misses.py keep-log\|tools/annotate_check.py' <<<"$events" | tr '\n' '|')" \
   "git checkout|tools/apply_solution.py pw-test-$$ --fill|tools/solve_misses.py keep-log|tools/annotate_check.py|"
+check "as the run's own session, where their author is read" "$(grep -c '^session sid-1$' <<<"$events")" "1"
 check "and accepted" "$(got applied)" "0"
 check "with nothing recorded or discarded" "$(grep -c 'failed_inputs\|^discard' <<<"$events")" "0"
 
@@ -149,6 +153,13 @@ check "and recorded in the solve ledger as judged, with the applier's reason" \
 check "its puzzle and rows discarded" "$(grep -c '^discard pw-test' <<<"$events")" "1"
 check "its hints never applied" "$(grep -c 'tools/annotate_check.py' <<<"$events")" "0"
 check "and its annotation file gone, so no later run builds on it" "$(got ann)" "gone"
+
+out=$(flow nohints)
+events=$(cat "$stub/events")
+check "hints that did not land reject the solve" "$(got applied)" "2"
+check "its puzzle and rows discarded, so no fill ships without them" "$(grep -c '^discard pw-test' <<<"$events")" "1"
+check "said out loud" "$(grep -c '^alert test solved pw-test-[0-9]* but could not put its hints back' <<<"$events")" "1"
+check "with nothing recorded against the fill" "$(grep -c 'failed_inputs' <<<"$events")" "0"
 
 out=$(flow nofill)
 events=$(cat "$stub/events")

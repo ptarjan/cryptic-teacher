@@ -80,6 +80,7 @@ from fetch_puzzle import (  # noqa: E402 — one reader, one exemption
     leaders_named,
     load_source_table,
     read_puzzle_file,
+    source_clue,
     SOURCE_CLUE_WRONG,
 )
 from find_answer_leaks import light_solutions, named, pieces_of, says  # noqa: E402 — one matcher, shared with the finder
@@ -2683,6 +2684,24 @@ def check_clue_unchanged(puzzle, path, errors):
             f"annotation pass together")
 
 
+def check_clue_rows_held(puzzle, errors):
+    """An OCR'd puzzle (provenance.OCR_CHANNELS) holds every
+    tools/data/source_clue_wrong.json row filed for it: a clue still as the
+    source served it, where the row prints it otherwise, ships the misread
+    beside the row that mends it. tools/annotate_check.py writes the rows in
+    (apply_annotations.mend_clues)."""
+    if (puzzle.get("source") or {}).get("retrievedFrom") not in provenance.OCR_CHANNELS:
+        return
+    for e in puzzle["entries"]:
+        text = e["clue"].get("text")
+        printed = source_clue(puzzle.get("id"), entry_id(e), text)
+        if clue_words(printed) != clue_words(text):
+            errors.append(
+                f"{entry_id(e)}: tools/data/source_clue_wrong.json prints this clue "
+                f"as {printed!r}, but the file holds {text!r}. Run python3 "
+                f"tools/annotate_check.py {puzzle.get('id')}, which writes the row in")
+
+
 # The indicators rung is a tier below the building blocks, and a note written as
 # the operation happens hands the blocks over: "returning means RATS becomes
 # STAR" solves the clue before the solver has found a piece. A note may point at
@@ -3251,6 +3270,7 @@ def main(argv):
         annotated, errors, warnings = validate_puzzle(puzzle, corpus=full_run)
         if not full_run:        # a run's own puzzles; the corpus is HEAD already
             check_clue_unchanged(puzzle, path, errors)
+            check_clue_rows_held(puzzle, errors)
             check_selectors_are_indicators(puzzle, path, errors)
         total = len(puzzle["entries"])
         if annotated == 0 and not argv:
