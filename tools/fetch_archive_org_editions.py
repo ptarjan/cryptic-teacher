@@ -15,8 +15,8 @@ Usage:
                 counted "left for the next run" (tools/ocr_full_pass.sh runs
                 it this way, so the corpus queue fetches in bounded slices)
 
-Sources (GROUPS below), whose items a run opens in turn, one item of each
-group then the next, so no group starves the rest within --seconds: the Times 1965/1974-99 full editions
+Sources (GROUPS below), whose items a run opens in turn, each group getting
+an equal share of editions (by_editions), so no group starves the rest within --seconds: the Times 1965/1974-99 full editions
 (NewsUK<year>UKEnglish, one item per year holding ~200 editions); the BBC
 Listener magazine (pub_listener, one item per issue); the same uploader's
 Financial Times, Guardian, Daily/Sunday Telegraph and 1971 Sunday Times; and
@@ -733,9 +733,23 @@ def items_of(fx, group):
     return sorted(keep)
 
 
-def interleave(lists):
-    """The lists' items taken in turn, one from each: [[a, b, c], [x]] -> [a, x, b, c]."""
-    return [x for row in itertools.zip_longest(*lists) for x in row if x is not None]
+def by_editions(lists, weight):
+    """The lists' items merged so each list gets an equal share of editions,
+    not of items: the next item is the next of the list with the fewest
+    editions taken so far (ties to the earlier list); weight(x) is x's
+    editions still to fetch. So a group of one-issue items (pub_times, the
+    Listener) keeps pace with the groups of one-year items, ~300 editions
+    each, instead of getting one edition a round."""
+    taken, at, out = [0] * len(lists), [0] * len(lists), []
+    while True:
+        live = [i for i in range(len(lists)) if at[i] < len(lists[i])]
+        if not live:
+            return out
+        i = min(live, key=lambda i: (taken[i], i))
+        x = lists[i][at[i]]
+        at[i] += 1
+        out.append(x)
+        taken[i] += weight(x)
 
 
 class Run:
@@ -798,16 +812,19 @@ def main():
     if args.item:
         plan = [("item", it) for it in args.item]
     else:
-        plan = interleave([[(g, it) for it in items_of(fx, g)] for g in (args.group or [g[0] for g in GROUPS])])
-
-    # Every one-item-a-year listing first: archive_coverage reads them, and an
-    # edition run can stop long before it reaches a group's last item.
-    for group, item in plan:
-        if group in YEARLY_GROUPS:
-            try:
-                fx.metadata(item)
-            except (urllib.error.URLError, RuntimeError, OSError, ValueError) as e:
-                log(f"{item}: metadata failed, left for the next run: {e}")
+        lists = [[(g, it) for it in items_of(fx, g)] for g in (args.group or [g[0] for g in GROUPS])]
+        # Every one-item-a-year listing first: archive_coverage reads them, an
+        # edition run can stop long before it reaches a group's last item, and
+        # the plan's order weighs each item by its editions to do.
+        todo_of = {}
+        for group, item in (x for row in lists for x in row):
+            if group in YEARLY_GROUPS:
+                try:
+                    todo_of[item] = sum((item, x) not in done for x in editions_of(fx.metadata(item)))
+                except (urllib.error.URLError, RuntimeError, OSError, ValueError) as e:
+                    log(f"{item}: metadata failed, left for the next run: {e}")
+        done_items = {it for it, _ in done}
+        plan = by_editions(lists, lambda x: todo_of.get(x[1], 0 if x[1] in done_items else 1))
 
     submitted = 0
     left = items_left = 0
