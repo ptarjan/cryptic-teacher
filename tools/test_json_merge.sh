@@ -2,7 +2,7 @@
 # Do the keyed JSON data files merge per key in a real rebase?
 #
 # Two writers adding neighbouring rows to tools/data/corroboration_ledger.json
-# conflicted line by line, and the pre-reset burn stopped on it (df69d72). This
+# conflicted line by line and stopped the pre-reset burn. This
 # rebases such a pair with the driver registered the way tools/nightly_worktree.sh
 # registers it, through .gitattributes as committed, and through the
 # merge-tree tools/push_puzzle_commit.sh pushes with.
@@ -72,9 +72,8 @@ check "same row changed both sides takes the replayed commit's" \
 
 # Rows typed in by hand, without dump_lines' spacing, on both sides, by writers
 # the clean filter did not cover (cat stands in for no filter). Both sides parse,
-# so they merge, and the merge writes the canonical layout. The driver used to
-# refuse a file neither side of which was canonical, and stranded the nightly
-# (2a91fb9, 2026-10-04).
+# so they merge, and the merge writes the canonical layout; a file neither side
+# of which is canonical is no reason to refuse.
 handrow() { python3 - "$1" <<'PY'
 import sys
 p = "tools/data/corroboration_ledger.json"
@@ -116,7 +115,7 @@ for f in $(sed -n 's/^\([^#][^ ]*\) .*merge=json-keys.*/\1/p' "$ROOT/.gitattribu
   check "$f is one line per key" "$(canonical < "$ROOT/$f")" True
 done
 
-# A puzzle both nightly jobs annotated (everyman-4172, 2026-10-05): the update's
+# A puzzle both nightly jobs annotated (everyman-4172): the update's
 # commit also carried new data, the burn's only its annotation. The rebase
 # resolves itself, keeps origin's annotation, and keeps the update's data.
 git checkout -q master

@@ -78,7 +78,7 @@ f.SCAN_CODE = code; f._SCAN_KEY.clear()
 check("a title no verdict covers makes the edition due", "titles changed",
       f.due_reason({"inputs": "h", "solutionsSeen": [], "verdicts": [], "vlm": "v",
                     "scan": {"puzzles": [{"number": 18862}]}}, "h", [], "v"))
-# Real titles the pass found no title on (no-crossword-found, 2026-10-06):
+# Real titles the pass found no title on (no-crossword-found):
 # "Times" garbled past one word, a mark after Crossword, "No" run on or
 # dropped, a space in the number, its 1 read as i.
 check("garbled titles read",

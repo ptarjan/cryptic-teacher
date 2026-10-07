@@ -5,7 +5,7 @@
 #
 #     bash tools/test_ocr_vote_checks.sh
 #
-# Each case is a scan clue the filer once filed wrong or blank:
+# Each case is a scan clue the filer filed wrong or blank:
 #   times-16752 2D "that's shoddy (5-4)" filed "thar's shoddy (9)";
 #   times-16994 14D "Involve ..." filed "involve ...";
 #   times-20988 25A "when it re-forms" filed "reforms".

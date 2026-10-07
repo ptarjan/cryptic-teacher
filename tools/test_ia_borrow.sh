@@ -5,7 +5,7 @@
 #     bash tools/test_ia_borrow.sh
 #
 # archive.org answers browse_book with ONE byte-identical HTTP 400 body for
-# both conditions (recorded live 2026-09-18 from sketchbookofgeof00irvi and
+# both conditions (recorded live from sketchbookofgeof00irvi and
 # dailytelegraphcr0000dail — see AMBIGUOUS_BODY below, used for both fixtures
 # here precisely so they cannot drift apart and let a string test look like it
 # works). Anything that decides between them from that body alone is guessing,
@@ -143,7 +143,7 @@ def availability_response(status):
 refused = Response(400, AMBIGUOUS_BODY)
 
 # --------------------------------------------------------------- case 1
-# All copies out. The regression: this used to be read as public domain.
+# All copies out: never read as public domain.
 print("case 1: every copy checked out")
 s = StubSession(browse=refused, availability=availability_response(ALL_COPIES_OUT))
 try:
@@ -351,7 +351,7 @@ except SystemExit as e:
 # The loan comes back however the block ends. This is the property that
 # matters most: these are one-hour, single-copy, no-waitlist loans, so a path
 # that skips the return locks the book out for the next hour, and every
-# caller now gets the loan through this one context manager.
+# caller gets the loan through this one context manager.
 print("case 9: borrowed() returns the loan on every way out")
 returned = []
 real = (F.load_credentials, F.login, F.borrow, F.return_loan, F.requests)

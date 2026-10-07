@@ -58,7 +58,7 @@ rows = [{"number": 1218, "date": "2013-06-30"},   # a Sunday: itself
         {"number": 1220, "date": "2013-07-03"}]   # a date that falls back is dropped
 print("DATES", {n: d and d.isoformat() for n, d in sorted(I.sunday_dates(rows).items())})
 
-# A file written before the parser tidied clues is tidied on the next run,
+# A file holding untidied clues is tidied on the next run,
 # and only one this tool wrote, though its post is never parsed again: the
 # grid row's record is gone, so the files are walked.
 import json, tempfile

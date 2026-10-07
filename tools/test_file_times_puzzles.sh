@@ -136,8 +136,8 @@ print("RERUN_UNTOUCHED", before == {q.name: q.read_bytes() for q in puzzle_paths
 print("DRIFTED", ",".join(drifted))
 print("SETTERS", sunday["setter"], json.loads(puzzle_paths.find("times-29000").read_text()).get("setter"))
 
-# A clue filed before a parser fix is tidied by the next run as the parser
-# now reads it: a definition slash goes, the rest of the file stays.
+# A clue filed untidied is tidied by the next run as the parser reads it: a
+# definition slash goes, the rest of the file stays.
 path = puzzle_paths.find("times-100")
 old = json.loads(path.read_text())
 old["entries"][0]["clue"]["text"] = "Irish city /seal"
@@ -357,7 +357,7 @@ page = ('<a href="/puzzles/crossword/sunday-times-cryptic-no-5078-t38g8lcjm" dat
 print("CARDS", [(s, n, str(d)) for s, n, d in L.cards("20240103120000", page)])
 
 # A Jumbo title states its date as the slug may not: "(18/11/17)", "April1,
-# 2017", or a holiday's name. Before the title was read these stayed null.
+# 2017", or a holiday's name.
 said = lambda posted, title: str(F.blog_date(
     {"date": posted, "slug": "jumbo", "title": title}, "timesjumbo"))
 print("TITLE_NUMERIC", said("2017-12-02", "Times Cryptic Jumbo No 1294 (18/11/17): Feline Groovy"))
