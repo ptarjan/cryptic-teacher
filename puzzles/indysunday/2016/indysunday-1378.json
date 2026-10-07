@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Too many gluttons ask for seconds",
     "enumeration": "4"
    },
-   "solution": "ALSO"
+   "solution": "ALSO",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ALSO",
+    "definitions": [
+     {
+      "text": "Too",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for seconds",
+      "for": "letter_selection",
+      "note": "asking for seconds here means taking the second letter of each word in turn"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "many gluttons ask",
+      "gives": "ALS",
+      "select": 2,
+      "note": "second letters of the three words"
+     },
+     {
+      "clueFragment": "for",
+      "gives": "O",
+      "select": 2,
+      "note": "second letter of this word too"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALS",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at greedy diners who always want a second helping.",
+     "definitionFit": "Both words mean as well or in addition, interchangeable as adverbs in a sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "seconds"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +99,69 @@
     "text": "Endlessly dry region on the easternmost tip of California?",
     "enumeration": "7"
    },
-   "solution": "ARIZONA"
+   "solution": "ARIZONA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade",
+     "and_lit"
+    ],
+    "answer": "ARIZONA",
+    "definitions": [
+     {
+      "text": "Endlessly dry region on the easternmost tip of California?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Endlessly",
+      "for": "deletion",
+      "note": "without an end, so each of the next two words loses its final letter"
+     },
+     {
+      "text": "easternmost tip",
+      "for": "letter_selection",
+      "note": "in an across-reading word the east is the right-hand end, so the last letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dry",
+      "gives": "ARID",
+      "note": "a synonym, cut short by the indicator"
+     },
+     {
+      "clueFragment": "region",
+      "gives": "ZONE",
+      "note": "a synonym, also cut short"
+     },
+     {
+      "clueFragment": "California",
+      "gives": "A",
+      "select": "last",
+      "note": "its final letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARI",
+      "ZON",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A geography question about the arid land on California's eastern border.",
+     "walkthrough": "The whole clue doubles as the definition: the desert state lies on California's eastern edge, and its name is built from the truncated words plus the last letter of California.",
+     "definitionFit": "The US state is largely desert and borders California to the east, so the full description fits it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Endlessly"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +181,50 @@
      }
     ]
    },
-   "solution": "SHORTTERM"
+   "solution": "SHORTTERM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHORT-TERM",
+    "definitions": [
+     {
+      "text": "Temporary",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a strong drink",
+      "gives": "SHORT",
+      "note": "a short is a small measure of spirits"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "TERM",
+      "note": "a term is a name for something"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHORT",
+      "TERM"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone christens a stiff drink with a fleeting nickname.",
+     "walkthrough": "A short is British pub talk for a measure of spirits such as whisky, as opposed to a long drink.",
+     "definitionFit": "Something lasting only a brief period is temporary, an adjective pair with matching sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "strong"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +238,43 @@
     "text": "Praise God in recital",
     "enumeration": "4"
    },
-   "solution": "LAUD"
+   "solution": "LAUD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "LAUD",
+    "definitions": [
+     {
+      "text": "Praise",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in recital",
+      "for": "homophone",
+      "note": "a recital is a spoken performance, so we hear the word rather than read it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "God",
+      "gives": "LAUD",
+      "soundsLike": "LORD",
+      "note": "the Lord is God; in a non-rhotic British accent the two words sound the same"
+     }
+    ],
+    "explanation": {
+     "surface": "Worshippers praising God by reciting a prayer together.",
+     "definitionFit": "To laud someone is to extol or glorify them, a formal verb for praising."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recital"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +288,67 @@
     "text": "Provide a university friend with news every 12 months",
     "enumeration": "8"
    },
-   "solution": "ANNUALLY"
+   "solution": "ANNUALLY",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANNUALLY",
+    "definitions": [
+     {
+      "text": "every 12 months",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Provide",
+      "for": "container",
+      "note": "to provide something with an item is to fit it in, so the second group is placed inside the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "ALLY",
+      "note": "a friend or supporter"
+     },
+     {
+      "clueFragment": "news",
+      "gives": "NN",
+      "note": "read as the plural of N, the abbreviation for new: two Ns"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NN",
+      "U",
+      "ALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping a college friend up to date with the latest news once a year.",
+     "walkthrough": "Treating news as several Ns, like pp for pages, is a playful setter's liberty.",
+     "definitionFit": "Something done annually happens once a year, which is the same as once in each twelve-month span."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "news"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +362,41 @@
     "text": "Russian country house resembled a château, in part",
     "enumeration": "5"
    },
-   "solution": "DACHA"
+   "solution": "DACHA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "DACHA",
+    "definitions": [
+     {
+      "text": "Russian country house",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only a portion of the words is taken, so the letters sit inside the phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resembled a château",
+      "gives": "DACHA",
+      "note": "found across the end of the first word, the article and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A grand Russian country home looked rather like a French castle.",
+     "definitionFit": "A dacha is the traditional second home or villa in the Russian countryside."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +410,57 @@
     "text": "Feeling low, start to drink",
     "enumeration": "4"
    },
-   "solution": "MOOD"
+   "solution": "MOOD",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MOOD",
+    "definitions": [
+     {
+      "text": "Feeling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start to",
+      "for": "letter_selection",
+      "note": "the start of a word is its opening letter, which is all that is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "low",
+      "gives": "MOO",
+      "note": "to low is to make the sound of cattle"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "D",
+      "select": "first",
+      "note": "its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOO",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone feeling down decides to begin drinking.",
+     "walkthrough": "Low looks like the adjective for sadness, but here it is the verb for a cow's call.",
+     "definitionFit": "A mood is an emotional state or temper, so a noun for a feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "low"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +474,70 @@
     "text": "Famous explorer ought to lead a group heading north",
     "enumeration": "5"
    },
-   "solution": "OATES"
+   "solution": "OATES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OATES",
+    "definitions": [
+     {
+      "text": "Famous explorer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading north",
+      "for": "reversal",
+      "note": "in a down entry going north means reading upwards, back to front"
+     }
+    ],
+    "linkWords": [
+     "to lead"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ought",
+      "gives": "O",
+      "note": "ought is an old spelling of nought, zero"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "SET",
+      "note": "a set is a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "A",
+      "TES"
+     ],
+     "reversals": [
+      {
+       "from": "SET",
+       "to": "TES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A noted explorer should head a party going towards the Arctic.",
+     "walkthrough": "Captain Lawrence Oates died on Scott's Antarctic expedition of 1912. Ought for zero is an old usage some solvers will not know.",
+     "definitionFit": "Captain Lawrence Oates was a member of Scott's doomed polar expedition, remembered for walking out into the blizzard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ought"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +557,53 @@
      }
     ]
    },
-   "solution": "DIEHARD"
+   "solution": "DIEHARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIE HARD",
+    "definitions": [
+     {
+      "text": "action film",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "a word that follows comes after, so the piece for having difficulty is sent second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the German",
+      "gives": "DIE",
+      "note": "a German word for the"
+     },
+     {
+      "clueFragment": "Having difficulty",
+      "gives": "HARD",
+      "note": "having a hard time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIE",
+      "HARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Struggling to follow a German-language blockbuster.",
+     "definitionFit": "The 1988 Bruce Willis thriller set in a skyscraper is a classic of the action movie genre."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "German"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +617,57 @@
     "text": "The last word of a Japanese soup recipe is missing",
     "enumeration": "4"
    },
-   "solution": "AMEN"
+   "solution": "AMEN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "AMEN",
+    "definitions": [
+     {
+      "text": "The last word",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is missing",
+      "for": "deletion",
+      "note": "something missing has been taken away, so a letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a Japanese soup",
+      "gives": "RAMEN",
+      "note": "a Japanese noodle soup"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, as on prescriptions"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMEN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cook complains that the final instruction of a noodle-soup recipe has vanished.",
+     "walkthrough": "R for recipe comes from the Latin recipe, take, written on prescriptions. The definition hides at the start in plain sight.",
+     "definitionFit": "The word said at the close of a prayer is literally the final word, and also means a final agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 10,
@@ -185,7 +681,50 @@
     "text": "Sticking around and dawdling",
     "enumeration": "8"
    },
-   "solution": "CLAGGING"
+   "solution": "CLAGGING",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CLAGGING",
+    "definitions": [
+     {
+      "text": "Sticking",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "around",
+      "gives": "C",
+      "note": "c is short for circa, around"
+     },
+     {
+      "clueFragment": "dawdling",
+      "gives": "LAGGING",
+      "note": "lagging behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LAGGING"
+     ]
+    },
+    "explanation": {
+     "surface": "Hanging about and loitering instead of moving on.",
+     "walkthrough": "Sticking around looks like one phrase, but the definition is just the first word. To clag is a northern British word for sticking or clogging.",
+     "definitionFit": "Clag is a regional British verb meaning to clog or adhere, so the participle matches a word for adhering."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "around"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +738,51 @@
     "text": "How you may view parts of female long-distance triathlon?",
     "enumeration": "7"
    },
-   "solution": "IRONMAN"
+   "solution": "IRONMAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IRONMAN",
+    "definitions": [
+     {
+      "text": "long-distance triathlon",
+      "at": 33
+     }
+    ],
+    "linkWords": [
+     "How you may view parts of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "female",
+      "gives": "IRON",
+      "note": "split the word: its first two letters are Fe, the chemical symbol for iron"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "MAN",
+      "note": "the rest of the word is male, a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IRON",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A question about how to watch the women's race in an endurance triathlon.",
+     "walkthrough": "Viewing the word as two parts, Fe plus male, gives a chemical element and a man.",
+     "definitionFit": "The branded endurance race combines a long swim, a cycle ride and a full marathon run."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "female"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +796,58 @@
     "text": "Shortened many pretty skirts - this could be one of them",
     "enumeration": "7"
    },
-   "solution": "CULOTTE"
+   "solution": "CULOTTE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CULOTTE",
+    "definitions": [
+     {
+      "text": "this could be one of them",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "skirts",
+      "for": "container",
+      "note": "to skirt something is to go round its edge, so one word encloses the other"
+     }
+    ],
+    "linkWords": [
+     "Shortened"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pretty",
+      "gives": "CUTE",
+      "note": "a synonym for pretty"
+     },
+     {
+      "clueFragment": "many",
+      "gives": "LOT",
+      "note": "a lot is many"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "LOT",
+      "TE"
+     ]
+    },
+    "explanation": {
+     "surface": "Lots of pretty skirts have been hemmed shorter.",
+     "walkthrough": "Shortened describes the garment: it is a pair of shortened trousers cut to look like a skirt, so it could be one of the skirts.",
+     "definitionFit": "These are knee-length divided garments that hang like a skirt, so one could count among the skirts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "skirts"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +861,60 @@
     "text": "Frequently went for shelled nuts",
     "enumeration": "5"
    },
-   "solution": "OFTEN"
+   "solution": "OFTEN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "OFTEN",
+    "definitions": [
+     {
+      "text": "Frequently",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shelled",
+      "for": "deletion",
+      "note": "a shelled nut has lost its outer casing, so the outermost letters go"
+     },
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the remaining letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "went for",
+      "gives": "WENTFOR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFTEN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ENTFO",
+       "gives": "OFTEN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone regularly chose nuts with their shells removed.",
+     "walkthrough": "Went for reads as chose, but it is just the letters; shelled strips the first and last of the phrase.",
+     "definitionFit": "Both are adverbs meaning many times or regularly, interchangeable in a sentence."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +928,71 @@
     "text": "Supplying alcoholics with assorted ales and gin shows a complete lack of feeling",
     "enumeration": "9"
    },
-   "solution": "ANALGESIA"
+   "solution": "ANALGESIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ANALGESIA",
+    "definitions": [
+     {
+      "text": "a complete lack of feeling",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "assorted",
+      "for": "anagram",
+      "note": "assorted means mixed up, so these letters are jumbled"
+     },
+     {
+      "text": "Supplying",
+      "for": "container",
+      "note": "to supply one group with something is to put that thing inside it"
+     }
+    ],
+    "linkWords": [
+     "shows"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "alcoholics",
+      "gives": "AA",
+      "note": "Alcoholics Anonymous"
+     },
+     {
+      "clueFragment": "ales and gin",
+      "gives": "ALESGIN",
+      "note": "the letters of the two drinks"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NALGESI",
+      "A"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALESGIN",
+       "gives": "NALGESI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plying recovering drinkers with beer and spirits is shockingly callous.",
+     "walkthrough": "A complete lack of feeling reads as heartlessness in the surface, but medically it is loss of the sense of pain.",
+     "definitionFit": "The medical term means absence of pain sensation, which is a total numbness to feeling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "feeling"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1006,56 @@
     "text": "Flexible, fit American guys in the lead",
     "enumeration": "8"
    },
-   "solution": "AMENABLE"
+   "solution": "AMENABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMENABLE",
+    "definitions": [
+     {
+      "text": "Flexible",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in the lead"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "guys",
+      "gives": "MEN",
+      "note": "guys are men"
+     },
+     {
+      "clueFragment": "fit",
+      "gives": "ABLE",
+      "note": "fit for or capable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "MEN",
+      "ABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Athletic American men up front are supple.",
+     "walkthrough": "In the lead puts the American and the guys before the word for fit.",
+     "definitionFit": "An amenable person is willing to go along with things, accommodating rather than rigid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Flexible"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1069,68 @@
     "text": "It's moved around in a lorry with great skill",
     "enumeration": "8"
    },
-   "solution": "ARTISTIC"
+   "solution": "ARTISTIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ARTISTIC",
+    "definitions": [
+     {
+      "text": "with great skill",
+      "at": 29,
+      "note": "the answer is an adjective; the phrase works adjectivally, as in a person with great skill"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moved around",
+      "for": "anagram",
+      "note": "things moved around are rearranged, so the letters change order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece is placed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "It's",
+      "gives": "ITS",
+      "note": "the letters as written"
+     },
+     {
+      "clueFragment": "a lorry",
+      "gives": "ARTIC",
+      "note": "an artic is an articulated lorry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AR",
+      "TIS",
+      "TIC"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ITS",
+       "gives": "IST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Something being driven about in a truck, handled very deftly.",
+     "walkthrough": "A lorry is the British word for a truck, and an artic is one with a separate tractor and trailer.",
+     "definitionFit": "Being artistic means having creative talent or flair, showing skill in the arts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lorry"
+    }
+   }
   },
   {
    "number": 17,
@@ -283,7 +1144,58 @@
     "text": "Made up a story about a newspaper getting stolen",
     "enumeration": "6"
    },
-   "solution": "LIFTED"
+   "solution": "LIFTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIFTED",
+    "definitions": [
+     {
+      "text": "stolen",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made up a story",
+      "gives": "LIED",
+      "note": "told a falsehood"
+     },
+     {
+      "clueFragment": "a newspaper",
+      "gives": "FT",
+      "note": "the Financial Times"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "FT",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist invented a tale about a paper being pinched.",
+     "walkthrough": "The FT is the Financial Times, the British business daily.",
+     "definitionFit": "To lift something is informal for taking it without permission, so the past participle means pinched."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Made"
+    }
+   }
   },
   {
    "number": 18,
@@ -297,7 +1209,66 @@
     "text": "Time with kinky porn star is ecstasy",
     "enumeration": "9"
    },
-   "solution": "TRANSPORT"
+   "solution": "TRANSPORT",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "TRANSPORT",
+    "definitions": [
+     {
+      "text": "ecstasy",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kinky",
+      "for": "anagram",
+      "note": "kinky means twisted, so the letters are bent into a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Time",
+      "gives": "T",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "porn star",
+      "gives": "PORNSTAR",
+      "note": "the letters of the phrase"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RANSPORT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PORNSTAR",
+       "gives": "RANSPORT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky claim that time spent with an adult film actor is bliss.",
+     "walkthrough": "Ecstasy is not the drug here but a rapture.",
+     "definitionFit": "A transport of joy is an overwhelming emotion, a rapture or state of bliss."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ecstasy"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1282,71 @@
     "text": "British novel about the end of one chap's relationship with another",
     "enumeration": "8"
    },
-   "solution": "BROMANCE"
+   "solution": "BROMANCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BROMANCE",
+    "definitions": [
+     {
+      "text": "chap's relationship with another",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "novel",
+      "gives": "ROMAN",
+      "note": "roman is French for a novel, used in English too"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c for circa"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "E",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ROMAN",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A British book telling how one man's friendship with another ends.",
+     "walkthrough": "About is not a link but the abbreviation c for circa. Roman as a word for a novel appears in roman à clef.",
+     "definitionFit": "The modern word describes a close, non-sexual friendship between two men."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1360,49 @@
     "text": "Meteor exploding far in the distance",
     "enumeration": "6"
    },
-   "solution": "REMOTE"
+   "solution": "REMOTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REMOTE",
+    "definitions": [
+     {
+      "text": "far in the distance",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exploding",
+      "for": "anagram",
+      "note": "an explosion scatters pieces, so the letters are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Meteor",
+      "gives": "METEOR",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "METEOR",
+       "gives": "REMOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shooting star bursts apart high up and a long way off.",
+     "definitionFit": "Something remote is distant or far away, an adjective of the same sense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1416,56 @@
     "text": "Fast hit by a karate expert",
     "enumeration": "7"
    },
-   "solution": "RAMADAN"
+   "solution": "RAMADAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAMADAN",
+    "definitions": [
+     {
+      "text": "Fast",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit",
+      "gives": "RAM",
+      "note": "to ram is to strike"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "karate expert",
+      "gives": "DAN",
+      "note": "a dan is a black-belt grade in martial arts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAM",
+      "A",
+      "DAN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone struck quickly by a martial artist.",
+     "walkthrough": "Fast looks like an adjective for speed but is the noun for going without food.",
+     "definitionFit": "The Islamic holy month is observed by daytime abstinence from eating and drinking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fast"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1479,66 @@
     "text": "A person who boasts about good fashion knowledge",
     "enumeration": "8"
    },
-   "solution": "BRAGGART"
+   "solution": "BRAGGART",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BRAGGART",
+    "definitions": [
+     {
+      "text": "A person who boasts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the letters run backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "fashion",
+      "gives": "GARB",
+      "note": "garb is a style of dress"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "ART",
+      "note": "art as know-how or skill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRAGG",
+      "ART"
+     ],
+     "reversals": [
+      {
+       "from": "GGARB",
+       "to": "BRAGG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A show-off who keeps telling everyone how much they know about style.",
+     "walkthrough": "Boasts about reads as one phrase, but about belongs to the wordplay. Art here is skill or knowledge, as in the art of cooking.",
+     "definitionFit": "A braggart is a loud show-off who constantly brags, so a noun for someone who boasts."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1552,51 @@
     "text": "Rocky terrain footwear",
     "enumeration": "7"
    },
-   "solution": "TRAINER"
+   "solution": "TRAINER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRAINER",
+    "definitions": [
+     {
+      "text": "footwear",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rocky",
+      "for": "anagram",
+      "note": "rocky means unsteady, so the letters are shaken into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "terrain",
+      "gives": "TERRAIN",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TERRAIN",
+       "gives": "TRAINER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Shoes suited to stony ground.",
+     "walkthrough": "A trainer is the British name for a sports shoe or sneaker.",
+     "definitionFit": "A trainer is a soft sports shoe, so an item of footwear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rocky"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1610,72 @@
     "text": "McDonald's start ordering more salt, resulting in confusion",
     "enumeration": "9"
    },
-   "solution": "MAELSTROM"
+   "solution": "MAELSTROM",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MAELSTROM",
+    "definitions": [
+     {
+      "text": "confusion",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "start",
+      "for": "letter_selection",
+      "note": "the start of a name is its opening letter"
+     },
+     {
+      "text": "ordering",
+      "for": "anagram",
+      "note": "putting things in order rearranges them, so these letters are reshuffled"
+     }
+    ],
+    "linkWords": [
+     "resulting in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "McDonald's",
+      "gives": "M",
+      "select": "first",
+      "note": "its first letter"
+     },
+     {
+      "clueFragment": "more salt",
+      "gives": "MORESALT",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "AELSTROM"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MORESALT",
+       "gives": "AELSTROM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Customers at a burger chain asking for extra salt cause chaos.",
+     "walkthrough": "Ordering looks like placing a food order, but it is the instruction to rearrange.",
+     "definitionFit": "A maelstrom is a whirlpool, and figuratively a state of turbulent chaos and turmoil."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ordering"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1689,55 @@
     "text": "A big mountain - one in East Germany",
     "enumeration": "5"
    },
-   "solution": "EIGER"
+   "solution": "EIGER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EIGER",
+    "definitions": [
+     {
+      "text": "A big mountain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral"
+     },
+     {
+      "clueFragment": "East Germany",
+      "gives": "EGER",
+      "note": "E for East and GER for Germany"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "I",
+      "GER"
+     ]
+    },
+    "explanation": {
+     "surface": "A tall peak said to be found in the former GDR.",
+     "walkthrough": "The surface invites a mountain in the old East Germany; the peak is actually in the Swiss Alps.",
+     "definitionFit": "The Eiger is a famous Swiss Alpine peak known for its deadly north face."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Germany"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1751,49 @@
     "text": "Artist has that fabric",
     "enumeration": "5"
    },
-   "solution": "RAYON"
+   "solution": "RAYON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RAYON",
+    "definitions": [
+     {
+      "text": "fabric",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "has"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Artist",
+      "gives": "RA",
+      "note": "Royal Academician"
+     },
+     {
+      "clueFragment": "that",
+      "gives": "YON",
+      "note": "an old word for that, as in yon hill"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "YON"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter owns that particular cloth.",
+     "walkthrough": "RA stands for Royal Academician, a member of London's Royal Academy of Arts.",
+     "definitionFit": "Rayon is a synthetic textile made from cellulose, so a type of cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1807,47 @@
     "text": "Former amateur Italian chefs may cook with it",
     "enumeration": "5"
    },
-   "solution": "PASTA"
+   "solution": "PASTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTA",
+    "definitions": [
+     {
+      "text": "Italian chefs may cook with it",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Former",
+      "gives": "PAST",
+      "note": "past means previous"
+     },
+     {
+      "clueFragment": "amateur",
+      "gives": "A",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAST",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A one-time amateur cook in an Italian kitchen.",
+     "walkthrough": "The definition is descriptive rather than a synonym: it names a staple ingredient.",
+     "definitionFit": "Spaghetti, penne and other such noodles are staple ingredients in Italian cooking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "amateur"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1861,45 @@
     "text": "Man listening to salacious stuff",
     "enumeration": "4"
    },
-   "solution": "PAWN"
+   "solution": "PAWN",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "PAWN",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "listening to",
+      "for": "homophone",
+      "note": "listening means the word is heard rather than read"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "salacious stuff",
+      "gives": "PAWN",
+      "soundsLike": "PORN",
+      "note": "pornography, which in a non-rhotic accent sounds like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A man caught listening to something smutty.",
+     "walkthrough": "Man is a chess piece here, not a person.",
+     "definitionFit": "Chess pieces are called men, and the humblest piece on the board is a foot soldier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 27,
@@ -451,7 +1913,59 @@
     "text": "An important person lacking the first signs of any real self-worth",
     "enumeration": "7"
    },
-   "solution": "DIGNITY"
+   "solution": "DIGNITY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "DIGNITY",
+    "definitions": [
+     {
+      "text": "self-worth",
+      "at": 56
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first signs of",
+      "for": "letter_selection",
+      "note": "the first sign of a word is its opening letter"
+     },
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking something means being without it, so letters are removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "An important person",
+      "gives": "DIGNITARY",
+      "note": "a person of high rank"
+     },
+     {
+      "clueFragment": "any real",
+      "gives": "AR",
+      "select": "first",
+      "note": "first letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIGNIT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A VIP who has no true self-respect at all.",
+     "definitionFit": "Dignity is a sense of pride and self-respect, the feeling of one's own value."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 28,
@@ -465,7 +1979,82 @@
     "text": "Doctor Brown following a nurse about to deliver a baby",
     "enumeration": "7"
    },
-   "solution": "NEWBORN"
+   "solution": "NEWBORN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "reversal",
+     "charade"
+    ],
+    "answer": "NEWBORN",
+    "definitions": [
+     {
+      "text": "a baby",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, so these letters are altered"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turned about means the letters face the other way"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following means coming after, so the doctored name is placed behind the nurse"
+     }
+    ],
+    "linkWords": [
+     "to deliver"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a nurse",
+      "gives": "EN",
+      "note": "Enrolled Nurse"
+     },
+     {
+      "clueFragment": "Brown",
+      "gives": "BROWN",
+      "note": "the letters as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "WBORN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BROWN",
+       "gives": "WBORN"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "EN",
+       "to": "NE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medic called Brown, assisted by a nurse, is about to deliver a child.",
+     "walkthrough": "Doctor Brown reads as a person's title, but the doctor is the instruction. EN is an Enrolled Nurse, a British qualification.",
+     "definitionFit": "A newborn is an infant that has just arrived into the world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 29,
@@ -479,7 +2068,58 @@
     "text": "Japanese seaweed is flipping smooth",
     "enumeration": "4"
    },
-   "solution": "NORI"
+   "solution": "NORI",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NORI",
+    "definitions": [
+     {
+      "text": "Japanese seaweed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flipping",
+      "for": "reversal",
+      "note": "flipping something over turns it the other way, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smooth",
+      "gives": "IRON",
+      "note": "to iron is to smooth out creases"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NORI"
+     ],
+     "reversals": [
+      {
+       "from": "IRON",
+       "to": "NORI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exclamation that the seaweed is jolly smooth.",
+     "walkthrough": "Flipping looks like a mild British expletive, as in flipping marvellous, but it is the reversal signal.",
+     "definitionFit": "Nori is the edible red algae pressed into sheets for wrapping sushi."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "flipping"
+    }
+   }
   },
   {
    "number": 30,
@@ -493,7 +2133,39 @@
     "text": "Relatively speaking, Liam Gallagher's least favourite part of December?",
     "enumeration": "4"
    },
-   "solution": "NOEL"
+   "solution": "NOEL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NOEL",
+    "definitions": [
+     {
+      "text": "Relatively speaking, Liam Gallagher's least favourite part of December?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relatively speaking, Liam Gallagher's least favourite",
+      "note": "the surface reading: the Oasis singer's famously feuding older brother, a relative he dislikes"
+     },
+     {
+      "clueFragment": "part of December",
+      "note": "the setter's reading: the festive season, Christmas"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Liam Gallagher of the band Oasis has long feuded with his songwriter brother, who shares a name with the French word for Christmas.",
+     "definitionFit": "The word is both a carol word for Christmas and the first name of the Oasis guitarist brother."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Relatively"
+    }
+   }
   },
   {
    "number": 31,
@@ -507,7 +2179,43 @@
     "text": "Porridge mix",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STIR",
+    "definitions": [
+     {
+      "text": "Porridge",
+      "at": 0
+     },
+     {
+      "text": "mix",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Porridge",
+      "note": "first meaning: British slang for time spent in prison"
+     },
+     {
+      "clueFragment": "mix",
+      "note": "second meaning: to blend with a spoon"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests making oatmeal, but porridge is British slang for a prison sentence, and stir is slang for prison.",
+     "definitionFit": "Both a slang term for jail time and a verb for blending ingredients by circular motion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Porridge"
+    }
+   }
   }
  ]
 }
