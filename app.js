@@ -3374,7 +3374,12 @@
     const c = String(clue || "");
     const i = def && def.text && def.at >= 0 ? cpToIdx(c, def.at) : -1;
     if (i < 0 || c.slice(i, i + def.text.length) !== def.text) return ".";
-    const trim = (s) => s.trim().replace(/^[,;:.—–-]+|[,;:—–-]+$/g, "").trim();
+    // A side with no letters in it ("?" or "!" after a definition that ends the
+    // clue) is punctuation, not wordplay, so it must not make the seam mid-clue.
+    const trim = (s) => {
+      const t = s.trim().replace(/^[,;:.—–-]+|[,;:—–-]+$/g, "").trim();
+      return /[a-z0-9]/i.test(t) ? t : "";
+    };
     const apos = (s) => s.replace(/[‘’]/g, "'").toLowerCase();
     const lws = (links || []).map((w) => apos(String(w || "").trim())).filter(Boolean);
     const unlink = (s, atStart) => {
