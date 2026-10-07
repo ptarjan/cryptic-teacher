@@ -79,11 +79,14 @@ The desktop VLM reads only in a filer's reads, never in a fetch or a scan,
 so the pass puts that work first. It reads every paper's due editions whose
 scans stand (`file_archive_org_puzzles.py --no-scan`: an edition whose own
 scan, or a scan in the week after it where its solution prints, is stale
-waits), then the due Trove articles (that filer scans nothing). Only then does
-it scan each paper and read what the scans made due. It then reads the
-sources annotation asked to have read again (`tools/scan_queue.py
-requested`), fetches, and ends. Running it again is always safe:
-a pass with nothing due ends in minutes.
+waits). Then it scans each paper and reads what the scans made due (the
+never-read editions), then the due Trove articles, then the sources
+annotation asked to have read again (`tools/scan_queue.py requested`), and
+ends. The fetchers (archive.org, and Trove's clue zones then articles) run
+beside all of that from the pass's start, in hour slices until their
+backlog is fetched, since they use only the network and the desktop's CPU;
+a filer sees an edition only once its `pages.json` lands. Running it again
+is always safe: a pass with nothing due ends in minutes.
 
 So nothing is ever queued by hand:
 

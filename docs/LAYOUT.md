@@ -1518,9 +1518,11 @@ tools/ocr_full_pass.sh                        the one standing corpus job: read 
                                               find due (never read, inputs changed, read
                                               without the VLM that now answers, read before
                                               REREAD_BEFORE), those whose scans stand first,
-                                              and the re-reads annotation asked for, to the
-                                              end, then fetch for the next pass and stop; the
-                                              Gale Listener pages saved since are read at its
+                                              then the scanned, then Trove, and the re-reads
+                                              annotation asked for, to the end, fetching
+                                              archive.org and Trove beside the reads for the
+                                              next pass, then stop; the Gale Listener pages
+                                              saved since are read beside it, started at its
                                               start and before every slice
 tools/scan_queue.py                           the read queue the scan filers share, and the
                                               re-reads annotation asks of them

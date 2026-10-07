@@ -60,7 +60,7 @@ PRINTED = {
 #: Recoverable means this pipeline (fetch, OCR, a re-read) can still get it.
 CLASSES = [
     ("not-fetched", "archive.org has the scan; tools/fetch_archive_org_editions.py has not fetched it",
-     "fetch_archive_org_editions.py --group <paper>", True, "tools/fetch_archive_org_editions.py"),
+     "the standing full pass fetches it beside its reads (tools/ocr_full_pass.sh); a backlog that does not shrink there is a fetcher fault", True, "tools/fetch_archive_org_editions.py"),
     ("fetch-failed", "the scan's fetch failed (failures.tsv) and has not been retried",
      "fetch_archive_org_editions.py --group <paper>", True, "tools/fetch_archive_org_editions.py"),
     ("not-read", "fetched, never read by the filer", "the standing full pass (tools/ocr_full_pass.sh)", True, "tools/ocr_full_pass.sh"),
