@@ -156,7 +156,18 @@ BARE_SUFFIX = re.compile(r"^(across|ac|a|down|dn|d)\.?$", re.I)
 #: "1a Maybe saw stolen goods being returned (4)": the suffix glued to the
 #: number with the clue after it on the same line. Glued only, because "1 A
 #: moral purge ..." is clue 1 opening with the word "A".
-GLUED_SUFFIX = re.compile(r"^\d{1,2}(ac|dn|a|d)\b\.?\s+(?=\S)", re.I)
+#: "3 Across – Grumble about old male (8)": the direction spelt out, then a
+#: spaced dash, is the same suffix. Not "24 Down: source of the unexpected?
+#: (4)", whose clue opens "Down:", nor "34 DOWN-HEARTED", an answer.
+GLUED_SUFFIX = re.compile(
+    r"^\d{1,2}(?:(ac|dn|a|d)\b\.?\s+|\s+(across|down)\s+[–—-]\s+)(?=\S)", re.I)
+
+
+def glued_suffix(ln):
+    """(the clue after a suffix glued to its number, the suffix's direction),
+    or None for a line without one."""
+    m = GLUED_SUFFIX.match(ln)
+    return m and (ln[m.end():].strip(), DIRECTION_OF[(m.group(1) or m.group(2)).lower()])
 #: "See 15", "See 3 (9)", "See 12 across", "See 12a" — a light whose clue lives on another
 #: light. tools/normalise_linked_enumerations.py reads the same shape; this is
 #: how the whole corpus spells a continuation.
@@ -980,11 +991,11 @@ def read_entries(rendered):
                 number, rest = int(m.group(1)), m.group(2).strip()
                 way = direction or "across"
                 suffix = BARE_SUFFIX.match(rest)
-                glued = None if suffix else GLUED_SUFFIX.match(ln)
+                glued = None if suffix else glued_suffix(ln)
                 if suffix:
                     rest, way = "", DIRECTION_OF[suffix.group(1).lower()]
                 elif glued:
-                    rest, way = ln[glued.end():].strip(), DIRECTION_OF[glued.group(1).lower()]
+                    rest, way = glued
                 # A suffix against the heading it sits under ("24d" in the
                 # Across list) is one of the two mistyped; the grid decides
                 # (times_grids.as_headed), so the heading is kept beside it.

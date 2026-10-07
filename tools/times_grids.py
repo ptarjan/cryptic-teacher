@@ -919,6 +919,30 @@ def attempted(attempts=None, retry=None, keys=None):
             and not (pid in keys and keys[pid] != a.get("lights"))}
 
 
+def forget_unparsed(ids, out, attempts):
+    """Drop from grids.jsonl and attempts.jsonl every post the parser no
+    longer reads, so no grid outlives its record into the filer, and the post
+    is tried afresh if the parser reads it again."""
+    for path in (out, attempts):
+        if not path.exists():
+            continue
+        lines = path.read_text(encoding="utf-8").splitlines(keepends=True)
+        kept = []
+        for line in lines:
+            try:
+                pid = json.loads(line)["post_id"]
+            except ValueError:
+                continue       # the last line of a killed run, half written
+            if pid in ids:
+                kept.append(line if line.endswith("\n") else line + "\n")
+        if len(kept) < len(lines):
+            print(f"{path.name}: dropped {len(lines) - len(kept)} line(s) of posts "
+                  f"no longer parsed")
+            tmp = path.with_suffix(".tmp")
+            tmp.write_text("".join(kept), encoding="utf-8")
+            tmp.replace(path)
+
+
 def open_out(fresh, out=None):
     """The output handle. Appends, unless asked to start the file over."""
     return (out or OUT).open("w" if fresh else "a", encoding="utf-8")
@@ -1015,6 +1039,8 @@ def run(limit_puzzles=None, series=None, write=True, seed=None,
         print(f"no records at {parsed} — run its parser first")
         return None
     every = [json.loads(line) for line in parsed.open(encoding="utf-8")]
+    if write:
+        forget_unparsed({r["post_id"] for r in every}, out_path, attempts)
     recs = [r for r in every if r["series"] in SIZE
             and (series is None or r["series"] == series) and has_clues(r)]
     vocab = vocabulary(every)

@@ -90,6 +90,9 @@ right = blog_typo["answer"]
 blog_typo["answer"] = "ZZ"
 rows = [row(r) for r in recs]
 rows[1]["corrections"] = [{"number": 1, "direction": "across", "answer": right}]
+# A grid whose post the parser no longer reads (post 4923 once) reaches the
+# ledger with its cause instead of crashing the filer.
+rows.append(row(rec(10, 105, "2026-01-11")))
 # The Globe and Mail already holds the Quick from 3150 on.
 (puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated").mkdir(parents=True)
 (puzzle_paths.PUZZLE_DIR / "globeandmail" / "undated" / "globeandmail-3150.json").write_text("{}")
@@ -242,7 +245,7 @@ check "files the complete, in-sequence rows" "sundaytimes:1,times:4" "$(got FILE
 check "a light with no clue, or only its count, refuses the puzzle" "2" "$(got NO_CLUE)"
 check "a misread number is refused" "1" "$(got OUT_OF_SEQUENCE)"
 check "a number the Globe and Mail reprints is left to it" "1" "$(got REPRINTED)"
-check "the filer's ledger records each row's cause as a key" "1:filed,2:filed,3:out-of-sequence,4:filed,5:no-clue,6:no-clue,7:filed,8:filed,9:reprinted" "$(got LEDGER)"
+check "the filer's ledger records each row's cause as a key" "1:filed,2:filed,3:out-of-sequence,4:filed,5:no-clue,6:no-clue,7:filed,8:filed,9:reprinted,10:no-parsed-record" "$(got LEDGER)"
 check "a number the Globe skipped inside its run is filed as the Quick" \
   "globeandmail,None,globeandmail" "$(got REPRINT_GAP)"
 check "a mistyped title is renumbered only onto one free slot that fits" \

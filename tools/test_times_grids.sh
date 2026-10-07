@@ -323,6 +323,22 @@ def slow(rec, max_nodes):
     return [], "no grid"
 first = T.run(where=w, solver=slow, budget_seconds=15, clock=lambda: now[0])["n"]
 print("TIME_BUDGET", list(calls), first, T.run(where=w, solver=slow, budget_seconds=15, clock=lambda: now[0])["n"], calls)
+# A grid outlives no post the parser stops reading: the run drops its row and
+# its attempt, so the filer never meets it and the post is tried again if the
+# parser reads it once more.
+gone = post(9, rec_of(TINY), "a clue")
+with (w / "grids.jsonl").open("a") as f:
+    f.write(json.dumps(T.row(gone, TINY, "unique", [])) + "\n")
+with (w / "attempts.jsonl").open("a") as f:
+    f.write(json.dumps({"post_id": 9, "how": "unique", "lights": T.light_key(gone)}) + "\n")
+T.run(where=w, solver=slow)
+ids = lambda name: sorted({json.loads(l)["post_id"] for l in (w / name).open()})
+print("UNPARSED", ids("grids.jsonl"), ids("attempts.jsonl"))
+with (w / "parsed.jsonl").open("a") as f:
+    f.write(json.dumps(gone) + "\n")
+calls = []
+T.run(where=w, solver=slow)
+print("REPARSED", calls)
 # An answer settled from the wordplay rebuilds the refused puzzle when it is
 # retried.
 k = T.printed(lone)[6]
@@ -447,6 +463,9 @@ check "a run refuses a puzzle whose typo no word corrects" "True refused" "$(fie
 check "a tried failure is retried only when the run is told to" "[] [2]" "$(field RETRY_FAILED)"
 check "a run starts no puzzle past its time budget; the next run tries the rest" \
       "[3, 2] 2 1 [3, 2, 1]" "$(field TIME_BUDGET)"
+check "a run drops the grid and attempt of a post the parser no longer reads" \
+      "[] [1, 2, 3]" "$(field UNPARSED)"
+check "a post the parser reads again is tried again" "[9]" "$(field REPARSED)"
 check "a retried refusal rebuilds with a wordplay-settled answer, as a correction" \
       "[(2, ['Z'])]" "$(field SETTLED)"
 check "--resettle corrects the grids already written and refuses the rest" \

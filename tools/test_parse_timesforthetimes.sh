@@ -114,6 +114,24 @@ check "prose era: second entry" \
   "6|across|CELEB|5|Name of commoner quietly erased by church (5)" \
   "$(echo "$got" | sed -n 2p)"
 
+# A solver's diary after the Down list restates clues as "3 Across – clue
+# (8)": the spelt-out direction names a light already answered, so the line is
+# prose, not a blank Down light (Quick Cryptic 1342 grew past its count on
+# them). "24 Down: clue" and "34 DOWN-HEARTED" are a clue and an answer.
+diary='<p><b>ACROSS</b></p><p>3 Grumble about old male (8)<br />
+COMPLAIN &#8211; C O M I in PLAN<br />
+24 Down: source of the unexpected? (4)<br />
+BLUE &#8211; out of the blue</p><p><b>DOWN</b></p><p>1 Former exam (8)<br />
+PASTORAL &#8211; PAST ORAL<br />
+34 DOWN-HEARTED &#8211; DARTED around OWN HE</p>
+<p>3 Across &#8211; Grumble about old male (8)<br />I had _ O _ P _ A _ _ at first.</p>'
+got="$(run "$diary")"
+check "a clue restated as \"N Across – clue\" under Down is not a light" \
+  "3|across|COMPLAIN 24|across|BLUE 1|down|PASTORAL 34|down|DOWNHEARTED" \
+  "$(echo "$got" | cut -d'|' -f1-3 | paste -sd' ')"
+check "a clue opening \"Down:\" keeps it" "Down: source of the unexpected? (4)" \
+  "$(echo "$got" | awk -F'|' '$1 == 24 {print $5}')"
+
 # Pre-2017: no clue text at all, and the answer is printed with the wordplay
 # written through it. Every one of these is a real line from the archive.
 old='<p><b>Across</b></p><table>
