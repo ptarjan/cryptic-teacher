@@ -53,8 +53,8 @@ a clue read off the scan may differ by any number of letters.
 
 ## Order of work
 
-- **Write early.** Put clues into the file a handful at a time and run the check (below)
-  as you go. Only what is on disk survives the run ending.
+- **Write early.** Put clues into the file a handful at a time: only what is on disk
+  survives the run ending. Run the check (below) once every clue is in.
 - **Solve in the order the crossings unlock**, not clue order. Skip a clue that resists
   and come back once its crossings are in: thinking longer without new letters does not
   produce new letters.
@@ -141,8 +141,7 @@ disagree, it wins.
   extraction, "reversed" turnaround.
 - `explanation.surface` is the picture, not a paraphrase and no mechanics: `Behaved antisocially
   and gave birth` is one person's bad week. A clue of four or more words has one unless
-  it is a pure double or cryptic definition; otherwise omit it only when the clue paints
-  no picture apart from its mechanism (`Flat (4)`).
+  it is a pure double or cryptic definition, even a clue that reads as bare mechanism.
 - `explanation.walkthrough` says only what the blocks cannot: why the surface misleads, a convention
   the solver may not know (`ER` = Queen), why a definition is fair. Naming a chunk is
   fine when the sentence teaches (`OCT is the calendar abbreviation`); narrating

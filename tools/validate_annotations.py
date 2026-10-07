@@ -1889,6 +1889,7 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     the published key, so it is not an escape hatch — the model cannot reach it.
     """
     continuations = groups.leader_of(entries)
+    blank = []
     for e in entries:
         if e.get("annotation"):
             continue
@@ -1908,17 +1909,27 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
         if corpus:
             warnings.append(f"{tag}: no annotation — queued to be annotated again")
             continue
-        likely = (" Its letters are a model's LIKELY fill, not the paper's: annotate "
-                  "it only if you can derive the whole answer from the clue yourself."
-                  if e.get("solutionConfidence") == "LIKELY" else "")
-        errors.append(
-            f"{tag}: no annotation. Every clue in an annotated puzzle needs one — "
-            f"a blank ships a clue with nothing to teach, and no other check can "
-            f"see it. If a rule elsewhere is what stopped you, break that rule "
-            f"loudly instead: it names the clue, a blank does not.{likely} Only a "
-            f"clue you cannot parse without inventing wordplay stays null: the "
-            f"puzzle fails and can be retried, whereas a confident wrong "
-            f"explanation ships and nothing catches it")
+        blank.append((tag, e.get("solutionConfidence") == "LIKELY"))
+    if not blank:
+        return
+    # One line for every blank: a run that checks a half-written file would
+    # otherwise get this paragraph once per clue it has not reached yet.
+    tag = ",".join(t for t, _ in blank)
+    likely = [t for t, is_likely in blank if is_likely]
+    likely = (f" {', '.join(likely)}: a model's LIKELY fill, not the paper's: annotate "
+              f"it only if you can derive the whole answer from the clue yourself."
+              if likely else "")
+    unwritten = (f" With {len(blank)} blank, write every one before running the check "
+                 f"again: a check of a half-written file costs a turn."
+                 if len(blank) > 1 else "")
+    errors.append(
+        f"{tag}: no annotation. Every clue in an annotated puzzle needs one — "
+        f"a blank ships a clue with nothing to teach, and no other check can "
+        f"see it.{unwritten} If a rule elsewhere is what stopped you, break that rule "
+        f"loudly instead: it names the clue, a blank does not.{likely} Only a "
+        f"clue you cannot parse without inventing wordplay stays null: the "
+        f"puzzle fails and can be retried, whereas a confident wrong "
+        f"explanation ships and nothing catches it")
 
 
 def check_cryptic_definition_blocks(tag, ann, errors, warnings):
