@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,49 @@
     "text": "Ship's captain that's good to sailor",
     "enumeration": "4"
    },
-   "solution": "AHAB"
+   "solution": "AHAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AHAB",
+    "definitions": [
+     {
+      "text": "Ship's captain",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "that's good",
+      "gives": "AH",
+      "note": "the exclamation of contentment someone makes when something is good"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is the usual crossword sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AH",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "A captain approving of a member of the crew.",
+     "definitionFit": "Ahab is the obsessed whaling skipper of the Pequod in Melville's Moby-Dick."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "good"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +92,81 @@
     "text": "Number one, 3rd of October, a dope to be raised? Quite the opposite",
     "enumeration": "8"
    },
-   "solution": "NEGATION"
+   "solution": "NEGATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "letter_selection"
+    ],
+    "answer": "NEGATION",
+    "definitions": [
+     {
+      "text": "Quite the opposite",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be raised",
+      "for": "reversal",
+      "note": "in a down clue, raising a string of letters makes it read from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Number",
+      "gives": "NO",
+      "note": "NO is the standard abbreviation for number"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral for one"
+     },
+     {
+      "clueFragment": "3rd of October",
+      "gives": "T",
+      "select": 3,
+      "note": "the third letter of October"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "dope",
+      "gives": "GEN",
+      "note": "dope and gen are both slang for inside information"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEG",
+      "A",
+      "T",
+      "I",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NOITAGEN",
+       "to": "NEGATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone planning to boost a dopey number one in October, then saying the reverse.",
+     "walkthrough": "The whole string NOITAGEN is raised to give NEGATION; 'Quite the opposite' also nods at the reversal itself.",
+     "definitionFit": "A negation is a contradiction or denial, the act of stating the exact contrary of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "dope"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +180,45 @@
     "text": "Stand empty bottles together in this",
     "enumeration": "6"
    },
-   "solution": "TANDEM"
+   "solution": "TANDEM",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "TANDEM",
+    "definitions": [
+     {
+      "text": "together in this",
+      "at": 20,
+      "note": "the answer completes the phrase 'in tandem', meaning together"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottles",
+      "for": "hidden_word",
+      "note": "to bottle is to hold inside, so the opening words contain the letters wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stand empty",
+      "gives": "TANDEM",
+      "note": "found running across the two words once the first letter is dropped"
+     }
+    ],
+    "explanation": {
+     "surface": "An instruction to line up empty bottles side by side.",
+     "walkthrough": "'Stand' and 'empty' look like the instruction; they are the hiding place, and 'bottles' is the verb doing the hiding.",
+     "definitionFit": "Two things working in tandem act jointly, side by side, at the same moment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bottles"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +232,63 @@
     "text": "Groups turning up ignore correction by officer",
     "enumeration": "6"
    },
-   "solution": "OCTETS"
+   "solution": "OCTETS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OCTETS",
+    "definitions": [
+     {
+      "text": "Groups",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning letters up means reading them from the bottom upwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ignore correction",
+      "gives": "STET",
+      "note": "stet is the proofreader's mark telling the printer to disregard an alteration"
+     },
+     {
+      "clueFragment": "officer",
+      "gives": "CO",
+      "note": "CO is a commanding officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OC",
+      "TETS"
+     ],
+     "reversals": [
+      {
+       "from": "STETCO",
+       "to": "OCTETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Groups of soldiers showing up and disregarding an officer's reprimand.",
+     "definitionFit": "Octets are sets of eight, such as musical ensembles of eight players."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "correction"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +302,51 @@
     "text": "'Love isn't to be trifled with' (Eliot?)",
     "enumeration": "8"
    },
-   "solution": "NOVELIST"
+   "solution": "NOVELIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOVELIST",
+    "definitions": [
+     {
+      "text": "Eliot?",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be trifled with",
+      "for": "anagram",
+      "note": "letters that are trifled with are played about and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love isn't",
+      "gives": "LOVEISNT",
+      "note": "the letters of these two words, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOVEISNT",
+       "gives": "NOVELIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quotation warning that love must be taken seriously, attributed to the writer Eliot.",
+     "walkthrough": "The bracketed Eliot reads as the source of the quotation, but it is the definition; the question mark marks it as an example.",
+     "definitionFit": "George Eliot, author of Middlemarch, is a famous example of a writer of fiction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Eliot"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +360,53 @@
     "text": "Camp it up to make an impression",
     "enumeration": "6"
    },
-   "solution": "IMPACT"
+   "solution": "IMPACT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IMPACT",
+    "definitions": [
+     {
+      "text": "impression",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "anagram",
+      "note": "things that are up in this sense are in disorder, so the letters get mixed"
+     }
+    ],
+    "linkWords": [
+     "to make an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Camp it",
+      "gives": "CAMPIT",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAMPIT",
+       "gives": "IMPACT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to a performer to overact flamboyantly to get noticed.",
+     "definitionFit": "Impact and impression are synonyms for the effect something has on people."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +420,52 @@
     "text": "British shunning extra responsibility",
     "enumeration": "4"
    },
-   "solution": "ONUS"
+   "solution": "ONUS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ONUS",
+    "definitions": [
+     {
+      "text": "responsibility",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shunning",
+      "for": "deletion",
+      "note": "shunning means keeping away from, so that letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     },
+     {
+      "clueFragment": "extra",
+      "gives": "BONUS",
+      "note": "a bonus is something extra"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONUS"
+     ]
+    },
+    "explanation": {
+     "surface": "The British avoiding taking on extra responsibility.",
+     "definitionFit": "Onus is the burden or duty that rests on a person, a formal synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "British"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +479,62 @@
     "text": "Has largely to restrain urge - he might be spotted",
     "enumeration": "5"
    },
-   "solution": "HYENA"
+   "solution": "HYENA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "HYENA",
+    "definitions": [
+     {
+      "text": "he might be spotted",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "largely",
+      "for": "deletion",
+      "note": "largely means most of the word but not all, so its tail is lost"
+     },
+     {
+      "text": "to restrain",
+      "for": "container",
+      "note": "restraining something means holding it in, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Has",
+      "gives": "HA",
+      "note": "the word with its last letter cut"
+     },
+     {
+      "clueFragment": "urge",
+      "gives": "YEN",
+      "note": "a yen is a longing or urge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "YEN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A man struggling to hold back an impulse, worried about being seen.",
+     "walkthrough": "'Spotted' suggests being noticed doing something; here it means having spots, like the spotted hyena.",
+     "definitionFit": "The spotted hyena has a dotted coat, so 'he might be spotted' is a cryptic description of the animal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spotted"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +548,65 @@
     "text": "One presenting from Austria and Switzerland in French",
     "enumeration": "9"
    },
-   "solution": "ANCHORMAN"
+   "solution": "ANCHORMAN",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ANCHORMAN",
+    "definitions": [
+     {
+      "text": "One presenting",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item inside the other one"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Austria",
+      "gives": "A",
+      "note": "A is the international vehicle code for Austria"
+     },
+     {
+      "clueFragment": "Switzerland",
+      "gives": "CH",
+      "note": "CH, for Confoederatio Helvetica, is the code for Switzerland"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "NORMAN",
+      "note": "the Normans were French, from Normandy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "N",
+      "CH",
+      "ORMAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A broadcaster reporting from Austria and Switzerland, speaking French.",
+     "walkthrough": "'In French' looks like the language spoken; it is a container signal plus a word for a Frenchman from Normandy.",
+     "definitionFit": "An anchorman is the main presenter of a news broadcast who links the reports."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "French"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +620,68 @@
     "text": "Con artist's first sting a blunder",
     "enumeration": "7"
    },
-   "solution": "AGAINST"
+   "solution": "AGAINST",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "AGAINST",
+    "definitions": [
+     {
+      "text": "Con",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first picks out the initial letter of the word before it"
+     },
+     {
+      "text": "blunder",
+      "for": "anagram",
+      "note": "a blunder is a mess-up, so these letters are messed up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "artist's",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of artist"
+     },
+     {
+      "clueFragment": "sting a",
+      "gives": "STINGA",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "GAINST"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STINGA",
+       "gives": "GAINST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A con artist's swindle going wrong.",
+     "walkthrough": "'Con artist' reads as one phrase, but 'Con' is the definition, as in pros and cons.",
+     "definitionFit": "A con is an argument opposing something, from Latin contra, so it means the same as against."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Con"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +701,66 @@
      }
     ]
    },
-   "solution": "BOARDGAME"
+   "solution": "BOARDGAME",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BOARD GAME",
+    "definitions": [
+     {
+      "text": "way to pass the time",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "curious",
+      "for": "anagram",
+      "note": "something curious is odd, so the letters are put in an odd new order"
+     }
+    ],
+    "linkWords": [
+     "Making",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, a nought shaped like O"
+     },
+     {
+      "clueFragment": "bad",
+      "gives": "BAD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Marge",
+      "gives": "MARGE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OBADMARGE",
+       "gives": "BOARDGAME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone making love with a naughty woman called Marge as an odd pastime.",
+     "walkthrough": "The racy surface hides a tame answer; 'love' is only the letter O.",
+     "definitionFit": "Board games such as chess or draughts are played to while away the hours."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +774,62 @@
     "text": "Old master since put outside - they'll be asking questions",
     "enumeration": "5"
    },
-   "solution": "EXAMS"
+   "solution": "EXAMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXAMS",
+    "definitions": [
+     {
+      "text": "they'll be asking questions",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "put outside",
+      "for": "container",
+      "note": "putting one thing outside another wraps it around that other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "EX",
+      "note": "ex- means former or old"
+     },
+     {
+      "clueFragment": "since",
+      "gives": "AS",
+      "note": "as in 'as you asked', meaning since"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "M",
+      "note": "M is an abbreviation for master, as in MA"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "A",
+      "M",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "An Old Master painting being moved outside, with people curious about it.",
+     "walkthrough": "'Old master' looks like a painting, but the two words work separately.",
+     "definitionFit": "Exam papers pose questions to candidates, so exams are what do the asking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "master"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +843,66 @@
     "text": "Deliverer from harm - fifty saved by one",
     "enumeration": "7"
    },
-   "solution": "MAILMAN"
+   "solution": "MAILMAN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "MAILMAN",
+    "definitions": [
+     {
+      "text": "Deliverer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "saved by",
+      "for": "container",
+      "note": "something saved is kept safe inside, so the letter is held within"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "harm",
+      "gives": "MAIM",
+      "note": "to maim is to injure or harm"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "AN",
+      "note": "an means one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAI",
+      "L",
+      "M",
+      "AN"
+     ]
+    },
+    "explanation": {
+     "surface": "A rescuer delivering someone from harm, with fifty saved by one hero.",
+     "walkthrough": "'Deliverer from harm' reads as a saviour; here the deliverer brings the post.",
+     "definitionFit": "Mailman is the American word for a postman, who delivers letters."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Deliverer"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +916,59 @@
     "text": "Falco, Wham my regulars for playing, I repeat",
     "enumeration": "5"
    },
-   "solution": "MACAW"
+   "solution": "MACAW",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "MACAW",
+    "definitions": [
+     {
+      "text": "I repeat",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regulars",
+      "for": "letter_selection",
+      "note": "regulars means letters taken at regular intervals, here every second one"
+     },
+     {
+      "text": "for playing",
+      "for": "anagram",
+      "note": "letters set out for playing are moved around freely into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Falco, Wham my",
+      "gives": "ACWAM",
+      "select": "alternate",
+      "note": "the second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACWAM",
+       "gives": "MACAW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A DJ saying they will spin regular hits by Falco and Wham again.",
+     "walkthrough": "Falco was an Austrian pop star (Rock Me Amadeus) and Wham! a British duo; their names are just fodder. The definition is spoken by the bird.",
+     "definitionFit": "Macaws are parrots that can mimic speech, so one might say 'I repeat' about itself."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "repeat"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +982,64 @@
     "text": "Wickets at regular intervals - let's hit bowler's target",
     "enumeration": "7"
    },
-   "solution": "SKITTLE"
+   "solution": "SKITTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SKITTLE",
+    "definitions": [
+     {
+      "text": "bowler's target",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at regular intervals",
+      "for": "letter_selection",
+      "note": "taking letters at regular intervals means every other one is kept"
+     },
+     {
+      "text": "hit",
+      "for": "anagram",
+      "note": "letters that are hit are knocked about into a different arrangement"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wickets",
+      "gives": "IKT",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters"
+     },
+     {
+      "clueFragment": "let's",
+      "gives": "LETS",
+      "note": "the letters of the word, apostrophe dropped"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IKTLETS",
+       "gives": "SKITTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricketer urging teammates to aim at the wickets.",
+     "walkthrough": "The cricket words point to the stumps; the bowler meant is one in a skittle alley.",
+     "definitionFit": "In the game of skittles, the bowler rolls a ball to knock down the wooden pins."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bowler's"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1053,52 @@
     "text": "Stopped getting caught out - relieved",
     "enumeration": "5"
    },
-   "solution": "EASED"
+   "solution": "EASED",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EASED",
+    "definitions": [
+     {
+      "text": "relieved",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "getting caught out",
+      "for": "deletion",
+      "note": "caught going out means that abbreviation leaves the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stopped",
+      "gives": "CEASED",
+      "note": "to cease is to stop"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "c is the cricket scorecard abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EASED"
+     ]
+    },
+    "explanation": {
+     "surface": "A batsman stopping play after being dismissed and feeling relieved.",
+     "definitionFit": "Eased means lessened or alleviated, as when pain is relieved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +1112,75 @@
     "text": "Song and dance about Romeo with troubles (body part out of action)",
     "enumeration": "15"
    },
-   "solution": "CONGRATULATIONS"
+   "solution": "CONGRATULATIONS",
+   "annotation": {
+    "type": [
+     "container",
+     "deletion",
+     "charade"
+    ],
+    "answer": "CONGRATULATIONS",
+    "definitions": [
+     {
+      "text": "Song",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means going around, so one piece encloses the other"
+     },
+     {
+      "text": "body part out of action",
+      "for": "deletion",
+      "note": "out of action means removed, so a piece of anatomy is taken away"
+     }
+    ],
+    "linkWords": [
+     "and",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dance",
+      "gives": "CONGA",
+      "note": "the conga is a line dance"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "troubles",
+      "gives": "TRIBULATIONS",
+      "note": "tribulations are troubles"
+     },
+     {
+      "clueFragment": "body part",
+      "gives": "RIB",
+      "note": "the rib is a bone of the chest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CONGRA",
+      "TULATIONS"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical number about Romeo's troubles, performed by someone injured.",
+     "walkthrough": "'Song and dance' looks like one phrase meaning fuss; 'Song' alone is the definition.",
+     "definitionFit": "Congratulations is Cliff Richard's 1968 Eurovision entry for Britain, a well-known pop song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1194,51 @@
     "text": "Recover from check? Of course",
     "enumeration": "8"
    },
-   "solution": "REINSURE"
+   "solution": "REINSURE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REINSURE",
+    "definitions": [
+     {
+      "text": "Recover",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "check",
+      "gives": "REIN",
+      "note": "to rein in is to check or restrain"
+     },
+     {
+      "clueFragment": "Of course",
+      "gives": "SURE",
+      "note": "'Sure!' means certainly, of course"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REIN",
+      "SURE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asking whether they can get over a setback and being told yes.",
+     "walkthrough": "'Recover' suggests healing; here it means covering again, with insurance.",
+     "definitionFit": "To reinsure is to cover a risk again, so it is literally re-cover."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Recover"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1262,58 @@
      }
     ]
    },
-   "solution": "LETITBE"
+   "solution": "LETITBE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LET IT BE",
+    "definitions": [
+     {
+      "text": "don't get involved",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Loosen",
+      "for": "anagram",
+      "note": "loosening something frees its parts so they can be rearranged"
+     }
+    ],
+    "linkWords": [
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belt",
+      "gives": "BELT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tie",
+      "gives": "TIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BELTTIE",
+       "gives": "LETITBE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Advice to relax your clothing but stay out of the trouble.",
+     "definitionFit": "To leave something alone without interfering is the meaning of the idiom, also a Beatles title."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Loosen"
+    }
+   }
   },
   {
    "number": 18,
@@ -325,7 +1337,67 @@
      }
     ]
    },
-   "solution": "OSOLEMIO"
+   "solution": "OSOLEMIO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "O SOLE MIO",
+    "definitions": [
+     {
+      "text": "Neapolitan number",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the numeral at the end, following the other piece"
+     },
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "someone admitted is let inside, so this goes within the award"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "award",
+      "gives": "OM",
+      "note": "the Order of Merit, a British honour"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "SOLE",
+      "note": "sole means one and only"
+     },
+     {
+      "clueFragment": "10",
+      "gives": "IO",
+      "note": "the digits 1 and 0 look like the letters I and O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "SOLE",
+      "M",
+      "IO"
+     ]
+    },
+    "explanation": {
+     "surface": "A Neapolitan winning an award, number 10 on the team, with one person let in.",
+     "walkthrough": "'Number' looks like a figure; it is a song. The OM is the Order of Merit, a British honour.",
+     "definitionFit": "O Sole Mio is a famous Neapolitan song of 1898, so it is a number from Naples."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 19,
@@ -339,7 +1411,47 @@
     "text": "Union activity in 23 locality",
     "enumeration": "7"
    },
-   "solution": "WEDDING"
+   "solution": "WEDDING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "WEDDING",
+    "definitions": [
+     {
+      "text": "Union activity",
+      "at": 0
+     },
+     {
+      "text": "23 locality",
+      "at": 18
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Union activity",
+      "note": "first meaning: a marriage ceremony"
+     },
+     {
+      "clueFragment": "23 locality",
+      "note": "second meaning: a district of the city at 23, the German capital"
+     }
+    ],
+    "explanation": {
+     "surface": "Trade union activity in some local area.",
+     "walkthrough": "Union suggests a labour union; it is a marriage. 23 is BERLIN, and Wedding is one of its districts.",
+     "definitionFit": "A marriage ceremony joins two people in union, and Wedding is also a real borough locality of Berlin."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Union"
+    }
+   }
   },
   {
    "number": 20,
@@ -353,7 +1465,64 @@
     "text": "Queued to collect 1 and 2",
     "enumeration": "6"
    },
-   "solution": "DENIAL"
+   "solution": "DENIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "DENIAL",
+    "definitions": [
+     {
+      "text": "2",
+      "at": 24,
+      "note": "the answer at 2, NEGATION"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to collect",
+      "for": "container",
+      "note": "collecting something gathers it in, so the letter goes inside"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Queued",
+      "gives": "LINED",
+      "note": "people queued are lined up"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "A",
+      "note": "one, written as the article a"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DENIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LINED",
+       "to": "DENIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "People in a queue collecting items numbered one and two.",
+     "walkthrough": "LINED, read upwards in this down entry, takes A inside before its last letter. The clue has no word for the reversal, so the solver must supply 'lined up' from the down position.",
+     "definitionFit": "Denial and negation are synonyms, both meaning a statement that something is not true."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Queued"
+    }
+   }
   },
   {
    "number": 21,
@@ -367,7 +1536,42 @@
     "text": "Country's old money",
     "enumeration": "6"
    },
-   "solution": "GUINEA"
+   "solution": "GUINEA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GUINEA",
+    "definitions": [
+     {
+      "text": "Country's",
+      "at": 0
+     },
+     {
+      "text": "old money",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Country's",
+      "note": "first meaning: the West African state, with 's as 'is'"
+     },
+     {
+      "clueFragment": "old money",
+      "note": "second meaning: a former British gold coin worth 21 shillings"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Country's' reads as a possessive, but the 's is 'is', joining the two meanings.",
+     "definitionFit": "Guinea is a republic in West Africa and also a pre-decimal British coin worth one pound and one shilling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Country's"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1585,75 @@
     "text": "Paper clip forbidden? Old invigilator's beginning to get flustered",
     "enumeration": "7"
    },
-   "solution": "TABLOID"
+   "solution": "TABLOID",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "TABLOID",
+    "definitions": [
+     {
+      "text": "Paper",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "clip",
+      "for": "deletion",
+      "note": "to clip is to trim, so the end of the following word is cut away"
+     },
+     {
+      "text": "beginning",
+      "for": "deletion",
+      "note": "beginning keeps only the opening letter of the word before it"
+     },
+     {
+      "text": "to get flustered",
+      "for": "anagram",
+      "note": "something flustered is confused, so the letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "forbidden",
+      "gives": "TABOO",
+      "note": "taboo means forbidden"
+     },
+     {
+      "clueFragment": "Old",
+      "gives": "OLD",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "invigilator's",
+      "gives": "INVIGILATOR",
+      "note": "only its first letter is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TABLOID"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TABOLDI",
+       "gives": "TABLOID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An exam invigilator fussing that a paper clip is banned.",
+     "walkthrough": "'Paper clip' reads as one object; 'Paper' is the definition. TABOO is clipped to TAB, joined by OLD and I, then mixed.",
+     "definitionFit": "A tabloid is a popular newspaper printed on smaller pages, often sensational."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "clip"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1667,61 @@
     "text": "Composer Liz wears a lot of jewellery",
     "enumeration": "6"
    },
-   "solution": "BERLIN"
+   "solution": "BERLIN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BERLIN",
+    "definitions": [
+     {
+      "text": "Composer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a lot of",
+      "for": "deletion",
+      "note": "a lot of the word is most but not all of it, so its last letter goes"
+     },
+     {
+      "text": "wears",
+      "for": "container",
+      "note": "something worn sits around the wearer, so one piece wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Liz",
+      "gives": "ER",
+      "note": "Elizabeth Regina, the royal cipher of the Queen"
+     },
+     {
+      "clueFragment": "jewellery",
+      "gives": "BLING",
+      "note": "bling is showy jewellery"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ER",
+      "LIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A woman named Liz decked out in lots of jewellery.",
+     "walkthrough": "Liz is short for Elizabeth, and ER is the Queen's royal cipher.",
+     "definitionFit": "Irving Berlin wrote White Christmas and many other American popular songs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Liz"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1735,56 @@
     "text": "Important figures in 10 related stirring tales at the end",
     "enumeration": "5"
    },
-   "solution": "KINGS"
+   "solution": "KINGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "KINGS",
+    "definitions": [
+     {
+      "text": "Important figures in 10",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the end",
+      "for": "letter_selection",
+      "note": "at the end points to the final letter of each of the two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "related",
+      "gives": "KIN",
+      "note": "kin are relatives, so kin means related"
+     },
+     {
+      "clueFragment": "stirring tales",
+      "gives": "GS",
+      "select": "last",
+      "note": "the last letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIN",
+      "GS"
+     ]
+    },
+    "explanation": {
+     "surface": "Important people in a game featuring in rousing stories.",
+     "walkthrough": "10 is BOARDGAME, and the important figures are chess pieces.",
+     "definitionFit": "In chess, the king is the most important piece, since the game is lost when it is trapped."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stirring"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1798,59 @@
     "text": "Grand - three-quarters want to go on bender",
     "enumeration": "4"
    },
-   "solution": "KNEE"
+   "solution": "KNEE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "KNEE",
+    "definitions": [
+     {
+      "text": "bender",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "three-quarters",
+      "for": "deletion",
+      "note": "three quarters of a four-letter word leaves one of its letters off"
+     }
+    ],
+    "linkWords": [
+     "to go on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grand",
+      "gives": "K",
+      "note": "K, for a thousand, is slang for a grand"
+     },
+     {
+      "clueFragment": "want",
+      "gives": "NEED",
+      "note": "to want is to need; its last letter is dropped"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NEE"
+     ]
+    },
+    "explanation": {
+     "surface": "Wanting a thousand pounds to go on a drinking binge.",
+     "walkthrough": "'Bender' looks like a drinking spree; it is a joint that bends.",
+     "definitionFit": "The knee is the joint where the leg bends, so it is a bender in a cryptic sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bender"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1864,55 @@
     "text": "Cut its centre out",
     "enumeration": "9"
    },
-   "solution": "INTERSECT"
+   "solution": "INTERSECT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "INTERSECT",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out can mean wrong or not in place, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "its",
+      "gives": "ITS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "centre",
+      "gives": "CENTRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ITSCENTRE",
+       "gives": "INTERSECT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to remove the middle of something.",
+     "definitionFit": "To intersect is to cross through, as one line cuts another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +1926,44 @@
     "text": "Charge to pick up plant",
     "enumeration": "4"
    },
-   "solution": "TEAR"
+   "solution": "TEAR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TEAR",
+    "definitions": [
+     {
+      "text": "Charge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to pick up",
+      "for": "homophone",
+      "note": "picking something up by ear means hearing it, so the sound counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plant",
+      "gives": "TEAR",
+      "soundsLike": "TARE",
+      "note": "tare is a vetch, a weed of cornfields"
+     }
+    ],
+    "explanation": {
+     "surface": "A fee charged for collecting a plant.",
+     "walkthrough": "Tear rhyming with care sounds like tare.",
+     "definitionFit": "To tear is to rush along headlong, much as a bull or cavalry charges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Charge"
+    }
+   }
   },
   {
    "number": 27,
@@ -471,7 +1983,66 @@
      }
     ]
    },
-   "solution": "ENARRIERE"
+   "solution": "ENARRIERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EN ARRIERE",
+    "definitions": [
+     {
+      "text": "Nice behind!",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not small",
+      "for": "deletion",
+      "note": "not small means the size abbreviation is dropped from the letters"
+     },
+     {
+      "text": "being wiggled",
+      "for": "anagram",
+      "note": "letters being wiggled are jiggled about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irene's rear",
+      "gives": "IRENESREAR",
+      "note": "the letters of these words"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the clothing-size abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENARRIERE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "IRENEREAR",
+       "gives": "ENARRIERE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An admirer of Irene's swaying bottom calling out a compliment.",
+     "walkthrough": "Nice is the French city, so 'Nice behind' means behind in French; the capital N hides it at the start.",
+     "definitionFit": "En arrière is French for backwards or behind, as it would be said in Nice."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 28,
@@ -485,7 +2056,67 @@
     "text": "Short bird worshipped travel guide round holiday hotspot",
     "enumeration": "5"
    },
-   "solution": "IBIZA"
+   "solution": "IBIZA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "charade"
+    ],
+    "answer": "IBIZA",
+    "definitions": [
+     {
+      "text": "holiday hotspot",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Short",
+      "for": "deletion",
+      "note": "short means cut off before its end, so the last letter goes"
+     },
+     {
+      "text": "round",
+      "for": "reversal",
+      "note": "turning something round makes it face the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bird worshipped",
+      "gives": "IBIS",
+      "note": "the sacred ibis was worshipped in ancient Egypt"
+     },
+     {
+      "clueFragment": "travel guide",
+      "gives": "AZ",
+      "note": "an A to Z is a London street atlas"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IBI",
+      "ZA"
+     ],
+     "reversals": [
+      {
+       "from": "AZ",
+       "to": "ZA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sacred bird and a guidebook on a trip to a resort.",
+     "walkthrough": "An A-Z is a British book of street maps, so a guide for travelling round a city.",
+     "definitionFit": "Ibiza is a Balearic island famous as a Mediterranean party resort."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worshipped"
+    }
+   }
   }
  ]
 }
