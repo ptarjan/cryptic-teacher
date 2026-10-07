@@ -456,6 +456,13 @@ commit_sources() {
     sources_committed=1
 }
 commit_sources || alert "the daily update could not commit tonight's fetched puzzles before annotating; a refiled clue will read as the annotator's rewrite"
+# Pushed now, not at the closing sync: each annotation is replayed onto
+# origin/master from this commit, so while it is unpushed every newly filed
+# puzzle's annotation reads as a conflict and none of them reach the site.
+if [ -n "$sources_committed" ]; then
+  bash tools/push_puzzle_commit.sh HEAD ||
+    alert "the daily update could not push tonight's fetched puzzles; their annotations will not push either until the closing sync"
+fi
 
 phase annotate
 # --- 3. annotate the newest un-annotated puzzles, if any and if claude exists ---
