@@ -88,6 +88,24 @@ check("not once read with its current files", [],
       g.fresh_unread(cache, {rel: {"inputs": "x", "filesHash": fa.input_hash(d)}}, now))
 check("again once its files change", [rel], g.fresh_unread(cache, {rel: {"inputs": "x", "filesHash": "old"}}, now))
 check("one laid out before FRESH is the full pass's", [], g.fresh_unread(cache, {}, now + g.FRESH + 1))
+launched = []
+class FakePopen:
+    pid = 1
+    def __init__(self, cmd, **kw):
+        launched.append((cmd, kw))
+saved_popen, saved_fresh = g.subprocess.Popen, g.fresh_unread
+g.subprocess.Popen, g.fresh_unread = FakePopen, lambda: [rel]
+import os as _os
+_os.environ["CT_IN_WORKTREE"], _os.environ["CT_MAIN_CHECKOUT"] = "1", "/tick/tree"
+g.start_reads(io.StringIO(), job=Path("/x/gale_read.sh"), log=Path(sys.argv[1]) / "read.log")
+check("start_reads starts the read job detached, out of this tick's worktree (its own lease and tree)",
+      (["bash", "/x/gale_read.sh"], True, False, False),
+      (launched[0][0], launched[0][1]["start_new_session"], "CT_IN_WORKTREE" in launched[0][1]["env"],
+       "CT_MAIN_CHECKOUT" in launched[0][1]["env"]))
+g.fresh_unread = lambda: []
+check("and nothing when no fresh edition waits", None, g.start_reads(io.StringIO()))
+g.subprocess.Popen, g.fresh_unread = saved_popen, saved_fresh
+del _os.environ["CT_IN_WORKTREE"], _os.environ["CT_MAIN_CHECKOUT"]
 first = fa.input_hash(d)
 g.stage(inbox, cache, io.StringIO(), un, g.MATCHES)
 check("an inbox unchanged leaves the edition's inputs alone", first, fa.input_hash(d))

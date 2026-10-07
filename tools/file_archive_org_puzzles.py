@@ -1492,9 +1492,20 @@ def ocr_titles(img, paper, day, key):
     return found
 
 
-#: "Crossword" as our readers misread it on a Gale page ("Cressword",
-#: "Cr0ssword"), read as the word.
-OCR_CROSSWORD = re.compile(r"cr[eo0]s{1,2}w[o0]rd", re.IGNORECASE)
+#: Heading words as our readers misread them on a Gale page ("Cressword",
+#: "Solotion"), read as the word.
+OCR_MISREADS = ((re.compile(r"cr[eo0]s{1,2}w[o0]rd", re.IGNORECASE), "Crossword"),
+                (re.compile(r"s[o0]l[uo0]ti[o0]n", re.IGNORECASE), "Solution"))
+#: A word (RapidOCR's: a phrase) a heading opens on: a line our readers ran a clue column into
+#: ("27 Order observed in 16 con- Solution to Puzzle No 17,246") is read
+#: from each.
+HEADING_START = re.compile(r"\W*(?:the|solution)\b", re.IGNORECASE)
+
+
+def mend_misreads(text):
+    for pattern, word in OCR_MISREADS:
+        text = pattern.sub(word, text)
+    return text
 
 
 def ocr_headings(img, paper, key):
@@ -1510,11 +1521,14 @@ def ocr_headings(img, paper, key):
     titles, sols = {}, {}
     for which in READERS:
         path = CROPS / "titles" / f"{key}_page.{reader_key(which)}.json"
-        words = [(*w[:4], OCR_CROSSWORD.sub("Crossword", w[4])) for w in band_words(img, box, which, path)]
-        ts, ss = paper.headings(printed_lines(words))
+        words = [(*w[:4], mend_misreads(w[4])) for w in band_words(img, box, which, path)]
+        lines = printed_lines(words)
+        lines += [ln[k:] for ln in lines for k in range(1, len(ln)) if HEADING_START.match(ln[k][4])]
+        ts, ss = paper.headings(lines)
         for n, b, setter in ts:
-            titles.setdefault(n, []).append((which, b, setter))
-        for n, b in ss:
+            if which not in (r[0] for r in titles.get(n, ())):
+                titles.setdefault(n, []).append((which, b, setter))
+        for n, b in {n: b for n, b in reversed(ss)}.items():
             sols.setdefault(n, []).append(b)
     least = len(READERS) / 2
     sols = {n: boxes for n, boxes in sols.items() if len(boxes) >= least}
