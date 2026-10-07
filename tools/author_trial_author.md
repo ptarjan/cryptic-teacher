@@ -105,16 +105,16 @@ the sentence together belongs in `linkWords` and must be an allowed link.
 
 1. **A link word stands in for an equals sign**: `is`, `'s`, `gives`, `makes`,
    `becomes`, `yields`, `means`, `leads to`, `indicating`, `to locate`, `for`,
-   `from`, `of`, `in`, `with`, `after`, and grammatical glue. `EQUIVALENCE_LINKS`
-   is an allow list. `lives on`, `would be better spent`, `mistake it for` are
+   `from`, `of`, `in`, `with`, `after`, and grammatical glue. The allow list is the core
+   link words plus those published setters use (`tools/data/clue_joints.json`). `lives on`, `would be better spent`, `mistake it for` are
    padding, not links.
-2. **An indicator operates on what it touches**: only `FODDER_GLUE` words
+2. **An indicator operates on what it touches**: only link-word vocabulary
    (articles, forms of *be*, `of`, `in`, `with`, …) between an anagram indicator
    and its fodder. And an indicator cannot be made of its own fodder.
-3. **A reversal runs along the entry**: across needs `back`, `returning`,
-   `retreating`, `west`; down needs `up`, `rising`, `climbing`, `lifted`,
-   `raised`, `from below`; neutral `turning`, `about`, `overturned`,
-   `revolutionary` always allowed.
+3. **A reversal runs along the entry**: across needs `west`, `east`, `aback`;
+   down needs `up`, `rising`, `climbing`, `raised`, `north`; every other word
+   (`back`, `returning`, `turning`, `about`, `overturned`, ...) is neutral and
+   always allowed.
 4. A joining word that puts pieces in order (e.g. `on`) is an indicator, not a
    link word.
 
