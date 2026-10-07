@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,46 @@
     "text": "Deny increase, for example",
     "enumeration": "7"
    },
-   "solution": "GAINSAY"
+   "solution": "GAINSAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GAINSAY",
+    "definitions": [
+     {
+      "text": "Deny",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "increase",
+      "gives": "GAIN",
+      "note": "to gain is to increase, as in gaining weight"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "SAY",
+      "note": "'say' introduces an example, just as 'for example' does"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAIN",
+      "SAY"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone denies that there was a rise, citing an instance.",
+     "definitionFit": "To gainsay is a formal verb meaning to contradict or refuse to admit something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "increase"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +89,58 @@
     "text": "Explosive piece on top of bed with 100 underneath",
     "enumeration": "9"
    },
-   "solution": "GUNCOTTON"
+   "solution": "GUNCOTTON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GUNCOTTON",
+    "definitions": [
+     {
+      "text": "Explosive",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "on top of",
+     "with",
+     "underneath"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "piece",
+      "gives": "GUN",
+      "note": "a piece is slang for a gun"
+     },
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "100",
+      "gives": "TON",
+      "note": "a ton is slang for a hundred"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GUN",
+      "COT",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "A bomb sits on a bed with a hundred more below.",
+     "walkthrough": "In a down clue 'on top of' and 'underneath' just put the pieces in order from top to bottom.",
+     "definitionFit": "Guncotton is nitrocellulose, a highly flammable compound used as a propellant and blasting agent."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "piece"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +154,60 @@
     "text": "How movie ends is silly",
     "enumeration": "5"
    },
-   "solution": "INANE"
+   "solution": "INANE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INANE",
+    "definitions": [
+     {
+      "text": "silly",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "'ends' points to the closing letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "How",
+      "gives": "INAN",
+      "note": "how the word ends: it ends 'in an' followed by its letter"
+     },
+     {
+      "clueFragment": "movie",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of movie"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INAN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The way this film finishes is ridiculous.",
+     "walkthrough": "The surface asks how a film's plot concludes; read literally, the word movie ends in an E.",
+     "definitionFit": "Inane means senseless and empty of meaning, a synonym of silly."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "movie"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +221,44 @@
     "text": "Illicitly take a bit",
     "enumeration": "7"
    },
-   "solution": "SNAFFLE"
+   "solution": "SNAFFLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SNAFFLE",
+    "definitions": [
+     {
+      "text": "Illicitly take",
+      "at": 0
+     },
+     {
+      "text": "a bit",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Illicitly take",
+      "note": "first meaning: to steal or pinch"
+     },
+     {
+      "clueFragment": "a bit",
+      "note": "second meaning: a simple jointed mouthpiece for a horse"
+     }
+    ],
+    "explanation": {
+     "surface": "Steal a little.",
+     "walkthrough": "'a bit' looks like a small amount; it is the horse's bit.",
+     "definitionFit": "Snaffle is informal British for pinching something, and also names a plain bridle bit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bit"
+    }
+   }
   },
   {
    "number": 4,
@@ -103,7 +286,43 @@
      }
     ]
    },
-   "solution": "YOUVEGOTMETHERE"
+   "solution": "YOUVEGOTMETHERE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "YOUVE GOT ME THERE",
+    "definitions": [
+     {
+      "text": "Comment to chauffeur on reaching destination?",
+      "at": 0
+     },
+     {
+      "text": "I don't know what to say",
+      "at": 46
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Comment to chauffeur on reaching destination?",
+      "note": "first meaning, read literally: thanking the driver for the ride"
+     },
+     {
+      "clueFragment": "I don't know what to say",
+      "note": "second meaning: the idiom for being stumped by a question"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags that the first half takes an idiom literally.",
+     "definitionFit": "The idiom admits that a question has stumped the speaker; literally it credits someone with delivering you somewhere."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "chauffeur"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +336,64 @@
     "text": "Drink cola, possibly, with shot added",
     "enumeration": "7"
    },
-   "solution": "ALCOPOP"
+   "solution": "ALCOPOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ALCOPOP",
+    "definitions": [
+     {
+      "text": "Drink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "possibly",
+      "for": "anagram",
+      "note": "'possibly' suggests one of several arrangements, so the letters before it may be rearranged"
+     }
+    ],
+    "linkWords": [
+     "added"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cola",
+      "gives": "COLA",
+      "note": "taken as written, ready to be rearranged"
+     },
+     {
+      "clueFragment": "with shot",
+      "gives": "POP",
+      "note": "a pop is the sound of a gunshot; 'with' joins it on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALCO",
+      "POP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "COLA",
+       "gives": "ALCO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Order a cola, maybe with a shot of spirits added to it.",
+     "walkthrough": "The surface suggests spiking a cola; in fact the four letters of cola are rearranged and a shot is a pop.",
+     "definitionFit": "An alcopop is a sweet, ready-mixed alcoholic beverage sold in bottles, so it is a kind of drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 5,
@@ -143,7 +419,40 @@
      }
     ]
    },
-   "solution": "ANIMALMAGNETISM"
+   "solution": "ANIMALMAGNETISM",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "ANIMAL MAGNETISM",
+    "definitions": [
+     {
+      "text": "Physical attractiveness",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Physical attractiveness",
+      "note": "surface reading: sex appeal, the allure some people have"
+     },
+     {
+      "clueFragment": "of a polar bear?",
+      "note": "setter's reading: a creature from the poles has a pull like a compass needle, being drawn to the poles"
+     }
+    ],
+    "explanation": {
+     "surface": "Wondering what makes a polar bear sexy.",
+     "walkthrough": "Polar ties the bear to magnetic poles, so a beast's attraction becomes literal magnetic pull.",
+     "definitionFit": "The phrase is an idiom for the raw charisma and sexual appeal that draws others to a person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "polar"
+    }
+   }
   },
   {
    "number": 6,
@@ -157,7 +466,61 @@
     "text": "Honesty, too, in block of flats? Not quite",
     "enumeration": "7"
    },
-   "solution": "CANDOUR"
+   "solution": "CANDOUR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CANDOUR",
+    "definitions": [
+     {
+      "text": "Honesty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not quite",
+      "for": "deletion",
+      "note": "'not quite' means the word falls just short, losing its final letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' places the short word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too",
+      "gives": "AND",
+      "note": "and means also, as does too"
+     },
+     {
+      "clueFragment": "block of flats",
+      "gives": "COURT",
+      "note": "a court is a block of flats in British usage, as in Grosvenor Court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AND",
+      "OUR"
+     ]
+    },
+    "explanation": {
+     "surface": "Is truthfulness also found in tower blocks? Only partly.",
+     "walkthrough": "COURT is cut to COUR, then the word for 'too' goes inside.",
+     "definitionFit": "Candour is frankness and openness in speech, a close synonym of honesty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "too"
+    }
+   }
   },
   {
    "number": 7,
@@ -171,7 +534,47 @@
     "text": "What little girls often do in a theatre?",
     "enumeration": "9"
    },
-   "solution": "PLAYHOUSE"
+   "solution": "PLAYHOUSE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PLAYHOUSE",
+    "definitions": [
+     {
+      "text": "What little girls often do",
+      "at": 0
+     },
+     {
+      "text": "theatre",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "in a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What little girls often do",
+      "note": "first meaning: a children's game of pretending to keep a home"
+     },
+     {
+      "clueFragment": "theatre",
+      "note": "second meaning: a building where plays are staged"
+     }
+    ],
+    "explanation": {
+     "surface": "Children pretend to run a home while on stage.",
+     "walkthrough": "The first sense splits the answer into two words describing make-believe housekeeping.",
+     "definitionFit": "A playhouse is a venue for drama, and to play house is the familiar childhood pretend game."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 8,
@@ -185,7 +588,55 @@
     "text": "Game - fine cuts for each",
     "enumeration": "5"
    },
-   "solution": "POKER"
+   "solution": "POKER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POKER",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cuts",
+      "for": "container",
+      "note": "the first word cuts into the second, splitting it to sit in its middle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine or all right"
+     },
+     {
+      "clueFragment": "for each",
+      "gives": "PER",
+      "note": "per means for each, as in miles per hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "OK",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine imposed in a match is shared out per player.",
+     "walkthrough": "'fine' looks like a penalty; it means all right.",
+     "definitionFit": "Poker is a card game of betting and bluffing, an instance of a game."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 9,
@@ -199,7 +650,64 @@
     "text": "Name a song about an antelope",
     "enumeration": "5"
    },
-   "solution": "NYALA"
+   "solution": "NYALA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NYALA",
+    "definitions": [
+     {
+      "text": "antelope",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "'about' means turned round, so the words before it are read from the end"
+     }
+    ],
+    "linkWords": [
+     "an"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     },
+     {
+      "clueFragment": "a song",
+      "gives": "ALAY",
+      "note": "a lay is a song or ballad, so 'a song' is A plus LAY"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "YALA"
+     ],
+     "reversals": [
+      {
+       "from": "ALAY",
+       "to": "YALA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is asked to title a ballad about an African antelope.",
+     "walkthrough": "Only 'a song' is turned round, giving YALA after the N.",
+     "definitionFit": "The nyala is a spiral-horned southern African antelope, an example of the animal named."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 10,
@@ -219,7 +727,49 @@
      }
     ]
    },
-   "solution": "UNIONJACK"
+   "solution": "UNIONJACK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNION JACK",
+    "definitions": [
+     {
+      "text": "flag",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Association",
+      "gives": "UNION",
+      "note": "a union is an association, such as a trade union"
+     },
+     {
+      "clueFragment": "raise",
+      "gives": "JACK",
+      "note": "to jack (up) is to raise, as with a car jack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNION",
+      "JACK"
+     ]
+    },
+    "explanation": {
+     "surface": "A society plans to hoist a banner.",
+     "definitionFit": "The Union Jack is the national flag of the United Kingdom, combining the crosses of its nations."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raise"
+    }
+   }
   },
   {
    "number": 11,
@@ -243,7 +793,41 @@
      }
     ]
    },
-   "solution": "ONEAFTERANOTHER"
+   "solution": "ONEAFTERANOTHER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ONE AFTER ANOTHER",
+    "definitions": [
+     {
+      "text": "Many, in a series",
+      "at": 0
+     },
+     {
+      "text": "in single file",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Many, in a series",
+      "note": "first sense: lots of things arriving consecutively"
+     },
+     {
+      "clueFragment": "in single file",
+      "note": "second sense: lined up with each behind the one before"
+     }
+    ],
+    "explanation": {
+     "surface": "Plenty of people, arranged in sequence, walking in a line.",
+     "definitionFit": "The phrase describes things following each other in succession, which fits both a series and a queue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -257,7 +841,68 @@
     "text": "Ray opted out, or in?",
     "enumeration": "7"
    },
-   "solution": "TORPEDO"
+   "solution": "TORPEDO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TORPEDO",
+    "definitions": [
+     {
+      "text": "Ray",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "'out' suggests something put out of order, so the preceding word is rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "'in' tells us to put the following short word inside the rearranged letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opted",
+      "gives": "OPTED",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "or",
+      "gives": "OR",
+      "note": "taken as written, to go inside"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "OR",
+      "PEDO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "OPTED",
+       "gives": "TPEDO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Ray is deciding whether to take part or not.",
+     "walkthrough": "'Ray' looks like a man's name; it is the fish. 'out, or in' reads as a choice but splits into two instructions.",
+     "definitionFit": "The torpedo, or electric ray, is a fish that stuns prey with an electric shock, so it is a kind of ray."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Ray"
+    }
+   }
   },
   {
    "number": 13,
@@ -277,7 +922,46 @@
      }
     ]
    },
-   "solution": "RESTCURES"
+   "solution": "RESTCURES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REST-CURES",
+    "definitions": [
+     {
+      "text": "What convalescent home offers",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the others",
+      "gives": "REST",
+      "note": "the rest are the others"
+     },
+     {
+      "clueFragment": "parish priests",
+      "gives": "CURES",
+      "note": "a curé is a French parish priest"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REST",
+      "CURES"
+     ]
+    },
+    "explanation": {
+     "surface": "A nursing home provides everyone else with local clergy.",
+     "definitionFit": "A rest cure is a treatment of prolonged bed rest, the kind of recovery regime a nursing home supplies."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "priests"
+    }
+   }
   },
   {
    "number": 14,
@@ -291,7 +975,53 @@
     "text": "Damage what sounds like guide's tent",
     "enumeration": "7"
    },
-   "solution": "MARQUEE"
+   "solution": "MARQUEE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "MARQUEE",
+    "definitions": [
+     {
+      "text": "tent",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what sounds like",
+      "for": "homophone",
+      "note": "these words say the next piece is heard rather than spelt"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Damage",
+      "gives": "MAR",
+      "note": "to mar is to damage or spoil"
+     },
+     {
+      "clueFragment": "guide",
+      "gives": "QUEE",
+      "soundsLike": "KEY",
+      "note": "a key is a guide, as on a map; spoken, it matches the second syllable"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone spoils what looks like a scout guide's tent.",
+     "walkthrough": "'guide's' is guide plus 'is', linking wordplay to definition.",
+     "definitionFit": "A marquee is a large tent used for outdoor functions such as weddings and fêtes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guide"
+    }
+   }
   },
   {
    "number": 15,
@@ -311,7 +1041,65 @@
      }
     ]
    },
-   "solution": "EASTENDER"
+   "solution": "EASTENDER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EAST ENDER",
+    "definitions": [
+     {
+      "text": "Londoner",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stormy",
+      "for": "anagram",
+      "note": "stormy water is churned up, so the next word's letters are tossed about"
+     }
+    ],
+    "linkWords": [
+     "in",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sea",
+      "gives": "SEA",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "TENDER",
+      "note": "a tender is a small boat serving a larger ship"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAS",
+      "TENDER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEA",
+       "gives": "EAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Cockney adrift in rough waters aboard a small vessel.",
+     "walkthrough": "In a down clue 'on' puts the first piece above the second. The East End is the traditional working-class district of east London.",
+     "definitionFit": "An EastEnder lives in London's East End, so is a particular kind of Londoner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stormy"
+    }
+   }
   },
   {
    "number": 16,
@@ -325,7 +1113,56 @@
     "text": "Patent medicine, in no way unusual",
     "enumeration": "7"
    },
-   "solution": "NOSTRUM"
+   "solution": "NOSTRUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOSTRUM",
+    "definitions": [
+     {
+      "text": "Patent medicine",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "way",
+      "gives": "ST",
+      "note": "ST, short for street, is a way"
+     },
+     {
+      "clueFragment": "unusual",
+      "gives": "RUM",
+      "note": "rum is British slang for odd or unusual"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NO",
+      "ST",
+      "RUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A proprietary remedy that is in no respect out of the ordinary.",
+     "walkthrough": "'unusual' looks like an anagram signal but is the slang word rum, meaning odd.",
+     "definitionFit": "A nostrum is a quack remedy, a medicine of secret or unproven formula sold by its maker."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "unusual"
+    }
+   }
   },
   {
    "number": 17,
@@ -339,7 +1176,67 @@
     "text": "Train always holding one up",
     "enumeration": "7"
    },
-   "solution": "RETINUE"
+   "solution": "RETINUE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "RETINUE",
+    "definitions": [
+     {
+      "text": "Train",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "'holding' says the first word grips the second within it"
+     },
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue 'up' means the whole is read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "always",
+      "gives": "EER",
+      "note": "e'er is the poetic contraction of ever, meaning always"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "UNIT",
+      "note": "a unit is a single one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "TINU",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EUNITER",
+       "to": "RETINUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A railway service that perpetually delays someone.",
+     "walkthrough": "'Train' suggests a railway; it means a group of attendants.",
+     "definitionFit": "A retinue is the band of followers attending an important person, the same as a royal train."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 18,
@@ -353,7 +1250,55 @@
     "text": "Soldier, getting married, allowed small cocktails",
     "enumeration": "7"
    },
-   "solution": "GIMLETS"
+   "solution": "GIMLETS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GIMLETS",
+    "definitions": [
+     {
+      "text": "small cocktails",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soldier",
+      "gives": "GI",
+      "note": "a GI is an American soldier"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "allowed",
+      "gives": "LETS",
+      "note": "lets means allows, the verb's third person"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GI",
+      "M",
+      "LETS"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier marries and is permitted a few little drinks.",
+     "definitionFit": "A gimlet is a short drink of gin or vodka with lime juice, served in a small glass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "allowed"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1312,53 @@
     "text": "Mawkish girl left home",
     "enumeration": "7"
    },
-   "solution": "MAUDLIN"
+   "solution": "MAUDLIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MAUDLIN",
+    "definitions": [
+     {
+      "text": "Mawkish",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "girl",
+      "gives": "MAUD",
+      "note": "Maud is a girl's name"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be in is to be at home"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAUD",
+      "L",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentimental young woman has moved out of her house.",
+     "walkthrough": "'left home' reads as departing; it is two separate pieces.",
+     "definitionFit": "Maudlin means tearfully or self-pityingly sentimental, matching the cloying feeling of mawkish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "left"
+    }
+   }
   },
   {
    "number": 20,
@@ -395,7 +1386,62 @@
      }
     ]
    },
-   "solution": "BACKTOTHEFUTURE"
+   "solution": "BACKTOTHEFUTURE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "BACK TO THE FUTURE",
+    "definitions": [
+     {
+      "text": "film",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sabotaged",
+      "for": "anagram",
+      "note": "something sabotaged is wrecked, so the words before it are broken up and reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boat, ketch",
+      "gives": "BOATKETCH",
+      "note": "taken as written, to be rearranged"
+     },
+     {
+      "clueFragment": "tense",
+      "gives": "FUTURE",
+      "note": "the future is a grammatical tense"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKTOTHE",
+      "FUTURE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOATKETCH",
+       "gives": "BACKTOTHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailing vessel is deliberately wrecked in a nervy thriller.",
+     "walkthrough": "'tense' looks like an adjective describing the film; it is the grammatical tense.",
+     "definitionFit": "Back to the Future is the 1985 time-travel movie starring Michael J. Fox."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 20,
@@ -409,7 +1455,49 @@
     "text": "Arabs rebuilt Iraqi port",
     "enumeration": "5"
    },
-   "solution": "BASRA"
+   "solution": "BASRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BASRA",
+    "definitions": [
+     {
+      "text": "Iraqi port",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rebuilt",
+      "for": "anagram",
+      "note": "something rebuilt is put together again in a new form, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Arabs",
+      "gives": "ARABS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ARABS",
+       "gives": "BASRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Local people reconstruct a harbour city in Iraq.",
+     "definitionFit": "Basra is Iraq's main port city, on the Shatt al-Arab waterway near the Gulf."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -423,7 +1511,47 @@
     "text": "A French record, not shortened",
     "enumeration": "5"
    },
-   "solution": "UNCUT"
+   "solution": "UNCUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNCUT",
+    "definitions": [
+     {
+      "text": "not shortened",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A French",
+      "gives": "UN",
+      "note": "un is the French for a"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "CUT",
+      "note": "to cut a record is to make it, and a cut is a recorded track"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UN",
+      "CUT"
+     ]
+    },
+    "explanation": {
+     "surface": "A French album released in full.",
+     "walkthrough": "'record' looks like a noun for an album; it is a cut, a recorded track.",
+     "definitionFit": "Uncut means not abridged or edited, the same as left at full length."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 22,
@@ -437,7 +1565,55 @@
     "text": "National park - greenest foreign one",
     "enumeration": "9"
    },
-   "solution": "SERENGETI"
+   "solution": "SERENGETI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SERENGETI",
+    "definitions": [
+     {
+      "text": "National park",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "foreign",
+      "for": "anagram",
+      "note": "'foreign' suggests something made strange, so the letters are put into an unfamiliar order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greenest",
+      "gives": "GREENEST",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GREENESTI",
+       "gives": "SERENGETI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A national park abroad that is the most verdant of all.",
+     "definitionFit": "The Serengeti in Tanzania is a famous wildlife reserve, an example of a protected national park."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "foreign"
+    }
+   }
   },
   {
    "number": 23,
@@ -451,7 +1627,71 @@
     "text": "Top copper back inside? That's easy to understand",
     "enumeration": "5"
    },
-   "solution": "LUCID"
+   "solution": "LUCID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "LUCID",
+    "definitions": [
+     {
+      "text": "easy to understand",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "'back' means the metal's symbol is written the other way round"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "'inside' says the turned piece sits within the first word"
+     }
+    ],
+    "linkWords": [
+     "That's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Top",
+      "gives": "LID",
+      "note": "a lid is a top, as on a jar"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "UC",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "CU",
+       "to": "UC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A senior police officer returns to the station, which makes things clear.",
+     "walkthrough": "'Top copper' suggests a chief constable; the two words are separate pieces, a lid and the element.",
+     "definitionFit": "Lucid writing or speech is clear and readily comprehensible, so the adjective fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 24,
@@ -465,7 +1705,55 @@
     "text": "Severe, the south wind close to shore",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "Severe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "'close to' points to the end of the next word, its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the south wind",
+      "gives": "AUSTER",
+      "note": "Auster is the classical name for the south wind"
+     },
+     {
+      "clueFragment": "shore",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of shore"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTER",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A harsh southerly gale blows in near the coast.",
+     "definitionFit": "Austere means stern and strict in manner, a close synonym of severe."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "close"
+    }
+   }
   },
   {
    "number": 25,
@@ -479,7 +1767,42 @@
     "text": "Keep an eye on screen",
     "enumeration": "7"
    },
-   "solution": "MONITOR"
+   "solution": "MONITOR",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MONITOR",
+    "definitions": [
+     {
+      "text": "Keep an eye on",
+      "at": 0
+     },
+     {
+      "text": "screen",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Keep an eye on",
+      "note": "first meaning: a verb, to observe and check"
+     },
+     {
+      "clueFragment": "screen",
+      "note": "second meaning: a noun, a computer display"
+     }
+    ],
+    "explanation": {
+     "surface": "Watch the display carefully.",
+     "definitionFit": "The word is both a verb for supervising something and a noun for a computer's display unit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "screen"
+    }
+   }
   }
  ]
 }
