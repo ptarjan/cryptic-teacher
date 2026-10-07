@@ -1,6 +1,6 @@
 """Collect (date, series, nitch, raw components, per-clue device detail) for
 every SNITCH-rated puzzle we hold, into scratch/snitch_rows.json, the input
-to scratch/snitch_weights.py and scratch/snitch_device.py."""
+to scratch/snitch_weights.py."""
 import json, sys
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent

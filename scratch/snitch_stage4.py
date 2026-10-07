@@ -7,7 +7,7 @@
 
 Two evaluation sets:
   annotated  the annotated Times dailies (and Sunday Times), scored by the full
-             index, as scratch/snitch_stage3.py did.
+             index.
   fresh      the rated Times dailies with no annotation, which no earlier screen
              scored, by the portable index: the components that need no
              annotation (PORTABLE).
