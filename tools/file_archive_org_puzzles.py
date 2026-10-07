@@ -1995,8 +1995,14 @@ def placed(n, day, held):
 def issue_day(day, n, numbers):
     """The date of No `n` in an edition dated `day` holding `numbers`: an item
     can bind the next days' papers too, so each number above the lowest is one
-    issue later (six a week, none on Sunday)."""
-    for _ in range(n - min(numbers) if n - min(numbers) <= 6 else 0):
+    issue later (six a week, none on Sunday), but only while `numbers` run
+    unbroken from the lowest up to `n`. Across a gap the lowest is a stray read
+    (a solution heading, a misread), not an earlier issue, and No `n` keeps
+    the edition's date."""
+    low = min(numbers)
+    if n - low > 6 or not set(range(low, n + 1)) <= set(numbers):
+        return day
+    for _ in range(n - low):
         day += datetime.timedelta(days=1 + (day.weekday() == 5))
     return day
 
