@@ -495,6 +495,27 @@ def borrow(session, identifier):
     return True
 
 
+def borrow_through_timeouts(session, identifier, tries=3, pause=10):
+    """borrow(), surviving a request that times out or drops. The loan may
+    have been granted with only the reply lost, so holds_loan() is asked
+    before borrowing again: a second browse_book on a book already held is
+    not something archive.org answers cleanly."""
+    for attempt in range(1, tries + 1):
+        try:
+            return borrow(session, identifier)
+        except requests.RequestException as err:
+            last = err
+        time.sleep(pause * attempt)
+        try:
+            if holds_loan(session, identifier):
+                return True
+        except requests.RequestException:
+            pass
+    raise SystemExit(
+        f"{identifier}: archive.org did not answer the borrow {tries} times "
+        f"running, last {type(last).__name__}: {last}")
+
+
 @contextlib.contextmanager
 def borrowed(identifier, creds_path=None, keep_loan=False, reconcile=True):
     """A logged-in session with the loan already taken, yielded to the caller,
@@ -532,7 +553,7 @@ def borrowed(identifier, creds_path=None, keep_loan=False, reconcile=True):
         reconcile_loans(session, keep=(identifier,))
     loan_held = False
     try:
-        loan_held = borrow(session, identifier)
+        loan_held = borrow_through_timeouts(session, identifier)
         if loan_held and not keep_loan:
             # On disk before the caller gets the session: from here on, a kill
             # at any instant leaves something that names the loan to return.
