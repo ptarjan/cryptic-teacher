@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,65 @@
     "text": "Benefits from book by novelist, Doris's last",
     "enumeration": "9"
    },
-   "solution": "BLESSINGS"
+   "solution": "BLESSINGS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BLESSINGS",
+    "definitions": [
+     {
+      "text": "Benefits",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "the last of a name means only its closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the standard abbreviation for book"
+     },
+     {
+      "clueFragment": "novelist",
+      "gives": "LESSING",
+      "note": "Doris Lessing, the Nobel-winning British novelist"
+     },
+     {
+      "clueFragment": "Doris's",
+      "gives": "S",
+      "select": "last",
+      "note": "the final letter of the name Doris"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LESSING",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone reaps rewards from a book by Doris Lessing, her last one.",
+     "walkthrough": "The surface reads 'Doris's last' as her final novel, but the novelist is Doris Lessing and 'Doris's last' is just the closing letter of her first name.",
+     "definitionFit": "Blessings are good things received, so they are benefits or advantages in the plural noun sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "last"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +108,68 @@
     "text": "Reverse taxi over, parking at centre",
     "enumeration": "4"
    },
-   "solution": "BACK"
+   "solution": "BACK",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "BACK",
+    "definitions": [
+     {
+      "text": "Reverse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over means the vehicle's letters are read backwards"
+     },
+     {
+      "text": "at centre",
+      "for": "letter_selection",
+      "note": "the centre of a word is its middle letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     },
+     {
+      "clueFragment": "parking",
+      "gives": "K",
+      "select": "middle",
+      "note": "the middle letter of this seven-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAC",
+      "K"
+     ],
+     "reversals": [
+      {
+       "from": "CAB",
+       "to": "BAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to back a taxi up and park it in the middle.",
+     "walkthrough": "'Reverse taxi' reads as driving instructions, but Reverse is the definition.",
+     "definitionFit": "To back is to move in reverse, as a driver backs a car out of a space."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Reverse"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,64 @@
     "text": "Moved abroad - good being in Dubai, for example, with daughter",
     "enumeration": "9"
    },
-   "solution": "EMIGRATED"
+   "solution": "EMIGRATED",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "EMIGRATED",
+    "definitions": [
+     {
+      "text": "Moved abroad",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one letter goes within a word"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dubai, for example",
+      "gives": "EMIRATE",
+      "note": "Dubai is one of the United Arab Emirates"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMI",
+      "G",
+      "RATE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone relocated overseas: it is fine living in Dubai with a daughter.",
+     "definitionFit": "To emigrate is to leave one's country to live elsewhere, so emigrated means moved overseas."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "being"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +260,61 @@
      }
     ]
    },
-   "solution": "SCARBOROUGHFAIR"
+   "solution": "SCARBOROUGHFAIR",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "SCARBOROUGH FAIR",
+    "definitions": [
+     {
+      "text": "song",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing suggests something in motion and rearranged, so these letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Groucho's Bar",
+      "gives": "GROUCHOSBAR",
+      "note": "the letters of these words, apostrophe ignored"
+     },
+     {
+      "clueFragment": "show",
+      "gives": "FAIR",
+      "note": "a fair is a show or exhibition, as in a trade fair"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCARBOROUGH",
+      "FAIR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GROUCHOSBAR",
+       "gives": "SCARBOROUGH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A bar named after Groucho Marx is staging a musical number.",
+     "walkthrough": "'show song' looks like one phrase, a showtune; it splits into wordplay and definition.",
+     "definitionFit": "Scarborough Fair is a traditional English ballad made famous by Simon and Garfunkel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "show"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +328,61 @@
     "text": "Turning brown - Russian river, as is to be expected",
     "enumeration": "7"
    },
-   "solution": "NATURAL"
+   "solution": "NATURAL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NATURAL",
+    "definitions": [
+     {
+      "text": "as is to be expected",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Turning",
+      "for": "reversal",
+      "note": "turning round means the colour word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "brown",
+      "gives": "TAN",
+      "note": "tan is a shade of brown"
+     },
+     {
+      "clueFragment": "Russian river",
+      "gives": "URAL",
+      "note": "the Ural river flows from Russia to the Caspian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NAT",
+      "URAL"
+     ],
+     "reversals": [
+      {
+       "from": "TAN",
+       "to": "NAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Turning brown in the Russian river is only to be expected.",
+     "walkthrough": "'Turning brown' reads as a colour change, but Turning works on the colour word.",
+     "definitionFit": "Natural means normal or unsurprising, in the sense of what one would expect to happen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Turning"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +396,64 @@
     "text": "Star member up in tanning area?",
     "enumeration": "7"
    },
-   "solution": "SUNTRAP"
+   "solution": "SUNTRAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "SUNTRAP",
+    "definitions": [
+     {
+      "text": "tanning area?",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, up means the word reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Star",
+      "gives": "SUN",
+      "note": "the sun is a star"
+     },
+     {
+      "clueFragment": "member",
+      "gives": "PART",
+      "note": "a member is a part of a whole"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUN",
+      "TRAP"
+     ],
+     "reversals": [
+      {
+       "from": "PART",
+       "to": "TRAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A star's limb is raised while sunbathing.",
+     "walkthrough": "The question mark flags that the definition is playful: a suntrap is a sheltered sunny spot, here viewed as where people tan.",
+     "definitionFit": "A suntrap is a sunny, sheltered place, ideal for sunbathing and getting a tan."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "member"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +467,47 @@
     "text": "Shoot bishop after all others",
     "enumeration": "5"
    },
-   "solution": "BLAST"
+   "solution": "BLAST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BLAST",
+    "definitions": [
+     {
+      "text": "Shoot",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bishop",
+      "gives": "B",
+      "note": "B is the chess abbreviation for bishop"
+     },
+     {
+      "clueFragment": "after all others",
+      "gives": "LAST",
+      "note": "coming after everyone else is being last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LAST"
+     ]
+    },
+    "explanation": {
+     "surface": "A gunman fires at the bishop once everyone else has been dealt with.",
+     "walkthrough": "The bishop comes first in the answer even though 'after' seems to place it later; 'after all others' is a single phrase meaning last.",
+     "definitionFit": "To blast is to fire a gun or shoot at something, a verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "after"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +527,62 @@
      }
     ]
    },
-   "solution": "BRANDENBURGGATE"
+   "solution": "BRANDENBURGGATE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "BRANDENBURG GATE",
+    "definitions": [
+     {
+      "text": "landmark near to Checkpoint Charlie",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unexpectedly",
+      "for": "anagram",
+      "note": "unexpectedly suggests things turning out in a surprising order, so letters are reworked"
+     },
+     {
+      "text": "crossing",
+      "for": "container",
+      "note": "crossing means spanning over, so the shuffled letters take in the little word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gunner grabbed",
+      "gives": "GUNNERGRABBED",
+      "note": "the letters of these two words"
+     },
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GUNNERGRABBEDAT",
+       "gives": "BRANDENBURGGATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier is unexpectedly seized while crossing near the famous Berlin border post.",
+     "walkthrough": "Gunner looks like a soldier subject, but it and grabbed supply letters; Checkpoint Charlie was the Cold War crossing point in Berlin.",
+     "definitionFit": "The Brandenburg Gate is the neoclassical monument in central Berlin, close to the old Checkpoint Charlie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Gunner"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +596,50 @@
     "text": "I travel, giving support to a male friend",
     "enumeration": "5"
    },
-   "solution": "AMIGO"
+   "solution": "AMIGO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AMIGO",
+    "definitions": [
+     {
+      "text": "friend",
+      "at": 35
+     }
+    ],
+    "linkWords": [
+     "giving support to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a male",
+      "gives": "AM",
+      "note": "A plus M, the abbreviation for male"
+     },
+     {
+      "clueFragment": "I travel",
+      "gives": "IGO",
+      "note": "I plus go, which means travel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AM",
+      "IGO"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller helps out a male companion.",
+     "walkthrough": "In a down clue, a piece giving support sits underneath, so the travel piece goes below the male piece.",
+     "definitionFit": "Amigo is Spanish for friend and is used informally in English for a pal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +659,53 @@
      }
     ]
    },
-   "solution": "TREADWATER"
+   "solution": "TREADWATER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TREAD WATER",
+    "definitions": [
+     {
+      "text": "Fail to make any progress",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "suspiciously",
+      "for": "anagram",
+      "note": "something handled suspiciously is treated as dodgy or not straight, so the letters are scrambled"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "war treated",
+      "gives": "WARTREATED",
+      "note": "the letters of these two words"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WARTREATED",
+       "gives": "TREADWATER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A conflict handled with distrust ends in deadlock.",
+     "definitionFit": "To tread water is an idiom for staying in the same place without advancing, like a swimmer keeping afloat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "suspiciously"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +719,47 @@
     "text": "Punch a mate",
     "enumeration": "5"
    },
-   "solution": "CHINA"
+   "solution": "CHINA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHINA",
+    "definitions": [
+     {
+      "text": "mate",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Punch",
+      "gives": "CHIN",
+      "note": "to chin someone is to punch them on the jaw"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHIN",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is urged to hit a friend.",
+     "walkthrough": "China means friend via Cockney rhyming slang: 'china plate' rhymes with mate.",
+     "definitionFit": "In British rhyming slang 'china plate' stands for mate, so china is an informal word for a pal."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Punch"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +773,61 @@
     "text": "Big top musical? Backing provisional",
     "enumeration": "9"
    },
-   "solution": "TENTATIVE"
+   "solution": "TENTATIVE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TENTATIVE",
+    "definitions": [
+     {
+      "text": "provisional",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Backing",
+      "for": "reversal",
+      "note": "going backwards means the show title is read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big top",
+      "gives": "TENT",
+      "note": "the big top is the circus tent"
+     },
+     {
+      "clueFragment": "musical",
+      "gives": "EVITA",
+      "note": "Evita, the Lloyd Webber musical"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENT",
+      "ATIVE"
+     ],
+     "reversals": [
+      {
+       "from": "EVITA",
+       "to": "ATIVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus show set to music gets only tentative financial backing.",
+     "walkthrough": "'Backing' looks like money or musical accompaniment, but it turns the musical round.",
+     "definitionFit": "Something tentative is not yet final or certain, just as a provisional arrangement is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Backing"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +847,69 @@
      }
     ]
    },
-   "solution": "ROBERTREDFORD"
+   "solution": "ROBERTREDFORD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ROBERT REDFORD",
+    "definitions": [
+     {
+      "text": "Actor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "behind",
+      "for": "charade",
+      "note": "behind means coming after, so the wading piece is placed second, after the duke's letter"
+     }
+    ],
+    "linkWords": [
+     "in the guise of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Scottish king",
+      "gives": "ROBERT",
+      "note": "Robert the Bruce and other Scottish kings named Robert"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means about or concerning"
+     },
+     {
+      "clueFragment": "duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "to wade across",
+      "gives": "FORD",
+      "note": "to ford a river is to wade across it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROBERT",
+      "RE",
+      "D",
+      "FORD"
+     ]
+    },
+    "explanation": {
+     "surface": "An actor plays a Scottish king who wades a river behind a duke.",
+     "walkthrough": "'behind duke' puts the wading word after the duke's letter.",
+     "definitionFit": "Robert Redford is the American film star of Butch Cassidy and the Sundance Kid, so an example of an actor."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "guise"
+    }
+   }
   },
   {
    "number": 12,
@@ -239,7 +923,69 @@
     "text": "Chief city in Middle East - large container port set up",
     "enumeration": "10"
    },
-   "solution": "METROPOLIS"
+   "solution": "METROPOLIS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "METROPOLIS",
+    "definitions": [
+     {
+      "text": "Chief city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down entry, set up means raised so the words read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Middle East",
+      "gives": "ME",
+      "note": "ME is the abbreviation for Middle East"
+     },
+     {
+      "clueFragment": "large container",
+      "gives": "SILO",
+      "note": "a silo is a large storage tower for grain"
+     },
+     {
+      "clueFragment": "port",
+      "gives": "PORT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ME",
+      "TROPOLIS"
+     ],
+     "reversals": [
+      {
+       "from": "SILOPORT",
+       "to": "TROPOLIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A major Middle Eastern city has a big container port.",
+     "walkthrough": "'large container port' reads as a shipping terminal, but it splits into a storage tower and the word port.",
+     "definitionFit": "A metropolis is the main or capital city of a country or region."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "container"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +999,53 @@
     "text": "Drunk loiters in a Portuguese resort",
     "enumeration": "7"
    },
-   "solution": "ESTORIL"
+   "solution": "ESTORIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ESTORIL",
+    "definitions": [
+     {
+      "text": "a Portuguese resort",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Drunk",
+      "for": "anagram",
+      "note": "a drunk staggers about, so the following word's letters reel into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loiters",
+      "gives": "LOITERS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LOITERS",
+       "gives": "ESTORIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drunk hangs about in a holiday town in Portugal.",
+     "definitionFit": "Estoril is a seaside resort on the coast west of Lisbon in Portugal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Drunk"
+    }
+   }
   },
   {
    "number": 14,
@@ -267,7 +1059,63 @@
     "text": "An expert in Pennsylvania helps to produce a universal remedy",
     "enumeration": "7"
    },
-   "solution": "PANACEA"
+   "solution": "PANACEA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PANACEA",
+    "definitions": [
+     {
+      "text": "a universal remedy",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside the state's letters"
+     }
+    ],
+    "linkWords": [
+     "helps to produce"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pennsylvania",
+      "gives": "PA",
+      "note": "PA is the postal abbreviation for Pennsylvania"
+     },
+     {
+      "clueFragment": "An",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "expert",
+      "gives": "ACE",
+      "note": "an ace is an expert"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "AN",
+      "ACE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist in Pennsylvania helps develop a cure-all.",
+     "definitionFit": "A panacea is a supposed cure for all ills, the very meaning of a universal remedy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "expert"
+    }
+   }
   },
   {
    "number": 15,
@@ -281,7 +1129,46 @@
     "text": "Humiliated Conservative hurried",
     "enumeration": "9"
    },
-   "solution": "CHASTENED"
+   "solution": "CHASTENED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHASTENED",
+    "definitions": [
+     {
+      "text": "Humiliated",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "hurried",
+      "gives": "HASTENED",
+      "note": "hastened means hurried"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HASTENED"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician rushed off in disgrace.",
+     "definitionFit": "Chastened means subdued or humbled after a rebuke, close in sense to humiliated."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 16,
@@ -295,7 +1182,50 @@
     "text": "Ruby? Girl in former tin mining town",
     "enumeration": "7"
    },
-   "solution": "REDRUTH"
+   "solution": "REDRUTH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REDRUTH",
+    "definitions": [
+     {
+      "text": "former tin mining town",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ruby",
+      "gives": "RED",
+      "note": "ruby is a shade of red"
+     },
+     {
+      "clueFragment": "Girl",
+      "gives": "RUTH",
+      "note": "a girl's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RED",
+      "RUTH"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a girl called Ruby living in an old Cornish mining town?",
+     "walkthrough": "Ruby looks like a girl's name but is the colour; the girl comes next. Redruth is a town in Cornwall, south-west England.",
+     "definitionFit": "Redruth in Cornwall was once a centre of the tin mining industry, now closed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ruby"
+    }
+   }
   },
   {
    "number": 17,
@@ -309,7 +1239,66 @@
     "text": "Hornblower's short speech after end of skirmish",
     "enumeration": "7"
    },
-   "solution": "HORATIO"
+   "solution": "HORATIO",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "HORATIO",
+    "definitions": [
+     {
+      "text": "Hornblower's",
+      "at": 0,
+      "note": "possessive: the answer is the first name belonging to Hornblower"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, the only one kept"
+     },
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "cut short means the word loses its last letter"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "skirmish",
+      "gives": "H",
+      "select": "last",
+      "note": "the final letter of this word"
+     },
+     {
+      "clueFragment": "speech",
+      "gives": "ORATION",
+      "note": "an oration is a formal speech"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ORATIO"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval hero makes a brief address after a minor battle.",
+     "walkthrough": "Horatio Hornblower is C. S. Forester's fictional Napoleonic-era naval officer; 'Hornblower's' stands for his first name.",
+     "definitionFit": "Horatio is the given name of Forester's hero, so it is the name that is Hornblower's own."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Hornblower's"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1312,54 @@
     "text": "Vulgar about Salvation Army campaign",
     "enumeration": "7"
    },
-   "solution": "CRUSADE"
+   "solution": "CRUSADE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CRUSADE",
+    "definitions": [
+     {
+      "text": "campaign",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vulgar",
+      "gives": "CRUDE",
+      "note": "crude means vulgar or coarse"
+     },
+     {
+      "clueFragment": "Salvation Army",
+      "gives": "SA",
+      "note": "SA is the abbreviation for the Salvation Army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRU",
+      "SA",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "A coarse remark is made about the Salvation Army's fundraising drive.",
+     "definitionFit": "A crusade is a vigorous campaign for a cause, a noun synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vulgar"
+    }
+   }
   },
   {
    "number": 18,
@@ -337,7 +1373,51 @@
     "text": "Group from lake bed shown first",
     "enumeration": "7"
    },
-   "solution": "COTERIE"
+   "solution": "COTERIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COTERIE",
+    "definitions": [
+     {
+      "text": "Group",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "from",
+     "shown first"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "ERIE",
+      "note": "Lake Erie, one of the Great Lakes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COT",
+      "ERIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A party gathered from a lake bed shown on display.",
+     "walkthrough": "'shown first' tells you the bed word goes before the lake, reversing the clue order.",
+     "definitionFit": "A coterie is a small exclusive circle of people with shared interests."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1445,47 @@
      }
     ]
    },
-   "solution": "PLAYHARDTOGET"
+   "solution": "PLAYHARDTOGET",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLAY HARD TO GET",
+    "definitions": [
+     {
+      "text": "Pretend not to be interested",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drama",
+      "gives": "PLAY",
+      "note": "a play is a drama"
+     },
+     {
+      "clueFragment": "Baffling",
+      "gives": "HARDTOGET",
+      "note": "something baffling is hard to get, that is, hard to understand"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLAY",
+      "HARDTOGET"
+     ]
+    },
+    "explanation": {
+     "surface": "A confusing stage piece prompts an audience to feign indifference.",
+     "walkthrough": "The pieces are read in reverse of their clue order: the drama comes first, then the word for baffling.",
+     "definitionFit": "To play hard to get is an idiom for feigning a lack of romantic or other interest to seem more desirable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Baffling"
+    }
+   }
   },
   {
    "number": 20,
@@ -379,7 +1499,54 @@
     "text": "Girl, one interrupting queen",
     "enumeration": "5"
    },
-   "solution": "ANNIE"
+   "solution": "ANNIE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ANNIE",
+    "definitions": [
+     {
+      "text": "Girl",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break into the middle, so one piece goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "queen",
+      "gives": "ANNE",
+      "note": "Queen Anne of Great Britain"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ANN",
+      "I",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl cuts in on the queen.",
+     "definitionFit": "Annie is a female first name, so an example of a girl."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "interrupting"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1560,49 @@
     "text": "Exploited group in House, Democrats",
     "enumeration": "4"
    },
-   "solution": "USED"
+   "solution": "USED",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "charade"
+    ],
+    "answer": "USED",
+    "definitions": [
+     {
+      "text": "Exploited",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "group in",
+      "for": "hidden_word",
+      "note": "a group of letters in a word means a run of them is lifted from inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "gives": "USE",
+      "note": "the last three letters of this word"
+     },
+     {
+      "clueFragment": "Democrats",
+      "gives": "D",
+      "note": "D is the abbreviation for Democrat"
+     }
+    ],
+    "explanation": {
+     "surface": "A faction in the House of Representatives, the Democrats, was taken advantage of.",
+     "walkthrough": "House looks like the US chamber, but it just supplies its own letters.",
+     "definitionFit": "To exploit someone is to use them for one's own ends, so exploited and used are verb synonyms."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1616,47 @@
     "text": "House in historic city",
     "enumeration": "9"
    },
-   "solution": "LANCASTER"
+   "solution": "LANCASTER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "LANCASTER",
+    "definitions": [
+     {
+      "text": "House",
+      "at": 0
+     },
+     {
+      "text": "historic city",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "House",
+      "note": "first meaning: the royal dynasty of England that fought York in the Wars of the Roses"
+     },
+     {
+      "clueFragment": "historic city",
+      "note": "second meaning: the county town of Lancashire in north-west England"
+     }
+    ],
+    "explanation": {
+     "surface": "A dwelling sits inside an old city.",
+     "walkthrough": "House here means a royal dynasty, not a building.",
+     "definitionFit": "The name belongs both to a medieval English royal dynasty and to an old city in north-west England."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "House"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1670,55 @@
     "text": "Miss Grey, a long time entertaining knight",
     "enumeration": "5"
    },
-   "solution": "AGNES"
+   "solution": "AGNES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AGNES",
+    "definitions": [
+     {
+      "text": "Miss Grey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "to entertain a guest is to take them in, so one piece holds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a long time",
+      "gives": "AGES",
+      "note": "ages means a long time"
+     },
+     {
+      "clueFragment": "knight",
+      "gives": "N",
+      "note": "N is the chess abbreviation for knight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AG",
+      "N",
+      "ES"
+     ]
+    },
+    "explanation": {
+     "surface": "A Miss Grey has been hosting a knight for a long while.",
+     "walkthrough": "Agnes Grey is the title heroine of Anne Brontë's first novel.",
+     "definitionFit": "Agnes is the first name of the governess heroine of Anne Brontë's novel Agnes Grey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "entertaining"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1732,55 @@
     "text": "Box containing English throwing weapon",
     "enumeration": "5"
    },
-   "solution": "SPEAR"
+   "solution": "SPEAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SPEAR",
+    "definitions": [
+     {
+      "text": "throwing weapon",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "containing",
+      "for": "container",
+      "note": "containing means holding inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Box",
+      "gives": "SPAR",
+      "note": "to spar is to box in practice"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "E",
+      "AR"
+     ]
+    },
+    "explanation": {
+     "surface": "A crate holds an English missile.",
+     "walkthrough": "Box looks like a container noun but is the verb for sparring.",
+     "definitionFit": "A spear is a long pointed weapon that can be thrown, like a javelin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Box"
+    }
+   }
   },
   {
    "number": 25,
@@ -455,7 +1800,55 @@
      }
     ]
    },
-   "solution": "OPENENDED"
+   "solution": "OPENENDED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "OPEN-ENDED",
+    "definitions": [
+     {
+      "text": "not rigorously fixed",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to check",
+      "for": "container",
+      "note": "to check something is to hold it in, so one word is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Began",
+      "gives": "OPENED",
+      "note": "opened means began"
+     },
+     {
+      "clueFragment": "boundary",
+      "gives": "END",
+      "note": "an end is a limit or boundary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPEN",
+      "END",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone started to inspect a perimeter that was never properly set.",
+     "walkthrough": "'to check' looks like the purpose of beginning, but it tells you the first word restrains the second inside it.",
+     "definitionFit": "Something open-ended has no set limits or conclusion, so it is flexible rather than firmly determined."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "check"
+    }
+   }
   }
  ]
 }
