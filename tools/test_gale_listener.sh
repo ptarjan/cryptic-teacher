@@ -59,6 +59,8 @@ check("the citation title's number", (36, "PDF citation title", set()), g.cited(
 check("the citation's date across a line break", D(1930, 12, 3), g.cited_day(cite))
 check("a report names the solved puzzle, not the page's",
       (None, None, {38}), g.cited('"Report on Wireless Crossword No. 38. " The Listener, vol. 4, no. 103, 31 Dec. 1930'))
+check("a citation without \"The\"", (22, "PDF citation title", set()),
+      g.cited('"No. 22—A French Crossword." Listener, 27 Aug. 1930, p. 308.'))
 check("a competition's count is no puzzle number",
       (None, None, set()), g.cited('"Competition No. 8. " The Listener, vol. 3, no. 59, 26 Feb. 1930'))
 check("a week with no crossword matches no date",
