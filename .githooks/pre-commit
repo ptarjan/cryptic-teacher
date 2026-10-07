@@ -1,4 +1,10 @@
 #!/bin/sh
+# Every worktree shares .git/config, so a user.* set there re-authors every
+# job's commits; the identity comes from the global config alone.
+if git config --file "$(git rev-parse --git-common-dir)/config" --get-regexp '^user\.' >/dev/null; then
+  echo "pre-commit: .git/config sets user.* for every worktree; remove it: git config --remove-section user" >&2
+  exit 1
+fi
 # A tracked file with no layout row fails CI; refuse the commit instead.
 # Fix: python3 tools/build_readme.py --add-missing, then stage docs/LAYOUT.md
 # and tools/build_readme.py.
