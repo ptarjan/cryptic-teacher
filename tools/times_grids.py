@@ -34,10 +34,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import barred_grid as bg
 import fetch_wp_blog
+import downloads
 import parse_timesforthetimes as parser
 import reconstruct_grid as rg
 
-CACHE = Path.home() / "cryptic-setter-data" / "timesforthetimes"
+CACHE = downloads.TIMESFORTHETIMES
 PARSED = CACHE / "parsed.jsonl"
 OUT = CACHE / "grids.jsonl"
 #: Every puzzle TRIED, with the budget it was tried at. Resuming off the grids

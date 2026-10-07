@@ -37,9 +37,9 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
-from pathlib import Path
+import downloads
 
-CACHE = Path.home() / "cryptic-setter-data" / "fifteensquared"
+CACHE = downloads.FIFTEENSQUARED
 POSTS = CACHE / "posts"
 COMMENTS = CACHE / "comments"
 

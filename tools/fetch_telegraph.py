@@ -51,6 +51,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import enumeration
 import puzzle_paths
+import downloads
 import series as series_meta
 from fetch_puzzle import (
     duplicated_clues,
@@ -72,7 +73,7 @@ UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
 DELAY = 2.0
 #: Every bucket file fetched, kept: a re-run, tools/cross_validate.py and a
 #: refile read it from here rather than asking the bucket again.
-CACHE = Path.home() / "cryptic-setter-data" / "telegraph-source"
+CACHE = downloads.TELEGRAPH
 #: The first number each series' calendar serves. From here on the bucket is
 #: the primary source and bigdave44.com is read only for its hints:
 #: tools/file_telegraph_puzzles.py files nothing at or past these but the

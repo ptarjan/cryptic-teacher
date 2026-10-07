@@ -5,7 +5,7 @@
     python3 tools/file_trove_puzzles.py --dry-run    # count, write nothing
     python3 tools/file_trove_puzzles.py --cache DIR  # another fetch cache
 
-Reads what tools/fetch_trove.py leaves in ~/.cache/trove/<article id>/
+Reads what tools/fetch_trove.py leaves in downloads.TROVE/<article id>/
 (meta.json, ocr.txt, grid.jpg) and files every cryptic whose clues parse.
 Only the clues are mandatory:
 
@@ -15,7 +15,7 @@ Only the clues are mandatory:
   - A clue the OCR lost or garbled (a number read as junk, a bracket broken,
     "(S)") is repaired from RapidOCR's reading of the page's clue columns
     when tools/trove_clue_ocr.py has cached them beside the cache
-    (~/.cache/trove-clues), anchored on text both readings share.
+    (downloads.TROVE_CLUES), anchored on text both readings share.
   - The grid comes from grid.jpg (tools/trove_grid.py), and is used only when
     it is 180-degree symmetric and every clue the OCR kept agrees with it:
     each clue number names one of its lights, and each enumeration counts that
@@ -52,7 +52,7 @@ never meets a times-* or cryptic-* id. The paper's own label ("English
 cryptic 715C", a setter's byline) goes in the name and the setter. A Guardian
 reprint whose clues match a held cryptic-* puzzle is not filed again.
 
-Resumable and idempotent: ~/.cache/trove/filed.jsonl records each article's
+Resumable and idempotent: downloads.TROVE/filed.jsonl records each article's
 verdict against its inputs (its files' sizes and times, its clue zones, and
 whether the VLM read it), so a rerun reads only articles that are new or
 changed, the never-read first and
@@ -101,10 +101,11 @@ import vlm_reader as vlm
 from fetch_puzzle import puzzle_path, source_clue, write_puzzle_file
 from file_penguin_puzzle import separators
 from groups import entry_id
+import downloads
 from ocr_clues import SEE_RE
 
 SERIES = "canberra"
-CACHE = Path(os.path.expanduser("~/.cache/trove"))
+CACHE = downloads.TROVE
 TOOL = "tools/file_trove_puzzles.py"
 ARTICLE = "https://trove.nla.gov.au/newspaper/article/{}"
 #: Articles read at once: the desktop VLM serves one request at a time, so a
@@ -1029,7 +1030,7 @@ def clue_zones(d):
 
 def zones_of(cache):
     """Where tools/trove_clue_ocr.py caches the clue columns of the articles
-    in `cache`: ~/.cache/trove-clues beside ~/.cache/trove."""
+    in `cache`: trove-clues beside trove, as downloads.TROVE_CLUES beside downloads.TROVE."""
     return cache.parent / f"{cache.name}-clues"
 
 

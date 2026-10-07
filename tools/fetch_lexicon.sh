@@ -16,7 +16,7 @@ EXET=https://raw.githubusercontent.com/viresh-ratnakar/exet/master
 
 # A sibling agent or an earlier run may already have a copy; copying beats
 # re-downloading 24 MB.
-LOCAL="${LUFZ_LOCAL:-$HOME/cryptic-setter-data}"
+LOCAL="${LUFZ_LOCAL:-$(python3 "$(dirname "$0")/downloads.py")}"
 
 fetch() { # fetch <url> <basename> <local-subdir>
   local url="$1" name="$2" sub="$3"

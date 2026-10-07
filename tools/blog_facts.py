@@ -36,7 +36,7 @@ the proof.
     python3 tools/blog_facts.py --jobs 1      # one process instead of the default two
     python3 tools/blog_facts.py --score       # precision and recall against blog_facts_gold.jsonl
 
-Reads the caches the fetchers write under ~/cryptic-setter-data; never the
+Reads the caches the fetchers write under downloads.ROOT; never the
 network.
 """
 import argparse
@@ -63,9 +63,10 @@ from clue_types import NAMES
 from definitions import place
 from fetch_puzzle import puzzle_files, read_puzzle_file
 from groups import entry_id
+import downloads
 from puzzle_schema import order
 
-DATA = Path.home() / "cryptic-setter-data"
+DATA = downloads.ROOT
 OUT = ROOT / "tools" / "data" / "blog_facts"
 #: What each write-up says of its clues short of their blocks (see leads), for
 #: letter_facts.py: the clue's words and the answer's letters, but kept out of

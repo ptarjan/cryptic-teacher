@@ -8,7 +8,7 @@ Usage:
   python3 tools/fetch_trove.py fetch --year 1975 [--limit N]  # every hit in a listing
   python3 tools/fetch_trove.py fetch [--seconds N]          # every hit in every cached listing
   python3 tools/fetch_trove.py zones [ID ...] [--limit N]    # clue columns (below)
-  --out DIR     where everything lands (default ~/.cache/trove)
+  --out DIR     where everything lands (default downloads.TROVE)
   --delay S     minimum seconds between requests (default 1.0)
   --title N     Trove newspaper title id (default 11, The Canberra Times)
   --grid-width PX  fetch the grid from the smallest pyramid level that is at
@@ -26,7 +26,7 @@ Layout under --out:
   <id>/grid.jpg           the grid zone cut from the page scan (see --grid-width)
 
 `zones` caches the page scan's text zones (every zone but the grid) in
-~/.cache/trove-clues/<id>/zone<N>.png, which tools/trove_clue_ocr.py reads.
+downloads.TROVE_CLUES/<id>/zone<N>.png, which tools/trove_clue_ocr.py reads.
 Given ids it fetches those; given none it fetches the articles whose filing
 ledger row (<out>/filed.jsonl) is pending and that have no zones yet, oldest
 first. Filers only read caches, so this is how a pending article gets its
@@ -67,6 +67,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
+import downloads
 
 
 @contextlib.contextmanager
@@ -280,7 +281,7 @@ def grid_zone(zones):
 #: Smallest zone width in pixels: Trove's level 6, half the top resolution,
 #: which RapidOCR reads as well as the top one.
 ZONE_WIDTH = 220
-ZONES_DIR = os.path.expanduser("~/.cache/trove-clues")
+ZONES_DIR = str(downloads.TROVE_CLUES)
 
 
 def zone_images(zones, aid):
@@ -362,7 +363,7 @@ def main():
     ap.add_argument("--limit", type=int)
     ap.add_argument("--delay", type=float, default=1.0)
     ap.add_argument("--grid-width", type=int, default=600)
-    ap.add_argument("--out", default=os.path.expanduser("~/.cache/trove"))
+    ap.add_argument("--out", default=str(downloads.TROVE))
     ap.add_argument("--zones-out", default=ZONES_DIR, help="where `zones` writes")
     ap.add_argument("--seconds", type=float)
     a = ap.parse_args()

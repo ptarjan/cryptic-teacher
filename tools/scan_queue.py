@@ -42,6 +42,7 @@ import traceback
 from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
 from concurrent.futures.process import BrokenProcessPool
 from pathlib import Path
+import downloads
 
 
 def now():
@@ -187,8 +188,7 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
 
 
 #: Each filer's ledger, the one place a source's last read ("readAt") is kept.
-LEDGERS = {"archive": Path(os.path.expanduser("~/.cache/archive_org_editions/filed.jsonl")),
-           "trove": Path(os.path.expanduser("~/.cache/trove/filed.jsonl"))}
+LEDGERS = {"archive": downloads.ARCHIVE_ORG / "filed.jsonl", "trove": downloads.TROVE / "filed.jsonl"}
 #: The re-read requests, appended to by annotation runs in any worktree.
 REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
                 or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))

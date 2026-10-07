@@ -11,7 +11,7 @@ re-run out of order. The article text never carries the London number, so
 it is found two ways:
 
   matched    the article's clue word triples hit one archive.org Times
-             reading (~/cryptic-setter-data/archiveorg-source, puzzles/times)
+             reading (downloads.ARCHIVE_ORG_SOURCE, puzzles/times)
              far better than any other, the reading printed first
   bracketed  the article sits between two matched Canberra days whose London
              numbers differ by exactly the number of Canberra cryptic days
@@ -26,24 +26,24 @@ between the two anchors' dates (archive_coverage.PRINTED) count the same
 as the numbers between them; otherwise "londonDate" is null.
 
 Writes {article id: {"date", "number", "how", "londonDate"}} to
-~/.cache/trove/london_numbers.json. tools/file_trove_puzzles.py stamps
+downloads.TROVE/london_numbers.json. tools/file_trove_puzzles.py stamps
 source.reprintOf from it, and tools/archive_coverage.py counts a no-scan
 London edition the map covers as recoverable from Trove.
 """
 import argparse
 import datetime
 import json
-import os
 import re
 import sys
 from pathlib import Path
+import downloads
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
-CACHE = Path(os.path.expanduser("~/.cache/trove"))
+CACHE = downloads.TROVE
 OUT = CACHE / "london_numbers.json"
-SOURCE = Path.home() / "cryptic-setter-data" / "archiveorg-source"
+SOURCE = downloads.ARCHIVE_ORG_SOURCE
 TIMES = ROOT / "puzzles" / "times"
 
 #: The last Canberra date that reprinted London: from February 1982 none of

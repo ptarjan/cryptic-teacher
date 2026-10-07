@@ -35,10 +35,10 @@ read (tools/fetch_ia_book.NotLendable) is recorded in book_reads.json with a
 "not_lendable" reason and never queued again, whatever REREAD_BEFORE says.
 """
 import json
-import os
 import pathlib
-import shutil
 import sys
+
+import downloads
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 POSITIONS_PER_VOLUME = 1000
@@ -46,33 +46,17 @@ POSITIONS_PER_VOLUME = 1000
 # time it lands, in UTC: the commit's own `git log -1 --format=%cI` converted.
 # Reads are stamped the same way, so the two compare as strings.
 REREAD_BEFORE = "2026-10-06T07:38:34+00:00"
-# Where a borrowed book's page OCR is kept. Not /tmp: a reboot wipes it, and
-# the only way back is another loan.
-TEXT_DIR = (pathlib.Path(os.environ.get("XDG_STATE_HOME")
-                         or pathlib.Path.home() / ".local" / "state")
-            / "cryptic-teacher" / "ia-books")
+# Where a borrowed book's page OCR is kept: the only way back is another loan.
+TEXT_DIR = downloads.IA_BOOKS
 # A book leaf whose clues are a held puzzle's is that puzzle reprinted, not a
 # new book-N: tools/acquire_book.py files no copy and leaves its reading here,
 # <held id>/<identifier>-<position>.txt, one more voter on the held puzzle's
-# clues (tools/file_archive_org_puzzles.reprint_readings). Beside TEXT_DIR,
-# outside the repo, as the book text it is read from.
-REPRINT_DIR = TEXT_DIR.parent / "book-reprints"
+# clues (tools/file_archive_org_puzzles.reprint_readings). Outside the repo,
+# as the book text it is read from.
+REPRINT_DIR = downloads.BOOK_REPRINTS
 # Each book's last read: {identifier: {"on": "<UTC ISO time>", "found": N,
 # "filed": N}}, written by tools/acquire_book.py after every read.
 READS = ROOT / "tools" / "data" / "book_reads.json"
-# Where earlier code left borrowed text. adopt_texts() moves it into TEXT_DIR.
-OLD_TEXT_DIRS = (pathlib.Path("/tmp/cryptic-teacher-ia-books"),
-                 pathlib.Path.home() / ".cryptic-teacher" / "ia-books")
-
-
-def adopt_texts():
-    """Copy whole-book texts the old locations still hold into TEXT_DIR."""
-    TEXT_DIR.mkdir(parents=True, exist_ok=True)
-    for old in OLD_TEXT_DIRS:
-        for path in old.glob("*.txt") if old.is_dir() else ():
-            if ".sample-" in path.name or (TEXT_DIR / path.name).exists():
-                continue
-            shutil.copy2(path, TEXT_DIR / path.name)
 
 
 def text_of(identifier):
@@ -172,7 +156,6 @@ def rereads():
 
 def main(argv):
     if "--reread" in argv:
-        adopt_texts()
         for identifier in rereads():
             print(identifier)
         return 0

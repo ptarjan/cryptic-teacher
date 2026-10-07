@@ -76,10 +76,12 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
+import downloads
+
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "tools" / "data" / "ctc_moments.json"
 REASONS = ROOT / "tools" / "data" / "ctc_reasons.json"
-PACKETS = Path("/data/home/cache/ctc/packets")
+PACKETS = downloads.YOUTUBE / "ctc" / "packets"
 
 #: Every solve channel: its subtitle cache and its solver's skill, from the
 #: channel's own description and pace (SKILLS lists the levels, best first).
@@ -91,19 +93,19 @@ SKILLS = ("expert", "intermediate", "beginner")
 #: solve_times file only holds the clue timestamps parsecheck reads).
 EXPLAINER = "explainer"
 CHANNELS = {
-    "ctc": ("Cracking the Cryptic", "expert", "/data/home/cache/ctc/subs"),
-    "pat_cousins": ("Pat Cousins", "expert", "/data/home/cache/yt_solvers/pat_cousins/subs"),
-    "cryptics_uncovered": ("Cryptics Uncovered", "intermediate", "/data/home/cache/yt_solvers/cryptics_uncovered/subs"),
-    "lucyverbalist": ("Lucyverbalist", "intermediate", "/data/home/cache/yt_solvers/lucyverbalist/subs"),
-    "dhansak": ("Dhansak Crosswords", "intermediate", "/data/home/cache/yt_solvers/dhansak/subs"),
+    "ctc": ("Cracking the Cryptic", "expert", downloads.YOUTUBE / "ctc" / "subs"),
+    "pat_cousins": ("Pat Cousins", "expert", downloads.YOUTUBE / "pat_cousins" / "subs"),
+    "cryptics_uncovered": ("Cryptics Uncovered", "intermediate", downloads.YOUTUBE / "cryptics_uncovered" / "subs"),
+    "lucyverbalist": ("Lucyverbalist", "intermediate", downloads.YOUTUBE / "lucyverbalist" / "subs"),
+    "dhansak": ("Dhansak Crosswords", "intermediate", downloads.YOUTUBE / "dhansak" / "subs"),
     "solving_telegraph_cryptic": ("Solving The Telegraph Cryptic", "beginner",
-                                  "/data/home/cache/yt_solvers/solving_telegraph_cryptic/subs"),
-    "cryptic_mystic": ("The Cryptic Mystic", "beginner", "/data/home/cache/yt_solvers/cryptic_mystic/subs"),
-    "cafe_cryptic": ("Cafe Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/cafe_cryptic/subs"),
-    "henderson": ("Henderson Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/henderson/subs"),
-    "justcordelia": ("justcordelia", EXPLAINER, "/data/home/cache/yt_solvers/justcordelia/subs"),
-    "minute_cryptic": ("Minute Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/minute_cryptic/subs"),
-    "morning_cryptic": ("Morning Cryptic", EXPLAINER, "/data/home/cache/yt_solvers/morning_cryptic/subs"),
+                                  downloads.YOUTUBE / "solving_telegraph_cryptic" / "subs"),
+    "cryptic_mystic": ("The Cryptic Mystic", "beginner", downloads.YOUTUBE / "cryptic_mystic" / "subs"),
+    "cafe_cryptic": ("Cafe Cryptic", EXPLAINER, downloads.YOUTUBE / "cafe_cryptic" / "subs"),
+    "henderson": ("Henderson Cryptic", EXPLAINER, downloads.YOUTUBE / "henderson" / "subs"),
+    "justcordelia": ("justcordelia", EXPLAINER, downloads.YOUTUBE / "justcordelia" / "subs"),
+    "minute_cryptic": ("Minute Cryptic", EXPLAINER, downloads.YOUTUBE / "minute_cryptic" / "subs"),
+    "morning_cryptic": ("Morning Cryptic", EXPLAINER, downloads.YOUTUBE / "morning_cryptic" / "subs"),
 }
 CHANNEL = "ctc"
 

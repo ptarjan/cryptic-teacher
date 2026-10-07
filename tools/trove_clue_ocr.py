@@ -9,7 +9,7 @@ before, a broken bracket ("(6,\\n4> , ,") eats an enumeration, and "(S)"
 reads as 5 or 8. Each blocks tools/reconstruct_grid.py. The page scan is
 sharp, so tools/file_trove_puzzles.py hands its parsed lists to repair() with
 RapidOCR's reading of the article's text zones (cached by `fetch_trove.py
-zones` in ~/.cache/trove-clues/<id>/zone<N>.png at ~half the scan's top
+zones` in downloads.TROVE_CLUES/<id>/zone<N>.png at ~half the scan's top
 resolution, where the print is still ~17px tall).
 
 This module fetches nothing (it caches only RapidOCR's reading, beside the
@@ -34,16 +34,16 @@ change it makes is anchored by text both readings share:
      right before the clue's first words, when it is one of those ways.
 """
 import argparse
-import os
 import re
 import sys
 from pathlib import Path
+import downloads
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 
-CACHE = Path(os.path.expanduser("~/.cache/trove"))
-ZONES = Path(os.path.expanduser("~/.cache/trove-clues"))
+CACHE = downloads.TROVE
+ZONES = downloads.TROVE_CLUES
 #: Letters a text anchor must share; fewer match by chance.
 ANCHOR = 12
 #: Letters at a span's edge the two readings may disagree on.

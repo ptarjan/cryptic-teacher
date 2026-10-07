@@ -45,8 +45,9 @@ from PIL import Image, ImageFilter
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 import trove_grid
+import downloads
 
-CACHE = Path(os.path.expanduser("~/.cache/trove"))
+CACHE = downloads.TROVE
 #: Every letter of an accepted answer is read at least this surely.
 MIN_PROB = 0.9
 #: ...by at least this many of the reads (renderings x recognisers x the

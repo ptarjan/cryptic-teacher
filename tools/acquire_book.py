@@ -109,6 +109,7 @@ from reconstruct_grid import conventions_broken, reconstruct  # noqa: E402
 import clues_only  # noqa: E402
 from series import BOOK_SERIES, book_number, puzzle_id  # noqa: E402
 from clues_only import entries_from_grid  # noqa: E402
+import downloads  # noqa: E402
 
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 PUBLIC_TEXT_URL = "https://archive.org/download/{id}/{id}_djvu.txt"
@@ -117,7 +118,7 @@ METADATA_URL = "https://archive.org/metadata/{id}"
 FETCHED_TEXT_DIR = book_queue.TEXT_DIR
 # Durable, not /tmp: the nightly restart empties /tmp, and tools/coverage.py
 # reads each book's report.json here for why its unfiled puzzles are unfiled.
-DEFAULT_OUT = Path.home() / ".cache" / "acquire_book"
+DEFAULT_OUT = downloads.IA_ACQUIRE
 
 # Stage 1 refused because the ACCOUNT is throttled, not because this book is
 # unavailable. Its own exit code so a driver can tell "this book failed" from

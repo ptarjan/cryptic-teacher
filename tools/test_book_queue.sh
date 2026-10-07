@@ -22,10 +22,10 @@ check() {  # check <what> <expected> <got>
 
 tree="$(mktemp -d)"
 trap 'rm -rf "$tree"' EXIT
-# Cached book text lives under $XDG_STATE_HOME; keep the real one out of it.
-export XDG_STATE_HOME="$tree/state"
+# Cached book text lives under tools/downloads.py's root; keep the real one out of it.
+export CT_DOWNLOADS="$tree/downloads"
 mkdir -p "$tree/tools/data" "$tree/puzzles/book/2000"
-cp "$REPO/tools/book_queue.py" "$tree/tools/"
+cp "$REPO/tools/book_queue.py" "$REPO/tools/downloads.py" "$tree/tools/"
 
 cat > "$tree/tools/data/books.json" <<'JSON'
 {"books": [
@@ -98,9 +98,9 @@ check "--next exits non-zero on an empty queue" "1" "$?"
 # are due. The ones whose text is on disk are re-read with no loan; the rest
 # go back to the borrow queue.
 rm "$tree/tools/data/book_reads.json"
-mkdir -p "$tree/state/cryptic-teacher/ia-books"
-echo text > "$tree/state/cryptic-teacher/ia-books/read-one.txt"
-echo text > "$tree/state/cryptic-teacher/ia-books/unread-best.sample-6p.txt"
+mkdir -p "$tree/downloads/ia-books"
+echo text > "$tree/downloads/ia-books/read-one.txt"
+echo text > "$tree/downloads/ia-books/unread-best.sample-6p.txt"
 check "a due book with cached text is re-read, a sample is not a book" "read-one" \
   "$(cd "$tree" && python3 tools/book_queue.py --reread | tr '\n' ' ' | sed 's/ $//')"
 check "a due book whose text is gone is borrowed again" \
@@ -126,7 +126,7 @@ check "a book read by the reader in force is not re-read" "" \
 check "nor borrowed again" "0" "$(cd "$tree" && python3 tools/book_queue.py --count)"
 # A book never read whose text is on disk is re-read, never borrowed.
 rm "$tree/tools/data/book_reads.json" "$tree/puzzles/book/2000/book-2007.json"
-echo text > "$tree/state/cryptic-teacher/ia-books/unread-best.txt"
+echo text > "$tree/downloads/ia-books/unread-best.txt"
 check "an unread book with text on disk is not borrowed" "" \
   "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | grep -x unread-best)"
 

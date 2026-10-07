@@ -16,7 +16,7 @@ year this counts:
   filed     printed dates with a puzzle file in puzzles/<series>/
 
 and gives every printed, unfiled edition one reason, read off the filer's
-ledger (~/.cache/archive_org_editions/filed.jsonl): no scan, scan not
+ledger (downloads.ARCHIVE_ORG/filed.jsonl): no scan, scan not
 fetched, not yet read, no grid, no reading parses, blank clues held back, ...
 The classes are ranked: recoverable ones (a fetch, a reader fix, a re-read)
 first, by size.
@@ -37,9 +37,10 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 import canberra_london_numbers
+import downloads
 import fetch_archive_org_editions as fetcher
 
-CACHE = Path(os.path.expanduser("~/.cache/archive_org_editions"))
+CACHE = downloads.ARCHIVE_ORG
 LEDGER = CACHE / "filed.jsonl"
 STATE = Path(os.path.expanduser("~/.cache/archive_coverage"))
 

@@ -83,12 +83,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import fetch_ia_book
 import grid_verdict
+import downloads
 import light_spec
 import parse_penguin_book
 
 UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 METADATA_URL = "https://archive.org/metadata/{id}"
-SAMPLE_DIR = Path("/tmp/cryptic-teacher-ia-samples")
+SAMPLE_DIR = downloads.IA_SAMPLES
 DEFAULT_OUT = Path(__file__).resolve().parent / "data" / "book_candidates.json"
 
 # TWO BOUNDS ON A SAMPLED LIGHT COUNT, measured here rather than taken from

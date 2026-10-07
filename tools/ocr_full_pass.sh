@@ -44,8 +44,8 @@
 # only read caches. A pass that ends having fetched something starts the next
 # one at once (tools/corpus_queue.py chain), which reads what it fetched, so
 # a backlog does not wait for the hourly tick.
-# Resumable: each filer's ledger (~/.cache/trove/filed.jsonl,
-# ~/.cache/archive_org_editions/filed.jsonl) is saved after every source,
+# Resumable: each filer's ledger (filed.jsonl in tools/downloads.py's TROVE
+# and ARCHIVE_ORG) is saved after every source,
 # the never-read go first, and a rerun picks up where a killed one stopped.
 # A ledger row marks its source read, so the puzzles it filed must reach git
 # or they are never filed again: each filer runs under tools/durable.sh,

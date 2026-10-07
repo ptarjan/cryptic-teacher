@@ -13,7 +13,7 @@ the solve times the commenters state.
     python3 tools/blog_comment_difficulty.py --measure  # and print coverage and the checks against SNITCH
 
 Rerun as tools/fetch_wp_blog.py --comments lands more months; it reads only
-the caches under ~/cryptic-setter-data and rebuilds the whole table.
+the caches under downloads.ROOT and rebuilds the whole table.
 """
 import argparse
 import html

@@ -46,12 +46,13 @@ import fetch_fifteensquared as fsq
 import file_blog_puzzles
 import ft_pdf_puzzles as fpp
 import puzzle_integrity
+import downloads
 import reconstruct_grid as rg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
 
 SERIES = "genius"
 CATEGORY = "Guardian Genius"
-CACHE = Path.home() / "cryptic-setter-data" / "genius"
+CACHE = downloads.GENIUS
 INDEX = CACHE / "index.json"
 PDFS = CACHE / "pdf"
 GENERATOR = "tools/genius_puzzles.py"

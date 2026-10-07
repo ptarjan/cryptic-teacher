@@ -17,7 +17,7 @@ series' puzzles in batches of consecutive ids, so the next Quick is a few ids
 on and a day later, and a week's batch may sit hundreds of ids from the last,
 so the search widens outward from the last id, and from the ids the blog's
 own links to the feed give for the fortnight ahead, until it finds the next. Only found puzzles are cached, one file per puzzle in
-~/cryptic-setter-data/times-feed/.
+downloads.TIMES_FEED.
 
 Filing goes through write_puzzle_file like any fetcher; a number already on
 disk (rebuilt from the timesforthetimes blog) is never rewritten, and a number
@@ -32,11 +32,12 @@ import sys
 import urllib.error
 import urllib.request
 from pathlib import Path
+import downloads
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 
-CACHE = Path.home() / "cryptic-setter-data" / "times-feed"
+CACHE = downloads.TIMES_FEED
 URL = "https://feeds.thetimes.co.uk/puzzles/crossword/{date}/{id}/data.json"
 UA = "Mozilla/5.0 (cryptic-teacher; +https://github.com/ptarjan/cryptic-teacher)"
 TOOL = "tools/fetch_times_feed.py"
@@ -99,7 +100,7 @@ def blog_hints():
     """{date: [id, ...]} of every feed link the timesforthetimes posts carry:
     any puzzle's id that week puts the search near that week's batch."""
     import collections
-    posts = Path.home() / "cryptic-setter-data" / "timesforthetimes" / "posts"
+    posts = downloads.TIMESFORTHETIMES / "posts"
     link = re.compile(r"feeds\.thetimes\.co\.uk/(?:timescrossword|puzzles/crossword)/(\d{8})/(\d+)")
     out = collections.defaultdict(set)
     for p in posts.glob("*.json"):

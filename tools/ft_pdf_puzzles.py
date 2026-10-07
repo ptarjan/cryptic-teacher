@@ -49,11 +49,12 @@ import ft_puzzles
 import parse_timesforthetimes as tftt
 import puzzle_integrity
 import reconstruct_grid as rg
+import downloads
 import times_grids as tg
 from fetch_puzzle import correct_source_answers, puzzle_path, write_puzzle_file
 
 SERIES = "ftcryptic"
-CACHE = Path.home() / "cryptic-setter-data" / "ft-pdf"
+CACHE = downloads.FT_PDF
 INDEX = CACHE / "index.json"
 PDFS = CACHE / "pdf"
 LEDGER = CACHE / "attempts.jsonl"
