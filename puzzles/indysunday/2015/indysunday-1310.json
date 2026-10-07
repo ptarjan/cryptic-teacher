@@ -24,6 +24,9 @@
   "date": "2015-04-05",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,56 @@
     "text": "Marijuana’s turning up in bar",
     "enumeration": "4"
    },
-   "solution": "STOP"
+   "solution": "STOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "STOP",
+    "definitions": [
+     {
+      "text": "bar",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning something up means reading it from the bottom, so backwards"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Marijuana’s",
+      "gives": "POTS",
+      "note": "pot is slang for marijuana, and the 's adds an S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STOP"
+     ],
+     "reversals": [
+      {
+       "from": "POTS",
+       "to": "STOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone notices cannabis being smoked in a pub.",
+     "definitionFit": "To bar something is to prevent or halt it, a verb synonym of the answer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 2,
@@ -51,7 +103,62 @@
     "text": "High Street I visited at last",
     "enumeration": "6"
    },
-   "solution": "STONED"
+   "solution": "STONED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "STONED",
+    "definitions": [
+     {
+      "text": "High",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at last",
+      "for": "letter_selection",
+      "note": "at last points to the final letter of the word it follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street",
+      "gives": "ST",
+      "note": "standard abbreviation in addresses"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "ONE",
+      "note": "the Roman numeral I is one"
+     },
+     {
+      "clueFragment": "visited",
+      "gives": "D",
+      "select": "last",
+      "note": "final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "ONE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone recalls the main shopping street they finally went to.",
+     "walkthrough": "High looks like part of High Street, but it stands alone as the definition.",
+     "definitionFit": "Being high and being stoned are both slang for intoxication by drugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "High"
+    }
+   }
   },
   {
    "number": 3,
@@ -65,7 +172,48 @@
     "text": "Callas, say, Greek character who performs music",
     "enumeration": "8"
    },
-   "solution": "MARIACHI"
+   "solution": "MARIACHI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARIACHI",
+    "definitions": [
+     {
+      "text": "who performs music",
+      "at": 29,
+      "note": "a noun phrase: one who performs music"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Callas, say",
+      "gives": "MARIA",
+      "note": "the opera singer Maria Callas is one example of a Maria"
+     },
+     {
+      "clueFragment": "Greek character",
+      "gives": "CHI",
+      "note": "a letter of the Greek alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARIA",
+      "CHI"
+     ]
+    },
+    "explanation": {
+     "surface": "Maria Callas is praised as a diva who performs music.",
+     "walkthrough": "Callas looks like the subject, but 'say' marks her as just one example of someone with that first name.",
+     "definitionFit": "A mariachi is a Mexican street musician who plays in a small band, hence one who performs music."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Callas"
+    }
+   }
   },
   {
    "number": 4,
@@ -79,7 +227,67 @@
     "text": "Material turned over to protect cold ground",
     "enumeration": "6"
    },
-   "solution": "MINCED"
+   "solution": "MINCED",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MINCED",
+    "definitions": [
+     {
+      "text": "ground",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned over",
+      "for": "reversal",
+      "note": "something turned over is flipped, so its letters run the other way"
+     },
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "to protect something is to surround it, so one piece goes around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material",
+      "gives": "DENIM",
+      "note": "a cotton fabric"
+     },
+     {
+      "clueFragment": "cold",
+      "gives": "C",
+      "note": "C for cold, as on taps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIN",
+      "C",
+      "ED"
+     ],
+     "reversals": [
+      {
+       "from": "DECNIM",
+       "to": "MINCED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Fabric is folded over to shield the cold earth.",
+     "walkthrough": "Reversed denim gives MINED, which wraps around C to make MINCED.",
+     "definitionFit": "Ground meat is minced meat: both mean chopped finely, a past-participle synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ground"
+    }
+   }
   },
   {
    "number": 5,
@@ -99,7 +307,42 @@
      }
     ]
    },
-   "solution": "SHRUGOFF"
+   "solution": "SHRUGOFF",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "SHRUG OFF",
+    "definitions": [
+     {
+      "text": "Get rid of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with reduction",
+      "for": "hidden_word",
+      "note": "the words are reduced, trimmed at both ends, leaving a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stylish rug, offered",
+      "gives": "SHRUGOFF",
+      "note": "a run of letters spanning the end of the first word to the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A seller disposes of a fashionable rug by putting it on sale at a discount.",
+     "definitionFit": "To shrug off a cold or a worry is to throw it off, a phrasal-verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "reduction"
+    }
+   }
   },
   {
    "number": 6,
@@ -113,7 +356,50 @@
     "text": "A net closed round young person",
     "enumeration": "10"
    },
-   "solution": "ADOLESCENT"
+   "solution": "ADOLESCENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ADOLESCENT",
+    "definitions": [
+     {
+      "text": "young person",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "anagram",
+      "note": "bringing letters round means turning them about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A net closed",
+      "gives": "ANETCLOSED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANETCLOSED",
+       "gives": "ADOLESCENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A youngster is trapped as a net is drawn tight around them.",
+     "definitionFit": "An adolescent is a teenager, someone between childhood and adulthood."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "round"
+    }
+   }
   },
   {
    "number": 7,
@@ -127,7 +413,58 @@
     "text": "Street art regularly featured a fish",
     "enumeration": "5"
    },
-   "solution": "TETRA"
+   "solution": "TETRA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "TETRA",
+    "definitions": [
+     {
+      "text": "fish",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, taking every second letter"
+     }
+    ],
+    "linkWords": [
+     "featured"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Street art",
+      "gives": "TETR",
+      "select": "alternate",
+      "note": "the second, fourth, sixth and eighth letters"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TETR",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A mural in the street often included a picture of a fish.",
+     "definitionFit": "A tetra is a small brightly coloured tropical fish popular in aquariums."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 8,
@@ -141,7 +478,56 @@
     "text": "Went away round river with a coat on",
     "enumeration": "9"
    },
-   "solution": "VARNISHED"
+   "solution": "VARNISHED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "VARNISHED",
+    "definitions": [
+     {
+      "text": "with a coat on",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "one word goes round another, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Went away",
+      "gives": "VANISHED",
+      "note": "disappeared"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the map abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VA",
+      "R",
+      "NISHED"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone walked off by the river, wearing their coat.",
+     "walkthrough": "The coat is not clothing but a layer of glossy finish, as on wood.",
+     "definitionFit": "Something varnished has been given a protective coat of clear lacquer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "coat"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +547,43 @@
      }
     ]
    },
-   "solution": "VICIOUSCIRCLE"
+   "solution": "VICIOUSCIRCLE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "VICIOUS CIRCLE",
+    "definitions": [
+     {
+      "text": "Sid’s band?",
+      "at": 0
+     },
+     {
+      "text": "It gets continually worse",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sid’s band?",
+      "note": "Sid Vicious of the Sex Pistols; his band, playfully, is his circle"
+     },
+     {
+      "clueFragment": "It gets continually worse",
+      "note": "a chain of events where each problem feeds the next"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Sid Vicious was the punk bassist of the Sex Pistols; a circle is a ring or band, so his band is whimsically his circle. The question mark flags the pun.",
+     "definitionFit": "A vicious circle is a self-reinforcing cycle in which each bad outcome makes things deteriorate further."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "band"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +597,63 @@
     "text": "Your violent struggles with a resistance agitator",
     "enumeration": "13"
    },
-   "solution": "REVOLUTIONARY"
+   "solution": "REVOLUTIONARY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REVOLUTIONARY",
+    "definitions": [
+     {
+      "text": "agitator",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "struggles",
+      "for": "anagram",
+      "note": "things that struggle thrash about, so these letters are thrown into disorder"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Your violent",
+      "gives": "YOURVIOLENT",
+      "note": "taken as written for the rearrangement"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YOURVIOLENTAR",
+       "gives": "REVOLUTIONARY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Your fierce fights with the underground resistance mark you as a troublemaker.",
+     "definitionFit": "A revolutionary is someone who stirs up and campaigns for political overthrow, an agitator."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +667,51 @@
     "text": "Chief changes caption",
     "enumeration": "7"
    },
-   "solution": "PONTIAC"
+   "solution": "PONTIAC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PONTIAC",
+    "definitions": [
+     {
+      "text": "Chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changes",
+      "for": "anagram",
+      "note": "the word is changed into a different arrangement of its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "caption",
+      "gives": "CAPTION",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAPTION",
+       "gives": "PONTIAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The editor-in-chief rewrites the caption under a picture.",
+     "walkthrough": "Chief reads as a newspaper boss, but the definition is a Native American leader.",
+     "definitionFit": "Pontiac was an eighteenth-century Ottawa war leader who led a rebellion against British rule."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Chief"
+    }
+   }
   },
   {
    "number": 11,
@@ -203,7 +725,60 @@
     "text": "Food created using a computer’s recipe is third rate",
     "enumeration": "7"
    },
-   "solution": "VICTUAL"
+   "solution": "VICTUAL",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "VICTUAL",
+    "definitions": [
+     {
+      "text": "Food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is",
+      "for": "substitution",
+      "note": "the 's ... is phrasing says one letter in the word now is something else, a swap"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "created using a computer",
+      "gives": "VIRTUAL",
+      "note": "simulated by computer"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R (from Latin recipe, take) heads prescriptions"
+     },
+     {
+      "clueFragment": "third rate",
+      "gives": "C",
+      "note": "C is a third-class grade, after A and B"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VI",
+      "C",
+      "TUAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A dish generated by computer software turns out to have a mediocre recipe.",
+     "walkthrough": "The 's is read as has: the computer word's R becomes C. R is the old abbreviation for recipe, meaning take, on prescriptions.",
+     "definitionFit": "Victual is an old word for provisions or nourishment, usually seen in the plural victuals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +798,65 @@
      }
     ]
    },
-   "solution": "OLDSCHOOL"
+   "solution": "OLDSCHOOL",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "OLD SCHOOL",
+    "definitions": [
+     {
+      "text": "Conservative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "offend",
+      "gives": "O",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "Liberal Democrat",
+      "gives": "LD",
+      "note": "abbreviation for the UK party"
+     },
+     {
+      "clueFragment": "train",
+      "gives": "SCHOOL",
+      "note": "to train is to school, as in schooling a horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "LD",
+      "SCHOOL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician is careful not to upset a Lib Dem rival on the train.",
+     "walkthrough": "Train looks like a railway carriage, but it is the verb to educate. The Liberal Democrats are a UK political party.",
+     "definitionFit": "Old school describes traditional, old-fashioned attitudes, which is what conservative means with a small c."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "train"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +870,70 @@
     "text": "Eliminate rising body odour, before long and repeat",
     "enumeration": "10"
    },
-   "solution": "OBLITERATE"
+   "solution": "OBLITERATE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "OBLITERATE",
+    "definitions": [
+     {
+      "text": "Eliminate",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means read from the bottom up, so backwards"
+     }
+    ],
+    "linkWords": [
+     "before",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "body odour",
+      "gives": "BO",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "long",
+      "gives": "L",
+      "note": "L for long, as in clothing sizes"
+     },
+     {
+      "clueFragment": "repeat",
+      "gives": "ITERATE",
+      "note": "to iterate is to do again"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "L",
+      "ITERATE"
+     ],
+     "reversals": [
+      {
+       "from": "BO",
+       "to": "OB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions for getting rid of persistent body odour: keep washing and do it again.",
+     "definitionFit": "To obliterate is to wipe out completely, a strong synonym for eliminating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "long"
+    }
+   }
   },
   {
    "number": 13,
@@ -251,7 +947,55 @@
     "text": "Refuse to take king into bed",
     "enumeration": "5"
    },
-   "solution": "DROSS"
+   "solution": "DROSS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DROSS",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "the outer word takes the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "DOSS",
+      "note": "a doss is a makeshift place to sleep"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R for rex, Latin king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "R",
+      "OSS"
+     ]
+    },
+    "explanation": {
+     "surface": "A queen declines to let the king into her bed.",
+     "walkthrough": "Refuse looks like a verb; here it is the noun meaning rubbish. Doss is British slang for a rough bed or sleep.",
+     "definitionFit": "Dross is worthless waste matter, the same as rubbish or refuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 14,
@@ -265,7 +1009,57 @@
     "text": "Women receiving diamonds from young men",
     "enumeration": "7"
    },
-   "solution": "LADDIES"
+   "solution": "LADDIES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LADDIES",
+    "definitions": [
+     {
+      "text": "young men",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "one word receives another, holding it inside"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Women",
+      "gives": "LADIES",
+      "note": "polite word for women"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "D",
+      "note": "D for diamonds, the card suit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "D",
+      "DIES"
+     ]
+    },
+    "explanation": {
+     "surface": "Women are given diamond jewellery by their young admirers.",
+     "definitionFit": "Laddies is a Scottish, affectionate word for lads or boys, so young men."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "diamonds"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1073,70 @@
     "text": "In action, explosive bomb is discharged",
     "enumeration": "8"
    },
-   "solution": "DEMOBBED"
+   "solution": "DEMOBBED",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DEMOBBED",
+    "definitions": [
+     {
+      "text": "discharged",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In",
+      "for": "container",
+      "note": "one piece is put in another, sitting inside it"
+     },
+     {
+      "text": "explosive",
+      "for": "anagram",
+      "note": "an explosion scatters things, so the letters are blown into a new order"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "action",
+      "gives": "DEED",
+      "note": "a deed is an act"
+     },
+     {
+      "clueFragment": "bomb",
+      "gives": "BOMB",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "MOBB",
+      "ED"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BOMB",
+       "gives": "MOBB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "During combat, a bomb goes off.",
+     "walkthrough": "Discharged suggests the bomb firing, but it means released from military service.",
+     "definitionFit": "To be demobbed is to be demobilised, formally released from the armed forces."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discharged"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1150,50 @@
     "text": "Fretful about fungus",
     "enumeration": "7"
    },
-   "solution": "TRUFFLE"
+   "solution": "TRUFFLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TRUFFLE",
+    "definitions": [
+     {
+      "text": "fungus",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about means turned around or moved about, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fretful",
+      "gives": "FRETFUL",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FRETFUL",
+       "gives": "TRUFFLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is anxious about a mushroom.",
+     "definitionFit": "A truffle is an edible underground fungus prized in cooking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Fretful"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1207,70 @@
     "text": "E.g. beer brewed in this country by extreme enthusiast",
     "enumeration": "8"
    },
-   "solution": "UBERGEEK"
+   "solution": "UBERGEEK",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "UBERGEEK",
+    "definitions": [
+     {
+      "text": "extreme enthusiast",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brewed",
+      "for": "anagram",
+      "note": "brewing mixes ingredients together, so these letters are stirred up"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece sits in the other"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this country",
+      "gives": "UK",
+      "note": "for a British setter, this country is the UK"
+     },
+     {
+      "clueFragment": "E.g. beer",
+      "gives": "EGBEER",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "BERGEE",
+      "K"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EGBEER",
+       "gives": "BERGEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Beer brewed at home by an obsessive hobbyist.",
+     "walkthrough": "E.g. is part of the letters, not an example marker.",
+     "definitionFit": "An übergeek is a super-geek, someone with an extreme obsessive interest in a specialist subject."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "E.g."
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1284,43 @@
     "text": "Publication reported about legendary misanthrope",
     "enumeration": "5"
    },
-   "solution": "TIMON"
+   "solution": "TIMON",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIMON",
+    "definitions": [
+     {
+      "text": "legendary misanthrope",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "something reported is spoken aloud, so the sound matters, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Publication reported about",
+      "gives": "TIMON",
+      "soundsLike": "TIME ON",
+      "note": "Time is a news magazine and on means about"
+     }
+    ],
+    "explanation": {
+     "surface": "A newspaper story concerns a famously people-hating figure.",
+     "definitionFit": "Timon of Athens, subject of Shakespeare's play, was a legendary man who came to hate humankind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1334,43 @@
     "text": "Observe water in liquid form, perhaps",
     "enumeration": "6"
    },
-   "solution": "NOTICE"
+   "solution": "NOTICE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "NOTICE",
+    "definitions": [
+     {
+      "text": "Observe",
+      "at": 0
+     },
+     {
+      "text": "water in liquid form, perhaps",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Observe",
+      "note": "first meaning: to see or spot"
+     },
+     {
+      "clueFragment": "water in liquid form, perhaps",
+      "note": "second, cryptic meaning: water that is not frozen"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Split the answer as NOT ICE: liquid water is water that is not ice. The 'perhaps' warns of the wordplay reading.",
+     "definitionFit": "To notice something is to observe or perceive it, a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "liquid"
+    }
+   }
   },
   {
    "number": 20,
@@ -355,7 +1390,47 @@
      }
     ]
    },
-   "solution": "IRONEDOUT"
+   "solution": "IRONEDOUT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "IRONED OUT",
+    "definitions": [
+     {
+      "text": "resolved",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "when voiced",
+      "for": "homophone",
+      "note": "a thing voiced is said out loud, so its sound is what counts"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Strong suspicion",
+      "gives": "IRONEDOUT",
+      "soundsLike": "IRON DOUBT",
+      "note": "iron for strong, doubt for suspicion"
+     }
+    ],
+    "explanation": {
+     "surface": "A firmly held suspicion, once spoken, is settled.",
+     "definitionFit": "Problems that are ironed out are smoothed away and settled, an idiom for resolved."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "voiced"
+    }
+   }
   },
   {
    "number": 21,
@@ -369,7 +1444,39 @@
     "text": "Southern Indian expanses?",
     "enumeration": "6"
    },
-   "solution": "OCEANS"
+   "solution": "OCEANS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "OCEANS",
+    "definitions": [
+     {
+      "text": "Southern Indian expanses?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Southern Indian expanses?",
+      "note": "surface reading: wide tracts of land in the south of India"
+     },
+     {
+      "clueFragment": "Southern Indian",
+      "note": "setter's reading: two great bodies of water named Southern and Indian"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Southern Indian looks like a region of India; read separately, each word names one of the world's great seas.",
+     "definitionFit": "The Southern and Indian are both named major marine bodies, vast expanses of salt water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Southern"
+    }
+   }
   },
   {
    "number": 22,
@@ -383,7 +1490,55 @@
     "text": "Automatic rifle – 19 edges away",
     "enumeration": "7"
    },
-   "solution": "ROBOTIC"
+   "solution": "ROBOTIC",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ROBOTIC",
+    "definitions": [
+     {
+      "text": "Automatic",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edges away",
+      "for": "deletion",
+      "note": "with the edges taken away, a word loses its first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rifle",
+      "gives": "ROB",
+      "note": "to rifle through is to ransack or steal"
+     },
+     {
+      "clueFragment": "19",
+      "gives": "NOTICE",
+      "note": "the answer to clue 19"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ROB",
+      "OTIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A rifle that fires automatically, with clue 19's ends cut.",
+     "walkthrough": "Rifle looks like a gun, completing automatic rifle, but it is the verb to rob. The 19 answer loses its outer letters.",
+     "definitionFit": "Robotic means mechanical and done without thought, like a machine acting automatically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rifle"
+    }
+   }
   },
   {
    "number": 23,
@@ -397,7 +1552,50 @@
     "text": "Capital city is large, perhaps",
     "enumeration": "7"
    },
-   "solution": "ALGIERS"
+   "solution": "ALGIERS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALGIERS",
+    "definitions": [
+     {
+      "text": "Capital city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "perhaps",
+      "for": "anagram",
+      "note": "perhaps signals the letters could be another arrangement of themselves"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is large",
+      "gives": "ISLARGE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISLARGE",
+       "gives": "ALGIERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A capital city is probably a big place.",
+     "definitionFit": "Algiers is the capital of Algeria, on the Mediterranean coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "perhaps"
+    }
+   }
   },
   {
    "number": 24,
@@ -411,7 +1609,44 @@
     "text": "Grain yield reported",
     "enumeration": "4"
    },
-   "solution": "SEED"
+   "solution": "SEED",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SEED",
+    "definitions": [
+     {
+      "text": "Grain",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reported",
+      "for": "homophone",
+      "note": "reported means spoken, so the word is matched by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yield",
+      "gives": "SEED",
+      "soundsLike": "CEDE",
+      "note": "to cede is to yield or give up"
+     }
+    ],
+    "explanation": {
+     "surface": "A farmer's grain harvest figures are announced.",
+     "walkthrough": "Yield suggests a crop harvest, but it is the verb to give way.",
+     "definitionFit": "A grain is a single seed of a cereal plant, such as a kernel of wheat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "yield"
+    }
+   }
   },
   {
    "number": 25,
@@ -425,7 +1660,64 @@
     "text": "Go to restrain educator blowing top, showing lack of loyalty",
     "enumeration": "9"
    },
-   "solution": "TREACHERY"
+   "solution": "TREACHERY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "TREACHERY",
+    "definitions": [
+     {
+      "text": "lack of loyalty",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "blowing top",
+      "for": "deletion",
+      "note": "losing its top, the word drops its first letter"
+     },
+     {
+      "text": "to restrain",
+      "for": "container",
+      "note": "to restrain is to hold in, so one piece goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Go",
+      "gives": "TRY",
+      "note": "a go is an attempt"
+     },
+     {
+      "clueFragment": "educator",
+      "gives": "TEACHER",
+      "note": "one who educates"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EACHER",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone tries to hold back a furious teacher who has lost their temper, betraying them.",
+     "walkthrough": "Blowing top looks like losing one's temper, but it means the word loses its first letter.",
+     "definitionFit": "Treachery is betrayal of trust, the very absence of loyalty."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blowing"
+    }
+   }
   },
   {
    "number": 26,
@@ -439,7 +1731,44 @@
     "text": "Wise, perhaps, some consider Nietzche",
     "enumeration": "5"
    },
-   "solution": "ERNIE"
+   "solution": "ERNIE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ERNIE",
+    "definitions": [
+     {
+      "text": "Wise, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means a portion, taken from inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "consider Nietzche",
+      "gives": "ERNIE",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Some people regard the philosopher Nietzsche as wise.",
+     "walkthrough": "Wise is not an adjective but a surname: Ernie Wise was half of the British comedy double act Morecambe and Wise.",
+     "definitionFit": "The comedian Ernie Wise is an example of a person named Ernie, a first-name relation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Wise"
+    }
+   }
   }
  ]
 }
