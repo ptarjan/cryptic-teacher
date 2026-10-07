@@ -56,19 +56,12 @@
 
   // A letter is "A", or "A!" if it was revealed rather than worked out.
   //
-  // The first version of this treated an absent square as "this device knows
-  // nothing about it" and let the other side's letter through. That is only
-  // half of what absence means. Rubbing a letter out also leaves the square
-  // absent, so a deletion could never win: you cleared two squares, the other
-  // device still had them, and the merge politely put them back — for ever,
-  // because pushing your own save never removed them from the server either
-  // (Paul, 2026-08-10).
-  //
-  // So absence is no longer read from the letters map alone. Each square
-  // carries its own stamp in `letterAt`, written whenever that square changes,
-  // INCLUDING when it is emptied. A stamp with no letter is a deletion, and it
-  // travels like any other edit: the most recent thing you did to a square is
-  // what both devices end up showing.
+  // Absence is not read from the letters map alone: rubbing a letter out also
+  // leaves the square absent, and that deletion has to be able to win. Each
+  // square carries its own stamp in `letterAt`, written whenever that square
+  // changes, INCLUDING when it is emptied. A stamp with no letter is a
+  // deletion, and it travels like any other edit: the most recent thing you
+  // did to a square is what both devices end up showing.
   //
   // Only when the two stamps are identical does anything else matter, and then
   // a revealed letter beats a guess (it is the answer, not an opinion) and
@@ -84,10 +77,9 @@
     return av >= bv ? av : bv;
   }
 
-  // How long the solve took. Nothing reads this yet — it exists so that if
-  // there is ever a cohort of solvers to average, the history is already there
-  // to average. A solve-time index cannot be backfilled: an hour not recorded
-  // in 2026 is gone.
+  // How long the solve took: the finished-puzzle summary in app.js quotes it,
+  // and it is kept per puzzle because a solve-time history cannot be
+  // backfilled.
   //
   // Monotone like everything else here, so merging cannot make a record worse:
   // the earliest start, the latest touch, the most grid-time either device has

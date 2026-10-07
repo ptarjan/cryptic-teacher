@@ -7,7 +7,7 @@
 GET /v on the sync worker reads one tally key per puzzle instead of listing
 the votes, and POST /v keeps that key current with a read-modify-write that
 can drop a vote to a concurrent one. The raw keys are the source of truth, so
-this is how a tally is made right again, and how the keys were first built.
+this is how a tally is made right again.
 
 It costs one list pass over `v:` (a list is 1,000 a day on the free tier) and
 one bulk write.

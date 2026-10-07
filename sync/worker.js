@@ -53,9 +53,9 @@ const PUSH_HOSTS = [".googleapis.com", ".mozilla.com", ".apple.com", ".windows.c
 // backwards through the archive, so without a window every night's catch-up
 // would push a decade of Guardians at whoever subscribed that morning.
 const ANNOUNCE_DAYS = 14;
-// A puzzle waiting for the morning is held per subscriber, and the cap is there
-// only so a device that stops being opened cannot grow an unbounded record. A
-// fortnight of every paper at once does not reach it.
+// A puzzle waiting for the morning is held per subscriber, newest MAX_HELD kept,
+// so a catch-up run that annotates many puzzles in one night cannot grow the
+// record without bound.
 const MAX_HELD = 20;
 
 const cors = (origin) => ({
@@ -248,9 +248,7 @@ export default {
        plus the zone, so the cron compares two numbers.
 
        Both are optional. A subscription without them is not held at all — see
-       CTNotify.due() for why every unknown resolves that way — which is exactly
-       how every subscription taken out before this existed keeps behaving until
-       its device next loads the page and re-asserts with a time. */
+       CTNotify.due() for why every unknown resolves that way. */
     if (url.pathname === "/n" && request.method === "PUT") {
       if (Number(request.headers.get("content-length") || 0) > MAX_SUB)
         return json({ error: "too big" }, 413, origin);
