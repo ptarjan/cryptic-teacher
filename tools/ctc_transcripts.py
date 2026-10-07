@@ -896,7 +896,7 @@ def check_clue(e, talk):
         out["definition"] = ("unknown", ev[:1])
     else:
         out["definition"] = ("agree" if in_def > in_rest else "disagree", ev[:2])
-    # type: each of our types the solver names agrees; a strong type named
+    # Types: each of our types the solver names agrees; a strong type named
     # that we lack disagrees.
     types = set(a.get("type") or [])
     said = {t for t, c in TYPE_CUES.items() if _named(talk, c, cw | ans)}

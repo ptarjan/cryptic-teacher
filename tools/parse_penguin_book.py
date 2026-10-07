@@ -750,9 +750,9 @@ def build_quality_report(puzzles: list[dict]) -> dict:
     return {
         "penguin_book_count": len(puzzles),
         "note_on_count": (
-            "Task brief said 58 puzzles numbered 1-58; structural detection "
-            f"in this run found {len(puzzles)} clue/grid leaf pairs. See the "
-            "module docstring (COUNT DISCREPANCY) for the evidence."
+            f"The count is the {len(puzzles)} clue/grid leaf pairs structural "
+            "detection found, not a number taken on trust. See the module "
+            "docstring (COUNT DISCREPANCY) for the evidence."
         ),
         "reconstructable_count": complete_count,
         "puzzles": per_puzzle,

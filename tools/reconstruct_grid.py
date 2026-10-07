@@ -983,7 +983,7 @@ def main(argv=None):
                     help="throw the clue numbers away before reconstructing")
     ap.add_argument("--blank", type=float, default=0.0,
                     help="fraction of clue numbers to erase at random first, "
-                         "simulating partial OCR loss (needs --puzzle)")
+                         "simulating partial OCR loss (needs the puzzle id; not read with --lights)")
     ap.add_argument("--seed", type=int, default=0, help="seed for --blank")
     ap.add_argument("--cols", type=int, default=15)
     ap.add_argument("--rows", type=int, default=15)

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rank archive.org crossword books by whether acquiring one in full is worth it.
+"""Judge archive.org crossword books from a sample of leaves and rank the ones worth acquiring in full.
 
     python3 tools/rank_book_candidates.py                 # every candidate
     python3 tools/rank_book_candidates.py --only <id> ... # a few
@@ -7,11 +7,11 @@
 
 Writes the `ranking` that tools/data/book_candidates.json holds. Acquiring a
 book costs a loan, a full page walk and a reconstruction run per puzzle; this
-buys that decision for a 34-leaf sample instead, and records WHY every refusal
+buys that decision for a sample of leaves (FIRST_LEAF to LAST_LEAF below) instead, and records WHY every refusal
 is a refusal so the list can be re-read a year later without re-borrowing
 anything.
 
-WHY A SAMPLE AND NOT THE BOOK. Leaves 6-39 only — the front matter ends and the
+WHY A SAMPLE AND NOT THE BOOK. Leaves FIRST_LEAF to LAST_LEAF only — the front matter ends and the
 first few puzzles begin there in every collection measured. A whole book pulled
 to decide against it is a loan spent on nothing, and these are one-hour,
 one-copy loans: the borrow is the scarce resource, not the CPU.
