@@ -348,6 +348,8 @@ LAYOUT = [
     ("finding out whether any of it is working", "tools/annotate_audit.py", "ranks what annotation runs spend turns on — first-check failures by check, refused tool calls, cost and turn trend — from the transcripts; daily, and wakes the room with one fix target, rotating past items woken in the last 7 days"),
     ("finding out whether any of it is working", "tools/annotate_audit.sh", "the scheduled entry: runs the audit from a worktree at origin/master"),
     ("finding out whether any of it is working", "tools/test_annotate_audit.sh", "tests tools/annotate_audit.py: rule naming from the validator's AST, and that each run picks one fix target, rotating down the ranking on cooldown"),
+    ("finding out whether any of it is working", "tools/restore_forced_rewrites.py", "puts back the hint text a run rewrote only to get past a validator false positive, replayed from the annotate transcripts; run it for a check whenever that check is relaxed"),
+    ("finding out whether any of it is working", "tools/test_restore_forced_rewrites.sh", "tests tools/restore_forced_rewrites.py: a failing check is replayed to the text first flagged, and only a field the puzzle still holds as forced goes back"),
     ("finding out whether any of it is working", "tools/make_hint_packets.js", "blind solve-packets, to grade a hint by whether it gets a solver unstuck"),
     ("finding out whether any of it is working", "tools/grade_clues.py", "blind A/B/C/D packets of our clues against real setters’ for the same answers"),
     ("finding out whether any of it is working", "tools/author_trial.py", "clue-writing trial: an isolated author writes five candidates per answer, a separate run picks one, grade_clues.py judges the picks"),

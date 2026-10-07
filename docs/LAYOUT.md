@@ -1043,6 +1043,14 @@ tools/annotate_audit.sh                       the scheduled entry: runs the audi
 tools/test_annotate_audit.sh                  tests tools/annotate_audit.py: rule naming from
                                               the validator's AST, and that each run picks one
                                               fix target, rotating down the ranking on cooldown
+tools/restore_forced_rewrites.py              puts back the hint text a run rewrote only to get
+                                              past a validator false positive, replayed from
+                                              the annotate transcripts; run it for a check
+                                              whenever that check is relaxed
+tools/test_restore_forced_rewrites.sh         tests tools/restore_forced_rewrites.py: a failing
+                                              check is replayed to the text first flagged, and
+                                              only a field the puzzle still holds as forced
+                                              goes back
 tools/make_hint_packets.js                    blind solve-packets, to grade a hint by whether
                                               it gets a solver unstuck
 tools/grade_clues.py                          blind A/B/C/D packets of our clues against real
