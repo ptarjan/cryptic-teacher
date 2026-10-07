@@ -37,6 +37,9 @@
   "date": "2024-11-03",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -50,7 +53,50 @@
     "text": "Way of analysing a person’s speech? Copper’s given chief points",
     "enumeration": "5"
    },
-   "solution": "CUSUM"
+   "solution": "CUSUM",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CUSUM",
+    "definitions": [
+     {
+      "text": "Way of analysing a person’s speech?",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper’s",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "chief points",
+      "gives": "SUM",
+      "note": "the sum, as in 'sum and substance', is the gist or main points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "SUM"
+     ]
+    },
+    "explanation": {
+     "surface": "A police officer is handed the key points of a suspect's statement for analysis.",
+     "walkthrough": "'Copper' looks like a policeman but is the element. CUSUM (cumulative sum) analysis has been used in court to test whether a statement is all one person's speech.",
+     "definitionFit": "Cusum analysis is a statistical technique used in forensic linguistics to judge authorship of a spoken or written statement."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Copper’s"
+    }
+   }
   },
   {
    "number": 1,
@@ -64,7 +110,62 @@
     "text": "Job of spraying from above – work day’s involved in coating?",
     "enumeration": "11"
    },
-   "solution": "CROPDUSTING"
+   "solution": "CROPDUSTING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "CROPDUSTING",
+    "definitions": [
+     {
+      "text": "Job of spraying from above",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "something involved in a thing is wrapped up inside it, so these letters go into the coating word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op. is short for opus, a work"
+     },
+     {
+      "clueFragment": "day",
+      "gives": "D",
+      "note": "D is the standard abbreviation for day"
+     },
+     {
+      "clueFragment": "coating",
+      "gives": "CRUSTING",
+      "note": "crusting is forming a crust, a coating"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CR",
+      "OP",
+      "D",
+      "USTING"
+     ]
+    },
+    "explanation": {
+     "surface": "A painter's job of covering something over, with a day's work going into the coat.",
+     "walkthrough": "The 's of 'day's' is 'is', not a letter: the day is involved. The work and day go in after the first two letters of the coating word.",
+     "definitionFit": "Crop dusting is the farming task of spreading pesticide over fields from a low-flying aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "coating"
+    }
+   }
   },
   {
    "number": 2,
@@ -78,7 +179,69 @@
     "text": "Venomous snake turning up fed on duck in cavernous tomb",
     "enumeration": "5"
    },
-   "solution": "SPEOS"
+   "solution": "SPEOS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "SPEOS",
+    "definitions": [
+     {
+      "text": "cavernous tomb",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down entry, turning up makes the word read from the bottom to the top"
+     },
+     {
+      "text": "fed on",
+      "for": "container",
+      "note": "the snake is fed with something, so the other letter is put inside it"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Venomous snake",
+      "gives": "SEPS",
+      "note": "a seps is a venomous serpent of classical legend"
+     },
+     {
+      "clueFragment": "duck",
+      "gives": "O",
+      "note": "a duck is a score of nothing in cricket, shaped like O"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPE",
+      "O",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SOEPS",
+       "to": "SPEOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A poisonous snake rears up after swallowing a duck in an underground burial chamber.",
+     "definitionFit": "A speos is an Egyptian temple or tomb cut into rock, like a cave."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "duck"
+    }
+   }
   },
   {
    "number": 3,
@@ -92,7 +255,62 @@
     "text": "Half a day given over for follow-up to festival",
     "enumeration": "4"
    },
-   "solution": "UTAS"
+   "solution": "UTAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "UTAS",
+    "definitions": [
+     {
+      "text": "follow-up to festival",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Half",
+      "for": "deletion",
+      "note": "only half the word is kept, the rest dropped"
+     },
+     {
+      "text": "given over",
+      "for": "reversal",
+      "note": "given over suggests turning something over, so the kept letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a day",
+      "gives": "SATURDAY",
+      "note": "Saturday is one particular day of the week"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UTAS"
+     ],
+     "reversals": [
+      {
+       "from": "SATU",
+       "to": "UTAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Half a day is set aside to recover after a festival.",
+     "walkthrough": "The first four letters of SATURDAY are kept and turned round.",
+     "definitionFit": "Utas is the octave of a church feast, the eighth day or the week that follows it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 4,
@@ -106,7 +324,49 @@
     "text": "Money useful for competitor in Parisian paralympics?",
     "enumeration": "6"
    },
-   "solution": "MUTILE"
+   "solution": "MUTILE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MUTILE",
+    "definitions": [
+     {
+      "text": "competitor in Parisian paralympics?",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money",
+      "gives": "M",
+      "note": "M is an abbreviation for money"
+     },
+     {
+      "clueFragment": "useful",
+      "gives": "UTILE",
+      "note": "utile is an old word for useful"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UTILE"
+     ]
+    },
+    "explanation": {
+     "surface": "Funding that would help an athlete at the Paris Paralympic Games.",
+     "walkthrough": "Paris hosted the 2024 Paralympics; the question mark admits the definition is by example and in French.",
+     "definitionFit": "Mutilé is French for a maimed or disabled person, especially a wounded ex-serviceman, as might compete in a Paris paralympics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 5,
@@ -120,7 +380,59 @@
     "text": "Large sea bird acts with alar flapping",
     "enumeration": "8"
    },
-   "solution": "ALCATRAS"
+   "solution": "ALCATRAS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALCATRAS",
+    "definitions": [
+     {
+      "text": "Large sea bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flapping",
+      "for": "anagram",
+      "note": "flapping wings are tossed about, so these letters are thrown into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acts",
+      "gives": "ACTS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "alar",
+      "gives": "ALAR",
+      "note": "taken as written; alar means of wings"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ACTSALAR",
+       "gives": "ALCATRAS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A big seabird performs with its wings beating.",
+     "walkthrough": "'Alar' means of the wings, which makes 'flapping' look literal.",
+     "definitionFit": "Alcatras is an old name for a large seabird such as the pelican, frigate bird or albatross."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "flapping"
+    }
+   }
   },
   {
    "number": 6,
@@ -134,7 +446,59 @@
     "text": "Glazier’s oven rendering extremes of Lalique harder",
     "enumeration": "4"
    },
-   "solution": "LEHR"
+   "solution": "LEHR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "LEHR",
+    "definitions": [
+     {
+      "text": "Glazier’s oven",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremes of",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its outermost ends, its first and last letters"
+     }
+    ],
+    "linkWords": [
+     "rendering"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lalique",
+      "gives": "LE",
+      "select": "outer",
+      "note": "first and last letters of the glassmaker's name"
+     },
+     {
+      "clueFragment": "harder",
+      "gives": "HR",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LE",
+      "HR"
+     ]
+    },
+    "explanation": {
+     "surface": "A glassworker's kiln making René Lalique's glass harder.",
+     "walkthrough": "Lalique was a French glass designer, which keeps the oven in the picture.",
+     "definitionFit": "A lehr is the long annealing furnace in which newly made glass is cooled slowly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 7,
@@ -148,7 +512,45 @@
     "text": "Water pot in India, inclined to crack, so it’s said",
     "enumeration": "6"
    },
-   "solution": "CHATTI"
+   "solution": "CHATTI",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CHATTI",
+    "definitions": [
+     {
+      "text": "Water pot in India",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "so it’s said",
+      "for": "homophone",
+      "note": "so it's said means we go by the spoken sound, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inclined to crack",
+      "gives": "CHATTI",
+      "soundsLike": "CHATTY",
+      "note": "to crack is to chat, so someone inclined to it is talkative"
+     }
+    ],
+    "explanation": {
+     "surface": "An Indian water pot that is liable to crack, people say.",
+     "walkthrough": "'Crack' looks like breaking pottery, but here it is talk, as in Irish craic.",
+     "definitionFit": "A chatti is an Indian earthenware pot for carrying or holding water."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 8,
@@ -162,7 +564,55 @@
     "text": "Embryonic membranes? Damaged main one",
     "enumeration": "5"
    },
-   "solution": "AMNIA"
+   "solution": "AMNIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "AMNIA",
+    "definitions": [
+     {
+      "text": "Embryonic membranes?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Damaged",
+      "for": "anagram",
+      "note": "something damaged is knocked out of shape, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main",
+      "gives": "MAIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "one can be the indefinite article a"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAINA",
+       "gives": "AMNIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The membranes around a foetus have been damaged in a major way.",
+     "definitionFit": "Amnia is the plural of amnion, the innermost membrane enclosing an embryo."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 9,
@@ -176,7 +626,46 @@
     "text": "Antibody active in connection with cells on gettin’ older",
     "enumeration": "6"
    },
-   "solution": "REAGIN"
+   "solution": "REAGIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REAGIN",
+    "definitions": [
+     {
+      "text": "Antibody active in connection with cells",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means on or about"
+     },
+     {
+      "clueFragment": "gettin’ older",
+      "gives": "AGIN",
+      "note": "agin' is a clipped, dialect form of aging, matching the dropped g of gettin'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "AGIN"
+     ]
+    },
+    "explanation": {
+     "surface": "An antibody that acts on cells as a person grows older.",
+     "walkthrough": "The apostrophe in gettin' signals that the older-getting word is clipped in the same way.",
+     "definitionFit": "Reagin is an antibody, IgE, that binds to mast cells and triggers allergic reactions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +679,78 @@
     "text": "For instance record university kept in the main turned up pastoral poems",
     "enumeration": "9"
    },
-   "solution": "AEGLOGUES"
+   "solution": "AEGLOGUES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "AEGLOGUES",
+    "definitions": [
+     {
+      "text": "pastoral poems",
+      "at": 58
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "letters kept in something are held inside it"
+     },
+     {
+      "text": "turned up",
+      "for": "reversal",
+      "note": "in a down entry, turned up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "For instance",
+      "gives": "EG",
+      "note": "e.g. abbreviates exempli gratia, for instance"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "LOG",
+      "note": "a log is a written record"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the standard abbreviation for university"
+     },
+     {
+      "clueFragment": "the main",
+      "gives": "SEA",
+      "note": "the main is the open sea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "EGLOGU",
+      "ES"
+     ],
+     "reversals": [
+      {
+       "from": "SEA",
+       "to": "AES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A ship's log and a college record kept at sea turn up some pastoral verse.",
+     "walkthrough": "Only the sea word is turned up; the other three go into it after its first letter.",
+     "definitionFit": "Aeglogues is an old spelling of eclogues, short poems about shepherds and country life."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "main"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +764,77 @@
     "text": "White wine TV chef preferred to ale, reverse of gross bottled",
     "enumeration": "11"
    },
-   "solution": "STEINBERGER"
+   "solution": "STEINBERGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal",
+     "container"
+    ],
+    "answer": "STEINBERGER",
+    "definitions": [
+     {
+      "text": "White wine",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reverse of",
+      "for": "reversal",
+      "note": "the reverse of something is it written backwards"
+     },
+     {
+      "text": "bottled",
+      "for": "container",
+      "note": "something bottled is shut inside, so these letters go into the drink"
+     }
+    ],
+    "linkWords": [
+     "preferred to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "TV chef",
+      "gives": "STEIN",
+      "note": "Rick Stein is a British television cook"
+     },
+     {
+      "clueFragment": "ale",
+      "gives": "BEER",
+      "note": "ale is a kind of beer"
+     },
+     {
+      "clueFragment": "gross",
+      "gives": "GR",
+      "note": "gr. is an abbreviation for gross"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STEIN",
+      "BE",
+      "RG",
+      "ER"
+     ],
+     "reversals": [
+      {
+       "from": "GR",
+       "to": "RG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A wine the TV chef chooses over beer, despite a nasty taste inside.",
+     "walkthrough": "'Preferred to' places the chef in front of the beer.",
+     "definitionFit": "Steinberger is a fine white Rhine wine from the Steinberg vineyard in the Rheingau."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "preferred"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +848,61 @@
     "text": "Transport missing last bend in part of Sussex",
     "enumeration": "7"
    },
-   "solution": "RAPTURE"
+   "solution": "RAPTURE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "RAPTURE",
+    "definitions": [
+     {
+      "text": "Transport",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing last",
+      "for": "deletion",
+      "note": "missing its last means the final letter is dropped"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the shortened word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bend",
+      "gives": "TURN",
+      "note": "to bend is to turn"
+     },
+     {
+      "clueFragment": "part of Sussex",
+      "gives": "RAPE",
+      "note": "a rape was one of the six old administrative divisions of Sussex, an English county"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "TUR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A vehicle without its final bend somewhere in Sussex.",
+     "walkthrough": "'Transport' looks like a vehicle but is the noun for ecstasy.",
+     "definitionFit": "Transport in the sense of being carried away by intense joy is a synonym of rapture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Transport"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +916,55 @@
     "text": "No longer recognize Tiny Tim? I’m excluded",
     "enumeration": "4"
    },
-   "solution": "WEET"
+   "solution": "WEET",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "WEET",
+    "definitions": [
+     {
+      "text": "No longer recognize",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I’m excluded",
+      "for": "deletion",
+      "note": "these two letters are left out, shut out of the string"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tiny",
+      "gives": "WEE",
+      "note": "wee is Scots for small"
+     },
+     {
+      "clueFragment": "Tim",
+      "gives": "TIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WEE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Failing to recognise Tiny Tim from A Christmas Carol because the speaker is not in the scene.",
+     "walkthrough": "Tiny Tim is the Dickens character, but here Tiny is a separate size word.",
+     "definitionFit": "Weet is an archaic verb meaning to know; 'No longer' marks it as obsolete."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tiny"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +978,54 @@
     "text": "This metal’s like pewter, a battered tin in a bar",
     "enumeration": "9"
    },
-   "solution": "BRITANNIA"
+   "solution": "BRITANNIA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BRITANNIA",
+    "definitions": [
+     {
+      "text": "This metal’s like pewter",
+      "at": 0,
+      "note": "'s is 'is': the clue says this metal is like pewter"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "battered",
+      "for": "anagram",
+      "note": "battered metal is beaten out of its shape, so these letters are reworked"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tin in a bar",
+      "gives": "TININABAR",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TININABAR",
+       "gives": "BRITANNIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Describing a pewter-like alloy as tin beaten into an ingot.",
+     "walkthrough": "The surface is apt: the alloy really is mostly tin.",
+     "definitionFit": "Britannia metal is a silvery alloy of tin, antimony and copper used like pewter for tableware."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1039,55 @@
     "text": "Cheers amid transfer – it’s extortionate",
     "enumeration": "8"
    },
-   "solution": "CHANTAGE"
+   "solution": "CHANTAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHANTAGE",
+    "definitions": [
+     {
+      "text": "it’s extortionate",
+      "at": 23,
+      "note": "read as 'it is extortion'; the answer is a noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "amid",
+      "for": "container",
+      "note": "amid means in the middle of, so one word sits inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheers",
+      "gives": "TA",
+      "note": "ta is British informal thanks"
+     },
+     {
+      "clueFragment": "transfer",
+      "gives": "CHANGE",
+      "note": "to change, as of trains, is to transfer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAN",
+      "TA",
+      "GE"
+     ]
+    },
+    "explanation": {
+     "surface": "Thanks offered in the middle of a transfer deal that turns out to be a racket.",
+     "definitionFit": "Chantage is blackmail, the extortion of money by threatening exposure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cheers"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1101,56 @@
     "text": "Cheers speedster at the wheel I lapped?",
     "enumeration": "6"
    },
-   "solution": "PROSIT"
+   "solution": "PROSIT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROSIT",
+    "definitions": [
+     {
+      "text": "Cheers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lapped",
+      "for": "container",
+      "note": "lapped means wrapped round, so the driver's name encloses the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "speedster at the wheel",
+      "gives": "PROST",
+      "note": "Alain Prost is a French Formula One champion"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROS",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing driver asking whether he has been lapped, with a cheer.",
+     "walkthrough": "'Lapped' looks like the racing sense of being overtaken by a full lap, but means enfolded.",
+     "definitionFit": "Prosit is a toast, Latin for 'may it benefit', said when drinking just as cheers is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "lapped"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1164,55 @@
     "text": "Problem striking hour? It’s not typical of Big Ben",
     "enumeration": "4"
    },
-   "solution": "TING"
+   "solution": "TING",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TING",
+    "definitions": [
+     {
+      "text": "It’s not typical of Big Ben",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "striking",
+      "for": "deletion",
+      "note": "striking here means striking out, crossing off a letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Problem",
+      "gives": "THING",
+      "note": "a thing can be a problem or hang-up"
+     },
+     {
+      "clueFragment": "hour",
+      "gives": "H",
+      "note": "h is the abbreviation for hour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A clock fault when the hour strikes, untypical of London's famous bell.",
+     "walkthrough": "'Striking' looks like a clock chiming, but means deleting. Big Ben is the great bell at Westminster with a deep boom.",
+     "definitionFit": "A ting is a light high ringing sound, quite unlike the deep boom of a great bell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "striking"
+    }
+   }
   },
   {
    "number": 18,
@@ -302,7 +1226,50 @@
     "text": "Eviction, at island point that’s remote?",
     "enumeration": "13"
    },
-   "solution": "DISPLANTATION"
+   "solution": "DISPLANTATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DISPLANTATION",
+    "definitions": [
+     {
+      "text": "Eviction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "remote?",
+      "for": "anagram",
+      "note": "read as re-mote, the letters are set in motion again and moved about"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at island point",
+      "gives": "ATISLANDPOINT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATISLANDPOINT",
+       "gives": "DISPLANTATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Being thrown out to some distant island headland.",
+     "definitionFit": "Displantation is an old word for uprooting or removing people from their place, expulsion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "remote"
+    }
+   }
   },
   {
    "number": 19,
@@ -316,7 +1283,52 @@
     "text": "Following a close trim, rising fashion",
     "enumeration": "3"
    },
-   "solution": "NOT"
+   "solution": "NOT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "NOT",
+    "definitions": [
+     {
+      "text": "Following a close trim",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means read upwards, from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "TON",
+      "note": "ton is the prevailing fashion, from French"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT"
+     ],
+     "reversals": [
+      {
+       "from": "TON",
+       "to": "NOT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rising fashion for short haircuts.",
+     "definitionFit": "Not, also nott, is an old adjective for close-cropped or hornless, as after a short haircut."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 20,
@@ -330,7 +1342,68 @@
     "text": "Rule broken going round street in long coat",
     "enumeration": "6"
    },
-   "solution": "ULSTER"
+   "solution": "ULSTER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ULSTER",
+    "definitions": [
+     {
+      "text": "long coat",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "broken",
+      "for": "anagram",
+      "note": "a broken thing is in pieces, so its letters are rearranged"
+     },
+     {
+      "text": "going round",
+      "for": "container",
+      "note": "going round means enclosing another piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "RULE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "St is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UL",
+      "ST",
+      "ER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RULE",
+       "gives": "ULER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone breaks the rules by walking about the street in a long coat.",
+     "definitionFit": "An ulster is a long loose overcoat, originally made of Ulster frieze cloth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -344,7 +1417,59 @@
     "text": "Most again connect with Church to celebrate?",
     "enumeration": "7"
    },
-   "solution": "REJOICE"
+   "solution": "REJOICE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "REJOICE",
+    "definitions": [
+     {
+      "text": "celebrate?",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Most",
+      "for": "deletion",
+      "note": "most of a word is all but its final letter"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "again connect",
+      "gives": "REJOIN",
+      "note": "to rejoin is to connect again"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REJOI",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "Most people reunite with their church for a celebration.",
+     "walkthrough": "'Most' looks like a quantity of people but trims a letter.",
+     "definitionFit": "To rejoice is to feel or show great joy, which is what people do when they celebrate."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Most"
+    }
+   }
   },
   {
    "number": 22,
@@ -358,7 +1483,51 @@
     "text": "Conserve container for litter",
     "enumeration": "6"
    },
-   "solution": "JAMPAN"
+   "solution": "JAMPAN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "JAMPAN",
+    "definitions": [
+     {
+      "text": "litter",
+      "at": 23
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conserve",
+      "gives": "JAM",
+      "note": "jam is a fruit conserve"
+     },
+     {
+      "clueFragment": "container",
+      "gives": "PAN",
+      "note": "a pan is a container"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JAM",
+      "PAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A jam jar repurposed as a rubbish bin.",
+     "walkthrough": "'Litter' looks like rubbish but is a carried seat.",
+     "definitionFit": "A jampan is an Indian sedan chair carried on poles, a litter for one passenger."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "litter"
+    }
+   }
   },
   {
    "number": 23,
@@ -372,7 +1541,66 @@
     "text": "Privy? See line in Tesco, bursting",
     "enumeration": "6"
    },
-   "solution": "CLOSET"
+   "solution": "CLOSET",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "CLOSET",
+    "definitions": [
+     {
+      "text": "Privy?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one piece inside the store name"
+     },
+     {
+      "text": "bursting",
+      "for": "anagram",
+      "note": "bursting things fly apart, so the letters are scattered and reassembled"
+     }
+    ],
+    "linkWords": [
+     "See"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "line",
+      "gives": "L",
+      "note": "L is an abbreviation for line"
+     },
+     {
+      "clueFragment": "Tesco",
+      "gives": "TESCO",
+      "note": "taken as written; Tesco is a British supermarket chain"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TESLCO",
+       "gives": "CLOSET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Desperate for the toilet in a crowded supermarket queue.",
+     "walkthrough": "'Bursting' suggests needing the loo, which makes the privy feel literal.",
+     "definitionFit": "A closet, as in water closet, is a lavatory, which is what a privy is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bursting"
+    }
+   }
   },
   {
    "number": 24,
@@ -386,7 +1614,49 @@
     "text": "At e.g. a local use varied list of stuff to bid for",
     "enumeration": "13"
    },
-   "solution": "SALECATALOGUE"
+   "solution": "SALECATALOGUE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SALECATALOGUE",
+    "definitions": [
+     {
+      "text": "list of stuff to bid for",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "varied",
+      "for": "anagram",
+      "note": "varied means changed about, so the letters are put in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "At e.g. a local use",
+      "gives": "ATEGALOCALUSE",
+      "note": "taken as written, with e.g. as its two letters"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATEGALOCALUSE",
+       "gives": "SALECATALOGUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An auction listing of local goods, for example, used in many ways.",
+     "definitionFit": "A sale catalogue lists the lots in an auction, the items buyers may bid for."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 25,
@@ -400,7 +1670,55 @@
     "text": "Drug kept in heroin pouches",
     "enumeration": "5"
    },
-   "solution": "CAECA"
+   "solution": "CAECA",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAECA",
+    "definitions": [
+     {
+      "text": "pouches",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kept in",
+      "for": "container",
+      "note": "kept in means held inside another word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drug",
+      "gives": "E",
+      "note": "E is slang for the drug ecstasy"
+     },
+     {
+      "clueFragment": "heroin",
+      "gives": "CACA",
+      "note": "caca is a slang name for heroin"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CA",
+      "E",
+      "CA"
+     ]
+    },
+    "explanation": {
+     "surface": "A drug smuggled in among heroin bags.",
+     "walkthrough": "'Pouches' looks like drug packets, but it is the anatomical sense.",
+     "definitionFit": "Caeca is the plural of caecum, a blind pouch in the gut such as the start of the large intestine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pouches"
+    }
+   }
   },
   {
    "number": 26,
@@ -414,7 +1732,45 @@
     "text": "Display schadenfreude, a feature of smug loathing",
     "enumeration": "5"
    },
-   "solution": "GLOAT"
+   "solution": "GLOAT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "GLOAT",
+    "definitions": [
+     {
+      "text": "Display schadenfreude",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "a feature of",
+      "for": "hidden_word",
+      "note": "a feature of means a part within, so the letters sit inside the phrase"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "smug loathing",
+      "gives": "GLOAT",
+      "note": "letters running across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Pleasure in another's misfortune shows in smug contempt.",
+     "walkthrough": "Schadenfreude is German for taking delight in someone else's bad luck.",
+     "definitionFit": "To gloat is to show malicious satisfaction at another's misfortune, which is schadenfreude on display."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 27,
@@ -428,7 +1784,58 @@
     "text": "Junk requiring charts, westward-bound",
     "enumeration": "4"
    },
-   "solution": "SPAM"
+   "solution": "SPAM",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPAM",
+    "definitions": [
+     {
+      "text": "Junk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "westward-bound",
+      "for": "reversal",
+      "note": "in an across entry, heading west means travelling right to left"
+     }
+    ],
+    "linkWords": [
+     "requiring"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charts",
+      "gives": "MAPS",
+      "note": "maps are charts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAM"
+     ],
+     "reversals": [
+      {
+       "from": "MAPS",
+       "to": "SPAM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sailing junk needing charts for a voyage west.",
+     "walkthrough": "'Junk' looks like the Chinese ship, which charts would suit; it is junk email.",
+     "definitionFit": "Spam is unwanted bulk email, electronic junk mail."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Junk"
+    }
+   }
   },
   {
    "number": 28,
@@ -442,7 +1849,57 @@
     "text": "Fish basket made of young animal skin on edge of watercourse",
     "enumeration": "4"
    },
-   "solution": "KIPE"
+   "solution": "KIPE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KIPE",
+    "definitions": [
+     {
+      "text": "Fish basket",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "edge of",
+      "for": "letter_selection",
+      "note": "an edge is an end, here the final letter"
+     }
+    ],
+    "linkWords": [
+     "made of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "young animal skin",
+      "gives": "KIP",
+      "note": "kip is the hide of a young or small animal"
+     },
+     {
+      "clueFragment": "watercourse",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KIP",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fishing basket fashioned from calfskin, at the edge of a stream.",
+     "definitionFit": "A kipe is a dialect word for a wicker basket used for catching fish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 29,
@@ -456,7 +1913,77 @@
     "text": "To perform turns in lyre being played, one making alps echo?",
     "enumeration": "6"
    },
-   "solution": "YODLER"
+   "solution": "YODLER",
+   "annotation": {
+    "type": [
+     "reversal",
+     "anagram",
+     "container"
+    ],
+    "answer": "YODLER",
+    "definitions": [
+     {
+      "text": "one making alps echo?",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turns",
+      "for": "reversal",
+      "note": "turns means the short word is turned back to front"
+     },
+     {
+      "text": "being played",
+      "for": "anagram",
+      "note": "played like an instrument, the letters are worked into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the turned word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "To perform",
+      "gives": "DO",
+      "note": "to do is to perform"
+     },
+     {
+      "clueFragment": "lyre",
+      "gives": "LYRE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "OD",
+      "LER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LYRE",
+       "gives": "YLER"
+      }
+     ],
+     "reversals": [
+      {
+       "from": "DO",
+       "to": "OD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician who plays the lyre and fills the mountains with echoes.",
+     "definitionFit": "A yodeller sings with rapid switches to falsetto, a style from the Swiss Alps that rings round the peaks."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 30,
@@ -470,7 +1997,48 @@
     "text": "Pater associated with a short-lived art movement",
     "enumeration": "4"
    },
-   "solution": "DADA"
+   "solution": "DADA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DADA",
+    "definitions": [
+     {
+      "text": "short-lived art movement",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pater",
+      "gives": "DAD",
+      "note": "pater is old public-school slang for father"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DAD",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "Father linked to a brief avant-garde art movement.",
+     "definitionFit": "Dada was an anti-art movement of around 1916 to 1923, which soon gave way to surrealism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 31,
@@ -484,7 +2052,62 @@
     "text": "In the mood for the highlands traveller enters, resolute",
     "enumeration": "8"
    },
-   "solution": "INTREPID"
+   "solution": "INTREPID",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INTREPID",
+    "definitions": [
+     {
+      "text": "resolute",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "the traveller enters, going inside the mood word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traveller",
+      "gives": "REP",
+      "note": "a rep is a travelling salesman"
+     },
+     {
+      "clueFragment": "the mood for the highlands",
+      "gives": "TID",
+      "note": "tid is a Scots word for mood, as in the Highlands"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "REP",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "Feeling ready for the Highlands, a determined traveller sets off.",
+     "walkthrough": "'In the mood' reads as one phrase, but In stands alone and the Scottish word follows.",
+     "definitionFit": "Intrepid means fearless and undaunted, so close to resolute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "highlands"
+    }
+   }
   },
   {
    "number": 32,
@@ -498,7 +2121,61 @@
     "text": "Old duke? This duke misbehaving may be fined",
     "enumeration": "4"
    },
-   "solution": "NIEF"
+   "solution": "NIEF",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "NIEF",
+    "definitions": [
+     {
+      "text": "Old duke?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "misbehaving",
+      "for": "anagram",
+      "note": "misbehaving letters are out of order, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fined",
+      "gives": "FINED",
+      "note": "taken as written: the result of the shuffle"
+     },
+     {
+      "clueFragment": "This duke",
+      "gives": "D",
+      "note": "D is an abbreviation for duke, joined to the answer itself"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIEF"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FINE",
+       "gives": "NIEF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old aristocrat who behaves badly may face a penalty.",
+     "walkthrough": "This is a reverse clue: the answer plus D, shuffled, makes FINED, so take D from that word and unshuffle.",
+     "definitionFit": "Dukes is slang for fists; nief is an obsolete word for a fist, so an old duke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "duke"
+    }
+   }
   },
   {
    "number": 33,
@@ -512,7 +2189,55 @@
     "text": "Raven, bloodied, tucking into pastry",
     "enumeration": "7"
    },
-   "solution": "PREDATE"
+   "solution": "PREDATE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PREDATE",
+    "definitions": [
+     {
+      "text": "Raven",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tucking into",
+      "for": "container",
+      "note": "something tucking into food goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bloodied",
+      "gives": "RED",
+      "note": "bloodied things are red"
+     },
+     {
+      "clueFragment": "pastry",
+      "gives": "PATE",
+      "note": "pâte is French for pastry or dough"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RED",
+      "ATE"
+     ]
+    },
+    "explanation": {
+     "surface": "A raven with bloody beak tearing into a pie.",
+     "walkthrough": "'Raven' looks like the bird but is the verb meaning to prey ravenously.",
+     "definitionFit": "To raven is to hunt for prey; to predate is to prey on other animals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Raven"
+    }
+   }
   },
   {
    "number": 34,
@@ -526,7 +2251,49 @@
     "text": "A grey nag startled small duck",
     "enumeration": "8"
    },
-   "solution": "GARGANEY"
+   "solution": "GARGANEY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GARGANEY",
+    "definitions": [
+     {
+      "text": "small duck",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "startled",
+      "for": "anagram",
+      "note": "a startled animal jumps about, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A grey nag",
+      "gives": "AGREYNAG",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREYNAG",
+       "gives": "GARGANEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An old grey horse spooks a little duck.",
+     "definitionFit": "The garganey is a small dabbling duck of Europe and Asia, related to the teal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 35,
@@ -540,7 +2307,46 @@
     "text": "One meandering widely in Asia cheers king",
     "enumeration": "5"
    },
-   "solution": "TATAR"
+   "solution": "TATAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TATAR",
+    "definitions": [
+     {
+      "text": "One meandering widely in Asia",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cheers",
+      "gives": "TATA",
+      "note": "ta-ta is goodbye, as is cheers in British usage"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TATA",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller in Asia says goodbye to a king.",
+     "definitionFit": "The Tatars are a Turkic people historically roaming the Asian steppes as nomads."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cheers"
+    }
+   }
   }
  ]
 }
