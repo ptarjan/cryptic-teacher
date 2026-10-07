@@ -207,6 +207,11 @@ def load_leaves(path: Path) -> list[str]:
     return text.split(FORM_FEED)
 
 
+class NoPuzzleRegion(ValueError):
+    """The book's text holds no puzzle region this parser can locate. A
+    structural outcome, not a bug in one run: callers catch the type."""
+
+
 def find_puzzle_range(leaves: list[str]) -> tuple[int, int]:
     """Return (start, end) leaf indices spanning the puzzle section, end
     exclusive. Raises ValueError if no start boundary can be found at all —
@@ -245,7 +250,7 @@ def find_puzzle_range(leaves: list[str]) -> tuple[int, int]:
     if start is None or end is None:
         clue_like = [i for i, leaf in enumerate(leaves) if _looks_like_clue_leaf(leaf)]
         if not clue_like:
-            raise ValueError(
+            raise NoPuzzleRegion(
                 f"could not find section title {PUZZLES_SECTION_TITLE!r}, and "
                 "no leaf in the whole book looks like a clue leaf either "
                 "(>=8 enumeration-terminated lines) — can't locate the "

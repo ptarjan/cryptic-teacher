@@ -175,7 +175,14 @@ for book in $(python3 tools/book_queue.py --reread); do
   echo "reading $book from its text on disk"
   durable_run "Read $book (so far)" \
     timeout 5400 nice -n 19 python3 tools/acquire_book.py "$book" --file --puzzle-dir puzzles --jobs 2 --no-borrow
-  if [ $? = 124 ]; then
+  read_rc=$?
+  # 5 is EXIT_NO_PUZZLES: the text holds no puzzle region the reader finds;
+  # acquire_book.py recorded a no_puzzles row, so it is not due again. Not a
+  # failure: publish the ledger below and read the next book.
+  if [ "$read_rc" = 5 ]; then
+    echo "$book: no puzzle region in its text; recorded in tools/data/book_reads.json"
+  fi
+  if [ "$read_rc" = 124 ]; then
     echo "read of $book cut short at 90 minutes; recorded as read"
     python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; q.record_read(sys.argv[1], None, None)' "$book"
   fi
