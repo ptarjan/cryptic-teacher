@@ -180,8 +180,12 @@ worker_commit() {   # subject paths...
   fi
   sha=$(git rev-parse HEAD)
   index_unlock
-  tools/push_puzzle_commit.sh "$sha" ||
-    alert "$WORKER_JOB committed $subject but could not push it — the site will not show it until the run's closing sync pushes it."
+  # One alert text per job, so a GitHub outage that refuses every push
+  # wakes the room once, not once per puzzle; the subject goes to the log.
+  tools/push_puzzle_commit.sh "$sha" || {
+    echo "could not push $subject"
+    alert "$WORKER_JOB committed puzzles it could not push — the site will not show them until the run's closing sync pushes them."
+  }
   return 0
 }
 
