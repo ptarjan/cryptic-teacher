@@ -3,6 +3,7 @@
 
     python3 tools/own_rows.py stage ID    # index: HEAD's file + ID's rows as the tree has them
     python3 tools/own_rows.py revert ID   # tree: ID's rows put back as HEAD has them
+    python3 tools/own_rows.py paths       # the files holding those rows, one per line
 
 The pre-reset backfill runs several puzzles at once in one tree, and every run
 files its source corrections as rows of shared files: SOURCE_CLUE_WRONG and
@@ -13,7 +14,9 @@ SOURCE_* tables (SOURCE_LIGHT_WRONG, ...) in tools/fetch_puzzle.py. So a
 puzzle's commit never stages those files from the tree: `stage` writes HEAD's
 version with only ID's rows changed straight into the index, and the rows the
 puzzles still in flight filed stay in the tree for their own commits. `revert`
-is the discard: the puzzle file goes back to HEAD, so its rows do too.
+is the discard: the puzzle file goes back to HEAD, so its rows do too. `paths`
+is the list every other commit of the burn leaves out, so no row reaches
+master before the clue it corrects.
 
 A row is keyed by its puzzle id: the key itself when it is a string, its first
 element when it is a tuple. Its text is its whole lines, with the comment lines
@@ -153,6 +156,9 @@ def revert(pid):
 
 
 def main(argv):
+    if argv == ["paths"]:
+        print("\n".join((REL, *DATA_RELS)))
+        return
     if len(argv) != 2 or argv[0] not in ("stage", "revert"):
         raise SystemExit(__doc__)
     {"stage": stage, "revert": revert}[argv[0]](argv[1])

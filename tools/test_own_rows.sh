@@ -10,6 +10,8 @@
 # discarded. Then:
 #   - A's commit holds A's rows, and none of B's;
 #   - B's rows are still in the tree after A's commit, for B's own;
+#   - a shared-data checkpoint taken then (publish_shared_data) publishes the
+#     other data files and none of B's rows, which its clue does not show yet;
 #   - after B's discard the tree is clean, so nothing of B's reaches master;
 #   - every SOURCE_CLUE_WRONG row committed names a clue its file shows, which
 #     is what tools/test_source_answer_wrong.sh holds CI to;
@@ -46,6 +48,15 @@ commit() { git -c user.name=t -c user.email=t@t commit -qm "$1"; }
 eval "$(sed -n '/^puzzle_spec() {/p' "$REPO/tools/prereset_backfill.sh")"
 eval "$(sed -n '/^discard_puzzle() {/,/^}/p' "$REPO/tools/prereset_backfill.sh")"
 eval "$(sed -n '/^stage_puzzle() {/,/^}/p' "$REPO/tools/prereset_backfill.sh")"
+eval "$(sed -n '/^publish_shared_data() {/,/^}/p' "$REPO/tools/prereset_backfill.sh")"
+export DRY_RUN=0
+# shellcheck disable=SC2329  # called by the eval'd publish_shared_data
+index_lock() { :; }
+# shellcheck disable=SC2329
+index_unlock() { :; }
+# shellcheck disable=SC2329
+tools/push_puzzle_commit.sh() { :; }
+export GIT_AUTHOR_NAME=t GIT_AUTHOR_EMAIL=t@t GIT_COMMITTER_NAME=t GIT_COMMITTER_EMAIL=t@t
 ALERTS="$tree/alerts"
 # shellcheck disable=SC2329  # called by the eval'd discard_puzzle
 alert() { echo "$*" >>"$ALERTS"; }
@@ -93,6 +104,16 @@ check "A's commit carries A's puzzle" "puzzles/times/1984/$A.json" \
 check "B's rows are still in the tree for B's commit" "2" \
   "$(git diff -U0 -- $D | grep -c "^+.*\"$B/")"
 check "and nothing else is" "2" "$(git diff -U0 -- $D | grep -c "^+ ")"
+
+# A checkpoint while B is in flight: the glossary-style files go, B's rows stay.
+echo '{}' >"$D/scratch_shared.json"
+before=$(git rev-parse HEAD)
+publish_shared_data
+check "the checkpoint commits the shared data" "$D/scratch_shared.json" \
+  "$(git show --name-only --format= HEAD)"
+check "and none of B's rows" "0" "$(shown HEAD "$B")"
+check "B's rows are still in the tree" "2" "$(git diff -U0 -- $D | grep -c "^+.*\"$B/")"
+git reset -q "$before" && rm "$D/scratch_shared.json"
 
 discard_puzzle "$B"
 check "after B's discard the tree is clean" "" "$(git status --porcelain)"
