@@ -994,7 +994,7 @@ def check_surface(tag, ann, clue, warnings):
         return
     words = WORD_RE.findall(clue or "")
     if len(words) >= SURFACE_MIN_WORDS:
-        warnings.append(f"{tag}: no explanation.surface — say in one sentence (25 words max) what "
+        warnings.append(f"{tag}: no explanation.surface — say in one sentence (up to {SURFACE_MAX} words) what "
                         f"the clue pretends to be about; a clue of {len(words)} words "
                         f"paints a picture")
 
@@ -1087,6 +1087,7 @@ def check_answer_matches_separators(tag, ann, entry, errors):
             f"letter strip puts its gaps where the enumeration does")
 
 
+DEFINITION_FIT_MAX = 30
 DEFINITION_FIT_HOW = (
     "Name the relation rather than asserting it: a plain synonym, a definition by "
     "example, a crossword-only sense, a regional use, an idiom. Never read the "
@@ -1107,7 +1108,7 @@ def check_definition_fit(tag, ann, errors, warnings):
     """
     fit = explanation(ann).get("definitionFit")
     if fit is None:
-        msg = (f"{tag}: no explanation.definitionFit — say in one sentence (30 words max) why the "
+        msg = (f"{tag}: no explanation.definitionFit — say in one sentence (up to {DEFINITION_FIT_MAX} words) why the "
                f"answer means the definition. {DEFINITION_FIT_HOW}")
         warnings.append(msg)
         return
@@ -1115,8 +1116,9 @@ def check_definition_fit(tag, ann, errors, warnings):
     if len(fit) < 25:
         errors.append(f"{tag}: definitionFit {fit!r} is too thin. {DEFINITION_FIT_HOW}")
         return
-    if len(fit.split()) > 30:
-        warnings.append(f"{tag}: definitionFit is {len(fit.split())} words — 30 max")
+    if len(fit.split()) > DEFINITION_FIT_MAX:
+        warnings.append(f"{tag}: definitionFit is {len(fit.split())} words — "
+                        f"{DEFINITION_FIT_MAX} max")
     known = set(re.findall(r"[a-z']+", " ".join(definitions.texts(ann)).lower()))
     known |= set(re.findall(r"[a-z']+", (ann.get("answer") or "").lower()))
     fresh = [w for w in re.findall(r"[a-z']+", fit.lower())
@@ -2813,8 +2815,8 @@ def validate_puzzle(puzzle, corpus=False):
                 errors.append(f"{tag}: definition {text!r} is not at {d.get('at')!r} in "
                               f"{clue!r}; it occurs at "
                               f"{', '.join(map(str, definitions.candidates(text, clue)))}. "
-                              f"`at` is the offset in code points, filled by "
-                              f"apply_annotations when the text occurs once")
+                              f"`at` is the offset in code points, filled in when "
+                              f"the puzzle is written, if the text occurs once")
         for ind in indicator_texts(ann):
             if ind not in clue:
                 errors.append(f"{tag}: indicator {ind!r} not found in clue {clue!r}"

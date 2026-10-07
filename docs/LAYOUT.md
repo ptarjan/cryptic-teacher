@@ -1182,7 +1182,9 @@ tools/data/books.json                         the shelf: one row per physical bo
                                               archive.org scan it was read from, the volume its
                                               cover prints, the label a reader sees and a
                                               book_index that is never reused — tools/series.py
-                                              and app.js both read it and neither holds a copy
+                                              reads it, and tools/fetch_puzzle.py --reindex
+                                              copies the browser’s half into puzzles/index.json
+                                              for app.js, so no other file holds a copy
 tools/data/book_candidates.json               which archive.org crossword books are worth
                                               acquiring in full, measured one short loan at a
                                               time; a measurement, not a permanent fact
@@ -1255,8 +1257,10 @@ tools/test_puzzle_source.sh                   holds where a puzzle came from to 
                                               decide the origin, a key printed later replaces a
                                               model fill and remembers it, and provenance.check
                                               refuses detail that does not back its origin
-tools/rank_book_candidates.py                 rank archive.org crossword books by whether
-                                              acquiring one in full is worth it
+tools/rank_book_candidates.py                 judge each candidate archive.org crossword book
+                                              from one short loan and a sample of its leaves,
+                                              rank the ones worth acquiring in full, and record
+                                              why each refusal is one
 tools/acquire_books.sh                        read the next archive.org crossword books nobody
                                               has read yet — up to three loans a run, then
                                               every book due; first turns any held book file

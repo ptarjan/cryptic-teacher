@@ -436,8 +436,8 @@ def book_of(series, number):
     if not identifier:
         raise ValueError(
             f"{series} volume {volume_of(series, number)} has no archive.org "
-            f"identifier in tools/series.py — look up its own scan and add it "
-            f"there; filing it without one makes the puzzle cite a book it did "
+            f"identifier in tools/data/books.json — look up its own scan and set "
+            f"it there; filing it without one makes the puzzle cite a book it did "
             f"not come from")
     return {
         "identifier": identifier,
