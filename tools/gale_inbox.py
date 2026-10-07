@@ -82,6 +82,9 @@ CHECKLIST = Path(os.path.expanduser("~/.cache/gale_inbox")) / CHECKLIST_NAME
 UNMATCHED = MIRROR.parent / "unmatched.json"
 #: Each inbox file's match, by name, size and mtime: a tick re-reads only what moved.
 MATCHES = MIRROR.parent / "matches.json"
+#: The code a match is read by: a change to it re-reads every file.
+MATCHER = hashlib.sha256(b"".join((TOOLS / f).read_bytes() for f in (
+    "gale_inbox.py", "file_archive_org_puzzles.py", "trove_grid.py"))).hexdigest()[:12]
 #: The Downloads files already looked at and found not to be Gale's.
 SEEN = MIRROR.parent / "seen.json"
 LOCK = MIRROR.parent / "sync.lock"
@@ -344,7 +347,7 @@ def stage(inbox=MIRROR, cache=CACHE, out=sys.stdout, unmatched=UNMATCHED, matche
     by_date = collections.defaultdict(list)
     for p in files:
         st = p.stat()
-        k = f"{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
+        k = f"{MATCHER}\t{p.name}\t{st.st_size}\t{int(st.st_mtime)}"
         m = known.get(k)
         if m is None:
             try:
