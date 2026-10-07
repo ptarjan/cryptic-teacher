@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Defeat attributed to stealth war tactics",
     "enumeration": "6"
    },
-   "solution": "THWART"
+   "solution": "THWART",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THWART",
+    "definitions": [
+     {
+      "text": "Defeat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "attributed to",
+      "for": "hidden_word",
+      "note": "what is attributed to the words that follow belongs to them, so the letters are found sitting inside that phrase"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stealth war tactics",
+      "gives": "THWART",
+      "note": "the run of letters straddling the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A military analyst credits a defeat to the enemy's sneaky tactics.",
+     "definitionFit": "To thwart a plan is to frustrate or foil it, a verb synonym of defeat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "attributed"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +85,76 @@
     "text": "Essentially they vacuously cheek live routines",
     "enumeration": "8"
    },
-   "solution": "HECKLERS"
+   "solution": "HECKLERS",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection"
+    ],
+    "answer": "HECKLERS",
+    "definitions": [
+     {
+      "text": "Essentially they vacuously cheek live routines",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so only the central letters of the next word are kept"
+     },
+     {
+      "text": "vacuously",
+      "for": "letter_selection",
+      "note": "emptied of content, each of the following words keeps just its shell of first and last letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "they",
+      "gives": "HE",
+      "select": "middle",
+      "note": "the core of this word"
+     },
+     {
+      "clueFragment": "cheek",
+      "gives": "CK",
+      "select": "outer",
+      "note": "the shell of this word"
+     },
+     {
+      "clueFragment": "live",
+      "gives": "LE",
+      "select": "outer",
+      "note": "the shell of this word"
+     },
+     {
+      "clueFragment": "routines",
+      "gives": "RS",
+      "select": "outer",
+      "note": "the shell of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HE",
+      "CK",
+      "LE",
+      "RS"
+     ]
+    },
+    "explanation": {
+     "surface": "Some people mindlessly interrupt and mock performers mid-act with empty insults.",
+     "walkthrough": "Read whole, the clue describes HECKLERS, who shout empty cheek at live acts; read as wordplay, it takes the middle of one word and the outsides of the next three.",
+     "definitionFit": "Hecklers are audience members who interrupt performers with jeering remarks, which the whole clue describes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "vacuously"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +168,52 @@
     "text": "Transport belied description of fare",
     "enumeration": "6"
    },
-   "solution": "EDIBLE"
+   "solution": "EDIBLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDIBLE",
+    "definitions": [
+     {
+      "text": "description of fare",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Transport",
+      "for": "anagram",
+      "note": "to transport things is to move them about, so the letters of the next word are moved into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "belied",
+      "gives": "BELIED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BELIED",
+       "gives": "EDIBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A travel company's service fails to live up to its own advertising.",
+     "walkthrough": "'Fare' suggests a ticket price, which fits 'Transport', but here it means food.",
+     "definitionFit": "Edible is the adjective you apply to food that is fit to eat, so it describes fare in the sense of meals."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fare"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +227,53 @@
     "text": "Scotsman leaves kind of restaurant catering for Rastafarian",
     "enumeration": "4"
    },
-   "solution": "ITAL"
+   "solution": "ITAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ITAL",
+    "definitions": [
+     {
+      "text": "catering for Rastafarian",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when someone leaves a place he is no longer in it, so his name is taken out of the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kind of restaurant",
+      "gives": "ITALIAN",
+      "note": "a restaurant serving food from Italy"
+     },
+     {
+      "clueFragment": "Scotsman",
+      "gives": "IAN",
+      "note": "Ian is the stock Scottish man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ITAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish diner walks out of a restaurant that serves Rastafarian customers.",
+     "walkthrough": "Ital food is the natural, largely vegetarian diet followed by Rastafarians.",
+     "definitionFit": "Ital is the name of the food and cooking prescribed by Rastafarian dietary principles, so it is their catering."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +287,82 @@
     "text": "Creature of deep gold, lit up in rising sun",
     "enumeration": "8"
    },
-   "solution": "NAUTILUS"
+   "solution": "NAUTILUS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade",
+     "container"
+    ],
+    "answer": "NAUTILUS",
+    "definitions": [
+     {
+      "text": "Creature of deep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry, going up means reading a word from the bottom"
+     },
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "a word rising in a down light is read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group of letters sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "gold",
+      "gives": "AU",
+      "note": "Au is the chemical symbol for gold"
+     },
+     {
+      "clueFragment": "lit",
+      "gives": "LIT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sun",
+      "gives": "SUN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AU",
+      "TIL",
+      "US"
+     ],
+     "reversals": [
+      {
+       "from": "LIT",
+       "to": "TIL"
+      },
+      {
+       "from": "SUN",
+       "to": "NUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A deep-sea creature glints gold as the dawn sun lights it up.",
+     "definitionFit": "The nautilus is a shelled cephalopod mollusc that lives in the deep ocean."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "up"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +376,67 @@
     "text": "Rubbish review created issue around book",
     "enumeration": "6"
    },
-   "solution": "DEBRIS"
+   "solution": "DEBRIS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DEBRIS",
+    "definitions": [
+     {
+      "text": "Rubbish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "review",
+      "for": "reversal",
+      "note": "to review is to look back, so the phrase is read in the opposite direction"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "one piece is placed around another, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "created issue",
+      "gives": "SIRED",
+      "note": "to sire is to father offspring"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "B",
+      "note": "B is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "B",
+      "RIS"
+     ],
+     "reversals": [
+      {
+       "from": "SIRED",
+       "to": "DERIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A scathing review of some trash stirred up trouble about a book.",
+     "walkthrough": "'Rubbish review' reads as a bad critique; 'Rubbish' is the definition and 'review' the turnaround signal.",
+     "definitionFit": "Debris means scattered waste or remains, a noun synonym of rubbish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "review"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +456,67 @@
      }
     ]
    },
-   "solution": "EAGLEOWL"
+   "solution": "EAGLEOWL",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "EAGLE OWL",
+    "definitions": [
+     {
+      "text": "Birdie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beat",
+      "for": "anagram",
+      "note": "something beaten is knocked out of shape, so the letters of the next word are rearranged"
+     },
+     {
+      "text": "to go into lead",
+      "for": "charade",
+      "note": "going into the lead puts this piece in front of the other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "score, taking one stroke less",
+      "gives": "EAGLE",
+      "note": "in golf, the score two under par, one stroke fewer than a birdie"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "LOW",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAGLE",
+      "OWL"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOW",
+       "gives": "OWL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer's birdie is outdone when a rival shoots a lower score, one shot better, and moves ahead.",
+     "walkthrough": "The surface is all golf, but 'Birdie' is a playful word for a bird and the definition.",
+     "definitionFit": "The eagle owl is a very large owl of Europe and Asia, and birdie is a familiar word for any bird."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Birdie"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +530,42 @@
     "text": "Connecting line passing through South Reading",
     "enumeration": "6"
    },
-   "solution": "THREAD"
+   "solution": "THREAD",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "THREAD",
+    "definitions": [
+     {
+      "text": "Connecting line",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passing through",
+      "for": "hidden_word",
+      "note": "the answer runs through the following words, crossing the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Reading",
+      "gives": "THREAD",
+      "note": "the letters straddling the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A railway line that runs through the southern part of Reading, a Berkshire town.",
+     "definitionFit": "A thread is a fine strand, and figuratively the line of argument that connects ideas together."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "line"
+    }
+   }
   },
   {
    "number": 9,
@@ -157,7 +585,60 @@
      }
     ]
    },
-   "solution": "TRADEGAP"
+   "solution": "TRADEGAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRADE GAP",
+    "definitions": [
+     {
+      "text": "evidence of unbalanced economy",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "reversal",
+      "note": "turned over, the combined letters are read from the end back to the start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Call",
+      "gives": "PAGE",
+      "note": "to page someone is to call them over a pager or tannoy"
+     },
+     {
+      "clueFragment": "to move quickly",
+      "gives": "DART",
+      "note": "to dart is to dash"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAD",
+      "EGAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAGEDART",
+       "to": "TRADEGAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shout to hurry along about signs that an economy is out of kilter.",
+     "definitionFit": "A trade gap, where imports exceed exports, is a standard indicator that a country's economy is out of balance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 10,
@@ -177,7 +658,54 @@
      }
     ]
    },
-   "solution": "HAWKSBILLTURTLE"
+   "solution": "HAWKSBILLTURTLE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HAWKSBILL TURTLE",
+    "definitions": [
+     {
+      "text": "This animal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on the rocks",
+      "for": "anagram",
+      "note": "something on the rocks is wrecked, so the preceding letters are broken up and rebuilt"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bulk will shatter",
+      "gives": "BULKWILLSHATTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BULKWILLSHATTER",
+       "gives": "HAWKSBILLTURTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A heavy creature washed onto a reef will be smashed to pieces.",
+     "walkthrough": "'shatter' looks like the anagram signal, but it is fodder; 'on the rocks' does the job, and suits a sea animal.",
+     "definitionFit": "The hawksbill turtle is a sea turtle of tropical reefs, named for its hooked, beak-like mouth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shatter"
+    }
+   }
   },
   {
    "number": 11,
@@ -191,7 +719,55 @@
     "text": "Airy acknowledgement others helped to wrap present",
     "enumeration": "8"
    },
-   "solution": "ETHEREAL"
+   "solution": "ETHEREAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ETHEREAL",
+    "definitions": [
+     {
+      "text": "Airy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wrap",
+      "for": "container",
+      "note": "a wrapping goes all around its contents, so one piece encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "acknowledgement others helped",
+      "gives": "ETAL",
+      "note": "et al, 'and others', credits co-authors in a citation"
+     },
+     {
+      "clueFragment": "present",
+      "gives": "HERE",
+      "note": "present in the sense of in attendance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ET",
+      "HERE",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A light-hearted thank-you to the people who helped wrap a gift.",
+     "walkthrough": "'present' suggests a gift being wrapped; it means here, in attendance.",
+     "definitionFit": "Ethereal means light and delicate, as if made of air, so it is an adjective synonym of airy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "present"
+    }
+   }
   },
   {
    "number": 12,
@@ -205,7 +781,62 @@
     "text": "Song about man's bottom displaying signs of age",
     "enumeration": "5"
    },
-   "solution": "LINED"
+   "solution": "LINED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "LINED",
+    "definitions": [
+     {
+      "text": "displaying signs of age",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom",
+      "for": "letter_selection",
+      "note": "the bottom of a word written down is its final letter"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "one piece goes about, surrounding, the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Song",
+      "gives": "LIED",
+      "note": "a lied is a German art song"
+     },
+     {
+      "clueFragment": "man's",
+      "gives": "N",
+      "select": "last",
+      "note": "its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "N",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky song about a man's backside showing the effects of ageing.",
+     "definitionFit": "A lined face is wrinkled, which is a typical visible effect of growing older."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "bottom"
+    }
+   }
   },
   {
    "number": 13,
@@ -219,7 +850,51 @@
     "text": "Reading is not so busy",
     "enumeration": "6"
    },
-   "solution": "LESSON"
+   "solution": "LESSON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LESSON",
+    "definitions": [
+     {
+      "text": "Reading",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not so",
+      "gives": "LESS",
+      "note": "less is the comparative meaning to a smaller degree"
+     },
+     {
+      "clueFragment": "busy",
+      "gives": "ON",
+      "note": "on, as in engaged or in progress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LESS",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone remarks that the town of Reading is quieter than expected.",
+     "walkthrough": "Reading looks like the Berkshire town, but it is a reading from scripture in church.",
+     "definitionFit": "A lesson is a passage from the Bible read aloud during a church service, also called a reading."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Reading"
+    }
+   }
   },
   {
    "number": 14,
@@ -233,7 +908,54 @@
     "text": "Emergency credit's withdrawn where one might take a punt",
     "enumeration": "4"
    },
-   "solution": "ISIS"
+   "solution": "ISIS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ISIS",
+    "definitions": [
+     {
+      "text": "where one might take a punt",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "withdrawn",
+      "for": "deletion",
+      "note": "something withdrawn is taken away, so these letters are removed from the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Emergency",
+      "gives": "CRISIS",
+      "note": "a crisis is an emergency"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ISIS"
+     ]
+    },
+    "explanation": {
+     "surface": "An emergency loan is pulled at the place where a gambler might have a bet.",
+     "walkthrough": "'take a punt' suggests a wager; here a punt is a flat boat. The Isis is the stretch of the Thames at Oxford, famous for punting.",
+     "definitionFit": "The Isis is the name for the River Thames as it flows through Oxford, where students go punting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "punt"
+    }
+   }
   },
   {
    "number": 15,
@@ -253,7 +975,66 @@
      }
     ]
    },
-   "solution": "SOUPEDUP"
+   "solution": "SOUPEDUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOUPED-UP",
+    "definitions": [
+     {
+      "text": "Enhanced",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before and after",
+      "for": "charade",
+      "note": "the same piece is used twice, once on each side of the middle piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "thus",
+      "gives": "SO",
+      "note": "so, meaning in this way"
+     },
+     {
+      "clueFragment": "at university",
+      "gives": "UP",
+      "note": "up, as in in residence at college"
+     },
+     {
+      "clueFragment": "one produces paper",
+      "gives": "ED",
+      "note": "ed is short for editor, who produces a newspaper"
+     },
+     {
+      "clueFragment": "at university",
+      "gives": "UP",
+      "note": "used a second time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SO",
+      "UP",
+      "ED",
+      "UP"
+     ]
+    },
+    "explanation": {
+     "surface": "A student editor brings out a newspaper while at university.",
+     "walkthrough": "To be up at a university is the British phrase for being in residence there.",
+     "definitionFit": "Souped-up means modified to give more power or performance, as with a car's engine, hence enhanced."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "paper"
+    }
+   }
   },
   {
    "number": 16,
@@ -267,7 +1048,53 @@
     "text": "American intelligence takes precedence in class",
     "enumeration": "5"
    },
-   "solution": "GENUS"
+   "solution": "GENUS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GENUS",
+    "definitions": [
+     {
+      "text": "class",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "takes precedence",
+      "for": "charade",
+      "note": "to take precedence is to go first, so this piece is put ahead of the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "intelligence",
+      "gives": "GEN",
+      "note": "gen is slang for information"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "US is short for American"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GEN",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "American spies get priority when the classification is decided.",
+     "definitionFit": "A genus is a biological rank grouping related species, so it is a class or kind of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "intelligence"
+    }
+   }
   },
   {
    "number": 16,
@@ -287,7 +1114,39 @@
      }
     ]
    },
-   "solution": "GOODTURN"
+   "solution": "GOODTURN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "GOOD TURN",
+    "definitions": [
+     {
+      "text": "Saw claims that this warrants repetition",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Saw claims that this warrants repetition",
+      "note": "surface reading: a cutting tool, or someone's observation, demands something be done again"
+     },
+     {
+      "clueFragment": "Saw",
+      "note": "setter's reading: a saw is a proverb, the one saying a kindly act deserves another"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The proverb is 'one good turn deserves another', so the saw claims this act warrants repeating.",
+     "definitionFit": "A good turn is a helpful favour done for someone, and the old proverb says such a favour should be repaid."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 17,
@@ -301,7 +1160,61 @@
     "text": "Doctor swallows contents of pill having little effect",
     "enumeration": "4"
    },
-   "solution": "MILD"
+   "solution": "MILD",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "MILD",
+    "definitions": [
+     {
+      "text": "having little effect",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contents of",
+      "for": "letter_selection",
+      "note": "the contents of a word are what lies inside it, leaving out its first and last letters"
+     },
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "what is swallowed ends up inside, so one piece surrounds the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Doctor",
+      "gives": "MD",
+      "note": "MD, Doctor of Medicine"
+     },
+     {
+      "clueFragment": "pill",
+      "gives": "IL",
+      "select": "middle",
+      "note": "its inner letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IL",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A physician takes a pill himself, but it barely works.",
+     "definitionFit": "A mild drug or reaction is gentle, producing only a slight result, so it has little effect."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "swallows"
+    }
+   }
   },
   {
    "number": 17,
@@ -315,7 +1228,59 @@
     "text": "Change eroding mutual admiration in equal proportions",
     "enumeration": "8"
    },
-   "solution": "MUTATION"
+   "solution": "MUTATION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "MUTATION",
+    "definitions": [
+     {
+      "text": "Change",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eroding",
+      "for": "deletion",
+      "note": "erosion wears things away, so part of each of the two words is lost"
+     },
+     {
+      "text": "in equal proportions",
+      "for": "deletion",
+      "note": "equal proportions means each word loses the same share, exactly half its length"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mutual",
+      "gives": "MUTUAL",
+      "note": "taken as written; its first half is kept"
+     },
+     {
+      "clueFragment": "admiration",
+      "gives": "ADMIRATION",
+      "note": "taken as written; its second half is kept"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MUT",
+      "ATION"
+     ]
+    },
+    "explanation": {
+     "surface": "A shift that wears away the respect two people had for each other, evenly on both sides.",
+     "walkthrough": "'in equal proportions' means each word loses half: the front half of the first survives and the back half of the second.",
+     "definitionFit": "A mutation is an alteration, especially in genes, so it is a noun synonym of change."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "proportions"
+    }
+   }
   },
   {
    "number": 18,
@@ -329,7 +1294,56 @@
     "text": "Diplomat representing Catholic Union",
     "enumeration": "6"
    },
-   "solution": "NUNCIO"
+   "solution": "NUNCIO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NUNCIO",
+    "definitions": [
+     {
+      "text": "Diplomat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "representing",
+      "for": "anagram",
+      "note": "to represent something is to present it in another form, so the letters are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Catholic",
+      "gives": "C",
+      "note": "C is the abbreviation for Catholic"
+     },
+     {
+      "clueFragment": "Union",
+      "gives": "UNION",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUNION",
+       "gives": "NUNCIO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An envoy who speaks for a Catholic organisation.",
+     "walkthrough": "'representing' feels like part of the diplomat's job, but it is the anagram signal.",
+     "definitionFit": "A nuncio is a papal ambassador, the Vatican's diplomatic representative to a foreign government."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "representing"
+    }
+   }
   },
   {
    "number": 19,
@@ -343,7 +1357,71 @@
     "text": "In recession, city banks reluctant to invest",
     "enumeration": "6"
    },
-   "solution": "CLOTHE"
+   "solution": "CLOTHE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "CLOTHE",
+    "definitions": [
+     {
+      "text": "invest",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "In recession",
+      "for": "reversal",
+      "note": "receding is moving back, so the word goes backwards"
+     },
+     {
+      "text": "banks",
+      "for": "container",
+      "note": "banks line both sides of a river, so one piece flanks the other"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "city",
+      "gives": "EC",
+      "note": "EC is the postcode for the City of London"
+     },
+     {
+      "clueFragment": "reluctant",
+      "gives": "LOTH",
+      "note": "loth means unwilling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LOTH",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EC",
+       "to": "CE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "During an economic downturn, city banks are wary of investing money.",
+     "walkthrough": "The financial surface hides an older sense of invest: to robe someone, as at an installation ceremony.",
+     "definitionFit": "To invest someone formally is to dress them in robes of office, so clothe is a verb synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "invest"
+    }
+   }
   },
   {
    "number": 20,
@@ -363,7 +1441,71 @@
      }
     ]
    },
-   "solution": "DUCTTAPE"
+   "solution": "DUCTTAPE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DUCT TAPE",
+    "definitions": [
+     {
+      "text": "What may reduce leaks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some form of",
+      "for": "anagram",
+      "note": "a different form of a word has its letters in a new shape"
+     },
+     {
+      "text": "acquiring",
+      "for": "container",
+      "note": "what is acquired is taken in, so it sits inside the other piece"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fool",
+      "gives": "DUPE",
+      "note": "a dupe is someone easily fooled"
+     },
+     {
+      "clueFragment": "tact",
+      "gives": "TACT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DU",
+      "CTTA",
+      "PE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TACT",
+       "gives": "CTTA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A spokesperson's discretion is what keeps secrets from leaking to the press.",
+     "walkthrough": "The leaks look like disclosures stopped by tact; they are literal leaks in pipes.",
+     "definitionFit": "Duct tape is strong adhesive cloth tape often wrapped around pipes and hoses to seal holes temporarily."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "leaks"
+    }
+   }
   },
   {
    "number": 21,
@@ -377,7 +1519,65 @@
     "text": "Well that's natural Church School is making a comeback",
     "enumeration": "6"
    },
-   "solution": "CENOTE"
+   "solution": "CENOTE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "CENOTE",
+    "definitions": [
+     {
+      "text": "Well that's natural",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "making a comeback",
+      "for": "reversal",
+      "note": "coming back means going the other way, so the word is read in the reverse direction"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE, the Church of England"
+     },
+     {
+      "clueFragment": "School",
+      "gives": "ETON",
+      "note": "Eton, the famous English public school"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CE",
+      "NOTE"
+     ],
+     "reversals": [
+      {
+       "from": "ETON",
+       "to": "NOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shrugs that a church school regaining popularity is only to be expected.",
+     "walkthrough": "'Well' reads as a casual interjection; it is the noun, a natural water hole.",
+     "definitionFit": "A cenote is a natural sinkhole exposing groundwater, found especially in Mexico's Yucatán, so a natural well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Well"
+    }
+   }
   },
   {
    "number": 22,
@@ -391,7 +1591,49 @@
     "text": "In favour of meeting requirements for benefit",
     "enumeration": "6"
    },
-   "solution": "PROFIT"
+   "solution": "PROFIT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROFIT",
+    "definitions": [
+     {
+      "text": "benefit",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In favour of",
+      "gives": "PRO",
+      "note": "pro means supporting"
+     },
+     {
+      "clueFragment": "meeting requirements",
+      "gives": "FIT",
+      "note": "fit, as in suitable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "FIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Supporting a plan because it satisfies all the needs for a welfare payment.",
+     "definitionFit": "A profit is a gain or advantage obtained from something, which makes it a noun synonym of benefit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "requirements"
+    }
+   }
   },
   {
    "number": 23,
@@ -405,7 +1647,55 @@
     "text": "Maintain code not requiring recompilation or debugging?",
     "enumeration": "15"
    },
-   "solution": "DECONTAMINATION"
+   "solution": "DECONTAMINATION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DECONTAMINATION",
+    "definitions": [
+     {
+      "text": "debugging",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "requiring recompilation",
+      "for": "anagram",
+      "note": "to recompile is to put together again, so these letters are assembled anew"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Maintain code not",
+      "gives": "MAINTAINCODENOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MAINTAINCODENOT",
+       "gives": "DECONTAMINATION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A programmer's dream of keeping software that never needs rebuilding or fixing.",
+     "walkthrough": "The computing surface makes 'debugging' mean fixing code; here it means ridding a place of bugs.",
+     "definitionFit": "Decontamination is cleansing something of harmful agents such as germs, which are informally called bugs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "debugging"
+    }
+   }
   },
   {
    "number": 24,
@@ -419,7 +1709,50 @@
     "text": "Tailor made something to drink",
     "enumeration": "4"
    },
-   "solution": "MEAD"
+   "solution": "MEAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEAD",
+    "definitions": [
+     {
+      "text": "something to drink",
+      "at": 12
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Tailor",
+      "for": "anagram",
+      "note": "to tailor is to cut and alter, so the next word's letters are refashioned"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "made",
+      "gives": "MADE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MADE",
+       "gives": "MEAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tailor made a drink for a customer.",
+     "definitionFit": "Mead is an alcoholic beverage brewed from fermented honey and water."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tailor"
+    }
+   }
   },
   {
    "number": 25,
@@ -433,7 +1766,63 @@
     "text": "Ecstasy sets off debauched house parties",
     "enumeration": "8"
    },
-   "solution": "EUPHORIA"
+   "solution": "EUPHORIA",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "EUPHORIA",
+    "definitions": [
+     {
+      "text": "Ecstasy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "off",
+      "for": "deletion",
+      "note": "letters that are off have been taken away from the phrase"
+     },
+     {
+      "text": "debauched",
+      "for": "anagram",
+      "note": "debauched means corrupted, so the letters are perverted out of their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "house parties",
+      "gives": "HOUSEPARTIES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sets",
+      "gives": "SETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOUPARIE",
+       "gives": "EUPHORIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The drug ecstasy is what kicks off wild, decadent parties.",
+     "walkthrough": "'Ecstasy' looks like the drug E; it is the feeling. Remove the letters of 'sets' from the phrase, then rearrange the rest.",
+     "definitionFit": "Euphoria is an intense feeling of happiness and excitement, a noun synonym for ecstasy as rapture."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Ecstasy"
+    }
+   }
   },
   {
    "number": 26,
@@ -453,7 +1842,63 @@
      }
     ]
    },
-   "solution": "TWOBIT"
+   "solution": "TWOBIT",
+   "annotation": {
+    "type": [
+     "spoonerism"
+    ],
+    "answer": "TWO-BIT",
+    "definitions": [
+     {
+      "text": "worth little",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spooner's",
+      "for": "spoonerism",
+      "note": "Reverend Spooner swapped the opening sounds of words, so the initial sounds are exchanged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "express disapproval",
+      "gives": "BOO",
+      "note": "to boo is to jeer"
+     },
+     {
+      "clueFragment": "idiot",
+      "gives": "TWIT",
+      "note": "a twit is a fool"
+     },
+     {
+      "clueFragment": "express disapproval of idiot",
+      "gives": "TWOBIT",
+      "soundsLike": "TOO BIT",
+      "note": "swap the opening sounds of the two words just found, and the result is spelt as the number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TWO",
+      "BIT"
+     ]
+    },
+    "explanation": {
+     "surface": "Jeering at a fool is a pointless exercise.",
+     "walkthrough": "Swap the first sounds of BOO TWIT to get TWO BIT; two bits was an old US quarter dollar.",
+     "definitionFit": "Two-bit is an American adjective for cheap or insignificant, from the old slang for a quarter dollar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "express"
+    }
+   }
   }
  ]
 }
