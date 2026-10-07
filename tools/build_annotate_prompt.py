@@ -8,7 +8,7 @@ The prompt is hand-written prose except for one block between REFERENCE-START an
 REFERENCE-END: the controlled `type` vocabulary, which the run has to choose from
 before any check can tell it it chose wrong, and two worked annotations copied
 out of the corpus (EXAMPLES), because four runs in five otherwise spent a turn
-printing annotations out of a puzzle file to see one. It lives in tools/data/clue_types.json,
+printing annotations out of a puzzle file to see one. The vocabulary lives in tools/data/clue_types.json,
 which the validator and app.js both read, and a hand-kept copy drifts, so the
 block is generated from that file on every nightly run and committed with
 whatever else the run changed. Edit the file, not the prose.

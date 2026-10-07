@@ -5,10 +5,10 @@ There is no ground truth for cryptic difficulty in most of the collection.
 The Guardian publishes no rating, and nor does anyone else for our Guardian,
 Independent, Observer or Telegraph puzzles: the community rating by real solve
 times needs a fixed cohort of timed solves, which only the Times Club site
-records. Checked 2026-08-15 — Fifteensquared blogs all four of ours in prose
-with no scale, bigdave44's 1-5 stars are the blogger's own, and the comment
-threads are long and entirely qualitative ("a fraction easier than the average
-Paul"). Checked again 2026-09-05, post body and comments. Don't go looking again.
+records. Fifteensquared blogs all four of ours in prose with no scale,
+bigdave44's 1-5 stars are the blogger's own, and the comment threads, post body
+and comments both, are long and entirely qualitative ("a fraction easier than
+the average Paul"). Don't go looking again.
 
 The Times is the exception. The SNITCH (times.xwdsnitch.link) rates every Times
 daily since 2015 and every Sunday Times since 2024 by its NITCH — about a
@@ -57,9 +57,7 @@ is true on the day it is pasted:
                 margin and the p.
 
   WEEKDAY       The Guardian has no graded weekday, so no day-of-week term is
-                in this model — decided 2026-09-09 at 139 scored cryptics,
-                against a bar of 100 set while the count was 22 and the
-                correlation a null. What the correlation was picking up is a
+                in this model. What a weekday correlation picks up is a
                 Mon/Tue step: those two days sit 0.345 sd below the rest
                 (p = 0.0004) and Wed to Sat are flat behind it (rho = -0.06,
                 p = 0.59). That is not the SNITCH's shape at all — theirs
@@ -83,9 +81,9 @@ what the measurement found. Do not reopen it by padding n with the unannotated
 puzzles: see the Quiptic control group in score() for why grid-only scores
 measure the grid.
 
-Everything is scored RELATIVE, and that is the whole trick. The first version
-of this file scored the raw numbers absolutely and rated all 35 puzzles
-"Tough", which is worse than no rating at all: every Guardian 15x15 daily comes
+Everything is scored RELATIVE, and that is the whole trick. Scored absolutely,
+the raw numbers rate nearly every puzzle "Tough", which is worse than no rating
+at all: every Guardian 15x15 daily comes
 off a similar grid library (checking sits in a 0.42-0.53 band across the whole
 corpus) and every cryptic answer is rare next to "the" (raw obscurity saturates
 around 0.9). The signal is entirely in the spread, so each component is
@@ -251,9 +249,6 @@ PORTABLE = ("rarity", "answer_novelty", "pairing_novelty", "question_marks",
 #: The least the index may put the gentle series below the dailies, in its own sd.
 MARGIN_FLOOR = 0.08
 
-# The series their own papers declare gentle, an input to --validate that lives
-# here rather than in the prose above so the test and the story it tells cannot
-# drift apart.
 SNITCH = ROOT / "tools" / "data" / "snitch.json"
 #: Our series the SNITCH rates, whose badges quote their band's NITCH range.
 SNITCH_SERIES = ("times", "sundaytimes")
@@ -266,6 +261,9 @@ COMMENT_MIN_TIMES = 3
 #: Puzzles with a comment signal a series needs before any of them is blended.
 COMMENT_SERIES_MIN = 30
 DAY_NAMES = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+# The series their own papers declare gentle, an input to --validate that lives
+# here rather than in the prose above so the test and the story it tells cannot
+# drift apart.
 GENTLE_SERIES = {"quiptic", "everyman"}
 
 # Per-device hardness, 0 = gives itself away, 1 = you may never be certain.
@@ -275,7 +273,7 @@ GENTLE_SERIES = {"quiptic", "everyman"}
 # means for the charade at 0.45: a charade confirms itself well (every letter is
 # accounted for), so it sits low here, and everything that makes a particular
 # charade hard is priced on the other axis, per clue. That is deliberate — "not
-# all charades are hard" (Paul, 2026-08-02), and a family-level bump would say
+# all charades are hard" (Paul), and a family-level bump would say
 # they are.
 DEVICE_COST = {
     "hidden_word": 0.15,
@@ -295,15 +293,13 @@ STACKING_COST = 0.12               # per device beyond the first
 
 # --- the second axis: what the clue costs to WORK, not to recognise -----------
 #
-# Added 2026-08-02, then immediately re-aimed by Paul: "it isn't knowing it is a
-# charade that is hard. It is doing the charade." The first cut priced spotting
-# (an unindicated clue gives you nothing to notice) and that was the wrong
-# target. Recognition is cheap and it is also learnable in an afternoon — by the
+# "It isn't knowing it is a charade that is hard. It is doing the charade."
+# (Paul.) Recognition is cheap and it is also learnable in an afternoon — by the
 # time you have met thirty charades you assume charade by default. The work that
 # does not get cheaper is the assembly: turning each fragment of the clue into
 # the right few letters, then getting them in the right order.
 #
-# So the weight moved off recognition and onto assembly, and assembly is priced
+# So the weight is on assembly rather than recognition, and assembly is priced
 # from what is actually in the annotation — `pieces`, the literal chunks the
 # answer is built from. 273 of our clues record them: 26 ones, 105 twos, 92
 # threes, 42 fours, 6 fives, 2 sixes.
@@ -331,10 +327,10 @@ SEAM_COST = 0.09
 OPAQUE_PIECE_COST = 0.06
 OPAQUE_LEN = 2
 
-# Recognition, kept but demoted from 0.15 — a charade's joiners are invisible
-# function words ("about", "after", "in", "before", "on", "by") and 54 of our 76
-# bare charades record no indicator at all, so the effect is real. It is just not
-# what makes them hard, so it is now a nudge rather than a component.
+# Recognition, as a nudge rather than a component — a charade's joiners are
+# invisible function words ("about", "after", "in", "before", "on", "by") and 54
+# of our 76 bare charades record no indicator at all, so the effect is real. It
+# is just not what makes them hard.
 UNINDICATED_COST = 0.06
 # ...except where the family is unindicated by definition. A double definition
 # has no indicator because there is nothing to indicate, and its 0.55 already
@@ -381,9 +377,9 @@ def machinery(puz):
 #
 # The index is a WEIGHTED MEAN of z-scores, so it does not itself have sd 1 —
 # averaging partly-uncorrelated components shrinks the spread to about 0.6.
-# Comparing these cut points against the raw index therefore reads every band
-# a notch harder than it was written to: it put 5% of the corpus in Gentle and
-# 67% in Tough-or-Brutal, and it could not call an Everyman gentle. The index
+# Comparing these cut points against the raw index would read every band a
+# notch harder than it was written to: about 5% of the corpus in Gentle and two
+# thirds in Tough-or-Brutal, and no Everyman gentle. The index
 # is standardised against its own frozen mean and sd (banding(), below) before
 # it meets these numbers.
 BANDS = [(-0.90, "Gentle"), (-0.25, "Moderate"), (0.60, "Tough"), (float("inf"), "Brutal")]
@@ -781,7 +777,7 @@ def clue_cost(e):
 
 
 def device(puz):
-    """Mean wordplay cost. None when the puzzle has no annotations yet.
+    """Mean wordplay cost. None unless the whole puzzle is annotated.
 
     Two axes. RECOGNITION: how hard the machinery is to confirm once you see it
     (DEVICE_COST), plus a nudge when the clue names no indicator at all.
@@ -869,22 +865,18 @@ def score(puz, ctx):
         if not ref or not ref.get("sd"):
             continue
         zs[k] = (v - ref["mean"]) / ref["sd"]
-    # Grid geometry on its own is not a difficulty rating. A prize puzzle whose
-    # solutions haven't been published yet has nothing but `checking`, and 30068
-    # duly came out "Brutal" on an empty grid. Two components or no rating.
+    # Grid geometry on its own is not a difficulty rating: a prize puzzle whose
+    # solutions haven't been published yet has nothing but `checking`, which
+    # can call an empty grid "Brutal". Two components or no rating.
     #
     # And `device` specifically, not just any two — the wordplay is the only
-    # component that measures the CLUES. That used to be a hunch; adding the
-    # Guardian Quiptic gave it a control group, because the Quiptic is the
-    # Guardian's own beginner crossword and so is known-easier by editorial
-    # fiat. Scored on the grid and word rarity alone, our eight quiptics came out at
-    # −0.07 against the cryptics' +0.09: a sixth of a standard deviation, i.e.
-    # indistinguishable. Quiptic 1,393 was rated BRUTAL, harder than 86% of the
-    # collection, on the strength of an open grid. A rating that can't separate
-    # the beginner puzzle from the daily is not measuring difficulty, it is
-    # measuring the grid — so an unannotated puzzle now gets no band at all,
-    # which the index and the picker already handle by showing no badge. The
-    # quiptic badge is a fact about the puzzle and stands on its own.
+    # component that measures the CLUES. The Quiptic is the control group: it
+    # is the Guardian's own beginner crossword, known-easier by editorial fiat,
+    # yet scored on the grid and word rarity alone it is indistinguishable from
+    # the cryptics, and an open grid can rate one Brutal. A rating that can't
+    # separate the beginner puzzle from the daily is not measuring difficulty,
+    # it is measuring the grid — so an unannotated puzzle gets no band at all,
+    # which the index and the picker handle by showing no badge.
     if len(zs) < 2 or "device" not in zs:
         return None
     total = sum(WEIGHTS[k] for k in zs)
@@ -1147,7 +1139,7 @@ def validate():
                     as a rank correlation with its permutation p, and the NITCH
                     quartiles of each band (the range the badges quote).
 
-      SERIES ORDER  Two of our four series are declared easy by the papers that
+      SERIES ORDER  Two of our series are declared easy by the papers that
                     print them: the Quiptic is the Guardian's beginner crossword
                     and the Everyman is the Observer's gentlest. If the index
                     cannot put those below the dailies it is not measuring

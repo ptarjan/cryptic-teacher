@@ -14,7 +14,7 @@ write a full hint/clue string anywhere. Only short fixed labels (types, marker
 words) get printed.
 
 Our side is a Python port of the rung-building LOGIC in app.js (`ladderSteps`,
-`familyOf`, `typeBlurb`, `def_place`). The rung TEXT is not ported — family
+`familyOf`, `typeBlurb`, `defPlace`). The rung TEXT is not ported — family
 and type blurbs come from tools/clue_types.py, the same list app.js reads,
 because a word count taken over a stale transcription measures words the app
 never shows. Kept close enough to match word counts; not a byte-exact re-render
@@ -212,8 +212,8 @@ def ladder_steps(ann, clue_text):
     return steps
 
 
-# Read from app.js, not transcribed: this file already parses app.js for the
-# rung WORDS, and a hand-kept order beside them is the same rot one field over.
+# Read from app.js's LABELS (tools/app_tables.py), not transcribed: a hand-kept
+# order beside the app's drifts from it.
 OUR_RUNG_ORDER = [key for key, _label in app_tables.ladder()]
 
 

@@ -7,13 +7,14 @@ quoted matched the script -- and then the nightly job added a puzzle, someone
 added a tool, someone changed a default, and the file quietly started lying.
 Nothing fails when that happens, which is exactly why it keeps happening.
 
-So the facts are not typed here at all. Three regions of README.md are generated
-between HTML-comment markers, from the same files the app and the schedulers
-read:
+So the facts are not typed here at all. Regions of README.md and
+docs/LAYOUT.md are generated between HTML-comment markers, from the same files
+the app and the schedulers read:
 
+    LADDER   the hint rungs, with app.js's own labels and in its order
     CORPUS   how many puzzles and clues there are, and how many are annotated
-    LAYOUT   what is in the repo, file by file
     KNOBS    the scheduling defaults, parsed out of the shell scripts
+    LAYOUT   what is in the repo, file by file (docs/LAYOUT.md)
 
 Everything outside those markers is prose about how the thing works, which is
 the part a person should be writing. If you find yourself wanting to type a
@@ -22,10 +23,11 @@ number into it, put the number in here instead.
     python3 tools/build_readme.py           rewrite the generated regions
     python3 tools/build_readme.py --check   exit 1 if they are out of date
 
-tools/daily_update.sh runs the first before it commits, so the corpus block
-cannot drift by more than one run. The second is what makes the other two
-regions safe: a tool added without a description, or a default changed without
-the README following, fails the check rather than rotting quietly.
+tools/prereset_backfill.sh runs the first before it commits, and
+tools/daily_update.sh when its rebase conflicts, so the corpus block follows the
+annotations. The second is what makes the other regions safe: a tool added
+without a description, or a default changed without the README following,
+fails the check rather than rotting quietly.
 """
 import ast
 import json
@@ -625,8 +627,8 @@ SERIES_NAMES = {
     # ONE ENTRY FOR THE WHOLE SHELF: every scanned printed book is the `book`
     # series, and which book a puzzle came out of is in its number
     # (tools/series.py, book_index * 1000 + position). The count beside it is
-    # the shelf's, which is what a reader of this corpus line wants — thirty
-    # lines of a few dozen each would be a bibliography, not a corpus.
+    # the shelf's, which is what a reader of this corpus line wants — a line
+    # per book of a few dozen each would be a bibliography, not a corpus.
     "book": "scanned book reprints",
 }
 
@@ -890,8 +892,7 @@ def build_knobs(k):
 
 # What each rung is FOR. The name beside it is not written here: app.js owns the
 # labels, because they are what the buttons say, and a README that renamed them
-# in prose would be describing a site that does not exist — which is what it was
-# doing (Paul, 2026-09-16). A rung added to app.js with no line here fails this
+# in prose would be describing a site that does not exist. A rung added to app.js with no line here fails this
 # script rather than quietly going undescribed.
 RUNG_NOTES = {
     "type": "anagram? charade? container? hidden word? …",
@@ -912,8 +913,8 @@ def build_ladder():
     import app_tables
     # The numbering is app.js's own: `ladder()` reads the ordered LABELS map the
     # app sorts its rungs by, and raises if app.js stops deriving the order from
-    # it. A copy of the order here is what published "1. What kind of clue is
-    # this?" for two reorders after the app had stopped leading with it.
+    # it. A copy of the order here would keep printing the old order after the
+    # app reordered its rungs.
     labels = app_tables.ladder(app)
     missing = [k for k, _ in labels if k not in RUNG_NOTES]
     if missing:
@@ -937,9 +938,8 @@ def build_ladder():
 
 
 # Which generated region lives in which file. The layout table is 300 lines of
-# inventory and sat in the middle of a page people read for the description of
-# the app, so it has a page of its own (Paul, 2026-09-16) — the check that keeps
-# it honest is unchanged, it just writes somewhere else.
+# inventory, so it has a page of its own rather than sitting in the middle of a
+# page people read for the description of the app.
 REGIONS = {
     README: {"CORPUS": build_corpus, "LADDER": build_ladder},
     LAYOUT_DOC: {"LAYOUT": build_layout},

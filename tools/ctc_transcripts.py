@@ -40,8 +40,8 @@ mention of its answer from READ_SLACK_S before that on, so an incidental
 earlier use of the word does not count. A clue whose reading is never heard
 is solved at the first mention another follows within CLUSTER_S. Its seconds
 are the gap since the previous solve, its wait the time from reading to
-solving; the last STUCK_TAIL of a video's solves, or a solve beside "last
-one" / "stuck" in its second half, is stuck. solvecheck ranks everything
+solving; a solve at rank STUCK_TAIL or later in its video's solve order (0-1),
+or one beside "last one" / "stuck" in its second half, is stuck. solvecheck ranks everything
 within each video, so a puzzle's pace cancels.
 
 Parse check. A clue's explanation is what is said from just before its solve
@@ -53,8 +53,8 @@ fodder (the clue words said after "anagram of") and pieces (a short block's
 letters heard beside its clue words). Silence is unknown, never agreement.
 
 Unstick. A hard solve (stuck, or waited LONG_WAIT_S from reading) is
-unlocked by what is said in the UNLOCK_LEAD_S before it, with the clue read
-aloud dropped: the definition, an indicator, a device named, a short piece,
+unlocked by what is said from UNLOCK_LEAD_S before it to UNLOCK_TAIL_S after,
+with the clue read aloud dropped: the definition, an indicator, a device named, a short piece,
 letters already in the grid, or a word read in its other sense. Each unlock
 credits the rung of app.js's ladder that shows it, and every order of the
 rungs is scored by the mean rungs a solver takes to reach one that would have
@@ -513,7 +513,7 @@ READ_SLACK_S = 5
 CLUSTER_S = 90
 #: A video is timed only when this many of its puzzle's clues are, and this share.
 MIN_TIMED, MIN_TIMED_SHARE = 8, 0.4
-#: The solved-last share of a video's clues flagged stuck.
+#: A solve at this rank or later in its video's solve order (0-1) is stuck.
 STUCK_TAIL = 0.9
 #: A solve within LAST_ONE_S of one of these, in the second half of the solve, is stuck too.
 LAST_ONE = re.compile(r"\b(?:last (?:one|clue|answer)|final (?:one|clue|answer)|"

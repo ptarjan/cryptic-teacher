@@ -6,10 +6,10 @@ A REVIEW TOOL, DELIBERATELY NOT A VALIDATOR CHECK.
 The rule in annotate_prompt.md is that a walkthrough carries what the blocks
 CANNOT show — the joke, the misdirection, the convention — and never restates
 fragment -> letters, because the app already renders the blocks directly above
-it. Measured on 2026-08-09 across the whole corpus: 202 of 689 walkthroughs name
-at least one of their own letter chunks, and 76 name two or more.
+it. Across the corpus about a third of walkthroughs name at least one of their
+own letter chunks, and about one in nine name two or more.
 
-76 sounded like a backlog worth gating on. Reading a sample says otherwise, and
+That sounds like a backlog worth gating on. Reading a sample says otherwise, and
 the reason is worth writing down because it is the sort of check that looks
 obviously right until you look at its output:
 
@@ -29,7 +29,7 @@ the good half away with the bad.
 
 So this prints candidates for a human or a model to READ, ranked worst-first, and
 the rule itself is enforced where it can be enforced honestly: in the prompt, at
-writing time, with both examples above in front of the annotator.
+writing time.
 
 Usage:  python3 tools/find_renarration.py [puzzle-number ...]
 """
