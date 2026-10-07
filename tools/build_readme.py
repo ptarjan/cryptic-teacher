@@ -531,6 +531,7 @@ LAYOUT = [
     ("fetching", "tools/vlm_health.py", "wake the room when the desktop VLM has been down for DOWN_FOR with no game"),
     ("fetching", "tools/vlm_health.sh", "the scheduled entry point for tools/vlm_health.py (the cryptic-vlm-health plugin), run from a worktree at origin/master (tools/nightly_worktree.sh)."),
     ("fetching", "tools/vlm_health_probe.ps1", "what tools/vlm_health.py reports when the desktop VLM is down, as one JSON line. \"game\" uses D:\\llm\\game-guard.ps1's own rule (a process run from D:\\ outside D:\\llm), because that guard is what takes llama-swap down for one"),
+    ("fetching", "tools/test_listener_letters.sh", "does trove_solution_ocr.read_grid_letters read the letters of a drawn, filled Listener report grid back through listener_grid's lattice?"),
 ]
 
 # Files that are deliberately absent from the layout table: scratch, data the

@@ -1708,5 +1708,8 @@ tools/vlm_health_probe.ps1                    what tools/vlm_health.py reports w
                                               D:\llm\game-guard.ps1's own rule (a process run
                                               from D:\ outside D:\llm), because that guard is
                                               what takes llama-swap down for one
+tools/test_listener_letters.sh                does trove_solution_ocr.read_grid_letters read
+                                              the letters of a drawn, filled Listener report
+                                              grid back through listener_grid's lattice?
 ```
 <!-- LAYOUT-END -->
