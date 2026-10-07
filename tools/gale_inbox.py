@@ -48,14 +48,14 @@ import subprocess
 import sys
 import tarfile
 import time
+import urllib.parse
 from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
-import pypdf
-
 import archive_coverage
 import file_archive_org_puzzles as fa
+import pypdf
 
 HOST = os.environ.get("GALE_INBOX_HOST", "pt@host.docker.internal")
 #: The Mac folder every Gale page lands in, on the Media disk: the SMB share
@@ -102,9 +102,15 @@ WANTED = ("no-scan", "canberra-reprint")
 GRID_WIDTH = 720
 
 PORTAL = "https://abresearchportal.ca/collections"
-#: A Gale article opens from its document id (the one link the portal
-#: session opens without a date search); no URL opens a date.
+#: Where the portal's archive tile lands (its actions/auth.php redirects
+#: here): Gale lets an Alberta IP in and sets the browser's session. A
+#: Gale link opened before it asks for a password.
+SESSION = "https://link.gale.com/apps/{}?u=alberta_portal&id=Alberta&sid=geolinks"
+#: A Gale article opens from its document id.
 DOC_URL = "https://go.gale.com/ps/retrieve.do?docId=GALE%7C{}&prodId=TTDA&userGroupName=alberta_portal"
+#: Gale's advanced search as a GET (its own form's fields): document title
+#: containing the word, published On the date (dateMode 2, era 1 = AD).
+SEARCH = "https://go.gale.com/ps/advancedSearch.do"
 DOC_ID = re.compile(r"GALE[\W_]{0,3}([A-Z]{2}\d{8,12})", re.IGNORECASE)
 #: Text only a Gale download's citation page prints.
 GALE_TEXT = re.compile(r"Gale Document Number|link\.gale\.com|Gale Primary Sources|Gale, a Cengage"
@@ -688,8 +694,9 @@ NEXT_UP = 15
 SCRIPT = """<script>
 function show(){JSON.parse(localStorage.getItem('galeCopied')||'[]').forEach(k=>{
   const r=document.getElementById('d'+k);if(r)r.classList.add('copied')})}
-function cp(b,t,k){const done=()=>{b.textContent='Copied';const s=JSON.parse(localStorage.getItem('galeCopied')||'[]');
-  s.push(k);localStorage.setItem('galeCopied',JSON.stringify(s.slice(-500)));show()};
+function mark(k){const s=JSON.parse(localStorage.getItem('galeCopied')||'[]');
+  s.push(k);localStorage.setItem('galeCopied',JSON.stringify(s.slice(-500)));show()}
+function cp(b,t,k){const done=()=>{b.textContent='Copied';mark(k)};
   const fb=()=>{const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();
   document.execCommand('copy');a.remove();done()};
   if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(done,fb);else fb()}
@@ -700,6 +707,18 @@ addEventListener('DOMContentLoaded',show)
 def search_for(n):
     """What to type in Gale's search box for Times cryptic No `n`."""
     return f'"Crossword Puzzle No {n:,}"'
+
+
+def search_url(day, prod="TTDA", title="crossword"):
+    """Gale's results for `title` in a document title of the `day` issue of
+    archive `prod`: the day's crossword pages, one click from the page."""
+    q = [("inputFieldNames[0]", "TI"), ("inputFieldValues[0]", title), ("dateIndices", "DA"),
+         ("dateLimiterValues[DA].dateMode", "2"), ("dateLimiterValues[DA].fromYear", f"{day.year}"),
+         ("dateLimiterValues[DA].fromMonth", f"{day.month:02}"), ("dateLimiterValues[DA].fromDay", f"{day.day:02}"),
+         ("dateLimiterValues[DA].fromEra", "1"), ("searchType", "AdvancedSearchForm"), ("method", "doSearch"),
+         ("searchMethod", "advanced"), ("searchResultsType", "SingleTab"), ("prodId", prod),
+         ("userGroupName", "alberta_portal")]
+    return f"{SEARCH}?{urllib.parse.urlencode(q)}"
 
 
 def problems(rows, by_number, staged, unmatched=UNMATCHED):
@@ -757,18 +776,20 @@ def checklist(rows=None, cache=CACHE, unmatched=UNMATCHED):
         else:
             status = "Canberra reprint only" if cls == "canberra-reprint" else ""
         q = search_for(n)
-        find = (f'<button onclick="cp(this,{e(json.dumps(q))},\'{k}\')">Copy</button> <code>{e(q)}</code>'
+        find = (f'<a class="go" href="{e(search_url(day))}" target="gale" onclick="mark(\'{k}\')">Open in Gale</a> '
+                f'<button onclick="cp(this,{e(json.dumps(q))},\'{k}\')">Copy</button> <code>{e(q)}</code>'
                 + ("" if sure else ' <span class="est">number estimated: check the date</span>'))
         return (f'<tr id="d{k}"><td>{day:%a %d %b %Y}</td><td>{find if next_up or day not in staged else ""}</td>'
                 f"<td>{page_of(day.year)}</td><td>{status}</td></tr>")
 
-    head = "<tr><th>Date</th><th>Search Gale for</th><th>Page</th><th>Status</th></tr>"
+    head = "<tr><th>Date</th><th>Open, or search Gale for</th><th>Page</th><th>Status</th></tr>"
     out = [f"""<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="180">
 <title>Times crosswords from Gale: {done:,} of {total:,}</title>
 <style>body{{font:15px -apple-system,Segoe UI,sans-serif;margin:1.5em;max-width:64em}}td,th{{padding:3px 8px;text-align:left}}
 tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.4em}}.got{{color:#070}}.est{{color:#a60;font-size:90%}}
 .bad{{background:#fee;border:2px solid #c00;padding:.5em 1em}}.how{{background:#eef6ff;padding:.5em 1em}}
-button{{font-size:14px;padding:2px 10px;cursor:pointer}}tr.copied td:first-child::before{{content:"\\2713 ";color:#070}}
+button{{font-size:14px;padding:2px 10px;cursor:pointer}}a.go{{font-weight:bold;margin-right:.6em}}
+.start{{font-size:17px;font-weight:bold}}tr.copied td:first-child::before{{content:"\\2713 ";color:#070}}
 progress{{width:20em;height:1.2em;vertical-align:middle}}</style>
 {SCRIPT}
 <h1>Times crosswords from Gale</h1>
@@ -778,13 +799,15 @@ Updated {datetime.datetime.now().astimezone():%a %d %b %H:%M}; this page refresh
         out.append('<div class="bad"><h2 style="margin-top:0">Redo these</h2><ul>')
         out += [f"<li><b>{e(f)}</b>: {e(why)}</li>" for f, why in bad]
         out.append("</ul></div>")
-    out.append(f"""<div class="how"><b>Per puzzle:</b>
-<ol><li>Once per session: open <a href="{PORTAL}">the Alberta Research Portal</a> and choose <i>The Times Digital Archive</i>
-(on an Alberta connection; no login).</li>
-<li>Click <b>Copy</b> on the next puzzle below, paste it into Gale's search box and press Enter.</li>
-<li>Open the result <i>The Times Crossword Puzzle No N</i> and click <b>Download</b> (PDF).</li></ol>
+    out.append(f"""<div class="how"><p class="start">1. <a href="{SESSION.format('TTDA')}" target="gale">Start Gale session</a>
+(once per sitting, on an Alberta connection; no login)</p>
+<ol start="2"><li>Click <b>Open in Gale</b> on the next puzzle below: Gale's results for that day's crossword open in the same
+tab as the session.</li>
+<li>Open <i>The Times Crossword Puzzle No N</i> (not the Concise) and click <b>Download</b> (PDF).</li></ol>
 That's all: it lands in Downloads and is moved here, <code>{e(SHARE)}</code>, within 3 minutes, and ticked off below.
-If the search finds nothing, use <i>Browse &rarr; Browse By Date</i> and go to the page shown.
+If Gale asks for a password, start from <a href="{PORTAL}">the Alberta Research Portal</a> (choose
+<i>The Times Digital Archive</i>) instead, then come back here. If a day's results are empty, <b>Copy</b> the search
+and paste it into Gale's search box, or use <i>Browse &rarr; Browse By Date</i> and go to the page shown.
 By hand only (Gale allows 50 downloads a session, no scripts or download tools).</div>""")
     nxt = [(d, c) for d, c in order if d not in staged][:NEXT_UP]
     if nxt:

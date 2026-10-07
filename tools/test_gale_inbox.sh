@@ -17,7 +17,7 @@ cd "$(dirname "$0")"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 python3 - "$tmp" <<'PY'
-import datetime, io, json, sys
+import datetime, io, json, re, sys
 from pathlib import Path
 from PIL import Image
 import file_archive_org_puzzles as fa
@@ -124,8 +124,23 @@ bad = html[html.index("Redo these"):html.index('<div class="how">')]
 check("an unmatched file is listed to redo", True, "holiday snap.jpg" in bad and "Rename it" in bad)
 check("a page with no grid is listed to redo", True, "no crossword grid" in bad)
 check("the page refreshes itself", True, 'http-equiv="refresh"' in html)
-check("it sends Paul to the portal, never a Gale deep link", (True, False),
-      (g.PORTAL in html, "gale.com" in html))
+check("the session link comes before any row's link", True,
+      html.index(g.SESSION.format("TTDA")) < html.index('class="go"'))
+check("the session link and every row's link open in one tab", html.count('class="go"') + 1,
+      html.count('target="gale"'))
+want = ("https://go.gale.com/ps/advancedSearch.do?inputFieldNames%5B0%5D=TI&inputFieldValues%5B0%5D=crossword"
+        "&dateIndices=DA&dateLimiterValues%5BDA%5D.dateMode=2&dateLimiterValues%5BDA%5D.fromYear=1988"
+        "&dateLimiterValues%5BDA%5D.fromMonth=01&dateLimiterValues%5BDA%5D.fromDay=13"
+        "&dateLimiterValues%5BDA%5D.fromEra=1&searchType=AdvancedSearchForm&method=doSearch&searchMethod=advanced"
+        "&searchResultsType=SingleTab&prodId=TTDA&userGroupName=alberta_portal")
+check("a date's link is Gale's title search on that day, month and day zero-padded", want,
+      g.search_url(D(1988, 1, 13)))
+check("each next-up row links its date's search, kept beside Copy", True,
+      f'<a class="go" href="{g.html.escape(want)}" target="gale" onclick="mark(\'1988-01-13\')">Open in Gale</a> '
+      '<button onclick="cp(' in nxt)
+check("the Listener's link searches its own archive", True, "prodId=LSNR" in g.search_url(D(1930, 4, 9), "LSNR"))
+check("no link fetches a document or names a session id", [], [u for u in re.findall(r'href="([^"]+)"', html)
+      if "retrieve.do" in u or "PHPSESSID" in u or "jsessionid" in u.lower()])
 check("a page for a date the list does not ask for is flagged", [("x.pdf", True)],
       [(f, "not on the list" in why) for f, why in g.problems(rows, held, {D(1988, 2, 1): ["x.pdf"]}, Path("/nonexistent"))])
 check("but not one already filed", [], g.problems(rows, {17396: D(1987, 6, 30)}, {D(1987, 6, 30): ["y.pdf"]},

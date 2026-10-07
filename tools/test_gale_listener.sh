@@ -150,6 +150,10 @@ check("the saved puzzle is marked", True, "saved: 1 of 1 clues read" in page)
 check("the filed puzzle is marked", True, ">filed<" in page)
 check("the unmatched file is listed", True, "holiday snap.jpg" in page)
 check("a saved solution is marked", True, "solution saved" in page)
+bare = g.checklist(rows, Path(sys.argv[1]) / "nostore", Path(sys.argv[1]) / "none", arrivals=[])
+check("a session link, then a Listener search on each puzzle still to save", (True, 2),
+      (g.gi.SESSION.format("LSNR") in bare, bare.count("prodId=LSNR")))
+check("no search link once a puzzle is saved or filed", 0, page.count("prodId=LSNR"))
 inbox2, store2 = Path(sys.argv[1]) / "inbox2", Path(sys.argv[1]) / "store2"
 inbox2.mkdir()
 Image.new("RGB", (300, 203), "white").save(inbox2 / "1930-04-09.png")

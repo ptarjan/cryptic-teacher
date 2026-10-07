@@ -636,11 +636,12 @@ tr:nth-child(even){{background:#f4f4f4}}h2{{margin-top:1.5em}}.got{{color:#070}}
 Listener Team's index (numbers and dates only) and what this folder holds. Earliest first: start at the top.</p>
 <h2>How to save one</h2>
 <ol>
-<li>Be on an Alberta internet connection (home Wi-Fi works): the portal lets Albertans in by location, with no card or login.</li>
-<li>Open <a href="{PORTAL}">the Alberta Research Portal</a> and choose <i>The Listener Historical Archive</i>.
-A Gale link opened outside the portal asks for a password, so always start here.</li>
-<li>Find the issue: <i>Browse &rarr; Browse By Date</i>, pick the date from the list below, and page through it
-to the crossword (a grid with ACROSS and DOWN clue lists); or search for its title in quotes.</li>
+<li>Be on an Alberta internet connection (home Wi-Fi works): Gale lets Albertans in by location, with no card or login.</li>
+<li><b><a href="{gi.SESSION.format('LSNR')}" target="gale">Start Gale session</a></b> (once per sitting). If Gale asks for
+a password, open <a href="{PORTAL}">the Alberta Research Portal</a> and choose <i>The Listener Historical Archive</i> instead.</li>
+<li>Click <b>Open in Gale</b> on the puzzle's row: Gale's results for that issue's crossword pages open in the same tab.
+If they are empty, use <i>Browse &rarr; Browse By Date</i>, pick the date, and page through it
+to the crossword (a grid with ACROSS and DOWN clue lists).</li>
 <li>On the crossword's page press <i>Download</i> and save it (PDF or image, either works) into this folder,
 {e(FOLDER)}. Any file name works; a name with the date (e.g. <code>1930-04-09</code>) is the surest match.
 When the grid and the clues are on different pages ("For Clues see page 340"), save both.</li>
@@ -678,7 +679,9 @@ says "arrived", and once the full pass has read it (at its next slice, within ab
                 # often found by the page's words, not its citation.
                 status += (f' <span class="bad">save its solution too: &ldquo;Report on Crossword No. {n}&rdquo;,'
                            f' about {r["date"] + datetime.timedelta(days=14):%d %b %Y}</span>')
-            out.append(f"<tr><td>{r['date']:%a %d %b %Y}</td><td>{n}</td><td>{e(r['title'])}</td>"
+            go = "" if n in filed or n in got else (
+                f' <a href="{e(gi.search_url(r["date"], "LSNR"))}" target="gale">Open in Gale</a>')
+            out.append(f"<tr><td>{r['date']:%a %d %b %Y}{go}</td><td>{n}</td><td>{e(r['title'])}</td>"
                        f"<td>{e(r.get('setter') or '')}</td><td>{status}</td></tr>")
         out.append("</table>")
     waiting = [a for a in unnamed if a["file"] not in read]
