@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,57 @@
     "text": "Subsection of right infiltrating activist group",
     "enumeration": "8"
    },
-   "solution": "FRACTION"
+   "solution": "FRACTION",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FRACTION",
+    "definitions": [
+     {
+      "text": "Subsection",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "infiltrating",
+      "for": "container",
+      "note": "to infiltrate a group is to get inside it, so one piece is placed within the other"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "activist group",
+      "gives": "FACTION",
+      "note": "a faction is a dissenting group within a party"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "ACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A wing of a political party has been infiltrated by right-wing militants.",
+     "definitionFit": "A fraction is a small part or portion broken off from a whole, much like a subsection."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "right"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +100,53 @@
     "text": "Cut cakes up",
     "enumeration": "4"
    },
-   "solution": "SNUB"
+   "solution": "SNUB",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SNUB",
+    "definitions": [
+     {
+      "text": "Cut",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, going up means reading the word from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cakes",
+      "gives": "BUNS",
+      "note": "buns are small sweet cakes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNUB"
+     ],
+     "reversals": [
+      {
+       "from": "BUNS",
+       "to": "SNUB"
+      }
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface suggests slicing cakes; 'Cut' is the definition in its social sense, ignoring someone.",
+     "definitionFit": "To cut someone is to ignore them deliberately in public, which is exactly a snub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Cut"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +160,65 @@
     "text": "Vicious recession has PM in shock",
     "enumeration": "6"
    },
-   "solution": "DISMAY"
+   "solution": "DISMAY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DISMAY",
+    "definitions": [
+     {
+      "text": "shock",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recession",
+      "for": "reversal",
+      "note": "a recession is a going back, so the name is read backwards"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vicious",
+      "gives": "SID",
+      "note": "Sid Vicious was the Sex Pistols' bassist"
+     },
+     {
+      "clueFragment": "PM",
+      "gives": "MAY",
+      "note": "Theresa May was a British Prime Minister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIS",
+      "MAY"
+     ],
+     "reversals": [
+      {
+       "from": "SID",
+       "to": "DIS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A savage economic downturn leaves the Prime Minister reeling.",
+     "walkthrough": "'Vicious' reads as an adjective for the recession, but it is the punk bassist Sid Vicious of the Sex Pistols, and 'recession' turns his first name round.",
+     "definitionFit": "Dismay is a sudden feeling of alarm and distress, the same emotional jolt as shock."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Vicious"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +232,69 @@
     "text": "Proper game between Portugal and Germany is hard",
     "enumeration": "7"
    },
-   "solution": "PRUDISH"
+   "solution": "PRUDISH",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRUDISH",
+    "definitions": [
+     {
+      "text": "Proper",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "between",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Portugal",
+      "gives": "P",
+      "note": "P is the international vehicle code for Portugal"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "Germany",
+      "gives": "D",
+      "note": "D is the international vehicle code for Germany (Deutschland)"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "hard",
+      "gives": "H",
+      "note": "H is the abbreviation for hard, as on pencils"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RU",
+      "D",
+      "IS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A sporting fixture played between Portugal and Germany proves a tough contest.",
+     "walkthrough": "The game sits between the two country codes, which in this case is simply their reading order.",
+     "definitionFit": "Someone prudish is excessively concerned with decorum and propriety, overly correct or prim in manner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Proper"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +308,70 @@
     "text": "Long time getting round variety of bar's ports!",
     "enumeration": "8"
    },
-   "solution": "HARBOURS"
+   "solution": "HARBOURS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "HARBOURS",
+    "definitions": [
+     {
+      "text": "ports",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "variety of",
+      "for": "anagram",
+      "note": "a variety offers a different version, so these letters come in a new order"
+     },
+     {
+      "text": "getting round",
+      "for": "container",
+      "note": "going round something means surrounding it, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Long time",
+      "gives": "HOURS",
+      "note": "hours can mean a long time, as in 'it took hours'"
+     },
+     {
+      "clueFragment": "bar",
+      "gives": "BAR",
+      "note": "taken as written before being rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "ARB",
+      "OURS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BAR",
+       "gives": "ARB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A long pub crawl round several bars serving port wine.",
+     "definitionFit": "Harbours are sheltered coastal places where ships dock, which is what ports are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ports"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +385,53 @@
     "text": "Helpful to owl with her hatch",
     "enumeration": "10"
    },
-   "solution": "WORTHWHILE"
+   "solution": "WORTHWHILE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WORTHWHILE",
+    "definitions": [
+     {
+      "text": "Helpful",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hatch",
+      "for": "anagram",
+      "note": "to hatch a plan is to devise or contrive it, so the letters are worked into something new"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "owl with her",
+      "gives": "OWLWITHHER",
+      "note": "ten letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OWLWITHHER",
+       "gives": "WORTHWHILE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lends a hand to a mother owl as her eggs hatch.",
+     "definitionFit": "Something worthwhile repays the effort spent, so it is useful or beneficial, that is, helpful."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hatch"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +445,59 @@
     "text": "Strict with reduced number joining regiment",
     "enumeration": "6"
    },
-   "solution": "SEVERE"
+   "solution": "SEVERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEVERE",
+    "definitions": [
+     {
+      "text": "Strict",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reduced",
+      "for": "deletion",
+      "note": "a reduced word has been cut short, so its final letter goes"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "joining"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "SEVEN",
+      "note": "one particular number"
+     },
+     {
+      "clueFragment": "regiment",
+      "gives": "RE",
+      "note": "RE is the Royal Engineers, a British Army corps"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEVE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A disciplinarian officer with a depleted unit joining the regiment.",
+     "walkthrough": "'Number' is any number you need; seven loses its last letter.",
+     "definitionFit": "Severe and strict both describe harsh, uncompromising discipline or rules that permit no leniency."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +511,73 @@
     "text": "Fellow run out by new opener has row on boundary",
     "enumeration": "8"
    },
-   "solution": "FRONTIER"
+   "solution": "FRONTIER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "FRONTIER",
+    "definitions": [
+     {
+      "text": "boundary",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opener",
+      "for": "letter_selection",
+      "note": "the opener of a word is its first letter, which is all that is kept"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "has",
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fellow",
+      "gives": "F",
+      "note": "F is the abbreviation for fellow"
+     },
+     {
+      "clueFragment": "run out",
+      "gives": "RO",
+      "note": "RO is the cricket scorecard abbreviation for run out"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "select": "first",
+      "note": "the initial letter of the word"
+     },
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a tier is a row, as of seats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "RO",
+      "N",
+      "TIER"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket scene: a batsman is run out by the new opener and there's a row about whether the ball reached the boundary.",
+     "walkthrough": "The cricket words (run out, opener, boundary) all pull together, but only 'boundary' is the definition.",
+     "definitionFit": "A frontier is the border line separating two countries, which is a boundary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +591,58 @@
     "text": "Inspired one with zero knowledge",
     "enumeration": "6"
    },
-   "solution": "AWOKEN"
+   "solution": "AWOKEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AWOKEN",
+    "definitions": [
+     {
+      "text": "Inspired",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one, as in 'a dog'"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "zero",
+      "gives": "O",
+      "note": "the figure zero looks like O"
+     },
+     {
+      "clueFragment": "knowledge",
+      "gives": "KEN",
+      "note": "ken is knowledge or understanding, as in 'beyond my ken'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "O",
+      "KEN"
+     ]
+    },
+    "explanation": {
+     "surface": "An inspired person is someone with no knowledge at all, an ironic picture.",
+     "definitionFit": "Feelings that have been awoken have been stirred or roused, in the way that inspired emotions are."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "zero"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +656,57 @@
     "text": "Strike-breaker finally arrives by taxi",
     "enumeration": "4"
    },
-   "solution": "SCAB"
+   "solution": "SCAB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SCAB",
+    "definitions": [
+     {
+      "text": "Strike-breaker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the very end of the word, so only its closing letter is kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arrives",
+      "gives": "S",
+      "select": "last",
+      "note": "the closing letter of the word"
+     },
+     {
+      "clueFragment": "taxi",
+      "gives": "CAB",
+      "note": "a cab is a taxi"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CAB"
+     ]
+    },
+    "explanation": {
+     "surface": "A worker who crosses the picket line finally turns up by taxi.",
+     "definitionFit": "Scab is a contemptuous term for a worker who keeps working during a strike, breaking it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +726,53 @@
      }
     ]
    },
-   "solution": "MADEBETTER"
+   "solution": "MADEBETTER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADE BETTER",
+    "definitions": [
+     {
+      "text": "Cured",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crazy",
+      "gives": "MAD",
+      "note": "mad means crazy"
+     },
+     {
+      "clueFragment": "online",
+      "gives": "E",
+      "note": "E as in e-mail stands for electronic, online"
+     },
+     {
+      "clueFragment": "gambler",
+      "gives": "BETTER",
+      "note": "a better is one who bets"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAD",
+      "E",
+      "BETTER"
+     ]
+    },
+    "explanation": {
+     "surface": "Has an obsessive internet gambler been cured of the habit?",
+     "definitionFit": "A patient who has been healed of an illness has been restored to health, so made better."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cured"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +786,53 @@
     "text": "Rotten to hit fly carelessly",
     "enumeration": "6"
    },
-   "solution": "FILTHY"
+   "solution": "FILTHY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FILTHY",
+    "definitions": [
+     {
+      "text": "Rotten",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carelessly",
+      "for": "anagram",
+      "note": "done carelessly, the letters land in a sloppy new order"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hit fly",
+      "gives": "HITFLY",
+      "note": "six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HITFLY",
+       "gives": "FILTHY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Swatting a fly carelessly is a rotten thing to do.",
+     "definitionFit": "Both words are informal ways of calling something nasty or very unpleasant, as in filthy weather."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fly"
+    }
+   }
   },
   {
    "number": 13,
@@ -217,7 +856,70 @@
      }
     ]
    },
-   "solution": "TIETHEKNOT"
+   "solution": "TIETHEKNOT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TIE THE KNOT",
+    "definitions": [
+     {
+      "text": "Marry",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately means at the end, so only the last letter of the next word is used"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "the pieces before this word go inside the item named after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "perfect",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of the word"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     },
+     {
+      "clueFragment": "Windsor, for example",
+      "gives": "TIEKNOT",
+      "note": "a Windsor is a type of necktie knot"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIE",
+      "T",
+      "HE",
+      "KNOT"
+     ]
+    },
+    "explanation": {
+     "surface": "A perfect man at Windsor, perhaps a royal bridegroom, is ready to wed.",
+     "walkthrough": "Windsor suggests the castle and royal weddings, but the Windsor is a broad necktie knot; T and HE go inside it.",
+     "definitionFit": "To tie the knot is an informal idiom meaning to get married."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Windsor"
+    }
+   }
   },
   {
    "number": 14,
@@ -231,7 +933,71 @@
     "text": "Screeched, as second tremor trapped wife and daughter",
     "enumeration": "8"
    },
-   "solution": "SQUAWKED"
+   "solution": "SQUAWKED",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SQUAWKED",
+    "definitions": [
+     {
+      "text": "Screeched",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trapped",
+      "for": "container",
+      "note": "something trapped is held inside, so one letter sits within another word"
+     }
+    ],
+    "linkWords": [
+     "as",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "second",
+      "gives": "S",
+      "note": "S is the abbreviation for second"
+     },
+     {
+      "clueFragment": "tremor",
+      "gives": "QUAKE",
+      "note": "a quake is a tremor"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the abbreviation for wife"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "D is the abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "QUA",
+      "W",
+      "KE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A wife and daughter, trapped by an aftershock, screamed for help.",
+     "definitionFit": "To squawk is to give a loud harsh cry like a bird, so squawked means screeched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "second"
+    }
+   }
   },
   {
    "number": 15,
@@ -245,7 +1011,71 @@
     "text": "Doctor even has student work to cover",
     "enumeration": "7"
    },
-   "solution": "ENVELOP"
+   "solution": "ENVELOP",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "ENVELOP",
+    "definitions": [
+     {
+      "text": "cover",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Doctor",
+      "for": "anagram",
+      "note": "to doctor something is to tamper with it, changing its arrangement"
+     }
+    ],
+    "linkWords": [
+     "has",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "even",
+      "gives": "EVEN",
+      "note": "taken as written before being rearranged"
+     },
+     {
+      "clueFragment": "student",
+      "gives": "L",
+      "note": "L is a learner, as on British learner-driver plates"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "OP is short for opus, a work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENVE",
+      "L",
+      "OP"
+     ],
+     "anagrams": [
+      {
+       "fodder": "EVEN",
+       "gives": "ENVE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Even a doctor has student work to mark, or to cover for a colleague.",
+     "walkthrough": "'Doctor' looks like a person but is a verb signalling the rearrangement.",
+     "definitionFit": "To envelop something is to wrap or surround it completely, which is to cover it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Doctor"
+    }
+   }
   },
   {
    "number": 16,
@@ -259,7 +1089,50 @@
     "text": "Outside broadcast gets player hitting first ball to spectator",
     "enumeration": "8"
    },
-   "solution": "OBSERVER"
+   "solution": "OBSERVER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OBSERVER",
+    "definitions": [
+     {
+      "text": "spectator",
+      "at": 52
+     }
+    ],
+    "linkWords": [
+     "gets",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Outside broadcast",
+      "gives": "OB",
+      "note": "OB is the abbreviation for outside broadcast"
+     },
+     {
+      "clueFragment": "player hitting first ball",
+      "gives": "SERVER",
+      "note": "in tennis the server strikes the first ball of each point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OB",
+      "SERVER"
+     ]
+    },
+    "explanation": {
+     "surface": "A TV outside broadcast catches a tennis player serving to a fan in the crowd.",
+     "definitionFit": "An observer watches events without taking part, just as a spectator does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Outside"
+    }
+   }
   },
   {
    "number": 17,
@@ -273,7 +1146,50 @@
     "text": "Hoping endlessly for painkiller",
     "enumeration": "7"
    },
-   "solution": "ASPIRIN"
+   "solution": "ASPIRIN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ASPIRIN",
+    "definitions": [
+     {
+      "text": "painkiller",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "without an end, so the final letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hoping",
+      "gives": "ASPIRING",
+      "note": "aspiring means hoping or aiming"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASPIRIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone with a headache longs endlessly for a pill.",
+     "definitionFit": "Aspirin is a common over-the-counter drug taken to relieve pain, a standard analgesic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   },
   {
    "number": 18,
@@ -293,7 +1209,51 @@
      }
     ]
    },
-   "solution": "ILLTREAT"
+   "solution": "ILLTREAT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ILL-TREAT",
+    "definitions": [
+     {
+      "text": "Abuse",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being sick",
+      "gives": "ILL",
+      "note": "being sick is being ill"
+     },
+     {
+      "clueFragment": "indulgence",
+      "gives": "TREAT",
+      "note": "a treat is an indulgence"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "TREAT"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a little indulgence the right thing to give someone who is sick?",
+     "walkthrough": "Read the second part as 'a treat for the ill', with the pieces in reverse order to the clue.",
+     "definitionFit": "To ill-treat a person or animal is to handle them cruelly, the verb sense of abuse."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "indulgence"
+    }
+   }
   },
   {
    "number": 19,
@@ -307,7 +1267,48 @@
     "text": "Note who the French shot?",
     "enumeration": "7"
    },
-   "solution": "TEQUILA"
+   "solution": "TEQUILA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TEQUILA",
+    "definitions": [
+     {
+      "text": "shot",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "gives": "TE",
+      "note": "te is a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "who the French",
+      "gives": "QUILA",
+      "note": "qui is French for who and la is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TE",
+      "QUILA"
+     ]
+    },
+    "explanation": {
+     "surface": "A query about whom the French executed by shooting.",
+     "walkthrough": "'the French' applies to both words, so who and the are each translated.",
+     "definitionFit": "Tequila is a Mexican spirit commonly drunk as a single shot glass measure."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 20,
@@ -321,7 +1322,53 @@
     "text": "I get she's desperate to visit as a tourist",
     "enumeration": "8"
    },
-   "solution": "SIGHTSEE"
+   "solution": "SIGHTSEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIGHTSEE",
+    "definitions": [
+     {
+      "text": "visit as a tourist",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "desperate",
+      "for": "anagram",
+      "note": "desperate suggests wild or frantic, so the letters are thrown about"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I get she's",
+      "gives": "IGETSHES",
+      "note": "eight letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IGETSHES",
+       "gives": "SIGHTSEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone understands that she is desperate to go travelling.",
+     "definitionFit": "To sightsee is to go around looking at famous places and attractions, as holidaymakers do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "desperate"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1392,56 @@
      }
     ]
    },
-   "solution": "INAWAY"
+   "solution": "INAWAY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IN A WAY",
+    "definitions": [
+     {
+      "text": "Kind of",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "to take"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "Alpha",
+      "gives": "A",
+      "note": "Alpha is the NATO phonetic word for A"
+     },
+     {
+      "clueFragment": "course",
+      "gives": "WAY",
+      "note": "a way is a course or route"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "A",
+      "WAY"
+     ]
+    },
+    "explanation": {
+     "surface": "It's sort of fashionable to sign up for an Alpha course.",
+     "walkthrough": "An Alpha course is a well-known introductory Christianity course in Britain.",
+     "definitionFit": "Both are informal hedges meaning to some extent or partly, as in 'it was kind of sad'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1455,84 @@
     "text": "Use new £1 after 1 March for breakfast",
     "enumeration": "6"
    },
-   "solution": "MUESLI"
+   "solution": "MUESLI",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "MUESLI",
+    "definitions": [
+     {
+      "text": "breakfast",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "1",
+      "for": "letter_selection",
+      "note": "the number one before a word marks its first letter"
+     },
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "a new version is a remade one, so these letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "after",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "March",
+      "gives": "M",
+      "select": "first",
+      "note": "the opening letter of the month"
+     },
+     {
+      "clueFragment": "Use",
+      "gives": "USE",
+      "note": "taken as written before being rearranged"
+     },
+     {
+      "clueFragment": "£",
+      "gives": "L",
+      "note": "the pound sign is a stylised L, from Latin libra"
+     },
+     {
+      "clueFragment": "1",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "UES",
+      "L",
+      "I"
+     ],
+     "anagrams": [
+      {
+       "fodder": "USE",
+       "gives": "UES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Spend a new pound coin after the first of March on something for breakfast.",
+     "walkthrough": "'£1' and '1 March' look like a sum and a date; the pound sign gives L, 1 gives I, and the first of March is its initial M.",
+     "definitionFit": "Muesli is a cereal mixture of oats, nuts and dried fruit eaten in the morning meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "March"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1546,71 @@
     "text": "Humble poem breaks woman's sympathetic heart",
     "enumeration": "6"
    },
-   "solution": "MODEST"
+   "solution": "MODEST",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MODEST",
+    "definitions": [
+     {
+      "text": "Humble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaks",
+      "for": "container",
+      "note": "something that breaks into a word forces its way inside it"
+     },
+     {
+      "text": "heart",
+      "for": "letter_selection",
+      "note": "the heart of a word is its central letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "MS",
+      "note": "Ms is the title for a woman"
+     },
+     {
+      "clueFragment": "poem",
+      "gives": "ODE",
+      "note": "an ode is a lyric poem"
+     },
+     {
+      "clueFragment": "sympathetic",
+      "gives": "T",
+      "select": "middle",
+      "note": "the central letter of an eleven-letter word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ODE",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A poem breaks through to a woman's kind heart.",
+     "definitionFit": "Modest and humble both describe someone with a low estimate of their own importance or achievements."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "breaks"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1624,50 @@
     "text": "Setting for retreat's next to sports field",
     "enumeration": "10"
    },
-   "solution": "BACKGROUND"
+   "solution": "BACKGROUND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BACKGROUND",
+    "definitions": [
+     {
+      "text": "Setting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "for",
+     "'s next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "retreat",
+      "gives": "BACK",
+      "note": "to back away is to retreat"
+     },
+     {
+      "clueFragment": "sports field",
+      "gives": "GROUND",
+      "note": "a ground is a sports field, as a cricket or football ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACK",
+      "GROUND"
+     ]
+    },
+    "explanation": {
+     "surface": "A country retreat set beside a playing field.",
+     "definitionFit": "The background of a story or picture is its scene or surroundings, that is, its setting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Setting"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1681,60 @@
     "text": "Backing up, luxury car makes vibrating sound",
     "enumeration": "4"
    },
-   "solution": "PURR"
+   "solution": "PURR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "PURR",
+    "definitions": [
+     {
+      "text": "makes vibrating sound",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Backing",
+      "for": "reversal",
+      "note": "backing means going in reverse, so the next word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "up",
+      "gives": "UP",
+      "note": "taken as written before being turned round"
+     },
+     {
+      "clueFragment": "luxury car",
+      "gives": "RR",
+      "note": "RR is Rolls-Royce, the luxury car maker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PU",
+      "RR"
+     ],
+     "reversals": [
+      {
+       "from": "UP",
+       "to": "PU"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Rolls-Royce reversing makes a gentle engine hum.",
+     "definitionFit": "A cat purrs by making a low continuous rumbling noise in the throat, a vibrating sound."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Backing"
+    }
+   }
   },
   {
    "number": 24,
@@ -415,7 +1748,44 @@
     "text": "Look both ways!",
     "enumeration": "4"
    },
-   "solution": "PEEP"
+   "solution": "PEEP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "PEEP",
+    "definitions": [
+     {
+      "text": "Look both ways!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look both ways!",
+      "note": "surface reading: the road-safety command to check left and right before crossing"
+     },
+     {
+      "clueFragment": "Look both ways!",
+      "note": "setter's reading: a word for a glance that reads the same whichever direction you take it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PEEP"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface is the kerbside instruction; read cryptically, it asks for a word meaning a glance that is spelt identically in either direction.",
+     "definitionFit": "To peep is to take a quick or furtive glance, a brief look, and its letters form a palindrome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "ways"
+    }
+   }
   },
   {
    "number": 25,
@@ -429,7 +1799,60 @@
     "text": "Try to persuade old king to protect a judge",
     "enumeration": "6"
    },
-   "solution": "CAJOLE"
+   "solution": "CAJOLE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAJOLE",
+    "definitions": [
+     {
+      "text": "Try to persuade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "to protect is to shield by surrounding, so one piece goes around the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old king",
+      "gives": "COLE",
+      "note": "Old King Cole of the nursery rhyme"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "J",
+      "OLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone lobbies an elderly monarch to shield a judge.",
+     "definitionFit": "To cajole is to coax someone with flattery into doing something, which is trying to persuade."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 26,
@@ -449,7 +1872,71 @@
      }
     ]
    },
-   "solution": "LASVEGAS"
+   "solution": "LASVEGAS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "LAS VEGAS",
+    "definitions": [
+     {
+      "text": "a better place in America",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "waste",
+      "for": "anagram",
+      "note": "to lay waste is to wreck, so the letters are smashed into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Left",
+      "gives": "L",
+      "note": "L is the abbreviation for left"
+     },
+     {
+      "clueFragment": "savage",
+      "gives": "SAVAGE",
+      "note": "taken as written before being rearranged"
+     },
+     {
+      "clueFragment": "southern",
+      "gives": "S",
+      "note": "S is the abbreviation for southern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "ASVEGA",
+      "S"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SAVAGE",
+       "gives": "ASVEGA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone leaves a savage southern wilderness for a better life in America.",
+     "walkthrough": "'better' reads as 'improved' but means one who bets.",
+     "definitionFit": "The Nevada city is famous for its casinos, so it is a place in the US for gamblers to visit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   }
  ]
 }
