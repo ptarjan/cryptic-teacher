@@ -27,8 +27,19 @@
   "model": "opus",
   "date": "2026-10-07",
   "check": "30 entries, 60 crossings, 0 conflicts",
-  "officialKey": "never"
+  "officialKey": "never",
+  "corrected": [
+   {
+    "entry": "22-across",
+    "was": "ATTIC",
+    "now": "AZTEC",
+    "date": "2026-10-07"
+   }
+  ]
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -42,7 +53,69 @@
     "text": "Lucky animal avoiding pound, biting horse’s lip",
     "enumeration": "8"
    },
-   "solution": "BACKCHAT"
+   "solution": "BACKCHAT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "BACKCHAT",
+    "definitions": [
+     {
+      "text": "lip",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "to avoid something is to keep clear of it, so the abbreviation for pound is left out"
+     },
+     {
+      "text": "biting",
+      "for": "container",
+      "note": "whatever bites closes its jaws around something, so the shortened animal wraps round the horse"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lucky animal",
+      "gives": "BLACKCAT",
+      "note": "a black cat is a traditional British good-luck symbol"
+     },
+     {
+      "clueFragment": "pound",
+      "gives": "L",
+      "note": "L is the abbreviation for pound sterling (libra)"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "H",
+      "note": "horse is slang for heroin, abbreviated H"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BACKC",
+      "H",
+      "AT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lucky black cat nips a horse on the lip.",
+     "walkthrough": "BLACK CAT loses its L to become BACKCAT, which then closes round H to give BACKCHAT.",
+     "definitionFit": "Lip is informal for cheeky, impudent talk, the same thing as answering back rudely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lip"
+    }
+   }
   },
   {
    "number": 1,
@@ -56,7 +129,54 @@
     "text": "Robbers’ song heard when propping up bar",
     "enumeration": "8"
    },
-   "solution": "BANDITTI"
+   "solution": "BANDITTI",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "BANDITTI",
+    "definitions": [
+     {
+      "text": "Robbers",
+      "at": 0,
+      "note": "the clue's possessive is surface only; the answer is a plural noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heard",
+      "for": "homophone",
+      "note": "heard tells us the word for song counts by its sound alone"
+     }
+    ],
+    "linkWords": [
+     "when propping up"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "BAN",
+      "note": "to bar is to prohibit, to ban"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "DITTI",
+      "soundsLike": "DITTY",
+      "note": "a ditty is a short simple song"
+     }
+    ],
+    "explanation": {
+     "surface": "Bandits sing a song while leaning on a pub bar.",
+     "walkthrough": "In a down answer, the piece propping up another sits below it, so the song follows BAN.",
+     "definitionFit": "Banditti is the Italian plural of bandit, used in English for outlaw gangs who rob travellers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 2,
@@ -70,7 +190,56 @@
     "text": "Heavenly body yours truly enticed into bed?",
     "enumeration": "5"
    },
-   "solution": "COMET"
+   "solution": "COMET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "COMET",
+    "definitions": [
+     {
+      "text": "Heavenly body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enticed into",
+      "for": "container",
+      "note": "someone enticed into a place is drawn inside it, so the setter's pronoun goes within the bed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bed",
+      "gives": "COT",
+      "note": "a cot is a small bed"
+     },
+     {
+      "clueFragment": "yours truly",
+      "gives": "ME",
+      "note": "yours truly is the speaker, me"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "ME",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A gorgeous person lures the speaker to bed.",
+     "walkthrough": "Heavenly body suggests a beautiful figure, but it is an astronomical one.",
+     "definitionFit": "A comet is an icy celestial object orbiting the sun, trailing a glowing tail across the sky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Heavenly"
+    }
+   }
   },
   {
    "number": 3,
@@ -98,7 +267,46 @@
      }
     ]
    },
-   "solution": "CASHINONESCHIPS"
+   "solution": "CASHINONESCHIPS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CASH IN ONE'S CHIPS",
+    "definitions": [
+     {
+      "text": "Fail finally",
+      "at": 0
+     },
+     {
+      "text": "get money for potatoes?",
+      "at": 16
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fail finally",
+      "note": "first meaning: to die, an idiom from the gambling table"
+     },
+     {
+      "clueFragment": "get money for potatoes?",
+      "note": "second meaning, read literally: to exchange fried potato chips for money"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The idiom comes from gamblers handing in their gaming chips at the end of play; British chips are also fried potato strips.",
+     "definitionFit": "The idiom is a euphemism for dying, and literally describes turning chips into cash."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "potatoes"
+    }
+   }
   },
   {
    "number": 4,
@@ -118,7 +326,60 @@
      }
     ]
    },
-   "solution": "ALLTIME"
+   "solution": "ALLTIME",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ALL-TIME",
+    "definitions": [
+     {
+      "text": "Unsurpassed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding in",
+      "for": "container",
+      "note": "someone hiding in a place is concealed inside it, so the officer sits within the tree"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "tree",
+      "gives": "LIME",
+      "note": "the lime, or linden, is a tree"
+     },
+     {
+      "clueFragment": "army officer",
+      "gives": "LT",
+      "note": "Lt is the abbreviation for lieutenant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "LT",
+      "IME"
+     ]
+    },
+    "explanation": {
+     "surface": "A record-breaking army officer hides up a tree.",
+     "definitionFit": "An all-time record or best has never been beaten, so it is unequalled ever."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd"
+    }
+   }
   },
   {
    "number": 5,
@@ -132,7 +393,51 @@
     "text": "Beetle found in tar by craggy outcrop",
     "enumeration": "6"
    },
-   "solution": "SCARAB"
+   "solution": "SCARAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SCARAB",
+    "definitions": [
+     {
+      "text": "Beetle",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "found in",
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "craggy outcrop",
+      "gives": "SCAR",
+      "note": "a scar is a steep rocky cliff or outcrop"
+     },
+     {
+      "clueFragment": "tar",
+      "gives": "AB",
+      "note": "a tar is a sailor, as is an AB (able seaman)"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCAR",
+      "AB"
+     ]
+    },
+    "explanation": {
+     "surface": "A beetle turns up in tar beside a rocky crag.",
+     "walkthrough": "Tar looks like the sticky black stuff, but in crosswords it is a sailor.",
+     "definitionFit": "The scarab is a dung beetle held sacred in ancient Egypt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "tar"
+    }
+   }
   },
   {
    "number": 6,
@@ -156,7 +461,51 @@
      }
     ]
    },
-   "solution": "CROSSTHERUBICON"
+   "solution": "CROSSTHERUBICON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CROSS THE RUBICON",
+    "definitions": [
+     {
+      "text": "Commit oneself",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for distribution",
+      "for": "anagram",
+      "note": "things set out for distribution are spread around, so these letters are scattered into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to scrub her coins",
+      "gives": "TOSCRUBHERCOINS",
+      "note": "the fifteen letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TOSCRUBHERCOINS",
+       "gives": "CROSSTHERUBICON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone commits to cleaning her coins before handing them out.",
+     "walkthrough": "Caesar crossing the river Rubicon in 49 BC committed him to civil war, with no way back.",
+     "definitionFit": "The idiom means to take an irrevocable step, pledging oneself to a course of action."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "distribution"
+    }
+   }
   },
   {
    "number": 7,
@@ -170,7 +519,64 @@
     "text": "What the board did — turned out sour and bitter",
     "enumeration": "9"
    },
-   "solution": "RANCOROUS"
+   "solution": "RANCOROUS",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RANCOROUS",
+    "definitions": [
+     {
+      "text": "bitter",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "turned out",
+      "for": "anagram",
+      "note": "turned out means rearranged or overturned, so the letters of that word are reordered"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What the board did",
+      "gives": "RANCO",
+      "note": "a board of directors ran the company: RAN plus CO for company"
+     },
+     {
+      "clueFragment": "sour",
+      "gives": "SOUR",
+      "note": "taken as written, to be reordered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RANCO",
+      "ROUS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SOUR",
+       "gives": "ROUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The board's decision left everyone sour and bitter.",
+     "walkthrough": "The board is a company board of directors, whose job is to run the company, abbreviated CO.",
+     "definitionFit": "Rancorous means full of long-held resentment and spite, so bitter in feeling."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 8,
@@ -184,7 +590,45 @@
     "text": "Oppressive duty, forming chorus",
     "enumeration": "6"
    },
-   "solution": "BURDEN"
+   "solution": "BURDEN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "BURDEN",
+    "definitions": [
+     {
+      "text": "Oppressive duty",
+      "at": 0
+     },
+     {
+      "text": "chorus",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "forming"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Oppressive duty",
+      "note": "first meaning: a heavy load of responsibility"
+     },
+     {
+      "clueFragment": "chorus",
+      "note": "second meaning: the refrain of a song, an older sense of the word"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second sense is less familiar: it is the repeated refrain of a song or poem.",
+     "definitionFit": "The word means both a heavy load or obligation and the recurring refrain of a song."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "chorus"
+    }
+   }
   },
   {
    "number": 9,
@@ -198,7 +642,53 @@
     "text": "Messengers a German Marxist beheaded",
     "enumeration": "6"
    },
-   "solution": "ANGELS"
+   "solution": "ANGELS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ANGELS",
+    "definitions": [
+     {
+      "text": "Messengers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beheaded",
+      "for": "deletion",
+      "note": "beheading removes the head, so the first letter of the Marxist's name is lost"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "German Marxist",
+      "gives": "ENGELS",
+      "note": "Friedrich Engels, Marx's German collaborator"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "NGELS"
+     ]
+    },
+    "explanation": {
+     "surface": "Messengers report that a German communist has been executed.",
+     "definitionFit": "The Greek angelos means messenger; angels deliver divine messages in scripture."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 10,
@@ -212,7 +702,60 @@
     "text": "New house backing site of Roman remains in France",
     "enumeration": "5"
    },
-   "solution": "NIMES"
+   "solution": "NIMES",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NIMES",
+    "definitions": [
+     {
+      "text": "site of Roman remains in France",
+      "at": 18
+     }
+    ],
+    "indicators": [
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the word for this kind of house is written right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "note": "N is the standard abbreviation for new"
+     },
+     {
+      "clueFragment": "house",
+      "gives": "SEMI",
+      "note": "a semi is a semi-detached house, one sharing a wall with its neighbour"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "IMES"
+     ],
+     "reversals": [
+      {
+       "from": "SEMI",
+       "to": "IMES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newly built house seems to back on to Roman ruins in France.",
+     "definitionFit": "Nîmes in southern France keeps a famous Roman arena and the Maison Carrée temple."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "backing"
+    }
+   }
   },
   {
    "number": 11,
@@ -226,7 +769,64 @@
     "text": "Squire taking narrow road right across hill",
     "enumeration": "9"
    },
-   "solution": "LANDOWNER"
+   "solution": "LANDOWNER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LANDOWNER",
+    "definitions": [
+     {
+      "text": "Squire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "container",
+      "note": "lying across something means stretching over it on both sides, so the road and its partner enclose the hill"
+     }
+    ],
+    "linkWords": [
+     "taking"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "narrow road",
+      "gives": "LANE",
+      "note": "a lane is a narrow country road"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "hill",
+      "gives": "DOWN",
+      "note": "a down is a rolling chalk hill, as in the South Downs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAN",
+      "DOWN",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A country squire takes a narrow lane over the hill.",
+     "walkthrough": "The hill goes inside LANE, before its last letter, and R follows.",
+     "definitionFit": "A squire was the chief owner of land in an English village, so a property holder of estates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 12,
@@ -240,7 +840,65 @@
     "text": "Untaught Alaskan native the writer’s taken on? About time",
     "enumeration": "9"
    },
-   "solution": "INTUITIVE"
+   "solution": "INTUITIVE",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "INTUITIVE",
+    "definitions": [
+     {
+      "text": "Untaught",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about means surrounding here, so the native people go round the abbreviation for time"
+     }
+    ],
+    "linkWords": [
+     "taken on?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Alaskan native",
+      "gives": "INUIT",
+      "note": "the Inuit are an indigenous Arctic people, including in Alaska"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     },
+     {
+      "clueFragment": "the writer’s",
+      "gives": "IVE",
+      "note": "the writer is the setter, I, and 's here stands for has: I've"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "T",
+      "UIT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wonders whether an untaught Alaskan native has been hired by the writer.",
+     "walkthrough": "The writer is the setter, and the writer's here means 'I have', contracted; the question mark flags that odd reading.",
+     "definitionFit": "Intuitive knowledge comes by instinct rather than instruction, so it is untaught."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "writer’s"
+    }
+   }
   },
   {
    "number": 13,
@@ -254,7 +912,46 @@
     "text": "Product of baker in ancient Scottish settlement",
     "enumeration": "5"
    },
-   "solution": "SCONE"
+   "solution": "SCONE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCONE",
+    "definitions": [
+     {
+      "text": "Product of baker",
+      "at": 0
+     },
+     {
+      "text": "ancient Scottish settlement",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Product of baker",
+      "note": "first meaning: a small round baked cake eaten with butter or jam"
+     },
+     {
+      "clueFragment": "ancient Scottish settlement",
+      "note": "second meaning: the old Perthshire village where Scottish kings were crowned"
+     }
+    ],
+    "explanation": {
+     "surface": "A baker's wares are found in an old Scottish village.",
+     "walkthrough": "Scone in Perthshire gave its name to the Stone of Scone, the coronation stone of Scottish kings.",
+     "definitionFit": "The word names both a small baked teatime cake and the historic Scottish royal site."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 14,
@@ -274,7 +971,67 @@
      }
     ]
    },
-   "solution": "TOPHOLE"
+   "solution": "TOPHOLE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "homophone",
+     "charade"
+    ],
+    "answer": "TOP-HOLE",
+    "definitions": [
+     {
+      "text": "Excellent",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "when he leaves he departs, so those two letters go from the phrase for the work"
+     },
+     {
+      "text": "say",
+      "for": "homophone",
+      "note": "say asks us to speak the word for complete, keeping its sound but not its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the work",
+      "gives": "THEOP",
+      "note": "op is short for opus, a musical work"
+     },
+     {
+      "clueFragment": "He",
+      "gives": "HE",
+      "note": "taken as written, to be removed"
+     },
+     {
+      "clueFragment": "complete",
+      "gives": "HOLE",
+      "soundsLike": "WHOLE",
+      "note": "whole means complete, and sounds like a hole in the ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOP",
+      "HOLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man walks off, leaving his work all finished — excellent!",
+     "walkthrough": "THE OP without H and E leaves TOP; WHOLE spoken aloud gives HOLE.",
+     "definitionFit": "Top-hole is dated upper-class British slang meaning first-rate or splendid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 15,
@@ -288,7 +1045,61 @@
     "text": "Pressure afflicted priest in such a suit",
     "enumeration": "9"
    },
-   "solution": "PINSTRIPE"
+   "solution": "PINSTRIPE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PINSTRIPE",
+    "definitions": [
+     {
+      "text": "such a suit",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "afflicted",
+      "for": "anagram",
+      "note": "something afflicted is troubled and out of sorts, so these letters are upset into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pressure",
+      "gives": "P",
+      "note": "P is the abbreviation for pressure"
+     },
+     {
+      "clueFragment": "priest in",
+      "gives": "PRIESTIN",
+      "note": "taken as written, to be reordered"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "INSTRIPE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "PRIESTIN",
+       "gives": "INSTRIPE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A troubled priest is under pressure while wearing a smart suit.",
+     "walkthrough": "In looks like a link to the suit but is part of the letters to reorder.",
+     "definitionFit": "A pinstripe is a business suit of cloth with fine vertical lines, the kind referred to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "in"
+    }
+   }
   },
   {
    "number": 16,
@@ -302,7 +1113,72 @@
     "text": "Train from Soho travelling round west end of Central Line",
     "enumeration": "6"
    },
-   "solution": "SCHOOL"
+   "solution": "SCHOOL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "SCHOOL",
+    "definitions": [
+     {
+      "text": "Train",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "travelling",
+      "for": "anagram",
+      "note": "things travelling are moving about, so these letters move into a new order"
+     },
+     {
+      "text": "west end of",
+      "for": "letter_selection",
+      "note": "on a map west is the left, and the left end of a written word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "from",
+     "round"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Soho",
+      "gives": "SOHO",
+      "note": "taken as written: the London district"
+     },
+     {
+      "clueFragment": "Central",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "Line",
+      "gives": "L",
+      "note": "L is the abbreviation for line"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SOHOCL",
+       "gives": "SCHOOL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A train sets off from Soho on the London Underground's Central Line.",
+     "walkthrough": "Train looks like a noun on the Tube; it is the verb. Soho is a London district and the Central Line an Underground route.",
+     "definitionFit": "To school someone is to teach or drill them, just as to train them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Train"
+    }
+   }
   },
   {
    "number": 17,
@@ -316,7 +1192,61 @@
     "text": "In the morning, ride around northern plant",
     "enumeration": "8"
    },
-   "solution": "CYCLAMEN"
+   "solution": "CYCLAMEN",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CYCLAMEN",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "the word for ride goes around the abbreviation for morning, enclosing it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ride",
+      "gives": "CYCLE",
+      "note": "to cycle is to ride a bike"
+     },
+     {
+      "clueFragment": "In the morning",
+      "gives": "AM",
+      "note": "am is ante meridiem, before noon"
+     },
+     {
+      "clueFragment": "northern",
+      "gives": "N",
+      "note": "N is the abbreviation for northern"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CYCL",
+      "AM",
+      "E",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cycles around a northern plant early in the day.",
+     "definitionFit": "The cyclamen is a flowering plant with swept-back petals, popular in pots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "plant"
+    }
+   }
   },
   {
    "number": 18,
@@ -330,7 +1260,63 @@
     "text": "Small picture capturing start of county cricket?",
     "enumeration": "6"
    },
-   "solution": "INSECT"
+   "solution": "INSECT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "INSECT",
+    "definitions": [
+     {
+      "text": "cricket?",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "capturing",
+      "for": "container",
+      "note": "to capture is to take and hold inside, so the small picture closes round a letter"
+     },
+     {
+      "text": "start of",
+      "for": "letter_selection",
+      "note": "the start of a word is its first letter, the only one kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Small picture",
+      "gives": "INSET",
+      "note": "an inset is a small picture set within a larger one"
+     },
+     {
+      "clueFragment": "county",
+      "gives": "C",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSE",
+      "C",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A small photograph captures the opening of a county cricket match.",
+     "walkthrough": "County cricket is the English domestic game, but the question mark warns that cricket here is the chirping creature.",
+     "definitionFit": "A cricket is a chirping, jumping creature, one example of a six-legged invertebrate."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 19,
@@ -344,7 +1330,58 @@
     "text": "Chuckle when non-drinker gets involved in row",
     "enumeration": "6"
    },
-   "solution": "TITTER"
+   "solution": "TITTER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TITTER",
+    "definitions": [
+     {
+      "text": "Chuckle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "gets involved in",
+      "for": "container",
+      "note": "getting involved in something means getting inside it, so the abstainer is put within the row"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "row",
+      "gives": "TIER",
+      "note": "a tier is a row, as of seats"
+     },
+     {
+      "clueFragment": "non-drinker",
+      "gives": "TT",
+      "note": "TT is teetotal, a person abstaining from alcohol"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TI",
+      "TT",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "People laugh when the teetotaller gets into an argument.",
+     "walkthrough": "Row suggests a quarrel, but it is a row of seats.",
+     "definitionFit": "A titter is a short, half-suppressed laugh, much like a quiet giggle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "row"
+    }
+   }
   },
   {
    "number": 20,
@@ -358,7 +1395,73 @@
     "text": "Uncivil servant initially rejected the old form of obeisance",
     "enumeration": "7"
    },
-   "solution": "CURTSEY"
+   "solution": "CURTSEY",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "CURTSEY",
+    "definitions": [
+     {
+      "text": "form of obeisance",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points at the first letter of the word just before it"
+     },
+     {
+      "text": "rejected",
+      "for": "reversal",
+      "note": "something rejected is sent back, so the old word for the is written backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Uncivil",
+      "gives": "CURT",
+      "note": "curt means rudely brief"
+     },
+     {
+      "clueFragment": "servant",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of this word"
+     },
+     {
+      "clueFragment": "the old",
+      "gives": "YE",
+      "note": "ye is the old written form of the, as in Ye Olde Tea Shoppe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CURT",
+      "S",
+      "EY"
+     ],
+     "reversals": [
+      {
+       "from": "YE",
+       "to": "EY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rude servant refuses the old-fashioned bow.",
+     "definitionFit": "A curtsey is a woman's respectful bob or bend of the knee, a gesture of deference."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "old"
+    }
+   }
   },
   {
    "number": 20,
@@ -372,7 +1475,60 @@
     "text": "Conservative heavyweight axing British warship",
     "enumeration": "7"
    },
-   "solution": "CRUISER"
+   "solution": "CRUISER",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CRUISER",
+    "definitions": [
+     {
+      "text": "warship",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "axing",
+      "for": "deletion",
+      "note": "to axe is to cut out, so the abbreviation for British is chopped from the heavyweight"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     },
+     {
+      "clueFragment": "heavyweight",
+      "gives": "BRUISER",
+      "note": "a bruiser is a big, tough fighter"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "B is the abbreviation for British"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUISER"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory political heavyweight scraps a British warship.",
+     "walkthrough": "Heavyweight suggests a senior politician, but here it is a burly fighter.",
+     "definitionFit": "A cruiser is a fast, well-armed naval vessel, one class of fighting ship."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "heavyweight"
+    }
+   }
   },
   {
    "number": 21,
@@ -386,7 +1542,60 @@
     "text": "Finally heeding publicity, purchase useful device",
     "enumeration": "6"
    },
-   "solution": "GADGET"
+   "solution": "GADGET",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "GADGET",
+    "definitions": [
+     {
+      "text": "useful device",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Finally",
+      "for": "letter_selection",
+      "note": "finally points at the last letter of the word that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heeding",
+      "gives": "G",
+      "select": "last",
+      "note": "the last letter of this word"
+     },
+     {
+      "clueFragment": "publicity",
+      "gives": "AD",
+      "note": "an ad is an advertisement, a piece of publicity"
+     },
+     {
+      "clueFragment": "purchase",
+      "gives": "GET",
+      "note": "to get is to obtain or buy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "AD",
+      "GET"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone, swayed at last by advertising, buys a handy device.",
+     "definitionFit": "A gadget is a small mechanical tool or contrivance designed for a practical job."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -400,7 +1609,51 @@
     "text": "Language once used by investigator pursuing extremists",
     "enumeration": "5"
    },
-   "solution": "ATTIC"
+   "solution": "AZTEC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AZTEC",
+    "definitions": [
+     {
+      "text": "Language once used",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by",
+     "pursuing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "extremists",
+      "gives": "AZ",
+      "note": "A and Z are the extremes of the alphabet"
+     },
+     {
+      "clueFragment": "investigator",
+      "gives": "TEC",
+      "note": "tec is short for detective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AZ",
+      "TEC"
+     ]
+    },
+    "explanation": {
+     "surface": "Some old tongue was spoken by a detective tailing radicals.",
+     "walkthrough": "Extremists suggests fanatics; here it means the two letters at either end of the alphabet, which the detective follows.",
+     "definitionFit": "Aztec, or Nahuatl, was the tongue spoken in the Mexican empire before the Spanish conquest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "extremists"
+    }
+   }
   },
   {
    "number": 23,
@@ -414,7 +1667,42 @@
     "text": "Sort of sketch that pins Tom down?",
     "enumeration": "9"
    },
-   "solution": "THUMBNAIL"
+   "solution": "THUMBNAIL",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "THUMBNAIL",
+    "definitions": [
+     {
+      "text": "Sort of sketch",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "that"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sort of sketch",
+      "note": "surface reading: a kind of small, quick drawing"
+     },
+     {
+      "clueFragment": "pins Tom down?",
+      "note": "setter's reading: a spike that would pin the tiny fairy-tale hero Tom to the ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Tom Thumb is the tiny hero of an English folk tale, so a nail sized to pin him down would be a very small one.",
+     "definitionFit": "A thumbnail sketch is a brief, small-scale drawing or outline, no bigger than the nail on your thumb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tom"
+    }
+   }
   },
   {
    "number": 24,
@@ -428,7 +1716,61 @@
     "text": "Assemble article in a number of handwritten sheets",
     "enumeration": "5"
    },
-   "solution": "AMASS"
+   "solution": "AMASS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "AMASS",
+    "definitions": [
+     {
+      "text": "Assemble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the article inside the abbreviation for the handwritten sheets"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "number of handwritten sheets",
+      "gives": "MSS",
+      "note": "MSS is the abbreviation for manuscripts"
+     },
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "a is the indefinite article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "M",
+      "A",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gathers an article together from a pile of handwritten pages.",
+     "definitionFit": "To amass is to gather or accumulate a large quantity, so to collect together."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "article"
+    }
+   }
   },
   {
    "number": 25,
@@ -442,7 +1784,64 @@
     "text": "Stern head transfixed by one’s filthy state",
     "enumeration": "9"
    },
-   "solution": "GRIMINESS"
+   "solution": "GRIMINESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "GRIMINESS",
+    "definitions": [
+     {
+      "text": "filthy state",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "transfixed by",
+      "for": "container",
+      "note": "transfixed means pierced right through, so the numeral one is stuck into the middle"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stern",
+      "gives": "GRIM",
+      "note": "grim means severe and stern"
+     },
+     {
+      "clueFragment": "head",
+      "gives": "NESS",
+      "note": "a ness is a headland, as in Loch Ness's neighbours or Sheerness"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRIM",
+      "I",
+      "NESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A stern headmaster, pinned by someone's gaze, is in a filthy state.",
+     "walkthrough": "GRIM and NESS sit side by side and the I spears the join between them; the 's stands for is.",
+     "definitionFit": "Griminess is the condition of being covered in ingrained dirt, so a filthy state."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 26,
@@ -456,7 +1855,43 @@
     "text": "Spell “desirability”",
     "enumeration": "5"
    },
-   "solution": "CHARM"
+   "solution": "CHARM",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CHARM",
+    "definitions": [
+     {
+      "text": "Spell",
+      "at": 0
+     },
+     {
+      "text": "desirability",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Spell",
+      "note": "first meaning: a magic incantation"
+     },
+     {
+      "clueFragment": "desirability",
+      "note": "second meaning: the quality of being attractive and appealing"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface asks us to spell out a word; spell is a noun meaning an enchantment.",
+     "definitionFit": "The word names both a magical incantation and an attractive, appealing quality in a person."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Spell"
+    }
+   }
   },
   {
    "number": 27,
@@ -470,7 +1905,69 @@
     "text": "Very small place for driving school’s opening in city",
     "enumeration": "6"
    },
-   "solution": "TEENSY"
+   "solution": "TEENSY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "TEENSY",
+    "definitions": [
+     {
+      "text": "Very small",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening",
+      "for": "letter_selection",
+      "note": "an opening is the very beginning, so only the first letter of that word counts"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places that letter inside the abbreviation for the city"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "place for driving",
+      "gives": "TEE",
+      "note": "a golfer drives off from the tee"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "NY",
+      "note": "NY is New York"
+     },
+     {
+      "clueFragment": "school",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of this word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEE",
+      "N",
+      "S",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A tiny parking spot is available for a driving school opening in a city.",
+     "walkthrough": "Driving suggests cars and a driving school, but it is a golf drive, taken from the tee.",
+     "definitionFit": "Teensy is an informal, childlike word for tiny, minute or very little."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "driving"
+    }
+   }
   },
   {
    "number": 28,
@@ -484,7 +1981,53 @@
     "text": "Relative sum of money laid out by star on radio.",
     "enumeration": "8"
    },
-   "solution": "GRANDSON"
+   "solution": "GRANDSON",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "GRANDSON",
+    "definitions": [
+     {
+      "text": "Relative",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on radio",
+      "for": "homophone",
+      "note": "on radio we only hear words, so the star is taken by its sound, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "laid out by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sum of money",
+      "gives": "GRAND",
+      "note": "a grand is a thousand pounds or dollars"
+     },
+     {
+      "clueFragment": "star",
+      "gives": "SON",
+      "soundsLike": "SUN",
+      "note": "the Sun is our star, and its name is pronounced like a male child"
+     }
+    ],
+    "explanation": {
+     "surface": "A relative pays out a big sum to a radio celebrity.",
+     "walkthrough": "Star suggests a radio celebrity; it is the Sun, heard as SON.",
+     "definitionFit": "A grandson is the son of one's child, a family member and so a relative."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "star"
+    }
+   }
   }
  ]
 }
