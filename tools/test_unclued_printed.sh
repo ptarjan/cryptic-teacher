@@ -117,7 +117,7 @@ used = Counter((q["position"]["x"] + (i if q["direction"] == "across" else 0),
                for q in real["entries"] for i in range(q["length"]))
 lone = next(c for c, n in sorted(used.items()) if n == 1)   # a square only one entry checks
 p["unclued"] = [{"cells": [{"x": x0 + e["length"], "y": y}, {"x": lone[0], "y": lone[1]}], "solution": "QQ"}]
-white = lambda q: sum(map(sum, grid_rules.mask(q)[0]))
+white = lambda q: sum(map(sum, grid_rules.mask(q)))
 print("MASK", white(p) - white(real))
 print("CHECKING", difficulty.checking(p) < difficulty.checking(real))
 print("CRAFT", craft_report.grid_mechanics(p)["weak_checking"] <= craft_report.grid_mechanics(real)["weak_checking"])

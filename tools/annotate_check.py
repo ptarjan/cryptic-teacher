@@ -703,16 +703,12 @@ def name_checks(report):
     return "\n".join(out)
 
 
-#: The checks a misread clue fails: the run rewrote the clue to fit its
-#: parse, or the clue's fodder cannot give the answer's letters.
-MISREAD_CHECKS = ("check_clue_unchanged", "check_anagram_letters")
-
-
 def misread(path):
     """([(entry id, printed clue)] as HEAD has the puzzle (the source's
     reading), [what met a misread]) for the puzzle at `path`: "printedClue"
-    for a source_clue_wrong.json row HEAD lacks, and each of MISREAD_CHECKS
-    that fails."""
+    for a source_clue_wrong.json row HEAD lacks, and each misread check that
+    fails: check_clue_unchanged (the run rewrote the clue to fit its parse) and
+    check_anagram_letters (the clue's fodder cannot give the answer's letters)."""
     puzzle = read_puzzle_file(path)
     pid = puzzle["id"]
     committed = validate_annotations.committed_entries(path)

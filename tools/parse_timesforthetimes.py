@@ -492,9 +492,8 @@ def _drop_asides(rest):
 def printed_answer(rest):
     """This line's answer as the blogger printed it, or None if it is a clue.
 
-    The word breaks are kept here and thrown away by is_answer, because one
-    caller needs them: a linked clue is split between its lights AT a word
-    break, and the printing is where those breaks are.
+    The word breaks are kept: a linked clue is split between its lights AT a
+    word break, and the printing is where those breaks are.
     """
     # A grid square holds a bare letter: ETAGERE is what ÉTAGÈRE writes in.
     rest = "".join(c for c in unicodedata.normalize("NFKD", rest)
@@ -604,17 +603,6 @@ def answer_line(line):
     if printed and e and not enum_fits(printed, e.group(1)):
         return None
     return printed
-
-
-def is_answer(rest):
-    """The letters of this line's answer, or None if it is a clue.
-
-    A light is contiguous letters, so a comma means a word break in one era
-    and a wordplay join in another (RICE,PAPER against A,CADE,MIA) and neither
-    survives into the answer.
-    """
-    word = printed_answer(rest)
-    return None if word is None else re.sub(r"[^A-Z]", "", word)
 
 
 def printed_enumeration(printed):

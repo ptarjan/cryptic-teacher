@@ -498,15 +498,6 @@ def load_blacklist():
     return {}
 
 
-def save_blacklist(entries):
-    BLACKLIST_FILE.write_text(json.dumps({
-        "_comment": ("Words a clue-writing pass could not clue, and why. "
-                     "tools/grid_fill.py refuses them, so a bad answer is never "
-                     "rediscovered. Add to this rather than fixing a fill by hand."),
-        "unclueable": entries,
-    }, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-
-
 # --------------------------------------------------------------------------
 # The filler
 # --------------------------------------------------------------------------
