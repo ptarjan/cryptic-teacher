@@ -28,8 +28,9 @@ The blog's answers are a solver's write-up, not the paper's key, so
 solutions.blog names the blog (series.py's `blog`) and solutions.origin says so.
 
 A file already on disk is never rewritten but for its date, which facts
-arriving later can prove, and a placeholder setter the post names: by then it
-may carry annotations. One whose clues or answers no longer match what this
+arriving later can prove, a placeholder setter the post names, and what the
+source's `tidy` changes in its clues (retext): by then it may carry
+annotations. One whose clues or answers no longer match what this
 would write is named, so a correction made upstream is seen rather than lost.
 """
 import bisect

@@ -23,10 +23,10 @@ A misspelt keyword ("shoould read") is still an erratum.
 What is left of the preamble is kept (a themed puzzle's instructions); none
 left means no preamble. An erratum that cannot be acted on raises ValueError
 naming it, and find() is the write gate's test that no stored preamble still
-holds one (puzzle_integrity.check_puzzle).
+holds one (puzzle_integrity.check_preamble).
 
-A clue whose words the erratum changes (fetch_puzzle.clue_words) loses its
-annotation: it explained the old words."""
+A clue whose words the erratum changes (fold) loses its annotation: it
+explained the old words."""
 
 import difflib
 import re

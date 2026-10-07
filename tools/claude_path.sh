@@ -1,6 +1,6 @@
 # Put the `claude` CLI on PATH, wherever this machine keeps it. Source it.
 #
-# One home for a fact that both timed jobs need and that is different on every
+# One home for a fact that every timed job needs and that is different on every
 # machine they run on: a Mac installs the CLI under ~/.local/bin or
 # ~/.claude/local, the bridge container symlinks it into /usr/local/bin, and on
 # a host where nothing installed it separately the only copy is the one the

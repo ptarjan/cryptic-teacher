@@ -5,7 +5,7 @@ The table was built for tools/clueability.py, which uses it to decide whether a
 word can be assembled at all. It is just as useful to a solver, and for the
 opposite reason: a charade is our commonest clue type, and the hard part is not
 recognising one, it is knowing that "sailor" is AB because the convention says
-so and no amount of staring will derive it. The blocks rung now says which
+so and no amount of staring will derive it. The blocks rung says which
 pieces were conventions.
 
 table() is the one table every reader uses. A sense (clue word -> letters) is
@@ -37,7 +37,7 @@ LEXICON = ROOT / "tools" / "data" / "lexicons" / "blocks.json"
 # Clue word -> [letters]: every abbreviation Wiktionary or the crossword list gives.
 DICTIONARY = ROOT / "tools" / "data" / "lexicons" / "abbreviations.json"
 OUT = ROOT / "abbreviations.js"
-# Where the glossary belongs inside the lesson. The 400 rows themselves live on
+# Where the glossary belongs inside the lesson. The rows themselves live on
 # one URL — /abbreviations/ — so what tools/build_seo_pages.py writes between
 # these markers is the pointer to it.
 MARK_START = "<!-- ABBREVIATIONS-START -->"
@@ -265,14 +265,12 @@ def table_html(senses, links=None):
     works in, and it is the wrong direction for a person: a solver arrives at
     this table holding a word ("check") and wanting the letters. So it is
     inverted, and generated rather than hand-picked, because a curated "starter
-    set" is a second table that drifts from the one the hints teach from — which
-    is how the site could tell a solver CH was check while the glossary had
-    never heard of it.
+    set" is a second table that drifts from the one the hints teach from.
 
     Grouped A to Z, each group a word list flowed into as many columns as the
     screen fits. Every entry carries its own id. A hint that names a convention links to
     that one row, so the solver lands on the line they asked about instead of on
-    the top of a four-hundred-row table with the reading still to do.
+    the top of a thousand-row table with the reading still to do.
 
     `links` maps a word to a clue that uses it. A row's readings run most used
     first, each with how many clues use it.

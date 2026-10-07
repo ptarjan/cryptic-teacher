@@ -91,9 +91,8 @@ def page_label(path, width=24):
 
     Rows from before the move to cryptic.paultarjan.com all start
     /cryptic-teacher/, and the part that says which page it is sits at the end,
-    so cutting the tail to fit printed fifteen rows all reading
-    "/cryptic-teacher/puzzles". Drop that prefix when it is there, then keep
-    the end.
+    so cutting the tail to fit prints every row as "/cryptic-teacher/puzzles".
+    Drop that prefix when it is there, then keep the end.
     """
     if path.startswith(PREFIX):
         path = path[len(PREFIX):] or "/"

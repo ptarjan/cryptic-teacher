@@ -18,7 +18,7 @@ NAMES = tuple(TYPES)
 FAMILIES = DATA["families"]
 SELECT_WORDS = ("first", "last", "middle", "outer", "alternate", "regular", "prime")
 
-# Shown when a type matches no family. The app has the same fallback.
+# Shown when a type matches no family.
 FALLBACK_FAMILY = {"name": None, "label": "Wordplay", "n": 0,
                    "blurb": "The clue has a definition at one end and wordplay at the other."}
 

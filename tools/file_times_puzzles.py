@@ -9,16 +9,16 @@ it, and files them through tools/file_blog_puzzles.py, which says what a row
 must pass. What is the Times's is here: which series a row is, its setter,
 its print date.
 
-The date is the print date, from print_dates below: the Quick's is its post
-date; the prize puzzles (Saturday's Times, the Jumbo, the Sunday Times and
+The date is the print date, from print_dates below: the Quick's and the
+daily Times's is its post date or the day after; the prize puzzles (Saturday's Times, the Jumbo, the Sunday Times and
 its Mephisto, the TLS on Fridays) are blogged after entries close, so theirs
 comes from the Times's own listing (tools/fetch_times_listing.py), the post's
 slug, and the paper's cadence between them, and stays null where those prove
 nothing. The Club Monthly Special's is its post date.
 
 The setter of a Quick, Sunday Times or TLS puzzle is the one the post's title
-names, or failing that SETTERS_FROM_COMMENTS; the Times Cryptic and the Jumbo
-stay anonymous.
+names, or failing that SETTERS_FROM_COMMENTS; a Mephisto's is one of
+MEPHISTO_SETTERS; the Times Cryptic and the Jumbo stay anonymous.
 """
 import argparse
 import bisect
@@ -36,7 +36,7 @@ import file_blog_puzzles
 import parse_timesforthetimes as tftt
 import series as series_meta
 import times_grids as tg
-from file_blog_puzzles import (  # noqa: F401 -- the filer's checks, as tools/ft_puzzles.py reads them
+from file_blog_puzzles import (  # noqa: F401 -- the filer's checks, as tools/ft_puzzles.py and its test read them
     in_sequence,
     reprinted_by,
     reprinted_from,
@@ -142,8 +142,6 @@ FRIDAY, SATURDAY, SUNDAY = 4, 5, 6
 DAY = datetime.timedelta(days=1)
 WEEK = datetime.timedelta(days=7)
 
-#: The day each prize series is printed on. The Jumbo also runs on bank
-#: holidays, which only the Times's own listing dates.
 #: Print dates the blog and the listing cannot prove, each from a page that
 #: names the day. Read as the listing is: an anchor, never overruled.
 PRINT_DATES = {
@@ -152,6 +150,8 @@ PRINT_DATES = {
     ("timesjumbo", 1559): datetime.date(2022, 6, 2),
 }
 
+#: The day each prize series is printed on. The Jumbo also runs on bank
+#: holidays (jumbo_holidays).
 PRIZE_DAY = {"times": SATURDAY, "timesjumbo": SATURDAY, "sundaytimes": SUNDAY,
              "tls": FRIDAY, "mephisto": SUNDAY}
 
@@ -178,8 +178,6 @@ def month_of(token, year_follows):
     return None
 
 
-#: Holidays a Jumbo title names instead of a date: the words, then the date
-#: in a given year.
 def easter(y):
     """Easter Sunday of year `y` (the Gregorian computus)."""
     a, b, c = y % 19, y // 100, y % 100
@@ -229,6 +227,8 @@ def jumbo_holidays(y):
     return {MOVED.get(d, d) for d in days} | {d for d in ADDED if d.year == y}
 
 
+#: Holidays a Jumbo title names instead of a date: the words, then the date
+#: in a given year.
 HOLIDAYS = {
     ("christmas", "day"): lambda y: datetime.date(y, 12, 25),
     ("boxing", "day"): lambda y: datetime.date(y, 12, 26),

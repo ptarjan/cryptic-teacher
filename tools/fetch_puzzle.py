@@ -4,7 +4,7 @@
 Usage:
   python3 tools/fetch_puzzle.py 30066            # fetch a cryptic (or prize) by number
   python3 tools/fetch_puzzle.py everyman-1       # fetch any series' puzzle by id
-  python3 tools/fetch_puzzle.py --latest         # newest of EVERY series (see GUARDIAN_SERIES)
+  python3 tools/fetch_puzzle.py --latest         # newest of every series still here (FETCHABLE)
   python3 tools/fetch_puzzle.py --backfill [N] [series]
                                                  # fetch the last N puzzles (default 30)
                                                  # of one series (default cryptic) ending at
@@ -81,23 +81,15 @@ UA = {"User-Agent": "Mozilla/5.0 (cryptic-teacher; personal educational use)"}
 #
 # cryptic — the daily, Monday–Saturday (nothing on Sunday). Saturday's is the
 #   PRIZE crossword: same number sequence, different URL. Looking only at
-#   /cryptic/ silently loses one puzzle in six — 30044, 30050, 30056… were all
-#   missing here until "prize" was added. Prize solutions are withheld for about
+#   /cryptic/ would silently lose one puzzle in six. Prize solutions are withheld for about
 #   a week, so a freshly-fetched prize puzzle has hasSolutions=false until
 #   --refresh-unsolved picks it up again later.
 # quiptic — the Guardian's beginner tier, Mondays, "for beginners and those in a
-#   hurry". Added 2026-08-01 (Paul: "are there any easier puzzles, I'm finding
-#   the guardian ones pretty hard"). Same page shape, same converter, solutions
-#   published same-day.
+#   hurry". Same page shape, same converter, solutions published same-day.
 # everyman — the Observer's Sunday cryptic, syndicated onto the Guardian site and
-#   free like the rest. Added 2026-08-05, when Paul asked whether we could scrape
-#   the Times. We can't: the Times never sends the grid to a signed-out browser
-#   at all, so there is nothing to parse without a Puzzles subscription (probed
-#   with a headless browser — the page fires no puzzle request whatsoever, it
-#   just renders the subscribe wall). Everyman is the closest free stand-in and
-#   arguably the better one for this site: it is the gentlest broadsheet cryptic
-#   in print, deliberately fair, and it fills Sunday — the one day the Guardian
-#   cryptic doesn't publish, so it adds a puzzle rather than competing for a slot.
+#   free like the rest. It is the gentlest broadsheet cryptic in print,
+#   deliberately fair, and it fills Sunday — the one day the Guardian cryptic
+#   doesn't publish, so it adds a puzzle rather than competing for a slot.
 #
 # Every series counts upward from its own 1, so the number alone names a puzzle
 # only by luck of the ranges — and the luck runs out. Ids are namespaced by
@@ -143,11 +135,10 @@ GUARDIAN_SERIES = {
         "moved_to": "tools/fetch_observer.py (observer.co.uk, from no. 4097 on)",
     },
 }
-# The oldest Everyman page theguardian.com still serves. Checked 2026-09-18:
-# 2,965 (2003-07-27) 200s and parses 28 clues clean; 2,964 and every number
-# tried below it — 2,960, 2,950, 2,930, 2,900, 2,600 — 404 under every URL
-# scheme this fetcher or tools/fetch_wayback.py has ever used. A wall, not
-# patchiness.
+# The oldest Everyman page theguardian.com still serves: 2,965 (2003-07-27)
+# 200s and parses 28 clues clean; 2,964 and every number tried below it —
+# 2,960, 2,950, 2,930, 2,900, 2,600 — 404 under every URL scheme this fetcher
+# or tools/fetch_wayback.py has ever used. A wall, not patchiness.
 EVERYMAN_FLOOR = 2965
 # The oldest Guardian cryptic page theguardian.com still serves: a site-wide
 # date wall at 1999-06-23, corroborated by the Guardian quick crossword
@@ -332,12 +323,11 @@ def clued(entries):
 # What a continuation leg's clue is made of once its enumeration is off: the
 # word "see", the numbers it points at, and the words that join them. Nothing
 # else — "See 5 across out to find another date" is wordplay that opens the
-# same way and must not read as a pointer (cryptic 27,884, the puzzle
-# dissolve_false_groups was written for).
+# same way and must not read as a pointer (cryptic 27,884).
 # The space after "see" is optional because the paper's markup does not always
 # print one: cryptic-23101's 9-across reads "See10" and cryptic-24418's 19- and
-# 20-across both read "See17". A \b there matches nothing between "e" and "1",
-# so those three legs read as wordplay and their answers were stored short.
+# 20-across both read "See17". A \b there would match nothing between "e" and
+# "1", and those legs would read as wordplay.
 CONTINUATION = re.compile(
     r"(?i)^see(?![a-z])[\s\d,&.]*(?:(?:across|down|and|or|above|dn|ac)\b[\s\d,&.]*)*$")
 
@@ -361,8 +351,7 @@ def is_continuation(clue):
     # a pointer wears it too: cryptic-21642's 5-down is "... see 22", the tail of
     # 22-down's own "... not to mention their friend ... (2,3,7,2,3,3)", and the
     # dots are the chain and not wordplay. Anchored on "see" without this, that
-    # leg read as a clue of its own and TO SAY NOTHING OF THE DOG was stored as
-    # its first two words. Leading dots only ever join a clue to its neighbour;
+    # leg would read as a clue of its own. Leading dots only ever join a clue to its neighbour;
     # anything else in front of "see" still refuses, which is what keeps
     # "Follow, see 12 across" wordplay.
     return bool(CONTINUATION.match((clue or "").strip(" .…\t\n")))
@@ -587,9 +576,8 @@ def flatten_clue(s):
 
     Both papers ship clues as HTML: an italicised title arrives as
     "<span>Case for </span><i>Turandot</i><span> lyrics…</span>". Storing that
-    markup was tried and is wrong — the app escapes puzzle text, so the solver
-    read the tags (Paul, on the Independent, 2026-08-15) — but so is throwing
-    it away, because the italics are part of the clue: "<i>Times</i>
+    markup is wrong — the app escapes puzzle text, so the solver would read the
+    tags — but so is throwing it away, because the italics are part of the clue: "<i>Times</i>
     desperately stifling question" is telling you the newspaper, not the plural
     of time.
 
@@ -655,11 +643,9 @@ def extract_crossword_data(page_html):
     m = re.search(r'<gu-island name="CrosswordComponent"[^>]*props="([^"]*)"', page_html)
     if not m:
         # Not a SystemExit: walk()'s "malformed page etc. — keep going" handler
-        # only catches Exception. A SystemExit here (found live 2026-09-17,
-        # probing the pre-digitization archive floor) escapes that handler and
-        # kills the whole backfill/extend walk on the first old-format page,
-        # silently truncating every run after it to "whatever came before this
-        # number" with no error attributed to the number that actually failed.
+        # only catches Exception. A SystemExit here would escape that handler
+        # and kill the whole backfill/extend walk on the first old-format page,
+        # with no error attributed to the number that actually failed.
         raise ValueError("Could not find CrosswordComponent data in page")
     return json.loads(html.unescape(m.group(1)))["data"]
 
@@ -902,15 +888,14 @@ def generator_of(path):
 
     This records what ACQUIRED the puzzle, which is a fact about the fetcher and
     not about whichever tool most recently rewrote the annotations inside it.
-    Restamping it destroys the acquisition record — and did: four files ended up
-    claiming apply_solution.py, and blind_annotate.py's restore path put the
-    plain default back over whatever a non-Guardian fetcher had written.
-    Preserving is therefore the DEFAULT below, so a caller cannot silently
+    Restamping it destroys the acquisition record, so preserving is the
+    DEFAULT below, so a caller cannot silently
     relabel a puzzle by forgetting an argument; a fetcher that really is the
     acquirer says so explicitly.
 
     source.acquiredBy is the record, and the only one: provenance.acquired_by()
-    derives the fetcher from the series, so a caller's string cannot relabel it.
+    checks it against the tools that can fetch from the series and host, so a
+    caller's string cannot relabel it as an impossible one.
     """
     if not path.exists():
         return "tools/fetch_puzzle.py"
@@ -929,7 +914,7 @@ def committed_copy(puzzle):
     path = puzzle_paths.file_for(puzzle)
     if path is None or not path.is_relative_to(ROOT):
         return None
-    # No Azed file has ever been committed or deleted, so there is no copy to
+    # No file of these series has ever been deleted, so there is no copy to
     # find; the deleted-file search below walks all of history for each puzzle.
     if puzzle_paths.series_folder(puzzle["id"]) in NEVER_DELETED_SERIES:
         return None
@@ -1015,7 +1000,7 @@ def write_puzzle_file(path, puzzle, generator=None):
         puzzle = {**puzzle, "source": {**(puzzle.get("source") or {}),
                                        "acquiredOn": min(dates)}}
     # Every write of a puzzle file records where the puzzle came from, here,
-    # rather than in each of the nine tools that write one. See
+    # rather than in each tool that writes one. See
     # provenance.stamp.
     puzzle = provenance.stamp(puzzle, generator)
     # An absent key means empty, so no writer can put a null or an empty value
@@ -1057,7 +1042,7 @@ def write_puzzle_file(path, puzzle, generator=None):
             supersede_book(book_id, puzzle["id"])
     # The browser cannot fetch() off file:// (README: the site runs from disk),
     # so it is fed a generated script instead. Written here as well as by
-    # --build-shims because a fetcher that has just rewritten a puzzle must not
+    # --reindex because a fetcher that has just rewritten a puzzle must not
     # leave the copy the site loads showing yesterday's.
     write_shim(dest, puzzle)
     return dest
@@ -1175,9 +1160,9 @@ def reconcile_groups(entries):
         # chain (26 pairs with 8, 26 pairs with 17, 17 pairs with 20) the middle
         # light claims to lead on nothing but list order, and the count riding
         # on its "See 26 (7,8)" is its own legs' cells, never the answer's.
-        # Counted as a claimant it wins the election against the real leading
-        # clue and takes the whole group down with it: cryptic-22249 lost
-        # EVERYONE SUDDENLY BURST OUT SINGING that way, 31 cells read as 8.
+        # Counted as a claimant it would win the election against the real
+        # leading clue and take the whole group down with it: cryptic-22249's
+        # EVERYONE SUDDENLY BURST OUT SINGING would be read as 8 of its 31 cells.
         leads = {s[0] for s in stated
                  if s and not is_continuation(by_id[s[0]]["clue"].get("text", ""))}
 
@@ -1454,7 +1439,7 @@ SHORT_DIRECTIONS = {"ac": "across", "dn": "down"}
 
 # The most lights one answer may be reassembled over. The search is every subset
 # of the spare lights against every order of the result, so it has to stop
-# somewhere; the longest linked answer in the corpus runs to six lights, and
+# somewhere; the longest linked answer in the corpus runs to nine lights, and
 # nothing that needs more than this is being reconstructed from an enumeration
 # anyway.
 RECONSTRUCT_LIMIT = 9
@@ -2492,8 +2477,7 @@ def carry_recovered_clues(new_puzzle, old_puzzle):
     So the recovery is by hand, off those linked pages, and this is what keeps
     it: an entry whose stored clue has words and whose freshly-fetched one does
     not keeps the stored one. Without it, one --refresh-unsolved or one
-    re-fetch silently empties sixteen recovered puzzles and the report that
-    found them starts over.
+    re-fetch silently empties every recovered puzzle.
 
     The group travels with the clue for the same reason. It is not the paper's
     group — the paper sent none — it is the statement of which lights the
@@ -2524,9 +2508,8 @@ def grade_model_fill(puzzle, guessed):
 
     Shared with the Observer's refresh (tools/fetch_observer.py), which reaches
     the same moment by a different road: the Guardian re-fetches a whole page
-    and merges, Everyman re-reads one hashed field and fills in place. They
-    graded differently for as long as they graded separately — Everyman not at
-    all — so the marking lives here and both call it."""
+    and merges, Everyman re-reads one hashed field and fills in place. The
+    marking lives here so both grade the same way."""
     wrong = [(entry_id(e), guessed.get(entry_id(e)), e.get("solution"))
              for e in puzzle["entries"] if guessed.get(entry_id(e)) != e.get("solution")]
     # An annotation explains how the clue yields the answer, so an annotation
@@ -2552,10 +2535,8 @@ def record_misses(pid, wrong):
     derived against the published key.
 
     Lives here, beside grade_model_fill, because the blanking and the writing
-    down of it have to happen together or the alert is a lie. They did not:
-    blind_annotate.py recorded its blanks and the blind-solve grader did not, so
-    everyman-4168 15A was dropped on 2026-09-14 for the intended reason and then
-    reported as an unexplained blank in a published puzzle.
+    down of it have to happen together or the alert is a lie: a grader that
+    blanks without recording leaves an unexplained blank in a published puzzle.
 
     Rewritten per puzzle rather than merged into, so a later pass that gets the
     clue right clears the exemption instead of leaving it standing for ever.
@@ -2692,11 +2673,11 @@ def index_row(path):
         **({"blog": blog} if blog else {}),
         "hasSolutions": all(e.get("solution") for e in p["entries"]),
         # Clue coverage, written ONLY where some clue is unreadable: absent
-        # means every entry carries a clue, which is 12,424 of 12,462
-        # puzzles. index.js is 4 MB and the browser downloads all of it, so
-        # a field that would say "28 of 28" twelve thousand times is 400 kB
-        # on every first load to state the default. Readers take the absence
-        # as full coverage; the 38 puzzles with a gap say so by name.
+        # means every entry carries a clue, which is nearly every puzzle. The
+        # browser downloads all of index.js, so a field that would say "28 of
+        # 28" on every row is weight on every first load to state the default.
+        # Readers take the absence as full coverage; the puzzles with a gap
+        # say so by name.
         **({"clues": coverage} if coverage["present"] < coverage["total"] else {}),
         # True where the grid was solved here by a model. The site says so
         # wherever it shows those answers: a learner checking their grid is
@@ -2750,9 +2731,8 @@ def reindex():
             "percentile": rating["percentile"],
             "basis": rating["basis"],
         }
-    # Newest first BY DATE, not by number. With one series those agreed; with
-    # three they don't — quiptic 1,393 and cryptic 30,073 came out the same week,
-    # and sorting on the number would bury every quiptic below every cryptic
+    # Newest first BY DATE, not by number. The series' sequences are unrelated —
+    # quiptic 1,393 and cryptic 30,073 came out the same week — and sorting on the number would bury every quiptic below every cryptic
     # forever. Ties (a Monday publishes both) put the cryptic first, so the daily
     # cryptic stays the puzzle the site opens on.
     puzzles.sort(key=lambda p: (series_meta.puzzle_day(p) or date.min,
@@ -2800,25 +2780,12 @@ def reindex():
         f"window.CRYPTIC_INDEX = {compact};\n",
         encoding="utf-8")
     # index.html is left alone: it is tracked and stored unstamped, and the
-    # deploy workflow stamps its own checkout. A stamp written here dirtied
+    # deploy workflow stamps its own checkout. A stamp written here would dirty
     # every tree that reindexed, the main checkout included, and a dirty main
     # checkout is one the job starts cannot fast-forward.
     return index
 
 
-# Guardian numbers where the ordinary "try cryptic, then prize" order in
-# fetch_page() lands on the wrong puzzle because two unrelated pages both
-# claim the same number. cryptic/24451 answers 200 with a page dated
-# 2008-11-20 (Brendan) — self-consistent (date and webPublicationDate agree),
-# so convert()'s own mis-filed guard never fires — but 24451 is the single
-# Saturday between cryptic-24450 (2008-07-25, Fri) and cryptic-24452
-# (2008-07-28, Mon), and prize/24451 holds exactly that puzzle (Araucaria,
-# 2008-07-26). The Brendan page is genuinely 24551: cryptic/24551 and
-# prize/24551 both 404, and cryptic-24550 (2008-11-19) / cryptic-24552
-# (2008-11-21) bracket the single day it belongs in. Keyed by the number
-# actually wanted; valued with (url template to fetch instead of the default
-# order, the number to trust over whatever that page's own data says — None
-# to trust the page).
 # The instructions two 2008 prizes printed only on the PDF their page's note
 # links to (the page's own note is just the link, which preamble() drops):
 # by number, the PDF's words as printed.
@@ -2834,6 +2801,19 @@ PDF_PREAMBLES = {
 CLUES_UNPLACED = {24307, 24433}
 
 
+# Guardian numbers where the ordinary "try cryptic, then prize" order in
+# fetch_page() lands on the wrong puzzle because two unrelated pages both
+# claim the same number. cryptic/24451 answers 200 with a page dated
+# 2008-11-20 (Brendan) — self-consistent (date and webPublicationDate agree),
+# so convert()'s own mis-filed guard never fires — but 24451 is the single
+# Saturday between cryptic-24450 (2008-07-25, Fri) and cryptic-24452
+# (2008-07-28, Mon), and prize/24451 holds exactly that puzzle (Araucaria,
+# 2008-07-26). The Brendan page is genuinely 24551: cryptic/24551 and
+# prize/24551 both 404, and cryptic-24550 (2008-11-19) / cryptic-24552
+# (2008-11-21) bracket the single day it belongs in. Keyed by the number
+# actually wanted; valued with (url template to fetch instead of the default
+# order, the number to trust over whatever that page's own data says — None
+# to trust the page).
 NUMBER_URL_FIXES = {
     24451: ("https://www.theguardian.com/crosswords/prize/{num}", None),
     24551: ("https://www.theguardian.com/crosswords/cryptic/24451", 24551),
@@ -2897,8 +2877,8 @@ def is_book(pid):
 def check_not_copy(puzzle):
     """Refuse a page whose clues are another held puzzle's, of any series or
     number. /crosswords/cryptic/591 answers 200 as "cryptic 591" dated 1932 with
-    Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either made
-    two files hold one puzzle.
+    Quiptic 591's clues; /cryptic/2545 served cryptic 25,545's. Filing either
+    would make two files hold one puzzle.
 
     A newspaper's own puzzle outranks a book's reprint of it, whichever was
     filed first: when every match is a held book-N file and `puzzle` is no
@@ -2970,9 +2950,7 @@ def fetch_number(num, series="cryptic"):
     if data["number"] in PDF_PREAMBLES:
         puzzle["preamble"] = PDF_PREAMBLES[data["number"]]
     check_not_copy(puzzle)
-    # Through puzzle_path, never spelled here: this line said ".js" from the
-    # day the fetcher was written, and the assert in write_puzzle_file is what
-    # finally said so.
+    # Through puzzle_path, never spelled here.
     path = puzzle_path(series_of(data["id"]), data["number"])
     is_new = not path.exists()
     graded = None
@@ -3059,8 +3037,8 @@ def extend(count, series="cryptic"):
     # The floor of the RUN, not the smallest number on disk. The Guardian's
     # online archive is not one block: it hosts a handful of 1930s puzzles —
     # cryptic-1183 is one — twenty thousand numbers below where the continuous
-    # run starts. min() therefore aimed the walk at 1182 and spent the whole
-    # run 404ing through empty space, never touching the real frontier.
+    # run starts. min() would aim the walk at 1182 and spend the whole run
+    # 404ing through empty space, never touching the real frontier.
     #
     # Walking down from the newest and stopping at the first gap wider than a
     # paper's own skipped numbers also makes a hole self-healing: extend starts
@@ -3086,9 +3064,7 @@ def extend(count, series="cryptic"):
 # solution lands roughly two weeks after the puzzle, an Observer Everyman's
 # within a week of its competition closing, and a fifteensquared write-up of a
 # Cyclops within weeks of the puzzle appearing there — so a puzzle already this
-# old is not "still pending", it is a source that will never answer it: five
-# Guardian prize puzzles from 2000-2006 and 78 Cyclops puzzles from 2006-2009
-# were being asked for anyway, every night, forever, until this existed. One
+# old is not "still pending", it is a source that will never answer it. One
 # number for every source kept here, rather than three, because none of them
 # is anywhere near this slow and a single constant is the one place to widen it
 # if that ever stops being true. Read by refresh_unsolved below and by its
@@ -3145,12 +3121,10 @@ def refresh_unsolved():
     pending = []
     for path in puzzle_files():
         p = read_puzzle_file(path)
-        # Only what this fetcher can actually fetch. It used to scan every file
-        # in puzzles/, which after the Independent and the Observer arrived meant
-        # asking theguardian.com for their numbers every night and printing
-        # "refresh 4166 failed: HTTP 404" forever. Each of those papers has its
-        # own fetcher with its own --refresh-unsolved; daily_update.sh runs all
-        # three.
+        # Only what this fetcher can actually fetch: another paper's numbers
+        # asked of theguardian.com 404 every night. The Observer and Private
+        # Eye have their own fetchers' --refresh-unsolved; daily_update.sh runs
+        # all three.
         if p.get("series") not in FETCHABLE:
             continue
         if not still_worth_refreshing(p):
