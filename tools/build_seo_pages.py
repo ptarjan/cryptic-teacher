@@ -1920,7 +1920,7 @@ def bare_head(title, canonical, extra=""):
             + f'<script src="{asset("analytics.js")}"></script>\n</head>\n')
 
 
-def legacy_ids(solved):
+def legacy_ids(solved, ids):
     """A page at every id a puzzle has ever had, pointing at the one it has now.
 
     An id is in shared links, in indexed pages, and in the key every browser
@@ -1935,11 +1935,13 @@ def legacy_ids(solved):
     to add them. That writes a page for an id that was never published, which
     is harmless for the same reason the bare-number pages below say "is at"
     rather than "has moved": the page's job is to say which puzzle a name
-    refers to.
+    refers to. A derived id some puzzle holds today (Times book 21's No 24 is
+    "times-21024", the paper's No 21,024) is that puzzle's, so it is skipped,
+    as app.js's canonicalId checks a real id before an alias.
     """
     for p in solved:
         for was in series_meta.legacy_ids(p.get("series") or "cryptic", p["number"]):
-            if was == p["id"]:
+            if was == p["id"] or was in ids:
                 continue
             target = f"{BASE}/puzzles/{p['id']}/"
             label = named(p)
@@ -2100,7 +2102,7 @@ def outputs(check=False):
 
     def rest():
         yield from legacy_redirects(stubs)
-        yield from legacy_ids(stubs)
+        yield from legacy_ids(stubs, meta.keys() | {p["id"] for p in idx.get("unlisted", [])})
         yield puzzle_paths.PUZZLE_DIR / "index.html", hub_page(idx)
         yield from series_pages(idx)
         yield from listing_pages(idx)
