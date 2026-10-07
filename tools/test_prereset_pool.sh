@@ -38,7 +38,7 @@ POOL_CHECK_SECS=0   # a checkpoint after every run, so a width change lands at o
 POOL_SYNC_SECS=2    # and a mid-run drain for the sync, at least once
 eval "$(grep -E '^(declare -A )?POOL_[A-Z_]+=' "$SCRIPT")"
 for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_checkpoint run_pool \
-          needs_solve solve_applied index_lock index_unlock; do
+          needs_solve solve_applied; do
   block="$(sed -n "/^$fn() {/,/^}/p" "$SCRIPT")"
   if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
   eval "$block"

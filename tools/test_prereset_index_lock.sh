@@ -3,17 +3,17 @@
 #
 #     bash tools/test_prereset_index_lock.sh
 #
-# index_lock and index_unlock are read out of tools/prereset_backfill.sh. Eight
+# index_lock and index_unlock are read out of tools/puzzle_worker.sh. Eight
 # runs in one scratch repo each stage and commit a file of their own at once,
 # as the pool's runs do. Every commit must hold exactly its run's file, and
 # nothing may be left uncommitted. The mirror runs the same eight without the
 # lock and expects a run to lose its file, so the test is seen to bite.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
-SCRIPT="$REPO/tools/prereset_backfill.sh"
+SCRIPT="$REPO/tools/puzzle_worker.sh"
 for fn in index_lock index_unlock; do
   block="$(sed -n "/^$fn() {/,/^}/p;/^$fn() {.*}$/p" "$SCRIPT")"
-  if [ -z "$block" ]; then echo "FAIL tools/prereset_backfill.sh no longer defines $fn()"; exit 1; fi
+  if [ -z "$block" ]; then echo "FAIL tools/puzzle_worker.sh no longer defines $fn()"; exit 1; fi
   eval "$block"
 done
 fails=0

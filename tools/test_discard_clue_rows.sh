@@ -3,7 +3,7 @@
 #
 #     bash tools/test_discard_clue_rows.sh
 #
-# discard_puzzle is read out of tools/prereset_backfill.sh and run in a scratch
+# discard_puzzle is read out of tools/puzzle_worker.sh and run in a scratch
 # git tree holding this repo's tools and one puzzle. A run is simulated: it
 # prints a corrected clue into the puzzle and files the row, and another files
 # a row whose served text the file never held. After the discard:
@@ -40,8 +40,8 @@ cp "$REPO/puzzles/times/1984/$PID.json" "$tree/puzzles/times/1984/"
 cd "$tree" || exit 1
 git init -q && git add -A && git -c user.name=t -c user.email=t@t commit -qm base
 
-eval "$(sed -n '/^puzzle_spec() {/p' "$REPO/tools/prereset_backfill.sh")"
-eval "$(sed -n '/^discard_puzzle() {/,/^}/p' "$REPO/tools/prereset_backfill.sh")"
+eval "$(sed -n '/^puzzle_spec() {/p' "$REPO/tools/puzzle_worker.sh")"
+eval "$(sed -n '/^discard_puzzle() {/,/^}/p' "$REPO/tools/puzzle_worker.sh")"
 ALERTS="$tree/alerts"
 alert() { echo "$*" >>"$ALERTS"; }
 

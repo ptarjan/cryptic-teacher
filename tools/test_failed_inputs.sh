@@ -17,19 +17,7 @@ tree_before=$(git status --porcelain)
 
 pick=$(awk '/^annotate_blocked=/,/^)$/' tools/daily_update.sh)
 charge=$(awk '/^record_annotate_failure\(\)/,/^}$/' tools/daily_update.sh)
-# The settling loop is the `for num in $annotated_nums` that clears the ledger;
-# another loop of the same shape comes first, so match on what it does.
-settle=$(awk '
-  /^for num in \$annotated_nums; do$/ { capturing=1; buf=$0 "\n"; next }
-  capturing {
-    buf = buf $0 "\n"
-    if ($0 ~ /^done$/) {
-      if (buf ~ /failed_inputs\.py clear/) { printf "%s", buf; exit }
-      capturing=0; buf=""
-    }
-  }
-' tools/daily_update.sh)
-for block in pick charge settle; do
+for block in pick charge; do
   [ -n "${!block}" ] ||
     { echo "FAIL: the $block block is no longer where this test reads it from"; exit 1; }
 done
@@ -102,13 +90,12 @@ check "and the stale record is dropped" "$(ledger summary)" \
   "skipped as failed on unchanged inputs: 0"
 check "from the file too" "$(python3 -c "import json; print(json.load(open('$FAILED_INPUTS_FILE'))['annotate'])")" "{}"
 
-echo "a clean run clears the record; a clean exit that annotated nothing records one"
+echo "a wall-clock kill is recorded against the puzzle"
+# Clearing on a commit and recording a clean run that wrote nothing are
+# tools/puzzle_worker.sh's, driven in tools/test_discard_alert.sh.
 record_annotate_failure ct-3 "ct-3 ran past 90m without finishing and was stopped" >/dev/null
 check "a wall-clock kill is the puzzle's" "$(ledger skipped annotate)" "ct-3"
-index ct-1:2020-01-03:no ct-2:2020-01-02:no ct-3:2020-01-01:yes
-annotated_nums="ct-2 ct-3"
-( cd "$sand" && eval "$settle" ) >/dev/null
-check "ct-3 cleared, ct-2 recorded" "$(ledger skipped annotate | tr '\n' ' ')" "ct-2 "
+ledger clear annotate ct-3 >/dev/null
 
 echo "the cold solve uses the same rule"
 puzzle ct-4 ""

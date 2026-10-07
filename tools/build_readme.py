@@ -197,7 +197,6 @@ LAYOUT = [
     ("annotating", "tools/find_answer_leaks.py", "finds a block note that says the answer out loud, a rung before the walkthrough sells it"),
     ("annotating", "tools/find_renarration.py", "flags a walkthrough that only restates the blocks instead of teaching past them"),
     ("annotating", "tools/clue_quality.py", "warns about the clue shapes that lost to human setters in blind grading"),
-    ("annotating", "tools/blind_annotate.py", "hides a published key from the annotator, then grades what it derived — an explanation that lands on the wrong answer is the only proof the wordplay wasn’t reverse-engineered"),
     ("annotating", "tools/clue_types.py", "the closed list of clue types an annotation's `type` array names, with their labels and families, for the Python tools"),
     ("annotating", "tools/app_tables.py", "the rung ladder and series blurbs, read out of app.js by the tools so there is no copy of the app’s order or wording to keep in step"),
 
@@ -303,8 +302,8 @@ LAYOUT = [
     ("scheduling", "tools/claude_session.sh", "sourced: session ids, so a run that dies is resumed rather than paid for twice"),
     ("scheduling", "tools/weekly_usage.py", "how much of a Claude quota window is spent, and when it resets"),
     ("scheduling", "tools/prereset_backfill.sh", "burns the tail of the weekly quota on backfills, ungated"),
-    ("scheduling", "tools/puzzle_worker.sh", "sourced by the nightly and the burn: one puzzle's model work, solving cold only on the way to annotating, in the conversation the annotation resumes"),
-    ("scheduling", "tools/test_puzzle_worker.sh", "holds the solve and annotate prompts to that one file, and every cold solve to the annotation right after it"),
+    ("scheduling", "tools/puzzle_worker.sh", "sourced by the nightly and the burn: everything done to one puzzle — a cold solve only on the way to annotating, the annotation in the solve's conversation, the validation-fix rerun, the per-puzzle commit and push"),
+    ("scheduling", "tools/test_puzzle_worker.sh", "holds the solve and annotate prompts, the validate-commit-push of a puzzle, to that one file, and every cold solve to the annotation right after it"),
     ("scheduling", "household-plugins/<name>/plugin.toml", "when and where the household bridge runs each scheduled job (daily, prereset, books, annotate audit, corpus queue, archive coverage, Gale inbox, VLM health); symlinked from ~/.config/household/plugins/<name>, then `tools/plugins.py --write` in the household repo"),
     ("scheduling", "tools/test_annotate_retry.sh", "drives that resume, and the hand-over from a cold solve, with a fake CLI, so it is not first tried on a night it is needed"),
     ("scheduling", "tools/test_apply_refusal.sh", "a refused annotation write names clue ids and no traceback, so the model does not map entries[N] by hand"),

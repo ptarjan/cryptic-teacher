@@ -56,5 +56,27 @@ check "the burn's solve and annotation share one sid file" \
 check "the nightly's solve and annotation share one sid file" \
   "$(grep -c 'worker_\(solve\|annotate\) .*"\$sidfile"' <<<"$loop")" "2"
 
+echo "what is done to one puzzle after its run is the worker's alone"
+# Validating a puzzle, committing it, pushing it on its own, reopening its
+# answers and discarding it are per-puzzle steps; a scheduler that grows its
+# own copy is the nightly and the burn drifting apart again.
+for f in tools/daily_update.sh tools/prereset_backfill.sh; do
+  check "$f does not validate a puzzle itself" \
+    "$(grep -c '^[^#]*tools/validate_annotations\.py "\$' "$f")" "0"
+  check "$f does not apply a fill itself" "$(grep -c '^[^#]*python3 tools/apply_solution\.py' "$f")" "0"
+  # Each script's own commits are its run's: the nightly's fetched puzzles and
+  # closing sweep, the burn's republish. Anything else is a puzzle's.
+  check "$f does not commit or push one puzzle itself" \
+    "$(grep '^[^#]*push_puzzle_commit\|^[^#]*git commit' "$f" | grep -vc "Daily update: \|Republish after ")" "0"
+  check "$f does not reopen answers itself" "$(grep -c '^[^#]*tools/reopen_answers\.py' "$f")" "0"
+  check "$f defines none of the worker's functions" \
+    "$(grep -oE '^(worker_[a-z_]+|puzzle_spec|clues_spec|index_lock|index_unlock|discard_puzzle|stage_puzzle)\(\)' "$f" | tr '\n' ' ')" ""
+  check "$f runs worker_finish once, so every puzzle it annotates is finished the same way" \
+    "$(grep -c '^[^#]*worker_finish ' "$f")" "1"
+  check "$f sources the worker" "$(grep -c '^\. "\$REPO/tools/puzzle_worker\.sh"$' "$f")" "1"
+done
+check "the nightly finishes a puzzle inside its annotation loop" \
+  "$(grep -c 'worker_finish ' <<<"$loop")" "1"
+
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))
