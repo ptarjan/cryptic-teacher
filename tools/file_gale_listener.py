@@ -5,8 +5,8 @@
     python3 tools/file_gale_listener.py --dry-run    # say what each puzzle lacks, write nothing
     python3 tools/file_gale_listener.py --out DIR    # file into DIR, a puzzle with a clue unread too
 
-A puzzle files when three readings of the pages tools/gale_listener.py has
-read agree:
+A puzzle files when two readings of the pages tools/gale_listener.py has
+read agree, and is checked against a third:
 
   - its clues: gale_listener's reading, STORE/listener-N.json (the clue
     vote every scan filer shares, ocr_clues.reconcile);
@@ -18,20 +18,27 @@ read agree:
     light anyway (the numbering is the same), so where the lists disagree
     and exactly one unsure side (listener_grid.UNSURE) flipped makes them
     agree, it is flipped; otherwise the grid is not used;
-  - its answers: the filled grid of the "Report on Crossword No. N" printed
-    about two issues later, found on any saved page as the filled grid whose
+  - its report's answers, the check: the filled grid of the "Report on
+    Crossword No. N" printed about two issues later, found on any saved page as the filled grid whose
     blocks and bars agree with the puzzle's on REPORT_AGREE of the cells
     (the report's own heading is rarely read right), its letters read by
     trove_solution_ocr.read_grid_letters on the puzzle's lights. A cell is
     settled when its reads are sure (sure_letters), or when it is checked
     and the whole-light reads of both its lights that fit their settled
     letters have one letter in common there (crossed()). An entry's answer
-    is filed as trove_solution_ocr.read_answers accepts one: every cell
-    settled, the whole light read as that word, the word known(). Any other
-    entry has no answer, the corpus's rule for a partial key (the published
-    answers of a Canberra Times puzzle are filed the same way). The 1930 lists print no
-    counts, so a clue's enumeration settles nothing here; where a reading
-    has one, the light it names must be that long.
+    is read as trove_solution_ocr.read_answers accepts one: every cell
+    settled, the whole light read as that word, the word known(). The
+    1930 lists print no counts, so a clue's enumeration settles nothing
+    here; where a reading has one, the light it names must be that long.
+
+The puzzle files with no answers (build() takes none), so the nightly
+solve fills its key. Even so read, a report misreads a letter as another
+that still makes a word (PERTS for AERTS on No 1, 1 of 12), so its answers
+are never filed as published: the puzzle with them goes to REPORTS
+(cross_validate.ListenerReport's cache), filed or not, where
+tools/cross_validate.py's `listenerreport` adapter votes on answers. A
+solve the report disagrees with is a lead there, and the report never
+outranks it. A puzzle whose report is not saved files all the same.
 
 The puzzle goes through scan_queue.file_puzzle, so write_puzzle_file's
 validators (puzzle_integrity.refuse_bad_write) decide it as for every other
@@ -48,6 +55,7 @@ tools/gale_listener.py sync runs this after reading the new pages, so a
 grid that turns exact files on the next pass.
 """
 import argparse
+import copy
 import hashlib
 import json
 import subprocess
@@ -56,6 +64,7 @@ from pathlib import Path
 
 TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
+import cross_validate as cv
 import file_archive_org_puzzles as fa
 import gale_inbox as gi
 import gale_listener as gl
@@ -75,6 +84,8 @@ LEDGER = "filed.json"
 #: same block and bars as the puzzle's grid (No 1's report agrees on 96 of
 #: 100 cells, No 13's page's report with No 12 on 105 of 169).
 REPORT_AGREE = 0.9
+#: Each report's reading, as the puzzle with its answers in.
+REPORTS = cv.ListenerReport().cache
 
 
 def code_key(*modules):
@@ -197,8 +208,8 @@ def answers(lts, letters, full):
 
 # ------------------------------------------------------------ the puzzle
 
-def build(reading, rows, words):
-    """The puzzle for a reading's clues, the grid's rows and the answers."""
+def build(reading, rows):
+    """The puzzle for a reading's clues and the grid's rows, unsolved."""
     entries = []
     for (n, d), cells in sorted(rg.light_cells(rows).items(), key=lambda kv: order(f"{kv[0][0]}-{kv[0][1]}")):
         lid = f"{n}-{d}"
@@ -208,7 +219,7 @@ def build(reading, rows, words):
              "length": len(cells),
              "clue": {"text": text, **({"enumeration": clue["enumeration"]} if clue.get("enumeration") else {})}
              if text else {"text": "", "missing": True},
-             "solution": words.get(lid)}
+             "solution": None}
         entries.append(e)
     puzzle = {"id": series_meta.puzzle_id(SERIES, reading["number"]), "number": reading["number"],
               "series": SERIES, "name": reading["name"]}
@@ -224,8 +235,17 @@ def build(reading, rows, words):
     return puzzle
 
 
+def report_copy(puzzle, words):
+    """`puzzle` as its report prints it: the answers `words` read off the
+    report's grid in. A vote for cross_validate.py, never a file."""
+    out = copy.deepcopy(puzzle)
+    for e in out["entries"]:
+        e["solution"] = words.get(f"{e['number']}-{e['direction']}")
+    return out
+
+
 def join(reading, grids, reports, read_letters):
-    """(puzzle or None, verdict) for one reading: `grids` the unfilled
+    """(puzzle or None, verdict, the report's copy or None) for one reading: `grids` the unfilled
     grids read on its pages ({"grid", "fit"}), `reports` every filled grid
     on any saved page ({"grid", "page"}), read_letters(report, lts) its
     letters ({"letters", "full"}, read_grid_letters' shape)."""
@@ -233,12 +253,12 @@ def join(reading, grids, reports, read_letters):
     clues = reading["clues"]
     if not grids:
         verdict["lacks"] = "grid: no unfilled grid read on its pages"
-        return None, verdict
+        return None, verdict, None
     exact = [g for g in grids if g["fit"]["exact"] and g["fit"]["shortest"] == 2]
     if not exact:
         verdict["lacks"] = "grid: no exact fit to the printed numbers" + (
             " (a 2-cell run left unnumbered)" if any(g["fit"]["exact"] for g in grids) else "")
-        return None, verdict
+        return None, verdict, None
     whys = []
     for g in exact:
         rows, side, why = fit_to_clues(g["grid"], g["fit"], clues)
@@ -247,7 +267,7 @@ def join(reading, grids, reports, read_letters):
         whys.append(why)
     else:
         verdict["lacks"] = "grid: " + "; ".join(whys)
-        return None, verdict
+        return None, verdict, None
     if side:
         verdict["flipped"] = list(side)
     # One clue read onto two lights has lost the other's: both go blank
@@ -259,11 +279,12 @@ def join(reading, grids, reports, read_letters):
     if blank:
         verdict["blanked"] = blank
         reading = {**reading, "clues": {lid: {"text": t, "enumeration": e} for lid, (t, e, _) in laid.items()}}
+    puzzle = build(reading, rows)
     scored = sorted(((agreement(rows, r["grid"]["rows"]), i) for i, r in enumerate(reports)), reverse=True)
     if not scored or scored[0][0] < REPORT_AGREE:
-        verdict["lacks"] = "report: no saved filled grid has its blocks and bars" + (
+        verdict["noReport"] = "no saved filled grid has its blocks and bars" + (
             f" (best {scored[0][0]:.2f})" if scored else "")
-        return build(reading, rows, {}), verdict
+        return puzzle, verdict, None
     report = reports[scored[0][1]]
     verdict["report"] = {"page": report["page"], "agrees": round(scored[0][0], 3)}
     lts = rg.light_cells(rows)
@@ -274,8 +295,8 @@ def join(reading, grids, reports, read_letters):
     cells = {c for cs in lts.values() for c in cs}
     verdict["cells"] = {"sure": len(sure), "crossed": sorted([list(c) for c in set(settled) - set(sure)]),
                         "unread": sorted([list(c) for c in cells - set(settled)]), "of": len(cells)}
-    verdict["answers"] = sum(1 for w in words.values() if w)
-    return build(reading, rows, words), verdict
+    verdict["reportAnswers"] = sum(1 for w in words.values() if w)
+    return puzzle, verdict, report_copy(puzzle, words)
 
 
 # ------------------------------------------------------------ the pages
@@ -332,9 +353,10 @@ def letters_reader(inbox=gl.MIRROR, cache=GRIDS):
 
 
 def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdout,
-        grids_of=page_grids, read_letters=None):
+        grids_of=page_grids, read_letters=None, reports_to=REPORTS):
     """Join every reading in `store` with its grid and report; file those
-    that pass. Returns {number: verdict}, also written to store/LEDGER."""
+    that pass, and keep each report's copy in `reports_to`. Returns
+    {number: verdict}, also written to store/LEDGER."""
     read_letters = read_letters or letters_reader(Path(inbox))
     ledger = gl.load_ledger(store)
     files = [(sha, e) for sha, e in ledger.items() if (Path(inbox) / e["file"]).exists()]
@@ -353,7 +375,10 @@ def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdou
     verdicts = {}
     for n, reading in sorted(readings.items()):
         mine = [g for sha, e in files if e.get("number") == n for g in grids.get(e["file"], ()) if g["fit"]]
-        puzzle, verdict = join(reading, mine, reports, read_letters)
+        puzzle, verdict, printed = join(reading, mine, reports, read_letters)
+        if printed and write:
+            Path(reports_to).mkdir(parents=True, exist_ok=True)
+            (Path(reports_to) / f"{printed['id']}.json").write_text(json.dumps(printed, indent=1) + "\n")
         if puzzle is not None and "lacks" not in verdict:
             whole = fa.complete(puzzle)
             if not whole:
@@ -373,8 +398,10 @@ def run(store=gl.STORE, inbox=gl.MIRROR, puzzles=None, write=True, out=sys.stdou
         verdicts[n] = verdict
         print(f"No {n}: " + "; ".join(v for v in (
             verdict.get("lacks"), verdict.get("skip"), verdict.get("refusedWrite"), verdict.get("writeFailed"),
-            "written" if verdict.get("wrote") else None) if v)
-              + (f", {verdict['answers']}/{len(puzzle['entries'])} answers" if "answers" in verdict else ""), file=out)
+            "written" if verdict.get("wrote") else None,
+            f"report: {verdict['noReport']}" if "noReport" in verdict else None) if v)
+              + (f", {verdict['reportAnswers']}/{len(puzzle['entries'])} answers read off the report"
+                 if "reportAnswers" in verdict else ""), file=out)
     if write:
         (store / LEDGER).write_text(json.dumps(verdicts, indent=1) + "\n")
     return verdicts

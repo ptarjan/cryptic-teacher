@@ -35,8 +35,8 @@ tools/archive_org_listener.py writes (clue text and count by light, the
 vote's blanks, the source). A puzzle file needs the grid and answers too,
 which a barred grid's clues alone do not give: `sync` then runs
 tools/file_gale_listener.py, which joins each reading with its page's grid
-(tools/listener_grid.py) and the later report's letters and files what
-passes.
+(tools/listener_grid.py) and files what passes unsolved; the later
+report's letters are kept as a check on the solve, never filed.
 """
 import argparse
 import datetime
