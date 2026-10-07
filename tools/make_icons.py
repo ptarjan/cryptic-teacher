@@ -7,8 +7,8 @@ changing the palette or the block pattern:
 
     python3 tools/make_icons.py
 
-Outputs favicon.ico, favicon-16/32.png, icon-192/512.png, apple-touch-icon.png
-into the repo root. The 1200x630 social card is separate: it needs real
+Outputs favicon.ico, favicon.svg, favicon-16/32.png, icon-192/512.png,
+apple-touch-icon.png into the repo root. The 1200x630 social card is separate: it needs real
 type, so it is rendered from tools/og_card.html by tools/make_og.sh.
 """
 import struct
@@ -25,12 +25,10 @@ ACCENT = (15, 92, 134)      # --accent, the "revealed letter" blue
 # The motif: a 5x5 mini-grid, blocks symmetric about the centre, one accent
 # square in the middle. Reads as a crossword even at 16px.
 #
-# The blocks used to sit at the edge midpoints — (0,2), (2,0), (2,4), (4,2) — a
-# diamond, which looked tidier and was not a crossword: it left eight runs of two
-# white cells, and no British cryptic has a two-letter entry. Moved inwards to
-# the diagonal, which is legal: runs of ONE are fine (that is an unchecked square
-# inside the perpendicular light), runs of two are not. check_motif() below is
-# the same checker the social card uses, so neither can drift back.
+# The blocks sit on the diagonal, which is legal: runs of ONE are fine (that is
+# an unchecked square inside the perpendicular light), runs of two are not — a
+# diamond at the edge midpoints would leave eight two-letter runs. check_motif()
+# below runs the motif through tools/grid_rules.py's checker.
 BLOCKS = {(1, 1), (1, 3), (3, 1), (3, 3)}
 ACCENTS = {(2, 2)}
 
@@ -52,9 +50,7 @@ def fill_of(r, c):
 
 
 def hexc(rgb):
-    """The PNGs and the SVG take their colours from the same three constants.
-    The SVG used to spell its own hexes out, which is the drift this module
-    already learned about once."""
+    """The PNGs and the SVG take their colours from the same three constants."""
     return "#%02x%02x%02x" % rgb
 
 
@@ -127,12 +123,7 @@ def write_ico(path, sizes):
 
 
 def write_svg(path):
-    """favicon.svg, from the same BLOCKS as the PNGs.
-
-    It used to be hand-written, under a comment asking whoever edited it to keep
-    the two in sync by hand. Generated instead: the drift it was warning about is
-    exactly the sort nobody notices, and the SVG is the icon most browsers show.
-    """
+    """favicon.svg, from the same BLOCKS as the PNGs, so the two cannot drift."""
     side = 64
     gap = round(side * GAP_PCT, 2)
     inset = round(side * TAB_INSET, 2)
@@ -155,8 +146,8 @@ def write_svg(path):
 
 
 def check_motif():
-    """Refuse to draw a mini-grid that isn't a legal one. Shares the social
-    card's checker so the two artefacts can never disagree about the rules."""
+    """Refuse to draw a mini-grid that isn't a legal one, by tools/grid_rules.py's
+    checker."""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from grid_rules import check
     check([[(r, c) not in BLOCKS for c in range(5)] for r in range(5)])

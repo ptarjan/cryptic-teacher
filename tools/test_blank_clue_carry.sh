@@ -5,9 +5,8 @@
 #
 # The Guardian's data for its 2005-08 prize puzzles holds the grid and the
 # answers and no clue text at all, so fetching one writes a grid with no puzzle
-# in it. Sixteen of those sat in the corpus until 2026-09-18, and the clue text
-# that fills them comes off the paper's old site by hand — which means the next
-# re-fetch of any of them is a page full of blanks arriving on top of work that
+# in it. The clue text that fills them comes off the paper's old site by hand,
+# so a re-fetch of any of them is a page full of blanks arriving on top of work that
 # cannot be fetched again.
 #
 # fetch_puzzle.carry_recovered_clues is what stops that, and this is the test

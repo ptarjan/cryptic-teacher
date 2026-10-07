@@ -3,11 +3,10 @@
 # Checked by running it — an alert is sent, and the log it leaves behind is fed
 # to the catch-all exactly as the exit trap feeds it.
 #
-# On 2026-09-08 a KV read broke and the run alerted properly, quoting the
-# traceback that explained it. That quote goes to stdout with the alert, so the
-# catch-all found the same traceback in the same log and sent it a second time
-# as unexplained. Two messages, one failure, and the second one says nobody
-# thought of this — which is the alert nobody reads, arriving by another route.
+# An alert that quotes a traceback puts that traceback on stdout too, so the
+# catch-all must not find it in the log and send it a second time as
+# unexplained: two messages for one failure, the second claiming nobody
+# thought of it.
 #
 # Run standalone or from tools/smoke_test.js.
 set -uo pipefail
@@ -57,8 +56,7 @@ check "a claimed traceback does not silence an unrelated failure" \
 $traceback" "VALIDATION FAILED")" "1"
 
 # A path that prints its own failure line before alerting claims it by
-# printing it with echo_alerted, so the catch-all does not report it again
-# (VALIDATION FAILED on telegraph-31315, 2026-10-06).
+# printing it with echo_alerted, so the catch-all does not report it again.
 claimed_line() {  # claimed_line <line> -> catch-all reports for that run
   rm -rf "$tmp/state"; mkdir -p "$tmp/state"
   local log="$tmp/run.log"; : > "$log"
@@ -81,9 +79,8 @@ check "the same line printed with echo is still reported" \
   "$(run "annotation validation failed" "VALIDATION FAILED on telegraph-31315 — reverting those puzzle files")" "1"
 
 # --- the icon says which kind of message this is ---
-# Everything alert.sh sends used to wear a ⚠️, so a blind solve that graded 28/28
-# arrived as a warning (Paul's channel, 2026-09-12). A caller may say otherwise
-# for one message, and must fall back to the warning the moment it does not —
+# An alert is a warning (⚠️) unless the caller sets ALERT_ICON for that one
+# message, and it must fall back to the warning the moment it does not —
 # a result that quietly stops looking like a problem is the worse failure.
 icon() {  # icon <ALERT_ICON-or-empty> -> the leading token wake.sh was handed
   rm -rf "$tmp/state"; mkdir -p "$tmp/state"
@@ -99,10 +96,9 @@ check "an alert with nothing said about it is a warning" "$(icon "")" "⚠️"
 check "and a caller may send a result as a result" "$(icon "✅")" "✅"
 
 # --- the room is a name, so it follows the bridge between fronts ---
-# ALERT_CHANNEL was a bare Discord channel id until 2026-09-14, so every alert
-# this job raised went on landing in Discord long after the bridge itself had
-# moved to Telegram. An id names one service and cannot be re-pointed; a name is
-# resolved by wake.sh against both fronts, and DEFAULT_FRONT decides.
+# ALERT_CHANNEL is a room name, not a channel id: an id names one service and
+# cannot be re-pointed; a name is resolved by wake.sh against both fronts, and
+# DEFAULT_FRONT decides.
 room() {  # -> the channel wake.sh was handed
   rm -rf "$tmp/state"; mkdir -p "$tmp/state"
   printf '#!/bin/sh\nprintf "%%s\\n" "$2" > "%s/sent"\n' "$tmp" \

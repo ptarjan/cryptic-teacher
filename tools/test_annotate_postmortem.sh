@@ -7,8 +7,7 @@
 # annotate_postmortem.py over a transcript built here, so the shape it reports
 # is checked against a run whose facts this file knows. The second reads
 # annotate_alert OUT of daily_update.sh and calls it, because a post-mortem
-# nothing invokes is the same as no post-mortem — which is what the nightly
-# had until 2026-09-12: it recorded "ran past 90m" and told nobody.
+# nothing invokes is the same as no post-mortem.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 fails=0

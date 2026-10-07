@@ -5,21 +5,17 @@
 # from a private git worktree pinned to origin/master, so a job that runs for
 # two hours never shares a working tree with a person editing the repo.
 #
-# WHY. /Users/pt/github/cryptic-teacher is somebody's editor window. The daily
-# job used to run there, which made every one of these true at once:
+# WHY. /Users/pt/github/cryptic-teacher is somebody's editor window. A job
+# running there would make every one of these true at once:
 #
-#   * A half-written feature sitting unstaged looked, to the job, exactly like
-#     something the job had changed. It was swallowed into "Daily update: fetch
-#     latest cryptic" on 2026-08-10 — the work survived, in the wrong commit,
-#     and could as easily have been committed broken. The defence was a
-#     DIRTY_BEFORE snapshot subtracted from the final status, which then had to
-#     be right about renames, spaces in names and staged-vs-unstaged.
-#   * The reverse also held: while the job was mid-run, its half-fetched puzzle
-#     files were in the tree, so a person could not commit their own work
+#   * A half-written feature sitting unstaged looks, to the job, exactly like
+#     something the job changed, and gets swallowed into the job's commit.
+#   * The reverse: while the job is mid-run, its half-fetched puzzle
+#     files are in the tree, so a person cannot commit their own work
 #     either. The asset stamps span both sets of files, so a partial commit
 #     ships an index.html pointing at a puzzles/index.js that isn't there.
-#   * `git pull --rebase --autostash` before a push stashed whatever the other
-#     writer had in flight, out from under them.
+#   * `git pull --rebase --autostash` before a push stashes whatever the other
+#     writer has in flight, out from under them.
 #
 # None of that is a bug in the checks. It is one working tree with two writers,
 # and the fix is two working trees. A worktree shares the object store, so this
@@ -27,10 +23,8 @@
 # `reset --hard origin/master`, a run that died halfway leaves nothing for the
 # next one to trip over.
 #
-# What the job gets: a tree containing exactly what it changes. That is why
-# these scripts can now `git add -A` and assert a clean tree afterwards instead
-# of maintaining a pathspec that has twice been missing the one file that
-# mattered.
+# What the job gets: a tree containing exactly what it changes, so it can stage
+# with `git add -A` rather than keep a list of the files it touched.
 #
 # Untracked state is deliberately NOT copied. It is symlinked back to the main
 # checkout, so the usage cache, the alert dedupe and the CLI's settings stay one
@@ -212,7 +206,7 @@ if [ "${CT_IN_WORKTREE:-0}" != 1 ] && [ "${CT_NO_WORKTREE:-0}" != 1 ]; then
   done
 
   if [ ! -d "$_ct_tree/.git" ] && [ ! -f "$_ct_tree/.git" ]; then
-    # Quiet: the first run checks out 600 files and the progress meter writes a
+    # Quiet: the first run checks out 45k files and the progress meter writes a
     # line per percent into a log somebody has to read a failure out of.
     git -C "$_ct_main" worktree add -q --detach "$_ct_tree" origin/master || {
       echo "WORKTREE: cannot create $_ct_tree" >&2
@@ -317,9 +311,7 @@ fi
 # while the other is mid-fetch/push fails with "cannot lock ref
 # 'refs/remotes/origin/master': is at X but expected Y" — the ref moved
 # under us, not a real disagreement, so redoing the whole attempt against
-# wherever it landed clears it. On 2026-09-27 this is exactly what happened
-# to the nightly run: its one attempt hit the lock, gave up, and alerted,
-# and a finished night's commit had to be pushed by hand.
+# wherever it landed clears it.
 #
 # $1 names a function that performs one whole attempt (fetch, rebase, any
 # conflict handling, push) and returns its exit status; everything it writes
