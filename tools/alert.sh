@@ -61,13 +61,20 @@ ALERT_REPEAT_HOURS="${ALERT_REPEAT_HOURS:-12}"
 # once as a bare `Traceback` line. Filtered on the text an alert really sent, so
 # a new alert that quotes its own cause is covered without editing this list.
 alert_run_failures() {
-  local log="$1" hits claimed line
+  local log="$1" hits claimed line exc
   [ -r "$log" ] || return 0
   claimed="$(mktemp "${TMPDIR:-/tmp}/cryptic-claimed.XXXXXX")"
   printf '%s' "${ALERT_CLAIMED:-}" > "$claimed"
   hits=$(grep -nE '^Traceback \(most recent call last\)|^[a-zA-Z_./]+\.py: error:|^usage: [a-zA-Z_]+\.py|: command not found|^VALIDATION FAILED|rejected — nothing written|^refresh .* failed:|^ERROR: |^[a-zA-Z_./]+: line [0-9]+: ' "$log" |
     while IFS= read -r line; do
-      grep -qxF -- "${line#*:}" "$claimed" || printf '%s\n' "$line"
+      grep -qxF -- "${line#*:}" "$claimed" && continue
+      # An alert quotes a traceback's tail, so its header is claimed by the
+      # exception line that ends it: the first unindented line after it.
+      if [ "${line#*:}" = "Traceback (most recent call last):" ]; then
+        exc=$(tail -n +"$((${line%%:*} + 1))" "$log" | grep -m1 -v '^[[:space:]]' | cut -c1-200)
+        [ -n "$exc" ] && grep -qxF -- "$exc" "$claimed" && continue
+      fi
+      printf '%s\n' "$line"
     done | cut -c1-200 | head -8)
   rm -f "$claimed"
   [ -n "$hits" ] || return 0
