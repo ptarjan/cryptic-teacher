@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,67 @@
     "text": "Politico with cases of kleptomania, megalomania logorrhoea",
     "enumeration": "6"
    },
-   "solution": "KAMALA"
+   "solution": "KAMALA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "KAMALA",
+    "definitions": [
+     {
+      "text": "Politico",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cases of",
+      "for": "letter_selection",
+      "note": "a case is the outer shell, so only the first and last letter of each following word is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "kleptomania",
+      "gives": "KA",
+      "select": "outer",
+      "note": "first and last letters of kleptomania"
+     },
+     {
+      "clueFragment": "megalomania",
+      "gives": "MA",
+      "select": "outer",
+      "note": "first and last letters of megalomania"
+     },
+     {
+      "clueFragment": "logorrhoea",
+      "gives": "LA",
+      "select": "outer",
+      "note": "first and last letters of logorrhoea"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "KA",
+      "MA",
+      "LA"
+     ]
+    },
+    "explanation": {
+     "surface": "A politician accused of a full house of compulsions: stealing, grandiosity and endless talking.",
+     "walkthrough": "Kamala Harris, US Vice-President and presidential candidate, is the politico; the three manias are just casings to be stripped.",
+     "definitionFit": "Kamala Harris is a prominent American politician, and politico is informal for a person in politics."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cases"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +110,43 @@
     "text": "Money, pure and simple, reportedly area of dispute",
     "enumeration": "7"
    },
-   "solution": "KASHMIR"
+   "solution": "KASHMIR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "KASHMIR",
+    "definitions": [
+     {
+      "text": "area of dispute",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so the sound counts, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Money, pure and simple",
+      "gives": "KASHMIR",
+      "soundsLike": "CASH MERE",
+      "note": "money is cash; pure and simple is mere"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone insists that a quarrel is simply about money.",
+     "definitionFit": "Kashmir is a Himalayan region whose territory is contested by India, Pakistan and China."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pure"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +160,52 @@
     "text": "Tube in which postmortems, in part, returned",
     "enumeration": "5"
    },
-   "solution": "METRO"
+   "solution": "METRO",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "METRO",
+    "definitions": [
+     {
+      "text": "Tube",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in part",
+      "for": "hidden_word",
+      "note": "only a portion of the long word is taken, a run of its letters"
+     },
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returning means coming back the way you went, so the letters run backwards"
+     }
+    ],
+    "linkWords": [
+     "in which"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "postmortems",
+      "gives": "ORTEM",
+      "note": "a run of letters inside the word"
+     }
+    ],
+    "explanation": {
+     "surface": "A tube used during autopsies is sent back.",
+     "walkthrough": "Tube is London's Underground railway, not a medical tube.",
+     "definitionFit": "A metro is an underground urban railway, which Londoners call the Tube."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Tube"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +219,54 @@
     "text": "One taking and playing clarinets",
     "enumeration": "9"
    },
-   "solution": "LARCENIST"
+   "solution": "LARCENIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LARCENIST",
+    "definitions": [
+     {
+      "text": "One taking",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing a piece freely, so the letters of the instruments are rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "clarinets",
+      "gives": "CLARINETS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CLARINETS",
+       "gives": "LARCENIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A musician picks up and plays several clarinets.",
+     "walkthrough": "'Taking' sounds like picking up instruments; it means stealing.",
+     "definitionFit": "A larcenist commits larceny, the crime of theft, so is someone who takes property."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "taking"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +280,56 @@
     "text": "Do some bonding, embracing one mafia member",
     "enumeration": "7"
    },
-   "solution": "SOLDIER"
+   "solution": "SOLDIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SOLDIER",
+    "definitions": [
+     {
+      "text": "mafia member",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "to embrace is to hold something in your arms, so one piece wraps around the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Do some bonding",
+      "gives": "SOLDER",
+      "note": "to solder is to bond metal with molten alloy"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "Roman numeral one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLD",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone bonds with others by hugging a gangster.",
+     "walkthrough": "'Bonding' suggests friendship, but it is metalwork joining.",
+     "definitionFit": "In the Mafia hierarchy a soldier is a low-ranking made man who carries out orders."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bonding"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +349,50 @@
      }
     ]
    },
-   "solution": "SIDETWO"
+   "solution": "SIDETWO",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SIDE TWO",
+    "definitions": [
+     {
+      "text": "it may be labelled ‘B’",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "homophone",
+      "note": "picked up means caught by ear, so the sound of the words matters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hunk of beef",
+      "gives": "SIDE",
+      "note": "a side of beef is a large carcass half"
+     },
+     {
+      "clueFragment": "as well",
+      "gives": "TWO",
+      "soundsLike": "TOO",
+      "note": "as well means also"
+     }
+    ],
+    "explanation": {
+     "surface": "A slab of beef is heard, too, and it carries a B label.",
+     "walkthrough": "On vinyl records the second side was labelled B, as in B-side.",
+     "definitionFit": "Records and cassettes have side one and side two, the second often marked B on the label."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "labelled"
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +406,54 @@
     "text": "Flier in tailspin: he won’t get out alive",
     "enumeration": "5"
    },
-   "solution": "LIFER"
+   "solution": "LIFER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LIFER",
+    "definitions": [
+     {
+      "text": "he won’t get out alive",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in tailspin",
+      "for": "anagram",
+      "note": "a plane in a tailspin is whirling out of control, so the letters are tossed into a new order"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Flier",
+      "gives": "FLIER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "FLIER",
+       "gives": "LIFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pilot in a spinning plane is doomed.",
+     "walkthrough": "The surface suggests a crash; the answer is a prisoner serving a whole-life sentence.",
+     "definitionFit": "A lifer is a prisoner sentenced to life imprisonment, who may die behind bars."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Flier"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +473,58 @@
      }
     ]
    },
-   "solution": "INDIALECT"
+   "solution": "INDIALECT",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "IN DIALECT",
+    "definitions": [
+     {
+      "text": "how Irvine Welsh writes",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means not quite all, so the last letters are cut"
+     }
+    ],
+    "linkWords": [
+     "describing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "I",
+      "gives": "INDIA",
+      "note": "India is the radio code word for the letter I"
+     },
+     {
+      "clueFragment": "lecture",
+      "gives": "LECTURE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INDIA",
+      "LECT"
+     ]
+    },
+    "explanation": {
+     "surface": "A lecturer explains Irvine Welsh's writing style.",
+     "walkthrough": "Irvine Welsh wrote Trainspotting in Edinburgh Scots; I becomes INDIA from the NATO phonetic alphabet.",
+     "definitionFit": "Welsh's novels use phonetic Scottish vernacular, so he writes in a regional dialect rather than standard English."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "I"
+    }
+   }
   },
   {
    "number": 7,
@@ -157,7 +538,65 @@
     "text": "What to shoot in Grand Canyon; on reflection, what to shoot at St. Andrews (photos?)",
     "enumeration": "6"
    },
-   "solution": "RAPIDS"
+   "solution": "RAPIDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RAPIDS",
+    "definitions": [
+     {
+      "text": "What to shoot in Grand Canyon",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on reflection",
+      "for": "reversal",
+      "note": "a reflection is a mirror image, so letters appear backwards"
+     }
+    ],
+    "linkWords": [
+     ";"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what to shoot at St. Andrews",
+      "gives": "PAR",
+      "note": "golfers at St Andrews aim to shoot par"
+     },
+     {
+      "clueFragment": "photos?",
+      "gives": "IDS",
+      "note": "identity cards carry photos"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAP",
+      "IDS"
+     ],
+     "reversals": [
+      {
+       "from": "PAR",
+       "to": "RAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tourist guide to shooting: the Grand Canyon's scenery, then golf in Scotland.",
+     "walkthrough": "St Andrews is the Scottish home of golf; IDS is defined by example, hence the question mark.",
+     "definitionFit": "Rafters shoot the rapids, the fast turbulent stretches of the Colorado River in the Grand Canyon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "shoot"
+    }
+   }
   },
   {
    "number": 8,
@@ -171,7 +610,58 @@
     "text": "Couple of drinks raised: Grouse?",
     "enumeration": "6"
    },
-   "solution": "MURMUR"
+   "solution": "MURMUR",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "MURMUR",
+    "definitions": [
+     {
+      "text": "Grouse",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down entry raising lifts the letters so they read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     ":"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple of drinks",
+      "gives": "RUMRUM",
+      "note": "two glasses of rum"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MURMUR"
+     ],
+     "reversals": [
+      {
+       "from": "RUMRUM",
+       "to": "MURMUR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Two glasses are lifted in a toast with a shout of the Scotch whisky brand.",
+     "walkthrough": "Grouse looks like the whisky Famous Grouse; it is a verb meaning complain.",
+     "definitionFit": "To murmur is to grumble quietly, and to grouse is to complain, so both mean muttering discontent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Grouse"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +681,58 @@
      }
     ]
    },
-   "solution": "SITAROUND"
+   "solution": "SITAROUND",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "SIT AROUND",
+    "definitions": [
+     {
+      "text": "Relax",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "East End",
+      "for": "deletion",
+      "note": "Cockneys of London's East End famously drop their aitches, so the opening H goes"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "musical instrument",
+      "gives": "SITAR",
+      "note": "an Indian stringed instrument"
+     },
+     {
+      "clueFragment": "pooch",
+      "gives": "HOUND",
+      "note": "a dog"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SITAR",
+      "OUND"
+     ]
+    },
+    "explanation": {
+     "surface": "Chilling out with a sitar and a London mutt.",
+     "definitionFit": "To sit around is to idle or laze, a phrasal synonym for relaxing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "End"
+    }
+   }
   },
   {
    "number": 10,
@@ -211,7 +752,43 @@
      }
     ]
    },
-   "solution": "FEDUP"
+   "solution": "FEDUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FED UP",
+    "definitions": [
+     {
+      "text": "Sick and tired",
+      "at": 0
+     },
+     {
+      "text": "in total disarray",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sick and tired",
+      "note": "first meaning: thoroughly weary of something"
+     },
+     {
+      "clueFragment": "in total disarray",
+      "note": "second meaning, read as 'eff-ed up', a polite form of a ruder word for wrecked"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags the second reading: say F-ED UP as 'effed up', the euphemism for something utterly messed up.",
+     "definitionFit": "Fed up means weary and exasperated; spelt as the letter F plus ED UP it becomes slang for completely botched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "total"
+    }
+   }
   },
   {
    "number": 11,
@@ -225,7 +802,50 @@
     "text": "Dalton followed him and Heath east",
     "enumeration": "5"
    },
-   "solution": "MOORE"
+   "solution": "MOORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MOORE",
+    "definitions": [
+     {
+      "text": "Dalton followed him",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Heath",
+      "gives": "MOOR",
+      "note": "a heath is open moorland"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "compass abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MOOR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone trails a man and the former prime minister Ted Heath eastwards.",
+     "walkthrough": "Timothy Dalton followed Roger Moore as James Bond. 'Dalton' and 'Heath' both sound like politicians (Hugh Dalton, Ted Heath), but Heath is just open land.",
+     "definitionFit": "The pronoun stands for the actor Roger Moore, whom Dalton succeeded in the Bond role in 1987."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Heath"
+    }
+   }
   },
   {
    "number": 12,
@@ -245,7 +865,54 @@
      }
     ]
    },
-   "solution": "METERMAID"
+   "solution": "METERMAID",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "METER MAID",
+    "definitions": [
+     {
+      "text": "Paul’s lovely subject",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooking",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so the letters before it are mixed into something new"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Red meat I’m",
+      "gives": "REDMEATIM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDMEATIM",
+       "gives": "METERMAID"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cooks red meat as a dish for a friend called Paul.",
+     "walkthrough": "Paul McCartney's Beatles song 'Lovely Rita' is about a meter maid; a meter maid is a female traffic warden checking parking meters.",
+     "definitionFit": "The Beatles song opens 'Lovely Rita, meter maid', so the parking attendant is the song's subject."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "lovely"
+    }
+   }
   },
   {
    "number": 13,
@@ -259,7 +926,43 @@
     "text": "Prince is not so thirsty",
     "enumeration": "7"
    },
-   "solution": "RAINIER"
+   "solution": "RAINIER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RAINIER",
+    "definitions": [
+     {
+      "text": "Prince",
+      "at": 0
+     },
+     {
+      "text": "not so thirsty",
+      "at": 10
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Prince",
+      "note": "first meaning: the Monaco ruler who married Grace Kelly"
+     },
+     {
+      "clueFragment": "not so thirsty",
+      "note": "second meaning: wetter, as weather or ground with more rain is less dry"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Thirsty here means dry, like parched earth; the comparative of rainy is the opposite.",
+     "definitionFit": "Prince Rainier III ruled Monaco; separately, rainier is the comparative adjective of rainy, meaning wetter and less parched."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thirsty"
+    }
+   }
   },
   {
    "number": 14,
@@ -283,7 +986,43 @@
      }
     ]
    },
-   "solution": "INTHEMAIL"
+   "solution": "INTHEMAIL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "IN THE MAIL",
+    "definitions": [
+     {
+      "text": "Posted",
+      "at": 0
+     },
+     {
+      "text": "where jouster may be seen",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Posted",
+      "note": "first meaning: sent by post"
+     },
+     {
+      "clueFragment": "where jouster may be seen",
+      "note": "second meaning: a knight wears armour of chain links"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The second meaning is cryptic: a jousting knight appears clad in chain mail.",
+     "definitionFit": "Something posted is in transit through the postal system; a knight is likewise dressed in armour made of chain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Posted"
+    }
+   }
   },
   {
    "number": 15,
@@ -297,7 +1036,46 @@
     "text": "Big mice to owl, predatory bird",
     "enumeration": "6"
    },
-   "solution": "OSPREY"
+   "solution": "OSPREY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OSPREY",
+    "definitions": [
+     {
+      "text": "predatory bird",
+      "at": 17
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Big",
+      "gives": "OS",
+      "note": "OS is short for outsize"
+     },
+     {
+      "clueFragment": "mice to owl",
+      "gives": "PREY",
+      "note": "mice are what an owl hunts"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OS",
+      "PREY"
+     ]
+    },
+    "explanation": {
+     "surface": "Large mice are fair game for an owl, which is a predatory bird.",
+     "definitionFit": "The osprey is a fish-eating raptor, a hunting bird of prey."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Big"
+    }
+   }
   },
   {
    "number": 16,
@@ -317,7 +1095,71 @@
      }
     ]
    },
-   "solution": "POOLTABLE"
+   "solution": "POOLTABLE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "POOL TABLE",
+    "definitions": [
+     {
+      "text": "You can bank on it!",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down entry up means read from bottom to top"
+     },
+     {
+      "text": "all around",
+      "for": "container",
+      "note": "surrounding on every side, so one piece wraps the other"
+     }
+    ],
+    "linkWords": [
+     "There’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drink",
+      "gives": "POTABLE",
+      "note": "a potable is something drinkable"
+     },
+     {
+      "clueFragment": "Look",
+      "gives": "LO",
+      "note": "lo means look, as in lo and behold"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "OL",
+      "TABLE"
+     ],
+     "reversals": [
+      {
+       "from": "LO",
+       "to": "OL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a bar round the room and declares it a dead cert.",
+     "walkthrough": "'Bank on it' looks like a promise; in snooker or pool a bank shot rebounds off a cushion.",
+     "definitionFit": "Pool players bank the ball off the cushions of the table, so the table is where banking happens."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "bank"
+    }
+   }
   },
   {
    "number": 17,
@@ -331,7 +1173,53 @@
     "text": "Stalled in orbit, passing over City of London",
     "enumeration": "6"
    },
-   "solution": "STATIC"
+   "solution": "STATIC",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "STATIC",
+    "definitions": [
+     {
+      "text": "Stalled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "passing over",
+      "for": "deletion",
+      "note": "to pass over something is to skip it, so those letters are left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in orbit",
+      "gives": "ECSTATIC",
+      "note": "in orbit is slang for elated, over the moon"
+     },
+     {
+      "clueFragment": "City of London",
+      "gives": "EC",
+      "note": "EC is the postcode district of the City of London"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STATIC"
+     ]
+    },
+    "explanation": {
+     "surface": "A spacecraft breaks down while orbiting above London's financial district.",
+     "walkthrough": "'In orbit' looks like literal spaceflight but means ecstatic; the City's EC postcode is then skipped from its front.",
+     "definitionFit": "Static means not moving or progressing, as a stalled thing is at a standstill."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "orbit"
+    }
+   }
   },
   {
    "number": 18,
@@ -351,7 +1239,43 @@
      }
     ]
    },
-   "solution": "CATCHUP"
+   "solution": "CATCHUP",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CATCH UP",
+    "definitions": [
+     {
+      "text": "Get the latest",
+      "at": 0
+     },
+     {
+      "text": "sauce",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get the latest",
+      "note": "first meaning: be brought up to date on news"
+     },
+     {
+      "clueFragment": "sauce",
+      "note": "second meaning: an old variant spelling of ketchup"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Catchup is a less common spelling of ketchup, the tomato sauce.",
+     "definitionFit": "To catch up is to get updated on recent news, and catchup is an alternative spelling of the condiment ketchup."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "sauce"
+    }
+   }
   },
   {
    "number": 19,
@@ -365,7 +1289,43 @@
     "text": "Made out like someone with acne?",
     "enumeration": "7"
    },
-   "solution": "SPOTTED"
+   "solution": "SPOTTED",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPOTTED",
+    "definitions": [
+     {
+      "text": "Made out",
+      "at": 0
+     },
+     {
+      "text": "like someone with acne",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Made out",
+      "note": "first meaning: discerned or noticed"
+     },
+     {
+      "clueFragment": "like someone with acne",
+      "note": "second meaning: covered in spots"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Made out' tempts as kissing, the teenage sense that sits beside acne; here it means saw.",
+     "definitionFit": "To spot is to catch sight of, while spotted also describes skin marked with pimples."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Made"
+    }
+   }
   },
   {
    "number": 19,
@@ -379,7 +1339,80 @@
     "text": "Wee fellow loses last of cash, gaining bit of courage to make do",
     "enumeration": "6"
    },
-   "solution": "SCRIMP"
+   "solution": "SCRIMP",
+   "annotation": {
+    "type": [
+     "substitution",
+     "letter_selection"
+    ],
+    "answer": "SCRIMP",
+    "definitions": [
+     {
+      "text": "make do",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses",
+      "for": "substitution",
+      "note": "losing one letter while gaining another means a swap of one for the other"
+     },
+     {
+      "text": "gaining",
+      "for": "substitution",
+      "note": "gaining brings in a new letter to fill the gap left by the lost one"
+     },
+     {
+      "text": "last of",
+      "for": "letter_selection",
+      "note": "last of points to the final letter of the next word"
+     },
+     {
+      "text": "bit of",
+      "for": "letter_selection",
+      "note": "a small bit is a single letter, here the opening one"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wee fellow",
+      "gives": "SHRIMP",
+      "note": "a shrimp is a small person"
+     },
+     {
+      "clueFragment": "cash",
+      "gives": "H",
+      "select": "last",
+      "note": "final letter of cash"
+     },
+     {
+      "clueFragment": "courage",
+      "gives": "C",
+      "select": "first",
+      "note": "first letter of courage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "C",
+      "RIMP"
+     ]
+    },
+    "explanation": {
+     "surface": "A small man runs out of money but finds the nerve to get by.",
+     "definitionFit": "To scrimp is to economise hard, getting by on very little, which is making do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wee"
+    }
+   }
   },
   {
    "number": 20,
@@ -399,7 +1432,65 @@
      }
     ]
    },
-   "solution": "DEEPSIX"
+   "solution": "DEEPSIX",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "DEEP-SIX",
+    "definitions": [
+     {
+      "text": "American trash",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Upwardly mobile",
+      "for": "reversal",
+      "note": "moving upward in a down entry means the letters read from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek characters",
+      "gives": "XIS",
+      "note": "xi is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "tinkled",
+      "gives": "PEED",
+      "note": "tinkle is a childish word for urinate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEEP",
+      "SIX"
+     ],
+     "reversals": [
+      {
+       "from": "XISPEED",
+       "to": "DEEPSIX"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Ambitious Greek folk relieved themselves in rubbish in America.",
+     "walkthrough": "'Upwardly mobile' sounds like social climbing; it reverses the whole string in this down entry.",
+     "definitionFit": "Deep-six is American slang meaning to discard or destroy, from burial at sea in six fathoms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "mobile"
+    }
+   }
   },
   {
    "number": 21,
@@ -413,7 +1504,46 @@
     "text": "Chat with Italian: ‘Like the Beatles?’",
     "enumeration": "6"
    },
-   "solution": "CONFAB"
+   "solution": "CONFAB",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONFAB",
+    "definitions": [
+     {
+      "text": "Chat",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with Italian",
+      "gives": "CON",
+      "note": "con is Italian for with"
+     },
+     {
+      "clueFragment": "Like the Beatles?",
+      "gives": "FAB",
+      "note": "the Beatles were the Fab Four"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CON",
+      "FAB"
+     ]
+    },
+    "explanation": {
+     "surface": "Talking with an Italian who asks if you like the Beatles.",
+     "definitionFit": "A confab, short for confabulation, is an informal conversation or chat."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Italian"
+    }
+   }
   },
   {
    "number": 22,
@@ -433,7 +1563,50 @@
      }
     ]
    },
-   "solution": "OPERASTAR"
+   "solution": "OPERASTAR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OPERA STAR",
+    "definitions": [
+     {
+      "text": "Domingo, notably",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "worked",
+      "for": "anagram",
+      "note": "worked means shaped or kneaded like clay, so the letters that follow are reshaped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "as a porter",
+      "gives": "ASAPORTER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ASAPORTER",
+       "gives": "OPERASTAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The tenor Plácido Domingo once had a job carrying luggage.",
+     "definitionFit": "Plácido Domingo is a celebrated tenor, an example of a famous singer of the operatic stage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worked"
+    }
+   }
   },
   {
    "number": 23,
@@ -447,7 +1620,68 @@
     "text": "Gus standing up to abandon Leonard in grand display",
     "enumeration": "5"
    },
-   "solution": "ARRAY"
+   "solution": "ARRAY",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "ARRAY",
+    "definitions": [
+     {
+      "text": "grand display",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "standing up",
+      "for": "reversal",
+      "note": "standing up in a down entry means the name is read bottom to top"
+     },
+     {
+      "text": "to abandon",
+      "for": "deletion",
+      "note": "abandoning means leaving behind, so those letters are dropped"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gus",
+      "gives": "GUS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Leonard",
+      "gives": "SUGARRAY",
+      "note": "the boxer Sugar Ray Leonard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARRAY"
+     ],
+     "reversals": [
+      {
+       "from": "GUS",
+       "to": "SUG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man called Gus stands up and walks out on Leonard in a showy display.",
+     "walkthrough": "Leonard is the boxer Sugar Ray Leonard, and SUG comes off the front of his first name.",
+     "definitionFit": "An array is an impressive arrangement or spread, an imposing show of things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Leonard"
+    }
+   }
   },
   {
    "number": 24,
@@ -461,7 +1695,51 @@
     "text": "Parts of skunks trimmed for offal",
     "enumeration": "5"
    },
-   "solution": "TRIPE"
+   "solution": "TRIPE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TRIPE",
+    "definitions": [
+     {
+      "text": "offal",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trimmed",
+      "for": "deletion",
+      "note": "trimming cuts off the edges, so the first and last letters go"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Parts of skunks",
+      "gives": "STRIPES",
+      "note": "a skunk's white markings"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "Bits of skunk are cut down to make offal.",
+     "walkthrough": "'Parts' suggests cuts of meat in the surface, but it means the stripes on a skunk's fur.",
+     "definitionFit": "Tripe is the stomach lining of cattle or sheep, a kind of edible offal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Parts"
+    }
+   }
   },
   {
    "number": 25,
@@ -475,7 +1753,49 @@
     "text": "Concepts central to Levant?",
     "enumeration": "5"
    },
-   "solution": "IDEAS"
+   "solution": "IDEAS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "IDEAS",
+    "definitions": [
+     {
+      "text": "Concepts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "central to",
+      "for": "letter_selection",
+      "note": "central means the core, with the outer letters stripped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Levant",
+      "gives": "IDEAS",
+      "select": "middle",
+      "note": "the Levant is the Mideast, the eastern Mediterranean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IDEAS"
+     ]
+    },
+    "explanation": {
+     "surface": "A question whether certain notions are at the heart of Levantine thought.",
+     "walkthrough": "Levant must first become MIDEAST, a name for the region, before its middle is taken.",
+     "definitionFit": "Ideas are notions or thoughts, which is what concepts are."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "central"
+    }
+   }
   },
   {
    "number": 26,
@@ -489,7 +1809,45 @@
     "text": "To detect solar event? Natural ability",
     "enumeration": "5"
    },
-   "solution": "FLAIR"
+   "solution": "FLAIR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FLAIR",
+    "definitions": [
+     {
+      "text": "Natural ability",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To detect",
+      "for": "homophone",
+      "note": "detecting here is picking up by ear, so a word is taken by its sound rather than its spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "solar event",
+      "gives": "FLAIR",
+      "soundsLike": "FLARE",
+      "note": "a solar flare is a sudden burst of energy from the sun"
+     }
+    ],
+    "explanation": {
+     "surface": "A question about spotting something on the sun, then a remark about talent.",
+     "walkthrough": "There is a second layer: flair once meant a keen sense of smell, a nose for detecting things.",
+     "definitionFit": "Flair is an instinctive talent or knack, an innate gift for doing something well."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "detect"
+    }
+   }
   },
   {
    "number": 27,
@@ -509,7 +1867,64 @@
      }
     ]
    },
-   "solution": "HOMEBREWS"
+   "solution": "HOMEBREWS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "HOME-BREWS",
+    "definitions": [
+     {
+      "text": "beers",
+      "at": 57
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invite",
+      "for": "container",
+      "note": "inviting someone in brings them inside, so the pieces go within the other word"
+     },
+     {
+      "text": "in (separately)",
+      "for": "container",
+      "note": "separately says the two letters are put in at different places, not together"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mexican chaps",
+      "gives": "HOMBRES",
+      "note": "Spanish for men"
+     },
+     {
+      "clueFragment": "bridge partners",
+      "gives": "EW",
+      "note": "East and West are partners at the bridge table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOM",
+      "E",
+      "BRE",
+      "W",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Some Mexican men ask a pair of card players round for drinks.",
+     "definitionFit": "Homebrews are beers brewed at home rather than bought, so they are beers of a kind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "bridge"
+    }
+   }
   },
   {
    "number": 28,
@@ -529,7 +1944,50 @@
      }
     ]
    },
-   "solution": "BELLYUP"
+   "solution": "BELLYUP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BELLY-UP",
+    "definitions": [
+     {
+      "text": "bankrupt",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Watson’s boss",
+      "gives": "BELL",
+      "note": "Alexander Graham Bell, whose first phone call summoned his assistant Mr Watson"
+     },
+     {
+      "clueFragment": "materialistic chap",
+      "gives": "YUP",
+      "note": "a yuppie, a young upwardly mobile professional"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELL",
+      "YUP"
+     ]
+    },
+    "explanation": {
+     "surface": "A detective's superior is a greedy man who has gone broke.",
+     "walkthrough": "Watson suggests Sherlock Holmes, but this Watson took the first telephone call from Bell.",
+     "definitionFit": "To go belly-up is an idiom for failing financially, like a dead fish floating upside down."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Watson’s"
+    }
+   }
   },
   {
    "number": 29,
@@ -543,7 +2001,47 @@
     "text": "Locale of Hardy novels with Elizabeth’s favourite",
     "enumeration": "6"
    },
-   "solution": "WESSEX"
+   "solution": "WESSEX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "WESSEX",
+    "definitions": [
+     {
+      "text": "Locale of Hardy novels",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     },
+     {
+      "clueFragment": "Elizabeth’s favourite",
+      "gives": "ESSEX",
+      "note": "the Earl of Essex was a favourite of Queen Elizabeth I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ESSEX"
+     ]
+    },
+    "explanation": {
+     "surface": "The setting of Thomas Hardy's novels, together with a royal favourite.",
+     "walkthrough": "Hardy revived the old Anglo-Saxon kingdom's name for his fictional south-west England.",
+     "definitionFit": "Thomas Hardy set his novels in Wessex, a fictionalised version of Dorset and neighbouring counties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "favourite"
+    }
+   }
   }
  ]
 }
