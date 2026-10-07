@@ -16,6 +16,7 @@
     python3 tools/cross_validate.py bigdave44              # the Telegraph's app files against the blog
     python3 tools/cross_validate.py timesforthetimes       # the Globe's files against the Times blog
     python3 tools/cross_validate.py archiveorg             # the Times, FT and Guardian against archive.org's scans
+    python3 tools/cross_validate.py listenerreport         # the 1930s Listeners' answers against their reports
     python3 tools/cross_validate.py all --apply --limit 10000
                                                            # every copy at once; a majority fixes ours
     python3 tools/cross_validate.py all --apply --new      # the same over tonight's filings
@@ -92,7 +93,9 @@ to an adapter or to majority().
                                                                 scan [archiveorg]
   canberra                   Trove scan                         archive.org scan of the Times puzzle
                                                                 it reprints [archiveorg]
-  book metro listener        the book, the paper, the PDF       none
+  listener                   the PDF, else the Gale scan        the Gale report's filled grid,
+                                                                answers only [listenerreport]
+  book metro                 the book, the paper                none
 
 georgeho is frozen (2023-07-15), so its pair needed one pass, not a nightly
 job; it votes in `all` like any copy.
@@ -1035,6 +1038,32 @@ class CanberraReprint(Adapter):
         return dict(read_puzzle_file(path), id=times_id)
 
 
+class ListenerReport(Adapter):
+    """The answers a 1930s Listener's "Report on Crossword No. N" prints, as
+    tools/file_gale_listener.py reads them off the report's filled grid in a
+    page saved from Gale, kept in ~/cryptic-setter-data/listenerreport-source/
+    (listener-<No>.json) whether or not the puzzle filed. The filer files
+    no answer it reads: the solve fills the key, and this copy is its check.
+    A misread that is still a word (PERTS for AERTS) is a report's typical
+    error, so the copy votes on answers alone, and against a model's solve,
+    which has no rank, a disagreement is a lead, never a fix. Offline: the
+    filer fills the cache."""
+    name = "listenerreport"
+    authority = SCAN
+    series = ("listener",)
+    offline = True
+    votes = ("ANSWER",)
+
+    def ids(self):
+        return {p.stem: p for p in sorted(self.cache.glob("listener-*.json"))}
+
+    def fetch_one(self, key):
+        return False
+
+    def puzzle(self, key):
+        return json.loads(key.read_text(encoding="utf-8"))
+
+
 def reprints():
     """{canberra id: the times id it reprints}, from the canberra files."""
     out = {}
@@ -1046,7 +1075,8 @@ def reprints():
 
 
 ADAPTERS = {a.name: a for a in (Telegraph, Guardian, Independent, FifteenSquared, Globe, FT,
-                                 GeorgeHo, BigDave44, TimesBlog, ArchiveOrg, CanberraReprint)}
+                                 GeorgeHo, BigDave44, TimesBlog, ArchiveOrg, CanberraReprint,
+                                 ListenerReport)}
 
 
 def held(adapter):

@@ -1,12 +1,14 @@
 #!/bin/bash
-# Does tools/file_gale_listener.py join a Gale Listener's clue reading, its
-# exact grid and the later issue's report into a puzzle the write path's
-# validators pass (one with a clue unread only to --out): a faint bar the numbering hides put back when exactly one
-# unsure side makes the lights the clue list's, the report found by its bars,
-# a cell left unread by the letter reader settled when both its lights'
-# whole reads agree, a cell nothing settles leaving its entries unanswered
-# (never guessed), and a puzzle short of a step (inexact grid, no report,
-# a blank clue) said so?
+# Does tools/file_gale_listener.py join a Gale Listener's clue reading and
+# its exact grid into an unsolved puzzle the write path's validators pass
+# (one with a clue unread only to --out): a faint bar the numbering hides put
+# back when exactly one unsure side makes the lights the clue list's; the
+# later issue's report found by its bars, a cell left unread by the letter
+# reader settled when both its lights' whole reads agree, a cell nothing
+# settles leaving its entries unanswered (never guessed), and the report's
+# answers kept as cross_validate's listenerreport copy, never filed; a puzzle
+# short of a step (inexact grid, a blank clue) said so, and one with no
+# report filed all the same?
 #
 #     bash tools/test_file_gale_listener.sh
 #
@@ -63,7 +65,7 @@ check("the entries through an open cell have no answer", (None, None, "CARD", "R
 check("nor does one no recogniser read whole", None, words["5-across"])
 
 # The whole join, through the write path, into an --out folder.
-store, inbox, out = tmp / "store", tmp / "inbox", tmp / "out"
+store, inbox, out, printed = tmp / "store", tmp / "inbox", tmp / "out", tmp / "listenerreport-source"
 for d in (store, inbox, out):
     d.mkdir()
 ledger = {"a" * 64: {"file": "p1.pdf", "number": 1}, "b" * 64: {"file": "p3.pdf", "number": 3},
@@ -91,27 +93,47 @@ def read_letters(report, lts):
     read_from.append(report["page"])
     return {"letters": sure, "full": full}
 log = io.StringIO()
-got = f.run(store, inbox, out, out=log, grids_of=lambda p, sha: pages[p.name], read_letters=read_letters)
+run = lambda **kw: f.run(store, inbox, out, grids_of=lambda p, sha: pages[p.name], read_letters=read_letters,
+                         reports_to=printed, **kw)
+got = run(out=log)
 filed = json.loads((out / "listener-1.json").read_text()) if (out / "listener-1.json").exists() else {}
+copy = json.loads((printed / "listener-1.json").read_text()) if (printed / "listener-1.json").exists() else {}
 check("No 1 files", True, got[1].get("wrote"))
 check("its report is the filled grid with its bars", {"page": "p3.pdf", "agrees": 1.0}, got[1].get("report"))
 check("the crossed cell and the open one are said", ([[0, 0]], [[3, 3]]),
       (got[1]["cells"]["crossed"], got[1]["cells"]["unread"]))
-check("answers on disk: none on an entry with an open cell", {"1-across": "CARD", "7-across": None, "4-down": None},
-      {k: e.get("solution") for e in filed.get("entries", ())
+check("the report's copy: none on an entry with an open cell", {"1-across": "CARD", "7-across": None, "4-down": None},
+      {k: e.get("solution") for e in copy.get("entries", ())
        for k in [f"{e['number']}-{e['direction']}"] if k in ("1-across", "7-across", "4-down")})
-check("its provenance is the Gale filer's, answers the paper's", ("tools/file_gale_listener.py", "newspaper", "published"),
-      (filed.get("source", {}).get("acquiredBy"), filed.get("source", {}).get("retrievedFrom"),
-       filed.get("solutions", {}).get("origin")))
+check("the filed puzzle has no answer the report read, and is not published-solved", ([], False),
+      ([e["solution"] for e in filed.get("entries", ()) if e.get("solution")],
+       filed.get("solutions", {}).get("origin") == "published"))
+check("its provenance is the Gale filer's", ("tools/file_gale_listener.py", "newspaper"),
+      (filed.get("source", {}).get("acquiredBy"), filed.get("source", {}).get("retrievedFrom")))
+shape = lambda p: [(e["number"], e["direction"], e["position"], e["length"]) for e in p.get("entries", ())]
+check("each report's copy, filed or not, is listenerreport's, on the filed grid", (["listener-1", "listener-3"], True),
+      (sorted(type("A", (f.cv.ListenerReport,), {"cache": printed})().ids()), shape(copy) == shape(filed) != []))
 check("No 2's inexact grid is what it lacks", "grid: no exact fit to the printed numbers", got[2].get("lacks"))
 check("No 3's blank clue, and the clue read onto two lights, are what it lacks; it goes to --out alone",
       ("clues: 5-across, 2-down, 4-down", True), (got[3].get("lacks"), (out / "listener-3.json").exists()))
 check("the verdicts are kept", {"1", "2", "3"}, set(json.loads((store / f.LEDGER).read_text())))
-again = f.run(store, inbox, out, out=io.StringIO(), grids_of=lambda p, sha: pages[p.name], read_letters=read_letters)
+again = run(out=io.StringIO())
 check("a second run holds No 1 as it is", "already held", again[1].get("skip"))
 del pages["p3.pdf"][1:]
-check("with no report saved, No 1 lacks it", "report: no saved filled grid has its blocks and bars",
-      f.run(store, inbox, out, write=False, out=io.StringIO(), grids_of=lambda p, sha: pages[p.name],
-            read_letters=read_letters)[1].get("lacks"))
+(out / "listener-1.json").unlink()
+bare = run(out=io.StringIO())[1]
+check("with no report saved, No 1 files all the same, unsolved", (True, None, "no saved filled grid has its blocks and bars"),
+      (bare.get("wrote"), bare.get("lacks"), bare.get("noReport")))
+
+# The report's copy against a solve: the misread word is a lead, never a fix.
+solved = json.loads(json.dumps(filed))
+for e in solved["entries"]:
+    e["solution"] = {"1-across": "CARD", "5-across": "AREA"}.get(f"{e['number']}-{e['direction']}")
+solved["solutions"] = {"origin": "model"}
+report = json.loads(json.dumps(solved))
+report["entries"][[f"{e['number']}-{e['direction']}" for e in report["entries"]].index("5-across")]["solution"] = "PREA"
+verdicts, _ = f.cv.majority(solved, [(f.cv.ListenerReport(), report)])
+check("a report disagreeing with a model's solve is a split, not applied", [("ANSWER", "split", False)],
+      [(v["class"], v["kind"], v["fixed"]) for v in verdicts])
 sys.exit(1 if fails else 0)
 PY

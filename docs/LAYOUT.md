@@ -1738,20 +1738,26 @@ tools/file_gale_listener.py                   files the 1930s Listeners saved fr
                                               gale_listener's clue reading joined with the
                                               page's grid when listener_grid's fit is exact and
                                               its lights are the clue list's (one unsure side
-                                              flipped where that alone makes them so), and the
-                                              answers off the later report's filled grid found
-                                              by its bars, a cell settled by sure reads or by
-                                              the letter both its lights' whole reads share, an
-                                              entry with an unsettled cell left unanswered;
-                                              written through the shared validators only when
-                                              every clue reads true; each puzzle's verdict, or
-                                              what it lacks, in filed.json
+                                              flipped where that alone makes them so), filed
+                                              unsolved for the nightly solve, through the
+                                              shared validators only when every clue reads
+                                              true; the later report's filled grid, found by
+                                              its bars, read for answers (a cell settled by
+                                              sure reads or by the letter both its lights'
+                                              whole reads share, an entry with an unsettled
+                                              cell left unanswered) that are never filed: the
+                                              copy with them goes to cross_validate.py's
+                                              listenerreport adapter, where a solve it
+                                              disagrees with is a lead; each puzzle's verdict,
+                                              or what it lacks, in filed.json
 tools/test_file_gale_listener.sh              does the Gale Listener filer put back a faint bar
-                                              the numbering hides, find the report by its bars,
-                                              settle a cell from its crossings and leave a cell
-                                              nothing settles unanswered, file through the
-                                              validators, and say what a puzzle short of a step
-                                              lacks?
+                                              the numbering hides, file the puzzle unsolved
+                                              through the validators (with no report too), find
+                                              the report by its bars, settle a cell from its
+                                              crossings and leave a cell nothing settles
+                                              unanswered, keep the report's answers as
+                                              listenerreport's copy and never in the file, and
+                                              say what a puzzle short of a step lacks?
 tools/test_listener_letters.sh                does trove_solution_ocr.read_grid_letters read
                                               the letters of a drawn, filled Listener report
                                               grid back through listener_grid's lattice?

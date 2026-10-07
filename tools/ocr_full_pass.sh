@@ -87,9 +87,9 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-06T13:45:00+00:00}"
 
 # The Listener pages Paul saves from Gale's Listener Historical Archive: each
-# new file's clues read once (ledger by file hash), each puzzle whose grid,
-# clues and report agree filed (tools/file_gale_listener.py), the checklist
-# published.
+# new file's clues read once (ledger by file hash), each puzzle whose grid
+# and clues agree filed unsolved, its report's answers kept as a check
+# (tools/file_gale_listener.py), the checklist published.
 # Run at the pass's start and before every slice, so a page saved mid-pass is
 # read within about a slice, not at the next pass; with nothing new it costs
 # seconds. A read cut off by LISTENER_SECONDS resumes at the next slice.
