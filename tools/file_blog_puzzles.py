@@ -108,6 +108,7 @@ CAUSES = {
     "enumeration-uncountable": ("an enumeration disagrees with its light, and the "
                                 "answer holds too few words to take the count from"),
     "word-breaks-misfit": "the printed answer's word breaks do not fit its lights",
+    "no-parsed-record": "the parser no longer reads its post",
     "no-number": "no puzzle number",
     "out-of-sequence": "number out of sequence",
     "claimed-twice": "number claimed twice",
@@ -619,6 +620,10 @@ def run(source, grids, parsed, write=True, newest=None):
 
     sources = collections.defaultdict(list)
     for row in rows:
+        if row["post_id"] not in recs:
+            skipped[CAUSES["no-parsed-record"]] += 1
+            outcome(row, "no-parsed-record")
+            continue
         if not row.get("number"):
             skipped[CAUSES["no-number"]] += 1
             outcome(row, "no-number")
