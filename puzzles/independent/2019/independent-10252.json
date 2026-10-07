@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,68 @@
     "text": "Have a go at end of shift about casual worker",
     "enumeration": "7"
    },
-   "solution": "ATTEMPT"
+   "solution": "ATTEMPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ATTEMPT",
+    "definitions": [
+     {
+      "text": "Have a go",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only the closing letter of shift is kept"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "to be about something is to surround it, so the first letters wrap around the next piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at",
+      "gives": "AT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "shift",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of shift"
+     },
+     {
+      "clueFragment": "casual worker",
+      "gives": "TEMP",
+      "note": "a temp is a temporary worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AT",
+      "TEMP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A manager urges someone to tackle a casual worker as the shift ends.",
+     "walkthrough": "'About' looks like it means roughly; here it tells the first two pieces to wrap around the casual worker.",
+     "definitionFit": "To attempt something is to try it, which is what having a go means in everyday speech."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +111,65 @@
     "text": "Attacks on fascist regularly taking toll",
     "enumeration": "7"
    },
-   "solution": "ACCOSTS"
+   "solution": "ACCOSTS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ACCOSTS",
+    "definitions": [
+     {
+      "text": "Attacks",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every second letter of the word is kept"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it inside, so the kept letters enclose the next piece"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fascist",
+      "gives": "ACS",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of fascist"
+     },
+     {
+      "clueFragment": "toll",
+      "gives": "COST",
+      "note": "a toll is a cost or price paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "COST",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Fascist thugs repeatedly launch attacks that take a heavy toll.",
+     "walkthrough": "AC + COST + S gives ACCOSTS.",
+     "definitionFit": "To accost someone is to approach and confront them boldly, a form of verbal or physical assault on them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regularly"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +183,54 @@
     "text": "Conservative rightly accepts end to hostilities",
     "enumeration": "5"
    },
-   "solution": "TRUCE"
+   "solution": "TRUCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TRUCE",
+    "definitions": [
+     {
+      "text": "end to hostilities",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepts",
+      "for": "container",
+      "note": "accepting something means taking it in, so one word holds the other inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rightly",
+      "gives": "TRUE",
+      "note": "true can mean correctly or rightly, as in aim true"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "C is the standard abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRU",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A Tory politician is right to accept a ceasefire.",
+     "definitionFit": "A truce is an agreed halt to fighting between opposing sides, a pause in hostilities."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conservative"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +244,51 @@
     "text": "Agree penalty area is where to put striker",
     "enumeration": "8"
    },
-   "solution": "MATCHBOX"
+   "solution": "MATCHBOX",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MATCHBOX",
+    "definitions": [
+     {
+      "text": "where to put striker",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agree",
+      "gives": "MATCH",
+      "note": "two things match when they agree or correspond"
+     },
+     {
+      "clueFragment": "penalty area",
+      "gives": "BOX",
+      "note": "in football the penalty area is called the box"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MATCH",
+      "BOX"
+     ]
+    },
+    "explanation": {
+     "surface": "Football talk: the penalty area is where a striker belongs.",
+     "walkthrough": "The striker is not a footballer but a match, which is struck to light it and kept in a small box.",
+     "definitionFit": "A match is a striker, struck against a rough strip, and the small container for matches is where one is kept."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "striker"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +302,70 @@
     "text": "Progressive elements of the British proletariat criticised socialist",
     "enumeration": "4"
    },
-   "solution": "TROT"
+   "solution": "TROT",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "TROT",
+    "definitions": [
+     {
+      "text": "socialist",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Progressive elements of",
+      "for": "letter_selection",
+      "note": "progressive means moving one step on each time, so the first letter is taken from one word, the second from the next, and so on"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of the"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "R",
+      "select": 2,
+      "note": "second letter of British"
+     },
+     {
+      "clueFragment": "proletariat",
+      "gives": "O",
+      "select": 3,
+      "note": "third letter of proletariat"
+     },
+     {
+      "clueFragment": "criticised",
+      "gives": "T",
+      "select": 4,
+      "note": "fourth letter of criticised"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "R",
+      "O",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Left-wing members of the British working class criticised a socialist.",
+     "walkthrough": "A tricky selection: each word gives up the letter one place further along than the word before it.",
+     "definitionFit": "Trot is short for Trotskyist, a follower of Leon Trotsky and so a revolutionary left-wing politician."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Progressive"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +379,70 @@
     "text": "Filly takes place of horse at the front in fashionable race",
     "enumeration": "7"
    },
-   "solution": "CLASSIC"
+   "solution": "CLASSIC",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "CLASSIC",
+    "definitions": [
+     {
+      "text": "race",
+      "at": 55
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at the front",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter, so only that is used"
+     },
+     {
+      "text": "takes place of",
+      "for": "substitution",
+      "note": "taking the place of something means replacing it, so one piece swaps in for another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Filly",
+      "gives": "LASS",
+      "note": "filly is informal for a girl or lass"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "H",
+      "select": "first",
+      "note": "the opening letter of horse"
+     },
+     {
+      "clueFragment": "fashionable",
+      "gives": "CHIC",
+      "note": "chic means stylish or fashionable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LASS",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "A filly overtakes the leading horse in a smart race meeting.",
+     "walkthrough": "In CHIC, the H is replaced by LASS. The filly and horse are not racehorses at all, though the answer is a race.",
+     "definitionFit": "The Classics are the five great annual British flat races for three-year-olds, such as the Derby, so each is a classic."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Filly"
+    }
+   }
   },
   {
    "number": 5,
@@ -117,7 +456,56 @@
     "text": "Appointed groups of supporters upholding promise",
     "enumeration": "10"
    },
-   "solution": "COMMITTEES"
+   "solution": "COMMITTEES",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMMITTEES",
+    "definitions": [
+     {
+      "text": "Appointed groups",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upholding",
+      "for": "charade",
+      "note": "in a down entry, holding something up means sitting on top of it, so this part comes first"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "promise",
+      "gives": "COMMIT",
+      "note": "to commit is to pledge or promise"
+     },
+     {
+      "clueFragment": "supporters",
+      "gives": "TEES",
+      "note": "a golf tee supports the ball"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMMIT",
+      "TEES"
+     ]
+    },
+    "explanation": {
+     "surface": "Panels of fans are formed to keep a pledge.",
+     "definitionFit": "Committees are small bodies of people chosen or delegated to deal with particular business."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "supporters"
+    }
+   }
   },
   {
    "number": 6,
@@ -131,7 +519,63 @@
     "text": "Write out earth's prime locations when travelling",
     "enumeration": "6"
    },
-   "solution": "AUTHOR"
+   "solution": "AUTHOR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AUTHOR",
+    "definitions": [
+     {
+      "text": "Write",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "prime locations",
+      "for": "letter_selection",
+      "note": "prime locations are positions numbered by prime numbers, so the second, third and fifth letters are kept"
+     },
+     {
+      "text": "when travelling",
+      "for": "anagram",
+      "note": "letters that are travelling move about and arrive in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "out",
+      "gives": "OUT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "earth's",
+      "gives": "ARH",
+      "select": "prime",
+      "note": "letters 2, 3 and 5 of earth"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OUTARH",
+       "gives": "AUTHOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to note down the best spots on the planet for a trip.",
+     "walkthrough": "'Prime' looks like it means best; here it means positions 2, 3 and 5, the prime numbers.",
+     "definitionFit": "To author a work is to write it, the verb use of the noun for a writer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "prime"
+    }
+   }
   },
   {
    "number": 7,
@@ -145,7 +589,60 @@
     "text": "8:18 eastbound crashed and stranded fare from Italy",
     "enumeration": "9"
    },
-   "solution": "SPAGHETTI"
+   "solution": "SPAGHETTI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPAGHETTI",
+    "definitions": [
+     {
+      "text": "stranded fare from Italy",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crashed",
+      "for": "anagram",
+      "note": "a crashed train is wrecked, so its letters are left in a jumble"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "8",
+      "gives": "EIGHT",
+      "note": "the number written as a word"
+     },
+     {
+      "clueFragment": "18 eastbound",
+      "gives": "SPAT",
+      "note": "eastbound points to the across light numbered 18, since across entries run west to east"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "EIGHTSPAT",
+       "gives": "SPAGHETTI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The 8:18 eastbound train has crashed, leaving passengers stuck with Italian food.",
+     "walkthrough": "8:18 looks like a train time, but the 8 is a number to spell out and 18 eastbound is the answer at 18-across.",
+     "definitionFit": "Spaghetti is pasta in long thin strands, a classic Italian dish, so it is stranded fare."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "eastbound"
+    }
+   }
   },
   {
    "number": 8,
@@ -159,7 +656,60 @@
     "text": "Inventor boosting maximum speed of nuclear device significantly",
     "enumeration": "7"
    },
-   "solution": "CREATOR"
+   "solution": "CREATOR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "CREATOR",
+    "definitions": [
+     {
+      "text": "Inventor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boosting",
+      "for": "charade",
+      "note": "in a down entry, boosting something lifts it higher, so a letter moves up to the top"
+     },
+     {
+      "text": "significantly",
+      "for": "deletion",
+      "note": "the letter is lifted a long way from where it sat, so it must first be taken out of its place"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "maximum speed",
+      "gives": "C",
+      "note": "c is the speed of light, the fastest possible"
+     },
+     {
+      "clueFragment": "nuclear device",
+      "gives": "REACTOR",
+      "note": "a nuclear reactor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "REATOR"
+     ]
+    },
+    "explanation": {
+     "surface": "An inventor dramatically increases the top speed of a nuclear device.",
+     "walkthrough": "The C in REACTOR is moved up from the middle to the top, giving CREATOR.",
+     "definitionFit": "A creator is someone who brings something new into being, which is exactly what an inventor does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "boosting"
+    }
+   }
   },
   {
    "number": 9,
@@ -173,7 +723,52 @@
     "text": "Place for hearing apprehended discharge audibly",
     "enumeration": "9"
    },
-   "solution": "COURTROOM"
+   "solution": "COURTROOM",
+   "annotation": {
+    "type": [
+     "homophone",
+     "charade"
+    ],
+    "answer": "COURTROOM",
+    "definitions": [
+     {
+      "text": "Place for hearing",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "audibly",
+      "for": "homophone",
+      "note": "audibly means as heard, so the words count by their sound rather than spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "apprehended",
+      "gives": "COURT",
+      "soundsLike": "CAUGHT",
+      "note": "apprehended means arrested or caught"
+     },
+     {
+      "clueFragment": "discharge",
+      "gives": "ROOM",
+      "soundsLike": "RHEUM",
+      "note": "rheum is a watery discharge from the eyes or nose"
+     }
+    ],
+    "explanation": {
+     "surface": "A suspect is arrested and released, with talk of a hearing.",
+     "walkthrough": "In non-rhotic British speech CAUGHT and COURT sound the same.",
+     "definitionFit": "A courtroom is the chamber in which a case is heard, a hearing being a legal session before a judge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "discharge"
+    }
+   }
   },
   {
    "number": 10,
@@ -187,7 +782,41 @@
     "text": "Track down scrap of evidence",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "Track down",
+      "at": 0
+     },
+     {
+      "text": "scrap of evidence",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Track down",
+      "note": "first meaning: find by following clues"
+     },
+     {
+      "clueFragment": "scrap of evidence",
+      "note": "second meaning: a tiny remaining sign or mark"
+     }
+    ],
+    "explanation": {
+     "surface": "A detective's job: hunting for the smallest piece of proof.",
+     "definitionFit": "As a verb the word means locate by investigation; as a noun it is a faint indication or residue left behind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 11,
@@ -201,7 +830,65 @@
     "text": "Those people short of money on date are angry",
     "enumeration": "6"
    },
-   "solution": "SEETHE"
+   "solution": "SEETHE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SEETHE",
+    "definitions": [
+     {
+      "text": "are angry",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short of",
+      "for": "deletion",
+      "note": "being short of something means lacking it, so that letter is dropped"
+     },
+     {
+      "text": "on",
+      "for": "charade",
+      "note": "in an across entry, one piece sitting on another follows it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "date",
+      "gives": "SEE",
+      "note": "to see someone is to date them"
+     },
+     {
+      "clueFragment": "Those people",
+      "gives": "THEM",
+      "note": "them means those people"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "M",
+      "note": "M is an abbreviation for money"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEE",
+      "THE"
+     ]
+    },
+    "explanation": {
+     "surface": "People who run out of cash on a date get annoyed.",
+     "walkthrough": "In an across clue, 'on' puts the second piece after the first; dating someone is seeing them.",
+     "definitionFit": "To seethe is to be inwardly furious, boiling with suppressed rage, which is being angry."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "date"
+    }
+   }
   },
   {
    "number": 12,
@@ -215,7 +902,56 @@
     "text": "Right choice affected response to contact",
     "enumeration": "8"
    },
-   "solution": "RICOCHET"
+   "solution": "RICOCHET",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "RICOCHET",
+    "definitions": [
+     {
+      "text": "response to contact",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "affected",
+      "for": "anagram",
+      "note": "something affected has been altered or disturbed, so the letters are changed in order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "RT",
+      "note": "RT is an abbreviation for right"
+     },
+     {
+      "clueFragment": "choice",
+      "gives": "CHOICE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RTCHOICE",
+       "gives": "RICOCHET"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Choosing correctly influenced how someone reacted to being touched.",
+     "walkthrough": "RT is a standard short form of right, as in road signs and directions.",
+     "definitionFit": "A ricochet is the rebound of a bullet or stone off a surface it strikes, its reaction to hitting something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "contact"
+    }
+   }
   },
   {
    "number": 13,
@@ -229,7 +965,74 @@
     "text": "Work permit oddly failing to protect staff covered by scheme",
     "enumeration": "10"
    },
-   "solution": "EMPLOYMENT"
+   "solution": "EMPLOYMENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "EMPLOYMENT",
+    "definitions": [
+     {
+      "text": "Work",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "oddly failing",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters fail, so only the even ones survive"
+     },
+     {
+      "text": "covered by",
+      "for": "charade",
+      "note": "in a down entry, something covered by another lies beneath it, so it comes second"
+     },
+     {
+      "text": "to protect",
+      "for": "container",
+      "note": "protecting something means surrounding it, so the kept letters wrap around the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "permit",
+      "gives": "EMT",
+      "select": "alternate",
+      "note": "the second, fourth and sixth letters of permit"
+     },
+     {
+      "clueFragment": "scheme",
+      "gives": "PLOY",
+      "note": "a ploy is a scheme or stratagem"
+     },
+     {
+      "clueFragment": "staff",
+      "gives": "MEN",
+      "note": "the men are a workforce or staff"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "PLOY",
+      "MEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A strange work permit fails to cover staff included in a scheme.",
+     "walkthrough": "'Covered by' works vertically: in a down answer the staff sit just below the scheme.",
+     "definitionFit": "Employment is paid work, the state of having a job or an occupation."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "oddly"
+    }
+   }
   },
   {
    "number": 14,
@@ -243,7 +1046,68 @@
     "text": "Small child with me also to receive training?",
     "enumeration": "10"
    },
-   "solution": "SCHOOLMATE"
+   "solution": "SCHOOLMATE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container",
+     "and_lit"
+    ],
+    "answer": "SCHOOLMATE",
+    "definitions": [
+     {
+      "text": "Small child with me also to receive training?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "training",
+      "for": "anagram",
+      "note": "training shapes and reorganises, so these letters are rearranged"
+     },
+     {
+      "text": "receive",
+      "for": "container",
+      "note": "receiving something means taking it in, so the rearranged letters hold another piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "child",
+      "gives": "CH",
+      "note": "CH is a standard abbreviation for child"
+     },
+     {
+      "clueFragment": "me also to",
+      "gives": "MEALSOTO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "CH",
+      "OOLMATE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MEALSOTO",
+       "gives": "SOOLMATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A little one who will be taught alongside me?",
+     "walkthrough": "The whole clue defines the answer, while child plus a rearrangement of me also to builds it, with CH placed after the S.",
+     "definitionFit": "A schoolmate is a young child who is being educated at the same school as oneself."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "training"
+    }
+   }
   },
   {
    "number": 15,
@@ -257,7 +1121,54 @@
     "text": "Driver's guide describing separate parts of mainland",
     "enumeration": "9"
    },
-   "solution": "HEADLIGHT"
+   "solution": "HEADLIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "HEADLIGHT",
+    "definitions": [
+     {
+      "text": "Driver's guide",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describing separate parts of mainland",
+      "for": "charade",
+      "note": "the place name is split into its two halves, and each half is then replaced by a word of the same meaning"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "main",
+      "gives": "HEAD",
+      "note": "main and head both mean chief, as in head office"
+     },
+     {
+      "clueFragment": "land",
+      "gives": "LIGHT",
+      "note": "to light is to land or settle, as a bird lights on a branch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEAD",
+      "LIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A map showing the various regions of the mainland for a motorist.",
+     "walkthrough": "Mainland splits into main and land, and each half is swapped for a synonym.",
+     "definitionFit": "A car's front lamps illuminate the road ahead, guiding the motorist at night."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Driver's"
+    }
+   }
   },
   {
    "number": 16,
@@ -271,7 +1182,67 @@
     "text": "Returned legal documents after spending week in prison",
     "enumeration": "4"
    },
-   "solution": "STIR"
+   "solution": "STIR",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion"
+    ],
+    "answer": "STIR",
+    "definitions": [
+     {
+      "text": "prison",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word is read from end to start"
+     },
+     {
+      "text": "after spending",
+      "for": "deletion",
+      "note": "once something is spent it is gone, so that letter is removed"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "legal documents",
+      "gives": "WRITS",
+      "note": "writs are formal legal orders"
+     },
+     {
+      "clueFragment": "week",
+      "gives": "W",
+      "note": "W is an abbreviation for week"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STIR"
+     ],
+     "reversals": [
+      {
+       "from": "WRITS",
+       "to": "STIRW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Legal papers come back after someone has spent a week behind bars.",
+     "definitionFit": "Stir is British slang for jail, as in doing time in stir."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spending"
+    }
+   }
   },
   {
    "number": 17,
@@ -285,7 +1256,50 @@
     "text": "Quibbling sabotaged pious act",
     "enumeration": "8"
    },
-   "solution": "CAPTIOUS"
+   "solution": "CAPTIOUS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CAPTIOUS",
+    "definitions": [
+     {
+      "text": "Quibbling",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sabotaged",
+      "for": "anagram",
+      "note": "something sabotaged is wrecked, so its letters are broken up and rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pious act",
+      "gives": "PIOUSACT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PIOUSACT",
+       "gives": "CAPTIOUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Nitpicking undermined a devout deed.",
+     "definitionFit": "Captious describes someone who finds fault over trivial points, which is the essence of nitpicking argument."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sabotaged"
+    }
+   }
   },
   {
    "number": 18,
@@ -299,7 +1313,54 @@
     "text": "Revolutionary surreptitiously records dispute (and hidden message)",
     "enumeration": "4"
    },
-   "solution": "SPAT"
+   "solution": "SPAT",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SPAT",
+    "definitions": [
+     {
+      "text": "dispute",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surreptitiously records",
+      "gives": "TAPS",
+      "note": "to tap a phone is to record calls secretly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SPAT"
+     ],
+     "reversals": [
+      {
+       "from": "TAPS",
+       "to": "SPAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rebel secretly bugs an argument, with a coded note on the side.",
+     "walkthrough": "The bracketed words add nothing to the wordplay; they nod to 7 down, whose clue hides this answer behind '18 eastbound'.",
+     "definitionFit": "A spat is a petty quarrel, a short and minor argument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Revolutionary"
+    }
+   }
   },
   {
    "number": 18,
@@ -313,7 +1374,50 @@
     "text": "Second eleven perhaps cave in",
     "enumeration": "7"
    },
-   "solution": "SUBSIDE"
+   "solution": "SUBSIDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SUBSIDE",
+    "definitions": [
+     {
+      "text": "cave in",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "perhaps"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Second",
+      "gives": "SUB",
+      "note": "sub- means secondary or below, as in subsidiary"
+     },
+     {
+      "clueFragment": "eleven",
+      "gives": "SIDE",
+      "note": "a cricket or football team of eleven is a side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SUB",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reserve team might collapse.",
+     "walkthrough": "A second eleven is a club's reserve team, so 'Second eleven' reads naturally as a sub side.",
+     "definitionFit": "To subside is to sink or collapse, as ground does when it caves in."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "eleven"
+    }
+   }
   },
   {
    "number": 19,
@@ -327,7 +1431,73 @@
     "text": "Century covering current key period preceded change",
     "enumeration": "10"
    },
-   "solution": "ALTERATION"
+   "solution": "ALTERATION",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ALTERATION",
+    "definitions": [
+     {
+      "text": "change",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "covering",
+      "for": "container",
+      "note": "covering something means enclosing it, so one word goes around the other"
+     },
+     {
+      "text": "preceded",
+      "for": "charade",
+      "note": "preceded means came before, so those pieces go first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "key",
+      "gives": "ALT",
+      "note": "Alt is a key on a computer keyboard"
+     },
+     {
+      "clueFragment": "period",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "Century",
+      "gives": "TON",
+      "note": "a ton is a hundred, a century in cricket"
+     },
+     {
+      "clueFragment": "current",
+      "gives": "I",
+      "note": "I is the physics symbol for electric current"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALT",
+      "ERA",
+      "T",
+      "I",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A century of history, the present era and its key moments came before a transformation.",
+     "walkthrough": "A century is a hundred, which cricket slang calls a ton; the key is one on a computer keyboard.",
+     "definitionFit": "An alteration is a modification, the act of making something different from before."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "current"
+    }
+   }
   },
   {
    "number": 20,
@@ -341,7 +1511,70 @@
     "text": "Record number's written into newspaper about puzzle",
     "enumeration": "7"
    },
-   "solution": "NONPLUS"
+   "solution": "NONPLUS",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "NONPLUS",
+    "definitions": [
+     {
+      "text": "puzzle",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "written into",
+      "for": "container",
+      "note": "something written into a page sits inside it, so these pieces go within the next"
+     },
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about here means turned round, so the whole combination is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "newspaper",
+      "gives": "SUN",
+      "note": "the Sun is a British tabloid newspaper"
+     },
+     {
+      "clueFragment": "Record",
+      "gives": "LP",
+      "note": "an LP is a long-playing vinyl record"
+     },
+     {
+      "clueFragment": "number",
+      "gives": "NO",
+      "note": "No. is the abbreviation for number"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NONPLUS"
+     ],
+     "reversals": [
+      {
+       "from": "SULPNON",
+       "to": "NONPLUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A record-breaking figure appears in the paper about some brainteaser.",
+     "walkthrough": "'About' reverses the whole assembly, newspaper and all, not just one part of it.",
+     "definitionFit": "To nonplus someone is to bewilder them so that they are at a loss, which is what puzzling them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "puzzle"
+    }
+   }
   },
   {
    "number": 21,
@@ -355,7 +1588,65 @@
     "text": "Royal Navy supports commander that's flayed sailor's behind",
     "enumeration": "6"
    },
-   "solution": "ASTERN"
+   "solution": "ASTERN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ASTERN",
+    "definitions": [
+     {
+      "text": "sailor's behind",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "flayed",
+      "for": "letter_selection",
+      "note": "flaying strips off the skin, so the outer letters are removed and the middle kept"
+     },
+     {
+      "text": "supports",
+      "for": "charade",
+      "note": "in a down entry, a support sits underneath, so it comes last"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commander",
+      "gives": "ASTE",
+      "select": "middle",
+      "note": "a ship's master is its commander; its middle letters"
+     },
+     {
+      "clueFragment": "Royal Navy",
+      "gives": "RN",
+      "note": "RN is the abbreviation for the Royal Navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ASTE",
+      "RN"
+     ]
+    },
+    "explanation": {
+     "surface": "A naval scene in which a captain is flogged on a sailor's back.",
+     "walkthrough": "The commander is a MASTER, the captain of a merchant ship.",
+     "definitionFit": "Astern is the nautical word for at or towards the back of a vessel, a sailor's term for behind."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "flayed"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1666,75 @@
      }
     ]
    },
-   "solution": "BULLSEYE"
+   "solution": "BULLSEYE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "container"
+    ],
+    "answer": "BULLS-EYE",
+    "definitions": [
+     {
+      "text": "part of target",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled means called back, so the word is read in the reverse direction"
+     },
+     {
+      "text": "clipped",
+      "for": "deletion",
+      "note": "clipping trims off the end, so the last letter goes"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping a hole means plugging it, so one piece sits inside the other"
+     }
+    ],
+    "linkWords": [
+     "that's"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Certainly",
+      "gives": "YES",
+      "note": "yes, certainly"
+     },
+     {
+      "clueFragment": "shot",
+      "gives": "BULLET",
+      "note": "a bullet is a shot from a gun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BULL",
+      "SEY",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "YES",
+       "to": "SEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A trimmed bullet hit a section of the target, it is certainly recalled.",
+     "definitionFit": "The bullseye is the central ring of a dartboard or archery target."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shot"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1748,50 @@
     "text": "Labour tax inherited property",
     "enumeration": "6"
    },
-   "solution": "STRAIN"
+   "solution": "STRAIN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STRAIN",
+    "definitions": [
+     {
+      "text": "Labour",
+      "at": 0
+     },
+     {
+      "text": "tax",
+      "at": 7
+     },
+     {
+      "text": "inherited property",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Labour",
+      "note": "first meaning: to toil or make a great effort"
+     },
+     {
+      "clueFragment": "tax",
+      "note": "second meaning: to stretch or overburden"
+     },
+     {
+      "clueFragment": "inherited property",
+      "note": "third meaning: a hereditary characteristic or line"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "A triple definition: the surface suggests politics and inheritance tax, but each word is a separate meaning.",
+     "definitionFit": "The word can mean to toil, to put under heavy pressure, and a heritable trait passed down a family line."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Labour"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1805,55 @@
     "text": "The greatest opener's finally dismissed in the same way",
     "enumeration": "5"
    },
-   "solution": "ALIKE"
+   "solution": "ALIKE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALIKE",
+    "definitions": [
+     {
+      "text": "in the same way",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally dismissed",
+      "for": "deletion",
+      "note": "the final letter is sent away, so the word loses its end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The greatest",
+      "gives": "ALI",
+      "note": "Muhammad Ali called himself The Greatest"
+     },
+     {
+      "clueFragment": "opener",
+      "gives": "KEY",
+      "note": "a key opens a lock"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALI",
+      "KE"
+     ]
+    },
+    "explanation": {
+     "surface": "Cricket: the finest opening batsman is out the same way at last.",
+     "walkthrough": "'Opener' and 'dismissed' suggest cricket, but the opener is a key.",
+     "definitionFit": "Alike as an adverb means similarly, in the manner shared by two or more things."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "opener"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1867,43 @@
     "text": "Drunk greeting played on answer machine",
     "enumeration": "4"
    },
-   "solution": "HIGH"
+   "solution": "HIGH",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "HIGH",
+    "definitions": [
+     {
+      "text": "Drunk",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "played on answer machine",
+      "for": "homophone",
+      "note": "a message played on a machine is heard rather than read, so the sound counts"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "greeting",
+      "gives": "HIGH",
+      "soundsLike": "HI",
+      "note": "hi is a greeting"
+     }
+    ],
+    "explanation": {
+     "surface": "A tipsy hello left as a phone message.",
+     "definitionFit": "High is slang for intoxicated, whether by drink or drugs."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "greeting"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1917,53 @@
     "text": "Place to warm up in sleeveless vest",
     "enumeration": "5"
    },
-   "solution": "INGLE"
+   "solution": "INGLE",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "INGLE",
+    "definitions": [
+     {
+      "text": "Place to warm up",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sleeveless",
+      "for": "letter_selection",
+      "note": "removing the sleeves takes off the sides, so the outer letters go"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vest",
+      "gives": "INGLE",
+      "select": "middle",
+      "note": "a singlet is a vest; its inner letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INGLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Warming up in a sleeveless top, as athletes do.",
+     "walkthrough": "In Britain a vest is a sleeveless undershirt, or a singlet worn for sport.",
+     "definitionFit": "An ingle is a fireside or hearth, as in inglenook, a spot to sit and get warm."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "warm"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1977,51 @@
     "text": "Leader ordered liar to die",
     "enumeration": "9"
    },
-   "solution": "EDITORIAL"
+   "solution": "EDITORIAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EDITORIAL",
+    "definitions": [
+     {
+      "text": "Leader",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "putting things in order rearranges them, so these letters are sorted afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "liar to die",
+      "gives": "LIARTODIE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIARTODIE",
+       "gives": "EDITORIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dictator sentenced a dishonest man to death.",
+     "walkthrough": "A leader in British papers is the main editorial column, not a ruler.",
+     "definitionFit": "A newspaper's leading article, giving the paper's own opinion, is called its leader or editorial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Leader"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +2035,55 @@
     "text": "No more money given to former partner by court",
     "enumeration": "7"
    },
-   "solution": "EXTINCT"
+   "solution": "EXTINCT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EXTINCT",
+    "definitions": [
+     {
+      "text": "No more",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former partner"
+     },
+     {
+      "clueFragment": "money",
+      "gives": "TIN",
+      "note": "tin is old slang for money"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "Ct is an abbreviation for court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "TIN",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A divorce ruling: no further cash to the ex-partner.",
+     "definitionFit": "Something extinct has died out completely and so exists no longer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "court"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +2097,54 @@
     "text": "One who entertains army without leaving the front",
     "enumeration": "7"
    },
-   "solution": "HOSTESS"
+   "solution": "HOSTESS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HOSTESS",
+    "definitions": [
+     {
+      "text": "One who entertains",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaving the front",
+      "for": "deletion",
+      "note": "the front is the opening letter, and leaving it off drops that letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "army",
+      "gives": "HOST",
+      "note": "a host is a great number of people, especially an army"
+     },
+     {
+      "clueFragment": "without",
+      "gives": "LESS",
+      "note": "less means without, as in less sugar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOST",
+      "ESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A performer keeps the troops amused without going to the front line.",
+     "definitionFit": "A hostess is a woman who receives and looks after guests at a party or event."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "front"
+    }
+   }
   }
  ]
 }
