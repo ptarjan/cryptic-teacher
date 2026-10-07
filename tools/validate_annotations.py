@@ -8,6 +8,8 @@ Checks, for every annotated entry:
   - each definition sits at its `at` in the clue (tools/definitions.py), every
     indicator and every linkWord is an exact substring of the clue, and every content word of the clue is claimed by one
     of those or by a block (check_coverage)
+  - no link word overlaps an indicator or a definition, so an &lit has none
+    (check_link_word_is_clear_of_other_marks)
   - each definition and the answer agree in inflection, unless the definition's
     `note` explains why they don't (check_part_of_speech)
   - assembly: "pieces" concatenate exactly to the answer letters, each of
@@ -425,26 +427,34 @@ POSITIONAL_JOINERS = {"on", "after", "behind", "below", "beneath", "under",
                       "following", "supporting"}
 
 
-def check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors):
-    """A link word needs a copy of its own in the clue, clear of every indicator.
+def check_link_word_is_clear_of_other_marks(tag, ann, clue, errors):
+    """A link word needs a copy of its own in the clue, clear of every indicator
+    and every definition.
 
-    app.js claims link words after indicators, so a connective the clue uses
-    twice ("in" inside the indicator and "in" linking) lands on the free copy.
-    With no free copy it lands on the indicator, wholly or in part, and takes
-    those words off a hint the solver has paid for: times-29616 6D filed "of"
-    inside "on top of", everyman-3925 4D filed "'s written" across "written
-    about". tools/smoke_test.js rejects the render; this rejects the annotation
+    app.js claims link words after indicators and definitions, so a connective
+    the clue uses twice ("in" inside the indicator and "in" linking) lands on
+    the free copy. With no free copy it lands on the other mark, wholly or in
+    part. On an indicator it takes words off a hint the solver has paid for:
+    times-29616 6D filed "of" inside "on top of", everyman-3925 4D filed "'s
+    written" across "written about". Inside a definition it breaks the band and
+    the hint calls a word of the definition "just a link": azed-2718 1A, an
+    &lit whose whole clue is the definition, filed "with" as a link. A link
+    joins wordplay to definition, so it cannot sit inside either; an &lit has
+    none. tools/smoke_test.js rejects the render; this rejects the annotation
     before it is committed.
     """
     clue = clue or ""
     placed = place_fragments(ann, clue)
-    inds = [(i, i + len(t)) for kind, t, i in placed if kind == "ind"]
     for kind, lw, i in placed:
-        if kind == "link" and any(i < d and c < i + len(lw) for c, d in inds):
-            errors.append(
-                f"{tag}: linkWord {lw!r} has no copy in the clue clear of the indicators, "
-                f"so marking it as a link takes words off an indicator. Each clue word "
-                f"is either indicator or link; drop it from one list")
+        if kind != "link":
+            continue
+        for other, name in (("ind", "an indicator"), ("def", "the definition")):
+            if any(o == other and i < j + len(t) and j < i + len(lw) for o, t, j in placed):
+                errors.append(
+                    f"{tag}: linkWord {lw!r} has no copy in the clue clear of {name}, "
+                    f"so marking it as a link takes words off {name}. Each clue word "
+                    f"is one of definition, indicator or link; drop it from one list "
+                    f"(an &lit's whole clue is its definition, so it has no link words)")
 
 
 def place_fragments(ann, clue):
@@ -2995,7 +3005,7 @@ def validate_puzzle(puzzle, corpus=False):
         # Not under `authored` either, and for the same reason: the fault is in
         # OUR parse of a published clue, on somebody else's grid.
         check_link_word_is_not_an_order(tag, ann, clue, warnings)
-        check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors)
+        check_link_word_is_clear_of_other_marks(tag, ann, clue, errors)
         check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors)
         check_anagram_fodder_from_clue(tag, ann, clue, authored, errors, warnings)
         if authored:
