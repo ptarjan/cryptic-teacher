@@ -91,6 +91,17 @@ WORKERS="${OCR_FULL_PASS_WORKERS:-20}"
 # ("championship, possibly (4).") no longer ending its column
 REREAD_BEFORE="${OCR_FULL_PASS_REREAD_BEFORE:-2026-10-06T13:45:00+00:00}"
 
+# The Listener pages Paul saves from Gale's Listener Historical Archive: each
+# new file's clues read once (ledger by file hash), the checklist published.
+# Run at the pass's start and before every slice, so a page saved mid-pass is
+# read within about a slice, not at the next pass; with nothing new it costs
+# seconds. A read cut off by LISTENER_SECONDS resumes at the next slice.
+LISTENER_SECONDS=1800
+listener() {
+  timeout "$LISTENER_SECONDS" nice -n 19 python3 tools/gale_listener.py sync ||
+    echo "gale_listener sync failed or ran out of time (rc=$?); the readings before stand, the next slice resumes"
+}
+
 publish() {  # publish <what>: commit and push the puzzles filed so far
   durable_checkpoint "Full OCR pass: $1" || return 1
   durable_resync
@@ -101,6 +112,7 @@ slices() {  # slices <what> <filer command...>: run the filer until nothing is l
   shift
   out=$(mktemp) || return 1
   while :; do
+    listener
     echo "=== $what: slice from $(date '+%F %T') ==="
     # Streamed as it goes (a line per source read), so the log shows what it
     # is doing now; the copy in $out is read for the slice's tally.
@@ -139,10 +151,7 @@ mkdir -p "$HOME/.cache/archive_org_crops/unfiled"
 # sure the pass starts from everything that has arrived.
 python3 tools/gale_inbox.py sync ||
   echo "gale_inbox sync failed (rc=$?); the Gale pages staged before stand, the checklist is not refreshed"
-# The Listener pages he saves from Gale's Listener Historical Archive: each
-# new file's clues read once (ledger by file hash), the checklist published.
-python3 tools/gale_listener.py sync ||
-  echo "gale_listener sync failed (rc=$?); the readings before stand, the checklist is not refreshed"
+listener
 # The reads that wait on no scan first, the VLM's work: every paper's
 # editions whose scans stand, then the Trove articles (that filer scans
 # nothing); then each paper's scans and the reads they make due.

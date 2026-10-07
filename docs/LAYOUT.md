@@ -1534,7 +1534,9 @@ tools/ocr_full_pass.sh                        the one standing corpus job: read 
                                               without the VLM that now answers, read before
                                               REREAD_BEFORE), those whose scans stand first,
                                               and the re-reads annotation asked for, to the
-                                              end, then fetch for the next pass and stop
+                                              end, then fetch for the next pass and stop; the
+                                              Gale Listener pages saved since are read at its
+                                              start and before every slice
 tools/scan_queue.py                           the read queue the scan filers share, and the
                                               re-reads annotation asks of them
 tools/archive_coverage.py                     per series and year: editions printed, scanned on
@@ -1639,16 +1641,27 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               pages Paul saves by hand from Gale's Listener
                                               Historical Archive: a checklist of every puzzle
                                               (the Listener Team's year index, numbers and
-                                              dates only), earliest first, and each saved
-                                              page's clue lists read once (a ledger keyed by
-                                              file hash) with ocr_clues' readers and
+                                              dates only), earliest first, and each saved page
+                                              matched to its puzzle (file name, Gale citation
+                                              title or date, page title) and to the past
+                                              puzzles whose solution report it prints, its clue
+                                              lists read once (a ledger keyed by file hash)
+                                              with ocr_clues' readers and
                                               archive_org_listener's vote into a clues-only
-                                              reading; never requests anything from Gale
+                                              reading, at the full pass's start and before
+                                              every slice; the checklist asks for a saved
+                                              puzzle's solution report; never requests anything
+                                              from Gale
 tools/test_gale_listener.sh                   is a saved Listener page matched by its name,
-                                              citation or title, are its lists read in column
-                                              order and a clue a line when uncounted, is each
-                                              file read once, and does the checklist mark what
-                                              is saved or filed?
+                                              citation title, citation date (across a line
+                                              break) or title, not by a browser's "(1)" copy
+                                              suffix, a "Competition No." or a week with no
+                                              crossword; is a "Report on Crossword No. N" page
+                                              kept as N's solution; are its lists read in
+                                              column order and a clue a line when uncounted, is
+                                              each file read once, and does the checklist mark
+                                              what is saved or filed and ask for a missing
+                                              solution?
 tools/test_gale_inbox.sh                      is a page saved into the Gale inbox matched to
                                               its date by its name or puzzle number, staged as
                                               that date's Times edition with its Gale link, due
