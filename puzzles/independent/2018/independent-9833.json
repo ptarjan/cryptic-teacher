@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "No right to shackle large number",
     "enumeration": "6"
    },
-   "solution": "LEGION"
+   "solution": "LEGION",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "LEGION",
+    "definitions": [
+     {
+      "text": "large number",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "'No right' tells the solver to take away the letter standing for right from the next word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shackle",
+      "gives": "LEGIRON",
+      "note": "a leg iron is a fetter for the ankle"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the usual abbreviation for right"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LEGION"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone protests that there is no right to chain up a crowd of people.",
+     "walkthrough": "Take the R out of LEG IRON to leave LEGION.",
+     "definitionFit": "A legion is a vast host or multitude, as in the phrase 'their name is legion'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shackle"
+    }
+   }
   },
   {
    "number": 2,
@@ -60,7 +112,62 @@
     "text": "Percussionist finally nears disaster at the back",
     "enumeration": "6"
    },
-   "solution": "ASTERN"
+   "solution": "ASTERN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ASTERN",
+    "definitions": [
+     {
+      "text": "at the back",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to only the closing letter of the word before it"
+     },
+     {
+      "text": "disaster",
+      "for": "anagram",
+      "note": "a disaster wrecks things, so the letters before it are thrown into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Percussionist",
+      "gives": "T",
+      "select": "last",
+      "note": "the last letter of the word"
+     },
+     {
+      "clueFragment": "nears",
+      "gives": "NEARS",
+      "note": "taken as written, into the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TNEARS",
+       "gives": "ASTERN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drummer at the rear of the band is heading for catastrophe.",
+     "definitionFit": "Astern is the nautical word for towards or at the rear of a vessel."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "disaster"
+    }
+   }
   },
   {
    "number": 4,
@@ -74,7 +181,42 @@
     "text": "Couple booing shows ... one rather vulgar",
     "enumeration": "4"
    },
-   "solution": "PLEB"
+   "solution": "PLEB",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PLEB",
+    "definitions": [
+     {
+      "text": "one rather vulgar",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shows",
+      "for": "hidden_word",
+      "note": "the run of words displays the answer within itself, straddling the gap between them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Couple booing",
+      "gives": "PLEB",
+      "note": "the letters run across the end of one word and the start of the next"
+     }
+    ],
+    "explanation": {
+     "surface": "A pair jeering at a performance reveals themselves as somewhat coarse.",
+     "definitionFit": "Pleb is a disparaging British term for a common, uncultured person of low class."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shows"
+    }
+   }
   },
   {
    "number": 5,
@@ -88,7 +230,76 @@
     "text": "Dairy product has most of Channel Island in confusion",
     "enumeration": "8"
    },
-   "solution": "DISARRAY"
+   "solution": "DISARRAY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "DISARRAY",
+    "definitions": [
+     {
+      "text": "confusion",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means the island's name loses its final letter"
+     },
+     {
+      "text": "product",
+      "for": "anagram",
+      "note": "a product is something made, so the letters of dairy are remade into another order"
+     },
+     {
+      "text": "has",
+      "for": "container",
+      "note": "to have something here is to hold it inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dairy",
+      "gives": "DIRAY",
+      "note": "the five letters reworked"
+     },
+     {
+      "clueFragment": "Channel Island",
+      "gives": "SAR",
+      "note": "Sark, one of the small Channel Islands, without its last letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "SAR",
+      "RAY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DAIRY",
+       "gives": "DIRAY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A milk-based food from a Channel Island is apparently in a muddle.",
+     "walkthrough": "Sark is one of the Channel Islands between England and France; trimmed to SAR, it sits inside the rearranged DAIRY.",
+     "definitionFit": "Disarray is a state of disorder and untidiness, a close synonym for confusion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "product"
+    }
+   }
   },
   {
    "number": 6,
@@ -102,7 +313,54 @@
     "text": "Touching a traditionally coloured rose",
     "enumeration": "6"
    },
-   "solution": "REARED"
+   "solution": "REARED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REARED",
+    "definitions": [
+     {
+      "text": "rose",
+      "at": 34
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Touching",
+      "gives": "RE",
+      "note": "re means concerning or regarding"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "traditionally coloured",
+      "gives": "RED",
+      "note": "the colour most traditionally associated with the flower"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "A",
+      "RED"
+     ]
+    },
+    "explanation": {
+     "surface": "A sentimental description of a red rose, the classic flower of love.",
+     "walkthrough": "Rose is the past tense of rise, not the flower; 'traditionally coloured' leans on the rose for its colour.",
+     "definitionFit": "To rear is to rise up on the hind legs, so a horse that reared has risen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rose"
+    }
+   }
   },
   {
    "number": 7,
@@ -116,7 +374,61 @@
     "text": "Are nuts round bar to eat?",
     "enumeration": "4"
    },
-   "solution": "AERO"
+   "solution": "AERO",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "AERO",
+    "definitions": [
+     {
+      "text": "bar to eat",
+      "at": 15
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nuts",
+      "for": "anagram",
+      "note": "nuts means crazy, so the three-letter word goes haywire and reorders itself"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Are",
+      "gives": "ARE",
+      "note": "taken as written, into the mix"
+     },
+     {
+      "clueFragment": "round",
+      "gives": "O",
+      "note": "the letter O is round in shape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AER",
+      "O"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARE",
+       "gives": "AER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A question about whether a nut bar is meant for eating.",
+     "walkthrough": "Aero is a British chocolate bar filled with bubbles.",
+     "definitionFit": "The brand name belongs to a familiar bubbly chocolate snack sold in confectioners across Britain."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nuts"
+    }
+   }
   },
   {
    "number": 8,
@@ -130,7 +442,44 @@
     "text": "Conductor's notes",
     "enumeration": "5"
    },
-   "solution": "SOLTI"
+   "solution": "SOLTI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SOLTI",
+    "definitions": [
+     {
+      "text": "Conductor",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "notes",
+      "gives": "SOLTI",
+      "note": "two sol-fa syllables, sol and ti, side by side"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SOLTI"
+     ]
+    },
+    "explanation": {
+     "walkthrough": "The surface reads as a conductor's score markings; the notes are two names from the do-re-mi scale.",
+     "definitionFit": "Sir Georg Solti was a celebrated Hungarian-born orchestral maestro who led the Chicago Symphony."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "notes"
+    }
+   }
   },
   {
    "number": 9,
@@ -144,7 +493,56 @@
     "text": "Fawn over credit union we're trying to leave",
     "enumeration": "4"
    },
-   "solution": "ECRU"
+   "solution": "ECRU",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ECRU",
+    "definitions": [
+     {
+      "text": "Fawn",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "one thing lying over another covers it, so here the outer piece wraps around the inner"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "union we're trying to leave",
+      "gives": "EU",
+      "note": "the European Union, which Britain was negotiating to exit at the time"
+     },
+     {
+      "clueFragment": "credit",
+      "gives": "CR",
+      "note": "CR is the accounting abbreviation for credit"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CR",
+      "U"
+     ]
+    },
+    "explanation": {
+     "surface": "Fawning over a credit union that members are trying to quit.",
+     "walkthrough": "'Credit union' looks like a single financial term, but it splits: credit is one piece, and the union is the EU, which Brexit was taking Britain out of.",
+     "definitionFit": "Ecru and fawn are both pale greyish-yellow shades, like unbleached linen."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Fawn"
+    }
+   }
   },
   {
    "number": 10,
@@ -158,7 +556,56 @@
     "text": "One regretting hiding key for deliveryman?",
     "enumeration": "7"
    },
-   "solution": "RESCUER"
+   "solution": "RESCUER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RESCUER",
+    "definitions": [
+     {
+      "text": "deliveryman",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hiding",
+      "for": "container",
+      "note": "to hide something is to keep it tucked away within"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One regretting",
+      "gives": "RUER",
+      "note": "someone who rues"
+     },
+     {
+      "clueFragment": "key",
+      "gives": "ESC",
+      "note": "the escape key on a keyboard"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ESC",
+      "UER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sorry for hiding the door key from a delivery driver.",
+     "walkthrough": "A deliveryman here is not a courier but one who delivers people from danger.",
+     "definitionFit": "To deliver someone from harm is to save them, so a deliverer is one who saves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deliveryman"
+    }
+   }
   },
   {
    "number": 11,
@@ -172,7 +619,51 @@
     "text": "Sent to Neil who lives by African river",
     "enumeration": "6"
    },
-   "solution": "NILOTE"
+   "solution": "NILOTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NILOTE",
+    "definitions": [
+     {
+      "text": "who lives by African river",
+      "at": 13,
+      "note": "a clause meaning 'one who lives', standing for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sent",
+      "for": "anagram",
+      "note": "sent can mean sent wild or driven into a frenzy, so the letters scatter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to Neil",
+      "gives": "TONEIL",
+      "note": "six letters to rearrange"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TONEIL",
+       "gives": "NILOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A letter posted to someone named Neil who lives beside an African river.",
+     "definitionFit": "Nilotes are peoples of the upper Nile valley in Sudan and East Africa."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sent"
+    }
+   }
   },
   {
    "number": 12,
@@ -186,7 +677,65 @@
     "text": "B------ Murdoch has clout over style of government",
     "enumeration": "8"
    },
-   "solution": "BLAIRISM"
+   "solution": "BLAIRISM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BLAIRISM",
+    "definitions": [
+     {
+      "text": "style of government",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has",
+      "for": "container",
+      "note": "to have something here is to hold it within"
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "B------",
+      "gives": "B",
+      "note": "only the printed letter counts; the dashes stand in for a censored oath"
+     },
+     {
+      "clueFragment": "clout",
+      "gives": "LAM",
+      "note": "to lam is to hit hard"
+     },
+     {
+      "clueFragment": "Murdoch",
+      "gives": "IRIS",
+      "note": "Iris Murdoch, the novelist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LA",
+      "IRIS",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "An exasperated swipe at Rupert Murdoch's political influence over how Britain is governed.",
+     "walkthrough": "The surface wants the press baron Rupert Murdoch and his clout; the Murdoch needed is Iris, and clout is a blow.",
+     "definitionFit": "Blairism is the centrist political approach associated with Tony Blair, UK prime minister 1997 to 2007."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Murdoch"
+    }
+   }
   },
   {
    "number": 13,
@@ -200,7 +749,66 @@
     "text": "Disobey call to stop unfair fine",
     "enumeration": "8"
    },
-   "solution": "INFRINGE"
+   "solution": "INFRINGE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "INFRINGE",
+    "definitions": [
+     {
+      "text": "Disobey",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unfair",
+      "for": "anagram",
+      "note": "something unfair is not straight, so the letters of the next word are bent out of order"
+     },
+     {
+      "text": "to stop",
+      "for": "container",
+      "note": "to stop something up is to plug it, so one piece sits inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fine",
+      "gives": "INFE",
+      "note": "four letters reordered"
+     },
+     {
+      "clueFragment": "call",
+      "gives": "RING",
+      "note": "to ring is to phone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INF",
+      "RING",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FINE",
+       "gives": "INFE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone resolves to defy an unjust penalty by phoning to have it cancelled.",
+     "definitionFit": "To infringe a rule or law is to break or violate it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 14,
@@ -214,7 +822,62 @@
     "text": "Closed door to begin with - need to get dressed",
     "enumeration": "5"
    },
-   "solution": "ENDED"
+   "solution": "ENDED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "ENDED",
+    "definitions": [
+     {
+      "text": "Closed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to begin with",
+      "for": "letter_selection",
+      "note": "to begin with means only the opening letter of the word before it"
+     },
+     {
+      "text": "to get dressed",
+      "for": "anagram",
+      "note": "dressing arranges things, as one dresses a shop window, so the letters are arranged afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "door",
+      "gives": "D",
+      "select": "first",
+      "note": "the opening letter"
+     },
+     {
+      "clueFragment": "need",
+      "gives": "NEED",
+      "note": "taken as written, into the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "DNEED",
+       "gives": "ENDED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone shuts the door first because they have to put clothes on.",
+     "definitionFit": "A meeting that is closed has finished or concluded, its business over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "dressed"
+    }
+   }
   },
   {
    "number": 15,
@@ -228,7 +891,65 @@
     "text": "Element's odd, a copper admitted",
     "enumeration": "6"
    },
-   "solution": "RADIUM"
+   "solution": "RADIUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RADIUM",
+    "definitions": [
+     {
+      "text": "Element",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitted",
+      "for": "container",
+      "note": "something admitted is let in, so pieces go inside another"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "odd",
+      "gives": "RUM",
+      "note": "rum is an old British word for strange"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "DI",
+      "note": "a Detective Inspector, a police officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "A",
+      "DI",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "Something about a chemical element is strange, a police officer has confessed.",
+     "walkthrough": "Copper suggests the metal, apt beside 'Element', but here it is a police officer.",
+     "definitionFit": "Radium is a radioactive metallic chemical element, number 88, discovered by the Curies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 16,
@@ -242,7 +963,46 @@
     "text": "Part of ship supporting weight",
     "enumeration": "4"
    },
-   "solution": "PROW"
+   "solution": "PROW",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROW",
+    "definitions": [
+     {
+      "text": "Part of ship",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "supporting",
+      "gives": "PRO",
+      "note": "pro means in favour of"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "W"
+     ]
+    },
+    "explanation": {
+     "surface": "A piece of a vessel that bears a load.",
+     "definitionFit": "The prow is the pointed forward end of a vessel, its bow."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supporting"
+    }
+   }
   },
   {
    "number": 17,
@@ -256,7 +1016,45 @@
     "text": "He's not deluded about top celebs",
     "enumeration": "7"
    },
-   "solution": "REALIST"
+   "solution": "REALIST",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REALIST",
+    "definitions": [
+     {
+      "text": "He's not deluded",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning"
+     },
+     {
+      "clueFragment": "top celebs",
+      "gives": "ALIST",
+      "note": "the A-list is the top tier of famous people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "ALIST"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who sees through the hype surrounding famous stars.",
+     "definitionFit": "A realist sees things as they truly are, without illusions or fantasy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 18,
@@ -289,7 +1087,62 @@
     "text": "England footballer (left-winger) picked up snack",
     "enumeration": "8"
    },
-   "solution": "TORTILLA"
+   "solution": "TORTILLA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TORTILLA",
+    "definitions": [
+     {
+      "text": "snack",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "picked up",
+      "for": "reversal",
+      "note": "in a down entry, picking something up lifts it so it reads from the bottom upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "England footballer",
+      "gives": "ALLI",
+      "note": "Dele Alli, who played for England and Spurs"
+     },
+     {
+      "clueFragment": "left-winger",
+      "gives": "TROT",
+      "note": "a Trot is a Trotskyist, a far-left activist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TORT",
+      "ILLA"
+     ],
+     "reversals": [
+      {
+       "from": "ALLITROT",
+       "to": "TORTILLA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An England player who plays out on the left grabbed a bite to eat.",
+     "walkthrough": "Left-winger looks like a football position, which suits the surface, but it is a political term here.",
+     "definitionFit": "A tortilla is a flat Mexican cornmeal or flour bread, often eaten as a light bite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "left-winger"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1168,65 @@
     "18-across",
     "26-down",
     "2-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HERE TODAY GONE TOMORROW",
+    "definitions": [
+     {
+      "text": "as those round here have typically proved",
+      "at": 42,
+      "note": "an adverbial clause; the phrase works as a predicate describing them"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "difficult",
+      "for": "anagram",
+      "note": "difficult can mean awkward or unruly, so the letters before it refuse to stay in order"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Grow money tree",
+      "gives": "GROWMONEYTREE",
+      "note": "taken as written, into the mix"
+     },
+     {
+      "clueFragment": "hoard",
+      "gives": "HOARD",
+      "note": "taken as written, into the mix"
+     },
+     {
+      "clueFragment": "too",
+      "gives": "TOO",
+      "note": "taken as written, into the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GROWMONEYTREEHOARDTOO",
+       "gives": "HERETODAYGONETOMORROW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Growing and stockpiling money is too hard, as the locals have found.",
+     "walkthrough": "'Those round here' are the grid's perimeter, which spells UKIP LEADERS and SPINAL TAP DRUMMERS, both famous for quickly coming and going.",
+     "definitionFit": "The idiom describes anything fleeting or short-lived, which fits the rapid turnover of those party chiefs and fictional drummers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "difficult"
+    }
+   }
   },
   {
    "number": 19,
@@ -329,7 +1240,61 @@
     "text": "Light meal Penny had cooked",
     "enumeration": "8"
    },
-   "solution": "HEADLAMP"
+   "solution": "HEADLAMP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "HEADLAMP",
+    "definitions": [
+     {
+      "text": "Light",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking transforms ingredients, so these letters are prepared into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "meal",
+      "gives": "MEAL",
+      "note": "taken as written, into the mix"
+     },
+     {
+      "clueFragment": "Penny",
+      "gives": "P",
+      "note": "P is the abbreviation for a penny"
+     },
+     {
+      "clueFragment": "had",
+      "gives": "HAD",
+      "note": "taken as written, into the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEALPHAD",
+       "gives": "HEADLAMP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Penny, it seems, made herself a small supper.",
+     "walkthrough": "'Light meal' looks like one phrase for a snack; it splits after 'Light'. Penny reads as a woman's name but is the coin.",
+     "definitionFit": "A headlamp is the lamp on the front of a car or worn on the head, a source of illumination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Light"
+    }
+   }
   },
   {
    "number": 20,
@@ -343,7 +1308,59 @@
     "text": "Not so stupid claiming Duke's a tool",
     "enumeration": "6"
    },
-   "solution": "SANDER"
+   "solution": "SANDER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SANDER",
+    "definitions": [
+     {
+      "text": "tool",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "claiming",
+      "for": "container",
+      "note": "to claim something is to take hold of it, keeping it within"
+     }
+    ],
+    "linkWords": [
+     "'s a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not so stupid",
+      "gives": "SANER",
+      "note": "more sensible"
+     },
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SAN",
+      "D",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone less foolish insists a nobleman is a fool.",
+     "walkthrough": "Tool reads as an insult for an idiot, but it is a literal implement here.",
+     "definitionFit": "A sander is a power implement that smooths wood with abrasive paper."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "tool"
+    }
+   }
   },
   {
    "number": 21,
@@ -357,7 +1374,51 @@
     "text": "Bank deputy's target",
     "enumeration": "6"
    },
-   "solution": "DEPEND"
+   "solution": "DEPEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DEPEND",
+    "definitions": [
+     {
+      "text": "Bank",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "deputy",
+      "gives": "DEP",
+      "note": "DEP is a short form of deputy"
+     },
+     {
+      "clueFragment": "target",
+      "gives": "END",
+      "note": "an end is an aim or goal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DEP",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "The aim of a bank's second-in-command.",
+     "walkthrough": "Bank is a verb here, as in 'bank on', not a financial institution.",
+     "definitionFit": "To bank on someone is to rely or count on them, which matches depend in the phrase 'depend on'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Bank"
+    }
+   }
   },
   {
    "number": 22,
@@ -371,7 +1432,71 @@
     "text": "Christian holding court, one-time control freak",
     "enumeration": "8"
    },
-   "solution": "DICTATOR"
+   "solution": "DICTATOR",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "DICTATOR",
+    "definitions": [
+     {
+      "text": "control freak",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding something means having it gripped inside"
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Christian",
+      "gives": "DIOR",
+      "note": "Christian Dior, the French fashion designer"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "A",
+      "note": "a means one"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "CT",
+      "A",
+      "T",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A believer holding court is described as a former domineering type.",
+     "walkthrough": "'One-time' looks like a single word meaning former; it splits into one and time.",
+     "definitionFit": "A dictator rules with absolute power, the ultimate example of someone obsessed with control."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Christian"
+    }
+   }
   },
   {
    "number": 23,
@@ -385,7 +1510,47 @@
     "text": "Force the Spanish school to open",
     "enumeration": "6"
    },
-   "solution": "COMPEL"
+   "solution": "COMPEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COMPEL",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "school to open",
+      "gives": "COMP",
+      "note": "a comp is a comprehensive school; to open means it comes first"
+     },
+     {
+      "clueFragment": "the Spanish",
+      "gives": "EL",
+      "note": "el is the Spanish word for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COMP",
+      "EL"
+     ]
+    },
+    "explanation": {
+     "surface": "An order makes the Spanish school open its doors.",
+     "walkthrough": "A comprehensive, or comp, is a British state secondary school.",
+     "definitionFit": "To force someone to act is to compel or oblige them to do it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "open"
+    }
+   }
   },
   {
    "number": 24,
@@ -399,7 +1564,64 @@
     "text": "Brought up Dicky's green eyes",
     "enumeration": "6"
    },
-   "solution": "OCELLI"
+   "solution": "OCELLI",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "OCELLI",
+    "definitions": [
+     {
+      "text": "eyes",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Brought up",
+      "for": "reversal",
+      "note": "in a down entry, bringing something up lifts it to read from the bottom to the top"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dicky",
+      "gives": "ILL",
+      "note": "dicky is British slang for unwell or shaky"
+     },
+     {
+      "clueFragment": "green",
+      "gives": "ECO",
+      "note": "eco- means environmentally friendly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OCE",
+      "LLI"
+     ],
+     "reversals": [
+      {
+       "from": "ILLECO",
+       "to": "OCELLI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone named Dicky was raised with green eyes.",
+     "walkthrough": "Dicky looks like a name; it is the British word for weak, as in a dicky heart.",
+     "definitionFit": "Ocelli are the simple light-sensitive organs of insects, or eye-like markings on wings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Dicky"
+    }
+   }
   },
   {
    "number": 25,
@@ -413,7 +1635,53 @@
     "text": "Splendid around lake with small waves",
     "enumeration": "8"
    },
-   "solution": "RIPPLING"
+   "solution": "RIPPLING",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RIPPLING",
+    "definitions": [
+     {
+      "text": "with small waves",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says one piece encircles another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Splendid",
+      "gives": "RIPPING",
+      "note": "ripping is old-fashioned British slang for excellent"
+     },
+     {
+      "clueFragment": "lake",
+      "gives": "L",
+      "note": "L is the abbreviation for lake"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RIPP",
+      "L",
+      "ING"
+     ]
+    },
+    "explanation": {
+     "surface": "A fine scene of a lake with gentle wavelets.",
+     "definitionFit": "Rippling water is covered in ripples, the little undulations that move across a surface."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -446,7 +1714,67 @@
     "text": "It's deliberately misleading! Turn on the setter's revolutionary setting",
     "enumeration": "6"
    },
-   "solution": "MILIEU"
+   "solution": "MILIEU",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "MILIEU",
+    "definitions": [
+     {
+      "text": "setting",
+      "at": 65
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "reversal",
+      "note": "a revolution turns things round, so the setter's word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "the setter's",
+      "gives": "IM",
+      "note": "the setter says 'I'm' of themselves"
+     },
+     {
+      "clueFragment": "It's deliberately misleading!",
+      "gives": "LIE",
+      "note": "a falsehood told on purpose"
+     },
+     {
+      "clueFragment": "Turn",
+      "gives": "U",
+      "note": "as in a U-turn or U-bend"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MI",
+      "LIE",
+      "U"
+     ],
+     "reversals": [
+      {
+       "from": "IM",
+       "to": "MI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An outburst at a deceptive clue, then a dig at the setter's radical scene.",
+     "walkthrough": "'On' places the first two pieces after the setter's reversed word.",
+     "definitionFit": "A milieu is the social environment or surroundings in which someone lives or acts."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolutionary"
+    }
+   }
   },
   {
    "number": 28,
@@ -460,7 +1788,55 @@
     "text": "English half of Bolton a privileged place",
     "enumeration": "4"
    },
-   "solution": "ETON"
+   "solution": "ETON",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ETON",
+    "definitions": [
+     {
+      "text": "a privileged place",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half of",
+      "for": "letter_selection",
+      "note": "half of means only three of the six letters of the town's name are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the abbreviation for English"
+     },
+     {
+      "clueFragment": "Bolton",
+      "gives": "TON",
+      "select": "last",
+      "note": "the second half of the town's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "TON"
+     ]
+    },
+    "explanation": {
+     "surface": "An English town described as a place of advantage.",
+     "walkthrough": "Bolton is a northern English town; Eton is the elite public school, a byword for privilege.",
+     "definitionFit": "Eton College is the famous fee-paying boarding school that educated many prime ministers and princes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 29,
@@ -474,7 +1850,56 @@
     "text": "Caught in road - prick!",
     "enumeration": "5"
    },
-   "solution": "LANCE"
+   "solution": "LANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LANCE",
+    "definitions": [
+     {
+      "text": "prick",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in says one piece is placed inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "road",
+      "gives": "LANE",
+      "note": "a narrow road"
+     },
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scoring abbreviation for caught"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAN",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A motorist caught by another driver in the street swears at them.",
+     "walkthrough": "Prick reads as an insult shouted in road rage but is a verb here.",
+     "definitionFit": "To lance a boil is to pierce or puncture it with a sharp blade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "prick"
+    }
+   }
   },
   {
    "number": 30,
@@ -488,7 +1913,62 @@
     "text": "Married, I occasionally like a drink",
     "enumeration": "4"
    },
-   "solution": "MILK"
+   "solution": "MILK",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "MILK",
+    "definitions": [
+     {
+      "text": "a drink",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occasionally",
+      "for": "letter_selection",
+      "note": "occasionally means only some letters are used, every other one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "like",
+      "gives": "LK",
+      "select": "alternate",
+      "note": "first and third letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "I",
+      "LK"
+     ]
+    },
+    "explanation": {
+     "surface": "A spouse admits to enjoying the odd tipple.",
+     "walkthrough": "The surface suggests alcohol, but the drink is a plain one.",
+     "definitionFit": "Milk is the white liquid from cows that people pour on cereal and in tea."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "drink"
+    }
+   }
   }
  ]
 }
