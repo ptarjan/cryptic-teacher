@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,50 @@
     "text": "Revolutionary murdered by sweetie in battle",
     "enumeration": "8"
    },
-   "solution": "MARATHON"
+   "solution": "MARATHON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARATHON",
+    "definitions": [
+     {
+      "text": "battle",
+      "at": 37
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Revolutionary murdered",
+      "gives": "MARAT",
+      "note": "Jean-Paul Marat, French revolutionary stabbed in his bath"
+     },
+     {
+      "clueFragment": "sweetie",
+      "gives": "HON",
+      "note": "short for honey, a term of endearment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MARAT",
+      "HON"
+     ]
+    },
+    "explanation": {
+     "surface": "A revolutionary is killed by a lover in the middle of a war.",
+     "walkthrough": "MARAT plus HON gives MARATHON; 'sweetie' is an affectionate address, not a confection.",
+     "definitionFit": "The Greeks defeated the Persian invaders on the plain at Marathon in 490 BC, giving the race its name."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "sweetie"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +93,56 @@
     "text": "Conspiracy theorist hacks into my mouse",
     "enumeration": "6"
    },
-   "solution": "MICKEY"
+   "solution": "MICKEY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MICKEY",
+    "definitions": [
+     {
+      "text": "mouse",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hacks into",
+      "for": "container",
+      "note": "hacking into something means breaking inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conspiracy theorist",
+      "gives": "ICKE",
+      "note": "David Icke, the British broadcaster known for conspiracy theories"
+     },
+     {
+      "clueFragment": "my",
+      "gives": "MY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "ICKE",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A conspiracy crank breaks into my computer mouse.",
+     "walkthrough": "David Icke is a former British sports presenter famous for fringe theories about lizard people. 'Mouse' looks like computer hardware but points to the Disney character.",
+     "definitionFit": "Mickey is the Disney cartoon mouse, so the name stands for that particular rodent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mouse"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +156,62 @@
     "text": "Beads of sweat are running initially in a line",
     "enumeration": "6"
    },
-   "solution": "ROSARY"
+   "solution": "ROSARY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ROSARY",
+    "definitions": [
+     {
+      "text": "Beads",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letters of the preceding words"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "of sweat are running",
+      "gives": "OSAR",
+      "select": "first",
+      "note": "first letters of the four words"
+     },
+     {
+      "clueFragment": "a line",
+      "gives": "RY",
+      "note": "RY is the abbreviation for railway, a line"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "OSAR",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "Drops of perspiration trickle down in a row.",
+     "walkthrough": "'Beads of sweat' looks like one phrase, but 'Beads' alone defines, and 'of' starts the run of initials.",
+     "definitionFit": "A rosary is a string of prayer beads used to count devotions, especially by Catholics."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "sweat"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +225,67 @@
     "text": "Tasty shoot cooked in volume",
     "enumeration": "9"
    },
-   "solution": "TOOTHSOME"
+   "solution": "TOOTHSOME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "TOOTHSOME",
+    "definitions": [
+     {
+      "text": "Tasty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cooked",
+      "for": "anagram",
+      "note": "cooking turns ingredients into something rearranged"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shoot",
+      "gives": "SHOOT",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "volume",
+      "gives": "TOME",
+      "note": "a tome is a large book, a volume"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TO",
+      "OTHSO",
+      "ME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SHOOT",
+       "gives": "OTHSO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe book contains a tasty cooked vegetable shoot.",
+     "walkthrough": "'Cooked' fits the food surface so well it hides its job as the signal to rearrange.",
+     "definitionFit": "Toothsome describes food that is pleasant to eat, a slightly old-fashioned synonym for delicious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "volume"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +305,69 @@
      }
     ]
    },
-   "solution": "OPENSANDWICH"
+   "solution": "OPENSANDWICH",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OPEN SANDWICH",
+    "definitions": [
+     {
+      "text": "Snack",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has to leave",
+      "for": "deletion",
+      "note": "whatever has to leave departs, so it is dropped"
+     }
+    ],
+    "linkWords": [
+     "a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "starts to appear",
+      "gives": "OPENS",
+      "note": "a show or flower opens when it begins to be seen"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "AND",
+      "note": "and means together with"
+     },
+     {
+      "clueFragment": "which",
+      "gives": "WHICH",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OPENS",
+      "AND",
+      "WICH"
+     ]
+    },
+    "explanation": {
+     "surface": "A snack is served as soon as it appears, so a husband must leave.",
+     "walkthrough": "OPENS, AND, then WHICH losing its first H gives WICH.",
+     "definitionFit": "An open sandwich is a slice of bread with a topping but no lid, a light meal or bite."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +381,63 @@
     "text": "Sheds hair at first into bags",
     "enumeration": "6"
    },
-   "solution": "SHACKS"
+   "solution": "SHACKS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SHACKS",
+    "definitions": [
+     {
+      "text": "Sheds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of the word just before it"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "one piece goes into the other, so it sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hair",
+      "gives": "H",
+      "select": "first",
+      "note": "the first letter of hair"
+     },
+     {
+      "clueFragment": "bags",
+      "gives": "SACKS",
+      "note": "sacks are bags"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "H",
+      "ACKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Something moults its hair straight into bags.",
+     "walkthrough": "'Sheds' looks like a verb about moulting, but it is the plural noun for huts.",
+     "definitionFit": "Shacks are crude wooden huts, much like garden sheds used for storage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Sheds"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +451,40 @@
     "text": "Present from Hove?",
     "enumeration": "5"
    },
-   "solution": "HEAVE"
+   "solution": "HEAVE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "HEAVE",
+    "definitions": [
+     {
+      "text": "Present from Hove?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Present from Hove?",
+      "note": "surface reading: a gift or souvenir from the seaside town of Hove"
+     },
+     {
+      "clueFragment": "Present from Hove?",
+      "note": "setter's reading: the present tense of the verb whose past form is hove"
+     }
+    ],
+    "explanation": {
+     "surface": "A souvenir bought in Hove, a seaside town next to Brighton.",
+     "walkthrough": "Hove is an old past tense of the verb, as in a ship that hove to; its present tense is the answer.",
+     "definitionFit": "Heave is the present-tense form of the verb whose archaic past tense is hove, as in hove into view."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Present"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +498,58 @@
     "text": "Bed roll shortly needed for game",
     "enumeration": "8"
    },
-   "solution": "CRIBBAGE"
+   "solution": "CRIBBAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "CRIBBAGE",
+    "definitions": [
+     {
+      "text": "game",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shortly",
+      "for": "deletion",
+      "note": "made short, so the word loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "needed for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bed",
+      "gives": "CRIB",
+      "note": "a crib is a child's bed"
+     },
+     {
+      "clueFragment": "roll",
+      "gives": "BAGEL",
+      "note": "a bagel is a ring-shaped bread roll"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRIB",
+      "BAGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bedroll is required for some outdoor game.",
+     "walkthrough": "'Bed roll' looks like one camping item, but it splits into bed and roll.",
+     "definitionFit": "Cribbage is a card game for two or more players, scored by moving pegs along a board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "roll"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +563,59 @@
     "text": "Guarantee user is to negotiate with city",
     "enumeration": "8"
    },
-   "solution": "SECURITY"
+   "solution": "SECURITY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SECURITY",
+    "definitions": [
+     {
+      "text": "Guarantee",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "negotiate",
+      "for": "anagram",
+      "note": "to negotiate is to work things around until a new arrangement is reached"
+     }
+    ],
+    "linkWords": [
+     "is to",
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "user",
+      "gives": "USER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "city",
+      "gives": "CITY",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "USERCITY",
+       "gives": "SECURITY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A promise that a resident will be able to bargain with the town council.",
+     "definitionFit": "Security is something pledged as collateral to back a loan, a guarantee of repayment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "negotiate"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +629,62 @@
     "text": "I missed Tom Cruise, amazingly, as client",
     "enumeration": "8"
    },
-   "solution": "CUSTOMER"
+   "solution": "CUSTOMER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "CUSTOMER",
+    "definitions": [
+     {
+      "text": "client",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "I missed",
+      "for": "deletion",
+      "note": "the letter I is missed out, so it is dropped from the name"
+     },
+     {
+      "text": "amazingly",
+      "for": "anagram",
+      "note": "done amazingly suggests the letters are thrown into a surprising new order"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tom Cruise",
+      "gives": "TOMCRUISE",
+      "note": "the film star's name taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CUSTOMER"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TOMCRUSE",
+       "gives": "CUSTOMER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fan regrets missing a sighting of Tom Cruise while dealing with a client.",
+     "definitionFit": "A customer is someone who buys goods or services, the same role as a client of a business."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missed"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +698,60 @@
     "text": "Lunatic’s love for a food plant",
     "enumeration": "6"
    },
-   "solution": "MANIOC"
+   "solution": "MANIOC",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "MANIOC",
+    "definitions": [
+     {
+      "text": "food plant",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "for",
+      "for": "substitution",
+      "note": "one thing given for another means it replaces it in the word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lunatic’s",
+      "gives": "MANIAC",
+      "note": "a maniac is a lunatic; the 's makes the word possessive in the surface"
+     },
+     {
+      "clueFragment": "love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like the letter O"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MANI",
+      "O",
+      "C"
+     ]
+    },
+    "explanation": {
+     "surface": "A madman has a passion for a particular crop.",
+     "walkthrough": "In MANIAC the A near the end gives way to O, making MANIOC.",
+     "definitionFit": "Manioc is another name for cassava, a tropical shrub whose starchy roots are eaten as a staple."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 11,
@@ -199,7 +771,52 @@
      }
     ]
    },
-   "solution": "SPOILERALERT"
+   "solution": "SPOILERALERT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SPOILER ALERT",
+    "definitions": [
+     {
+      "text": "warning of plot",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "false",
+      "for": "anagram",
+      "note": "a false version is not the true arrangement, so the letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Allies report",
+      "gives": "ALLIESREPORT",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ALLIESREPORT",
+       "gives": "SPOILERALERT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Allied forces circulate a bogus warning about a conspiracy.",
+     "walkthrough": "'Plot' looks like a conspiracy, but it is the storyline of a film or book.",
+     "definitionFit": "A reviewer flags upcoming story details that might ruin the ending, warning readers before they read on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +830,44 @@
     "text": "Sod the planet",
     "enumeration": "5"
    },
-   "solution": "EARTH"
+   "solution": "EARTH",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EARTH",
+    "definitions": [
+     {
+      "text": "Sod",
+      "at": 0
+     },
+     {
+      "text": "the planet",
+      "at": 4
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sod",
+      "note": "first meaning: turf, the soil with grass growing in it"
+     },
+     {
+      "clueFragment": "the planet",
+      "note": "second meaning: the world we live on"
+     }
+    ],
+    "explanation": {
+     "surface": "It reads like a curse at the whole world.",
+     "walkthrough": "'Sod' looks like a British expletive, but it is simply turf or soil.",
+     "definitionFit": "Earth means both the soil or ground and the third planet from the Sun, home to humanity."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sod"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +881,51 @@
     "text": "Clan taking Christian day as an annual occurrence",
     "enumeration": "9"
    },
-   "solution": "SEPTEMBER"
+   "solution": "SEPTEMBER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SEPTEMBER",
+    "definitions": [
+     {
+      "text": "an annual occurrence",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Clan",
+      "gives": "SEPT",
+      "note": "a sept is a branch of a clan, especially in Ireland or Scotland"
+     },
+     {
+      "clueFragment": "Christian day",
+      "gives": "EMBER",
+      "note": "Ember days are seasonal fast days in the Christian calendar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEPT",
+      "EMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A clan marks a church holy day every year.",
+     "walkthrough": "SEPT then EMBER; Ember days are groups of fasting days held four times a year.",
+     "definitionFit": "The ninth month of the calendar comes round once every year, so it is a yearly event."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Clan"
+    }
+   }
   },
   {
    "number": 14,
@@ -255,7 +953,40 @@
      }
     ]
    },
-   "solution": "NOENDINSIGHT"
+   "solution": "NOENDINSIGHT",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "NO END IN SIGHT",
+    "definitions": [
+     {
+      "text": "when conclusion can’t be reached",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sigh indicated",
+      "note": "surface reading: someone lets out a weary breath"
+     },
+     {
+      "clueFragment": "when conclusion can’t be reached",
+      "note": "setter's reading: the word sigh is a longer word shown with its final letter cut off"
+     }
+    ],
+    "explanation": {
+     "surface": "A tired sigh shows that a long argument will never be settled.",
+     "walkthrough": "Read backwards from the answer: SIGHT with no end is SIGH, which is exactly what the clue shows.",
+     "definitionFit": "The phrase describes a situation, such as a dispute or project, that shows no prospect of finishing soon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sigh"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1000,58 @@
     "text": "Gloomy, go to bed, having paid for cover round it",
     "enumeration": "9"
    },
-   "solution": "SATURNINE"
+   "solution": "SATURNINE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SATURNINE",
+    "definitions": [
+     {
+      "text": "Gloomy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round it",
+      "for": "container",
+      "note": "the envelope goes round it, meaning around the preceding phrase"
+     }
+    ],
+    "linkWords": [
+     "having"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "go to bed",
+      "gives": "TURNIN",
+      "note": "to turn in is to go to bed"
+     },
+     {
+      "clueFragment": "paid for cover",
+      "gives": "SAE",
+      "note": "a stamped addressed envelope, a cover with postage already paid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SA",
+      "TURNIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy person heads to bed after paying for insurance.",
+     "walkthrough": "TURN IN sits inside SAE: SA-TURNIN-E. An SAE is enclosed so a reply comes back at the sender's expense.",
+     "definitionFit": "Saturnine means sullen or morose, from the supposed influence of the planet Saturn on temperament."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 16,
@@ -289,7 +1071,53 @@
      }
     ]
    },
-   "solution": "BLUECHIP"
+   "solution": "BLUECHIP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BLUE-CHIP",
+    "definitions": [
+     {
+      "text": "top quality",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "made a mess of",
+      "for": "anagram",
+      "note": "making a mess of something jumbles it up"
+     }
+    ],
+    "linkWords": [
+     "In"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "public he",
+      "gives": "PUBLICHE",
+      "note": "the two words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PUBLICHE",
+       "gives": "BLUECHIP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man bungled things in public, falling short of excellence.",
+     "definitionFit": "Blue-chip describes reliable, premium shares or companies, so it means of the highest grade."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "In"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1131,65 @@
     "text": "No value keeping you in shed",
     "enumeration": "8"
    },
-   "solution": "OUTHOUSE"
+   "solution": "OUTHOUSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OUTHOUSE",
+    "definitions": [
+     {
+      "text": "shed",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeping",
+      "for": "container",
+      "note": "keeping something means holding it inside"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No",
+      "gives": "O",
+      "note": "nothing, shown as the figure zero"
+     },
+     {
+      "clueFragment": "value",
+      "gives": "USE",
+      "note": "use is value, as in of no use"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "THOU",
+      "note": "thou is the old form of you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "U",
+      "THOU",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "Something worthless is housed in a garden shed.",
+     "walkthrough": "O, then USE holding THOU: O-U-THOU-SE. 'No value' looks like one phrase meaning useless.",
+     "definitionFit": "An outhouse is a small building attached to or near a main house, used like a shed."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 18,
@@ -323,7 +1209,54 @@
      }
     ]
    },
-   "solution": "LAURELWREATH"
+   "solution": "LAURELWREATH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LAUREL WREATH",
+    "definitions": [
+     {
+      "text": "a crowning glory",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "operated on",
+      "for": "anagram",
+      "note": "something operated on by a surgeon is cut and rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A urethra well",
+      "gives": "AURETHRAWELL",
+      "note": "the three words taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AURETHRAWELL",
+       "gives": "LAURELWREATH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A patient boasts that a successful urinary operation is a triumph.",
+     "definitionFit": "A wreath of bay leaves was placed on the head of victors, literally crowning their glory."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "operated"
+    }
+   }
   },
   {
    "number": 19,
@@ -337,7 +1270,53 @@
     "text": "Addicts run out of sympathisers",
     "enumeration": "6"
    },
-   "solution": "FIENDS"
+   "solution": "FIENDS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FIENDS",
+    "definitions": [
+     {
+      "text": "Addicts",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "something taken out of a word is removed from it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     },
+     {
+      "clueFragment": "sympathisers",
+      "gives": "FRIENDS",
+      "note": "friends are supporters or sympathisers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FIENDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Addicts have exhausted the patience of their supporters.",
+     "walkthrough": "'Run out of' looks like a phrasal verb, but run gives R and out of removes it.",
+     "definitionFit": "A fiend is an enthusiast or addict, as in dope fiend or fresh-air fiend."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 20,
@@ -351,7 +1330,42 @@
     "text": "Why bridge is more than wide enough for car",
     "enumeration": "6"
    },
-   "solution": "HYBRID"
+   "solution": "HYBRID",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HYBRID",
+    "definitions": [
+     {
+      "text": "car",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is more than wide enough for",
+      "for": "hidden_word",
+      "note": "the words are roomy enough to hold the vehicle inside their letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Why bridge",
+      "gives": "HYBRID",
+      "note": "found inside the run of letters across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone asks why a bridge was built so much wider than a car needs.",
+     "definitionFit": "A hybrid vehicle combines a petrol engine with an electric motor, so it is a type of automobile."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wide"
+    }
+   }
   },
   {
    "number": 21,
@@ -365,7 +1379,62 @@
     "text": "European friend swallows excellent herbal remedy",
     "enumeration": "9"
    },
-   "solution": "ECHINACEA"
+   "solution": "ECHINACEA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ECHINACEA",
+    "definitions": [
+     {
+      "text": "herbal remedy",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "swallows",
+      "for": "container",
+      "note": "whatever is swallowed ends up inside the swallower"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "standard abbreviation for European"
+     },
+     {
+      "clueFragment": "friend",
+      "gives": "CHINA",
+      "note": "china plate is Cockney rhyming slang for mate, so china means friend"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "ACE",
+      "note": "ace is slang for excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "CHIN",
+      "ACE",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A continental pal gulps down something first-rate, perhaps a herbal tonic.",
+     "walkthrough": "Friend from rhyming slang: china plate rhymes with mate.",
+     "definitionFit": "Echinacea, from the coneflower plant, is taken as a herbal supplement against colds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "swallows"
+    }
+   }
   },
   {
    "number": 22,
@@ -379,7 +1448,60 @@
     "text": "Poke say horse to get up",
     "enumeration": "5"
    },
-   "solution": "NUDGE"
+   "solution": "NUDGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NUDGE",
+    "definitions": [
+     {
+      "text": "Poke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to get up",
+      "for": "reversal",
+      "note": "in a down entry, getting up means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "say",
+      "gives": "EG",
+      "note": "e.g. means for example, as does say"
+     },
+     {
+      "clueFragment": "horse",
+      "gives": "DUN",
+      "note": "a dun is a greyish-brown horse"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NUD",
+      "GE"
+     ],
+     "reversals": [
+      {
+       "from": "EGDUN",
+       "to": "NUDGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Prod a horse, for instance, to make it rise.",
+     "definitionFit": "To nudge someone is to give them a gentle push or prod with the elbow."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "say"
+    }
+   }
   },
   {
    "number": 23,
@@ -393,7 +1515,55 @@
     "text": "Such unwelcome weather? In parts a little sun",
     "enumeration": "5"
    },
-   "solution": "RAINY"
+   "solution": "RAINY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RAINY",
+    "definitions": [
+     {
+      "text": "Such unwelcome weather?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "parts",
+      "for": "container",
+      "note": "to part something is to split it open so another piece can sit between"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a little sun",
+      "gives": "RAY",
+      "note": "a ray is a small beam of sunshine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RA",
+      "IN",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A forecast of patchy weather with occasional sunshine.",
+     "walkthrough": "'In parts' wants to be a forecaster's phrase, but 'In' is the inserted piece and 'parts' is the verb that splits the sunbeam.",
+     "definitionFit": "Wet weather is generally unwelcome, so the clue's question mark hints at a typical example rather than a synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 24,
@@ -407,7 +1577,63 @@
     "text": "Hunt participants in hospital, not with injuries",
     "enumeration": "6"
    },
-   "solution": "HOUNDS"
+   "solution": "HOUNDS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "HOUNDS",
+    "definitions": [
+     {
+      "text": "Hunt participants",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not with tells us the letter standing for with is left out"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the map symbol for hospital"
+     },
+     {
+      "clueFragment": "injuries",
+      "gives": "WOUNDS",
+      "note": "wounds are injuries"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "H",
+      "OUNDS"
+     ]
+    },
+    "explanation": {
+     "surface": "Members of a fox hunt end up in hospital, though unhurt.",
+     "walkthrough": "H followed by WOUNDS without its W gives HOUNDS.",
+     "definitionFit": "Foxhounds are the dogs that chase the quarry in a traditional hunt, so they take part in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "with"
+    }
+   }
   },
   {
    "number": 25,
@@ -421,7 +1647,47 @@
     "text": "One withdrawing approval for such a fashionable label?",
     "enumeration": "8"
    },
-   "solution": "DESIGNER"
+   "solution": "DESIGNER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DESIGNER",
+    "definitions": [
+     {
+      "text": "One withdrawing approval",
+      "at": 0
+     },
+     {
+      "text": "fashionable label",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "for such a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One withdrawing approval",
+      "note": "first meaning, whimsical: one who de-signs, taking back a signature of approval"
+     },
+     {
+      "clueFragment": "fashionable label",
+      "note": "second meaning: the word stamped on clothes from a famous fashion house"
+     }
+    ],
+    "explanation": {
+     "surface": "A buyer pulls support for a trendy clothing brand.",
+     "walkthrough": "Split the answer as DE-SIGNER: de- undoes, so someone who removes their signature.",
+     "definitionFit": "A designer brand or label marks expensive, stylish goods, so the word itself is a mark of fashion."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "withdrawing"
+    }
+   }
   },
   {
    "number": 26,
@@ -435,7 +1701,44 @@
     "text": "Policeman once a stripper",
     "enumeration": "6"
    },
-   "solution": "PEELER"
+   "solution": "PEELER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PEELER",
+    "definitions": [
+     {
+      "text": "Policeman once",
+      "at": 0
+     },
+     {
+      "text": "a stripper",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Policeman once",
+      "note": "first meaning: an old nickname for a police officer, after Robert Peel"
+     },
+     {
+      "clueFragment": "a stripper",
+      "note": "second meaning: a person or tool that takes off skin or paint"
+     }
+    ],
+    "explanation": {
+     "surface": "A former constable has turned to striptease.",
+     "walkthrough": "Robert Peel founded London's Metropolitan Police in 1829, so early officers were called peelers or bobbies.",
+     "definitionFit": "Peeler is a historical British slang term for officers, and also one who strips off peel or coating."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "stripper"
+    }
+   }
   },
   {
    "number": 27,
@@ -449,7 +1752,45 @@
     "text": "Son with long hair unable to relax",
     "enumeration": "8"
    },
-   "solution": "STRESSED"
+   "solution": "STRESSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STRESSED",
+    "definitions": [
+     {
+      "text": "unable to relax",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Son",
+      "gives": "S",
+      "note": "S is the abbreviation for son"
+     },
+     {
+      "clueFragment": "with long hair",
+      "gives": "TRESSED",
+      "note": "tresses are long locks of hair, so tressed means having them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESSED"
+     ]
+    },
+    "explanation": {
+     "surface": "A long-haired son is too tense to unwind.",
+     "definitionFit": "Someone under strain and anxiety finds it hard to calm down or feel at ease."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   }
  ]
 }
