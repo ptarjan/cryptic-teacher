@@ -38,6 +38,9 @@
   "date": "2023-12-10",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,59 @@
     "text": "Rock is what starts party best",
     "enumeration": "6"
    },
-   "solution": "PELITE"
+   "solution": "PELITE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PELITE",
+    "definitions": [
+     {
+      "text": "Rock",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "what starts",
+      "for": "letter_selection",
+      "note": "what starts a word is its opening letter, so only the head of the next word is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "party",
+      "gives": "P",
+      "select": "first",
+      "note": "the first letter of party"
+     },
+     {
+      "clueFragment": "best",
+      "gives": "ELITE",
+      "note": "the elite are the best of a group"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ELITE"
+     ]
+    },
+    "explanation": {
+     "surface": "A rock fan claims that the best thing about a party is the music at the start.",
+     "walkthrough": "'Rock' reads as music in the surface, but it is a geological definition.",
+     "definitionFit": "Pelite is a sedimentary rock made of fine clay or mud particles, a geologist's term found in Chambers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Rock"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +120,56 @@
     "text": "Part of bridge end nicked? That’s criminal",
     "enumeration": "4"
    },
-   "solution": "PERP"
+   "solution": "PERP",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PERP",
+    "definitions": [
+     {
+      "text": "criminal",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "nicked",
+      "for": "deletion",
+      "note": "something nicked has been stolen away, so these letters are taken out"
+     }
+    ],
+    "linkWords": [
+     "That’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Part of bridge",
+      "gives": "PERPEND",
+      "note": "a perpend is a bond stone running right through a wall, as in a bridge's masonry"
+     },
+     {
+      "clueFragment": "end",
+      "gives": "END",
+      "note": "taken as written; these are the letters removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PERP"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone has pinched the end of a bridge, which is clearly a crime.",
+     "walkthrough": "'nicked' suggests theft for the surface and also for the definition, but here it removes letters.",
+     "definitionFit": "Perp is American police slang, short for perpetrator, the person who committed a crime."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "nicked"
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +183,76 @@
     "text": "Having no heart for crowd in jostling queues, I’d avoid the Army and Navy",
     "enumeration": "8"
    },
-   "solution": "EMBUSQUE"
+   "solution": "EMBUSQUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "container"
+    ],
+    "answer": "EMBUSQUE",
+    "definitions": [
+     {
+      "text": "I’d avoid the Army and Navy",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Having no heart",
+      "for": "deletion",
+      "note": "with no heart the middle is cut away, leaving only the outside letters"
+     },
+     {
+      "text": "jostling",
+      "for": "anagram",
+      "note": "people jostling push each other about, so these letters are shoved out of order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in a crowd puts something inside it, so these letters go within the others"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "crowd",
+      "gives": "MOB",
+      "note": "a mob is a crowd"
+     },
+     {
+      "clueFragment": "queues",
+      "gives": "QUEUES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MB",
+      "USQUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "QUEUES",
+       "gives": "EUSQUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone who hates crowds and jostling queues says they would steer clear of the armed forces.",
+     "walkthrough": "The first-person definition is spoken by the shirker: an embusqué is someone who has dodged service with the forces.",
+     "definitionFit": "An embusqué is a person who dodges military service, often by taking a safe job away from the front."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Army"
+    }
+   }
   },
   {
    "number": 3,
@@ -99,7 +272,51 @@
      }
     ]
    },
-   "solution": "INCOURSE"
+   "solution": "INCOURSE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "IN COURSE",
+    "definitions": [
+     {
+      "text": "Naturally for veterans",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Unwound",
+      "for": "anagram",
+      "note": "something unwound has come loose from its coil, so these letters lose their order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on cruise",
+      "gives": "ONCRUISE",
+      "note": "the two words taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONCRUISE",
+       "gives": "INCOURSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Old soldiers relax on a cruise as they naturally would.",
+     "walkthrough": "'for veterans' marks an old-fashioned phrase, not real servicemen.",
+     "definitionFit": "In course is an archaic phrase meaning of course, in the natural order of things, which old speakers would use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "veterans"
+    }
+   }
   },
   {
    "number": 4,
@@ -113,7 +330,53 @@
     "text": "Hope IT working for old African",
     "enumeration": "6"
    },
-   "solution": "ETHIOP"
+   "solution": "ETHIOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ETHIOP",
+    "definitions": [
+     {
+      "text": "old African",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working means in motion and busy, so these letters are set moving into a new order"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Hope IT",
+      "gives": "HOPEIT",
+      "note": "the two words taken together"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOPEIT",
+       "gives": "ETHIOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly African man hopes the computer system is working.",
+     "definitionFit": "Ethiop is an archaic word for an Ethiopian or, more broadly, a Black African."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 5,
@@ -133,7 +396,63 @@
      }
     ]
    },
-   "solution": "NOTBAD"
+   "solution": "NOTBAD",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "NOT BAD",
+    "definitions": [
+     {
+      "text": "fair",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "brought back",
+      "for": "reversal",
+      "note": "bringing something back returns it the way it came, so the letters run right to left"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fish",
+      "gives": "DAB",
+      "note": "the dab is a small flatfish"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "TON",
+      "note": "a ton is a unit of weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOT",
+      "BAD"
+     ],
+     "reversals": [
+      {
+       "from": "DABTON",
+       "to": "NOTBAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A fishmonger's catch is weighed and returned as a fair deal.",
+     "definitionFit": "Saying something is not bad is a mild British way of calling it fair or reasonably good."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fair"
+    }
+   }
   },
   {
    "number": 5,
@@ -147,7 +466,55 @@
     "text": "Theatrical Lionel gets work with lead perhaps",
     "enumeration": "6"
    },
-   "solution": "NIELLO"
+   "solution": "NIELLO",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NIELLO",
+    "definitions": [
+     {
+      "text": "work with lead perhaps",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Theatrical",
+      "for": "anagram",
+      "note": "a theatrical act puts on a show and plays a part, so these letters take on a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "gets"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lionel",
+      "gives": "LIONEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LIONEL",
+       "gives": "NIELLO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor called Lionel lands a job playing a lead role.",
+     "walkthrough": "'lead' looks like a starring role but is the metal.",
+     "definitionFit": "Niello is a black alloy of sulphur with silver, copper and lead, used to fill engraved metalwork, and the decorative work made with it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 6,
@@ -161,7 +528,54 @@
     "text": "Bajan’s small heap (not a Tesla) inclined to shake in the Highlands",
     "enumeration": "5"
    },
-   "solution": "OORIE"
+   "solution": "OORIE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OORIE",
+    "definitions": [
+     {
+      "text": "inclined to shake in the Highlands",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not having something means going without it, so this letter is struck out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bajan’s small heap",
+      "gives": "TOORIE",
+      "note": "a bajan is a first-year student at Aberdeen, so this is the Scots word for a small heap or tuft"
+     },
+     {
+      "clueFragment": "a Tesla",
+      "gives": "T",
+      "note": "T is the symbol for the tesla, the unit of magnetic flux density; a means one of them"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OORIE"
+     ]
+    },
+    "explanation": {
+     "surface": "A small pile from Barbados that is not an electric car seems to be trembling in Scotland.",
+     "walkthrough": "Bajan looks like a Barbadian, but in Scots it is a first-year Aberdeen student, which flags a Scots word.",
+     "definitionFit": "Oorie is Scots for dismal or chilly, and so shivering or apt to shudder with cold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Bajan's"
+    }
+   }
   },
   {
    "number": 7,
@@ -181,7 +595,40 @@
      }
     ]
    },
-   "solution": "BASKETCASE"
+   "solution": "BASKETCASE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BASKET CASE",
+    "definitions": [
+     {
+      "text": "one in a poor state",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Two containers",
+      "gives": "BASKETCASE",
+      "note": "a basket and a case are both containers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BASKETCASE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pair of boxes, one of them in bad repair.",
+     "definitionFit": "A basket case is informal for a person or thing in a hopeless or helpless condition."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "containers"
+    }
+   }
   },
   {
    "number": 8,
@@ -195,7 +642,71 @@
     "text": "Nanny not drinking before noon, sure to be relaxed",
     "enumeration": "8"
    },
-   "solution": "DRYNURSE"
+   "solution": "DRYNURSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "DRY NURSE",
+    "definitions": [
+     {
+      "text": "Nanny",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "before",
+      "for": "charade",
+      "note": "one thing coming before another fixes the order, so the first piece leads"
+     },
+     {
+      "text": "to be relaxed",
+      "for": "anagram",
+      "note": "something relaxed has loosened its hold, so these letters fall out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "not drinking",
+      "gives": "DRY",
+      "note": "someone dry is not drinking alcohol"
+     },
+     {
+      "clueFragment": "noon",
+      "gives": "N",
+      "note": "N is the abbreviation for noon"
+     },
+     {
+      "clueFragment": "sure",
+      "gives": "URSE",
+      "note": "the word rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRY",
+      "N",
+      "URSE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SURE",
+       "gives": "URSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nanny who abstains until midday is sure to be calm.",
+     "definitionFit": "A dry nurse looks after a baby without breastfeeding it, which is what a nanny does."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "relaxed"
+    }
+   }
   },
   {
    "number": 9,
@@ -209,7 +720,63 @@
     "text": "Effusive in public after getting English degree",
     "enumeration": "11"
    },
-   "solution": "EMANATIONAL"
+   "solution": "EMANATIONAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EMANATIONAL",
+    "definitions": [
+     {
+      "text": "Effusive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after getting",
+      "for": "charade",
+      "note": "one thing coming after another sets the order, so the later word's letters follow the earlier ones"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "E is the standard abbreviation for English"
+     },
+     {
+      "clueFragment": "degree",
+      "gives": "MA",
+      "note": "an MA, Master of Arts, is a university degree"
+     },
+     {
+      "clueFragment": "public",
+      "gives": "NATIONAL",
+      "note": "national, as in a national institution, means belonging to the public at large"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MA",
+      "NATIONAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone gushes openly in public after earning a degree in English.",
+     "walkthrough": "'Effusive' looks like a description of a gushing graduate, but it is the definition in its literal sense of flowing out.",
+     "definitionFit": "Emanational means relating to emanation, the flowing out or issuing forth of something, which is the root sense of effusive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Effusive"
+    }
+   }
   },
   {
    "number": 10,
@@ -223,7 +790,51 @@
     "text": "Old star has the desired effect, making duff parts",
     "enumeration": "10"
    },
-   "solution": "STERNWORKS"
+   "solution": "STERNWORKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STERNWORKS",
+    "definitions": [
+     {
+      "text": "duff parts",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "making"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old star",
+      "gives": "STERN",
+      "note": "stern is an obsolete word for a star"
+     },
+     {
+      "clueFragment": "has the desired effect",
+      "gives": "WORKS",
+      "note": "a plan that works has the effect wanted"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STERN",
+      "WORKS"
+     ]
+    },
+    "explanation": {
+     "surface": "A faded celebrity still succeeds, despite turning out shoddy spare parts.",
+     "walkthrough": "'duff' reads as useless, but it is slang for the backside, so duff parts are the rear parts of a vessel.",
+     "definitionFit": "Sternworks are the structures at the back of a ship, and duff is slang for the rear or bottom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "duff"
+    }
+   }
   },
   {
    "number": 11,
@@ -237,7 +848,74 @@
     "text": "Esther lost in outskirts of county town",
     "enumeration": "8"
    },
-   "solution": "CHERTSEY"
+   "solution": "CHERTSEY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "CHERTSEY",
+    "definitions": [
+     {
+      "text": "town",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lost",
+      "for": "anagram",
+      "note": "something lost has wandered off its proper path, so these letters stray out of order"
+     },
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a place are its edges, so only the first and last letters are kept"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "being in something means sitting inside it, so one set of letters goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Esther",
+      "gives": "HERTSE",
+      "note": "the name rearranged"
+     },
+     {
+      "clueFragment": "county",
+      "gives": "CY",
+      "select": "outer",
+      "note": "the first and last letters of county"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HERTSE",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ESTHER",
+       "gives": "HERTSE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman called Esther has got lost on the edge of a county town.",
+     "walkthrough": "The scrambled name sits between C and Y. Chertsey is a town in Surrey, south-west of London.",
+     "definitionFit": "Chertsey is a market town in the English county of Surrey, on the River Thames."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lost"
+    }
+   }
   },
   {
    "number": 12,
@@ -251,7 +929,54 @@
     "text": "Hoax in bed recalled",
     "enumeration": "5"
    },
-   "solution": "PUTON"
+   "solution": "PUTON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PUT ON",
+    "definitions": [
+     {
+      "text": "Hoax",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalling something calls it back, so the letters return in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in bed",
+      "gives": "NOTUP",
+      "note": "someone in bed is not up yet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUTON"
+     ],
+     "reversals": [
+      {
+       "from": "NOTUP",
+       "to": "PUTON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A prank is remembered from someone's time lying in bed.",
+     "walkthrough": "'in bed' must be rephrased as a two-word phrase before turning it round.",
+     "definitionFit": "A put-on is a deception or trick played on someone, a synonym for a hoax."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bed"
+    }
+   }
   },
   {
    "number": 13,
@@ -265,7 +990,55 @@
     "text": "Right to take book home once",
     "enumeration": "6"
    },
-   "solution": "LIBKEN"
+   "solution": "LIBKEN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "LIBKEN",
+    "definitions": [
+     {
+      "text": "home once",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to take",
+      "for": "container",
+      "note": "taking something in means holding it inside, so one set of letters is placed within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Right",
+      "gives": "LIEN",
+      "note": "a lien is a legal right to hold property until a debt is paid"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "BK",
+      "note": "BK is the abbreviation for book"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LI",
+      "BK",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asserts a right to take a library book home.",
+     "walkthrough": "'Right' looks like a political or moral entitlement but is the legal term for a claim on property. 'once' marks an old word.",
+     "definitionFit": "Libken is old thieves' slang for a lodging or house, so it is an archaic word for a place to live."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Right"
+    }
+   }
   },
   {
    "number": 14,
@@ -279,7 +1052,66 @@
     "text": "False membership fees reversed in Post Office",
     "enumeration": "6"
    },
-   "solution": "PSEUDO"
+   "solution": "PSEUDO",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "PSEUDO",
+    "definitions": [
+     {
+      "text": "False",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversed",
+      "for": "reversal",
+      "note": "reversed means turned to face the other way, so the letters are read backwards"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "sitting in something places it inside, so these letters go within the other piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "membership fees",
+      "gives": "DUES",
+      "note": "dues are the regular fees paid by members of a club"
+     },
+     {
+      "clueFragment": "Post Office",
+      "gives": "PO",
+      "note": "PO is the abbreviation for Post Office"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "SEUD",
+      "O"
+     ],
+     "reversals": [
+      {
+       "from": "DUES",
+       "to": "SEUD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A club's fees were wrongly refunded at the Post Office.",
+     "definitionFit": "Pseudo is used as an adjective meaning sham or not genuine, so it is a synonym for false."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "False"
+    }
+   }
   },
   {
    "number": 14,
@@ -293,7 +1125,70 @@
     "text": "Engaging lawyer, go after Trinidad estate for unduly rigorous formality",
     "enumeration": "8"
    },
-   "solution": "PEDANTRY"
+   "solution": "PEDANTRY",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "PEDANTRY",
+    "definitions": [
+     {
+      "text": "unduly rigorous formality",
+      "at": 46
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engaging",
+      "for": "container",
+      "note": "engaging something means taking it in and holding it, so one piece goes inside another"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "one thing coming after another fixes the order, so this piece comes last"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Trinidad estate",
+      "gives": "PEN",
+      "note": "in the Caribbean a pen is a farm or estate"
+     },
+     {
+      "clueFragment": "lawyer",
+      "gives": "DA",
+      "note": "a DA is a district attorney, a US prosecuting lawyer"
+     },
+     {
+      "clueFragment": "go",
+      "gives": "TRY",
+      "note": "having a go at something is a try"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PE",
+      "DA",
+      "N",
+      "TRY"
+     ]
+    },
+    "explanation": {
+     "surface": "A Caribbean estate hires a lawyer for its stiff ceremonies.",
+     "walkthrough": "'Engaging' looks like hiring a lawyer, but it is the signal to put one piece inside another. Pen for an estate or farm is West Indian usage.",
+     "definitionFit": "Pedantry is excessive attention to rules and fine detail, an overly strict insistence on correct form."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Engaging"
+    }
+   }
   },
   {
    "number": 15,
@@ -307,7 +1202,59 @@
     "text": "Plant found readily around Thailand?",
     "enumeration": "8"
    },
-   "solution": "DIELYTRA"
+   "solution": "DIELYTRA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DIELYTRA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "found",
+      "for": "anagram",
+      "note": "to found metal is to melt and cast it, so these letters are melted down and recast"
+     }
+    ],
+    "linkWords": [
+     "around"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "readily",
+      "gives": "READILY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Thailand",
+      "gives": "T",
+      "note": "T is the international vehicle code for Thailand"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "READILYT",
+       "gives": "DIELYTRA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plant that grows easily all over Thailand.",
+     "walkthrough": "'found' looks like discovered, but here it means cast metal.",
+     "definitionFit": "Dielytra is an older genus name for the bleeding heart and related flowering plants, now usually called Dicentra."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "found"
+    }
+   }
   },
   {
    "number": 16,
@@ -321,7 +1268,43 @@
     "text": "Passing over the purpose of Chambers!",
     "enumeration": "8"
    },
-   "solution": "FORGOING"
+   "solution": "FORGOING",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "FORGOING",
+    "definitions": [
+     {
+      "text": "Passing over",
+      "at": 0
+     },
+     {
+      "text": "the purpose of Chambers",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Passing over",
+      "note": "first meaning: giving up or doing without"
+     },
+     {
+      "clueFragment": "the purpose of Chambers",
+      "note": "second meaning, split in two: chamber pots are there for one particular use"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Chambers looks like the crossword dictionary, but it is chamber pots, and the answer read as two words says what they are for.",
+     "definitionFit": "Forgoing means giving something up or passing it by, while split in two it states what a chamber pot is used for."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Chambers"
+    }
+   }
   },
   {
    "number": 17,
@@ -335,7 +1318,55 @@
     "text": "It helps replace part of body in posterior? Not normally",
     "enumeration": "9"
    },
-   "solution": "REPOSITOR"
+   "solution": "REPOSITOR",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPOSITOR",
+    "definitions": [
+     {
+      "text": "It helps replace part of body",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not normally",
+      "for": "anagram",
+      "note": "something done not normally is out of its usual order, so these letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "posterior",
+      "gives": "REPOSITOR",
+      "note": "all nine letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "POSTERIOR",
+       "gives": "REPOSITOR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A medical tool for putting something back in the backside, used only in unusual cases.",
+     "walkthrough": "'posterior' sits right next to the body-part definition, so it reads as the place; it is the letters to shuffle.",
+     "definitionFit": "A repositor is a surgical instrument for returning a displaced organ or bone to its proper position."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "posterior"
+    }
+   }
   },
   {
    "number": 18,
@@ -349,7 +1380,47 @@
     "text": "Dead wobbly straw hat",
     "enumeration": "9"
    },
-   "solution": "DUNSTABLE"
+   "solution": "DUNSTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DUNSTABLE",
+    "definitions": [
+     {
+      "text": "straw hat",
+      "at": 12
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead"
+     },
+     {
+      "clueFragment": "wobbly",
+      "gives": "UNSTABLE",
+      "note": "something wobbly is unstable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "UNSTABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A dead man's straw hat sits wobbling on his head.",
+     "walkthrough": "Dunstable, a Bedfordshire town, was a centre of straw plaiting and gave its name to a straw hat.",
+     "definitionFit": "A dunstable is a hat made of plaited straw, named after the English town where such straw work was made."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "wobbly"
+    }
+   }
   },
   {
    "number": 19,
@@ -363,7 +1434,54 @@
     "text": "Fish feast traditionally ending with wine",
     "enumeration": "6"
    },
-   "solution": "ALEVIN"
+   "solution": "ALEVIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALEVIN",
+    "definitions": [
+     {
+      "text": "Fish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ending with",
+      "for": "charade",
+      "note": "ending with something places that piece at the close, so it follows the first"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "feast traditionally",
+      "gives": "ALE",
+      "note": "an ale was once a village festival, as in church-ale"
+     },
+     {
+      "clueFragment": "wine",
+      "gives": "VIN",
+      "note": "vin is French for wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALE",
+      "VIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A traditional fish supper finishes with a glass of wine.",
+     "walkthrough": "'traditionally' marks the old sense of the beer word as a festival.",
+     "definitionFit": "An alevin is a young fish, especially a salmon or trout just hatched and still carrying its yolk sac."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "feast"
+    }
+   }
   },
   {
    "number": 20,
@@ -377,7 +1495,68 @@
     "text": "Snipe coming from dhak tree out of area north of North Dakota",
     "enumeration": "6"
    },
-   "solution": "BUTEND"
+   "solution": "BUTEND",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "BUTEND",
+    "definitions": [
+     {
+      "text": "Snipe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of",
+      "for": "deletion",
+      "note": "taking a letter out of a word leaves it removed, so this letter is dropped"
+     },
+     {
+      "text": "north of",
+      "for": "charade",
+      "note": "in a down entry being north of something means sitting above it, so this piece comes first"
+     }
+    ],
+    "linkWords": [
+     "coming from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dhak tree",
+      "gives": "BUTEA",
+      "note": "Butea is the genus of the dhak, an Indian flowering tree"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the abbreviation for area"
+     },
+     {
+      "clueFragment": "North Dakota",
+      "gives": "ND",
+      "note": "ND is the postal abbreviation for North Dakota"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUTE",
+      "ND"
+     ]
+    },
+    "explanation": {
+     "surface": "A wading bird emerges from an Indian tree north of an American state.",
+     "walkthrough": "'Snipe' reads as the bird, but it is slang for a cigarette end. BUTEND is Chambers' spelling of butt end.",
+     "definitionFit": "A snipe is slang for a discarded cigarette end, which is the stub or remaining tail of the smoke."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Snipe"
+    }
+   }
   },
   {
    "number": 21,
@@ -391,7 +1570,49 @@
     "text": "Duke with very small amount in ancient vase",
     "enumeration": "5"
    },
-   "solution": "DIOTA"
+   "solution": "DIOTA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DIOTA",
+    "definitions": [
+     {
+      "text": "ancient vase",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "with",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Duke",
+      "gives": "D",
+      "note": "D is the abbreviation for duke"
+     },
+     {
+      "clueFragment": "very small amount",
+      "gives": "IOTA",
+      "note": "an iota is a tiny quantity"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IOTA"
+     ]
+    },
+    "explanation": {
+     "surface": "A duke keeps a tiny amount of something in an antique vase.",
+     "definitionFit": "A diota is a two-handled jar or amphora of ancient Greece and Rome."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 22,
@@ -405,7 +1626,47 @@
     "text": "What dreadful lager contains is the dregs",
     "enumeration": "6"
    },
-   "solution": "ULLAGE"
+   "solution": "ULLAGE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ULLAGE",
+    "definitions": [
+     {
+      "text": "the dregs",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "contains",
+      "for": "hidden_word",
+      "note": "what a phrase contains is held inside it, so the letters lie within the words"
+     }
+    ],
+    "linkWords": [
+     "What",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dreadful lager",
+      "gives": "ULLAGE",
+      "note": "the letters run across the join of the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "Bad beer is nothing more than sediment.",
+     "walkthrough": "'What' points at the letters held inside the two words.",
+     "definitionFit": "Ullage is the amount by which a cask falls short of full, and also the sediment or dregs left in it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dreadful"
+    }
+   }
   },
   {
    "number": 23,
@@ -419,7 +1680,51 @@
     "text": "Secluded recess that’s made for it!",
     "enumeration": "6"
    },
-   "solution": "NOOKIE"
+   "solution": "NOOKIE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NOOKIE",
+    "definitions": [
+     {
+      "text": "it",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "made for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Secluded recess",
+      "gives": "NOOK",
+      "note": "a nook is a secluded corner or recess"
+     },
+     {
+      "clueFragment": "that’s",
+      "gives": "IE",
+      "note": "i.e., Latin id est, means that is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOOK",
+      "IE"
+     ]
+    },
+    "explanation": {
+     "surface": "A hidden alcove seems purpose-built for something.",
+     "walkthrough": "'it' is slang for sex, and the exclamation mark flags the cheeky reading of a secluded spot made for it.",
+     "definitionFit": "Nookie is informal slang for sexual activity, which 'it' also means in coy colloquial use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "it"
+    }
+   }
   },
   {
    "number": 24,
@@ -433,7 +1738,56 @@
     "text": "Girl’s going around as a techie",
     "enumeration": "5"
    },
-   "solution": "SYSOP"
+   "solution": "SYSOP",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "SYSOP",
+    "definitions": [
+     {
+      "text": "a techie",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going around",
+      "for": "reversal",
+      "note": "going around turns a thing to face the other way, so these letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl’s",
+      "gives": "POSYS",
+      "note": "Posy is a girl's name, with the possessive s"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SYSOP"
+     ],
+     "reversals": [
+      {
+       "from": "POSYS",
+       "to": "SYSOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A young woman is circulating at work as the IT person.",
+     "definitionFit": "A sysop is a system operator, the technician who runs a computer system or bulletin board."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Girl's"
+    }
+   }
   },
   {
    "number": 25,
@@ -447,7 +1801,54 @@
     "text": "Lacking energy, lacking energy, lacking energy",
     "enumeration": "4"
    },
-   "solution": "POKY"
+   "solution": "POKY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "POKY",
+    "definitions": [
+     {
+      "text": "lacking energy",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so the letter named next is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lacking energy",
+      "gives": "POKEY",
+      "note": "a variant spelling of an adjective meaning slow or sluggish"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POKY"
+     ]
+    },
+    "explanation": {
+     "surface": "Three times over, someone has no energy at all.",
+     "walkthrough": "The same phrase does three jobs: one spelling of the answer, an instruction to drop E, and the definition of the shorter spelling.",
+     "definitionFit": "Poky means slow and sluggish, without drive, as in a poky car that will not get up a hill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "energy"
+    }
+   }
   },
   {
    "number": 26,
@@ -461,7 +1862,48 @@
     "text": "Sales aptly shown in a pie chart?",
     "enumeration": "8"
    },
-   "solution": "TURNOVER"
+   "solution": "TURNOVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURNOVER",
+    "definitions": [
+     {
+      "text": "Sales",
+      "at": 0
+     },
+     {
+      "text": "a pie",
+      "at": 21
+     }
+    ],
+    "linkWords": [
+     "aptly shown in",
+     "chart?"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sales",
+      "note": "first meaning: the total amount of business a company does"
+     },
+     {
+      "clueFragment": "a pie",
+      "note": "second meaning: a pastry folded over a filling"
+     }
+    ],
+    "explanation": {
+     "surface": "A business presents its sales figures in a pie chart.",
+     "walkthrough": "The pie chart is a real way to show sales, but 'a pie' is also the pastry sense of the answer, which is why it is 'aptly' shown there.",
+     "definitionFit": "Turnover means a firm's total revenue, and an apple turnover is a folded pastry pie."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pie"
+    }
+   }
   },
   {
    "number": 27,
@@ -481,7 +1923,71 @@
      }
     ]
    },
-   "solution": "SKATINGRINK"
+   "solution": "SKATINGRINK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SKATING RINK",
+    "definitions": [
+     {
+      "text": "It must have enough ice to go round",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "deletion",
+      "note": "out means removed, so this letter is struck from the word that follows"
+     },
+     {
+      "text": "to party",
+      "for": "anagram",
+      "note": "letters off to party let loose and mix about, ending up in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "taking",
+      "gives": "TAKING",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "drinks",
+      "gives": "DRINKS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "D",
+      "note": "D is the Roman numeral for 500"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKATINGRINK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TAKINGRINKS",
+       "gives": "SKATINGRINK"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone takes drinks to a party and needs enough ice for everyone.",
+     "walkthrough": "'enough ice to go round' sounds like ice for the drinks, but means a frozen surface for skaters to circle.",
+     "definitionFit": "A skating rink is an ice surface that skaters circle, so it needs plenty of ice to go round on."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ice"
+    }
+   }
   },
   {
    "number": 28,
@@ -495,7 +2001,74 @@
     "text": "Negative about accommodating leaders in every single meeting? Not me",
     "enumeration": "6"
    },
-   "solution": "YESMAN"
+   "solution": "YESMAN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "YES MAN",
+    "definitions": [
+     {
+      "text": "Not me",
+      "at": 62
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "about means turned around, so the word before it runs backwards"
+     },
+     {
+      "text": "leaders in",
+      "for": "letter_selection",
+      "note": "leaders are those at the front, so the opening letter of each following word is taken"
+     },
+     {
+      "text": "accommodating",
+      "for": "container",
+      "note": "accommodating means giving room to, so one set of letters is housed inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Negative",
+      "gives": "NAY",
+      "note": "nay is an old word for no"
+     },
+     {
+      "clueFragment": "every single meeting",
+      "gives": "ESM",
+      "select": "first",
+      "note": "the first letters of every, single and meeting"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "ESM",
+      "AN"
+     ],
+     "reversals": [
+      {
+       "from": "NAY",
+       "to": "YAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dissenter insists they are not the one always saying no in meetings.",
+     "walkthrough": "The clue is spoken by the person who is always negative, who would never be a yes man.",
+     "definitionFit": "A yes man always agrees with his superiors, the opposite of a negative speaker, so the speaker says it is not them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Negative"
+    }
+   }
   },
   {
    "number": 29,
@@ -509,7 +2082,55 @@
     "text": "Tedious hardline Tory defending a government repeatedly",
     "enumeration": "6"
    },
-   "solution": "DRAGGY"
+   "solution": "DRAGGY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DRAGGY",
+    "definitions": [
+     {
+      "text": "Tedious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "defending",
+      "for": "container",
+      "note": "defending something means surrounding and guarding it, so these letters go around the others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hardline Tory",
+      "gives": "DRY",
+      "note": "a dry is a hardline right-wing Conservative, a term from the Thatcher years"
+     },
+     {
+      "clueFragment": "a government repeatedly",
+      "gives": "AGG",
+      "note": "A, then G for government twice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "AGG",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A dull right-wing politician keeps standing up for the government.",
+     "walkthrough": "In British politics a dry is a hardline Conservative, the opposite of a wet.",
+     "definitionFit": "Draggy is informal for slow and dull, describing something that drags on and is tedious."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hardline"
+    }
+   }
   }
  ]
 }
