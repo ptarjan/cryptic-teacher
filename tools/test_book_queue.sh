@@ -59,6 +59,17 @@ check "--next names the head of that queue" "unread-best" \
 check "--count counts the unread, not the registry" "3" \
   "$(cd "$tree" && python3 tools/book_queue.py --count)"
 
+# A book archive.org lends to no one leaves the queue for good, even when a
+# reader change makes every book due again: asking again is the same refusal.
+echo '{"read-one": {"on": "9999-01-01"}, "unread-best": {"on": "2000-01-01", "not_lendable": "is_lendable=false"}}' \
+  > "$tree/tools/data/book_reads.json"
+check "a not-lendable book is never offered, due or not" "unread-worse unranked " \
+  "$(cd "$tree" && python3 tools/book_queue.py | cut -f1 | tr '\n' ' ')"
+(cd "$tree" && python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; q.record_not_lendable("unread-worse", "no copies")')
+check "record_not_lendable drops the book and keeps its reason" "unranked no copies" \
+  "$(cd "$tree" && python3 tools/book_queue.py --next) $(cd "$tree" && python3 -c 'import sys; sys.path.insert(0, "tools"); import book_queue as q; print(q.not_lendable("unread-worse"))')"
+echo '{"read-one": {"on": "9999-01-01"}}' > "$tree/tools/data/book_reads.json"
+
 # A book with puzzles filed whose text is gone, once due, takes its ranking
 # place: clues-only filing makes its unfiled leaves worth a loan too.
 echo '{}' > "$tree/tools/data/book_reads.json"

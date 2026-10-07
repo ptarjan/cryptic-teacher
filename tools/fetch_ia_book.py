@@ -210,6 +210,13 @@ class LendingLimitReached(SystemExit):
     run stops here instead of failing 24 times in a row."""
 
 
+class NotLendable(SystemExit):
+    """archive.org lends no copy of this item and will not let this account
+    read it (is_lendable=false, is_readable=false). The one refusal that is
+    about the book for good: no wait brings a copy back, so a driver drops
+    the book from its queue instead of asking for it again."""
+
+
 def load_credentials(path):
     """(email, password) from a two-line file or a JSON object with those
     keys. Raises SystemExit naming the exact path on anything wrong, because
@@ -430,7 +437,7 @@ def _classify_refused_browse(session, identifier):
     if not status.get("is_lendable"):
         if status.get("is_readable"):
             return  # genuinely no loan required: read it straight through
-        raise SystemExit(
+        raise NotLendable(
             f"{identifier}: archive.org lends no copies of this item "
             f"(is_lendable=false) and will not let this account read it "
             f"either (is_readable=false), so there is no loan to wait for — "

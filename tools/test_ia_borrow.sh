@@ -241,6 +241,8 @@ except SystemExit as e:
         fail(f"does not name the restriction: {e}")
     else:
         ok("names the restriction instead of promising a retry will fix it")
+    check("raised as NotLendable, the permanent refusal",
+          type(e).__name__, "NotLendable")
 
 # --------------------------------------------------------------- case 7
 # A copy freed up between the two calls: transient, and said so.
@@ -502,6 +504,7 @@ check("acquire_book has a dedicated exit code", A.EXIT_LENDING_LIMIT, 3)
 
 class LimitModule:
     LendingLimitReached = F.LendingLimitReached
+    NotLendable = F.NotLendable
     DEFAULT_CREDS = F.DEFAULT_CREDS
 
     @staticmethod
@@ -522,6 +525,29 @@ try:
         fail(f"the account-level reason was lost on the way through: {how!r}")
     else:
         ok("carries the reason through to the report")
+finally:
+    sys.modules["fetch_ia_book"] = F
+
+# -------------------------------------------------------------- case 15
+# A book archive.org lends to no one: its own status and exit code, so the
+# driver drops it from the queue instead of alerting every run.
+print("case 15: acquire_book reports a not-lendable book apart")
+check("acquire_book has a dedicated exit code", A.EXIT_NOT_LENDABLE, 4)
+
+
+class NotLendableModule(LimitModule):
+    NotLendable = F.NotLendable
+
+    @staticmethod
+    def borrowed(identifier):
+        raise F.NotLendable(f"{identifier}: archive.org lends no copies "
+                            f"(is_lendable=false)")
+
+
+sys.modules["fetch_ia_book"] = NotLendableModule
+try:
+    path, how, status = A.borrow_text("isbn_9780007213009")
+    check("status is its own, not borrow-refused", status, "not-lendable")
 finally:
     sys.modules["fetch_ia_book"] = F
 

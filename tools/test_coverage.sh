@@ -95,14 +95,16 @@ broot = tmp / "books"
 (broot / "clues_only" / "book").mkdir(parents=True)
 (broot / "tools" / "data" / "books.json").write_text(json.dumps({"books": [
     {"book_index": 1, "identifier": "fresh"}, {"book_index": 2, "identifier": "old-text"},
-    {"book_index": 3, "identifier": "lost"}, {"book_index": 4, "identifier": "never"}]}))
+    {"book_index": 3, "identifier": "lost"}, {"book_index": 4, "identifier": "never"},
+    {"book_index": 5, "identifier": "unlendable"}]}))
 (broot / "tools" / "data" / "book_candidates.json").write_text(json.dumps({"ranking": [
-    {"identifier": i, "estimated_puzzle_count": 6} for i in ("fresh", "old-text", "lost")]}))
+    {"identifier": i, "estimated_puzzle_count": 6} for i in ("fresh", "old-text", "lost", "unlendable")]}))
 (broot / "puzzles" / "book" / "2000" / "book-1001.json").write_text("{}")
 (broot / "clues_only" / "book" / "book-1002.json").write_text("{}")
 (broot / "puzzles" / "book" / "2000" / "book-3001.json").write_text("{}")
 reads = broot / "reads.json"
-reads.write_text(json.dumps({"fresh": {"on": "9999-01-01", "found": 5}}))
+reads.write_text(json.dumps({"fresh": {"on": "9999-01-01", "found": 5},
+                             "unlendable": {"on": "2000-01-01", "not_lendable": "is_lendable=false"}}))
 out = tmp / "reports"
 for ident, rows in (("fresh", [{"book_number": 3, "status": "no-solution", "filing": "refused clues-only"},
                                {"book_number": 4, "status": "budget-exhausted"}]),
@@ -115,7 +117,7 @@ texts.mkdir()
 cov.ROOT, acquire_book.DEFAULT_OUT, book_queue.READS, book_queue.TEXT_DIR = broot, out, reads, texts
 got = {(b["cause"], b["puzzles"]) for b in cov.books().result()["buckets"]}
 assert got == {("clues-only-refused", 1), ("budget-exhausted", 1), ("read-no-report", 1), ("not-split", 1),
-               ("reread-due", 6), ("borrow-queued", 5)}, got
+               ("reread-due", 6), ("borrow-queued", 5), ("not-lendable", 6)}, got
 cov.ROOT = ROOT_REAL
 
 # One bucket per missing puzzle: recoverable beats not, unclaimed is no-source.

@@ -44,6 +44,12 @@ one costs now.
      driver looping over a book list must stop on 3. It is not a concurrency
      cap and returning loans need not clear it — see THE LENDING LIMIT in
      tools/fetch_ia_book.py.
+
+     "not-lendable" exits EXIT_NOT_LENDABLE (4): archive.org lends no copy of
+     the book and will not let this account read it, so no retry changes
+     anything. It is written to tools/data/book_reads.json with its reason
+     (book_queue.record_not_lendable), which drops it from the queue; a driver
+     moves on to the next book.
   2. SPLIT. tools/parse_penguin_book.py cuts the book into puzzles and reads
      each one's setter, number and clue list.
   3. GEOMETRY. tools/light_spec.py turns one clue list into a light spec,
@@ -117,6 +123,10 @@ DEFAULT_OUT = Path.home() / ".cache" / "acquire_book"
 # unavailable. Its own exit code so a driver can tell "this book failed" from
 # "every remaining book will fail" without parsing a message.
 EXIT_LENDING_LIMIT = 3
+# Stage 1 refused because archive.org lends this book to no one
+# (fetch_ia_book.NotLendable). Recorded in book_queue's ledger, which drops it
+# from the queue, so a driver moves on to the next book instead of alerting.
+EXIT_NOT_LENDABLE = 4
 
 NODE_BUDGET = 8_000_000   # the budget the vol-5 control was measured under
 WALL_SECONDS = 240        # per puzzle, enforced inside the worker
@@ -256,6 +266,9 @@ def borrow_text(identifier, max_pages=None):
         # "borrow-refused" is what let one run report the same account-level
         # refusal 24 times, once per book, and acquire nothing.
         return None, str(err), "lending-limit"
+    except ia.NotLendable as err:
+        # Also a SystemExit, and the one refusal about the book for good.
+        return None, str(err), "not-lendable"
     except SystemExit as err:
         # Carries archive.org's real condition verbatim — including "all
         # copies checked out, retry later", which is a retry, not a defeat.
@@ -551,6 +564,9 @@ def main(argv=None):
         # things done about them.
         print(f"{args.identifier}: {status} — {how}", file=sys.stderr)
         print(f"report -> {report_path}")
+        if status == "not-lendable":
+            book_queue.record_not_lendable(args.identifier, how)
+            return EXIT_NOT_LENDABLE
         return EXIT_LENDING_LIMIT if status == "lending-limit" else 1
     print(f"text: {how}")
     if args.text_only:
