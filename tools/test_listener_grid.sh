@@ -97,9 +97,25 @@ if grids:
     f = lg.fit(g, {"ch": printed, "en5": printed})
     check("the printed numbers put the faint bar back", list(ROWS), f["rows"])
     check("its numbering is exact", (True, []), (f["exact"], f["disagree"]))
-    wrong = dict(printed)
-    wrong[(6, 1)] = 99
+    last = max(printed)
+    wrong = {**printed, last: printed[last] + 1}
     f = lg.fit(g, {"ch": wrong, "en5": wrong})
-    check("a number both readers misread makes it not exact", (False, [(6, 1)]), (f["exact"], f["disagree"]))
+    check("a number both readers misread makes it not exact", (False, [last]), (f["exact"], f["disagree"]))
+    noisy = {**printed, (6, 8): 1, (5, 8): 99}
+    f = lg.fit(g, {"ch": noisy, "en5": noisy})
+    check("a stray 1 late in the grid and a number above its lights are dropped", (True, []), (f["exact"], f["disagree"]))
+# A bar that ends one light and starts another: no one side helps alone.
+truth = [".rb..", ".....", ".....", ".....", "....."]
+two = {"rows": ["....."] * 5, "thin": 1.0,
+       "sides": {**{(r, c, d): 1.0 for r in range(5) for c in range(5) for d in "rb"
+                    if (d == "r" and c < 4) or (d == "b" and r < 4)},
+                 (0, 1, "r"): 1.3, (0, 2, "b"): 1.3}}
+want = lg.starts(truth)
+f = lg.fit(two, {"ch": want, "en5": want})
+check("two unsure sides set together when no single flip helps", (truth, True), (f["rows"], f["exact"]))
+got = {(0, 0): 23, (0, 3): 24, (0, 5): 75, (1, 0): 26, (1, 2): 27, (2, 0): 2, (2, 4): 28}
+check("in_order keeps the run rising in reading order",
+      {(0, 0): 23, (0, 3): 24, (1, 0): 26, (1, 2): 27, (2, 4): 28}, lg.in_order(got, 60))
+check("in_order drops numbers above the most lights", {(0, 0): 23}, lg.in_order({(0, 0): 23, (0, 1): 61}, 60))
 sys.exit(1 if fails else 0)
 PY

@@ -364,6 +364,21 @@ def with_bars(rows, bars):
                     for c, ch in enumerate(row)) for r, row in enumerate(rows)]
 
 
+def in_order(got, most):
+    """The reads of `got` ({(r, c): number}) that can be printed numbers:
+    none above `most` (the grid's open cells, more than it can have lights), and the longest run that
+    rises in reading order, as a grid numbers its cells. A stray "1" off a
+    rule remnant, or 75 read for 25, falls out of that run."""
+    cells = sorted(c for c, n in got.items() if 0 < n <= most)
+    # Longest strictly rising run, also no number below its place in it.
+    best = []  # best[i]: the longest rising run ending at cells[i]
+    for i, c in enumerate(cells):
+        prev = max((best[j] for j in range(i) if got[cells[j]] < got[c]), key=len, default=[])
+        best.append(prev + [c])
+    keep = max(best, key=len, default=[])
+    return {c: got[c] for c in keep}
+
+
 def fit(grid, printed):
     """{"rows", "shortest", "exact", "agreed", "disagree"}: the grid with each
     unsure side (UNSURE) set so its numbering agrees with the printed numbers
@@ -372,14 +387,16 @@ def fit(grid, printed):
     starts follow from bars and blocks alone, so a misread bar shows as
     numbers out of place."""
     import math
+    thin = max(grid["thin"], 1.0)
+    q = {k: v / thin for k, v in grid["sides"].items()}
+    most = sum(ch != "#" for row in grid["rows"] for ch in row)
+    printed = {k: in_order(got, most) for k, got in printed.items()}
     reads = {}
     for got in printed.values():
         for cell, n in got.items():
             reads.setdefault(cell, set()).add(n)
     agreed = {c: next(iter(v)) for c, v in reads.items()
               if len(v) == 1 and all(c in got for got in printed.values())}
-    thin = max(grid["thin"], 1.0)
-    q = {k: v / thin for k, v in grid["sides"].items()}
     unsure = [k for k, x in q.items() if UNSURE[0] <= x <= UNSURE[1]]
     edge = math.log(BAR_RATIO)
 
@@ -395,6 +412,11 @@ def fit(grid, printed):
         while True:
             tries = [(score(b, shortest), b) for k in unsure for b in [{**bars, k: not bars[k]}]]
             step = min(tries, key=lambda t: t[0], default=None)
+            if step is None or step[0] >= now:
+                # A bar that ends one light and starts another moves two numbers.
+                tries = [(score(b, shortest), b) for i, k in enumerate(unsure) for j in unsure[i + 1:]
+                         for b in [{**bars, k: not bars[k], j: not bars[j]}]]
+                step = min(tries, key=lambda t: t[0], default=None)
             if step is None or step[0] >= now:
                 break
             now, bars = step
