@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Host being mad forgoing introduction",
     "enumeration": "4"
    },
-   "solution": "ARMY"
+   "solution": "ARMY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARMY",
+    "definitions": [
+     {
+      "text": "Host",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "forgoing introduction",
+      "for": "deletion",
+      "note": "forgoing an introduction means the opening letter of the word is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "being mad",
+      "gives": "BARMY",
+      "note": "barmy is British slang for crazy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARMY"
+     ]
+    },
+    "explanation": {
+     "surface": "A host who has gone off their head skips the introductions at a party.",
+     "walkthrough": "Barmy, British slang for mad, loses its first letter.",
+     "definitionFit": "A host is a large crowd or multitude, especially an armed one, as in the heavenly host."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Host"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,71 @@
     "text": "View favourably a cricket club with record turnover initially",
     "enumeration": "6"
    },
-   "solution": "ACCEPT"
+   "solution": "ACCEPT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACCEPT",
+    "definitions": [
+     {
+      "text": "View favourably",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "cricket club",
+      "gives": "CC",
+      "note": "standard abbreviation for cricket club"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an extended-play record"
+     },
+     {
+      "clueFragment": "turnover",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of turnover"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CC",
+      "EP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket club's finances look good thanks to a record turnover.",
+     "walkthrough": "'Record turnover' reads as a financial boast; the record is a disc and only the first letter of turnover is used.",
+     "definitionFit": "To accept something is to regard it with approval or agree to it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "record"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +169,42 @@
     "text": "Nordic city invested in formal monuments",
     "enumeration": "5"
    },
-   "solution": "MALMO"
+   "solution": "MALMO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MALMO",
+    "definitions": [
+     {
+      "text": "Nordic city",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "invested in",
+      "for": "hidden_word",
+      "note": "invested in means wrapped inside the following words, which hold the letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "formal monuments",
+      "gives": "MALMO",
+      "note": "the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A Scandinavian city has put money into grand civic monuments.",
+     "definitionFit": "Malmo is a major city in southern Sweden, across the strait from Copenhagen."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "invested"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +224,74 @@
      }
     ]
    },
-   "solution": "SNACKBAR"
+   "solution": "SNACKBAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "container"
+    ],
+    "answer": "SNACK BAR",
+    "definitions": [
+     {
+      "text": "eatery",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "moving",
+      "for": "anagram",
+      "note": "moving suggests the letters are shifted about into new positions"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round means the rearranged letters go around another piece"
+     },
+     {
+      "text": "rear of",
+      "for": "letter_selection",
+      "note": "rear of points to the final letter of the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ban cars",
+      "gives": "BANCARS",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "Greek",
+      "gives": "K",
+      "select": "last",
+      "note": "last letter of Greek"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SNAC",
+      "K",
+      "BAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BANCARS",
+       "gives": "SNACBAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek restaurant wants traffic banned from going round the back.",
+     "walkthrough": "The shuffled letters of 'ban cars' wrap around the K that ends Greek.",
+     "definitionFit": "A snack bar is a small cafe serving light meals, a kind of eatery."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "moving"
+    }
+   }
   },
   {
    "number": 3,
@@ -95,7 +305,54 @@
     "text": "Group consuming, say, mint drink",
     "enumeration": "7"
    },
-   "solution": "SHERBET"
+   "solution": "SHERBET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SHERBET",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "consuming",
+      "for": "container",
+      "note": "consuming means one piece swallows another inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Group",
+      "gives": "SET",
+      "note": "a set is a group"
+     },
+     {
+      "clueFragment": "say, mint",
+      "gives": "HERB",
+      "note": "mint is an example of a herb, signalled by say"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "HERB",
+      "ET"
+     ]
+    },
+    "explanation": {
+     "surface": "A group of friends sipping a minty drink.",
+     "definitionFit": "Sherbet is, in older and regional use, a cooling fruit drink, from the Turkish and Persian word for a beverage."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mint"
+    }
+   }
   },
   {
    "number": 4,
@@ -109,7 +366,74 @@
     "text": "Calendar a Frenchman retained in northerly waterway",
     "enumeration": "7"
    },
-   "solution": "ALMANAC"
+   "solution": "ALMANAC",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container",
+     "charade"
+    ],
+    "answer": "ALMANAC",
+    "definitions": [
+     {
+      "text": "Calendar",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retained in",
+      "for": "container",
+      "note": "retained in means held inside the waterway"
+     },
+     {
+      "text": "northerly",
+      "for": "reversal",
+      "note": "in a down entry, heading north means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Frenchman",
+      "gives": "M",
+      "note": "M is the abbreviation for monsieur"
+     },
+     {
+      "clueFragment": "waterway",
+      "gives": "CANAL",
+      "note": "a canal is an artificial waterway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "L",
+      "M",
+      "ANAC"
+     ],
+     "reversals": [
+      {
+       "from": "CANAL",
+       "to": "LANAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Frenchman's calendar was kept on a canal boat heading north.",
+     "walkthrough": "Canal is written upwards, and M for monsieur slips in after its first letter.",
+     "definitionFit": "An almanac is an annual publication listing dates, tides and astronomical events, a kind of calendar."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "northerly"
+    }
+   }
   },
   {
    "number": 5,
@@ -129,7 +453,51 @@
      }
     ]
    },
-   "solution": "KATHRYNBIGELOW"
+   "solution": "KATHRYNBIGELOW",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "KATHRYN BIGELOW",
+    "definitions": [
+     {
+      "text": "Director",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "haphazardly",
+      "for": "anagram",
+      "note": "haphazardly means in random order, so the letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working by lathe",
+      "gives": "WORKINGBYLATHE",
+      "note": "the fourteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WORKINGBYLATHE",
+       "gives": "KATHRYNBIGELOW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone in charge of a workshop operates a lathe carelessly.",
+     "walkthrough": "'Working' looks like the anagram signal but is part of the letters; 'haphazardly' does that job.",
+     "definitionFit": "Kathryn Bigelow is the American film-maker of The Hurt Locker, the first woman to win the Oscar for best director."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Director"
+    }
+   }
   },
   {
    "number": 6,
@@ -143,7 +511,70 @@
     "text": "Quiet fellows entering a club in shame",
     "enumeration": "9"
    },
-   "solution": "ABASHMENT"
+   "solution": "ABASHMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ABASHMENT",
+    "definitions": [
+     {
+      "text": "shame",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside the next piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "the call for silence"
+     },
+     {
+      "clueFragment": "fellows",
+      "gives": "MEN",
+      "note": "fellows are men"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "club",
+      "gives": "BAT",
+      "note": "a bat is a club"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "BA",
+      "SHMEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Some subdued men walk into a nightclub, embarrassed.",
+     "walkthrough": "The club here is a bat, not a nightspot; the quiet fellows go inside it after A.",
+     "definitionFit": "Abashment is a feeling of embarrassment or shame."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "club"
+    }
+   }
   },
   {
    "number": 7,
@@ -163,7 +594,73 @@
      }
     ]
    },
-   "solution": "SERENAWILLIAMS"
+   "solution": "SERENAWILLIAMS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SERENA WILLIAMS",
+    "definitions": [
+     {
+      "text": "Sportswoman",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in struggle",
+      "for": "anagram",
+      "note": "in struggle suggests letters thrashing about out of order"
+     },
+     {
+      "text": "harbouring",
+      "for": "container",
+      "note": "harbouring means holding something inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nears semi",
+      "gives": "NEARSSEMI",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "resolve",
+      "gives": "WILL",
+      "note": "will means determination"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEREN",
+      "A",
+      "WILL",
+      "IAMS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NEARSSEMI",
+       "gives": "SERENIAMS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tennis player fighting hard as she reaches the semi-final shows real determination.",
+     "walkthrough": "The surface reads as a match report; 'in struggle' is the anagram signal, and A WILL sits inside the jumbled letters.",
+     "definitionFit": "Serena Williams is the American tennis player who won twenty-three Grand Slam singles titles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "struggle"
+    }
+   }
   },
   {
    "number": 8,
@@ -177,7 +674,57 @@
     "text": "Last character with energy very much a fanatic",
     "enumeration": "6"
    },
-   "solution": "ZEALOT"
+   "solution": "ZEALOT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ZEALOT",
+    "definitions": [
+     {
+      "text": "fanatic",
+      "at": 39
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last character",
+      "gives": "Z",
+      "note": "the final letter of the alphabet"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "very much",
+      "gives": "ALOT",
+      "note": "a lot means very much"
+     },
+     {
+      "clueFragment": "a",
+      "note": "joins the wordplay to the definition"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Z",
+      "E",
+      "ALOT"
+     ]
+    },
+    "explanation": {
+     "surface": "The final person in line has a great deal of energy and is very keen.",
+     "walkthrough": "'Last character' means the last letter of the alphabet, not a person.",
+     "definitionFit": "A zealot is an extreme, uncompromising enthusiast, which is what a fanatic is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "character"
+    }
+   }
   },
   {
    "number": 9,
@@ -191,7 +738,62 @@
     "text": "School left stage in race in clutches of old athlete",
     "enumeration": "7"
    },
-   "solution": "COLLEGE"
+   "solution": "COLLEGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "COLLEGE",
+    "definitions": [
+     {
+      "text": "School",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in clutches of",
+      "for": "container",
+      "note": "in the clutches of means held tightly inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old athlete",
+      "gives": "COE",
+      "note": "Sebastian Coe, the British middle-distance runner of the 1980s"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation for left"
+     },
+     {
+      "clueFragment": "stage in race",
+      "gives": "LEG",
+      "note": "a leg is one stage of a relay or race"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "L",
+      "LEG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A school pupil left a relay stage only to be grabbed by a veteran runner.",
+     "walkthrough": "Sebastian Coe was a British Olympic champion runner, later Lord Coe.",
+     "definitionFit": "A college is a school, especially one for higher or further education."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "School"
+    }
+   }
   },
   {
    "number": 10,
@@ -205,7 +807,79 @@
     "text": "Gas encountered - hydrogen and nitrogen in a mine with minute gone",
     "enumeration": "7"
    },
-   "solution": "METHANE"
+   "solution": "METHANE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container",
+     "charade"
+    ],
+    "answer": "METHANE",
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the next part"
+     },
+     {
+      "text": "gone",
+      "for": "deletion",
+      "note": "gone means taken away from what precedes it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "encountered",
+      "gives": "MET",
+      "note": "met means encountered"
+     },
+     {
+      "clueFragment": "hydrogen",
+      "gives": "H",
+      "note": "chemical symbol"
+     },
+     {
+      "clueFragment": "nitrogen",
+      "gives": "N",
+      "note": "chemical symbol"
+     },
+     {
+      "clueFragment": "a mine",
+      "gives": "AMINE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "minute",
+      "gives": "MIN",
+      "note": "standard abbreviation for minute"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MET",
+      "H",
+      "A",
+      "N",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Miners met hydrogen and nitrogen underground, a gas hazard.",
+     "walkthrough": "Removing MIN from A MINE leaves just A and E, and the nitrogen goes between them.",
+     "definitionFit": "Methane is the flammable gas known to miners as firedamp, the simplest hydrocarbon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "minute"
+    }
+   }
   },
   {
    "number": 11,
@@ -219,7 +893,55 @@
     "text": "Saw dog restrained by lead",
     "enumeration": "7"
    },
-   "solution": "PROVERB"
+   "solution": "PROVERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PROVERB",
+    "definitions": [
+     {
+      "text": "Saw",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "restrained by",
+      "for": "container",
+      "note": "restrained by means held inside the following piece"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lead",
+      "gives": "PB",
+      "note": "Pb is the chemical symbol for lead"
+     },
+     {
+      "clueFragment": "dog",
+      "gives": "ROVER",
+      "note": "Rover is a traditional dog's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ROVER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone saw a dog held back on its lead.",
+     "walkthrough": "'Saw' looks like the past tense of see, and 'lead' like a leash; it is a noun meaning a saying, and the metal.",
+     "definitionFit": "A saw is an old saying or maxim, the same thing as a proverb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Saw"
+    }
+   }
   },
   {
    "number": 12,
@@ -233,7 +955,74 @@
     "text": "Heading west, note around river pale Arctic animal",
     "enumeration": "7"
    },
-   "solution": "NARWHAL"
+   "solution": "NARWHAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "NARWHAL",
+    "definitions": [
+     {
+      "text": "Arctic animal",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heading west",
+      "for": "reversal",
+      "note": "in an across entry, travelling west means reading right to left"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one piece wraps another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "note",
+      "gives": "LAH",
+      "note": "a note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "pale",
+      "gives": "WAN",
+      "note": "wan means pale"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "standard abbreviation for river"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NA",
+      "R",
+      "W",
+      "HAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAHWRAN",
+       "to": "NARWHAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pale Arctic creature heads west around a river, as noted.",
+     "walkthrough": "The river goes inside the word for pale, after the note, and the whole is then read backwards.",
+     "definitionFit": "The narwhal is a small whale of Arctic waters, the male bearing a long spiral tusk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 13,
@@ -253,7 +1042,53 @@
      }
     ]
    },
-   "solution": "BEAUTYCONTEST"
+   "solution": "BEAUTYCONTEST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "BEAUTY CONTEST",
+    "definitions": [
+     {
+      "text": "aesthetic competition",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things have gone wrong, so the letters are out of order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cute toy absent",
+      "gives": "CUTETOYABSENT",
+      "note": "the thirteen letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CUTETOYABSENT",
+       "gives": "BEAUTYCONTEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A child's cute toy is sadly missing from a show.",
+     "definitionFit": "A beauty contest is a competition judged on looks, so aesthetic is a fair description."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "absent"
+    }
+   }
   },
   {
    "number": 13,
@@ -273,7 +1108,58 @@
      }
     ]
    },
-   "solution": "BLINDSIDE"
+   "solution": "BLINDSIDE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLIND SIDE",
+    "definitions": [
+     {
+      "text": "weak spot",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the next part"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "minor part of record",
+      "gives": "BSIDE",
+      "note": "the B-side is the lesser track of a single"
+     },
+     {
+      "clueFragment": "Swedish soprano",
+      "gives": "LIND",
+      "note": "Jenny Lind, the nineteenth-century Swedish Nightingale"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LIND",
+      "SIDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A Swedish singer given a minor role on a record reveals a weakness.",
+     "walkthrough": "Jenny Lind was a famous Swedish opera singer of the 1800s; the B-side is the flip side of a single.",
+     "definitionFit": "A blind side is the direction in which someone cannot see, and so their area of vulnerability."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "minor"
+    }
+   }
   },
   {
    "number": 14,
@@ -287,7 +1173,39 @@
     "text": "One studying jobs?",
     "enumeration": "13"
    },
-   "solution": "CRIMINOLOGIST"
+   "solution": "CRIMINOLOGIST",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CRIMINOLOGIST",
+    "definitions": [
+     {
+      "text": "One studying jobs?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "One studying jobs?",
+      "note": "surface reading: a careers adviser or someone researching employment"
+     },
+     {
+      "clueFragment": "jobs",
+      "note": "setter's reading: a job is slang for a crime, such as a bank job"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Jobs' suggests employment, but in criminal slang a job is a robbery, so the student of jobs is an expert on crime.",
+     "definitionFit": "Criminology is the academic study of crime and offenders, and its practitioner studies such illicit jobs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "jobs"
+    }
+   }
   },
   {
    "number": 14,
@@ -301,7 +1219,50 @@
     "text": "Firms working to create secure place",
     "enumeration": "6"
    },
-   "solution": "COCOON"
+   "solution": "COCOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COCOON",
+    "definitions": [
+     {
+      "text": "secure place",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "to create"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Firms",
+      "gives": "COCO",
+      "note": "CO is the abbreviation for company, twice for plural firms"
+     },
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "on means functioning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "COCO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "Companies operating to build a safe haven.",
+     "walkthrough": "Firms is plural, so the company abbreviation appears twice.",
+     "definitionFit": "A cocoon is a protective silky case, figuratively a sheltered, safe environment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Firms"
+    }
+   }
   },
   {
    "number": 15,
@@ -315,7 +1276,60 @@
     "text": "Enthusiastic response over holiday about to be discounted",
     "enumeration": "7"
    },
-   "solution": "OVATION"
+   "solution": "OVATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "OVATION",
+    "definitions": [
+     {
+      "text": "Enthusiastic response",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to be discounted",
+      "for": "deletion",
+      "note": "discounted means left out of the reckoning, so letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "cricket abbreviation for an over"
+     },
+     {
+      "clueFragment": "holiday",
+      "gives": "VACATION",
+      "note": "a vacation is a holiday"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "CA",
+      "note": "circa, abbreviated ca, means about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Delight at a discounted holiday offer.",
+     "walkthrough": "CA, short for circa, is taken out of the word for holiday.",
+     "definitionFit": "An ovation is a burst of applause, an enthusiastic reaction from an audience."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "discounted"
+    }
+   }
   },
   {
    "number": 16,
@@ -329,7 +1343,41 @@
     "text": "Protective garment on the whole",
     "enumeration": "7"
    },
-   "solution": "OVERALL"
+   "solution": "OVERALL",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "OVERALL",
+    "definitions": [
+     {
+      "text": "Protective garment",
+      "at": 0
+     },
+     {
+      "text": "on the whole",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Protective garment",
+      "note": "first meaning: a loose coat or suit worn over clothes"
+     },
+     {
+      "clueFragment": "on the whole",
+      "note": "second meaning: taken altogether, generally"
+     }
+    ],
+    "explanation": {
+     "surface": "Wearing protective clothing, more or less.",
+     "definitionFit": "The word names a workwear coat and also works as an adverb meaning in general or taken as a whole."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -343,7 +1391,56 @@
     "text": "Good man always supported by daughter held out",
     "enumeration": "6"
    },
-   "solution": "STAYED"
+   "solution": "STAYED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STAYED",
+    "definitions": [
+     {
+      "text": "held out",
+      "at": 38
+     }
+    ],
+    "linkWords": [
+     "supported by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Good man",
+      "gives": "ST",
+      "note": "a saint, abbreviated St"
+     },
+     {
+      "clueFragment": "always",
+      "gives": "AYE",
+      "note": "aye is an old word for always, as in for aye"
+     },
+     {
+      "clueFragment": "daughter",
+      "gives": "D",
+      "note": "standard abbreviation for daughter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "AYE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A decent man who always had his daughter's backing kept going.",
+     "walkthrough": "In a down clue 'supported by' means the daughter sits below the rest.",
+     "definitionFit": "To have stayed is to have lasted or endured, just as holding out means persisting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "supported"
+    }
+   }
   },
   {
    "number": 18,
@@ -357,7 +1454,43 @@
     "text": "Mark surfaced ill-advisedly? Not altogether",
     "enumeration": "7"
    },
-   "solution": "CEDILLA"
+   "solution": "CEDILLA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CEDILLA",
+    "definitions": [
+     {
+      "text": "Mark",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not altogether",
+      "for": "hidden_word",
+      "note": "not altogether means only part of the phrase is used, a run of letters within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "surfaced ill-advisedly",
+      "gives": "CEDILLA",
+      "note": "the end of the first word and the start of the hyphenated one"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone came up for air rashly, perhaps not completely.",
+     "walkthrough": "The hyphen in ill-advisedly is ignored when reading the letters through.",
+     "definitionFit": "A cedilla is the diacritical mark placed under a c, as in facade, to show it is soft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 19,
@@ -377,7 +1510,46 @@
      }
     ]
    },
-   "solution": "EVENOUT"
+   "solution": "EVENOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EVEN OUT",
+    "definitions": [
+     {
+      "text": "Decrease, perhaps",
+      "at": 0
+     },
+     {
+      "text": "become equal",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Decrease, perhaps",
+      "note": "first meaning: read as de-crease, to smooth away creases"
+     },
+     {
+      "clueFragment": "become equal",
+      "note": "second meaning: to level off or balance"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Decrease' looks like reduce, but split as de-crease it means flatten wrinkles, and 'perhaps' flags the pun.",
+     "definitionFit": "The phrasal verb means both to smooth a surface flat and for differences to level off into balance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Decrease"
+    }
+   }
   },
   {
    "number": 20,
@@ -391,7 +1563,55 @@
     "text": "Approve a special number to see ruminant",
     "enumeration": "5"
    },
-   "solution": "OKAPI"
+   "solution": "OKAPI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OKAPI",
+    "definitions": [
+     {
+      "text": "ruminant",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "to see"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Approve",
+      "gives": "OK",
+      "note": "to OK something is to approve it"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "special number",
+      "gives": "PI",
+      "note": "the mathematical constant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OK",
+      "A",
+      "PI"
+     ]
+    },
+    "explanation": {
+     "surface": "Signing off a special performance for visitors to see a grazing animal.",
+     "definitionFit": "The okapi is a cud-chewing African mammal related to the giraffe, so a ruminant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 21,
@@ -405,7 +1625,61 @@
     "text": "Welsh politician in beginning snubbed Japanese art",
     "enumeration": "7"
    },
-   "solution": "ORIGAMI"
+   "solution": "ORIGAMI",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ORIGAMI",
+    "definitions": [
+     {
+      "text": "Japanese art",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside the next part"
+     },
+     {
+      "text": "snubbed",
+      "for": "deletion",
+      "note": "snubbed puns on snub-nosed, cut short at the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "beginning",
+      "gives": "ORIGIN",
+      "note": "an origin is a beginning"
+     },
+     {
+      "clueFragment": "Welsh politician",
+      "gives": "AM",
+      "note": "Assembly Member of the Welsh Assembly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORIG",
+      "AM",
+      "I"
+     ]
+    },
+    "explanation": {
+     "surface": "A Welsh politician was snubbed at the start of a Japanese art event.",
+     "walkthrough": "AM stood for Assembly Member, a member of the Welsh Assembly; the word for beginning loses its last letter.",
+     "definitionFit": "Origami is the traditional Japanese art of folding paper into shapes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "snubbed"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1693,62 @@
     "text": "A holy man strangely avoiding hospital? That's irregular",
     "enumeration": "7"
    },
-   "solution": "ANOMALY"
+   "solution": "ANOMALY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "ANOMALY",
+    "definitions": [
+     {
+      "text": "That's irregular",
+      "at": 40,
+      "note": "the answer is a noun: a thing that is irregular"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strangely",
+      "for": "anagram",
+      "note": "strangely means in an odd way, so the letters are rearranged"
+     },
+     {
+      "text": "avoiding",
+      "for": "deletion",
+      "note": "avoiding means keeping away from, so a letter is left out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "A holy man",
+      "gives": "AHOLYMAN",
+      "note": "the letters to be rearranged"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "standard abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AOLYMAN",
+       "gives": "ANOMALY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A saint who oddly stays away from hospital is unusual.",
+     "definitionFit": "An anomaly is something that deviates from the norm, which is what something irregular does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hospital"
+    }
+   }
   },
   {
    "number": 23,
@@ -433,7 +1762,55 @@
     "text": "Singer entertaining a child at certain times",
     "enumeration": "8"
    },
-   "solution": "SEASONAL"
+   "solution": "SEASONAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEASONAL",
+    "definitions": [
+     {
+      "text": "at certain times",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertaining",
+      "for": "container",
+      "note": "entertaining means having guests in, so one piece holds another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Singer",
+      "gives": "SEAL",
+      "note": "Seal, the British singer of Kiss from a Rose"
+     },
+     {
+      "clueFragment": "a child",
+      "gives": "ASON",
+      "note": "a son is a child"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "ASON",
+      "AL"
+     ]
+    },
+    "explanation": {
+     "surface": "A pop star occasionally puts on a show for a child.",
+     "walkthrough": "Seal is a British soul singer known by a single name.",
+     "definitionFit": "Seasonal describes something that happens only during particular parts of the year."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Singer"
+    }
+   }
   },
   {
    "number": 24,
@@ -447,7 +1824,44 @@
     "text": "Unrestrained Irish wit, we hear",
     "enumeration": "4"
    },
-   "solution": "WILD"
+   "solution": "WILD",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WILD",
+    "definitions": [
+     {
+      "text": "Unrestrained",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "we hear means the word is identified by its sound when spoken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Irish wit",
+      "gives": "WILD",
+      "soundsLike": "WILDE",
+      "note": "Oscar Wilde, the Dublin-born playwright famed for his epigrams"
+     }
+    ],
+    "explanation": {
+     "surface": "An Irish joker who knows no bounds, so people say.",
+     "definitionFit": "Wild means uncontrolled or unrestrained, as in wild behaviour."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "wit"
+    }
+   }
   }
  ]
 }
