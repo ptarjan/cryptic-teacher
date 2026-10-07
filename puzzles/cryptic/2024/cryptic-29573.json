@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,70 @@
     "text": "I replaced usual cover in vehicle for the environment",
     "enumeration": "8"
    },
-   "solution": "AMBIANCE"
+   "solution": "AMBIANCE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "substitution"
+    ],
+    "answer": "AMBIANCE",
+    "definitions": [
+     {
+      "text": "environment",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cover",
+      "for": "letter_selection",
+      "note": "a cover is the outside of something, so only the outermost letters of the next word are kept"
+     },
+     {
+      "text": "replaced",
+      "for": "substitution",
+      "note": "one thing replaced another means it has been swapped in where the other stood"
+     }
+    ],
+    "linkWords": [
+     "for the"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vehicle",
+      "gives": "AMBULANCE",
+      "note": "the vehicle whose interior gets an exchange"
+     },
+     {
+      "clueFragment": "usual",
+      "gives": "UL",
+      "select": "outer",
+      "note": "first and last letters of the word"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMB",
+      "I",
+      "ANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone swaps the usual seat covers in their car for something more eco-friendly.",
+     "walkthrough": "'cover' looks like seat upholstery, but it means the outside letters of the following word, which are swapped out for I.",
+     "definitionFit": "Ambiance is the mood or atmosphere of a place, its surrounding character and setting."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cover"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +113,58 @@
     "text": "Relative in a position to provide help",
     "enumeration": "10"
    },
-   "solution": "ASSISTANCE"
+   "solution": "ASSISTANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ASSISTANCE",
+    "definitions": [
+     {
+      "text": "help",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one word sitting in another means it is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "to provide"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a position",
+      "gives": "ASTANCE",
+      "note": "a stance is a position or posture"
+     },
+     {
+      "clueFragment": "Relative",
+      "gives": "SIS",
+      "note": "SIS is short for sister"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AS",
+      "SIS",
+      "TANCE"
+     ]
+    },
+    "explanation": {
+     "surface": "A family member happens to be well placed to lend a hand.",
+     "walkthrough": "SIS goes inside A STANCE, after its first S.",
+     "definitionFit": "Assistance is the noun for aid or support given to someone who needs it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "position"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +178,70 @@
     "text": "Turn pack around in times of serious financial difficulty",
     "enumeration": "10"
    },
-   "solution": "BANKRUPTCY"
+   "solution": "BANKRUPTCY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BANKRUPTCY",
+    "definitions": [
+     {
+      "text": "serious financial difficulty",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "anagram",
+      "note": "things moved around are scattered into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group of letters placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Turn pack",
+      "gives": "ANKRUPTC",
+      "note": "these eight letters rearranged"
+     },
+     {
+      "clueFragment": "times",
+      "gives": "BY",
+      "note": "as in three by four, meaning multiplied"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ANKRUPTC",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TURNPACK",
+       "gives": "ANKRUPTC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gambler turns the deck of cards around during a desperate financial patch.",
+     "walkthrough": "'Turn' looks like an instruction to rotate the pack, but it is part of the fodder; 'around' is the real anagram signal.",
+     "definitionFit": "Bankruptcy is the legal state of being unable to pay one's debts, the gravest money trouble."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Turn"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +255,49 @@
     "text": "To start auction: chairs of really nice oak, potentially",
     "enumeration": "5"
    },
-   "solution": "ACORN"
+   "solution": "ACORN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "ACORN",
+    "definitions": [
+     {
+      "text": "oak, potentially",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "To start",
+      "for": "letter_selection",
+      "note": "the start of each word is its first letter, and that is all that is kept from the run of words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "auction: chairs of really nice",
+      "gives": "ACORN",
+      "select": "first",
+      "note": "first letter of each of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ACORN"
+     ]
+    },
+    "explanation": {
+     "surface": "An auction opens with some very nice oak chairs going under the hammer.",
+     "walkthrough": "'chairs of' looks like furniture made of oak, but those two words simply supply their own initials to the run.",
+     "definitionFit": "An acorn is the nut that may grow into a tree, so it is an oak in potential form."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "chairs"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +311,50 @@
     "text": "Seeing ahead a very conical structure",
     "enumeration": "12"
    },
-   "solution": "CLAIRVOYANCE"
+   "solution": "CLAIRVOYANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CLAIRVOYANCE",
+    "definitions": [
+     {
+      "text": "Seeing ahead",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "structure",
+      "for": "anagram",
+      "note": "a structure is something built up, so the letters are assembled into a new form"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a very conical",
+      "gives": "CLAIRVOYANCE",
+      "note": "twelve letters rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AVERYCONICAL",
+       "gives": "CLAIRVOYANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tall pointed building lets you see a long way into the distance.",
+     "definitionFit": "Clairvoyance is the claimed gift of perceiving future events, literally foresight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "structure"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +368,67 @@
     "text": "Plant agents to chase back pay, essentially",
     "enumeration": "6"
    },
-   "solution": "ACACIA"
+   "solution": "ACACIA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ACACIA",
+    "definitions": [
+     {
+      "text": "Plant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its core, so the central letters are kept"
+     },
+     {
+      "text": "to chase",
+      "for": "charade",
+      "note": "something that chases comes behind, so this part is placed after the rest"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back",
+      "gives": "AC",
+      "select": "middle",
+      "note": "middle two letters"
+     },
+     {
+      "clueFragment": "pay",
+      "gives": "A",
+      "select": "middle",
+      "note": "middle letter"
+     },
+     {
+      "clueFragment": "agents",
+      "gives": "CIA",
+      "note": "the CIA is the American intelligence agency"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AC",
+      "A",
+      "CIA"
+     ]
+    },
+    "explanation": {
+     "surface": "Undercover operatives are sent to recover overdue wages.",
+     "definitionFit": "Acacia is a genus of trees and shrubs, the wattles, so it is a type of plant."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Plant"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +442,55 @@
     "text": "Last but one in university course displaced by street bigots",
     "enumeration": "9"
    },
-   "solution": "CLASSISTS"
+   "solution": "CLASSISTS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "CLASSISTS",
+    "definitions": [
+     {
+      "text": "bigots",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "displaced by",
+      "for": "substitution",
+      "note": "something displaced by another is pushed out and the other takes its spot"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Last but one in university course",
+      "gives": "CLASSICS",
+      "note": "a degree in Greek and Latin; its last but one letter is C"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CLASSI",
+      "ST",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A university course gets pushed aside by intolerant people from the street.",
+     "walkthrough": "The penultimate C of CLASSICS is swapped for ST.",
+     "definitionFit": "Classists are people prejudiced against others on grounds of social class, a kind of bigot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "displaced"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +514,71 @@
    "group": [
     "7-down",
     "13-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "CUTS TO THE QUICK",
+    "definitions": [
+     {
+      "text": "can really hurt",
+      "at": 35,
+      "note": "verb phrase; the answer reads as 'it cuts to the quick'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "melting",
+      "for": "anagram",
+      "note": "melting things lose their shape and can be moulded anew"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "CU",
+      "note": "Cu is the chemical symbol for copper"
+     },
+     {
+      "clueFragment": "test: hot",
+      "gives": "TSTOTHE",
+      "note": "seven letters rearranged"
+     },
+     {
+      "clueFragment": "fast",
+      "gives": "QUICK",
+      "note": "a synonym"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CU",
+      "TSTOTHE",
+      "QUICK"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TESTHOT",
+       "gives": "TSTOTHE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lab test melting copper is hot, quick work and can give a nasty burn.",
+     "walkthrough": "'Copper' first suggests a police officer; here it is the element.",
+     "definitionFit": "To cut someone to the quick is an idiom for wounding their feelings deeply, the quick being sensitive flesh."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "melting"
+    }
+   }
   },
   {
    "number": 8,
@@ -161,7 +598,44 @@
      }
     ]
    },
-   "solution": "AFEW"
+   "solution": "AFEW",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "A FEW",
+    "definitions": [
+     {
+      "text": "Some",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "voiced",
+      "for": "homophone",
+      "note": "something voiced is spoken out loud, so we go by the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a sigh of relief",
+      "gives": "AFEW",
+      "soundsLike": "A PHEW",
+      "note": "phew is the exclamation of relief"
+     }
+    ],
+    "explanation": {
+     "surface": "A few people let out a relieved sigh.",
+     "definitionFit": "A few means a small number of, like some, used before a plural noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "voiced"
+    }
+   }
   },
   {
    "number": 9,
@@ -175,7 +649,48 @@
     "text": "Audibly drop stone when liable to faint",
     "enumeration": "8"
    },
-   "solution": "SYNCOPAL"
+   "solution": "SYNCOPAL",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "SYNCOPAL",
+    "definitions": [
+     {
+      "text": "liable to faint",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Audibly",
+      "for": "homophone",
+      "note": "audibly means as heard, so what follows is judged by its sound"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "drop stone",
+      "gives": "SYNCOPAL",
+      "soundsLike": "SINK OPAL",
+      "note": "to sink is to drop, and an opal is a gemstone"
+     }
+    ],
+    "explanation": {
+     "surface": "Someone liable to pass out noisily lets a stone fall.",
+     "walkthrough": "Syncope is the medical term for fainting; syncopal is its adjective.",
+     "definitionFit": "Syncopal describes a temporary loss of consciousness, so a syncopal patient is prone to passing out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stone"
+    }
+   }
   },
   {
    "number": 10,
@@ -189,7 +704,70 @@
     "text": "Fight for barista’s original frothy latte",
     "enumeration": "6"
    },
-   "solution": "BATTLE"
+   "solution": "BATTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram",
+     "charade"
+    ],
+    "answer": "BATTLE",
+    "definitions": [
+     {
+      "text": "Fight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "original",
+      "for": "letter_selection",
+      "note": "the original part of a word is where it begins, its first letter"
+     },
+     {
+      "text": "frothy",
+      "for": "anagram",
+      "note": "frothy things are whipped and churned, so the letters are stirred up"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "barista’s",
+      "gives": "B",
+      "select": "first",
+      "note": "first letter"
+     },
+     {
+      "clueFragment": "latte",
+      "gives": "ATTLE",
+      "note": "rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "ATTLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LATTE",
+       "gives": "ATTLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Customers scrap over the coffee maker's first foamy latte.",
+     "definitionFit": "A battle is a fight between armed forces, or any hard struggle or contest."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "frothy"
+    }
+   }
   },
   {
    "number": 11,
@@ -209,7 +787,44 @@
      }
     ]
    },
-   "solution": "COLDSHOULDER"
+   "solution": "COLDSHOULDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "COLD-SHOULDER",
+    "definitions": [
+     {
+      "text": "Slight",
+      "at": 0
+     },
+     {
+      "text": "effect of halter top in winter?",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slight",
+      "note": "first meaning: to snub someone"
+     },
+     {
+      "clueFragment": "effect of halter top in winter?",
+      "note": "second meaning, read literally: a garment that bares the shoulders leaves them chilly"
+     }
+    ],
+    "explanation": {
+     "surface": "Wearing a strappy top in cold weather has a predictable result.",
+     "walkthrough": "A halter top ties behind the neck and leaves the shoulders bare; the question mark flags the playful literal reading.",
+     "definitionFit": "To give someone the cold shoulder is an idiom for ignoring or rebuffing them, a deliberate snub."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Slight"
+    }
+   }
   },
   {
    "number": 12,
@@ -223,7 +838,58 @@
     "text": "Safe places where mighty stable hands overlap",
     "enumeration": "11"
    },
-   "solution": "STRONGROOMS"
+   "solution": "STRONGROOMS",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STRONGROOMS",
+    "definitions": [
+     {
+      "text": "Safe places",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "overlap",
+      "for": "deletion",
+      "note": "where two things overlap they share a part, so one copy of the shared letter is dropped"
+     }
+    ],
+    "linkWords": [
+     "where"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mighty",
+      "gives": "STRONG",
+      "note": "a synonym"
+     },
+     {
+      "clueFragment": "stable hands",
+      "gives": "GROOMS",
+      "note": "grooms look after horses in a stable"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRONG",
+      "ROOMS"
+     ]
+    },
+    "explanation": {
+     "surface": "A powerful pair of stable workers share duties in some secure spot.",
+     "walkthrough": "STRONG ends in G and GROOMS begins with it, so the two words share that letter.",
+     "definitionFit": "Strongrooms are reinforced vaults for storing valuables, places kept secure against theft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 13,
@@ -270,7 +936,65 @@
      }
     ]
    },
-   "solution": "ADHOCEVENT"
+   "solution": "ADHOCEVENT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "AD HOC EVENT",
+    "definitions": [
+     {
+      "text": "unplanned occasion",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "prepared",
+      "for": "anagram",
+      "note": "something prepared has been made up, so the letters are put together afresh"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have",
+      "gives": "HV",
+      "select": "alternate",
+      "note": "first and third letters"
+     },
+     {
+      "clueFragment": "anecdote",
+      "gives": "ANECDOTE",
+      "note": "taken as written for the mix"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HVANECDOTE",
+       "gives": "ADHOCEVENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A speaker always keeps a story ready for impromptu gatherings.",
+     "definitionFit": "Ad hoc is Latin for 'for this', meaning arranged on the spot, so an ad hoc event is improvised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prepared"
+    }
+   }
   },
   {
    "number": 15,
@@ -294,7 +1018,77 @@
    "group": [
     "15-across",
     "17-across"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "APPLE OF DISCORD",
+    "definitions": [
+     {
+      "text": "Bone of contention",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "switches leaders",
+      "for": "anagram",
+      "note": "switching the leaders swaps the front two letters of the word round"
+     },
+     {
+      "text": "hosting",
+      "for": "container",
+      "note": "a host holds a guest within, so one part goes inside the other"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "global giant",
+      "gives": "APPLE",
+      "note": "the worldwide technology company"
+     },
+     {
+      "clueFragment": "Ford",
+      "gives": "OFRD",
+      "note": "its first two letters exchanged"
+     },
+     {
+      "clueFragment": "dance",
+      "gives": "DISCO",
+      "note": "a disco is a dance party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPLE",
+      "OF",
+      "DISCO",
+      "RD"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORD",
+       "gives": "OFRD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dispute arises when a huge multinational and Ford reshuffle their chief executives around a party.",
+     "walkthrough": "In Greek myth the golden apple marked 'for the fairest' set three goddesses quarrelling.",
+     "definitionFit": "Both phrases are idioms for a subject that causes argument and resentment between parties."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 16,
@@ -314,7 +1108,49 @@
      }
     ]
    },
-   "solution": "EYEOPENER"
+   "solution": "EYEOPENER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EYE-OPENER",
+    "definitions": [
+     {
+      "text": "revelation",
+      "at": 17
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Look at",
+      "gives": "EYE",
+      "note": "to eye something is to look at it"
+     },
+     {
+      "clueFragment": "start",
+      "gives": "OPENER",
+      "note": "an opener is the first item or start"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EYE",
+      "OPENER"
+     ]
+    },
+    "explanation": {
+     "surface": "A glance at the beginning of a disclosure.",
+     "definitionFit": "An eye-opener is a surprising experience that reveals something previously unknown."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "start"
+    }
+   }
   },
   {
    "number": 17,
@@ -353,7 +1189,87 @@
      }
     ]
    },
-   "solution": "CYCLEPATH"
+   "solution": "CYCLEPATH",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "and_lit"
+    ],
+    "answer": "CYCLE PATH",
+    "definitions": [
+     {
+      "text": "City Council cleared pedestrians and traffic at first in what produces this?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cleared",
+      "for": "letter_selection",
+      "note": "a cleared word has had its contents emptied out, leaving only the outside letters"
+     },
+     {
+      "text": "at first",
+      "for": "letter_selection",
+      "note": "at first points to the opening letter of each preceding word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group placed in another sits inside it"
+     },
+     {
+      "text": "produces this?",
+      "for": "and_lit",
+      "note": "the closing question tells the solver the whole sentence also describes the answer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City",
+      "gives": "CY",
+      "select": "outer",
+      "note": "outer letters"
+     },
+     {
+      "clueFragment": "Council",
+      "gives": "CL",
+      "select": "outer",
+      "note": "outer letters"
+     },
+     {
+      "clueFragment": "what",
+      "gives": "EH",
+      "note": "eh? is a request to repeat, like what?"
+     },
+     {
+      "clueFragment": "pedestrians and traffic",
+      "gives": "PAT",
+      "select": "first",
+      "note": "first letters of each word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CY",
+      "CL",
+      "E",
+      "PAT",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "A council clears walkers and cars from a route, and asks what the result is.",
+     "walkthrough": "'cleared' means emptied of middle letters; 'what' is the interjection eh? Read whole, the clue describes how a route kept clear of walkers and vehicles comes about.",
+     "definitionFit": "A cycle path is a track reserved for bicycles, from which pedestrians and motor traffic are excluded."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "what"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1283,63 @@
     "text": "Nerd’s machismo, aimless and misguided",
     "enumeration": "5"
    },
-   "solution": "SCHMO"
+   "solution": "SCHMO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "SCHMO",
+    "definitions": [
+     {
+      "text": "Nerd",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "aimless",
+      "for": "deletion",
+      "note": "less means without, so a certain three-letter word is taken out"
+     },
+     {
+      "text": "misguided",
+      "for": "anagram",
+      "note": "misguided means led astray, so the remaining letters wander into a new order"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "machismo",
+      "gives": "MACHISMO",
+      "note": "taken as written, then the letters A, I and M removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SCHMO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CHSMO",
+       "gives": "SCHMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A geek's attempt at macho swagger is pointless and badly judged.",
+     "walkthrough": "Schmo is American slang from Yiddish for a dull or foolish person.",
+     "definitionFit": "A schmo is a stupid or boring person, close enough to a socially awkward nerd."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "aimless"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1353,67 @@
     "text": "Nice to see truce’s arranged in exasperation",
     "enumeration": "11"
    },
-   "solution": "PICTURESQUE"
+   "solution": "PICTURESQUE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PICTURESQUE",
+    "definitions": [
+     {
+      "text": "Nice to see",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged letters are set out in a fresh order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one group placed in another sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exasperation",
+      "gives": "PIQUE",
+      "note": "pique is irritation or resentment"
+     },
+     {
+      "clueFragment": "truce’s",
+      "gives": "CTURES",
+      "note": "six letters rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PI",
+      "CTURES",
+      "QUE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "TRUCES",
+       "gives": "CTURES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "It is pleasing to watch a ceasefire agreed amid frustration.",
+     "walkthrough": "'Nice' could be the French city, but here it is simply pleasant.",
+     "definitionFit": "Picturesque means visually charming, attractive enough to be painted, so pleasing to the eye."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1427,55 @@
     "text": "Odds are off on heavier ones, but they’re not",
     "enumeration": "5"
    },
-   "solution": "EVENS"
+   "solution": "EVENS",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "EVENS",
+    "definitions": [
+     {
+      "text": "they’re not",
+      "at": 34,
+      "note": "means 'things that are not odd'"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Odds are off",
+      "for": "letter_selection",
+      "note": "the odd-numbered letters are removed, leaving the second, fourth and so on"
+     }
+    ],
+    "linkWords": [
+     "on",
+     "but"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "heavier ones",
+      "gives": "EVENS",
+      "select": "alternate",
+      "note": "second, fourth, sixth, eighth and tenth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EVENS"
+     ]
+    },
+    "explanation": {
+     "surface": "A bookmaker withdraws the betting prices on the heavier runners.",
+     "walkthrough": "The surface is racing talk; the definition plays on 'odds', since even numbers are exactly those that are not odd.",
+     "definitionFit": "Even numbers are the integers that are not odd, so they are what 'they're not' refers to."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Odds"
+    }
+   }
   },
   {
    "number": 22,
@@ -419,7 +1499,54 @@
    "group": [
     "22-down",
     "23-down"
-   ]
+   ],
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TIDE OVER",
+    "definitions": [
+     {
+      "text": "Help getting through",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "edit",
+      "gives": "EDIT",
+      "note": "the clue word, which is what you get by reading the first answer word backwards"
+     },
+     {
+      "clueFragment": "?",
+      "gives": "OVER",
+      "note": "the question mark flags a reverse clue: the answer's second word is itself the instruction to turn the first word round"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TIDE",
+      "OVER"
+     ],
+     "reversals": [
+      {
+       "from": "EDIT",
+       "to": "TIDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An editor asks for support to finish working through a manuscript.",
+     "walkthrough": "A reverse clue: read the answer as an instruction, TIDE turned over, and it yields the clue word 'edit'.",
+     "definitionFit": "To tide someone over is to support them through a difficult spell until things improve."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "edit"
+    }
+   }
   },
   {
    "number": 23,
@@ -446,7 +1573,47 @@
     "text": "Create trendy outlet",
     "enumeration": "6"
    },
-   "solution": "INVENT"
+   "solution": "INVENT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INVENT",
+    "definitions": [
+     {
+      "text": "Create",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "outlet",
+      "gives": "VENT",
+      "note": "a vent is an opening for air or gas to escape"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "VENT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets up a fashionable shop.",
+     "walkthrough": "'outlet' suggests a shop, but here it is an opening.",
+     "definitionFit": "To invent is to devise or originate something new, a synonym for create."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "outlet"
+    }
+   }
   },
   {
    "number": 25,
@@ -460,7 +1627,58 @@
     "text": "The guy’s in a hole that’s sticky",
     "enumeration": "8"
    },
-   "solution": "ADHESIVE"
+   "solution": "ADHESIVE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ADHESIVE",
+    "definitions": [
+     {
+      "text": "sticky",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one part placed in another sits inside it"
+     }
+    ],
+    "linkWords": [
+     "that’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a hole",
+      "gives": "ADIVE",
+      "note": "a dive is a seedy bar or hole"
+     },
+     {
+      "clueFragment": "The guy’s",
+      "gives": "HES",
+      "note": "he's, short for he is"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "HES",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "A man stuck in a pit finds it gluey.",
+     "walkthrough": "A dive, like a hole, is slang for a shabby, disreputable place.",
+     "definitionFit": "Adhesive as an adjective means able to stick to surfaces, so it means sticky."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hole"
+    }
+   }
   },
   {
    "number": 26,
@@ -474,7 +1692,69 @@
     "text": "Sore about concealing posh car’s faults",
     "enumeration": "6"
    },
-   "solution": "ERRORS"
+   "solution": "ERRORS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "ERRORS",
+    "definitions": [
+     {
+      "text": "faults",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about can mean all around, the letters being turned about into a new order"
+     },
+     {
+      "text": "concealing",
+      "for": "container",
+      "note": "to conceal something is to hide it inside, so one part goes within the other"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sore",
+      "gives": "EORS",
+      "note": "four letters rearranged"
+     },
+     {
+      "clueFragment": "posh car",
+      "gives": "RR",
+      "note": "a Rolls-Royce, the classic luxury car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "RR",
+      "ORS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SORE",
+       "gives": "EORS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is upset that the defects on their luxury car are being hidden.",
+     "definitionFit": "Errors are mistakes, and faults is a plural synonym for them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "about"
+    }
+   }
   },
   {
    "number": 27,
@@ -494,7 +1774,42 @@
      }
     ]
    },
-   "solution": "PRESSKIT"
+   "solution": "PRESSKIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PRESS KIT",
+    "definitions": [
+     {
+      "text": "Something for the media",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "the answer sits in the following words, running across them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "après-ski treats",
+      "gives": "PRESSKIT",
+      "note": "letters run on from the accented word into the next, ignoring the accent and hyphen"
+     }
+    ],
+    "explanation": {
+     "surface": "Indulgences after a day on the slopes.",
+     "definitionFit": "A press kit is a promotional pack of information handed to journalists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "treats"
+    }
+   }
   }
  ]
 }
