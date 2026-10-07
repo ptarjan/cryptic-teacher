@@ -24,6 +24,9 @@
   "date": "2024-07-16",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,70 @@
     "text": "Regulatory device sees mother recycling, say, no end",
     "enumeration": "10"
    },
-   "solution": "THERMOSTAT"
+   "solution": "THERMOSTAT",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "charade"
+    ],
+    "answer": "THERMOSTAT",
+    "definitions": [
+     {
+      "text": "Regulatory device",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recycling",
+      "for": "anagram",
+      "note": "recycled material is broken down and remade in a fresh form, so the word's letters get reworked"
+     },
+     {
+      "text": "no end",
+      "for": "deletion",
+      "note": "having no end means the final letter of the preceding word is dropped"
+     }
+    ],
+    "linkWords": [
+     "sees"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mother",
+      "gives": "MOTHER",
+      "note": "taken as written, then rearranged"
+     },
+     {
+      "clueFragment": "say",
+      "gives": "STATE",
+      "note": "to state something is to say it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THERMO",
+      "STAT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MOTHER",
+       "gives": "THERMO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A household gadget watches Mum diligently sorting the recycling.",
+     "walkthrough": "Mother rearranged gives THERMO, and STATE losing its last letter gives STAT.",
+     "definitionFit": "A thermostat switches heating on and off to keep temperature steady, so it is a device that regulates."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recycling"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +117,47 @@
     "text": "Performer’s act of kindness",
     "enumeration": "4"
    },
-   "solution": "TURN"
+   "solution": "TURN",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TURN",
+    "definitions": [
+     {
+      "text": "Performer’s act",
+      "at": 0
+     },
+     {
+      "text": "kindness",
+      "at": 19
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Performer’s act",
+      "note": "first meaning: a stage act in a variety show"
+     },
+     {
+      "clueFragment": "kindness",
+      "note": "second meaning: a good deed, as in doing someone a good one"
+     }
+    ],
+    "explanation": {
+     "surface": "An entertainer's routine turns out to be a charitable gesture.",
+     "walkthrough": "The clue reads as one phrase, 'act of kindness', but it splits into a music-hall act and the 'good ...' of a favour done.",
+     "definitionFit": "A variety performer's slot on the bill is called this, and a favour is a 'good' one of these in the idiom."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "act"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +171,51 @@
     "text": "Order red wine? Do, it may keep us warm",
     "enumeration": "9"
    },
-   "solution": "EIDERDOWN"
+   "solution": "EIDERDOWN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EIDERDOWN",
+    "definitions": [
+     {
+      "text": "it may keep us warm",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Order",
+      "for": "anagram",
+      "note": "to order things is to put them into a new arrangement, so the following letters are sorted afresh"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "red wine? Do",
+      "gives": "REDWINEDO",
+      "note": "nine letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "REDWINEDO",
+       "gives": "EIDERDOWN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone urges ordering a glass of red because it will warm us up.",
+     "walkthrough": "The surface suggests mulled or red wine as the warming thing; the warmth comes from a quilt.",
+     "definitionFit": "An eiderdown is a thick quilt filled with duck down, laid on a bed for warmth."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Order"
+    }
+   }
   },
   {
    "number": 3,
@@ -79,7 +229,42 @@
     "text": "Good quality, charmer, Italian, shows",
     "enumeration": "5"
    },
-   "solution": "MERIT"
+   "solution": "MERIT",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "MERIT",
+    "definitions": [
+     {
+      "text": "Good quality",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "shows",
+      "for": "hidden_word",
+      "note": "the words display the target on view inside them, spanning the gap between two of them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charmer, Italian",
+      "gives": "MERIT",
+      "note": "the end of charmer runs into the start of Italian"
+     }
+    ],
+    "explanation": {
+     "surface": "A charming Italian man displays a fine character.",
+     "definitionFit": "Merit is worth or excellence, a good quality that deserves praise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shows"
+    }
+   }
   },
   {
    "number": 4,
@@ -93,7 +278,60 @@
     "text": "Type of card, rail, new, not very different",
     "enumeration": "7"
    },
-   "solution": "SIMILAR"
+   "solution": "SIMILAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "SIMILAR",
+    "definitions": [
+     {
+      "text": "not very different",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "new",
+      "for": "anagram",
+      "note": "making something new means remaking it, so the preceding word's letters are recast"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Type of card",
+      "gives": "SIM",
+      "note": "a SIM card goes in a mobile phone"
+     },
+     {
+      "clueFragment": "rail",
+      "gives": "RAIL",
+      "note": "taken as written, then rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIM",
+      "ILAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "RAIL",
+       "gives": "ILAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A list of things that look alike: a card, a rail, all quite the same.",
+     "definitionFit": "Similar things resemble each other closely, so they are alike rather than greatly unlike."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "card"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +351,50 @@
      }
     ]
    },
-   "solution": "AIRDROP"
+   "solution": "AIRDROP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AIR-DROP",
+    "definitions": [
+     {
+      "text": "delivery",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "After"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "broadcast",
+      "gives": "AIR",
+      "note": "to air a programme is to broadcast it"
+     },
+     {
+      "clueFragment": "decline",
+      "gives": "DROP",
+      "note": "a drop is a fall or decline"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AIR",
+      "DROP"
+     ]
+    },
+    "explanation": {
+     "surface": "Once a show goes out, its viewing figures fall.",
+     "walkthrough": "'After' just sets the order: the first piece comes before the second.",
+     "definitionFit": "An air-drop is the delivery of supplies by parachute from an aircraft."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 6,
@@ -127,7 +408,56 @@
     "text": "As outsiders leave, orphan playing instrument",
     "enumeration": "4"
    },
-   "solution": "HARP"
+   "solution": "HARP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "HARP",
+    "definitions": [
+     {
+      "text": "instrument",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "As outsiders leave",
+      "for": "deletion",
+      "note": "the outsiders of a word are its first and last letters, and they leave"
+     },
+     {
+      "text": "playing",
+      "for": "anagram",
+      "note": "playing about with letters means moving them around into another order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "orphan",
+      "gives": "RPHA",
+      "note": "orphan with its first and last letters removed"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RPHA",
+       "gives": "HARP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A lonely orphan plays music as the strangers depart.",
+     "definitionFit": "A harp is a large stringed instrument plucked with the fingers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 7,
@@ -141,7 +471,46 @@
     "text": "Fighter in from France, unfamiliar",
     "enumeration": "5"
    },
-   "solution": "ALIEN"
+   "solution": "ALIEN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ALIEN",
+    "definitions": [
+     {
+      "text": "unfamiliar",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fighter",
+      "gives": "ALI",
+      "note": "Muhammad Ali, the boxer"
+     },
+     {
+      "clueFragment": "in from France",
+      "gives": "EN",
+      "note": "en is French for in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALI",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A boxer has arrived from France, and he is a stranger here.",
+     "definitionFit": "Alien as an adjective means strange or foreign, not known to one."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Fighter"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +534,59 @@
      }
     ]
    },
-   "solution": "PIEDATERRE"
+   "solution": "PIEDATERRE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PIED-A-TERRE",
+    "definitions": [
+     {
+      "text": "flat",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "welcoming",
+      "for": "container",
+      "note": "a host welcoming a guest takes them inside, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nice fellow maybe",
+      "gives": "PIERRE",
+      "note": "a typical French man's name, Nice being a city in France"
+     },
+     {
+      "clueFragment": "romantic meeting",
+      "gives": "DATE",
+      "note": "a date is a romantic appointment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIE",
+      "DATE",
+      "RRE"
+     ]
+    },
+    "explanation": {
+     "surface": "A pleasant man invites a romantic encounter at his apartment.",
+     "walkthrough": "'Nice' is the French Riviera city, not the adjective, so the fellow is a Frenchman with a typical French name.",
+     "definitionFit": "A pied-à-terre is a small flat kept for occasional stays, typically in a city away from one's main home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Nice"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +600,73 @@
     "text": "Attractive publication — bring up quote, fun ultimately",
     "enumeration": "8"
    },
-   "solution": "MAGNETIC"
+   "solution": "MAGNETIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "reversal"
+    ],
+    "answer": "MAGNETIC",
+    "definitions": [
+     {
+      "text": "Attractive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ultimately",
+      "for": "letter_selection",
+      "note": "ultimately points to what comes at the very end, so the last letter is kept"
+     },
+     {
+      "text": "bring up",
+      "for": "reversal",
+      "note": "in a down clue, bringing up means reading upwards, so the order flips"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "publication",
+      "gives": "MAG",
+      "note": "short for magazine"
+     },
+     {
+      "clueFragment": "quote",
+      "gives": "CITE",
+      "note": "to cite is to quote"
+     },
+     {
+      "clueFragment": "fun",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of fun"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAG",
+      "NETIC"
+     ],
+     "reversals": [
+      {
+       "from": "CITEN",
+       "to": "NETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An appealing magazine dredges up a funny line.",
+     "walkthrough": "'Bring up' covers both the quote and the last letter of fun, flipping them as one unit.",
+     "definitionFit": "Magnetic describes a person or thing with a strong pull, so it is a synonym for attractive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Attractive"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +680,46 @@
     "text": "Jockey’s extra stipulation",
     "enumeration": "5"
    },
-   "solution": "RIDER"
+   "solution": "RIDER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RIDER",
+    "definitions": [
+     {
+      "text": "Jockey",
+      "at": 0
+     },
+     {
+      "text": "extra stipulation",
+      "at": 9
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Jockey",
+      "note": "first meaning: someone mounted on a horse"
+     },
+     {
+      "clueFragment": "extra stipulation",
+      "note": "second meaning: a clause added to a contract or bill"
+     }
+    ],
+    "explanation": {
+     "surface": "A horseman has an additional condition in his contract.",
+     "walkthrough": "The possessive reads as 'is', linking two separate meanings.",
+     "definitionFit": "A jockey rides horses in races, and a clause tacked onto a document is also called by this name."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Jockey"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +733,70 @@
     "text": "Forces member passing over retrograde newspaper’s spread",
     "enumeration": "9"
    },
-   "solution": "MARGARINE"
+   "solution": "MARGARINE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "MARGARINE",
+    "definitions": [
+     {
+      "text": "spread",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retrograde",
+      "for": "reversal",
+      "note": "retrograde means moving backwards, so the word is read from end to start"
+     },
+     {
+      "text": "passing over",
+      "for": "container",
+      "note": "a piece passing over another stretches across it, ending up on both sides of it"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Forces member",
+      "gives": "MARINE",
+      "note": "a marine is a soldier serving with a navy"
+     },
+     {
+      "clueFragment": "newspaper",
+      "gives": "RAG",
+      "note": "a rag is a disparaging word for a newspaper"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "GAR",
+      "INE"
+     ],
+     "reversals": [
+      {
+       "from": "RAG",
+       "to": "GAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier skips past a backward-looking newspaper's coverage.",
+     "walkthrough": "'Spread' looks like a newspaper layout but is the definition: something you put on toast.",
+     "definitionFit": "Margarine is a butter substitute, something spread on bread."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "spread"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +810,57 @@
     "text": "One talking foolishly in image promotion about toy",
     "enumeration": "8"
    },
-   "solution": "PRATTLER"
+   "solution": "PRATTLER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "PRATTLER",
+    "definitions": [
+     {
+      "text": "One talking foolishly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so one piece wraps round the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "image promotion",
+      "gives": "PR",
+      "note": "public relations, which promotes an image"
+     },
+     {
+      "clueFragment": "toy",
+      "gives": "RATTLE",
+      "note": "a baby's toy that makes a noise when shaken"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "RATTLE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A babbling spokesperson runs a publicity campaign for a toy.",
+     "definitionFit": "A prattler chatters idly and childishly, someone who babbles nonsense."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "toy"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +874,55 @@
     "text": "One with Japanese skill’s new home, German? Yes",
     "enumeration": "5"
    },
-   "solution": "NINJA"
+   "solution": "NINJA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NINJA",
+    "definitions": [
+     {
+      "text": "One with Japanese skill",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "to be home is to be in"
+     },
+     {
+      "clueFragment": "German? Yes",
+      "gives": "JA",
+      "note": "ja is German for yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "IN",
+      "JA"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether a skilled Japanese person's new home owner is German, and hearing yes.",
+     "definitionFit": "Ninjas were warriors trained in the Japanese martial art of ninjutsu, covert fighting and espionage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +936,55 @@
     "text": "Not much interested in Westminster or capital oil supply?",
     "enumeration": "10"
    },
-   "solution": "APOLITICAL"
+   "solution": "APOLITICAL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APOLITICAL",
+    "definitions": [
+     {
+      "text": "Not much interested in Westminster",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "supply",
+      "for": "anagram",
+      "note": "read as the adverb of supple, it means flexibly, so the letters bend into a new order"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "capital oil",
+      "gives": "CAPITALOIL",
+      "note": "ten letters taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAPITALOIL",
+       "gives": "APOLITICAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone indifferent to Parliament, or to the oil supplying the capital.",
+     "walkthrough": "'Supply' is not the noun but supple-ly, flexibly. Westminster is where the UK Parliament sits, so it stands for politics.",
+     "definitionFit": "Apolitical people take no interest in politics, and Westminster is the seat of the British government."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "supply"
+    }
+   }
   },
   {
    "number": 15,
@@ -263,7 +998,63 @@
     "text": "More tedious originally, include page for island, and do well",
     "enumeration": "7"
    },
-   "solution": "PROSPER"
+   "solution": "PROSPER",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "PROSPER",
+    "definitions": [
+     {
+      "text": "do well",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "include page for island",
+      "for": "substitution",
+      "note": "putting one thing in for another means one letter is swapped out and another goes in its place"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "More tedious originally",
+      "gives": "PROSIER",
+      "note": "prosy means dull, and this is its comparative, as it stands before the change"
+     },
+     {
+      "clueFragment": "page",
+      "gives": "P",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "island",
+      "gives": "I",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROS",
+      "P",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A duller original draft gets a page added on an island and succeeds.",
+     "walkthrough": "In PROSIER the I is replaced by P.",
+     "definitionFit": "To prosper is to flourish or thrive, succeeding financially or otherwise."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "originally"
+    }
+   }
   },
   {
    "number": 16,
@@ -277,7 +1068,49 @@
     "text": "Agreeable requests followed by worker",
     "enumeration": "8"
    },
-   "solution": "PLEASANT"
+   "solution": "PLEASANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLEASANT",
+    "definitions": [
+     {
+      "text": "Agreeable",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "followed by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "requests",
+      "gives": "PLEAS",
+      "note": "pleas are appeals or requests"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is a crossword staple"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PLEAS",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone nice makes requests and an employee then follows up.",
+     "definitionFit": "Pleasant means pleasing or likeable, so an agreeable thing or person fits."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 17,
@@ -291,7 +1124,49 @@
     "text": "By Italian river somewhere to put food, safe to consume",
     "enumeration": "7"
    },
-   "solution": "POTABLE"
+   "solution": "POTABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "POTABLE",
+    "definitions": [
+     {
+      "text": "safe to consume",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "By"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Italian river",
+      "gives": "PO",
+      "note": "the Po flows across northern Italy"
+     },
+     {
+      "clueFragment": "somewhere to put food",
+      "gives": "TABLE",
+      "note": "food is set out on a table"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PO",
+      "TABLE"
+     ]
+    },
+    "explanation": {
+     "surface": "Next to an Italian river there is a place to set down food that is fine to eat.",
+     "definitionFit": "Potable describes water or drink that is fit and safe for drinking."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "somewhere"
+    }
+   }
   },
   {
    "number": 18,
@@ -305,7 +1180,69 @@
     "text": "Aggressive call before one’s retaining company, Eastern",
     "enumeration": "9"
    },
-   "solution": "BELLICOSE"
+   "solution": "BELLICOSE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BELLICOSE",
+    "definitions": [
+     {
+      "text": "Aggressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retaining",
+      "for": "container",
+      "note": "to retain something is to hold onto it, so one piece is kept inside another"
+     }
+    ],
+    "linkWords": [
+     "before"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "call",
+      "gives": "BELL",
+      "note": "to give someone a bell is British slang for phoning them"
+     },
+     {
+      "clueFragment": "one’s",
+      "gives": "IS",
+      "note": "one is I, and the possessive adds S"
+     },
+     {
+      "clueFragment": "company",
+      "gives": "CO",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Eastern",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BELL",
+      "ICOS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A hostile phone call precedes someone's firm keeping hold of an Eastern business.",
+     "walkthrough": "The possessive in 'one's' supplies a letter of its own, which the company abbreviation then sits before.",
+     "definitionFit": "Bellicose means eager to fight, so it is a synonym for hostile and aggressive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "call"
+    }
+   }
   },
   {
    "number": 19,
@@ -319,7 +1256,55 @@
     "text": "It might help to see, briefly, country bird",
     "enumeration": "7"
    },
-   "solution": "LANTERN"
+   "solution": "LANTERN",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "LANTERN",
+    "definitions": [
+     {
+      "text": "It might help to see",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "making something brief cuts it short, here by its final letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "country",
+      "gives": "LAND",
+      "note": "a land is a country"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "TERN",
+      "note": "a tern is a seabird"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAN",
+      "TERN"
+     ]
+    },
+    "explanation": {
+     "surface": "A briefly glimpsed country bird might aid one's vision.",
+     "walkthrough": "'Briefly' looks like it modifies 'see', but it trims the word after it.",
+     "definitionFit": "A lantern is a portable lamp, carried to light the way in the dark."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "briefly"
+    }
+   }
   },
   {
    "number": 20,
@@ -333,7 +1318,55 @@
     "text": "Greek character caught by king referring to power maybe",
     "enumeration": "7"
    },
-   "solution": "NUCLEAR"
+   "solution": "NUCLEAR",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUCLEAR",
+    "definitions": [
+     {
+      "text": "referring to power maybe",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Greek character",
+      "gives": "NU",
+      "note": "nu is a letter of the Greek alphabet"
+     },
+     {
+      "clueFragment": "caught",
+      "gives": "C",
+      "note": "cricket scoring abbreviation"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "LEAR",
+      "note": "Shakespeare's King Lear"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "C",
+      "LEAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A Greek figure is captured by a king who speaks of his power.",
+     "definitionFit": "Nuclear power is one kind of energy generation, so the adjective can describe power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "caught"
+    }
+   }
   },
   {
    "number": 21,
@@ -347,7 +1380,65 @@
     "text": "Lasting long time in Southeast, copper, looked all right from the start",
     "enumeration": "7"
    },
-   "solution": "SECULAR"
+   "solution": "SECULAR",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SECULAR",
+    "definitions": [
+     {
+      "text": "Lasting long time",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "from the start",
+      "for": "letter_selection",
+      "note": "taking things from the start means only each word's opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Southeast",
+      "gives": "SE",
+      "note": "compass abbreviation"
+     },
+     {
+      "clueFragment": "copper",
+      "gives": "CU",
+      "note": "chemical symbol for copper"
+     },
+     {
+      "clueFragment": "looked all right",
+      "gives": "LAR",
+      "select": "first",
+      "note": "first letters of these three words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "CU",
+      "LAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman in the South East has looked fine since he began, after long service.",
+     "walkthrough": "Copper suggests a police officer but is the metal here.",
+     "definitionFit": "Secular can mean lasting for an age or occurring over centuries, as in secular trends."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "copper"
+    }
+   }
   },
   {
    "number": 21,
@@ -361,7 +1452,69 @@
     "text": "Wonder in bishop’s place — first sign of dazzling plants",
     "enumeration": "7"
    },
-   "solution": "SEAWEED"
+   "solution": "SEAWEED",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "SEAWEED",
+    "definitions": [
+     {
+      "text": "plants",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one piece placed in another sits within it"
+     },
+     {
+      "text": "first sign of",
+      "for": "letter_selection",
+      "note": "the first sign of a word is its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Wonder",
+      "gives": "AWE",
+      "note": "awe is wonder"
+     },
+     {
+      "clueFragment": "bishop’s place",
+      "gives": "SEE",
+      "note": "a see is a bishop's diocese"
+     },
+     {
+      "clueFragment": "dazzling",
+      "gives": "D",
+      "select": "first",
+      "note": "the first letter of dazzling"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "AWE",
+      "E",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Awe inside a bishop's residence at the first glimpse of brilliant flowers.",
+     "walkthrough": "A bishop's see is his diocese, a standard crossword convention.",
+     "definitionFit": "Seaweed is a collective name for marine algae, often loosely called sea plants."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plants"
+    }
+   }
   },
   {
    "number": 22,
@@ -375,7 +1528,55 @@
     "text": "Lock of hair, very French, brushed in the middle",
     "enumeration": "5"
    },
-   "solution": "TRESS"
+   "solution": "TRESS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRESS",
+    "definitions": [
+     {
+      "text": "Lock of hair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the middle",
+      "for": "letter_selection",
+      "note": "the middle of a word is its centre, so only the central letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "very French",
+      "gives": "TRES",
+      "note": "très is French for very"
+     },
+     {
+      "clueFragment": "brushed",
+      "gives": "S",
+      "select": "middle",
+      "note": "the fourth of seven letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRES",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A curl of hair, very French, combed in the middle.",
+     "definitionFit": "A tress is a long lock or strand of hair, usually in poetic use."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "brushed"
+    }
+   }
   },
   {
    "number": 23,
@@ -389,7 +1590,65 @@
     "text": "Media boss initially irritated by court ruling",
     "enumeration": "5"
    },
-   "solution": "EDICT"
+   "solution": "EDICT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "EDICT",
+    "definitions": [
+     {
+      "text": "ruling",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially means at the beginning, so the word gives just its first letter"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Media boss",
+      "gives": "ED",
+      "note": "short for editor"
+     },
+     {
+      "clueFragment": "irritated",
+      "gives": "I",
+      "select": "first",
+      "note": "the first letter of irritated"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ED",
+      "I",
+      "CT"
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper editor is annoyed by a court judgment.",
+     "walkthrough": "'Ruling' looks like part of 'court ruling' but stands alone as the definition.",
+     "definitionFit": "An edict is an official order or decree issued by an authority."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boss"
+    }
+   }
   },
   {
    "number": 24,
@@ -403,7 +1662,78 @@
     "text": "Adam’s son getting regularly slapdash recalled inside — by this person?",
     "enumeration": "8"
    },
-   "solution": "CHAPLAIN"
+   "solution": "CHAPLAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "reversal",
+     "container",
+     "and_lit"
+    ],
+    "answer": "CHAPLAIN",
+    "definitions": [
+     {
+      "text": "Adam’s son getting regularly slapdash recalled inside — by this person?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     },
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "to recall is to call back, so the letters run backwards"
+     },
+     {
+      "text": "inside",
+      "for": "container",
+      "note": "placed inside means set within the other piece"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Adam’s son",
+      "gives": "CAIN",
+      "note": "Cain, elder son of Adam and Eve in Genesis"
+     },
+     {
+      "clueFragment": "slapdash",
+      "gives": "LPAH",
+      "select": "alternate",
+      "note": "second, fourth, sixth and eighth letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "HAPL",
+      "AIN"
+     ],
+     "reversals": [
+      {
+       "from": "LPAH",
+       "to": "HAPL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Cain, a careless sinner, is called back inside to be counselled by a clergyman.",
+     "walkthrough": "The whole clue is the definition: a sinner like Cain might be brought back into the fold by a cleric.",
+     "definitionFit": "A chaplain is a clergyman serving an institution, the sort who would try to reclaim a wrongdoer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 25,
@@ -417,7 +1747,46 @@
     "text": "Ways round English drop in standard",
     "enumeration": "5"
    },
-   "solution": "LAPSE"
+   "solution": "LAPSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LAPSE",
+    "definitions": [
+     {
+      "text": "drop in standard",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Ways round",
+      "gives": "LAPS",
+      "note": "laps are circuits of a track"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LAPS",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Running laps round England shows a fall in fitness.",
+     "definitionFit": "A lapse is a temporary failure or slip, a falling-off from normal standards."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ways"
+    }
+   }
   },
   {
    "number": 26,
@@ -431,7 +1800,50 @@
     "text": "Victor with objective to seek new owner",
     "enumeration": "4"
    },
-   "solution": "VEND"
+   "solution": "VEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "VEND",
+    "definitions": [
+     {
+      "text": "seek new owner",
+      "at": 25
+     }
+    ],
+    "linkWords": [
+     "with",
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Victor",
+      "gives": "V",
+      "note": "V is Victor in the NATO phonetic alphabet"
+     },
+     {
+      "clueFragment": "objective",
+      "gives": "END",
+      "note": "an end is an aim or objective"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "V",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A man named Victor aims to find someone new to own something.",
+     "definitionFit": "To vend is to sell, and selling an item means finding it another owner."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Victor"
+    }
+   }
   },
   {
    "number": 27,
@@ -445,7 +1857,70 @@
     "text": "Church accepting legal claim, note left for customers",
     "enumeration": "9"
    },
-   "solution": "CLIENTELE"
+   "solution": "CLIENTELE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CLIENTELE",
+    "definitions": [
+     {
+      "text": "customers",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting something means taking it in, so the other pieces go inside"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "the Church of England"
+     },
+     {
+      "clueFragment": "legal claim",
+      "gives": "LIEN",
+      "note": "a lien is a legal right over another's property"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "TE",
+      "note": "the seventh note of the sol-fa scale"
+     },
+     {
+      "clueFragment": "left",
+      "gives": "L",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "LIEN",
+      "TE",
+      "L",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "The Church takes on a legal claim, leaving a memo for its patrons.",
+     "walkthrough": "The Church takes in three pieces at once: the claim, the note and the abbreviation for left.",
+     "definitionFit": "Clientele means the body of clients or customers a business serves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "note"
+    }
+   }
   },
   {
    "number": 28,
@@ -459,7 +1934,55 @@
     "text": "Predisposed expert, extremely niche",
     "enumeration": "5"
    },
-   "solution": "PRONE"
+   "solution": "PRONE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PRONE",
+    "definitions": [
+     {
+      "text": "Predisposed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two ends, so only first and last letters stay"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "PRO",
+      "note": "a pro is a professional, an expert"
+     },
+     {
+      "clueFragment": "niche",
+      "gives": "NE",
+      "select": "outer",
+      "note": "first and last letters of niche"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "A specialist inclined toward a highly specialised field.",
+     "definitionFit": "Being prone to something means being liable or inclined to it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "extremely"
+    }
+   }
   },
   {
    "number": 29,
@@ -473,7 +1996,43 @@
     "text": "Recently but not now seen in goal at Everton",
     "enumeration": "4"
    },
-   "solution": "LATE"
+   "solution": "LATE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "LATE",
+    "definitions": [
+     {
+      "text": "Recently but not now",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "seen in",
+      "for": "hidden_word",
+      "note": "something seen in a phrase is visible within its letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goal at Everton",
+      "gives": "LATE",
+      "note": "the end of goal runs through at into the start of Everton"
+     }
+    ],
+    "explanation": {
+     "surface": "A goal scored at Everton's ground was recent news but is old now.",
+     "walkthrough": "Everton is a Premier League football club in Liverpool.",
+     "definitionFit": "Late can mean recently in existence but now gone, as in the late president."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 30,
@@ -487,7 +2046,49 @@
     "text": "Game boss in advantageous position",
     "enumeration": "10"
    },
-   "solution": "BRIDGEHEAD"
+   "solution": "BRIDGEHEAD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRIDGEHEAD",
+    "definitions": [
+     {
+      "text": "advantageous position",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Game",
+      "gives": "BRIDGE",
+      "note": "the card game"
+     },
+     {
+      "clueFragment": "boss",
+      "gives": "HEAD",
+      "note": "the head is the leader"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BRIDGE",
+      "HEAD"
+     ]
+    },
+    "explanation": {
+     "surface": "A card game's top player holds the upper hand.",
+     "definitionFit": "A bridgehead is a military foothold in enemy territory, from which further advance can be made."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Game"
+    }
+   }
   }
  ]
 }
