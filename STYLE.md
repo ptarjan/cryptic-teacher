@@ -364,10 +364,10 @@ PIECES). If the word list is missing, the check stands down instead of guessing.
 ### Fakes must not diverge from the real thing
 When a test harness fakes an API, the fake must keep that API's contracts. A
 divergence does not fail loudly; it makes tests pass when they should not.
-Example: `tools/smoke_test.js` uses a fake DOM. When setting `el.id` on a created
-element did not register it with `getElementById`, the app and the test held two
+Example: `tools/smoke_test.js` uses a fake DOM. If setting `el.id` on a created
+element does not register it with `getElementById`, the app and the test hold two
 different objects with the same id, and assertions about dynamically created
-elements checked nothing.
+elements check nothing.
 
 ## Existing schema rules
 See `tools/annotate_prompt.md`: definition and indicator strings are verbatim
