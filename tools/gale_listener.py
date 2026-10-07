@@ -46,6 +46,7 @@ import json
 import os
 import re
 import subprocess
+import traceback
 import sys
 import time
 from pathlib import Path
@@ -522,6 +523,7 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
         if ledger.get(h, {}).get("version") == VERSION:
             continue
         entry = {"file": p.name, "version": VERSION, "readOn": datetime.datetime.now().astimezone().date().isoformat()}
+        m = None
         try:
             try:
                 m = match(p, idx)
@@ -534,6 +536,14 @@ def run(inbox=MIRROR, store=STORE, idx=None, out=sys.stdout, reader=read_file):
             # ledgered, and the next run reads it again.
             print(f"{p.name}: OCR timed out after {e.timeout:.0f} s; read again next run", file=out)
             continue
+        except Exception as e:  # one page's failure must not stop the pages after it
+            # Ledgered with its error, so the checklist shows it and the
+            # pages after it are read; a VERSION bump reads it again.
+            print(f"{p.name}: read failed:\n{traceback.format_exc()}", file=out)
+            why = f"read failed: {type(e).__name__}: {e}"
+            if m is None:
+                m = {"file": p.name, "number": None, "why": why, "pages": [], "reports": []}
+            verdict, laid = {"refused": why}, None
         entry.update(number=m["number"], how=m.get("how"), why=m.get("why"), reports=m["reports"])
         if m["number"] is None and m["reports"]:
             entry["why"] = None

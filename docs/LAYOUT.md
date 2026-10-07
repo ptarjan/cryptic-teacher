@@ -1647,12 +1647,17 @@ tools/gale_inbox.py                           the 1974-99 Times editions archive
                                               inbox on the Media share, mirrors the Times one
                                               over the ssh hatch, stages it as
                                               GaleTimes<year>UKEnglish editions for
-                                              file_archive_org_puzzles.py, and publishes a
-                                              checklist of what to fetch next (a Download link
-                                              where gale_docs.py found the page, else Gale's
-                                              search) and which pages to redo
+                                              file_archive_org_puzzles.py --paper gale, and
+                                              publishes a checklist of what to fetch next (a
+                                              Download link where gale_docs.py found the page,
+                                              else Gale's search) and which pages to redo
 tools/gale_inbox.sh                           the scheduled entry point for gale_inbox.py sync,
                                               every minute, from a worktree
+tools/gale_read.sh                            reads the Gale Times pages laid out in the last
+                                              hour (file_archive_org_puzzles.py --paper gale,
+                                              its own ledger) minutes after each download,
+                                              started by gale_inbox.py sync; commits what it
+                                              files as it goes
 tools/gale_listener.py                        the Listener crosswords of 1930-91, read from the
                                               pages Paul saves by hand from Gale's Listener
                                               Historical Archive: a checklist of every puzzle

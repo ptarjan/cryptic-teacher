@@ -20,6 +20,10 @@ ROOT = Path(os.environ.get("CT_DOWNLOADS") or Path.home() / "cryptic-setter-data
 # archive.org newspaper scans, <item>/<date>_<issue>/, and the filer's ledger
 # (tools/fetch_archive_org_editions.py, tools/file_archive_org_puzzles.py).
 ARCHIVE_ORG = ROOT / "archive_org_editions"
+#: The ledger of the Gale Times pages tools/gale_inbox.py stages there
+#: (file_archive_org_puzzles.GALE): its own, so reading them never waits on
+#: the full pass's hold on <ARCHIVE_ORG>/filed.jsonl.
+GALE_LEDGER = ARCHIVE_ORG / "filed-gale.jsonl"
 # The archive.org filer's reading of each puzzle, for tools/cross_validate.py.
 ARCHIVE_ORG_SOURCE = ROOT / "archiveorg-source"
 # Trove (National Library of Australia) articles, <article id>/, and the

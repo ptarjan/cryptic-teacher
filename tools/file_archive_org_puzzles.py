@@ -159,9 +159,12 @@ CACHE = downloads.ARCHIVE_ORG
 CROPS = Path(os.path.expanduser("~/.cache/archive_org_crops"))
 SOURCE = downloads.ARCHIVE_ORG_SOURCE
 TOOL = "tools/file_archive_org_puzzles.py"
-#: archive.org's Times items, and the Gale page images tools/gale_inbox.py
-#: lays out as editions of the same shape (GaleTimes<year>UKEnglish/<date>).
-ITEM = re.compile(r"(?:NewsUK|GaleTimes)(19\d\d)UKEnglish$")
+#: archive.org's Times items.
+ITEM = re.compile(r"NewsUK(19\d\d)UKEnglish$")
+#: The Gale page images tools/gale_inbox.py lays out as Times editions of the
+#: same shape (GaleTimes<year>UKEnglish/<date>), read as a paper of their own
+#: (GALE).
+GALE_ITEM = re.compile(r"GaleTimes(19\d\d)UKEnglish$")
 #: {edition} is "<item>/<file base name>", quoted: an item holds a whole year
 #: of editions, and archive.org opens one's scan only at the path naming its
 #: file ("May 28 1974, The Times, #59100, UK (en)"); the item alone opens
@@ -1771,7 +1774,8 @@ class Paper:
     the series its puzzles file as."""
 
     def __init__(self, key, series, item, name, expected, third=0, solution_above=False, margin=40,
-                 clues_above=False, shrink=1, slack=None, four=False, also=()):
+                 clues_above=False, shrink=1, slack=None, four=False, also=(), ledger="filed.jsonl",
+                 newest_first=False):
         self.key, self.series, self.item, self.name, self.expected = key, series, item, name, expected
         #: The width of a clue column right of the grid (0: none), whether
         #: the solution grid is printed above its heading, how far left
@@ -1789,6 +1793,10 @@ class Paper:
         #: Papers of the same series in other items, whose editions a run of
         #: this one reads too.
         self.also = also
+        #: Its ledger's name in the cache (run), and whether its never-read
+        #: editions are read latest staged first (pages saved by hand, whose
+        #: saver waits to see them filed) rather than a year at a time.
+        self.ledger, self.newest_first = ledger, newest_first
 
     def headings(self, lines):
         if self.key == "times1930":
@@ -1815,12 +1823,28 @@ GUARDIAN = Paper("guardian", "cryptic", re.compile(r"TheGuardian(19\d\d)UKEnglis
                  margin=15)
 TELEGRAPH = Paper("telegraph", "telegraph", re.compile(r"(?:TheDaily|Sunday)Telegraph(19\d\d)UKEnglish$"),
                   "Telegraph cryptic crossword No {:,}", telegraph_expected_number, margin=15, clues_above=True)
+#: The Times pages Paul saves from Gale (tools/gale_inbox.py), under a ledger
+#: of their own: a run of them, minutes after a page lands, never waits on the
+#: full pass holding filed.jsonl for an hour-long slice, and the full pass's
+#: Times runs never read them.
+GALE = Paper("gale", SERIES, GALE_ITEM, "Times cryptic crossword No {:,}", expected_number,
+             ledger=downloads.GALE_LEDGER.name, newest_first=True)
+#: The archive.org papers (coverage counts each series once, off these).
 PAPERS = {p.key: p for p in (TIMES, FT, GUARDIAN, TELEGRAPH)}
+#: Every --paper a run can read: each ledger's editions.
+FILERS = {**PAPERS, GALE.key: GALE}
 
 
 def paper_of(d):
     """The Paper an edition directory's item belongs to."""
-    return next((p for p in (*PAPERS.values(), TIMES_1930) if p.item.match(Path(d).parent.name)), TIMES)
+    return next((p for p in (*FILERS.values(), TIMES_1930) if p.item.match(Path(d).parent.name)), TIMES)
+
+
+def filer_of(rel):
+    """The FILERS paper whose run reads edition `rel` ("<item>/<edition>"),
+    or None."""
+    item = rel.split("/")[0]
+    return next((p for p in FILERS.values() if any(q.item.match(item) for q in (p, *p.also))), None)
 
 
 def issues_between(a, b):
@@ -2530,24 +2554,27 @@ def progress(line):
 
 
 def run(cache=CACHE, write=True, ledger=None, out=sys.stdout, puzzles=None, limit=None,
-        source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None, editions=None, scan_new=True):
+        source=SOURCE, paper=None, seconds=None, workers=1, wait=False, reread=None, editions=None, scan_new=True,
+        newer=None):
     """File what is new under `cache`: complete puzzles into the corpus, ones
     with a blank clue into `puzzles` when given. At most `limit` editions are
     read, none started after `seconds`, `workers` at once (scan_queue).
     `reread` (a datetime) reads again every edition last read before it;
     `editions` ("ITEM/EDITION" names) reads those again and no other.
     Without `scan_new`, nothing is scanned and only the editions whose read
-    waits on no scan are read (unsettled).
+    waits on no scan are read (unsettled). `newer` (a time.time()) reads
+    only the due editions laid out since then (staged_at).
     Returns the ledger rows; [] when another run holds the ledger and `wait`
     is not set."""
     deadline = None if seconds is None else time.monotonic() + seconds
-    ledger = Path(ledger or cache / "filed.jsonl")
+    paper = paper or TIMES
+    ledger = Path(ledger or cache / paper.ledger)
     with scan_queue.lock(ledger, wait) as mine:
         if not mine:
             print(f"another run holds {ledger.with_suffix('.lock')}: nothing read", file=out)
             return []
-        return _run(cache, write, ledger, out, puzzles, limit, source, paper or TIMES, deadline, workers, reread,
-                    editions, scan_new)
+        return _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread,
+                    editions, scan_new, newer)
 
 
 def inputs_of(files_hash, found, series):
@@ -2645,8 +2672,13 @@ def scan_near(dirs, rels, editions):
     return out
 
 
+def staged_at(d):
+    """When edition dir `d` was laid out: its pages.json's mtime (written last)."""
+    return (d / "pages.json").stat().st_mtime
+
+
 def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, workers, reread, editions=None,
-         scan_new=True):
+         scan_new=True, newer=None):
     from fetch_puzzle import puzzle_path, write_puzzle_file
     known = {}
     if ledger.exists():
@@ -2663,11 +2695,14 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     seen_by = vlm.version() if vlm.reachable() else None
     dirs = edition_dirs(cache, paper)
     rels = {d: f"{d.parent.name}/{d.name}" for d in dirs}
+    # With `newer`, only the editions laid out since then are read, and only
+    # they and the days after them scanned.
+    fresh = None if newer is None else {rels[d] for d in dirs if staged_at(d) >= newer}
     # Every heading first: a puzzle's solution is in a later edition.
     # With `editions`, only those and the days after them (where their
     # solutions print) are scanned afresh; every other edition's last scan
     # stands, stale or not, and one never scanned offers no solution.
-    near = scan_near(dirs, rels, editions) if editions else None
+    near = scan_near(dirs, rels, editions or fresh) if editions or fresh is not None else None
     scans, unscanned = {}, {}
     for d in dirs:
         row = known.get(rels[d])
@@ -2714,14 +2749,15 @@ def _run(cache, write, ledger, out, puzzles, limit, source, paper, deadline, wor
     due = {}
     for d in dirs:
         rel = rels[d]
-        if editions and rel not in editions or d in held_back:
+        if editions and rel not in editions or d in held_back or fresh is not None and rel not in fresh:
             continue
         fh = known[rel]["filesHash"]
         h = inputs_of(fh, scans[rel], paper.series)
         sol_seen = sorted(n for n in (p["number"] for p in scans[rel]["puzzles"]) if n in solutions)
         if editions or due_reason(known[rel], h, sol_seen, seen_by, reread):
             due[d] = (h, sol_seen, fh)
-    queue = scan_queue.order(list(due), {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
+    keys = sorted(due, key=staged_at, reverse=True) if paper.newest_first else list(due)
+    queue = scan_queue.order(keys, {d: known[rels[d]] for d in due}, lambda row: "inputs" not in row)
     if limit is not None:
         queue = queue[:limit]
     fresh = 0
@@ -3002,7 +3038,7 @@ def report(rows):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--cache", type=Path, default=CACHE)
-    ap.add_argument("--ledger", type=Path, help="default <cache>/filed.jsonl")
+    ap.add_argument("--ledger", type=Path, help="default <cache>/filed.jsonl (--paper gale: filed-gale.jsonl)")
     ap.add_argument("--out", type=Path,
                     help="write puzzles with a blank clue here; complete ones still go into puzzles/")
     ap.add_argument("--source", type=Path, default=SOURCE,
@@ -3021,14 +3057,16 @@ def main(argv=None):
                     help="read this edition again, and no other (repeatable)")
     ap.add_argument("--mend-held", nargs="+", metavar="ID",
                     help="blank each clue these held filings give two lights, with no reading")
+    ap.add_argument("--newer-than", type=float, metavar="SECONDS",
+                    help="read only the due editions laid out in the last SECONDS (a Gale page just saved)")
     ap.add_argument("--no-scan", action="store_true",
                     help="scan nothing; read only the due editions whose scans, and those of the days after "
                          "them, stand")
     ap.add_argument("--dry-run", action="store_true", help="count, write nothing")
     ap.add_argument("--show", metavar="ITEM/EDITION", help="one edition's verdicts")
-    ap.add_argument("--paper", choices=sorted(PAPERS), default="times",
+    ap.add_argument("--paper", choices=sorted(FILERS), default="times",
                     help="whose editions to file: the Times (times-N), the FT (ftcryptic-N), the Guardian "
-                         "(cryptic-N) or the Telegraph (telegraph-N)")
+                         "(cryptic-N), the Telegraph (telegraph-N) or the Times pages saved from Gale (gale)")
     ap.add_argument("--check-filed", action="store_true",
                     help="list every puzzle this tool filed with a clue it would refuse now; write nothing")
     ap.add_argument("--match-canberra", action="store_true",
@@ -3064,10 +3102,10 @@ def main(argv=None):
                           f"{(e['clue'] or {}).get('text', '')} ({(e['clue'] or {}).get('enumeration')})")
         return 0
     run(args.cache, write=not args.dry_run, ledger=args.ledger, puzzles=args.out,
-        limit=args.limit, source=args.source, paper=PAPERS[args.paper], seconds=args.seconds,
+        limit=args.limit, source=args.source, paper=FILERS[args.paper], seconds=args.seconds,
         workers=args.workers, wait=args.wait, reread=scan_queue.when(args.reread), editions=args.edition,
-        scan_new=not args.no_scan)
-    if args.paper == "times":
+        scan_new=not args.no_scan, newer=None if args.newer_than is None else time.time() - args.newer_than)
+    if FILERS[args.paper].series == SERIES:
         match_canberra(args.source, write=not args.dry_run)
     return 0
 

@@ -150,7 +150,8 @@ from pathlib import Path
 sys.path.insert(0, "tools")
 import corpus_queue
 LONG = 900
-long_jobs = {corpus_queue.FULL_PASS.name: "started by tools/corpus_queue.py"}
+long_jobs = {corpus_queue.FULL_PASS.name: "started by tools/corpus_queue.py",
+             "gale_read.sh": "started by tools/gale_inbox.py sync (start_reads)"}
 for manifest in sorted(Path("household-plugins").glob("*/plugin.toml")):
     m = tomllib.loads(manifest.read_text())
     if m.get("timeout", 0) and m["timeout"] <= LONG:

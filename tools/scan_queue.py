@@ -188,7 +188,10 @@ def parallel(items, fn, workers=1, deadline=None, init=None, initargs=(), failed
 
 
 #: Each filer's ledger, the one place a source's last read ("readAt") is kept.
-LEDGERS = {"archive": downloads.ARCHIVE_ORG / "filed.jsonl", "trove": downloads.TROVE / "filed.jsonl"}
+#: Each scan filer's ledger; "gale" is the archive filer's for the Gale
+#: Times pages (file_archive_org_puzzles.GALE), its rows the archive filer's.
+LEDGERS = {"archive": downloads.ARCHIVE_ORG / "filed.jsonl", "gale": downloads.GALE_LEDGER,
+           "trove": downloads.TROVE / "filed.jsonl"}
 #: The re-read requests, appended to by annotation runs in any worktree.
 REQUESTS = Path(os.environ.get("SCAN_REREAD_REQUESTS")
                 or os.path.expanduser("~/.cache/scan_reread_requests.jsonl"))
@@ -209,7 +212,7 @@ def sources():
     filer's ledger says it read: an archive.org edition's verdicts, a Trove
     article's id."""
     out = {}
-    for row in _rows(LEDGERS["archive"]):
+    for row in [r for key in ("archive", "gale") if key in LEDGERS for r in _rows(LEDGERS[key])]:
         for v in row.get("verdicts") or ():
             if v.get("id"):
                 out[v["id"]] = ("archive", row["edition"], row)
@@ -296,13 +299,15 @@ def main(argv):
         return 0
     if argv[:1] == ["requested"] and len(argv) >= 2:
         filer, paper = argv[1], (argv[2] if len(argv) > 2 else None)
-        want = None
-        if paper:
-            import file_archive_org_puzzles
-            want = file_archive_org_puzzles.PAPERS[paper].series
-        import provenance
+        def owns(source):
+            # The archive filer's papers by the edition's item, not the
+            # series: the Gale Times pages are a run (and ledger) of their own.
+            if not paper:
+                return True
+            import file_archive_org_puzzles as fa
+            return fa.filer_of(source) is fa.FILERS[paper]
         print("\n".join(sorted({r["source"] for r in all_open_requests() if r["filer"] == filer
-                                and (want is None or provenance.series_of_id(r["id"]) == want)})))
+                                and owns(r["source"])})))
         return 0
     print(__doc__, file=sys.stderr)
     return 2
