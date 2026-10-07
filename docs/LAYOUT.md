@@ -1658,7 +1658,9 @@ tools/test_gale_listener.sh                   is a saved Listener page matched b
                                               suffix, a "Competition No." or a week with no
                                               crossword; is a "Report on Crossword No. N" page
                                               kept as N's solution; are its lists read in
-                                              column order and a clue a line when uncounted, is
+                                              column order, the 1930s lists by their numbers in
+                                              bands across two columns with a heading unread or
+                                              DOWN first, and a clue a line when uncounted, is
                                               each file read once, and does the checklist mark
                                               what is saved or filed and ask for a missing
                                               solution?

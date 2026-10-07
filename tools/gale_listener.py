@@ -276,7 +276,13 @@ def words_only(words):
 
 def page_columns(words):
     """[across lines, down lines], each [(y0, y1, x0, x1, text)], for a page
-    laid out any way: the columns are cut at the gutters, read left to right
+    laid out any way: headed_columns when both headings are read and give
+    two lists, else numbered_columns."""
+    return headed_columns(words) or numbered_columns(words)
+
+
+def headed_columns(words):
+    """[across lines, down lines] cut at the gutters, read left to right
     from the column ACROSS heads, each from the lists' top; the lines before
     DOWN are the across clues, those after it the down. None without both
     headings."""
@@ -313,6 +319,107 @@ def page_columns(words):
     return [lines["ACROSS"], lines["DOWN"]] if lines["ACROSS"] and lines["DOWN"] else None
 
 
+#: A clue number as the 1930s lists print it, "12.": where they line up
+#: is a clue column (a bare "12" may be a grid's or a sentence's).
+OPENS = re.compile(r"^\W{0,2}\d{1,2}[.,:](?![\d.])")
+#: Clue numbers this far apart (in x) open different columns; a column is
+#: one where at least COLUMN_MIN clues open, and a list has at least as many.
+COLUMN_STEP, COLUMN_MIN = 40, 3
+#: A clue line's words: a grid's row of cell numbers has none.
+WORDY = re.compile(r"[A-Za-z]{3}")
+#: A clue's run-on line is indented past its number at least this far;
+#: prose beside the lists is not.
+RUN_ON = 20
+#: A list starting again in a column leaves at least this much space above
+#: it (its heading's, read or not); a "2." closer under a clue is a
+#: misread "32.".
+RESTART = 20
+#: A heading stands alone on its line: no word this near either side
+#: ("8 Down should have had an asterisk" is prose).
+ALONE = 100
+
+
+def column_lefts(words):
+    """The left edges of the page's clue columns: where clue numbers line up."""
+    xs = sorted(w[0] for w in words_only(words) if OPENS.match(w[4]))
+    runs = []
+    for x in xs:
+        if runs and x - runs[-1][-1] <= COLUMN_STEP:
+            runs[-1].append(x)
+        else:
+            runs.append([x])
+    return [min(r) - 15 for r in runs if len(r) >= COLUMN_MIN]
+
+
+def numbered_columns(words):
+    """[across lines, down lines] for the 1930s layout, where a list's
+    small-capital heading often goes unread and a list runs in bands across
+    two columns. Below the first heading read (a word alone on its line),
+    and from the top in the columns right of it, each clue column (where
+    clue numbers line up) is cut top to bottom into runs: a line opening on
+    a number and words is a clue, an indented line just under it runs on,
+    and a heading, a line that is neither, a gap, or a clue numbered 1 or 2
+    after a higher one, below a heading's space, ends the run (a bracketed pair, "4.} 29.}", does not). The
+    runs, in column order, are chained into two lists by their first
+    numbers: a run starting at 1 or 2 opens the second list, and any other
+    run goes on whichever list's last run it follows closest, so a band's
+    right half finds its list and prose beside the lists (a report) fits
+    none. The first list is the one its
+    heading names. None without two lists."""
+    lefts = column_lefts(words)
+    heads = [w for w in words if fa.heading_of(w[4]) and not any(
+        o is not w and abs((o[1] + o[3]) / 2 - (w[1] + w[3]) / 2) < w[3] - w[1]
+        and min(abs(o[0] - w[2]), abs(w[0] - o[2])) < ALONE for o in words)]
+    if not lefts or not heads:
+        return None
+    start = min(heads, key=lambda w: (sum(x <= w[0] for x in lefts), w[1]))
+    runs = []
+    for x0, x1 in zip(lefts, lefts[1:] + [float("inf")]):
+        col = [(w[1], w[3], w[0], w[2], w[4]) for w in words if x0 <= w[0] < x1]
+        run, last_y = [], None
+        for line in fa.merge_rows(col):
+            if x0 <= start[2] and line[1] <= start[3]:
+                # Above the first heading, in its columns or those left of
+                # it: the grid, the preamble, another article.
+                continue
+            m = al.LINE_CLUE.match(line[4])
+            if m and line[2] - x0 < 60 and WORDY.search(m.group(2)) and not fa.heading_of(line[4]):
+                n = int(m.group(1))
+                if run and (line[0] - last_y > fa.GAP / 2 or n <= 2 < run[-1][0] and line[0] - last_y > RESTART):
+                    runs.append(run)
+                    run = []
+                run.append((n, [line]))
+                last_x, last_y = line[2], line[1]
+            elif (run and last_y is not None and line[0] - last_y < fa.GAP / 2 and line[2] > last_x + RUN_ON
+                  and not fa.heading_of(line[4])):
+                run[-1][1].append(line)
+                last_y = line[1]
+            else:
+                if run:
+                    runs.append(run)
+                run, last_y = [], None
+        if run:
+            runs.append(run)
+    lists, starts = [[], []], [[], []]
+    for run in runs:
+        first = run[0][0]
+        if not lists[0]:
+            side = 0
+        elif not lists[1] and first <= 2:
+            side = 1
+        else:
+            fits = [(first - ls[-1], i) for i, ls in enumerate(starts) if ls and first > ls[-1]]
+            if not fits:
+                continue
+            side = min(fits)[1]
+        lists[side] += run
+        starts[side].append(first)
+    if min(map(len, lists)) < COLUMN_MIN:
+        return None
+    lines = [[line for _, ls in lst for line in ls] for lst in lists]
+    return lines if fa.heading_of(start[4]) == "ACROSS" else lines[::-1]
+
+
 def bands(box, located):
     """`box` cut into bands BAND tall at most, each cut between printed
     lines (the located words'), so no line is read in two."""
@@ -330,15 +437,16 @@ def bands(box, located):
 
 def read_page(img, key):
     """(verdict, {light: (text, enumeration, None)} or None) for one page:
-    the clue lists found on the whole page's reading, then read by every
-    ocr_clues.READERS reader band by band and voted on (al.vote)."""
+    the whole page read by every ocr_clues.READERS reader band by band, each
+    reading's lists found by page_columns, and voted on (al.vote). The
+    1930s lists run on above their heading in the next column, so no box
+    under a heading holds them all."""
     verdict = {}
     located = page_words(img, key)
-    across = al.heading_word(located, "ACROSS")
-    if not across:
-        verdict["refused"] = "no ACROSS heading on the page"
+    if not any(fa.heading_of(w[4]) for w in located) and not column_lefts(located):
+        verdict["refused"] = "no clue list on the page"
         return verdict, None
-    box = (max(0, across[0] - 60), max(0, across[1] - 20), img.width, img.height)
+    box = (0, 0, img.width, img.height)
     words = {"page": located}
     for which in ocr_clues.READERS:
         path = OCR_CACHE / f"{key}.{'-'.join(map(str, box))}.{ocr_clues.reader_key(which)}.json"

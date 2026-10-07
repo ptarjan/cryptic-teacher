@@ -1,11 +1,14 @@
 #!/bin/bash
 # Does a Listener page saved into the Gale inbox (tools/gale_listener.py)
 # match its puzzle by the date or number in its name, the Gale citation or
-# its title; are its clue lists read in column order wherever DOWN falls,
-# a clue a line when the lists print no counts; is each file read once (the
+# its title, a report page as the solution of the puzzle it names; are its
+# clue lists read in column order wherever DOWN falls, the 1930s lists by
+# their numbers in bands across two columns when a heading goes unread, a
+# clue a line when the lists print no counts; is each file read once (the
 # ledger is keyed by its hash); and does the checklist list every puzzle of
 # the index, earliest first, marking what is filed or saved, and what the
-# 3-minute tick saw arrive (matched by name or citation, each file once)?
+# 3-minute tick saw arrive (matched by name or citation, each file once),
+# asking for a saved puzzle's missing solution?
 #
 #     bash tools/test_gale_listener.sh
 #
@@ -80,6 +83,32 @@ check("down runs on into the next column", ["1 Animal in a zoo", "2 Composer of 
 parsed, _ = al.parse(al.tidy(al.text_of(cols)))
 check("a clue a line without counts", ["Spanish for aubade", "A river in France"],
       [c["text"] for c in parsed["across"]])
+
+# The 1930s layout: ACROSS centred over two columns under the grid, the
+# across clues running on at the top of the next two columns, DOWN's
+# heading unread, a misread "2." for "32.", and a report's prose after.
+words = (line("12 13 14", 120, 60) + line("ACROSS", 300, 400)
+         + line("1. Spanish for aubade", 100, 430) + line("An old song", 130, 450)
+         + line("9. A river", 100, 480) + line("11. A brook", 100, 510)
+         + line("26. A lake", 400, 430) + line("27. A sea", 400, 460) + line("30. A pond", 400, 490)
+         + line("Some prose of another article", 700, 20)
+         + line("40. A cape", 700, 100) + line("43. A bay", 700, 130)
+         + line("45. A gulf", 1000, 100) + line("46. A sound", 1000, 130)
+         + line("1. Animal in a zoo", 700, 220) + line("3. Bird of prey", 700, 250) + line("4. A fish", 700, 280)
+         + line("13. A tree", 1000, 220) + line("2. A shrub", 1000, 250) + line("38. A flower", 1000, 280)
+         + line("Report on Crossword No. 16", 700, 340) + line("We have to start with an apology", 700, 380)
+         + line("1 Broom and the others", 700, 400))
+cols = g.page_columns(words)
+check("the 1930s across list in band order", ["1", "9", "11", "26", "27", "30", "40", "43", "45", "46"],
+      [l[4].split(".")[0] for l in cols[0] if l[4][0].isdigit()])
+check("its run-on line", "An old song", cols[0][1][4])
+check("the down list without its heading, a misread number kept, no prose",
+      ["1", "3", "4", "13", "2", "38"], [l[4].split(".")[0] for l in cols[1]])
+words = (line("DOWN", 300, 400) + line("1. Knights", 100, 430) + line("2. A glutton", 100, 460)
+         + line("3. That far", 100, 490) + line("ACROSS", 300, 530) + line("1. A hard stone", 100, 560)
+         + line("10. Wherefore", 100, 590) + line("12. Porsena", 100, 620))
+check("DOWN printed first", (["1. A hard stone", "10. Wherefore", "12. Porsena"], ["1. Knights", "2. A glutton", "3. That far"]),
+      tuple([l[4] for l in c] for c in g.page_columns(words)))
 
 # The ledger: each file read once, again when it changes.
 # A blank page has no title to read, and the test asks nothing of Tesseract.
