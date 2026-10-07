@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,56 @@
     "text": "Negative instruction suggesting you must leave US pastry",
     "enumeration": "4"
    },
-   "solution": "DONT"
+   "solution": "DONT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "DONT",
+    "definitions": [
+     {
+      "text": "Negative instruction",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leave",
+      "for": "deletion",
+      "note": "to leave is to walk out, so this word departs from the item named after it"
+     }
+    ],
+    "linkWords": [
+     "suggesting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "text-speak spelling of the pronoun"
+     },
+     {
+      "clueFragment": "US pastry",
+      "gives": "DONUT",
+      "note": "the American spelling of doughnut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DONT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sign in a bakery telling American customers to walk away from the pastries.",
+     "walkthrough": "Take U out of DONUT to leave DONT, read as DON'T.",
+     "definitionFit": "Don't is the standard opening of a prohibition, an order not to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "must"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +99,46 @@
     "text": "Comment on book",
     "enumeration": "6"
    },
-   "solution": "REMARK"
+   "solution": "REMARK",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REMARK",
+    "definitions": [
+     {
+      "text": "Comment",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on",
+      "gives": "RE",
+      "note": "re means concerning or on the subject of"
+     },
+     {
+      "clueFragment": "book",
+      "gives": "MARK",
+      "note": "Mark is a book of the New Testament"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "MARK"
+     ]
+    },
+    "explanation": {
+     "surface": "A reviewer making a remark about a particular book.",
+     "definitionFit": "A remark is a brief spoken or written observation, which is what a comment is."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "book"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +152,64 @@
     "text": "Woman’s exciting role meant getting fruit",
     "enumeration": "10"
    },
-   "solution": "WATERMELON"
+   "solution": "WATERMELON",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade"
+    ],
+    "answer": "WATERMELON",
+    "definitions": [
+     {
+      "text": "fruit",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "exciting",
+      "for": "anagram",
+      "note": "to excite is to stir up, so the letters that follow are stirred into a new order"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Woman’s",
+      "gives": "W",
+      "note": "W is the standard abbreviation for woman; the 's stands for has"
+     },
+     {
+      "clueFragment": "role meant",
+      "gives": "ROLEMEANT",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "W",
+      "ATERMELON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ROLEMEANT",
+       "gives": "ATERMELON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actress has a thrilling part that ends up bringing her some fruit.",
+     "walkthrough": "W for woman leads, then the nine letters of ROLE MEANT are rearranged to finish the melon.",
+     "definitionFit": "A watermelon is a large green-skinned fruit with red juicy flesh, a familiar example of fruit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "exciting"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +223,51 @@
     "text": "Prime Minister once in slow dance",
     "enumeration": "6"
    },
-   "solution": "WILSON"
+   "solution": "WILSON",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WILSON",
+    "definitions": [
+     {
+      "text": "Prime Minister once",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dance",
+      "for": "anagram",
+      "note": "dancers move about the floor, so these letters move about into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in slow",
+      "gives": "INSLOW",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INSLOW",
+       "gives": "WILSON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A former premier taking part in a slow dance.",
+     "walkthrough": "Harold Wilson was Labour Prime Minister of the UK in the 1960s and 1970s.",
+     "definitionFit": "Harold Wilson led the British government twice, so he is a past holder of that office."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "dance"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +281,74 @@
     "text": "Load of fruit 25% off following some brown ends",
     "enumeration": "8"
    },
-   "solution": "ENCUMBER"
+   "solution": "ENCUMBER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "ENCUMBER",
+    "definitions": [
+     {
+      "text": "Load",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ends",
+      "for": "letter_selection",
+      "note": "ends are the final letters, one taken from each of the two words before it"
+     },
+     {
+      "text": "25% off",
+      "for": "deletion",
+      "note": "a quarter is cut away, here the front quarter of the eight-letter word"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "coming after, so the fruit part is placed behind the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "some",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of some"
+     },
+     {
+      "clueFragment": "brown",
+      "gives": "N",
+      "select": "last",
+      "note": "the final letter of brown"
+     },
+     {
+      "clueFragment": "fruit",
+      "gives": "CUCUMBER",
+      "note": "botanically a cucumber is a fruit; it loses its first two of eight letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "N",
+      "CUMBER"
+     ]
+    },
+    "explanation": {
+     "surface": "A greengrocer's load of fruit is marked down by a quarter after some of it browns at the ends.",
+     "walkthrough": "'25% off' looks like a price cut, but it removes CU from CUCUMBER; 'ends' gives E and N, from some and brown.",
+     "definitionFit": "To encumber is to weigh down or burden, the verb sense of load."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ends"
+    }
+   }
   },
   {
    "number": 6,
@@ -103,7 +362,54 @@
     "text": "Switzerland attached to excellent drink",
     "enumeration": "4"
    },
-   "solution": "CHAI"
+   "solution": "CHAI",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CHAI",
+    "definitions": [
+     {
+      "text": "drink",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "attached to",
+      "for": "charade",
+      "note": "attached to means joined on, so one part sits directly against the next"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Switzerland",
+      "gives": "CH",
+      "note": "CH is the international code for Switzerland"
+     },
+     {
+      "clueFragment": "excellent",
+      "gives": "AI",
+      "note": "A1 means first-rate, with the 1 read as the letter I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CH",
+      "AI"
+     ]
+    },
+    "explanation": {
+     "surface": "A Swiss person keen on a superb drink.",
+     "walkthrough": "A1, a common word for first-class, is written AI in crosswords.",
+     "definitionFit": "Chai is spiced tea, a drink popular from India to the coffee shops of the West."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Switzerland"
+    }
+   }
   },
   {
    "number": 7,
@@ -117,7 +423,68 @@
     "text": "Messaging me back, forgetting header’s deleted",
     "enumeration": "8"
    },
-   "solution": "EMAILING"
+   "solution": "EMAILING",
+   "annotation": {
+    "type": [
+     "reversal",
+     "deletion",
+     "charade"
+    ],
+    "answer": "EMAILING",
+    "definitions": [
+     {
+      "text": "Messaging",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "going back means running the short pronoun in the opposite direction"
+     },
+     {
+      "text": "header’s deleted",
+      "for": "deletion",
+      "note": "the header is the top or first letter, and it is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written, then turned around"
+     },
+     {
+      "clueFragment": "forgetting",
+      "gives": "FAILING",
+      "note": "failing to do something is forgetting to do it; it loses its first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EM",
+      "AILING"
+     ],
+     "reversals": [
+      {
+       "from": "ME",
+       "to": "EM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone replying to me by message, but omitting the subject line.",
+     "walkthrough": "'header' suggests an email subject line, but here it just means the first letter of FAILING.",
+     "definitionFit": "Emailing someone is sending them an electronic message, a modern kind of messaging."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "header’s"
+    }
+   }
   },
   {
    "number": 8,
@@ -131,7 +498,58 @@
     "text": "Girl hugging Romeo with force",
     "enumeration": "4"
    },
-   "solution": "ARMY"
+   "solution": "ARMY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ARMY",
+    "definitions": [
+     {
+      "text": "force",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "hugging",
+      "for": "container",
+      "note": "to hug is to wrap your arms around, so one part encloses the other"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Girl",
+      "gives": "AMY",
+      "note": "a girl's name"
+     },
+     {
+      "clueFragment": "Romeo",
+      "gives": "R",
+      "note": "Romeo is R in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "MY"
+     ]
+    },
+    "explanation": {
+     "surface": "A girl embracing her Romeo with some force.",
+     "walkthrough": "Romeo looks like a lover, but it is the radio code word for R.",
+     "definitionFit": "An army is a military force, the body of soldiers a nation fields."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Romeo"
+    }
+   }
   },
   {
    "number": 9,
@@ -145,7 +563,57 @@
     "text": "Love games helping with theatre work",
     "enumeration": "9"
    },
-   "solution": "OPERATION"
+   "solution": "OPERATION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OPERATION",
+    "definitions": [
+     {
+      "text": "theatre work",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Love",
+      "gives": "O",
+      "note": "love is zero in tennis, shaped like O"
+     },
+     {
+      "clueFragment": "games",
+      "gives": "PE",
+      "note": "physical education, school games"
+     },
+     {
+      "clueFragment": "helping",
+      "gives": "RATION",
+      "note": "a ration is a portion or helping"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "PE",
+      "RATION"
+     ]
+    },
+    "explanation": {
+     "surface": "Romance, games and assistance all going into a stage production.",
+     "walkthrough": "'theatre' suggests the stage, but it is the operating theatre of a hospital.",
+     "definitionFit": "Surgeons work in an operating theatre, and an operation is the surgery carried out there."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "theatre"
+    }
+   }
   },
   {
    "number": 10,
@@ -159,7 +627,56 @@
     "text": "Poet’s successful hit in America, not #1 in France",
     "enumeration": "5"
    },
-   "solution": "HOMER"
+   "solution": "HOMER",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "HOMER",
+    "definitions": [
+     {
+      "text": "Poet",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not here means without, so these letters are left out of the longer phrase"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "successful hit in America",
+      "gives": "HOMERUN",
+      "note": "in baseball a home run is the most successful hit"
+     },
+     {
+      "clueFragment": "#1 in France",
+      "gives": "UN",
+      "note": "un is French for one"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HOMER"
+     ]
+    },
+    "explanation": {
+     "surface": "A poet scores a big success in the US but not at number one in France.",
+     "walkthrough": "Remove UN from HOMERUN. Homer is also American slang for a home run, which adds to the misdirection.",
+     "definitionFit": "Homer is the ancient Greek poet credited with the Iliad and the Odyssey."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "#1"
+    }
+   }
   },
   {
    "number": 11,
@@ -173,7 +690,61 @@
     "text": "Suggestion: return online shopping basket?",
     "enumeration": "5"
    },
-   "solution": "TRACE"
+   "solution": "TRACE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRACE",
+    "definitions": [
+     {
+      "text": "Suggestion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "return",
+      "for": "reversal",
+      "note": "to return is to come back, so the letters run the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "online",
+      "gives": "E",
+      "note": "E as in e-commerce means electronic or online"
+     },
+     {
+      "clueFragment": "shopping basket",
+      "gives": "CART",
+      "note": "the online shopping basket is usually called a cart"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRAC",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ECART",
+       "to": "TRACE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tip about sending back something in your online basket.",
+     "walkthrough": "'return' sounds like a shop refund but turns E-CART around.",
+     "definitionFit": "A trace of something is a slight hint or suggestion of it, as in a trace of irony."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "return"
+    }
+   }
   },
   {
    "number": 12,
@@ -187,7 +758,90 @@
     "text": "Foolishness as Archer caught out blocking – it’s spinning today at both ends",
     "enumeration": "9"
    },
-   "solution": "STUPIDITY"
+   "solution": "STUPIDITY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal",
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STUPIDITY",
+    "definitions": [
+     {
+      "text": "Foolishness",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught out",
+      "for": "deletion",
+      "note": "caught is C on a cricket scorecard, and out means it is removed"
+     },
+     {
+      "text": "spinning",
+      "for": "reversal",
+      "note": "spinning turns something around so it faces the other way"
+     },
+     {
+      "text": "blocking",
+      "for": "container",
+      "note": "to block is to sit in the middle and obstruct, so one part goes inside another"
+     },
+     {
+      "text": "at both ends",
+      "for": "letter_selection",
+      "note": "both ends means the first and the last letters only"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "it’s",
+      "gives": "ITS",
+      "note": "taken as written, then turned around"
+     },
+     {
+      "clueFragment": "Archer",
+      "gives": "CUPID",
+      "note": "Cupid, the Roman god of love, is an archer; he loses C for caught"
+     },
+     {
+      "clueFragment": "today",
+      "gives": "TY",
+      "select": "outer",
+      "note": "the first and last letters of today"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "UPID",
+      "I",
+      "TY"
+     ],
+     "reversals": [
+      {
+       "from": "ITS",
+       "to": "STI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A cricket commentator on the folly of bowler Archer being caught while the ball is spinning today.",
+     "walkthrough": "Jofra Archer is an England fast bowler, but the archer here is Cupid, the Roman god of love; caught is C in cricket scoring.",
+     "definitionFit": "Stupidity is the quality of being foolish, the same sense as foolishness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Archer"
+    }
+   }
   },
   {
    "number": 13,
@@ -201,7 +855,64 @@
     "text": "Goon loses face dumping 4951 grand fighter",
     "enumeration": "7"
    },
-   "solution": "PIKEMAN"
+   "solution": "PIKEMAN",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "PIKEMAN",
+    "definitions": [
+     {
+      "text": "fighter",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "loses face",
+      "for": "deletion",
+      "note": "the face is the front, so the first letter is lost"
+     },
+     {
+      "text": "dumping",
+      "for": "deletion",
+      "note": "to dump is to throw away, so these letters are removed from what remains"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Goon",
+      "gives": "SPIKEMILLIGAN",
+      "note": "Spike Milligan was the leading comedian of The Goon Show on BBC radio"
+     },
+     {
+      "clueFragment": "4951",
+      "gives": "ILLI",
+      "note": "49 as IL and 51 as LI in Roman numerals"
+     },
+     {
+      "clueFragment": "grand",
+      "gives": "G",
+      "note": "G is slang for a thousand pounds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIKE",
+      "MAN"
+     ]
+    },
+    "explanation": {
+     "surface": "A clown loses his looks after dumping a big number, then becomes a fighter.",
+     "walkthrough": "Drop S from SPIKE and ILLIG from MILLIGAN; the number is read as Roman 49 then 51, not four thousand-odd.",
+     "definitionFit": "A pikeman was a foot soldier armed with a long pike, a historical fighter."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Goon"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +926,67 @@
     "text": "Copper outside in a dreadful state of terror",
     "enumeration": "5"
    },
-   "solution": "PANIC"
+   "solution": "PANIC",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "PANIC",
+    "definitions": [
+     {
+      "text": "state of terror",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outside",
+      "for": "container",
+      "note": "outside means surrounding, so one part wraps around the other"
+     },
+     {
+      "text": "dreadful",
+      "for": "anagram",
+      "note": "something dreadful is in a terrible state, so the letters are in disarray"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Copper",
+      "gives": "PC",
+      "note": "a copper is a police constable"
+     },
+     {
+      "clueFragment": "in a",
+      "gives": "INA",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ANI",
+      "C"
+     ],
+     "anagrams": [
+      {
+       "fodder": "INA",
+       "gives": "ANI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A policeman standing outside, in a terrible state of fear.",
+     "walkthrough": "'Copper' is the metal but here a British police officer, abbreviated PC.",
+     "definitionFit": "Panic is sudden overwhelming fear, the noun sense of a state of terror."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Copper"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +1000,65 @@
     "text": "Game over getting wife to wear jewellery",
     "enumeration": "7"
    },
-   "solution": "BOWLING"
+   "solution": "BOWLING",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "BOWLING",
+    "definitions": [
+     {
+      "text": "Game",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to wear",
+      "for": "container",
+      "note": "what is worn is wrapped around the wearer, so one part encloses the other"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jewellery",
+      "gives": "BLING",
+      "note": "bling is showy jewellery"
+     },
+     {
+      "clueFragment": "over",
+      "gives": "O",
+      "note": "O is the cricket scorebook abbreviation for an over"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "O",
+      "W",
+      "LING"
+     ]
+    },
+    "explanation": {
+     "surface": "When the match is finished, the wife gets to put on her jewellery.",
+     "walkthrough": "'Game over' reads as a phrase, but over is just O; the game is the definition.",
+     "definitionFit": "Bowling, whether tenpin or on a green, is a game of rolling balls at a target."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 15,
@@ -249,7 +1078,52 @@
      }
     ]
    },
-   "solution": "WRITINGPAD"
+   "solution": "WRITINGPAD",
+   "annotation": {
+    "type": [
+     "anagram",
+     "and_lit"
+    ],
+    "answer": "WRITING PAD",
+    "definitions": [
+     {
+      "text": "‘Rubbish Tip’ drawing, perhaps owned by student",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Rubbish",
+      "for": "anagram",
+      "note": "rubbish is a verb meaning wreck, so the following letters are scrambled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Tip’ drawing",
+      "gives": "TIPDRAWING",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TIPDRAWING",
+       "gives": "WRITINGPAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A student's sketch titled Rubbish Tip, done in their notebook.",
+     "walkthrough": "The whole clue describes where a student might sketch such a drawing, while the first three words supply the anagram.",
+     "definitionFit": "A writing pad is a block of paper sheets that a student would carry for notes or sketches."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Rubbish"
+    }
+   }
   },
   {
    "number": 16,
@@ -263,7 +1137,65 @@
     "text": "Birds moving skywards, for example, taking in view",
     "enumeration": "5"
    },
-   "solution": "GEESE"
+   "solution": "GEESE",
+   "annotation": {
+    "type": [
+     "container",
+     "reversal"
+    ],
+    "answer": "GEESE",
+    "definitions": [
+     {
+      "text": "Birds",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "to take in is to admit inside, so one part encloses the other"
+     },
+     {
+      "text": "moving skywards",
+      "for": "reversal",
+      "note": "in a down entry, moving upwards means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "the abbreviation for exempli gratia"
+     },
+     {
+      "clueFragment": "view",
+      "gives": "SEE",
+      "note": "to see is to view"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "EES",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "ESEEG",
+       "to": "GEESE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Birds flying up into the sky, giving a fine view.",
+     "definitionFit": "Geese are large waterbirds, the plural of goose, so they are birds."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 17,
@@ -277,7 +1209,60 @@
     "text": "Space explorers beginning to launch in a manner of delivery",
     "enumeration": "5"
    },
-   "solution": "NASAL"
+   "solution": "NASAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "NASAL",
+    "definitions": [
+     {
+      "text": "a manner of delivery",
+      "at": 39,
+      "note": "the answer is an adjective describing a manner of speaking"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Space explorers",
+      "gives": "NASA",
+      "note": "the US space agency"
+     },
+     {
+      "clueFragment": "launch",
+      "gives": "L",
+      "select": "first",
+      "note": "the first letter of launch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NASA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Astronauts at the start of a launch, talking in a particular way.",
+     "walkthrough": "'delivery' suggests a rocket payload, but it means a speaker's voice.",
+     "definitionFit": "A nasal voice comes through the nose, so the word names a style of speaking."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "delivery"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1276,79 @@
     "text": "Tablet penned by strange alien found between poles of the moon",
     "enumeration": "8"
    },
-   "solution": "SELENIAN"
+   "solution": "SELENIAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SELENIAN",
+    "definitions": [
+     {
+      "text": "of the moon",
+      "at": 51
+     }
+    ],
+    "indicators": [
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "something strange is out of the ordinary, so the letters are put out of order"
+     },
+     {
+      "text": "penned by",
+      "for": "container",
+      "note": "to be penned is to be shut in an enclosure, so one part goes inside"
+     },
+     {
+      "text": "found between",
+      "for": "container",
+      "note": "lying between two things means they sit either side of it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poles",
+      "gives": "SN",
+      "note": "south and north, the two poles"
+     },
+     {
+      "clueFragment": "Tablet",
+      "gives": "E",
+      "note": "E is slang for an ecstasy tablet"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ALIEN",
+      "note": "the anagram fodder"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EL",
+      "E",
+      "NIA",
+      "N"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALIEN",
+       "gives": "ELNIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A strange alien carries a tablet and is found somewhere between the moon's poles.",
+     "walkthrough": "'poles of the moon' suggests the moon's own poles, but the poles are S and N and the definition is just 'of the moon'.",
+     "definitionFit": "Selenian means relating to the moon, from Selene, the Greek moon goddess."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "poles"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1362,60 @@
     "text": "Don Corleone finally quitting struggle",
     "enumeration": "3"
    },
-   "solution": "WAR"
+   "solution": "WAR",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion"
+    ],
+    "answer": "WAR",
+    "definitions": [
+     {
+      "text": "struggle",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the last letter of the name"
+     },
+     {
+      "text": "quitting",
+      "for": "deletion",
+      "note": "to quit is to leave, so this letter goes from the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Don",
+      "gives": "WEAR",
+      "note": "to don clothes is to wear them"
+     },
+     {
+      "clueFragment": "Corleone",
+      "gives": "E",
+      "select": "last",
+      "note": "the last letter of Corleone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WAR"
+     ]
+    },
+    "explanation": {
+     "surface": "The Godfather, Don Corleone, finally giving up his fight.",
+     "walkthrough": "'Don' looks like the Mafia title but is the verb meaning put on clothes.",
+     "definitionFit": "A war is an armed conflict, a struggle between nations or groups."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Don"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1435,84 @@
      }
     ]
    },
-   "solution": "WALKERON"
+   "solution": "WALKERON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram",
+     "charade"
+    ],
+    "answer": "WALKER-ON",
+    "definitions": [
+     {
+      "text": "Individual with a small part",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not one",
+      "for": "deletion",
+      "note": "not one means without the letter for one, so it is removed"
+     },
+     {
+      "text": "break",
+      "for": "anagram",
+      "note": "to break something is to smash it apart, so these letters are rearranged"
+     },
+     {
+      "text": "shock",
+      "for": "anagram",
+      "note": "a shock jolts things out of place, so the short word is rearranged"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Starmer",
+      "gives": "KEIR",
+      "note": "Keir Starmer, UK Labour leader; one is I, and is dropped"
+     },
+     {
+      "clueFragment": "law",
+      "gives": "LAW",
+      "note": "taken as written into the anagram"
+     },
+     {
+      "clueFragment": "no",
+      "gives": "NO",
+      "note": "taken as written and rearranged"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WALKER",
+      "ON"
+     ],
+     "anagrams": [
+      {
+       "fodder": "KERLAW",
+       "gives": "WALKER"
+      },
+      {
+       "fodder": "NO",
+       "gives": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A minor player notes that Starmer is not someone to break the law, which is no surprise.",
+     "walkthrough": "Keir Starmer is the UK Prime Minister and a former lawyer, hence the joke. KEIR minus I joins LAW to make WALKER; NO shocked gives ON.",
+     "definitionFit": "A walker-on is an actor with a walk-on role, a tiny part with few or no lines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "shock"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1526,43 @@
     "text": "Fire maintained by King Lear",
     "enumeration": "5"
    },
-   "solution": "INGLE"
+   "solution": "INGLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "INGLE",
+    "definitions": [
+     {
+      "text": "Fire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "maintained by",
+      "for": "hidden_word",
+      "note": "maintained here means held within, so the answer is kept inside the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "King Lear",
+      "gives": "INGLE",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "King Lear keeping a fire going.",
+     "walkthrough": "Ingle is an old Scots word for a fire on a hearth, as in inglenook.",
+     "definitionFit": "An ingle is a domestic fire or fireplace, the hearth by which an inglenook sits."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "maintained"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1576,63 @@
     "text": "Rank 1000, 500, 9/2 and 50?",
     "enumeration": "7"
    },
-   "solution": "COLONEL"
+   "solution": "COLONEL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "COLONEL",
+    "definitions": [
+     {
+      "text": "Rank",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "1000",
+      "gives": "CO",
+      "note": "read as 100 then 0: Roman C, then O"
+     },
+     {
+      "clueFragment": "500",
+      "gives": "LO",
+      "note": "read as 50 then 0: Roman L, then O"
+     },
+     {
+      "clueFragment": "9/2",
+      "gives": "NE",
+      "note": "nine divided by two: half of the word nine"
+     },
+     {
+      "clueFragment": "50",
+      "gives": "L",
+      "note": "the Roman numeral for fifty"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CO",
+      "LO",
+      "NE",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A list of numbers, perhaps a ranking of values or odds.",
+     "walkthrough": "The question mark warns that the numbers are not what they seem: 1000 is split into 100 and 0, and 9/2 means half of nine as a word.",
+     "definitionFit": "Colonel is a senior army officer's rank, above lieutenant colonel and below brigadier."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "1000"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1646,69 @@
     "text": "Extremely emotional blackbird flying west a tiny amount?",
     "enumeration": "7"
    },
-   "solution": "DRIBBLE"
+   "solution": "DRIBBLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "reversal"
+    ],
+    "answer": "DRIBBLE",
+    "definitions": [
+     {
+      "text": "a tiny amount",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its first and last letters"
+     },
+     {
+      "text": "flying west",
+      "for": "reversal",
+      "note": "in an across entry, going west means running from right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "emotional",
+      "gives": "EL",
+      "select": "outer",
+      "note": "the first and last letters of emotional"
+     },
+     {
+      "clueFragment": "blackbird",
+      "gives": "BBIRD",
+      "note": "split as black, B as on pencils, plus bird as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DRIB",
+      "B",
+      "LE"
+     ],
+     "reversals": [
+      {
+       "from": "ELBBIRD",
+       "to": "DRIBBLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A very excited blackbird heads west carrying a tiny morsel.",
+     "walkthrough": "'blackbird' is split in two: black gives B and bird stays as it is.",
+     "definitionFit": "A dribble is a small trickle of liquid, so a tiny amount of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "blackbird"
+    }
+   }
   },
   {
    "number": 22,
@@ -381,7 +1722,70 @@
     "text": "Old transport aircraft’s information about fine lift-off",
     "enumeration": "6"
    },
-   "solution": "DAKOTA"
+   "solution": "DAKOTA",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "DAKOTA",
+    "definitions": [
+     {
+      "text": "Old transport aircraft",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the first part wraps around the second"
+     },
+     {
+      "text": "lift-off",
+      "for": "reversal",
+      "note": "in a down entry a lift sends letters upwards, so the short word is read bottom to top"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "information",
+      "gives": "DATA",
+      "note": "data is information"
+     },
+     {
+      "clueFragment": "fine",
+      "gives": "OK",
+      "note": "OK means fine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "KO",
+      "TA"
+     ],
+     "reversals": [
+      {
+       "from": "OK",
+       "to": "KO"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Details about an old cargo plane taking off smoothly.",
+     "walkthrough": "'lift-off' sounds like take-off and fits the plane, but in a down entry it just means a word goes upwards.",
+     "definitionFit": "The Douglas Dakota was the wartime military transport version of the DC-3 airliner."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lift-off"
+    }
+   }
   },
   {
    "number": 23,
@@ -395,7 +1799,55 @@
     "text": "Ignores financial institutions stealing pound sterling",
     "enumeration": "6"
    },
-   "solution": "BLANKS"
+   "solution": "BLANKS",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BLANKS",
+    "definitions": [
+     {
+      "text": "Ignores",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stealing",
+      "for": "container",
+      "note": "a thief takes the loot inside, so these letters are taken into the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "financial institutions",
+      "gives": "BANKS",
+      "note": "banks are financial institutions"
+     },
+     {
+      "clueFragment": "pound sterling",
+      "gives": "L",
+      "note": "L for libra, the sign of the pound"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "L",
+      "ANKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Banks turn a blind eye while pocketing people's money.",
+     "walkthrough": "To blank someone is British slang for deliberately ignoring them.",
+     "definitionFit": "To blank a person is to snub or pointedly ignore them, an informal synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Ignores"
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1861,47 @@
     "text": "Pot only two snooker balls in short holiday",
     "enumeration": "9"
    },
-   "solution": "MINIBREAK"
+   "solution": "MINIBREAK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "MINIBREAK",
+    "definitions": [
+     {
+      "text": "Pot only two snooker balls",
+      "at": 0
+     },
+     {
+      "text": "short holiday",
+      "at": 30
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pot only two snooker balls",
+      "note": "first meaning, read cryptically: a very small scoring run at the table"
+     },
+     {
+      "clueFragment": "short holiday",
+      "note": "second meaning: a brief trip away"
+     }
+    ],
+    "explanation": {
+     "surface": "Playing snooker badly on a short break away.",
+     "walkthrough": "In snooker a break is a run of balls potted in one visit, so two balls is a tiny break.",
+     "definitionFit": "A minibreak is a holiday of a few days, typically a long weekend away."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Pot"
+    }
+   }
   },
   {
    "number": 24,
@@ -423,7 +1915,55 @@
     "text": "Sea island housing 28",
     "enumeration": "4"
    },
-   "solution": "MAIN"
+   "solution": "MAIN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "MAIN",
+    "definitions": [
+     {
+      "text": "Sea",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "housing",
+      "for": "container",
+      "note": "a house holds its occupant inside, so one part goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "island",
+      "gives": "MAN",
+      "note": "the Isle of Man"
+     },
+     {
+      "clueFragment": "28",
+      "gives": "I",
+      "note": "28 across is a country whose international vehicle code is I"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MA",
+      "I",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "An island with homes on it out in the sea.",
+     "walkthrough": "The cross-reference points to the answer at 28, a country identified by its one-letter code.",
+     "definitionFit": "The main is an old poetic word for the open sea, as in the Spanish Main."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "housing"
+    }
+   }
   },
   {
    "number": 25,
@@ -437,7 +1977,73 @@
     "text": "Elitist changing negative answer to positive after raising children",
     "enumeration": "4"
    },
-   "solution": "BOYS"
+   "solution": "BOYS",
+   "annotation": {
+    "type": [
+     "substitution",
+     "reversal"
+    ],
+    "answer": "BOYS",
+    "definitions": [
+     {
+      "text": "children",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "changing",
+      "for": "substitution",
+      "note": "changing one thing to another swaps a letter for a different one"
+     },
+     {
+      "text": "raising",
+      "for": "reversal",
+      "note": "in a down entry raising means reading upwards"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elitist",
+      "gives": "SNOB",
+      "note": "a snob looks down on others"
+     },
+     {
+      "clueFragment": "negative answer",
+      "gives": "N",
+      "note": "N for no"
+     },
+     {
+      "clueFragment": "positive",
+      "gives": "Y",
+      "note": "Y for yes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOYS"
+     ],
+     "reversals": [
+      {
+       "from": "SYOB",
+       "to": "BOYS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A snob changes their no to yes after bringing up children.",
+     "walkthrough": "Swap N for Y in SNOB, then turn the result upside down.",
+     "definitionFit": "Boys are male children, sons or young lads, a subset that stands in for children."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "raising"
+    }
+   }
   },
   {
    "number": 26,
@@ -451,7 +2057,67 @@
     "text": "Pull back to tackle United defender",
     "enumeration": "5"
    },
-   "solution": "GUARD"
+   "solution": "GUARD",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "GUARD",
+    "definitions": [
+     {
+      "text": "defender",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the word is read in the opposite direction"
+     },
+     {
+      "text": "to tackle",
+      "for": "container",
+      "note": "a tackler wraps around the opponent, so one part encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pull",
+      "gives": "DRAG",
+      "note": "to pull is to drag"
+     },
+     {
+      "clueFragment": "United",
+      "gives": "U",
+      "note": "U is the abbreviation for United in team names"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "G",
+      "U",
+      "ARD"
+     ],
+     "reversals": [
+      {
+       "from": "DRAUG",
+       "to": "GUARD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer pulls back to tackle a Manchester United defender.",
+     "walkthrough": "The football picture is a cover: United is just U and the defender is a guard.",
+     "definitionFit": "A guard is someone who defends or protects, such as a sentry or bodyguard."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tackle"
+    }
+   }
   },
   {
    "number": 27,
@@ -465,7 +2131,65 @@
     "text": "Fathers and theologians describe introduction to Apocrypha",
     "enumeration": "4"
    },
-   "solution": "DADS"
+   "solution": "DADS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "DADS",
+    "definitions": [
+     {
+      "text": "Fathers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "describe",
+      "for": "container",
+      "note": "to describe a shape is to draw around it, so one part encircles the other"
+     },
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction comes first, so only the opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "theologians",
+      "gives": "DDS",
+      "note": "Doctors of Divinity, DD for one"
+     },
+     {
+      "clueFragment": "Apocrypha",
+      "gives": "A",
+      "select": "first",
+      "note": "the first letter of Apocrypha"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "A",
+      "DS"
+     ]
+    },
+    "explanation": {
+     "surface": "Church fathers and theologians giving an introduction to the Apocrypha.",
+     "walkthrough": "'describe' here means draw a line around, as in geometry.",
+     "definitionFit": "Dads is the informal word for fathers, the parents rather than the church elders."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fathers"
+    }
+   }
   },
   {
    "number": 28,
@@ -479,7 +2203,56 @@
     "text": "Country’s first chess champion, unknown",
     "enumeration": "5"
    },
-   "solution": "ITALY"
+   "solution": "ITALY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ITALY",
+    "definitions": [
+     {
+      "text": "Country",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "first",
+      "gives": "I",
+      "note": "Roman numeral one, as in first"
+     },
+     {
+      "clueFragment": "chess champion",
+      "gives": "TAL",
+      "note": "Mikhail Tal, world chess champion in 1960"
+     },
+     {
+      "clueFragment": "unknown",
+      "gives": "Y",
+      "note": "an algebraic unknown"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "TAL",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A nation's first chess champion was a nobody.",
+     "walkthrough": "'first' seems to describe the champion, but it gives I separately.",
+     "definitionFit": "Italy is a country in southern Europe, a European nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "first"
+    }
+   }
   },
   {
    "number": 29,
@@ -493,7 +2266,57 @@
     "text": "Was superior to old tea, drunk stewed",
     "enumeration": "9"
    },
-   "solution": "OUTRANKED"
+   "solution": "OUTRANKED",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTRANKED",
+    "definitions": [
+     {
+      "text": "Was superior to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stewed",
+      "for": "anagram",
+      "note": "a stew mixes everything up, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the standard abbreviation for old"
+     },
+     {
+      "clueFragment": "tea, drunk",
+      "gives": "TEADRUNK",
+      "note": "taken as written into the anagram"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "OTEADRUNK",
+       "gives": "OUTRANKED"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone drunk on old stewed tea who claims to be better than everyone.",
+     "walkthrough": "'stewed' fits tea left too long in the pot and also means drunk, but here it signals the anagram.",
+     "definitionFit": "To outrank someone is to hold a higher position, so it means being above them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "stewed"
+    }
+   }
   }
  ]
 }
