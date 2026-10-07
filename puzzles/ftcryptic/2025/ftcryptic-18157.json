@@ -24,6 +24,9 @@
   "date": "2025-09-10",
   "check": "grid rebuilt from the blog's light list (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -37,7 +40,54 @@
     "text": "No 6 in this paper’s fiscal reports etc.",
     "enumeration": "10"
    },
-   "solution": "FINANCIALS"
+   "solution": "FINANCIALS",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "FINANCIALS",
+    "definitions": [
+     {
+      "text": "fiscal reports etc.",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "'No' plus a number means that entry's answer is left out of the paper's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "this paper’s",
+      "gives": "FINANCIALTIMES",
+      "note": "the puzzle appears in the Financial Times"
+     },
+     {
+      "clueFragment": "6",
+      "gives": "TIME",
+      "note": "the answer to 6 across in this grid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FINANCIAL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A cross-reference to the newspaper's own pages of fiscal reports and the like.",
+     "walkthrough": "Take the newspaper's title and remove the word that answers 6 across; what remains is a word for company accounts.",
+     "definitionFit": "Financials is a business noun for a company's published accounts and results."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 1,
@@ -51,7 +101,46 @@
     "text": "Jeer at loud bumpkin",
     "enumeration": "5"
    },
-   "solution": "FLOUT"
+   "solution": "FLOUT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FLOUT",
+    "definitions": [
+     {
+      "text": "Jeer at",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "f, forte, is the musical marking for loud"
+     },
+     {
+      "clueFragment": "bumpkin",
+      "gives": "LOUT",
+      "note": "a lout is a clumsy, uncouth fellow"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "LOUT"
+     ]
+    },
+    "explanation": {
+     "surface": "Mocking a noisy country yokel.",
+     "definitionFit": "To flout once meant to mock or scoff, a sense close to jeering at someone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "loud"
+    }
+   }
   },
   {
    "number": 2,
@@ -65,7 +154,66 @@
     "text": "They want extremely nice ducks to leave India",
     "enumeration": "7"
    },
-   "solution": "NEEDERS"
+   "solution": "NEEDERS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "deletion",
+     "charade"
+    ],
+    "answer": "NEEDERS",
+    "definitions": [
+     {
+      "text": "They want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "extremely",
+      "for": "letter_selection",
+      "note": "the extremes of a word are its two end letters"
+     },
+     {
+      "text": "to leave",
+      "for": "deletion",
+      "note": "something told to leave departs, so that letter drops out of the birds"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nice",
+      "gives": "NE",
+      "select": "outer",
+      "note": "first and last letters of nice"
+     },
+     {
+      "clueFragment": "ducks",
+      "gives": "EIDERS",
+      "note": "eiders are sea ducks"
+     },
+     {
+      "clueFragment": "India",
+      "gives": "I",
+      "note": "India is I in the NATO alphabet"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NE",
+      "EDERS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants some really nice ducks to be removed from India.",
+     "definitionFit": "Needers are people in need, so they want or lack something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "India"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +241,51 @@
      }
     ]
    },
-   "solution": "NOTONYOURNELLY"
+   "solution": "NOTONYOURNELLY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOT ON YOUR NELLY",
+    "definitions": [
+     {
+      "text": "Never",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "anagram",
+      "note": "upset things are knocked over and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lonely non-U Tory",
+      "gives": "LONELYNONUTORY",
+      "note": "fodder taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LONELYNONUTORY",
+       "gives": "NOTONYOURNELLY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An isolated, socially unacceptable Conservative is never upset.",
+     "walkthrough": "Non-U is British slang for not upper-class. The answer is a jokey British phrase for 'certainly not', from rhyming slang (Nelly Duff, puff, breath of life).",
+     "definitionFit": "The British idiom is an emphatic refusal, meaning 'no way' or 'never'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +299,48 @@
     "text": "Unfit sort who could tie up mischievous kid?",
     "enumeration": "8"
    },
-   "solution": "IMPROPER"
+   "solution": "IMPROPER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "IMPROPER",
+    "definitions": [
+     {
+      "text": "Unfit",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mischievous kid",
+      "gives": "IMP",
+      "note": "an imp is a naughty child"
+     },
+     {
+      "clueFragment": "sort who could tie up",
+      "gives": "ROPER",
+      "note": "a roper is someone who ties things with rope"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IMP",
+      "ROPER"
+     ]
+    },
+    "explanation": {
+     "surface": "An unsuitable type who might tie up a naughty child.",
+     "walkthrough": "The roper is shown tying up the imp: the wordplay puts the kid first and the roper after it.",
+     "definitionFit": "Improper means unsuitable or inappropriate, so unfit for the purpose or occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Unfit"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +354,62 @@
     "text": "Fantasy Island’s American set located in Los Angeles",
     "enumeration": "6"
    },
-   "solution": "LAPUTA"
+   "solution": "LAPUTA",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "LAPUTA",
+    "definitions": [
+     {
+      "text": "Fantasy Island",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "located in",
+      "for": "container",
+      "note": "something located in a place sits inside it, so these letters go within the city's abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Los Angeles",
+      "gives": "LA",
+      "note": "standard abbreviation for the city"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A is a common abbreviation for American"
+     },
+     {
+      "clueFragment": "set",
+      "gives": "PUT",
+      "note": "to set something down is to put it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "L",
+      "A",
+      "PUT",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "An American television fantasy island series being filmed on location in Los Angeles.",
+     "walkthrough": "Fantasy Island was an American TV series, which makes the surface plausible.",
+     "definitionFit": "Laputa is the imaginary flying island in Swift's Gulliver's Travels."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Fantasy"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +423,47 @@
     "text": "Herb reportedly in season",
     "enumeration": "4"
    },
-   "solution": "TIME"
+   "solution": "TIME",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "TIME",
+    "definitions": [
+     {
+      "text": "season",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "what is reported is passed on by word of mouth, so the herb's name is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Herb",
+      "gives": "TIME",
+      "soundsLike": "THYME",
+      "note": "thyme is a kitchen herb"
+     }
+    ],
+    "explanation": {
+     "surface": "A herb said to be in season.",
+     "definitionFit": "A season is a period, as in 'in due season', so it can stand for a stretch of time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +477,70 @@
     "text": "Mass start among nudists essentially entering jog",
     "enumeration": "7"
    },
-   "solution": "INTROIT"
+   "solution": "INTROIT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "INTROIT",
+    "definitions": [
+     {
+      "text": "Mass start",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "essentially",
+      "for": "letter_selection",
+      "note": "the essence of a word is its central letter"
+     },
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "a letter entering a word goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "among",
+      "gives": "IN",
+      "note": "in means among or amid"
+     },
+     {
+      "clueFragment": "jog",
+      "gives": "TROT",
+      "note": "to trot is to jog"
+     },
+     {
+      "clueFragment": "nudists",
+      "gives": "I",
+      "select": "middle",
+      "note": "the central letter of nudists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "TRO",
+      "I",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A mass jog among nudists begins.",
+     "walkthrough": "'Mass' looks like a crowd, but it is the church service.",
+     "definitionFit": "The introit is the psalm or antiphon sung at the opening of the Catholic Mass."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Mass"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +554,66 @@
     "text": "Suitable edge absent from trial surrounding senior copper",
     "enumeration": "9"
    },
-   "solution": "EXPEDIENT"
+   "solution": "EXPEDIENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EXPEDIENT",
+    "definitions": [
+     {
+      "text": "Suitable",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "absent from",
+      "for": "deletion",
+      "note": "what is absent from something is missing, so those letters are taken out"
+     },
+     {
+      "text": "surrounding",
+      "for": "container",
+      "note": "surrounding means going round, so the shortened trial wraps the officer"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trial",
+      "gives": "EXPERIMENT",
+      "note": "an experiment is a trial"
+     },
+     {
+      "clueFragment": "edge",
+      "gives": "RIM",
+      "note": "a rim is an edge"
+     },
+     {
+      "clueFragment": "senior copper",
+      "gives": "DI",
+      "note": "Detective Inspector, a senior police rank"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EXPE",
+      "DI",
+      "ENT"
+     ]
+    },
+    "explanation": {
+     "surface": "A sharp edge missing from a court trial involving a high-ranking police officer.",
+     "walkthrough": "Copper is British slang for a police officer.",
+     "definitionFit": "Expedient means convenient and appropriate for a purpose, so suitable in the circumstances."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trial"
+    }
+   }
   },
   {
    "number": 9,
@@ -183,7 +633,80 @@
      }
     ]
    },
-   "solution": "ALBERTMEMORIAL"
+   "solution": "ALBERTMEMORIAL",
+   "annotation": {
+    "type": [
+     "container",
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALBERT MEMORIAL",
+    "definitions": [
+     {
+      "text": "Kensington monument",
+      "at": 49
+     }
+    ],
+    "indicators": [
+     {
+      "text": "outwardly",
+      "for": "container",
+      "note": "being outward means being on the outside, so the watchful word wraps the letter"
+     },
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turned around, the word is read the other way"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "watchful",
+      "gives": "ALERT",
+      "note": "alert means watchful"
+     },
+     {
+      "clueFragment": "British",
+      "gives": "B",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "note",
+      "gives": "MEMO",
+      "note": "a memo is a short note"
+     },
+     {
+      "clueFragment": "retreat",
+      "gives": "LAIR",
+      "note": "a lair is a hideaway"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AL",
+      "B",
+      "ERT",
+      "MEMO",
+      "RIAL"
+     ],
+     "reversals": [
+      {
+       "from": "LAIR",
+       "to": "RIAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Watchful Britons write a note about a retreat near a Kensington monument.",
+     "walkthrough": "The Albert Memorial is the ornate memorial to Prince Albert in Kensington Gardens, London.",
+     "definitionFit": "The memorial to Queen Victoria's consort stands in Kensington Gardens, so it is a Kensington monument."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "retreat"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +726,58 @@
      }
     ]
    },
-   "solution": "ONESTEP"
+   "solution": "ONESTEP",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ONE-STEP",
+    "definitions": [
+     {
+      "text": "dance",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "missing opening",
+      "for": "deletion",
+      "note": "with its opening missing, the word loses its first letter"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Just",
+      "gives": "HONEST",
+      "note": "just and honest both mean fair and upright"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ONEST",
+      "EP"
+     ]
+    },
+    "explanation": {
+     "surface": "Only missing the opening record at a dance.",
+     "walkthrough": "'Just' reads as 'only', but it means fair-minded.",
+     "definitionFit": "The one-step is a ragtime ballroom dance of the early 1900s."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Just"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +791,58 @@
     "text": "Computer plot confused with map",
     "enumeration": "7"
    },
-   "solution": "PALMTOP"
+   "solution": "PALMTOP",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PALMTOP",
+    "definitions": [
+     {
+      "text": "Computer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "confused",
+      "for": "anagram",
+      "note": "confused things are jumbled, so the letters are mixed up"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "plot",
+      "gives": "PLOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "map",
+      "gives": "MAP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PLOTMAP",
+       "gives": "PALMTOP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A computer mixes up a plot of land with a map.",
+     "definitionFit": "A palmtop is a small handheld computer that fits in the palm."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   },
   {
    "number": 12,
@@ -249,7 +874,50 @@
      }
     ]
    },
-   "solution": "THEENDOFTHEROAD"
+   "solution": "THEENDOFTHEROAD",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "THE END OF THE ROAD",
+    "definitions": [
+     {
+      "text": "Abandoning endeavours here",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bending",
+      "for": "anagram",
+      "note": "bending things out of shape changes their form, so the letters are reworked"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hotheaded ref not",
+      "gives": "HOTHEADEDREFNOT",
+      "note": "fodder taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HOTHEADEDREFNOT",
+       "gives": "THEENDOFTHEROAD"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A hot-tempered referee who won't bend the rules makes everyone give up.",
+     "definitionFit": "The idiom names the point where an effort or relationship can go no further, so attempts are given up there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "bending"
+    }
+   }
   },
   {
    "number": 13,
@@ -263,7 +931,43 @@
     "text": "Overlook Jewish festival",
     "enumeration": "8"
    },
-   "solution": "PASSOVER"
+   "solution": "PASSOVER",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PASSOVER",
+    "definitions": [
+     {
+      "text": "Overlook",
+      "at": 0
+     },
+     {
+      "text": "Jewish festival",
+      "at": 9
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Overlook",
+      "note": "first meaning: to ignore or leave out, as two words"
+     },
+     {
+      "clueFragment": "Jewish festival",
+      "note": "second meaning: the spring feast commemorating the Exodus"
+     }
+    ],
+    "explanation": {
+     "surface": "Forgetting about a Jewish holiday.",
+     "definitionFit": "To pass over is to skip or disregard; Passover (Pesach) is the Jewish spring festival marking liberation from Egypt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Overlook"
+    }
+   }
   },
   {
    "number": 13,
@@ -277,7 +981,77 @@
     "text": "Chief prosecutor’s case consisting of commercial irregularities primarily linked to China",
     "enumeration": "9"
    },
-   "solution": "PRINCIPAL"
+   "solution": "PRINCIPAL",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "PRINCIPAL",
+    "definitions": [
+     {
+      "text": "Chief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "case",
+      "for": "letter_selection",
+      "note": "a word's case is its outer shell, the first and last letters"
+     },
+     {
+      "text": "primarily",
+      "for": "letter_selection",
+      "note": "primarily points to the first letter of each word"
+     }
+    ],
+    "linkWords": [
+     "linked to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prosecutor",
+      "gives": "PR",
+      "select": "outer",
+      "note": "the outside letters of prosecutor"
+     },
+     {
+      "clueFragment": "consisting of",
+      "gives": "IN",
+      "note": "in can mean made up of, as in 'paid in cash'"
+     },
+     {
+      "clueFragment": "commercial irregularities",
+      "gives": "CI",
+      "select": "first",
+      "note": "initial letters of the two words"
+     },
+     {
+      "clueFragment": "China",
+      "gives": "PAL",
+      "note": "rhyming slang: china plate means mate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "IN",
+      "CI",
+      "PAL"
+     ]
+    },
+    "explanation": {
+     "surface": "A chief prosecutor's case about commercial fraud with Chinese connections.",
+     "walkthrough": "'China' looks like the country, but it is Cockney rhyming slang for a friend.",
+     "definitionFit": "Principal as an adjective means main or foremost, the same as chief."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "China"
+    }
+   }
   },
   {
    "number": 14,
@@ -291,7 +1065,62 @@
     "text": "Thinker perhaps beginning to unravel in nervous condition",
     "enumeration": "6"
    },
-   "solution": "STATUE"
+   "solution": "STATUE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "STATUE",
+    "definitions": [
+     {
+      "text": "Thinker perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "beginning to",
+      "for": "letter_selection",
+      "note": "the beginning of a word is its first letter"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one letter placed in a word sits inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "nervous condition",
+      "gives": "STATE",
+      "note": "to be in a state is to be agitated"
+     },
+     {
+      "clueFragment": "unravel",
+      "gives": "U",
+      "select": "first",
+      "note": "the first letter of unravel"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STAT",
+      "U",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A thinker starting to come apart in an anxious state.",
+     "walkthrough": "'Thinker' suggests a person; it is Rodin's famous sculpture, hence 'perhaps' marking an example.",
+     "definitionFit": "Rodin's Thinker is a famous bronze sculpture, an example of a statue."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Thinker"
+    }
+   }
   },
   {
    "number": 15,
@@ -311,7 +1140,69 @@
      }
     ]
    },
-   "solution": "TOMTHUMB"
+   "solution": "TOMTHUMB",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "TOM THUMB",
+    "definitions": [
+     {
+      "text": "Folklore hero",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "letter_selection",
+      "note": "what heads a word is its first letter, taken off it"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "these letters are placed inside the vault word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "underground vault",
+      "gives": "TOMB",
+      "note": "a burial vault"
+     },
+     {
+      "clueFragment": "terrible",
+      "gives": "T",
+      "select": "first",
+      "note": "first letter of terrible"
+     },
+     {
+      "clueFragment": "stench",
+      "gives": "HUM",
+      "note": "hum is British slang for a bad smell"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TOM",
+      "T",
+      "HUM",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A legendary hero turning away from a dreadful smell in a crypt.",
+     "walkthrough": "Hum is British slang for a stink. Tom Thumb is the tiny hero of English folk tales.",
+     "definitionFit": "Tom Thumb, a boy no bigger than his father's thumb, is a hero of English folklore."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "heading"
+    }
+   }
   },
   {
    "number": 16,
@@ -325,7 +1216,56 @@
     "text": "Damage cover of inspection panel",
     "enumeration": "6"
    },
-   "solution": "INJURY"
+   "solution": "INJURY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INJURY",
+    "definitions": [
+     {
+      "text": "Damage",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cover of",
+      "for": "letter_selection",
+      "note": "a cover wraps the outside, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "inspection",
+      "gives": "IN",
+      "select": "outer",
+      "note": "first and last letters of inspection"
+     },
+     {
+      "clueFragment": "panel",
+      "gives": "JURY",
+      "note": "a jury is a panel of jurors"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "JURY"
+     ]
+    },
+    "explanation": {
+     "surface": "A damaged cover on an inspection panel.",
+     "walkthrough": "'Panel' reads as a hatch, but it means a group judging a case.",
+     "definitionFit": "Injury is harm or damage, done to a body or to a reputation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "panel"
+    }
+   }
   },
   {
    "number": 17,
@@ -339,7 +1279,74 @@
     "text": "Shrub I initially prune in one month, right",
     "enumeration": "7"
    },
-   "solution": "JUNIPER"
+   "solution": "JUNIPER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "JUNIPER",
+    "definitions": [
+     {
+      "text": "Shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the first letter of the next word"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "these letters are set inside the month"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "month",
+      "gives": "JUNE",
+      "note": "the sixth month"
+     },
+     {
+      "clueFragment": "I",
+      "gives": "I",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "prune",
+      "gives": "P",
+      "select": "first",
+      "note": "first letter of prune"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "JUN",
+      "I",
+      "P",
+      "E",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener first prunes a shrub in a particular month, rightly.",
+     "definitionFit": "Juniper is an evergreen coniferous shrub whose berries flavour gin."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "prune"
+    }
+   }
   },
   {
    "number": 18,
@@ -353,7 +1360,55 @@
     "text": "Field-leading medic enters wooded area",
     "enumeration": "8"
    },
-   "solution": "FOREMOST"
+   "solution": "FOREMOST",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FOREMOST",
+    "definitions": [
+     {
+      "text": "Field-leading",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "something that enters a place goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wooded area",
+      "gives": "FOREST",
+      "note": "a forest is a wooded area"
+     },
+     {
+      "clueFragment": "medic",
+      "gives": "MO",
+      "note": "medical officer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FORE",
+      "MO",
+      "ST"
+     ]
+    },
+    "explanation": {
+     "surface": "A top doctor walks into a wood.",
+     "walkthrough": "'Field-leading' sounds rural, beside the wood, but it means top of the field.",
+     "definitionFit": "Foremost means first in rank or position, at the head of the field."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Field-leading"
+    }
+   }
   },
   {
    "number": 19,
@@ -367,7 +1422,44 @@
     "text": "River one associated with eg Tomsk?",
     "enumeration": "7"
    },
-   "solution": "ORINOCO"
+   "solution": "ORINOCO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ORINOCO",
+    "definitions": [
+     {
+      "text": "River",
+      "at": 0
+     },
+     {
+      "text": "one associated with eg Tomsk?",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "River",
+      "note": "first meaning: the great river of Venezuela"
+     },
+     {
+      "clueFragment": "one associated with eg Tomsk?",
+      "note": "second meaning: one of the Wombles, alongside Tomsk"
+     }
+    ],
+    "explanation": {
+     "surface": "A river linked with the Siberian city of Tomsk.",
+     "walkthrough": "Tomsk reads as the Russian city, but it is a Womble, one of the burrowing creatures of a British children's TV show, all named after places.",
+     "definitionFit": "The Orinoco flows through Venezuela; Orinoco is also the lazy Womble, a companion of Tomsk."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tomsk"
+    }
+   }
   },
   {
    "number": 20,
@@ -381,7 +1473,56 @@
     "text": "Reluctant state Senate evacuated",
     "enumeration": "6"
    },
-   "solution": "AVERSE"
+   "solution": "AVERSE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AVERSE",
+    "definitions": [
+     {
+      "text": "Reluctant",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evacuated",
+      "for": "letter_selection",
+      "note": "an evacuated building is emptied, so only the outer letters are left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver is to state firmly"
+     },
+     {
+      "clueFragment": "Senate",
+      "gives": "SE",
+      "select": "outer",
+      "note": "first and last letters of Senate"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER",
+      "SE"
+     ]
+    },
+    "explanation": {
+     "surface": "A reluctant state's Senate chamber has been cleared.",
+     "walkthrough": "'State' looks like a noun for a political region; it is the verb.",
+     "definitionFit": "Averse means opposed or disinclined, so reluctant to do something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 21,
@@ -395,7 +1536,51 @@
     "text": "Green stone Victorians dressed",
     "enumeration": "15"
    },
-   "solution": "CONSERVATIONIST"
+   "solution": "CONSERVATIONIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONSERVATIONIST",
+    "definitions": [
+     {
+      "text": "Green",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dressed",
+      "for": "anagram",
+      "note": "dressed stone is cut and worked into shape, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stone Victorians",
+      "gives": "STONEVICTORIANS",
+      "note": "fodder taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "STONEVICTORIANS",
+       "gives": "CONSERVATIONIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Green stone that the Victorians cut for their buildings.",
+     "walkthrough": "'Green' reads as a colour of stone; it means environmentally minded.",
+     "definitionFit": "A Green, as a noun, is an environmental campaigner, someone who protects nature."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Green"
+    }
+   }
   },
   {
    "number": 22,
@@ -409,7 +1594,53 @@
     "text": "Sizeable group returned joint projection",
     "enumeration": "5"
    },
-   "solution": "TENON"
+   "solution": "TENON",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "TENON",
+    "definitions": [
+     {
+      "text": "joint projection",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word is read from the end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sizeable group",
+      "gives": "NONET",
+      "note": "a nonet is a group of nine, a fair-sized ensemble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TENON"
+     ],
+     "reversals": [
+      {
+       "from": "NONET",
+       "to": "TENON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A large group came back to a joint projection.",
+     "definitionFit": "In carpentry a tenon is the projecting end of timber that fits into a mortise to form a joint."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 23,
@@ -423,7 +1654,55 @@
     "text": "Appealing to the public, East London Borough rings you",
     "enumeration": "7"
    },
-   "solution": "POPULAR"
+   "solution": "POPULAR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "POPULAR",
+    "definitions": [
+     {
+      "text": "Appealing to the public",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rings",
+      "for": "container",
+      "note": "to ring something is to encircle it, so the district goes round the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "East London Borough",
+      "gives": "POPLAR",
+      "note": "Poplar is a district of East London, once a borough"
+     },
+     {
+      "clueFragment": "you",
+      "gives": "U",
+      "note": "text-speak for you"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "POP",
+      "U",
+      "LAR"
+     ]
+    },
+    "explanation": {
+     "surface": "A popular East London borough telephones you.",
+     "walkthrough": "Poplar is a district by the Docklands in East London, once a borough of its own.",
+     "definitionFit": "Popular means liked by or suited to ordinary people, so appealing to the public."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rings"
+    }
+   }
   },
   {
    "number": 24,
@@ -437,7 +1716,63 @@
     "text": "Conservative and Republican not side-by-side in agreement? One can but imagine such a thing",
     "enumeration": "7"
    },
-   "solution": "UNICORN"
+   "solution": "UNICORN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "UNICORN",
+    "definitions": [
+     {
+      "text": "One can but imagine such a thing",
+      "at": 59
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not side-by-side in",
+      "for": "container",
+      "note": "the two letters go inside, but kept apart rather than together"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "agreement",
+      "gives": "UNION",
+      "note": "union is agreement or harmony"
+     },
+     {
+      "clueFragment": "Conservative",
+      "gives": "C",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "Republican",
+      "gives": "R",
+      "note": "standard abbreviation"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNI",
+      "C",
+      "O",
+      "R",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "Conservatives and Republicans agreeing rather than at odds is something you can only dream of.",
+     "walkthrough": "The two abbreviations go into the agreement word separately, one each side of its O.",
+     "definitionFit": "A unicorn is a mythical beast, a creature that exists only in the imagination."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "agreement"
+    }
+   }
   },
   {
    "number": 25,
@@ -451,7 +1786,60 @@
     "text": "Bird runs into body of water scrubbing tail",
     "enumeration": "4"
    },
-   "solution": "LARK"
+   "solution": "LARK",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "LARK",
+    "definitions": [
+     {
+      "text": "Bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "scrubbing tail",
+      "for": "deletion",
+      "note": "to scrub something is to cancel it, so the final letter is dropped"
+     },
+     {
+      "text": "into",
+      "for": "container",
+      "note": "something put into a word goes inside it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "body of water",
+      "gives": "LAKE",
+      "note": "a lake is a body of water"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LA",
+      "R",
+      "K"
+     ]
+    },
+    "explanation": {
+     "surface": "A bird runs into a lake and cleans its tail.",
+     "definitionFit": "The lark is a songbird, such as the skylark."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "scrubbing"
+    }
+   }
   },
   {
    "number": 26,
@@ -471,7 +1859,51 @@
      }
     ]
    },
-   "solution": "VERBALNOUN"
+   "solution": "VERBALNOUN",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "VERBAL NOUN",
+    "definitions": [
+     {
+      "text": "failing, say",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Anarchic",
+      "for": "anagram",
+      "note": "anarchic means lawless and disordered, so the letters are thrown out of order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "urban novel",
+      "gives": "URBANNOVEL",
+      "note": "fodder taken letter for letter"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "URBANNOVEL",
+       "gives": "VERBALNOUN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A chaotic city novel's shortcoming, for instance.",
+     "walkthrough": "'Failing' reads as a flaw in the book; it is a grammatical example, an -ing form used as a noun.",
+     "definitionFit": "A gerund such as 'failing' is a word formed from a verb that functions as a noun, an example of the term."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "failing"
+    }
+   }
   }
  ]
 }
