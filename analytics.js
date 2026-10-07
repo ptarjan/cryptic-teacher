@@ -1,6 +1,6 @@
-/* Google Analytics, in one file because two pages load it.
+/* Google Analytics, in one file because every page loads it.
 
-   index.html and the 437 pages tools/build_seo_pages.py writes both point at
+   index.html and the pages tools/build_seo_pages.py writes all point at
    this, so there is exactly one measurement id on the site. A second copy of a
    gtag snippet drifts silently: the page with the stale id keeps reporting, to
    a property nobody reads.

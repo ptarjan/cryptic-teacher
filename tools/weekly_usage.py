@@ -12,8 +12,7 @@ Two windows matter, and they fail differently:
             week is already half gone, tonight's puzzles can wait for the reset.
   session — the rolling five-hour window. This one is spent BY THIS SCRIPT, so
             it has to be re-read between puzzles. Checked once at the start it
-            is always near zero and always says yes, which is how run after run
-            got two puzzles annotated and then died on the third.
+            is always near zero and always says yes.
 
 Where the numbers come from: the same place the CLI's /usage screen gets them,
 `GET /api/oauth/usage` with the subscription's OAuth access token. The token
@@ -23,17 +22,14 @@ unlock it. In the bridge container there is no keychain and the credential is a
 file under CLAUDE_CONFIG_DIR, which is why they are cron lines here.
 
 The keychain item is keyed by CLAUDE_CONFIG_DIR, exactly as the CLI keys it:
-"Claude Code-credentials-<first 8 of sha256(configdir)>". Hard-coding the legacy
-un-suffixed name cost seven days (2026-08-01 to 08-07): a file-based /login had
-blanked that entry to an empty accessToken, so every run sent `Bearer ` with no
-token, the API answered 429, and the gate — which used to fail open — waved
-through three annotations a night with no idea the week was 68% spent. An empty
-token is therefore a hard error here rather than a request nobody authorised.
-It fails closed now; see gate() and daily_update.sh.
+"Claude Code-credentials-<first 8 of sha256(configdir)>". The legacy
+un-suffixed name is tried second: a file-based /login can blank an entry to an
+empty accessToken. An empty token is a hard error here rather than a request
+nobody authorised, and the gate fails closed; see gate() and daily_update.sh.
 
 Nothing here refreshes that token — only the CLI does, when it runs. The access
 token lives about eight hours, so on a quiet machine every read after it lapses
-gets HTTP 401 (found 2026-08-07, four hours of hourly alerts). 401 is not an
+gets HTTP 401. 401 is not an
 account problem and not throttling; it means "nobody has run claude lately". The
 job that matters most, the pre-reset backfill, would hit that at 3am on reset
 night and skip the one hour it exists for, so every successful read is cached to
@@ -48,7 +44,7 @@ There is a second, free source of the same number: the bridge samples it every
 five minutes into /data/usage-history.csv, stamped with the window it belongs
 to, needing no credential and making no request. Every fallback here reads the
 newer of that and the cache, per field. It is a container path — where it is
-absent this behaves exactly as it did before, on the cache alone.
+absent this works from the cache alone.
 
 We report the worst window in the requested group, not just the headline one.
 The API returns an all-models weekly limit alongside per-model scoped ones
@@ -119,11 +115,9 @@ class QuotaUnreadable(RuntimeError):
 def _fallback_token():
     """A setup token from CLAUDE_CODE_OAUTH_TOKEN, or "".
 
-    An exported variable is the only place a setup token is read from. There
-    is no file to fall back to: household retired the one it used to mint into
-    its state dir, and treats a file reappearing there as something to delete,
-    because it outranks the CLI's own store at the next boot and would undo a
-    login that succeeded weeks earlier (household config.py, OAUTH_TOKEN_FILE).
+    An exported variable is the only place a setup token is read from; there
+    is no file to fall back to, because household deletes one appearing in its
+    state dir (it would outrank the CLI's own store at the next boot).
     A token carries no whitespace, so stripping it is also the emptiness test.
     """
     return os.environ.get("CLAUDE_CODE_OAUTH_TOKEN", "").strip()
@@ -187,9 +181,7 @@ def _fallback_reading(group):
     Two places say where the window last stood: this script's own cache, written
     whenever a live read succeeds here, and the sampler's file, written every
     five minutes regardless. They are the same number from the same API, so the
-    only question is which is newer, and it is almost always the sampler's — on
-    2026-09-13 a 429 skipped a night of annotation against a 22h-old cache while
-    a reading from forty seconds earlier sat on disk unread.
+    only question is which is newer, and it is almost always the sampler's.
 
     Every row is stamped with the window it belongs to, which is what lets a
     reading be used as a floor: see gate().
@@ -207,8 +199,7 @@ def _fallback_reading(group):
     # Per field, with each field judged by when THAT field was read. The cache
     # writes the percentage and the reset stamp at different moments, so a cache
     # holding a minute-old percentage next to a week-old reset stamp would
-    # otherwise carry the dead stamp in on the live number's timestamp — which
-    # is how a fresh sampled reset lost to a stamp from the previous window.
+    # otherwise carry the dead stamp in on the live number's timestamp.
     def newest(field, when):
         return max((r for r in readings if r[field] is not None), default=None,
                    key=lambda r: datetime.datetime.fromisoformat(r[when]))
@@ -248,8 +239,7 @@ def _keychain_lookup(service):
     except FileNotFoundError:
         # No `security` binary means no keychain to read, which is a reason
         # this lookup failed and not a reason the whole chain should stop.
-        # Raising here skipped every remaining credential source, so a Linux
-        # host reported "cannot read the quota" while holding a live token.
+        # Raising here would skip every remaining credential source.
         return None, None, f"{service}: no keychain on this platform"
     if raw.returncode != 0:
         return None, None, f"{service}: {raw.stderr.strip() or 'not found'}"
@@ -316,8 +306,8 @@ def access_token():
 
 
 # A quota read that is merely throttled has not learned anything about the
-# quota, and the gate fails closed on an unreadable one — so a single 429 costs
-# a night of annotation. Retried instead, honouring Retry-After; the sleeps are
+# quota, and the gate fails closed on an unreadable one — so a 429 is retried,
+# honouring Retry-After; the sleeps are
 # short and bounded because a handful of these run between puzzles.
 RETRY_STATUSES = (429, 500, 502, 503, 504)
 RETRY_BACKOFF_SECONDS = (5, 20)
@@ -346,8 +336,7 @@ def _fetch(req, attempt):
 
 # A sampled row younger than this IS the live reading: the bridge takes it every
 # five minutes from the same endpoint. The endpoint's rate limit is per login,
-# so every request made here is one the sampler loses — a burn polling between
-# puzzles starved it for 30 minutes on 2026-09-28.
+# so every request made here is one the sampler loses.
 SAMPLE_FRESH_SECONDS = 420
 
 
@@ -481,9 +470,7 @@ def gate(limit, group="weekly"):
 
     That asymmetry is the whole point. usage_pct() refuses a cache older than six
     hours because a percentage rots as a *number*; it does not rot as a *floor*.
-    Throwing the floor away is what happened on 2026-08-08: the gate held a
-    10-hour-old 75%, declared itself blind, and waved through an annotation run
-    against a 50% limit that the number it was holding already failed.
+    A 10-hour-old 75% already fails a 50% limit, so it must not be thrown away.
 
     What makes the reading a bound rather than a coincidence is that it belongs
     to the window we are still in, which is why the cached reset stamp is checked
@@ -608,10 +595,9 @@ def self_test():
     """Prove the four gate verdicts without touching the network or the keychain.
 
     A gate is worth exactly what its wrong answers cost, and this one's wrong
-    answers are "spend someone's whole week on crosswords". It has been wrong
-    twice in production and both times the logic looked obviously right in the
-    diff, so the four cases are pinned here and daily_update.sh runs them before
-    it trusts a verdict. No fixtures on disk: the point is that the reasoning
+    answers are "spend someone's whole week on crosswords". The logic can look
+    obviously right in a diff, so the four cases are pinned here and
+    daily_update.sh runs them before it trusts a verdict. No fixtures on disk: the point is that the reasoning
     holds, not that a file parses.
     """
     global _live_usage_pct, _cache_read, _sampled_reading
@@ -639,9 +625,8 @@ def self_test():
         # which outranks it whenever it is fresher — is taken off the table.
         _sampled_reading = lambda _group: None
         # The cases deliberately simulate an unreadable quota, and gate()
-        # narrates that on stderr. Left unmuzzled it writes four "cannot read
-        # weekly usage" lines into .update.log every night — the exact sentence
-        # the real alert tells a human to go and look for. Swallow them.
+        # narrates that on stderr; a real alert tells a human to look for the
+        # same sentence in .update.log, so swallow it.
         sys.stderr = io.StringIO()
         for label, pct, age, until, want in cases:
             def _mock_cache(p=pct, a=age, u=until):
@@ -664,10 +649,7 @@ def self_test():
 def reset_self_test():
     """Prove what resets_in_hours() does when the API stops naming the reset.
 
-    Pinned because the failure it fixes was silent in the worst way: the job
-    alerted a human at 05:05 on reset morning saying it could not tell where the
-    window stood, an hour after the window had visibly turned over in its own
-    cache. The three cases below are the three shapes that exist, and the third
+    The three cases below are the three shapes that exist, and the third
     is the one that must raise rather than guess.
     """
     global _live_resets_at, _cache_read, _sampled_reading
@@ -717,8 +699,8 @@ def reset_self_test():
 def fallback_self_test():
     """Prove a blank keychain plus a present fallback token decides "proceed".
 
-    This is the bug as it shipped: both keychain entries blank, one env var
-    or file holding a real setup token. access_token() must hand that token
+    Both keychain entries blank, the env var holding a real setup token.
+    access_token() must hand that token
     back rather than raise "no usable OAuth token", and gate() must answer
     "spend" for it rather than "unknown" — "cannot see the quota" is not
     "logged out", and a caller that skips real work on that confusion is
@@ -773,10 +755,8 @@ def fallback_self_test():
 def credentials_file_self_test():
     """Prove a host with no keychain still reaches its own credential store.
 
-    `security` does not exist off macOS, and the lookup used to raise
-    FileNotFoundError out of the loop over keychain_services() — so every
-    later credential source was skipped and a machine holding a live token
-    reported that it could not read the quota. The token here must come back
+    `security` does not exist off macOS, and its absence must not stop the
+    credential chain. The token here must come back
     with its real expiry and fallback=False: it is a full credential, not a
     setup token, and the caller is entitled to a percentage from it.
     """
@@ -817,8 +797,7 @@ def retry_self_test():
     """Prove a throttled quota read is retried rather than treated as a verdict.
 
     A 429 says nothing about the quota, but the gate fails closed on a read it
-    cannot make, so one throttled request used to cost a whole night of
-    annotation. Both directions are pinned: a 429 that clears is invisible to
+    cannot make. Both directions are pinned: a 429 that clears is invisible to
     the caller, and a 401 is still fatal on the first try — retrying an
     authentication failure would only spend the same wrong token again.
     """
@@ -880,11 +859,8 @@ def retry_self_test():
 def sampler_self_test():
     """Prove an unreadable API still gets an answer out of the sampler's file.
 
-    On 2026-09-13 a 429 on both retries left the gate holding a 22-hour-old
-    cached reading whose window had since reset, so it returned "unknown" and
-    the night's annotation was skipped — while a reading taken forty seconds
-    earlier sat in /data/usage-history.csv, stamped with the window it belonged
-    to. The four cases pin that the file is read, parsed, and subject to exactly
+    The sampler's /data/usage-history.csv rows are stamped with the window
+    they belong to. The four cases pin that the file is read, parsed, and subject to exactly
     the same rules as the cache: fresh enough is a number, too old is only a
     floor, a window that has turned over is neither, and whichever source is
     newer wins.
@@ -939,9 +915,8 @@ def sampler_self_test():
         # And the reset stamp is chosen by when the STAMP was read, not by when
         # the percentage beside it was. The cache writes the two at different
         # moments, so a minute-old percentage next to a dead stamp from the
-        # previous window used to drag that stamp in ahead of a fresh sampled
-        # one, and resets_in_hours() answered with a rolled-forward guess while
-        # holding the real answer.
+        # previous window must not drag that stamp in ahead of a fresh sampled
+        # one.
         _live_resets_at = unreachable
         SAMPLE_CSV_PATH = os.path.join(tmp, "stamp.csv")
         with open(SAMPLE_CSV_PATH, "w") as fh:

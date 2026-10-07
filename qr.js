@@ -2,9 +2,8 @@
 
    The thing being encoded is the sync code, and the sync code IS the account
    (sync/worker.js): posting it to an image service to be drawn would hand that
-   service every grid on it. So the encoder is ~200 lines of arithmetic rather
-   than an <img src> pointing at somebody else's server, and it ships as a
-   separate file because index.html loads it only where a QR is actually shown.
+   service every grid on it. So the encoder is arithmetic in this file rather
+   than an <img src> pointing at somebody else's server.
 
    Byte mode, error level M, versions 1-10. The payload is one join URL and can
    never grow into a photograph, so the 30-version tail of the standard is
@@ -12,7 +11,8 @@
    instead of silently drawing something a phone cannot read.
 
    Loaded as a plain <script> in the page; the UMD wrapper is what lets
-   tools/qr_check.js run the same file against a reference encoder. */
+   tools/smoke_test.js and tools/qr_check.py read the same file's output back
+   with a real decoder. */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
   else root.CTQR = factory();

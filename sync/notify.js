@@ -86,9 +86,8 @@
      the morning, and does nothing at all to one annotated at half past eleven
      at night.
 
-     Every uncertainty resolves to TRUE — no time chosen, a zone this runtime
-     does not know, a subscription written before any of this existed. Holding
-     is the unusual behaviour and has to be asked for explicitly; the failure
+     Every uncertainty resolves to TRUE — no time chosen, or a zone this
+     runtime does not know. Holding is the unusual behaviour and has to be asked for explicitly; the failure
      mode of guessing wrong the other way is a notification that never comes and
      never explains itself. */
   function due(after, zoneName, now) {

@@ -3,14 +3,13 @@
 
 "Fixed and pushed — reload the iPad" is a lie for the minute or two that GitHub
 Pages takes to build, and the person who reloads inside that window sees the old
-bug and reasonably concludes the fix did not work (Paul, 2026-08-16). Pushing is
+bug and reasonably concludes the fix did not work. Pushing is
 not deploying. Nobody should be told to reload until this exits 0.
 
 Two checks, because either one alone passes on a deploy that has not happened.
 The commit GitHub Pages last built must be the local HEAD, which covers every
 file in the push — a change to markup or to a generated page moves no asset
-stamp, and a stamps-only check called such a deploy live the instant it was
-pushed. And the live index.html must carry the hashes the local asset files
+stamp. And the live index.html must carry the hashes the local asset files
 have right now, which the commit check cannot see: the commit is built, but
 the CDN can still be handing out the previous page, and the stamps are what a
 reload actually picks up.
@@ -51,11 +50,8 @@ def want_stamps():
     rather than parsed out of local index.html.
 
     index.html is stored unstamped (the deploy workflow stamps its own
-    checkout, so what ships is stamped and what is stored is not), and
-    daily_update.sh runs this script against that same working tree. An
-    unstamped index.html holds no expected hashes at all, so reading it made a
-    healthy tree indistinguishable from an undeployed site and failed before
-    either GitHub or the live page was ever looked at.
+    checkout, so what ships is stamped and what is stored is not), so it holds
+    no expected hashes to read.
 
     digest() comes from stamp_assets, which is what writes the live stamps: the
     check and the thing it checks cannot disagree about how a hash is made.
@@ -113,13 +109,12 @@ def built_commit():
 
     Read off the github-pages deployments, not /pages/builds/latest: that legacy
     endpoint only describes Pages' own builder, so a site deployed by a workflow
-    (.github/workflows/pages.yml) leaves it frozen at whatever it built last, and
-    a check against it fails every deploy from then on.
+    (.github/workflows/pages.yml) leaves it frozen.
 
     "" means a deployment is in flight — newer than the last successful one, so
     the caller should keep waiting. Unreachable API, no gh, no auth: return None
-    and let the stamps decide, so a laptop without gh still gets the old check
-    rather than a hard failure.
+    and let the stamps decide, so a laptop without gh still gets the stamp
+    check rather than a hard failure.
     """
     try:
         deployments = _gh(f"repos/{REPO}/deployments"

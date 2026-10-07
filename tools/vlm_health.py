@@ -2,10 +2,9 @@
 """Wake the room when the desktop VLM has been down for DOWN_FOR with no game
 running (the cryptic-vlm-health plugin).
 
-The VLM (vlm_reader.URL, llama-swap on Paul's desktop) was dead from
-2026-10-05 20:06 for about 18 hours and nothing said so: the OCR pass reads
-on without it at worse quality, so an outage looks like a quiet day. Gaming
-is the expected outage (D:\\llm\\game-guard.ps1 stops llama-swap for a game),
+The VLM (vlm_reader.URL, llama-swap on Paul's desktop) can be down with
+nothing saying so: the OCR pass reads on without it at worse quality, so an
+outage looks like a quiet day. Gaming is the expected outage (D:\\llm\\game-guard.ps1 stops llama-swap for a game),
 so minutes with a game running on the desktop do not count, and the clock
 restarts after one. The wake carries the desktop's own account: llama
 processes, the llamaswap-boot and gameguard tasks with their last results,
