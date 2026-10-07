@@ -202,10 +202,10 @@ worker_commit() {   # subject paths...
 # Blank the model answers ($2...) an annotation found no parse for, and commit
 # and push that, so the puzzle is solved again. Non-zero, with the file put
 # back, when any step fails; the puzzle is then parked like any other.
-worker_reopen() {   # id entry...
-  local id="$1" out
-  shift
-  if ! out=$(python3 tools/reopen_answers.py "$id" "$@" 2>&1); then
+worker_reopen() {   # id run-file-copy entry...
+  local id="$1" ran="$2" out
+  shift 2
+  if ! out=$(python3 tools/reopen_answers.py "$id" --ran "$ran" "$@" 2>&1); then
     alert "$WORKER_JOB could not reopen $id's unparsed model answers ($*), so it is parked instead: $(printf '%s' "$out" | tail -3)"
     discard_puzzle "$id"
     return 1
@@ -261,7 +261,7 @@ worker_failed() {   # id what notefile sidfile
 # is the waste this avoids. Only this puzzle is validated: a whole-tree run
 # would fail for a sibling still mid-write.
 worker_finish() {   # id what sidfile log
-  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen loss
+  local id="$1" what="$2" sidfile="$3" log="$4" vlog file reopen ran loss
   vlog="$(mktemp "${TMPDIR:-/tmp}/cryptic-validate.XXXXXX")"
   if ! python3 tools/validate_annotations.py "$id" >"$vlog" 2>&1; then
     file=$(python3 tools/puzzle_paths.py "$id")
@@ -281,11 +281,16 @@ worker_finish() {   # id what sidfile log
     # failure record would hold it until its inputs change, which is never. So
     # those answers are blanked and the puzzle solved again instead, once per
     # entry (tools/reopen_answers.py); read before the discard, off the run's file.
+    # A puzzle solved in this same run has no committed solve, so the run's
+    # answers are copied aside before the discard and reopened from there.
     reopen=$(python3 tools/reopen_answers.py "$id" --which) || reopen=""
     if [ -n "$reopen" ]; then
+      ran="$vlog.ran.json"
+      cp "$(python3 tools/puzzle_paths.py "$id")" "$ran"
       discard_puzzle "$id"
       # shellcheck disable=SC2086 # $reopen is a list of entry ids
-      worker_reopen "$id" $reopen && { rm -f "$vlog"; return 2; }
+      worker_reopen "$id" "$ran" $reopen && { rm -f "$vlog" "$ran"; return 2; }
+      rm -f "$ran"
     fi
     # Parked: the work is thrown away and the puzzle stays unannotated until
     # its inputs change, which only a person mending the clue or answer does,
