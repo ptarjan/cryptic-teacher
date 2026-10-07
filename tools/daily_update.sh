@@ -1407,7 +1407,7 @@ REBUILT
     attempt_push() {
       git fetch -q origin master &&
         { git rebase -q --autostash origin/master || rebuild_generated_conflicts; } &&
-        git push -q origin HEAD:master
+        push_or_raced
     }
     # push_race_retry (tools/nightly_worktree.sh) redoes this whole attempt a
     # few times if a sibling worktree's fetch or push wins the lock on the
