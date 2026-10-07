@@ -38,6 +38,9 @@
   "date": "2025-06-22",
   "check": "bars rebuilt from the blog's numbered answers (unique); every answer written into it with each crossing agreeing"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -51,7 +54,47 @@
     "text": "Waffle is effective in council factory?",
     "enumeration": "8"
    },
-   "solution": "GASWORKS"
+   "solution": "GASWORKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "GASWORKS",
+    "definitions": [
+     {
+      "text": "council factory?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Waffle",
+      "gives": "GAS",
+      "note": "to gas is to talk idly, to waffle"
+     },
+     {
+      "clueFragment": "is effective",
+      "gives": "WORKS",
+      "note": "something that is effective works"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GAS",
+      "WORKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that empty talk passes for action at a local council meeting.",
+     "walkthrough": "The question mark admits the definition is loose: gasworks were often run by town councils.",
+     "definitionFit": "A gasworks is a plant producing town gas, historically owned and operated by municipal authorities, hence a factory of the council."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Waffle"
+    }
+   }
   },
   {
    "number": 1,
@@ -65,7 +108,43 @@
     "text": "Section of raga, this",
     "enumeration": "4"
    },
-   "solution": "GATH"
+   "solution": "GATH",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "and_lit"
+    ],
+    "answer": "GATH",
+    "definitions": [
+     {
+      "text": "Section of raga, this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Section of",
+      "for": "hidden_word",
+      "note": "a section is a piece cut from something longer, so the answer is a run of letters inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "raga, this",
+      "gives": "GATH",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A musician points to one passage in an Indian melody.",
+     "walkthrough": "The whole clue is both the definition and the wordplay: the answer is a section of a raga and also a section of the words that follow.",
+     "definitionFit": "Gath is the second movement of a raga in Indian classical music, where rhythm enters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 2,
@@ -79,7 +158,55 @@
     "text": "Signs of thrush in a path he retraced",
     "enumeration": "7"
    },
-   "solution": "APHTHAE"
+   "solution": "APHTHAE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "APHTHAE",
+    "definitions": [
+     {
+      "text": "Signs of thrush",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retraced",
+      "for": "anagram",
+      "note": "retraced suggests going over the course again in a different way, so the letters are reordered"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a path he",
+      "gives": "APATHHE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "APATHHE",
+       "gives": "APHTHAE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone spots a thrush on a path he walks again.",
+     "walkthrough": "Thrush is the songbird in the surface but the fungal infection in the definition.",
+     "definitionFit": "Aphthae are small white ulcers in the mouth, the characteristic marks of oral thrush infection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "thrush"
+    }
+   }
   },
   {
    "number": 3,
@@ -93,7 +220,66 @@
     "text": "Mouthpieces disturbed pope less inserting jab",
     "enumeration": "12"
    },
-   "solution": "SPOKESPEOPLE"
+   "solution": "SPOKESPEOPLE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SPOKESPEOPLE",
+    "definitions": [
+     {
+      "text": "Mouthpieces",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disturbed",
+      "for": "anagram",
+      "note": "disturbed things are thrown out of order, so these letters are mixed up"
+     },
+     {
+      "text": "inserting",
+      "for": "container",
+      "note": "inserting means putting one thing inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pope less",
+      "gives": "POPELESS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "jab",
+      "gives": "POKE",
+      "note": "a poke is a jab"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "POKE",
+      "SPEOPLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "POPELESS",
+       "gives": "SSPEOPLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Church spokesmen are upset that the pontiff gets a dig.",
+     "definitionFit": "A mouthpiece is someone who speaks on behalf of others, exactly what spokespeople do."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "pope"
+    }
+   }
   },
   {
    "number": 4,
@@ -107,7 +293,44 @@
     "text": "Full ramble by the sound of it",
     "enumeration": "4"
    },
-   "solution": "WAUK"
+   "solution": "WAUK",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "WAUK",
+    "definitions": [
+     {
+      "text": "Full",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it",
+      "for": "homophone",
+      "note": "the word is identified by how it is spoken, not how it is written"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ramble",
+      "gives": "WAUK",
+      "soundsLike": "WALK",
+      "note": "a ramble is a walk"
+     }
+    ],
+    "explanation": {
+     "surface": "A long country walk is described.",
+     "walkthrough": "'Full' looks like an adjective (a full ramble) but is the cloth-making verb.",
+     "definitionFit": "Wauk is a Scots verb meaning to full cloth, thickening it by beating and moistening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Full"
+    }
+   }
   },
   {
    "number": 5,
@@ -121,7 +344,58 @@
     "text": "A dividing shaft in mine-passage",
     "enumeration": "4"
    },
-   "solution": "ROAD"
+   "solution": "ROAD",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ROAD",
+    "definitions": [
+     {
+      "text": "mine-passage",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dividing",
+      "for": "container",
+      "note": "something dividing a word sits in its middle, splitting it in two"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "shaft",
+      "gives": "ROD",
+      "note": "a rod is a shaft"
+     },
+     {
+      "clueFragment": "A",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RO",
+      "A",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A dividing shaft is described within a mine.",
+     "walkthrough": "'shaft' and 'mine' paint one picture, but the shaft is just a rod.",
+     "definitionFit": "In mining, a road is an underground passage or gallery along which miners and coal travel."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "shaft"
+    }
+   }
   },
   {
    "number": 6,
@@ -135,7 +409,67 @@
     "text": "Country with irises etc gleaned wild in South Dakota",
     "enumeration": "9"
    },
-   "solution": "SEDGELAND"
+   "solution": "SEDGELAND",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SEDGELAND",
+    "definitions": [
+     {
+      "text": "Country with irises etc",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wild",
+      "for": "anagram",
+      "note": "wild suggests disorder, so these letters run loose into a new order"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the jumbled letters inside the state abbreviation"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South Dakota",
+      "gives": "SD",
+      "note": "SD is the abbreviation for South Dakota"
+     },
+     {
+      "clueFragment": "gleaned",
+      "gives": "GLEANED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EDGELAN",
+      "D"
+     ],
+     "anagrams": [
+      {
+       "fodder": "GLEANED",
+       "gives": "EDGELAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wild irises are gathered in the plains of South Dakota.",
+     "walkthrough": "'Country' means a stretch of land, as in open country, not a nation.",
+     "definitionFit": "Sedgeland is low-lying ground covered with sedges, rushes and irises, a kind of open country."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Country"
+    }
+   }
   },
   {
    "number": 7,
@@ -149,7 +483,51 @@
     "text": "Seats arranged back to front in marshy spot",
     "enumeration": "4"
    },
-   "solution": "SPEW"
+   "solution": "SPEW",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "SPEW",
+    "definitions": [
+     {
+      "text": "marshy spot",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged back to front",
+      "for": "cycling",
+      "note": "the last letter of the word is taken from the back and placed at the front"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Seats",
+      "gives": "PEWS",
+      "note": "pews are church seats"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PEW"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone sets out chairs facing the wrong way at a soggy site.",
+     "definitionFit": "Spew is a dialect word in Chambers for a wet, boggy patch of ground where water oozes out."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Seats"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +541,70 @@
     "text": "Lassie’s to make trial of grip as I wrestled with late pregnancy condition",
     "enumeration": "12"
    },
-   "solution": "PREECLAMPSIA"
+   "solution": "PREECLAMPSIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "PREECLAMPSIA",
+    "definitions": [
+     {
+      "text": "late pregnancy condition",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrestled",
+      "for": "anagram",
+      "note": "things wrestled are twisted about, so these letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lassie’s to make trial of",
+      "gives": "PREE",
+      "note": "pree is Scots for to taste or try, so a Scottish lassie's word"
+     },
+     {
+      "clueFragment": "grip",
+      "gives": "CLAMP",
+      "note": "a clamp is a grip"
+     },
+     {
+      "clueFragment": "as I",
+      "gives": "ASI",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PREE",
+      "CLAMP",
+      "SIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ASI",
+       "gives": "SIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A Scottish girl tests her grip while wrestling, late in pregnancy.",
+     "walkthrough": "'Lassie' signals a Scots word; Lassie is not the dog.",
+     "definitionFit": "Pre-eclampsia is a dangerous condition of high blood pressure arising in the later stages of pregnancy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Lassie’s"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +618,47 @@
     "text": "First of brood prevailed with no outsiders",
     "enumeration": "5"
    },
-   "solution": "EIGNE"
+   "solution": "EIGNE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "EIGNE",
+    "definitions": [
+     {
+      "text": "First of brood",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with no outsiders",
+      "for": "deletion",
+      "note": "having no outsiders means the letters at either end are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "prevailed",
+      "gives": "REIGNED",
+      "note": "to reign is to prevail, as in 'silence reigned'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EIGNE"
+     ]
+    },
+    "explanation": {
+     "surface": "The firstborn of a family won out, with strangers kept away.",
+     "definitionFit": "Eigne is a legal term meaning eldest or firstborn, from Old French for the elder child."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "outsiders"
+    }
+   }
   },
   {
    "number": 10,
@@ -190,7 +671,67 @@
    "clue": {
     "text": "Refuse container maybe doubles up in dray (8, two words)"
    },
-   "solution": "WASTEBIN"
+   "solution": "WASTEBIN",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "WASTE BIN",
+    "definitions": [
+     {
+      "text": "Refuse container maybe",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "up",
+      "for": "reversal",
+      "note": "in a down clue, up means the word is read from bottom to top"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the turned word inside the vehicle"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "dray",
+      "gives": "WAIN",
+      "note": "a wain is a farm wagon, like a dray"
+     },
+     {
+      "clueFragment": "doubles",
+      "gives": "BETS",
+      "note": "doubles are bets on two races"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "STEB",
+      "IN"
+     ],
+     "reversals": [
+      {
+       "from": "BETS",
+       "to": "STEB"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A refuse lorry's bins fold double on the cart.",
+     "walkthrough": "A double is a bet on two selections, the winnings from the first riding on the second.",
+     "definitionFit": "A waste bin is a receptacle for rubbish, one example of a refuse container, hence 'maybe'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "doubles"
+    }
+   }
   },
   {
    "number": 11,
@@ -204,7 +745,53 @@
     "text": "Dismay to cut from contract",
     "enumeration": "5"
    },
-   "solution": "APPAL"
+   "solution": "APPAL",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "APPAL",
+    "definitions": [
+     {
+      "text": "Dismay",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut from",
+      "for": "deletion",
+      "note": "cutting one thing from another removes it, so the short word is taken out of the longer one"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "contract",
+      "gives": "APPALTO",
+      "note": "an appalto is a contract or monopoly, from Italian"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "APPAL"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is horrified to be dropped from a deal.",
+     "walkthrough": "'to' looks like the infinitive marker joining definition and wordplay, but it is the very pair of letters removed from APPALTO.",
+     "definitionFit": "To appal is to shock or horrify someone, which is a stronger way of saying dismay as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "to"
+    }
+   }
   },
   {
    "number": 12,
@@ -218,7 +805,69 @@
     "text": "Evergreen shrub in a role I distributed round area",
     "enumeration": "7"
    },
-   "solution": "OLEARIA"
+   "solution": "OLEARIA",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "OLEARIA",
+    "definitions": [
+     {
+      "text": "Evergreen shrub",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "distributed",
+      "for": "anagram",
+      "note": "things distributed are spread about, so these letters are scattered into a new order"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says the rearranged letters go around the next piece"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a role I",
+      "gives": "AROLEI",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "area",
+      "gives": "A",
+      "note": "A is the standard abbreviation for area"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLE",
+      "A",
+      "RIA"
+     ],
+     "anagrams": [
+      {
+       "fodder": "AROLEI",
+       "gives": "OLERIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gardener's part is handed out around a planted area.",
+     "definitionFit": "Olearia is the genus of daisy bushes from Australasia, evergreen shrubs with daisy-like flowers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "role"
+    }
+   }
   },
   {
    "number": 13,
@@ -232,7 +881,74 @@
     "text": "One of the Chilognatha like this round Ohio dangles oddly",
     "enumeration": "12"
    },
-   "solution": "THOUSANDLEGS"
+   "solution": "THOUSANDLEGS",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "THOUSANDLEGS",
+    "definitions": [
+     {
+      "text": "One of the Chilognatha",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round says the first word wraps around the abbreviation that follows"
+     },
+     {
+      "text": "oddly",
+      "for": "anagram",
+      "note": "done oddly means done in a strange way, so these letters are put in a strange order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "like this",
+      "gives": "THUS",
+      "note": "thus means in this way, like this"
+     },
+     {
+      "clueFragment": "Ohio",
+      "gives": "O",
+      "note": "O is the US postal-style abbreviation for Ohio"
+     },
+     {
+      "clueFragment": "dangles",
+      "gives": "DANGLES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "O",
+      "US",
+      "ANDLEGS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DANGLES",
+       "gives": "ANDLEGS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A zoologist describes a millipede wriggling its many limbs strangely.",
+     "walkthrough": "The Chilognatha are the main order of millipedes, and thousand-legs is an old name for a millipede.",
+     "definitionFit": "Thousandlegs is a popular name for a millipede, a creature belonging to the zoological order Chilognatha."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Ohio"
+    }
+   }
   },
   {
    "number": 14,
@@ -246,7 +962,67 @@
     "text": "Very old woman on board sled’s awfully bold",
     "enumeration": "9"
    },
-   "solution": "DAUNTLESS"
+   "solution": "DAUNTLESS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "DAUNTLESS",
+    "definitions": [
+     {
+      "text": "bold",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on board",
+      "for": "container",
+      "note": "someone on board is inside the vehicle, so she sits within the other letters"
+     },
+     {
+      "text": "awfully",
+      "for": "anagram",
+      "note": "done awfully means done badly, so these letters are jumbled"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sled’s",
+      "gives": "SLEDS",
+      "note": "the possessive read as plain letters"
+     },
+     {
+      "clueFragment": "Very old woman",
+      "gives": "AUNT",
+      "note": "aunt is an obsolete word for an old woman or gossip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "AUNT",
+      "LESS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SLEDS",
+       "gives": "DLESS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An elderly woman sledging is remarkably brave.",
+     "walkthrough": "'Very old' marks the obsolete sense of aunt, an old woman.",
+     "definitionFit": "Dauntless means fearless and not easily discouraged, so bold in spirit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "board"
+    }
+   }
   },
   {
    "number": 15,
@@ -260,7 +1036,57 @@
     "text": "Too much booze, not good, as part of hop",
     "enumeration": "4"
    },
-   "solution": "BINE"
+   "solution": "BINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "BINE",
+    "definitions": [
+     {
+      "text": "part of hop",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "not",
+      "for": "deletion",
+      "note": "not means without, so the letter for good is dropped"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Too much booze",
+      "gives": "BINGE",
+      "note": "a binge is a bout of heavy drinking"
+     },
+     {
+      "clueFragment": "good",
+      "gives": "G",
+      "note": "G is the abbreviation for good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Overdrinking is bad, beer's hops included.",
+     "walkthrough": "The hop is the plant, not a jump; it ties the surface to beer.",
+     "definitionFit": "A bine is the flexible climbing stem of the hop plant, so one component of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "hop"
+    }
+   }
   },
   {
    "number": 16,
@@ -274,7 +1100,49 @@
     "text": "Former grasp, in that case with shifting of time",
     "enumeration": "4"
    },
-   "solution": "HENT"
+   "solution": "HENT",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "HENT",
+    "definitions": [
+     {
+      "text": "Former grasp",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "with shifting of time",
+      "for": "cycling",
+      "note": "the letter standing for time is moved from its place to the other end"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "in that case",
+      "gives": "THEN",
+      "note": "then means in that case, as in 'then do it'"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "An old hold is described as shifting over time.",
+     "walkthrough": "T is the usual abbreviation for time; it moves from the front of THEN to the back.",
+     "definitionFit": "Hent is an obsolete verb meaning to seize or take hold of, so 'former' marks the archaic use."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "case"
+    }
+   }
   },
   {
    "number": 17,
@@ -288,7 +1156,54 @@
     "text": "Knight to applaud governor installed",
     "enumeration": "9"
    },
-   "solution": "CHEVALIER"
+   "solution": "CHEVALIER",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CHEVALIER",
+    "definitions": [
+     {
+      "text": "Knight",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "installed",
+      "for": "container",
+      "note": "something installed is put in place inside, so the official goes within the applause"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to applaud",
+      "gives": "CHEER",
+      "note": "to cheer someone is to applaud them"
+     },
+     {
+      "clueFragment": "governor",
+      "gives": "VALI",
+      "note": "a vali is a governor of a Turkish province"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHE",
+      "VALI",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A knight is applauded as a governor takes office.",
+     "definitionFit": "A chevalier is a knight or member of an order of chivalry such as the Legion of Honour."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "governor"
+    }
+   }
   },
   {
    "number": 17,
@@ -302,7 +1217,51 @@
     "text": "Part of heat-resistant layer in saloon at speed?",
     "enumeration": "8"
    },
-   "solution": "CARAPACE"
+   "solution": "CARAPACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARAPACE",
+    "definitions": [
+     {
+      "text": "Part of heat-resistant layer",
+      "at": 0,
+      "note": "the answer names the whole tile covering, with 'part of' loosely marking it as one component of a spacecraft's shielding"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "saloon",
+      "gives": "CAR",
+      "note": "a saloon is a type of car"
+     },
+     {
+      "clueFragment": "at speed?",
+      "gives": "APACE",
+      "note": "apace means quickly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CAR",
+      "APACE"
+     ]
+    },
+    "explanation": {
+     "surface": "A fast saloon car is fitted with a heat shield.",
+     "walkthrough": "A saloon is a British car with a separate boot, a sedan.",
+     "definitionFit": "Chambers defines carapace as the heat-resistant tiles covering a spacecraft, borrowing the word for a crab's hard shell."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "saloon"
+    }
+   }
   },
   {
    "number": 18,
@@ -316,7 +1275,57 @@
     "text": "Noisy bird from Australia caught by rifle?",
     "enumeration": "4"
    },
-   "solution": "GUAN"
+   "solution": "GUAN",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "GUAN",
+    "definitions": [
+     {
+      "text": "Noisy bird",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "caught by",
+      "for": "container",
+      "note": "a thing caught by another is held inside it"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rifle?",
+      "gives": "GUN",
+      "note": "a rifle is an example of a gun, hence the question mark"
+     },
+     {
+      "clueFragment": "Australia",
+      "gives": "A",
+      "note": "A is a standard abbreviation for Australia"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GU",
+      "A",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A loud bird from Australia is shot by a hunter.",
+     "definitionFit": "The guan is a large, noisy tropical American bird related to the curassow, known for loud calls."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Australia"
+    }
+   }
   },
   {
    "number": 19,
@@ -330,7 +1339,42 @@
     "text": "Thick and bushy part of leaf, rosy",
     "enumeration": "4"
    },
-   "solution": "AFRO"
+   "solution": "AFRO",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AFRO",
+    "definitions": [
+     {
+      "text": "Thick and bushy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of",
+      "for": "hidden_word",
+      "note": "a part is a piece taken out of something longer, so the letters sit within the next words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "leaf, rosy",
+      "gives": "AFRO",
+      "note": "the letters run across the comma"
+     }
+    ],
+    "explanation": {
+     "surface": "A rosy leaf is thick and bushy.",
+     "definitionFit": "An Afro hairstyle is a thick, rounded, bushy mass of tightly curled hair, so the word serves as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaf"
+    }
+   }
   },
   {
    "number": 20,
@@ -344,7 +1388,43 @@
     "text": "E.g. spoon set",
     "enumeration": "4"
    },
-   "solution": "CLUB"
+   "solution": "CLUB",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CLUB",
+    "definitions": [
+     {
+      "text": "E.g. spoon",
+      "at": 0
+     },
+     {
+      "text": "set",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "E.g. spoon",
+      "note": "first meaning: a spoon is an old wooden golf ..."
+     },
+     {
+      "clueFragment": "set",
+      "note": "second meaning: a group or society of people"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The surface suggests laying cutlery; a spoon is also an old name for a lofted golf club.",
+     "definitionFit": "Club names a golfer's implement, of which the spoon was one, and also a set or association of people."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "spoon"
+    }
+   }
   },
   {
    "number": 21,
@@ -358,7 +1438,76 @@
     "text": "On the way home, mounted on trotting nag, look in",
     "enumeration": "7"
    },
-   "solution": "UPALONG"
+   "solution": "UPALONG",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram",
+     "container"
+    ],
+    "answer": "UPALONG",
+    "definitions": [
+     {
+      "text": "On the way home",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trotting",
+      "for": "anagram",
+      "note": "a trotting horse moves its legs in a jumbled rhythm, so these letters are shuffled about"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the short exclamation inside the jumbled letters"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "mounted",
+      "gives": "UP",
+      "note": "a rider who is mounted is up"
+     },
+     {
+      "clueFragment": "nag",
+      "gives": "NAG",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "look",
+      "gives": "LO",
+      "note": "lo is an old word for look"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "A",
+      "LO",
+      "NG"
+     ],
+     "anagrams": [
+      {
+       "fodder": "NAG",
+       "gives": "ANG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A rider heads home on a trotting horse and calls in on the way.",
+     "definitionFit": "Upalong is a West Country dialect word meaning homewards, or on the way home."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "mounted"
+    }
+   }
   },
   {
    "number": 22,
@@ -372,7 +1521,49 @@
     "text": "Traveller with ordinary recovery of property",
     "enumeration": "4"
    },
-   "solution": "REPO"
+   "solution": "REPO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPO",
+    "definitions": [
+     {
+      "text": "recovery of property",
+      "at": 24
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Traveller",
+      "gives": "REP",
+      "note": "a rep is a commercial traveller, a sales representative"
+     },
+     {
+      "clueFragment": "ordinary",
+      "gives": "O",
+      "note": "O is the abbreviation for ordinary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A salesman arrives with a regular repossession job.",
+     "definitionFit": "Repo is short for repossession, the seizing back of goods or property when payments are not kept up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Traveller"
+    }
+   }
   },
   {
    "number": 23,
@@ -386,7 +1577,48 @@
     "text": "Achievement indicated by poetry by the sound of it?",
     "enumeration": "4"
    },
-   "solution": "FEAT"
+   "solution": "FEAT",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "FEAT",
+    "definitions": [
+     {
+      "text": "Achievement",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "by the sound of it?",
+      "for": "homophone",
+      "note": "the sense comes from the sound of the spoken word, not its spelling"
+     }
+    ],
+    "linkWords": [
+     "indicated by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "poetry",
+      "gives": "FEAT",
+      "soundsLike": "FEET",
+      "note": "poetry is measured in metrical feet"
+     }
+    ],
+    "explanation": {
+     "surface": "An accomplishment is apparently marked by verse.",
+     "walkthrough": "Poetry stands for its units of rhythm, the metrical feet, rather than for any poem.",
+     "definitionFit": "A feat is a notable deed or accomplishment, especially one requiring skill or courage."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "poetry"
+    }
+   }
   },
   {
    "number": 24,
@@ -400,7 +1632,63 @@
     "text": "Mature love in Paris, about the first thereof",
     "enumeration": "5"
    },
-   "solution": "RIPEN"
+   "solution": "RIPEN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "RIPEN",
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the first thereof",
+      "for": "letter_selection",
+      "note": "the first of the city just named means its opening letter only"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so the French word goes round the letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "love in Paris",
+      "gives": "RIEN",
+      "note": "rien is French for nothing, and love means nothing in tennis"
+     },
+     {
+      "clueFragment": "Paris",
+      "gives": "P",
+      "select": "first",
+      "note": "the opening letter of the city"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "P",
+      "EN"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up love affair in Paris is described.",
+     "walkthrough": "Love is zero in tennis, so in French it becomes the word for nothing.",
+     "definitionFit": "To ripen is to mature or become fully developed, as fruit does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "love"
+    }
+   }
   },
   {
    "number": 25,
@@ -414,7 +1702,69 @@
     "text": "Circus star, no good with arms not waving around",
     "enumeration": "9"
    },
-   "solution": "STRONGMAN"
+   "solution": "STRONGMAN",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "STRONGMAN",
+    "definitions": [
+     {
+      "text": "Circus star",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "waving",
+      "for": "anagram",
+      "note": "waving things move to and fro, so these letters are shifted into a new order"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around says the jumbled letters enclose the short abbreviation"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "arms not",
+      "gives": "ARMSNOT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "no good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRO",
+      "NG",
+      "MAN"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ARMSNOT",
+       "gives": "STROMAN"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A circus performer flops because his arms stay still instead of waving.",
+     "definitionFit": "A strongman is a performer who displays feats of strength, a traditional circus attraction."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "arms"
+    }
+   }
   },
   {
    "number": 26,
@@ -428,7 +1778,49 @@
     "text": "Power attached to charged particle, source of nuclear force",
     "enumeration": "4"
    },
-   "solution": "PION"
+   "solution": "PION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PION",
+    "definitions": [
+     {
+      "text": "source of nuclear force",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "attached to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Power",
+      "gives": "P",
+      "note": "P is the symbol for power"
+     },
+     {
+      "clueFragment": "charged particle",
+      "gives": "ION",
+      "note": "an ion is an electrically charged atom or particle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "ION"
+     ]
+    },
+    "explanation": {
+     "surface": "A physicist describes power linked to a charged particle at the heart of the nucleus.",
+     "definitionFit": "The pion, or pi meson, is exchanged between nucleons and accounts for the strong force binding atomic nuclei."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Power"
+    }
+   }
   },
   {
    "number": 27,
@@ -442,7 +1834,60 @@
     "text": "Local flat, more than 50% financial support raised",
     "enumeration": "4"
    },
-   "solution": "FLEW"
+   "solution": "FLEW",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "FLEW",
+    "definitions": [
+     {
+      "text": "Local flat",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "more than 50%",
+      "for": "deletion",
+      "note": "more than half means only the majority of letters is kept and the rest dropped"
+     },
+     {
+      "text": "raised",
+      "for": "reversal",
+      "note": "in a down clue, raised means read upwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "financial support",
+      "gives": "WELFARE",
+      "note": "welfare is state financial support"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FLEW"
+     ],
+     "reversals": [
+      {
+       "from": "WELF",
+       "to": "FLEW"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A local flat gets most of its funding raised.",
+     "walkthrough": "'Local' marks a dialect word, not a pub or neighbourhood.",
+     "definitionFit": "Flew is a dialect word meaning flat or shallow, so a local form of flat as an adjective."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "flat"
+    }
+   }
   },
   {
    "number": 28,
@@ -456,7 +1901,64 @@
     "text": "Druggie turning up to begin again? Not me",
     "enumeration": "4"
    },
-   "solution": "USER"
+   "solution": "USER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "reversal"
+    ],
+    "answer": "USER",
+    "definitions": [
+     {
+      "text": "Druggie",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Not me",
+      "for": "deletion",
+      "note": "not me means the letters of that pronoun are dropped"
+     },
+     {
+      "text": "turning up",
+      "for": "reversal",
+      "note": "in a down clue, turning up means read from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to begin again",
+      "gives": "RESUME",
+      "note": "to resume is to begin again"
+     },
+     {
+      "clueFragment": "me",
+      "gives": "ME",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USER"
+     ],
+     "reversals": [
+      {
+       "from": "RESU",
+       "to": "USER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An addict shows up again wanting to restart, but insists it is not them.",
+     "definitionFit": "A user is someone who takes illegal drugs habitually, so a druggie in slang."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "turning"
+    }
+   }
   },
   {
    "number": 29,
@@ -470,7 +1972,61 @@
     "text": "See duck escape through hedge, giving us the slip",
     "enumeration": "4"
    },
-   "solution": "SMEE"
+   "solution": "SMEE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SMEE",
+    "definitions": [
+     {
+      "text": "duck",
+      "at": 4
+     }
+    ],
+    "indicators": [
+     {
+      "text": "giving",
+      "for": "deletion",
+      "note": "giving someone the slip means escaping them, so the named pair of letters goes"
+     },
+     {
+      "text": "the slip",
+      "for": "deletion",
+      "note": "completes the idiom of escaping from someone, which drops the letters for the pronoun"
+     }
+    ],
+    "linkWords": [
+     "See"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "escape through hedge",
+      "gives": "SMEUSE",
+      "note": "a smeuse is a gap in a hedge used by an animal to escape"
+     },
+     {
+      "clueFragment": "us",
+      "gives": "US",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SME",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A duck darts through a hedge and gives its watchers the slip.",
+     "definitionFit": "Smee is a dialect name for the smew and similar ducks such as the pintail and widgeon."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "us"
+    }
+   }
   },
   {
    "number": 30,
@@ -484,7 +2040,68 @@
     "text": "Orchard’s beauty, boor’s deprivation a Brit admits",
     "enumeration": "12"
    },
-   "solution": "APPLEBLOSSOM"
+   "solution": "APPLEBLOSSOM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "APPLEBLOSSOM",
+    "definitions": [
+     {
+      "text": "Orchard’s beauty",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admits",
+      "for": "container",
+      "note": "to admit is to let in, so the Brit takes the other pieces inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Brit",
+      "gives": "POM",
+      "note": "pom is Australian slang for a Briton"
+     },
+     {
+      "clueFragment": "boor’s",
+      "gives": "PLEB",
+      "note": "a pleb is a coarse, common person"
+     },
+     {
+      "clueFragment": "deprivation",
+      "gives": "LOSS",
+      "note": "deprivation is loss"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "P",
+      "PLEB",
+      "LOSS",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "A British visitor concedes that a lout has been robbed of the orchard's loveliest sight.",
+     "walkthrough": "'boor's deprivation' is read as two words run together, the boor and his loss, rather than as a possessive; pom is Australian slang for a Briton.",
+     "definitionFit": "Apple blossom is the pink and white flowering of apple trees, the spring glory of any orchard."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "deprivation"
+    }
+   }
   },
   {
    "number": 31,
@@ -498,7 +2115,66 @@
     "text": "The church is installing form of steel piano pedal",
     "enumeration": "7"
    },
-   "solution": "CELESTE"
+   "solution": "CELESTE",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "CELESTE",
+    "definitions": [
+     {
+      "text": "piano pedal",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is installing",
+      "for": "container",
+      "note": "installing something means putting it inside, so the church abbreviation goes around it"
+     },
+     {
+      "text": "form of",
+      "for": "anagram",
+      "note": "a form of something is a version of it reshaped, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "The church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "steel",
+      "gives": "STEEL",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ELEST",
+      "E"
+     ],
+     "anagrams": [
+      {
+       "fodder": "STEEL",
+       "gives": "ELEST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A church is fitting a steel component to its piano.",
+     "definitionFit": "A celeste is a soft pedal on a piano that muffles the tone by interposing felt between hammers and strings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "steel"
+    }
+   }
   },
   {
    "number": 32,
@@ -512,7 +2188,57 @@
     "text": "Late-flowering rot excised in net",
     "enumeration": "5"
    },
-   "solution": "SEINE"
+   "solution": "SEINE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "SEINE",
+    "definitions": [
+     {
+      "text": "net",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "excised",
+      "for": "deletion",
+      "note": "excised means cut out, so these letters are removed from the longer word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Late-flowering",
+      "gives": "SEROTINE",
+      "note": "serotine means flowering or appearing late in the season"
+     },
+     {
+      "clueFragment": "rot",
+      "gives": "ROT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SE",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "Decay is cut out of a late-blooming plant caught in a net.",
+     "walkthrough": "'rot' looks like part of the gardening picture, but it is the three letters removed from SEROTINE.",
+     "definitionFit": "A seine is a large fishing net that hangs vertically with floats above and weights below."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "rot"
+    }
+   }
   },
   {
    "number": 33,
@@ -526,7 +2252,55 @@
     "text": "Sink to invigorate runs away",
     "enumeration": "4"
    },
-   "solution": "ENEW"
+   "solution": "ENEW",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENEW",
+    "definitions": [
+     {
+      "text": "Sink",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "away",
+      "for": "deletion",
+      "note": "something that runs away leaves, so that letter goes from the word"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "invigorate",
+      "gives": "RENEW",
+      "note": "to renew is to restore vigour"
+     },
+     {
+      "clueFragment": "runs",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for runs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENEW"
+     ]
+    },
+    "explanation": {
+     "surface": "A tonic is poured down the sink and the runs disappear.",
+     "definitionFit": "Enew is a Spenserian falconry word meaning to plunge or drive a bird into water, so to make it sink."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sink"
+    }
+   }
   },
   {
    "number": 34,
@@ -540,7 +2314,54 @@
     "text": "Draining jug held by pundit",
     "enumeration": "8"
    },
-   "solution": "SEWERAGE"
+   "solution": "SEWERAGE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SEWERAGE",
+    "definitions": [
+     {
+      "text": "Draining",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is enclosed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pundit",
+      "gives": "SAGE",
+      "note": "a sage is a wise, learned person"
+     },
+     {
+      "clueFragment": "jug",
+      "gives": "EWER",
+      "note": "a ewer is a large water jug"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "EWER",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "An expert pours out a jug and holds it empty.",
+     "definitionFit": "Sewerage is the system of draining waste water and sewage away through sewers, so drainage as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "jug"
+    }
+   }
   }
  ]
 }
