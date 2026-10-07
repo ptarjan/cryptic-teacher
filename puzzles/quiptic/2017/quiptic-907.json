@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,58 @@
     "text": "City's first game is rubbish",
     "enumeration": "6"
    },
-   "solution": "CRUMMY"
+   "solution": "CRUMMY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CRUMMY",
+    "definitions": [
+     {
+      "text": "rubbish",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "first",
+      "for": "letter_selection",
+      "note": "first tells us to keep only the opening letter of the word before it"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "City's",
+      "gives": "C",
+      "select": "first",
+      "note": "the opening letter of City"
+     },
+     {
+      "clueFragment": "game",
+      "gives": "RUMMY",
+      "note": "rummy is a card game"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "RUMMY"
+     ]
+    },
+    "explanation": {
+     "surface": "A football fan complains that Manchester City's opening match was dreadful.",
+     "definitionFit": "Crummy is informal slang for poor or shoddy, so as an adjective it matches calling something rubbish."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "game"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +101,42 @@
     "text": "Staple food of Africa's savanna",
     "enumeration": "7"
    },
-   "solution": "CASSAVA"
+   "solution": "CASSAVA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "CASSAVA",
+    "definitions": [
+     {
+      "text": "Staple food",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means made out of, so the letters are drawn from the run of words that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Africa's savanna",
+      "gives": "CASSAVA",
+      "note": "the letters run across the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A geography note about what people eat on the African grasslands.",
+     "definitionFit": "Cassava is a starchy root crop eaten daily across much of tropical Africa and South America, a basic dietary mainstay."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "of"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +150,48 @@
     "text": "Savoury taste starts to upset me and my intestines",
     "enumeration": "5"
    },
-   "solution": "UMAMI"
+   "solution": "UMAMI",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "UMAMI",
+    "definitions": [
+     {
+      "text": "Savoury taste",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "starts to",
+      "for": "letter_selection",
+      "note": "starts points to the opening letter of each word in the phrase that follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upset me and my intestines",
+      "gives": "UMAMI",
+      "select": "first",
+      "note": "initial letters of the five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UMAMI"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone complains that savoury food gives them an upset stomach.",
+     "definitionFit": "Umami is the Japanese-named fifth basic flavour, the meaty glutamate richness found in broth, cheese and soy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +205,67 @@
     "text": "State of bantam's bottom, incubating elderly eggs",
     "enumeration": "7"
    },
-   "solution": "MOLDOVA"
+   "solution": "MOLDOVA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "MOLDOVA",
+    "definitions": [
+     {
+      "text": "State",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bottom",
+      "for": "letter_selection",
+      "note": "the bottom of a word is its final letter, the lowest one in a down entry"
+     }
+    ],
+    "linkWords": [
+     "of",
+     "incubating"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bantam's",
+      "gives": "M",
+      "select": "last",
+      "note": "the final letter of bantam"
+     },
+     {
+      "clueFragment": "elderly",
+      "gives": "OLD",
+      "note": "elderly means old"
+     },
+     {
+      "clueFragment": "eggs",
+      "gives": "OVA",
+      "note": "ova is the Latin plural for eggs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "OLD",
+      "OVA"
+     ]
+    },
+    "explanation": {
+     "surface": "A poultry keeper describes a little hen sitting on stale eggs.",
+     "walkthrough": "'State' looks like 'condition' of the hen, but it means a country: Moldova sits between Romania and Ukraine.",
+     "definitionFit": "Moldova is an independent European country, and a state is a sovereign nation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "State"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +279,57 @@
     "text": "Am I allowed to kick stuffing out of nice dog?",
     "enumeration": "6"
    },
-   "solution": "CANINE"
+   "solution": "CANINE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "CANINE",
+    "definitions": [
+     {
+      "text": "dog?",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "kick stuffing out of",
+      "for": "letter_selection",
+      "note": "removing the stuffing empties a word of its insides, leaving only its outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Am I allowed",
+      "gives": "CANI",
+      "note": "asking permission: can I?"
+     },
+     {
+      "clueFragment": "nice",
+      "gives": "NE",
+      "select": "outer",
+      "note": "the first and last letters of nice"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CANI",
+      "NE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks permission to boot the filling out of a pleasant dog toy.",
+     "walkthrough": "The question mark marks canine as a definition by example: a dog is one kind of canine.",
+     "definitionFit": "A canine is any member of the dog family, so a dog is an instance of that animal group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "stuffing"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +343,69 @@
     "text": "Reference article on retired English pedestrian",
     "enumeration": "6"
    },
-   "solution": "ALLUDE"
+   "solution": "ALLUDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ALLUDE",
+    "definitions": [
+     {
+      "text": "Reference",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "retired",
+      "for": "reversal",
+      "note": "to retire is to go back, so the following letters are read in the opposite direction"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "article",
+      "gives": "A",
+      "note": "the indefinite article"
+     },
+     {
+      "clueFragment": "English",
+      "gives": "E",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "pedestrian",
+      "gives": "DULL",
+      "note": "pedestrian as an adjective means dull, uninspired"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LLUDE"
+     ],
+     "reversals": [
+      {
+       "from": "EDULL",
+       "to": "LLUDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A newspaper item about a retired Englishman out walking.",
+     "walkthrough": "'Pedestrian' reads as a person on foot but here is the adjective meaning plodding.",
+     "definitionFit": "To allude is to mention or hint at something indirectly, so it serves as the verb reference."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pedestrian"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +419,69 @@
     "text": "What you do in pub, close to despondent bankrupt",
     "enumeration": "9"
    },
-   "solution": "INSOLVENT"
+   "solution": "INSOLVENT",
+   "annotation": {
+    "type": [
+     "container",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INSOLVENT",
+    "definitions": [
+     {
+      "text": "bankrupt",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places one item within the word for a tavern that follows"
+     },
+     {
+      "text": "close to",
+      "for": "letter_selection",
+      "note": "the close of a word is its end, so only its final letter is wanted"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "INN",
+      "note": "an inn is a pub"
+     },
+     {
+      "clueFragment": "What you do",
+      "gives": "SOLVE",
+      "note": "what you do to a crossword clue"
+     },
+     {
+      "clueFragment": "despondent",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of despondent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "SOLVE",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A gloomy, broke drinker sits in a pub.",
+     "walkthrough": "'What you do' addresses the solver: you solve clues like this one.",
+     "definitionFit": "An insolvent person or firm cannot pay debts, which is the legal state of being bankrupt."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "do"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +501,67 @@
      }
     ]
    },
-   "solution": "EUROMPS"
+   "solution": "EUROMPS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "EURO-MPS",
+    "definitions": [
+     {
+      "text": "Farage et al",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down entry upset means turned upside down, so the letters run in the opposite order"
+     },
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means covering on both sides, wrapping round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "take legal action",
+      "gives": "SUE",
+      "note": "to sue is to take someone to court"
+     },
+     {
+      "clueFragment": "caper",
+      "gives": "ROMP",
+      "note": "a caper or romp is a lively frolic"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EU",
+      "ROMP",
+      "S"
+     ],
+     "reversals": [
+      {
+       "from": "SUE",
+       "to": "EUS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A satirical item about Nigel Farage and friends going to court over some escapade.",
+     "walkthrough": "Nigel Farage, a Brexit campaigner, sat in the European Parliament for years, so he and colleagues were MEPs.",
+     "definitionFit": "Euro-MPs are members of the European Parliament, and Farage was one, so et al gives the group."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "caper"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +575,52 @@
     "text": "Mistress perhaps toying with her chocolates",
     "enumeration": "13"
    },
-   "solution": "SCHOOLTEACHER"
+   "solution": "SCHOOLTEACHER",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SCHOOLTEACHER",
+    "definitions": [
+     {
+      "text": "Mistress perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "toying with",
+      "for": "anagram",
+      "note": "toying with something means playing about with it, so the letters get rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her chocolates",
+      "gives": "HERCHOCOLATES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "HERCHOCOLATES",
+       "gives": "SCHOOLTEACHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A woman's lover playfully fiddles with her box of chocolates.",
+     "walkthrough": "'Mistress' suggests a lover, but it is the old title for a female teacher.",
+     "definitionFit": "A schoolmistress is a woman who teaches in a school, so a mistress is one example of that profession."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Mistress"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +634,42 @@
     "text": "Nicholas I advanced across land mass",
     "enumeration": "4"
    },
-   "solution": "ASIA"
+   "solution": "ASIA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ASIA",
+    "definitions": [
+     {
+      "text": "land mass",
+      "at": 27
+     }
+    ],
+    "indicators": [
+     {
+      "text": "across",
+      "for": "hidden_word",
+      "note": "across means spanning several words, so the letters straddle the word boundaries"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nicholas I advanced",
+      "gives": "ASIA",
+      "note": "the letters straddle three words"
+     }
+    ],
+    "explanation": {
+     "surface": "A history note about Tsar Nicholas I pushing his empire's borders onward.",
+     "definitionFit": "Asia is the largest continent on Earth, and a continent is a large land mass."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "across"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +683,60 @@
     "text": "Indifferent sappers have no desire to go first",
     "enumeration": "10"
    },
-   "solution": "LACKLUSTRE"
+   "solution": "LACKLUSTRE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "LACKLUSTRE",
+    "definitions": [
+     {
+      "text": "Indifferent",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to go first",
+      "for": "charade",
+      "note": "going first places the words just before it ahead of the earlier word in the build"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "have no",
+      "gives": "LACK",
+      "note": "to lack is to have none"
+     },
+     {
+      "clueFragment": "desire",
+      "gives": "LUST",
+      "note": "lust is strong desire"
+     },
+     {
+      "clueFragment": "sappers",
+      "gives": "RE",
+      "note": "the Royal Engineers, whose soldiers are called sappers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "LACK",
+      "LUST",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "Army engineers who are uninterested and keen to lead the way.",
+     "walkthrough": "Royal Engineers (RE) are the British Army's sappers, a crossword staple.",
+     "definitionFit": "Indifferent can mean mediocre or unremarkable, and lacklustre describes a dull, uninspired performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Indifferent"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +750,63 @@
     "text": "Company holding ace function in a better place",
     "enumeration": "6"
    },
-   "solution": "CASINO"
+   "solution": "CASINO",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "CASINO",
+    "definitions": [
+     {
+      "text": "a better place",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "holding",
+      "for": "container",
+      "note": "holding means gripping something inside, so the abbreviation wraps round what follows"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company",
+      "gives": "CO",
+      "note": "standard abbreviation"
+     },
+     {
+      "clueFragment": "ace",
+      "gives": "A",
+      "note": "A is the card symbol for ace"
+     },
+     {
+      "clueFragment": "function",
+      "gives": "SIN",
+      "note": "the sine function, written sin in trigonometry"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "A",
+      "SIN",
+      "O"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm hosts a top event somewhere it considers superior.",
+     "walkthrough": "'a better place' sounds like heaven or an improvement, but read it as a place for people who bet.",
+     "definitionFit": "A casino is a venue for gambling, so it is literally where a better, one who bets, goes to play."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "better"
+    }
+   }
   },
   {
    "number": 12,
@@ -213,7 +826,72 @@
      }
     ]
    },
-   "solution": "OLDFLAME"
+   "solution": "OLDFLAME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "deletion",
+     "container"
+    ],
+    "answer": "OLD FLAME",
+    "definitions": [
+     {
+      "text": "Former lover",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dancing",
+      "for": "anagram",
+      "note": "dancing moves things about, so these letters shift into a new order"
+     },
+     {
+      "text": "unfinished",
+      "for": "deletion",
+      "note": "unfinished means the last letter of the next word is cut off"
+     },
+     {
+      "text": "round",
+      "for": "container",
+      "note": "round places the first group around the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "model",
+      "gives": "MODEL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "apartment",
+      "gives": "FLAT",
+      "note": "a flat is an apartment"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OLD",
+      "FLA",
+      "ME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "MODEL",
+       "gives": "OLDME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An ex-partner who was a model dancing around a half-built flat.",
+     "definitionFit": "An old flame is an idiom for a past romantic partner, someone once loved."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "model"
+    }
+   }
   },
   {
    "number": 13,
@@ -227,7 +905,60 @@
     "text": "Arachne conforms after 31 days in wedlock",
     "enumeration": "9"
    },
-   "solution": "MARITALLY"
+   "solution": "MARITALLY",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MARITALLY",
+    "definitions": [
+     {
+      "text": "in wedlock",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the first part of the clue behind the following words in the build"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "31 days",
+      "gives": "MAR",
+      "note": "March has 31 days; MAR is its abbreviation"
+     },
+     {
+      "clueFragment": "Arachne",
+      "gives": "I",
+      "note": "the setter refers to herself"
+     },
+     {
+      "clueFragment": "conforms",
+      "gives": "TALLY",
+      "note": "to tally is to agree or correspond"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAR",
+      "I",
+      "TALLY"
+     ]
+    },
+    "explanation": {
+     "surface": "The setter says she toes the line after a month of being married.",
+     "walkthrough": "Arachne is the setter, so her name gives I. Several months have 31 days; March fits here.",
+     "definitionFit": "Maritally means relating to marriage, so it works as an adverb phrase for happening within a married union."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "days"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +972,63 @@
     "text": "Van Gogh heading off, given peeled carrot",
     "enumeration": "9"
    },
-   "solution": "INCENTIVE"
+   "solution": "INCENTIVE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "INCENTIVE",
+    "definitions": [
+     {
+      "text": "carrot",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heading off",
+      "for": "deletion",
+      "note": "a word's heading is its first letter, which is taken off here"
+     },
+     {
+      "text": "peeled",
+      "for": "letter_selection",
+      "note": "peeling strips the outer skin, so only the inner letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Van Gogh",
+      "gives": "VINCENT",
+      "note": "the painter's first name"
+     },
+     {
+      "clueFragment": "given",
+      "gives": "IVE",
+      "select": "middle",
+      "note": "given without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INCENT",
+      "IVE"
+     ]
+    },
+    "explanation": {
+     "surface": "Vincent van Gogh, losing his head, is handed a carrot without its skin.",
+     "walkthrough": "'carrot' looks like a vegetable, but it is the carrot dangled before a donkey.",
+     "definitionFit": "A carrot, as in carrot and stick, is a reward offered to motivate someone, which is an incentive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "carrot"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +1042,53 @@
     "text": "Hamsters, perhaps, pace about",
     "enumeration": "4"
    },
-   "solution": "PETS"
+   "solution": "PETS",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "PETS",
+    "definitions": [
+     {
+      "text": "Hamsters, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "reversal",
+      "note": "turning about means facing the other way, so the word runs backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pace",
+      "gives": "STEP",
+      "note": "a pace is a step"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PETS"
+     ],
+     "reversals": [
+      {
+       "from": "STEP",
+       "to": "PETS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Pet hamsters pacing around their cage.",
+     "definitionFit": "Hamsters are commonly kept as household pets, so they are one example of domestic animal companions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pace"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1102,42 @@
     "text": "Slug, one of a pair",
     "enumeration": "4"
    },
-   "solution": "SOCK"
+   "solution": "SOCK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SOCK",
+    "definitions": [
+     {
+      "text": "Slug",
+      "at": 0
+     },
+     {
+      "text": "one of a pair",
+      "at": 6
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Slug",
+      "note": "first meaning: to punch someone hard"
+     },
+     {
+      "clueFragment": "one of a pair",
+      "note": "second meaning: a foot garment worn in twos"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Slug' tempts you towards the garden creature, but it is a verb for hitting.",
+     "definitionFit": "To sock is informal for to hit hard, and a sock is a garment that comes as a matching pair."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Slug"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1151,57 @@
     "text": "Quiet morning with dirt and clean mop",
     "enumeration": "7"
    },
-   "solution": "SHAMPOO"
+   "solution": "SHAMPOO",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SHAMPOO",
+    "definitions": [
+     {
+      "text": "clean mop",
+      "at": 28
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "a call for silence"
+     },
+     {
+      "clueFragment": "morning",
+      "gives": "AM",
+      "note": "ante meridiem"
+     },
+     {
+      "clueFragment": "dirt",
+      "gives": "POO",
+      "note": "poo is excrement, filth"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "AM",
+      "POO"
+     ]
+    },
+    "explanation": {
+     "surface": "A cleaner works quietly in the morning, then rinses the dirty mop.",
+     "walkthrough": "'mop' looks like the cleaning tool, but it is a mop of hair.",
+     "definitionFit": "To shampoo is to wash hair, and a mop is a thick, untidy head of it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "mop"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1215,66 @@
     "text": "Act like an idiot, due to crack and ecstasy",
     "enumeration": "9"
    },
-   "solution": "BEATITUDE"
+   "solution": "BEATITUDE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "BEATITUDE",
+    "definitions": [
+     {
+      "text": "ecstasy",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "crack",
+      "for": "anagram",
+      "note": "to crack is to break apart, so the letters fall into a different order"
+     }
+    ],
+    "linkWords": [
+     "to",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Act like an idiot",
+      "gives": "BEATIT",
+      "note": "to be a tit, British slang for a fool"
+     },
+     {
+      "clueFragment": "due",
+      "gives": "DUE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BEATIT",
+      "UDE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DUE",
+       "gives": "UDE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone behaves stupidly after taking crack cocaine and ecstasy.",
+     "walkthrough": "A tit is British slang for an idiot. Crack and ecstasy look like drugs; one is the signal, the other the definition.",
+     "definitionFit": "Beatitude is supreme blessedness or happiness, a state of spiritual bliss like ecstasy."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "crack"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1288,62 @@
     "text": "Damien enters outskirts of Torquay in need of a drink",
     "enumeration": "7"
    },
-   "solution": "THIRSTY"
+   "solution": "THIRSTY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "THIRSTY",
+    "definitions": [
+     {
+      "text": "in need of a drink",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "enters",
+      "for": "container",
+      "note": "entering means going inside, so the name is placed within other letters"
+     },
+     {
+      "text": "outskirts of",
+      "for": "letter_selection",
+      "note": "the outskirts of a town are its edges, so only the outer letters are kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Torquay",
+      "gives": "TY",
+      "select": "outer",
+      "note": "first and last letters of Torquay"
+     },
+     {
+      "clueFragment": "Damien",
+      "gives": "HIRST",
+      "note": "Damien Hirst, the British artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "HIRST",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "An artist arrives on the edge of a seaside town gasping for a drink.",
+     "walkthrough": "Damien Hirst is the British artist famous for a shark in formaldehyde; Torquay is a resort in Devon.",
+     "definitionFit": "Thirsty describes someone who wants liquid, which is exactly being in need of a drink."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Damien"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1357,54 @@
     "text": "Suspicion over the French pair",
     "enumeration": "7"
    },
-   "solution": "DOUBLET"
+   "solution": "DOUBLET",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DOUBLET",
+    "definitions": [
+     {
+      "text": "pair",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "over",
+      "for": "container",
+      "note": "over here means spreading across and around, so one word encloses the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Suspicion",
+      "gives": "DOUBT",
+      "note": "doubt is suspicion"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "the masculine French article"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DOUB",
+      "LE",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Mistrust of the French couple next door.",
+     "definitionFit": "A doublet is a set of two matching things, such as a pair of words or of dice showing the same number."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "pair"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1418,49 @@
     "text": "Piles of small nails",
     "enumeration": "6"
    },
-   "solution": "STACKS"
+   "solution": "STACKS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "STACKS",
+    "definitions": [
+     {
+      "text": "Piles",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "standard abbreviation, as in clothing sizes"
+     },
+     {
+      "clueFragment": "nails",
+      "gives": "TACKS",
+      "note": "tacks are short nails"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TACKS"
+     ]
+    },
+    "explanation": {
+     "surface": "Heaps of tiny nails in a workshop.",
+     "definitionFit": "Stacks are heaps of things arranged one on another, so as a plural noun they mean piles."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Piles"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1474,50 @@
     "text": "Charming me, acting badly",
     "enumeration": "8"
    },
-   "solution": "MAGNETIC"
+   "solution": "MAGNETIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MAGNETIC",
+    "definitions": [
+     {
+      "text": "Charming",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "badly",
+      "for": "anagram",
+      "note": "acting badly suggests a performance gone wrong, so the letters are put in a muddled order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "me, acting",
+      "gives": "MEACTING",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MEACTING",
+       "gives": "MAGNETIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An actor admits that his ham performance was meant to charm.",
+     "definitionFit": "A magnetic personality draws people in, so magnetic as an adjective means attractive and appealing."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "acting"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1531,63 @@
     "text": "Wings of iconic aviator, American legendary flyer",
     "enumeration": "6"
    },
-   "solution": "ICARUS"
+   "solution": "ICARUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ICARUS",
+    "definitions": [
+     {
+      "text": "legendary flyer",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Wings of",
+      "for": "letter_selection",
+      "note": "wings sit at either side, so the outermost letters of the next words are taken"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "iconic",
+      "gives": "IC",
+      "select": "outer",
+      "note": "the edges of iconic"
+     },
+     {
+      "clueFragment": "aviator",
+      "gives": "AR",
+      "select": "outer",
+      "note": "the edges of aviator"
+     },
+     {
+      "clueFragment": "American",
+      "gives": "US",
+      "note": "United States"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IC",
+      "AR",
+      "US"
+     ]
+    },
+    "explanation": {
+     "surface": "The wings of a famous American pilot.",
+     "walkthrough": "'Wings' fits the flying theme, so it hides its job of taking the edges of the next two words.",
+     "definitionFit": "In Greek myth Icarus flew on wings of feathers and wax, so he is a mythical airborne figure."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Wings"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1601,52 @@
     "text": "Gas in technical language, ignored at first",
     "enumeration": "5"
    },
-   "solution": "ARGON"
+   "solution": "ARGON",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ARGON",
+    "definitions": [
+     {
+      "text": "Gas",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ignored at first",
+      "for": "deletion",
+      "note": "ignoring the start means dropping the opening letter of the word"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "technical language",
+      "gives": "JARGON",
+      "note": "jargon is specialist terminology"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ARGON"
+     ]
+    },
+    "explanation": {
+     "surface": "A complaint that chatter in specialist terms goes unheeded at first.",
+     "walkthrough": "'Gas' sounds like idle talk, fitting the jargon surface, but it is the chemical element.",
+     "definitionFit": "Argon is a colourless noble element present in air, so it is a chemical gas."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Gas"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1660,71 @@
     "text": "Muscular contractors in pub stopping cisterns juddering",
     "enumeration": "10"
    },
-   "solution": "SPHINCTERS"
+   "solution": "SPHINCTERS",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "SPHINCTERS",
+    "definitions": [
+     {
+      "text": "Muscular contractors",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "juddering",
+      "for": "anagram",
+      "note": "juddering means shaking violently, which jumbles the letters"
+     },
+     {
+      "text": "stopping",
+      "for": "container",
+      "note": "stopping means plugging a gap, so one item is put inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pub",
+      "gives": "PH",
+      "note": "PH is the map abbreviation for public house"
+     },
+     {
+      "clueFragment": "cisterns",
+      "gives": "CISTERNS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "PH",
+      "INCTERS"
+     ],
+     "anagrams": [
+      {
+       "fodder": "CISTERNS",
+       "gives": "SINCTERS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Plumbing in a pub where the toilet tanks shake and rattle.",
+     "walkthrough": "'Muscular contractors' sounds like brawny builders; it means muscles that contract.",
+     "definitionFit": "Sphincters are ring-shaped muscles that tighten to close a bodily opening, so they literally contract."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "contractors"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1738,51 @@
     "text": "\"Wealth\" is Googled on a regular basis",
     "enumeration": "4"
    },
-   "solution": "GOLD"
+   "solution": "GOLD",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "GOLD",
+    "definitions": [
+     {
+      "text": "Wealth",
+      "at": 1
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on a regular basis",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, so every other letter is kept"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Googled",
+      "gives": "GOLD",
+      "select": "alternate",
+      "note": "first, third, fifth and seventh letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GOLD"
+     ]
+    },
+    "explanation": {
+     "surface": "People search online for riches all the time.",
+     "definitionFit": "Gold is used figuratively for riches and money, so it stands for wealth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "regular"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1796,61 @@
     "text": "Modest tsar removing clothes in Black Sea port",
     "enumeration": "6"
    },
-   "solution": "ODESSA"
+   "solution": "ODESSA",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "ODESSA",
+    "definitions": [
+     {
+      "text": "Black Sea port",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removing clothes",
+      "for": "letter_selection",
+      "note": "taking clothes off strips the outer layer, leaving each word's inside letters"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Modest",
+      "gives": "ODES",
+      "select": "middle",
+      "note": "Modest without its first and last letters"
+     },
+     {
+      "clueFragment": "tsar",
+      "gives": "SA",
+      "select": "middle",
+      "note": "tsar without its first and last letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ODES",
+      "SA"
+     ]
+    },
+    "explanation": {
+     "surface": "A bashful Russian emperor undresses in a seaside town.",
+     "walkthrough": "'Modest' and 'removing clothes' clash comically, yet modesty here is just the source word.",
+     "definitionFit": "Odessa, also spelt Odesa, is a major Ukrainian harbour city on the Black Sea coast."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "clothes"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1864,48 @@
     "text": "Catching seal in small pen?",
     "enumeration": "6"
    },
-   "solution": "CYGNET"
+   "solution": "CYGNET",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CYGNET",
+    "definitions": [
+     {
+      "text": "small pen?",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Catching",
+      "for": "homophone",
+      "note": "catching words means hearing them, so we go by the spoken form"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "seal",
+      "gives": "CYGNET",
+      "soundsLike": "SIGNET",
+      "note": "a signet is a seal, as on a signet ring"
+     }
+    ],
+    "explanation": {
+     "surface": "Trapping a seal inside a tiny enclosure.",
+     "walkthrough": "'pen' looks like an enclosure for animals, but a pen is a female swan.",
+     "definitionFit": "A cygnet is a baby swan, and a pen is the female bird, so a small pen is a young one."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "pen"
+    }
+   }
   }
  ]
 }
