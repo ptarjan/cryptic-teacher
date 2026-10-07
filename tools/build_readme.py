@@ -220,6 +220,7 @@ LAYOUT = [
      "tools/reopen_answers.py", "blanks the model answers an annotate run found no parse for, once each, so the burn solves them again instead of parking the puzzle"),
     ("solving the puzzles whose answers aren’t published yet",
      "tools/test_model_answers.sh", "an annotator’s correction of a model answer lands only if every crossing and printed answer still agrees; a reopen happens once and never to a printed answer"),
+    ("solving the puzzles whose answers aren’t published yet", "tools/fixtures/times-17379-model-solved.json", "times-17379 as the model first solved it, frozen so tools/test_model_answers.sh does not move with the live corpus file"),
     ("solving the puzzles whose answers aren’t published yet",
      "tools/solve_misses.py", "lists the graded misses no diagnosis has looked at, packs one up for it, records the verdict, and keeps each cold solve’s output until its key arrives"),
     ("solving the puzzles whose answers aren’t published yet",
