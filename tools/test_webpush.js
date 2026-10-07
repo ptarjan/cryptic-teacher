@@ -21,7 +21,7 @@ const V = {
   asPublic: "BP4z9KsN6nGRTbVYI_c7VJSPQTBtkgcy27mlmlMoZIIgDll6e3vCYLocInmYWAmS6TlzAC8wEqKK6PBru3jl7A8",
   asPrivate: "yfWPiYE-n46HLnH0KqZOF1fJJU3MYrct3AELtAQ-oRw",
   salt: "DGv6ra1nlYgDCS1FRnbzlw",
-  // RFC 8291 section 5, the whole 145-byte body: 21-byte header, the sender's
+  // RFC 8291 section 5, the whole 144-byte body: 21-byte header, the sender's
   // 65-byte public key, then the sealed record.
   body: "DGv6ra1nlYgDCS1FRnbzlwAAEABBBP4z9KsN6nGRTbVYI_c7VJSPQTBtkgcy27ml" +
         "mlMoZIIgDll6e3vCYLocInmYWAmS6TlzAC8wEqKK6PBru3jl7A_yl95bQpu6cVPT" +

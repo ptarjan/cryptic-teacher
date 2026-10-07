@@ -168,8 +168,8 @@ TIMES_BLACK_RUN = 5
 
 #: A puzzle's whole budget, in searches of --max-nodes each. solve() runs
 #: up to a dozen searches on a list no grid fits (retries, every freed light,
-#: every split of a linked answer), and a 23x23 Christmas Jumbo spent ten
-#: silent minutes in them; this is the ceiling over all of them together.
+#: every split of a linked answer); this is the ceiling over all of them
+#: together.
 PUZZLE_SEARCHES = 4
 
 
@@ -633,7 +633,7 @@ def solve_barred(rec, n):
 
 #: The most splits of a record's linked answers solve() tries. Each is one
 #: search with every other answer written in, which fails in a fraction of a
-#: second, so this is cheap; 16 refused 41 bigdave44 posts.
+#: second, so this is cheap.
 MAX_SPLITS = 64
 
 
@@ -864,9 +864,8 @@ def solve(rec, limit=50, max_nodes=DEFAULT_MAX_NODES, thorough=True, budget=None
 def solved_already(out=None):
     """post_id of every grid already written.
 
-    A pass over the whole corpus is tens of hours and will be killed before it
-    ends. Opening the output with "w" threw away everything the last one found,
-    so a relaunch starts where the kill landed instead.
+    A pass over the whole corpus is tens of hours and may be killed before it
+    ends, so a relaunch skips what the output already holds.
     """
     out = out or OUT
     ids = set()
@@ -898,8 +897,8 @@ def attempted(attempts=None, retry=None, keys=None):
     A run tries only posts that have none, or whose latest attempt read
     lights other than the record has now: `keys` is {post_id: light_key} of
     the records as parsed today, and an attempt whose `lights` differs, or
-    that has none because it predates them, is left out of the set. A change to the search, settle(), the budget or the
-    settled answers changes no record, so it re-tries old posts only by hand,
+    that has none, is left out of the set. A change to the search, settle(),
+    the budget or the settled answers changes no record, so it re-tries old posts only by hand,
     with `retry`. That is a tuple of `how` prefixes ("refused", "truncated",
     "no grid", ...), and a post whose latest attempt starts with one of them
     is left out of the set, so it is tried again; an empty tuple leaves out
@@ -949,8 +948,7 @@ def row(rec, grid, how, fixes):
 
 def resettle():
     """Correct or refuse every grid already written, against the parsed
-    records as they are now. A grid rebuilt before settle() existed carries
-    its typos, and a resumed run never looks at it again.
+    records as they are now; a resumed run never looks at a written grid again.
 
     Rewrites grids.jsonl, dropping each refused grid, and records the refusal
     as that puzzle's attempt so a resumed run does not rebuild it."""

@@ -35,16 +35,13 @@ EOF
 check "stamp_assets and wait_for_deploy name the same hash for every asset" "$out" agree
 
 echo "and an unstamped index.html does not hide them"
-# Every committed index.html is unstamped (daily_update.sh strips the stamps
-# before committing), so the real working tree it runs against looks like
-# this. Reading the expected hashes out of index.html made that deliberate
-# state indistinguishable from a site that never deployed, and this script
-# failed on its own precondition without ever looking at the site. Run against
-# a scratch copy of index.html and stamp_assets.py rather than the real
-# tracked file: stamp_assets.INDEX_HTML is resolved from the script's own
-# __file__, so copying the script alongside the copy is what points --unstamp
-# at the copy instead of the real one, and a crash here can never leave the
-# working tree dirty the way a backup-and-restore of the real file would.
+# Every committed index.html is unstamped (the deploy workflow stamps its own
+# checkout), so the real working tree looks like this, and the expected hashes
+# must come from the assets, not from index.html. Run against a scratch copy of
+# index.html and stamp_assets.py rather than the real tracked file:
+# stamp_assets.INDEX_HTML is resolved from the script's own __file__, so
+# copying the script alongside the copy is what points --unstamp at the copy,
+# and a crash here can never leave the working tree dirty.
 scratch="$sand/scratch"
 mkdir -p "$scratch/tools"
 cp index.html "$scratch/index.html"
@@ -107,10 +104,8 @@ check "a stale stamp fails, after looking, and says which asset and what it got"
 echo "a build that has not finished is not a site that never came back"
 # The github-pages environment deploys one commit at a time, so a push that
 # lands behind another waits in the queue for minutes before its own build
-# starts. On 2026-09-21 the nightly ran out of its five minutes while its build
-# was still queued and alerted that the site had not published — it published
-# four minutes later. The clock running out is only a failure if nothing is
-# coming, so the verdict now asks.
+# starts. The clock running out is only a failure if nothing is coming, so the
+# verdict asks what the build is doing.
 out=$(python3 - <<'EOF'
 import io, sys
 from contextlib import redirect_stderr, redirect_stdout

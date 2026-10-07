@@ -41,7 +41,7 @@ sys.path.insert(0, str(TOOLS))
 WORK = Path(os.path.expanduser("~/.cache/archive_org_tess"))
 GOLD = TOOLS / "data" / "archive_org_ocr_gold.json"
 BEST_URL = "https://github.com/tesseract-ocr/tessdata_best/raw/main/eng.traineddata"
-#: The integer model the filer reads with (file_archive_org_puzzles.TESS_MODELS).
+#: The integer model the filer reads with (ocr_clues.TESS_MODELS).
 MODEL = TOOLS / "data" / "archive_org_tess.traineddata"
 LSTMTRAINING = Path(os.path.expanduser("~/.local/tesstrain/bin/lstmtraining"))
 COMBINE = Path(os.path.expanduser("~/.local/tesstrain/bin/combine_tessdata"))
