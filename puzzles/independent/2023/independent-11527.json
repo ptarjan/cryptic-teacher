@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,62 @@
     "text": "Student boarding at university that man had sustained",
     "enumeration": "6"
    },
-   "solution": "UPHELD"
+   "solution": "UPHELD",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "UPHELD",
+    "definitions": [
+     {
+      "text": "sustained",
+      "at": 44
+     }
+    ],
+    "indicators": [
+     {
+      "text": "boarding",
+      "for": "container",
+      "note": "someone boarding gets on and sits inside a vehicle, so the student is placed within the other letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "at university",
+      "gives": "UP",
+      "note": "being up means being in residence at a university"
+     },
+     {
+      "clueFragment": "that man had",
+      "gives": "HED",
+      "note": "he'd is the contraction of he had"
+     },
+     {
+      "clueFragment": "Student",
+      "gives": "L",
+      "note": "L is a learner, the plate shown by a student driver"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UP",
+      "HE",
+      "L",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A student lodging at college has been supported by some man.",
+     "walkthrough": "Being 'up' at a university is the British phrase for being in residence there, as in up at Oxford.",
+     "definitionFit": "To uphold something is to support or maintain it, so upheld and sustained are past-tense synonyms."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "boarding"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +105,51 @@
     "text": "Change name into name",
     "enumeration": "8"
    },
-   "solution": "NOMINATE"
+   "solution": "NOMINATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NOMINATE",
+    "definitions": [
+     {
+      "text": "name",
+      "at": 17
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Change",
+      "for": "anagram",
+      "note": "to change these letters is to swap them about into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "name into",
+      "gives": "NAMEINTO",
+      "note": "the first two words taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "NAMEINTO",
+       "gives": "NOMINATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction to alter one's name into another name.",
+     "walkthrough": "The fodder is the first 'name' together with 'into'; the final 'name' is the definition, a verb.",
+     "definitionFit": "To nominate someone is to put forward or appoint them by stating who they are, a verb synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "into"
+    }
+   }
   },
   {
    "number": 3,
@@ -67,7 +169,50 @@
      }
     ]
    },
-   "solution": "DEADCENTRE"
+   "solution": "DEADCENTRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DEAD-CENTRE",
+    "definitions": [
+     {
+      "text": "right at the heart of things",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Designed",
+      "for": "anagram",
+      "note": "designed suggests the letters are planned out and constructed in a new pattern"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "and erected",
+      "gives": "ANDERECTED",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ANDERECTED",
+       "gives": "DEADCENTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A building planned and put up at the very hub of a town.",
+     "definitionFit": "Dead centre means the exact middle point, exactly where something lies at its core."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Designed"
+    }
+   }
   },
   {
    "number": 4,
@@ -81,7 +226,39 @@
     "text": "Supermodel that wouldn't be attracted to Mick Jagger?",
     "enumeration": "4"
    },
-   "solution": "MOSS"
+   "solution": "MOSS",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MOSS",
+    "definitions": [
+     {
+      "text": "Supermodel that wouldn't be attracted to Mick Jagger?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Supermodel",
+      "note": "surface reading: a famous fashion model who has no interest in the rock singer"
+     },
+     {
+      "clueFragment": "wouldn't be attracted to Mick Jagger",
+      "note": "setter's reading: the proverb says a rolling stone gathers none of this plant, and Jagger is a Rolling Stone"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Kate Moss is the supermodel; the proverb 'A rolling stone gathers no moss' supplies the joke, since Jagger fronts the Rolling Stones.",
+     "definitionFit": "Kate Moss is a famous British supermodel, and moss is the plant a rolling stone proverbially never gathers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "attracted"
+    }
+   }
   },
   {
    "number": 5,
@@ -95,7 +272,49 @@
     "text": "Do something resulting in penalty and away goal",
     "enumeration": "6"
    },
-   "solution": "OFFEND"
+   "solution": "OFFEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFEND",
+    "definitions": [
+     {
+      "text": "Do something resulting in penalty",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "away",
+      "gives": "OFF",
+      "note": "off means away, as in going off"
+     },
+     {
+      "clueFragment": "goal",
+      "gives": "END",
+      "note": "an end is an aim or goal"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A football picture: a foul conceded and a goal scored on the road.",
+     "definitionFit": "To offend is to commit an offence, a breach of rules that brings a punishment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "goal"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +328,62 @@
     "text": "National clubs wearing such flimsy kit would show carelessness",
     "enumeration": "8"
    },
-   "solution": "NEGLIGEE"
+   "solution": "NEGLIGEE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "NEGLIGEE",
+    "definitions": [
+     {
+      "text": "such flimsy kit",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wearing",
+      "for": "deletion",
+      "note": "when the abbreviations are worn inside the answer you get the longer word, so removing them from that word leaves the garment"
+     }
+    ],
+    "linkWords": [
+     "would show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "carelessness",
+      "gives": "NEGLIGENCE",
+      "note": "neglect or lack of proper care"
+     },
+     {
+      "clueFragment": "National",
+      "gives": "N",
+      "note": "N is the abbreviation for national"
+     },
+     {
+      "clueFragment": "clubs",
+      "gives": "C",
+      "note": "C is the card-suit abbreviation for clubs"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NEGLIGEE"
+     ]
+    },
+    "explanation": {
+     "surface": "A national team in see-through shirts would look sloppy.",
+     "walkthrough": "The clue runs backwards: N and C worn inside NEGLIGEE make NEGLIGENCE, so take them out of the longer word to get the answer.",
+     "definitionFit": "A negligee is a light, sheer nightgown, flimsy clothing that the clue calls kit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "kit"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +397,54 @@
     "text": "Object to half-naked model",
     "enumeration": "6"
    },
-   "solution": "OPPOSE"
+   "solution": "OPPOSE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "OPPOSE",
+    "definitions": [
+     {
+      "text": "Object to",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half-",
+      "for": "deletion",
+      "note": "only half of the next word survives, the rest being dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "naked",
+      "gives": "OPEN",
+      "note": "naked can mean open or uncovered, as a naked flame"
+     },
+     {
+      "clueFragment": "model",
+      "gives": "POSE",
+      "note": "to model is to pose for an artist"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OP",
+      "POSE"
+     ]
+    },
+    "explanation": {
+     "surface": "Objecting to a model posing half-undressed.",
+     "definitionFit": "To oppose something is to resist or argue against it, so it works as a verb phrase swap."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "naked"
+    }
+   }
   },
   {
    "number": 8,
@@ -143,7 +464,44 @@
      }
     ]
    },
-   "solution": "SCOTFREE"
+   "solution": "SCOTFREE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SCOT-FREE",
+    "definitions": [
+     {
+      "text": "Missing every penalty",
+      "at": 0
+     },
+     {
+      "text": "just like the England team?",
+      "at": 23
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Missing every penalty",
+      "note": "first meaning: escaping all punishment"
+     },
+     {
+      "clueFragment": "just like the England team",
+      "note": "second meaning: read as two words, free of Scottish players"
+     }
+    ],
+    "explanation": {
+     "surface": "England fail to score a single spot kick, a familiar football lament.",
+     "walkthrough": "Missing a penalty sounds like a footballer's miss, but it means avoiding punishment; an England side contains no Scots.",
+     "definitionFit": "Getting off scot-free means escaping without punishment; scot was an old tax or payment."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "penalty"
+    }
+   }
   },
   {
    "number": 8,
@@ -163,7 +521,60 @@
      }
     ]
    },
-   "solution": "STEPPINGSTONE"
+   "solution": "STEPPINGSTONE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STEPPING-STONE",
+    "definitions": [
+     {
+      "text": "means of progressing",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "limits",
+      "for": "container",
+      "note": "something that limits another bounds it on either side, so these letters enclose the next ones"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Way",
+      "gives": "ST",
+      "note": "St is the abbreviation for street, a way"
+     },
+     {
+      "clueFragment": "accent",
+      "gives": "TONE",
+      "note": "tone of voice is a manner of speaking"
+     },
+     {
+      "clueFragment": "Essex town's",
+      "gives": "EPPINGS",
+      "note": "Epping is a town in Essex, a county east of London; the 's adds S"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "EPPINGS",
+      "TONE"
+     ]
+    },
+    "explanation": {
+     "surface": "Local speech constraining what a town in Essex can do.",
+     "walkthrough": "The 's of 'town's' is kept as a letter S, not just possessive grammar.",
+     "definitionFit": "A stepping stone is a stage that helps someone advance towards a goal, figuratively a way forward."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "limits"
+    }
+   }
   },
   {
    "number": 9,
@@ -177,7 +588,42 @@
     "text": "Once again inspire some more kind leaders",
     "enumeration": "8"
    },
-   "solution": "REKINDLE"
+   "solution": "REKINDLE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "REKINDLE",
+    "definitions": [
+     {
+      "text": "Once again inspire",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "some",
+      "for": "hidden_word",
+      "note": "some means only a portion of the following words is used, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "more kind leaders",
+      "gives": "REKINDLE",
+      "note": "the letters run across the three words"
+     }
+    ],
+    "explanation": {
+     "surface": "Encouraging kinder leaders to motivate people anew.",
+     "definitionFit": "To rekindle is to light again, figuratively to revive feelings or enthusiasm anew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +637,52 @@
     "text": "See team play regularly to get fit",
     "enumeration": "6"
    },
-   "solution": "SEEMLY"
+   "solution": "SEEMLY",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "SEEMLY",
+    "definitions": [
+     {
+      "text": "fit",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "regularly",
+      "for": "letter_selection",
+      "note": "regularly means at even intervals, taking every other letter"
+     }
+    ],
+    "linkWords": [
+     "to get"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "See team play",
+      "gives": "SEEMLY",
+      "select": "alternate",
+      "note": "the first, third, fifth letters and so on"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SEEMLY"
+     ]
+    },
+    "explanation": {
+     "surface": "Watch the side train often to improve your fitness.",
+     "walkthrough": "'Fit' looks like physical fitness, but here it means suitable or proper.",
+     "definitionFit": "Seemly means proper or appropriate, the sense of fit in 'fit for the occasion'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fit"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +696,62 @@
     "text": "Sensitive director initially stops programme targeting consumers?",
     "enumeration": "6"
    },
-   "solution": "ADWARE"
+   "solution": "ADWARE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ADWARE",
+    "definitions": [
+     {
+      "text": "programme targeting consumers?",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter only"
+     },
+     {
+      "text": "stops",
+      "for": "container",
+      "note": "to stop something can mean to plug a gap in it, sitting inside like a stopper"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sensitive",
+      "gives": "AWARE",
+      "note": "being aware is being conscious or sensitive to something"
+     },
+     {
+      "clueFragment": "director",
+      "gives": "D",
+      "select": "first",
+      "note": "first letter"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "D",
+      "WARE"
+     ]
+    },
+    "explanation": {
+     "surface": "A thoughtful director halts a show aimed at shoppers.",
+     "walkthrough": "D is plugged into AWARE: A(D)WARE. A programme here is software, and the question mark flags the indirect definition.",
+     "definitionFit": "Adware is software that shows advertisements to computer users, so it aims at people as buyers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "programme"
+    }
+   }
   },
   {
    "number": 12,
@@ -219,7 +765,60 @@
     "text": "Example showing name-dropping male",
     "enumeration": "8"
    },
-   "solution": "PARADIGM"
+   "solution": "PARADIGM",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "PARADIGM",
+    "definitions": [
+     {
+      "text": "Example",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping means letting fall, so the letter standing for that word is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "showing",
+      "gives": "PARADING",
+      "note": "parading is showing off or displaying"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     },
+     {
+      "clueFragment": "male",
+      "gives": "M",
+      "note": "M is the abbreviation for male"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PARADIG",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A man who drops famous names, held up as a model.",
+     "walkthrough": "PARADING loses its N, then M is added: PARADIG + M.",
+     "definitionFit": "A paradigm is a typical model or pattern of something, a standard instance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "name-dropping"
+    }
+   }
   },
   {
    "number": 13,
@@ -233,7 +832,71 @@
     "text": "Revival related to certain implicating information on conservative",
     "enumeration": "10"
    },
-   "solution": "RESURGENCE"
+   "solution": "RESURGENCE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "RESURGENCE",
+    "definitions": [
+     {
+      "text": "Revival",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "implicating",
+      "for": "container",
+      "note": "to implicate is to involve or draw in, so one piece takes another inside it"
+     }
+    ],
+    "linkWords": [
+     "on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "related to",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     },
+     {
+      "clueFragment": "certain",
+      "gives": "SURE",
+      "note": "sure means certain"
+     },
+     {
+      "clueFragment": "information",
+      "gives": "GEN",
+      "note": "gen is British slang for information"
+     },
+     {
+      "clueFragment": "conservative",
+      "gives": "C",
+      "note": "C is the abbreviation for Conservative"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RE",
+      "SUR",
+      "GEN",
+      "C",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A comeback tied to a certain leak of damaging information about a Tory.",
+     "walkthrough": "RE, then SURE holding GEN, then C below it in this down answer: RE + SUR(GEN)E + C.",
+     "definitionFit": "A resurgence is a rise again after a decline, so revival is a direct synonym."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "implicating"
+    }
+   }
   },
   {
    "number": 14,
@@ -247,7 +910,53 @@
     "text": "Cruel person, because of what has gone before, returns",
     "enumeration": "4"
    },
-   "solution": "OGRE"
+   "solution": "OGRE",
+   "annotation": {
+    "type": [
+     "reversal"
+    ],
+    "answer": "OGRE",
+    "definitions": [
+     {
+      "text": "Cruel person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returns",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read from end to start"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "because of what has gone before",
+      "gives": "ERGO",
+      "note": "ergo is Latin for therefore, drawing a conclusion from what precedes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OGRE"
+     ],
+     "reversals": [
+      {
+       "from": "ERGO",
+       "to": "OGRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tyrant comes back because of past events.",
+     "definitionFit": "An ogre is a monstrous giant of folk tales, and by extension any brutal or frightening person."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returns"
+    }
+   }
   },
   {
    "number": 15,
@@ -261,7 +970,64 @@
     "text": "Spherical ball most of group kicked around",
     "enumeration": "8"
    },
-   "solution": "GLOBULAR"
+   "solution": "GLOBULAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "GLOBULAR",
+    "definitions": [
+     {
+      "text": "Spherical",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "most of",
+      "for": "deletion",
+      "note": "most of means nearly all, so the final letter is cut away"
+     },
+     {
+      "text": "kicked around",
+      "for": "anagram",
+      "note": "something kicked around is knocked about in all directions, so these letters are scattered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ball",
+      "gives": "BALL",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "group",
+      "gives": "GROUP",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GLOBULAR"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BALLGROU",
+       "gives": "GLOBULAR"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A round football passed about by a bunch of players.",
+     "definitionFit": "Globular means shaped like a globe, round like a ball, so it matches the adjective exactly."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "kicked"
+    }
+   }
   },
   {
    "number": 16,
@@ -275,7 +1041,44 @@
     "text": "What may manipulate Barnet's Chinese communities?",
     "enumeration": "5"
    },
-   "solution": "TONGS"
+   "solution": "TONGS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "TONGS",
+    "definitions": [
+     {
+      "text": "What may manipulate Barnet",
+      "at": 0
+     },
+     {
+      "text": "Chinese communities",
+      "at": 29
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "What may manipulate Barnet",
+      "note": "first meaning: tools for curling hair; Barnet, short for Barnet Fair, is rhyming slang for hair"
+     },
+     {
+      "clueFragment": "Chinese communities",
+      "note": "second meaning: Chinese secret societies or associations"
+     }
+    ],
+    "explanation": {
+     "surface": "Something that could influence the Chinese residents of Barnet, a London borough.",
+     "walkthrough": "Barnet looks like the London borough, but it is rhyming slang (Barnet Fair) for hair; curling tongs style it.",
+     "definitionFit": "Tongs are gripping tools, including curling irons for hair, and tongs are also Chinese secret fraternal societies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Barnet"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1092,43 @@
     "text": "A part of the Far East",
     "enumeration": "4"
    },
-   "solution": "AREA"
+   "solution": "AREA",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "AREA",
+    "definitions": [
+     {
+      "text": "A",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "part of the",
+      "for": "hidden_word",
+      "note": "part of means just a piece of the following words is taken, a run of letters inside them"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Far East",
+      "gives": "AREA",
+      "note": "the letters run across the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "A region of eastern Asia.",
+     "walkthrough": "The opening 'A' looks like the article, but it is the definition: A is the standard abbreviation for area, as on maps and in formulae.",
+     "definitionFit": "The letter A is a recognised short form for area, as in the formula A equals length times width."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "A"
+    }
+   }
   },
   {
    "number": 17,
@@ -303,7 +1142,62 @@
     "text": "Rebuke handsome man embracing married husband",
     "enumeration": "8"
    },
-   "solution": "ADMONISH"
+   "solution": "ADMONISH",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "ADMONISH",
+    "definitions": [
+     {
+      "text": "Rebuke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means holding in one's arms, so one piece wraps around another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "handsome man",
+      "gives": "ADONIS",
+      "note": "Adonis was the beautiful youth of Greek myth"
+     },
+     {
+      "clueFragment": "married",
+      "gives": "M",
+      "note": "M is the abbreviation for married"
+     },
+     {
+      "clueFragment": "husband",
+      "gives": "H",
+      "note": "H is the abbreviation for husband"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "M",
+      "ONIS",
+      "H"
+     ]
+    },
+    "explanation": {
+     "surface": "Telling off a good-looking man who is hugging a wedded husband.",
+     "definitionFit": "To admonish is to reprimand or warn firmly, the same verb sense as to scold."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "embracing"
+    }
+   }
   },
   {
    "number": 18,
@@ -317,7 +1211,43 @@
     "text": "Virtue that is unexpected",
     "enumeration": "8"
    },
-   "solution": "GOODNESS"
+   "solution": "GOODNESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "GOODNESS",
+    "definitions": [
+     {
+      "text": "Virtue",
+      "at": 0
+     },
+     {
+      "text": "that is unexpected",
+      "at": 7,
+      "note": "describes the use of the answer as an exclamation of surprise"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Virtue",
+      "note": "first meaning: moral excellence"
+     },
+     {
+      "clueFragment": "that is unexpected",
+      "note": "second meaning: an exclamation of surprise, as in 'My ...!'"
+     }
+    ],
+    "explanation": {
+     "surface": "Good behaviour that comes as a surprise.",
+     "definitionFit": "Goodness is moral rectitude, and the word also serves as a mild oath voiced on being surprised."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "unexpected"
+    }
+   }
   },
   {
    "number": 19,
@@ -331,7 +1261,44 @@
     "text": "Stupid Australian bird with a taste for cricket?",
     "enumeration": "6"
    },
-   "solution": "DRONGO"
+   "solution": "DRONGO",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DRONGO",
+    "definitions": [
+     {
+      "text": "Stupid Australian",
+      "at": 0
+     },
+     {
+      "text": "bird with a taste for cricket?",
+      "at": 18
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Stupid Australian",
+      "note": "first meaning: Australian slang for a fool"
+     },
+     {
+      "clueFragment": "bird with a taste for cricket",
+      "note": "second meaning: an insect-eating songbird, cricket being the insect not the sport"
+     }
+    ],
+    "explanation": {
+     "surface": "A dim Aussie fan with a passion for cricket.",
+     "walkthrough": "Cricket suggests the Australian sport, but the bird eats the insect.",
+     "definitionFit": "In Australian slang a drongo is an idiot, and drongos are black songbirds that feed on insects."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "cricket"
+    }
+   }
   },
   {
    "number": 20,
@@ -345,7 +1312,44 @@
     "text": "Note what teachers involved in dispute might do",
     "enumeration": "6"
    },
-   "solution": "REMARK"
+   "solution": "REMARK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "REMARK",
+    "definitions": [
+     {
+      "text": "Note",
+      "at": 0
+     },
+     {
+      "text": "what teachers involved in dispute might do",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Note",
+      "note": "first meaning: a comment or observation"
+     },
+     {
+      "clueFragment": "what teachers involved in dispute might do",
+      "note": "second meaning: read as ..., to grade work again after an appeal"
+     }
+    ],
+    "explanation": {
+     "surface": "An observation about teachers in an industrial dispute.",
+     "walkthrough": "A dispute sounds like a strike, but it is a challenged grade that teachers would mark again.",
+     "definitionFit": "A remark is a comment, and to re-mark is to assess pupils' work a second time."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "dispute"
+    }
+   }
   },
   {
    "number": 21,
@@ -359,7 +1363,46 @@
     "text": "Noise made by bat",
     "enumeration": "6"
    },
-   "solution": "RACKET"
+   "solution": "RACKET",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "RACKET",
+    "definitions": [
+     {
+      "text": "Noise",
+      "at": 0
+     },
+     {
+      "text": "bat",
+      "at": 14
+     }
+    ],
+    "linkWords": [
+     "made by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Noise",
+      "note": "first meaning: a loud din"
+     },
+     {
+      "clueFragment": "bat",
+      "note": "second meaning: the strung implement used in tennis or squash"
+     }
+    ],
+    "explanation": {
+     "surface": "A sound produced by a bat, the animal or a cricket bat.",
+     "definitionFit": "A racket is a loud uproar, and also the stringed frame used to hit a ball in tennis."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bat"
+    }
+   }
   },
   {
    "number": 22,
@@ -373,7 +1416,44 @@
     "text": "Boat in which you're unlikely to see skipper?",
     "enumeration": "6"
    },
-   "solution": "DUGOUT"
+   "solution": "DUGOUT",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DUGOUT",
+    "definitions": [
+     {
+      "text": "Boat",
+      "at": 0
+     },
+     {
+      "text": "in which you're unlikely to see skipper?",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Boat",
+      "note": "first meaning: a canoe made from a hollowed log"
+     },
+     {
+      "clueFragment": "in which you're unlikely to see skipper",
+      "note": "second meaning: the touchline shelter for managers and substitutes, while the team captain is out on the pitch"
+     }
+    ],
+    "explanation": {
+     "surface": "A vessel that seems to sail without its captain.",
+     "walkthrough": "Skipper looks like a boat's captain, but it is the team captain, who plays rather than sits in the shelter by the pitch.",
+     "definitionFit": "A dugout is a hollowed-log canoe and also the sunken bench area beside a football pitch."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "skipper"
+    }
+   }
   },
   {
    "number": 23,
@@ -387,7 +1467,51 @@
     "text": "What lead tense husband and wife to relax?",
     "enumeration": "4"
    },
-   "solution": "THAW"
+   "solution": "THAW",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "THAW",
+    "definitions": [
+     {
+      "text": "relax",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What lead",
+      "for": "letter_selection",
+      "note": "what leads these words is their opening letters, taken in turn"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tense husband and wife",
+      "gives": "THAW",
+      "select": "first",
+      "note": "the opening letter of each of the four words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "THAW"
+     ]
+    },
+    "explanation": {
+     "surface": "What could get an uptight married couple to unwind?",
+     "definitionFit": "To thaw is to become less frosty or more friendly, loosening up like melting ice."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "tense"
+    }
+   }
   },
   {
    "number": 24,
@@ -401,7 +1525,65 @@
     "text": "Old king occupying Italian city is too picky",
     "enumeration": "8"
    },
-   "solution": "OVERNICE"
+   "solution": "OVERNICE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "OVERNICE",
+    "definitions": [
+     {
+      "text": "too picky",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "occupying",
+      "for": "container",
+      "note": "an occupier lives inside a place, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     },
+     {
+      "clueFragment": "Italian city",
+      "gives": "VENICE",
+      "note": "Venice is the canal city of Italy"
+     },
+     {
+      "clueFragment": "king",
+      "gives": "R",
+      "note": "R is for rex, Latin for king"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "O",
+      "VE",
+      "R",
+      "NICE"
+     ]
+    },
+    "explanation": {
+     "surface": "An ancient monarch living in an Italian city is fussy.",
+     "walkthrough": "R stands for rex, Latin for king, as in royal cyphers like ER.",
+     "definitionFit": "Overnice means excessively fastidious or particular, so fussy to a fault."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "occupying"
+    }
+   }
   },
   {
    "number": 25,
@@ -415,7 +1597,39 @@
     "text": "Four-letter words in English?",
     "enumeration": "8"
    },
-   "solution": "LANGUAGE"
+   "solution": "LANGUAGE",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "LANGUAGE",
+    "definitions": [
+     {
+      "text": "Four-letter words in English?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Four-letter words in English",
+      "note": "surface reading: short English words of four letters"
+     },
+     {
+      "clueFragment": "Four-letter words",
+      "note": "setter's reading: swearing, as in 'mind your ...', and English is itself an example of one"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Four-letter words are swear words, which people call bad language; English is also a language.",
+     "definitionFit": "The word means a tongue such as English, and also crude speech, as in bad language."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Four-letter"
+    }
+   }
   },
   {
    "number": 26,
@@ -429,7 +1643,44 @@
     "text": "Company's delivered classes for religious people",
     "enumeration": "6"
    },
-   "solution": "CASTES"
+   "solution": "CASTES",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "CASTES",
+    "definitions": [
+     {
+      "text": "classes for religious people",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "delivered",
+      "for": "homophone",
+      "note": "delivered as in a speech delivered, so the word is spoken rather than spelt"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Company's",
+      "gives": "CASTES",
+      "soundsLike": "CASTS",
+      "note": "a cast is a theatre company; with 's it is pronounced like the answer"
+     }
+    ],
+    "explanation": {
+     "surface": "A firm providing lessons for the devout.",
+     "walkthrough": "Company is a theatrical cast, not a business.",
+     "definitionFit": "Castes are hereditary social classes, most famously the divisions within Hindu society."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Company's"
+    }
+   }
   }
  ]
 }
