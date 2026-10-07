@@ -1,19 +1,11 @@
 #!/usr/bin/env python3
 """What makes a blocked British cryptic grid legal, and the check that enforces it.
 
-The favicon motif was drawn by eye. It was 180-degree symmetric and looked the
-part, but it was not a crossword: eight of its lights were two cells long, and no
-British cryptic has a two-letter entry. A solver clocks that instantly, and an
-icon is seen by people who have never seen the site.
-
-So no grid here is drawn and trusted. `check()` is the shared rulebook —
-tools/make_icons.py runs its 5x5 motif through it, and `mask()` derives a real
-grid out of a published puzzle for anything that needs one to compare against.
-Drawing a grid freehand is exactly the kind of thing that looks right and isn't.
-
-The social card no longer carries a grid at all (see tools/make_og_card.py: it
-shows one clue coming apart instead, which is the thing the site actually does).
-The rules outlived the picture, which is why they live in their own module.
+No grid here is drawn and trusted: a grid drawn by eye can look the part and
+still not be a crossword (a two-letter light, which no British cryptic has).
+`check()` is the shared rulebook — tools/make_icons.py runs its 5x5 motif
+through it, and `mask()` derives a real grid out of a published puzzle for
+anything that needs one to compare against.
 
 Usage:  python3 tools/grid_rules.py [puzzle-number]   # check a real grid passes
 """
@@ -26,11 +18,7 @@ from fetch_puzzle import (  # noqa: E402 — one id resolver, one reader
     read_puzzle_file, resolve_puzzle)
 from groups import entry_id  # noqa: E402
 DEFAULT_PUZZLE = "cryptic-30066"   # Tramp, 15x15, fully annotated
-# One light in accent blue, the way the app highlights the entry you're on.
-# A middle row rather than the top one: against the border, row 1 read as a
-# banner across the grid instead of as a single answer.
-# The card used to light one entry in accent blue; mask() still reports it so a
-# future picture can, and so the id is validated against the puzzle.
+# mask() also returns this light's cells; no caller reads them.
 HIGHLIGHT = "14-across"
 
 
@@ -113,8 +101,7 @@ def main():
     written too strictly would show up as a broken icon build rather than as what
     it is: a rule that real crosswords break.
     """
-    # Left as text: resolve_puzzle takes an id or a bare number, and int() here
-    # rejected every id the moment ids grew their series (2026-08-19).
+    # Left as text: resolve_puzzle takes an id or a bare number.
     pid = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_PUZZLE
     puz = load(pid)
     white, _ = mask(puz)

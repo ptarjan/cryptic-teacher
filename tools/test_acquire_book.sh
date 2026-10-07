@@ -1,5 +1,5 @@
 #!/bin/bash
-# Does tools/acquire_book.py still recover the grids it recovered on 2026-09-18?
+# Does tools/acquire_book.py still recover the grids its stored control records?
 #
 #     bash tools/test_acquire_book.sh
 #
@@ -11,8 +11,7 @@
 # visible, and tools/light_spec.py says in its own docstring that it is gated
 # by this file.
 #
-# THE CONTROL is ten puzzles from Penguin volume 5, the set the September 2026
-# sweep was measured on. Five of them (3, 18, 27, 44, 45) are in puzzles/ and
+# THE CONTROL is ten puzzles from Penguin volume 5. Five of them (3, 18, 27, 44, 45) are in puzzles/ and
 # were checked by hand; the other five are the interesting failures — an
 # ambiguous pair, a ten-fill collapse, a no-solution, a second ambiguous pair —
 # and they are in the control precisely because a change that "improves" the

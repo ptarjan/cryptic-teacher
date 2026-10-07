@@ -149,9 +149,8 @@ check "failed" "${ok:-no}" "no"
 check "charged to the puzzle" "$(grep -c 'ran past 90m' <<<"${capped:-}")" "1"
 
 # The cap is evidence about THIS grid and nothing else, and the queue behind it
-# has puzzles nobody has tried. On 2026-09-12 the cap fired on independent-12459
-# and ended the run, so cryptic-30109 shipped with no hints for a reason that
-# had nothing to do with it. The night ends on $stop_reason; the cap must set
+# has puzzles nobody has tried; ending the run there would ship the next puzzle
+# with no hints for a reason that has nothing to do with it. The night ends on $stop_reason; the cap must set
 # $ann_timeout instead, which is what tells the puzzle loop to move on.
 echo "and the cap does not end the night — it names the puzzle, not a stop"
 check "named the lost puzzle" "$(grep -c 'ran past 90m' <<<"$timed_out")" "1"
