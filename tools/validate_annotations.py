@@ -44,11 +44,12 @@ And checks that need the whole puzzle in hand:
   - every convention a block leans on is in the solver's glossary
 
 Usage: python3 tools/validate_annotations.py [--unscoped] [--tighten] [puzzle-number ...]
+       python3 tools/validate_annotations.py --explain [check-name]
 With no arguments, validates every puzzle that has at least one annotation.
 `--unscoped` runs the authored-only checks on published puzzles too — that is
 the CALIBRATION harness, not a mode to ship in: a check that flags Araucaria is
-a broken check, so every authored-only rule is measured across the eight
-annotated Guardian puzzles before it is trusted. Exits non-zero if any check
+a broken check, so every authored-only rule is measured across the annotated
+published puzzles before it is trusted. Exits non-zero if any check
 fails.
 """
 
@@ -146,42 +147,34 @@ def check_type(tag, ann, errors):
 
 # A cryptic definition has no checkable mechanism: the solver either sees the
 # joke or is stuck. One or two per puzzle is a treat, more is a quiz. It exists
-# because OUR authoring pass drifts over it: chasing a funny surface produced
-# six in one rewrite of A001, since a funny sentence is far easier to find than
-# a funny mechanism (feedback 2026-07-29: "they don't have wordplay anymore").
-# See AUTHORING.md, "The sentence AND the wordplay".
+# because OUR authoring pass drifts over it: a funny sentence is far easier to
+# find than a funny mechanism. See AUTHORING.md, "The sentence AND the wordplay".
 #
 # The cap is a HARD limit on authored puzzles and only a warning on fetched
 # ones, because a published setter's count is a fact about their puzzle and not
-# a budget we get to set. Measured over the 331 annotated puzzles in puzzles/:
-# 200 carry no cryptic definitions, 89 carry one, 42 carry two. Nothing carried
-# three until quiptic-1372 (Harpo), which genuinely has five — and because the
-# cap was an error there, the annotator solved all five and then shipped three
-# of them BLANK to stay under it. A blank clue teaches nothing and no check
-# could see it, so the cap was buying a silent failure at the price of a loud
-# one. check_every_clue_is_annotated is the loud one now.
+# a budget we get to set. An error there would push the annotator to ship the
+# surplus clues BLANK, which teaches nothing and which only
+# check_every_clue_is_annotated can see.
 MAX_CRYPTIC_DEFINITIONS = 2
 
 
 # "A good cryptic clue doesn't have anything superfluous which isn't directly
 # part of the wordplay. It should be exactly two pieces. Definition, optional
-# joinery and wordplay." (feedback 2026-07-29). A word that exists only to make
+# joinery and wordplay." A word that exists only to make
 # the surface read nicely is a fault, and in this schema it has exactly one
 # signature: a block with an empty `gives`, i.e. "surface only" padding.
 #
 # A walkthrough budget for the companion rule: "When you basically give the whole
 # answer in the building blocks you don't need to have the full walkthrough."
 # 45 sits above the 99th percentile: across 74,474 published walkthroughs with
-# blocks (2026-09-28) the median is 19 words, p90 32, p99 40, and 0.1% run over
-# 45. The A001 set that prompted the feedback ran 44-63 with a median of 54.
+# blocks the median is 19 words, p90 32, p99 40, and 0.1% run over 45.
 MAX_WALKTHROUGH_WORDS = 45
 
 # Opening formulas that spend the first clause on something other than the clue.
 # Anchored at the start and kept to fixed phrasings on purpose — the same words
 # are unremarkable once the sentence is under way, and a matcher that chased
-# them there would fire on half the corpus. Counts are from the 6,403 published
-# walkthroughs on 2026-09-06, which is what makes these the shapes worth naming
-# rather than every stiff opening anyone can imagine.
+# them there would fire on half the corpus. The patterns are the shapes found in
+# the 6,403 published walkthroughs, not every stiff opening anyone can imagine.
 WALKTHROUGH_PREAMBLE = [
     (r"(An?|The)\s+(lovely|neat|nice|classic|clean|tidy|elegant|simple|pretty|smart|"
      r"clever|gentle|fiddly|textbook|standard|straightforward)\b[^.]*?:",
@@ -196,10 +189,10 @@ WALKTHROUGH_PREAMBLE = [
      r"(instruction|mechanism|step|device|operation|stage|move|thing)s?\b[^.]*?:",
      "a table of contents for a sentence one line long"),
 ]
-# "This is a ..." was a fourth pattern and was cut after measuring it: all three
-# corpus hits were contrastive — "This is a rotation, not a reversal" — which is
-# the trick stated, not a preamble to it. A check that warns on good sentences
-# gets ignored on the bad ones.
+# "This is a ..." is deliberately not a pattern: its corpus hits are contrastive —
+# "This is a rotation, not a reversal" — which is the trick stated, not a
+# preamble to it. A check that warns on good sentences gets ignored on the bad
+# ones.
 
 # Closing sentences that grade the walkthrough instead of continuing it. The
 # predicate list is what makes these empty: "the whole difficulty", "the whole
@@ -231,11 +224,8 @@ FORCE_AUTHORED_CHECKS = False
 def is_authored(puzzle):
     """Did we write this puzzle, or is it a published Guardian grid?
 
-    Ours carry series "authored" (tools/series.py). This used to read the first
-    character of the id, because ours began with a letter and every published
-    one began with a digit — and then ids grew their series on 2026-08-19, every
-    id began with a letter, and every Guardian puzzle was silently held to the
-    authoring rules. A field, not a spelling. The distinction matters because
+    Ours carry series "authored" (tools/series.py). The field decides, never the
+    spelling of the id. The distinction matters because
     the checks below are AUTHORING rules, not annotation rules: real setters
     pad their surfaces and write long clues, and an annotation of a published
     grid has to be able to record that faithfully."""
@@ -277,7 +267,7 @@ def check_walkthrough_opener(tag, ann, warnings):
     The app prints this paragraph under the label "The trick", so an opening
     clause spent rating the clue — "A lovely match of surface and answer:",
     "As simple as charades come:" — puts the label and the first words at odds,
-    and 2026-09-06 feedback was that the sentence "sounds weird". The other
+    and the sentence reads oddly. The other
     shape is a table of contents for a sentence one line long: "Two instructions
     stacked:" announces a structure the reader can already see.
 
@@ -305,8 +295,7 @@ def check_walkthrough_closer(tag, ann, warnings):
     Two shapes say nothing: "That switch is the whole difficulty" restates the
     trick just described and grades it, and "Both readings send you straight past
     the letters" restates that a trap is a trap. Both are the reader's own
-    conclusion handed back to them — 2026-09-06 feedback on everyman-4167 22A was
-    that "the last sentence was just useless".
+    conclusion handed back to them.
 
     Matched only as a whole final sentence and only with an abstract predicate.
     "It is only the first letter going" and "It is only an equals sign, joining
@@ -333,13 +322,10 @@ def check_walkthrough_budget(tag, ann, warnings):
     Honest about what this can and cannot see: it is a BUDGET, not a redundancy
     detector. It cannot tell a long walkthrough that teaches something from a
     long one that re-narrates the blocks — but in our own puzzles the long ones
-    have always been the re-narrating ones (19 of the 20 A001 walkthroughs that
-    prompted the rule were over budget, and every one of them restated its
-    blocks). A semantic detector was tried and thrown away: scoring the fraction
-    of walkthrough vocabulary already present in the clue and blocks separated
-    nothing (A001 before 0.21, after 0.16, published puzzles 0.30 — the good
-    walkthroughs scored WORSE than the bad ones, because naming the joke means
-    reusing the clue's own words). Do not re-add it without new evidence.
+    have always been the re-narrating ones. A semantic detector does not work:
+    the fraction of walkthrough vocabulary already present in the clue and
+    blocks separates nothing — good walkthroughs score WORSE than bad ones,
+    because naming the joke means reusing the clue's own words.
 
     The judgement half stays procedure: keep only what the blocks cannot show —
     why the surface misleads, the joke, a convention (ER = Queen), or why the
@@ -401,7 +387,7 @@ def link_vocabulary():
 
 
 def check_link_words_are_equivalences(tag, ann, errors):
-    """A link word has to stand in for an equals sign (feedback 2026-07-30).
+    """A link word has to stand in for an equals sign.
 
     "lives on" does not. It joins nothing and asserts nothing; it is surface
     padding wearing a link word's coat, and declaring it in `linkWords` makes
@@ -410,7 +396,7 @@ def check_link_words_are_equivalences(tag, ann, errors):
     catches when the annotator is honest enough to file it as a block with an
     empty `gives`; this check closes the other door.
 
-    CALIBRATION (unscoped, 74,474 annotated published clues, 2026-09-28):
+    CALIBRATION (unscoped, 74,474 annotated published clues):
     published annotations declare 24,755 link-word phrases. The core plus the
     measured words from tools/build_clue_joints.py cover 96.1% of their tokens;
     the rest is a long tail, no word in it used more than nine times.
@@ -533,13 +519,11 @@ def check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors):
 def check_link_word_is_not_an_order(tag, ann, clue, warnings):
     """A link word that put the pieces in that order is an indicator.
 
-    Reported 2026-09-16 against 30,099 25A, "Post on half of wage when things
-    are developing": the annotation filed `on` under linkWords, so the page told
-    the solver it "contributes no letters of its own" and nothing anywhere said
-    why the post ends up at the BACK of the answer. It ends up there because of
-    `on` — across the grid, one thing written on another has been reached after
-    it. The word carries the only instruction in the clue, and it was filed as
-    furniture.
+    In 30,099 25A, "Post on half of wage when things are developing", `on` is
+    why the post ends up at the BACK of the answer: across the grid, one thing
+    written on another has been reached after it. The word carries the only
+    instruction in the clue, so filing it under linkWords makes the page say it
+    "contributes no letters of its own" and never says why the post comes second.
 
     Flagged only where the joiner is demonstrably the thing that did the
     reordering: two blocks listed in the opposite order from the clue, the
@@ -549,13 +533,13 @@ def check_link_word_is_not_an_order(tag, ann, clue, warnings):
     Channel Islands on ecstasy` (everyman-4093 9A) is reordered by `in`, and
     `on` there really is joinery.
 
-    CALIBRATION (2026-09-16, the whole corpus): 65 entries declare a positional
+    CALIBRATION (the whole corpus): 65 entries declare a positional
     joiner as a link word and 12 of them list blocks out of clue order, but only
     3 survive the two conditions above — 30,099 25A and indysunday-1885 14A and
     25A. All three are real, and the two Filbert ones are the proof: their
     walkthroughs SAY "in an across clue one thing 'on' another sits after it"
-    and file `on` as a link word in the same breath. All three fixed with this
-    rule. A warning, because three is a thin sample for an error."""
+    and file `on` as a link word in the same breath. A warning, because three
+    is a thin sample for an error."""
     joiners = [w for w in ann.get("linkWords", [])
                if w.strip().lower() in POSITIONAL_JOINERS]
     if not joiners:
@@ -645,18 +629,14 @@ def check_indicator_adjacency(tag, ann, clue, errors, warnings):
     annotation has already confessed to as padding (a block with an empty
     `gives`, itself an ERROR in an authored puzzle).
 
-    Note this is NOT the withdrawn advice in AUTHORING.md about indicator
-    placement. That one said do not put the indicator next to the fodder, as a
-    style preference, and was killed by measurement (88.9% of published anagrams
-    do exactly that). This says the opposite thing about a different subject: it
-    is a soundness rule, and the measurement supports it.
+    This is a soundness rule, not a style preference: it does not contradict
+    AUTHORING.md's withdrawn advice against placing the indicator next to the
+    fodder (88.9% of published anagrams do exactly that).
 
-    CALIBRATION (unscoped, 74,474 annotated published clues, 2026-09-28):
+    CALIBRATION (unscoped, 74,474 annotated published clues):
     10,201 anagram clues with an indicator; 9,914 have a locatable fodder span
     and 24 of those are flagged (0.24%), each with a content word in the gap
-    that reads as an annotation slip (`ecstasy`, `oxygen`, `daughter`). With
-    the old hand list of articles and short prepositions there were 95, and
-    the extra 71 had link words in the gap (`when` 15, `after` 14, `get` 7).
+    that reads as an annotation slip (`ecstasy`, `oxygen`, `daughter`).
     287 are unlocatable because their fodder is built by deleting letters;
     they are skipped, with a warning when the clue is ours."""
     fodder = whole_anagram(ann)
@@ -703,7 +683,7 @@ def check_anagram_fodder_from_clue(tag, ann, clue, authored, errors, warnings):
     other check. For a clue we wrote, the fodder must also be found whole,
     in order or from its blocks (_fodder_spans), since we chose the words.
 
-    CALIBRATION (2026-09-29, 14,898 anagram steps in published puzzles):
+    CALIBRATION (14,898 anagram steps in published puzzles):
     11 flagged, each a definition sharing words with the fodder (semi-&lit
     typed as a plain anagram), so published clues get a warning."""
     text = clue
@@ -735,11 +715,10 @@ def check_indicator_outside_fodder(tag, ann, clue, errors):
     The instruction and the material are two different jobs, and one word cannot
     hold both: if `spin` is inside PAID TO SPIN then its letters are already
     spoken for, and whatever tells you to shuffle them has to be some other word.
-    Obvious once stated, and easy to get backwards anyway — `spin`, `cooked`,
+    Easy to get backwards — `spin`, `cooked`,
     `broken`, `wild` all read as instructions wherever they appear, so a reader
     (or a model annotating in bulk) will happily nominate one that is really
-    fodder. That is exactly what happened on 30,079 13D, where the annotation had
-    it right and a human review of the card had it wrong.
+    fodder.
 
     Adjacency alone cannot catch this: check_indicator_adjacency measures the gap
     BETWEEN indicator and fodder, and an indicator sitting inside the fodder has
@@ -748,7 +727,7 @@ def check_indicator_outside_fodder(tag, ann, clue, errors):
     Only flagged when every locatable reading of the fodder swallows the
     indicator, matching the adjacency check's rule that any clean reading wins.
 
-    CALIBRATION (2026-08-08, all 116 annotations carrying a fodder): 0 flagged.
+    CALIBRATION (all 116 annotations carrying a fodder when written): 0 flagged.
     A guard against a future annotation, not a description of a present one.
     """
     fodder = whole_anagram(ann)
@@ -927,13 +906,12 @@ def check_reversal_direction(tag, ann, direction, errors):
     `rising`, `raised`, `climbing` or `north` fit it. Which words bind to an
     axis is measured by tools/build_clue_joints.py.
 
-    CALIBRATION (published annotations, 2026-09-28): the convention is
+    CALIBRATION (published annotations): the convention is
     lopsided. Vertical words almost never reverse an across entry (`up` 2 of
     168 single-word uses). Horizontal words reverse down entries all the time:
     `back` sits on a down entry in 25 of 170 single-word uses and `returning`
     in 17 of 72. So `back` is neutral, not horizontal. With the measured lists,
-    25 of 2,087 axis-word reversals cross over (1.2%), against 250 of 3,237 (7.7%) with
-    the July hand lists, which bound `back` and `returning` to across.
+    25 of 2,087 axis-word reversals cross over (1.2%).
 
     Only declared indicators are examined, and only on clues whose type or
     assembly.reversals say a reversal happens, so an ordinary `up` elsewhere in the
@@ -970,19 +948,16 @@ FILLER_WORDS = {
     "do", "does", "did", "gives", "give", "goes", "go", "if", "so", "all",
 }
 # Hedges that excuse an unexplained chunk instead of parsing it. A walkthrough
-# that needs one is nearly always hiding a wrong parse (feedback 2026-07-29:
-# 30067 13A "jokingly adjectived" was papering over state = CAL).
+# that needs one is nearly always hiding a wrong parse (30067 13A "jokingly
+# adjectived" was papering over state = CAL).
 HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
           "for some reason", "don't ask", "close enough")
 
 # Working-out left in the published text. A walkthrough is the finished
-# explanation; if it is still arguing with itself, the model shipped its scratch
-# pad. Found 2026-08-05 benchmarking Haiku 4.5 as a cheaper annotator: it passed
-# every mechanical check on 30073 and then handed the reader a 1A walkthrough
-# that backtracked five times ("No wait—", "Still wrong.", "That's not it
-# either.") and gave up without a parse. Nothing here caught it, because every
-# field was present and every letter added up — the checks were all about
-# structure and none about whether the prose was finished.
+# explanation; if it is still arguing with itself ("No wait—", "Still wrong.",
+# "That's not it either."), the model shipped its scratch pad, and every
+# structural check passes anyway because every field is present and every
+# letter adds up.
 #
 # Two guards, deliberately: the phrase list below, and WALKTHROUGH_HARD_MAX.
 # The phrases are a text match and so only catch the wordings seen so far; the
@@ -992,9 +967,9 @@ HEDGES = ("jokingly", "if you squint", "hand-wave", "handwave", "somehow",
 # It is a second, higher ceiling on top of MAX_WALKTHROUGH_WORDS (45), not a
 # replacement: that one is a style budget and warns, on authored puzzles only,
 # when the prose repeats what the blocks already said. This one is an ERROR on
-# every puzzle and asks a cruder question — is this even a walkthrough? The
-# longest of the 405 in the repo when this went in was 37 words, so 60 is slack
-# and nothing that hits it is a near miss on the style budget.
+# every puzzle and asks a cruder question — is this even a walkthrough? 60 is
+# well clear of any real walkthrough, so nothing that hits it is a near miss on
+# the style budget.
 BACKTRACKS = ("no wait", "no, wait", "hold on", "scratch that", "still wrong",
               "that's not it", "that is not it", "not it either", "re-examine",
               "let me try", "let me reconsider", "on second thought",
@@ -1067,11 +1042,10 @@ def check_authored_puns(entries, errors):
                           f"word whose second sense carries the pun")
 
 
-# `definitionFit` — one sentence on why the ANSWER means the DEFINITION — became
-# required on 2026-08-01 (feedback: "in the full walkthrough explain why the
-# answer matches the definition"). Puzzles annotated before it existed lack it;
-# see the ratchet at the bottom of this file for how they are grandfathered
-# without letting a new puzzle skip it.
+# `definitionFit` — one sentence on why the ANSWER means the DEFINITION — is
+# required. Puzzles annotated before it existed lack it; see the ratchet at the
+# bottom of this file for how they are grandfathered without letting a new
+# puzzle skip it.
 
 
 # The paper's own word divisions, as the source filed them: clue.separators
@@ -1157,13 +1131,9 @@ def check_definition_fit(tag, ann, errors, warnings):
 # field rendered above that line which names the answer collapses the ladder —
 # the solver pays a hint and is handed the solve.
 #
-# Found 2026-08-09 by Paul, on 1392 11-across: a definition's `note` read "the setter
-# defines trump cards by what their holders enjoy", printed on the DEFINITION
-# rung. Sixteen notes in the corpus did the same, and the reason is structural
-# rather than careless — a definition's note exists to explain why the definition
-# does not agree with the ANSWER, so it is written about the answer and always
-# will be. It was moved to the walkthrough rung rather than reworded, because
-# rewording would leave the next one free to make the same mistake.
+# A definition's `note` exists to explain why the definition does not agree with
+# the ANSWER, so it is written about the answer and always will be; that is why
+# it is shown on the walkthrough rung, not the definition rung.
 #
 # So this guards the fields that stay early, where naming the answer is never
 # necessary and never fair. Matched with `says`, the same word-run matcher
@@ -1171,15 +1141,13 @@ def check_definition_fit(tag, ann, errors, warnings):
 # up with whole words of the field, so "trump cards" is still caught by
 # TRUMPCARDS and a stray hyphen or apostrophe still cannot slip it through.
 #
-# This check was written first, with a bare substring test, and `says` was built
-# afterwards for the sibling check precisely because a bare substring finds a
-# short answer inside an unrelated longer word. The clue that proved the two
-# needed to agree is everyman-4121 1A, "'Not fully overhead?' I'm never
-# overhead!" — RHEA hides in ove(RHEA)d, the setter uses that word in BOTH
-# halves, and so every possible definition span contains the answer's letters.
-# There the letters are the clue's own, on screen from the start, and the
-# definition rung adds nothing the solver could not already see; a leak is text
-# the annotator WROTE that the clue does not say.
+# A bare substring test would find a short answer inside an unrelated longer
+# word, which is why `says` is used. A field that quotes clue words which
+# already spell the answer is not a leak: in everyman-4121 1A, "'Not fully
+# overhead?' I'm never overhead!", RHEA hides in ove(RHEA)d and the setter uses
+# that word in BOTH halves, so every possible definition span contains the
+# answer's letters. Those letters are the clue's own, on screen from the start;
+# a leak is text the annotator WROTE that the clue does not say.
 EARLY_RUNG_FIELDS = ("definitions", "indicators", "linkWords")
 
 
@@ -1212,10 +1180,9 @@ def check_no_answer_in_early_rungs(tag, ann, clue, errors, warnings):
 def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings, lights=()):
     """The building blocks are a rung early too — the walkthrough is the reveal.
 
-    The check above stops at the fields shown BEFORE the blocks, because the
-    blocks rung was thought of as the place the answer lands. It is not: the
-    walkthrough is, and a learner buying the blocks has deliberately not bought
-    the solve. app.js suppresses a `gives` that equals the answer, so only the
+    The check above stops at the fields shown BEFORE the blocks. The blocks rung
+    is not where the answer lands: the walkthrough is, and a learner buying the
+    blocks has deliberately not bought the solve. app.js suppresses a `gives` that equals the answer, so only the
     prose can still leak.
 
     `lights` are the solutions of a linked answer's lights, and each is an
@@ -1237,15 +1204,11 @@ def check_block_notes_dont_name_the_answer(tag, ann, errors, warnings, lights=()
             f"which convention is in play — and let the walkthrough spell it.")
 
 
-# An indicator rung that names the words and not the reason is the rung solvers
-# keep saying is not worth paying for ("Spot the indicator words shouldn't be
-# content free clues… they would explain like minute cryptic", 2026-08-02; and
-# again on 4096 20a RENOVATOR, "the indicator didn't explain why stable no was
-# an indicator", 2026-08-17 — the clue is "Fixer-up ran over to stable? No", and
-# "stable? No" is an anagram signal because unstable means not fixed in place,
-# which the rung never said). The general sentence about what an anagram
-# indicator does is the same on every clue in the corpus; the reason THIS word
-# is one is the only part that teaches anything.
+# An indicator rung that names the words and not the reason is not worth paying
+# for. The general sentence about what an anagram indicator does is the same on
+# every clue in the corpus; the reason THIS word is one is the only part that
+# teaches anything ("Fixer-up ran over to stable? No": "stable? No" is an
+# anagram signal because unstable means not fixed in place).
 #
 # A missing note and a missing `for` are grandfathered the same way as
 # definitionFit, through the ratchet at the bottom of this file: stored puzzles
@@ -1331,18 +1294,14 @@ SOUND_TYPES = ("homophone", "spoonerism")
 def check_sound_names_its_source(tag, ann, errors, warnings):
     """A homophone must name the word you say aloud, as a field, not as prose.
 
-    "24d in 4096 doesn't explain that the original word is hoard but it is a
-    homophone and you drop the h to it. Don't just fix one clue extrapolate"
-    (Paul, 2026-08-17). "Cockney mob loudly" → OARED, and the block read
-    “Cockney mob” → OARED. Every step of the actual clue happened off-screen:
-    a mob is a HORDE, a Cockney drops the aitch to leave ’ORDE, and ’ORDE said
-    aloud is OARED. The rung asserted the answer and taught nothing — 18 of the
-    corpus's 48 sound clues did the same, which is the whole point of the type
-    being skipped 18 times.
+    In "Cockney mob loudly" → OARED, a block reading “Cockney mob” → OARED
+    leaves every step of the actual clue off-screen: a mob is a HORDE, a Cockney
+    drops the aitch to leave ’ORDE, and ’ORDE said aloud is OARED. That rung
+    asserts the answer and teaches nothing.
 
     The source word cannot live only in a note, because a note is prose and
-    prose is unenforceable: 4096 24d DID mention a horde in passing, buried
-    mid-sentence, and it still read as a leap. So `soundsLike` is a tracked
+    prose is unenforceable: a horde mentioned in passing, buried mid-sentence,
+    still reads as a leap. So `soundsLike` is a tracked
     field on the block that does the sounding, it is required on every clue
     whose type declares a sound, and it must differ from what the block gives —
     a `soundsLike` equal to the output is not a homophone, it is a spelling.
@@ -1383,22 +1342,20 @@ def check_sound_names_its_source(tag, ann, errors, warnings):
 def check_sound_is_not_a_letter_swap(tag, ann, errors, warnings):
     """A spoonerism trades SOUNDS. A soundsLike made by trading letters is a fake.
 
-    "I have no idea how you get nought to oubt" (quiptic 1398 9A, 2026-09-07).
-    That clue's blocks gave DOUGH and NOUGHT, and a third block then declared
-    the pair sounded like "NOUGH DOUGHT" — a string arrived at by exchanging the
-    two words' first LETTERS and re-spelling nothing else. It is not a word, not
-    a pronunciation and not anything the solver can say aloud, so the rung ended
-    at a piece of gibberish and the reader was left to leap from it to NO DOUBT
+    In quiptic 1398 9A, blocks giving DOUGH and NOUGHT followed by a third block
+    declaring the pair sounded like "NOUGH DOUGHT" is a string arrived at by
+    exchanging the two words' first LETTERS and re-spelling nothing else. It is
+    not a word, not a pronunciation and not anything the solver can say aloud,
+    so the rung ends at gibberish and the reader must leap from it to NO DOUBT
     unaided. Spooner swaps the opening sounds: "doh" and "nawt" become "noh" and
     "dawt", which are then SPELT NO and DOUBT, and the respelling is the lesson.
 
     The tell is arithmetic. When a sounded form uses exactly the letters the
     earlier blocks already gave, only in a different order, no sound was
-    recorded — the annotator shuffled characters between the chunks. The corpus
-    was measured before this landed: 3 hits in 328 sound clues (quiptic-1398 9A
-    "NOUGH DOUGHT", independent-12412 5D "FOG BOE", indysunday-1871 13A "FONE
-    CALL"), all three the same defect, all three fixed in the same commit as
-    two-block exchanges. A sounded form that legitimately restates the earlier
+    recorded — the annotator shuffled characters between the chunks. In the
+    corpus: 3 hits in 328 sound clues (quiptic-1398 9A "NOUGH DOUGHT",
+    independent-12412 5D "FOG BOE", indysunday-1871 13A "FONE CALL"), all the
+    same defect. A sounded form that legitimately restates the earlier
     blocks — everyman-4134's SOLELY + HE -> "SOLELY HE" — is those letters in
     the SAME order, and is left alone.
     """
@@ -1436,9 +1393,9 @@ def letters(s):
     """The A-Z letters of a string, with accents folded rather than dropped.
 
     A hidden word is checked against the clue's own letters, so a clue that
-    spells the answer across an accented word used to fail that check outright:
-    12422 23A hides PESTO in "canapés today", and stripping the É said the
-    answer was not in the clue at all. The Independent and the Guardian both
+    spells the answer across an accented word must keep the accented letter:
+    12422 23A hides PESTO in "canapés today", and dropping the É would put the
+    answer outside the clue. The Independent and the Guardian both
     print accents (canapés, café, née), and a solver reads them as the plain
     letter — so the validator has to as well. NFD splits É into E plus a
     combining acute; the character class then keeps the E and drops the mark."""
@@ -1450,9 +1407,8 @@ def words_of(s):
     """Lowercase word list, with markup, the (8) enumeration and punctuation dropped.
 
     Guardian clue text sometimes carries literal HTML — 30046 19A and 30072 27A
-    both italicise a word — and without the strip the coverage check reported
-    the tag name 'span' as an unclaimed clue word. There is nothing honest to
-    claim it with, because it isn't a word of the clue.
+    both italicise a word — and a tag name such as 'span' is not a word of the
+    clue, so nothing could honestly claim it in the coverage check.
     """
     s = re.sub(r"<[^>]*>", " ", s or "")
     return re.findall(r"[a-z]+", re.sub(r"\([^)]*\)", " ", s.lower()))
@@ -1472,13 +1428,11 @@ def words_of(s):
 # and the reference is then dropped instead of expanded.
 REFERENCE_RE = re.compile(r"\b(\d+)(?:\s*(across|down)|([ad]))?\b", re.I)
 
-# The enumeration, and nothing else in brackets. This used to be r"\([^)]*\)",
-# which also deleted a parenthetical aside — and an aside is ordinary clue text
-# that a hidden word may run straight through: everyman-4122 15A, "Madman seen
-# in Psycho (the adaptation)", hides HOTHEAD across psyc(HO THE AD)aptation.
-# Stripping the bracket said the answer was not in the clue at all, which pushes
-# the annotator towards typing an honest hidden word as something it is not.
-# Digits and separators only, so "(7)", "(4,6)" and "(4-6)" still go and no
+# The enumeration, and nothing else in brackets. A parenthetical aside is
+# ordinary clue text that a hidden word may run straight through: everyman-4122
+# 15A, "Madman seen in Psycho (the adaptation)", hides HOTHEAD across
+# psyc(HO THE AD)aptation, and stripping the bracket would put the answer
+# outside the clue. Digits and separators only, so "(7)", "(4,6)" and "(4-6)" still go and no
 # bracketed words do.
 ENUMERATION_RE = re.compile(r"\([\d\s,.\-–—]+\)")
 
@@ -1516,9 +1470,8 @@ def check_coverage(tag, ann, clue, warnings):
     """Every content word of the clue must be claimed by the parse.
 
     A clue word that is in neither the definition, an indicator, a link phrase,
-    nor a block fragment is wordplay the annotation silently dropped (feedback
-    2026-07-29: 30067 13A never accounted for 'state' = CAL, and the walkthrough
-    hedged instead of admitting it)."""
+    nor a block fragment is wordplay the annotation silently dropped (30067 13A
+    never accounted for 'state' = CAL)."""
     claimed = set()
     for src in definitions.texts(ann):
         claimed |= set(words_of(src))
@@ -1677,8 +1630,7 @@ def plain(text):
 def check_part_of_speech(tag, ann, warnings):
     """The definition must be substitutable for the answer, which means their
     inflections agree: a plural answer needs a plural definition, an -ing answer
-    an -ing definition (feedback 2026-07-29 — "the part of speech needs to be
-    right"). Only the mechanical, unambiguous endings are checked here; the
+    an -ing definition. Only the mechanical, unambiguous endings are checked here; the
     judgement call lives in STYLE.md and tools/annotate_prompt.md.
 
     A definition's `note` silences this for it: some setters genuinely define a
@@ -1790,7 +1742,7 @@ def setter_error_problems(puzzle, eid, row, ann=None):
 def check_anagram_has_fodder(tag, ann, warnings):
     """A clue typed anagram names its shuffle in `assembly.anagrams`: the
     anagram ring on the blocks rung deals that fodder, so a clue without it
-    shows the solver no ring at all ("This should give me the anagram wheel").
+    shows the solver no ring at all.
     apply_annotations derives it wherever the blocks rebuild the answer, so one
     still missing is a shuffle the blocks cannot show and has to be written."""
     if "anagram" in types_of(ann) and not assembly(ann).get("anagrams"):
@@ -1847,26 +1799,23 @@ def check_cryptic_definition_cap(entries, errors, warnings=None, authored=False)
 
     This is the one check that looks at the puzzle rather than the clue: every
     individual cryptic definition can be perfectly good and the set still be
-    wrong, which is exactly how six of them got into A001 unnoticed.
+    wrong.
 
     Over the cap is an error only when we set the puzzle, because that is the
     only case where the count is ours to change. On a fetched puzzle it warns,
     at the cap or over it, and names every cryptic definition for a human to
     read. Reaching the cap warns at all because a cryptic definition is the
     only type an annotator can reach for without solving anything, which makes
-    the count a measure of giving up. The
-    2026-08-08 model benchmark is the evidence: Sonnet annotated two puzzles
-    and landed on exactly 2 in both, passing by spending its whole surrender
-    budget — and on 30078, where Fable's annotation of the same clues existed
-    to diff against, both of its cryptic definitions turned out to be clues
-    Fable had solved (9A OPERA STAR, 19D CHUKKAS = CHAS round UK + K).
+    the count a measure of giving up: an annotator can land on exactly the cap
+    by spending its whole surrender budget on clues that do have wordplay (30078
+    9A OPERA STAR, 19D CHUKKAS = CHAS round UK + K).
     Nothing mechanical can tell a real cryptic definition from a shrug: it
-    claims no letters, so it contradicts nothing. Measured on this corpus, a
+    claims no letters, so it contradicts nothing. On the benchmark clues, a
     block handing over the answer catches 4 of 9, a whole-clue definition 8 of
-    9, and an indicator word appearing in the clue 3 of 9 — all of them
-    Fable's own correct work, so none of them is a rule. A human reading the
-    two named clues is the only check there is, and this warning is how they
-    get named.
+    9, and an indicator word appearing in the clue 3 of 9 — all of them also
+    true of correct annotations, so none of them is a rule. A human reading the
+    named clues is the only check there is, and this warning is how they get
+    named.
     """
     cds = [f"{e['number']}{'A' if e['direction'] == 'across' else 'D'}"
            for e in entries
@@ -1918,10 +1867,9 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     A blank annotation is the one failure no other check can see: it claims
     nothing, so it contradicts nothing, and the puzzle ships a clue with no
     teaching ladder behind it. It is also the escape hatch from every other
-    rule here — quiptic-1372 solved five cryptic definitions and blanked three
-    of them rather than fail check_cryptic_definition_cap, which turned a loud
-    failure into a silent one. Erroring here is what stops a rule elsewhere
-    from being paid for in blanks.
+    rule here — blanking a clue avoids failing check_cryptic_definition_cap, which
+    would turn a loud failure into a silent one. Erroring here is what stops a
+    rule elsewhere from being paid for in blanks.
 
     That is a rule for the run that annotates. A corpus-wide run (`corpus`)
     reads committed puzzles, where a hole is a clue whose annotation was dropped
@@ -1937,8 +1885,6 @@ def check_every_clue_is_annotated(entries, errors, warnings, misses=(), corpus=F
     wrong, because an explanation built on a wrong answer is wrong from its
     first line. That blank is the grader's, decided after the run ended and off
     the published key, so it is not an escape hatch — the model cannot reach it.
-    Treating it as an error meant one wrong answer in 33 failed the whole
-    puzzle, and on 2026-09-11 took a second puzzle down with it.
     """
     continuations = groups.leader_of(entries)
     for e in entries:
@@ -1981,11 +1927,10 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
     annotation of it teach anything?
 
     There is exactly one block shape available to an annotator who does not
-    think about it — the whole clue, giving the whole answer — and four of the
-    nine cryptic definitions in the corpus had it. Rendered, that is hint 3 of
-    4 reading “Might this keep you to time?” → WATCHSTRAP: the rung before it
-    has just said there is no separable wordplay, and this one charges a hint
-    for the solve (Paul, 1392 22-across, 2026-08-10).
+    think about it — the whole clue, giving the whole answer. Rendered, that is
+    hint 3 of 4 reading “Might this keep you to time?” → WATCHSTRAP: the rung
+    before it has just said there is no separable wordplay, and this one charges
+    a hint for the solve.
 
     So `gives` is banned outright. A cryptic definition yields no letters from
     any fragment — that is the definition of the type — and a `gives` is
@@ -1995,8 +1940,7 @@ def check_cryptic_definition_blocks(tag, ann, errors, warnings):
     restates the clue. What a cryptic definition CAN be taken apart into is
     ideas: the reading the surface pushes you towards and the reading the
     setter meant. Two blocks is the smallest annotation that shows the seam,
-    and the four good ones in the corpus (NUDISM, VANITY, NINETEENTH) already
-    look exactly like this. It is a presentation rule, not a lie detector: the
+    as in NUDISM, VANITY and NINETEENTH. It is a presentation rule, not a lie detector: the
     clue can be a perfectly honest cryptic definition and still be annotated
     into a rung that hands over the answer.
     """
@@ -2200,15 +2144,14 @@ def check_definition_not_fodder(entries, errors, warnings):
     That says the answer is the answer, and every existing check passes it, since
     the letters concatenate and the substrings are verbatim.
 
-    This is the hole a 2026-08-08 Haiku benchmark fell through: 29/29 annotated,
-    validator OK, and 17 of 27 non-exempt clues had no real wordplay in them at
-    all — wrong definitions dressed up in blocks that restated them. A model that
-    cannot solve the clue can still satisfy a consistency checker, so consistency
-    was never the bar; this is.
+    A model that cannot solve the clue can still satisfy a consistency checker:
+    wrong definitions dressed up in blocks that restate them pass every other
+    check, so consistency is not the bar; this is.
 
-    CALIBRATION (2026-08-08, all 671 annotated clues): 4 warn, in 4 different
-    puzzles, all genuine setter devices where the definition word is deliberately
-    reused as fodder. None reach the cap. The Haiku run scores 17 in one puzzle.
+    CALIBRATION (all 671 annotated clues): 4 warn, in 4 different puzzles, all
+    genuine setter devices where the definition word is deliberately reused as
+    fodder. None reach the cap; a run that never solved its clues hits it in one
+    puzzle.
     """
     hits = []
     for e in entries:
@@ -2261,12 +2204,9 @@ UNBALANCED_TYPES = ("deletion", "substitution", "cryptic_definition",
 # (charade + letter_selection) does have to add up.
 UNBALANCED_EXACT_TYPES = (["letter_selection"],)
 
-# The three block-shape checks below took a per-puzzle allowance of 2 until the
-# corpus was drained of every hit (2026-09-07). None of them has a false positive
-# left, so none of them has a reason to let one through: a tolerance that exists
-# only because the corpus was dirty keeps forgiving the same defect on every
-# puzzle fetched after the corpus was cleaned. Nine clues shipped a charade named
-# but not performed while the allowance stood at two per puzzle.
+# The three block-shape checks below allow no per-puzzle tolerance. None of them
+# has a false positive, so none has a reason to let a hit through: a tolerance
+# would keep forgiving the same defect on every puzzle fetched.
 
 
 def blocks_miss_letters(ann, entry):
@@ -2284,15 +2224,14 @@ def check_blocks_account_for_answer(entries, errors, warnings):
 
     Not a restatement of the `pieces` check: `pieces` is the annotator's own
     summary and is checked against the answer, so a parse can have immaculate
-    pieces and blocks that say something else entirely. Haiku's TRIGGER did:
-    pieces T/RIG/GER, blocks T + R + IG. The blocks are what the app renders —
-    they are what the learner reads — and nothing was comparing them to anything.
+    pieces and blocks that say something else entirely (pieces T/RIG/GER with
+    blocks T + R + IG for TRIGGER). The blocks are what the app renders — they
+    are what the learner reads.
 
-    CALIBRATION (2026-09-07): 0 of 671. The single hit, 12423 16A (MIDDLE OF
-    NOWHERE), is not a defect and is not a tolerance either: the answer describes
-    where the H sits rather than being built out of letters, which is a property
-    of its type, so UNBALANCED_EXACT_TYPES exempts that type and the gate shuts
-    behind it. Any hit is now an error.
+    CALIBRATION: 0 of 671. The one exception, 12423 16A (MIDDLE OF NOWHERE), is
+    not a defect: the answer describes where the H sits rather than being built
+    out of letters, which is a property of its type, so UNBALANCED_EXACT_TYPES
+    exempts that type. Any other hit is an error.
     """
     hits = []
     for e in entries:
@@ -2326,17 +2265,13 @@ def check_blocks_decompose(entries, errors, warnings):
 
     A charade with `pieces: ["SOD", "DEN"]` and one block reading
     `"Two types of earth" > SODDEN` has named the mechanism and then not
-    performed it, which is the whole of what a learner came for. The comparison
-    is free: the annotation already contains both halves and nothing checked
-    that they agree.
+    performed it, which is the whole of what a learner came for.
 
-    CALIBRATION (2026-09-07): 0 of 398 clues with 2+ pieces, and errors on any
-    hit. The nine this check found were every one of them real, including the two
-    that looked like judgement calls: ATOM was fixed the other way round, because
-    its wordplay yields the single string "A TO M" and nothing clues the TO, so
-    the block was right and `pieces` was the thing describing a parse it had not
-    done. There is no case here where the annotator is entitled to both fields
-    disagreeing — one of the two is wrong, and which one is the annotator's call.
+    CALIBRATION: 0 of 398 clues with 2+ pieces, and errors on any hit. There is
+    no case where the annotator is entitled to both fields disagreeing — one of
+    the two is wrong, and which one is the annotator's call (ATOM: its wordplay
+    yields the single string "A TO M" and nothing clues the TO, so the block is
+    right and `pieces` describes a parse not done).
     """
     hits = []
     for e in entries:
@@ -2348,8 +2283,7 @@ def check_blocks_decompose(entries, errors, warnings):
             continue
         # `pieces` spelled out letter by letter — A+L+F+A, N+U+D+I+T+Y — is an
         # anagram's letter list, not a charade's chunks, and one block holding the
-        # whole fodder is exactly right there. Ten of the fifteen first flagged
-        # were this; a rule that lights up honest work is a broken rule.
+        # whole fodder is exactly right there.
         if all(len(letters(p)) <= 1 for p in pieces):
             continue
         full = [b for b in ann.get("blocks", [])
@@ -2377,12 +2311,9 @@ def check_blocks_in_answer_order(entries, errors, warnings):
     annotation exists to show. Nothing caught it: `check_blocks_account_for_answer`
     compares multisets, so a permutation passes it perfectly.
 
-    This is the one of the four checks measured on 2026-08-08 and shelved that
-    turned out to be worth having. It was shelved as "11 of 175 charades, all of
-    them correct" — correct being the wrong word. The letters are correct; the
-    ORDER is the teaching, and it is wrong. Backlog size is not a reason to drop
-    a check (Paul, 2026-08-09), only false positives are, and re-measured under a
-    tight scope there are none.
+    The letters of such a clue are correct; the ORDER is the teaching, and it is
+    wrong. Backlog size is not a reason to drop a check, only false positives
+    are, and under the tight scope below there are none.
 
     SCOPE is the whole trick. It applies only to `type == ["charade"]` exactly.
     Any positional mechanism in the mix legitimately lists blocks out of final
@@ -2392,10 +2323,9 @@ def check_blocks_in_answer_order(entries, errors, warnings):
     is perfectly annotated. Widening from `charade` to "charade and nothing
     positional" adds 4 hits, 2 of them false. So it stays narrow.
 
-    CALIBRATION (2026-08-09): 10 of 127 pure charades, every one a genuine
-    misordering (1388 23A, 30039 24A, 30041 28D, 30042 8D, 30043 7D, 30044 19D,
-    30078 25A, 30079 8D/11A/22A), all fixed in the commit that added the check.
-    Each clue still warns with its own letters, and any hit fails the puzzle: the
+    CALIBRATION: 10 of 127 pure charades, every one a genuine misordering (1388
+    23A, 30039 24A, 30041 28D, 30042 8D, 30043 7D, 30044 19D, 30078 25A, 30079
+    8D/11A/22A). Each clue still warns with its own letters, and any hit fails the puzzle: the
     fix is mechanical, since exactly one ordering of the blocks spells the answer.
     """
     hits = []
@@ -2432,8 +2362,7 @@ def check_blocks_carry_notes(entries, warnings):
 
     The `note` is where the convention lives — `worker` = ANT, `setter` = ME —
     and it is the only field that can be wrong in a way the letters can't reveal.
-    Haiku left 10 of its 50 letter-bearing blocks unexplained, including the ones
-    it had invented. CALIBRATION: 1 of 1347 across this repo (30044 2D, `a` > A,
+    An unexplained block is where an invented one hides. CALIBRATION: 1 of 1347 across this repo (30044 2D, `a` > A,
     where there is genuinely nothing to say). Warning only, for that reason.
     """
     for e in entries:
@@ -2452,8 +2381,8 @@ def check_blocks_carry_notes(entries, warnings):
 MARKUP_RE = re.compile(r"</?[a-zA-Z][^>]*>|&(?:[a-zA-Z]+|#\d+);")
 # Bytes 0x80-0x9F are punctuation in Windows-1252 and unprintable control
 # codes in Unicode, so a source decoded as latin-1 turns every dash and curly
-# quote into one of these and the browser draws a box. 1,937 of them reached
-# the site this way. Repairing them is a lookup, so the message carries it.
+# quote into one of these and the browser draws a box. Some of them reached
+# the site. Repairing them is a lookup, so the message carries it.
 CP1252_C1 = {0x82: "\u201a", 0x83: "\u0192", 0x84: "\u201e", 0x85: "\u2026",
              0x86: "\u2020", 0x87: "\u2021", 0x88: "\u02c6", 0x89: "\u2030",
              0x8b: "\u2039", 0x91: "\u2018", 0x92: "\u2019", 0x93: "\u201c",
@@ -2537,9 +2466,8 @@ def check_groups(puzzle, errors):
 
 def check_no_markup(puzzle, errors):
     """No HTML anywhere in a puzzle file. Every string here is displayed
-    escaped, so a tag reaches the solver as a tag — which is exactly what the
-    Independent's clues did (Paul, 2026-08-15): "<span>Film part of </span><i>
-    Black Narcissus</i>?" on the page, verbatim. Both papers ship clues as
+    escaped, so a tag reaches the solver as a tag: "<span>Film part of </span><i>
+    Black Narcissus</i>?" would appear on the page verbatim. Both papers ship clues as
     HTML and tools/fetch_puzzle.plain_text flattens them on the way in; this
     is the guard that says so out loud if a third source, or a hand edit, ever
     puts one back.
@@ -2731,8 +2659,7 @@ def check_indicator_notes_name_no_block(tag, ann, errors):
 
 
 # A selector is an indicator: "capital of Bahrain" giving B is the indicator
-# "capital of" and the block "Bahrain" (telegraph-31356 24D, "capital should be
-# an indicator", 2026-09-30). A block that swallows its selector teaches the
+# "capital of" and the block "Bahrain" (telegraph-31356 24D). A block that swallows its selector teaches the
 # letters with the instruction hidden inside them. The phrases are the ones the
 # corpus uses to take a word's first, last or middle letters; a block is held to
 # the rule only when its letters are that selection of the words left over, so
@@ -2981,13 +2908,12 @@ def validate_puzzle(puzzle, corpus=False):
         check_features(tag, ann, clue, errors, warnings)
         check_surface(tag, ann, clue, warnings)
         # Not under `authored`. is_authored means WE wrote the clue; the
-        # walkthrough is ours either way, and every hit these two have ever had
-        # was on a published grid. Gated, they would never fire.
+        # walkthrough is ours either way, and the faults these two find occur on
+        # published grids. Gated, they would never fire.
         check_walkthrough_opener(tag, ann, warnings)
         check_walkthrough_closer(tag, ann, warnings)
         # Not under `authored` either, and for the same reason: the fault is in
-        # OUR parse of a published clue, and every hit it has ever had was on
-        # somebody else's grid.
+        # OUR parse of a published clue, on somebody else's grid.
         check_link_word_is_not_an_order(tag, ann, clue, warnings)
         check_link_word_is_not_inside_an_indicator(tag, ann, clue, errors)
         check_indicator_does_not_straddle_a_definition(tag, ann, clue, errors)
@@ -3010,7 +2936,6 @@ def validate_puzzle(puzzle, corpus=False):
             errors.append(f"{tag}: walkthrough is {len(walk.split())} words "
                           f"(max {WALKTHROUGH_HARD_MAX}) — that length is working-out, "
                           f"not an explanation; the blocks already did the mechanics")
-        # Notes and definitionFit are published too, so they get the same check.
         # Published under "What it seems to say" on the walkthrough rung, so it is held to the
         # length it was specified at rather than to the walkthrough's: it is one
         # sentence of picture, and a paragraph there pushes the trick off the screen.
@@ -3025,6 +2950,7 @@ def validate_puzzle(puzzle, corpus=False):
             errors.append(f"{tag}: surface {surface!r} is repeated inside walkthrough — "
                           f"they are printed as two paragraphs, so say the picture once "
                           f"in surface and spend walkthrough on what the clue is doing")
+        # Notes and definitionFit are published too, so they get the same check.
         for field, text in ([("walkthrough", walk), ("surface", surface),
                              ("definitionFit", explanation(ann).get("definitionFit") or "")]
                             + [("block note", b.get("note") or "")
@@ -3058,17 +2984,15 @@ def validate_puzzle(puzzle, corpus=False):
 
 # --- the ratchet -------------------------------------------------------------
 #
-# "Don't just fix the things I point out, make sure future puzzles get the fixes
-# too" (Paul, 2026-08-17). A rule added after 150 puzzles were already annotated
-# cannot fail the corpus on day one, so the old shape was a REQUIRE_X = False
-# flag to be flipped by hand once a backfill drained the backlog. That makes the
-# rule optional for exactly the puzzles it was invented for — the next ones —
-# and it stays optional for as long as anyone forgets.
+# A rule added after many puzzles were already annotated cannot fail the corpus
+# on day one, and a REQUIRE_X flag flipped by hand once a backfill drained the
+# backlog would leave the rule optional for exactly the puzzles it was invented
+# for — the next ones — for as long as anyone forgets.
 #
 # So the allowance is per puzzle and written down. A puzzle may carry as many
 # unannotated clues as annotation_backlog.json records for it and not one more;
-# a puzzle not in the file — which is every puzzle fetched from today on — is
-# allowed none. The backlog can only ever shrink: a full run rewrites the file
+# a puzzle not in the file — every puzzle fetched since the field was
+# added — is allowed none. The backlog can only ever shrink: a full run rewrites the file
 # with what it observed, so draining a puzzle tightens the rule on it forever.
 # Adding a new grandfathered field means adding it to BACKLOG_MARKERS and
 # running --tighten once; nothing has to be remembered afterwards.
@@ -3107,10 +3031,7 @@ def count_backlog(warnings):
 
 
 def _sort_key(kv):
-    """Series, then number. The key is a namespaced id ("cryptic-30041"), and
-    this used to be int(id) — which raised the moment ids stopped being bare
-    numbers. Nobody saw it, because the one caller ran with output suppressed
-    and `|| true`; see the note on that call in prereset_backfill.sh."""
+    """Series, then number. The key is a namespaced id ("cryptic-30041")."""
     series, _, num = kv[0].rpartition("-")
     return (series, int(num) if num.isdigit() else 0, kv[0])
 
@@ -3119,10 +3040,10 @@ def write_backlog(observed, allowed):
     """`observed` is {number: {field: count}} from a run over every puzzle.
 
     Writes the SMALLER of what was observed and what was already allowed, per
-    puzzle per field. "May only shrink" was a sentence in a comment and a line
-    in the file's own _why, and neither of them is a mechanism: --tighten wrote
-    whatever it saw, so a run that lost annotations would raise the ceiling to
-    fit them and every run after it would agree the puzzle was fine."""
+    puzzle per field, so "may only shrink" is enforced here rather than by a
+    comment: recording whatever was seen would let a run that lost annotations
+    raise the ceiling to fit them, and every run after it would agree the
+    puzzle was fine."""
     ratchet = {f: {num: min(c[f], allowed.get(f, {}).get(num, c[f]))
                    for num, c in observed.items()} for f in BACKLOG_MARKERS}
     data = {"_why": "Per-puzzle allowance of clues predating a required annotation "
@@ -3136,11 +3057,10 @@ def write_backlog(observed, allowed):
 def explain(name=None):
     """Print what a check actually does, read out of this file's own source.
 
-    Annotation runs were opening this file and paging through 1800 lines to
-    find one function, ten grep/sed calls at a time, and every one of those is
-    a turn and a transcript that gets re-billed on every turn after it. The
-    answer is the source, so this hands over the source: the definition asked
-    for and the comment block above it, which is where the reason lives.
+    Annotation runs would otherwise page through this whole file to find one
+    function, and every grep/sed call is a turn. The answer is the source, so
+    this hands over the source: the definition asked for and the comment block
+    above it, which is where the reason lives.
 
     Generated by reading the AST rather than by keeping a table of
     explanations, because a table is a second copy of the truth and would be
