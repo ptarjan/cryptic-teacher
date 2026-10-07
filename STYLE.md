@@ -290,10 +290,10 @@ those steps is padding. Keep only what the blocks CANNOT show:
 - why a definition is fair.
 
 Trimmed this way, A001's twenty walkthroughs went from 44-63 words (median 54)
-to 19-42 (median 32), which matches the median of published walkthroughs.
+to 19-42 (median 32).
 
 `check_walkthrough_budget()` warns above `MAX_WALKTHROUGH_WORDS` (45; the
-published 90th percentile is 42) when a blocks rung exists, and only on authored
+published 99th percentile is 40) when a blocks rung exists, and only on authored
 puzzles. It is a word budget, not a redundancy detector. A semantic version that
 scored recycled vocabulary was built, measured and rejected, because good
 walkthroughs scored worse than bad ones. Keep the walkthrough short but never

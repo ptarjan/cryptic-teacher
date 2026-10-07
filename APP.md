@@ -613,8 +613,8 @@ changing a file's bytes means changing its URL.**
   - `asset()` in `tools/build_seo_pages.py` stamps generated pages.
   - `tools/stamp_assets.py` stamps the hand-written homepage.
   - Puzzle files use the `v` field in `puzzles/index.json`.
-  - `python3 tools/stamp_assets.py --check` sweeps every page and fails the
-    nightly run on a bare reference.
+  - `python3 tools/stamp_assets.py --check` sweeps every page and exits 1 on a
+    bare or stale reference.
 - **Stamping is a build step, not a stored value.** The committed `index.html`
   has bare references. `.github/workflows/pages.yml` runs
   `python3 tools/stamp_assets.py` on its own checkout, so what ships is stamped
@@ -632,8 +632,8 @@ changing a file's bytes means changing its URL.**
 GitHub Pages takes a minute or two to build after a push. **Nobody is told to
 reload until `python3 tools/wait_for_deploy.py` exits 0.** It polls the live
 homepage for the local `?v=` stamps, which proves the new code is being served,
-not just that a commit arrived. It is the last step of the pipeline, after the
-push.
+not just that a commit arrived. Whoever pushed runs it after the push; the
+nightly does not, because `.github/workflows/` deploys its push.
 
 ## Scheduled jobs: quota, gates and alerts
 
@@ -641,11 +641,12 @@ The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
 "Nightly jobs" in `README.md`).
 
 - **A scheduled job never guesses a fact it can look up.**
-  - `prereset_backfill.sh` runs with *no* usage gate. That is safe only in the
-    last hour before unspent weekly quota expires. The reset time is a
-    timestamp from `GET /api/oauth/usage`. The job runs hourly and exits within
-    a second unless `weekly_usage.py --resets-in` says the window really is
-    about to close.
+  - `prereset_backfill.sh` runs with *no* usage gate, so it spends only
+    quota that would otherwise expire unspent. It keeps a pool of runs going
+    from the moment it starts until five minutes before the weekly reset, and
+    stops early when the weekly meter is exhausted. The reset time is a
+    timestamp from `GET /api/oauth/usage`, read through
+    `weekly_usage.py --resets-in`. A fire that finds a run going is a no-op.
   - `daily_update.sh` re-reads the five-hour session window between puzzles,
     not once at the start (when it always reads near zero). A budget is re-read
     between the things that spend it.
@@ -671,7 +672,8 @@ The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
 - **The same alert twice is noise.** `tools/alert.sh` sends an identical message
   at most once per `ALERT_REPEAT_HOURS` (default 12). The log still records every
   one.
-- **`ANNOTATE_MAX`** (default 3) caps the backlog puzzles annotated per run. The
+- **`ANNOTATE_MAX`** (default 3) caps the backlog puzzles annotated per run;
+  new arrivals are always annotated. The
   daily job stops early the first time a `claude -p` run fails, because that is
   nearly always a session limit and the remaining attempts would fail too. A run
   killed for overrunning `ANNOTATE_MAX_MINUTES` loses only that puzzle; the loop
