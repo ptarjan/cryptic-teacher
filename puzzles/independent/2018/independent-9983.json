@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,54 @@
     "text": "Film-maker in favour of Frank replacing the lead",
     "enumeration": "8"
    },
-   "solution": "DIRECTOR"
+   "solution": "DIRECTOR",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DIRECTOR",
+    "definitions": [
+     {
+      "text": "Film-maker",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "replacing the lead",
+      "for": "substitution",
+      "note": "one word takes the place of the opening letter of another, so the first letter is swapped out"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Frank",
+      "gives": "DIRECT",
+      "note": "frank means candid and straightforward"
+     },
+     {
+      "clueFragment": "in favour of",
+      "gives": "FOR",
+      "note": "to be for something is to be in favour of it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DIRECT",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A frank film-maker who backs a recasting of the leading role.",
+     "walkthrough": "FOR loses its lead letter F, and DIRECT takes its place, giving DIRECTOR.",
+     "definitionFit": "A director is the person in charge of making a movie, guiding actors and crew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "lead"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +97,63 @@
     "text": "Resolve to cut 10%, subtract 50%, and add 50% of the remainder",
     "enumeration": "6"
    },
-   "solution": "DECIDE"
+   "solution": "DECIDE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "DECIDE",
+    "definitions": [
+     {
+      "text": "Resolve",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "subtract 50%",
+      "for": "deletion",
+      "note": "taking away half means the second half of the word is dropped"
+     },
+     {
+      "text": "add",
+      "for": "charade",
+      "note": "adding something means joining it on at the end"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cut 10%",
+      "gives": "DECIMATE",
+      "note": "to decimate originally meant to kill one in ten"
+     },
+     {
+      "clueFragment": "50% of the remainder",
+      "gives": "DE",
+      "note": "the first half of what is left after the cut"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DECI",
+      "DE"
+     ]
+    },
+    "explanation": {
+     "surface": "A finance plan: resolve to make a series of percentage cuts and additions.",
+     "walkthrough": "Half of DECIMATE leaves DECI; half of DECI is DE, added on to give DECIDE.",
+     "definitionFit": "To resolve on something is to settle it in your mind, to make up your mind about it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "remainder"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,55 @@
     "text": "What's required to release answer stored in memory?",
     "enumeration": "6"
    },
-   "solution": "RANSOM"
+   "solution": "RANSOM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "RANSOM",
+    "definitions": [
+     {
+      "text": "What's required to release",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stored in",
+      "for": "container",
+      "note": "something stored is kept inside, so these letters sit within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "memory",
+      "gives": "ROM",
+      "note": "ROM is read-only memory in a computer"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "ANS",
+      "note": "ans. is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ANS",
+      "OM"
+     ]
+    },
+    "explanation": {
+     "surface": "A computing question about what is needed to free a saved answer from memory.",
+     "walkthrough": "'release' suggests freeing up computer memory; it means freeing a hostage.",
+     "definitionFit": "A ransom is the money demanded by kidnappers, which must be paid for a captive to be released."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "release"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +235,50 @@
      }
     ]
    },
-   "solution": "CARDSHARP"
+   "solution": "CARDSHARP",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CARD-SHARP",
+    "definitions": [
+     {
+      "text": "cheat",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "over"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Penalise footballer",
+      "gives": "CARD",
+      "note": "a referee penalises a player by showing a yellow or red card"
+     },
+     {
+      "clueFragment": "accidental",
+      "gives": "SHARP",
+      "note": "in music an accidental is a sign such as a sharp or flat"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CARD",
+      "SHARP"
+     ]
+    },
+    "explanation": {
+     "surface": "A referee punishes a player for an accidental foul.",
+     "walkthrough": "'accidental' reads as unintended, but is the musical sign; 'over' just puts CARD above it in this down answer.",
+     "definitionFit": "A cardsharp is a professional cheat who wins at card games by trickery."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "accidental"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +292,51 @@
     "text": "Unconventional course has introduction moved nearer conclusion",
     "enumeration": "5"
    },
-   "solution": "OUTRE"
+   "solution": "OUTRE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "OUTRE",
+    "definitions": [
+     {
+      "text": "Unconventional",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has introduction moved nearer conclusion",
+      "for": "anagram",
+      "note": "the opening letter is shifted toward the end, so the word's letters change order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "course",
+      "gives": "ROUTE",
+      "note": "a route is a course taken"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROUTE",
+       "gives": "OUTRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An unusual training course moves its opening session toward the end.",
+     "walkthrough": "The R at the start of ROUTE moves to just before its last letter.",
+     "definitionFit": "Outré is a French loan word for bizarre or beyond the bounds of convention."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "course"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +350,66 @@
     "text": "This describes the return of Hamlet, perhaps, and his end",
     "enumeration": "6"
    },
-   "solution": "TRAGIC"
+   "solution": "TRAGIC",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "reversal",
+     "charade"
+    ],
+    "answer": "TRAGIC",
+    "definitions": [
+     {
+      "text": "This describes the return of Hamlet, perhaps, and his end",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the return of",
+      "for": "reversal",
+      "note": "a return goes back the way it came, so the word is read from right to left"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "his end",
+      "gives": "T",
+      "note": "his refers to Hamlet, so this is the last letter of that name"
+     },
+     {
+      "clueFragment": "Hamlet, perhaps",
+      "gives": "CIGAR",
+      "note": "Hamlet is a well-known British brand of cigar"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAGIC"
+     ],
+     "reversals": [
+      {
+       "from": "CIGAR",
+       "to": "RAGIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre note on Shakespeare's prince coming home to Denmark and then dying.",
+     "walkthrough": "Hamlet is both the prince and a British brand of small cigar; the end of Hamlet is T, and RAGIC is the cigar turned round, giving TRAGIC. The whole clue also defines it.",
+     "definitionFit": "Hamlet's homecoming and death form one of Shakespeare's great tragedies, so the word describing it is the adjective for such drama."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Hamlet"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +423,65 @@
     "text": "Religious and physical education associated with dawn of New Age",
     "enumeration": "5"
    },
-   "solution": "RIPEN"
+   "solution": "RIPEN",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "RIPEN",
+    "definitions": [
+     {
+      "text": "Age",
+      "at": 61
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dawn of",
+      "for": "letter_selection",
+      "note": "dawn is the start of the day, so only the first letter of the word is taken"
+     }
+    ],
+    "linkWords": [
+     "associated with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Religious",
+      "gives": "RI",
+      "note": "RI is religious instruction, a school subject"
+     },
+     {
+      "clueFragment": "physical education",
+      "gives": "PE",
+      "note": "PE is the usual abbreviation"
+     },
+     {
+      "clueFragment": "New",
+      "gives": "N",
+      "select": "first",
+      "note": "first letter of New"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RI",
+      "PE",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "School subjects linked to the start of a New Age spiritual movement.",
+     "walkthrough": "'New Age' reads as one phrase; 'Age' alone is the definition, a verb.",
+     "definitionFit": "To age is to mature or grow older, which is what fruit or cheese does when it ripens."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Age"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +495,61 @@
     "text": "Almost understand about life in Ancient Rome's importance",
     "enumeration": "8"
    },
-   "solution": "GRAVITAS"
+   "solution": "GRAVITAS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "GRAVITAS",
+    "definitions": [
+     {
+      "text": "importance",
+      "at": 47
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so these letters go round the next word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "understand",
+      "gives": "GRASP",
+      "note": "to grasp is to understand"
+     },
+     {
+      "clueFragment": "life in Ancient Rome",
+      "gives": "VITA",
+      "note": "vita is the Latin word for life"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "GRA",
+      "VITA",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Nearly comprehending the significance of life in Ancient Rome.",
+     "walkthrough": "GRASP loses its P, and GRAS wraps around the Latin word.",
+     "definitionFit": "Gravitas is dignity and seriousness of manner, a weightiness that gives someone importance; it is also a Roman virtue."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "life"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +563,54 @@
     "text": "Talk about touching one of Nina's parts",
     "enumeration": "8"
    },
-   "solution": "CONVERSE"
+   "solution": "CONVERSE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CONVERSE",
+    "definitions": [
+     {
+      "text": "Talk",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "about",
+      "gives": "C",
+      "note": "c. is short for circa, about"
+     },
+     {
+      "clueFragment": "touching",
+      "gives": "ON",
+      "note": "on means touching, resting against"
+     },
+     {
+      "clueFragment": "one of Nina's parts",
+      "gives": "VERSE",
+      "note": "a verse is one section of a song, such as one by the singer Nina Simone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ON",
+      "VERSE"
+     ]
+    },
+    "explanation": {
+     "surface": "A conversation about touching one part of a woman called Nina.",
+     "walkthrough": "C for circa is a standard abbreviation for about.",
+     "definitionFit": "To converse is to talk together, to hold a conversation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "parts"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +624,43 @@
     "text": "Material that may be used by construction firm",
     "enumeration": "8"
    },
-   "solution": "CONCRETE"
+   "solution": "CONCRETE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CONCRETE",
+    "definitions": [
+     {
+      "text": "Material that may be used by construction",
+      "at": 0
+     },
+     {
+      "text": "firm",
+      "at": 42
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Material that may be used by construction",
+      "note": "first meaning: the building material of cement, sand and gravel"
+     },
+     {
+      "clueFragment": "firm",
+      "note": "second meaning: solid, definite, as in firm evidence"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'construction firm' reads as one phrase, a building company, but it splits: the first part is one meaning and 'firm' is the other.",
+     "definitionFit": "The word names a builder's mixture of cement and aggregate and, as an adjective, means solid or definite rather than vague."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "firm"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +674,67 @@
     "text": "Twist right ankle initially during cycle ride",
     "enumeration": "6"
    },
-   "solution": "SPRAIN"
+   "solution": "SPRAIN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SPRAIN",
+    "definitions": [
+     {
+      "text": "Twist",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the word before it"
+     },
+     {
+      "text": "during",
+      "for": "container",
+      "note": "something happening during an event sits inside it, so these letters go within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cycle ride",
+      "gives": "SPIN",
+      "note": "a spin is a short ride, for instance on a bicycle"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "ankle",
+      "gives": "A",
+      "select": "first",
+      "note": "first letter of ankle"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "R",
+      "A",
+      "IN"
+     ]
+    },
+    "explanation": {
+     "surface": "A cyclist turns their right ankle while out on a ride.",
+     "definitionFit": "To sprain a joint is to wrench or twist it so the ligaments are injured."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "cycle"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +748,55 @@
     "text": "Fair trade in the centre of Belize for two-thirds of capital",
     "enumeration": "6"
    },
-   "solution": "BLONDE"
+   "solution": "BLONDE",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "BLONDE",
+    "definitions": [
+     {
+      "text": "Fair",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "trade in the centre of",
+      "for": "substitution",
+      "note": "trading in the middle of a word means giving its central letters up in exchange for others"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Belize",
+      "gives": "BELIZE",
+      "note": "the Central American country, taken as written"
+     },
+     {
+      "clueFragment": "two-thirds of capital",
+      "gives": "LOND",
+      "note": "the first four of the six letters of London, the UK capital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "LOND",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Fair trade in Belize, swapping goods for money.",
+     "walkthrough": "'Fair trade' reads as one ethical phrase; Fair is the definition. The centre of BELIZE, ELIZ, is traded for LOND.",
+     "definitionFit": "Fair hair is light-coloured, and a person with such hair is called blonde."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "trade"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +810,55 @@
     "text": "Refuse to put on clothes after losing heart for nothing",
     "enumeration": "5"
    },
-   "solution": "DROSS"
+   "solution": "DROSS",
+   "annotation": {
+    "type": [
+     "substitution"
+    ],
+    "answer": "DROSS",
+    "definitions": [
+     {
+      "text": "Refuse",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after losing heart for nothing",
+      "for": "substitution",
+      "note": "the middle letter is given up and something else is taken in exchange for it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to put on clothes",
+      "gives": "DRESS",
+      "note": "to dress is to put clothes on"
+     },
+     {
+      "clueFragment": "nothing",
+      "gives": "O",
+      "note": "O looks like zero, nothing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DR",
+      "O",
+      "SS"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone declines to get dressed, having lost the will to bother.",
+     "walkthrough": "'Refuse' looks like a verb, but it is the noun: rubbish. DRESS swaps its central E for O.",
+     "definitionFit": "Dross is worthless waste matter, rubbish, which is what refuse means as a noun."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Refuse"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +872,62 @@
     "text": "Rose for one soldier breaking rank",
     "enumeration": "9"
    },
-   "solution": "EGLANTINE"
+   "solution": "EGLANTINE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EGLANTINE",
+    "definitions": [
+     {
+      "text": "Rose",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "breaking",
+      "for": "container",
+      "note": "breaking into a line means pushing in between its parts, so one word goes inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for one",
+      "gives": "EG",
+      "note": "e.g. means for example, for one"
+     },
+     {
+      "clueFragment": "rank",
+      "gives": "LINE",
+      "note": "a rank is a row or line of soldiers"
+     },
+     {
+      "clueFragment": "soldier",
+      "gives": "ANT",
+      "note": "a soldier ant is a kind of ant"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EG",
+      "L",
+      "ANT",
+      "INE"
+     ]
+    },
+    "explanation": {
+     "surface": "A soldier steps out of his rank to pick a rose.",
+     "walkthrough": "'Rose for one' looks like the definition with its example marker, but 'for one' gives EG, and the soldier is an insect, not a person.",
+     "definitionFit": "Eglantine is the sweetbriar, a wild species of the rose family with fragrant leaves."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "soldier"
+    }
+   }
   },
   {
    "number": 14,
@@ -245,7 +951,54 @@
      }
     ]
    },
-   "solution": "WAYSANDMEANS"
+   "solution": "WAYSANDMEANS",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "WAYS AND MEANS",
+    "definitions": [
+     {
+      "text": "resources",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Engineer",
+      "for": "anagram",
+      "note": "to engineer is to contrive or rebuild, so the letters are worked into a new arrangement"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sends man away",
+      "gives": "SENDSMANAWAY",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SENDSMANAWAY",
+       "gives": "WAYSANDMEANS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An engineer is sent away to fetch supplies for a project.",
+     "walkthrough": "'Engineer' reads as a noun, a person, but works as a verb telling you to rebuild the letters that follow.",
+     "definitionFit": "Ways and means are the methods and funds available for getting something done, so they are resources."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Engineer"
+    }
+   }
   },
   {
    "number": 15,
@@ -259,7 +1012,55 @@
     "text": "Sub perhaps yearns to have some editing work",
     "enumeration": "6"
    },
-   "solution": "SARNEY"
+   "solution": "SARNEY",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SARNEY",
+    "definitions": [
+     {
+      "text": "Sub perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "editing work",
+      "for": "anagram",
+      "note": "editing reworks and rearranges material, so the letters are put in a new order"
+     }
+    ],
+    "linkWords": [
+     "to have some"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "yearns",
+      "gives": "YEARNS",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "YEARNS",
+       "gives": "SARNEY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A sub-editor longs for some editing work.",
+     "walkthrough": "'Sub' suggests a sub-editor; it is a sub roll. A sarney (or sarnie) is British slang for a sandwich.",
+     "definitionFit": "A sub is a long submarine sandwich roll, one example of a sandwich, which is what sarney means in British slang."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Sub"
+    }
+   }
   },
   {
    "number": 16,
@@ -273,7 +1074,39 @@
     "text": "Presumably this has little need for Fat Controller on today's network?",
     "enumeration": "9"
    },
-   "solution": "MICROCHIP"
+   "solution": "MICROCHIP",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "MICROCHIP",
+    "definitions": [
+     {
+      "text": "Presumably this has little need for Fat Controller on today's network?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Presumably this has little need for Fat Controller on today's network?",
+      "note": "surface reading: a modern railway has no use for the Fat Controller, the stout railway boss in the Thomas the Tank Engine stories"
+     },
+     {
+      "clueFragment": "little need for Fat",
+      "note": "setter's reading: a tiny component, so not a fat one, that controls devices on computer networks today"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The Fat Controller is the railway manager in the Thomas the Tank Engine children's books; the clue turns 'little' and 'Fat' into the size of a computing part and 'network' into a computer network.",
+     "definitionFit": "A tiny silicon integrated circuit acts as the controlling brain in modern networked electronic devices."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Controller"
+    }
+   }
   },
   {
    "number": 17,
@@ -287,7 +1120,59 @@
     "text": "Attach warning under a protective cover",
     "enumeration": "8"
    },
-   "solution": "PINAFORE"
+   "solution": "PINAFORE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PINAFORE",
+    "definitions": [
+     {
+      "text": "protective cover",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "under",
+      "for": "charade",
+      "note": "in a down answer, being under something means coming after it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attach",
+      "gives": "PIN",
+      "note": "to pin is to fasten or attach"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "warning",
+      "gives": "FORE",
+      "note": "fore is the golfer's shouted warning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PIN",
+      "A",
+      "FORE"
+     ]
+    },
+    "explanation": {
+     "surface": "Fix a warning sign beneath a protective sheet.",
+     "walkthrough": "FORE is shouted on a golf course to warn of an incoming ball.",
+     "definitionFit": "A pinafore is an apron or overall worn to protect clothes beneath it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 18,
@@ -301,7 +1186,67 @@
     "text": "God interrupting farewell upset balloonist",
     "enumeration": "8"
    },
-   "solution": "AEROSTAT"
+   "solution": "AEROSTAT",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "AEROSTAT",
+    "definitions": [
+     {
+      "text": "balloonist",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down answer, upset means turned upside down, so the word is read from the bottom up"
+     },
+     {
+      "text": "interrupting",
+      "for": "container",
+      "note": "to interrupt is to break in, so this goes inside the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "farewell",
+      "gives": "TATA",
+      "note": "ta-ta is an informal goodbye"
+     },
+     {
+      "clueFragment": "God",
+      "gives": "EROS",
+      "note": "Eros is the Greek god of love"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "EROS",
+      "TAT"
+     ],
+     "reversals": [
+      {
+       "from": "TATA",
+       "to": "ATAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A divine visitor interrupts an upsetting goodbye for a balloon pilot.",
+     "walkthrough": "Ta-ta is an informal British goodbye; in a down clue 'upset' means turned upside down, so it reads bottom to top.",
+     "definitionFit": "An aerostat is a lighter-than-air craft such as a balloon, and the word is also used for a balloon pilot."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 19,
@@ -315,7 +1260,55 @@
     "text": "Go through to the rear of trendy \"green\" property",
     "enumeration": "12"
    },
-   "solution": "INEXPERIENCE"
+   "solution": "INEXPERIENCE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INEXPERIENCE",
+    "definitions": [
+     {
+      "text": "\"green\" property",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to the rear of",
+      "for": "charade",
+      "note": "being at the back of something means coming after it, so this word follows the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trendy",
+      "gives": "IN",
+      "note": "in means fashionable"
+     },
+     {
+      "clueFragment": "Go through",
+      "gives": "EXPERIENCE",
+      "note": "to experience something is to go through it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "EXPERIENCE"
+     ]
+    },
+    "explanation": {
+     "surface": "An eco-friendly building has a fashionable feature you walk through to the back.",
+     "walkthrough": "'green property' suggests an environmentally friendly house; here green means callow, and the property is the quality of being so.",
+     "definitionFit": "Being green means being new and untried, so the quality or attribute of greenness is a lack of practical knowledge."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "property"
+    }
+   }
   },
   {
    "number": 20,
@@ -329,7 +1322,60 @@
     "text": "Children's author briefly taking to poet",
     "enumeration": "6"
    },
-   "solution": "MILTON"
+   "solution": "MILTON",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "MILTON",
+    "definitions": [
+     {
+      "text": "poet",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "deletion",
+      "note": "briefly means cut short, so the last letter is dropped"
+     },
+     {
+      "text": "taking",
+      "for": "container",
+      "note": "taking something in means holding it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Children's author",
+      "gives": "MILNE",
+      "note": "A. A. Milne wrote Winnie-the-Pooh"
+     },
+     {
+      "clueFragment": "to",
+      "gives": "TO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MIL",
+      "TO",
+      "N"
+     ]
+    },
+    "explanation": {
+     "surface": "A children's writer briefly takes up poetry.",
+     "walkthrough": "MILNE loses its final E, and MILN holds TO.",
+     "definitionFit": "John Milton was the seventeenth-century English poet who wrote Paradise Lost."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 21,
@@ -343,7 +1389,64 @@
     "text": "Relief of snooker player completing short break",
     "enumeration": "6"
    },
-   "solution": "RESCUE"
+   "solution": "RESCUE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RESCUE",
+    "definitions": [
+     {
+      "text": "Relief",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "short",
+      "for": "deletion",
+      "note": "short means lacking its end, so the last letter goes"
+     },
+     {
+      "text": "completing",
+      "for": "charade",
+      "note": "completing something means coming at its end, so this goes after"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "break",
+      "gives": "REST",
+      "note": "a rest is a break"
+     },
+     {
+      "clueFragment": "snooker player",
+      "gives": "CUE",
+      "note": "a cue is what plays the ball in snooker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RES",
+      "CUE"
+     ]
+    },
+    "explanation": {
+     "surface": "A snooker player gets relief by finishing off a short break.",
+     "walkthrough": "'break' looks like a snooker break, a run of pots, but it is a pause. The snooker player is the cue, the stick.",
+     "definitionFit": "A rescue brings relief, deliverance from danger, as in the relief of a besieged town."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "break"
+    }
+   }
   },
   {
    "number": 22,
@@ -357,7 +1460,51 @@
     "text": "Agreed auditor's intended payment to correct errors",
     "enumeration": "9"
    },
-   "solution": "ATONEMENT"
+   "solution": "ATONEMENT",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ATONEMENT",
+    "definitions": [
+     {
+      "text": "payment to correct errors",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "auditor's",
+      "for": "homophone",
+      "note": "an auditor is literally a listener, so the next word is taken by its sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Agreed",
+      "gives": "ATONE",
+      "note": "at one means in agreement"
+     },
+     {
+      "clueFragment": "intended",
+      "gives": "MENT",
+      "soundsLike": "MEANT",
+      "note": "meant means intended"
+     }
+    ],
+    "explanation": {
+     "surface": "An accountant's approved bill to put right some bookkeeping mistakes.",
+     "walkthrough": "'auditor' suggests an accountant checking errors, but it is just a hearer: MEANT said out loud gives MENT. AT ONE is the phrase for being in agreement.",
+     "definitionFit": "Atonement is reparation for wrongdoing, making amends, which is a kind of paying for one's mistakes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "auditor's"
+    }
+   }
   },
   {
    "number": 23,
@@ -371,7 +1518,55 @@
     "text": "Cycling match is a bore",
     "enumeration": "5"
    },
-   "solution": "EAGRE"
+   "solution": "EAGRE",
+   "annotation": {
+    "type": [
+     "cycling"
+    ],
+    "answer": "EAGRE",
+    "definitions": [
+     {
+      "text": "bore",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Cycling",
+      "for": "cycling",
+      "note": "letters going round as on a wheel, so some move from front to back while keeping their order"
+     }
+    ],
+    "linkWords": [
+     "is a"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "match",
+      "gives": "AGREE",
+      "note": "to match is to agree, correspond"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "AGREE",
+       "gives": "EAGRE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone calls a cycle race a tedious event.",
+     "walkthrough": "The last letter of AGREE moves round to the front, the other letters keeping their order. 'Cycling' looks like the sport, and 'bore' like dullness.",
+     "definitionFit": "An eagre is a tidal bore, a wave surging up a river estuary such as the Trent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "bore"
+    }
+   }
   },
   {
    "number": 24,
@@ -385,7 +1580,57 @@
     "text": "No good will come from doing casual work for these rates",
     "enumeration": "5"
    },
-   "solution": "TEMPI"
+   "solution": "TEMPI",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "TEMPI",
+    "definitions": [
+     {
+      "text": "these rates",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "will come from",
+      "for": "deletion",
+      "note": "coming from somewhere means leaving it, so those letters are taken away"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "No good",
+      "gives": "NG",
+      "note": "NG is the abbreviation for no good"
+     },
+     {
+      "clueFragment": "doing casual work",
+      "gives": "TEMPING",
+      "note": "temping is working as a temporary employee"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEMPI"
+     ]
+    },
+    "explanation": {
+     "surface": "A temp doing casual work won't do well at these rates of pay.",
+     "walkthrough": "'rates' suggests pay rates, but these are musical speeds; tempi is the Italian plural of tempo.",
+     "definitionFit": "Tempi are the speeds at which pieces of music are played, rates of performance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "rates"
+    }
+   }
   },
   {
    "number": 25,
@@ -399,7 +1644,62 @@
     "text": "Sheepish lover removes jacket and trousers at home",
     "enumeration": "5"
    },
-   "solution": "OVINE"
+   "solution": "OVINE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "OVINE",
+    "definitions": [
+     {
+      "text": "Sheepish",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "removes jacket",
+      "for": "deletion",
+      "note": "taking off a jacket strips the outside layer, so the first and last letters go"
+     },
+     {
+      "text": "trousers",
+      "for": "container",
+      "note": "as a verb, to trouser is to pocket something, so these letters are taken inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lover",
+      "gives": "LOVER",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "at home",
+      "gives": "IN",
+      "note": "someone at home is in"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OV",
+      "IN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "An embarrassed lover undresses at home.",
+     "walkthrough": "'Sheepish' suggests embarrassment, but it is the literal sense: like a sheep. 'trousers' is a verb, to pocket.",
+     "definitionFit": "Ovine means relating to or resembling sheep, which is the literal sense of sheepish."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "trousers"
+    }
+   }
   },
   {
    "number": 26,
@@ -413,7 +1713,50 @@
     "text": "One's left powerless after this heartless atrocity",
     "enumeration": "6"
    },
-   "solution": "OUTAGE"
+   "solution": "OUTAGE",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "OUTAGE",
+    "definitions": [
+     {
+      "text": "One's left powerless after this",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "heartless",
+      "for": "deletion",
+      "note": "without a heart means the central letter is removed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "atrocity",
+      "gives": "OUTRAGE",
+      "note": "an outrage is a shocking, cruel act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OUT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A victim of a cruel atrocity is left helpless.",
+     "walkthrough": "'powerless' suggests helplessness after a crime, but it is literal: with no electricity.",
+     "definitionFit": "An outage is a cut in the electricity supply, after which a household has no power."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "powerless"
+    }
+   }
   },
   {
    "number": 27,
@@ -427,7 +1770,52 @@
     "text": "\"Stressful\" impact he might make",
     "enumeration": "8"
    },
-   "solution": "EMPHATIC"
+   "solution": "EMPHATIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EMPHATIC",
+    "definitions": [
+     {
+      "text": "\"Stressful\"",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "might make",
+      "for": "anagram",
+      "note": "the letters could be made into something else, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "impact he",
+      "gives": "IMPACTHE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IMPACTHE",
+       "gives": "EMPHATIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone imagines the anxious effect a man might have.",
+     "walkthrough": "The quotation marks flag that 'Stressful' is not its usual meaning of anxiety-causing but full of stress, as in emphasis.",
+     "definitionFit": "Emphatic speech puts strong weight or force on its words, so it is literally full of stress."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Stressful"
+    }
+   }
   },
   {
    "number": 28,
@@ -441,7 +1829,54 @@
     "text": "Value opponents holding hands by side we hear",
     "enumeration": "6"
    },
-   "solution": "ESTEEM"
+   "solution": "ESTEEM",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "ESTEEM",
+    "definitions": [
+     {
+      "text": "Value",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "we hear",
+      "for": "homophone",
+      "note": "what we hear is a sound, so the word before is spelt as another word that sounds the same"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "opponents holding hands",
+      "gives": "ES",
+      "note": "in bridge, East and South sit as opponents, each holding a hand of cards"
+     },
+     {
+      "clueFragment": "side",
+      "gives": "TEEM",
+      "soundsLike": "TEAM",
+      "note": "a team is a side in sport"
+     }
+    ],
+    "explanation": {
+     "surface": "Rivals clasp hands next to a team they admire.",
+     "walkthrough": "'holding hands' looks affectionate, but it is cards: bridge players are named by compass points and E and S are opponents.",
+     "definitionFit": "To esteem someone is to rate them highly, to value or respect them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "hands"
+    }
+   }
   },
   {
    "number": 29,
@@ -455,7 +1890,67 @@
     "text": "Hand out pass admitting writer on board ship",
     "enumeration": "8"
    },
-   "solution": "DISPENSE"
+   "solution": "DISPENSE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISPENSE",
+    "definitions": [
+     {
+      "text": "Hand out",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "admitting",
+      "for": "container",
+      "note": "to admit someone is to let them in, so the following letters go inside"
+     },
+     {
+      "text": "on board",
+      "for": "container",
+      "note": "a passenger on board is inside the vessel, so these letters are enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pass",
+      "gives": "DIE",
+      "note": "to pass away is to die"
+     },
+     {
+      "clueFragment": "ship",
+      "gives": "SS",
+      "note": "SS is the abbreviation for steamship"
+     },
+     {
+      "clueFragment": "writer",
+      "gives": "PEN",
+      "note": "a pen is a writing implement"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "S",
+      "PEN",
+      "S",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A boarding pass is issued to a writer joining a ship.",
+     "walkthrough": "'pass' looks like a noun, a boarding pass, but it is the verb meaning to die. SS is the usual crossword ship.",
+     "definitionFit": "To dispense is to distribute or give out, which is what handing out means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "pass"
+    }
+   }
   }
  ]
 }
