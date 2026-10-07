@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Want judge to ignore maiden embracing gentleman",
     "enumeration": "6"
    },
-   "solution": "DESIRE"
+   "solution": "DESIRE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "DESIRE",
+    "definitions": [
+     {
+      "text": "Want",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to ignore",
+      "for": "deletion",
+      "note": "to ignore something is to leave it out, so one letter is dropped from the judge's word"
+     },
+     {
+      "text": "embracing",
+      "for": "container",
+      "note": "embracing means holding in the arms, so one piece wraps round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "judge",
+      "gives": "DEEM",
+      "note": "to deem is to judge or consider"
+     },
+     {
+      "clueFragment": "maiden",
+      "gives": "M",
+      "note": "M is the cricket scorecard abbreviation for a maiden over"
+     },
+     {
+      "clueFragment": "gentleman",
+      "gives": "SIR",
+      "note": "sir is the polite address for a gentleman"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DE",
+      "SIR",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a judge to overlook a young woman who is hugging a gentleman.",
+     "walkthrough": "'Maiden' looks like a young woman; in cricket a maiden is an over with no runs, written M on the scorecard.",
+     "definitionFit": "To desire something is to want it; the words are close synonyms as verbs."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "maiden"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,64 @@
     "text": "Where figures might be rising a little, then low",
     "enumeration": "8"
    },
-   "solution": "DATABASE"
+   "solution": "DATABASE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "DATABASE",
+    "definitions": [
+     {
+      "text": "Where figures might be",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "rising",
+      "for": "reversal",
+      "note": "in a down entry, rising means the words read upwards, from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "then"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a little",
+      "gives": "ATAD",
+      "note": "a tad is a little"
+     },
+     {
+      "clueFragment": "low",
+      "gives": "BASE",
+      "note": "base means low or mean"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DATA",
+      "BASE"
+     ],
+     "reversals": [
+      {
+       "from": "ATAD",
+       "to": "DATA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A remark that sales or prices might be edging up a bit before sinking again.",
+     "walkthrough": "'Figures' sounds like statistics on a chart, which nudges the solver towards something rising; here the numbers are simply stored.",
+     "definitionFit": "A database is a structured store of data, so it is a place where numbers and records are kept."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "rising"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +180,60 @@
     "text": "Need right brand in footwear",
     "enumeration": "8"
    },
-   "solution": "SHORTAGE"
+   "solution": "SHORTAGE",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "SHORTAGE",
+    "definitions": [
+     {
+      "text": "Need",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the first pieces inside the item of footwear"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "footwear",
+      "gives": "SHOE",
+      "note": "a shoe is an item of footwear"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "brand",
+      "gives": "TAG",
+      "note": "a tag is a label or brand name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SHO",
+      "RTAG",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A fashion complaint: you need the correct label on your shoes.",
+     "definitionFit": "A shortage is a lack of something, which creates a need for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Need"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +247,50 @@
     "text": "Pilsner? He ordered refill",
     "enumeration": "9"
    },
-   "solution": "REPLENISH"
+   "solution": "REPLENISH",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "REPLENISH",
+    "definitions": [
+     {
+      "text": "refill",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "ordered",
+      "for": "anagram",
+      "note": "ordered means put into a new order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pilsner? He",
+      "gives": "PILSNERHE",
+      "note": "the letters of these words as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "PILSNERHE",
+       "gives": "REPLENISH"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A drinker in a bar orders another Pilsner lager and asks for a refill.",
+     "definitionFit": "To replenish a glass or store is to fill it up again, the same sense as the verb refill."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "ordered"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +304,70 @@
     "text": "Lamb, perhaps - try it stuffed with sage initially",
     "enumeration": "8"
    },
-   "solution": "ESSAYIST"
+   "solution": "ESSAYIST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ESSAYIST",
+    "definitions": [
+     {
+      "text": "Lamb, perhaps",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of the herb's name only"
+     },
+     {
+      "text": "stuffed with",
+      "for": "container",
+      "note": "something stuffed with a filling holds it inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "try",
+      "gives": "ESSAY",
+      "note": "an essay is an attempt or try"
+     },
+     {
+      "clueFragment": "it",
+      "gives": "IT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sage",
+      "gives": "S",
+      "select": "first",
+      "note": "first letter of sage"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ESSAY",
+      "I",
+      "S",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A recipe: lamb stuffed with sage, which you should try.",
+     "walkthrough": "The surface reads like a roast joint; Charles Lamb was an English writer famous for his Essays of Elia.",
+     "definitionFit": "Charles Lamb is a famous example of a writer of short prose pieces, hence 'perhaps'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Lamb"
+    }
+   }
   },
   {
    "number": 5,
@@ -103,7 +381,67 @@
     "text": "French composer's lacking energy - works unexceptional",
     "enumeration": "12"
    },
-   "solution": "SATISFACTORY"
+   "solution": "SATISFACTORY",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "SATISFACTORY",
+    "definitions": [
+     {
+      "text": "unexceptional",
+      "at": 41
+     }
+    ],
+    "indicators": [
+     {
+      "text": "lacking",
+      "for": "deletion",
+      "note": "lacking means going without, so a letter is removed from the composer's name"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "French composer",
+      "gives": "SATIE",
+      "note": "Erik Satie was a French composer"
+     },
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the physics symbol for energy"
+     },
+     {
+      "clueFragment": "'s",
+      "gives": "S",
+      "note": "the possessive ending supplies its letter"
+     },
+     {
+      "clueFragment": "works",
+      "gives": "FACTORY",
+      "note": "a works is a factory"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SATI",
+      "S",
+      "FACTORY"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic judges that a French composer's output is flat and ordinary.",
+     "walkthrough": "'Works' looks like musical compositions, but it is a factory building.",
+     "definitionFit": "Satisfactory means adequate but no better, so it describes something merely acceptable and not outstanding."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "works"
+    }
+   }
   },
   {
    "number": 6,
@@ -117,7 +455,63 @@
     "text": "Help Vice Admiral keeling over with pain",
     "enumeration": "5"
    },
-   "solution": "AVAIL"
+   "solution": "AVAIL",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "AVAIL",
+    "definitions": [
+     {
+      "text": "Help",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "keeling over",
+      "for": "reversal",
+      "note": "a ship keeling over turns upside down, so the abbreviation is flipped round"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vice Admiral",
+      "gives": "VA",
+      "note": "VA is the abbreviation for Vice Admiral"
+     },
+     {
+      "clueFragment": "pain",
+      "gives": "AIL",
+      "note": "to ail is to cause pain or trouble"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AV",
+      "AIL"
+     ],
+     "reversals": [
+      {
+       "from": "VA",
+       "to": "AV"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A naval officer toppling over in agony needs assistance.",
+     "definitionFit": "Avail as a noun means use or benefit, as in 'of no avail', so it can stand for help."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "keeling"
+    }
+   }
   },
   {
    "number": 7,
@@ -131,7 +525,47 @@
     "text": "Fashionable act still",
     "enumeration": "6"
    },
-   "solution": "INDEED"
+   "solution": "INDEED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INDEED",
+    "definitions": [
+     {
+      "text": "still",
+      "at": 16
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fashionable",
+      "gives": "IN",
+      "note": "in means in fashion"
+     },
+     {
+      "clueFragment": "act",
+      "gives": "DEED",
+      "note": "a deed is an act"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "DEED"
+     ]
+    },
+    "explanation": {
+     "surface": "A note that a trendy act is still around.",
+     "walkthrough": "'Still' reads as an adverb of time or a calm state; here it is the intensifier, as in 'better still' or 'better indeed'.",
+     "definitionFit": "Both words can strengthen a comparison: 'more still' and 'more indeed' are interchangeable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "still"
+    }
+   }
   },
   {
    "number": 8,
@@ -145,7 +579,55 @@
     "text": "Shift in tax settlement",
     "enumeration": "6"
    },
-   "solution": "TREATY"
+   "solution": "TREATY",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "TREATY",
+    "definitions": [
+     {
+      "text": "settlement",
+      "at": 13
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts one word inside the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tax",
+      "gives": "TRY",
+      "note": "to tax is to strain or try, as in 'it tries my patience'"
+     },
+     {
+      "clueFragment": "Shift",
+      "gives": "EAT",
+      "note": "informally, to shift food is to eat it up"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TR",
+      "EAT",
+      "Y"
+     ]
+    },
+    "explanation": {
+     "surface": "A change inside the tax system is reached as part of an agreement.",
+     "walkthrough": "'Shift' looks like a signal to rearrange letters; it is the informal British sense of polishing off food. 'Tax' is the verb, as in 'taxing'.",
+     "definitionFit": "A treaty is a formal agreement between states, which settles terms between them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Shift"
+    }
+   }
   },
   {
    "number": 9,
@@ -159,7 +641,67 @@
     "text": "Golf, for example, reversing around old men",
     "enumeration": "6"
    },
-   "solution": "TROOPS"
+   "solution": "TROOPS",
+   "annotation": {
+    "type": [
+     "reversal",
+     "container"
+    ],
+    "answer": "TROOPS",
+    "definitions": [
+     {
+      "text": "men",
+      "at": 40
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reversing",
+      "for": "reversal",
+      "note": "reversing means going backwards, so the sport's word is read from end to start"
+     },
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means surrounding, so one piece goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Golf, for example",
+      "gives": "SPORT",
+      "note": "golf is an example of a sport"
+     },
+     {
+      "clueFragment": "old",
+      "gives": "O",
+      "note": "O is the abbreviation for old"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRO",
+      "O",
+      "PS"
+     ],
+     "reversals": [
+      {
+       "from": "SPORT",
+       "to": "TROPS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A golfer backs a buggy around some elderly men on the course.",
+     "walkthrough": "'Golf' is also the radio alphabet word for G, but here it is just an example of a game.",
+     "definitionFit": "Troops are soldiers, and 'men' is a common way to refer to the rank and file of an army."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Golf"
+    }
+   }
   },
   {
    "number": 10,
@@ -173,7 +715,63 @@
     "text": "Fiddle next to valley, cutting a hedge",
     "enumeration": "8"
    },
-   "solution": "STRADDLE"
+   "solution": "STRADDLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "STRADDLE",
+    "definitions": [
+     {
+      "text": "hedge",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cutting",
+      "for": "deletion",
+      "note": "cutting means removing, so one letter is snipped out of the valley word"
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Fiddle",
+      "gives": "STRAD",
+      "note": "a Strad is a Stradivarius violin"
+     },
+     {
+      "clueFragment": "valley",
+      "gives": "DALE",
+      "note": "a dale is a valley"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "STRAD",
+      "DLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A violinist plays beside a valley while someone trims a hedge.",
+     "walkthrough": "The surface reads 'a hedge' as one item being cut, but the A belongs to the wordplay and 'hedge' stands alone.",
+     "definitionFit": "To straddle an issue is to take both sides at once, avoiding commitment, which is what hedging means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "cutting"
+    }
+   }
   },
   {
    "number": 11,
@@ -187,7 +785,50 @@
     "text": "IRA missile - it wrecked things in agreement",
     "enumeration": "12"
    },
-   "solution": "SIMILARITIES"
+   "solution": "SIMILARITIES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "SIMILARITIES",
+    "definitions": [
+     {
+      "text": "things in agreement",
+      "at": 25
+     }
+    ],
+    "indicators": [
+     {
+      "text": "wrecked",
+      "for": "anagram",
+      "note": "something wrecked is smashed up, so its letters come out in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "IRA missile - it",
+      "gives": "IRAMISSILEIT",
+      "note": "the letters of these words as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "IRAMISSILEIT",
+       "gives": "SIMILARITIES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A news line about a terrorist rocket that destroyed things.",
+     "definitionFit": "Similarities are points where two things correspond or resemble each other, so they are features in agreement."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "missile"
+    }
+   }
   },
   {
    "number": 12,
@@ -201,7 +842,65 @@
     "text": "Steep bill returned by the man",
     "enumeration": "5"
    },
-   "solution": "BATHE"
+   "solution": "BATHE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "BATHE",
+    "definitions": [
+     {
+      "text": "Steep",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returned",
+      "for": "reversal",
+      "note": "returned means sent back, so the word for bill is read backwards"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bill",
+      "gives": "TAB",
+      "note": "a tab is a bill, as in picking up the tab"
+     },
+     {
+      "clueFragment": "the man",
+      "gives": "HE",
+      "note": "he is the pronoun for a man"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAT",
+      "HE"
+     ],
+     "reversals": [
+      {
+       "from": "TAB",
+       "to": "BAT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A man has an overpriced bill sent back to him.",
+     "walkthrough": "'Steep' looks like an adjective for the bill's price, but it is the verb meaning soak.",
+     "definitionFit": "To steep something is to soak it in liquid, which is also what bathe means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Steep"
+    }
+   }
   },
   {
    "number": 13,
@@ -215,7 +914,68 @@
     "text": "Criminal won't snivel when leaving wife's bust",
     "enumeration": "9"
    },
-   "solution": "INSOLVENT"
+   "solution": "INSOLVENT",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "INSOLVENT",
+    "definitions": [
+     {
+      "text": "bust",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Criminal",
+      "for": "anagram",
+      "note": "criminal suggests something crooked or bent, so the letters are twisted into a new order"
+     },
+     {
+      "text": "when leaving",
+      "for": "deletion",
+      "note": "leaving means departing, so one letter goes out of the phrase"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "won't snivel",
+      "gives": "WONTSNIVEL",
+      "note": "the letters of these words as written"
+     },
+     {
+      "clueFragment": "wife",
+      "gives": "W",
+      "note": "W is the standard abbreviation for wife"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INSOLVENT"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ONTSNIVEL",
+       "gives": "INSOLVENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A crook refuses to whine when his wife walks out on him.",
+     "walkthrough": "'Bust' reads as an arrest; it is the sense of going broke.",
+     "definitionFit": "A firm that has gone bust cannot pay its debts, which is the meaning of insolvent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bust"
+    }
+   }
   },
   {
    "number": 14,
@@ -229,7 +989,62 @@
     "text": "Mark if one phrase is important",
     "enumeration": "11"
    },
-   "solution": "SIGNIFICANT"
+   "solution": "SIGNIFICANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "SIGNIFICANT",
+    "definitions": [
+     {
+      "text": "important",
+      "at": 22
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mark",
+      "gives": "SIGN",
+      "note": "a sign is a mark"
+     },
+     {
+      "clueFragment": "if",
+      "gives": "IF",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "I is the Roman numeral for one"
+     },
+     {
+      "clueFragment": "phrase",
+      "gives": "CANT",
+      "note": "cant is a stock phrase or jargon"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SIGN",
+      "IF",
+      "I",
+      "CANT"
+     ]
+    },
+    "explanation": {
+     "surface": "A teacher underlines a phrase in an essay if it matters.",
+     "walkthrough": "Cant is hypocritical talk or the jargon of a group, so it can stand for a phrase.",
+     "definitionFit": "Something significant has meaning or consequence, so it is important."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Mark"
+    }
+   }
   },
   {
    "number": 15,
@@ -243,7 +1058,70 @@
     "text": "Managed small drink after tenor's entrance",
     "enumeration": "9"
    },
-   "solution": "TRANSPORT"
+   "solution": "TRANSPORT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRANSPORT",
+    "definitions": [
+     {
+      "text": "entrance",
+      "at": 34
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the following pieces behind the singer's letter"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "tenor",
+      "gives": "T",
+      "note": "T is the abbreviation for tenor"
+     },
+     {
+      "clueFragment": "Managed",
+      "gives": "RAN",
+      "note": "ran means managed, as in ran a business"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     },
+     {
+      "clueFragment": "drink",
+      "gives": "PORT",
+      "note": "port is a fortified wine"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RAN",
+      "S",
+      "PORT"
+     ]
+    },
+    "explanation": {
+     "surface": "A singer arrives on stage and handles a little drink.",
+     "walkthrough": "'Entrance' reads as an arrival on stage; it is the verb meaning to enchant, stressed on the second syllable.",
+     "definitionFit": "To transport someone is to carry them away with emotion, which is what entrancing them does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 16,
@@ -257,7 +1135,48 @@
     "text": "Quiet trip? Not with this!",
     "enumeration": "8"
    },
-   "solution": "SHOUTING"
+   "solution": "SHOUTING",
+   "annotation": {
+    "type": [
+     "charade",
+     "and_lit"
+    ],
+    "answer": "SHOUTING",
+    "definitions": [
+     {
+      "text": "Quiet trip? Not with this!",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quiet",
+      "gives": "SH",
+      "note": "sh is the call for quiet"
+     },
+     {
+      "clueFragment": "trip",
+      "gives": "OUTING",
+      "note": "an outing is a trip"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SH",
+      "OUTING"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone wants a peaceful excursion and blames the noise for ruining it.",
+     "walkthrough": "The whole clue is also the definition: you cannot have a quiet trip if there is this going on.",
+     "definitionFit": "Shouting is loud yelling, the opposite of quiet, so a quiet trip is impossible with it."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun"
+    }
+   }
   },
   {
    "number": 17,
@@ -271,7 +1190,55 @@
     "text": "Mature priest sitting on monstrous female",
     "enumeration": "8"
    },
-   "solution": "PROGRESS"
+   "solution": "PROGRESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PROGRESS",
+    "definitions": [
+     {
+      "text": "Mature",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sitting on",
+      "for": "charade",
+      "note": "in a down entry, sitting on puts the first piece above the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "priest",
+      "gives": "PR",
+      "note": "PR is an abbreviation for priest"
+     },
+     {
+      "clueFragment": "monstrous female",
+      "gives": "OGRESS",
+      "note": "an ogress is a female monster"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PR",
+      "OGRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A grown-up clergyman perched on a fearsome woman.",
+     "walkthrough": "'Mature' reads as an adjective for the priest; it is the verb meaning to develop.",
+     "definitionFit": "To mature is to develop or advance over time, which is what progress means as a verb."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Mature"
+    }
+   }
   },
   {
    "number": 18,
@@ -291,7 +1258,71 @@
      }
     ]
    },
-   "solution": "HEADTEACHER"
+   "solution": "HEADTEACHER",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HEAD TEACHER",
+    "definitions": [
+     {
+      "text": "school principal",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Awful",
+      "for": "anagram",
+      "note": "awful means dreadful, so the letters come out a mess and are rearranged"
+     },
+     {
+      "text": "the termination of",
+      "for": "letter_selection",
+      "note": "termination means the end, so only the last letter is kept"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "charade",
+      "gives": "CHARADE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "the",
+      "gives": "THE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "free",
+      "gives": "E",
+      "select": "last",
+      "note": "last letter of free"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CHARADETHEE",
+       "gives": "HEADTEACHER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A dreadful performance of charades at a school with no fees.",
+     "walkthrough": "'Free school' reads as one phrase, but 'free' only lends its last letter; 'school principal' is the definition.",
+     "definitionFit": "A head teacher runs a school, which in American and other usage is the principal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "free"
+    }
+   }
   },
   {
    "number": 19,
@@ -305,7 +1336,59 @@
     "text": "Idle group of students stuck by what stands for university education",
     "enumeration": "6"
    },
-   "solution": "UNUSED"
+   "solution": "UNUSED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNUSED",
+    "definitions": [
+     {
+      "text": "Idle",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "stuck by",
+      "for": "charade",
+      "note": "stuck by means fixed alongside, so the pieces are joined up"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what stands for university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     },
+     {
+      "clueFragment": "group of students",
+      "gives": "NUS",
+      "note": "the NUS is the National Union of Students, the British student body"
+     },
+     {
+      "clueFragment": "education",
+      "gives": "ED",
+      "note": "ED is the abbreviation for education"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "NUS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A lazy student body clings to the idea of a university education.",
+     "definitionFit": "Something idle is not in use, so it is unused, as an idle machine sits unused."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Idle"
+    }
+   }
   },
   {
    "number": 20,
@@ -319,7 +1402,55 @@
     "text": "For everyone bar rogues, mostly",
     "enumeration": "6"
    },
-   "solution": "PUBLIC"
+   "solution": "PUBLIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "PUBLIC",
+    "definitions": [
+     {
+      "text": "For everyone",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mostly",
+      "for": "deletion",
+      "note": "mostly means all but a little, so the final letter is dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "bar",
+      "gives": "PUB",
+      "note": "a pub is a bar"
+     },
+     {
+      "clueFragment": "rogues",
+      "gives": "LICE",
+      "note": "lice is a term of contempt for worthless people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PUB",
+      "LIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Open to all except villains, more or less.",
+     "walkthrough": "'Bar' reads as 'except'; it is the drinking place.",
+     "definitionFit": "Something public is open or available to the whole community, so it is for everyone."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "bar"
+    }
+   }
   },
   {
    "number": 21,
@@ -333,7 +1464,62 @@
     "text": "Worse number? Anything that is by Queen",
     "enumeration": "9"
    },
-   "solution": "NAUGHTIER"
+   "solution": "NAUGHTIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NAUGHTIER",
+    "definitions": [
+     {
+      "text": "Worse",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "number",
+      "gives": "N",
+      "note": "N is an abbreviation for number"
+     },
+     {
+      "clueFragment": "Anything",
+      "gives": "AUGHT",
+      "note": "aught is an old word for anything"
+     },
+     {
+      "clueFragment": "that is",
+      "gives": "IE",
+      "note": "i.e. is the Latin abbreviation for 'that is'"
+     },
+     {
+      "clueFragment": "Queen",
+      "gives": "R",
+      "note": "R is for Regina, Latin for queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "AUGHT",
+      "IE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking whether the Queen ever performed a more wicked song.",
+     "walkthrough": "'Number' looks like a song in a show; it is just the abbreviation.",
+     "definitionFit": "Naughtier is the comparative of naughty, meaning more badly behaved, so it fits 'worse' in sense of conduct."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "number"
+    }
+   }
   },
   {
    "number": 22,
@@ -347,7 +1533,69 @@
     "text": "In back of building he rolled joint",
     "enumeration": "5"
    },
-   "solution": "HINGE"
+   "solution": "HINGE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "anagram"
+    ],
+    "answer": "HINGE",
+    "definitions": [
+     {
+      "text": "joint",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "back of",
+      "for": "letter_selection",
+      "note": "back of means the rear end, so only the last letter is kept"
+     },
+     {
+      "text": "rolled",
+      "for": "anagram",
+      "note": "rolled means tumbled over, so the letters land in a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In",
+      "gives": "IN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "building",
+      "gives": "G",
+      "select": "last",
+      "note": "last letter of building"
+     },
+     {
+      "clueFragment": "he",
+      "gives": "HE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "INGHE",
+       "gives": "HINGE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Behind a building, a man rolled a cannabis cigarette.",
+     "walkthrough": "'Joint' leans towards the smoke the man rolled; it is the hinged pivot of a door.",
+     "definitionFit": "A hinge is a movable joint on which a door or lid swings."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "joint"
+    }
+   }
   },
   {
    "number": 23,
@@ -361,7 +1609,66 @@
     "text": "Taken for a ride South by navy in boat",
     "enumeration": "5"
    },
-   "solution": "STUNG"
+   "solution": "STUNG",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "STUNG",
+    "definitions": [
+     {
+      "text": "Taken for a ride",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in puts the navy's letter inside the boat"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "South",
+      "gives": "S",
+      "note": "S is the abbreviation for south"
+     },
+     {
+      "clueFragment": "boat",
+      "gives": "TUG",
+      "note": "a tug is a small boat for towing"
+     },
+     {
+      "clueFragment": "navy",
+      "gives": "N",
+      "note": "N is the abbreviation for navy"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TU",
+      "N",
+      "G"
+     ]
+    },
+    "explanation": {
+     "surface": "A sailor heads south with the navy aboard a vessel.",
+     "walkthrough": "'Taken for a ride' sounds like a boat trip; it is the idiom for being cheated.",
+     "definitionFit": "Stung is slang for swindled or overcharged, the same as being taken for a ride."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "ride"
+    }
+   }
   },
   {
    "number": 24,
@@ -375,7 +1682,62 @@
     "text": "Champion to consume about fifty fish",
     "enumeration": "8"
    },
-   "solution": "SPLENDID"
+   "solution": "SPLENDID",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "SPLENDID",
+    "definitions": [
+     {
+      "text": "Champion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one piece is wrapped round the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to consume",
+      "gives": "SPEND",
+      "note": "to spend is to use up or consume"
+     },
+     {
+      "clueFragment": "fifty",
+      "gives": "L",
+      "note": "L is the Roman numeral for fifty"
+     },
+     {
+      "clueFragment": "fish",
+      "gives": "ID",
+      "note": "the ide is a fish, often clued as ID"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SP",
+      "L",
+      "END",
+      "ID"
+     ]
+    },
+    "explanation": {
+     "surface": "A champion angler aims to eat about fifty fish.",
+     "walkthrough": "'Champion' reads as a winner; it is the dated British adjective meaning excellent.",
+     "definitionFit": "Champion as an old-fashioned exclamation or adjective means excellent, the same as splendid."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Champion"
+    }
+   }
   },
   {
    "number": 25,
@@ -389,7 +1751,57 @@
     "text": "Review's pleasant about group of books",
     "enumeration": "6"
    },
-   "solution": "NOTICE"
+   "solution": "NOTICE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "NOTICE",
+    "definitions": [
+     {
+      "text": "Review",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the adjective goes round the books"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "pleasant",
+      "gives": "NICE",
+      "note": "nice means pleasant"
+     },
+     {
+      "clueFragment": "group of books",
+      "gives": "OT",
+      "note": "OT is the Old Testament, a group of books of the Bible"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "N",
+      "OT",
+      "ICE"
+     ]
+    },
+    "explanation": {
+     "surface": "A critic writes a kind piece about a set of books.",
+     "definitionFit": "A notice is a critic's written review of a play, book or performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "books"
+    }
+   }
   },
   {
    "number": 26,
@@ -403,7 +1815,43 @@
     "text": "Drop iron?",
     "enumeration": "8"
    },
-   "solution": "DECREASE"
+   "solution": "DECREASE",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "DECREASE",
+    "definitions": [
+     {
+      "text": "Drop",
+      "at": 0
+     },
+     {
+      "text": "iron",
+      "at": 5
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Drop",
+      "note": "first meaning: a fall or reduction"
+     },
+     {
+      "clueFragment": "iron",
+      "note": "second meaning, read playfully: to remove creases, as an iron does"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "The question mark flags a made-up sense: split as DE-CREASE, the word means take the creases out, which is ironing.",
+     "definitionFit": "A decrease is a reduction or fall, so it is a drop; ironing removes creases from fabric."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "iron"
+    }
+   }
   },
   {
    "number": 27,
@@ -417,7 +1865,58 @@
     "text": "Arranges backing in races, e.g. at Sandown",
     "enumeration": "6"
    },
-   "solution": "STAGES"
+   "solution": "STAGES",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "STAGES",
+    "definitions": [
+     {
+      "text": "Arranges",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in says the letters sit inside the words that follow"
+     },
+     {
+      "text": "backing",
+      "for": "reversal",
+      "note": "backing means moving backwards, so the run of letters reads right to left"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "races, e.g. at Sandown",
+      "gives": "SEGATS",
+      "note": "a run of letters spanning these words"
+     }
+    ],
+    "assembly": {
+     "reversals": [
+      {
+       "from": "SEGATS",
+       "to": "STAGES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone organises bets on horse races at Sandown.",
+     "walkthrough": "Sandown Park is a racecourse in Surrey, so the picture is of betting, and 'backing' reads as placing a bet.",
+     "definitionFit": "To stage an event is to organise or put it on, so stages means arranges."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "backing"
+    }
+   }
   }
  ]
 }
