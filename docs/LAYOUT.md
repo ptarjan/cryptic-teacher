@@ -1622,10 +1622,10 @@ tools/gale_listener.py                        the Listener crosswords of 1930-91
                                               lists read once (a ledger keyed by file hash)
                                               with ocr_clues' readers and
                                               archive_org_listener's vote into a clues-only
-                                              reading, at the full pass's start and before
-                                              every slice; the checklist asks for a saved
-                                              puzzle's solution report; never requests anything
-                                              from Gale
+                                              reading, then file_gale_listener.py run, at the
+                                              full pass's start and before every slice; the
+                                              checklist asks for a saved puzzle's solution
+                                              report; never requests anything from Gale
 tools/test_gale_listener.sh                   is a saved Listener page matched by its name,
                                               citation title, citation date (across a line
                                               break) or title, not by a browser's "(1)" copy
@@ -1708,6 +1708,25 @@ tools/vlm_health_probe.ps1                    what tools/vlm_health.py reports w
                                               D:\llm\game-guard.ps1's own rule (a process run
                                               from D:\ outside D:\llm), because that guard is
                                               what takes llama-swap down for one
+tools/file_gale_listener.py                   files the 1930s Listeners saved from Gale into
+                                              puzzles/listener/ (run by gale_listener.py sync):
+                                              gale_listener's clue reading joined with the
+                                              page's grid when listener_grid's fit is exact and
+                                              its lights are the clue list's (one unsure side
+                                              flipped where that alone makes them so), and the
+                                              answers off the later report's filled grid found
+                                              by its bars, a cell settled by sure reads or by
+                                              the letter both its lights' whole reads share, an
+                                              entry with an unsettled cell left unanswered;
+                                              written through the shared validators only when
+                                              every clue reads true; each puzzle's verdict, or
+                                              what it lacks, in filed.json
+tools/test_file_gale_listener.sh              does the Gale Listener filer put back a faint bar
+                                              the numbering hides, find the report by its bars,
+                                              settle a cell from its crossings and leave a cell
+                                              nothing settles unanswered, file through the
+                                              validators, and say what a puzzle short of a step
+                                              lacks?
 tools/test_listener_letters.sh                does trove_solution_ocr.read_grid_letters read
                                               the letters of a drawn, filled Listener report
                                               grid back through listener_grid's lattice?
