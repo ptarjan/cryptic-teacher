@@ -9,9 +9,10 @@ The Genius is the Guardian's monthly prize puzzle, and every one carries a
 trick its preamble states: answers entered altered, letters dropped from the
 clues, enumerations withheld. From No 147 or so (2016) each article page on
 theguardian.com/crosswords/series/genius links a printable PDF on
-uploads.guim.co.uk; earlier ones link none. The PDF is text with a vector
-grid, read by tools/ft_pdf_puzzles.py's reader: the clue list and preamble by
-pypdf, the black squares from the page's rectangles.
+uploads.guim.co.uk; earlier ones link none. The PDF is read with
+tools/ft_pdf_puzzles.py's reader: the clue list and preamble by pypdf, the
+black squares from the page's rectangles, or from its largest image where the
+grid is a picture (image_grid).
 
 The answers are fifteensquared's ("Guardian Genius" category). A puzzle is
 filed only when the grid's numbering matches the clue list and every answer

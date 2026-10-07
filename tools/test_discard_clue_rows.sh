@@ -11,7 +11,7 @@
 #   - every SOURCE_CLUE_WRONG row for it names a clue the file shows, which is
 #     what tools/test_source_answer_wrong.sh holds CI to;
 #   - the rows committed with its earlier annotation are kept;
-#   - the rest of fetch_puzzle.py is byte for byte as it was;
+#   - tools/data/source_clue_wrong.json is byte for byte as committed;
 #   - a puzzle the run wrote new is removed, with its rows.
 set -uo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"

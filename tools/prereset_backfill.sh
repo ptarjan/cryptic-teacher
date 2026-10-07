@@ -36,11 +36,10 @@
 # window to turn over, and below both the run failed for reasons of its own,
 # so that puzzle is dropped and the queue carries on. See after_wave.
 #
-# Install: a line in the bridge container's tools/crontab (household repo), at
-# :05 every hour, and that line is the only schedule this job has. `flock -n`
-# on it is not decoration: cron has no idea that a copy is already running, and
-# two of these overlapping would both spend the same window. On a Mac it would
-# have to be launchctl instead, never as well — see daily_update.sh's header.
+# Install: household-plugins/cryptic-prereset/plugin.toml, at :05 every hour,
+# and that is the only schedule this job has; a fire that finds a run going is
+# a no-op (the lock below). On a Mac it would have to be launchctl instead,
+# never as well — see daily_update.sh's header.
 
 set -uo pipefail
 # The whole burn yields to the bridge: its checks and syncs as well as its runs.
@@ -60,7 +59,7 @@ REPO="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$REPO" || exit 1
 . "$REPO/tools/claude_path.sh"
 # Without this the CLI reads the legacy un-suffixed keychain entry, which a
-# file-based /login emptied on 2026-07-31, and every run dies on "Failed to
+# file-based /login leaves empty, and every run dies on "Failed to
 # authenticate: OAuth session expired and could not be refreshed". See the longer
 # note in daily_update.sh.
 export CLAUDE_CONFIG_DIR="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
@@ -82,7 +81,7 @@ RUN_LOG="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset.XXXXXX")"
 exec > >(tee -a "$RUN_LOG") 2>&1
 
 # Kept in step with daily_update.sh — Opus, benchmarked against Fable on 30078
-# (STYLE.md). Matching quality at a third the cost matters more here than
+# (APP.md). Matching quality at a third the cost matters more here than
 # anywhere: a cheaper annotator is straightforwardly more puzzles per reset.
 ANNOTATE_MODEL="${ANNOTATE_MODEL:-opus}"
 MODEL="$ANNOTATE_MODEL"
@@ -113,8 +112,7 @@ export EXHAUSTED="${EXHAUSTED:-99}"
 LOCKOUT_PCT="${LOCKOUT_PCT:-90}"
 # DRY_RUN=1 walks the whole job — queue order, the pool, deadline —
 # without calling claude, touching git or rebuilding anything. This job spends
-# ungated inference in parallel and cannot be rehearsed any other way; the first
-# version of it ran seven ungated nights a week and read as healthy in the log.
+# ungated inference in parallel and cannot be rehearsed any other way.
 DRY_RUN="${DRY_RUN:-0}"
 
 echo "=== cryptic-teacher pre-reset backfill $(date '+%Y-%m-%d %H:%M') ==="
@@ -126,8 +124,8 @@ LOCK="$REPO/.prereset.lock"
 # The holder writes its pid inside it, because the directory alone cannot say
 # whether it belongs to a live run or to one the machine killed: the EXIT trap
 # that removes it does not get to run when the container goes down. So a lock
-# whose pid names no live backfill — or that carries no pid at all, as every
-# lock taken before this line did — is taken over rather than deferred to. The
+# whose pid names no live backfill, or that carries no pid at all, is taken
+# over rather than deferred to. The
 # pid is matched against the command line and not merely tested for existence,
 # because pids are reused and a restart hands them out again from the bottom.
 lock_is_dead() {
@@ -258,7 +256,7 @@ requeue_failed() {
 # Run one claude task against the repo. Returns non-zero if the run failed.
 #
 # Its output goes to a file named after the puzzle rather than to the log, because
-# several of these run at once now and interleaved transcripts belong to nobody.
+# several of these run at once and interleaved transcripts belong to nobody.
 # The caller prints the tail of each one as it reaps it, in order.
 #
 # Every run is given a session id up front so that a retry can RESUME it rather
@@ -309,8 +307,8 @@ run_claude() {
   local rc=$?
   # Running out of window is how this job is SUPPOSED to end, so a plain failure
   # stays quiet. A broken login is a different animal: it fails identically, at
-  # the same point, every night, and it hid there for seven days (2026-07-31 to
-  # 2026-08-06) precisely because it looked like the normal ending.
+  # the same point, every night, and looks like the normal ending, so it is
+  # alerted on its own.
   if [ $rc -ne 0 ] && grep -qi "Failed to authenticate\|Not logged in" "$log"; then
     alert "pre-reset backfill cannot authenticate — the CLI needs a fresh /login. Nothing has been backfilled since this started."
   fi
@@ -618,8 +616,8 @@ pool_interval_start() {
   if [ "$POOL_REORDER" = 1 ] && [ "$at" -lt "${#queue[@]}" ] &&
      { [ "$DRY_RUN" = 0 ] || [ "$POOL_PLANNED" = 0 ]; }; then
     # A run lasts days: the backlog is read again, so a puzzle filed or made
-    # eligible since the run started joins the queue. The pool is drained here,
-    # so whatever this run already took is in queue[0..at).
+    # eligible since the run started joins the queue. An id the queue already
+    # holds, started or not, is not added again.
     if [ "$POOL_PLANNED" = 1 ]; then
       local -A held=()
       local id
@@ -740,11 +738,10 @@ skip_published_conflicts() {
 }
 
 # Every shared data file the runs wrote, committed and pushed the way a puzzle
-# is, so safe with runs in flight: the glossary rows (tools/add_abbreviation.py,
-# whole, under a lock) and the corroboration ledger extend_archive.py's fetches
-# write. The directory, not a list, so the next such file is covered too. None
-# may ride the sync's --autostash: other writers append to these files all day,
-# and a stash pop that conflicts leaves an unmerged index that stops the burn.
+# is, so safe with runs in flight: the corroboration ledger extend_archive.py's
+# fetches write, for one. The directory, not a list, so the next such file is
+# covered too. None may ride the sync's --autostash: other writers append to
+# these files all day, and a stash pop that conflicts leaves an unmerged index that stops the burn.
 # Committed, the keyed ones merge per key in the rebase (.gitattributes,
 # tools/json_merge.py). Published at every checkpoint rather than at the
 # republish, so the puzzles already pushed validate on master, and a burn that
@@ -889,7 +886,7 @@ drop_failed() {
 
 # Commit whatever a task produced, but only if the tree still validates. A run
 # that ran out of room mid-file leaves a half-written annotation behind, and
-# committing that would publish a broken puzzle page at 04:45.
+# committing that would publish a broken puzzle page.
 commit_puzzle() {
   local num="$1" what="$2" attempt="${3:-first}"   # num is a puzzle ID, e.g. cryptic-30089
   local sha
@@ -1009,8 +1006,8 @@ python3 tools/fetch_puzzle.py --reindex >/dev/null
 # so the queue empties on its own. tools/extend_archive.py walks each paper
 # backwards until the queue is deeper than the best week this job has had.
 #
-# Here rather than when the queue runs dry: the queue is read once below, and
-# fetching mid-pool would race the reindex the running annotators read through.
+# Here rather than when the queue runs dry: fetching mid-pool would race the
+# reindex the running annotators read through.
 #
 # Never fatal. A paper being down is a smaller problem than not annotating.
 # Through publish_fetched.sh, which commits and pushes what was fetched before
@@ -1033,8 +1030,8 @@ annotate_blocked=$(python3 tools/failed_inputs.py skipped annotate)
 solve_blocked=$(python3 tools/failed_inputs.py skipped solve)
 todo=$(python3 tools/prereset_plan.py --backlog "$annotate_blocked" "$solve_blocked")
 
-# Not "Guardian crossword": since 2026-08-05 some of these are the
-# Independent's. The puzzle file records its own series and publisher.
+# Not "Guardian crossword": the queue spans every series. The puzzle file
+# records its own series and publisher.
 ANNOTATE_PROMPT="Annotate the crossword @ in this repo, whose clues and answers are in tools/_puzzle_@.json. Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py @' until it reports clean. Do not commit — the calling script commits."
 
 # The prompt's Reference section, restated from the code that enforces it. Same
@@ -1093,16 +1090,13 @@ fi
 
 # Record what got drained. The allowance may only shrink — enforced in
 # write_backlog, not merely intended — so every puzzle finished here is a puzzle
-# that can never quietly lose the field again.
+# that can never quietly lose the field again. Not suppressed: a failure here
+# means drained puzzles go unrecorded, so it is alerted.
 #
-# NOT suppressed. This was `>/dev/null 2>&1 || true`, and under it the command
-# had been raising TypeError on every run since puzzle ids stopped being bare
-# numbers: the sort key was int(id). Months of drained puzzles were never
-# recorded, and the one place that would have said so was pointed at /dev/null.
 # A puzzle still uncommitted here is one a lockout cut off and the run never got
 # back to. Keeping it was worth a retry; publishing it is not — the republish
 # below stages the whole tree, and it would go out as a puzzle whose teaching
-# ladder stops halfway down. Tomorrow's queue picks it up whole.
+# ladder stops halfway down. The next run's queue picks it up whole.
 if [ -n "$(git status --porcelain -- puzzles/)" ]; then
   echo "dropping unfinished puzzles: $(git status --porcelain -- puzzles/ | awk '{print $2}' | tr '\n' ' ')"
   git checkout -- puzzles/
@@ -1154,8 +1148,8 @@ if [ "$seo_ok" = 1 ] && command -v node >/dev/null 2>&1; then
   smoke_log="$(mktemp "${TMPDIR:-/tmp}/cryptic-prereset-smoke.XXXXXX")"
   node tools/smoke_test.js 2>&1 | tee "$smoke_log"
   smoke_rc=${PIPESTATUS[0]}
-  # A WARNING in a log is not a warning to anyone: this printed failures for weeks
-  # while the job committed the tree that caused them. Exit 2 is "no hints yet".
+  # A WARNING in a log is not a warning to anyone, so a failure is alerted.
+  # Exit 2 is "no hints yet".
   if [ "$smoke_rc" -ne 0 ] && [ "$smoke_rc" -ne 2 ]; then
     alert "the app's smoke test is failing on the tree the pre-reset backfill is about to commit: $(grep -m3 '^FAIL' "$smoke_log" | tr '\n' ' ')"
   fi
@@ -1178,8 +1172,8 @@ if [ -n "$(git status --porcelain)" ]; then
     alert "pre-reset backfill could not push its republish commit — the built pages are committed locally only. See .prereset.log."
 fi
 
-# Where the rollout got to. Nothing to flip by hand any more: the ratchet in
-# tools/validate_annotations.py already requires these fields of every puzzle
+# Where the rollout got to. Nothing to flip by hand: the ratchet in
+# tools/validate_annotations.py requires these fields of every puzzle
 # annotated since they were added, and the numbers below are only the historical
 # remainder.
 python3 tools/validate_annotations.py 2>&1 | grep -i "backlog" || true

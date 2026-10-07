@@ -1,7 +1,7 @@
 #!/bin/bash
 # Is a date-keyed puzzle number (Metro, the Canberra Times) named by its day?
 # Their papers print no number, so the stored number is the print date, and
-# formatting it as a number gave "Cryptic 20,260,922 answers explained".
+# formatting it as a number would read "Cryptic 20,260,922".
 # Renders every numberIsDate series' page and refuses a separated number in the
 # title, heading, description or archive row.
 #

@@ -46,9 +46,7 @@ WHAT SURVIVED, with its cost on the corpus:
     * |across - down| above 24       costs 0.00%   — observed max 24
   and one rule proposed as a reject and MEASURED DOWN to a warning:
     * every length even and <= 10    costs 2.636%  — 411 real published 15x15s
-      look exactly like that. It was offered on the grounds that a real clue
-      list "always prints a light of 12-15"; the corpus says otherwise 411
-      times. It is still a good smell, so it is reported as a warning and the
+      look exactly like that. It is still a good smell, so it is reported as a warning and the
       search still runs. On the one control puzzle it fires for, the search
       already returns a shortlist rather than a false unique, so rejecting on
       it bought nothing and would have cost 2.6% of the corpus.

@@ -2,7 +2,7 @@
 """The archive.org filer's editions, and the clue OCR, read on Paul's desktop over ssh.
 
     OCR_REMOTE=micro@100.68.145.15,micro@192.168.1.198 python3 tools/file_archive_org_puzzles.py ...
-    python3 tools/ocr_remote.py check        # connect, report versions, read one crop both ways
+    python3 tools/ocr_remote.py check        # read one crop both ways
 
 The Mac mini has 4 cores; the desktop has 28. With OCR_REMOTE set, each
 process holds one ssh session to `python ocr_remote.py serve` on the first
@@ -153,8 +153,7 @@ def full_speed():
     """Opt this process out of Windows power throttling (EcoQoS), at
     idle priority: a windowless process started by sshd counts as
     background, and Windows
-    keeps those on the efficiency cores, so 20 sessions shared 12 of the
-    28 threads and took six times as long a crop."""
+    keeps those on the efficiency cores."""
     import ctypes
 
     class State(ctypes.Structure):
@@ -771,8 +770,8 @@ def local_slot():
 
 
 def check():
-    """Connect, print both hosts' versions, read one synthetic crop both
-    ways and say whether the readings are the same."""
+    """Read one synthetic crop with each reader both ways and say whether
+    the readings are the same."""
     from PIL import Image, ImageDraw
 
     import ocr_clues

@@ -11,7 +11,7 @@ Endpoint: https://suggestqueries.google.com/complete/search?client=firefox&q=...
 No key, but it 429s if hit too fast or without a browser User-Agent, so we
 sleep between requests and abort loudly on a 429 rather than limping on.
 
-READING RULE (measured 2026-09-08, load-bearing): autocomplete volunteers
+READING RULE (load-bearing): autocomplete volunteers
 real puzzle numbers scraped from other people's query logs, but past a
 certain depth it starts padding with a straight numeric fill -- a run of
 consecutive integers Google invented to fill out ten suggestions, not

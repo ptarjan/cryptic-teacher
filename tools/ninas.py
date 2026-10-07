@@ -64,8 +64,8 @@ def cell_entries(puzzle):
 
 
 def lines(puzzle, grid):
-    """(name, [cell]) for every line a message is hidden along: each row,
-    column and long diagonal, the perimeter clockwise from the top left, each
+    """(name, [cell], spaced) for every line a message is hidden along: each
+    row, column and (on a square grid) long diagonal, the perimeter clockwise from the top left, each
     read square by square, every other square and unchecked squares only;
     then every unchecked square of the grid in reading order. Each forwards
     and backwards."""

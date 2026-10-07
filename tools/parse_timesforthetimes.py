@@ -84,7 +84,7 @@ WORDPLAY_COMMA = re.compile(r",\s+(?=[a-z])")
 #: A deleted letter written in lower case inside the answer: SWANSON[g], IN(v).
 DROPPED_LETTERS = re.compile(r"[\[(][a-z]+[\])]")
 #: A mark that already ends a printed answer outside of any aside -- see
-#: ANSWER below. Found ahead of an aside, it means the printed answer ended
+#: ANSWER above. Found ahead of an aside, it means the printed answer ended
 #: before the aside was ever reached: "RED,LEICESTER -- (I ELDER
 #: reversed)-CE-STER(n)" stops at the dash with the comma still part of the
 #: answer, so nothing about the aside that follows is this module's to read.
@@ -96,7 +96,7 @@ HARD_TERMINATOR = re.compile(r"[–—;]")
 #: lower case letter anywhere inside is what marks this one as prose instead.
 #: This also matches DROPPED_LETTERS' short pure-letter markers -- (v), (w)
 #: -- but _aside_cut below leaves anything it cannot place safely untouched,
-#: so DROPPED_LETTERS, run after, still takes them exactly as it always has.
+#: so DROPPED_LETTERS, run after, still takes them.
 ASIDE = re.compile(r"\([^()]*[a-z][^()]*\)")
 #: An aside that names the clue's type -- "AIRMAIL (cryptic definition)",
 #: "TOSH (2 defs)", "SHOW-JUMPERS (1 def, 1 literal interpretation)" -- says
@@ -373,8 +373,8 @@ def _aside_cut(rest, kept_so_far, prefix, m):
     "SPOON-FEED, SPOON (the golf club) + FEED" restates the answer's own
     fragments in upper case once the derivation starts, so the whole clause
     from the comma on is cut. This is WORDPLAY_COMMA's own rule (a comma
-    opens the derivation), just no longer blind to a derivation that
-    capitalises its restated fragments -- UNLESS an earlier, untouched aside
+    opens the derivation), applied also to a derivation that capitalises
+    its restated fragments -- UNLESS an earlier, untouched aside
     already sits in the kept text, because then the comma is not the first
     sign of trouble and cutting back to it would still keep that aside's own
     unresolved parenthesis.
@@ -383,10 +383,10 @@ def _aside_cut(rest, kept_so_far, prefix, m):
     business')" -- and the answer can run on past it when a '+' follows,
     because that is how this corpus writes a second charade fragment on:
     "... + A NEW LEAF". Anything else after a '=' gloss is where the printed
-    answer actually stops, same as it always has (a bare '=' is already one
-    of the marks that ends one); the gloss becomes a semicolon rather than
-    nothing, so the regex has a terminator to find there instead of running
-    on or hunting for one that was never there.
+    answer stops (a bare '=' is already one of the marks that ends one); the
+    gloss becomes a semicolon rather than nothing, so the regex has a
+    terminator to find there instead of running on or hunting for one that
+    was never there.
 
     Any OTHER aside -- "(canvasser, i.e. painter)" -- is commentary on a
     fragment already written in upper case, never a gloss of its own, so it

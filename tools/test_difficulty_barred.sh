@@ -4,7 +4,7 @@
 #     bash tools/test_difficulty_barred.sh
 #
 # A barred grid is checked far more by convention, so against the blocked
-# grids' spread every Listener rated Gentle. More crossing letters still mean
+# grids' spread every Listener would rate Gentle. More crossing letters still mean
 # easier, against its own kind.
 set -uo pipefail
 cd "$(dirname "$0")/.."

@@ -16,7 +16,7 @@ answers included (the burn solves them cold, then annotates them), and every
 puzzle held as its clues alone (tools/clues_only.py), whose solve derives its
 grid in tools/apply_solution.py as the nightly's does. Those rank by the same
 rules as an index row: clues_only_rows() gives them one. Its order
-is head_of_queue()'s (Paul, 2026-10-04): the puzzles a lockout cut off first,
+is head_of_queue()'s: the puzzles a lockout cut off first,
 then the puzzles /showcase/ would pick once annotated (showcase.wanted), then
 each series' first puzzle (series.is_first_issue), then each series'
 OLDEST_PER_SERIES oldest puzzles, oldest first, then the puzzles with a notable
@@ -61,7 +61,7 @@ RATIO_SPAN_S = 7 * 86400
 RATIO_MIN_POINTS = 10
 # The width when neither the meter nor the last logged width can be read.
 DEFAULT_WIDTH = 14
-# The ceiling when memory cannot be read: ~6 GB of runs.
+# The ceiling when memory cannot be read: ~7 GB of runs.
 DEFAULT_CEILING = 28
 
 # Memory kept free for the bridge and Docker, which share this box, and the size
@@ -101,11 +101,8 @@ PER_RUN_RATE = 1.95
 # The meter line after_wave logs at every pool checkpoint:
 #   five-hour 68% -> 70% in 0.083h at width 12.40 (pool of 14)
 # where the width is the runs in flight on average over the interval, measured.
-# A line from the wave scheduler ("at width 14", every run in flight for the
-# whole wave) reads the same way.
 METER_LINE = re.compile(r"five-hour (\d+)% -> (\d+)% in ([\d.]+)h at width (\d+(?:\.\d+)?)")
-# The width the burn last ran at: "--- pool of 14: ..." at every checkpoint,
-# or "--- wave of 14: ..." from the wave scheduler.
+# The width the burn last ran at: "--- pool of 14: ..." at every checkpoint.
 WIDTH_LINE = re.compile(r"^--- (?:pool|wave) of (\d+):")
 RATE_LINES = 60
 RATE_MIN_LINES = 10
@@ -503,7 +500,7 @@ WIDTH_CASES = [
     ((60, None, 40, 14), DEFAULT_CEILING),      # memory unread
     ((26, 0, 40, 14), 1),          # no memory free: still one run
     ((26, 40, 0, 14), 1),          # no core idle: still one run
-    ((0, 40, 40, 14), 1),          # bridge spends the window: one run, for an old shell
+    ((0, 40, 40, 14), 1),          # bridge spends the window: one run without --may-pause
     ((0, 40, 40, 14, 0), 0),       # ...and none for one that naps at 0
     ((26, 40, 0, 14, 0), 0),       # no core idle, for one that naps
 ]
@@ -525,7 +522,7 @@ NEED_CASES = [
     ((59, 10.0, 2.0, 12, 6.0), 6),    # bridge 120 of the 240 left by the reset
     ((59, 10.0, 2.0, 24, 6.0), 0),    # bridge alone spends the week
     ((59, 10.0, 2.0, None, 6.0), 12),  # bridge unmeasured: nothing subtracted
-    # 2026-10-04: weekly 10% with 58h to go, bridge 4 an hour, 1.95 a run, 6.5
+    # weekly 10% with 58h to go, bridge 4 an hour, 1.95 a run, 6.5
     ((10, 58.0, 1.95, 4, 6.5), 3),
 ]
 # (csv text, start, end) -> five-hour points per weekly point
@@ -599,7 +596,7 @@ def width_self_test():
     # pool lines: 0.5h at 12.5 in flight on average is 6.25 run-hours
     pool = "  weekly 1% -> 1%, five-hour {}% -> {}% in 0.5h at width 12.50 (pool of 14)"
     pooled = [pool.format(i, i + 5) for i in range(12)]
-    # old and new lines together: 12 x 3 + 12 x 5 points over 12 x (1.4 + 6.25)
+    # lines with and without the pool suffix: 12 x 3 + 12 x 5 points over 12 x (1.4 + 6.25)
     mixed = logged[:12] + pooled
     for lines, want in [(logged, 3 / 1.4), (logged[:3], PER_RUN_RATE),
                         (pooled, 5 / 6.25), (mixed, 96 / (12 * 7.65)),
@@ -717,8 +714,8 @@ def first_self_test():
         print(f"FAIL oldest_per_series = {got} (want {want})", file=sys.stderr)
         bad += 1
     # The 10 are the series' oldest on file, not the oldest left in the queue:
-    # annotating times-1..3 must not pull times-11 up, which is what walked
-    # every series oldest-first, 10 at a time, until 2026-10-04.
+    # annotating times-1..3 must not pull times-11 up, else the burn walks
+    # every series oldest-first, 10 at a time.
     done = [dict(r, annotated=r["id"] in ("times-1", "times-2", "times-3")) for r in rows]
     got = oldest_per_series([q for q in queue if q not in ("times-1", "times-2", "times-3")],
                             [], done)
@@ -742,7 +739,7 @@ def first_self_test():
     return bad
 
 
-# Paul, 2026-10-04: cut-offs, showcase, No 1, 10 oldest, notable tags, then
+# cut-offs, showcase, No 1, 10 oldest, notable tags, then
 # the rest round-robin newest first, whatever order the queue came in.
 _HEAD_ROWS = ([_dated(f"cryptic-{22640 + i}", f"2002-{1 + i // 28:02}-{1 + i % 28:02}")
                for i in range(40)]
@@ -943,8 +940,7 @@ def cover_self_test(covers):
 
 # Tags too common to jump the queue on. A plain pangram is about one puzzle in
 # thirty and "barred" is every Mephisto: promoting either would have the burn do
-# little else, which is what queue-jumping the SNITCH-rated Times did (10fbd70,
-# reverted d9e4925). Every other tag is rare, and its puzzles are the ones a
+# little else. Every other tag is rare, and its puzzles are the ones a
 # solver goes looking for.
 COMMON_TAGS = {"pangram", "barred"}
 INDEX = REPO / "puzzles" / "index.json"
@@ -993,9 +989,8 @@ def showcase_wanted(index_path=INDEX):
 
 
 def first_issues(queue, pinned):
-    """pinned, then the queue's series-first puzzles in queue order. Paul,
-    2026-10-02: "Puzzle 1 is a special puzzle ... our solver should
-    prioritize them"."""
+    """pinned, then the queue's series-first puzzles in queue order: a
+    series' No 1 is a special puzzle."""
     return pinned + [pid for pid in queue if series.is_first_issue(pid) and pid not in pinned]
 
 
@@ -1004,8 +999,8 @@ def promote(queue, pinned, tagged):
     return pinned + [pid for pid in queue if pid in tagged and pid not in pinned]
 
 
-# How many of each series' oldest puzzles go ahead of the rest of the queue
-# (Paul, 2026-10-04: "10 oldest can be front too"). Old puzzles are
+# How many of each series' oldest puzzles go ahead of the rest of the queue.
+# Old puzzles are
 # interesting; a few per series reach every paper's oldest without the burn
 # doing little else.
 OLDEST_PER_SERIES = 10

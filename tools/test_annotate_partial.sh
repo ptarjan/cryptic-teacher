@@ -137,8 +137,8 @@ try:
 
     # A write that changes an annotated clue's text (an OCR re-read, a
     # corroborated reading) keeps the annotation only on the same words, every
-    # phrase it quotes still there: ftcryptic-8476 7 down lost its page debris
-    # "Jotter Pad 7" and kept a block quoting it.
+    # phrase it quotes still there. The case: ftcryptic-8476 7 down with page
+    # debris "Jotter Pad 7" in its clue and a block quoting it.
     ft = tmp / "ftcryptic-8476.json"
     shutil.copy(F.puzzle_paths.find("ftcryptic-8476"), ft)
     def seven_down(p):

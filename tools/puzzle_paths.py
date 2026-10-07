@@ -13,7 +13,7 @@ puzzle file asks here; tools/puzzle_paths.js is the same rule for node.
 
 The year is a fact about the contents, so a file can only be placed by
 something that has the puzzle: file_for(). Something holding only an id finds
-the file with find(), a glob across that series' year folders — there is no
+the file with find(), a stat in each of that series' year folders — there is no
 second table to keep in step with the tree.
 
 Generated files are NOT here: the index and the per-puzzle .js shims the

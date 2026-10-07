@@ -11,7 +11,7 @@ given on the command line.
   python3 tools/parse_penguin_book.py IN.txt --out /tmp/penguin_puzzles.json \\
       --report-out /tmp/penguin_quality.json
 
-BOOK LAYOUT (measured against this scan, 2026-09-18). Leaf 7 is the section
+BOOK LAYOUT (of this scan). Leaf 7 is the section
 title "The Puzzles"; leaf 129 is the first leaf of "Solutions" (whose pages
 are unreadable OCR of answer-grid IMAGES and are never read by this script).
 Between them, puzzles alternate one CLUE leaf (an "Across"/"Down" clue list,
@@ -26,14 +26,14 @@ OCR'd tokens in the whole scan (e.g. "4]" for 41, "a3" for 33, "NONNNAWN—"
 for what sequence says must be 59) — position is load-bearing here, the
 printed digit is corroboration only, kept as raw_number_ocr for that purpose.
 
-COUNT DISCREPANCY: the task brief says 58 puzzles numbered 1-58. Structural
-detection here (a clean, gapless run of clue-leaf/grid-leaf pairs from leaf 8
-to leaf 127) finds 60. The last two are numbered 59 (leaf 124's heading OCRs
-as "39" — a plausible 5/3 OCR confusion, not a break in sequence) and 60
-(leaf 127's heading OCRs cleanly as "60"). This script reports what it finds
-structurally rather than truncating to match the brief; see the parser's
-printed summary and PENGUIN_BOOK_COUNT in the quality report for the number
-actually produced by a given run.
+COUNT DISCREPANCY: the book is described as holding 58 puzzles numbered 1-58.
+Structural detection here (a clean, gapless run of clue-leaf/grid-leaf pairs
+from leaf 8 to leaf 127) finds 60. The last two are numbered 59 (leaf 124's
+heading OCRs as "39" — a plausible 5/3 OCR confusion, not a break in sequence)
+and 60 (leaf 127's heading OCRs cleanly as "60"). This script reports what it
+finds structurally rather than truncating to 58; see the parser's printed
+summary and penguin_book_count in the quality report for the number actually
+produced by a given run.
 
 CLUE SEGMENTATION. Only ~10 of the ~58-60 puzzle blocks kept their clue
 numbers; enumerations "(7)", "(3,4)" etc. survived far better. So a clue
@@ -48,8 +48,7 @@ LAYOUT VARIANTS. The Penguin volumes are not the only print convention in
 this series of scans, and the differences are typographic, not OCR damage —
 the next book set in the same style will hit them all again, so they are
 handled as variants of the shared patterns and nothing here is ever keyed to
-an identifier. The one that had to be added second, the DOTTED-NUMBER LAYOUT,
-prints:
+an identifier. One of them, the DOTTED-NUMBER LAYOUT, prints:
 
   "Cryptic Across"     the running head glued onto the header line
   "13. Clue text"      dotted clue numbers
@@ -57,16 +56,15 @@ prints:
   "13. See 14 Across"  cross-references that name the direction too
   ". Clue text"        what a dotted number leaves when OCR eats the digits
 
-Counted over the 33 book scans on hand (2026-09-18): dotted numbers in 12 of
-them, glued running heads in 8, direction-bearing cross-references in 9 — so
-this is a convention, not a quirk. Untreated it is not a partial loss but a
+Dotted numbers, glued running heads and direction-bearing cross-references
+each recur across many of the book scans, so this is a convention, not a
+quirk. Untreated it is not a partial loss but a
 total one in two stages: no header matches, so every puzzle in the book falls
 through to jigsaw mode and loses its Across/Down split; and no leading number
 matches, so clue-number recovery is 0%.
 
-Measured on crypticcrossword0000unse, which prints all five forms: 17 of 17
-puzzles fell to jigsaw mode before and 0 of 17 do after, and clue-number
-recovery went from 0/394 to 68/401. That 17% is the honest ceiling, not a
+On crypticcrossword0000unse, which prints all five forms, no puzzle falls to
+jigsaw mode and clue-number recovery is 68/401. That 17% is the honest ceiling, not a
 shortfall: only 71 of this scan's printed numbers survived OCR as digits at
 all (the rest are the ". Clue text" case, where the digit is simply gone and
 inventing it would be worse than leaving it null), and 68 of those 71 are
@@ -103,10 +101,8 @@ SOLUTIONS_MARKER = re.compile(r"\bSolutions\b")  # capital S: skips lowercase
 # structural end-of-puzzles boundary in find_puzzle_range, never required.
 SOLUTIONS_NO_MARKER_RE = re.compile(r"\bNo\.\s*\d+")
 
-# Setters confirmed present by direct observation: either named in the task
-# brief, or found as a clean, dictionary-plausible standalone line on a grid
-# leaf (see the tally this was built from in the parser's own git history —
-# not repeated here, this list IS the finding).
+# Setters confirmed present by direct observation: each found as a clean,
+# dictionary-plausible standalone line on a grid leaf.
 KNOWN_SETTERS = {
     "Rufus", "Araucaria", "Custos", "Gordius", "Enigmatist", "Bunthorne",
     "Shed", "Fidelio", "Crispa", "Janus", "Hendra", "Pasquale", "Orlando",
@@ -135,11 +131,10 @@ SEE_REFERENCE_RE = re.compile(
 # against anything, it just throws away real numbers on real clues whose
 # first letter OCR lowercased (guardiancrosswor0000perk, the 1974 book,
 # does this constantly: "1 perehing clear..." is a genuine numbered clue
-# with garbled text, not noise). Confirmed by direct comparison: broadening
-# this to accept lowercase changes zero numbered-clue counts on vols
-# 2/3/5/7/11 (their surviving leading numbers are followed by capitalised
-# clue text) and recovers real numbers on the 1974 book that the
-# upper-case-only version was dropping.
+# with garbled text, not noise). Accepting lowercase changes no
+# numbered-clue count on vols 2/3/5/7/11 (their surviving leading numbers
+# are followed by capitalised clue text) and recovers real numbers on the
+# 1974 book.
 # Three spellings of the same thing, all live in the scans on hand:
 #   "13 Clue text"      the Penguin volumes
 #   "13. Clue text"     the DOTTED-NUMBER LAYOUT (see LAYOUT VARIANTS above)
@@ -716,10 +711,10 @@ def build_quality_report(puzzles: list[dict]) -> dict:
         # No independent count of "how many clues this grid should have" is
         # available — the Solutions section is unreadable grid-image OCR,
         # so there is nothing to check the extracted count against. A fixed
-        # "normal" clue-count floor was tried here and rejected: puzzle 23
-        # (Enigmatist, a 13-across/10-down thematic grid) is a genuinely
-        # complete 23-clue puzzle that such a floor would have mislabelled
-        # as damaged purely for having a nonstandard, but real, shape. Only
+        # "normal" clue-count floor would mislabel puzzle 23 (Enigmatist, a
+        # 13-across/10-down thematic grid), a genuinely complete 23-clue
+        # puzzle, as damaged purely for having a nonstandard, but real,
+        # shape. Only
         # a floor low enough to catch actual breakage (most of a puzzle
         # missing) is used, and only as an informational flag, never to
         # drive confidence down on its own.

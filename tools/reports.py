@@ -26,8 +26,7 @@ same fault; they close the tab. So fixing the clue named here is half the job â€
 the other half is measuring the shape across every walkthrough in puzzles/, and
 if it is tight enough to match without false positives, adding it to
 tools/validate_annotations.py and tools/annotate_prompt.md so it cannot come
-back. That is how the two walkthrough-opener and closer rules got written on
-2026-09-06. Where the shape is real but too fuzzy to match, say so in the commit
+back. Where the shape is real but too fuzzy to match, say so in the commit
 and fix the one clue: a judgement call recorded is not the same as a fault
 ignored.
 """

@@ -3,8 +3,7 @@
 
 Every save already carries `hintsShown`: per clue, the rungs that were opened,
 in the order they were asked for. That is a record of exactly where a solver
-gave up and took the answer, and it has been synced to the Worker all along —
-nobody has ever looked at it.
+gave up and took the answer, and it is synced to the Worker.
 
 The question it answers is not "how hard is this clue" (tools/difficulty.py
 already measures that from the clue itself). It is "which of OUR rungs failed":
@@ -33,9 +32,8 @@ ANSWER = "answer"
 # The ladder in the order app.js numbers it, so "how far did they climb" is a
 # position in this list and not the arbitrary order the rungs were asked for.
 # Read out of app.js rather than typed here: a copy of the order reports the
-# wrong height the moment the ladder is reordered, and silently — a solver who
-# took only the indicators was counted as having climbed three rungs, and the
-# "up to …" histogram named the wrong rung, for as long as the copy sat stale.
+# wrong height, and the "up to …" histogram names the wrong rung, silently,
+# the moment the ladder is reordered.
 LADDER = [key for key, _label in app_tables.ladder()]
 
 
