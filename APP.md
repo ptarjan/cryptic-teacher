@@ -45,8 +45,8 @@ Terms used below:
   - Later rungs restate earlier ones on the way to the answer, so letting
     someone skip straight to the walkthrough would not be a ladder.
 - **Locked rungs are shown disabled, not hidden**, so the solver sees what is
-  coming. The recommended next rung leads and is labelled "Show hint N". The
-  rest of its tier are quiet ghost buttons. A rung keeps its ladder number
+  coming. Each button reads "N · <rung question>". The recommended next rung
+  leads as the plain button; the rest of its tier are quiet ghost buttons. A rung keeps its ladder number
   whichever order it is taken in, so gaps in the numbering show what was
   skipped.
 - **Revealed rungs are a set, not a count.** `hintsShown` maps entryKey to rung
@@ -248,8 +248,9 @@ Terms used below:
   solved. It never advances the ladder but always counts in scoring (the meter,
   the scorebar and the no-hints tally).
 - **Live letter pattern.** The hint panel shows the selected entry's letters
-  under the clue: one small box per cell (the typed letter or a blank), plus a
-  muted "x of N letters in place · c checked, u unchecked" summary.
+  under the clue: one small box per cell (the typed letter or a blank). The
+  "x of N letters in place" summary is the strip's `aria-label`, for screen
+  readers only, because printed it restated the boxes.
   - Checked squares (crossed by another entry) get a solid accent-underlined
     box. Unchecked squares are dashed.
   - The strip re-renders on every `refreshAll()`, so it never goes stale while
@@ -310,8 +311,9 @@ Terms used below:
 
 ## Picker and badges
 
-- **The puzzle picker lists only puzzles with `annotated: true`**, plus the one
-  currently open and any with saved progress. Un-annotated puzzles are the
+- **The puzzle picker's default view lists only the latest `RECENT_ROWS` (12)
+  puzzles with `annotated: true`**, plus the one currently open and any with
+  saved progress. Un-annotated puzzles are the
   majority and grow faster than annotated ones, and a row that cannot teach
   anything is noise.
 - **Hidden must never mean unreachable.**
@@ -401,7 +403,7 @@ Read the corpus before writing hints. Measured across all 55
 
 ### Consistency is not correctness
 
-The validator's older checks test *consistency*: letters concatenate,
+The validator's basic checks test *consistency*: letters concatenate,
 substrings appear verbatim. A model that cannot solve a clue can still be
 perfectly consistent about a parse it invented. So these checks compare parts
 of the annotation against each other. All are in
@@ -458,7 +460,7 @@ same prompt and flags, and was compared with Fable's existing annotation:
   validator-clean. Only a diff against a better annotator finds this.
 - **Haiku fabricates.** On 30073 it returned "29/29 annotated — OK" with 17 of
   27 non-exempt clues containing no wordplay at all. The comparison checks
-  above were added in response.
+  above catch this.
 - **Prose.** Fable writes tighter and funnier (18 words per walkthrough against
   Opus's 30). Opus teaches better. A walkthrough must carry what the blocks
   cannot show and never re-narrate fragment-to-letters. Fable broke that rule
@@ -530,14 +532,15 @@ same prompt and flags, and was compared with Fable's existing annotation:
 
 - **The canonical URL is `https://cryptic.paultarjan.com/`.** It appears in
   `<link rel=canonical>`, `og:url`, `og:image`, the JSON-LD, `sitemap.xml`,
-  `robots.txt` and `tools/og_card.html`. If it ever moves, all seven change
-  together. In `tools/build_seo_pages.py` it is `BASE`.
+  `robots.txt`, `CNAME`, `sync/wrangler.toml` and several tools (grep for the
+  host). If it ever moves, they all change together. In
+  `tools/build_seo_pages.py` it is `BASE`.
 - **A puzzle's id is its series and its number**: `cryptic-30089`,
   `everyman-4165`. Every paper numbers from its own 1, so a number alone would
   eventually collide across papers.
   - Spelled in one place: `series.puzzle_id` (`tools/series.py`).
-  - Found in one place: `fetch_puzzle.puzzle_files`.
-  - Resolved in one place: `fetch_puzzle.resolve_puzzle`. It also accepts a
+  - Found in one place: `puzzle_paths.puzzle_files` (`tools/puzzle_paths.py`).
+  - Resolved in one place: `puzzle_paths.resolve_puzzle`. It also accepts a
     bare number, and refuses rather than guesses when the number is ambiguous.
 - **Numbers stay numbers wherever a person reads one**: titles, picker rows,
   card art, prose. "No 30,089" is what the paper calls it. The id is a key, not
@@ -670,6 +673,8 @@ The two jobs are `tools/daily_update.sh` and `tools/prereset_backfill.sh` (see
   one.
 - **`ANNOTATE_MAX`** (default 3) caps the backlog puzzles annotated per run. The
   daily job stops early the first time a `claude -p` run fails, because that is
-  nearly always a session limit and the remaining attempts would fail too.
+  nearly always a session limit and the remaining attempts would fail too. A run
+  killed for overrunning `ANNOTATE_MAX_MINUTES` loses only that puzzle; the loop
+  moves on.
 - The same "look it up" rule applies to data: `tools/series.py` is the only
   source of truth for what a series is.

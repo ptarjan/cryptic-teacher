@@ -1,9 +1,5 @@
 # Archive coverage: every archive year as full as a modern one
 
-Paul, 2026-10-05: "make sure you structure your ocr project so you can't forget
-about it, i want the archive numbers to be like the same as the modern day
-ones".
-
 A modern Times year files about 300 puzzles (Mon-Sat). Most archive years file
 under 100. The goal is to bring every archive year close to the modern count
 using archive.org's newspaper scans (and Trove for the Canberra Times), read by
@@ -41,11 +37,11 @@ the next step):
   with clue counts when no title is in the text (`DENSE_ENUMS`,
   `DETECTOR_VERSION` 5). What is left needs a grid search by image over
   every leaf.
-- **no grid** (Times): of 163, 155 were a scanned grid that reads true
-  under clue OCR too poor (1970s-80s scans) to lay 80% of its lights, with
-  no grid rebuilt from those clues. The scan's grid now stands there and
-  the unlaid lights go blank, so they move to **blank clues**. The 8 left
-  are crops `trove_grid.read_grid` cannot measure (stippled or faint).
+- **no grid** (Times): when the clue OCR is too poor (1970s-80s scans) to
+  lay `LOOSE_SHARE` of the scanned grid's lights and no grid can be rebuilt
+  from those clues, the scan's grid stands and the unlaid lights go blank,
+  so those editions count as **blank clues**. What is left are crops
+  `trove_grid.read_grid` cannot measure (stippled or faint).
 - **FT 1981** (285 editions) is held only as image PDFs with no OCR. The
   fetcher lists them as editions and reads each PDF by image
   (`fetch_pdf_edition`): the page whose grid-shaped ink `trove_grid` reads
@@ -75,6 +71,7 @@ runs each scan filer over its whole cache. The filers decide what is due
 
 - never read;
 - its inputs changed (new files, or the solutions it can see);
+- (archive.org) its titles changed since its verdicts, after a scan by new code;
 - read without the VLM, and the VLM answers now;
 - read before `REREAD_BEFORE` in `ocr_full_pass.sh`.
 
@@ -109,8 +106,8 @@ running. Another job counts as running in two cases:
   a filer run by hand.
 
 The pass runs in its own worktree. Each filer runs in hour-long slices, each
-slice is under a hard `timeout`, and after every slice the puzzles it filed
-are committed and pushed. Each filer's ledger is saved after every source, so
+slice is under a hard `timeout`, and the puzzles it files are committed and
+pushed as it reads (`tools/durable.sh`). Each filer's ledger is saved after every source, so
 a killed pass resumes where it stopped. It logs to
 `~/.cache/corpus_queue/full_pass.log`.
 
@@ -125,14 +122,14 @@ The hourly tick also checks that the pass is making progress:
 - It wakes the room once when the log stops growing for an hour.
 - It kills whatever is left of a dead pass's session before it starts
   anything.
-- A launch that ends unfinished without reading a source (no ledger moved) is
-  a dead launch. Two in a row hold the pass, and the room is told.
+- A launch that ends unfinished without reading a source or fetching a scan
+  (no ledger or fetch cache moved) is a dead launch. Two in a row hold the pass, and the room is told.
 
 To stop the pass, run `corpus_queue.py stop`, which kills its whole session
 and holds it. To let it start again, run `corpus_queue.py release`. `status`
 shows whether it is running, held or idle, and how the last pass ended.
 
-## 3. The nightly: `household-plugins/cryptic-archive-coverage`
+## 3. The schedule: `household-plugins/cryptic-corpus-queue` and `household-plugins/cryptic-archive-coverage`
 
 - **`cryptic-corpus-queue`** runs `tools/corpus_queue.sh tick` every hour at
   :35. It wakes the room on a stall and when it holds the pass.
