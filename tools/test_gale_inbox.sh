@@ -76,6 +76,8 @@ check("a staged page with no grid on it is listed for redoing", ["GALE|IF0503151
       [m["file"] for m in json.loads(un.read_text()) if m.get("date")])
 check("each file's match is kept, so a tick re-reads only what moved", 2,
       len(json.loads(g.MATCHES.read_text())))
+check("under the matcher's version, so a fix re-reads every file", True,
+      all(k.startswith(g.MATCHER + "\t") for k in json.loads(g.MATCHES.read_text())))
 check("the Times filer finds the staged edition", [d], [e for e in fa.edition_dirs(cache, fa.TIMES)])
 check("as a Times edition", fa.TIMES, fa.paper_of(d))
 check("and no other paper's", [], fa.edition_dirs(cache, fa.FT))
