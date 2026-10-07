@@ -136,8 +136,9 @@ check("a current miss is not", (0, []), (gd.resolve("LSNR", [(lday, 1309)], out,
 rday = lday + datetime.timedelta(weeks=2)
 fake = FakeGale({rday: issue([("Report on Crossword No. 1,309", 40, 1)], 44)})
 rcache = tmp / "rep.json"
-check("a report looked up after the puzzles, in the same limit", 1,
-      gd.resolve("LSNR", [], out, fake, rcache, limit=1, reports=[(lday, 1309)]))
+check("a report looked up before the puzzles, in the same limit", 1,
+      gd.resolve("LSNR", [(lday, 1309)], out, fake, rcache, limit=1, reports=[(lday, 1309)]))
+check("the puzzle left for the next tick", False, "LSNR/1955-06-02" in gd.load(rcache))
 check("its issue's date kept", "1955-06-16", gd.load(rcache)["LSNR/report/1309"]["day"])
 rq = dict(urllib.parse.parse_qsl(urllib.parse.urlsplit(gd.report_link("LSNR", 1309, gd.load(rcache))).query))
 check("its link cites the report's issue", True, "16 June 1955, p. 40" in urllib.parse.unquote(rq["citationTextJson"]))
