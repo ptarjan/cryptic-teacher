@@ -433,7 +433,7 @@ def refresh_unsolved():
                 continue
             path = puzzle_path("everyman", num)
             puzzle = read_puzzle_file(path)
-            guessed = ({entry_id(e): e.get("solution") for e in puzzle["entries"]}
+            guessed = (provenance.model_answers(puzzle)
                        if "model" in provenance.solution_detail(puzzle) else None)
             fill_solutions(puzzle["entries"], solution,
                             puzzle["dimensions"]["rows"], puzzle["dimensions"]["cols"], num)
@@ -443,7 +443,7 @@ def refresh_unsolved():
                 # Guardian gets on re-fetch, from the same function.
                 graded = grade_model_fill(puzzle, guessed)
                 puzzle["solutions"] = provenance.drop_solution_detail(puzzle)["solutions"]
-                print_grade(puzzle, graded)
+                print_grade(puzzle, graded, guessed)
             write_puzzle_file(path, puzzle, generator="tools/fetch_observer.py")
             print(f"solutions now published for {num}")
             filled += 1

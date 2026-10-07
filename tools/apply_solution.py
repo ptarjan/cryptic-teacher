@@ -440,7 +440,7 @@ def main():
         detail["printed"] = kept
     # What earlier runs did to this grid's answers outlives a re-solve: a
     # reopened entry is solved again once, never twice.
-    for key in ("corrected", "reopened"):
+    for key in ("corrected", "reopened", "graded"):
         if key in provenance.solution_detail(puzzle):
             detail[key] = puzzle["solutions"][key]
     # Whether a key is ever coming is a fact about the series, not about this

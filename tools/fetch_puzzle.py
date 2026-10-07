@@ -2459,15 +2459,15 @@ def merge_annotations(new_puzzle, old_puzzle):
     if not was_model:
         return None
     official = all(e.get("solution") for e in new_puzzle["entries"])
-    guessed = {entry_id(e): e.get("solution") for e in old_puzzle.get("entries", [])}
     if not official:
         # Paper still silent — keep the fill and stay flagged.
+        held = {entry_id(e): e.get("solution") for e in old_puzzle.get("entries", [])}
         for e in new_puzzle["entries"]:
-            if not e.get("solution") and guessed.get(entry_id(e)):
-                e["solution"] = guessed[entry_id(e)]
+            if not e.get("solution") and held.get(entry_id(e)):
+                e["solution"] = held[entry_id(e)]
         new_puzzle["solutions"] = old_puzzle["solutions"]
         return None
-    return grade_model_fill(new_puzzle, guessed)
+    return grade_model_fill(new_puzzle, provenance.model_answers(old_puzzle))
 
 
 def carry_recovered_clues(new_puzzle, old_puzzle):
@@ -2510,19 +2510,23 @@ def carry_recovered_clues(new_puzzle, old_puzzle):
 
 
 def grade_model_fill(puzzle, guessed):
-    """Mark a model's fill against the answers the paper has now published.
+    """Mark a model's fill against answers that have now been published.
 
-    `puzzle` already holds the official solutions; `guessed` maps entry id to
-    what we filled it with before they were out. Returns the misses as
-    (entry id, ours, theirs), which is the ONLY automatic grading a cold solve
-    ever gets.
+    `puzzle` already holds the published answers; `guessed` maps each entry
+    id being marked to what we filled it with before they were out
+    (provenance.model_answers: a light the source printed, or one already
+    graded, is not marked again). Returns the misses as (entry id, ours,
+    theirs), which is the ONLY automatic grading a cold solve ever gets.
 
-    Shared with the Observer's refresh (tools/fetch_observer.py), which reaches
-    the same moment by a different road: the Guardian re-fetches a whole page
-    and merges, Everyman re-reads one hashed field and fills in place. The
-    marking lives here so both grade the same way."""
-    wrong = [(entry_id(e), guessed.get(entry_id(e)), e.get("solution"))
-             for e in puzzle["entries"] if guessed.get(entry_id(e)) != e.get("solution")]
+    Every road to that moment grades here, so all grade the same way: the
+    Guardian re-fetches a whole page and merges, Everyman
+    (tools/fetch_observer.py) re-reads one hashed field, a Cyclops
+    (tools/fetch_privateeye.py) gets fifteensquared's answers, and any other
+    copy that arrives with answers, a solver's blog above all, is put to
+    tools/cross_validate.py's vote (`all --model`)."""
+    have = {entry_id(e): e.get("solution") for e in puzzle["entries"]}
+    wrong = [(eid, mine, have[eid]) for eid, mine in guessed.items()
+             if eid in have and mine != have[eid]]
     # An annotation explains how the clue yields the answer, so an annotation
     # written off a wrong answer is wrong all the way through — definition,
     # blocks, walkthrough. Drop it and let the queue write it again against
@@ -2532,11 +2536,11 @@ def grade_model_fill(puzzle, guessed):
     for e in puzzle["entries"]:
         if entry_id(e) in missed:
             e.pop("annotation", None)
-    record_misses(puzzle["id"], wrong)
+    record_misses(puzzle["id"], wrong, guessed)
     return wrong
 
 
-def record_misses(pid, wrong):
+def record_misses(pid, wrong, marked=None):
     """Write down which entries a grader blanked, for validate_annotations.py.
 
     Its check_every_clue_is_annotated errors on a missing annotation, because a
@@ -2549,16 +2553,21 @@ def record_misses(pid, wrong):
     down of it have to happen together or the alert is a lie: a grader that
     blanks without recording leaves an unexplained blank in a published puzzle.
 
-    Rewritten per puzzle rather than merged into, so a later pass that gets the
-    clue right clears the exemption instead of leaving it standing for ever.
+    Each light `marked` (every light of the puzzle when None) is rewritten
+    rather than merged into, so a later pass that gets the clue right clears
+    the exemption instead of leaving it standing for ever, while the misses of
+    lights an earlier grade marked and this one did not stand.
     """
     path = ROOT / "tools" / "data" / "blind_misses.json"
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         data = {}
-    if wrong:
-        data[pid] = {eid: mine for eid, mine, _theirs in wrong}
+    kept = {eid: mine for eid, mine in (data.get(pid) or {}).items()
+            if marked is not None and eid not in marked}
+    kept.update({eid: mine for eid, mine, _theirs in wrong})
+    if kept:
+        data[pid] = kept
     else:
         data.pop(pid, None)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -2566,14 +2575,15 @@ def record_misses(pid, wrong):
                     encoding="utf-8")
 
 
-def print_grade(puzzle, graded):
-    """The grade, on stdout, in the shape tools/daily_update.sh alerts on.
+def print_grade(puzzle, graded, marked=None, against="the published answers"):
+    """The grade, on stdout, in the shape tools/daily_update.sh alerts on:
+    out of the `marked` lights (every light when None), against `against`.
 
     It greps for BLIND SOLVE GRADED, so this wording is load-bearing: a grade
     that only reaches .update.log is a measurement nobody reads."""
-    total = len(puzzle["entries"])
+    total = len(puzzle["entries"]) if marked is None else len(marked)
     print(f"BLIND SOLVE GRADED {puzzle['id']}: {total - len(graded)}/{total} correct "
-          f"against the published answers")
+          f"against {against}")
     for eid, mine, theirs in graded:
         print(f"  miss {eid}: model said {mine}, answer is {theirs}")
 

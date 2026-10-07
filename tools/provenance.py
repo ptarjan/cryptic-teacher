@@ -42,7 +42,9 @@ the paper's, and check() refuses a grid that differs from one. An answer the
 annotator replaced because the clue gives another word is in `corrected`
 ({entry, was, now, date}), and one sent back to be solved again because no
 parse supported it is in `reopened` (entry id -> the answer that was there),
-once per entry. The detail keys imply the origin
+once per entry. A model's answer marked against a write-up or another copy
+that arrived later is in `graded` (entry id -> the copy's origin), so each
+guess is marked once. The detail keys imply the origin
 (solution_origin_from_file) and check() holds `origin` to them. A Cyclops
 puzzle is the ordinary mixed case: grid and clues from Private Eye, answers
 from a fifteensquared write-up.
@@ -453,7 +455,7 @@ SOURCE_REQUIRED = ("publisher", "retrievedFrom", "acquiredBy", "acquiredOn",
                    "gridOrigin")
 #: The keys that back a claim that the answers are not the publisher's.
 SOLUTION_DETAIL = ("blog", "url", "model", "date", "check", "officialKey",
-                   "printed", "corrected", "reopened")
+                   "printed", "corrected", "reopened", "graded")
 #: What each non-published origin must carry.
 DETAIL_REQUIRED = {"writeup": ("blog", "url", "date", "check"),
                    "model": ("model", "date", "check")}
@@ -504,13 +506,25 @@ def solution_detail(puzzle):
 
 
 def printed_answers(puzzle):
-    """Entry id -> the answer the paper printed. With no solution detail every
-    answer in the grid is the paper's; under answers from a model or a blog,
-    the ones the detail's `printed` lists."""
-    if not solution_detail(puzzle):
+    """Entry id -> the answer its source printed. Unless a model solved the
+    grid, every answer in it is the source's (the paper's, or a write-up's);
+    under a model's solve, the ones the detail's `printed` lists."""
+    if "model" not in solution_detail(puzzle):
         return {entry_id(e): e["solution"] for e in puzzle.get("entries") or []
                 if e.get("solution")}
     return key_corrected(puzzle.get("id"), (puzzle.get("solutions") or {}).get("printed") or {})
+
+
+def model_answers(puzzle):
+    """Entry id -> what the model put there (None for a light it left blank),
+    for every light of a model's solve that no source has printed and no copy
+    has graded yet: the guesses a newly arrived key or write-up still marks.
+    {} when a model did not solve the grid."""
+    if "model" not in solution_detail(puzzle):
+        return {}
+    done = {**printed_answers(puzzle), **((puzzle.get("solutions") or {}).get("graded") or {})}
+    return {entry_id(e): e.get("solution") for e in puzzle.get("entries") or []
+            if entry_id(e) not in done}
 
 
 def key_corrected(pid, printed):
@@ -565,6 +579,16 @@ def check_answer_detail(puzzle):
                             f"the paper printed")
         elif c["was"] == c["now"]:
             findings.append(f"solutions.corrected {c['entry']} changes nothing")
+    graded = solutions.get("graded")
+    if graded is not None and not (isinstance(graded, dict) and graded):
+        findings.append(f"solutions.graded is {graded!r} — want entry id -> the copy it was "
+                        f"graded against")
+        graded = {}
+    for eid in graded or {}:
+        if eid not in grid:
+            findings.append(f"solutions.graded names {eid}, which is not an entry")
+        elif eid in printed:
+            findings.append(f"solutions.graded marks {eid}, whose answer the paper printed")
     reopened = solutions.get("reopened")
     if reopened is not None and not (isinstance(reopened, dict) and reopened):
         findings.append(f"solutions.reopened is {reopened!r} — want entry id -> answer")
