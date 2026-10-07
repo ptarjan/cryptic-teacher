@@ -4,8 +4,8 @@
 #     bash tools/test_clue_counts.sh
 #
 # A source that prints the count in the clue, with the answer's count appended
-# after it, left "Set meal ... (5,1’4)" over enumeration "5,5"; one stray "d"
-# stuck to a "?" came off the Telegraph's own feed. enumeration.split() cuts
+# after it, leaves "Set meal ... (5,1’4)" over enumeration "5,5"; a feed can
+# leave a stray "d" stuck to a "?". enumeration.split() cuts
 # the echo, and puzzle_integrity (so every write) refuses what is left.
 # A year or a quantity in brackets ("(1917)", "(500)") is the clue's words.
 set -uo pipefail
@@ -68,7 +68,7 @@ check("stray marks after a count are stray",
       enumeration.stray({"text": "Erotic troupe in seedy void (6)!", "enumeration": "6"}), True)
 check("a bare count is not stray", enumeration.stray({"text": "Erotic troupe (6)", "enumeration": "6"}), False)
 # cryptic-26430 prints "Mother's cross raised (3); (4)" under a preamble giving
-# seven clues two counts; ae6dc87 cut the "(3);" as markup.
+# seven clues two counts: the "(3);" is the clue's, not markup.
 dual = {"text": "Mother's cross raised (3);", "enumeration": "4"}
 check("the first of two counts is not stray", enumeration.stray(dual, {4}), False)
 check("the first of two counts is the clue's", enumeration.disagrees(dual, {4}), None)

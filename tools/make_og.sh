@@ -12,13 +12,12 @@
 #                               missing or out of date — so run it AFTER the
 #                               pages; see tools/page_card.py
 #
-# Every puzzle page unfurls as a clue from THAT puzzle (2026-08-08). One shared
-# card meant a hundred different pages all previewing the same crossword; which
-# clue each puzzle shows is decided by make_og_card.py's score(), not here.
+# Every puzzle page unfurls as a clue from THAT puzzle, not one shared card;
+# which clue each puzzle shows is decided by make_og_card.py's score(), not here.
 #
 # --all only redraws cards whose inputs have changed, which make_og_card.py
 # decides by hashing them into og/.manifest.json — content, not mtimes, because
-# this runs in CI now and a fresh checkout stamps every file with the same time.
+# this runs in CI and a fresh checkout stamps every file with the same time.
 # Delete the png, or the manifest entry, to force one.
 #
 # Chrome writes 24-bit PNGs; tools/og_palette.py rewrites each as a 256-colour
@@ -49,16 +48,15 @@ fi
 TMP="$(mktemp -d)"
 trap 'rm -rf "$TMP"' EXIT
 
-# --no-sandbox because the only machine that runs this on a schedule is a
-# container without the kernel namespaces Chrome's sandbox is built out of,
+# --no-sandbox because this runs on CI runners and in containers, which can
+# lack the kernel namespaces Chrome's sandbox is built out of,
 # and the page being opened is a file this script generated one line earlier
 # — never a URL, never anything a stranger wrote. --disable-dev-shm-usage for
-# the same container: Docker's default /dev/shm is 64MB and Chrome renders a
+# containers: Docker's default /dev/shm is 64MB and Chrome renders a
 # 1200x630 page into it and dies.
 #
-# Chrome's own diagnosis is kept and printed only when the shot fails. Sent
-# to /dev/null unconditionally it took the reason with it, and a card that
-# did not get drawn is exactly when you want to know why.
+# Chrome's own diagnosis is kept and printed only when the shot fails: a card
+# that did not get drawn is exactly when you want to know why.
 shot() {  # shot <html> <png>
   local err
   if ! err=$("$CHROME" --headless --no-sandbox --disable-gpu \
@@ -90,7 +88,7 @@ fi
 
 # The site card. Rebuilt from a published puzzle before screenshotting, which
 # also checks that the answer really is hidden where the card underlines it, so
-# the card can't go back to being a picture that quietly asserts something false.
+# the card can't be a picture that quietly asserts something false.
 python3 "$REPO/tools/make_og_card.py" >/dev/null
 shot "$REPO/tools/og_card.html" "$REPO/og.png"
 echo "wrote og.png"
@@ -119,6 +117,6 @@ case "${1:-}" in
 esac
 
 # Every card on disk, not only the ones drawn this run, so a card the cache
-# carried in from before this step existed is converted too.
+# carried in from an earlier run is converted too.
 shopt -s nullglob
 python3 "$REPO/tools/og_palette.py" "$REPO/og.png" "$REPO"/og/*.png

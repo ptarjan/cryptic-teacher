@@ -1553,7 +1553,7 @@ def read_leads(required=False):
 class Leads:
     """The leads file, one puzzle a line as blog_facts writes it, holding each
     puzzle's line offset and parsing a puzzle only when get() asks: parsed
-    whole, it outweighed the file tenfold and was held the whole run."""
+    whole, it would outweigh the file tenfold and be held the whole run."""
 
     def __init__(self, path):
         self._path, self._at, dec = path, {}, json.JSONDecoder()
@@ -1959,8 +1959,8 @@ def _serve_worker(state):
 
 class Packed:
     """Rows kept pickled, one bytes object each, and unpickled on every pass:
-    write() takes several passes, and the clue rows held as dicts were the
-    largest thing in the run."""
+    write() takes several passes, and the clue rows held as dicts would be
+    the largest thing in the run."""
 
     def __init__(self, rows_):
         self._rows = [pickle.dumps(r, pickle.HIGHEST_PROTOCOL) for r in rows_]
@@ -2367,10 +2367,11 @@ def report_coverage(said):
 
 
 def measure_blockless(corpus, votes, n=4, show=30, seed=1):
-    """Precision of what is read for hidden words, whose wordplay is no
-    split of the answer: their carriers (infer_carrier) against our
-    annotations, and on slice `n` of the puzzles, the lexicon built without
-    them, their indicators with the blog's hidden."""
+    """Precision of what is read for clues whose wordplay is no split of the
+    answer: hidden words' carriers (infer_carrier) and homophones' and
+    spoonerisms' heard blocks against our annotations, and on slice `n` of
+    the puzzles, the lexicon built without them, their indicators with the
+    blog's hidden, and an anagram's free-word indicator (_measure_free_words)."""
     ann = {}
     for path in puzzle_files():
         p = json.loads(path.read_text(encoding="utf-8"))

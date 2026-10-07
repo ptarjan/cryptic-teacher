@@ -51,7 +51,7 @@ SEE_RE = re.compile(r"^see\s+(\d+)", re.IGNORECASE)
 _ENGINES = {}
 #: RapidOCR reads the 200dpi print (~17px a line) far better twice the size.
 UPSCALE = 2
-#: The clue columns' other readers: RapidOCR's own multilingual PP-OCRv4
+#: The clue columns' readers: RapidOCR's own multilingual PP-OCRv4
 #: recogniser ("ch") and English PP-OCRv5 mobile ("en5"), the two that
 #: misread fewest clue words on hand-checked 1974, 1990 and 1995 crops (22%
 #: and 26% of tokens, against English PP-OCRv3's 50% and PP-OCRv4's 56%; the
@@ -1239,11 +1239,10 @@ def bled(text):
 
 
 def fault(text, enum, cells):
-    """Why a clue OCR read is not fit to file, or None: `text` holds a clue
-    number opening a capitalised clue (NUMBERED_IN) or the page's own words
-    (PAGE_TEXT), is the word None (a lost text printed), or its count
-    `enum` does not fill its `cells` (the light's, or its linked lights'
-    together)."""
+    """Why a clue OCR read is not fit to file, or None: `text` is the word
+    None (a lost text printed), holds text not its own (bled()), or its
+    count `enum`, or a count left on its words, does not fill its `cells`
+    (the light's, or its linked lights' together)."""
     text = text or ""
     if text.strip() == "None":
         return "the text is the word None: a lost text printed"

@@ -5,7 +5,7 @@
 #
 # The page serves each entry as a clue record zipped to a light. Drop one of
 # either and every later record in that direction rides the wrong light:
-# cryptic-25949 put 21's clue (7) on ORDER (5) and lost 29-across entirely.
+# cryptic-25949 serves 21's clue (7) on ORDER (5) and no light for 29-across.
 # fetch_puzzle.align_clue_records() moves each record to the light whose grid
 # number it carries; puzzle_integrity's LENGTH check refuses a count that does
 # not fit its light or its group.
@@ -87,7 +87,7 @@ check("the light it left has no record, so no clue",
       (got["4-across"]["clue"], got["4-across"]["solution"]), ("", "KLMNO"))
 del fetch_puzzle.SOURCE_LIGHT_MISSING[("cryptic-1", "5-across")]
 
-# The repaired puzzle passes; the shape it was stored in before does not.
+# The filed puzzle passes; its records left on the wrong lights do not.
 path = fetch_puzzle.ROOT / "puzzles/cryptic/2013/cryptic-25949.json"
 puzzle = fetch_puzzle.read_puzzle_file(path)
 flags = []

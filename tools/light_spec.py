@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """Turn one OCR'd clue list into the light spec tools/reconstruct_grid.py wants.
 
-This is the parser the 2026-09-18 Penguin sweep was run under, and it is
-GATED: tools/test_acquire_book.sh reproduces the ten-puzzle vol-5 control and
+This parser is GATED: tools/test_acquire_book.sh reproduces the ten-puzzle vol-5 control and
 fails if any grid, or any node count, moves. It is that gate, not this
 docstring, that makes a change here safe -- the search is deterministic, so a
 node count that moves means the spec moved, and a spec that moves has to be
@@ -10,13 +9,11 @@ argued for.
 
 tools/reconstruct_grid.py's parse_lights reads a direction's list POSITIONALLY: the
 lights must be given in printed (row-major) order, numbers strictly
-increasing where known, None in place where the OCR lost one. v1 emitted a
-linked field ("15,10") as two lights side by side in the direction the field
-was printed under, which is wrong on both counts -- the second light is
-printed at its own slot, which may be in the OTHER direction -- and so threw
-"numbers must strictly increase" on every puzzle that had one.
+increasing where known, None in place where the OCR lost one. A linked field ("15,10") is not two
+lights side by side in the direction the field was printed under: the second
+light is printed at its own slot, which may be in the OTHER direction.
 
-Three generic rules replace the per-book hand patches:
+The rules, generic rather than per book:
 
 1. LINKED FIELD. Only the first number is printed here; it keeps this slot.
    Each further number is placed at ITS own slot, found in this order:
@@ -53,11 +50,12 @@ Three generic rules replace the per-book hand patches:
    thing rules 1 and 2 make impossible to work out from the outside, since
    they move entries between directions and split one entry into two. A slot
    with no printed clue of its own (rule 1b, a linked light whose partner
-   printed no "See" placeholder) carries None, which is the caller's signal
-   that this light cannot be filed with text.
+   printed no "See" placeholder) carries the "See <leader>" written from
+   convention, marked synthesised=True.
 
-3. IMPOSSIBLE NUMBER. A number that is 0, or that does not strictly increase
-   on the previous one in its direction, is OCR dropping a digit. It becomes
+3. IMPOSSIBLE NUMBER. A number that is 0, above MAX_LIGHT_NUMBER, or that
+   does not strictly increase on the previous one in its direction, is OCR
+   dropping a digit. It becomes
    None -- an unknown number in a known slot, which the solver constrains
    structurally -- rather than a hand-guessed value.
 """

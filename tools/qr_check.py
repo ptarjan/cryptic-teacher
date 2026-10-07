@@ -5,8 +5,8 @@ The encoder in qr.js is hand-written (its header says why the sync code cannot
 be handed to an image service), and a wrong QR code is wrong silently: it draws,
 it looks like a QR code, and phones simply decline to see it. So the check is
 the only one that means anything — render the modules and decode the picture,
-over the join URLs the sync panel really builds plus the payload lengths either
-side of every version boundary the encoder claims.
+over the join URLs the sync panel really builds plus the largest payload every
+version the encoder claims can hold.
 
 Hand-run, not part of the smoke test: it needs a decoder the site does not.
 
@@ -30,9 +30,9 @@ except ImportError:
 SCALE = 8      # pixels per module
 QUIET = 4      # modules of white margin, as the standard requires
 
-# The join URLs, then the largest payload each version takes and the one below
-# it, so an off-by-one in the capacity table shows up as a version that will not
-# encode or one that overflows.
+# The join URLs, then the largest payload each version takes, in two byte
+# patterns, so a capacity the table overstates shows up as a version that
+# overflows.
 CAPACITY = [14, 26, 42, 62, 84, 106, 122, 152, 180, 213]
 CASES = [
     "https://cryptic.paultarjan.com/?sync=ABCD2345",
