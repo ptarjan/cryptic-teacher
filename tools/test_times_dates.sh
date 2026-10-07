@@ -11,11 +11,9 @@
 # satisfy, whoever wrote it:
 #
 #   - the Sunday Times on a Sunday, one number a week at most;
-#   - the Jumbo on a Saturday, or a weekday for a bank-holiday Jumbo, never a
-#     Sunday;
-#   - the Times never on a Sunday, and its dates rising with its numbers, so
-#     Saturday's puzzle, between Friday's and Monday's, can only be dated the
-#     Saturday;
+#   - the Times and the Jumbo never on a Sunday;
+#   - dates rising with numbers, so Saturday's Times, between Friday's and
+#     Monday's, can only be dated the Saturday;
 #   - none of them after the blog post that wrote it up (a daily is sometimes
 #     blogged the evening before, so a day's grace).
 set -uo pipefail

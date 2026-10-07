@@ -10,8 +10,8 @@
 # the two lights agree with each other, so CROSS is silent, and both hold the
 # letters their enumerations count, so LENGTH is silent — which is why the
 # correction is a table and not a file edit: carry_recovered_clues carries clue
-# text across a re-fetch and nothing carries a solution, so before the table one
-# deliberate re-fetch restored the paper's letter and no check went red.
+# text across a re-fetch and nothing carries a solution, so without the table one
+# deliberate re-fetch would restore the paper's letter and no check would go red.
 #
 # Liveness — is the source STILL serving the wrong answer, or has the paper
 # fixed it and left a stale key behind? — cannot be asked here. Nothing in this
@@ -19,7 +19,7 @@
 # asked at fetch time instead: correct_source_answers rewrites only an answer
 # that arrives as the table's `served` value and prints a STALE warning for
 # anything else, including the corrected value itself. That warning is the
-# liveness check, and the fifth property below is the test of it. Last confirmed
+# liveness check, and the fourth property below is the test of it. Last confirmed
 # live by hand on 2026-09-18: /crosswords/prize/23053 serves GETSTEADY and
 # XETOPHILY.
 #

@@ -91,8 +91,8 @@ print("RETRY_SOME", sorted({1, 2, 3, 4} - T.attempted(retry=("refused", "truncat
 print("RETRY_ALL", sorted(T.attempted(retry=())))
 # ...unless the parser now reads the post's lights otherwise: an attempt keeps
 # the light_key it searched, and a record whose key has changed is due again.
-# So is an attempt with no key, which predates them; a record unchanged
-# since its attempt stays tried.
+# So is an attempt with no key; a record unchanged since its attempt stays
+# tried.
 lit = {"entries": [{"number": 1, "direction": "across", "answer": "AB", "enumeration": "2"}]}
 relit = {"entries": lit["entries"] + [{"number": 2, "direction": "down", "answer": "", "enumeration": "4"}]}
 with T.ATTEMPTS.open("a") as f:
@@ -134,10 +134,9 @@ grids, how = T.solve(typed)
 print("HEADED", grids == [TINY], how, T.headed_by(dict(typed), TINY)["entries"][-1].get("heading"))
 
 # Answers that refute EVERY candidate are the opposite of an ambiguous grid:
-# the right grid is not in the list, so the light list or an answer is wrong.
-# This said "crossings ruled out none", which reads as the exact opposite, and
-# the one puzzle it fired on got quoted as a grid the crossings could not
-# settle. Two candidates, neither of which the answers fit.
+# the right grid is not in the list, so the light list or an answer is wrong,
+# and it must not read as an unsettled tie. Two candidates, neither of which
+# the answers fit.
 real = rg.reconstruct
 # The search given the answers finds neither; without them, both.
 rg.reconstruct = lambda *a, **k: (

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Does the repair tool actually fix what the fetcher no longer writes?
+# Does the repair tool fix the defects it knows about in already-fetched files?
 #
 #     bash tools/test_repair_fetched.sh
 #

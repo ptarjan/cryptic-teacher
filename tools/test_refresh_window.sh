@@ -1,15 +1,11 @@
 #!/bin/bash
 # Does refresh_unsolved ever stop asking for an answer that is never coming?
 #
-# 706c490 stopped the nightly annotate/solve queues retrying deterministic
-# failures (tools/failed_inputs.py); refresh_unsolved was the other half —
-# five Guardian prize puzzles from 2000-2006 and 78 Cyclops puzzles from
-# 2006-2009 had no failure to record, just a source that will never publish
-# an answer, so they were re-fetched (or re-searched on fifteensquared) every
-# night forever. still_worth_refreshing in tools/fetch_puzzle.py is the fix:
-# a puzzle already past REFRESH_WINDOW_DAYS since its own date — or since
-# source.acquiredOn, for the handful still missing a date — drops out of
-# the queue for good rather than on any kind of retry schedule.
+# refresh_unsolved skips puzzles whose source will never publish an answer
+# (old Guardian prize puzzles, Cyclops puzzles): still_worth_refreshing in
+# tools/fetch_puzzle.py drops a puzzle once it is past REFRESH_WINDOW_DAYS
+# since its own date — or since source.acquiredOn, when it has no date —
+# for good rather than on any retry schedule.
 #
 #     bash tools/test_refresh_window.sh
 set -uo pipefail
@@ -35,8 +31,7 @@ def at(days_ago):
 recent = {"date": at(10)}
 print("RECENT", fetcher.still_worth_refreshing(recent, now=NOW))
 
-# cryptic-21900: dated 2000-05-18, over 9,600 days ago. No answer has come in
-# a quarter of a century of nightly asking; stop.
+# cryptic-21900: dated 2000-05-18, over 9,600 days ago. Far past the window.
 old = {"date": at(9626)}
 print("OLD", fetcher.still_worth_refreshing(old, now=NOW))
 

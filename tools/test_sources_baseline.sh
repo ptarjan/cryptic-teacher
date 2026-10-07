@@ -2,13 +2,11 @@
 # A refile that rewords a clue is the source's change, not the annotator's.
 #
 # The nightly refiles blog-built Telegraph puzzles from the paper's own copy,
-# which can reword a clue ("Hawk protected ..." became "Hawk protects ..." on
-# telegraph-31315) and drop the annotation written for the old words. The
-# validator holds every annotated clue to HEAD's words (check_clue_unchanged),
-# so while the refile sat uncommitted, the fresh annotation of the new words
-# failed as a rewrite and was reverted, the refile with it, every night.
-# daily_update.sh commits what the phases before annotation wrote
-# (commit_sources), so HEAD is the clue the annotator was handed.
+# which can reword a clue and drop the annotation written for the old words.
+# The validator holds every annotated clue to HEAD's words
+# (check_clue_unchanged), so daily_update.sh commits what the phases before
+# annotation wrote (commit_sources): HEAD is then the clue the annotator was
+# handed, and an uncommitted refile cannot make its annotation a rewrite.
 #
 # The commit_sources block is READ OUT of daily_update.sh and run in a scratch
 # repo; nothing in the checkout is written.
@@ -60,7 +58,7 @@ clue "Hawk protected hard covering of an egg" yes
 git add -A && git commit -qm blog
 echo stray > "$sand/notes.txt"
 
-echo "the bug: an uncommitted refile makes the fresh annotation a rewrite"
+echo "an uncommitted refile makes the fresh annotation a rewrite"
 clue "Hawk protects hard covering of an egg"     # the refile drops the annotation
 clue "Hawk protects hard covering of an egg" yes # tonight's annotation of it
 check "without commit_sources it fails" "$(validate)" "1"
