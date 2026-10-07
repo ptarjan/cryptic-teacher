@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,48 @@
     "text": "Small charge for back duty list recorded",
     "enumeration": "9"
    },
-   "solution": "DETONATOR"
+   "solution": "DETONATOR",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "DETONATOR",
+    "definitions": [
+     {
+      "text": "Small charge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recorded",
+      "for": "homophone",
+      "note": "something recorded is captured as sound, so the words are judged by how they are spoken"
+     }
+    ],
+    "linkWords": [
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "back duty list",
+      "gives": "DETONATOR",
+      "soundsLike": "DEBT ON A ROTA",
+      "note": "back duty is arrears, a debt, and a duty list is a rota; a debt on a rota, said quickly"
+     }
+    ],
+    "explanation": {
+     "surface": "A modest fee is levied for overdue tax on a recorded register.",
+     "walkthrough": "Read 'back duty list' as a debt placed on a rota, then say it aloud at speed.",
+     "definitionFit": "A detonator is the small explosive device used to set off a larger blast."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "charge"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +91,57 @@
     "text": "Gamble to keep man in space",
     "enumeration": "8"
    },
-   "solution": "DISTANCE"
+   "solution": "DISTANCE",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DISTANCE",
+    "definitions": [
+     {
+      "text": "space",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to keep",
+      "for": "container",
+      "note": "to keep something is to hold it, so one piece is held inside the other"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Gamble",
+      "gives": "DICE",
+      "note": "to dice is to gamble"
+     },
+     {
+      "clueFragment": "man",
+      "gives": "STAN",
+      "note": "Stan is a man's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "STAN",
+      "CE"
+     ]
+    },
+    "explanation": {
+     "surface": "A bet is placed on keeping an astronaut in orbit.",
+     "definitionFit": "Distance is the gap or interval between two points, a sense of space."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "space"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +155,56 @@
     "text": "Unoriginal end to infant's baptism?",
     "enumeration": "5"
    },
-   "solution": "TRITE"
+   "solution": "TRITE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TRITE",
+    "definitions": [
+     {
+      "text": "Unoriginal",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "end to",
+      "for": "letter_selection",
+      "note": "the end of a word is its final letter, so only that is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "infant's",
+      "gives": "T",
+      "select": "last",
+      "note": "the final letter of infant"
+     },
+     {
+      "clueFragment": "baptism",
+      "gives": "RITE",
+      "note": "baptism is an example of a rite, a religious ceremony"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "T",
+      "RITE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is a christening a hackneyed way to round off a baby's early life?",
+     "walkthrough": "The question mark flags baptism as one example of a rite.",
+     "definitionFit": "Trite describes something overused and stale, lacking originality."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "end"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +224,54 @@
      }
     ]
    },
-   "solution": "NATIONALANTHEM"
+   "solution": "NATIONALANTHEM",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "NATIONAL ANTHEM",
+    "definitions": [
+     {
+      "text": "patriotic song",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "alternative rendition",
+      "for": "anagram",
+      "note": "an alternative rendition is a different version, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Lone hitman at an",
+      "gives": "LONEHITMANATAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LONEHITMANATAN",
+       "gives": "NATIONALANTHEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A solitary assassin performs his own version of a patriotic tune.",
+     "definitionFit": "A national anthem is a country's official song of loyalty, sung at state occasions."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "hitman"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +285,54 @@
     "text": "European in danger at that event",
     "enumeration": "7"
    },
-   "solution": "THEREAT"
+   "solution": "THEREAT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "THEREAT",
+    "definitions": [
+     {
+      "text": "at that event",
+      "at": 19
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in means placed inside, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "danger",
+      "gives": "THREAT",
+      "note": "a threat is a danger"
+     },
+     {
+      "clueFragment": "European",
+      "gives": "E",
+      "note": "E is the abbreviation for European"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TH",
+      "E",
+      "REAT"
+     ]
+    },
+    "explanation": {
+     "surface": "A European finds himself in peril at that occasion.",
+     "definitionFit": "Thereat is an archaic adverb meaning at that place or on that occasion."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "event"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +346,50 @@
     "text": "Substitute one fabric with another",
     "enumeration": "7"
    },
-   "solution": "REPLACE"
+   "solution": "REPLACE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "REPLACE",
+    "definitions": [
+     {
+      "text": "Substitute",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "one fabric",
+      "gives": "REP",
+      "note": "rep is a ribbed fabric"
+     },
+     {
+      "clueFragment": "another",
+      "gives": "LACE",
+      "note": "lace is another fabric"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REP",
+      "LACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Swap one cloth for a different one.",
+     "walkthrough": "The surface invites swapping fabrics; instead two fabrics sit side by side.",
+     "definitionFit": "To replace something is to put another in its place, the verb sense of substitute."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Substitute"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +403,56 @@
     "text": "Short spell without judge is legally questionable",
     "enumeration": "4"
    },
-   "solution": "IFFY"
+   "solution": "IFFY",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "IFFY",
+    "definitions": [
+     {
+      "text": "legally questionable",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without",
+      "for": "deletion",
+      "note": "without means lacking, so a letter is taken away from the word for a short spell"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Short spell",
+      "gives": "JIFFY",
+      "note": "a jiffy is a very short moment"
+     },
+     {
+      "clueFragment": "judge",
+      "gives": "J",
+      "note": "J is the abbreviation for judge"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IFFY"
+     ]
+    },
+    "explanation": {
+     "surface": "A brief period of absence of a judge raises legal doubts.",
+     "walkthrough": "Remove the J of judge from JIFFY.",
+     "definitionFit": "Iffy is informal for doubtful or dubious, describing something of uncertain legitimacy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "spell"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +466,50 @@
     "text": "Cafes rise to produce a stew",
     "enumeration": "9"
    },
-   "solution": "FRICASSEE"
+   "solution": "FRICASSEE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "FRICASSEE",
+    "definitions": [
+     {
+      "text": "a stew",
+      "at": 22
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to produce",
+      "for": "anagram",
+      "note": "to produce is to create something new, so the letters are worked into a fresh order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cafes rise",
+      "gives": "CAFESRISE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CAFESRISE",
+       "gives": "FRICASSEE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Bistros flourish by serving a hearty casserole.",
+     "definitionFit": "A fricassee is a dish of meat cut up and cooked in a sauce, a kind of stew."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "rise"
+    }
+   }
   },
   {
    "number": 8,
@@ -151,7 +523,36 @@
     "text": "Chimney on derrick's distant but visible",
     "enumeration": "6"
    },
-   "solution": "YONDER"
+   "solution": "YONDER",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "YONDER",
+    "definitions": [
+     {
+      "text": "distant but visible",
+      "at": 21
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Chimney on derrick's",
+      "gives": "YONDER",
+      "note": "the letters run across the end of one word, the next, and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A chimney atop an oil rig can be seen far off.",
+     "walkthrough": "There is no signal word; the answer simply spans 'chimneY ON DERrick'.",
+     "definitionFit": "Yonder describes something over there, far off yet within sight."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "derrick's"
+    }
+   }
   },
   {
    "number": 9,
@@ -165,7 +566,62 @@
     "text": "Inferior base given to sailor by the French is to be expected",
     "enumeration": "14"
    },
-   "solution": "UNDERSTANDABLE"
+   "solution": "UNDERSTANDABLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "UNDERSTANDABLE",
+    "definitions": [
+     {
+      "text": "to be expected",
+      "at": 47
+     }
+    ],
+    "linkWords": [
+     "given to",
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Inferior",
+      "gives": "UNDER",
+      "note": "under means lower in rank"
+     },
+     {
+      "clueFragment": "base",
+      "gives": "STAND",
+      "note": "a stand is a base or support"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB is an able seaman"
+     },
+     {
+      "clueFragment": "by the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "UNDER",
+      "STAND",
+      "AB",
+      "LE"
+     ]
+    },
+    "explanation": {
+     "surface": "A low-grade posting handed to a sailor by the French navy is no surprise.",
+     "definitionFit": "Something understandable is natural or reasonable in the circumstances, hence not surprising."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "base"
+    }
+   }
   },
   {
    "number": 10,
@@ -179,7 +635,59 @@
     "text": "Broke body's defence against source of typhoid",
     "enumeration": "5"
    },
-   "solution": "SKINT"
+   "solution": "SKINT",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "SKINT",
+    "definitions": [
+     {
+      "text": "Broke",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "source of",
+      "for": "letter_selection",
+      "note": "the source of a word is where it starts, so only its opening letter is used"
+     }
+    ],
+    "linkWords": [
+     "against"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "body's defence",
+      "gives": "SKIN",
+      "note": "skin is the body's outer protective barrier"
+     },
+     {
+      "clueFragment": "typhoid",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of typhoid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SKIN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A broken immune barrier fails against the origin of a typhoid infection.",
+     "walkthrough": "SKINT is British slang for having no money.",
+     "definitionFit": "Broke and skint are both informal words for penniless, out of money."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Broke"
+    }
+   }
   },
   {
    "number": 11,
@@ -193,7 +701,53 @@
     "text": "Sienna pox disorder is spreading",
     "enumeration": "9"
    },
-   "solution": "EXPANSION"
+   "solution": "EXPANSION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXPANSION",
+    "definitions": [
+     {
+      "text": "spreading",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disorder",
+      "for": "anagram",
+      "note": "disorder means a loss of arrangement, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sienna pox",
+      "gives": "SIENNAPOX",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SIENNAPOX",
+       "gives": "EXPANSION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A pox disease named after Siena is spreading across the population.",
+     "definitionFit": "Expansion is the act of growing larger or extending outward, a noun sense of spreading."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "disorder"
+    }
+   }
   },
   {
    "number": 12,
@@ -207,7 +761,75 @@
     "text": "Impressive woman taken in to see Mao post-revolution",
     "enumeration": "7"
    },
-   "solution": "AWESOME"
+   "solution": "AWESOME",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "AWESOME",
+    "definitions": [
+     {
+      "text": "Impressive",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken in",
+      "for": "container",
+      "note": "something taken in is held inside, so one piece goes within the others"
+     },
+     {
+      "text": "post-revolution",
+      "for": "anagram",
+      "note": "after a revolution things are turned over and rearranged, so the letters are shuffled"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "woman",
+      "gives": "W",
+      "note": "W is the abbreviation for woman"
+     },
+     {
+      "clueFragment": "see",
+      "gives": "SEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "Mao",
+      "gives": "MAO",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "W",
+      "ESOME"
+     ],
+     "anagrams": [
+      {
+       "fodder": "SEEMAO",
+       "gives": "AESOME"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An impressive woman is brought in to meet Chairman Mao after the Chinese revolution.",
+     "walkthrough": "The revolution looks like China's history, but it signals a jumble of the two words before the woman slips inside.",
+     "definitionFit": "Awesome means inspiring awe, so a synonym for very impressive or remarkable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "revolution"
+    }
+   }
   },
   {
    "number": 13,
@@ -221,7 +843,46 @@
     "text": "Declare season satisfactory",
     "enumeration": "7"
    },
-   "solution": "AVERAGE"
+   "solution": "AVERAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "AVERAGE",
+    "definitions": [
+     {
+      "text": "satisfactory",
+      "at": 15
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Declare",
+      "gives": "AVER",
+      "note": "to aver is to state firmly"
+     },
+     {
+      "clueFragment": "season",
+      "gives": "AGE",
+      "note": "a season or an age are both periods of time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AVER",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone pronounces the sporting season as merely acceptable.",
+     "definitionFit": "Average describes something middling, acceptable but unremarkable, which is a sense of satisfactory."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "season"
+    }
+   }
   },
   {
    "number": 14,
@@ -241,7 +902,50 @@
      }
     ]
    },
-   "solution": "CONTACTLENSES"
+   "solution": "CONTACTLENSES",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CONTACT LENSES",
+    "definitions": [
+     {
+      "text": "help to see",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "unconventional",
+      "for": "anagram",
+      "note": "unconventional means not in the usual order, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cancel tests on",
+      "gives": "CANCELTESTSON",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CANCELTESTSON",
+       "gives": "CONTACTLENSES"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An administrator scraps exams on some unorthodox teaching aid.",
+     "definitionFit": "Contact lenses sit on the eye to correct vision, an aid to sight."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "tests"
+    }
+   }
   },
   {
    "number": 15,
@@ -255,7 +959,70 @@
     "text": "Numbers found on tops of equestrian's boots and small bridle parts",
     "enumeration": "9"
    },
-   "solution": "NOSEBANDS"
+   "solution": "NOSEBANDS",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "NOSEBANDS",
+    "definitions": [
+     {
+      "text": "bridle parts",
+      "at": 54
+     }
+    ],
+    "indicators": [
+     {
+      "text": "tops of",
+      "for": "letter_selection",
+      "note": "the tops of words in a down clue are their opening letters"
+     }
+    ],
+    "linkWords": [
+     "found on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Numbers",
+      "gives": "NOS",
+      "note": "NOS is the abbreviation for numbers"
+     },
+     {
+      "clueFragment": "equestrian's boots",
+      "gives": "EB",
+      "select": "first",
+      "note": "the opening letters of equestrian's and boots"
+     },
+     {
+      "clueFragment": "and",
+      "gives": "AND",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "EB",
+      "AND",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Numbered tags are found on a rider's footwear and little bits of tack.",
+     "definitionFit": "A noseband is the strap of a bridle passing over a horse's nose, part of its headgear."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Numbers"
+    }
+   }
   },
   {
    "number": 16,
@@ -269,7 +1036,71 @@
     "text": "Eskimo leaders get everyone in to see sea creature",
     "enumeration": "8"
    },
-   "solution": "ESCALLOP"
+   "solution": "ESCALLOP",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "ESCALLOP",
+    "definitions": [
+     {
+      "text": "sea creature",
+      "at": 38
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaders",
+      "for": "letter_selection",
+      "note": "leaders are what go in front, so the opening letters of the word are used"
+     },
+     {
+      "text": "get",
+      "for": "container",
+      "note": "to get someone in is to bring them inside, so one piece is placed within another"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Eskimo",
+      "gives": "ES",
+      "select": "first",
+      "note": "the opening two letters of Eskimo"
+     },
+     {
+      "clueFragment": "to see",
+      "gives": "COP",
+      "note": "to cop is slang for to catch sight of"
+     },
+     {
+      "clueFragment": "everyone",
+      "gives": "ALL",
+      "note": "all means everyone"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ES",
+      "C",
+      "ALL",
+      "OP"
+     ]
+    },
+    "explanation": {
+     "surface": "Inuit chiefs gather the whole tribe to watch a marine animal.",
+     "walkthrough": "To cop is British slang for to catch or notice, as in 'cop a look'. Escallop is a variant spelling of scallop.",
+     "definitionFit": "An escallop is a scallop, a bivalve shellfish living in the sea."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "leaders"
+    }
+   }
   },
   {
    "number": 17,
@@ -289,7 +1120,47 @@
      }
     ]
    },
-   "solution": "SPACEINVADERS"
+   "solution": "SPACEINVADERS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "SPACE INVADERS",
+    "definitions": [
+     {
+      "text": "People standing too close",
+      "at": 0
+     },
+     {
+      "text": "video game",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "People standing too close",
+      "note": "first meaning: those who intrude on your personal room"
+     },
+     {
+      "clueFragment": "video game",
+      "note": "second meaning: the classic 1978 arcade shooter with descending aliens"
+     }
+    ],
+    "explanation": {
+     "surface": "Players crowd too near the screen of an arcade machine.",
+     "walkthrough": "Someone who stands too close invades your personal space; the same phrase names the famous arcade game.",
+     "definitionFit": "The phrase is an idiom for intruders on personal room and also the title of a famous arcade shooter."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "standing"
+    }
+   }
   },
   {
    "number": 18,
@@ -303,7 +1174,57 @@
     "text": "Nobleman taking setter to visit monarch yesterday, perhaps",
     "enumeration": "7"
    },
-   "solution": "EARLIER"
+   "solution": "EARLIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARLIER",
+    "definitions": [
+     {
+      "text": "yesterday, perhaps",
+      "at": 40
+     }
+    ],
+    "linkWords": [
+     "taking",
+     "to visit"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Nobleman",
+      "gives": "EARL",
+      "note": "an earl is a nobleman"
+     },
+     {
+      "clueFragment": "setter",
+      "gives": "I",
+      "note": "the setter refers to themself as I"
+     },
+     {
+      "clueFragment": "monarch",
+      "gives": "ER",
+      "note": "ER is Elizabeth Regina, the Queen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EARL",
+      "I",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A lord brought the crossword compiler along to see the Queen the day before.",
+     "walkthrough": "'Perhaps' marks yesterday as one example of an earlier time.",
+     "definitionFit": "Yesterday is one instance of a time before now, which is what earlier means."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "setter"
+    }
+   }
   },
   {
    "number": 19,
@@ -317,7 +1238,65 @@
     "text": "Figure used to express a number and letter by master with time for learner",
     "enumeration": "7"
    },
-   "solution": "NUMERAL"
+   "solution": "NUMERAL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "NUMERAL",
+    "definitions": [
+     {
+      "text": "Figure used to express a number",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and",
+     "by",
+     "with",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "letter",
+      "gives": "NU",
+      "note": "nu is a Greek letter"
+     },
+     {
+      "clueFragment": "master",
+      "gives": "M",
+      "note": "M is an abbreviation for master, as in MA"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "ERA",
+      "note": "an era is a period of time"
+     },
+     {
+      "clueFragment": "learner",
+      "gives": "L",
+      "note": "L is the learner plate on a British car"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NU",
+      "M",
+      "ERA",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "A digit, together with a letter, is written by a teacher swapping time for a pupil.",
+     "walkthrough": "'With time for learner' looks like a swap instruction, but the pieces simply follow one another.",
+     "definitionFit": "A numeral is a written symbol, such as a digit, that stands for a quantity."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "for"
+    }
+   }
   },
   {
    "number": 20,
@@ -331,7 +1310,56 @@
     "text": "Scientist's lawyer has recipe for success",
     "enumeration": "6"
    },
-   "solution": "DARWIN"
+   "solution": "DARWIN",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DARWIN",
+    "definitions": [
+     {
+      "text": "Scientist",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "has",
+     "for"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lawyer",
+      "gives": "DA",
+      "note": "DA is a District Attorney, an American lawyer"
+     },
+     {
+      "clueFragment": "recipe",
+      "gives": "R",
+      "note": "R is the abbreviation for recipe, from Latin"
+     },
+     {
+      "clueFragment": "success",
+      "gives": "WIN",
+      "note": "a win is a success"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DA",
+      "R",
+      "WIN"
+     ]
+    },
+    "explanation": {
+     "surface": "A scientist's attorney knows the formula for triumph.",
+     "definitionFit": "Charles Darwin was the naturalist who proposed evolution by natural selection."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "recipe"
+    }
+   }
   },
   {
    "number": 21,
@@ -345,7 +1373,65 @@
     "text": "Judge and a clergyman eating snack?",
     "enumeration": "7"
    },
-   "solution": "ARBITER"
+   "solution": "ARBITER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ARBITER",
+    "definitions": [
+     {
+      "text": "Judge",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "eating",
+      "for": "container",
+      "note": "eating takes something inside, so one piece sits within the other"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "clergyman",
+      "gives": "RR",
+      "note": "RR is Right Reverend, a bishop's title"
+     },
+     {
+      "clueFragment": "snack",
+      "gives": "BITE",
+      "note": "a bite is a small snack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "R",
+      "BITE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A judge and a vicar share a quick bite together.",
+     "walkthrough": "Right Reverend, abbreviated with two Rs, is the title of a bishop, so the clergyman supplies a pair of letters that wrap around the snack.",
+     "definitionFit": "An arbiter settles disputes by deciding between parties, which is the role of a judge."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "eating"
+    }
+   }
   },
   {
    "number": 22,
@@ -359,7 +1445,51 @@
     "text": "Islamic school where hot curry's served about midday",
     "enumeration": "7"
    },
-   "solution": "MADRASA"
+   "solution": "MADRASA",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "MADRASA",
+    "definitions": [
+     {
+      "text": "Islamic school",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "where",
+     "served about"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hot curry",
+      "gives": "MADRAS",
+      "note": "a madras is a hot, spicy curry"
+     },
+     {
+      "clueFragment": "midday",
+      "gives": "A",
+      "note": "read as mid-day: the central letter of the word day"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MADRAS",
+      "A"
+     ]
+    },
+    "explanation": {
+     "surface": "A religious school where spicy curry is dished up around noon.",
+     "walkthrough": "'Midday' looks like a time of lunch, but it means the middle of the word day.",
+     "definitionFit": "A madrasa is a college or school for Islamic instruction, found across the Muslim world."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "midday"
+    }
+   }
   },
   {
    "number": 23,
@@ -373,7 +1503,64 @@
     "text": "Warning of trouble from a republican involved in strike",
     "enumeration": "5"
    },
-   "solution": "ALARM"
+   "solution": "ALARM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "ALARM",
+    "definitions": [
+     {
+      "text": "Warning of trouble",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved in",
+      "for": "container",
+      "note": "involved in means drawn inside something, so one piece goes within the other"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "strike",
+      "gives": "LAM",
+      "note": "to lam is to hit hard"
+     },
+     {
+      "clueFragment": "republican",
+      "gives": "R",
+      "note": "R is the abbreviation for republican"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "LA",
+      "R",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A Republican activist joins a walkout, raising concerns of unrest.",
+     "definitionFit": "An alarm is a signal that alerts people to danger."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "strike"
+    }
+   }
   },
   {
    "number": 24,
@@ -387,7 +1574,65 @@
     "text": "Writer in residence's last novel is more gloomy",
     "enumeration": "9"
    },
-   "solution": "WINTERIER"
+   "solution": "WINTERIER",
+   "annotation": {
+    "type": [
+     "anagram",
+     "letter_selection"
+    ],
+    "answer": "WINTERIER",
+    "definitions": [
+     {
+      "text": "more gloomy",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "last",
+      "for": "letter_selection",
+      "note": "last points to the final letter of the word before it"
+     },
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the letters are made into a fresh arrangement"
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer in",
+      "gives": "WRITERIN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "residence's",
+      "gives": "E",
+      "select": "last",
+      "note": "the final letter of residence"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "WRITERINE",
+       "gives": "WINTERIER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An author on a residency produces a final book that is darker in mood.",
+     "definitionFit": "Wintry weather is cold and bleak, so wintrier things are more cheerless and dreary."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 25,
@@ -401,7 +1646,48 @@
     "text": "Brother's pointed tool used in fight",
     "enumeration": "5"
    },
-   "solution": "BRAWL"
+   "solution": "BRAWL",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BRAWL",
+    "definitions": [
+     {
+      "text": "fight",
+      "at": 31
+     }
+    ],
+    "linkWords": [
+     "used in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brother's",
+      "gives": "BR",
+      "note": "BR is the abbreviation for brother"
+     },
+     {
+      "clueFragment": "pointed tool",
+      "gives": "AWL",
+      "note": "an awl is a pointed tool for piercing holes"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BR",
+      "AWL"
+     ]
+    },
+    "explanation": {
+     "surface": "A sibling's sharp tool is wielded in a scrap.",
+     "definitionFit": "A brawl is a rough, noisy fight or scuffle."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 26,
@@ -415,7 +1701,61 @@
     "text": "Relative returning hospital food",
     "enumeration": "4"
    },
-   "solution": "NOSH"
+   "solution": "NOSH",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "NOSH",
+    "definitions": [
+     {
+      "text": "food",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back the way it came, so the word is read backwards"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Relative",
+      "gives": "SON",
+      "note": "a son is a family relative"
+     },
+     {
+      "clueFragment": "hospital",
+      "gives": "H",
+      "note": "H is the abbreviation for hospital"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NOS",
+      "H"
+     ],
+     "reversals": [
+      {
+       "from": "SON",
+       "to": "NOS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A family member comes back to complain about hospital meals.",
+     "walkthrough": "NOSH is British slang for food.",
+     "definitionFit": "Nosh is an informal word for food or a meal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "returning"
+    }
+   }
   },
   {
    "number": 27,
@@ -435,7 +1775,63 @@
      }
     ]
    },
-   "solution": "RELIEFMAP"
+   "solution": "RELIEFMAP",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RELIEF MAP",
+    "definitions": [
+     {
+      "text": "Plan showing heights",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "on her way back",
+      "for": "reversal",
+      "note": "going back means heading in the opposite direction, so the name is read backwards"
+     }
+    ],
+    "linkWords": [
+     "giving"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "help",
+      "gives": "RELIEF",
+      "note": "relief is aid or assistance"
+     },
+     {
+      "clueFragment": "woman",
+      "gives": "PAM",
+      "note": "Pam is a woman's name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RELIEF",
+      "MAP"
+     ],
+     "reversals": [
+      {
+       "from": "PAM",
+       "to": "MAP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A plan for aiding a woman as she heads home.",
+     "definitionFit": "A relief map shows hills and valleys by shading or modelling, a chart of land elevation."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Plan"
+    }
+   }
   }
  ]
 }
