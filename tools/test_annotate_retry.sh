@@ -3,9 +3,10 @@
 #
 # The retry in daily_update.sh only ever runs when a nightly job is already
 # going wrong, which is the worst place to find out it was wired up wrong. So
-# this drives it with a fake `claude`: the blocks under test are READ OUT OF
-# daily_update.sh by their own first and last lines rather than copied here, so
-# a copy cannot drift away from the thing that runs at 04:45.
+# this drives it with a fake `claude`: the retry loop is READ OUT OF
+# daily_update.sh by its own first and last lines rather than copied here, and
+# it calls the real tools/puzzle_worker.sh, so a copy cannot drift away from the
+# thing that runs at 04:45.
 #
 #     bash tools/test_annotate_retry.sh
 #
@@ -15,35 +16,26 @@
 # everything it had read and worked out is in that conversation and nowhere
 # else.
 #
-# The second is the handover from the cold solve: a grid solved an hour earlier
-# was solved by deriving every answer and the wordplay that reached it, which
-# is exactly what the annotation has to write down. So the annotation carries
-# on in the solve's conversation — but only when there is one, and never by
-# re-reading answers from
-# memory, because the solve transcript ends BEFORE apply_solution.py wrote the
-# fill into the file.
+# The second is the handover from the cold solve: a grid solved a minute
+# earlier was solved by deriving every answer and the wordplay that reached it,
+# which is exactly what the annotation has to write down. So the annotation
+# carries on in the solve's conversation — but only when there is one, and
+# never by re-reading answers from memory, because the solve transcript ends
+# BEFORE apply_solution.py wrote the fill into the file. The burn
+# (tools/prereset_backfill.sh) runs the same worker; tools/test_puzzle_worker.sh
+# holds both scripts to it.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 fails=0
 check() { if [ "$2" = "$3" ]; then echo "  ok: $1"; else
   echo "  FAIL: $1"$'\n'"    expected: $3"$'\n'"    got:      $2"; fails=$((fails + 1)); fi; }
 
-block=$(awk '/^      ann_sid=\$\(session_id\)/,/^      done$/' tools/daily_update.sh)
-# The two halves of the cold solve that the annotation depends on: the call
-# that names the conversation, and the branch that decides whether tonight
-# remembers it.
-solve_call=$(awk '/^    solve_sid=\$\(session_id\)/,/^      --max-turns 120 /' tools/daily_update.sh)
-solve_record=$(awk '/^    if \[ "\$applied" -eq 0 \]; then$/,/^    fi$/' tools/daily_update.sh)
-solve_helper=$(grep '^solve_session_of() ' tools/daily_update.sh)
-# solve_record calls has_date, which daily_update.sh defines at the top of the
-# file and so outside every range read above. Read it out too — not to run it,
-# but so that renaming or deleting it fails here by name, rather than becoming a
-# command that is simply not there and takes the queue's else branch in silence.
-has_date_def=$(awk '/^has_date\(\) {/,/^}$/' tools/daily_update.sh)
-for name in block solve_call solve_record solve_helper has_date_def; do
-  [ -n "${!name}" ] ||
-    { echo "FAIL: the $name block is no longer where this test reads it from"; exit 1; }
-done
+block=$(awk '/^      ann_note=""$/,/^      done$/' tools/daily_update.sh)
+[ -n "$block" ] ||
+  { echo "FAIL: the retry loop is no longer where this test reads it from"; exit 1; }
+. tools/puzzle_worker.sh
+CLAUDE_HEADLESS=()
+WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP=""
 
 stub=$(mktemp -d)
 trap 'rm -rf "$stub"' EXIT
@@ -87,30 +79,30 @@ transcripts() {
   for s in $*; do : > "$CLAUDE_CONFIG_DIR/projects/-tmp-cryptic/$s.jsonl"; done
 }
 
+sidfile="$stub/test-1.sid"
 run() {  # $1 = MODE ("" for a clean first run),
-         # $2 = tonight's solves as daily_update.sh lists them ("id:session"),
-         # $3 = the sessions the CLI still has transcripts for (default: all of them).
+         # $2 = what the puzzle's sid file holds ("" for no file), e.g. "abc solve"
+         # $3 = the sessions the CLI still has transcripts for (default: the sid file's).
          # SESSION_ID_BROKEN=1 in front stands in for a generator that failed.
   CALLS=$(mktemp -d); export CALLS MODE="$1"
   export CLAUDE_CONFIG_DIR="$stub/config"
-  transcripts "${3-$(printf '%s\n' ${2:-} | sed -n 's/^[^:]*://p')}"
+  rm -f "$sidfile"
+  [ -n "${2:-}" ] && echo "$2" >"$sidfile"
+  transcripts "${3-$(cut -d' ' -f1 <<<"${2:-}")}"
   . tools/claude_session.sh
   [ -n "${SESSION_ID_BROKEN:-}" ] && session_id() { return 1; }
-  local ANNOTATE_MODEL=opus ANNOTATE_EFFORT=medium ann_tools=Read ann_turns=80 num=test-1 run_log
+  local ann_tools=Read ann_turns=80 num=test-1 run_log
   local ann_file=tools/_puzzle_test-1.json
+  local ann_prompt="Annotate the cryptic crossword test-1 in this repo, whose clues and answers are in $ann_file. Follow tools/annotate_prompt.md exactly."
   local ANNOTATE_MAX_MINUTES=90
-  local ann_cap ann_rc ann_timeout lost_ids=""
-  # Tonight's cold solves, as the real variable holds them, read by the real
-  # helper — a lookup that matched the wrong puzzle is exactly how a stale
-  # session would reach a grid nobody solved.
-  local solve_sids="${2:-}" solve_prior
-  eval "$solve_helper"
+  local ann_rc ann_timeout lost_ids="" ann_sid
   # The variable that ends the night. The cap firing must not set it.
   local stop_reason=""
-  local ann_task="Annotate." ann_sid ann_sess ann_prompt ann_ok ann_retried
+  local ann_note ann_ok ann_retried
   run_log=$(mktemp)
   capped=""
   record_annotate_failure() { capped="$2"; }
+  annotate_alert() { :; }
   # The block breaks out of its retry loop when the wall-clock cap fires, and
   # in daily_update.sh that block sits inside the loop over tonight's puzzles.
   # Give it that loop, or the case below tests a `break` that cannot mean what
@@ -123,12 +115,14 @@ run() {  # $1 = MODE ("" for a clean first run),
 
 resumed() { sed -n "${1}s/.*--resume \([^ ]*\).*/\1/p" <<<"$argv"; }
 opened() { sed -n "${1}s/.*--session-id \([^ ]*\).*/\1/p" <<<"$argv"; }
+system() { sed -n "${1}s/.*--append-system-prompt-file \([^ ]*\).*/\1/p" <<<"$argv"; }
 
 echo "a clean run is one call and no resume"
 run ""
 check "calls" "$calls" "1"
 check "succeeded" "${ok:-no}" "1"
 check "no --resume" "$(grep -c -- --resume <<<"$argv")" "0"
+check "on the annotation's own system prompt" "$(system 1)" "tools/annotate_prompt.md"
 
 echo "a usage lockout is not retried — it wants the next window, not another try"
 run limit
@@ -156,11 +150,13 @@ echo "and the cap does not end the night — it names the puzzle, not a stop"
 check "named the lost puzzle" "$(grep -c 'ran past 90m' <<<"$timed_out")" "1"
 check "left the night's stop reason unset" "${stopped:-unset}" "unset"
 
-echo "a grid solved cold tonight is annotated inside the conversation that solved it"
-run "" " test-1:tonights-solve"
+echo "a grid just solved cold is annotated inside the conversation that solved it"
+run "" "tonights-solve solve"
 check "calls" "$calls" "1"
 check "resumed the solve" "$(resumed 1)" "tonights-solve"
 check "and opened no new conversation" "$(grep -c -- --session-id <<<"$argv")" "0"
+check "with the solve's system prompt, so its cached prefix still matches" \
+  "$(system 1)" "tools/solve_prompt.md"
 # The solve transcript ends before apply_solution.py wrote the fill in, so a
 # resumed run working from memory would annotate a grid it never saw filled.
 check "sent back to the file rather than left to remember the fill" \
@@ -169,93 +165,66 @@ check "and the file it names is the one the fill was written into" \
   "$(grep -c 'tools/_puzzle_test-1\.json' <<<"$argv")" "1"
 check "with the annotation instructions still attached, not replaced" \
   "$(grep -c 'tools/annotate_prompt\.md' <<<"$argv")" "1"
+check "and the conversation is marked handed over" "$(cat "$sidfile")" "tonights-solve annotating"
 
-echo "a puzzle nobody solved tonight opens a fresh conversation, exactly as before"
-run "" " test-9:someone-elses-grid"
+echo "an overrun after the handover resumes the solve's conversation on its system prompt"
+run overrun "tonights-solve solve"
+check "calls" "$calls" "2"
+check "both in the solve's conversation" "$(resumed 1) $(resumed 2)" "tonights-solve tonights-solve"
+check "on the solve's system prompt both times" "$(system 1) $(system 2)" \
+  "tools/solve_prompt.md tools/solve_prompt.md"
+
+echo "a conversation already handed over is not handed over again"
+run "" "tonights-solve annotating"
 check "opened one of its own" "$(grep -c -- --session-id <<<"$argv")" "1"
 check "with nothing to resume" "$(grep -c -- --resume <<<"$argv")" "0"
-check "and did not borrow the solve of another puzzle" \
-  "$(grep -c someone-elses-grid <<<"$argv")" "0"
+
+echo "an annotation's own earlier conversation is not resumed without a note"
+run "" "last-nights-run"
+check "opened one of its own" "$(grep -c -- --session-id <<<"$argv")" "1"
+check "with nothing to resume" "$(grep -c -- --resume <<<"$argv")" "0"
 
 echo "unless the CLI has dropped that conversation, and then it starts fresh"
-run "" " test-1:tonights-solve" ""
+run "" "tonights-solve solve" ""
 check "opened one of its own" "$(grep -c -- --session-id <<<"$argv")" "1"
 check "with nothing to resume" "$(grep -c -- --resume <<<"$argv")" "0"
+check "on the annotation's own system prompt" "$(system 1)" "tools/annotate_prompt.md"
 
 echo "with no session id to be had, the annotation starts fresh rather than resuming nothing"
-SESSION_ID_BROKEN=1 run "" " test-1:"
+SESSION_ID_BROKEN=1 run ""
 check "the run still happened" "$calls" "1"
 check "and succeeded" "${ok:-no}" "1"
 check "resuming no conversation, least of all an empty one" \
   "$(grep -c -- --resume <<<"$argv")" "0"
+check "and naming none either" "$(grep -c -- --session-id <<<"$argv")" "0"
 
 # --- the solve side: what it leaves behind for the annotation to find ---
-solve() {  # $1 = id, $2 = applied|rejected — the applier's verdict on the fill
-  local num="$1" applied=1 fill solvelog verdict ANNOTATE_MODEL=opus ANNOTATE_EFFORT=medium
-  local solve_sid solve_sess
-  CALLS=$(mktemp -d); export CALLS MODE=""
-  export CLAUDE_CONFIG_DIR="$stub/config"
-  . tools/claude_session.sh
-  [ -n "${SESSION_ID_BROKEN:-}" ] && session_id() { return 1; }
-  fill=$(mktemp); solvelog=$(mktemp); verdict=$(mktemp)
-  eval "$solve_call"
-  argv=$(cat "$CALLS/argv")
-  [ "$2" = applied ] && applied=0
-  eval "$solve_record" >/dev/null 2>&1
-  rm -rf "$CALLS" "$fill" "$solvelog" "$verdict"
-}
-# A scratch ledger: a rejected solve is recorded, and never in the real one.
-export FAILED_INPUTS_FILE="$stub/failed_inputs.json"
-alert() { :; }
-# A block read out of daily_update.sh can call anything daily_update.sh defines,
-# including helpers that live outside the lines read here. Bash answers a call
-# to one of those with "command not found" and a 127 — false to every `if` that
-# tests it — so the block quietly takes its other branch and the failure surfaces
-# somewhere else entirely. Say which name was missing instead.
-# Only records the name. Bash runs this handler in a forked child, so a variable
-# it set would go with that child, and the blocks are run with their output sent
-# to /dev/null, so anything it printed would go there. The tally reads the file.
-command_not_found_handle() { echo "$1" >> "$stub/missing"; return 127; }
-# Which end of the annotation queue a solve enters is has_date's call. Every id
-# below is a bare name with no puzzle file behind it, which the real has_date
-# reads as dateless and sends to the back — correct for a book reprint and
-# beside the point here, because these cases are about WHICH CONVERSATION a
-# solve leaves behind. They run as the dated case. Both branches of the ordering
-# are checked against the real lines in tools/test_solve_queue_clues.sh.
-has_date() { return 0; }
-eval "$solve_helper"
-solve_sids=""; pending=""; solved_ok=0
-
-echo "a solve names its conversation, and that is the name the annotation resumes"
-solve test-1 applied
-check "the solve call opened a named conversation" \
-  "$(grep -c -- --session-id <<<"$argv")" "1"
-check "and it is the one the annotation would carry on" \
-  "$(solve_session_of test-1)" "$(opened 1)"
-check "with the grid at the head of tonight's queue" \
-  "$(grep -c '^test-1 ' <<<"$pending ")" "1"
-
-echo "a fill the applier threw out leaves no conversation for anything to resume"
-solve test-2 rejected
-check "the rejected grid never reaches tonight's annotate queue" \
-  "$(grep -c test-2 <<<"$pending")" "0"
-check "and nothing at all is written down against its id" \
-  "$(solve_session_of test-2)" ""
-check "so the list still holds only the grid that worked" \
-  "$(printf '%s\n' $solve_sids | wc -l | tr -d ' ')" "1"
+echo "a solve names its conversation, and that is the one the annotation resumes"
+CALLS=$(mktemp -d); export CALLS MODE=""
+export CLAUDE_CONFIG_DIR="$stub/config"
+transcripts ""
+. tools/claude_session.sh
+rm -f "$sidfile"
+worker_solve test-1 "$stub/fill" "$stub/solve.log" "$sidfile" 2>/dev/null
+argv=$(cat "$CALLS/argv")
+check "the solve call opened a named conversation" "$(grep -c -- --session-id <<<"$argv")" "1"
+check "and wrote it down as a solve" "$(cat "$sidfile")" "$(opened 1) solve"
+check "on the solve's system prompt" "$(system 1)" "tools/solve_prompt.md"
+check "with no web to read the answers off" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
+solved="$(opened 1)"
+rm -rf "$CALLS"
+run "" "$(cat "$sidfile")"
+check "the annotation that follows resumed it" "$(resumed 1)" "$solved"
 
 echo "a session id the generator could not make is never passed as an empty one"
-solve_sids=""
-SESSION_ID_BROKEN=1 solve test-3 applied
+CALLS=$(mktemp -d); export CALLS
+session_id() { return 1; }
+worker_solve test-3 "$stub/fill" "$stub/solve.log" "$sidfile" 2>/dev/null
+argv=$(cat "$CALLS/argv")
 check "the solve ran with no --session-id rather than a blank one" \
   "$(grep -c -- --session-id <<<"$argv")" "0"
-check "and left the annotation nothing to resume" "$(solve_session_of test-3)" ""
+check "and left the annotation nothing to resume" "$([ -e "$sidfile" ] && echo there || echo none)" "none"
+rm -rf "$CALLS"
 
-# One missing name is one failure, however many times the blocks called it.
-for name in $([ -f "$stub/missing" ] && sort -u "$stub/missing"); do
-  echo "  FAIL: the block under test calls $name, which daily_update.sh defines"\
-       "outside the lines this test reads — stub it here or read it out too"
-  fails=$((fails + 1))
-done
 [ "$fails" = 0 ] && echo "annotate retry: all checks passed" || echo "annotate retry: $fails FAILED"
 exit $((fails > 0))

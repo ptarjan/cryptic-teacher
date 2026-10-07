@@ -150,28 +150,33 @@ check "and it is behind every dated puzzle, ahead only of the undated" \
 check "so a night short of budget spends it on the dated ones" \
   "$(run 3)" "quiptic-1 ct-most ct-gap"
 
-echo "and a grid solved tonight joins the ANNOTATION queue by the same rule"
-# Step 3a prepends what it solved, on the grounds that it is the newest puzzle
-# and the one people are looking at. That reasoning is true of a prize crossword
-# solved the night it was published and false of a dateless reprint, which the
-# queue above deliberately keeps at the back — and the annotation budget is a
-# slice off the front, so prepending one drops a real puzzle off the end. The
-# lines themselves are run here, against a stubbed has_date, rather than grepped
-# for: an ordering asserted by grep is an assertion about the spelling.
-place=$(awk '/^      if has_date "\$num"; then$/,/^      fi$/' tools/daily_update.sh)
+echo "and an answerless grid joins the ANNOTATION queue by the same rule"
+# Step 3a places it where the annotation would reach it; the loop solves it
+# only on the way to annotating it. A dated one goes to the front, as the newest
+# puzzle and the one people are looking at; a dateless reprint, which the queue
+# above deliberately keeps at the back, stays there — the annotation budget is a
+# slice off the front, so putting one first drops a real puzzle off the end. And
+# what the cut drops is not solved either. The lines themselves are run here,
+# against a stubbed has_date, rather than grepped for: an ordering asserted by
+# grep is an assertion about the spelling.
+place=$(awk '/^dated_unsolved="" dateless_unsolved=""$/,/^pending="\$\{fresh:\+/' tools/daily_update.sh)
 [ -n "$place" ] ||
   { echo "  FAIL: the queue-placement block is no longer where this test reads it from"
     fails=$((fails + 1)); }
-run_place() (  # 0 = the puzzle has a date, 1 = it does not
-  dated=$1 num=ct-new pending="ct-today ct-yesterday"
-  has_date() { return "$dated"; }
+run_place() (  # $1 = the unsolved ids, $2 = those with a date, $3 = ANNOTATE_MAX
+  unsolved=$1 dated=" $2 " ANNOTATE_MAX=${3:-9} fresh="ct-fresh" pending="ct-today ct-yesterday"
+  has_date() { case "$dated" in *" $1 "*) return 0 ;; esac; return 1; }
   eval "$place" >/dev/null
   printf '%s\n' "$pending"
 )
-check "a dated solve is annotated first, as it always was" \
-  "$(run_place 0)" "ct-new ct-today ct-yesterday"
-check "a dateless one waits behind tonight's dated puzzles" \
-  "$(run_place 1)" "ct-today ct-yesterday ct-new"
+check "a dated answerless grid is annotated first after the new arrivals" \
+  "$(run_place ct-new ct-new)" "ct-fresh ct-new ct-today ct-yesterday"
+check "a dateless one waits behind the dated backlog" \
+  "$(run_place ct-new "")" "ct-fresh ct-today ct-yesterday ct-new"
+check "several keep the selection's newest-first order" \
+  "$(run_place "ct-a ct-b" "ct-a ct-b")" "ct-fresh ct-a ct-b ct-today ct-yesterday"
+check "ANNOTATE_MAX cuts them with the backlog, and a cut one is not queued to solve" \
+  "$(run_place "ct-new ct-old" "ct-new" 2)" "ct-fresh ct-new ct-today"
 
 [ "$fails" = 0 ] && echo "solve queue clues: all checks passed" || echo "solve queue clues: $fails FAILED"
 exit $((fails > 0))

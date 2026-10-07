@@ -44,6 +44,8 @@ for fn in pool_mark pool_launch pool_reap pool_drain pool_interval_start pool_ch
   eval "$block"
 done
 eval "$(grep '^clues_spec() {' "$SCRIPT")"
+# The per-puzzle worker the script sources; its model calls are stubbed below.
+. "$(dirname "$SCRIPT")/puzzle_worker.sh"
 
 now() { echo "$EPOCHREALTIME"; }
 FAIL_ID="pooltest-$$-5"
@@ -74,7 +76,7 @@ git() {
 tools/push_puzzle_commit.sh() { echo "push" >>"$EVENTS"; }
 discard_puzzle() { echo "discard $1" >>"$EVENTS"; }
 puzzle_spec() { printf 'puzzles/*/*/%s.json' "$1"; }
-SOLVED_HERE=" " MODEL=opus
+SOLVED_HERE=" " MODEL=opus WORKER_MODEL=opus
 handled=0
 # Width 2 to start; 4 after the fourth run is handled; 1 after the tenth; 0 for
 # one checkpoint after the thirteenth, then 1 again.
@@ -105,6 +107,7 @@ python3() {
     tools/prereset_plan.py) [ "$2" = --unsolved ] && [ "$3" = "$UNSOLVED_ID" ] ;;
     tools/apply_solution.py) echo "applied $2 $*" >>"$EVENTS" ;;
     tools/provenance.py) echo "Trailer: x" ;;
+    tools/solve_misses.py) [ "$2" = keep-log ] ;;
     *) echo "unexpected python3 $*" >&2; return 1 ;;
   esac
 }
