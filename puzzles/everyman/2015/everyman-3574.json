@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,66 @@
     "text": "Permit cry of pain in rage?  No time",
     "enumeration": "7"
    },
-   "solution": "EMPOWER"
+   "solution": "EMPOWER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "EMPOWER",
+    "definitions": [
+     {
+      "text": "Permit",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "No",
+      "for": "deletion",
+      "note": "'No' tells you the following item is absent, so it is removed from the word it sits in"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another means the first sits inside the second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rage",
+      "gives": "TEMPER",
+      "note": "temper is an outburst of anger"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the standard abbreviation for time"
+     },
+     {
+      "clueFragment": "cry of pain",
+      "gives": "OW",
+      "note": "the exclamation you make when hurt"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EMP",
+      "OW",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone asks whether letting out a howl of pain in a fit of fury is allowed, and is told there is no time.",
+     "walkthrough": "The time is removed first, and only then does the cry go inside what remains.",
+     "definitionFit": "To empower someone is to give them authority or leave to act, so it is a synonym of the verb permit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "No"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +109,51 @@
     "text": "Broadcast is copied in serial form",
     "enumeration": "8"
    },
-   "solution": "EPISODIC"
+   "solution": "EPISODIC",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EPISODIC",
+    "definitions": [
+     {
+      "text": "in serial form",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Broadcast",
+      "for": "anagram",
+      "note": "to broadcast is literally to scatter widely, so the letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is copied",
+      "gives": "ISCOPIED",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISCOPIED",
+       "gives": "EPISODIC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A programme on air is a repeat of something shown as a series.",
+     "walkthrough": "'Broadcast' reads as the subject of the sentence, a TV show, but it is the instruction to rearrange the next two words.",
+     "definitionFit": "Episodic describes something told in instalments or episodes, which is exactly what a serial is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Broadcast"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +167,53 @@
     "text": "Sweet old man not moving east",
     "enumeration": "8"
    },
-   "solution": "PASTILLE"
+   "solution": "PASTILLE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PASTILLE",
+    "definitions": [
+     {
+      "text": "Sweet",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "old man",
+      "gives": "PA",
+      "note": "pa is an informal word for father, one's old man"
+     },
+     {
+      "clueFragment": "not moving",
+      "gives": "STILL",
+      "note": "still means motionless"
+     },
+     {
+      "clueFragment": "east",
+      "gives": "E",
+      "note": "E is the compass abbreviation for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PA",
+      "STILL",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dear elderly gentleman who refuses to head east.",
+     "walkthrough": "'Sweet old man' reads as one description of a person, but 'Sweet' is the definition and 'old man' is father.",
+     "definitionFit": "A pastille is a small chewable lozenge or confection, one kind of sweet (British for a piece of candy)."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Sweet"
+    }
+   }
   },
   {
    "number": 3,
@@ -85,7 +237,74 @@
      }
     ]
    },
-   "solution": "WAITINGFORGODOT"
+   "solution": "WAITINGFORGODOT",
+   "annotation": {
+    "type": [
+     "container",
+     "charade"
+    ],
+    "answer": "WAITING FOR GODOT",
+    "definitions": [
+     {
+      "text": "play",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entertained by",
+      "for": "container",
+      "note": "a guest entertained by a host is taken in by them, so one item is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "joker",
+      "gives": "WAG",
+      "note": "a wag is a joker or wit"
+     },
+     {
+      "clueFragment": "One",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "can",
+      "gives": "TIN",
+      "note": "a tin is a can"
+     },
+     {
+      "clueFragment": "miss",
+      "gives": "FORGO",
+      "note": "to forgo is to go without or pass up"
+     },
+     {
+      "clueFragment": "point",
+      "gives": "DOT",
+      "note": "a dot is a point"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "WA",
+      "I",
+      "TIN",
+      "G",
+      "FORGO",
+      "DOT"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone holding a can, kept amused by a comedian, fails to see the point of a stage drama.",
+     "walkthrough": "Beckett's absurdist play is famous for audiences missing its point, so the surface doubles as a comment on it.",
+     "definitionFit": "Waiting for Godot is Samuel Beckett's celebrated two-act stage drama, so it is an example of a play."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "can"
+    }
+   }
   },
   {
    "number": 4,
@@ -99,7 +318,72 @@
     "text": "Lamented bird appearing on front of tabloid in colour",
     "enumeration": "9"
    },
-   "solution": "REGRETTED"
+   "solution": "REGRETTED",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection",
+     "container"
+    ],
+    "answer": "REGRETTED",
+    "definitions": [
+     {
+      "text": "Lamented",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "front of",
+      "for": "letter_selection",
+      "note": "the front of a word is its opening letter only"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "items placed in another word sit inside it"
+     }
+    ],
+    "linkWords": [
+     "appearing on"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "colour",
+      "gives": "RED",
+      "note": "red is a colour"
+     },
+     {
+      "clueFragment": "bird",
+      "gives": "EGRET",
+      "note": "an egret is a white heron"
+     },
+     {
+      "clueFragment": "tabloid",
+      "gives": "T",
+      "select": "first",
+      "note": "the opening letter of tabloid"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "EGRET",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A sorrowful bird turns up on a newspaper front page in colour print.",
+     "walkthrough": "'Lamented bird' reads as one phrase, a mourned creature, but 'Lamented' is the definition alone.",
+     "definitionFit": "Lamented and regretted are both past tenses of verbs for feeling sorrow about something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Lamented"
+    }
+   }
   },
   {
    "number": 5,
@@ -113,7 +397,50 @@
     "text": "Base linked to era producing amount of film",
     "enumeration": "7"
    },
-   "solution": "FOOTAGE"
+   "solution": "FOOTAGE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FOOTAGE",
+    "definitions": [
+     {
+      "text": "amount of film",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "linked to",
+     "producing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Base",
+      "gives": "FOOT",
+      "note": "the foot of something is its base"
+     },
+     {
+      "clueFragment": "era",
+      "gives": "AGE",
+      "note": "an age is an era"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOOT",
+      "AGE"
+     ]
+    },
+    "explanation": {
+     "surface": "A military base tied to a historical period yields some film reels.",
+     "definitionFit": "Footage is recorded film material, originally measured by its length in feet."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Base"
+    }
+   }
   },
   {
    "number": 5,
@@ -127,7 +454,55 @@
     "text": "Place for discussion in university in fashion",
     "enumeration": "5"
    },
-   "solution": "FORUM"
+   "solution": "FORUM",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "FORUM",
+    "definitions": [
+     {
+      "text": "Place for discussion",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "something in another thing is enclosed by it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fashion",
+      "gives": "FORM",
+      "note": "to fashion is to form or shape"
+     },
+     {
+      "clueFragment": "university",
+      "gives": "U",
+      "note": "U is the abbreviation for university"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "FOR",
+      "U",
+      "M"
+     ]
+    },
+    "explanation": {
+     "surface": "A trendy venue on campus for debate.",
+     "walkthrough": "U sits inside FORM. 'Fashion' looks like style, but here it is the verb to shape.",
+     "definitionFit": "A forum is a meeting place or medium where ideas are debated, from the Roman public square."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "fashion"
+    }
+   }
   },
   {
    "number": 6,
@@ -147,7 +522,56 @@
      }
     ]
    },
-   "solution": "ORCHESTRASTALLS"
+   "solution": "ORCHESTRASTALLS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ORCHESTRA STALLS",
+    "definitions": [
+     {
+      "text": "seats for audience",
+      "at": 34
+     }
+    ],
+    "linkWords": [
+     "above"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Conducted groups",
+      "gives": "ORCHESTRAS",
+      "note": "orchestras are ensembles led by a conductor"
+     },
+     {
+      "clueFragment": "high",
+      "gives": "TALL",
+      "note": "tall means high"
+     },
+     {
+      "clueFragment": "small",
+      "gives": "S",
+      "note": "S is the abbreviation for small, as on clothing labels"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORCHESTRAS",
+      "TALL",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Guided tour parties sit up high over the little chairs where spectators sit.",
+     "walkthrough": "In a down entry 'above' just puts one piece before the next. In British theatres the stalls are the ground-floor seats.",
+     "definitionFit": "The orchestra stalls are the front rows of theatre seating nearest the pit, where spectators sit."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Conducted"
+    }
+   }
   },
   {
    "number": 7,
@@ -161,7 +585,66 @@
     "text": "Takes on commercial work, climbing street",
     "enumeration": "6"
    },
-   "solution": "ADOPTS"
+   "solution": "ADOPTS",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ADOPTS",
+    "definitions": [
+     {
+      "text": "Takes on",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "climbing",
+      "for": "reversal",
+      "note": "in a down entry, climbing means reading from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "commercial",
+      "gives": "AD",
+      "note": "a commercial is an advert"
+     },
+     {
+      "clueFragment": "work",
+      "gives": "OP",
+      "note": "op is short for opus, a work"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "ST",
+      "note": "ST is the abbreviation for street"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AD",
+      "OP",
+      "TS"
+     ],
+     "reversals": [
+      {
+       "from": "ST",
+       "to": "TS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone agrees to do an advertising job while walking uphill along a road.",
+     "definitionFit": "To adopt an idea or responsibility is to take it on as one's own."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "commercial"
+    }
+   }
   },
   {
    "number": 8,
@@ -175,7 +658,42 @@
     "text": "Officer among aliens ignored",
     "enumeration": "6"
    },
-   "solution": "ENSIGN"
+   "solution": "ENSIGN",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "ENSIGN",
+    "definitions": [
+     {
+      "text": "Officer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "among",
+      "for": "hidden_word",
+      "note": "among means within the group, so the answer lies inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aliens ignored",
+      "gives": "ENSIGN",
+      "note": "the run of letters spanning the two words"
+     }
+    ],
+    "explanation": {
+     "surface": "An officer is snubbed by visitors from another planet.",
+     "definitionFit": "An ensign is a junior commissioned officer in the navy, so it is a kind of officer."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "ignored"
+    }
+   }
   },
   {
    "number": 9,
@@ -189,7 +707,66 @@
     "text": "Delivery from popular vocalist carrying weight",
     "enumeration": "9"
    },
-   "solution": "INSWINGER"
+   "solution": "INSWINGER",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "INSWINGER",
+    "definitions": [
+     {
+      "text": "Delivery",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "carrying",
+      "for": "container",
+      "note": "one who carries a thing holds it, so the other item goes inside"
+     }
+    ],
+    "linkWords": [
+     "from"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "popular",
+      "gives": "IN",
+      "note": "in means fashionable or popular"
+     },
+     {
+      "clueFragment": "vocalist",
+      "gives": "SINGER",
+      "note": "a singer is a vocalist"
+     },
+     {
+      "clueFragment": "weight",
+      "gives": "W",
+      "note": "W is the abbreviation for weight"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "S",
+      "W",
+      "INGER"
+     ]
+    },
+    "explanation": {
+     "surface": "A parcel arrives from a well-loved, rather heavy pop star.",
+     "walkthrough": "In cricket an inswinger is a ball that curves in towards the batsman; 'Delivery' pretends to be a parcel.",
+     "definitionFit": "In cricket a delivery is a single ball bowled, and an inswinger is one type of such ball."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Delivery"
+    }
+   }
   },
   {
    "number": 10,
@@ -203,7 +780,47 @@
     "text": "Get over being annoyed",
     "enumeration": "5"
    },
-   "solution": "CROSS"
+   "solution": "CROSS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "CROSS",
+    "definitions": [
+     {
+      "text": "Get over",
+      "at": 0
+     },
+     {
+      "text": "annoyed",
+      "at": 15
+     }
+    ],
+    "linkWords": [
+     "being"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Get over",
+      "note": "first meaning: to go across, as a road or river"
+     },
+     {
+      "clueFragment": "annoyed",
+      "note": "second meaning: irritated or angry"
+     }
+    ],
+    "explanation": {
+     "surface": "Advice to stop being irritated and move on.",
+     "walkthrough": "'Get over' looks like 'recover from', but it is the literal sense of passing to the other side.",
+     "definitionFit": "The word is a verb meaning to traverse something and an adjective meaning angry or irritated."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "over"
+    }
+   }
   },
   {
    "number": 11,
@@ -217,7 +834,75 @@
     "text": "Opening achieved by one in working for diamonds",
     "enumeration": "7"
    },
-   "solution": "ORIFICE"
+   "solution": "ORIFICE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram",
+     "charade"
+    ],
+    "answer": "ORIFICE",
+    "definitions": [
+     {
+      "text": "Opening",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "container",
+      "note": "one item placed in another sits inside it"
+     },
+     {
+      "text": "working",
+      "for": "anagram",
+      "note": "working suggests letters set in motion and rearranged"
+     }
+    ],
+    "linkWords": [
+     "achieved by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "for",
+      "gives": "FOR",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "one",
+      "gives": "I",
+      "note": "the Roman numeral for one"
+     },
+     {
+      "clueFragment": "diamonds",
+      "gives": "ICE",
+      "note": "ice is slang for diamonds"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ORIF",
+      "ICE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FORI",
+       "gives": "ORIF"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A gap in the market is created by someone labouring to find gems.",
+     "walkthrough": "'Working for' reads as employment, but 'for' is fodder: put I in FOR, rearrange to ORIF, then add ICE.",
+     "definitionFit": "An orifice is a hole or aperture, especially a mouth or vent, so it is a kind of opening."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "working"
+    }
+   }
   },
   {
    "number": 12,
@@ -231,7 +916,64 @@
     "text": "Reach junction going west in Welsh town",
     "enumeration": "7"
    },
-   "solution": "MAESTEG"
+   "solution": "MAESTEG",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "MAESTEG",
+    "definitions": [
+     {
+      "text": "Welsh town",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "going west",
+      "for": "reversal",
+      "note": "in an across entry, westward means right to left, against the normal reading direction"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Reach",
+      "gives": "GET",
+      "note": "to get somewhere is to reach it"
+     },
+     {
+      "clueFragment": "junction",
+      "gives": "SEAM",
+      "note": "a seam is a line where two pieces join"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "MAES",
+      "TEG"
+     ],
+     "reversals": [
+      {
+       "from": "GETSEAM",
+       "to": "MAESTEG"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A traveller arrives at a road junction heading west in a town in Wales.",
+     "walkthrough": "Maesteg is a former mining town in Bridgend county, South Wales.",
+     "definitionFit": "Maesteg is a town in the Llynfi valley of South Wales, so it is an instance of a Welsh town."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "junction"
+    }
+   }
   },
   {
    "number": 13,
@@ -245,7 +987,69 @@
     "text": "Not allowed to be hostile for example with hint, dropping name",
     "enumeration": "12"
    },
-   "solution": "ILLEGITIMATE"
+   "solution": "ILLEGITIMATE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "ILLEGITIMATE",
+    "definitions": [
+     {
+      "text": "Not allowed",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "dropping",
+      "for": "deletion",
+      "note": "dropping something lets it fall away, so that item leaves the word"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hostile",
+      "gives": "ILL",
+      "note": "ill as in ill will, unfriendly"
+     },
+     {
+      "clueFragment": "for example",
+      "gives": "EG",
+      "note": "e.g. is the abbreviation for for example"
+     },
+     {
+      "clueFragment": "hint",
+      "gives": "INTIMATE",
+      "note": "to intimate is to hint"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ILL",
+      "EG",
+      "ITIMATE"
+     ]
+    },
+    "explanation": {
+     "surface": "Being unfriendly, for instance by dropping hints and forgetting someone's name, is forbidden.",
+     "walkthrough": "'Hostile' gives the short word as in ill will; 'dropping name' applies only to the hint.",
+     "definitionFit": "Something illegitimate is unlawful or unauthorised, outside what the rules permit."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hint"
+    }
+   }
   },
   {
    "number": 14,
@@ -259,7 +1063,51 @@
     "text": "Notes Roman made all over the place",
     "enumeration": "9"
    },
-   "solution": "MEMORANDA"
+   "solution": "MEMORANDA",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "MEMORANDA",
+    "definitions": [
+     {
+      "text": "Notes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "all over the place",
+      "for": "anagram",
+      "note": "something all over the place is scattered and disordered, so the letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Roman made",
+      "gives": "ROMANMADE",
+      "note": "the letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ROMANMADE",
+       "gives": "MEMORANDA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Messages written by an ancient Roman were scattered everywhere.",
+     "walkthrough": "The Latin plural suits the Roman in the surface.",
+     "definitionFit": "Memoranda, the Latin plural of memorandum, are written reminders or brief messages, which are notes."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Roman"
+    }
+   }
   },
   {
    "number": 15,
@@ -279,7 +1127,62 @@
      }
     ]
    },
-   "solution": "BIGNOISE"
+   "solution": "BIGNOISE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "BIG NOISE",
+    "definitions": [
+     {
+      "text": "Important person",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "accepting",
+      "for": "container",
+      "note": "accepting something means taking it in, so another letter is added among these"
+     },
+     {
+      "text": "excited",
+      "for": "anagram",
+      "note": "excited letters are stirred up into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "is being",
+      "gives": "ISBEING",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "Oscar",
+      "gives": "O",
+      "note": "Oscar is O in the NATO phonetic alphabet"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ISBEINGO",
+       "gives": "BIGNOISE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A celebrity gets thrilled when receiving an Academy Award.",
+     "walkthrough": "The Oscar looks like the film award, but it stands for one letter added to the mix.",
+     "definitionFit": "Big noise is informal slang for an influential or prominent figure, a bigwig."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Oscar"
+    }
+   }
   },
   {
    "number": 16,
@@ -293,7 +1196,69 @@
     "text": "Upset head of state trapped by upper-class weed",
     "enumeration": "8"
    },
-   "solution": "UNSETTLE"
+   "solution": "UNSETTLE",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container",
+     "charade"
+    ],
+    "answer": "UNSETTLE",
+    "definitions": [
+     {
+      "text": "Upset",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter"
+     },
+     {
+      "text": "trapped by",
+      "for": "container",
+      "note": "something trapped is held inside another thing"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "upper-class",
+      "gives": "U",
+      "note": "U is the label for upper-class usage"
+     },
+     {
+      "clueFragment": "weed",
+      "gives": "NETTLE",
+      "note": "the nettle is a stinging weed"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "S",
+      "select": "first",
+      "note": "the opening letter of state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "U",
+      "N",
+      "S",
+      "ETTLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A head of state, upset, finds themselves caught in a patch of posh weeds.",
+     "walkthrough": "S goes into NETTLE after its N, behind U. U for upper-class comes from the 1950s U and non-U debate on British posh usage.",
+     "definitionFit": "To unsettle someone is to disturb or agitate them, a synonym of the verb upset."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "head"
+    }
+   }
   },
   {
    "number": 17,
@@ -307,7 +1272,69 @@
     "text": "Caught by evil demon, state criticism",
     "enumeration": "12"
    },
-   "solution": "CONDEMNATION"
+   "solution": "CONDEMNATION",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CONDEMNATION",
+    "definitions": [
+     {
+      "text": "criticism",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "evil",
+      "for": "anagram",
+      "note": "evil suggests something corrupted or twisted, so the letters are distorted"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Caught",
+      "gives": "C",
+      "note": "C is the cricket scorecard abbreviation for caught"
+     },
+     {
+      "clueFragment": "demon",
+      "gives": "DEMON",
+      "note": "letters to be rearranged"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "NATION",
+      "note": "a nation is a state"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "ONDEM",
+      "NATION"
+     ],
+     "anagrams": [
+      {
+       "fodder": "DEMON",
+       "gives": "ONDEM"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A country, seized by a wicked fiend, faces censure.",
+     "definitionFit": "Condemnation is strong public disapproval, a severe form of criticism."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "evil"
+    }
+   }
   },
   {
    "number": 18,
@@ -321,7 +1348,47 @@
     "text": "Bad result hurt",
     "enumeration": "6"
    },
-   "solution": "OFFEND"
+   "solution": "OFFEND",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "OFFEND",
+    "definitions": [
+     {
+      "text": "hurt",
+      "at": 11
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Bad",
+      "gives": "OFF",
+      "note": "food that is off has gone bad"
+     },
+     {
+      "clueFragment": "result",
+      "gives": "END",
+      "note": "an end is an outcome or result"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "OFF",
+      "END"
+     ]
+    },
+    "explanation": {
+     "surface": "A poor outcome caused pain.",
+     "walkthrough": "'hurt' reads as past tense, but it is the present-tense verb, matching offend.",
+     "definitionFit": "To offend someone is to wound their feelings, so it means to hurt them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "hurt"
+    }
+   }
   },
   {
    "number": 19,
@@ -335,7 +1402,54 @@
     "text": "Delight about answer let out",
     "enumeration": "6"
    },
-   "solution": "REVEAL"
+   "solution": "REVEAL",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "REVEAL",
+    "definitions": [
+     {
+      "text": "let out",
+      "at": 21
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word wraps the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Delight",
+      "gives": "REVEL",
+      "note": "to revel is to take great delight"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "REVE",
+      "A",
+      "L"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone enjoys giving away the solution.",
+     "definitionFit": "To reveal a secret is to disclose it, which is what letting it out means."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Delight"
+    }
+   }
   },
   {
    "number": 20,
@@ -349,7 +1463,55 @@
     "text": "Rowing boat stuck behind loud river transport",
     "enumeration": "7"
    },
-   "solution": "FREIGHT"
+   "solution": "FREIGHT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "FREIGHT",
+    "definitions": [
+     {
+      "text": "transport",
+      "at": 36
+     }
+    ],
+    "linkWords": [
+     "stuck behind"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "loud",
+      "gives": "F",
+      "note": "F is forte, the musical direction for loud"
+     },
+     {
+      "clueFragment": "river",
+      "gives": "R",
+      "note": "R is the abbreviation for river"
+     },
+     {
+      "clueFragment": "Rowing boat",
+      "gives": "EIGHT",
+      "note": "an eight is a racing boat with eight oarsmen"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "F",
+      "R",
+      "EIGHT"
+     ]
+    },
+    "explanation": {
+     "surface": "A racing shell gets stuck behind a noisy barge on the waterway.",
+     "definitionFit": "Freight is goods carried by vehicle or ship, and as a verb means to transport cargo."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Rowing"
+    }
+   }
   },
   {
    "number": 21,
@@ -363,7 +1525,64 @@
     "text": "I had to support favourite, taken up without enthusiasm",
     "enumeration": "5"
    },
-   "solution": "TEPID"
+   "solution": "TEPID",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "TEPID",
+    "definitions": [
+     {
+      "text": "without enthusiasm",
+      "at": 37
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taken up",
+      "for": "reversal",
+      "note": "in a down entry, taking something up means reading it from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to support"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "favourite",
+      "gives": "PET",
+      "note": "a pet is a favourite"
+     },
+     {
+      "clueFragment": "I had",
+      "gives": "ID",
+      "note": "I'd is the contraction of I had"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TEP",
+      "ID"
+     ],
+     "reversals": [
+      {
+       "from": "PET",
+       "to": "TEP"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Someone had to back the favourite in a race, though without much enthusiasm.",
+     "walkthrough": "In a down entry, to support is to sit below, so ID comes under the reversed favourite.",
+     "definitionFit": "Tepid means lukewarm, and figuratively a tepid response is one lacking keenness or warmth."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "support"
+    }
+   }
   },
   {
    "number": 22,
@@ -377,7 +1596,69 @@
     "text": "Followers showing energy come together and run around",
     "enumeration": "7"
    },
-   "solution": "RETINUE"
+   "solution": "RETINUE",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "RETINUE",
+    "definitions": [
+     {
+      "text": "Followers",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "reversal",
+      "note": "turning around means facing the other way, so the letters are read backwards"
+     }
+    ],
+    "linkWords": [
+     "showing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "energy",
+      "gives": "E",
+      "note": "E is the symbol for energy"
+     },
+     {
+      "clueFragment": "come together",
+      "gives": "UNITE",
+      "note": "to unite is to come together"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ETINU",
+      "E"
+     ],
+     "reversals": [
+      {
+       "from": "EUNITER",
+       "to": "RETINUE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Supporters are full of vigour as they gather and jog around.",
+     "definitionFit": "A retinue is the group of attendants or aides accompanying an important person, so they are followers."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 23,
@@ -391,7 +1672,55 @@
     "text": "Correct people engaged by editor",
     "enumeration": "5"
    },
-   "solution": "EMEND"
+   "solution": "EMEND",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "EMEND",
+    "definitions": [
+     {
+      "text": "Correct",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "engaged by",
+      "for": "container",
+      "note": "those engaged by an employer are taken in by them, so one item is held inside another"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "editor",
+      "gives": "ED",
+      "note": "ED is the abbreviation for editor"
+     },
+     {
+      "clueFragment": "people",
+      "gives": "MEN",
+      "note": "men are people"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "E",
+      "MEN",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "The staff hired by a newspaper editor are right.",
+     "walkthrough": "'Correct' reads as an adjective, but it is the verb meaning to fix text, as an editor would.",
+     "definitionFit": "To emend is to make corrections to a text, so it is a synonym of the verb correct."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Correct"
+    }
+   }
   },
   {
    "number": 24,
@@ -405,7 +1734,52 @@
     "text": "Silent pal bothered one involved in radio quiz?",
     "enumeration": "9"
    },
-   "solution": "PANELLIST"
+   "solution": "PANELLIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "PANELLIST",
+    "definitions": [
+     {
+      "text": "one involved in radio quiz?",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bothered",
+      "for": "anagram",
+      "note": "bothered means upset or troubled, so the letters are disturbed into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Silent pal",
+      "gives": "SILENTPAL",
+      "note": "letters to be rearranged"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "SILENTPAL",
+       "gives": "PANELLIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A quiet friend gets flustered when appearing as a contestant on a broadcast quiz show.",
+     "walkthrough": "The question mark flags a definition by example: panellists also appear on TV shows and committees.",
+     "definitionFit": "A panellist is a member of a panel of guests on a broadcast quiz or discussion programme."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "absurd",
+     "misdirectedWord": "Silent"
+    }
+   }
   },
   {
    "number": 25,
@@ -419,7 +1793,55 @@
     "text": "Swindled, receiving instrument reduced in strength",
     "enumeration": "7"
    },
-   "solution": "DILUTED"
+   "solution": "DILUTED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DILUTED",
+    "definitions": [
+     {
+      "text": "reduced in strength",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receiving",
+      "for": "container",
+      "note": "something receiving another item takes it in, so that item goes inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Swindled",
+      "gives": "DID",
+      "note": "to do someone is slang for cheating them"
+     },
+     {
+      "clueFragment": "instrument",
+      "gives": "LUTE",
+      "note": "a lute is a stringed instrument"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DI",
+      "LUTE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone cheated, taking delivery of a watered-down violin.",
+     "walkthrough": "To 'do' someone is British slang for cheating them, so swindled gives the past tense.",
+     "definitionFit": "Diluted describes a liquid weakened by adding water, so it has been made less strong."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "instrument"
+    }
+   }
   },
   {
    "number": 26,
@@ -433,7 +1855,60 @@
     "text": "Serious about following novelist endlessly",
     "enumeration": "7"
    },
-   "solution": "AUSTERE"
+   "solution": "AUSTERE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "AUSTERE",
+    "definitions": [
+     {
+      "text": "Serious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "endlessly",
+      "for": "deletion",
+      "note": "endlessly means without its end, so the final letter is cut off"
+     },
+     {
+      "text": "following",
+      "for": "charade",
+      "note": "following sends the word for about to come after the shortened writer, not before"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "novelist",
+      "gives": "AUSTEN",
+      "note": "Jane Austen, the English novelist"
+     },
+     {
+      "clueFragment": "about",
+      "gives": "RE",
+      "note": "re means concerning or about"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUSTE",
+      "RE"
+     ]
+    },
+    "explanation": {
+     "surface": "A sober remark about trailing after a writer who never stops.",
+     "walkthrough": "Jane Austen is the novelist; 'endlessly' trims only her name, not the whole wordplay.",
+     "definitionFit": "Austere means stern and severe in manner, so a grave, serious person can be called austere."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "endlessly"
+    }
+   }
   }
  ]
 }
