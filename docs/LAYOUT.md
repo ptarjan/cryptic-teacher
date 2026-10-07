@@ -1303,15 +1303,9 @@ tools/test_privateeye_dates.sh                does tools/fetch_privateeye.py rea
                                               Eye's Christmas cover date as it prints it?
 tools/test_fetch_puzzle_misfiled.sh           does fetch_puzzle.convert() refuse a mis-filed
                                               Guardian page and accept a re-published one?
-scratch/difficulty_calibration.py             measure external difficulty signals against
-                                              tools/difficulty.py's index
-scratch/parse_probe.py                        parse-rate harness: python3
-                                              scratch/parse_probe.py times|bd44 [misses N]
-                                              [hits N] [seed]
-scratch/snitch_device.py                      held-out refit of the device costs in
-                                              difficulty.py against the SNITCH
-scratch/snitch_tune.py                        collect (date, series, nitch, raw components,
-                                              per-clue device detail) for
+scratch/snitch_tune.py                        collect every SNITCH-rated puzzle's raw
+                                              components into scratch/snitch_rows.json, for
+                                              snitch_weights.py
 scratch/snitch_weights.py                     held-out refit of difficulty.WEIGHTS against the
                                               SNITCH, split by date
 tools/fetch_snitch.py                         fetch the SNITCH's ratings of The Times and
@@ -1323,13 +1317,6 @@ tools/test_comment_blend.sh                   does tools/difficulty.py blend() m
                                               puzzles with enough stated solve times, re-rate
                                               one as its comments arrive, and keep each series'
                                               mean and spread?
-scratch/snitch_features.py                    annotation-free features against the SNITCH
-                                              NITCH, held out by date
-scratch/snitch_stage3.py                      the index's worst misses against the SNITCH, and
-                                              candidate components added to it, held out by
-                                              date third
-scratch/stage3_clue.py                        which kinds of clue Times for the Times
-                                              commenters flag hard or name last one in
 tools/blog_comment_difficulty.py              which clues human solvers found hard, read off
                                               Times for the Times comments
 tools/data/blog_comment_difficulty.json       per Times puzzle, the comment count, the median
@@ -1346,21 +1333,6 @@ tools/build_wordnet.py                        writes tools/data/wordnet.json.gz,
 tools/data/wordnet.json.gz                    WordNet synsets and hypernyms for lexicon words
                                               and corpus definitions; committed so scoring
                                               needs no nltk
-scratch/snitch_stage10.py                     stage 10: clue- and answer-structure candidates,
-                                              screened on both sets
-scratch/snitch_stage11.py                     stage 11: clue-surface and answer-form
-                                              candidates, screened on both sets
-scratch/snitch_stage12.py                     stage 12: blog-fact candidates, screened on both
-                                              sets
-scratch/blog_solve_times.py                   can fifteensquared / bigdave44 comments give a
-                                              per-puzzle solver signal like TftT's?
-scratch/blog_solve_times_fetch.py             sample ~200 bigdave44 posts plus every annotated
-                                              one; posts' comments (3s crawl delay) into
-                                              ~/.cache/blog_solve_times/bigdave44
-scratch/snitch_stage13.py                     stage 13: the YouTube solvers' per-clue winners
-                                              as puzzle components
-scratch/solver_clues.py                       per-clue difficulty features against YouTube
-                                              solvers' waits, held out by puzzle
 tools/push_puzzle_commit.sh                   publish one local commit to origin/master without
                                               touching the working tree
 tools/test_push_puzzle_commit.sh              does tools/push_puzzle_commit.sh publish a commit
