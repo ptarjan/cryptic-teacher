@@ -40,6 +40,7 @@ downloaded, prints "up-to-date <n>" and exits 3 if nothing new was found.
 import functools
 import hashlib
 import html
+import http.client
 import itertools
 import json
 import os
@@ -184,14 +185,16 @@ RETRY_STATUSES = (429, 500, 502, 503, 504)
 RETRY_WAITS = (5, 20, 60, 180)
 
 
-def http_bytes(url, timeout=30):
-    """One GET, backing off on the statuses that mean "not now" rather than
-    "not here". Retry-After wins over our own schedule when the server sends
+def http_fetch(url, timeout=30):
+    """(final url, bytes) of one GET, backing off on the statuses that mean
+    "not now" rather than "not here", and on a body cut short or a dropped
+    connection. Retry-After wins over our own schedule when the server sends
     one, capped so a silly value cannot park the walk for an afternoon."""
     for wait in RETRY_WAITS + (None,):
         try:
             req = urllib.request.Request(url, headers=UA)
-            return urllib.request.urlopen(req, timeout=timeout).read()
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.geturl(), r.read()
         except urllib.error.HTTPError as err:
             if wait is None or err.code not in RETRY_STATUSES:
                 raise
@@ -204,7 +207,15 @@ def http_bytes(url, timeout=30):
             if wait is None:
                 raise
             print(f"  {err.reason} on {url} — waiting {wait}s")
+        except (http.client.HTTPException, ConnectionError, TimeoutError) as err:
+            if wait is None:
+                raise
+            print(f"  {type(err).__name__} on {url} — waiting {wait}s")
         time.sleep(wait)
+
+
+def http_bytes(url, timeout=30):
+    return http_fetch(url, timeout)[1]
 
 
 def http_get(url):
