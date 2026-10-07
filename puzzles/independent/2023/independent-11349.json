@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,60 @@
     "text": "Writer wasted, but not with form of consumption",
     "enumeration": "6"
    },
-   "solution": "NIBBLE"
+   "solution": "NIBBLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "deletion"
+    ],
+    "answer": "NIBBLE",
+    "definitions": [
+     {
+      "text": "form of consumption",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "but not with",
+      "for": "deletion",
+      "note": "'not with' tells you to drop the letter that abbreviates the word with"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Writer",
+      "gives": "NIB",
+      "note": "a nib is the writing point of a pen, standing for the pen itself"
+     },
+     {
+      "clueFragment": "wasted",
+      "gives": "BLEW",
+      "note": "to blow money is to waste it, so wasted is blew"
+     },
+     {
+      "clueFragment": "with",
+      "gives": "W",
+      "note": "W is the standard abbreviation for with"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "NIB",
+      "BLE"
+     ]
+    },
+    "explanation": {
+     "surface": "A writer has squandered everything, yet not on any particular way of using things up.",
+     "walkthrough": "W is a standard abbreviation for 'with', so 'not with' removes that single letter rather than a whole word.",
+     "definitionFit": "Taking small bites is one way of eating, so a little bite counts as a manner of consuming food."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Writer"
+    }
+   }
   },
   {
    "number": 2,
@@ -47,7 +103,52 @@
     "text": "Breach of law during French court case",
     "enumeration": "10"
    },
-   "solution": "INFRACTION"
+   "solution": "INFRACTION",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "INFRACTION",
+    "definitions": [
+     {
+      "text": "Breach of law",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "during",
+      "gives": "IN",
+      "note": "during something is in it"
+     },
+     {
+      "clueFragment": "French",
+      "gives": "FR",
+      "note": "FR is the abbreviation for French"
+     },
+     {
+      "clueFragment": "court case",
+      "gives": "ACTION",
+      "note": "a legal action is a case brought in court"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "IN",
+      "FR",
+      "ACTION"
+     ]
+    },
+    "explanation": {
+     "surface": "A legal violation happened while a French trial was under way.",
+     "definitionFit": "An infraction is a violation of a rule or statute, often a minor offence against the law."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "during"
+    }
+   }
   },
   {
    "number": 3,
@@ -61,7 +162,47 @@
     "text": "Vintage director's filthy material",
     "enumeration": "4"
    },
-   "solution": "CRUD"
+   "solution": "CRUD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "CRUD",
+    "definitions": [
+     {
+      "text": "filthy material",
+      "at": 19
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vintage",
+      "gives": "CRU",
+      "note": "a cru is a wine of a particular vineyard or vintage, as in grand cru"
+     },
+     {
+      "clueFragment": "director's",
+      "gives": "D",
+      "note": "D abbreviates director"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRU",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "An old film-maker's output is dismissed as smut.",
+     "walkthrough": "Vintage reads as an adjective for the director, but it is a wine term.",
+     "definitionFit": "Crud is informal for dirt, grime or any disgusting sticky substance."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Vintage"
+    }
+   }
   },
   {
    "number": 4,
@@ -75,7 +216,62 @@
     "text": "Man nearly detained in Kuwait on vacation",
     "enumeration": "6"
    },
-   "solution": "KNIGHT"
+   "solution": "KNIGHT",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "KNIGHT",
+    "definitions": [
+     {
+      "text": "Man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "detained in",
+      "for": "container",
+      "note": "someone detained is held inside, so one piece sits within the other"
+     },
+     {
+      "text": "on vacation",
+      "for": "letter_selection",
+      "note": "a place on vacation is emptied, so only its outside letters remain"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Kuwait",
+      "gives": "KT",
+      "select": "outer",
+      "note": "the first and last letters of Kuwait"
+     },
+     {
+      "clueFragment": "nearly",
+      "gives": "NIGH",
+      "note": "nigh is an old word for near or nearly"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "K",
+      "NIGH",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A man was almost held prisoner while on holiday in Kuwait.",
+     "walkthrough": "NIGH goes inside K...T. Man here is a chess piece.",
+     "definitionFit": "In chess each piece is called a man, and the horse-headed piece is one of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Man"
+    }
+   }
   },
   {
    "number": 5,
@@ -89,7 +285,40 @@
     "text": "State prohibiting act of Congress?",
     "enumeration": "8"
    },
-   "solution": "CELIBACY"
+   "solution": "CELIBACY",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "CELIBACY",
+    "definitions": [
+     {
+      "text": "State prohibiting act of Congress?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "State prohibiting act of Congress?",
+      "note": "surface reading: a nation banning legislation passed in Washington"
+     },
+     {
+      "clueFragment": "act of Congress",
+      "note": "setter's reading: congress is an old word for sexual intercourse, so the state is one of sexual abstinence"
+     }
+    ],
+    "explanation": {
+     "surface": "Some country outlaws a piece of American legislation.",
+     "walkthrough": "Congress capitalised suggests the US legislature, but its old sense is sexual union; the question mark flags the pun.",
+     "definitionFit": "Celibacy is the condition of abstaining from sex, which rules out any sexual coupling."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Congress"
+    }
+   }
   },
   {
    "number": 6,
@@ -109,7 +338,49 @@
      }
     ]
    },
-   "solution": "ABOVEBOARD"
+   "solution": "ABOVEBOARD",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ABOVE-BOARD",
+    "definitions": [
+     {
+      "text": "Straight",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too respectable for",
+      "gives": "ABOVE",
+      "note": "someone above a thing considers it beneath them"
+     },
+     {
+      "clueFragment": "gaming area",
+      "gives": "BOARD",
+      "note": "games like chess are played on a board"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ABOVE",
+      "BOARD"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone honest and too decent to sit down at the gambling table.",
+     "definitionFit": "Both mean honest and open, with nothing hidden or underhand in the dealings."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "gaming"
+    }
+   }
   },
   {
    "number": 7,
@@ -123,7 +394,57 @@
     "text": "Taking two lots of vaccines periodically would be futile",
     "enumeration": "4"
    },
-   "solution": "VAIN"
+   "solution": "VAIN",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "VAIN",
+    "definitions": [
+     {
+      "text": "futile",
+      "at": 50
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Taking two lots of",
+      "for": "letter_selection",
+      "note": "taking two at a time, and then periodically, means pairs of letters are kept and skipped by turns"
+     },
+     {
+      "text": "periodically",
+      "for": "letter_selection",
+      "note": "periodically means at regular intervals along the word, keeping some letters and skipping others"
+     }
+    ],
+    "linkWords": [
+     "would be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "vaccines",
+      "gives": "VAIN",
+      "select": "regular",
+      "note": "keep the first pair of letters, skip the next pair, keep the next pair, skip the last"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "VAIN"
+     ]
+    },
+    "explanation": {
+     "surface": "Getting a double dose of jabs at intervals would achieve nothing.",
+     "walkthrough": "The pattern is unusual: letters are taken in pairs, VA and IN, with CC and ES discarded.",
+     "definitionFit": "Vain effort is useless effort that produces no result, the same as pointless or fruitless."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "two"
+    }
+   }
   },
   {
    "number": 8,
@@ -137,7 +458,66 @@
     "text": "Save record held by court introduced by former partner",
     "enumeration": "6"
    },
-   "solution": "EXCEPT"
+   "solution": "EXCEPT",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "EXCEPT",
+    "definitions": [
+     {
+      "text": "Save",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "held by",
+      "for": "container",
+      "note": "something held by another is gripped within it"
+     },
+     {
+      "text": "introduced by",
+      "for": "charade",
+      "note": "introduced by means preceded by, so the partner comes at the front"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "former partner",
+      "gives": "EX",
+      "note": "an ex is a former spouse or partner"
+     },
+     {
+      "clueFragment": "court",
+      "gives": "CT",
+      "note": "CT is the abbreviation for court"
+     },
+     {
+      "clueFragment": "record",
+      "gives": "EP",
+      "note": "an EP is an extended-play record"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EX",
+      "C",
+      "EP",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "Keeping a disc that a court is holding, brought in by an ex.",
+     "definitionFit": "Save as a preposition means apart from or but, as in 'all save one'."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Save"
+    }
+   }
   },
   {
    "number": 9,
@@ -151,7 +531,43 @@
     "text": "Part of sovereign or ancestral state displaying little enlightenment",
     "enumeration": "9"
    },
-   "solution": "IGNORANCE"
+   "solution": "IGNORANCE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "IGNORANCE",
+    "definitions": [
+     {
+      "text": "state displaying little enlightenment",
+      "at": 31
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of tells you the answer is a stretch of the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "sovereign or ancestral",
+      "gives": "IGNORANCE",
+      "note": "the letters run across the end of the first word, the whole middle word and the start of the third"
+     }
+    ],
+    "explanation": {
+     "surface": "A royal or inherited realm that is culturally backward.",
+     "walkthrough": "State reads as a country in the surface, but it is a condition.",
+     "definitionFit": "Lacking knowledge or education is a condition of being unenlightened, which is what the word names."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 10,
@@ -165,7 +581,45 @@
     "text": "Heard what's used to fiddle objects of desire",
     "enumeration": "5"
    },
-   "solution": "BEAUX"
+   "solution": "BEAUX",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "BEAUX",
+    "definitions": [
+     {
+      "text": "objects of desire",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Heard",
+      "for": "homophone",
+      "note": "heard means we go by what the ear picks up, not the spelling"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "what's used to fiddle",
+      "gives": "BEAUX",
+      "soundsLike": "BOWS",
+      "note": "a violin, or fiddle, is played with a bow"
+     }
+    ],
+    "explanation": {
+     "surface": "Things used for cheating, as overheard, turn out to be things people crave.",
+     "walkthrough": "Fiddle suggests cheating, but it is the violin.",
+     "definitionFit": "Beaux are boyfriends or admirers, the men a person longs for romantically."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "fiddle"
+    }
+   }
   },
   {
    "number": 11,
@@ -179,7 +633,58 @@
     "text": "Sleeping men apparently showing little interest",
     "enumeration": "5"
    },
-   "solution": "BORED"
+   "solution": "BORED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "BORED",
+    "definitions": [
+     {
+      "text": "showing little interest",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Sleeping",
+      "for": "container",
+      "note": "those sleeping are lying in bed, so the men are placed inside it"
+     }
+    ],
+    "linkWords": [
+     "apparently"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Sleeping",
+      "gives": "BED",
+      "note": "people who are sleeping are in bed"
+     },
+     {
+      "clueFragment": "men",
+      "gives": "OR",
+      "note": "OR, other ranks, are soldiers who are not officers"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "B",
+      "OR",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "Men nodding off evidently weren't engaged by what was going on.",
+     "walkthrough": "Sleeping both supplies BED and puts the men in it.",
+     "definitionFit": "Someone bored is weary and uninterested, so they display scant attention."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Sleeping"
+    }
+   }
   },
   {
    "number": 12,
@@ -193,7 +698,58 @@
     "text": "Vice and anger could become a source of resentment",
     "enumeration": "9"
    },
-   "solution": "GRIEVANCE"
+   "solution": "GRIEVANCE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRIEVANCE",
+    "definitions": [
+     {
+      "text": "a source of resentment",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "could become",
+      "for": "anagram",
+      "note": "could become hints that the letters may turn into something new when rearranged"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Vice",
+      "gives": "VICE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "anger",
+      "gives": "ANGER",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "VICEANGER",
+       "gives": "GRIEVANCE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Wickedness and rage may breed bitterness.",
+     "walkthrough": "The 'and' joins the two fodder words and is not part of the anagram.",
+     "definitionFit": "A grievance is a complaint or cause for bitter feeling over being wronged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 13,
@@ -207,7 +763,49 @@
     "text": "Spell \"preference\" without a 'p'",
     "enumeration": "7"
    },
-   "solution": "ENCHANT"
+   "solution": "ENCHANT",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "ENCHANT",
+    "definitions": [
+     {
+      "text": "Spell",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "without a 'p'",
+      "for": "deletion",
+      "note": "without means remove, and the letter to go is named outright"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "preference",
+      "gives": "PENCHANT",
+      "note": "a penchant is a liking or preference"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ENCHANT"
+     ]
+    },
+    "explanation": {
+     "surface": "An instruction on how to write the word preference, minus a letter.",
+     "walkthrough": "Spell looks like a spelling command, but it is the verb meaning bewitch.",
+     "definitionFit": "To spell someone, in the sense of casting a spell, is to bewitch or charm them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Spell"
+    }
+   }
   },
   {
    "number": 14,
@@ -221,7 +819,58 @@
     "text": "Entitled lives getting written about",
     "enumeration": "10"
    },
-   "solution": "AUTHORISED"
+   "solution": "AUTHORISED",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AUTHORISED",
+    "definitions": [
+     {
+      "text": "Entitled",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means surrounding, so one word goes round the other"
+     }
+    ],
+    "linkWords": [
+     "getting"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "written",
+      "gives": "AUTHORED",
+      "note": "a book written by someone is authored by them"
+     },
+     {
+      "clueFragment": "lives",
+      "gives": "IS",
+      "note": "lives in the sense of exists"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AUTHOR",
+      "IS",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A privileged life story being penned.",
+     "walkthrough": "Lives is the verb meaning exists, not the plural of life, despite the life-story feel of the surface.",
+     "definitionFit": "Being entitled to do something means having official permission or sanction for it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lives"
+    }
+   }
   },
   {
    "number": 15,
@@ -235,7 +884,55 @@
     "text": "Compass taking in two points of the surrounding area",
     "enumeration": "7"
    },
-   "solution": "AMBIENT"
+   "solution": "AMBIENT",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "AMBIENT",
+    "definitions": [
+     {
+      "text": "of the surrounding area",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "taking in",
+      "for": "container",
+      "note": "taking in means admitting inside, so one piece is held within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Compass",
+      "gives": "AMBIT",
+      "note": "ambit means scope or range, a sense of compass"
+     },
+     {
+      "clueFragment": "two points",
+      "gives": "EN",
+      "note": "E and N, east and north, are two compass points"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "AMBI",
+      "EN",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A navigator's compass reading two bearings across the nearby terrain.",
+     "walkthrough": "Compass is not the instrument but its other sense of range; the points are directions.",
+     "definitionFit": "Ambient describes conditions in the immediate environment, such as noise or temperature around you."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Compass"
+    }
+   }
   },
   {
    "number": 16,
@@ -249,7 +946,61 @@
     "text": "Inflexible military cuts almost destroy Guards",
     "enumeration": "10"
    },
-   "solution": "ENTRENCHED"
+   "solution": "ENTRENCHED",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "ENTRENCHED",
+    "definitions": [
+     {
+      "text": "Inflexible",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the last letter is dropped"
+     },
+     {
+      "text": "Guards",
+      "for": "container",
+      "note": "to guard something is to surround it protectively"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "destroy",
+      "gives": "END",
+      "note": "to end something is to finish it off"
+     },
+     {
+      "clueFragment": "military cuts",
+      "gives": "TRENCHES",
+      "note": "trenches are ditches cut by an army"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EN",
+      "TRENCHE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "Rigid defence cuts nearly wreck the Guards regiments.",
+     "walkthrough": "Guards looks like soldiers, but it is the containment verb; cuts is a noun for ditches.",
+     "definitionFit": "An entrenched position or attitude is firmly established and hard to shift or change."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Guards"
+    }
+   }
   },
   {
    "number": 17,
@@ -269,7 +1020,70 @@
      }
     ]
    },
-   "solution": "BIRTHDAYPARTY"
+   "solution": "BIRTHDAYPARTY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "container"
+    ],
+    "answer": "BIRTHDAY PARTY",
+    "definitions": [
+     {
+      "text": "a celebration of life",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "novel",
+      "for": "anagram",
+      "note": "novel means new, so the following letters are made into something new"
+     },
+     {
+      "text": "in",
+      "for": "container",
+      "note": "in places the section inside the other letters"
+     }
+    ],
+    "linkWords": [
+     "'s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "by Hardy: it",
+      "gives": "BYHARDYIT",
+      "note": "the letters of these words are the fodder"
+     },
+     {
+      "clueFragment": "Section",
+      "gives": "PART",
+      "note": "a part is a section"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BIRTHDAY",
+      "PART",
+      "Y"
+     ],
+     "anagrams": [
+      {
+       "fodder": "BYHARDYIT",
+       "gives": "BIRTHDAYY"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A passage from a Thomas Hardy novel is said to celebrate life.",
+     "walkthrough": "The anagram gives BIRTHDAYY and PART slips in before the final Y. Novel looks like a book by Hardy, but it is the anagram signal.",
+     "definitionFit": "A party held on the anniversary of someone's birth marks and celebrates their being alive."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "novel"
+    }
+   }
   },
   {
    "number": 18,
@@ -283,7 +1097,56 @@
     "text": "All but the beginning of absurdist broadcast is upsetting",
     "enumeration": "8"
    },
-   "solution": "DISTURBS"
+   "solution": "DISTURBS",
+   "annotation": {
+    "type": [
+     "deletion",
+     "anagram"
+    ],
+    "answer": "DISTURBS",
+    "definitions": [
+     {
+      "text": "is upsetting",
+      "at": 45
+     }
+    ],
+    "indicators": [
+     {
+      "text": "All but the beginning of",
+      "for": "deletion",
+      "note": "all but the beginning means everything except the opening letter"
+     },
+     {
+      "text": "broadcast",
+      "for": "anagram",
+      "note": "broadcast means scattered widely, so the letters are strewn into a new order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "absurdist",
+      "gives": "ABSURDIST",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "BSURDIST",
+       "gives": "DISTURBS"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Most of a surreal programme on air is upsetting viewers.",
+     "definitionFit": "Disturbs means troubles or unsettles someone, which is to say it upsets them."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "broadcast"
+    }
+   }
   },
   {
    "number": 19,
@@ -297,7 +1160,62 @@
     "text": "Windy hollow around middle of ground",
     "enumeration": "7"
    },
-   "solution": "SINUOUS"
+   "solution": "SINUOUS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "container"
+    ],
+    "answer": "SINUOUS",
+    "definitions": [
+     {
+      "text": "Windy",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "around",
+      "for": "container",
+      "note": "around means one piece encircles the other"
+     },
+     {
+      "text": "middle of",
+      "for": "letter_selection",
+      "note": "middle of means keep only the central letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "hollow",
+      "gives": "SINUS",
+      "note": "a sinus is a hollow cavity, as in the skull"
+     },
+     {
+      "clueFragment": "ground",
+      "gives": "OU",
+      "select": "middle",
+      "note": "the two central letters of ground"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SINU",
+      "OU",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "A breezy dip in the middle of a field.",
+     "walkthrough": "OU goes inside SIN...US. Windy means winding, as a road, not breezy.",
+     "definitionFit": "A windy road twists and turns, so it is full of curves, which is what sinuous describes."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Windy"
+    }
+   }
   },
   {
    "number": 19,
@@ -311,7 +1229,55 @@
     "text": "Newspaper employee receives a fine",
     "enumeration": "6"
    },
-   "solution": "SUPERB"
+   "solution": "SUPERB",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "SUPERB",
+    "definitions": [
+     {
+      "text": "fine",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "receives",
+      "for": "container",
+      "note": "receiving something means taking it in, so one piece is placed inside"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Newspaper employee",
+      "gives": "SUB",
+      "note": "a sub is a subeditor on a newspaper"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "PER",
+      "note": "a, as in 'ten pounds a head', means per"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "SU",
+      "PER",
+      "B"
+     ]
+    },
+    "explanation": {
+     "surface": "A journalist gets a penalty payment.",
+     "walkthrough": "A fine looks like a penalty, but fine is the adjective meaning excellent.",
+     "definitionFit": "Fine can mean of high quality, and superb is an emphatic word for excellent."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "fine"
+    }
+   }
   },
   {
    "number": 20,
@@ -325,7 +1291,44 @@
     "text": "Where one might deliver speech",
     "enumeration": "7"
    },
-   "solution": "ADDRESS"
+   "solution": "ADDRESS",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "ADDRESS",
+    "definitions": [
+     {
+      "text": "Where one might deliver",
+      "at": 0
+     },
+     {
+      "text": "speech",
+      "at": 24
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Where one might deliver",
+      "note": "first meaning: the house and street a parcel is sent to"
+     },
+     {
+      "clueFragment": "speech",
+      "note": "second meaning: a formal talk to an audience"
+     }
+    ],
+    "explanation": {
+     "surface": "The place where a speaker gives an oration.",
+     "walkthrough": "The surface reads as one idea about delivering a speech; split it into two meanings.",
+     "definitionFit": "It names both the location written on post and a formal oration given to listeners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "deliver"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1342,57 @@
     "text": "What provides introduction to aristocratic place?",
     "enumeration": "6"
    },
-   "solution": "AVENUE"
+   "solution": "AVENUE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "AVENUE",
+    "definitions": [
+     {
+      "text": "What provides introduction to aristocratic place?",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "introduction to",
+      "for": "letter_selection",
+      "note": "an introduction is what comes first, so only the opening letter is kept"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "aristocratic",
+      "gives": "A",
+      "select": "first",
+      "note": "the opening letter of aristocratic"
+     },
+     {
+      "clueFragment": "place",
+      "gives": "VENUE",
+      "note": "a venue is a place where something happens"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "VENUE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what leads the way up to a stately home.",
+     "walkthrough": "The whole clue also defines: a tree-lined drive is the approach to a country house.",
+     "definitionFit": "An avenue is a broad tree-lined drive leading up to a grand house, its formal approach."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "introduction"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1406,56 @@
     "text": "Force opening of safety lock",
     "enumeration": "6"
    },
-   "solution": "STRESS"
+   "solution": "STRESS",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "STRESS",
+    "definitions": [
+     {
+      "text": "Force",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "opening of",
+      "for": "letter_selection",
+      "note": "the opening of a word is its first letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "safety",
+      "gives": "S",
+      "select": "first",
+      "note": "the first letter of safety"
+     },
+     {
+      "clueFragment": "lock",
+      "gives": "TRESS",
+      "note": "a lock of hair is a tress"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "TRESS"
+     ]
+    },
+    "explanation": {
+     "surface": "Breaking open a safety catch by brute strength.",
+     "walkthrough": "Lock is hair, not a fastening.",
+     "definitionFit": "In physics and engineering, stress is the force applied per unit area of a material."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "lock"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1469,47 @@
     "text": "Quietly play hackneyed phrase?",
     "enumeration": "9"
    },
-   "solution": "PLATITUDE"
+   "solution": "PLATITUDE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PLATITUDE",
+    "definitions": [
+     {
+      "text": "hackneyed phrase",
+      "at": 13
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Quietly",
+      "gives": "P",
+      "note": "P, piano, is the musical direction for soft"
+     },
+     {
+      "clueFragment": "play",
+      "gives": "LATITUDE",
+      "note": "play as in freedom of movement, slack"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "P",
+      "LATITUDE"
+     ]
+    },
+    "explanation": {
+     "surface": "A tired saying muttered softly in a performance.",
+     "walkthrough": "Play is not a drama but room to move.",
+     "definitionFit": "A platitude is a trite remark used so often it has lost any force or freshness."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "play"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1523,60 @@
     "text": "American tune recalled part of opera?",
     "enumeration": "4"
    },
-   "solution": "ARIA"
+   "solution": "ARIA",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "ARIA",
+    "definitions": [
+     {
+      "text": "part of opera",
+      "at": 23
+     }
+    ],
+    "indicators": [
+     {
+      "text": "recalled",
+      "for": "reversal",
+      "note": "recalled suggests calling back, so the tune runs in the opposite direction"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "American",
+      "gives": "A",
+      "note": "A abbreviates American"
+     },
+     {
+      "clueFragment": "tune",
+      "gives": "AIR",
+      "note": "an air is a tune"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "RIA"
+     ],
+     "reversals": [
+      {
+       "from": "AIR",
+       "to": "RIA"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A US melody remembered as a piece from an opera.",
+     "definitionFit": "An aria is a solo song for a single voice within an opera or oratorio."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "recalled"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1590,41 @@
     "text": "Part of core curriculum to come up time and again",
     "enumeration": "5"
    },
-   "solution": "RECUR"
+   "solution": "RECUR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "RECUR",
+    "definitions": [
+     {
+      "text": "to come up time and again",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Part of",
+      "for": "hidden_word",
+      "note": "part of signals a run of letters inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "core curriculum",
+      "gives": "RECUR",
+      "note": "the letters span the end of the first word and the start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "A subject in the essential syllabus that keeps reappearing.",
+     "definitionFit": "To recur is to happen repeatedly, coming back again and again."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 24,
@@ -409,7 +1638,48 @@
     "text": "What one did in cowboy competition mainly",
     "enumeration": "4"
    },
-   "solution": "RODE"
+   "solution": "RODE",
+   "annotation": {
+    "type": [
+     "and_lit",
+     "deletion"
+    ],
+    "answer": "RODE",
+    "definitions": [
+     {
+      "text": "What one did in cowboy competition mainly",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "mainly",
+      "for": "deletion",
+      "note": "mainly means most but not all, so the final letter goes"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "cowboy competition",
+      "gives": "RODEO",
+      "note": "a rodeo is a contest of cowboy skills"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RODE"
+     ]
+    },
+    "explanation": {
+     "surface": "Asking what a cowboy chiefly did at a riding contest.",
+     "walkthrough": "The whole clue defines too: at a rodeo the competitors mostly ride.",
+     "definitionFit": "Riding broncos and bulls is the main event at such a contest, and the past tense fits 'did'."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true
+    }
+   }
   },
   {
    "number": 25,
@@ -423,7 +1693,45 @@
     "text": "Upgrade level in auditorium",
     "enumeration": "5"
    },
-   "solution": "RAISE"
+   "solution": "RAISE",
+   "annotation": {
+    "type": [
+     "homophone"
+    ],
+    "answer": "RAISE",
+    "definitions": [
+     {
+      "text": "Upgrade",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in auditorium",
+      "for": "homophone",
+      "note": "an auditorium is where an audience listens, so we go by the sound"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "level",
+      "gives": "RAISE",
+      "soundsLike": "RAZE",
+      "note": "to level a building is to raze it to the ground"
+     }
+    ],
+    "explanation": {
+     "surface": "Improving the seating tier in a theatre.",
+     "walkthrough": "Level is a verb meaning flatten, and its sound gives the opposite of flattening.",
+     "definitionFit": "To raise something is to lift it to a higher grade or level, to promote it."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "level"
+    }
+   }
   },
   {
    "number": 26,
@@ -437,7 +1745,48 @@
     "text": "Order to restrict jumping with no restraint",
     "enumeration": "9"
    },
-   "solution": "BOUNDLESS"
+   "solution": "BOUNDLESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "BOUNDLESS",
+    "definitions": [
+     {
+      "text": "with no restraint",
+      "at": 26
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "jumping",
+      "gives": "BOUND",
+      "note": "to bound is to leap"
+     },
+     {
+      "clueFragment": "Order to restrict",
+      "gives": "LESS",
+      "note": "an instruction to cut down on something tells you to do it less"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BOUND",
+      "LESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A command to stop leaping about, given freely.",
+     "walkthrough": "Read the wordplay as a command, 'Bound less!', telling someone to jump less.",
+     "definitionFit": "Something boundless has no limits or borders, so nothing holds it in check."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "Order"
+    }
+   }
   }
  ]
 }
