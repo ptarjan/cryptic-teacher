@@ -77,10 +77,11 @@ CLASSES = [
      "the standing full pass re-reads it (bump REREAD_BEFORE in tools/ocr_full_pass.sh)", True, "tools/ocr_full_pass.sh"),
     ("write-refused", "read; the write path refused the puzzle", "see the ledger's refusedWrite", True, "tools/file_archive_org_puzzles.py"),
     ("read-not-filed", "read whole, but no file for that date", "look at the ledger row", True, "tools/file_archive_org_puzzles.py"),
-    ("no-crossword-found", "fetched; no crossword heading found on any page we hold",
-     ("the fetcher holds the wrong pages: titles the OCR garbled and the page densest with clue counts are read "
-      "(DETECTOR_VERSION 5); for the rest, look for the grid by image on every leaf of the issue "
-      "(only a crosswordless issue leaves the count), then DETECTOR_VERSION"), True, "tools/fetch_archive_org_editions.py"),
+    ("no-crossword-found", "scanned; no crossword title found on any page we hold",
+     ("mostly a title the scan misread, not a wrong page: the 1980s FT's two-line and beside-the-grid titles "
+      "are read (scan_key), and the fetcher takes the FT unit trust page (DETECTOR_VERSION 6); left: scans "
+      "that lack the crossword page, grids no title read finds; a crosswordless issue (FT 1984-03-01) is the floor"),
+     True, "tools/fetch_archive_org_editions.py"),
     ("filed-other-date", "its puzzle number is filed, under another date", "date the file right", True, "tools/file_archive_org_puzzles.py"),
     ("number-date-mismatch", "the item's date and the puzzle number disagree", "none: archive.org's date is wrong", False, "tools/file_archive_org_puzzles.py"),
     ("no-listing", "the year's archive.org item listing is not cached",
@@ -210,10 +211,15 @@ def verdict_class(row, by_number):
     """The class of an unfiled edition the filer has read: `row` is its
     ledger row. Read off the verdict's fields, never its prose: a refusal
     files its `cause` (file_archive_org_puzzles.REFUSALS), and one read
-    before that field existed is "refused-no-cause" until it is read again."""
+    before that field existed is "refused-no-cause" until it is read again.
+    A row the filer has scanned but not read (no "inputs", its due_reason's
+    "never read") is "not-read" while its scan holds a title; reading reads
+    only the scan's titles, so one whose scan holds none is
+    "no-crossword-found", read or not."""
     vs = row.get("verdicts") or []
     if not vs:
-        return "no-crossword-found"
+        return "not-read" if "inputs" not in row and (row.get("scan") or {}).get("puzzles") \
+            else "no-crossword-found"
     v = next((v for v in vs if v.get("id")), vs[0])
     if v.get("number") in by_number:
         return "filed-other-date"
