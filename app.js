@@ -220,9 +220,9 @@
     const today = new Date().toISOString().slice(0, 10);
     const seen = store.get("ct:seen", null);
     // Decided ABOVE the once-a-day gate, and from the tally rather than from
-    // reaching this line: the gate exists to send one beacon a day, and hanging
-    // the first-visit lines off it meant a browser that had already loaded the
-    // site once today was never offered them at all — including the reload that
+    // reaching this line: the gate exists to send one beacon a day, so a browser
+    // that has already loaded the site today would never be offered the
+    // first-visit lines if they hung off it — including on the reload that
     // is how anyone checks. A tally of one is a browser on its first ever day,
     // however many times it opens the grid; a browser with grids already in it
     // has plainly been here before, whatever the tally says.
@@ -247,9 +247,9 @@
      the thing it asked for, so the site teaches itself and then shuts up.
 
      Only for a browser whose FIRST EVER visit this is — the same fact reportVisit
-     just worked out, taken from it rather than asked again, because a regular
-     whose first visit predates this code has plainly been here before and must
-     not be taught the site.
+     just worked out, taken from it rather than asked again, because a browser
+     with grids already in it has plainly been here before and must not be
+     taught the site.
 
      A cursor, not a set of flags: the lines are strictly ordered, exactly one is
      on screen, and everything that spends one advances the same integer. Nothing
@@ -292,7 +292,7 @@
   // the line in the panel, or the caption beside the spotlight — and the node
   // that is not saying it has to be EMPTY. Left in both and hidden in CSS, one
   // stale stylesheet is all it takes for the solver to read the same
-  // instruction twice ("I see your text twice", Paul, 2026-09-21).
+  // instruction twice.
   let nuxSaid = "";
   // Whether this browser has taken a rung since the ladder line went up, which
   // is the difference between the two wordings of that line.
@@ -327,10 +327,6 @@
     nuxDraw();
   }
 
-  // Drawn from refreshAll, after the panel it sits in. Every line is about the
-  // row of rung buttons, so every one waits for that row to exist: a clue with no
-  // annotation has no ladder to explain, and an unannotated puzzle must not
-  // start the lesson.
   // Whether the rung the welcome dialog just promised should be pointed at. Read
   // by renderHintPanel as it builds the row: "take the first one" is no use to
   // someone looking at five identical buttons for the first time.
@@ -447,6 +443,10 @@
       + " into the highlighted squares — typing it in yourself finishes a clue without using a hint.";
   }
 
+  // Drawn from refreshAll, after the panel it sits in. Every line is about the
+  // row of rung buttons, so every one waits for that row to exist: a clue with no
+  // annotation has no ladder to explain, and an unannotated puzzle must not
+  // start the lesson.
   function nuxDraw() {
     const el = $("nux");
     if (!el) return;
@@ -539,8 +539,7 @@
     if (ask || (open && !nuxTypeIt(on))) {
       // The words being pointed at, and nothing else. A hole around the whole
       // clue lights every word in it, which is the opposite of pointing at one
-      // ("you should just highlight that part", Paul, 2026-09-21) — and the
-      // clue stretches the hole across the question below it too, so the light
+      // — and the clue stretches the hole across the question below it too, so the light
       // ends up over most of the panel. Picked off the same predicate that
       // painted the pulse, so the hole and the pulse cannot name different
       // words, and the light moves to the question below the moment the last
@@ -647,9 +646,9 @@
   // ---------- ids ----------
   // A puzzle's id is its series and its number ("cryptic-30089"), because every
   // paper numbers from its own 1 and the ranges only look far apart until a new
-  // paper arrives in one of them. The id used to be the number, so
-  // puzzles/<n>.js was the whole namespace and the second paper to reach a
-  // number would have shared the first one's file.
+  // paper arrives in one of them. A bare number would be one namespace for
+  // every paper, and the second paper to reach a number would share the first
+  // one's puzzle file.
   //
   // Numbers stay numbers everywhere a person reads one. This is a key, and the
   // bare form has to keep working forever: it is in every link already shared,
@@ -663,10 +662,10 @@
   //
   // THE SHELF IS NOT SPELLED HERE. tools/data/books.json is the registry —
   // one row per physical book — and tools/fetch_puzzle.py --reindex copies the
-  // browser's half of it into puzzles/index.json, which is what this reads. An
-  // 18-key table of shelf labels used to sit at this spot, hand-mirrored from
-  // tools/series.py, and two copies of one fact is how a shelf comes to be
-  // spelled two ways — one of them on the page a reader is looking at.
+  // browser's half of it into puzzles/index.json, which is what this reads. A
+  // second copy of that table here, hand-mirrored from tools/series.py, is how
+  // a shelf comes to be spelled two ways — one of them on the page a reader is
+  // looking at.
   //
   // The index a number carries is NOT the volume the book prints on itself:
   // two publishers' volume 2 are different books, so the index is this repo's
@@ -680,7 +679,7 @@
 
   // The registry row for a puzzle, or null if it is not out of a book. Null
   // for a book the index does not describe too, which is the right failure for
-  // an index deployed before this table existed: the number prints raw and no
+  // an index with no books table: the number prints raw and no
   // legacy id is built, rather than a made-up book being named.
   function bookOf(series, number) {
     if (series !== BOOK_SERIES) return null;
@@ -763,12 +762,10 @@
 
   // A puzzle file is fetched when something needs it, and not before.
   //
-  // Booting used to inject a <script> for EVERY puzzle in the index and wait for
-  // the last of them to land before painting anything: 230 requests and about
-  // 1.4 MB to put one crossword on the screen, which is most of the "little
-  // while" a phone spends on a cold open. Two things need a
-  // puzzle's contents — openPuzzle, and pickerStatus for a puzzle you have
-  // already put letters in — and both of them now ask for it.
+  // Loading every puzzle in the index before painting would be hundreds of
+  // requests and over a megabyte to put one crossword on the screen. Two things
+  // need a puzzle's contents — openPuzzle, and pickerStatus for a puzzle you
+  // have already put letters in — and both of them ask for it.
   //
   // puzzleLoad[id] is the queue of callbacks while the file is in flight, and 1
   // once it has settled. Settled, not loaded: a file that 404s answers everyone
@@ -795,9 +792,8 @@
 
   // Every puzzle this browser has letters saved for, id -> progress. Built by
   // walking localStorage, which holds one key per STARTED puzzle — a handful —
-  // rather than by asking it about each of the 15,992 indexed ones. The picker
-  // asked the long way round on every keystroke, and a chip tap that matched
-  // thousands asked twice per match on top of that.
+  // rather than by asking it about each indexed puzzle, which the picker would
+  // otherwise do on every keystroke.
   //
   // Kept until something writes a ct: key, which store.set and store.del below
   // are the only ways to do: a letter typed, a sync merge landing, a reset, the
@@ -842,7 +838,7 @@
   // because a sync pull can hand this browser progress on a puzzle it has never
   // held.
   function loadStartedPuzzles(then) {
-    // Driven off the SAVES, which are a handful, rather than off the 15,992-row
+    // Driven off the SAVES, which are a handful, rather than off the whole
     // catalogue filtered down to that handful — the picker calls this every
     // time it opens. The two are the same set from opposite sides:
     // savedProgress() holds only ids with letters, and BY_ID is the membership
@@ -880,8 +876,8 @@
   // order the solver asked for them. A SET, not a high-water mark: the ladder
   // has a recommended order but no required one, so wanting the indicators
   // without being told the definition first is a legitimate way to solve and
-  // the model has to be able to represent it. The old integer couldn't — it
-  // could only say "the first N", so every rung dragged in the ones below it.
+  // the model has to be able to represent it. A high-water integer could only
+  // say "the first N", so every rung would drag in the ones below it.
   let hintsShown = {};
   // entryKey -> the rungs that were EARNED: the solver was asked to point at the
   // words first and got them right, so the rung opened without costing a hint.
@@ -897,20 +893,20 @@
   // piece 2, so "how many" says everything "which ones" would. The rungs are the
   // opposite — the solver picks among them — which is why that one is a set.
   //
-  // Why it exists at all: the rung used to hand over every piece at once, and
-  // for the 78% of clues built from more than one piece that is not a hint, it
-  // is the answer. A charade's assembly is "read them in order", so the letters
+  // Why it exists at all: a rung that hands over every piece at once is not a
+  // hint for a clue built from more than one piece, it is the answer. A charade's assembly is "read them in order", so the letters
   // ARE the solve; an anagram's is not, which is why the same rung felt like
   // work on one clue and like cheating on the next.
   let blocksAt = {};
   let revealsUsed = {};  // entryKey -> number of letters revealed (escape hatch)
   let solvedWith = {};   // entryKey -> how many rungs were up when first solved
   // { startedAt, lastAt, activeMs, solvedAt, solvedMs } — see sync/merge.js.
-  // Nothing on the page reads this: it is recorded because a solve-time index
-  // (the SNITCH divides your time by your own six-month average) can only ever
-  // be built out of history that was already being kept, and there is no such
-  // index for the Guardian, the Independent, Everyman or the Quiptic — see
-  // tools/difficulty.py. Whether a solve was clean stays derivable from
+  // The page reads only the dates (solvedAt, lastAt), for the stats ledger and
+  // the streak. The durations are recorded because a solve-time index (the
+  // SNITCH divides your time by your own six-month average) can only ever be
+  // built out of history that was already being kept, and there is no such
+  // index for the Guardian, the Independent, the Observer or the Telegraph —
+  // see tools/difficulty.py. Whether a solve was clean stays derivable from
   // hintsShown and revealsUsed rather than being copied in here.
   let timing = {};
   // Elapsed time is not solving time: a crossword is done on a bus, then in an
@@ -1126,8 +1122,8 @@
     // When each square last changed, carried forward from the previous save
     // and re-stamped only where something actually moved. Rubbing a letter
     // out leaves no letter behind, so without this the merge cannot tell a
-    // square you cleared from one you never filled in — and it put the
-    // letters straight back. A stamp with no letter is
+    // square you cleared from one you never filled in, and would put the
+    // letter straight back. A stamp with no letter is
     // how a deletion gets to the other device.
     const letterAt = Object.assign({}, prev.letterAt);
     forEachCell((c) => {
@@ -1595,8 +1591,8 @@
      the papers and sent with them.
 
      Seven in the morning by default, because the annotation run finishes in the
-     small hours and the first notification this ever sent arrived in
-     the middle of the night. A device that never opens the panel still gets the
+     small hours and a notification then would arrive in the middle of the
+     night. A device that never opens the panel still gets the
      default: refreshNotify() re-asserts on every load, so the hold arrives with
      the next page view rather than waiting for someone to go looking for it. */
   const NOTIFY_AFTER_KEY = "ct:notify-after";
@@ -1734,10 +1730,9 @@
   // at a time, because two boxes tapped in a second would otherwise race and the
   // slower answer would be the one stored.
   //
-  // The second tick is QUEUED, never dropped. Dropping it lost the tick, and
-  // then the first save's redraw repainted that box from the store and unticked
-  // it — so on a slow connection one paper came back unticked and the others
-  // did not, as seen in Windows Chrome.
+  // The second tick is QUEUED, never dropped: a dropped tick would be
+  // repainted from the store by the first save's redraw, and its box would
+  // come back unticked.
   //
   // notifyWant is what the panel has been ASKED for; the store is what the
   // Worker has agreed to. Between a tick and its answer the two differ, and a
@@ -1912,8 +1907,8 @@
             const t = ev.changedTouches[0];
             // preventDefault FIRST, on both paths. It is what suppresses the
             // mouse events iOS synthesises after a touch, and the mousedown
-            // above is one of them — so bailing out before it meant a finger
-            // that HAD moved fell through to mousedown and selected the cell
+            // above is one of them — so bailing out before it would let a finger
+            // that HAD moved fall through to mousedown and select the cell
             // anyway, which is the exact thing this guard exists to stop.
             ev.preventDefault();
             if (touchAnchor && Math.hypot(t.clientX - touchAnchor.x, t.clientY - touchAnchor.y) > 10) return;
@@ -2011,9 +2006,7 @@
         // and scrolls it into view, so the list moves under the finger between
         // the touch going down and the click coming out — and on an iPad a
         // second click then lands on whatever row has slid into that spot, which
-        // is the clue that was selected a moment ago ("clicking a clue with a
-        // crossing clue sometimes double clicks and reselects the first selected
-        // clue", on an iPad). Nobody picks two clues a third of a
+        // is the clue that was selected a moment ago. Nobody picks two clues a third of a
         // second apart on purpose, so the second one is the accident.
         li.addEventListener("click", () => {
           if (clueTapIsAnAccident()) return;
@@ -2049,13 +2042,10 @@
 
   // Every rung marks up its OWN words, independently of the others.
   //
-  // This used to be gated on the definition rung: no definition, no markup of
-  // any kind. That was invisible while the ladder was strictly ordered, and
-  // broke the moment tier 0 let you take the rungs in any order — ask for the
-  // indicators first, which is a legitimate route because working out where the
-  // definition sits is most of the skill, and the clue stayed completely
-  // unmarked, so the one hint you spent showed you nothing (choosing just
-  // the indicator rung could leave the parts of the clue unhighlighted).
+  // Markup is not gated on the definition rung. Tier 0 lets you take the rungs
+  // in any order — asking for the indicators first is a legitimate route
+  // because working out where the definition sits is most of the skill — so a
+  // clue with only the indicator rung up must still show them.
   // Rule: highlight exactly what has been revealed, and
   // never anything that hasn't.
   // The setter's italics and the solver's highlights are two independent lists
@@ -2109,20 +2099,17 @@
   const plainClueHTML = (e) => markUp(clueText(e), [], italicsOf(e)) + enumHTML(e);
 
   // Where a fragment goes is a placement, not a search. indexOf() takes the
-    // first substring that matches and two things went wrong with that, both
-    // reported as the same thing — a highlight you had paid for not being there
-    // ("I think it might always be the indicator clue which is disappearing
-    // after click").
-    //
-    //   mid-word  the indicator 'in' matched inside "Conclud(in)g", "island",
-    //             "confusion" — 18 clues in the corpus were marking a syllable
-    //             of an innocent word instead of the instruction;
-    //   dropped   and then, because the wrong position usually landed under the
-    //             definition, the overlap rule below threw the indicator away
-    //             entirely — 15 clues, and always the indicator, because
-    //             indicators are pushed last and the loser was whoever came
-    //             second. Buying the definition made an earlier hint vanish.
-    //
+  // first substring that matches, and that goes wrong two ways:
+  //
+  //   mid-word  the indicator 'in' matches inside "Conclud(in)g", "island",
+  //             "confusion", marking a syllable of an innocent word instead of
+  //             the instruction;
+  //   dropped   because the wrong position usually lands under the definition,
+  //             the overlap rule below would throw the indicator away
+  //             entirely — and always the indicator, because indicators are
+  //             pushed last and the loser is whoever comes second. Buying the
+  //             definition would make an earlier hint vanish.
+  //
   // So each fragment takes the best occurrence still going: on word
   // boundaries, and not already spoken for. Nothing is ever dropped — a rung
   // that has been bought stays on the screen, which is the whole contract.
@@ -2269,8 +2256,7 @@
       li.classList.toggle("solved", solved);
       // The gold star is a standing fact about how this clue was solved, not a
       // moment — it must be right on every render, including a fresh boot that
-      // never ran celebrateSolve() at all (feedback in the same request that
-      // asked for the flash: "should PERSIST... not just flash").
+      // never ran celebrateSolve() at all.
       li.classList.toggle("no-hints", solved && noHintsSolve(e));
     });
   }
@@ -2294,31 +2280,32 @@
   // either way you had to go looking for it. block:"nearest" is what keeps
   // this from being annoying: it scrolls the least it can, and does nothing at
   // all when the panel is already visible, which is the desktop two-column
-  // case. Only fires when the SELECTED ENTRY CHANGES — scrolling on every
-  // keystroke or arrow key would be intolerable.
+  // case. Typing and the arrow keys do not come through here — scrolling on
+  // every keystroke would be intolerable.
   // A little air above the panel when it is scrolled to the top of the screen,
   // so it reads as the top of something rather than as a cut-off.
   const HINT_SCROLL_GAP = 8;
-  // scrollIntoView({block:"nearest"}) did this job and did it in two goes on an
-  // iPad in portrait: one tap moved a little, the next moved the rest. Two causes, both fixed here.
+  // scrollIntoView({block:"nearest"}) would take two goes on an iPad in
+  // portrait: one tap moves a little, the next moves the rest. Three rules
+  // avoid that.
   //
-  // It measured too early. refreshAll() has just rewritten the panel and a
+  // Measure late. refreshAll() has just rewritten the panel and a
   // different clue is a different height — fewer rungs up, a longer clue, a
   // wider letter strip — so the page reflows and, on iOS, the smooth scroll in
   // flight gets clamped against a document that changed under it. Measure after
   // layout, never in the same tick as the tap.
   //
-  // And it was relative. "nearest" scrolls the least it can FROM WHERE YOU ARE,
+  // Place absolutely. "nearest" scrolls the least it can FROM WHERE YOU ARE,
   // so the same tap lands somewhere different depending on where you started,
   // which is what "a bit, then all the way" is. Computing one absolute target
   // makes the move idempotent: after it, the panel is fully on screen, so the
   // next tap takes the already-visible branch and the page holds still. That
   // branch is also what keeps the desktop's two columns from ever scrolling.
   //
-  // And it measured the wrong screen. iOS does NOT shrink window.innerHeight when
-  // the soft keyboard comes up: the layout viewport stays its full height and the
-  // keys sit on top of the bottom third of it, so a panel this code called "fully
-  // in view" was parked behind them, on an iPad. visualViewport is
+  // Measure the screen the reader can see. iOS does NOT shrink window.innerHeight
+  // when the soft keyboard comes up: the layout viewport stays its full height
+  // and the keys sit on top of the bottom third of it, so a panel judged "fully
+  // in view" against it can be parked behind them, on an iPad. visualViewport is
   // the part still showing — and since tapping a clue also raises the keyboard,
   // this is the ordinary case, not an edge one.
   //
@@ -2334,12 +2321,10 @@
     }
     return { top: 0, bottom: window.innerHeight || 0 };
   }
-  // One tap, one move. This used to scroll the moment the tap was handled and
-  // then re-place on every visualViewport resize for the next 1.2 seconds, which
-  // on an iPhone is a fight it cannot win — "scrolls down then back up a bit then
-  // wiggles before stopping", on an iPhone. Three things were going
-  // wrong at once, and all three are the same mistake: SCROLLING BEFORE THE
-  // VIEWPORT HAS STOPPED MOVING.
+  // One tap, one move. Scrolling the moment the tap is handled and then
+  // re-placing on every visualViewport resize is a fight a phone cannot win.
+  // Three things go wrong at once, and all three are the same mistake:
+  // SCROLLING BEFORE THE VIEWPORT HAS STOPPED MOVING.
   //
   //   down    the first measurement happens with the keyboard still on its way
   //           in, so the band is the whole screen and the panel gets bottom-
@@ -2367,16 +2352,15 @@
   //
   // The trigger is deliberately NOT "does the panel look wrong now" — the smooth
   // scroll is very likely still in flight at this point, so the panel legitimately
-  // looks wrong and re-scrolling on that is the wiggle again. It is "did the
-  // visible band move after we committed to it", which is the miss itself and
-  // nothing else. And exactly one, never re-armed by viewport events. The target
+  // looks wrong and re-scrolling on that is the wiggle again. It is whether the
+  // keyboard is in a different state from when we placed (see
+  // confirmHintPlacement). The target
   // is safe to recompute mid-flight: y + r.top is the panel's position in the
   // document, which scrolling does not change.
   const HINT_CONFIRM_MS = 450;
   // The first tap of a session is the slow one: the keyboard has never been
   // raised, so iOS builds it cold — keys, then the predictive bar — and the
-  // resize can land well past deadline + one confirm, which is "the first click
-  // which brings up the word seems to not scroll", on an iPad).
+  // resize can land well past deadline + one confirm.
   // Every later tap finds the keyboard already up, resizes nothing, and lands on
   // the first placement, which is why only the first one misses.
   //
@@ -2384,24 +2368,20 @@
   // at a fixed delay: a viewport event inside the watch window pushes it further
   // out, and the window bounds how long it can be pushed.
   //
-  // A TAP MOVES THE PAGE AT MOST TWICE, and that budget is the load-bearing part.
-  // Letting the confirm re-arm itself after it fired was "clicking 3d with all
-  // the hints open scrolls down then up then down then up then down", on an
-  // iPad: our own smooth scroll moves the visual viewport, which fires the
-  // same events the keyboard does, so a confirm that can re-place and then watch
-  // again is a loop feeding on its own output, and nothing in the measurement can
-  // tell the two apart — a pan and a keyboard both just move the band. The budget
-  // can, because it does not have to know why the band moved. One placement on
-  // the best information available, one correction once everything has stopped,
-  // and then the page belongs to the reader again.
-  const HINT_WATCH_MS = 5000;
-  // How long the one correction stays available after the tap. A keyboard that
+  // The correction is gated on the keyboard, not on a count of moves (see
+  // confirmHintPlacement). Our own smooth scroll moves the visual viewport,
+  // which fires the same events the keyboard does, so a correction that fired on
+  // any viewport event would be a loop feeding on its own output: a pan and a
+  // keyboard both just move the band. Whether a keyboard is up does not change
+  // under our own scroll, so a correction gated on it cannot loop.
+  //
+  // How long the correction stays available after the tap. A keyboard that
   // has not started coming up yet looks exactly like a viewport that is never
   // going to move — both are silence — so the placement goes ahead against the
   // band as it is, and this window is the room the keys have to arrive in and be
   // scrolled clear of. Long enough for a cold first keyboard, which is the slow
   // one; past it the page belongs to the reader again.
-  //
+  const HINT_WATCH_MS = 5000;
   // Taller than any URL bar, shorter than any soft keyboard: the two are an order
   // of magnitude apart, so nothing hinges on where in the gap this sits.
   const KEYBOARD_MIN_PX = 100;
@@ -2412,10 +2392,9 @@
   }
   // Nothing is ever waited for. A tap CANNOT know whether a keyboard is coming:
   // an iPad with a hardware keyboard, or one whose keyboard was dismissed with
-  // the chevron, looks exactly like a phone about to raise one, so every rule
-  // for guessing it has ended up holding the page still for a second on the
-  // devices where the keys were never coming ("selecting a clue still delays
-  // before scrolling about a second" — the second go at this).
+  // the chevron, looks exactly like a phone about to raise one, so any rule
+  // for guessing it holds the page still for a second on the devices where the
+  // keys were never coming.
   // So: place on the settle, always, and if a keyboard does turn up it is a
   // viewport change like any other and confirmHintPlacement re-places for it.
   // A tap that guessed right costs one move; the phone that raises keys pays for
@@ -2464,27 +2443,24 @@
     if (confirmTimer) clearTimeout(confirmTimer);
     confirmTimer = setTimeout(confirmHintPlacement, delay);
   }
-  // The correction fires on the keyboard, not on the band. "Did the band move
-  // since we committed to it" sounds like the miss and isn't: OUR OWN SMOOTH
-  // SCROLL moves it, because iOS pans the visual viewport under a scroll and
-  // slides the URL bar away as well, so every well-placed panel then bought
-  // itself a second move — down, then up a little, on iOS. The
-  // band cannot say who moved it.
+  // The correction fires on the keyboard, not on the band. The band cannot say
+  // who moved it: OUR OWN SMOOTH SCROLL moves it, because iOS pans the visual
+  // viewport under a scroll and slides the URL bar away as well, so a
+  // correction keyed on the band would give every well-placed panel a second
+  // move — down, then up a little, on iOS.
   //
-  // The keyboard can. It is the one thing we were unsure about when we measured,
-  // it is the only thing that can invalidate the placement, and at a hundred
-  // pixels it is out of reach of a pan or a toolbar. So: re-place only if the
-  // keyboard is not in the state it was in when we placed. A tap that measured
-  // the truth costs exactly one move; the correction is left for the tap that
-  // guessed.
-  // What bounds the correction is the KEYBOARD, not a budget. It re-places only
-  // when the keys are not in the state they were in when we placed, so our own
-  // smooth scroll, a URL bar sliding away and a pan all cost nothing and cannot
-  // feed the wiggle — none of them changes whether a keyboard is up. A counted
-  // allowance could not tell those apart: whichever event fired first spent it,
-  // and the keys then came up over the clue with nothing left to move it ("the
-  // keyboard still covers sometimes", after one allowance was
-  // not enough). Every transition inside the watch window is corrected for —
+  // The keyboard can say. It is the one thing we were unsure about when we
+  // measured, it is the only thing that can invalidate the placement, and at a
+  // hundred pixels it is out of reach of a pan or a toolbar. So: re-place only
+  // if the keyboard is not in the state it was in when we placed. A tap that
+  // measured the truth costs exactly one move; the correction is left for the
+  // tap that guessed.
+  // What bounds the correction is the KEYBOARD, not a budget: our own smooth
+  // scroll, a URL bar sliding away and a pan all cost nothing and cannot feed
+  // the wiggle, because none of them changes whether a keyboard is up. A counted
+  // allowance could not tell those apart — whichever event fired first would
+  // spend it, and the keys would then come up over the clue with nothing left
+  // to move it. Every transition inside the watch window is corrected for —
   // keys up and keys away, however many times either happens — and once the
   // window is past the page belongs to the reader again.
   function confirmHintPlacement() {
@@ -2531,11 +2507,8 @@
     const top = (r.height > vh - HINT_SCROLL_GAP || r.top < band.top)
       ? y + r.top - band.top - HINT_SCROLL_GAP
       : y + r.bottom - band.bottom + HINT_SCROLL_GAP;
-    // Smooth: the travel is how the reader keeps their place, and "the smooth
-    // scroll was nice", on an iPad. What read as slow was never the
-    // animation, it was the wait in front of it: the panel used to be held back
-    // until a keyboard that was never coming had had its chance. Fix the wait,
-    // keep the travel. Reduced motion gets the jump instead, as everywhere else.
+    // Smooth: the travel is how the reader keeps their place. Reduced motion
+    // gets the jump instead, as everywhere else.
     const still = window.matchMedia &&
       matchMedia("(prefers-reduced-motion: reduce)").matches;
     // Ours, not the reader's — see markOwnScroll() below the keyboard rules, so
@@ -2576,17 +2549,14 @@
   });
 
   // Every tap on the grid brings the clue to you, including a tap on the entry
-  // already selected. This used to fire only when the SELECTED ENTRY CHANGED,
-  // which made the one tap nobody can avoid the one that did nothing: 1-across
-  // is selected before you touch anything, so starting the puzzle by tapping its
-  // first square left the clue off the bottom of the screen and the keyboard
-  // over where it would have been.
+  // already selected: 1-across is selected before you touch anything, so
+  // starting the puzzle by tapping its first square must still bring the clue
+  // into view.
   //
-  // The guard was never what stopped the page moving under a reader — typing and
-  // the arrow keys do not come through here, and placeHintPanel already does
-  // nothing when the panel is fully in the visible band. So it only ever
-  // suppressed the case where the panel is NOT in view, which is the case that
-  // needs it. A tap is a deliberate act; treat every one the same.
+  // Nothing needs gating on the selection changing: typing and the arrow keys
+  // do not come through here, and placeHintPanel already does nothing when the
+  // panel is fully in the visible band. A tap is a deliberate act; treat every
+  // one the same.
   function onCellClick(c) {
     if (cur.x === c.x && cur.y === c.y) {
       const other = cur.dir === "across" ? "down" : "across";
@@ -2595,12 +2565,11 @@
       cur.x = c.x; cur.y = c.y;
       if (!c[cur.dir]) cur.dir = c.across ? "across" : "down";
     }
-    // Picking a square picks a CLUE. It used to raise the keyboard as well, on
-    // the reading that tapping a square is a decision to type — but the first
+    // Picking a square picks a CLUE and does not raise the keyboard: the first
     // thing the ladder does with a clue you have just picked is ask you a
     // question you answer by tapping, and a keyboard over the bottom half of
     // the screen buries it. The letter strip under the clue
-    // is where typing starts now, and it is the only thing that summons one.
+    // is where typing starts, and it is the only thing that summons one.
     // A jigsaw's square picks no clue, so tapping one is a decision to type.
     if (jigsaw) focusKbd(); else keepKbd();
     hintFocus = jigsaw ? hintFocus : null;
@@ -2696,8 +2665,7 @@
   // is right and the grid has said so, so there is nothing a keystroke on one
   // can be except an accident — including the accident of backspacing through it
   // from the crossing entry you are actually typing in, which is the same letter
-  // seen from the side ("deleting a letter from a confirmed word shouldn't be
-  // possible, or doing it from closing a crossing entry").
+  // seen from the side.
   // Typing over a letter is a delete with a letter on the end of it, so it is
   // refused in the same place. Clearing the whole puzzle still clears it: that
   // is asked for, by name, and this is only ever about the accidents.
@@ -2792,8 +2760,8 @@
   // apart: dismiss the keys with the chevron and the input stays focused with no
   // keyboard on screen. Re-focusing a focused input is a no-op on a desktop, but
   // inside a touch gesture iOS reads it as a fresh request and puts the keyboard
-  // BACK — so on that one state this function summoned the very thing it exists
-  // to avoid summoning, on an iPad home-screen app. There is nothing
+  // BACK — so on that one state this function would summon the very thing it exists
+  // to avoid summoning. There is nothing
   // to keep when nothing is up, so keep nothing.
   //
   // Losing the focus costs no typing: the document-level keydown handler feeds
@@ -2864,8 +2832,8 @@
   // ---------- checking / revealing ----------
   function canCheck() { return hasSolutions(); }
 
-  // A check must ALWAYS visibly answer (checking a correct entry used to
-  // change nothing on screen, so the button read as broken). Two signals:
+  // A check must ALWAYS visibly answer (a check that changed nothing on screen
+  // would read as a broken button). Two signals:
   // a sentence in #check-result saying what was found, and a brief pulse on the
   // squares that were examined, so you can see WHICH squares the check covered.
   function checkCells(list, scope) {
@@ -2914,17 +2882,18 @@
     setTimeout(() => list.forEach((c) => { if (c.el) c.el.classList.remove("pulse"); }), 600);
   }
 
-  // A tint that settles away on the cells you just finished — the small nod a
-  // silent lock-in was missing: celebrate gently when a clue is solved. Only
+  // A tint that settles away on the cells you just finished: a gentle
+  // celebration when a clue is solved. Only
   // typeLetter's call into checkSolvedEntries passes viaType,
   // so this never fires from revealLetter or fillAnswer: a revealed answer is
   // not a solve. class add/remove, same shape as pulseCells above, so a
   // reduced-motion visitor still gets the held tint the CSS falls back to.
   //
   // Solved with no hints and no letter reveals gets the gold ("clean") tier
-  // instead of the green one — same duration, same easing, colour only. noHintsSolve() reads solvedWith/revealsUsed, both of which
-  // were already persisted for scoring before this existed, so the distinction
-  // needs no new storage and survives a reload the same way the score does.
+  // instead of the green one — same duration, same easing, colour only.
+  // noHintsSolve() reads solvedWith/revealsUsed, both persisted for scoring, so
+  // the distinction needs no extra storage and survives a reload the same way
+  // the score does.
   function celebrateSolve(e) {
     nuxAdvance();
     const clean = noHintsSolve(e);
@@ -3006,17 +2975,12 @@
     return (h.group || [entryId(h)]).map((id) => byId[id]).filter(Boolean).every(isEntrySolved);
   }
 
-  // viaType marks the one call (typeLetter) that represents an actual solve;
-  // revealLetter and fillAnswer call this too, to keep solvedWith/scoring
-  // exactly as it was, but must not trigger celebrateSolve() — revealing the
-  // rest of an answer is not the moment being celebrated.
   // Solving the clue with the building blocks open is the blocks rung having
   // done its job rather than given the answer away. It hands over the PIECES —
   // fodder, a container, a hidden word's carrier — and putting them together is
   // the work it deliberately leaves to the solver; doing that work and arriving
   // at the answer is not a hint bought, so the rung is WORKED OUT, the same deal
-  // a right answer to a rung's question already gets. ("Any building blocks
-  // should be free if you solve while it is open".)
+  // a right answer to a rung's question already gets.
   //
   // Before solvedWith is frozen, not after: unlike the pending-guess case below,
   // this rung is already up and already inside the count being taken.
@@ -3025,6 +2989,10 @@
     if (earnedRungs(e).indexOf("blocks") < 0) earnedRungs(e).push("blocks");
   }
 
+  // viaType marks the one call (typeLetter) that represents an actual solve;
+  // revealLetter and fillAnswer call this too, so solvedWith is frozen for them
+  // as well, but must not trigger celebrateSolve() — revealing the
+  // rest of an answer is not the moment being celebrated.
   function checkSolvedEntries(viaType) {
     let typedOne = false;
     entries.forEach((e) => {
@@ -3037,11 +3005,10 @@
         // the rung buttons stop quizzing once a clue is solved. So hand the
         // rung over instead of dropping the guess on the floor: you were owed
         // an explanation and the score is settled anyway, so it is free.
-        // Marked WORKED OUT, not merely handed over. The score was already
-        // settled a line above and the rung is genuinely free either way, but
-        // the panel says which rungs were earned and which were bought, and
-        // this one arrived looking bought: "the step never said worked out ·
-        // free". Solving the clue is a better answer to
+        // Marked WORKED OUT, not merely handed over. The score is already
+        // settled above and the rung is free either way, but the panel says
+        // which rungs were earned and which were bought, and a handed-over rung
+        // would look bought. Solving the clue is a better answer to
         // "which words define it" than pointing at the words, so it is scored
         // as one.
         if (guessing && guessing.key === entryKey(e)) {
@@ -3061,7 +3028,7 @@
   // ---------- hint ladder ----------
   // The ladder is BUILT PER CLUE, not fixed: a rung only exists if it has
   // something to say. A double definition has no indicators, so it gets no
-  // "spot the indicator" rung (which used to read "No indicator words"), and
+  // "spot the indicator" rung, and
   // its rungs are worded for two definitions rather than one. See APP.md.
   const FILL_LABEL = "Fill in answer";
 
@@ -3081,19 +3048,18 @@
   const TYPES = Object.fromEntries(INDEX.clueTypes.types.map((t) => [t.name, t]));
   const FAMILIES = INDEX.clueTypes.families;
 
+  // The chips the type rung offers, commonest first. The families are in
+  // precedence order, so that order cannot also be the order a solver reads: read
+  // as one it would open with "Definitions only" and "&lit", which are among the
+  // rarest families, in front of every solver on every clue.
+  const FAMILY_CHIPS = FAMILIES.slice().sort((a, b) => b.n - a.n).map((f) => f.label);
+
   // Every family a compound type actually uses, dominant one first. A clue can be
-  // more than one thing at once — "there was a regularly indicator but I said it
-  // was a charade" — and on a type like "charade with
+  // more than one thing at once, and on a type like "charade with
   // alternate letters" both answers are the truth. The ladder still NAMES one,
   // because a headline has to pick, but marking the others wrong teaches the
   // solver that a clue has exactly one mechanism, which is the opposite of what
   // this rung is for.
-  // The chips the type rung offers, commonest first. The
-  // families are in precedence order, so that order cannot also be
-  // the order a solver reads, and read as one it opened with the two rarest
-  // families, putting "Definitions only" and "&lit" in front of every solver on
-  // every clue when between them they answer one clue in fourteen.
-  const FAMILY_CHIPS = FAMILIES.slice().sort((a, b) => b.n - a.n).map((f) => f.label);
 
   function familiesOf(types) {
     const used = new Set((types || []).map((t) => TYPES[t].family));
@@ -3141,19 +3107,18 @@
   // The letters a block may show, "" when it may show none.
   //
   // A cryptic definition has no building blocks — having none is what makes it
-  // one — so `gives` is never rendered for it. It used to print the whole clue →
-  // the whole answer, because that is the only "block" a cryptic definition can
-  // have, so hint 3 of 4 read “Might this keep you to time?” → WATCHSTRAP: the
-  // solver paid for a rung and was handed the solve on a clue whose definition
-  // rung had already told them there was no separable wordplay here
-  // (1392 22-across). The validator now refuses a `gives` on a cryptic definition and
+  // one — so `gives` is never rendered for it. The only "block" a cryptic
+  // definition can have is the whole clue → the whole answer, which would hand
+  // over the solve (“Might this keep you to time?” → WATCHSTRAP) on a clue whose
+  // definition rung has already said there is no separable wordplay here. The
+  // validator also refuses a `gives` on a cryptic definition and
   // demands the clue be split, so this suppression is belt to that braces.
   //
   // A block whose letters ARE the whole answer hands over the solve on the rung
   // before the walkthrough, which is the WATCHSTRAP failure again with a
-  // different type on it: 488 of 2805 annotated clues did this, almost every
-  // hidden word and homophone and most double definitions, because for those
-  // devices one block legitimately resolves to the entire word. Suppressed here
+  // different type on it: it happens on almost every hidden word and homophone
+  // and most double definitions, because for those devices one block
+  // legitimately resolves to the entire word. Suppressed here
   // rather than in the annotation, deliberately — the annotation keeps recording
   // what the block gives, and no wording a future run picks can leak it. What
   // survives is the fragment, the sounded form and the note.
@@ -3175,8 +3140,7 @@
     // `blockShows`, and a rung left with no blocks is never charged for.
     if (wholeWord(b.gives) === wholeWord(b.clueFragment)) return "";
     // An anagram's result is the solve of that anagram: “Londoners worried” →
-    // ORDNELSON left nothing to do but read it off ("an anagram of LONDONERS
-    // should have made me solve the anagram"). The piece shows its fodder
+    // ORDNELSON left nothing to do but read it off. The piece shows its fodder
     // instead, and nothing when the fodder is words the fragment prints.
     const shuffled = ((ann.assembly || {}).anagrams || [])
       .find((a) => wholeWord(a.gives) === wholeWord(b.gives));
@@ -3220,9 +3184,9 @@
   const senseBlocks = (ann) => (ann.blocks || []).filter((b) => b.note && senseBlock(ann, b));
 
   // What an indicator actually INSTRUCTS, and how to recognise its family next
-  // time. The rung used to read "these tell you what to do with the rest", which
-  // is true of every indicator in every clue ever written — content-free, and a
-  // rung the solver spends a hint on. The operation is derivable from the type we
+  // time. A line like "these tell you what to do with the rest" is true of
+  // every indicator in every clue ever written — content-free, and a rung the
+  // solver spends a hint on. The operation is derivable from the type we
   // already store, so this costs nothing and cannot drift from the annotation.
   //
   // Plain language, not the jargon: "rearrange the letters it points at" rather
@@ -3278,8 +3242,8 @@
   // The whole answer isn't a teaching rung — it's the end of the road — but it
   // shares the ladder's bookkeeping so it counts against the score like one.
   const ANSWER_RUNG = "answer";
-  // Which rungs are up for this clue. Migration from the old high-water integer
-  // happens lazily here rather than in restoreState(): converting "level 3" into
+  // Which rungs are up for this clue. A save that holds the legacy high-water
+  // integer is migrated lazily here rather than in restoreState(): converting "level 3" into
   // rung keys needs ladderSteps(), which needs the annotation, and at restore
   // time the model isn't built yet. Reading is the first moment both exist.
   function shownRungs(e) {
@@ -3320,8 +3284,7 @@
   // A piece with no question in it is not a step. Pacing exists so the rung asks
   // before it tells, and a piece that cannot ask has nothing to hold back: the
   // click that fetches it hands it over the instant it lands, which is a tap
-  // charged for nothing ("don't make me click next on building blocks if you're
-  // just going to give me the blocks for free"). So those
+  // charged for nothing. So those
   // ride out with the piece before them, and "Next piece" is only ever offered
   // for one that is going to ask something.
   function revealPiece(e, at) {
@@ -3336,8 +3299,8 @@
   // is the solver's business; across tiers it can't be, because a later rung
   // contains the earlier ones' answers — the building blocks name the
   // definition and the indicators on the way to spelling out the wordplay, and
-  // the walkthrough hands over everything. Unrestricted choice (the first cut
-  // of this) put "skip to the walkthrough" one click from cold,
+  // the walkthrough hands over everything. Unrestricted choice
+  // would put "skip to the walkthrough" one click from cold,
   // which isn't a ladder at all. So: pick freely among the things the clue
   // asks you to SPOT, then assemble, then be told.
   const RUNG_TIER = { type: 0, definition: 0, indicators: 0, blocks: 1, walkthrough: 2 };
@@ -3381,10 +3344,7 @@
 
   function showHint(e, rung) {
     if (isShown(e, rung)) return;
-    // Pinned before the rung goes up, because piecesShown reads isShown to
-    // decide what a pre-pacing save meant: leave it until after and a rung being
-    // opened for the first time looks exactly like an old one, and pours out
-    // every piece at once.
+    // The pieces count starts at 0 as the rung opens, so the save records it.
     if (rung === "blocks" && blocksAt[entryKey(e)] === undefined) blocksAt[entryKey(e)] = 0;
     shownRungs(e).push(rung);
     // WHICH kind of help was reached for, named for the rung. Each rung teaches
@@ -3400,13 +3360,11 @@
     saveState();
   }
 
-  // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
   // Where the definition sits, and therefore where the wordplay starts. A fair
   // cryptic splits into exactly two parts and finding that seam is most of the
   // battle, so the seam is what this rung should hand over. It is computable
   // from the clue text, which means every clue gets its own sentence instead of
-  // the one about definitions living at one end that used to print 25 times a
-  // puzzle. Falls back to a bare full stop when the definition has no span in
+  // one generic sentence about definitions living at one end. Falls back to a bare full stop when the definition has no span in
   // the clue (a blog underline that is not a literal substring) rather than guessing.
   //
   // A link word touching the definition is the seam itself, not wordplay, so it
@@ -3523,8 +3481,7 @@
   // where a word of it ends: "KNIGHTS ERRANT" drawn as one circle of thirteen
   // pins the K somewhere and tells you nothing further. Cut
   // into a seven and a six, the same pin says which word the letter is in and
-  // where. A one-word answer has exactly one ring, which is the ring this has
-  // always drawn.
+  // where. A one-word answer has exactly one ring.
   const ringWords = (ann) =>
     String((ann || {}).answer || "").toUpperCase().split(/[^A-Z]+/).filter(Boolean);
 
@@ -3532,10 +3489,7 @@
   // POSITION, and the ring is the one place that position can be shown. So it
   // pins its tile to the matching spot — the tile at the top is letter 1 of the
   // answer, and each step clockwise is the next letter — and every deal works
-  // round the pins. ("If I have e_o__ the top letter in the ring should always
-  // be e and then the second one clockwise should be o". The
-  // first pass at this only held STRUCK tiles still, which is not the same
-  // thing as putting a letter where it goes.)
+  // round the pins.
   //
   // Only when the fodder is the whole answer: an anagram of one piece of a
   // charade has no letter i of the answer to be pinned to, and comparing the
@@ -3620,10 +3574,8 @@
     // What has to clear is the straight line between two neighbouring tiles,
     // not the arc through them: spacing the centres by arc length (n * pitch /
     // 2PI) leaves a chord of 2R*sin(PI/n), which is shorter than the tile at
-    // every length and got worse the more letters there were — eight tiles sat
-    // 35px apart at 34px wide, and twelve overlapped outright — the anagram
-    // circle was too small and cramped. Solving the chord for
-    // the pitch instead is the same sum done the right way round. Capped so a
+    // every length and gets worse the more letters there are. Solving the chord
+    // for the pitch instead is the right sum. Capped so a
     // very long fodder cannot push the disc wider than a phone.
     const PITCH = 42;
     // One ring per word of the answer, in order, as long as the words account
@@ -3634,9 +3586,9 @@
     const cuts = (lens.length > 1 && lens.reduce((a, b) => a + b, 0) === n) ? lens : [n];
     let from = 0;
     // ONE ring, with a gap in it where each word of the answer ends. Two rings
-    // side by side were two objects to compare — which was the four and which
-    // the five had to be counted rather than seen, and equalising their size
-    // only traded that for two circles at different spacings. A break in a single circle is the same fact told once: the
+    // side by side would be two objects to compare — which is the four and which
+    // the five would have to be counted rather than seen. A break in a single
+    // circle is the same fact told once: the
     // letters are still one jumble, which is what an anagram is, and the shape
     // of the answer is drawn through them rather than beside them.
     //
@@ -3680,9 +3632,9 @@
 
   // ---------- animating the ring ----------
   //
-  // A shuffle used to just redraw: the letters blinked into a new order and the
-  // eye had nothing to follow, which is the one thing a physical set of tiles
-  // gives you for free. FLIP fixes that without a library — measure every
+  // A plain redraw blinks the letters into a new order and the eye has nothing
+  // to follow, which is the one thing a physical set of tiles gives you for
+  // free. FLIP fixes that without a library — measure every
   // tile's rect before the redraw, let the redraw happen, then for each tile
   // that still exists work out how far it moved and play that distance
   // backwards as a transform, so the tile appears to still be at its old spot
@@ -3794,7 +3746,7 @@
   }
 
   // "Entered as SAPIR: RIPAS → reversal → SAPIR": each step's op by its own
-  // name (puzzle.schema.json alterationOp), so no table here can drift from it.
+  // name (alterationOp in tools/data/puzzle.schema.json), so no table here can drift from it.
   function enteredHTML(ann) {
     const alt = ann.alteration;
     if (!alt || !ann.entered) return "";
@@ -3803,6 +3755,7 @@
     return `<p>Entered as <span class="gives">${esc(ann.entered)}</span>: ${chain.join(" → ")}</p>`;
   }
 
+  // Build the rungs this particular clue deserves. Each rung: {key, label, html}.
   function ladderSteps(ann, clue) {
     if (!ann) return [];
     const t = ann.type || [];
@@ -3816,15 +3769,12 @@
 
     // Every rung is NAMED for the question it asks, never for the answer it is
     // about to give, because the unbought rungs' names are on screen the whole
-    // time — that is how you choose which to buy. The &lit definition rung used
-    // to be called "How can the whole clue be the definition?", so the button
-    // for a hint nobody had paid for announced that the clue was an &lit, which
-    // on a semi-&lit hidden word is the entire solve ("21d gives away the whole
-    // thing just by the name of the hint before I reveal it" — 4096 21d,
-    // VSIGN). The same was true of "Where does the clue split?",
-    // "What is the clue really describing?" and "What each half means", each of
-    // which named its type, and of the singular/plural indicator label, which
-    // handed over the count.
+    // time — that is how you choose which to buy. A name that carries its type
+    // ("How can the whole clue be the definition?" on an &lit, "Where does the
+    // clue split?", "What each half means") announces, on the button for a hint
+    // nobody has paid for, what kind of clue it is, which on a semi-&lit hidden
+    // word is the entire solve; an indicator label that varies between
+    // singular and plural hands over the count.
     //
     // So a label is a function of the rung's key and nothing else, and the
     // smoke test holds the corpus to exactly that: one label per key, across
@@ -3849,9 +3799,8 @@
     //
     // The anagram blurb says to check the shuffled letters "add up to the number
     // in brackets", which is false whenever the anagram is only a piece of the
-    // answer, and a solver who believes it goes hunting for the missing letters
-    // to throw in: on CHOMPED, MP inside an anagram of COD HE, "Shouldn't the
-    // anagram include mp" (9740 27a). So when no anagram the annotation builds
+    // answer (CHOMPED: MP inside an anagram of COD HE), and a solver who believes
+    // it goes hunting for the missing letters to throw in. So when no anagram the annotation builds
     // is as long as the answer, the rung says the count comes up short instead.
     if (t.length) steps.push({
       key: "type",
@@ -3864,15 +3813,11 @@
     // solver — the indicators, the definition and the family, in whatever order
     // the ladder is currently in.
     //
-    // Double and cryptic definitions used to be exempt from this line entirely,
-    // on the grounds that their family label had already said it. It has not:
-    // their family is "Definitions only", whose blurb offers BOTH arms — "either
-    // two plain definitions sit side by side, or one sly one describes the answer
-    // the long way round" — and never says which arm this clue is. So the one
-    // family that needs the type named is the one family that never named it, and
-    // a solver who had read the whole ladder of 30103 10A came away thinking the
-    // site had mis-typed the clue: "this feels like a double definition not a
-    // definition only". They get the NAME, which is the missing
+    // Double and cryptic definitions are not exempt from this line. Their
+    // family is "Definitions only", whose blurb offers BOTH arms — "either two
+    // plain definitions sit side by side, or one sly one describes the answer
+    // the long way round" — and never says which arm this clue is, so the family
+    // label has not named the type. They get the NAME, which is the missing
     // word; they do not get the generic blurb, which on these two types would
     // only re-say the definition rung ("no separable wordplay" twice over) and no
     // rung may restate an earlier one.
@@ -3920,11 +3865,9 @@
           is a whole-clue description of the answer, worded to make you picture something else at first.</p>`
       });
     } else {
-      // Not "everything else is wordplay, and definitions sit at one end" — that
-      // sentence was identical on every clue in the corpus, so the rung's only
-      // clue-specific content was the highlight itself. Say WHERE it sits and
-      // WHERE the wordplay therefore starts: the split point is the actual
-      // solving move, and it is computable from the clue text we already have.
+      // Say WHERE the definition sits and WHERE the wordplay therefore starts:
+      // the split point is the actual solving move, and it is computable from the
+      // clue text we already have.
       steps.push({
         key: "definition",
         label: LABELS.definition,
@@ -4015,9 +3958,8 @@
       //
       // The letters themselves carry that, and nothing else does: a linked AB
       // is one the glossary can explain, an unlinked one was worked out here.
-      // It used to be a sentence underneath repeating the same pairs, which is
-      // a second reading of something already on the screen — the fix was to
-      // linkify the abbreviation itself rather than add a sentence.
+      // A sentence underneath repeating the same pairs would be a second reading
+      // of something already on the screen, so the abbreviation itself is linked.
       const glossaryHref = (b) => {
         const letters = (b.gives || "").toUpperCase();
         const meanings = typeof ABBREVIATIONS === "undefined" ? null : ABBREVIATIONS[letters];
@@ -4040,11 +3982,10 @@
       const pieces = blocks.map((b) => {
         let s = "<li>";
         if (b.clueFragment) s += `“${esc(b.clueFragment)}”`;
-        // A homophone's whole mechanism is the word you say aloud, and it used
-        // to be nowhere: “Cockney mob” → OARED, with HORDE and the dropped
-        // aitch left entirely to the reader (clue 4096 24d). So
-        // the sounded form gets its own arrow, ahead of the letters it turns
-        // into, and the validator now refuses a sound clue that has none.
+        // A homophone's whole mechanism is the word you say aloud: “Cockney mob”
+        // → OARED needs HORDE and the dropped aitch shown. So the sounded form
+        // gets its own arrow, ahead of the letters it turns into, and the
+        // validator refuses a sound clue that has none.
         if (b.soundsLike) s += ` → <span class="gives">${esc(b.soundsLike)}</span> <span class="muted">said aloud</span>`;
         const letters = blockLetters(ann, b);
         if (letters) {
@@ -4079,9 +4020,8 @@
     // The half of the clue that isn't mechanical.
     //
     // The blocks spell the answer OUT of the wordplay and the definition rung
-    // points at the words, but until now nothing ever joined the two ends:
-    // why do those words mean this answer? (The full walkthrough needed to
-    // explain why the answer matches the definition.) That link is
+    // points at the words, but neither joins the two ends:
+    // why do those words mean this answer? That link is
     // where the actual vocabulary of cryptics lives — a definition by synonym,
     // by example, by a sense of the word nobody uses outside crosswords — and
     // it is exactly what a solver is missing when they have the right letters
@@ -4101,16 +4041,14 @@
       .map((d) => `<p class="def-note">${esc(d.note)}</p>`).join("");
     // Two labelled parts, each shown only when it is actually there. What the
     // clue PRETENDS to say and what it is DOING are different things, and one
-    // label over both was wrong whichever word it used: "The trick" over a
+    // label over both would be wrong whichever word it used: "The trick" over a
     // sentence about the surface reads as a mislabel, and "The surface" over a
     // convention ("Rivers are the crossword's favourite three-letter filler")
     // would be a lie. Which is present is a fact about the annotation, not a
-    // guess about its prose — a scan of all 6,403 walkthroughs
-    // established that no phrase list can tell a surface sentence from a
+    // guess about its prose — no phrase list can tell a surface sentence from a
     // mechanical one — so `explanation.surface` is its own field and the labels follow it.
     // Clues with no surface apart from their mechanism (double definitions,
-    // cryptic definitions, idioms) correctly have none and show "The trick"
-    // alone, exactly as they do today.
+    // cryptic definitions, idioms) have none and show "The trick" alone.
     const joke = prose.surface
       ? `<p><b class="wt-part">What it seems to say</b>${esc(prose.surface)}</p>` : "";
     // A blog-derived ladder stops at what the blogger marked; the rest of the
@@ -4136,8 +4074,7 @@
     // A sort, not a reordered set of pushes: the walkthrough's html asks whether
     // a blocks rung exists, so every rung has to be built before any is placed.
     // The order itself is LABELS' own, not a second list beside it — a literal
-    // array here is a copy, and a copy is what let the README publish
-    // "1. What kind of clue is this?" through two reorders of the live ladder.
+    // array here would be a copy that can drift from the live ladder.
     const RUNG_ORDER = Object.keys(LABELS);
     steps.sort((a, b) => RUNG_ORDER.indexOf(a.key) - RUNG_ORDER.indexOf(b.key));
     return steps;
@@ -4156,8 +4093,8 @@
   // what it always meant — a hint you did not need is not a hint you took.
   //
   // Buildable at all only because the annotations already store these as
-  // literal spans of the clue: 1473/1473 definitions, 1471/1471 indicators,
-  // 3131/3132 fragments. Measured across the corpus, not hoped for.
+  // literal spans of the clue (every definition and indicator, nearly every
+  // fragment).
   //
   // The type rung is the exception to "literal spans": its answer is a family,
   // not words in the clue, so it asks by offering the seven. It belongs here all
@@ -4192,11 +4129,9 @@
 
   // The whole charade at once, instead of a piece at a time.
   //
-  // Handing pieces over one click each never asked anything. By the time the
+  // Handing pieces over one click each asks nothing. By the time the
   // last one comes round the others are already placed, so "which words give
-  // H?" is answered by whatever words are left, and the note underneath then
-  // prints the synonym: "it isn't making me think or teaching me anything, it
-  // just gives me synonyms". Allocating every fragment to
+  // H?" is answered by whatever words are left. Allocating every fragment to
   // every chunk in one go is the move the solver actually has to make, and it
   // cannot be done by elimination until the very last pair.
   function matchAsk(e) {
@@ -4211,11 +4146,9 @@
     // Three is the smallest set with a decision in it. The last pairing of any
     // matching question is forced — one chunk, one row, nothing to choose — and
     // with two pairs the FIRST one is also the last, so placing one chunk
-    // placed the other ("when I selected the first answer in a building block
-    // it automatically chose the next one for me to pair", on an iPad). Two
-    // pairs is 68% of the corpus, and all of it was one tap dressed as a
-    // puzzle. Those clues ask the paced one-piece-at-a-time question below
-    // instead, which is a real question about every piece it names.
+    // would place the other: one tap dressed as a puzzle. Those clues ask the
+    // paced one-piece-at-a-time question below instead, which is a real
+    // question about every piece it names.
     if (pairs.length < 3) return null;
     // A fixed shuffle, not a random one: the panel is redrawn on every tap, and
     // chips that jumped between taps would be a memory test of the wrong thing.
@@ -4243,12 +4176,13 @@
   }
 
   // Which words of the clue a rung names. Kept apart from guessAsk because a
-  // rung can be unaskable and still have named its words — an &lit's definition
-  // is the whole clue, so there is no question in it, and every word of it is
+  // rung can be unaskable and still have named its words — a piece that is all
+  // the clue has left has no question in it, and every word of it is
   // nonetheless settled for the rung asked next.
   //
   // The blocks rung names one PIECE at a time: step is which. Every other rung
   // has one step and ignores it.
+  //
   // One entry per span the rung names, each a list of token indices, in the
   // order the rung names them. Kept apart because where one span ends and the
   // next begins is what decides which of its words are optional, and a flat
@@ -4330,7 +4264,7 @@
   // to plausible ones would make the question easier and the lesson smaller.
   function familyAsk(ann) {
     // Empty for a type no rule claims: there would be no right answer to pick, so
-    // there is no question, and the rung behaves exactly as it always did.
+    // there is no question and the rung is simply handed over.
     // A core type (ann.typeCore) is a lower bound: the clue may also cut a word
     // or select letters from one, so those families are right answers too.
     const right = familiesOf((ann.type || []).concat(ann.typeCore ? ["deletion", "letter_selection"] : [])).map((f) => f.label);
@@ -4347,10 +4281,9 @@
   }
 
   // What a rung asks, which tokens answer it, and which are no longer anybody's
-  // to pick. Null when this clue cannot pose the question at all — an &lit whose
-  // definition is the whole clue, a type with no indicators, a block rung with
-  // nothing that yields letters — and the rung then behaves exactly as it always
-  // did.
+  // to pick. Null when this clue cannot pose the question at all — a type with
+  // no indicators, a block rung with nothing that yields letters — and the rung
+  // is then simply handed over.
   //
   // A word an earlier rung already named is not a choice. Leaving it tappable
   // invites a solver who has the definition to offer it back as the indicator,
@@ -4389,8 +4322,8 @@
       prompt = "Which words tell you what to do with the rest?";
     } else if (rung === "blocks") {
       // The matching question covers the rung entire, so it is only ever the
-      // first thing asked. A puzzle resumed part-way through the old paced
-      // sequence still finishes it a piece at a time.
+      // first thing asked; once a piece has been placed the rest are asked a
+      // piece at a time.
       if (!at) { const m = matchAsk(e); if (m) return m; }
       const b = blockAskAt(e, at);
       if (!b) return null;
@@ -4454,8 +4387,7 @@
   // Which block of the panel the last tap on the ladder produced: a rung key
   // for a rung that opened, "guess" for a question that was asked. The panel
   // only ever grows, so what a tap made is always at the bottom and is the one
-  // thing that has to be in front of you afterwards ("when I choose a hint
-  // rung should it scroll into view", on an iPad). Marked in the body as
+  // thing that has to be in front of you afterwards. Marked in the body as
   // #hint-focus and handed to scrollToHintPanel as the thing to place.
   let hintFocus = null;
   function focusHint(key) { hintFocus = key; scrollToHintPanel("hint-focus"); }
@@ -4468,11 +4400,9 @@
   // answered — because the marked-up clue IS the answer, and it stays on screen
   // underneath the verdict for as long as the solver is on this clue.
   //
-  // It used to be shown for a beat and then thrown away when the rung opened,
-  // which put a reading deadline on the one part of this that teaches anything:
-  // "it flashes too fast for me to read". Nothing here is on
-  // a timer now. The animations are entrances — they say a thing has arrived,
-  // they do not say how long you have with it.
+  // Nothing here is on a timer: a reading deadline on the one part of this that
+  // teaches anything would defeat it. The animations are entrances — they say a
+  // thing has arrived, they do not say how long you have with it.
   function guessWordsHTML(tokens, mk, picked, known, rung, target) {
     const settled = known || [];
     const cls = (i) => {
@@ -4495,18 +4425,15 @@
     //
     // The rung rides along because the colour of a picked word is the colour that
     // KIND of word wears everywhere else on the site: green for a definition,
-    // pink for an indicator. Picking used to be its own
-    // neutral accent, which made the solver learn one colour for "I chose this"
-    // and a different one for the thing they had just correctly chosen.
+    // pink for an indicator, so the solver does not learn one colour for
+    // "I chose this" and another for the thing they correctly chose.
     return `<p class="guess-clue ${mk ? "mk" : "ask"} pick-${rung || "indicators"}">${
       words.join(" ")}</p>`;
   }
 
-  // The question, asked of the clue itself. It used to print a second copy of the
-  // clue below the panel's own and ask the solver to point at that one — "can we
-  // select from the original clue instead of duplicating it?".
-  // Two copies of the same sentence, one lit and unpickable and one pickable and
-  // unlit, is the reader deciding which is the clue before they can start.
+  // The question, asked of the clue itself rather than of a second copy of it:
+  // two copies of the same sentence, one lit and unpickable and one pickable and
+  // unlit, would have the reader deciding which is the clue before they can start.
   //
   // Marks are ranges over the clue string and words are ranges over that same
   // string, so each word is marked up from its own slice and the gaps between
@@ -4523,7 +4450,7 @@
   // Called with no ask (rung not being asked right now) it still wraps every
   // word in the same .gw box, just an inert one: a plain sentence and a row of
   // picking buttons do not share a box model, so reading the clue and then
-  // starting to tap it used to reflow the whole line under the solver's eye.
+  // starting to tap it would reflow the whole line under the solver's eye.
   // The box is always there; only its border's colour and its element's
   // interactivity change with the state.
   function pickableClueHTML(e, ask, picked, rung) {
@@ -4616,10 +4543,10 @@
       // Until the finger has committed to going ACROSS the words, a move that is
       // mostly DOWN the page is the page scrolling: .gw is touch-action: pan-y,
       // so the browser will take that gesture, and it fires pointermoves for a
-      // while first. Painting on those lit up every word the finger passed over
-      // and then handed the gesture away — "scrolling the clue seems to
-      // highlight what my finger is on but isn't doing anything", on an iPad). Once a drag is really under way the axis stops mattering; a
-      // run of words wraps, and following it round the wrap is legitimate.
+      // while first. Painting on those would light up every word the finger
+      // passed over and then hand the gesture away. Once a drag is really under
+      // way the axis stops mattering; a run of words wraps, and following it
+      // round the wrap is legitimate.
       if (!drag.moved) {
         const dx = Math.abs(ev.clientX - drag.x), dy = Math.abs(ev.clientY - drag.y);
         if (dy > 8 && dy > dx) { drag = null; swallowClick = false; return; }
@@ -4646,8 +4573,7 @@
     // not taking them back; the pointermove guard above has already dropped a
     // gesture that set out as a scroll. The click flag is cleared either way: a
     // cancelled gesture never delivers the click that would have cleared it,
-    // and it sat there latched, eating the next real tap ("if you start a
-    // scroll then you can't select words", on an iPad).
+    // and a latched flag would eat the next real tap.
     document.addEventListener("pointercancel", () => {
       if (!drag) return;
       const moved = drag.moved;
@@ -4666,9 +4592,9 @@
   //
   // Everything in here animates on the way in, and the panel is redrawn on every
   // keystroke and every selection — so the entrance is spent the first time it is
-  // drawn and never again. Without that, "yes that's the one" pops afresh while
-  // you are picking your next clue: an entrance that replays
-  // is not an entrance, it is a fidget.
+  // drawn and never again: an entrance that replays is not an entrance, it is a
+  // fidget.
+  //
   // `quiet` drops the marked words and keeps the sentence, for when the clue line
   // above has become the tapping surface for the NEXT question. Otherwise the
   // panel holds two copies of the same clue — the live one at the top and this
@@ -4683,10 +4609,8 @@
   }
 
   // Doing a charade IS watching it assemble, so the pieces already placed stay
-  // on screen while the next one is asked for. They used to be echoed into the
-  // question as a running list of their own, because the rung was withheld until
-  // the whole sequence was done; now each piece is handed over as it is settled
-  // and the list is the rung itself, sitting directly above.
+  // on screen while the next one is asked for: each piece is handed over as it
+  // is settled and the list is the rung itself, sitting directly above.
 
   // One of seven, and the tap IS the answer: there is a single bit to give, so a
   // confirm step would only ask for it twice. Pointing at words keeps its check
@@ -4702,7 +4626,8 @@
   // of its own down here: the prompt, and the two buttons that end it. The seven
   // families have nowhere else to live and keep their chips, and so does a linked
   // clue, whose own words are not the ones on display — see renderHintPanel.
-  // A chunk goes in the slot you last picked it up for. Two taps, both of them
+  //
+  // For a matching question a chunk goes in the slot you last picked it up for. Two taps, both of them
   // reversible: tapping a filled slot puts its chunk back on the strip, so
   // nothing you try costs you anything until Check.
   function guessMatchHTML(ask) {
@@ -4756,8 +4681,8 @@
   // the paragraph underneath, which names only the main family, reads as a
   // correction of an answer that was correct. One line either way:
   // a family label can be three words long ("container, reversal or deletion"),
-  // and a verdict that quotes it back and then explains itself ran to three lines
-  // on a phone to say what the solver had just tapped.
+  // and a verdict that quotes it back and then explains itself would run to
+  // three lines on a phone.
   function gradeChoice(ask, picked) {
     const right = ask.answers || [ask.answer];
     if (picked === right[0]) return { choice: picked, right: true, said: "Yes — that’s the one." };
@@ -4814,9 +4739,9 @@
     // teaches them nothing except that the app is fussy.
     // Finding every indicator and pointing at nothing else is the whole of what
     // the rung asks, so that is what it marks, and then says the phrase in full.
-    // Every span still needs a word of its own: 216 clues in the corpus have
-    // "in" as an entire indicator, and a rule that let a phrase be dropped
-    // altogether would hand the rung over for pointing at one of two.
+    // Every span still needs a word of its own: "in" is often an entire
+    // indicator, and a rule that let a phrase be dropped altogether would hand
+    // the rung over for pointing at one of two.
     if (guessing.rung === "indicators" && !spare.length && ask.spans
         && ask.spans.every((sp) => sp.some((x) => picked.indexOf(x) >= 0))) {
       const said = ask.spans.map((sp) => sp.map((x) => ask.tokens[x].text).join(" "));
@@ -4830,10 +4755,10 @@
         spare.length > 1 ? "s that aren’t" : " that isn’t"} doing that job.` };
     }
     if (hit.length) {
-      // "Close" only when it is close. It used to be the verdict on any overlap
-      // at all, so picking two words of a four-word definition — half of it, and
-      // therefore the wrong split — came back as encouragement. A teacher who calls everything close is not marking
-      // anything, and the solver reads praise for an answer that was wrong.
+      // "Close" only when it is close: picking two words of a four-word
+      // definition — half of it, and therefore the wrong split — is not close. A
+      // teacher who calls everything close is not marking anything, and the
+      // solver reads praise for an answer that was wrong.
       const near = !spare.length && missed.length === 1;
       return { ...v, right: false, said: `${near ? "So close" : "Not quite"} — ${
         hit.length} of ${n} right${spare.length ? `, and ${spare.length} that ${
@@ -4845,14 +4770,14 @@
   // The marked clue is the same words in a different place. The question sits at
   // the bottom of the panel, under everything already bought; the verdict belongs
   // beside the rung it judged, which is wherever that rung falls in the ladder.
-  // Re-rendering puts it there instantly, and the whole panel reads as a lurch —
-  // "the words all move and it is jarring".
+  // Re-rendering puts it there instantly, and the whole panel reads as a lurch.
   //
   // FLIP: measure where it was, let the render happen, put it back with a
   // transform and then let it travel. The eye follows the one thing that did not
   // change, which is the thing worth reading. Everything is guarded because this
   // is decoration — a DOM without getBoundingClientRect gets the same panel,
   // arriving in one step.
+  //
   // Measured as the question, replayed as the verdict: the same words, and by
   // name, because a previous rung's verdict may well still be on the screen and
   // "the first .guess-clue" would then measure the wrong one.
@@ -4895,14 +4820,12 @@
     const won = earnedRungs(e).indexOf(guessing.rung);
     if (verdict && verdict.right) { if (won < 0) earnedRungs(e).push(guessing.rung); }
     else if (won >= 0) earnedRungs(e).splice(won, 1);
-    // The piece just settled goes up, and only that one. Pointing at all three
-    // in a row before being shown any of them was the old sequence, and it
-    // handed over a charade entire — see blocksAt. Whether to go on to the next
-    // piece is now the solver's call, and the rung is theirs either way: a
-    // question is never a dead end.
+    // The piece just settled goes up, and only that one (blocksAt holds how many
+    // are out). Whether to go on to the next piece is the solver's call, and the
+    // rung is theirs either way: a question is never a dead end.
     // A matching question was asked about every piece at once, so every piece
     // is settled by answering it — pacing what the question already covered
-    // would be the make-work this replaced.
+    // would be make-work.
     if (guessing.rung === "blocks") {
       revealPiece(e, ask.pairs ? blockPieces(e).length - 1 : guessing.step);
     }
@@ -4940,7 +4863,7 @@
   // to one leg would draw the breaks in the wrong places; a mismatch means no
   // breaks rather than wrong ones, and so does anything that isn't digits and
   // separators ("(two words)" and friends). "." is a separator because feeds do
-  // print (6.6) where they mean (6,6) — 30079 18-across and 30080 10-across.
+  // print (6.6) where they mean (6,6).
   const ENUM_SEPS = { ",": " ", " ": " ", "-": "-", "–": "-", "—": "-", "'": "’", "’": "’", ".": " " };
   function enumBreaks(enumeration, cells) {
     if (!enumeration) return null;
@@ -5008,11 +4931,12 @@
       + (segs.length ? `in words of ${segs.join(", ")} · ` : "")
       + (unchecked ? `${checked} shared with crossing answers, ${unchecked} not (dashed boxes)`
                    : `all ${checked} shared with crossing answers`);
-    // The note is for screen readers only. Printed next to the boxes it restated
-    // what the boxes already show — which squares have letters, and which are
-    // dashed — in twenty words of prose sitting directly under the clue you are
+    // The note is for screen readers only. Printed next to the boxes it would
+    // restate what the boxes already show — which squares have letters, and
+    // which are dashed — in prose sitting directly under the clue you are
     // trying to read. The clue is what the box is for; every
     // line that is not the clue pushes it further from being read.
+    //
     // How many boxes and how many word breaks, so the strip can size itself down
     // to fit the panel instead of stacking one word per line. CSS cannot count
     // letters and JS should not be measuring screens, so the count comes from
@@ -5027,7 +4951,7 @@
   // The panel is rebuilt by refreshAll(), and refreshAll() runs on every
   // keystroke. Assigning innerHTML makes the browser throw the subtree away,
   // reparse it and lay the block out again, so a letter typed into the grid
-  // repainted a hint panel in which nothing had changed — the block shivers
+  // would repaint a hint panel in which nothing had changed — the block shivers
   // under the typing, worst on iOS.
   //
   // The rule for everything in this panel: never write DOM that would come out
@@ -5064,8 +4988,8 @@
       // Built like every other button, because nothing in this row may be
       // written with innerHTML: that throws away the children already appended
       // in the same pass. This one is offered from the moment the blocks rung
-      // opens, so it is always appended ALONGSIDE "Next piece" and the rungs,
-      // never instead of them.
+      // opens, so it is always appended ALONGSIDE "Next building block" and the
+      // rungs, never instead of them.
       if (b.fill) {
         const hx = document.createElement("button");
         hx.id = "hx-entry";
@@ -5083,11 +5007,11 @@
         // Ask before telling, where the clue can pose the question. Not once
         // the clue is solved: the rungs have stopped being hints by then and
         // quizzing someone on an answer they already have is a chore.
-        // The previous rung's verdict stays where it is. Clearing it deleted a
-        // block from the middle of the panel at the exact moment a new one
-        // appeared at the bottom, so the whole thing slid under the solver's
-        // eyes, jumping and switching to something else. Nothing the
-        // panel has said is ever taken back; it only ever grows.
+        // The previous rung's verdict stays where it is: clearing it would delete
+        // a block from the middle of the panel at the exact moment a new one
+        // appeared at the bottom, so the whole thing would slide under the
+        // solver's eyes. Nothing the panel has said is ever taken back; it only
+        // ever grows.
         const on = currentEntry();
         if (!on) return;
         // Which piece this button is for. Only the blocks rung has more than
@@ -5141,10 +5065,9 @@
       return `<span class="muted">Couldn’t send (error: ${esc(report.msg)}).</span> `
         + `<button id="rp-open" class="ghost small">Try again</button>`;
     }
-    // A box you can see what you wrote in. The 400 characters this accepts were
-    // being typed into one line of a 280px slot, so the start of your own
-    // sentence scrolled out of sight while you finished it ("comically small
-    // when typing"). It opens at three lines and grows with
+    // A box you can see what you wrote in: the 400 characters this accepts need
+    // more than one line, or the start of your own sentence scrolls out of sight
+    // while you finish it. It opens at two lines and grows with
     // the text; Send is the button, because in a box this shape Enter is a
     // paragraph break and not a submit.
     return `<textarea id="rp-note" class="rp-note" rows="2" maxlength="400"`
@@ -5177,8 +5100,8 @@
   // still be answering for that one several clues later: the report would be
   // filed against a clue the reader had left. That is the rule stated over
   // setHTML — no handler in this panel may close over state the compared value
-  // does not contain — and the fix is the one that rule asks for, reading the
-  // current entry at the moment of the click rather than rebinding more often.
+  // does not contain — so each handler reads the current entry at the moment
+  // of the click rather than being rebound more often.
   function bindReport() {
     const open = $("rp-open");
     if (open) open.onclick = () => {
@@ -5265,8 +5188,7 @@
     const solved = isEntrySolved(e);
     // The nod lands beside the clue as well as on the grid. celebrateSolve tints
     // the cells for 450ms, which is a thing you miss entirely if you were reading
-    // the clue while you typed the last letter into it ("I don't see any
-    // excitement next to the clue when you're typing it out when you solve it").
+    // the clue while you typed the last letter into it.
     // So this one does not expire: it is a standing mark that
     // the clue is out, and arriving late still finds it. A clue solved with
     // nothing bought gets the gold star, anything else the green check — the
@@ -5305,18 +5227,15 @@
       ? ((charged || reveals)
           ? `Solved with ${charged} hint${charged === 1 ? "" : "s"}${revealsNote}`
           : "Solved with no hints at all")
-      // "used on this clue" — you are looking at the clue. Just the count, and
-      // no longer called hints: a rung you answered yourself was never one, and
-      // the score has never charged for it. What you worked out is reported
-      // beside it, because that is the number this is all for.
+      // "used on this clue" — you are looking at the clue. Just the count: a
+      // rung you answered yourself is not charged for. What you worked out is
+      // reported beside it, because that is the number this is all for.
       : (ann ? `<strong>${level}</strong>/${ladderSteps(ann, clueText(e)).length} hints shown${
                  earnedRungs(e).length ? ` · ${earnedRungs(e).length} of those worked out by answering its question, so free` : ""}${revealsNote}`
              : revealsNote.replace(" · ", ""));
     // Whether there is anything left on the ladder, filled in below once the
     // steps are known: a solved clue's score is settled, so the rest of the
-    // ladder costs nothing — and the only place that had ever been said was a
-    // comment in this file. "It's not clear when a hint is free after I
-    // finished". The explanation of a clue you have already
+    // ladder costs nothing. The explanation of a clue you have already
     // got is the one thing this site is for; the reader has to be told they can
     // have it.
     let freeRest = false;
@@ -5387,9 +5306,8 @@
         // both: you were told whether you were right, and then told why.
         bodyHTML += hintFocus === s.key ? `<div id="hint-focus">${chunk}</div>` : chunk;
       });
-      // The legend is built from what is actually highlighted, for the same
-      // reason clueHTML is: it was keyed off the definition rung, so taking the
-      // indicators alone left the marks unexplained as well as absent.
+      // The legend is built from what is actually highlighted, not keyed off one
+      // rung, so taking the indicators alone still explains their marks.
       const legend = [];
       if (isShown(e, "definition") && (ann.definitions || []).length) legend.push('<mark class="def">definition</mark>');
       if (isShown(e, "indicators") && (ann.indicators || []).length) {
@@ -5431,15 +5349,13 @@
       // costs one obvious click and a sideways move costs one deliberate one.
       // Rungs from a later tier are shown but disabled rather than hidden — the
       // ladder has a shape and the solver should be able to see it coming.
-      // A question on the table does not close the row. It used to: a guess you
-      // could walk around by buying a different hint is not much of a quiz. But
-      // the rungs are not a quiz, they are a ladder you are standing on, and a
-      // solver who wants a different step is not cheating their way past this
-      // one — they have decided this is not the question they needed ("when
-      // you're in the middle of a hint you can't switch to a different hint"). Taking another rung abandons the guess and charges
-      // for the rung, which is what it would have cost anyway; the abandoned
-      // question was never answered, so nothing is earned by walking away from
-      // it.
+      // A question on the table does not close the row. The rungs are not a
+      // quiz, they are a ladder you are standing on, and a solver who wants a
+      // different step is not cheating their way past this one — they have
+      // decided this is not the question they needed. Taking another rung
+      // abandons the guess and charges for the rung, which is what it would have
+      // cost anyway; the abandoned question was never answered, so nothing is
+      // earned by walking away from it.
       const togo = steps.map((s, i) => ({ s, n: i + 1 })).filter(({ s }) => !isShown(e, s.key));
       const open = togo.filter(({ s }) => rungAvailable(e, steps, s.key));
       // The rest of a rung already open, and it leads: finishing what you
@@ -5458,17 +5374,13 @@
           text: `Next building block · ${total - left + 1} of ${total}` });
       }
       open.forEach(({ s, n }, j) => {
-        // Every rung reads as its own question and nothing else. The lead one
-        // used to say "Show hint 5 · …", which sold the ladder as a shelf of
-        // answers you buy — and it hasn't been that since the rungs started
-        // asking you first. What it is recommending is still
-        // visible: the lead is the plain button and the sideways moves are
-        // ghosts, which is where that has always been said.
+        // Every rung reads as its own question and nothing else, not as an
+        // answer you buy. What it is recommending is still visible: the lead is
+        // the plain button and the sideways moves are ghosts.
         // "Free" rides on the button, not only in the meter above it. Once the
         // clue is solved its score is settled and the rest of the ladder is
         // free, but the decision to open one is made at the button, and a button
-        // that reads the same as it did when it charged is not telling you
-        // (the meter line alone was not enough).
+        // that reads the same as it did when it charged is not telling you.
         // The welcome dialog says "take the first one"; this is which one that
         // is. Only while the cursor is still on the ladder line, so it stops at
         // the first hint along with the sentence that asked for it.
@@ -5503,9 +5415,8 @@
       : pickableClueHTML(holder, null, [], null);
     // The marks fade in, which is an arrival: it must play when a mark arrives
     // and at no other time. Picking words rewrites the clue too — the picked
-    // word's class is in the markup — so every <mark> came back as a new element
-    // on every tap and replayed the fade, which read as the link words
-    // flickering grey, on an iPad. setHTML's markup comparison
+    // word's class is in the markup — so every <mark> comes back as a new element
+    // on every tap and would replay the fade. setHTML's markup comparison
     // cannot tell those apart, because the markup really did change.
     //
     // So the animation is gated on a class, like .picking below, and the class
@@ -5521,9 +5432,9 @@
     // class carries no metric that setHTML's markup comparison would need to
     // catch. Set on the element rather than baked into the markup, or the
     // flash would replay every re-render mid-guess instead of firing once.
-    // Gated on tapping itself now, not on the markup containing "guess-clue" —
+    // Gated on tapping itself, not on the markup containing "guess-clue" —
     // that substring is in the resting render too since both forms share the
-    // same chip markup, so it stopped telling picking apart from reading.
+    // same chip markup, so it cannot tell picking apart from reading.
     $("hint-clue").classList.toggle("picking", tapping);
 
     setHTML($("hint-meter"), meterHTML + (freeRest ? " · the remaining hints are free now" : "")
@@ -5533,20 +5444,18 @@
     setButtons(next, nextSpec);
 
     // And once the answer is out, what did you make of it? Its own slot at the
-    // foot of the panel, not the end of #hint-body: appended to the body it sat
-    // wherever the body happened to end, so a clue solved cold — nothing bought,
-    // nothing in the body — put the question directly under the clue, and the
-    // same clue with four rungs taken put it a screen further down. "It seems to
-    // appear in two different spots depending on if you took hints". The thing
+    // foot of the panel, not the end of #hint-body: appended to the body it would
+    // sit wherever the body happened to end, directly under the clue on a clue
+    // solved cold and a screen further down with four rungs taken. The thing
     // you do when you have finished is last in the panel,
     // and last is a place that does not move.
     const voteWrote = setHTML($("hint-vote"),
       solved && ann ? voteRowHTML(voteTarget(e), "Good clue?", "Yes", "Not really") : "");
 
     // The escape hatch lives outside the ladder: available at any level.
-    // No "(counts against your score)" rider. The scorebar already reports
-    // revealed letters, so the warning was redundant, and a learner who is
-    // stuck should be nudged toward the help rather than taxed for taking it.
+    // No "(counts against your score)" rider: the scorebar already reports
+    // revealed letters, and a learner who is stuck should be nudged toward the
+    // help rather than taxed for taking it.
     const canReveal = canCheck() && !solved;
     const escapeHTML = (canReveal
       ? `<button id="hx-letter" class="ghost small">Stuck? Reveal one letter</button> ` : "")
@@ -5567,9 +5476,9 @@
       });
     } else if (ask && ask.pairs) {
       // Either half may be tapped first. A chunk then a row, or a row then a
-      // chunk: both are one pairing, and a tap that only ever worked in one
-      // order is a dead tap in the other ("can I touch the pairing in any
-      // order?"). Whichever is tapped first is the one held.
+      // chunk: both are one pairing, and a tap that only worked in one
+      // order would be a dead tap in the other. Whichever is tapped first is
+      // the one held.
       ask.chips.forEach((c, i) => {
         const el = $("gm-chip-" + i);
         if (el) el.onclick = () => {
@@ -5620,11 +5529,10 @@
           // Repainted in place, exactly as a drag across the same words already
           // is. A tap changes which words are lit and whether the check button
           // is live, and nothing else on the page says either — so rebuilding
-          // the panel to report it marked the clue up again, rewrote three
-          // blocks of HTML and rebound every word, under the finger that had
+          // the panel to report it would mark the clue up again, rewrite three
+          // blocks of HTML and rebind every word, under the finger that had
           // just tapped. On a phone that is long enough to read as a tap that
-          // missed ("on iPhone clicking it is slow to move to the next step",
-          // Paul, 2026-09-21).
+          // missed.
           paintPicked(a);
           spotlightDraw();
         };
@@ -5632,8 +5540,8 @@
           el.addEventListener("pointerdown", (ev) => {
             // A new gesture starts clean. swallowClick is set on pointerup and
             // read by the click that follows it, and a drag whose finger lifts
-            // off the words sends no click at all — so without this it stayed
-            // set until the next tap, which it then ate.
+            // off the words sends no click at all — so without this it would stay
+            // set until the next tap, which it would then eat.
             swallowClick = false;
             const a = currentAsk();
             if (a) {
@@ -5657,10 +5565,9 @@
     // the ladder — "show me this rung" — so a solver who reads the question and
     // does not like their odds must be able to put it back down: a charade
     // whose letters do not obviously belong to any one fragment is a coin
-    // flip, and "having a building block charge me with no way to get it free
-    // when the letter match doesn't feel good" is that coin
-    // flip with the rung staked on it. Nothing was shown, so nothing is spent
-    // and nothing is earned; the rung goes back on the ladder and asks again.
+    // flip, and a rung staked on it would be a toll. Nothing was shown, so
+    // nothing is spent and nothing is earned; the rung goes back on the ladder
+    // and asks again.
     if (ask) {
       $("guess-tell").onclick = () => {
         const a = currentAsk();
@@ -5681,9 +5588,8 @@
     // A TILE MUST NOT TAKE FOCUS. #ana-kbd's blur handler redraws the ring (so
     // the focus outline goes away), and a tap that steals focus therefore
     // destroys the very button it is a tap on before the click can be
-    // dispatched: the keyboard dropped and the letter was never crossed off
-    // ("clicking a letter in the ring makes the keyboard hide and doesn't
-    // remove the letter", on an iPad). Refusing the default
+    // dispatched: the keyboard would drop and the letter would never be
+    // crossed off. Refusing the default
     // mousedown — the synthesised one iOS sends before click — is what keeps
     // the focus, and the tile, where they were. Shuffle needs it for the same
     // reason.
@@ -5707,11 +5613,11 @@
     // Struck letters survive a shuffle: they are the ones already on the grid,
     // and dealing again is a fresh look at what is LEFT.
     //
-    // Surviving means staying WHERE THEY ARE, not merely staying crossed out.
-    // Re-dealing every position moved them too, so a solver who had placed three
-    // letters watched their own three answers scatter along with the question
-    // ("when you have fixed letters they should stay put in the anagram ring"). Only the positions still in play trade places — struck
-    // ones, and the pinned ones ringPins() holds at their answer position.
+    // Surviving means staying WHERE THEY ARE, not merely staying crossed out:
+    // a solver who has placed three letters must not watch their own three
+    // answers scatter along with the question. Only the positions still in play
+    // trade places — the unstruck ones that ringPins() does not hold at their
+    // answer position.
     if (shuffle) shuffle.onmousedown = keepFocus;
     if (shuffle && ring) shuffle.onclick = () => {
       const prevRects = ringTileRects();
@@ -6322,20 +6228,6 @@
     return `<span class="badge diff diff-${b}"${title ? ` title="${esc(title)}"` : ""}>${b}</span>`;
   }
 
-  // Badge the exception, never the norm ("since it only
-  // lists full hints we don't have to show it"). Once the picker stopped
-  // listing un-annotated puzzles, a "full hints" badge on every row said the
-  // same thing about every row, which is the same as saying nothing while
-  // still costing a line of the row. So there is no full-hints badge in the
-  // app at all now: annotated is what a listed puzzle IS, and the badge exists
-  // only to warn you when the one in front of you isn't. The archive page
-  // (tools/build_seo_pages.py) still badges both, and correctly — it lists
-  // every puzzle, so there the two states are a real distinction.
-  //
-  // Not ours comes in two kinds. `blog` names the blog whose write-up some
-  // clues' hints are read off (has_blog_hints in tools/fetch_puzzle.py, the
-  // index's `blog`), and then the puzzle has hints, just not ours; only with
-  // no blog either is it "answers only".
   // What is unusual about a puzzle (pangram, barred grid, special rules…), as
   // tools/puzzle_tags.py read it off the file. Labels and blurbs come from the
   // index, so a tag added there is named and explained here with no table to
@@ -6351,6 +6243,17 @@
     const info = INDEX.tags || {};
     return (p.tags || []).some((k) => k === t || (info[k] && info[k].implies === t));
   }
+  // Badge the exception, never the norm: a "full hints" badge on every row
+  // would say the same thing about every row, which is saying nothing. Annotated
+  // is what a listed puzzle IS, so there is no full-hints badge in the app; the
+  // badge exists only to warn you when the one in front of you isn't. The
+  // archive page (tools/build_seo_pages.py) badges both, correctly — it lists
+  // every puzzle, so there the two states are a real distinction.
+  //
+  // Not ours comes in two kinds. `blog` names the blog whose write-up some
+  // clues' hints are read off (has_blog_hints in tools/fetch_puzzle.py, the
+  // index's `blog`), and then the puzzle has hints, just not ours; only with
+  // no blog either is it "answers only".
   function hintsBadge(annotated, blog) {
     if (annotated) return "";
     if (blog) return `<span class="badge auto blog" title="We haven't written our own hints for this puzzle yet. Its hints come from the ${esc(blog)} write-up: the definitions, clue types and pieces it marked, with some of what it left out worked out from the letters. Each clue links to the full explanation there, and a clue it marked nothing on has no hints yet.">hints via ${esc(blog)}</span>`;
@@ -6366,7 +6269,6 @@
       : "";
   }
 
-  // Same principle as the hints badge: badge the exception, not the norm. The
   // Every series says what it is. There is no default: a row with no chip reads
   // as a row we forgot to label, not as "the usual one", and the smoke test
   // fails on a series in the index with no entry here — that is what keeps this
@@ -6374,9 +6276,8 @@
   //
   // This text is prose for a human choosing what to attempt next, which is why
   // it lives here and not in tools/series.py with the machine-readable facts.
-  // [what the chip says, why]. The label used to be the series key itself,
-  // which worked only while every key happened to read as a word — and then
-  // "indysunday" arrived. Keep it a label; keys are storage, not English.
+  // [what the chip says, why]. The label is not the series key: keys are
+  // storage ("indysunday"), not English.
   // The why says what the series is known for, never a count or a puzzle
   // number: we hold part of each archive. tools/app_tables.py refuses one.
   const SERIES_BADGE = {
@@ -6522,14 +6423,12 @@
   //
   // This is a teaching site, so a puzzle with no hand-written annotations can't
   // do the thing the site is for: you can type letters into it and check them,
-  // and that's all. Listing those alongside the taught ones ("we
-  // only want to only show ones that have full annotations") made the one dialog
-  // whose job is "what should I do next" answer mostly with things that won't
-  // teach you anything — 22 of 36 rows, and the ratio gets worse every night,
-  // because fetching is daily and annotating is one puzzle per run.
+  // and that's all. Listing those alongside the taught ones would make the one
+  // dialog whose job is "what should I do next" answer mostly with things that
+  // won't teach you anything, and the ratio worsens every night, because
+  // fetching is daily and annotating is one puzzle per run.
   //
-  // Nor is it everything that IS annotated. The dialog answers "what should I
-  // do next", and at 226 taught puzzles the answer had become a catalogue you
+  // Nor is it everything that IS annotated: the answer would be a catalogue you
   // scroll. So the default is the newest RECENT_ROWS, plus
   // whatever the solver has open or has left unfinished.
   //
@@ -6539,12 +6438,11 @@
   // rather than sitting in it forever: it is the one puzzle you have no reason
   // to open next, and "solved" is a search term for the days you do.
   const RECENT_ROWS = 12;
-  // "Have I finished this one?" — the question a list of 78 puzzles has to
+  // "Have I finished this one?" — the question a list of puzzles has to
   // answer before it can answer anything else. It is computed here rather than
   // stored: the saved letters are simply held against the solutions. A stored
   // `done` flag would be a second copy of a fact the data already knows, and
-  // sync/merge.js would then have to have an opinion about merging it — see
-  // make-the-wrong-version-unwritable.
+  // sync/merge.js would then have to have an opinion about merging it.
   //
   // The solutions are only fetched for puzzles with letters saved, which is why
   // the `!filled` test comes first: it is also what makes loadStartedPuzzles a
@@ -6619,13 +6517,14 @@
   // written to. Built on first use and kept for the life of the page — nothing
   // invalidates it, because nothing can make it wrong.
   //
-  // Kept because it was the search: rebuilding all 15,992 of these cost ~56 ms
-  // on every keystroke and on every chip tap, before a single row was drawn,
-  // and a quarter of that was the `new Date` in puzzleDate.
-  // A plain object, not a Map, though it holds all 15,992 ids and that puts it
-  // in dictionary mode — which is the argument for a Map, and the measurement
-  // goes the other way: 20M lookups cost 423 ms against the object and 991 ms
-  // against the Map. It is read once per row per render, so that IS the search.
+  // Kept because it is the search: rebuilding one per puzzle in the index on
+  // every keystroke and every chip tap would cost tens of ms before a single row
+  // was drawn, a quarter of it the `new Date` in puzzleDate.
+  // A plain object, not a Map, though it holds every id in the index and that
+  // puts it in dictionary mode — which is the argument for a Map, and the
+  // measurement goes the other way: 20M lookups cost 423 ms against the object
+  // and 991 ms against the Map. It is read once per row per render, so that IS
+  // the search.
   const staticHay = {};
   function pickerStaticHay(p) {
     const had = staticHay[p.id];
@@ -6651,7 +6550,7 @@
   // off one row at a time. They are the only part of the haystack that moves
   // while the page is open, so they are added here instead of being baked into
   // the cache above — and only for the puzzles that have letters saved, which is
-  // a handful, rather than asked of all 15,992.
+  // a handful, rather than asked of every puzzle in the index.
   function pickerHaystack(p) {
     if (!savedProgress()[p.id]) return pickerStaticHay(p);
     const st = pickerStatus(p);
@@ -6659,22 +6558,23 @@
   }
   // What the panel offers as you type. Only the terms a solver could not be
   // expected to have spelled right from memory — setters and weekdays — plus the
-  // two status filters. Papers and bands have menus of their own. Numbers are deliberately
-  // absent: 226 of them would bury every word in the list, and a number you can
-  // remember you can already type.
+  // two status filters. Papers and bands have menus of their own. Numbers are
+  // deliberately absent: there would be too many, burying every word in the
+  // list, and a number you can remember you can already type.
   //
   // Built from the index rather than listed, so a setter cannot appear in the
   // suggestions without appearing in the rows, or the other way round.
   //
   // Nothing is offered until two letters are in. The whole list on an empty box
   // buries the panel it is there to search, on an iPhone. Two
-  // letters cuts seventy terms to a handful, and by then the suggestion is
+  // letters cuts the terms to a handful, and by then the suggestion is
   // about a word already being spelled — which is when a completion is worth
   // anything.
   //
   // Offered as chips, not through the input's list= attribute. A datalist popup
-  // is native UI the page cannot place: on iPad it opened nowhere near the box, and no CSS can move it. A chip row is laid out by the
-  // panel, so where it appears is decided here and is the same everywhere.
+  // is native UI the page cannot place, and no CSS can move it. A chip row is
+  // laid out by the panel, so where it appears is decided here and is the same
+  // everywhere.
   const PICKER_SUGGEST_MIN = 2;
   let pickerTerms = null;
   function pickerSuggestTerms(q) {
@@ -6783,11 +6683,10 @@
     const keep = pickerFilter();
     if (terms.length || keep) {
       // A run of digits is a NUMBER, and a number is not the digits sitting
-      // inside a longer one. With 12,462 puzzles indexed that stopped being
-      // theoretical: Globe and Mail 3,368 is inside Guardian cryptic 23,368, so
-      // typing the number printed on the page you are looking at returned two
-      // unrelated puzzles (2026-09-18). A digits-only term has to start where a
-      // number starts, which still narrows as you type — "233" opens 23,368 and
+      // inside a longer one: Globe and Mail 3,368 is inside Guardian cryptic
+      // 23,368, so typing the number printed on the page you are looking at
+      // would return two unrelated puzzles. A digits-only term has to start where
+      // a number starts, which still narrows as you type — "233" opens 23,368 and
       // not 3,368 — and leaves every other term matching anywhere, because
       // "imogen" inside a setter's name is exactly what a search is for.
       const matchers = terms.map((t) => (/^\d+$/.test(t)
@@ -6806,8 +6705,8 @@
       // newest-first already puts the taught ones near the top. A series with
       // no dates gets none of that. The book puzzles are reprints with no
       // publication date, which sorts them below every dated puzzle and orders
-      // them among themselves by number — so the eight of them that are
-      // annotated sat at rows 46, 48 and 51-55 of their own paper's list.
+      // them among themselves by number — so the annotated ones would sit deep
+      // in their own paper's list.
       return hits.filter((p) => p.annotated).concat(hits.filter((p) => !p.annotated));
     }
     // INDEX.puzzles is latest-first, so the cap counts down from today. The two
@@ -6815,14 +6714,13 @@
     //
     // Both exemptions are known BY ID before the walk starts — savedProgress()
     // is the short list of puzzles with letters saved, and P is one puzzle — so
-    // the walk stops the moment it has its twelve and has passed every
-    // exemption it was looking for, instead of filtering all 15,992 rows to
+    // the walk stops the moment it has its RECENT_ROWS and has passed every
+    // exemption it was looking for, instead of filtering every row to
     // produce a dozen every time the panel is drawn.
     //
     // Restricted to ids the index actually knows, because the stop condition
     // depends on the set emptying: progress saved for a puzzle that has since
-    // left the corpus would otherwise hold the walk open to the last row
-    // forever, which is the behaviour this replaces.
+    // left the corpus would otherwise hold the walk open to the last row.
     const want = new Set();
     if (P && BY_ID[P.id]) want.add(P.id);
     Object.keys(savedProgress()).forEach((id) => {
@@ -6884,10 +6782,9 @@
   // each time the bottom of it comes into view.
   //
   // A search matches as many puzzles as it matches — the "guardian" chip
-  // matches 8,393 of the 15,992 — and every one of them used to be built and
-  // handed to the browser on the tap that selected the chip: 16,786 elements
-  // and 3.8 MiB of markup to parse and lay out in one go, which is the "takes
-  // a long time to swap" this is here to fix. The eye can see about a dozen.
+  // matches thousands — and building every one of them on the tap that selected
+  // the chip would mean parsing and laying out thousands of elements in one go.
+  // The eye can see about a dozen.
   //
   // Comfortably more than RECENT_ROWS, so the default list — the newest twelve
   // plus whatever you have open or unfinished — is never a chunked one.
@@ -6934,9 +6831,8 @@
     // The line under the list says two different things and has to keep them
     // apart. "More below" is about scrolling; "don't match" is about searching,
     // and the answer to it is to type something else. Rolling them into one
-    // count would tell a solver who can see 24 of 8,393 Guardian puzzles that
-    // 15,968 of them "don't match", which is a lie the old single count did not
-    // tell only because it drew all 8,393.
+    // count would tell a solver who can see 24 of thousands of matching puzzles
+    // that the undrawn ones "don’t match", which is a lie.
     const sayRest = () => {
       const unmatched = INDEX.puzzles.length - rows.length;
       const below = rows.length - drawn;
@@ -6958,8 +6854,8 @@
     }
     // Without an IntersectionObserver nothing can tell us the bottom has been
     // reached, so the whole list goes in at once — slow on a search that
-    // matches thousands, which is what this did before, and better than a list
-    // that stops short with no way to go on.
+    // matches thousands, but better than a list that stops short with no way
+    // to go on.
     const chunk = typeof IntersectionObserver === "function" ? PICKER_CHUNK : rows.length;
     const drawMore = () => {
       const upto = Math.min(rows.length, drawn + chunk);
@@ -6992,10 +6888,10 @@
   // style.css — so two open at once is two panels drawn on top of each other,
   // and the DOM order decides which one you see. The picker is last in
   // index.html, so pressing Sync with the picker up opened the sync panel
-  // underneath it: the button did exactly what it says and looked broken.
+  // underneath it, and the button would look broken.
   //
   // Opening one therefore closes the others, and every opener goes through
-  // here, so a fourth panel cannot bring the overlap back by forgetting to.
+  // here, so no panel can overlap another by forgetting to.
   const PANELS = ["sync-panel", "notify-panel", "picker-panel", "fb-panel", "stats-panel"];
   function closePanel(id) {
     // Whatever the panel was doing to the outside world stops when it goes
@@ -7005,7 +6901,7 @@
     $(id).classList.add("hidden");
   }
   // Returns whether the panel ended up open, which is the caller's cue to fill
-  // it in — rendering a panel nobody can see is the other half of this bug.
+  // it in — rendering a panel nobody can see is wasted work.
   function showPanel(id, show) {
     const want = (show === undefined) ? $(id).classList.contains("hidden") : show;
     if (!want) { closePanel(id); return false; }
@@ -7019,8 +6915,7 @@
     const want = showPanel("picker-panel", show);
     // The search box starts empty, but the menus keep what they were last set
     // to: someone working through one paper at one difficulty opens a puzzle,
-    // comes back for the next, and should not have to set them again (Paul,
-    // 2026-10-02). They are ringed "on" while set (renderPicker), which is what
+    // comes back for the next, and should not have to set them again. They are ringed "on" while set (renderPicker), which is what
     // tells a narrowed list from puzzles gone missing. A value the rebuilt menu
     // no longer offers falls back to "", each menu's "all".
     const box = $("picker-search");
@@ -7046,10 +6941,10 @@
 
   // ---------- puzzle lifecycle ----------
   // The address bar is what gets copied. Whichever puzzle is on the screen is
-  // the one a share has to hand over, so opening one rewrites the URL — before
-  // this, picking from the list left the address bar saying the site root,
-  // which drops the reader on last night's puzzle, or a stale ?p= from the link
-  // they arrived by, which is worse because it looks deliberate.
+  // the one a share has to hand over, so opening one rewrites the URL — otherwise
+  // the bar would say the site root, which drops the reader on last night's
+  // puzzle, or a stale ?p= from the link they arrived by, which is worse
+  // because it looks deliberate.
   //
   // replaceState, not push: switching puzzles is choosing what to look at, not
   // navigating, and a back button that walked the picker backwards would make
@@ -7057,9 +6952,8 @@
   //
   // Only when the reader CHOSE this puzzle, though. Booting on the remembered
   // one is not a choice, and a bare site root that rewrites itself
-  // would leave the homepage declaring a puzzle as its canonical — which is the
-  // de-indexing bug again, pointed the other way. The front door
-  // stays the front door until somebody picks.
+  // would leave the homepage declaring a puzzle as its canonical, de-indexing
+  // it. The front door stays the front door until somebody picks.
   let canonicalHome = null;
   function homeUrl() {
     if (canonicalHome === null) {
@@ -7072,9 +6966,8 @@
   // Every URL the app builds is resolved against the front door, never against
   // the address bar. Opening a puzzle rewrites the bar to /puzzles/<id>/, so a
   // relative "puzzles/..." then resolves one level deeper —
-  // /puzzles/<id>/puzzles/... — and 404s. That broke the archive link at the
-  // foot of the picker, and the script tag for the NEXT puzzle opened, so the
-  // app could only ever load one puzzle per page load.
+  // /puzzles/<id>/puzzles/... — and 404s, for the archive link at the foot of
+  // the picker and for the script tag of the NEXT puzzle opened.
   function at(rel) { return new URL(rel, homeUrl()).href; }
 
   // The same rule for what goes in the address bar, every form of it: a bare
@@ -7119,10 +7012,9 @@
     // write-up. This flag tells that page's <head> this tab was solving here, so
     // it sends the reload back to the app (app_return in tools/build_seo_pages.py).
     try { sessionStorage.setItem(`ct:app:${id}`, "1"); } catch (e) { /* no storage: a reload shows the write-up */ }
-    // ?p=30054 is one app URL among thousands, and it shipped declaring the
-    // homepage as its canonical — so Google folded every share and every link to
-    // a specific puzzle into the site root, and Search Console listed the puzzle
-    // as "alternate page with proper canonical tag". The page that
+    // ?p=30054 is one app URL among thousands, and declaring the homepage as its
+    // canonical would fold every share and every link to a specific puzzle into
+    // the site root. The page that
     // deserves that credit is the write-up at /puzzles/30054/, which says the same
     // things without needing JavaScript. Point at it, but only when it exists:
     // an unannotated puzzle has no static page, and the homepage is then honest.
@@ -7171,8 +7063,7 @@
     // Forget the last puzzle's clue too, so syncClueUrl always writes the new
     // one. It compares refs, not puzzles, and "1A" left over from the puzzle
     // just closed reads as no change if the new one also opens on "1A" —
-    // silently dropping &c= from a URL that had never named this puzzle's
-    // clues at all.
+    // silently dropping &c= from the new puzzle's URL.
     urlClue = null;
     $("celebrate").classList.add("hidden");
     // Nothing in the air belongs to a grid that is no longer open.
@@ -7222,8 +7113,7 @@
     refreshAll();
   }
 
-  // Finishing a puzzle used to change one number in the scorebar from 27 to 28
-  // ("there should be some celebration when you complete").
+  // Finishing a puzzle is celebrated, not just a scorebar number going from 27 to 28.
   // Two rules keep it from becoming noise: it fires on the TRANSITION only, in
   // the session that earned it — reopening a finished puzzle is not an
   // achievement and must not set off fireworks at you — and the fireworks are
@@ -7238,9 +7128,9 @@
     celebrate(complete, earned);
   }
   // The finish box is two children, built once and never replaced: the burst and
-  // the scoreline. Only the scoreline is ever redrawn. They used to be one
-  // innerHTML string, so the vote tally arriving from /v — which redraws the
-  // scoreline, and arrives whenever it arrives — deleted the burst mid-flight.
+  // the scoreline. Only the scoreline is ever redrawn: the vote tally arriving
+  // from /v redraws it whenever it arrives, and would delete a burst mid-flight
+  // if they shared one innerHTML string.
   // A function whose job is a sentence must not be able to reach the fireworks,
   // and the way to guarantee that is for them not to be in what it writes.
   let celebrateEls = null;
@@ -7261,8 +7151,8 @@
 
   // `earned` is only the fireworks. The sentence shows whenever the grid is full,
   // including on a finished puzzle reopened next week — it is a fact about the
-  // puzzle, not an event, and there is nothing to dismiss ("why are the stats
-  // dismissed with thanks? Can they just be on the one line when you finish"). Written once per completion rather than on every render:
+  // puzzle, not an event, and there is nothing to dismiss. Written once per
+  // completion rather than on every render:
   // the minutes figure would otherwise tick over as you sat there and the
   // sentence would rewrite itself under you.
   let tallyDrawn = false;
@@ -7313,12 +7203,11 @@
     if (earned) { fireBurst(parts.burst, noHints === Object.keys(counted).length); scrollToHintPanel("celebrate", "celebrate"); }
   }
 
-  // Where the burst is, in one word, on the element itself. Four outcomes used to
-  // leave pixel-identical nothing — never lit, burned while the box was off
-  // screen, burned where someone was looking, thrown away unseen — so "I have
-  // never seen the fireworks" was a report the page could not answer. It can
-  // now: open the box in an inspector and the class says which of the four
-  // happened. "hold" is also what the stylesheet gates the animation on.
+  // Where the burst is, in one word, on the element itself. Four outcomes would
+  // otherwise leave pixel-identical nothing — never lit, burned while the box was
+  // off screen, burned where someone was looking, thrown away unseen — so open
+  // the box in an inspector and the class says which of the four happened.
+  // "hold" is also what the stylesheet gates the animation on.
   //
   // Only "hold" and "lit" have anything in the air, so every other state empties
   // the shells out of the page rather than leaving them frozen at opacity 0 for
@@ -7345,10 +7234,9 @@
     if (state !== "hold" && state !== "lit") burst.innerHTML = "";
   }
 
-  // A firework nobody was looking at is not a firework. The sparks used to start
-  // the instant the markup was written, while the page was still travelling to
-  // the box — three shells last a couple of seconds and the scroll can eat most
-  // of that, so you caught the tail, or nothing at all, on iOS.
+  // A firework nobody was looking at is not a firework. Sparks that started the
+  // instant the markup was written would burn while the page was still
+  // travelling to the box, and the scroll can eat most of the show.
   //
   // So the shells are written held, and the stylesheet gives a spark its
   // animation only once the hold comes off — not an animation paused at birth,
@@ -7359,17 +7247,15 @@
   //
   // Two things decide whether anyone ever sees them:
   //
-  // How much of the box counts as seen. Forty per cent of it is a lot to ask at
-  // the one moment the on-screen keyboard is up — the last letter of the puzzle
-  // has just been typed — so the box could sit visibly on the screen and never
-  // trip the observer. A sliver is enough to look at.
+  // How much of the box counts as seen: a sliver (the observer's threshold is
+  // 0.01). A large fraction is a lot to ask at the one moment the on-screen
+  // keyboard is up — the last letter of the puzzle has just been typed — and the
+  // box could sit visibly on the screen and never trip the observer.
   //
-  // What happens when it is never seen. The backstop used to unpause anyway
-  // after four seconds, which spends the burst into an empty screen and leaves
-  // nothing for the scroll that arrives a moment later. A firework either goes
-  // off where someone is looking or it does not go off: the observer keeps
-  // waiting, and the long stop throws the shells away rather than burning them,
-  // marked "missed" so the throwing-away is on the record.
+  // What happens when it is never seen. A firework either goes off where
+  // someone is looking or it does not go off: the observer keeps waiting, and
+  // the long stop throws the shells away rather than burning them into an empty
+  // screen, marked "missed" so the throwing-away is on the record.
   const FIREWORK_ABANDON_MS = 60000;
   // Ten shells, one after another, at spots spread across the box so it fills
   // rather than one patch flashing ten times. Fixed, not random, so the show is
@@ -7418,8 +7304,7 @@
   // vector it flies along as custom properties and one keyframe in style.css
   // flies all of them: the angles are computed here so the spread is even,
   // which is the difference between a firework and a handful of dots.
-  // prefers-reduced-motion turns the whole thing off and leaves the sentence,
-  // which is the part that was actually missing.
+  // prefers-reduced-motion turns the whole thing off and leaves the sentence.
   function shellsHTML(sparks = 14) {
     const shells = SHELLS.map((sh) => {
       const bits = Array.from({ length: sparks }, (_, i) => {
@@ -7454,9 +7339,9 @@
   // Safari rate-limits replaceState hard enough that a fast solver would hit
   // the ceiling and lose the lot.
   //
-  // Only ever a refinement of a URL that already names a puzzle: a bare
-  // the bare site root has to stay the front door, for the reason spelled out
-  // above pointUrlAtPuzzle.
+  // Only ever a refinement of a URL that already names a puzzle: the bare
+  // site root has to stay the front door, for the reason spelled out
+  // at the top of this section.
   let urlClue = null;
   function syncClueUrl() {
     const e = currentEntry();
@@ -7510,9 +7395,8 @@
     // #stats is the stats page as a link, which is what a toast points at.
     if (location.hash === "#stats") toggleStats(true);
     bindWelcome();
-    // The lesson is /learn/ — a page, reached by a plain link in the header.
-    // It is a document you read end to end, and it outgrew the collapsible
-    // section it used to live in on this page.
+    // The lesson is /learn/ — a page, reached by a plain link in the header,
+    // because it is a document you read end to end.
     $("btn-picker").onclick = () => { if (togglePicker()) beacon("picker"); };
     $("btn-picker-close").onclick = () => togglePicker(false);
 
@@ -7717,20 +7601,19 @@
     //
     // On mousedown, because iOS only opens the keyboard for a focus() inside the
     // gesture and this strip re-renders itself on the way through: by the time a
-    // click handler's focus() ran, the box that was tapped had been thrown away
-    // with the rest of the strip's innerHTML, the tap had nothing left to belong
-    // to, and you got a moved cursor and no keyboard, on an iPad.
+    // click handler's focus() ran, the box that was tapped would have been thrown
+    // away with the rest of the strip's innerHTML, leaving a moved cursor and no
+    // keyboard.
     //
     // Summoning a keyboard is a viewport change like any other, and what it
-    // covers is the clue sitting directly above the strip that was tapped ("the
-    // keyboard covers the clue but it should scroll into view"). placeHintPanel already corrects for a keyboard that arrives
+    // covers is the clue sitting directly above the strip that was tapped.
+    // placeHintPanel already corrects for a keyboard that arrives
     // a beat late — its watch window exists for exactly that — so this tap only
-    // ever needed to arm it, the way picking a square does.
+    // needs to arm it, the way picking a square does.
     //
     // Only on the tap that RAISES the keyboard. The strip is also how you steer,
-    // and re-placing the panel under every steer moved the clue on each box you
-    // touched ("with the keyboard up clicking different letters in the clue is
-    // moving it around", on an iPad). Nothing is newly covered by a keyboard
+    // and re-placing the panel under every steer would move the clue on each box
+    // you touched. Nothing is newly covered by a keyboard
     // that was already up, so there is nothing to correct for.
     $("hint-pattern").addEventListener("mousedown", () => {
       const up = document.activeElement === $("kbd");
@@ -7738,13 +7621,11 @@
       if (!up) scrollToHintPanel("hint-clue", "hint-panel", "hint-pattern");
     });
 
-    // Everything else keeps a keyboard and never raises one. The grid used to
-    // raise it — tapping a square was read as a decision to type — but picking a
-    // square is how you pick a CLUE, and the ladder answers a new clue with a
-    // question you answer by tapping. The
-    // hint buttons and the clue lists were already on this rule; the grid joins
-    // them, so the strip is the only exception and the strip is where typing
-    // starts.
+    // Everything else keeps a keyboard and never raises one. Picking a square is
+    // how you pick a CLUE, and the ladder answers a new clue with a
+    // question you answer by tapping, so tapping the grid is not a decision to
+    // type. The hint buttons, the clue lists and the grid share this rule, so
+    // the strip is the only exception and the strip is where typing starts.
     //
     // Bound to the containers, not the buttons, because refreshAll() throws the
     // buttons away and rebuilds them on every render. The mousedown listener
@@ -7782,14 +7663,14 @@
     // ?p=30072 wins over the remembered puzzle: the static answer pages under
     // /puzzles/<n>/ link in that way, and dropping someone on last night's
     // puzzle instead of the one they clicked would be baffling.
-    // Every link shared before the ids changed says ?p=30080, and they must keep
+    // Links that name a puzzle by an older spelling of its id must keep
     // opening the puzzle they named.
     migrateSavedIds();
     const askedRaw = new URLSearchParams(location.search).get("p");
     const asked = askedRaw ? canonicalId(askedRaw) : null;
     // ?p=4098, a bare number or an old book id, names a puzzle by a spelling
     // that is not its id, and rewriting only the bar leaves the old URL a page
-    // of its own: Search Console indexed ~450 of them apart from their puzzles.
+    // of its own for crawlers to index apart from the puzzle.
     // So it is a real navigation, to the address picking that puzzle gives
     // (shareUrl), with the tab flag the write-up's <head> sends back into the
     // app (app_return in tools/build_seo_pages.py). A crawler carries no flag
