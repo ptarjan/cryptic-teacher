@@ -70,7 +70,9 @@ CLASSES = [
     ("blank-clues", "read; a clue is blank (readings disagree), held back", "the full pass re-reads it with the desktop VLM (due once :8090 answers; a row read without it is due by itself)", True, "tools/file_archive_org_puzzles.py"),
     ("no-grid", "read; no grid found or rebuilt", "the scan's grid now stands when no grid fits the clues (left: the grid reader's unread crops)", True, "tools/file_archive_org_puzzles.py"),
     ("clues-dont-fit", "read; the rebuilt grid disagrees with the clues", "clue reader fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
-    ("no-reading-parses", "read; no reading of the clue columns parses", "clue reader fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
+    ("no-reading-parses", "read; no reading of the clue columns parses",
+     ("clue reader fix, then bump REREAD_BEFORE; the 1983-86 FT's clue column under the title, left of the grid, "
+      "is read before the two under it (lead_column)"), True, "tools/file_archive_org_puzzles.py"),
     ("not-a-grid", "read; the ink under the title is not a grid", "grid finder fix, then bump REREAD_BEFORE", True, "tools/file_archive_org_puzzles.py"),
     ("crashed", "read; the reader raised on this title", "the traceback in the ledger's refused", True, "tools/file_archive_org_puzzles.py"),
     ("refused-no-cause", "read before refusals filed a cause; the next read stamps one",

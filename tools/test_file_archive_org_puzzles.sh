@@ -1265,6 +1265,28 @@ lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-8649-left"]["lines"]]
 text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
 check("the clue columns left of the grid are read, across then down",
       (True, True), (text.startswith("ACROSS\nI Footwear"), "\nDOWN\n2 Fruit" in text))
+# The 1983-86 FT: ACROSS and the first DOWN clues in a column under the title,
+# left of the grid; the rest of DOWN in two columns under the grid, a clue
+# running on from each column into the next (RapidOCR's words, 5,607).
+_, _, gbox = located("ftcryptic-5607-right")
+lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-5607-right"]["lines"]]
+lead = f.lead_split(lines, gbox, f.lead_column(cases["ftcryptic-5607-right"]["title"], gbox))
+cols = f.columns(lines, gbox, lead=lead, split=f.under_gutter(lines, gbox))
+text = f.column_text(cols)
+parsed, _ = f.parse(text)
+check("the column beside the grid is read first, then the two under it",
+      ("ACROSS", "cause lock-jaw(7)", "ofNewport（5)"), tuple(c[0][4] for c in cols))
+check("a clue's run-on line opens the next column and stays with its clue",
+      (True, True), ("6 Chewing nuts with tea may\ncause lock-jaw" in text,
+                     "22 Music for one in outskirts\nofNewport" in text))
+check("an under-grid clue's number outdented past the grid's edge stays in its column",
+      True, any(l[4].startswith("10 It's simple") for l in cols[1]))
+# This one reading's own slips (25 read as 23, 19 run into 17) are the vote's
+# to mend: the 15 across and 12 of the 13 down parse.
+check("every across and down clue of the layout parses",
+      (15, 12), tuple(len(parsed[k]) for k in ("across", "down")) if parsed else None)
+check("(mirror) read as two columns under the grid, no reading parses", None,
+      f.parse(f.column_text(f.columns(lines, gbox, split=f.under_gutter(lines, gbox))))[0])
 
 side, shaped, box = located("times1930-54-fold")
 check("a grid is found when a fold in the paper runs down through its title and into it (1930 No 54)",

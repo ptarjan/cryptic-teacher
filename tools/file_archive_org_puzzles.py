@@ -527,11 +527,15 @@ def gutter(lines, grid, top, lo=None, hi=None):
 RIGHT_REACH = 30
 
 
-def windows(grid, third=None, margin=40, above=None, left=None, split=None):
+def windows(grid, third=None, margin=40, above=None, left=None, split=None, lead=None):
     """[(x0, x1, right edge, top)] of each clue column: a word whose left edge
     is in [x0, x1), right edge at most the right edge and top at least the
     top is in it. The two columns under the grid, and with `third`, (width,
-    top), a column that wide right of the grid from `top` down. The left
+    top), a column that wide right of the grid from `top` down. With `lead`,
+    (x0, top, split), a column of the words starting from x0 to `split` (by
+    the grid's left edge) and ending by the grid's edge, from `top` (its
+    title's foot) down, comes first, and the column under the grid starts at
+    `split` (lead_column(): the 1983-86 FT). The left
     column starts `margin` left of the grid (the Times outdents its numbers).
     With `above`, (top, gutter, right), the two columns are over the grid
     instead, from `top` down, split at the gutter, the right one ending at
@@ -548,6 +552,9 @@ def windows(grid, third=None, margin=40, above=None, left=None, split=None):
         return [(gx0 - margin, split, split, top), (split, right, right, top)]
     mid = gx0 + (gx1 - gx0) / 2 - 10 if split is None else split
     out = [(gx0 - margin, mid, gx1 + 15, gy1 - 5), (mid, gx1 + 15, gx1 + 15, gy1 - 5)]
+    if lead:
+        x0, top, edge = lead
+        out = [(x0, edge, max(edge, gx0 - 5), top), (edge,) + out[0][1:]] + out[1:]
     if third:
         out.append((gx1 + 15, gx1 + 15 + third[0], gx1 + 15 + third[0], third[1]))
     return out
@@ -596,14 +603,15 @@ def split_across(ws, gutters, height=None):
     return out
 
 
-def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None):
+def columns(lines, grid, third=None, margin=40, above=None, left=None, split=None, lead=None):
     """The clue columns under the grid (and with `third`, right of it; with
-    `above`, over it; with `left`, left of it; see windows()): [[(y0, y1, x0,
+    `above`, over it; with `left`, left of it; with `lead`, first one left of
+    it; see windows()): [[(y0, y1, x0,
     x1, text) per line] per column, left to right], each cut where the clues
     stop."""
     gx0, gy0, gx1, gy1 = grid
     bottom = gy0 - 3 if above else left_bottom(grid) if left else gy1 + 1.8 * (gx1 - gx0)
-    wins = windows(grid, third, margin, above, left, split)
+    wins = windows(grid, third, margin, above, left, split, lead)
     reach = gx1 + RIGHT_REACH if above is None and not left else None
     cols = [[] for _ in wins]
     heights = sorted(w[3] - w[1] for ws in lines for w in ws)
@@ -611,8 +619,11 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
     for ws in lines:
         ws = split_across(ws, [w[1] for w in wins[:-1]], height)
         for side, (x0, x1, right, top) in enumerate(wins):
+            # The lead column's right edge is the next column's left: no
+            # overhang.
+            over = reach if side or not lead else None
             part = [w for w in ws if x0 <= w[0] < x1 and top <= w[1] <= bottom and (
-                w[2] <= right or reach and w[2] <= reach and w[0] < gx1 - ACROSS_GUTTER)]
+                w[2] <= right or over and w[2] <= over and w[0] < gx1 - ACROSS_GUTTER)]
             if part:
                 text = " ".join(w[4] for w in part)
                 if side + 1 < len(wins) and min(w[0] for w in part) < x1 - ACROSS_GUTTER \
@@ -642,8 +653,13 @@ def columns(lines, grid, third=None, margin=40, above=None, left=None, split=Non
                 # word the grid's numbers left is not. A column under the
                 # grid after the first may open on a clue whose number was
                 # lost ("Peer inside the pearly gates").
-                carried = (side and above is None and not left and re.match(r"[A-Z][a-z]", line[4])
-                           and len(re.findall(r"[A-Za-z]{2,}", line[4])) >= 3)
+                carried = side and above is None and not left and (
+                    re.match(r"[A-Z][a-z]", line[4]) and len(re.findall(r"[A-Za-z]{2,}", line[4])) >= 3
+                    # The rest of the clue the last column ended in, its
+                    # count not yet printed ("6 Chewing nuts with tea may"
+                    # over "cause lock-jaw (7)").
+                    or out and out[-1] and not COUNT_END.search(out[-1][-1][4])
+                    and re.match(r"[a-z]", line[4]))
                 # A clue's number 1 read as I, l, J, ! or | (tidy() reads it
                 # back): "I Very late at night".
                 if not re.match(r"\W*(?:\d|[IlJ!|]\s?(?=[A-Z][a-z]))", line[4]) and not carried:
@@ -949,7 +965,27 @@ def left_columns(lines, grid):
     return x0, gutter(lines, (lo, floor, hi, floor), gy0 - LEFT_RISE, lo, hi)
 
 
-def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None):
+def lead_column(title, grid, margin=40):
+    """(x0, top) of the clue column under a title printed left of its grid
+    (the 1983-86 FT: ACROSS and the first DOWN clues there, the rest in the
+    two columns under the grid): the column is centred under the title and
+    ends at the grid's left edge, so it starts as far left of the title's
+    middle, less `margin`."""
+    cx = (title[0] + title[2]) / 2
+    return max(0, int(2 * cx - grid[0]) - margin), title[3]
+
+
+def lead_split(lines, grid, lead, margin=40):
+    """`lead` (lead_column()) with the x between it and the column under the
+    grid: where the fewest words (`lines`, every reading's) under the grid
+    cross, from `margin` left of the grid's edge (where that column's numbers
+    start, outdented) to just inside it."""
+    gx0, _, gx1, gy1 = grid
+    bottom = gy1 + 1.8 * (gx1 - gx0)
+    return lead + (gutter(lines, (gx0, bottom, gx1, bottom), gy1, gx0 - margin, gx0 + 10),)
+
+
+def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None, left=None, lead=None):
     """One recogniser's reading of the page under the grid (RapidOCR's, or
     Tesseract's for a TESS_MODELS reader), as djvu-style lines of one word each, in page
     coordinates; cached as JSON with the crop it read, so a reading of another
@@ -963,14 +999,20 @@ def rapid_lines(img, grid, which, cache_path, third=None, margin=40, above=None,
         box = (max(0, gx0 - margin), max(0, int(above)), min(img.width, gx1 + OVERHANG), gy0)
     if left:
         box = (max(0, gx0 - gw - 60), max(0, gy0 - LEFT_RISE), gx0, min(img.height, int(left_bottom(grid))))
+    if lead:
+        box = (max(0, int(lead[0])), max(0, int(lead[1])), box[2], box[3])
     if cache_path.exists():
         cached = json.loads(cache_path.read_text())
         if isinstance(cached, list):
             return [[tuple(w)] for w in cached]
         if tuple(cached["box"]) == box:
             return [[tuple(w)] for w in cached["words"]]
+    crop = img.crop(box)
+    if lead:
+        # The grid inside the crop is blanked: its numbers are no clue's.
+        crop.paste("white", (gx0 - box[0], gy0 - box[1], gx1 - box[0], gy1 - box[1]))
     words = [(x0 + box[0], y0 + box[1], x1 + box[0], y1 + box[1], t)
-             for x0, y0, x1, y1, t in read_words(img.crop(box), which)]
+             for x0, y0, x1, y1, t in read_words(crop, which)]
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache_path.write_text(json.dumps({"box": box, "words": words}))
     return [[w] for w in words]
@@ -2141,8 +2183,9 @@ def read_puzzle(d, found, hit, solutions):
     # words of any reading cross.
     top = hit["box"][1] - 10 if paper.clues_above else None
     beside = side == "left"
+    lead = lead_column(hit["box"], gbox, m) if side == "right" else None
     rapid = {which: rapid_lines(img, gbox, which, CROPS / "rapid" / f"{key}.{reader_key(which)}.json", third, m, top,
-                                beside) for which in READERS}
+                                beside, lead) for which in READERS}
     # The scan's grid, read before the clues: the 1930 Times prints no
     # counts, so its clues take theirs from it.
     gpath = CROPS / "grids" / f"{key}.png"
@@ -2173,13 +2216,15 @@ def read_puzzle(d, found, hit, solutions):
         above = (top, gutter(every, gbox, top), gutter(every, gbox, top, gbox[2] - OVERHANG, gbox[2] + OVERHANG))
     if beside:
         left = left_columns(every, gbox)
+    if lead:
+        lead = lead_split(every, gbox, lead, m)
     if not paper.four:
         split = under_gutter(every, gbox) if above is None and left is None else None
-        cols = {"djvu": columns(lines, gbox, third, m, above, left, split)}
+        cols = {"djvu": columns(lines, gbox, third, m, above, left, split, lead)}
         for which in READERS:
-            cols[which] = columns(rapid[which], gbox, third, m, above, left, split)
+            cols[which] = columns(rapid[which], gbox, third, m, above, left, split, lead)
         texts = {k: column_text(c) for k, c in cols.items()}
-        wins = windows(gbox, third, m, above, left, split)
+        wins = windows(gbox, third, m, above, left, split, lead)
     # The desktop's VLM, when it answers, is one more reading (the 1930
     # page's, vlm_four's above).
     if vlm.reachable() and not paper.four:
