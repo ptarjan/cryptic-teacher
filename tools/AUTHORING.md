@@ -718,8 +718,7 @@ hopes he'll…` around any two pieces and something readable falls out. Banning
 filler is what separates a clue from a joke that happens to contain the answer.
 The rule makes the job harder: every word must serve the machinery *and* the
 sentence must be funny, which is the actual craft. Expect to throw candidates
-away; the rejects for this pass are logged with reasons in the commit's
-checkpoint.
+away.
 
 All nine, before and after:
 
