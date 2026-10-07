@@ -15,9 +15,9 @@
 #      — dated within the last two days, or given its official key tonight —
 #      however many there are. ANNOTATE_MAX (default 3) bounds only the rest:
 #      answerless puzzles plus the older backlog, on top of the new arrivals.
-#      An answerless one is solved cold immediately before its annotation, in
-#      the conversation the annotation carries on (tools/puzzle_worker.sh), and
-#      never otherwise; a rejected solve skips it.
+#      An answerless one is solved cold by the run that annotates it
+#      (tools/puzzle_worker.sh), and never otherwise; a rejected solve ships
+#      nothing.
 #      All of it runs only while the account's weekly usage window is under
 #      ANNOTATE_MAX_WEEKLY_PCT (default 90) and its five-hour window is under
 #      ANNOTATE_MAX_SESSION_PCT (default 90), re-read between puzzles. Stops
@@ -130,8 +130,8 @@ export MAX_THINKING_TOKENS="${MAX_THINKING_TOKENS:-31999}"
 # being bought a second time.
 . "$REPO/tools/claude_session.sh"
 
-# worker_solve / worker_apply / worker_annotate — one puzzle's model work, the
-# same code the burn (tools/prereset_backfill.sh) runs.
+# worker_annotate / worker_apply / worker_finish — one puzzle's model work and
+# what is done with it, the same code the burn (tools/prereset_backfill.sh) runs.
 . "$REPO/tools/puzzle_worker.sh"
 
 # Keep this run's output where the exit trap can read it back, and report any
@@ -563,10 +563,9 @@ record_annotate_failure() {   # id, reason, [--judged]
 # site would sit hintless for its whole first week.
 #
 # So solve it, as the first half of annotating it: step 3a places it in the
-# annotation queue and the loop there solves it immediately before its
-# annotation, in the conversation the annotation then carries on. Never as a
-# separate pick: a grid solved and not hinted is spend the site never shows. A
-# model solves the grid cold, and tools/apply_solution.py
+# annotation queue and the loop there has one run solve it and annotate it.
+# Never as a separate pick: a grid solved and not hinted is spend the site
+# never shows. A model solves the grid cold, and tools/apply_solution.py
 # writes it only if every entry is answered, every length fits and all ~58
 # crossings agree — which is not proof, but is a check no accidental fill
 # passes. The answers go in marked as ours (solutions.model), the site says so,
@@ -810,7 +809,7 @@ fi
 phase work
 # --- 3a. place the unsolved in the annotation queue ---
 # An answerless puzzle is solved only as the first half of annotating it: the
-# loop below solves it immediately before its annotation, and nothing else in
+# loop below has the run that annotates it solve it first, and nothing else in
 # this script runs a solve. So a grid enters the queue here, where the queue
 # would annotate it, and is cut with everything else; one the cut drops is not
 # solved tonight either, because a solve nobody hints is spend with nothing to
@@ -891,54 +890,44 @@ if [ -n "$pending" ]; then
         break
       fi
       sidfile="$work_dir/$num.sid"
-      # An answerless puzzle is solved here, immediately before the annotation
-      # it feeds and nowhere else (see step 3a). A rejected fill skips the
-      # puzzle: there is nothing to annotate.
-      case " $unsolved " in *" $num "*)
-        fill="$work_dir/$num.fill" solvelog="$work_dir/$num.solve.log" verdict="$work_dir/$num.verdict"
-        echo "solving puzzle $num cold with Claude Code before annotating it... (session ${session:-unknown}%)"
-        worker_solve "$num" "$fill" "$solvelog" "$sidfile"
-        tail -40 "$solvelog"
-        worker_apply "$num" "$fill" "$solvelog" "$verdict"
-        applied=$?
-        cat "$verdict"
-        if [ "$applied" -ne 0 ]; then
-          echo "solve of $num rejected — nothing written, nothing to annotate"
-          # The lines travel in the alert. A solve failure is a bug in this
-          # repo far more often than a hard crossword, and the reader needs the
-          # applier's complaint and the model's last words to tell which.
-          [ "$applied" -eq 1 ] &&
-            alert "solving $num failed and will not be tried again until its clues, tools/solve_prompt.md or tools/apply_solution.py change — the puzzle ships hintless until then or until the paper publishes its key. The applier said:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$verdict" | cut -c1-200)"$'\n'"\`\`\`"$'\n'"and the solver's last words were:"$'\n'"\`\`\`"$'\n'"$(tail -6 "$solvelog" | cut -c1-200)"$'\n'"\`\`\`"
-          continue
-        fi ;;
+      # An answerless puzzle is solved in the run that annotates it, and
+      # nowhere else (see step 3a). That run writes the copy it annotates
+      # (annotate_check.py --view) once its fill is in.
+      fill="" verdict=""
+      case " $unsolved " in
+        *" $num "*)
+          fill="$work_dir/$num.fill" verdict="$work_dir/$num.verdict"
+          ann_file="tools/_puzzle_$num.json"
+          echo "solving puzzle $num cold and annotating it with Claude Code... (session ${session:-unknown}%)" ;;
+        *)
+          echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
+          # The run reads a copy of the puzzle without its solutions detail, which
+          # names the blog the key came from (see annotate_check.py VIEW_KEYS).
+          # A crashed view leaves the run nothing to read, and the crash is in the
+          # tool, so every later puzzle would crash the same way: stop annotating
+          # and alert with the traceback rather than pay for sessions that work
+          # around a broken checker.
+          view_err="$(mktemp "${TMPDIR:-/tmp}/cryptic-view.XXXXXX")"
+          if ! ann_file=$(python3 tools/annotate_check.py --view "$num" 2>"$view_err") || [ -z "$ann_file" ]; then
+            alert "tools/annotate_check.py --view $num failed, so no puzzle is annotated tonight:"$'\n'"\`\`\`"$'\n'"$(tail -n 20 "$view_err")"$'\n'"\`\`\`"
+            rm -f "$view_err"
+            stop_reason="annotate_check.py --view crashed on $num"
+            break
+          fi
+          cat "$view_err" >&2
+          rm -f "$view_err" ;;
       esac
-      echo "annotating puzzle $num with Claude Code... (session ${session:-unknown}%)"
-      # The run reads a copy of the puzzle without its solutions detail, which
-      # names the blog the key came from (see annotate_check.py VIEW_KEYS).
-      # A crashed view leaves the run nothing to read, and the crash is in the
-      # tool, so every later puzzle would crash the same way: stop annotating
-      # and alert with the traceback rather than pay for sessions that work
-      # around a broken checker.
-      view_err="$(mktemp "${TMPDIR:-/tmp}/cryptic-view.XXXXXX")"
-      if ! ann_file=$(python3 tools/annotate_check.py --view "$num" 2>"$view_err") || [ -z "$ann_file" ]; then
-        alert "tools/annotate_check.py --view $num failed, so no puzzle is annotated tonight:"$'\n'"\`\`\`"$'\n'"$(tail -n 20 "$view_err")"$'\n'"\`\`\`"
-        rm -f "$view_err"
-        stop_reason="annotate_check.py --view crashed on $num"
-        break
-      fi
-      cat "$view_err" >&2
-      rm -f "$view_err"
       ann_task="Annotate the cryptic crossword $num in this repo, whose clues and answers are in $ann_file."
       ann_prompt="$ann_task Follow tools/annotate_prompt.md exactly (it is your system prompt's appendix; do not open the file), including running 'python3 tools/annotate_check.py <ID>' until it reports clean. Do not commit — the calling script commits."
       # The conversation is fixed before the first attempt and named in
-      # $sidfile (the cold solve's, when there was one), because a run that
-      # dies has already been paid for: a retry resumes it.
+      # $sidfile, because a run that dies has already been paid for: a retry
+      # resumes it.
       ann_note=""
       ann_ok=""
       ann_retried=0
       ann_timeout=""
       while :; do
-        worker_annotate "$num" "$run_log" "$sidfile" "$ann_prompt" "$ann_note"
+        worker_annotate "$num" "$run_log" "$sidfile" "$ann_prompt" "$ann_note" "$fill"
         ann_rc=$?
         cat "$run_log"
         ann_sid=$(worker_sid "$sidfile")
@@ -972,9 +961,26 @@ if [ -n "$pending" ]; then
         grep -q "output token maximum" "$run_log" || break
         session_exists "$ann_sid" || break
         ann_retried=1
-        ann_note="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read $ann_file to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
+        ann_note="Your last turn was cut off for going past the output token limit, so whatever it was writing was never saved. Everything you did BEFORE that turn is intact — read the files you were writing to see how far you actually got, and carry on from there rather than starting again. Write in several smaller edits instead of one large one: an edit big enough to hit that limit will be cut off again. Finish the task you were given and run 'python3 tools/annotate_check.py $num' until it reports clean. Do not commit."
         echo "  $num overran the output ceiling — resuming that same session, told to write in smaller edits, rather than paying for it twice"
       done
+      # A cold solve's fill is checked again however the run ended, before
+      # anything it wrote can ship. A rejected one ships nothing.
+      if [ -n "$fill" ]; then
+        worker_apply "$num" "$fill" "$run_log" "$verdict"
+        applied=$?
+        cat "$verdict"
+        if [ "$applied" -ne 0 ]; then
+          echo "solve of $num rejected — nothing the run wrote ships"
+          rm -f "$sidfile"
+          # The lines travel in the alert. A solve failure is a bug in this
+          # repo far more often than a hard crossword, and the reader needs the
+          # applier's complaint and the model's last words to tell which.
+          [ "$applied" -eq 1 ] &&
+            alert "solving $num failed and will not be tried again until its clues, tools/solve_prompt.md or tools/apply_solution.py change — the puzzle ships hintless until then or until the paper publishes its key. The applier said:"$'\n'"\`\`\`"$'\n'"$(tail -8 "$verdict" | cut -c1-200)"$'\n'"\`\`\`"$'\n'"and the run's last words were:"$'\n'"\`\`\`"$'\n'"$(tail -6 "$run_log" | cut -c1-200)"$'\n'"\`\`\`"
+          continue
+        fi
+      fi
       if [ -n "$ann_ok" ]; then
         # Validated, committed and pushed on its own, as the burn does: a
         # puzzle that is good is good whatever the next one does.

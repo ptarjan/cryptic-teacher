@@ -1,10 +1,12 @@
 #!/bin/bash
 # Is tools/puzzle_worker.sh the only thing that solves or annotates a puzzle,
-# and is every cold solve the first half of an annotation?
+# and is every cold solve made by the run that annotates it, its fill checked
+# again before anything built on it ships?
 #
-# Paul's rule: we do not solve until we are hinting. A solve run on its own
-# pick spends a model on a grid the run may never annotate. The nightly and the
-# burn differ only in which ids they work and how they pace it; the work itself
+# Paul's rule: we do not solve until we are hinting, and one turn does both. A
+# solve run on its own pick spends a model on a grid the run may never
+# annotate. The nightly and the burn differ only in which ids they work and how
+# they pace it; the work itself
 # is the worker's, so a second copy of the solve or annotate call anywhere is
 # the place that rule would leak back in.
 #
@@ -28,33 +30,27 @@ check "solve_prompt.md / annotate_prompt.md as a system prompt" \
 check "the cold-solve task" \
   "$(grep -l 'Solve the cryptic crossword' $code | tr '\n' ' ')" "tools/puzzle_worker.sh "
 
-echo "a solve is asked for only on the way to an annotation"
-# The nightly: inside the annotation loop, ahead of that puzzle's annotation.
+echo "a solve is asked for only by the run that annotates the puzzle"
+check "nothing calls a solve-only run" \
+  "$(grep -l 'worker_solve\|run_solve' $code | tr '\n' ' ')" ""
+# The nightly: the loop's one worker_annotate takes the fill, which only an
+# unsolved id in that loop sets, and worker_apply checks it after the run.
 loop=$(awk '/^    for num in \$pending; do$/,/^    done$/' tools/daily_update.sh)
-check "the nightly calls worker_solve once" "$(grep -c '^[^#]*worker_solve ' tools/daily_update.sh)" "1"
-check "inside its annotation loop" "$(grep -c 'worker_solve ' <<<"$loop")" "1"
-check "before that loop's worker_annotate" \
-  "$(awk '/worker_solve /{s=NR} /worker_annotate /{a=NR} END{print (s && a && s < a)}' <<<"$loop")" "1"
-# And the loop is the only place the nightly runs a model on a puzzle at all.
-check "the nightly calls worker_annotate only there" \
-  "$(grep -c '^[^#]*worker_annotate ' tools/daily_update.sh) $(grep -c 'worker_annotate ' <<<"$loop")" "1 1"
-# The burn: run_solve is the only caller, and only pool_launch's annotate pool
-# reaches it; solve_applied puts the puzzle next in line for its annotation.
-check "the burn calls worker_solve only from run_solve" \
-  "$(grep -c '^[^#]*worker_solve ' tools/prereset_backfill.sh) $(awk '/^run_solve\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_solve ')" "1 1"
+check "the nightly calls worker_annotate once, inside its loop, with the fill" \
+  "$(grep -c '^[^#]*worker_annotate ' tools/daily_update.sh) $(grep -c 'worker_annotate .*"\$fill"$' <<<"$loop")" "1 1"
+check "the nightly sets a fill path only for an unsolved id" \
+  "$(grep -c '^[^#]*fill="\$work_dir' tools/daily_update.sh) $(grep -A1 '\*" \$num "\*)' <<<"$loop" | grep -c 'fill="\$work_dir')" "1 1"
+check "the nightly checks the fill once, after the run" \
+  "$(grep -c '^[^#]*worker_apply ' tools/daily_update.sh) $(awk '/worker_annotate /{a=NR} /worker_apply /{p=NR} END{print (a && p && a < p)}' <<<"$loop")" "1 1"
+# The burn: run_claude is the one caller of worker_annotate, and only
+# pool_launch's annotate pool hands it a fill.
+check "the burn calls worker_annotate only from run_claude, with the fill" \
+  "$(grep -c '^[^#]*worker_annotate ' tools/prereset_backfill.sh) $(awk '/^run_claude\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_annotate .*"\$fill"$')" "1 1"
 launch=$(awk '/^pool_launch\(\) \{/,/^\}/' tools/prereset_backfill.sh)
-check "run_solve is launched only by pool_launch" \
-  "$(grep -c '^[^#]*run_solve "' tools/prereset_backfill.sh) $(grep -c 'run_solve "' <<<"$launch")" "1 1"
-check "and only for the annotate pool" \
-  "$(grep -B2 'run_solve "' <<<"$launch" | grep -c 'WAVE_WHAT" = Annotate')" "1"
-check "a solved puzzle is queued next, for its annotation" \
-  "$(awk '/^solve_applied\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'queue=("${queue\[@\]:0:$at}" "$id"')" "1"
-# And both hand the solve's conversation on: the burn names the same sid file
-# for the solve and the annotation that follows it.
-check "the burn's solve and annotation share one sid file" \
-  "$(grep -o 'worker_\(solve\|annotate\) .*"/tmp/ct-prereset-\$[a-z]*\.sid"' tools/prereset_backfill.sh | wc -l | tr -d ' ')" "2"
-check "the nightly's solve and annotation share one sid file" \
-  "$(grep -c 'worker_\(solve\|annotate\) .*"\$sidfile"' <<<"$loop")" "2"
+check "only the annotate pool gives a run a fill path" \
+  "$(grep -c '^[^#]*fill="/tmp/ct-prereset-\$id\.fill"$' tools/prereset_backfill.sh) $(grep -B2 'fill="/tmp' <<<"$launch" | grep -c 'WAVE_WHAT" = Annotate')" "1 1"
+check "the burn checks the fill only through solve_applied" \
+  "$(grep -c '^[^#]*worker_apply ' tools/prereset_backfill.sh) $(awk '/^solve_applied\(\) \{/,/^\}/' tools/prereset_backfill.sh | grep -c 'worker_apply ')" "1 1"
 
 echo "what is done to one puzzle after its run is the worker's alone"
 # Validating a puzzle, committing it, pushing it on its own, reopening its
@@ -64,10 +60,11 @@ for f in tools/daily_update.sh tools/prereset_backfill.sh; do
   check "$f does not validate a puzzle itself" \
     "$(grep -c '^[^#]*tools/validate_annotations\.py "\$' "$f")" "0"
   check "$f does not apply a fill itself" "$(grep -c '^[^#]*python3 tools/apply_solution\.py' "$f")" "0"
-  # Each script's own commits are its run's: the nightly's fetched puzzles and
-  # closing sweep, the burn's republish. Anything else is a puzzle's.
+  # Each script's own commits are its run's: the nightly's fetched puzzles
+  # (committed and pushed as HEAD before anything annotates) and closing sweep,
+  # the burn's republish. Anything else is a puzzle's.
   check "$f does not commit or push one puzzle itself" \
-    "$(grep '^[^#]*push_puzzle_commit\|^[^#]*git commit' "$f" | grep -vc "Daily update: \|Republish after ")" "0"
+    "$(grep '^[^#]*push_puzzle_commit\|^[^#]*git commit' "$f" | grep -vc "Daily update: \|Republish after \|push_puzzle_commit\.sh HEAD ||$")" "0"
   check "$f does not reopen answers itself" "$(grep -c '^[^#]*tools/reopen_answers\.py' "$f")" "0"
   check "$f defines none of the worker's functions" \
     "$(grep -oE '^(worker_[a-z_]+|puzzle_spec|clues_spec|index_lock|index_unlock|discard_puzzle|stage_puzzle)\(\)' "$f" | tr '\n' ' ')" ""
@@ -77,6 +74,88 @@ for f in tools/daily_update.sh tools/prereset_backfill.sh; do
 done
 check "the nightly finishes a puzzle inside its annotation loop" \
   "$(grep -c 'worker_finish ' <<<"$loop")" "1"
+
+echo "one run solves and annotates; the script then checks the fill"
+# Driven with a fake claude and fake git and python3, so it spends nothing and
+# touches no puzzle: what is checked is which calls the worker makes.
+stub=$(mktemp -d)
+trap 'rm -rf "$stub" tools/_ann_pw-test-$$.json tools/_puzzle_pw-test-$$.json' EXIT
+cat >"$stub/claude" <<'STUB'
+#!/bin/bash
+printf '%s\n' "$*" >>"$CALLS"
+# A run that solved: its fill is where its task said.
+fill=$(sed -n 's/.*writing your fill to \([^;]*\);.*/\1/p' <<<"$*")
+[ -n "$fill" ] && [ -n "${WRITE_FILL:-}" ] && echo '{"1-across": {"answer": "X", "definition": "x"}}' >"$fill"
+echo "done"
+STUB
+chmod +x "$stub/claude"
+# shellcheck disable=SC2329  # its stubs are called by the sourced worker
+flow() (   # mode: accepted | refused | nofill
+  PATH="$stub:$PATH" CALLS="$stub/calls" EVENTS="$stub/events"
+  export CALLS
+  : >"$CALLS"; : >"$EVENTS"
+  [ "$1" = nofill ] || export WRITE_FILL=1
+  # shellcheck disable=SC2034  # read by the sourced worker
+  CLAUDE_HEADLESS=() WORKER_MODEL=opus WORKER_EFFORT=medium WORKER_WRAP="" WORKER_JOB=test
+  . tools/puzzle_worker.sh
+  session_id() { echo sid-1; }
+  session_exists() { false; }
+  git() { echo "git $*" >>"$EVENTS"; }
+  alert() { echo "alert $*" >>"$EVENTS"; }
+  discard_puzzle() { echo "discard $1" >>"$EVENTS"; }
+  python3() {
+    echo "python3 $*" >>"$EVENTS"
+    case "$1" in
+      tools/apply_solution.py)
+        [ "$MODE" = refused ] && { echo "REJECTED — 1 problem(s), nothing written:"; echo "  1-across: crossing disagrees"; return 1; }
+        echo "wrote 1 solutions" ;;
+      tools/failed_inputs.py) echo "recorded" ;;
+    esac
+    return 0
+  }
+  MODE="$1"
+  id="pw-test-$$" fill="$stub/fill" sidfile="$stub/sid"
+  : >"tools/_ann_$id.json"
+  worker_annotate "$id" "$stub/log" "$sidfile" "Annotate it from tools/_puzzle_$id.json." "" "$fill"
+  echo "rc=$?"
+  echo "calls=$(wc -l <"$CALLS" | tr -d ' ')"
+  echo "sid=$(cat "$sidfile")"
+  worker_apply "$id" "$fill" "$stub/log" "$stub/verdict"
+  echo "applied=$?"
+  echo "ann=$([ -e "tools/_ann_$id.json" ] && echo kept || echo gone)"
+)
+got() { sed -n "s/^$1=//p" <<<"$out"; }
+
+out=$(flow accepted)
+argv=$(cat "$stub/calls") events=$(cat "$stub/events")
+check "one claude call does both" "$(got calls)" "1"
+check "its task sends it to the solve method, then the annotation" \
+  "$(grep -c 'Read tools/solve_prompt.md.*this task: Annotate it' <<<"$argv")" "1"
+check "on the annotation's system prompt" \
+  "$(sed -n 's/.*--append-system-prompt-file \([^ ]*\).*/\1/p' <<<"$argv")" "tools/annotate_prompt.md"
+check "with no web, since it solves" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
+check "its conversation is marked as a solve's" "$(got sid)" "sid-1 solve"
+check "the fill is applied from the committed puzzle, then the hints put back" \
+  "$(grep -o 'git checkout\|tools/apply_solution.py [^ ]* --fill\|tools/solve_misses.py keep-log\|tools/annotate_check.py' <<<"$events" | tr '\n' '|')" \
+  "git checkout|tools/apply_solution.py pw-test-$$ --fill|tools/solve_misses.py keep-log|tools/annotate_check.py|"
+check "and accepted" "$(got applied)" "0"
+check "with nothing recorded or discarded" "$(grep -c 'failed_inputs\|^discard' <<<"$events")" "0"
+
+out=$(flow refused)
+events=$(cat "$stub/events")
+check "a refused fill is rejected" "$(got applied)" "1"
+check "and recorded in the solve ledger as judged, with the applier's reason" \
+  "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --judged --reason   1-across: crossing disagrees' <<<"$events")" "1"
+check "its puzzle and rows discarded" "$(grep -c '^discard pw-test' <<<"$events")" "1"
+check "its hints never applied" "$(grep -c 'tools/annotate_check.py' <<<"$events")" "0"
+check "and its annotation file gone, so no later run builds on it" "$(got ann)" "gone"
+
+out=$(flow nofill)
+events=$(cat "$stub/events")
+check "a run that wrote no fill is rejected" "$(got applied)" "1"
+check "recorded unjudged, for the ledger to tell a lockout from a verdict" \
+  "$(grep -c 'failed_inputs.py record solve pw-test-[0-9]* --reason done' <<<"$events")" "1"
+check "without asking the applier" "$(grep -c 'apply_solution' <<<"$events")" "0"
 
 [ "$fails" = 0 ] && echo "puzzle worker: all checks passed" || echo "puzzle worker: $fails FAILED"
 exit $((fails > 0))

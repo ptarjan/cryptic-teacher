@@ -515,9 +515,10 @@ week. `--refresh-unsolved` re-checks every night until they appear.
 So that the newest puzzle is not left without hints for that week, a puzzle
 with no answers is *solved* from the clues alone, but only as the first half of
 annotating it: the nightly and the burn place it in their annotation queue, and
-`tools/puzzle_worker.sh` solves it immediately before its annotation, which then
-carries on in the solve's conversation. A rejected solve skips the puzzle.
-Nothing is solved that the run will not annotate.
+`tools/puzzle_worker.sh` has one run solve it and then annotate it. The script
+then applies that fill again from the committed puzzle; if the applier refuses
+it, nothing the run wrote ships and the solve ledger records why. Nothing is
+solved that the run will not annotate.
 
 - `tools/solve_packet.py` gives the model the clues and the grid's crossing map.
 - `tools/solve_prompt.md` gives it the method.

@@ -10,20 +10,13 @@
 #
 #     bash tools/test_annotate_retry.sh
 #
-# Two mechanisms, and both of them exist to stop the same conversation being
-# bought twice. The first is the retry: a run cut off for overrunning the
-# output ceiling must come back with --resume and the SAME session id, because
-# everything it had read and worked out is in that conversation and nowhere
-# else.
-#
-# The second is the handover from the cold solve: a grid solved a minute
-# earlier was solved by deriving every answer and the wordplay that reached it,
-# which is exactly what the annotation has to write down. So the annotation
-# carries on in the solve's conversation — but only when there is one, and
-# never by re-reading answers from memory, because the solve transcript ends
-# BEFORE apply_solution.py wrote the fill into the file. The burn
-# (tools/prereset_backfill.sh) runs the same worker; tools/test_puzzle_worker.sh
-# holds both scripts to it.
+# The retry exists to stop the same conversation being bought twice: a run cut
+# off for overrunning the output ceiling must come back with --resume and the
+# SAME session id, because everything it had read and worked out is in that
+# conversation and nowhere else. A puzzle with no key is solved and annotated
+# in one such conversation, which keeps the same system prompt and no web on
+# every turn. The burn (tools/prereset_backfill.sh) runs the same worker;
+# tools/test_puzzle_worker.sh holds both scripts to it.
 set -uo pipefail
 cd "$(dirname "$0")/.."
 fails=0
@@ -83,7 +76,8 @@ sidfile="$stub/test-1.sid"
 run() {  # $1 = MODE ("" for a clean first run),
          # $2 = what the puzzle's sid file holds ("" for no file), e.g. "abc solve"
          # $3 = the sessions the CLI still has transcripts for (default: the sid file's).
-         # SESSION_ID_BROKEN=1 in front stands in for a generator that failed.
+         # SESSION_ID_BROKEN=1 in front stands in for a generator that failed;
+         # FILL=<path> in front makes the puzzle one with no key.
   CALLS=$(mktemp -d); export CALLS MODE="$1"
   export CLAUDE_CONFIG_DIR="$stub/config"
   rm -f "$sidfile"
@@ -95,7 +89,7 @@ run() {  # $1 = MODE ("" for a clean first run),
   local ann_file=tools/_puzzle_test-1.json
   local ann_prompt="Annotate the cryptic crossword test-1 in this repo, whose clues and answers are in $ann_file. Follow tools/annotate_prompt.md exactly."
   local ANNOTATE_MAX_MINUTES=90
-  local ann_rc ann_timeout lost_ids="" ann_sid
+  local ann_rc ann_timeout lost_ids="" ann_sid fill="${FILL:-}"
   # The variable that ends the night. The cap firing must not set it.
   local stop_reason=""
   local ann_note ann_ok ann_retried
@@ -150,32 +144,27 @@ echo "and the cap does not end the night — it names the puzzle, not a stop"
 check "named the lost puzzle" "$(grep -c 'ran past 90m' <<<"$timed_out")" "1"
 check "left the night's stop reason unset" "${stopped:-unset}" "unset"
 
-echo "a grid just solved cold is annotated inside the conversation that solved it"
-run "" "tonights-solve solve"
+echo "a puzzle with no key is solved and annotated in one fresh conversation"
+FILL="$stub/fill" run ""
 check "calls" "$calls" "1"
-check "resumed the solve" "$(resumed 1)" "tonights-solve"
-check "and opened no new conversation" "$(grep -c -- --session-id <<<"$argv")" "0"
-check "with the solve's system prompt, so its cached prefix still matches" \
-  "$(system 1)" "tools/solve_prompt.md"
-# The solve transcript ends before apply_solution.py wrote the fill in, so a
-# resumed run working from memory would annotate a grid it never saw filled.
-check "sent back to the file rather than left to remember the fill" \
-  "$(grep -c 'Read the file as it now stands' <<<"$argv")" "1"
-check "and the file it names is the one the fill was written into" \
-  "$(grep -c 'tools/_puzzle_test-1\.json' <<<"$argv")" "1"
-check "with the annotation instructions still attached, not replaced" \
-  "$(grep -c 'tools/annotate_prompt\.md' <<<"$argv")" "1"
-check "and the conversation is marked handed over" "$(cat "$sidfile")" "tonights-solve annotating"
+check "opened one of its own" "$(grep -c -- --session-id <<<"$argv")" "1"
+check "marked as a solve's" "$(cat "$sidfile")" "$(opened 1) solve"
+check "sent to the solve method first, its fill path named" \
+  "$(grep -c "Read tools/solve_prompt.md and follow it exactly, writing your fill to $stub/fill" <<<"$argv")" "1"
+check "then to the annotation task" "$(grep -c 'this task: Annotate the cryptic crossword test-1' <<<"$argv")" "1"
+check "on the annotation's own system prompt" "$(system 1)" "tools/annotate_prompt.md"
+check "with no web to read the answers off" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
 
-echo "an overrun after the handover resumes the solve's conversation on its system prompt"
-run overrun "tonights-solve solve"
+echo "an overrun in a solve resumes it, on the same system prompt and still with no web"
+FILL="$stub/fill" run overrun
 check "calls" "$calls" "2"
-check "both in the solve's conversation" "$(resumed 1) $(resumed 2)" "tonights-solve tonights-solve"
-check "on the solve's system prompt both times" "$(system 1) $(system 2)" \
-  "tools/solve_prompt.md tools/solve_prompt.md"
+check "second call resumed the first's session" "$(resumed 2)" "$(opened 1)"
+check "on the annotation's system prompt both times" "$(system 1) $(system 2)" \
+  "tools/annotate_prompt.md tools/annotate_prompt.md"
+check "with no web on either turn" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
 
-echo "a conversation already handed over is not handed over again"
-run "" "tonights-solve annotating"
+echo "a solve's conversation is not resumed without a note"
+FILL="$stub/fill" run "" "last-nights-solve solve"
 check "opened one of its own" "$(grep -c -- --session-id <<<"$argv")" "1"
 check "with nothing to resume" "$(grep -c -- --resume <<<"$argv")" "0"
 
@@ -184,11 +173,16 @@ run "" "last-nights-run"
 check "opened one of its own" "$(grep -c -- --session-id <<<"$argv")" "1"
 check "with nothing to resume" "$(grep -c -- --resume <<<"$argv")" "0"
 
-echo "unless the CLI has dropped that conversation, and then it starts fresh"
-run "" "tonights-solve solve" ""
+echo "a note for a conversation the CLI has dropped starts fresh"
+CALLS=$(mktemp -d); export CALLS MODE=""
+transcripts ""
+echo "dropped-run" >"$sidfile"
+worker_annotate test-1 "$stub/log" "$sidfile" "the task" "the note" >/dev/null 2>&1
+argv=$(cat "$CALLS/argv")
 check "opened one of its own" "$(grep -c -- --session-id <<<"$argv")" "1"
 check "with nothing to resume" "$(grep -c -- --resume <<<"$argv")" "0"
-check "on the annotation's own system prompt" "$(system 1)" "tools/annotate_prompt.md"
+check "sent the task, not a note for edits it never saw" "$(grep -c '^-p the task' <<<"$argv")" "1"
+rm -rf "$CALLS"
 
 echo "with no session id to be had, the annotation starts fresh rather than resuming nothing"
 SESSION_ID_BROKEN=1 run ""
@@ -198,33 +192,11 @@ check "resuming no conversation, least of all an empty one" \
   "$(grep -c -- --resume <<<"$argv")" "0"
 check "and naming none either" "$(grep -c -- --session-id <<<"$argv")" "0"
 
-# --- the solve side: what it leaves behind for the annotation to find ---
-echo "a solve names its conversation, and that is the one the annotation resumes"
-CALLS=$(mktemp -d); export CALLS MODE=""
-export CLAUDE_CONFIG_DIR="$stub/config"
-transcripts ""
-. tools/claude_session.sh
-rm -f "$sidfile"
-worker_solve test-1 "$stub/fill" "$stub/solve.log" "$sidfile" 2>/dev/null
-argv=$(cat "$CALLS/argv")
-check "the solve call opened a named conversation" "$(grep -c -- --session-id <<<"$argv")" "1"
-check "and wrote it down as a solve" "$(cat "$sidfile")" "$(opened 1) solve"
-check "on the solve's system prompt" "$(system 1)" "tools/solve_prompt.md"
-check "with no web to read the answers off" "$(grep -c 'WebSearch\|WebFetch' <<<"$argv")" "0"
-solved="$(opened 1)"
-rm -rf "$CALLS"
-run "" "$(cat "$sidfile")"
-check "the annotation that follows resumed it" "$(resumed 1)" "$solved"
-
-echo "a session id the generator could not make is never passed as an empty one"
-CALLS=$(mktemp -d); export CALLS
-session_id() { return 1; }
-worker_solve test-3 "$stub/fill" "$stub/solve.log" "$sidfile" 2>/dev/null
-argv=$(cat "$CALLS/argv")
-check "the solve ran with no --session-id rather than a blank one" \
-  "$(grep -c -- --session-id <<<"$argv")" "0"
-check "and left the annotation nothing to resume" "$([ -e "$sidfile" ] && echo there || echo none)" "none"
-rm -rf "$CALLS"
+echo "a solve with no session id to be had runs unnamed, leaving nothing to resume"
+SESSION_ID_BROKEN=1 FILL="$stub/fill" run ""
+check "the run still happened" "$calls" "1"
+check "naming no conversation rather than a blank one" "$(grep -c -- --session-id <<<"$argv")" "0"
+check "and left no sid file" "$([ -e "$sidfile" ] && echo there || echo none)" "none"
 
 [ "$fails" = 0 ] && echo "annotate retry: all checks passed" || echo "annotate retry: $fails FAILED"
 exit $((fails > 0))
