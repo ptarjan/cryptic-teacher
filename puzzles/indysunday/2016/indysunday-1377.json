@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -33,7 +36,42 @@
     "text": "Select tool",
     "enumeration": "4"
    },
-   "solution": "PICK"
+   "solution": "PICK",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "PICK",
+    "definitions": [
+     {
+      "text": "Select",
+      "at": 0
+     },
+     {
+      "text": "tool",
+      "at": 7
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Select",
+      "note": "first meaning: to choose"
+     },
+     {
+      "clueFragment": "tool",
+      "note": "second meaning: a pointed implement for breaking ground"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "It reads like an instruction to choose a tool; the two words are separate meanings of one word.",
+     "definitionFit": "The word is both a verb for choosing and a noun for the pointed digging implement used by miners."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Select"
+    }
+   }
   },
   {
    "number": 1,
@@ -47,7 +85,69 @@
     "text": "Customer exactly right and not upset",
     "enumeration": "6"
    },
-   "solution": "PATRON"
+   "solution": "PATRON",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "PATRON",
+    "definitions": [
+     {
+      "text": "Customer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "upset",
+      "for": "reversal",
+      "note": "in a down clue, upset means tipped over, so the word is read from the bottom up"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "exactly",
+      "gives": "PAT",
+      "note": "to have something off pat is to know it exactly"
+     },
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the standard abbreviation for right"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NO",
+      "note": "no as a negative, a synonym for not"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PAT",
+      "R",
+      "ON"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A shopkeeper notes that a customer is perfectly fine and not at all annoyed.",
+     "definitionFit": "A patron is a regular buyer or client of a shop, restaurant or business, so a customer."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "upset"
+    }
+   }
   },
   {
    "number": 2,
@@ -61,7 +161,62 @@
     "text": "Scene cut is in Latin I believe - it’s climactic",
     "enumeration": "9"
    },
-   "solution": "CRESCENDO"
+   "solution": "CRESCENDO",
+   "annotation": {
+    "type": [
+     "deletion",
+     "container"
+    ],
+    "answer": "CRESCENDO",
+    "definitions": [
+     {
+      "text": "it’s climactic",
+      "at": 34,
+      "note": "a descriptive phrase for the noun"
+     }
+    ],
+    "indicators": [
+     {
+      "text": "cut",
+      "for": "deletion",
+      "note": "something cut is trimmed, so the word loses its final letter"
+     },
+     {
+      "text": "is in",
+      "for": "container",
+      "note": "one part sits inside the other, placed within it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Latin I believe",
+      "gives": "CREDO",
+      "note": "credo is Latin for 'I believe'"
+     },
+     {
+      "clueFragment": "Scene",
+      "gives": "SCEN",
+      "note": "scene with its last letter removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CRE",
+      "SCEN",
+      "DO"
+     ]
+    },
+    "explanation": {
+     "surface": "A theatre critic says a scene is in Latin and it forms the climax of the play.",
+     "walkthrough": "Credo opens the Latin creed, which begins 'I believe'; the dash makes 'it's climactic' read as a comment, but it is the definition.",
+     "definitionFit": "A crescendo is the gradual rise in loudness to a peak in music, hence the climactic point of something."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Latin"
+    }
+   }
   },
   {
    "number": 3,
@@ -75,7 +230,55 @@
     "text": "One complementing director, say, needing stimulus at University College (Royal)",
     "enumeration": "8"
    },
-   "solution": "PRODUCER"
+   "solution": "PRODUCER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRODUCER",
+    "definitions": [
+     {
+      "text": "One complementing director, say",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "needing"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "stimulus",
+      "gives": "PROD",
+      "note": "a prod is a nudge or stimulus"
+     },
+     {
+      "clueFragment": "University College",
+      "gives": "UC",
+      "note": "UC is the abbreviation for University College"
+     },
+     {
+      "clueFragment": "Royal",
+      "gives": "ER",
+      "note": "ER, Elizabeth Regina, is the royal cipher"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PROD",
+      "UC",
+      "ER"
+     ]
+    },
+    "explanation": {
+     "surface": "A film-maker working alongside a director needs a push at a London university college.",
+     "definitionFit": "In film and theatre the producer manages funding and organisation, working alongside the director who handles the artistic side."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "College"
+    }
+   }
   },
   {
    "number": 4,
@@ -89,7 +292,65 @@
     "text": "Brutal guy arrested by the French Resistance in plant",
     "enumeration": "7"
    },
-   "solution": "RAMBLER"
+   "solution": "RAMBLER",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "RAMBLER",
+    "definitions": [
+     {
+      "text": "plant",
+      "at": 48
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arrested",
+      "for": "deletion",
+      "note": "arrested means stopped short, so the name loses its final letter"
+     }
+    ],
+    "linkWords": [
+     "by",
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Brutal guy",
+      "gives": "RAMBO",
+      "note": "Rambo is the violent action hero of the Stallone films"
+     },
+     {
+      "clueFragment": "the French",
+      "gives": "LE",
+      "note": "le is French for the"
+     },
+     {
+      "clueFragment": "Resistance",
+      "gives": "R",
+      "note": "R is the symbol for electrical resistance"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RAMB",
+      "LE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "A thug is arrested by members of the French Resistance at a plant.",
+     "walkthrough": "'Arrested by the French Resistance' looks like a scene from wartime France; 'arrested' docks the hero's name and 'by' just places LE R next to it.",
+     "definitionFit": "A rambler is a climbing plant, especially a rambling rose that sends out long trailing shoots."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "arrested"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +370,51 @@
      }
     ]
    },
-   "solution": "DANTEALIGHIERI"
+   "solution": "DANTEALIGHIERI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "DANTE ALIGHIERI",
+    "definitions": [
+     {
+      "text": "Famous Italian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revamped",
+      "for": "anagram",
+      "note": "something revamped is reworked into a new form, so these letters are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lingerie ad Thai",
+      "gives": "LINGERIEADTHAI",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "LINGERIEADTHAI",
+       "gives": "DANTEALIGHIERI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An advertisement for underwear featuring a Thai model is relaunched by a well-known Italian.",
+     "definitionFit": "Dante Alighieri, the poet of the Divine Comedy, is among the best known of all Italian writers."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "absurd",
+     "misdirectedWord": "lingerie"
+    }
+   }
   },
   {
    "number": 6,
@@ -123,7 +428,58 @@
     "text": "In morning fitting in manager’s performance, short",
     "enumeration": "5"
    },
-   "solution": "CAMEO"
+   "solution": "CAMEO",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "CAMEO",
+    "definitions": [
+     {
+      "text": "performance, short",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "fitting in",
+      "for": "container",
+      "note": "one thing fitting in another is placed inside it"
+     }
+    ],
+    "linkWords": [
+     "In",
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "manager",
+      "gives": "CEO",
+      "note": "a CEO, chief executive officer, is a top manager"
+     },
+     {
+      "clueFragment": "morning",
+      "gives": "AM",
+      "note": "AM stands for ante meridiem, the morning"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "C",
+      "AM",
+      "EO"
+     ]
+    },
+    "explanation": {
+     "surface": "A boss turns up in the morning to give a brief performance.",
+     "definitionFit": "A cameo is a small but distinctive part played by a well-known actor, so a brief performance."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "manager"
+    }
+   }
   },
   {
    "number": 7,
@@ -137,7 +493,57 @@
     "text": "After game, Minister and worker in quiet contemplation",
     "enumeration": "8"
    },
-   "solution": "RUMINANT"
+   "solution": "RUMINANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "RUMINANT",
+    "definitions": [
+     {
+      "text": "in quiet contemplation",
+      "at": 32
+     }
+    ],
+    "linkWords": [
+     "After",
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "game",
+      "gives": "RU",
+      "note": "RU is rugby union"
+     },
+     {
+      "clueFragment": "Minister",
+      "gives": "MIN",
+      "note": "MIN is the abbreviation for minister"
+     },
+     {
+      "clueFragment": "worker",
+      "gives": "ANT",
+      "note": "the worker ant is the crossword's standard worker"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RU",
+      "MIN",
+      "ANT"
+     ]
+    },
+    "explanation": {
+     "surface": "After a match, a government minister and an employee sit thinking quietly.",
+     "walkthrough": "RU, rugby union, is the usual crossword game; ruminant is better known as a noun for cud-chewing animals, but the adjective fits the definition here.",
+     "definitionFit": "Ruminant as an adjective means meditative or thoughtful, from the cud-chewing of cattle that mull food over."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "worker"
+    }
+   }
   },
   {
    "number": 8,
@@ -157,7 +563,50 @@
      }
     ]
    },
-   "solution": "GALILEOGALILEI"
+   "solution": "GALILEOGALILEI",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GALILEO GALILEI",
+    "definitions": [
+     {
+      "text": "Famous Italian",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "has to be replaced",
+      "for": "anagram",
+      "note": "things replaced are put back in new positions, so these letters are reordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "goalie, agile - ill",
+      "gives": "GOALIEAGILEILL",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "GOALIEAGILEILL",
+       "gives": "GALILEOGALILEI"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A nimble Italian goalkeeper falls sick and must be substituted.",
+     "definitionFit": "Galileo Galilei, the astronomer who championed Copernicus, is one of the most celebrated Italian scientists."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "goalie"
+    }
+   }
   },
   {
    "number": 9,
@@ -171,7 +620,54 @@
     "text": "French region almost too wonderful?",
     "enumeration": "6"
    },
-   "solution": "ALSACE"
+   "solution": "ALSACE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "ALSACE",
+    "definitions": [
+     {
+      "text": "French region",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "almost",
+      "for": "deletion",
+      "note": "almost means not quite all, so the word loses its last letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "too",
+      "gives": "ALSO",
+      "note": "also is a synonym for too"
+     },
+     {
+      "clueFragment": "wonderful",
+      "gives": "ACE",
+      "note": "ace is slang for excellent"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ALS",
+      "ACE"
+     ]
+    },
+    "explanation": {
+     "surface": "Is this French region almost too marvellous?",
+     "definitionFit": "Alsace is a region in north-eastern France bordering Germany, famous for its white wines."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "too"
+    }
+   }
   },
   {
    "number": 10,
@@ -191,7 +687,52 @@
      }
     ]
    },
-   "solution": "TOENAIL"
+   "solution": "TOENAIL",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "TOENAIL",
+    "definitions": [
+     {
+      "text": "feature of Tootsie?",
+      "at": 14
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "anagram",
+      "note": "about suggests letters turned around and moved, so they are rearranged"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Elation",
+      "gives": "ELATION",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ELATION",
+       "gives": "TOENAIL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Joy about a feature of the film Tootsie, the Dustin Hoffman comedy.",
+     "walkthrough": "Capitalised, Tootsie looks like the film; a tootsie is also a toe, which is why there is a question mark.",
+     "definitionFit": "Tootsie is a childish word for a toe, and each toe carries a nail on its tip."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Tootsie"
+    }
+   }
   },
   {
    "number": 11,
@@ -205,7 +746,62 @@
     "text": "Least quiet home I’m entering",
     "enumeration": "7"
    },
-   "solution": "MINIMUM"
+   "solution": "MINIMUM",
+   "annotation": {
+    "type": [
+     "charade",
+     "container"
+    ],
+    "answer": "MINIMUM",
+    "definitions": [
+     {
+      "text": "Least",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "entering",
+      "for": "container",
+      "note": "entering means going inside, so these letters are placed within the other word"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quiet",
+      "gives": "MUM",
+      "note": "to keep mum is to stay quiet"
+     },
+     {
+      "clueFragment": "home",
+      "gives": "IN",
+      "note": "being in means being at home"
+     },
+     {
+      "clueFragment": "I’m",
+      "gives": "IM",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "M",
+      "IN",
+      "IM",
+      "UM"
+     ]
+    },
+    "explanation": {
+     "surface": "The quietest way home is the one I'm taking.",
+     "walkthrough": "'Home' gives IN, the sense of being in rather than out of the house; 'Least' looks like part of the surface but it is the definition.",
+     "definitionFit": "The minimum is the smallest possible amount, so the least of something."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "home"
+    }
+   }
   },
   {
    "number": 12,
@@ -237,7 +833,73 @@
      }
     ]
    },
-   "solution": "ONCEINABLUEMOON"
+   "solution": "ONCEINABLUEMOON",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ONCE IN A BLUE MOON",
+    "definitions": [
+     {
+      "text": "Seldom",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "working",
+      "gives": "ON",
+      "note": "a machine that is on is working"
+     },
+     {
+      "clueFragment": "Church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "girl",
+      "gives": "INA",
+      "note": "Ina is a girl's name"
+     },
+     {
+      "clueFragment": "unhappy",
+      "gives": "BLUE",
+      "note": "feeling blue is feeling sad"
+     },
+     {
+      "clueFragment": "short time",
+      "gives": "MO",
+      "note": "a mo is a moment, a short time"
+     },
+     {
+      "clueFragment": "available",
+      "gives": "ON",
+      "note": "something on is available, as a dish on the menu"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "CE",
+      "INA",
+      "BLUE",
+      "MO",
+      "ON"
+     ]
+    },
+    "explanation": {
+     "surface": "A sad church girl rarely works, as little time is free.",
+     "definitionFit": "The idiom refers to the rare second full moon in a month, so it means very rarely."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "available"
+    }
+   }
   },
   {
    "number": 13,
@@ -257,7 +919,55 @@
      }
     ]
    },
-   "solution": "INNEREAR"
+   "solution": "INNEREAR",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "INNER EAR",
+    "definitions": [
+     {
+      "text": "labyrinth",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out of bounds",
+      "for": "deletion",
+      "note": "the bounds of a word are its edges, so the first and last letters are dropped"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Pinned",
+      "gives": "PINNED",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "behind",
+      "gives": "REAR",
+      "note": "the rear is the behind"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "INNE",
+      "REAR"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone is pinned down behind a maze, beyond the permitted area.",
+     "walkthrough": "'Labyrinth' suggests a maze, but anatomists use it for the inner ear's coiled canals.",
+     "definitionFit": "The labyrinth is the anatomical name for the complex of canals and cochlea forming the inner ear."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "labyrinth"
+    }
+   }
   },
   {
    "number": 14,
@@ -271,7 +981,52 @@
     "text": "Water in Belfast or back in Cana, Galilee?",
     "enumeration": "5"
    },
-   "solution": "LAGAN"
+   "solution": "LAGAN",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "LAGAN",
+    "definitions": [
+     {
+      "text": "Water in Belfast",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in",
+      "for": "hidden_word",
+      "note": "in here means held inside the following words, spanning their junction"
+     },
+     {
+      "text": "back",
+      "for": "reversal",
+      "note": "back means the letters are read from right to left"
+     }
+    ],
+    "linkWords": [
+     "or"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cana, Galilee",
+      "gives": "NAGAL",
+      "note": "letters spanning the two place names"
+     }
+    ],
+    "explanation": {
+     "surface": "Is it water in Belfast, or back at Cana in Galilee where water became wine?",
+     "walkthrough": "The Lagan is the river that runs through Belfast in Northern Ireland.",
+     "definitionFit": "The Lagan is the river flowing through Belfast into Belfast Lough, so a body of water there."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Cana"
+    }
+   }
   },
   {
    "number": 15,
@@ -285,7 +1040,51 @@
     "text": "Cordial era ending, sadly",
     "enumeration": "9"
    },
-   "solution": "GRENADINE"
+   "solution": "GRENADINE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "GRENADINE",
+    "definitions": [
+     {
+      "text": "Cordial",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "sadly",
+      "for": "anagram",
+      "note": "sadly suggests things gone wrong, so these letters are disordered"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "era ending",
+      "gives": "ERAENDING",
+      "note": "the fodder, taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ERAENDING",
+       "gives": "GRENADINE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A friendly era is unfortunately coming to an end.",
+     "walkthrough": "'Cordial' looks like an adjective meaning friendly; here it is the noun for a sweet drink.",
+     "definitionFit": "Grenadine is a sweet pomegranate syrup used in cocktails, a kind of fruit cordial."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cordial"
+    }
+   }
   },
   {
    "number": 16,
@@ -299,7 +1098,61 @@
     "text": "Excluding lawyers in court initially - quite unsophisticated!",
     "enumeration": "8"
    },
-   "solution": "BARBARIC"
+   "solution": "BARBARIC",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BARBARIC",
+    "definitions": [
+     {
+      "text": "quite unsophisticated",
+      "at": 39
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letter of each of the words just before it"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Excluding",
+      "gives": "BAR",
+      "note": "bar means except or excluding"
+     },
+     {
+      "clueFragment": "lawyers",
+      "gives": "BAR",
+      "note": "the Bar is the body of barristers"
+     },
+     {
+      "clueFragment": "in court",
+      "gives": "IC",
+      "select": "first",
+      "note": "opening letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BAR",
+      "BAR",
+      "IC"
+     ]
+    },
+    "explanation": {
+     "surface": "Barring lawyers from a court at first seems quite crude.",
+     "definitionFit": "Barbaric means uncivilised or primitive, the opposite of refined, so thoroughly lacking sophistication."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Excluding"
+    }
+   }
   },
   {
    "number": 17,
@@ -313,7 +1166,48 @@
     "text": "In midst of returning group of wandering nomads",
     "enumeration": "5"
    },
-   "solution": "AMONG"
+   "solution": "AMONG",
+   "annotation": {
+    "type": [
+     "hidden_word",
+     "reversal"
+    ],
+    "answer": "AMONG",
+    "definitions": [
+     {
+      "text": "In midst of",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "returning",
+      "for": "reversal",
+      "note": "returning means going back, so the letters are read right to left"
+     },
+     {
+      "text": "group of",
+      "for": "hidden_word",
+      "note": "a group of letters is taken from inside the following words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "wandering nomads",
+      "gives": "GNOMA",
+      "note": "letters spanning the end of the first word and start of the second"
+     }
+    ],
+    "explanation": {
+     "surface": "In the middle of a band of roaming nomads heading back.",
+     "definitionFit": "Among means surrounded by or in the company of others, so in the middle of them."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "group"
+    }
+   }
   },
   {
    "number": 18,
@@ -327,7 +1221,43 @@
     "text": "History of quadruped I greeted?",
     "enumeration": "8"
    },
-   "solution": "PEDIGREE"
+   "solution": "PEDIGREE",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "PEDIGREE",
+    "definitions": [
+     {
+      "text": "History",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "of",
+      "for": "hidden_word",
+      "note": "of here means taken out of, so the answer comes from within the words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "quadruped I greeted",
+      "gives": "PEDIGREE",
+      "note": "letters running across all three words"
+     }
+    ],
+    "explanation": {
+     "surface": "The family tree of a four-legged animal I said hello to.",
+     "walkthrough": "The surface wants a dog's family history, which is exactly what the answer means, so the question mark admits the overlap.",
+     "definitionFit": "A pedigree is a recorded line of ancestry, the background or history of a person or animal."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "History"
+    }
+   }
   },
   {
    "number": 18,
@@ -341,7 +1271,62 @@
     "text": "University man, expert, very briefly East of Berlin",
     "enumeration": "7"
    },
-   "solution": "PROVOST"
+   "solution": "PROVOST",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "PROVOST",
+    "definitions": [
+     {
+      "text": "University man",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "briefly",
+      "for": "letter_selection",
+      "note": "briefly means cut short, so only the opening letter is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "expert",
+      "gives": "PRO",
+      "note": "a pro is a professional, an expert"
+     },
+     {
+      "clueFragment": "very",
+      "gives": "V",
+      "select": "first",
+      "note": "first letter of the word"
+     },
+     {
+      "clueFragment": "East of Berlin",
+      "gives": "OST",
+      "note": "Ost is German for east"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRO",
+      "V",
+      "OST"
+     ]
+    },
+    "explanation": {
+     "surface": "An academic and expert travels a little east of Berlin.",
+     "walkthrough": "'East of Berlin' looks like a direction, but it asks for the German word for east.",
+     "definitionFit": "A provost is the head of certain university colleges, such as King's College Cambridge, so a senior academic."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "East"
+    }
+   }
   },
   {
    "number": 19,
@@ -355,7 +1340,54 @@
     "text": "Call and restrain reportedly Prague reformer",
     "enumeration": "6"
    },
-   "solution": "DUBCEK"
+   "solution": "DUBCEK",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "DUBCEK",
+    "definitions": [
+     {
+      "text": "Prague reformer",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "reportedly",
+      "for": "homophone",
+      "note": "reportedly means as heard, so the words are judged by their sound"
+     }
+    ],
+    "linkWords": [
+     "and"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Call",
+      "gives": "DUB",
+      "note": "to dub is to name or call"
+     },
+     {
+      "clueFragment": "restrain",
+      "gives": "CEK",
+      "soundsLike": "CHECK",
+      "note": "to check is to restrain"
+     }
+    ],
+    "explanation": {
+     "surface": "A Czech reformer is said to have been summoned and held back.",
+     "walkthrough": "Alexander Dubček led the 1968 Prague Spring reforms in Czechoslovakia; his name sounds like 'dub check'.",
+     "definitionFit": "Dubček was the Czechoslovak leader whose liberalising Prague Spring of 1968 was crushed by Soviet tanks."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Call"
+    }
+   }
   },
   {
    "number": 20,
@@ -369,7 +1401,39 @@
     "text": "Not best companion for quiet night out?",
     "enumeration": "6"
    },
-   "solution": "SNORER"
+   "solution": "SNORER",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "SNORER",
+    "definitions": [
+     {
+      "text": "Not best companion for quiet night out?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Not best companion for quiet night out?",
+      "note": "surface reading: a poor choice of partner for a peaceful evening out on the town"
+     },
+     {
+      "clueFragment": "quiet night out",
+      "note": "setter's reading: a night spent out cold, asleep, where a bedfellow making noise is unwelcome"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "'Night out' suggests going out socially, but here being out means asleep, and the bad companion is the noisy sleeper.",
+     "definitionFit": "A person who breathes noisily while asleep disturbs anyone sharing the room, ruining a peaceful sleep."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 21,
@@ -393,7 +1457,39 @@
      }
     ]
    },
-   "solution": "BATTLEOFBRITAIN"
+   "solution": "BATTLEOFBRITAIN",
+   "annotation": {
+    "type": [
+     "cryptic_definition"
+    ],
+    "answer": "BATTLE OF BRITAIN",
+    "definitions": [
+     {
+      "text": "Leicester City v Celtic perhaps - or something more serious?",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Leicester City v Celtic perhaps",
+      "note": "surface reading: an English club against a Scottish club, a cross-border football contest"
+     },
+     {
+      "clueFragment": "something more serious",
+      "note": "setter's reading: the 1940 air war over southern England against the Luftwaffe"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "Leicester City are an English football club and Celtic a Scottish one, so a match between them is billed in the press as a British showdown.",
+     "definitionFit": "The phrase is the name of the 1940 RAF air campaign and also a tabloid label for English-Scottish football ties."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Celtic"
+    }
+   }
   },
   {
    "number": 22,
@@ -407,7 +1503,55 @@
     "text": "Consequence of sun initially - you advised girl",
     "enumeration": "5"
    },
-   "solution": "TANYA"
+   "solution": "TANYA",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "TANYA",
+    "definitions": [
+     {
+      "text": "girl",
+      "at": 43
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the opening letters of the words that follow"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Consequence of sun",
+      "gives": "TAN",
+      "note": "a tan results from sunbathing"
+     },
+     {
+      "clueFragment": "you advised",
+      "gives": "YA",
+      "select": "first",
+      "note": "opening letters of the two words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TAN",
+      "YA"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone warned a girl about what happens after too much sun.",
+     "definitionFit": "Tanya is a female first name of Russian origin, a short form of Tatiana."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "advised"
+    }
+   }
   },
   {
    "number": 23,
@@ -421,7 +1565,74 @@
     "text": "Footballer’s party after right loan arranged",
     "enumeration": "7"
    },
-   "solution": "RONALDO"
+   "solution": "RONALDO",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "RONALDO",
+    "definitions": [
+     {
+      "text": "Footballer",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "arranged",
+      "for": "anagram",
+      "note": "arranged means put into a fresh order, so these letters are reordered"
+     },
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the party word at the end, following the rest of the wordplay"
+     }
+    ],
+    "linkWords": [
+     "’s"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "right",
+      "gives": "R",
+      "note": "R is the abbreviation for right"
+     },
+     {
+      "clueFragment": "loan",
+      "gives": "LOAN",
+      "note": "the fodder, taken as written"
+     },
+     {
+      "clueFragment": "party",
+      "gives": "DO",
+      "note": "a do is a party"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "R",
+      "ONAL",
+      "DO"
+     ],
+     "anagrams": [
+      {
+       "fodder": "LOAN",
+       "gives": "ONAL"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A footballer's celebration follows a properly arranged loan transfer.",
+     "definitionFit": "Ronaldo is the name of famous Brazilian and Portuguese strikers, Cristiano Ronaldo above all."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "loan"
+    }
+   }
   },
   {
    "number": 24,
@@ -435,7 +1646,55 @@
     "text": "Attention given to story run before now",
     "enumeration": "7"
    },
-   "solution": "EARLIER"
+   "solution": "EARLIER",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "EARLIER",
+    "definitions": [
+     {
+      "text": "before now",
+      "at": 29
+     }
+    ],
+    "linkWords": [
+     "given to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attention",
+      "gives": "EAR",
+      "note": "to lend an ear is to pay attention"
+     },
+     {
+      "clueFragment": "story",
+      "gives": "LIE",
+      "note": "a story can be a falsehood"
+     },
+     {
+      "clueFragment": "run",
+      "gives": "R",
+      "note": "R is the cricket abbreviation for run"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "EAR",
+      "LIE",
+      "R"
+     ]
+    },
+    "explanation": {
+     "surface": "People listened to a tale that was published some time ago.",
+     "definitionFit": "Earlier means at a previous time, so at some point before the present."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "story"
+    }
+   }
   },
   {
    "number": 25,
@@ -449,7 +1708,62 @@
     "text": "What might be certain to describe answer: having a skull",
     "enumeration": "8"
    },
-   "solution": "CRANIATE"
+   "solution": "CRANIATE",
+   "annotation": {
+    "type": [
+     "container",
+     "anagram"
+    ],
+    "answer": "CRANIATE",
+    "definitions": [
+     {
+      "text": "having a skull",
+      "at": 42
+     }
+    ],
+    "indicators": [
+     {
+      "text": "What might be",
+      "for": "anagram",
+      "note": "what a word might be is another form of it, so its letters are rearranged"
+     },
+     {
+      "text": "to describe",
+      "for": "container",
+      "note": "to describe is to draw a line around, so one letter is enclosed"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "certain",
+      "gives": "CERTAIN",
+      "note": "the fodder, taken as written"
+     },
+     {
+      "clueFragment": "answer",
+      "gives": "A",
+      "note": "A is the abbreviation for answer"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CERTAINA",
+       "gives": "CRANIATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A puzzle-like riddle: what word could definitely describe the answer, an animal with a skull?",
+     "walkthrough": "'Describe' is used in its geometric sense of tracing round, so CERTAIN encloses A before the letters are shuffled.",
+     "definitionFit": "Craniate is the zoological term for animals possessing a cranium, the bony case enclosing the brain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "describe"
+    }
+   }
   },
   {
    "number": 26,
@@ -463,7 +1777,49 @@
     "text": "Cheekier, disregarding odds, he succeeds",
     "enumeration": "4"
    },
-   "solution": "HEIR"
+   "solution": "HEIR",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "HEIR",
+    "definitions": [
+     {
+      "text": "he succeeds",
+      "at": 29
+     }
+    ],
+    "indicators": [
+     {
+      "text": "disregarding odds",
+      "for": "letter_selection",
+      "note": "ignoring the odd-numbered positions leaves only the second, fourth, sixth and eighth letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cheekier",
+      "gives": "HEIR",
+      "select": "alternate",
+      "note": "the even-placed letters"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "HEIR"
+     ]
+    },
+    "explanation": {
+     "surface": "A cheeky young man ignores the betting odds and wins.",
+     "walkthrough": "'Succeeds' looks like winning, but it means taking over from a predecessor.",
+     "definitionFit": "An heir is the person who inherits a title or estate, the one who takes over after another dies."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "succeeds"
+    }
+   }
   }
  ]
 }
