@@ -2,7 +2,8 @@
 # Does tools/ocr_remote.py compare every reader model a read can load, send
 # back an edition whose read on the desktop opened a file it was not sent,
 # give the same grids from a search run there (its answer through JSON) as
-# here, and let no more than LOCAL_SLOTS reads run here at once?
+# here, wait on a search for as long as the desktop says it is still
+# searching, and let no more than LOCAL_SLOTS reads run here at once?
 #
 #     bash tools/test_ocr_remote.sh
 #
@@ -56,6 +57,44 @@ def over_json(name, *args, data=b"", **kwargs):  # call() as the desktop answers
 ocr_remote.call = over_json
 check("a search run there gives the grids a search here does",
       reconstruct_grid.reconstruct(spec, **kw), ocr_remote.reconstruct(spec, **kw))
+
+# A search on a busy desktop outlives any fixed answer time while working:
+# the wait is on silence, not on a total. serve() runs here with the search
+# stubbed slow and the heartbeat quick, and a Session reads it over a pipe.
+import subprocess
+desktop = r"""
+import json, sys, time
+import acquire_book, ocr_remote
+ocr_remote.SEARCH_HEARTBEAT = 0.2
+ocr_remote.full_speed = lambda: None
+ocr_remote.versions = lambda: {}
+def slow(job):
+    time.sleep(job["sleep"])
+    return {"book_number": job["book_number"], "status": "exact-unique"}
+acquire_book._reconstruct_one = slow
+ocr_remote.serve()
+"""
+def session_on(code):
+    s = ocr_remote.Session.__new__(ocr_remote.Session)
+    s.host, s.buf = "nohost", b""
+    s.proc = subprocess.Popen([sys.executable, "-c", code], stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    s.answer(10)  # the ready line
+    return s
+ocr_remote.SEARCH_SILENCE = ocr_remote.READ_TIMEOUT = 1  # a fixed 1s total would lose the 2.5s search
+s = session_on(desktop)
+check("a search running past SEARCH_SILENCE is waited on while it beats",
+      "exact-unique", s.reconstruct({"book_number": 7, "sleep": 2.5}).get("status"))
+check("and the session answers the next search", 8,
+      s.reconstruct({"book_number": 8, "sleep": 0}).get("book_number"))
+s.close()
+s = session_on("import sys, time; print('{\"ready\": {}}', flush=True); time.sleep(30)")
+try:
+    s.reconstruct({"book_number": 9})
+    check("a silent desktop is lost after SEARCH_SILENCE", "Unavailable", "an answer")
+except ocr_remote.Unavailable as e:
+    check("a silent desktop is lost after SEARCH_SILENCE", "no answer in 1s", str(e))
+s.close()
 
 at_once, most = [0], [0]
 lock = threading.Lock()

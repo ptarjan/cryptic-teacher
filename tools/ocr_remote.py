@@ -66,6 +66,16 @@ HOME = r"C:\Users\micro\ocrw"
 CONNECT_TIMEOUT = 60
 READ_TIMEOUT = 300
 EDITION_TIMEOUT = 1800
+#: A grid search (Session.reconstruct) has no fixed answer time: the node
+#: budget bounds it, not the clock, and on a desktop shared with the OCR pass
+#: (turbo off) a search the Mac finishes in 140s can run past 300. So serve()
+#: says {"searching": true} every SEARCH_HEARTBEAT seconds while one runs, and
+#: the Mac calls the desktop lost after SEARCH_SILENCE seconds with no line,
+#: not after a total; SEARCH_TIMEOUT is only the ceiling for a search that
+#: keeps beating without ending.
+SEARCH_HEARTBEAT = 30
+SEARCH_SILENCE = 4 * SEARCH_HEARTBEAT
+SEARCH_TIMEOUT = EDITION_TIMEOUT
 #: tools/data's directories no reader opens, left off the desktop (160 MB).
 UNSHIPPED = ("tools/data/blog_facts/", "tools/data/yt_solvers/")
 #: The list of shipped files, in the desktop's directory, written last.
@@ -276,10 +286,12 @@ def serve():
 
     import ocr_clues
     inp, out = sys.stdin.buffer, sys.stdout.buffer
+    said = threading.Lock()  # a search's heartbeat thread says lines too
 
     def say(obj):
-        out.write(json.dumps(obj).encode() + b"\n")
-        out.flush()
+        with said:
+            out.write(json.dumps(obj).encode() + b"\n")
+            out.flush()
     def ask_mac(head, data):
         out.write(json.dumps({**head, "bytes": len(data)}).encode() + b"\n" + data)
         out.flush()
@@ -293,11 +305,21 @@ def serve():
         req = json.loads(line)
         data = inp.read(req["bytes"])
         if "reconstruct" in req:
+            done = threading.Event()
+
+            def beat():
+                while not done.wait(SEARCH_HEARTBEAT):
+                    say({"searching": True})
+            beating = threading.Thread(target=beat, daemon=True)
+            beating.start()
             try:
                 import acquire_book
-                say(acquire_book._reconstruct_one(req["reconstruct"]))
+                got = acquire_book._reconstruct_one(req["reconstruct"])
             except Exception as e:  # noqa: BLE001 -- the Mac searches this one itself and says why
-                say({"error": f"{type(e).__name__}: {e}"})
+                got = {"error": f"{type(e).__name__}: {e}"}
+            done.set()
+            beating.join()
+            say(got)
             continue
         if "call" in req:
             try:
@@ -401,9 +423,21 @@ class Session:
         return self.answer(READ_TIMEOUT)
 
     def reconstruct(self, job):
-        """tools/acquire_book.py's _reconstruct_one(job), run there."""
+        """tools/acquire_book.py's _reconstruct_one(job), run there, waited on
+        for as long as the desktop says it is still searching (SEARCH_SILENCE)
+        and is not busy."""
         self.send({"reconstruct": job}, b"")
-        return self.answer(READ_TIMEOUT)
+        end = time.monotonic() + SEARCH_TIMEOUT
+        while True:
+            left = int(end - time.monotonic())
+            if left <= 0:
+                raise Unavailable(f"still searching after {SEARCH_TIMEOUT}s")
+            got = self.answer(min(SEARCH_SILENCE, left))
+            if not got.get("searching"):
+                return got
+            why = desktop_busy.busy([self.host])
+            if why:
+                raise Unavailable(f"desktop busy: {why}")
 
     def call(self, name, args, kwargs, data):
         """(answer, the bytes after it) of CALLS[name] run there."""
