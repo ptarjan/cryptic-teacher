@@ -162,10 +162,58 @@
    },
    "length": 5,
    "clue": {
-    "enumeration": "5",
-    "missing": true
+    "text": "Benefactor's name is in the entrance",
+    "enumeration": "5"
    },
-   "solution": "DONOR"
+   "solution": "DONOR",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "DONOR",
+    "definitions": [
+     {
+      "text": "Benefactor",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "is in",
+      "for": "container",
+      "note": "one thing being in another means it sits inside it, so one piece goes within the other"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "entrance",
+      "gives": "DOOR",
+      "note": "a door is the way in to a room or building"
+     },
+     {
+      "clueFragment": "name",
+      "gives": "N",
+      "note": "N is the standard abbreviation for name"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "DO",
+      "N",
+      "OR"
+     ]
+    },
+    "explanation": {
+     "surface": "A patron's name is carved over the doorway of the building they funded.",
+     "walkthrough": "The 's is read as 'is': N placed in DOOR gives DONOR. The OCR lost this clue, but the scan shows it.",
+     "definitionFit": "A donor gives money or goods to a cause, which is exactly what a benefactor does: a straightforward synonym."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "entrance"
+    }
+   }
   },
   {
    "number": 3,
@@ -1138,7 +1186,65 @@
     "text": "Only an egghead would use such fuel",
     "enumeration": "6"
    },
-   "solution": "BUTANE"
+   "solution": "BUTANE",
+   "annotation": {
+    "type": [
+     "charade",
+     "letter_selection"
+    ],
+    "answer": "BUTANE",
+    "definitions": [
+     {
+      "text": "such fuel",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, so only the leading letter is kept"
+     }
+    ],
+    "linkWords": [
+     "would use"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Only",
+      "gives": "BUT",
+      "note": "but in the sense of merely or only"
+     },
+     {
+      "clueFragment": "an",
+      "gives": "AN",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "egghead",
+      "gives": "E",
+      "select": "first",
+      "note": "read as egg plus head: the head, or opening letter, of egg"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "BUT",
+      "AN",
+      "E"
+     ]
+    },
+    "explanation": {
+     "surface": "A dig at intellectuals: only a brainbox would burn this kind of fuel.",
+     "walkthrough": "'Egghead' looks like one word for an intellectual; split it to take the head of egg.",
+     "definitionFit": "This flammable hydrocarbon gas is sold in canisters for camping stoves, lighters and heaters."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "egghead"
+    }
+   }
   },
   {
    "number": 19,
