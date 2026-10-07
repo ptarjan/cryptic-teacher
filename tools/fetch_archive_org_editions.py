@@ -87,7 +87,9 @@ by image (ocr_titles). An edition none of whose fetched leaves holds a title
 is one whose scan lacks the crossword page. So is the page densest with
 clue enumerations, DENSE_ENUMS or more, marked dense: the 1970s-80s OCR
 loses the title and the ACROSS/DOWN headings of a page whose counts it
-keeps (1977-07-22, leaf 21: 64 counts, no heading).
+keeps (1977-07-22, leaf 21: 64 counts, no heading). So is each page headed
+"FT UNIT TRUST INFORMATION SERVICE", marked unit_trust: the 1984-86 FT
+prints its crossword there (1986-03-17, leaf 40).
 
 A rerun skips every edition in done.tsv at the current DETECTOR_VERSION,
 except one whose per-page words (pagetext.json.gz beside a djvu.xml.gz) hold
@@ -135,7 +137,7 @@ import downloads
 
 UA = "cryptic-teacher-fetcher/1.0 (cryptic-teacher@paulisageek.com)"
 SAMAAN = 'uploader:"samaan.alshayef@gmail.com"'
-DETECTOR_VERSION = 5
+DETECTOR_VERSION = 6
 #: How many of the leaves its item's other editions print their crossword on
 #: an edition with no crossword title in its text also fetches (prior_leaves).
 PRIOR_LEAVES = 2
@@ -143,6 +145,11 @@ EMPTY_OCR_CHARS = 200
 #: The fewest clue enumerations ("(5)", "(3,4)") on the page an edition
 #: with no crossword title in its text fetches as its densest (crossword_hits).
 DENSE_ENUMS = 10
+#: The 1984-86 FT prints its crossword on its unit trust price page (431
+#: of the 549 found there whose text names that page), whose tables the OCR
+#: often reads but whose title it loses: an edition with no crossword title
+#: in its text fetches each page so headed too (crossword_hits).
+UNIT_TRUST = re.compile(r"(?i)unit\s+trust\s+information\s+service")
 RETRY_WAITS = (5, 15, 45, 120)
 ITEM_SECONDS = 300
 FAILURES_IN_A_ROW = 10
@@ -537,6 +544,9 @@ def crossword_hits(pages, prior=()):
         if enums >= DENSE_ENUMS and leaf not in have | set(prior):
             hits.append({"leaf": leaf, "enums": enums, "dense": True,
                          "width": pages[leaf][0], "height": pages[leaf][1]})
+        have |= {h["leaf"] for h in hits}
+        hits += [{"leaf": leaf, "unit_trust": True, "width": w, "height": h}
+                 for leaf, (w, h, text) in enumerate(pages) if leaf not in have and UNIT_TRUST.search(text)]
         hits.sort(key=lambda h: h["leaf"])
     return hits
 
@@ -781,7 +791,10 @@ class Run:
                     self.stop = True
                     log(f"stopping: {self.in_a_row} editions in a row failed; archive.org looks down")
             return False
-        heads = "; ".join(h for hit in hits for h in hit.get("headings", ["(PDF page with a grid)" if hit.get("pdf") else "(blank OCR)"])[:2])
+        kinds = {"pdf": "(PDF page with a grid)", "ocr_empty": "(blank OCR)", "prior": "(prior leaf)",
+                 "dense": "(densest with counts)", "unit_trust": "(unit trust page)"}
+        heads = "; ".join(h for hit in hits for h in (hit.get("headings")
+                          or [next((v for k, v in kinds.items() if hit.get(k)), "(no heading)")])[:2])
         with self.lock:
             self.in_a_row = 0
             self.n += 1

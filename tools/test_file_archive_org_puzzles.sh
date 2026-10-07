@@ -777,6 +777,20 @@ titles, sols = f.ft_headings([line("F.T. CROSSWORD PUZZLE No. 2,766", 200, 2841)
                               line("SOLUTION TO PUZZLE", 573, 4049), line("No. 2,765", 656, 4073)])
 check("1970s FT title on one line, solution number on the line under", ([2766], [2765]),
       ([n for n, _, _ in titles], [n for n, _ in sols]))
+titles, _ = f.ft_headings([line("F.T. CROSSWORD", 1749, 3265), line("PUZZLE No. 5,094", 1750, 3301)])
+check("1980s FT title over \"PUZZLE No. N\" on the line under", [5094], [n for n, _, _ in titles])
+titles, _ = f.ft_headings([[(204, 2926, 469, 2970, "~nTupblfih“parkCtT-"), (470, 2928, 709, 2957, "CROSSWORD"),
+                            (710, 2928, 900, 2957, "PUZZLE"), (901, 2928, 990, 2957, "NO."),
+                            (991, 2928, 1100, 2957, "1,652")]])
+check("a title behind a word the OCR ran in from the next column; box from the title on",
+      [(1652, (470 + 1100) // 2)], [(n, (b[0] + b[2]) // 2) for n, b, _ in titles])
+check("a comma the OCR reads as ? or ^", [3034, 4780],
+      [n for t in ("F.T. CROSSWORD PUZZLE No. 3?034 r", "F.T. CROSSWORD PUZZLE No. 4^780")
+       for n, _, _ in f.ft_headings([line(t, 291, 2180)])[0]])
+check("a no-crossword notice over the solution's number is no title", [],
+      f.ft_headings([line("No crossword appears in today's", 586, 3307), line("puzzle. No 5,355, will be pub-", 586, 3399)])[0])
+check("prose with a crossword in it and no number is no title", [],
+      f.ft_headings([line("the paper's crossword setter retired", 200, 300)])[0])
 check("FT numbers the dates imply, and our first ftcryptic's", [True, True, True, False],
       [abs(n - f.ft_expected_number(datetime.date.fromisoformat(d))) <= f.NUMBER_SLACK
        for d, n in [("1975-05-01", 2766), ("1992-06-11", 7870), ("2009-11-12", 13232), ("1995-01-03", 19742)]])
@@ -1244,6 +1258,9 @@ check("a grid printed over its title is found (Times 17,001)", ("above", True), 
 side, shaped, gbox = located("ftcryptic-8649-left")
 check("a grid left of its title is found, not ink under the title (FT Monday Prize 8,649)",
       ("left", True), (side, shaped))
+side, shaped, _ = located("ftcryptic-5607-right")
+check("a grid right of its title, the title's box past the page's left edge (FT 1985-01-02, 5,607)",
+      ("right", True), (side, shaped))
 lines = [[tuple(w) for w in ws] for ws in cases["ftcryptic-8649-left"]["lines"]]
 text = f.column_text(f.columns(lines, gbox, left=f.left_columns(lines, gbox)))
 check("the clue columns left of the grid are read, across then down",
@@ -1415,7 +1432,8 @@ band_words = f.band_words
 for name, what in (("cryptic-21238", "Guardian 1998-04-02, its title over the grid's left"),
                    ("ftcryptic-9705", "FT 1998-06-11, its number line unread"),
                    ("ftcryptic-7869", "FT 1992-06-10, a column rule beside its title"),
-                   ("times-19801", "Times 1995-03-13, its title 250px over the grid")):
+                   ("times-19801", "Times 1995-03-13, its title 250px over the grid"),
+                   ("ftcryptic-5607", "FT 1985-01-02, \"F.T. CROSSWORD\" over \"PUZZLE No.\" left of the grid")):
     c = tcases[name]
     f.band_words = lambda img, band, which, path, c=c: [tuple(w) for w in c["bands"][",".join(map(str, band))][which]]
     paper, day = f.PAPERS[c["paper"]], datetime.date.fromisoformat(c["date"])

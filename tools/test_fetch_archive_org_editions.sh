@@ -79,6 +79,11 @@ check("no title and no headings: the page densest with clue counts is fetched to
 sparse = list(blank); sparse[11] = page("news " * 60 + "1 Garbled clue (5)\n" * (fa.DENSE_ENUMS - 1))
 check("a page with fewer counts than DENSE_ENUMS is not",
       [h["leaf"] for h in fa.crossword_hits(sparse, prior)] == [21, 27])
+ut = list(blank); ut[17] = page("FT UNIT TRUST INFORMATION SERVICE\n" + "Authorised Unit Trusts 12.3 45.6 " * 10)
+check("no title: the unit trust page is fetched too, marked unit_trust",
+      [(h["leaf"], h.get("unit_trust")) for h in fa.crossword_hits(ut, prior)] == [(17, True), (21, None), (27, None)])
+check("a titled page found: no unit trust page",
+      [h["leaf"] for h in fa.crossword_hits([*cryptic[:17], ut[17], *cryptic[18:]], prior)] == [13])
 check("a titled page found: no dense page",
       [h["leaf"] for h in fa.crossword_hits([*cryptic[:11], dense[11], *cryptic[12:]], prior)] == [13])
 

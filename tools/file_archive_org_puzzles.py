@@ -348,23 +348,32 @@ def ink_in(img, crop, fixed=()):
 def locate_grid(img, title):
     """(box, side) of the grid a title heads: the largest ink under it, else
     over it (the 1980s Times prints its title under the grid), else left of
-    it (the FT's Monday Prize prints it right of the grid's top); `side` is
-    "below", "above" or "left". (box, None) when no ink there is a grid,
-    the box the ink under the title; (None, None) when there is none."""
+    it (the FT's Monday Prize prints it right of the grid's top), else right
+    of it (the 1983-86 FT heads the clue column left of the grid's top);
+    `side` is "below", "above", "left" or "right". (box, None) when no ink
+    there is a grid, the box the ink under the title; (None, None) when
+    there is none. A title box may reach past the page's edge (an FT one is
+    widened to FT_GRID_SPAN about its middle): the crops are clipped to it."""
     x0, y0, x1, y1 = title
     w = x1 - x0
     span = int(1.3 * w) + 80
+    cx = (x0 + x1) / 2
     tries = (("below", (max(0, x0 - 120), y1, min(img.width, x1 + 120), min(img.height, y1 + span)), ("top",)),
              ("above", (max(0, x0 - 120), max(0, y0 - span), min(img.width, x1 + 120), y0), ("bottom",)),
-             ("left", (max(0, x0 - span), max(0, y0 - 80), x0, min(img.height, y0 + span)), ()))
+             ("left", (max(0, x0 - span), max(0, y0 - 80), min(img.width, x0), min(img.height, y0 + span)), ()),
+             ("right", (max(0, int(cx)), max(0, y0 - 80), min(img.width, int(cx) + span), min(img.height, y0 + span)),
+              ()))
     first = None
     for side, crop, fixed in tries:
+        if crop[2] - crop[0] < 2 or crop[3] - crop[1] < 2:
+            continue
         box = footed(img, ink_in(img, crop, fixed))
-        # A grid under its title clears the title's line, and one left of it
-        # ends short of the title's middle: other ink is something else's.
+        # A grid under its title clears the title's line, one left of it
+        # ends short of the title's middle, and one right of it starts past
+        # it: other ink is something else's.
         clear = box is not None and (side != "below" or box[1] > crop[1] + 2
                                      or starts_under(img, box, crop[1])) \
-            and (side != "left" or box[2] < (x0 + x1) / 2)
+            and (side != "left" or box[2] < cx) and (side != "right" or box[0] > cx)
         if clear and shaped_on(img, box):
             return box, side
         first = first or box
@@ -1405,12 +1414,15 @@ def grids_on(img, step=2, shaped=grid_shaped):
 
 
 def title_bands(img, grid):
-    """The crops over and under a grid that its title is read in: TITLE_REACH
-    deep, half the grid's width wider each side (the Guardian's title runs
-    left of its grid)."""
+    """The crops a grid's title is read in, in turn: over and under it,
+    TITLE_REACH deep, half the grid's width wider each side (the Guardian's
+    title runs left of its grid); then a grid's width left of it, from its
+    top down TITLE_REACH (the 1983-86 FT's "F.T. CROSSWORD" over "PUZZLE
+    No. 5,607" heads the clue column beside the grid)."""
     x0, y0, x1, y1 = grid
     xa, xb = max(0, x0 - (x1 - x0) // 2), min(img.width, x1 + (x1 - x0) // 2)
-    return ((xa, max(0, y0 - TITLE_REACH), xb, y0), (xa, y1, xb, min(img.height, y1 + TITLE_REACH)))
+    return ((xa, max(0, y0 - TITLE_REACH), xb, y0), (xa, y1, xb, min(img.height, y1 + TITLE_REACH)),
+            (max(0, x0 - (x1 - x0)), y0, x0, min(img.height, y0 + TITLE_REACH)))
 
 
 def printed_lines(words):
@@ -1559,10 +1571,15 @@ def guardian_expected_number(day):
 
 
 #: The FT's title: "CROSSWORD" (or "MONDAY PRIZE CROSSWORD") over
-#: "No. 8,650 Set by DANTE" in the 1990s, "CROSSWORD PUZZLE No. 2,766" on
-#: one line in the 1970s.
+#: "No. 8,650 Set by DANTE" in the 1990s, "F.T. CROSSWORD" over "PUZZLE
+#: No. 5,613" in the 1980s, "CROSSWORD PUZZLE No. 2,766" on one line in
+#: the 1970s.
 FT_TITLE = re.compile(r"^\W*(?:[a-z.]+\s+){0,2}cross\s?word(?:\s+puzzle)?\b\W*(.*)$", re.IGNORECASE)
-FT_NUMBER = re.compile(r"^\W*no\W{0,2}\s*(\d[,.]?\d{3})\b(.*)$", re.IGNORECASE)
+FT_NUMBER = re.compile(r"^\W*(?:puzzle\s+)?no\W{0,2}\s*(\d[,.?^]?\d{3})\b(.*)$", re.IGNORECASE)
+#: How many leading words of a line ft_headings drops to find a numbered
+#: title: the OCR runs the next column's last word into the title's line
+#: ("~nTupblfih“parkCtT- CROSSWORD PUZZLE NO. 1,652").
+FT_LEAD_JUNK = 2
 FT_SETTER = re.compile(r"set\s+by\s+([A-Za-z][A-Za-z'-]+)", re.IGNORECASE)
 #: The previous puzzle's solution grid: "Solution 8,650", or in the 1970s
 #: "SOLUTION TO PUZZLE" over "No. 2,765".
@@ -1624,10 +1641,18 @@ def ft_headings(lines):
             if num and not num.group(2).strip(" .'"):
                 solutions.append((number_of(num.group(1)), centred(box_of(ws + under), FT_SOLUTION_SPAN)))
             continue
-        m = FT_TITLE.match(text)
-        if not m:
-            continue
-        num, under = numbered(ws, m.group(1))
+        # The whole line, else (numbered only) the line less its first
+        # FT_LEAD_JUNK words.
+        for k in range(min(FT_LEAD_JUNK, len(ws) - 1) + 1):
+            line = ws[k:] if k else ws
+            m = FT_TITLE.match(" ".join(w[4] for w in line))
+            # Words after "CROSSWORD" and no number: prose ("No crossword
+            # appears in today's edition"), not a title over its number.
+            prose = m and re.search(r"[a-z]", m.group(1), re.IGNORECASE) and not re.search(r"\d", m.group(1))
+            num, under = numbered(line, m.group(1)) if m and not prose else (None, line)
+            if num:
+                ws = line
+                break
         if not num:
             continue
         box, whole = box_of(ws), box_of(ws + under)
@@ -2445,7 +2470,7 @@ def scan_key():
 #: The names whose code scan() runs.
 SCAN_CODE = {"leaf_lines", "headings", "scan", "ft_headings", "guardian_headings", "telegraph_headings", "Paper",
              "numbered_heading", "heading_of", "digits", "box_of", "centred", "number_of", "NUMBER", "TITLE",
-             "SOLUTION", "FT_TITLE", "FT_NUMBER", "FT_SETTER", "FT_SOLUTION", "G_NUMBER", "GUARDIAN_TITLE",
+             "SOLUTION", "FT_TITLE", "FT_NUMBER", "FT_LEAD_JUNK", "FT_SETTER", "FT_SOLUTION", "G_NUMBER", "GUARDIAN_TITLE",
              "GUARDIAN_SOLUTION", "TELEGRAPH_SOLUTION", "NUMBERED_HEADING", "FT_GRID_SPAN", "FT_SOLUTION_SPAN",
              "TELEGRAPH_SOLUTION_SPAN", "OBJECT_TAG", "GRID_FILL", "TITLE_REACH", "grids_on", "title_bands",
              "printed_lines", "band_words", "ocr_titles", "grid_shaped"}
