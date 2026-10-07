@@ -47,18 +47,11 @@ specs because its "reserved2" is 4 bytes rather than 12):
     +wh   NUL-terminated ISO-8859-1 strings: title, author, copyright, then one
                 clue per numbered cell in across-then-down reading order, then notes
 
-UNSCRAMBLING DOES NOT RECOVER REAL ANSWERS FROM THIS FEED. scrambled_tag is set
-(checked on Nos. 838 and 830), which normally means the solution grid is
-encrypted with the reversible, brute-forceable Across Lite scheme (see
-unscramble_solution below — kept because it is cheap, in-process, and correct
-against the public algorithm). But on both puzzles checked, every white cell of
-the "solution" grid is the literal, identical byte 'D' — not ciphertext. A
-substitution-plus-permutation cipher cannot manufacture 148 distinct letters
-that satisfy 32 different clues out of an input with one repeated symbol; the
-output for every one of the 10000 keys is just some deterministic scramble of
-all-D, and any checksum match against it is a 16-bit-checksum coincidence, not
-a real unlock. If Private Eye ever ships a real scrambled grid, this code will unscramble it
-without changes; nothing here assumes the dummy.
+NO ANSWERS COME FROM THIS FEED. scrambled_tag is set (checked on Nos. 838 and
+830), which normally means the solution grid is encrypted with the Across Lite
+scheme, but every white cell of the "solution" grid is the literal byte 'D' —
+not ciphertext, so there is nothing to unscramble. The grid's shape is all
+this file gives.
 
 ANSWERS COME FROM FIFTEENSQUARED.NET INSTEAD. It has blogged Private Eye's
 Cyclops biweekly since December 2006, with a full grid solve in each post —
@@ -82,7 +75,6 @@ import html
 import itertools
 import json
 import re
-import string
 import struct
 import sys
 import time
@@ -172,75 +164,6 @@ def parse_puz(data):
     }
 
 
-# ---------- Across Lite scrambling (see module docstring: unused in practice
-# on this feed today, kept because it's cheap and the public algorithm) ----------
-
-def data_cksum(raw, cksum=0):
-    for b in raw:
-        lowbit = cksum & 1
-        cksum >>= 1
-        if lowbit:
-            cksum |= 0x8000
-        cksum = (cksum + b) & 0xFFFF
-    return cksum
-
-
-def square(s, w, h):
-    """Row-major <-> column-major transpose of a w*h string (self-inverse when
-    called with w and h swapped on the result)."""
-    rows = [s[i:i + w] for i in range(0, len(s), w)]
-    return "".join("".join(rows[r][c] for r in range(h)) for c in range(w))
-
-
-def restore(template, letters):
-    """Drop `letters` back into template's non-black positions, in order."""
-    it = iter(letters)
-    return "".join(next(it) if c != BLACK else c for c in template)
-
-
-def shift(s, digits):
-    a_z = string.ascii_uppercase
-    return "".join(a_z[(a_z.index(c) + digits[i % 4]) % 26] for i, c in enumerate(s))
-
-
-def unshuffle(s):
-    return s[1::2] + s[::2]
-
-
-def unscramble_string(s, key):
-    digits = [int(c) for c in f"{key:04d}"]
-    n = len(s)
-    for k in reversed(digits):
-        s = unshuffle(s)
-        s = s[n - k:] + s[:n - k]
-        s = shift(s, [-d for d in digits])
-    return s
-
-
-def unscramble_solution(scrambled, width, height, key):
-    sq = square(scrambled, width, height)
-    letters_only = sq.replace(BLACK, "")
-    unsc = restore(sq, unscramble_string(letters_only, key))
-    return square(unsc, height, width)
-
-
-def scrambled_cksum(solution, width, height):
-    return data_cksum(square(solution, width, height).replace(BLACK, "").encode("iso-8859-1"))
-
-
-def try_unscramble(solution, width, height, target_cksum):
-    """Brute-force all 10000 keys; return the unscrambled grid or None.
-
-    Cheap (10000 substitution+permutation passes over <=225 chars) and entirely
-    in-process — see module docstring for why this never actually fires today.
-    """
-    for key in range(10000):
-        candidate = unscramble_solution(solution, width, height, key)
-        if scrambled_cksum(candidate, width, height) == target_cksum:
-            return candidate
-    return None
-
-
 # ---------- grid geometry -> numbered entries ----------
 
 def number_grid(solution, width, height):
@@ -285,14 +208,6 @@ def convert(num, puz):
         raise ValueError(f"{len(grid_entries)} grid entries but "
                           f"{len(puz['clues'])} clues — numbering disagrees with the file")
 
-    unscrambled = None
-    if puz["scrambled"]:
-        # Kept as a real attempt, not dead code: see module docstring for why
-        # this is expected to return None on today's feed (dummy 'D' fill)
-        # rather than skipped outright on the assumption it always will.
-        header_cksum = None  # no offset for this header shape has been confirmed
-        if header_cksum is not None:
-            unscrambled = try_unscramble(puz["solution"], width, height, header_cksum)
 
     # Clues are consumed in file order, which is exactly grid_entries' order
     # (that's the .puz convention this numbering was built to match).
@@ -475,18 +390,6 @@ def is_this_series(post):
 _TAG_RE = re.compile(r"<[^>]+>")
 _ROW_OR_HEADING_RE = re.compile(r"(<tr\b.*?</tr>)|>(Across|Down)<", re.DOTALL)
 _TD_RE = re.compile(r"<td[^>]*>(.*?)</td>", re.DOTALL)
-# <strong> is the norm but some posts use plain <b> for an answer or two
-# (Cyclops 830: 27 <strong> answers, 2 <b> ones in the same post), and posts
-# from the "Clue No / Solution / Clue / Logic" table era (Cyclops 600, 700)
-# don't tag the answer at all — plain text in its own column. Handled where
-# this is used: try <strong>/<b> first, fall back to the cell's bare text.
-# The tag may carry attributes and may wrap markup rather than bare text —
-# an answer is often a link to its Wikipedia page,
-# <strong><a href="...">DON JUAN</a></strong> — so the body is captured with
-# its tags and stripped afterwards. Matching only bare text here would make
-# every such answer fall through to the whole-cell fallback and swallow the
-# wordplay with it.
-_STRONG_RE = re.compile(r"<(?:strong|b)\b[^>]*>(.*?)</(?:strong|b)>", re.DOTALL)
 # "13", "13ac", "7A" (older template's own number+direction, no separator).
 _KEY_TOKEN_RE = re.compile(r"^(\d+)(ac|dn|a|d)?\.?$", re.IGNORECASE)
 _DIR_FROM_SUFFIX = {"ac": "across", "a": "across", "dn": "down", "d": "down"}
@@ -500,6 +403,10 @@ _DEL_RE = re.compile(r"<del\b[^>]*>.*?</del>", re.DOTALL)
 # first tag hands back half the answer. The run must start the cell and must
 # not skip over untagged text, which is what keeps a <strong> inside the
 # wordplay that follows from being mistaken for part of the answer.
+# <strong> is the norm but some posts use plain <b> for an answer or two
+# (Cyclops 830: 27 <strong> answers, 2 <b> ones in the same post), and a tag
+# may carry attributes and wrap markup: an answer is often a link to its
+# Wikipedia page, <strong><a href="...">DON JUAN</a></strong>.
 _ANSWER_RUN_RE = re.compile(
     r"\A(?:\s|<br\s*/?>)*"
     r"(?:<(?:strong|b)\b[^>]*>.*?</(?:strong|b)>(?:\s|<br\s*/?>)*)+",
@@ -936,7 +843,7 @@ def solve_from_fifteensquared(puzzle, post):
         # one. The grid is the authority on which
         # lights a group contains; the blog only supplies the letters, and
         # assign()'s length check plus the crossing check still police the join.
-        lead_num, lead_dir = parsed[0]
+        lead_num = parsed[0][0]
         # Every way the group's unsuffixed numbers could land on real grid
         # entries, filtered by the one thing the blog cannot get wrong: the
         # letters it printed. An assignment counts only if each member exists

@@ -16,10 +16,7 @@ REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "tools"))
 from fetch_puzzle import (  # noqa: E402 — one id resolver, one reader
     read_puzzle_file, resolve_puzzle)
-from groups import entry_id  # noqa: E402
 DEFAULT_PUZZLE = "cryptic-30066"   # Tramp, 15x15, fully annotated
-# mask() also returns this light's cells; no caller reads them.
-HIGHLIGHT = "14-across"
 
 
 def load(number):
@@ -30,18 +27,15 @@ def mask(puz):
     """True where a letter goes. Cells no entry and no unclued light passes through are blocks."""
     cols, rows = puz["dimensions"]["cols"], puz["dimensions"]["rows"]
     white = [[False] * cols for _ in range(rows)]
-    lit = set()
     for e in puz["entries"]:
         x, y = e["position"]["x"], e["position"]["y"]
         for i in range(e["length"]):
             cx, cy = (x + i, y) if e["direction"] == "across" else (x, y + i)
             white[cy][cx] = True
-            if entry_id(e) == HIGHLIGHT:
-                lit.add((cx, cy))
     for light in puz.get("unclued") or []:
         for c in light["cells"]:
             white[c["y"]][c["x"]] = True
-    return white, lit
+    return white
 
 
 def check(white):
@@ -104,7 +98,7 @@ def main():
     # Left as text: resolve_puzzle takes an id or a bare number.
     pid = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_PUZZLE
     puz = load(pid)
-    white, _ = mask(puz)
+    white = mask(puz)
     check(white)
     print(f"puzzle {pid}: {len(white[0])}x{len(white)}, checks passed")
 

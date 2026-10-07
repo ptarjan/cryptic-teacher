@@ -147,7 +147,6 @@ def screen_spec(across, down):
     """Reasons this light list cannot be a published 15x15. Empty means run
     the search."""
     lights = across + down
-    lengths = [lg[1] for lg in lights if lg[1] is not None]
     reasons = []
 
     if len(lights) < MIN_LIGHTS:
