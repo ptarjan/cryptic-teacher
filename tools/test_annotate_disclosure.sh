@@ -93,6 +93,22 @@ errs, warns = [], []
 V.check_every_clue_is_annotated(hole, errs, warns, corpus=True)
 say("hole_queued_in_corpus", not errs and any("queued" in w for w in warns))
 
+# A half-written file (the downs not reached yet) gets one line naming every
+# blank, not the paragraph once per clue; the audit still names its check.
+import annotate_audit
+half = [entry("1-across", annotation={"type": ["charade"]}), entry("1-down"),
+        entry("2-down"), entry("3-down", solutionConfidence="LIKELY")]
+errs, warns = [], []
+V.check_every_clue_is_annotated(half, errs, warns)
+tmpl = annotate_audit.load_templates(open(V.__file__).read())
+say("blanks_one_line", len(errs) == 1 and errs[0].startswith("1D,2D,3D: no annotation")
+    and "half-written" in errs[0] and "3D: a model's LIKELY fill" in errs[0]
+    and annotate_audit.rule_name("  ERROR: " + errs[0], tmpl) == "check_every_clue_is_annotated")
+errs, warns = [], []
+V.check_every_clue_is_annotated(hole, errs, warns)
+say("one_blank_not_called_half_written", len(errs) == 1 and errs[0].startswith("2A: ")
+    and "half-written" not in errs[0])
+
 # The clue is the source's: an annotated clue whose words differ from the
 # committed file's fails; one retyped with other punctuation does not.
 import fetch_puzzle
@@ -403,6 +419,7 @@ for k in linked_leader_quiet annotated_continuation_flagged \
          plain_puzzle_no_notes cd_note likely_note view_has_no_url \
          view_keeps_solutions apply_keeps_solutions_detail \
          fragment_not_in_clue_fails hole_fails_the_run hole_queued_in_corpus \
+         blanks_one_line one_blank_not_called_half_written \
          reworded_clue_fails retyped_clue_passes missing_keys_filled_null \
          ocr_rewording_filed_fails ocr_misread_filed_passes \
          preview_names_validator_errors patch_deletes_its_file \
