@@ -20,6 +20,9 @@
  "solutions": {
   "origin": "published"
  },
+ "annotatedBy": [
+  "claude-opus-5-5"
+ ],
  "entries": [
   {
    "number": 1,
@@ -39,7 +42,43 @@
      }
     ]
    },
-   "solution": "STANDBY"
+   "solution": "STANDBY",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "STAND BY",
+    "definitions": [
+     {
+      "text": "Support",
+      "at": 0
+     },
+     {
+      "text": "person on call",
+      "at": 8
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Support",
+      "note": "first meaning: a phrasal verb, to back someone loyally"
+     },
+     {
+      "clueFragment": "person on call",
+      "note": "second meaning: a noun for someone kept ready to step in"
+     }
+    ],
+    "explanation": {
+     "surface": "A helper who is ready whenever summoned.",
+     "walkthrough": "The verb is written as two words, STAND BY; the noun is often run together, but the grid takes the (5,2) split for both senses.",
+     "definitionFit": "To stand by a friend is to remain loyal, and a standby is a reserve kept ready for duty."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Support"
+    }
+   }
   },
   {
    "number": 1,
@@ -53,7 +92,59 @@
     "text": "Band is ready after half past",
     "enumeration": "6"
    },
-   "solution": "STRIPE"
+   "solution": "STRIPE",
+   "annotation": {
+    "type": [
+     "deletion",
+     "charade"
+    ],
+    "answer": "STRIPE",
+    "definitions": [
+     {
+      "text": "Band",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "half",
+      "for": "deletion",
+      "note": "only half of the following word is wanted, so the other half is dropped"
+     }
+    ],
+    "linkWords": [
+     "is",
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "past",
+      "gives": "PAST",
+      "note": "taken as written, then cut in two"
+     },
+     {
+      "clueFragment": "ready",
+      "gives": "RIPE",
+      "note": "fruit that is ready to eat is ripe"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ST",
+      "RIPE"
+     ]
+    },
+    "explanation": {
+     "surface": "A musical group set to play once it is past the half hour.",
+     "walkthrough": "'Half past' reads like a time of day; here only the back half of the word past survives, and 'after' places it in front of the ready fruit word.",
+     "definitionFit": "A stripe is a long narrow strip of colour, which is one sense of a band."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Band"
+    }
+   }
   },
   {
    "number": 2,
@@ -67,7 +158,59 @@
     "text": "CIA not involved in court case",
     "enumeration": "6"
    },
-   "solution": "ACTION"
+   "solution": "ACTION",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ACTION",
+    "definitions": [
+     {
+      "text": "court case",
+      "at": 20
+     }
+    ],
+    "indicators": [
+     {
+      "text": "involved",
+      "for": "anagram",
+      "note": "involved means tangled or intricate, so the letters are twisted into a new order"
+     }
+    ],
+    "linkWords": [
+     "in"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "CIA",
+      "gives": "CIA",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "not",
+      "gives": "NOT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "CIANOT",
+       "gives": "ACTION"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "The American spy agency claims no part in a trial.",
+     "walkthrough": "'Not involved' looks like a denial, but 'not' is fodder and 'involved' means tangled, so the six letters are mixed.",
+     "definitionFit": "An action is a lawsuit brought before a court, a standard legal term."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "involved"
+    }
+   }
   },
   {
    "number": 3,
@@ -81,7 +224,54 @@
     "text": "Daughter is to have strip of land",
     "enumeration": "10"
    },
-   "solution": "DISPOSSESS"
+   "solution": "DISPOSSESS",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "DISPOSSESS",
+    "definitions": [
+     {
+      "text": "strip of land",
+      "at": 20
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Daughter",
+      "gives": "D",
+      "note": "D is the standard abbreviation for daughter"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "to have",
+      "gives": "POSSESS",
+      "note": "to have something is to own or possess it"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "IS",
+      "POSSESS"
+     ]
+    },
+    "explanation": {
+     "surface": "A daughter is set to inherit a narrow plot of ground.",
+     "walkthrough": "'Strip of land' reads as a noun, a narrow field; it is really a verb phrase, to strip someone of their land.",
+     "definitionFit": "To dispossess people is to deprive them of property, especially land or a home."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "strip"
+    }
+   }
   },
   {
    "number": 4,
@@ -95,7 +285,59 @@
     "text": "Long to get paid by the end of May",
     "enumeration": "5"
    },
-   "solution": "YEARN"
+   "solution": "YEARN",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "YEARN",
+    "definitions": [
+     {
+      "text": "Long",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "the end of",
+      "for": "letter_selection",
+      "note": "the end of a word is its closing letter, the only one kept"
+     }
+    ],
+    "linkWords": [
+     "by"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "May",
+      "gives": "Y",
+      "select": "last",
+      "note": "the final letter of the month"
+     },
+     {
+      "clueFragment": "to get paid",
+      "gives": "EARN",
+      "note": "to earn is to be paid for work"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "Y",
+      "EARN"
+     ]
+    },
+    "explanation": {
+     "surface": "Hoping to receive wages before the close of May.",
+     "walkthrough": "'By' means beside here, so the month's last letter sits next to the pay word, and it goes in front.",
+     "definitionFit": "To long for something is to desire it strongly, a direct synonym of yearn."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Long"
+    }
+   }
   },
   {
    "number": 5,
@@ -109,7 +351,62 @@
     "text": "Capricious to show a sign of nervousness after blunder",
     "enumeration": "7"
    },
-   "solution": "ERRATIC"
+   "solution": "ERRATIC",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ERRATIC",
+    "definitions": [
+     {
+      "text": "Capricious",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after places the twitching phrase behind the mistake word, sending it second"
+     }
+    ],
+    "linkWords": [
+     "to show"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "blunder",
+      "gives": "ERR",
+      "note": "to err is to make a mistake"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "sign of nervousness",
+      "gives": "TIC",
+      "note": "a tic is a nervous twitch"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ERR",
+      "A",
+      "TIC"
+     ]
+    },
+    "explanation": {
+     "surface": "Someone flighty twitches nervously after making a mistake.",
+     "walkthrough": "'After' puts the mistake word first, followed by the nervous twitch.",
+     "definitionFit": "Capricious means given to sudden unpredictable changes, which is what erratic behaviour shows."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false
+    }
+   }
   },
   {
    "number": 5,
@@ -123,7 +420,59 @@
     "text": "Mix with street revolutionary on the far left, say",
     "enumeration": "9"
    },
-   "solution": "EXTREMIST"
+   "solution": "EXTREMIST",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "EXTREMIST",
+    "definitions": [
+     {
+      "text": "on the far left, say",
+      "at": 30
+     }
+    ],
+    "indicators": [
+     {
+      "text": "revolutionary",
+      "for": "anagram",
+      "note": "a revolutionary overturns the existing order, so the letters are turned over and rearranged"
+     }
+    ],
+    "linkWords": [
+     "with"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Mix",
+      "gives": "MIX",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "street",
+      "gives": "STREET",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "MIXSTREET",
+       "gives": "EXTREMIST"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Mingle on the streets with a left-wing radical.",
+     "walkthrough": "'Mix' looks like the anagram signal, but it is fodder; 'revolutionary' turns the letters over. 'Say' marks the far left as only one example of extremism.",
+     "definitionFit": "Someone on the far left holds radical political views, an example of being extremist."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "Mix"
+    }
+   }
   },
   {
    "number": 6,
@@ -137,7 +486,53 @@
     "text": "Unusual resistance to song being sung",
     "enumeration": "4"
    },
-   "solution": "RARE"
+   "solution": "RARE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "RARE",
+    "definitions": [
+     {
+      "text": "Unusual",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "being sung",
+      "for": "homophone",
+      "note": "being sung means voiced out loud, so the sound counts rather than the spelling"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "resistance",
+      "gives": "R",
+      "note": "R is the physics symbol for electrical resistance"
+     },
+     {
+      "clueFragment": "song",
+      "gives": "ARE",
+      "soundsLike": "AIR",
+      "note": "an air is a tune or song"
+     }
+    ],
+    "explanation": {
+     "surface": "An odd reluctance to have a song performed.",
+     "walkthrough": "Spoken in a British accent, R followed by the tune word sounds just like the answer.",
+     "definitionFit": "Something rare is seldom found, so it is unusual."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "resistance"
+    }
+   }
   },
   {
    "number": 7,
@@ -151,7 +546,67 @@
     "text": "Umpire's new skill set up move to another place",
     "enumeration": "8"
    },
-   "solution": "TRANSFER"
+   "solution": "TRANSFER",
+   "annotation": {
+    "type": [
+     "charade",
+     "reversal"
+    ],
+    "answer": "TRANSFER",
+    "definitions": [
+     {
+      "text": "move to another place",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "set up",
+      "for": "reversal",
+      "note": "in a down entry, set up means raised so it reads from bottom to top"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Umpire's",
+      "gives": "REFS",
+      "note": "a referee, or ref, is an umpire; the 's adds S"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "skill",
+      "gives": "ART",
+      "note": "an art is a skill or craft"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRA",
+      "N",
+      "SFER"
+     ],
+     "reversals": [
+      {
+       "from": "REFSNART",
+       "to": "TRANSFER"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "An official's freshly learned ability is arranged to shift him to a new post.",
+     "walkthrough": "In a down clue 'set up' means written upwards, so the whole string is read from the bottom.",
+     "definitionFit": "To transfer is to shift someone or something from one location to another."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "set"
+    }
+   }
   },
   {
    "number": 8,
@@ -165,7 +620,60 @@
     "text": "Spray trees with carbon dioxide as a wood preservative",
     "enumeration": "8"
    },
-   "solution": "CREOSOTE"
+   "solution": "CREOSOTE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "CREOSOTE",
+    "definitions": [
+     {
+      "text": "a wood preservative",
+      "at": 35
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Spray",
+      "for": "anagram",
+      "note": "a spray scatters droplets everywhere, so the letters are scattered into a new order"
+     }
+    ],
+    "linkWords": [
+     "with",
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "trees",
+      "gives": "TREES",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "carbon dioxide",
+      "gives": "COO",
+      "note": "the formula CO2 is one carbon atom with two oxygen atoms"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "TREESCOO",
+       "gives": "CREOSOTE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Instructions to mist garden trees with a gas to protect the timber.",
+     "walkthrough": "'Spray' reads as an order to the gardener; it signals that the letters are scattered.",
+     "definitionFit": "Creosote is the dark tar oil brushed onto fences and sheds to stop the timber rotting."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Spray"
+    }
+   }
   },
   {
    "number": 9,
@@ -179,7 +687,49 @@
     "text": "Taxes initially rise astronomically, then eventually stabilise",
     "enumeration": "5"
    },
-   "solution": "RATES"
+   "solution": "RATES",
+   "annotation": {
+    "type": [
+     "letter_selection"
+    ],
+    "answer": "RATES",
+    "definitions": [
+     {
+      "text": "Taxes",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "initially",
+      "for": "letter_selection",
+      "note": "initially points to the start, so each word yields its opening letter"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "rise astronomically, then eventually stabilise",
+      "gives": "RATES",
+      "select": "first",
+      "note": "the opening letters of these five words"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "RATES"
+     ]
+    },
+    "explanation": {
+     "surface": "Levies soar to great heights before finally levelling off.",
+     "walkthrough": "'Initially' sits after the definition but governs every following word. Rates were the British local property tax.",
+     "definitionFit": "Rates were the local taxes charged on property in Britain, so they are a kind of tax."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "initially"
+    }
+   }
   },
   {
    "number": 10,
@@ -193,7 +743,59 @@
     "text": "Surprisingly, Attlee ran as deputy",
     "enumeration": "9"
    },
-   "solution": "ALTERNATE"
+   "solution": "ALTERNATE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ALTERNATE",
+    "definitions": [
+     {
+      "text": "deputy",
+      "at": 28
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Surprisingly",
+      "for": "anagram",
+      "note": "something that happens surprisingly comes out in an unexpected form, so the letters are rearranged"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Attlee",
+      "gives": "ATTLEE",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "ran",
+      "gives": "RAN",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ATTLEERAN",
+       "gives": "ALTERNATE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Clement Attlee unexpectedly stood for the number-two job.",
+     "walkthrough": "Attlee was the British Labour prime minister after the war; his name is just fodder here.",
+     "definitionFit": "An alternate is a substitute who can act in someone's place, the role of a deputy."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Attlee"
+    }
+   }
   },
   {
    "number": 11,
@@ -207,7 +809,61 @@
     "text": "Declared her possibly dead after church",
     "enumeration": "10"
    },
-   "solution": "PRONOUNCED"
+   "solution": "PRONOUNCED",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "PRONOUNCED",
+    "definitions": [
+     {
+      "text": "Declared",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "after",
+      "for": "charade",
+      "note": "after puts the dead abbreviation behind the church letters, sending it second"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "her possibly",
+      "gives": "PRONOUN",
+      "note": "her is an example of a pronoun"
+     },
+     {
+      "clueFragment": "church",
+      "gives": "CE",
+      "note": "CE is the Church of England"
+     },
+     {
+      "clueFragment": "dead",
+      "gives": "D",
+      "note": "D is the abbreviation for dead, as on gravestones and in records"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "PRONOUN",
+      "CE",
+      "D"
+     ]
+    },
+    "explanation": {
+     "surface": "A doctor declared a woman dead after a church service.",
+     "walkthrough": "The scene suggests a death certificate, but 'her' is just a sample word; 'after church' puts the church letters before the dead letter.",
+     "definitionFit": "Something pronounced has been formally announced, as a verdict or a death is."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "her"
+    }
+   }
   },
   {
    "number": 12,
@@ -221,7 +877,56 @@
     "text": "Employs corrupt practices after sailor leaves",
     "enumeration": "4"
    },
-   "solution": "USES"
+   "solution": "USES",
+   "annotation": {
+    "type": [
+     "deletion"
+    ],
+    "answer": "USES",
+    "definitions": [
+     {
+      "text": "Employs",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "leaves",
+      "for": "deletion",
+      "note": "leaves is a verb meaning departs, so the seaman's letters go out of the longer word"
+     }
+    ],
+    "linkWords": [
+     "after"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "corrupt practices",
+      "gives": "ABUSES",
+      "note": "abuses are wrongful or corrupt practices"
+     },
+     {
+      "clueFragment": "sailor",
+      "gives": "AB",
+      "note": "AB, able-bodied seaman, is a sailor"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "USES"
+     ]
+    },
+    "explanation": {
+     "surface": "A firm turns to shady dealings once its seaman has quit.",
+     "walkthrough": "'Leaves' is a verb here: the sailor letters walk out of the corrupt-practices word.",
+     "definitionFit": "Uses is a direct synonym of employs, both meaning puts to work."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "leaves"
+    }
+   }
   },
   {
    "number": 13,
@@ -235,7 +940,65 @@
     "text": "Kind of fish, albeit bizarre",
     "enumeration": "10"
    },
-   "solution": "CHARITABLE"
+   "solution": "CHARITABLE",
+   "annotation": {
+    "type": [
+     "charade",
+     "anagram"
+    ],
+    "answer": "CHARITABLE",
+    "definitions": [
+     {
+      "text": "Kind",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bizarre",
+      "for": "anagram",
+      "note": "bizarre means weird or odd, so the letters are put into an odd arrangement"
+     }
+    ],
+    "linkWords": [
+     "of"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "fish",
+      "gives": "CHAR",
+      "note": "the char is a fish of the trout family"
+     },
+     {
+      "clueFragment": "albeit",
+      "gives": "ALBEIT",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "CHAR",
+      "ITABLE"
+     ],
+     "anagrams": [
+      {
+       "fodder": "ALBEIT",
+       "gives": "ITABLE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A type of fish that is strange, all the same.",
+     "walkthrough": "'Kind of fish' reads as a species; 'Kind' alone is the adjective defined, and 'of' is just glue.",
+     "definitionFit": "A charitable person is generous and well-disposed to others, which is to be kind."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "Kind"
+    }
+   }
   },
   {
    "number": 14,
@@ -249,7 +1012,55 @@
     "text": "Operating on NHS at times causes surprise",
     "enumeration": "12"
    },
-   "solution": "ASTONISHMENT"
+   "solution": "ASTONISHMENT",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "ASTONISHMENT",
+    "definitions": [
+     {
+      "text": "surprise",
+      "at": 33
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Operating",
+      "for": "anagram",
+      "note": "operating means working on something, so the following letters are worked into a new order"
+     }
+    ],
+    "linkWords": [
+     "causes"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "on NHS at times",
+      "gives": "ONNHSATTIMES",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "ONNHSATTIMES",
+       "gives": "ASTONISHMENT"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Getting surgery on the state health service is sometimes a pleasant shock.",
+     "walkthrough": "The NHS is Britain's National Health Service; 'Operating' suggests surgery but means working the letters into a new order.",
+     "definitionFit": "Astonishment is great amazement, a stronger synonym of surprise."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Operating"
+    }
+   }
   },
   {
    "number": 15,
@@ -269,7 +1080,70 @@
      }
     ]
    },
-   "solution": "ONAVERAGE"
+   "solution": "ONAVERAGE",
+   "annotation": {
+    "type": [
+     "reversal",
+     "charade"
+    ],
+    "answer": "ON AVERAGE",
+    "definitions": [
+     {
+      "text": "Typically",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "bring up",
+      "for": "reversal",
+      "note": "in a down entry, bring up means lift so the word reads from bottom to top"
+     }
+    ],
+    "linkWords": [
+     "to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "refusal",
+      "gives": "NO",
+      "note": "no is a refusal"
+     },
+     {
+      "clueFragment": "state",
+      "gives": "AVER",
+      "note": "to aver is to state firmly"
+     },
+     {
+      "clueFragment": "how old one is",
+      "gives": "AGE",
+      "note": "your age is how old you are"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ON",
+      "AVER",
+      "AGE"
+     ],
+     "reversals": [
+      {
+       "from": "NO",
+       "to": "ON"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "As usual, someone mentions declining to reveal their age.",
+     "walkthrough": "In a down clue 'bring up' lifts the refusal word so it reads from the bottom.",
+     "definitionFit": "On average means as a rule or in the usual case, which is what typically conveys."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "state"
+    }
+   }
   },
   {
    "number": 16,
@@ -283,7 +1157,64 @@
     "text": "Cuts off income support, when collecting well behind time",
     "enumeration": "8"
    },
-   "solution": "ISOLATES"
+   "solution": "ISOLATES",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "ISOLATES",
+    "definitions": [
+     {
+      "text": "Cuts off",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "collecting",
+      "for": "container",
+      "note": "collecting means gathering in, so the benefit letters take the other pieces inside them"
+     }
+    ],
+    "linkWords": [
+     "when"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "income support",
+      "gives": "IS",
+      "note": "IS is the abbreviation for Income Support, a British state benefit"
+     },
+     {
+      "clueFragment": "well",
+      "gives": "SO",
+      "note": "well and so are both words for opening a remark"
+     },
+     {
+      "clueFragment": "behind time",
+      "gives": "LATE",
+      "note": "behind time means late"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "I",
+      "SO",
+      "LATE",
+      "S"
+     ]
+    },
+    "explanation": {
+     "surface": "Welfare payments are stopped when the claimant collects them far too late.",
+     "walkthrough": "'Well behind time' reads as one phrase meaning very late; it splits into the conversational filler and the overdue word, both held inside the benefit letters.",
+     "definitionFit": "To isolate is to separate or cut off from others, so isolates means cuts off."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "well"
+    }
+   }
   },
   {
    "number": 17,
@@ -297,7 +1228,58 @@
     "text": "About time he operates as first minister",
     "enumeration": "8"
    },
-   "solution": "STURGEON"
+   "solution": "STURGEON",
+   "annotation": {
+    "type": [
+     "container"
+    ],
+    "answer": "STURGEON",
+    "definitions": [
+     {
+      "text": "first minister",
+      "at": 26
+     }
+    ],
+    "indicators": [
+     {
+      "text": "About",
+      "for": "container",
+      "note": "about means around, so the operator word goes round the other piece"
+     }
+    ],
+    "linkWords": [
+     "as"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "he operates",
+      "gives": "SURGEON",
+      "note": "a surgeon is someone who operates"
+     },
+     {
+      "clueFragment": "time",
+      "gives": "T",
+      "note": "T is the abbreviation for time"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "T",
+      "URGEON"
+     ]
+    },
+    "explanation": {
+     "surface": "A man finally takes office as head of government.",
+     "walkthrough": "Nicola Sturgeon was First Minister of Scotland; 'About' means the surgeon word goes around the time letter, despite the 'he'.",
+     "definitionFit": "Nicola Sturgeon led the Scottish government as its First Minister from 2014 to 2023."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "he"
+    }
+   }
   },
   {
    "number": 18,
@@ -311,7 +1293,84 @@
     "text": "Story about a strange female cat is acceptable",
     "enumeration": "12"
    },
-   "solution": "SATISFACTORY"
+   "solution": "SATISFACTORY",
+   "annotation": {
+    "type": [
+     "anagram",
+     "charade",
+     "container"
+    ],
+    "answer": "SATISFACTORY",
+    "definitions": [
+     {
+      "text": "acceptable",
+      "at": 36
+     }
+    ],
+    "indicators": [
+     {
+      "text": "about",
+      "for": "container",
+      "note": "about means around, so the tale word wraps round everything after it"
+     },
+     {
+      "text": "strange",
+      "for": "anagram",
+      "note": "strange means odd or unfamiliar, so the following letters come out in an unfamiliar order"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Story",
+      "gives": "STORY",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "female",
+      "gives": "F",
+      "note": "F is the abbreviation for female"
+     },
+     {
+      "clueFragment": "cat",
+      "gives": "CAT",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "is",
+      "gives": "IS",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "S",
+      "A",
+      "TISFAC",
+      "TORY"
+     ],
+     "anagrams": [
+      {
+       "fodder": "FCATIS",
+       "gives": "TISFAC"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "A tale about an odd she-cat is good enough.",
+     "walkthrough": "'Is' looks like the link to the definition, but it belongs to the mixed fodder; the tale word wraps the A plus the jumbled letters after its first letter.",
+     "definitionFit": "Satisfactory means good enough to meet the required standard, so acceptable."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "is"
+    }
+   }
   },
   {
    "number": 19,
@@ -325,7 +1384,47 @@
     "text": "He can't stop to build on the new technology",
     "enumeration": "6"
    },
-   "solution": "ADDICT"
+   "solution": "ADDICT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ADDICT",
+    "definitions": [
+     {
+      "text": "He can't stop",
+      "at": 0
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "to build on",
+      "gives": "ADD",
+      "note": "to add to something is to build on it"
+     },
+     {
+      "clueFragment": "the new technology",
+      "gives": "ICT",
+      "note": "ICT, information and communication technology, is the British school subject for computing"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "ADD",
+      "ICT"
+     ]
+    },
+    "explanation": {
+     "surface": "A man compelled to keep developing the latest tech.",
+     "walkthrough": "'He can't stop' reads as an obsessive builder but defines a person hooked on a habit.",
+     "definitionFit": "An addict is someone dependent on a habit who is unable to give it up."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": true,
+     "misdirectedWord": "stop"
+    }
+   }
   },
   {
    "number": 20,
@@ -339,7 +1438,44 @@
     "text": "Cross lengthy bridleway in the middle",
     "enumeration": "6"
    },
-   "solution": "HYBRID"
+   "solution": "HYBRID",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "HYBRID",
+    "definitions": [
+     {
+      "text": "Cross",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "in the middle",
+      "for": "hidden_word",
+      "note": "the answer sits in the middle of the phrase, straddling its two words"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "lengthy bridleway",
+      "gives": "HYBRID",
+      "note": "the letters run from the tail of the first word into the second"
+     }
+    ],
+    "explanation": {
+     "surface": "Crossing a long horse track at its midpoint.",
+     "walkthrough": "'Cross' looks like a verb about walking over a path, but it is the noun meaning a mix of breeds.",
+     "definitionFit": "A hybrid is the offspring of two different species or varieties, which is a cross."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "Cross"
+    }
+   }
   },
   {
    "number": 21,
@@ -353,7 +1489,51 @@
     "text": "Rule out an inducement",
     "enumeration": "4"
    },
-   "solution": "LURE"
+   "solution": "LURE",
+   "annotation": {
+    "type": [
+     "anagram"
+    ],
+    "answer": "LURE",
+    "definitions": [
+     {
+      "text": "an inducement",
+      "at": 9
+     }
+    ],
+    "indicators": [
+     {
+      "text": "out",
+      "for": "anagram",
+      "note": "out here means out of place or out of order, so the letters are moved around"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Rule",
+      "gives": "RULE",
+      "note": "taken as written"
+     }
+    ],
+    "assembly": {
+     "anagrams": [
+      {
+       "fodder": "RULE",
+       "gives": "LURE"
+      }
+     ]
+    },
+    "explanation": {
+     "surface": "Forbid any kind of bribe.",
+     "walkthrough": "'Rule out' reads as one phrase meaning exclude; 'out' alone signals the letters are put out of order.",
+     "definitionFit": "A lure is something that tempts or entices, which is what an inducement does."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "out"
+    }
+   }
   },
   {
    "number": 22,
@@ -367,7 +1547,68 @@
     "text": "In a state of depression, head of department dismissed empty legacy",
     "enumeration": "10"
    },
-   "solution": "DEJECTEDLY"
+   "solution": "DEJECTEDLY",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade"
+    ],
+    "answer": "DEJECTEDLY",
+    "definitions": [
+     {
+      "text": "In a state of depression",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "head of",
+      "for": "letter_selection",
+      "note": "the head of a word is its first letter, the only one taken"
+     },
+     {
+      "text": "empty",
+      "for": "letter_selection",
+      "note": "empty means with the contents removed, leaving just the outside letters"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "department",
+      "gives": "D",
+      "select": "first",
+      "note": "the leading letter of the word"
+     },
+     {
+      "clueFragment": "dismissed",
+      "gives": "EJECTED",
+      "note": "someone dismissed has been thrown out, or ejected"
+     },
+     {
+      "clueFragment": "legacy",
+      "gives": "LY",
+      "select": "outer",
+      "note": "the word with its inside removed"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "D",
+      "EJECTED",
+      "LY"
+     ]
+    },
+    "explanation": {
+     "surface": "A departmental chief, depressed after being sacked, finds the inheritance worthless.",
+     "walkthrough": "'Empty' means take out every letter but the first and last.",
+     "definitionFit": "Dejectedly means in a sad, downcast manner, an adverb matching the adverbial phrase."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "empty"
+    }
+   }
   },
   {
    "number": 23,
@@ -381,7 +1622,46 @@
     "text": "In addition, there is no need to run for it",
     "enumeration": "5"
    },
-   "solution": "EXTRA"
+   "solution": "EXTRA",
+   "annotation": {
+    "type": [
+     "double_definition"
+    ],
+    "answer": "EXTRA",
+    "definitions": [
+     {
+      "text": "In addition",
+      "at": 0
+     },
+     {
+      "text": "there is no need to run for it",
+      "at": 13
+     }
+    ],
+    "linkWords": [
+     ","
+    ],
+    "blocks": [
+     {
+      "clueFragment": "In addition",
+      "note": "first meaning: as an adverb, besides or additionally"
+     },
+     {
+      "clueFragment": "there is no need to run for it",
+      "note": "second meaning: in cricket, a run such as a wide or bye credited without the batters having to score it"
+     }
+    ],
+    "explanation": {
+     "walkthrough": "In cricket, extras are runs added for the bowling side's errors, so the batters need not run for them.",
+     "definitionFit": "Extra works as an adverb for additionally and as a cricket term for a run awarded from a bowling error."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "joke": "pun",
+     "misdirectedWord": "run"
+    }
+   }
   },
   {
    "number": 24,
@@ -395,7 +1675,51 @@
     "text": "Active communist is a pain",
     "enumeration": "4"
    },
-   "solution": "ACHE"
+   "solution": "ACHE",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "ACHE",
+    "definitions": [
+     {
+      "text": "a pain",
+      "at": 20
+     }
+    ],
+    "linkWords": [
+     "is"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Active",
+      "gives": "A",
+      "note": "A is the grammatical abbreviation for active"
+     },
+     {
+      "clueFragment": "communist",
+      "gives": "CHE",
+      "note": "Che Guevara, the Argentine Marxist revolutionary"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "CHE"
+     ]
+    },
+    "explanation": {
+     "surface": "A militant Marxist is a real nuisance.",
+     "walkthrough": "'A pain' reads as slang for an annoying person; it is the literal ache.",
+     "definitionFit": "An ache is a dull continuous bodily hurt, a kind of pain."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "joke": "pun",
+     "misdirectedWord": "pain"
+    }
+   }
   },
   {
    "number": 25,
@@ -409,7 +1733,62 @@
     "text": "Cutting ditch next to a new junction",
     "enumeration": "9"
    },
-   "solution": "TRENCHANT"
+   "solution": "TRENCHANT",
+   "annotation": {
+    "type": [
+     "charade"
+    ],
+    "answer": "TRENCHANT",
+    "definitions": [
+     {
+      "text": "Cutting",
+      "at": 0
+     }
+    ],
+    "linkWords": [
+     "next to"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "ditch",
+      "gives": "TRENCH",
+      "note": "a trench is a long ditch"
+     },
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "new",
+      "gives": "N",
+      "note": "N is the abbreviation for new"
+     },
+     {
+      "clueFragment": "junction",
+      "gives": "T",
+      "note": "a T-junction is where one road meets another"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "TRENCH",
+      "A",
+      "N",
+      "T"
+     ]
+    },
+    "explanation": {
+     "surface": "A road crew digs a ditch beside a fresh crossroads.",
+     "walkthrough": "'Cutting' reads as a noun for a railway cutting beside the ditch, but it is the adjective for incisive words.",
+     "definitionFit": "Trenchant remarks are sharp and incisive, so cutting in the figurative sense."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": true,
+     "misdirectedWord": "Cutting"
+    }
+   }
   },
   {
    "number": 26,
@@ -423,7 +1802,46 @@
     "text": "Some Cumbria rhododendrons form a prickly shrub",
     "enumeration": "5"
    },
-   "solution": "BRIAR"
+   "solution": "BRIAR",
+   "annotation": {
+    "type": [
+     "hidden_word"
+    ],
+    "answer": "BRIAR",
+    "definitions": [
+     {
+      "text": "a prickly shrub",
+      "at": 32
+     }
+    ],
+    "indicators": [
+     {
+      "text": "Some",
+      "for": "hidden_word",
+      "note": "some means only a portion, so the answer is a part of the following phrase"
+     }
+    ],
+    "linkWords": [
+     "form"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Cumbria rhododendrons",
+      "gives": "BRIAR",
+      "note": "the letters straddle the end of the county name and the start of the plant"
+     }
+    ],
+    "explanation": {
+     "surface": "Certain rhododendrons in Cumbria grow into a thorny bush.",
+     "walkthrough": "Cumbria is a county in north-west England, home of the Lake District.",
+     "definitionFit": "A briar is a wild rose or bramble bush with thorny stems."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "Some"
+    }
+   }
   },
   {
    "number": 27,
@@ -437,7 +1855,53 @@
     "text": "Evil prophet said to be genuine",
     "enumeration": "7"
    },
-   "solution": "SINCERE"
+   "solution": "SINCERE",
+   "annotation": {
+    "type": [
+     "charade",
+     "homophone"
+    ],
+    "answer": "SINCERE",
+    "definitions": [
+     {
+      "text": "genuine",
+      "at": 24
+     }
+    ],
+    "indicators": [
+     {
+      "text": "said",
+      "for": "homophone",
+      "note": "said means spoken aloud, so the prophet word is taken by its sound"
+     }
+    ],
+    "linkWords": [
+     "to be"
+    ],
+    "blocks": [
+     {
+      "clueFragment": "Evil",
+      "gives": "SIN",
+      "note": "sin is evil or wrongdoing"
+     },
+     {
+      "clueFragment": "prophet",
+      "gives": "CERE",
+      "soundsLike": "SEER",
+      "note": "a seer is one who foretells the future"
+     }
+    ],
+    "explanation": {
+     "surface": "A wicked soothsayer is claimed to be the real thing.",
+     "walkthrough": "Only the prophet part is spoken: its sound gives the ending of the answer.",
+     "definitionFit": "Sincere means honestly meant and free of pretence, which is being genuine."
+    },
+    "features": {
+     "answerInScene": false,
+     "aptDefinition": false,
+     "misdirectedWord": "Evil"
+    }
+   }
   },
   {
    "number": 28,
@@ -451,7 +1915,75 @@
     "text": "Encouraged a plot to capture alien aircraft finally",
     "enumeration": "7"
    },
-   "solution": "ABETTED"
+   "solution": "ABETTED",
+   "annotation": {
+    "type": [
+     "letter_selection",
+     "charade",
+     "container"
+    ],
+    "answer": "ABETTED",
+    "definitions": [
+     {
+      "text": "Encouraged",
+      "at": 0
+     }
+    ],
+    "indicators": [
+     {
+      "text": "to capture",
+      "for": "container",
+      "note": "to capture is to take prisoner, so the garden word holds the other pieces inside"
+     },
+     {
+      "text": "finally",
+      "for": "letter_selection",
+      "note": "finally points to the end, so only the last letter of the word is used"
+     }
+    ],
+    "blocks": [
+     {
+      "clueFragment": "a",
+      "gives": "A",
+      "note": "taken as written"
+     },
+     {
+      "clueFragment": "plot",
+      "gives": "BED",
+      "note": "a plot of garden ground, a flower bed"
+     },
+     {
+      "clueFragment": "alien",
+      "gives": "ET",
+      "note": "ET, the extra-terrestrial of the film"
+     },
+     {
+      "clueFragment": "aircraft",
+      "gives": "T",
+      "select": "last",
+      "note": "the closing letter of the word"
+     }
+    ],
+    "assembly": {
+     "pieces": [
+      "A",
+      "B",
+      "ET",
+      "T",
+      "ED"
+     ]
+    },
+    "explanation": {
+     "surface": "A conspiracy to seize an extraterrestrial's spaceship was supported.",
+     "walkthrough": "'Plot' suggests a scheme but is a garden bed, which holds the alien and the last letter.",
+     "definitionFit": "To abet is to encourage or assist, usually in wrongdoing, so abetted means encouraged."
+    },
+    "features": {
+     "answerInScene": true,
+     "aptDefinition": false,
+     "misdirectedWord": "plot"
+    }
+   }
   }
  ]
 }
