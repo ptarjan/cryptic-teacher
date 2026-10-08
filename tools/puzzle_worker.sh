@@ -210,16 +210,18 @@ worker_reopen() {   # id run-file-copy entry...
     discard_puzzle "$id"
     return 1
   fi
+  local specs
+  puzzle_specs "$id" specs
   index_lock
-  if ! out=$(git add -A -- "$(puzzle_spec "$id")" 2>&1); then
-    git reset -q -- "$(puzzle_spec "$id")"
+  if ! out=$(git add -A -- "${specs[@]}" 2>&1); then
+    git reset -q -- "${specs[@]}"
     index_unlock
     alert "$WORKER_JOB could not stage reopening $id ($*), so it is parked instead: $(printf '%s' "$out" | tail -5)"
     discard_puzzle "$id"
     return 1
   fi
   worker_commit "Reopen $id $*"$'\n\n'"No parse was found for these model answers, so they go back to be solved again, once." \
-    "$(puzzle_spec "$id")" || { discard_puzzle "$id"; return 1; }
+    "${specs[@]}" || { discard_puzzle "$id"; return 1; }
   echo "  [$id] $out; to be solved again"
 }
 

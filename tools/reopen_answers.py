@@ -24,14 +24,18 @@ not a model's.
 --ran names a copy of that file. A puzzle solved and hinted in one run has no
 committed solve, so the file the discard puts back holds no answers to blank;
 the run's answers and solution detail are taken from the copy first, and its
-annotations left behind.
+annotations left behind. A clues-only puzzle that run promoted has no grid
+file once discarded: its grid is built again from the copy's answers
+(clues_only.promote), and writing it retires the clues-only file.
 """
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import annotate_check  # noqa: E402
+import clues_only  # noqa: E402
 import provenance  # noqa: E402
+import puzzle_paths  # noqa: E402
 from fetch_puzzle import read_puzzle_file, resolve_puzzle, write_puzzle_file  # noqa: E402
 from groups import entry_id  # noqa: E402
 
@@ -64,6 +68,18 @@ def with_runs_answers(puzzle, ran):
     return {**puzzle, "solutions": ran["solutions"]}
 
 
+def promoted(record, ran):
+    """Clues-only `record`'s grid, unsolved, as the run `ran` promoted it."""
+    answers = {d: [e.get("solution") or "" for e in sorted(
+        (e for e in ran["entries"] if e["direction"] == d), key=lambda e: e["number"])]
+        for d in clues_only.DIRECTIONS}
+    puzzle, problems = clues_only.promote(record, answers)
+    if problems:
+        raise SystemExit(f"reopen_answers: {record['id']}: the run's answers do not rebuild "
+                         f"its grid: {'; '.join(problems[:3])}")
+    return puzzle
+
+
 def reopen(puzzle, ids, ran=None):
     """`puzzle` with the lights of `ids` blanked and listed in solutions.reopened."""
     if ran is not None:
@@ -87,16 +103,21 @@ def main(argv):
     if len(argv) < 2 or argv[0] in ("-h", "--help"):
         print(__doc__.strip())
         return 0 if argv[:1] in (["-h"], ["--help"]) else 2
-    path = resolve_puzzle(argv[0])
-    puzzle = read_puzzle_file(path)
-    if argv[1] == "--which":
-        print(" ".join(reopenable(puzzle)))
-        return 0
-    ran = None
+    ran = generator = None
     if argv[1] == "--ran":
         ran = read_puzzle_file(Path(argv[2]))
         argv = argv[:1] + argv[3:]
-    write_puzzle_file(path, reopen(puzzle, argv[1:], ran))
+    record = ran and not puzzle_paths.find(argv[0]) and clues_only.read(argv[0])
+    if record:
+        puzzle = promoted(record, ran)
+        path, generator = puzzle_paths.file_for(puzzle), record["source"]["acquiredBy"]
+    else:
+        path = resolve_puzzle(argv[0])
+        puzzle = read_puzzle_file(path)
+    if argv[1] == "--which":
+        print(" ".join(reopenable(puzzle)))
+        return 0
+    write_puzzle_file(path, reopen(puzzle, argv[1:], ran), generator=generator)
     print(f"reopen_answers: {puzzle['id']}: {', '.join(argv[1:])} blanked to be solved again")
     return 0
 
