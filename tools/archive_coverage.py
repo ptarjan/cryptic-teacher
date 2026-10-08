@@ -196,16 +196,11 @@ def failed_fetches():
 
 
 def ledger():
+    """{edition: row} of both ledgers, the last row of each standing."""
+    import scan_queue
     rows = {}
     for path in LEDGERS:
-        try:
-            text = path.read_text(encoding="utf-8")
-        except OSError:
-            continue
-        for ln in text.splitlines():
-            if ln.strip():
-                r = json.loads(ln)
-                rows[r["edition"]] = r
+        rows.update(scan_queue.ledger_rows(path, "edition"))
     return rows
 
 

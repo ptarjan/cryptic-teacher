@@ -8,7 +8,10 @@
     python3 tools/corpus_queue.py stop               # stop the pass (it commits what it filed first) and hold it
     python3 tools/corpus_queue.py release            # let a held pass start again
 
-There is one job and it takes no edition list. Beside its reads it runs the
+There is one job and it takes no edition list. Its archive.org and Gale
+reads are tools/edition_queue.py's per-edition units (each its own process,
+time limit, lock and ledger row; new input first, planned every minute), the
+Trove filer beside them. Beside its reads it runs the
 scan fetchers (archive.org editions, Trove clue zones and articles) in
 bounded slices that resume where the last stopped, until their backlog is
 fetched, so a fetcher change such as a DETECTOR_VERSION bump is fetched by
