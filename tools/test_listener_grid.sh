@@ -181,26 +181,29 @@ if grids:
     check("its cells read back, those off the outline blocks", list(MAP), grids[0]["rows"])
     check("its numbers are light_cells'", lg.numbers(list(MAP)), lg.numbers(grids[0]["rows"]))
 
-# A rectangle whose frame breaks for a third of a cell (No 1's report on
-# No 3's page, its right frame faded beside row 1): the paper outside does
-# not leak in through the break, so every cell stays a cell.
-img = Image.new("L", (1400, 1400), 235)
-d = ImageDraw.Draw(img)
-for y in range(1050, 1300, 40):                    # prose, so the page has its ink levels
-    for x in range(100, 1200, 70):
-        d.text((x, y), "word", fill=30)
-for i in range(7):
-    d.line((X0, 200 + i * P, X0 + 6 * P, 200 + i * P), fill=25, width=3)
-    d.line((X0 + i * P, 200, X0 + i * P, 200 + 6 * P), fill=25, width=3)
-for r in range(6):
-    for c in range(6):
-        d.text((X0 + c * P + 40, 200 + r * P + 40), "E", fill=20)
-d.rectangle((X0 + 6 * P - 3, 200 + P + 30, X0 + 6 * P + 3, 200 + P + 60), fill=235)  # the break
-img = img.rotate(0.3, fillcolor=235)
-grids = [g for g in lg.find_grids(np.asarray(img, dtype=np.uint8)) if g["rows"]]
-check("a rectangle with a break in its frame is found", 1, len(grids))
-if grids:
-    check("every cell of it stays a cell", ["......"] * 6, grids[0]["rows"])
+# A rectangle whose frame breaks (No 1's report on No 3's page, its right
+# frame faded beside row 1 for a third of a cell; No 30's and No 13's faded
+# along a whole cell side): the paper outside does not leak in through the
+# break, so every cell stays a cell.
+for what, gap in (("for a third of a cell", (6 * P - 3, P + 30, 6 * P + 3, P + 60)),
+                  ("along a whole cell side", (-3, 3 * P - 2, 3, 4 * P + 2))):
+    img = Image.new("L", (1400, 1400), 235)
+    d = ImageDraw.Draw(img)
+    for y in range(1050, 1300, 40):                # prose, so the page has its ink levels
+        for x in range(100, 1200, 70):
+            d.text((x, y), "word", fill=30)
+    for i in range(7):
+        d.line((X0, 200 + i * P, X0 + 6 * P, 200 + i * P), fill=25, width=3)
+        d.line((X0 + i * P, 200, X0 + i * P, 200 + 6 * P), fill=25, width=3)
+    for r in range(6):
+        for c in range(6):
+            d.text((X0 + c * P + 40, 200 + r * P + 40), "E", fill=20)
+    d.rectangle((X0 + gap[0], 200 + gap[1], X0 + gap[2], 200 + gap[3]), fill=235)  # the break
+    img = img.rotate(0.3, fillcolor=235)
+    grids = [g for g in lg.find_grids(np.asarray(img, dtype=np.uint8)) if g["rows"]]
+    check(f"a rectangle whose frame breaks {what} is found", 1, len(grids))
+    if grids:
+        check("every cell of it stays a cell", ["......"] * 6, grids[0]["rows"])
 
 # A small scan's two-digit number fills most of its corner: only the rules
 # along the corner's edges are painted out, never a stroke of the number.

@@ -72,6 +72,10 @@ MIN_CROSSINGS = 30
 #: A row (column) of the grid's box is a rule when rule ink covers this
 #: share of it (or a band of blocks: lattice_lines tells them apart).
 RULE_COVER = 0.7
+#: A grid's filled outline covering this share of its box is a rectangle's
+#: (a faded frame lets the paper into an edge cell or two); a map's (No 3's
+#: India, No 4's England) covers well under it.
+RECTANGLE = 0.85
 #: A rule wanders this many pixels either way over a grid's height.
 SMEAR = 4
 #: A cell is a block when ink covers this share of its middle.
@@ -261,7 +265,9 @@ def shape(patch):
     walls grown a sixth of a cell each way, then grows back as far), and a
     cell-wide bay of paper along a map's outline stays open. A rectangle's
     is its box; a map-shaped grid's (No 3's India) leaves the paper around
-    the outline out."""
+    the outline out. An outline filling RECTANGLE of the box is a
+    rectangle's whose frame has faded for a cell or more, and its shape is
+    the box."""
     r = max(1, cell_span(patch) // 6)
     wall = grown(patch, 1 + r)
     out = np.zeros_like(patch)
@@ -271,7 +277,8 @@ def shape(patch):
         if (more == out).all():
             break
         out = more
-    return grown(~(grown(out, r) & ~grown(patch, 1)), 1)
+    inside = grown(~(grown(out, r) & ~grown(patch, 1)), 1)
+    return inside if inside.mean() < RECTANGLE else np.ones_like(patch)
 
 
 def find_grids(gray):
