@@ -216,5 +216,18 @@ check("a number printed a cell off its start is moved, not a disagreement", (Tru
 far = {(0, 1): 1, (0, 2): 2, (1, 2): 3, (2, 0): 4}
 f = lg.fit(certain(OPEN3), {"ch": far, "en5": far})
 check("one two cells off stays a disagreement (mirror)", ([(1, 2)], []), (f["disagree"], f["moved"]))
+
+# No 0's 9x9 numbers every square by its place (width * row + col + 1),
+# not its lights' starts: an exact fit of that kind is taken.
+place = {(r, c): 3 * r + c + 1 for r in range(3) for c in range(3) if OPEN3[r][c] != "#"}
+f = lg.fit(certain(OPEN3), {"ch": place, "en5": {**place, (2, 2): 1}})
+check("squares numbered by their place fit as such", (True, "position", 7),
+      (f["exact"], f.get("numbering"), f["agreed"]))
+check("one read off its place is no positional fit (mirror)", 0,
+      lg.positional(OPEN3, {"ch": {**place, (2, 2): 8}, "en5": {**place, (2, 2): 8}}, 4))
+OPEN = ["...", "...", "..."]
+starts_only = {(0, 0): 1, (0, 1): 2, (0, 2): 3, (1, 0): 4}
+check("light-start numbers that equal their places are no positional fit (mirror)", 0,
+      lg.positional(OPEN, {"ch": starts_only, "en5": starts_only}, 5))
 sys.exit(1 if fails else 0)
 PY

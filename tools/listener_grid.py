@@ -466,6 +466,7 @@ def fit(grid, printed):
     thin = max(grid["thin"], 1.0)
     q = {k: v / thin for k, v in grid["sides"].items()}
     most = sum(ch != "#" for row in grid["rows"] for ch in row)
+    raw = printed
     printed = {k: in_order(got, most) for k, got in printed.items()}
     reads = {}
     for got in printed.values():
@@ -526,8 +527,35 @@ def fit(grid, printed):
             moved.append(c)
         else:
             disagree.append(c)
-    return {"rows": rows, "shortest": shortest, "agreed": len(agreed), "disagree": disagree,
-            "moved": moved, "exact": not disagree and len(agreed) >= EXACT_COVER * len(st)}
+    out = {"rows": rows, "shortest": shortest, "agreed": len(agreed), "disagree": disagree,
+           "moved": moved, "exact": not disagree and len(agreed) >= EXACT_COVER * len(st)}
+    if not out["exact"] and (by_place := positional(grid["rows"], raw, len(st))):
+        # The numbers say nothing of the bars here: each side as its width says.
+        return {"rows": with_bars(grid["rows"], {k: x >= BAR_RATIO for k, x in q.items()}), "shortest": 2,
+                "agreed": by_place, "disagree": [], "moved": [], "exact": True, "numbering": "position"}
+    return out
+
+
+def positional(rows, printed, lights):
+    """How many cell numbers both readers read alike, when the page numbers
+    every square by its place (No 0's 9x9: width * row + col + 1) rather
+    than its lights' starts, and they fit that exactly: every one of them
+    is its cell's place, and they are at least EXACT_COVER of `lights` (the
+    starts the bars give) and more than any light-start numbering could
+    print, some in cells starting no light. Else 0."""
+    width = len(rows[0])
+    reads = {}
+    for got in printed.values():
+        for cell, n in got.items():
+            reads.setdefault(cell, set()).add(n)
+    agreed = {c: next(iter(v)) for c, v in reads.items()
+              if len(v) == 1 and all(c in got for got in printed.values())}
+    if not agreed or any(n != width * r + c + 1 for (r, c), n in agreed.items()):
+        return 0
+    starts_at = {cells[0] for cells in rg.light_cells(rows).values()}
+    if len(agreed) < EXACT_COVER * lights or not set(agreed) - starts_at:
+        return 0
+    return len(agreed)
 
 
 def read_page(path):

@@ -197,6 +197,23 @@ def mended(rows, clues):
     return clues, notes
 
 
+def renumbered(fit, clues):
+    """`clues` keyed by the lights' numbers as light_cells gives them for
+    `fit`'s rows: a page numbering every square by its place (fit
+    "numbering" "position", No 0) prints a light's number as its first
+    cell's place, width * row + col + 1. Unchanged when any clue's number
+    starts no light, so the lights check says which."""
+    if fit.get("numbering") != "position":
+        return clues
+    width = len(fit["rows"][0])
+    to = {f"{width * r + c + 1}-{d}": f"{n}-{d}"
+          for (n, d), cells in rg.light_cells(fit["rows"]).items() for r, c in cells[:1]}
+    if any(lid not in to for lid in clues):
+        return clues
+    return {to[lid]: {**c, **({"group": [to.get(x, x) for x in c["group"]]} if c.get("group") else {})}
+            for lid, c in clues.items()}
+
+
 def order(lid):
     n, d = lid.split("-")
     return d != "across", int(n)
@@ -332,7 +349,7 @@ def join(reading, grids, reports, read_letters):
         return None, verdict, None
     whys = []
     for g in exact:
-        laid, notes = mended(g["fit"]["rows"], clues)
+        laid, notes = mended(g["fit"]["rows"], renumbered(g["fit"], clues))
         rows, side, why = fit_to_clues(g["grid"], g["fit"], laid)
         if rows:
             clues = laid
